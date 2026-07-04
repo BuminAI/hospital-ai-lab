@@ -1,0 +1,239 @@
+---
+import '../styles/global.css';
+import {
+  withBase,
+  stripBase,
+  SITE_TITLE,
+  SITE_TAGLINE,
+  CONTACT_EMAIL,
+  DISCLAIMER,
+} from '../utils/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE_TAGLINE } = Astro.props;
+const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
+// 디렉터리 URL은 끝 슬래시를 붙여 sitemap과 canonical을 일치시킨다.
+const canonicalPath =
+  Astro.url.pathname.endsWith('/') || /\.[a-z0-9]+$/i.test(Astro.url.pathname)
+    ? Astro.url.pathname
+    : `${Astro.url.pathname}/`;
+const canonical = Astro.site ? new URL(canonicalPath, Astro.site) : Astro.url;
+const currentPath = stripBase(Astro.url.pathname);
+
+const nav = [
+  { href: '/', label: '홈' },
+  { href: '/about/', label: '소개' },
+  { href: '/research/', label: '연구' },
+  { href: '/blog/', label: '블로그' },
+  { href: '/contact/', label: '문의' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href.replace(/\/$/, ''));
+}
+
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_TITLE}
+      href={withBase('/rss.xml')}
+    />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="ko_KR" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="site-name" href={withBase('/')}>병원 AI 연구소</a>
+        <nav aria-label="주 메뉴">
+          <ul>
+            {
+              nav.map((item) => (
+                <li>
+                  <a
+                    href={withBase(item.href)}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="footer-title">병원 AI 연구소 <span>Hospital AI Lab</span></p>
+        <p class="footer-disclaimer">{DISCLAIMER}</p>
+        <div class="footer-meta">
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          <span aria-hidden="true">·</span>
+          <a href={withBase('/rss.xml')}>RSS 구독</a>
+          <span aria-hidden="true">·</span>
+          <span>© {year} 병원 AI 연구소</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.6rem 1.1rem;
+    border-radius: 0 0 8px 0;
+  }
+
+  .skip-link:focus {
+    left: 0;
+  }
+
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding-block: 1.1rem;
+  }
+
+  .site-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+  }
+
+  .site-name:hover {
+    text-decoration: none;
+    color: var(--color-primary);
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    font-weight: 500;
+  }
+
+  nav a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  nav a[aria-current='page'] {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  main {
+    min-height: 60vh;
+  }
+
+  .site-footer {
+    margin-top: 5rem;
+    border-top: 1px solid var(--color-border);
+    padding-block: 3rem;
+    background: var(--color-surface);
+  }
+
+  .footer-title {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .footer-title span {
+    font-weight: 500;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-left: 0.35rem;
+  }
+
+  .footer-disclaimer {
+    margin-top: 0.85rem;
+    max-width: var(--prose-width);
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .footer-meta {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .footer-meta a {
+    color: var(--color-muted);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .footer-meta a:hover {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 40rem) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-block: 1rem;
+    }
+  }
+</style>

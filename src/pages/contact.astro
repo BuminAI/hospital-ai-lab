@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT_EMAIL } from '../utils/site';
+---
+
+<BaseLayout
+  title="문의"
+  description="병원 AI 연구소에 대한 문의는 이메일로 받고 있습니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>문의</h1>
+      <p class="lead">
+        연구 주제에 대한 의견, 협업 제안, 콘텐츠에 대한 질문 등 어떤 이야기든
+        이메일로 보내주세요.
+      </p>
+    </header>
+
+    <div class="email-card">
+      <p class="label">이메일</p>
+      <p class="email">{CONTACT_EMAIL}</p>
+      <a class="btn" href={`mailto:${CONTACT_EMAIL}`}>메일 보내기</a>
+    </div>
+
+    <section class="guide">
+      <h2>메일을 보내실 때</h2>
+      <ul>
+        <li>소속과 성함을 간단히 알려주시면 답변에 도움이 됩니다.</li>
+        <li>문의 내용은 구체적일수록 좋습니다. 관련 자료가 있다면 함께 보내주세요.</li>
+        <li>답변까지는 다소 시간이 걸릴 수 있습니다. 너른 양해 부탁드립니다.</li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .email-card {
+    margin-top: 1.5rem;
+    max-width: var(--prose-width);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2.5rem 2.25rem;
+    text-align: center;
+  }
+
+  .label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  .email {
+    margin-top: 0.5rem;
+    font-size: clamp(1.25rem, 4vw, 1.6rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    user-select: all;
+  }
+
+  .email-card .btn {
+    margin-top: 1.75rem;
+  }
+
+  .guide {
+    margin-top: 3rem;
+    max-width: var(--prose-width);
+  }
+
+  .guide h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .guide ul {
+    margin: 0;
+    padding-left: 1.4rem;
+    color: var(--color-muted);
+  }
+
+  .guide li + li {
+    margin-top: 0.4rem;
+  }
+</style>

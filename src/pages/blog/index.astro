@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="블로그"
+  description="논문리뷰, AI도구, 칼럼, 소식 — 병원과 AI에 대한 기록을 나눕니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>블로그</h1>
+      <p class="lead">
+        논문리뷰 · AI도구 · 칼럼 · 소식. 연구 과정과 결과를 의료인과 연구자들이
+        이해할 수 있는 언어로 기록합니다.
+      </p>
+    </header>
+
+    {
+      posts.length > 0 ? (
+        <div class="post-list">
+          {posts.map((post) => (
+            <PostCard post={post} headingLevel="h2" />
+          ))}
+        </div>
+      ) : (
+        <p class="empty">아직 발행된 글이 없습니다.</p>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .post-list {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .empty {
+    margin-top: 1.5rem;
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 52rem) {
+    .post-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

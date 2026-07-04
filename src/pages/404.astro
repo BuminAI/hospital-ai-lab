@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/site';
+---
+
+<BaseLayout title="페이지를 찾을 수 없습니다">
+  <div class="container">
+    <div class="not-found">
+      <p class="code">404</p>
+      <h1>페이지를 찾을 수 없습니다</h1>
+      <p class="message">주소가 바뀌었거나 삭제된 페이지일 수 있습니다.</p>
+      <a class="btn" href={withBase('/')}>홈으로 돌아가기</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    padding-block: 6rem;
+    text-align: center;
+  }
+
+  .code {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .message {
+    margin-top: 1rem;
+    color: var(--color-muted);
+  }
+
+  .btn {
+    margin-top: 2rem;
+  }
+</style>

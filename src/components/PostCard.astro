@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { withBase, formatDate } from '../utils/site';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  /** 카드가 놓이는 문맥의 헤딩 계층에 맞춰 지정 (기본 h3) */
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { post, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+---
+
+<article class="card post-card">
+  <div class="meta">
+    <span class="chip">{post.data.category}</span>
+    <time datetime={post.data.pubDate.toISOString()}>
+      {formatDate(post.data.pubDate)}
+    </time>
+  </div>
+  <Heading class="title">
+    <a href={withBase(`/blog/${post.id}/`)}>{post.data.title}</a>
+  </Heading>
+  <p class="description">{post.data.description}</p>
+</article>
+
+<style>
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .title {
+    font-size: 1.15rem;
+  }
+
+  .title a {
+    color: var(--color-text);
+  }
+
+  .title a:hover {
+    color: var(--color-primary);
+  }
+
+  .description {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+  }
+</style>

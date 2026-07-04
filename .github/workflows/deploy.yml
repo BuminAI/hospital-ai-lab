@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  # main 브랜치에 push할 때마다 자동 배포
+  push:
+    branches: [main]
+  # GitHub Actions 탭에서 수동 실행도 가능
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+      # withastro/action이 Node 설치 → npm install → astro build → 업로드까지 처리.
+      # astro.config.mjs가 GITHUB_REPOSITORY 환경 변수를 읽어
+      # site(https://아이디.github.io)와 base(/저장소명)를 자동으로 맞춘다.
+      - name: Astro 빌드
+        uses: withastro/action@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages 배포
+        id: deployment
+        uses: actions/deploy-pages@v4

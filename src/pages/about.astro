@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const timeline = [
+  {
+    label: '통계학 석사',
+    detail: '데이터와 숫자로 문제를 들여다보는 방법론의 기반을 다졌습니다.',
+  },
+  {
+    label: '경제학 박사',
+    detail: '자원 배분과 의사결정을 경제학의 눈으로 분석하는 훈련을 거쳤습니다.',
+  },
+  {
+    label: '종합병원 근무 17년',
+    detail:
+      '그중 7년은 병원 기획 업무를 맡아, 현장의 의사결정이 어떤 데이터 위에서 이뤄지는지 가까이서 지켜봤습니다.',
+  },
+];
+---
+
+<BaseLayout
+  title="소개"
+  description="통계학·경제학·병원 현장이라는 세 축이 만나는 지점에서 시작한 병원 AI 연구소를 소개합니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>소개</h1>
+      <p class="lead">
+        통계학, 경제학, 그리고 병원 현장. 세 축이 만나는 지점에서 이 연구소는
+        시작되었습니다.
+      </p>
+    </header>
+
+    <section class="section">
+      <h2>연구소장 소개</h2>
+      <p>
+        통계학 석사와 경제학 박사 학위를 바탕으로, 종합병원에서 17년간 근무하며
+        데이터와 숫자로 병원의 문제를 들여다봐 왔습니다. 그중 7년은 병원 기획
+        업무를 맡아 현장의 의사결정이 어떤 데이터 위에서 이뤄지는지, 또 어디서
+        데이터가 부족한지를 가까이서 지켜봤습니다. 통계와 경제, 그리고 병원
+        현장이라는 세 축이 만나는 지점에서 인공지능이 할 수 있는 역할을
+        고민하다 이 연구소를 시작하게 되었습니다.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>미션</h2>
+      <p>
+        병원 AI 연구소는 통계학과 경제학의 방법론을 병원 현장의 실제 문제와
+        연결하는 것을 목표로 합니다. AI는 화려한 기술 소개로 그치기 쉽지만, 이
+        연구소는 병원 기획·운영 현장에서 17년간 쌓은 경험을 바탕으로 "실제로
+        병원에서 쓸 수 있는가"라는 질문을 가장 먼저 던집니다. 통계적으로
+        타당하고, 경제적으로 합리적이며, 현장에서 실행 가능한 AI 활용법을
+        연구하고, 그 과정과 결과를 의료인과 연구자들이 이해할 수 있는 언어로
+        기록하고 나누는 것이 이 연구소의 지향점입니다.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>약력</h2>
+      <ol class="timeline">
+        {
+          timeline.map((item) => (
+            <li>
+              <h3>{item.label}</h3>
+              <p>{item.detail}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>대표 활동</h2>
+      <ul class="activities">
+        <li>
+          <h3>SAS KOREA 주관 데이터마이닝 대회 동상</h3>
+          <p>데이터마이닝 기법을 활용한 분석으로 수상했습니다.</p>
+        </li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: 2.25rem;
+    max-width: var(--prose-width);
+  }
+
+  .section h2 {
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+  }
+
+  .section p {
+    color: var(--color-text);
+  }
+
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--color-border);
+  }
+
+  .timeline li {
+    position: relative;
+    padding: 0 0 2rem 1.75rem;
+  }
+
+  .timeline li:last-child {
+    padding-bottom: 0.25rem;
+  }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 0.5em;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .timeline h3,
+  .activities h3 {
+    font-size: 1.05rem;
+  }
+
+  .timeline p,
+  .activities p {
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+  }
+
+  .activities {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>

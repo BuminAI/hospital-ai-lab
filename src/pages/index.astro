@@ -1,0 +1,178 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import ResearchIcon from '../components/ResearchIcon.astro';
+import { researchAreas } from '../data/research';
+import { withBase, SITE_TAGLINE } from '../utils/site';
+
+const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const homeAreas = researchAreas.slice(0, 3);
+---
+
+<BaseLayout description={SITE_TAGLINE}>
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="container">
+      <h1>의료 현장의 문제를<br />AI로 풉니다.</h1>
+      <p class="tagline">
+        통계학과 경제학의 방법론을 병원 현장의 실제 문제와 연결합니다. 화려한
+        기술 소개보다 "실제로 병원에서 쓸 수 있는가"라는 질문을 먼저 던집니다.
+      </p>
+      <a class="btn" href={withBase('/about/')}>연구소 소개 보기</a>
+    </div>
+  </section>
+
+  <!-- 연구 분야 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>연구 분야</h2>
+        <a class="more" href={withBase('/research/')}>전체 연구 분야 보기 →</a>
+      </div>
+      <div class="grid-3">
+        {
+          homeAreas.map((area) => (
+            <article class="card">
+              <ResearchIcon icon={area.icon} />
+              <h3>{area.title}</h3>
+              <p>{area.short}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 최근 글 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>최근 글</h2>
+        <a class="more" href={withBase('/blog/')}>블로그 전체 보기 →</a>
+      </div>
+      {
+        recentPosts.length > 0 ? (
+          <div class="grid-3">
+            {recentPosts.map((post) => (
+              <PostCard post={post} />
+            ))}
+          </div>
+        ) : (
+          <p class="empty">아직 발행된 글이 없습니다.</p>
+        )
+      }
+    </div>
+  </section>
+
+  <!-- 문의 배너 -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-banner">
+        <div>
+          <h2>함께 고민하고 싶은 문제가 있으신가요?</h2>
+          <p>연구 주제 제안, 협업, 콘텐츠에 대한 문의를 기다립니다.</p>
+        </div>
+        <a class="btn" href={withBase('/contact/')}>문의하기</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: 5.5rem 5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5.5vw, 3rem);
+  }
+
+  .hero .tagline {
+    margin-top: 1.5rem;
+    max-width: 38rem;
+    font-size: 1.125rem;
+    color: var(--color-muted);
+  }
+
+  .hero .btn {
+    margin-top: 2.25rem;
+  }
+
+  .section {
+    padding-block: 3.5rem 1rem;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .section-head h2 {
+    font-size: 1.5rem;
+  }
+
+  .more {
+    font-size: 0.925rem;
+    font-weight: 600;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .card h3 {
+    margin-top: 1.1rem;
+    font-size: 1.125rem;
+  }
+
+  .card p {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+  }
+
+  .empty {
+    color: var(--color-muted);
+  }
+
+  .contact-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    background: var(--color-primary-soft);
+    border-radius: var(--radius);
+    padding: 2.5rem 2.25rem;
+  }
+
+  .contact-banner h2 {
+    font-size: 1.35rem;
+  }
+
+  .contact-banner p {
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 52rem) {
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      padding-block: 4rem 3.5rem;
+    }
+  }
+</style>
