@@ -14,7 +14,7 @@ import sitemap from '@astrojs/sitemap';
 //    되어 경로·CSS가 깨지지 않습니다.
 //    예: const CUSTOM_DOMAIN = 'https://hospital-ai-lab.example.com';
 // ─────────────────────────────────────────────────────────────────────────────
-const CUSTOM_DOMAIN = '';
+const CUSTOM_DOMAIN = 'https://hospital-ai-lab.com';
 
 function resolveSiteAndBase() {
   if (CUSTOM_DOMAIN) {

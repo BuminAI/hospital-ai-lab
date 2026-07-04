@@ -42,16 +42,18 @@ npm run preview    # 빌드 결과 미리보기 → http://localhost:4321
 
 경로(base) 설정은 자동입니다 — 워크플로가 저장소 이름을 읽어 `site`와 `base`를 계산하므로, 저장소 이름이 무엇이든 CSS·링크가 깨지지 않습니다.
 
-## 나중에 커스텀 도메인을 연결할 때
+## 커스텀 도메인
 
-1. `astro.config.mjs` 맨 위의 `CUSTOM_DOMAIN`에 도메인을 적습니다.
+현재 `https://hospital-ai-lab.com`으로 연결되어 있습니다.
 
-   ```js
-   const CUSTOM_DOMAIN = 'https://예시도메인.com';
-   ```
+- `astro.config.mjs`의 `CUSTOM_DOMAIN`에 도메인이 설정되어 있어 base가 `/`로 동작합니다.
+- 저장소 **Settings → Pages → Custom domain**에도 같은 도메인이 등록되어 있습니다.
+- 도메인 연결을 해제하고 임시 주소(`buminai.github.io/hospital-ai-lab`)로 돌아가려면:
+  `CUSTOM_DOMAIN = ''`로 비우고 push한 뒤, Settings → Pages에서 Custom domain을 지우면 됩니다.
 
-2. 저장소 **Settings → Pages → Custom domain**에 같은 도메인을 입력합니다.
-3. push하면 base가 자동으로 `/`로 바뀌어 새 주소에서도 경로가 깨지지 않습니다.
+DNS(가비아) 레코드: 루트(@)에 GitHub Pages A 레코드 4개
+(185.199.108.153 / 185.199.109.153 / 185.199.110.153 / 185.199.111.153),
+`www`는 CNAME으로 `buminai.github.io.`를 가리킵니다.
 
 ## 폴더 구조
 
