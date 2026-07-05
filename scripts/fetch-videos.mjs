@@ -3,40 +3,41 @@
 // src/data/recommended-videos.json의 자동(source:"auto") 항목을 갱신한다.
 // 관리자 페이지에서 수동으로 추가한 항목(source:"manual")은 절대 건드리지 않는다.
 //
-// 정책
-//  1) 키워드(병원·의료·간호·AI 등) 영상: 최근 약 1개월 이내 + 조회수 1만 이상,
-//     자극적 제목(충격·발칵 등)은 제외. 조회수순 상위.
-//  2) 위 조건을 만족하는 영상이 5개 미만이면, 클로드(Claude) 관련 영상 중
-//     조회수 5만 이상을 채운다(사기성 제목 제외).
-//  3) 모든 후보는 유튜브 oEmbed로 실제 존재·정확한 제목을 확인한 것만 싣는다.
-//  4) 검색이 실패하면 기존 파일을 그대로 둔다(빈 목록으로 덮어쓰지 않음).
+// 정책 (오너 지정 기준)
+//  - 주제: 입문·클로드·병원·의료 (클로드 입문 또는 병원/의료 AI 영상)
+//  - 기간: 최근 3개월 이내 / 조회수: 5만 이상 / 한국어 영상만
+//  - 자극적·사기성 제목은 제외, 조회수순 상위 5개
+//  - 모든 후보는 유튜브 oEmbed로 실제 존재·정확한 제목을 확인한 것만 싣는다
+//  - 검색이 실패하면 기존 파일을 그대로 둔다(빈 목록으로 덮어쓰지 않음)
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/recommended-videos.json', import.meta.url);
 const TARGET = 5; // 자동 영상 목표 개수
-const RECENT_DAYS = 32; // "최근 1개월" 허용치(여유 1일)
+const RECENT_DAYS = 95; // "최근 3개월" 허용치(여유 며칠)
+const MIN_VIEWS = 50000; // 조회수 5만 이상
 
-const KEYWORD_QUERIES = [
-  '병원 AI',
-  '의료 인공지능',
-  '간호 AI',
-  '병원 행정 AI',
-  '의료 AI 실무',
-  '챗GPT 의료',
+// 입문·클로드·병원·의료 주제의 한국어 검색어
+const QUERIES = [
+  '클로드 입문',
+  '클로드 초보자',
+  '클로드 사용법',
+  '클로드 코워크',
+  '클로드 AI 입문',
+  '병원 AI 입문',
+  '의료 AI 입문',
+  '의료 인공지능 입문',
+  '간호 AI 입문',
 ];
-// 한국어 영상을 얻기 위해 한국어 검색어만 사용한다 (독자가 한국 병원 종사자)
-const CLAUDE_QUERIES = ['클로드 AI', '클로드 코드', '클로드 코워크', '클로드 인공지능', '클로드 사용법'];
 
-// 최근 1개월 업로드 필터 (YouTube search "이번 달")
-const THIS_MONTH = '&sp=EgIIBA%253D%253D';
+// 최근 업로드를 우선 노출시키기 위한 "올해" 업로드 필터 (3개월은 코드에서 재확인)
+const THIS_YEAR = '&sp=EgIIBQ%253D%253D';
 
-const MED = /병원|의료|간호|보건|의사|헬스케어|진료|환자|간호사|요양|제약|바이오|의료진|의료법/;
-const AI = /AI|인공지능|챗GPT|GPT|머신러닝|딥러닝|생성형|LLM/i;
-const CLAUDE = /claude|클로드|anthropic|앤트로픽|앤스로픽/i;
-// 자극적·낚시성 제목 제외 (모든 후보에 공통 적용)
+// 핵심 주제: 클로드 또는 병원/의료 계열에 반드시 해당해야 한다
+const TOPIC = /클로드|claude|병원|의료|간호|보건|헬스케어|의료진|요양/i;
+// 자극적·낚시성 제목 제외
 const CLICKBAIT =
-  /충격|발칵|경악|소름|난리|폭로|또 터|충격적|딸깍\?|인생역전|인생 역전|대박|떼돈|억대|월수입|월 수입|자동\s*수익|시청\s*금지|안 보면 후회|보지\s*마세요|무조건 봐|미쳤|상위\s*\d+\s*%|압도적|모르면 손해|이것만 알면|안 보면 손해/;
-// 사기·과장 수익형 제목 제외 (클로드 폴백용)
+  /충격|발칵|경악|소름|난리|폭로|또 터|충격적|딸깍\?|인생역전|인생 역전|대박|떼돈|억대|월수입|월 수입|자동\s*수익|시청\s*금지|안 보면 후회|보지\s*마세요|무조건|미쳤|미친|미쳐|상위\s*\d+\s*%|압도적|모르면 손해|이것만 알면|안 보면 손해|\d+\s*배|전부 공개|완전 공개|다 알려|\d+%\s*활용|\d+%는? 모르/;
+// 사기·과장 수익형 제목 제외
 const SCAM =
   /달러|수익|부자|퇴사|월\s*\d+\s*만|지급|억\s*번|millionaire|make you rich|money|lose thousand|must do now|expert in \d|\$\d/i;
 
@@ -90,10 +91,10 @@ function walkVideos(node, out) {
   }
 }
 
-async function search(query, thisMonth) {
+async function search(query) {
   // gl=KR&hl=ko: 실행 서버(미국 GitHub 러너 등) 위치와 무관하게 한국 지역·한국어
   // 검색 결과를 강제한다. Accept-Language 헤더만으로는 부족하다.
-  const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}&gl=KR&hl=ko${thisMonth ? THIS_MONTH : ''}`;
+  const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}&gl=KR&hl=ko${THIS_YEAR}`;
   const res = await fetchRetry(url, { headers: HEADERS });
   const html = await res.text();
   const m = /var ytInitialData = (\{.*?\});<\/script>/s.exec(html);
@@ -119,49 +120,28 @@ async function verify(videoId) {
   }
 }
 
-async function collectKeyword() {
+// 입문·클로드·병원·의료 주제, 최근 3개월, 5만+, 한국어, 비낚시성
+async function collect() {
   const seen = new Map();
-  for (const q of KEYWORD_QUERIES) {
+  for (const q of QUERIES) {
     let items = [];
     try {
-      items = await search(q, true);
+      items = await search(q);
     } catch (e) {
       console.error(e.message);
       continue;
     }
     for (const it of items) {
       if (seen.has(it.videoId)) continue;
-      if (daysAgo(it.pub) > RECENT_DAYS) continue;
-      if (it.views < 10000) continue;
-      if (!MED.test(it.title) || !AI.test(it.title)) continue;
-      if (CLICKBAIT.test(it.title)) continue;
-      seen.set(it.videoId, it);
-    }
-  }
-  return [...seen.values()].sort((a, b) => b.views - a.views);
-}
-
-async function collectClaude() {
-  const seen = new Map();
-  for (const q of CLAUDE_QUERIES) {
-    let items = [];
-    try {
-      items = await search(q, false);
-    } catch (e) {
-      console.error(e.message);
-      continue;
-    }
-    for (const it of items) {
-      if (seen.has(it.videoId)) continue;
-      if (it.views < 50000) continue;
-      if (!CLAUDE.test(it.title)) continue;
+      if (daysAgo(it.pub) > RECENT_DAYS) continue; // 최근 3개월
+      if (it.views < MIN_VIEWS) continue; // 5만 이상
       if (!/[가-힣]/.test(it.title)) continue; // 한국어 영상만
-      if (SCAM.test(it.title) || CLICKBAIT.test(it.title)) continue;
+      if (!TOPIC.test(it.title)) continue; // 클로드 또는 병원/의료 주제
+      if (CLICKBAIT.test(it.title) || SCAM.test(it.title)) continue;
       seen.set(it.videoId, it);
     }
   }
-  // 최근순 → 조회수순
-  return [...seen.values()].sort((a, b) => daysAgo(a.pub) - daysAgo(b.pub) || b.views - a.views);
+  return [...seen.values()].sort((a, b) => b.views - a.views); // 조회수순
 }
 
 async function main() {
@@ -173,44 +153,27 @@ async function main() {
   const manual = existing.filter((v) => v.source === 'manual');
   const manualIds = new Set(manual.map((v) => v.videoId));
 
-  const keyword = await collectKeyword();
-  let claude = [];
-  let usedFallback = false;
-  if (keyword.length < TARGET) {
-    usedFallback = true;
-    claude = await collectClaude();
-  }
+  const candidates = await collect();
 
-  if (keyword.length === 0 && claude.length === 0) {
+  if (candidates.length === 0) {
     console.error('수집된 영상이 없습니다. 기존 목록을 유지합니다.');
     process.exit(1);
   }
 
-  // 한글 포함 여부로 한국어 영상 판별 (독자가 한국 병원 종사자이므로 우선)
-  const hasKo = (s) => /[가-힣]/.test(s);
-
-  // 검증(oEmbed): 실제 제목을 받아온다. 후보 풀은 넉넉히 잡되 과도한 요청은 피한다.
-  async function verifyPool(list, limit) {
-    const out = [];
-    for (const p of list.slice(0, limit)) {
-      if (manualIds.has(p.videoId)) continue;
-      const title = await verify(p.videoId);
-      if (!title) continue; // 삭제·비공개 제외
-      // 실제 제목(oEmbed 원제)에도 낚시성·사기성 필터 적용
-      if (CLICKBAIT.test(title) || SCAM.test(title)) continue;
-      out.push({ videoId: p.videoId, title: title.trim() });
-    }
-    return out;
+  // 검증(oEmbed): 실제 제목을 받아온다. 상위 후보만 확인해 요청을 아낀다.
+  const now = new Date().toISOString();
+  const ordered = [];
+  for (const p of candidates.slice(0, 16)) {
+    if (ordered.length >= TARGET) break;
+    if (manualIds.has(p.videoId)) continue;
+    const title = await verify(p.videoId);
+    if (!title) continue; // 삭제·비공개 제외
+    // 실제 제목(oEmbed 원제)에도 한글·낚시성·사기성 필터 재적용
+    if (!/[가-힣]/.test(title)) continue;
+    if (CLICKBAIT.test(title) || SCAM.test(title)) continue;
+    ordered.push({ videoId: p.videoId, title: title.trim() });
   }
 
-  const vKeyword = await verifyPool(keyword, 8); // 키워드 영상은 이미 한국어·의료 관련
-  const vClaude = await verifyPool(claude, 14);
-  // 클로드 폴백은 실제 제목(oEmbed)에도 한글이 있는 한국어 영상만 채택한다.
-  // (외국어 영상은 독자가 이해하기 어려우므로, 5개를 못 채우더라도 넣지 않는다)
-  const koClaude = vClaude.filter((v) => hasKo(v.title));
-
-  const now = new Date().toISOString();
-  const ordered = [...vKeyword, ...koClaude];
   const seenAuto = new Set();
   const auto = [];
   for (const v of ordered) {
@@ -234,9 +197,7 @@ async function main() {
   // 수동 항목을 앞에, 자동 항목을 뒤에
   const final = [...manual, ...auto];
   await writeFile(OUT, JSON.stringify(final, null, 2) + '\n', 'utf8');
-  console.log(
-    `저장 완료: 수동 ${manual.length}건 + 자동 ${auto.length}건 (폴백 ${usedFallback ? '사용' : '미사용'})`
-  );
+  console.log(`저장 완료: 수동 ${manual.length}건 + 자동 ${auto.length}건`);
 }
 
 main().catch((e) => {
