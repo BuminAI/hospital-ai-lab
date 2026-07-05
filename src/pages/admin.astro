@@ -13,15 +13,33 @@ import {
     <header class="page-head">
       <h1>관리자 대시보드</h1>
       <p class="lead">
-        새 글 작성, 수정·삭제, 이미지 업로드, 배포 상태를 이 페이지에서 바로
-        처리합니다. 저장하면 1~2분 안에 사이트에 반영됩니다.
+        새 글 작성, 수정·삭제, 이미지 업로드, 추천 영상, 회원·강의노트를 이
+        페이지에서 바로 처리합니다. 저장하면 1~2분 안에 사이트에 반영됩니다.
       </p>
     </header>
 
+    <!-- 상단 점프 내비게이션 -->
+    <nav class="admin-nav" aria-label="관리 메뉴">
+      <a href="#token-panel">🔑 접속 토큰</a>
+      <a href="#new-post-panel">✏️ 새 글 쓰기</a>
+      <a href="#manage-post-panel">📝 글 관리</a>
+      <a href="#image-panel">🖼️ 이미지</a>
+      <a href="#video-panel">▶️ 추천 영상</a>
+      <a href="#member-panel">👥 회원·강의노트</a>
+      <a href="#deploy-panel">🚀 배포 상태</a>
+      <a href="#stats-panel">📊 방문자 통계</a>
+    </nav>
+
     <!-- 토큰 -->
     <section class="panel" id="token-panel">
-      <h2>접속 토큰</h2>
-      <p class="hint" id="token-status">토큰이 설정되지 않았습니다.</p>
+      <h2>🔑 접속 토큰</h2>
+      <p class="section-desc">
+        아래 모든 기능(글·이미지·영상 관리)을 쓰려면 GitHub 토큰이 먼저
+        필요합니다. 이 컴퓨터에서 처음 한 번만 설정하면 됩니다.
+      </p>
+      <p class="status-line" id="token-status">
+        <span class="dot dot-off"></span>토큰이 설정되지 않았습니다.
+      </p>
       <div class="row">
         <input
           type="password"
@@ -46,18 +64,13 @@ import {
       </details>
     </section>
 
-    <!-- 배포 상태 -->
-    <section class="panel">
-      <div class="panel-head">
-        <h2>배포 상태</h2>
-        <button class="btn ghost" id="runs-refresh">새로고침</button>
-      </div>
-      <div id="runs-list" class="runs">토큰을 설정하면 표시됩니다.</div>
-    </section>
-
     <!-- 새 글 -->
-    <section class="panel">
-      <h2>새 글 쓰기</h2>
+    <section class="panel" id="new-post-panel">
+      <h2>✏️ 새 글 쓰기</h2>
+      <p class="section-desc">
+        블로그에 새 글을 올립니다. 제목과 본문만 있으면 되고, 나머지는 비워도
+        됩니다. "바로 발행"을 해제하면 나만 보는 초안으로 저장됩니다.
+      </p>
       <div class="form-grid">
         <label>제목<input type="text" id="new-title" placeholder="글 제목" /></label>
         <label>주소(영문 슬러그)<input type="text" id="new-slug" placeholder="예: ai-tools-guide (비우면 자동)" /></label>
@@ -85,11 +98,15 @@ import {
     </section>
 
     <!-- 글 관리 -->
-    <section class="panel">
+    <section class="panel" id="manage-post-panel">
       <div class="panel-head">
-        <h2>글 관리</h2>
+        <h2>📝 글 관리</h2>
         <button class="btn ghost" id="posts-refresh">새로고침</button>
       </div>
+      <p class="section-desc">
+        이미 올린 글의 목록입니다. "수정"으로 내용을 고치거나 "삭제"로
+        내릴 수 있습니다.
+      </p>
       <div id="posts-list" class="posts">토큰을 설정하면 표시됩니다.</div>
       <div id="editor" class="editor" hidden>
         <h3>수정: <span id="editor-name"></span></h3>
@@ -103,43 +120,52 @@ import {
     </section>
 
     <!-- 이미지 업로드 -->
-    <section class="panel">
-      <h2>이미지 업로드</h2>
+    <section class="panel" id="image-panel">
+      <h2>🖼️ 이미지 업로드</h2>
+      <p class="section-desc">
+        글에 넣을 사진을 올립니다. 올린 뒤 나오는 코드를 복사해서 글 본문에
+        붙여넣으면 사진이 표시됩니다.
+      </p>
       <div class="row">
         <input type="file" id="img-file" accept="image/*" />
         <button class="btn" id="img-upload">업로드</button>
       </div>
       <p class="hint" id="img-status"></p>
-      <p class="hint">업로드 후 표시되는 코드를 복사해 본문에 붙여넣으면 이미지가 들어갑니다.</p>
     </section>
 
     <!-- 추천 강의 영상 관리 -->
-    <section class="panel">
+    <section class="panel" id="video-panel">
       <div class="panel-head">
-        <h2>추천 강의 영상 관리</h2>
+        <h2>▶️ 추천 강의 영상 관리</h2>
         <button class="btn ghost" id="videos-refresh">새로고침</button>
       </div>
+      <p class="section-desc">
+        "추천 영상" 페이지에 넣을 유튜브 영상입니다. ① 유튜브 링크를
+        붙여넣으면 아래에 썸네일이 미리 보입니다. ② 영상 제목을 적고 ③ "추가"를
+        누르면 됩니다.
+      </p>
       <div class="form-grid">
-        <label>유튜브 링크
+        <label>① 유튜브 링크
           <input type="text" id="video-url" placeholder="https://www.youtube.com/watch?v=..." />
         </label>
-        <label>제목
-          <input type="text" id="video-title" placeholder="영상 제목" />
+        <label>② 영상 제목
+          <input type="text" id="video-title" placeholder="영상 제목을 그대로 적어 주세요" />
         </label>
       </div>
       <div class="video-preview" id="video-preview" hidden>
         <img id="video-preview-img" alt="" />
+        <span class="video-preview-label">✓ 유튜브 영상을 찾았습니다. 제목을 적고 추가하세요.</span>
       </div>
       <div class="row">
-        <button class="btn" id="video-add">추가</button>
+        <button class="btn" id="video-add">③ 추가</button>
       </div>
       <p class="hint" id="video-status"></p>
       <div id="videos-list" class="posts">토큰을 설정하면 표시됩니다.</div>
     </section>
 
     <!-- 회원·강의노트 관리 (Supabase) -->
-    <section class="panel">
-      <h2>회원 · 강의노트 관리</h2>
+    <section class="panel" id="member-panel">
+      <h2>👥 회원 · 강의노트 관리</h2>
       {
         !SUPABASE_URL ? (
           <p class="hint">
@@ -203,9 +229,23 @@ import {
       }
     </section>
 
+    <!-- 배포 상태 -->
+    <section class="panel" id="deploy-panel">
+      <div class="panel-head">
+        <h2>🚀 배포 상태</h2>
+        <button class="btn ghost" id="runs-refresh">새로고침</button>
+      </div>
+      <p class="section-desc">
+        글이나 영상을 저장하면 사이트에 반영되는 과정입니다. ✅ 성공이 뜨면
+        1분 안에 실제 사이트에 나타납니다. (확인용이며 직접 조작할 필요는
+        없습니다.)
+      </p>
+      <div id="runs-list" class="runs">토큰을 설정하면 표시됩니다.</div>
+    </section>
+
     <!-- 방문자 통계 -->
-    <section class="panel">
-      <h2>방문자 통계</h2>
+    <section class="panel" id="stats-panel">
+      <h2>📊 방문자 통계</h2>
       {
         GOATCOUNTER_CODE ? (
           <p>
@@ -407,9 +447,9 @@ import {
 
   function updateTokenStatus() {
     const has = !!getToken();
-    $('token-status').textContent = has
-      ? '토큰이 설정되어 있습니다. 아래 기능을 사용할 수 있습니다.'
-      : '토큰이 설정되지 않았습니다. 아래 안내에 따라 토큰을 만들어 붙여넣으세요.';
+    $('token-status').innerHTML = has
+      ? '<span class="dot dot-on"></span>토큰이 설정되어 있습니다. 아래 기능을 사용할 수 있습니다.'
+      : '<span class="dot dot-off"></span>토큰이 설정되지 않았습니다. 아래 안내에 따라 토큰을 만들어 붙여넣으세요.';
   }
 
   async function gh(path: string, options: RequestInit = {}) {
@@ -830,7 +870,88 @@ import {
 </script>
 
 <style>
+  /* 상단 점프 내비게이션 */
+  .admin-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-top: 0.5rem;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .admin-nav a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    white-space: nowrap;
+  }
+
+  .admin-nav a:hover {
+    text-decoration: none;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* 모바일: 여러 줄로 쌓이지 않게 한 줄 가로 스크롤 */
+  @media (max-width: 40rem) {
+    .admin-nav {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  .section-desc {
+    margin-top: -0.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .status-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-on {
+    background: #1a9d54;
+  }
+
+  .dot-off {
+    background: #c0392b;
+  }
+
+  .video-preview-label {
+    font-size: 0.85rem;
+    color: #1a9d54;
+    font-weight: 600;
+  }
+
+  /* 섹션 앵커 이동 시 sticky 내비에 가리지 않도록 여백 확보 */
   .panel {
+    scroll-margin-top: 4rem;
     margin-top: 2rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -1000,6 +1121,9 @@ import {
 
   .video-preview {
     margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
   }
 
   .video-preview img {
@@ -1008,6 +1132,7 @@ import {
     object-fit: cover;
     border-radius: 6px;
     border: 1px solid var(--color-border);
+    flex-shrink: 0;
   }
 
   .editor {
