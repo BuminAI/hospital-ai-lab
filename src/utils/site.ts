@@ -26,7 +26,7 @@ export function formatDate(date: Date): string {
 // 각 서비스에서 발급받은 메타태그의 content 값만 넣으면
 // 모든 페이지 <head>에 확인용 메타태그가 자동으로 들어간다. 비우면 출력 안 함.
 // 예: <meta name="naver-site-verification" content="abc123" /> → 'abc123'
-export const NAVER_SITE_VERIFICATION = '';
+export const NAVER_SITE_VERIFICATION = 'f98a7fd2869d359cbadc089f5403db28d5cadd70';
 export const GOOGLE_SITE_VERIFICATION = '';
 
 export const SITE_TITLE = '병원 AI 연구소';
