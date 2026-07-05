@@ -49,7 +49,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
   (async () => {
     if (!SUPABASE_URL) return;
     const { createClient } = await import(
-      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
     );
     const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const $ = (id) => document.getElementById(id);
@@ -132,6 +132,19 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     const { data: { session } } = await sb.auth.getSession();
     if (!session) {
       $('guest').hidden = false;
+      return;
+    }
+    // 프로필·동의 기록 확인 — 없으면 "노트 없음"과 구분되는 안내를 보여준다
+    const { data: profile, error: pErr } = await sb
+      .from('profiles')
+      .select('id, consent_required_at')
+      .eq('id', session.user.id)
+      .maybeSingle();
+    if (pErr || !profile || !profile.consent_required_at) {
+      $('guest').hidden = false;
+      $('guest').querySelector('.empty').textContent = pErr
+        ? `회원 정보 확인에 실패했습니다: ${pErr.message}`
+        : '이 계정에는 가입 동의 기록이 없어 강의노트를 볼 수 없습니다. 로그아웃 후 다시 로그인하거나 운영자에게 문의해 주세요.';
       return;
     }
     $('member').hidden = false;

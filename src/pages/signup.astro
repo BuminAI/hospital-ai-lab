@@ -52,7 +52,8 @@ import {
                 <strong>[필수]</strong> 개인정보 수집·이용에 동의합니다.
                 <span class="small">
                   (항목: 이름, 이메일, 비밀번호 / 목적: 회원 관리, 회원 전용
-                  콘텐츠 제공 / 보유: 탈퇴 시까지 —
+                  콘텐츠 제공 / 보유: 탈퇴 시까지 / 동의를 거부할 권리가
+                  있으나, 거부 시 회원가입이 불가합니다 —
                   <a href={withBase('/privacy/')} target="_blank">처리방침 전문</a>)
                 </span>
               </span>
@@ -86,7 +87,7 @@ import {
   (async () => {
     if (!SUPABASE_URL) return;
     const { createClient } = await import(
-      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
     );
     const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const $ = (id) => document.getElementById(id);
@@ -111,11 +112,11 @@ import {
         if (hasOptional && !$('c-optional').checked)
           throw new Error('선택 항목을 입력하셨다면 [선택] 동의에 체크하거나, 선택 항목을 비워 주세요.');
 
-        const now = new Date().toISOString();
         status.textContent = '가입 처리 중…';
         $('f-submit').disabled = true;
 
-        const { error } = await sb.auth.signUp({
+        // 동의 "여부"만 보낸다 — 동의 일시는 서버(DB 트리거)가 서버 시각으로 기록
+        const { data, error } = await sb.auth.signUp({
           email,
           password: pw,
           options: {
@@ -124,13 +125,18 @@ import {
               gender: $('c-optional').checked ? gender : null,
               birth_date: $('c-optional').checked ? birth : null,
               phone: $('c-optional').checked ? phone : null,
-              consent_required_at: now,
-              consent_optional_at: $('c-optional').checked && hasOptional ? now : null,
+              consent_required: true,
+              consent_optional: !!($('c-optional').checked && hasOptional),
               policy_version: PRIVACY_POLICY_VERSION,
             },
           },
         });
-        if (error) throw new Error(error.message === 'User already registered' ? '이미 가입된 이메일입니다. 로그인해 주세요.' : `가입 실패: ${error.message}`);
+        if (error) throw new Error(/already registered/i.test(error.message) ? '이미 가입된 이메일입니다. 로그인해 주세요.' : `가입 실패: ${error.message}`);
+        // 이메일 인증 모드에서 기가입 이메일은 오류 대신 identities가 빈 배열로 온다
+        if (data?.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
+          status.textContent = '이미 가입된 이메일입니다. 로그인하거나 비밀번호 재설정을 이용해 주세요.';
+          return;
+        }
         status.textContent = '확인 메일을 보냈습니다. 메일함에서 인증 링크를 누른 뒤 로그인해 주세요.';
       } catch (err) {
         status.textContent = err.message;

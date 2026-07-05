@@ -41,28 +41,24 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
   (async () => {
     if (!SUPABASE_URL) return;
     const { createClient } = await import(
-      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
     );
     const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const $ = (id) => document.getElementById(id);
     const notesUrl = new URL('../notes/', location.href).pathname;
 
-    // 가입 시 저장해 둔 정보로 프로필 행을 만든다 (최초 로그인 시 1회)
-    async function ensureProfile(user) {
-      const { data: existing } = await sb.from('profiles').select('id').eq('id', user.id).maybeSingle();
-      if (existing) return;
-      const m = user.user_metadata || {};
-      await sb.from('profiles').insert({
-        id: user.id,
-        name: m.name || '(이름 없음)',
-        gender: m.gender || null,
-        birth_date: m.birth_date || null,
-        phone: m.phone || null,
-        email: user.email,
-        consent_required_at: m.consent_required_at || new Date().toISOString(),
-        consent_optional_at: m.consent_optional_at || null,
-        policy_version: m.policy_version || 'unknown',
-      });
+    // 프로필은 가입 시 서버(DB 트리거)가 생성한다. 여기서는 존재와 동의 기록만 확인.
+    async function checkProfile(user) {
+      const { data, error } = await sb
+        .from('profiles')
+        .select('id, consent_required_at')
+        .eq('id', user.id)
+        .maybeSingle();
+      if (error) throw new Error(`회원 정보 확인 실패: ${error.message}`);
+      if (!data || !data.consent_required_at)
+        throw new Error(
+          '이 계정에는 가입 동의 기록이 없습니다. 회원가입 페이지에서 다시 가입하시거나 운영자에게 문의해 주세요.'
+        );
     }
 
     // 비밀번호 재설정 메일로 들어온 경우
@@ -89,7 +85,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
               ? '이메일 인증이 아직 안 됐습니다. 가입 확인 메일의 링크를 먼저 눌러 주세요.'
               : '이메일 또는 비밀번호가 올바르지 않습니다.'
           );
-        await ensureProfile(data.user);
+        await checkProfile(data.user);
         status.textContent = '로그인 성공 — 강의노트로 이동합니다.';
         location.href = notesUrl;
       } catch (err) {
@@ -122,8 +118,14 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         return;
       }
       const { error } = await sb.auth.updateUser({ password: pw });
-      status.textContent = error ? `변경 실패: ${error.message}` : '비밀번호가 변경됐습니다. 다시 로그인해 주세요.';
-      if (!error) setTimeout(() => location.reload(), 1500);
+      if (error) {
+        status.textContent = `변경 실패: ${error.message}`;
+        return;
+      }
+      // 안내 문구("다시 로그인해 주세요")와 실제 상태를 일치시키기 위해 로그아웃
+      await sb.auth.signOut();
+      status.textContent = '비밀번호가 변경됐습니다. 다시 로그인해 주세요.';
+      setTimeout(() => location.reload(), 1500);
     });
   })();
 </script>
