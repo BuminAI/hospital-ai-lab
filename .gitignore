@@ -16,5 +16,7 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Claude Code 로컬 설정 (이 PC 전용 절대경로 포함)
-.claude/
+# Claude Code 로컬 설정 (이 PC 전용 — agents/, skills/는 커밋함)
+.claude/launch.json
+.claude/run-npm.cmd
+.claude/settings.local.json
