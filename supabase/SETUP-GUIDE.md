@@ -34,14 +34,18 @@ Supabase가 공식 지원하는 방식입니다. 하나만 켜도 되고 둘 다
 2. **승인된 리디렉션 URI**에 Supabase 대시보드 **Authentication → Providers → Google** 화면에 표시된 콜백 URL(`https://xxxx.supabase.co/auth/v1/callback` 형태)을 그대로 붙여넣기
 3. 생성된 **클라이언트 ID**와 **클라이언트 보안 비밀**을 Supabase의 같은 화면(Google Provider)에 입력하고 저장, **Enable Sign in with Google**을 켜기
 
-### 카카오
+### 카카오 (2026-07 카카오 공식 문서 기준 — 콘솔 왼쪽 사이드바에 "앱 설정"과 "제품 설정" 두 카테고리가 분리되어 있습니다)
 
-1. [카카오 디벨로퍼스](https://developers.kakao.com) → **내 애플리케이션 → 애플리케이션 추가**
-2. 생성한 앱의 **앱 설정 → 앱 키**에서 **REST API 키** 복사 (이것이 client_id)
-3. **제품 설정 → 카카오 로그인**에서 활성화 ON, **Redirect URI**에 Supabase Kakao Provider 화면의 콜백 URL(`https://xxxx.supabase.co/auth/v1/callback`) 입력
-4. 같은 화면(카카오 로그인 → 보안)에서 **Client Secret 코드** 생성·활성화 후 복사
-5. **동의항목**에서 닉네임(profile_nickname)과 카카오계정(이메일, account_email)을 "필수 동의" 또는 "선택 동의"로 설정 (이메일을 받아야 회원 관리가 되므로 최소 "선택 동의"는 켜기)
-6. Supabase 대시보드 **Authentication → Providers → Kakao**에 REST API 키(client_id)와 Client Secret 코드(client_secret)를 입력하고 저장, 활성화
+1. [카카오 디벨로퍼스](https://developers.kakao.com/console/app) → **애플리케이션 추가**로 앱 생성
+2. 왼쪽 사이드바 **앱 설정 → 앱 → 플랫폼 키 / 어드민 키** 탭에서 **REST API 키** 복사 (이것이 client_id). 같은 탭 안에 있는 항목:
+   - **카카오 로그인 Redirect URI**(같은 페이지에 "비즈니스 인증 리다이렉트 URI"라는 비슷한 이름의 다른 칸도 있으니 헷갈리지 말 것) 에 Supabase 대시보드 **Authentication → Providers → Kakao** 화면에 표시된 콜백 URL(`https://xxxx.supabase.co/auth/v1/callback` 형태) 입력
+   - 같은 탭에서 **Client Secret 코드** 생성·활성화 후 복사 (이것이 client_secret)
+3. 왼쪽 사이드바 **제품 설정 → 카카오 로그인 → 사용 설정**에서 상태를 **ON**으로 켜기
+4. **제품 설정 → 카카오 로그인 → 동의항목**에서 닉네임(profile_nickname)과 카카오계정(이메일, account_email)을 "필수 동의" 또는 "선택 동의"로 설정 (이메일을 받아야 회원 관리가 되므로 최소 "선택 동의"는 켜기)
+5. Supabase 대시보드 **Authentication → Providers → Kakao**에 2단계에서 복사한 REST API 키(client_id)와 Client Secret 코드(client_secret)를 입력하고 저장, 활성화
+
+> 콘솔 화면은 카카오 쪽에서 종종 바뀝니다. 위 메뉴 이름과 다른 화면이 보이면,
+> 화면을 캡처해서 보여주시면 정확히 어디를 눌러야 하는지 다시 확인해 드립니다.
 
 > 구글·카카오로 처음 로그인한 사람은 우리 동의 체크박스(가입 폼)를 거치지
 > 않으므로, 로그인 화면이 최초 1회 별도 동의 화면을 자동으로 보여줍니다.
