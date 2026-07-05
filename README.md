@@ -65,6 +65,14 @@ DNS(가비아) 레코드: 루트(@)에 GitHub Pages A 레코드 4개
 - 방문자 통계: `src/utils/site.ts`의 `GOATCOUNTER_CODE`에 GoatCounter 코드를
   넣으면 전 페이지 집계가 시작되고 대시보드에서 링크로 열 수 있습니다.
 
+## 회원 기능 (회원가입 · 로그인 · 강의노트)
+
+- 회원 데이터는 GitHub이 아닌 **Supabase**(서울 리전)에 저장됩니다. 개통 방법은
+  [supabase/SETUP-GUIDE.md](supabase/SETUP-GUIDE.md) 참조.
+- 페이지: `/signup/`(가입, 필수·선택 동의 분리), `/login/`, `/notes/`(회원 전용),
+  `/privacy/`(개인정보 처리방침 — 푸터에서 링크)
+- 회원 목록·강의노트 작성은 관리자 대시보드(`/admin/`)에서 관리자 계정으로 로그인 후 사용.
+
 ## 폴더 구조
 
 ```

@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
+---
+
+<BaseLayout
+  title="강의노트"
+  description="병원 AI 연구소 회원 전용 강의노트입니다. 로그인 후 볼 수 있습니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>강의노트</h1>
+      <p class="lead">회원 전용 학습 자료입니다. 로그인하면 열람할 수 있습니다.</p>
+    </header>
+
+    {
+      !SUPABASE_URL ? (
+        <p class="empty">회원 기능은 준비 중입니다. 조금만 기다려 주세요.</p>
+      ) : (
+        <div>
+          <div id="guest" hidden>
+            <p class="empty">
+              강의노트는 회원에게만 공개됩니다.
+              <a href={withBase('/login/')}>로그인</a>하거나
+              <a href={withBase('/signup/')}>회원가입</a> 후 이용해 주세요.
+            </p>
+          </div>
+
+          <div id="member" hidden>
+            <div class="member-bar">
+              <span id="member-name"></span>
+              <button class="btn ghost" id="logout">로그아웃</button>
+            </div>
+            <div id="notes-list" class="notes-list">불러오는 중…</div>
+            <article id="note-view" hidden>
+              <h2 id="note-title"></h2>
+              <p class="note-date" id="note-date"></p>
+              <div class="prose" id="note-body"></div>
+              <p><a href="#" id="note-back">← 목록으로</a></p>
+            </article>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY }}>
+  (async () => {
+    if (!SUPABASE_URL) return;
+    const { createClient } = await import(
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+    );
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const $ = (id) => document.getElementById(id);
+
+    // XSS 안전: 먼저 전부 이스케이프한 뒤 최소한의 마크다운만 변환
+    function esc(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function inline(s) {
+      return s
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    }
+    function renderMd(src) {
+      const lines = esc(src).split(/\r?\n/);
+      let html = '';
+      let inList = false;
+      for (const line of lines) {
+        if (/^- /.test(line)) {
+          if (!inList) { html += '<ul>'; inList = true; }
+          html += `<li>${inline(line.slice(2))}</li>`;
+          continue;
+        }
+        if (inList) { html += '</ul>'; inList = false; }
+        if (/^### /.test(line)) html += `<h4>${inline(line.slice(4))}</h4>`;
+        else if (/^## /.test(line)) html += `<h3>${inline(line.slice(3))}</h3>`;
+        else if (line.trim() !== '') html += `<p>${inline(line)}</p>`;
+      }
+      if (inList) html += '</ul>';
+      return html;
+    }
+
+    const fmtDate = (iso) =>
+      new Date(iso).toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: 'long', day: 'numeric' });
+
+    let notes = [];
+
+    function showList() {
+      $('note-view').hidden = true;
+      $('notes-list').hidden = false;
+    }
+
+    function showNote(n) {
+      $('note-title').textContent = n.title;
+      $('note-date').textContent = fmtDate(n.created_at);
+      $('note-body').innerHTML = renderMd(n.body);
+      $('notes-list').hidden = true;
+      $('note-view').hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function loadNotes() {
+      const { data, error } = await sb
+        .from('lecture_notes')
+        .select('id, title, body, created_at')
+        .eq('published', true)
+        .order('created_at', { ascending: false });
+      const el = $('notes-list');
+      if (error) {
+        el.textContent = '강의노트를 불러오지 못했습니다: ' + error.message;
+        return;
+      }
+      notes = data;
+      if (!notes.length) {
+        el.textContent = '아직 등록된 강의노트가 없습니다.';
+        return;
+      }
+      el.innerHTML = notes
+        .map(
+          (n, i) =>
+            `<button class="note-row" data-i="${i}"><span class="note-row-title"></span><span class="note-row-date">${fmtDate(n.created_at)}</span></button>`
+        )
+        .join('');
+      el.querySelectorAll('.note-row').forEach((b, i) => {
+        b.querySelector('.note-row-title').textContent = notes[i].title;
+        b.addEventListener('click', () => showNote(notes[Number(b.dataset.i)]));
+      });
+    }
+
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) {
+      $('guest').hidden = false;
+      return;
+    }
+    $('member').hidden = false;
+    const name = session.user.user_metadata?.name || session.user.email;
+    $('member-name').textContent = `${name} 님`;
+    $('logout').addEventListener('click', async () => {
+      await sb.auth.signOut();
+      location.reload();
+    });
+    $('note-back').addEventListener('click', (e) => {
+      e.preventDefault();
+      showList();
+    });
+    loadNotes();
+  })();
+</script>
+
+<style>
+  .member-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+  }
+
+  .btn.ghost {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 1rem;
+  }
+
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 52rem;
+  }
+
+  .note-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    text-align: left;
+    font: inherit;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 0.25rem;
+    cursor: pointer;
+  }
+
+  .note-row:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .note-row:hover .note-row-title {
+    color: var(--color-primary);
+  }
+
+  .note-row-title {
+    font-weight: 600;
+  }
+
+  .note-row-date {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  #note-view h2 {
+    font-size: 1.5rem;
+  }
+
+  .note-date {
+    margin: 0.5rem 0 1.5rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  #note-view .prose {
+    margin-bottom: 2rem;
+  }
+
+  .empty {
+    color: var(--color-muted);
+  }
+</style>

@@ -32,6 +32,16 @@ export const NAVER_SITE_VERIFICATION = 'f98a7fd2869d359cbadc089f5403db28d5cadd70
 // goatcounter.com 가입 시 정한 코드를 넣으면 전 페이지에 집계 스크립트가 붙는다.
 // 예: 코드가 'hospital-ai-lab'이면 대시보드는 https://hospital-ai-lab.goatcounter.com
 export const GOATCOUNTER_CODE = '';
+
+// ── 회원 기능 (Supabase) ─────────────────────────────────────
+// Supabase 프로젝트를 만든 뒤 Project Settings → API의 URL과 anon public 키를 넣는다.
+// 비어 있으면 회원가입·로그인·강의노트는 "준비 중"으로 표시된다.
+export const SUPABASE_URL = '';
+export const SUPABASE_ANON_KEY = '';
+// 개인정보 처리방침 버전 (방침 개정 시 날짜 갱신 — 동의 기록에 함께 저장됨)
+export const PRIVACY_POLICY_VERSION = '2026-07-05';
+// 관리자(오너) 이메일 — supabase/setup.sql의 is_admin()과 일치해야 한다
+export const ADMIN_EMAIL = 'choyj80@naver.com';
 export const GOOGLE_SITE_VERIFICATION = '5zd4BPyIzNe4dZJnx59GxYhFTkVoNQmcRoIJ9YS_f4Q';
 
 export const SITE_TITLE = '병원 AI 연구소';

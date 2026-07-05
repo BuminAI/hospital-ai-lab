@@ -1,0 +1,176 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
+---
+
+<BaseLayout title="로그인" description="병원 AI 연구소 회원 로그인" noindex>
+  <div class="container">
+    <header class="page-head">
+      <h1>로그인</h1>
+    </header>
+
+    {
+      !SUPABASE_URL ? (
+        <p class="empty">회원 기능은 준비 중입니다. 조금만 기다려 주세요.</p>
+      ) : (
+        <div class="member-form">
+          <form id="login-form" novalidate>
+            <label>이메일<input type="email" id="l-email" autocomplete="email" required /></label>
+            <label>비밀번호<input type="password" id="l-password" autocomplete="current-password" required /></label>
+            <button class="btn" type="submit" id="l-submit">로그인</button>
+            <p class="hint" id="l-status"></p>
+          </form>
+          <p class="hint">
+            <a href="#" id="l-reset">비밀번호를 잊으셨나요?</a> ·
+            <a href={withBase('/signup/')}>회원가입</a>
+          </p>
+
+          <form id="recovery-form" hidden>
+            <h2>새 비밀번호 설정</h2>
+            <label>새 비밀번호 (8자 이상)<input type="password" id="r-password" autocomplete="new-password" minlength="8" /></label>
+            <button class="btn" type="submit">변경</button>
+            <p class="hint" id="r-status"></p>
+          </form>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY }}>
+  (async () => {
+    if (!SUPABASE_URL) return;
+    const { createClient } = await import(
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+    );
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const $ = (id) => document.getElementById(id);
+    const notesUrl = new URL('../notes/', location.href).pathname;
+
+    // 가입 시 저장해 둔 정보로 프로필 행을 만든다 (최초 로그인 시 1회)
+    async function ensureProfile(user) {
+      const { data: existing } = await sb.from('profiles').select('id').eq('id', user.id).maybeSingle();
+      if (existing) return;
+      const m = user.user_metadata || {};
+      await sb.from('profiles').insert({
+        id: user.id,
+        name: m.name || '(이름 없음)',
+        gender: m.gender || null,
+        birth_date: m.birth_date || null,
+        phone: m.phone || null,
+        email: user.email,
+        consent_required_at: m.consent_required_at || new Date().toISOString(),
+        consent_optional_at: m.consent_optional_at || null,
+        policy_version: m.policy_version || 'unknown',
+      });
+    }
+
+    // 비밀번호 재설정 메일로 들어온 경우
+    sb.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        $('recovery-form').hidden = false;
+        $('login-form').hidden = true;
+      }
+    });
+
+    $('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = $('l-status');
+      try {
+        status.textContent = '로그인 중…';
+        $('l-submit').disabled = true;
+        const { data, error } = await sb.auth.signInWithPassword({
+          email: $('l-email').value.trim(),
+          password: $('l-password').value,
+        });
+        if (error)
+          throw new Error(
+            /confirm/i.test(error.message)
+              ? '이메일 인증이 아직 안 됐습니다. 가입 확인 메일의 링크를 먼저 눌러 주세요.'
+              : '이메일 또는 비밀번호가 올바르지 않습니다.'
+          );
+        await ensureProfile(data.user);
+        status.textContent = '로그인 성공 — 강의노트로 이동합니다.';
+        location.href = notesUrl;
+      } catch (err) {
+        status.textContent = err.message;
+      } finally {
+        $('l-submit').disabled = false;
+      }
+    });
+
+    $('l-reset').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const email = $('l-email').value.trim();
+      const status = $('l-status');
+      if (!email) {
+        status.textContent = '이메일을 먼저 입력한 뒤 다시 눌러 주세요.';
+        return;
+      }
+      const { error } = await sb.auth.resetPasswordForEmail(email, {
+        redirectTo: location.origin + location.pathname,
+      });
+      status.textContent = error ? `재설정 메일 발송 실패: ${error.message}` : '비밀번호 재설정 메일을 보냈습니다.';
+    });
+
+    $('recovery-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = $('r-status');
+      const pw = $('r-password').value;
+      if (pw.length < 8) {
+        status.textContent = '비밀번호는 8자 이상이어야 합니다.';
+        return;
+      }
+      const { error } = await sb.auth.updateUser({ password: pw });
+      status.textContent = error ? `변경 실패: ${error.message}` : '비밀번호가 변경됐습니다. 다시 로그인해 주세요.';
+      if (!error) setTimeout(() => location.reload(), 1500);
+    });
+  })();
+</script>
+
+<style>
+  .member-form {
+    max-width: 26rem;
+    padding-bottom: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    margin-top: 0.35rem;
+    font: inherit;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .btn {
+    align-self: flex-start;
+  }
+
+  .hint {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  #recovery-form h2 {
+    font-size: 1.1rem;
+  }
+
+  .empty {
+    color: var(--color-muted);
+  }
+</style>

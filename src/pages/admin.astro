@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { GOATCOUNTER_CODE } from '../utils/site';
+import {
+  GOATCOUNTER_CODE,
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY,
+  ADMIN_EMAIL,
+} from '../utils/site';
 ---
 
 <BaseLayout title="관리자" description="병원 AI 연구소 관리자 대시보드" noindex>
@@ -108,6 +113,71 @@ import { GOATCOUNTER_CODE } from '../utils/site';
       <p class="hint">업로드 후 표시되는 코드를 복사해 본문에 붙여넣으면 이미지가 들어갑니다.</p>
     </section>
 
+    <!-- 회원·강의노트 관리 (Supabase) -->
+    <section class="panel">
+      <h2>회원 · 강의노트 관리</h2>
+      {
+        !SUPABASE_URL ? (
+          <p class="hint">
+            회원 기능이 아직 연결되지 않았습니다. supabase/SETUP-GUIDE.md의
+            안내대로 개통한 뒤 사용할 수 있습니다.
+          </p>
+        ) : (
+          <div>
+            <div id="sb-login">
+              <p class="hint">관리자 계정({ADMIN_EMAIL})으로 로그인하세요.</p>
+              <div class="row">
+                <input type="email" id="sb-email" placeholder="관리자 이메일" value={ADMIN_EMAIL} />
+                <input type="password" id="sb-password" placeholder="비밀번호" />
+                <button class="btn" id="sb-login-btn">로그인</button>
+              </div>
+              <p class="hint" id="sb-login-status"></p>
+            </div>
+
+            <div id="sb-admin" hidden>
+              <div class="panel-head">
+                <h3>회원 목록 <span id="member-count" class="hint"></span></h3>
+                <span class="row">
+                  <button class="btn ghost" id="members-refresh">새로고침</button>
+                  <button class="btn ghost" id="sb-logout">관리자 로그아웃</button>
+                </span>
+              </div>
+              <div class="table-wrap">
+                <table id="members-table">
+                  <thead>
+                    <tr>
+                      <th>이름</th><th>이메일</th><th>성별</th><th>생년월일</th><th>휴대폰</th><th>가입일</th><th>동의</th><th></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <p class="hint">
+                삭제하면 프로필이 파기됩니다. 완전 파기를 위해 Supabase의
+                Authentication → Users에서 같은 계정도 삭제하세요. (탈퇴 요청
+                처리 절차)
+              </p>
+
+              <h3 class="notes-h">강의노트</h3>
+              <div class="form-grid">
+                <label>제목<input type="text" id="note-title" /></label>
+                <label class="check" style="align-self: end;"><input type="checkbox" id="note-published" checked /> 공개 (회원에게 표시)</label>
+              </div>
+              <label class="block">내용 (마크다운: ##제목, -목록, **굵게**, [링크](주소))
+                <textarea id="note-body" rows="10"></textarea>
+              </label>
+              <div class="row">
+                <button class="btn" id="note-save">저장</button>
+                <button class="btn ghost" id="note-cancel" hidden>새 노트로 전환</button>
+              </div>
+              <p class="hint" id="note-status"></p>
+              <div id="admin-notes-list" class="posts"></div>
+            </div>
+          </div>
+        )
+      }
+    </section>
+
     <!-- 방문자 통계 -->
     <section class="panel">
       <h2>방문자 통계</h2>
@@ -133,6 +203,175 @@ import { GOATCOUNTER_CODE } from '../utils/site';
     </section>
   </div>
 </BaseLayout>
+
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, ADMIN_EMAIL }}>
+  // 회원·강의노트 관리 (Supabase) — 관리자 이메일 계정으로만 데이터 접근 가능(RLS)
+  (async () => {
+    if (!SUPABASE_URL || !document.getElementById('sb-login')) return;
+    const { createClient } = await import(
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+    );
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const $ = (id) => document.getElementById(id);
+    const escHtml = (s) =>
+      String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const fmtD = (iso) =>
+      iso ? new Date(iso).toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul' }) : '';
+
+    let editingNoteId = null;
+
+    async function showAdminIfLoggedIn() {
+      const { data: { session } } = await sb.auth.getSession();
+      const isAdmin = session && session.user.email === ADMIN_EMAIL;
+      $('sb-login').hidden = !!isAdmin;
+      $('sb-admin').hidden = !isAdmin;
+      if (isAdmin) {
+        loadMembers();
+        loadAdminNotes();
+      }
+    }
+
+    async function loadMembers() {
+      const { data, error } = await sb
+        .from('profiles')
+        .select('*')
+        .order('created_at', { ascending: false });
+      const tbody = $('members-table').querySelector('tbody');
+      if (error) {
+        tbody.innerHTML = `<tr><td colspan="8">${escHtml(error.message)}</td></tr>`;
+        return;
+      }
+      $('member-count').textContent = `(${data.length}명)`;
+      tbody.innerHTML = data
+        .map(
+          (m) => `<tr>
+            <td>${escHtml(m.name)}</td>
+            <td>${escHtml(m.email)}</td>
+            <td>${escHtml(m.gender || '-')}</td>
+            <td>${escHtml(m.birth_date || '-')}</td>
+            <td>${escHtml(m.phone || '-')}</td>
+            <td>${fmtD(m.created_at)}</td>
+            <td>필수 ${fmtD(m.consent_required_at)}${m.consent_optional_at ? ' / 선택 ' + fmtD(m.consent_optional_at) : ''}</td>
+            <td><button class="btn ghost danger" data-mdel="${escHtml(m.id)}" data-mname="${escHtml(m.name)}">삭제</button></td>
+          </tr>`
+        )
+        .join('') || '<tr><td colspan="8">아직 가입한 회원이 없습니다.</td></tr>';
+      tbody.querySelectorAll('[data-mdel]').forEach((b) =>
+        b.addEventListener('click', async () => {
+          if (!confirm(`회원 "${b.dataset.mname}"의 프로필을 삭제(파기)할까요?\nSupabase의 Authentication → Users에서 같은 계정도 삭제해야 완전히 파기됩니다.`)) return;
+          const { error: delErr } = await sb.from('profiles').delete().eq('id', b.dataset.mdel);
+          if (delErr) alert(delErr.message);
+          loadMembers();
+        })
+      );
+    }
+
+    async function loadAdminNotes() {
+      const { data, error } = await sb
+        .from('lecture_notes')
+        .select('id, title, published, created_at')
+        .order('created_at', { ascending: false });
+      const el = $('admin-notes-list');
+      if (error) {
+        el.textContent = error.message;
+        return;
+      }
+      el.innerHTML = data
+        .map(
+          (n) => `<div class="post-row">
+            <span class="post-title">${n.published ? '' : '<span class="chip">비공개</span> '}${escHtml(n.title)}</span>
+            <span class="post-file">${fmtD(n.created_at)}</span>
+            <span class="post-actions">
+              <button class="btn ghost" data-nedit="${n.id}">수정</button>
+              <button class="btn ghost danger" data-ndel="${n.id}" data-ntitle="${escHtml(n.title)}">삭제</button>
+            </span>
+          </div>`
+        )
+        .join('') || '<p class="hint">아직 강의노트가 없습니다. 위에서 첫 노트를 작성하세요.</p>';
+      el.querySelectorAll('[data-nedit]').forEach((b) =>
+        b.addEventListener('click', async () => {
+          const { data: note, error: e2 } = await sb.from('lecture_notes').select('*').eq('id', b.dataset.nedit).single();
+          if (e2) { alert(e2.message); return; }
+          editingNoteId = note.id;
+          $('note-title').value = note.title;
+          $('note-body').value = note.body;
+          $('note-published').checked = note.published;
+          $('note-cancel').hidden = false;
+          $('note-status').textContent = `수정 중: ${note.title}`;
+          $('note-title').scrollIntoView({ behavior: 'smooth' });
+        })
+      );
+      el.querySelectorAll('[data-ndel]').forEach((b) =>
+        b.addEventListener('click', async () => {
+          if (!confirm(`강의노트 "${b.dataset.ntitle}"를 삭제할까요?`)) return;
+          const { error: e3 } = await sb.from('lecture_notes').delete().eq('id', b.dataset.ndel);
+          if (e3) alert(e3.message);
+          loadAdminNotes();
+        })
+      );
+    }
+
+    $('sb-login-btn').addEventListener('click', async () => {
+      const status = $('sb-login-status');
+      status.textContent = '로그인 중…';
+      const { data, error } = await sb.auth.signInWithPassword({
+        email: $('sb-email').value.trim(),
+        password: $('sb-password').value,
+      });
+      if (error) {
+        status.textContent = '로그인 실패: 이메일 또는 비밀번호를 확인하세요.';
+        return;
+      }
+      if (data.user.email !== ADMIN_EMAIL) {
+        status.textContent = '관리자 계정이 아닙니다.';
+        await sb.auth.signOut();
+        return;
+      }
+      status.textContent = '';
+      showAdminIfLoggedIn();
+    });
+
+    $('sb-logout').addEventListener('click', async () => {
+      await sb.auth.signOut();
+      showAdminIfLoggedIn();
+    });
+    $('members-refresh').addEventListener('click', loadMembers);
+
+    $('note-save').addEventListener('click', async () => {
+      const status = $('note-status');
+      const title = $('note-title').value.trim();
+      const body = $('note-body').value.trim();
+      if (!title || !body) {
+        status.textContent = '제목과 내용을 입력하세요.';
+        return;
+      }
+      const row = { title, body, published: $('note-published').checked, updated_at: new Date().toISOString() };
+      const { error } = editingNoteId
+        ? await sb.from('lecture_notes').update(row).eq('id', editingNoteId)
+        : await sb.from('lecture_notes').insert(row);
+      if (error) {
+        status.textContent = error.message;
+        return;
+      }
+      status.textContent = editingNoteId ? '수정 저장됨 — 회원에게 바로 반영됩니다.' : '저장됨 — 회원에게 바로 반영됩니다.';
+      editingNoteId = null;
+      $('note-title').value = $('note-body').value = '';
+      $('note-published').checked = true;
+      $('note-cancel').hidden = true;
+      loadAdminNotes();
+    });
+
+    $('note-cancel').addEventListener('click', () => {
+      editingNoteId = null;
+      $('note-title').value = $('note-body').value = '';
+      $('note-published').checked = true;
+      $('note-cancel').hidden = true;
+      $('note-status').textContent = '';
+    });
+
+    showAdminIfLoggedIn();
+  })();
+</script>
 
 <script>
   const REPO = 'BuminAI/hospital-ai-lab';
@@ -625,6 +864,38 @@ import { GOATCOUNTER_CODE } from '../utils/site';
   .editor h3 {
     font-size: 1rem;
     margin-bottom: 0.75rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  #members-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  #members-table th,
+  #members-table td {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem 0.6rem;
+    text-align: left;
+  }
+
+  #members-table th {
+    color: var(--color-muted);
+    font-weight: 600;
+  }
+
+  .notes-h {
+    margin-top: 2rem;
+    font-size: 1.05rem;
+  }
+
+  #sb-admin h3 {
+    font-size: 1.05rem;
   }
 
   @media (max-width: 40rem) {
