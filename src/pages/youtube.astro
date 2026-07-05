@@ -1,77 +1,140 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import videos from '../data/recommended-videos.json';
 
 const CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
 ---
 
 <BaseLayout
-  title="유튜브 강의"
-  description="병원 AI 연구소의 연구와 AI 활용법을 영상 강의로도 나눕니다. 유튜브 채널을 안내합니다."
+  title="추천 강의 영상"
+  description="병원 AI 연구소가 병원 행정·간호 실무자에게 참고할 만한 강의 영상을 추천합니다."
 >
   <div class="container">
     <header class="page-head">
-      <h1>유튜브 강의</h1>
+      <h1>추천 강의 영상</h1>
       <p class="lead">
-        연구 내용과 병원 실무에서 쓸 수 있는 AI 활용법을 영상 강의로도 나누려
-        합니다.
+        병원 행정·간호 실무자에게 도움이 될 만한 강의 영상을 소개합니다. 목록의
+        영상은 각 채널 제작자가 만든 것이며, 연구소의 편집·추천 의견일 뿐
+        제휴·후원 관계를 의미하지 않습니다.
       </p>
     </header>
 
-    <div class="channel-card">
-      <span class="chip">준비 중</span>
-      <h2>첫 강의 영상을 준비하고 있습니다</h2>
-      <p>
-        아직 영상 제작 전입니다. 채널을 미리 구독해 두시면 첫 영상이 올라올 때
-        바로 확인하실 수 있습니다.
-      </p>
-      <a class="btn" href={CHANNEL_URL} target="_blank" rel="noopener">
-        유튜브 채널 바로가기
-      </a>
-      <p class="url">{CHANNEL_URL}</p>
-    </div>
+    {
+      videos.length > 0 ? (
+        <div class="video-grid">
+          {videos.map((v) => (
+            <a class="video-card" href={v.url} target="_blank" rel="noopener">
+              <img
+                src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+                alt=""
+                loading="lazy"
+                width="480"
+                height="360"
+              />
+              <p class="video-title">{v.title}</p>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="empty">아직 추천 영상이 없습니다.</p>
+      )
+    }
 
-    <section class="note">
-      <p>
-        새 영상 소식은 블로그의 <strong>소식</strong> 카테고리와 RSS로도 함께
-        전할 예정입니다.
-      </p>
+    <section class="channel-section">
+      <h2>연구소장이 직접 만든 영상</h2>
+      <div class="channel-card">
+        <span class="chip">준비 중</span>
+        <p>
+          아직 영상 제작 전입니다. 채널을 미리 구독해 두시면 첫 영상이 올라올
+          때 바로 확인하실 수 있습니다.
+        </p>
+        <a class="btn" href={CHANNEL_URL} target="_blank" rel="noopener">
+          유튜브 채널 바로가기
+        </a>
+      </div>
     </section>
   </div>
 </BaseLayout>
 
 <style>
-  .channel-card {
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
     margin-top: 1.5rem;
+  }
+
+  .video-card {
+    display: block;
+    color: var(--color-text);
+  }
+
+  .video-card:hover {
+    text-decoration: none;
+  }
+
+  .video-card:hover .video-title {
+    color: var(--color-primary);
+  }
+
+  .video-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+  }
+
+  .video-title {
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .empty {
+    margin-top: 1.5rem;
+    color: var(--color-muted);
+  }
+
+  .channel-section {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .channel-section h2 {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+  }
+
+  .channel-card {
+    margin-top: 1rem;
     max-width: var(--prose-width);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    padding: 2.5rem 2.25rem;
-    text-align: center;
-  }
-
-  .channel-card h2 {
-    margin-top: 1rem;
-    font-size: 1.35rem;
+    padding: 1.75rem;
   }
 
   .channel-card p {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
     color: var(--color-muted);
   }
 
   .channel-card .btn {
-    margin-top: 1.75rem;
+    margin-top: 1.25rem;
   }
 
-  .url {
-    font-size: 0.875rem;
-    word-break: break-all;
+  @media (max-width: 52rem) {
+    .video-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  .note {
-    margin-top: 2.5rem;
-    max-width: var(--prose-width);
-    color: var(--color-muted);
-    font-size: 0.95rem;
+  @media (max-width: 32rem) {
+    .video-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

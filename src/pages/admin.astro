@@ -113,6 +113,30 @@ import {
       <p class="hint">업로드 후 표시되는 코드를 복사해 본문에 붙여넣으면 이미지가 들어갑니다.</p>
     </section>
 
+    <!-- 추천 강의 영상 관리 -->
+    <section class="panel">
+      <div class="panel-head">
+        <h2>추천 강의 영상 관리</h2>
+        <button class="btn ghost" id="videos-refresh">새로고침</button>
+      </div>
+      <div class="form-grid">
+        <label>유튜브 링크
+          <input type="text" id="video-url" placeholder="https://www.youtube.com/watch?v=..." />
+        </label>
+        <label>제목
+          <input type="text" id="video-title" placeholder="영상 제목" />
+        </label>
+      </div>
+      <div class="video-preview" id="video-preview" hidden>
+        <img id="video-preview-img" alt="" />
+      </div>
+      <div class="row">
+        <button class="btn" id="video-add">추가</button>
+      </div>
+      <p class="hint" id="video-status"></p>
+      <div id="videos-list" class="posts">토큰을 설정하면 표시됩니다.</div>
+    </section>
+
     <!-- 회원·강의노트 관리 (Supabase) -->
     <section class="panel">
       <h2>회원 · 강의노트 관리</h2>
@@ -626,6 +650,116 @@ import {
     }
   }
 
+  // ── 추천 강의 영상 ──────────────────────────────────────
+  const VIDEOS_PATH = 'src/data/recommended-videos.json';
+
+  function extractVideoId(url: string): string | null {
+    const m = url.match(
+      /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+    );
+    return m ? m[1] : null;
+  }
+
+  async function loadVideosFile(): Promise<{ sha: string; videos: any[] }> {
+    const file = await gh(`/contents/${VIDEOS_PATH}`);
+    const videos = JSON.parse(b64decode(file.content) || '[]');
+    return { sha: file.sha, videos };
+  }
+
+  async function saveVideos(videos: any[], sha: string, message: string) {
+    await gh(`/contents/${VIDEOS_PATH}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        message,
+        content: b64encode(JSON.stringify(videos, null, 2) + '\n'),
+        sha,
+      }),
+    });
+  }
+
+  async function loadVideosList() {
+    const el = $('videos-list');
+    el.textContent = '불러오는 중…';
+    try {
+      const { videos } = await loadVideosFile();
+      el.innerHTML =
+        videos
+          .map(
+            (v: any, i: number) => `
+        <div class="post-row">
+          <span class="post-title">
+            <img class="thumb-sm" src="https://img.youtube.com/vi/${esc(v.videoId)}/default.jpg" alt="" />
+            ${esc(v.title)}
+          </span>
+          <span class="post-actions">
+            <a class="btn ghost" href="${esc(v.url)}" target="_blank" rel="noopener">보기</a>
+            <button class="btn ghost danger" data-vdel="${i}" data-vtitle="${esc(v.title)}">삭제</button>
+          </span>
+        </div>`
+          )
+          .join('') || '<p class="hint">아직 추천 영상이 없습니다.</p>';
+      el.querySelectorAll('[data-vdel]').forEach((b: any) =>
+        b.addEventListener('click', () => deleteVideo(Number(b.dataset.vdel), b.dataset.vtitle))
+      );
+    } catch (e: any) {
+      el.textContent = e.message;
+    }
+  }
+
+  $('video-url').addEventListener('input', () => {
+    const id = extractVideoId($('video-url').value.trim());
+    const preview = $('video-preview');
+    if (id) {
+      $('video-preview-img').src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+      preview.hidden = false;
+    } else {
+      preview.hidden = true;
+    }
+  });
+
+  async function addVideo() {
+    const status = $('video-status');
+    const url = $('video-url').value.trim();
+    const title = $('video-title').value.trim();
+    const videoId = extractVideoId(url);
+    if (!videoId) {
+      status.textContent = '올바른 유튜브 링크가 아닙니다. (예: https://www.youtube.com/watch?v=… 또는 https://youtu.be/…)';
+      return;
+    }
+    if (!title) {
+      status.textContent = '제목을 입력하세요.';
+      return;
+    }
+    status.textContent = '저장 중…';
+    try {
+      const { sha, videos } = await loadVideosFile();
+      videos.unshift({ videoId, title, url, addedAt: new Date().toISOString() });
+      await saveVideos(videos, sha, `수정: 추천 영상 추가 - ${title}`);
+      status.textContent = '저장됨 — 1~2분 후 사이트에 반영됩니다.';
+      $('video-url').value = '';
+      $('video-title').value = '';
+      $('video-preview').hidden = true;
+      loadVideosList();
+      setTimeout(loadRuns, 4000);
+    } catch (e: any) {
+      status.textContent = e.message;
+    }
+  }
+
+  async function deleteVideo(index: number, title: string) {
+    if (!confirm(`추천 영상 "${title}"을(를) 삭제할까요?`)) return;
+    const status = $('video-status');
+    try {
+      const { sha, videos } = await loadVideosFile();
+      videos.splice(index, 1);
+      await saveVideos(videos, sha, `수정: 추천 영상 삭제 - ${title}`);
+      loadVideosList();
+      setTimeout(loadRuns, 4000);
+    } catch (e: any) {
+      status.textContent = e.message;
+    }
+  }
+
   // ── 이미지 업로드 ───────────────────────────────────────
   async function uploadImage() {
     const status = $('img-status');
@@ -683,12 +817,15 @@ import {
     editing = null;
   });
   $('img-upload').addEventListener('click', uploadImage);
+  $('videos-refresh').addEventListener('click', loadVideosList);
+  $('video-add').addEventListener('click', addVideo);
 
   $('new-date').value = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Seoul' });
   updateTokenStatus();
   if (getToken()) {
     loadPosts();
     loadRuns();
+    loadVideosList();
   }
 </script>
 
@@ -850,6 +987,27 @@ import {
   .post-file {
     font-size: 0.8rem;
     color: var(--color-muted);
+  }
+
+  .thumb-sm {
+    width: 48px;
+    height: 27px;
+    object-fit: cover;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+
+  .video-preview {
+    margin-top: 0.75rem;
+  }
+
+  .video-preview img {
+    width: 160px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
   }
 
   .editor {
