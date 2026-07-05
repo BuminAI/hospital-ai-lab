@@ -13,9 +13,10 @@ $$;
 create table public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   name text not null,
-  gender text,                        -- 선택 항목
-  birth_date date,                    -- 선택 항목
-  phone text,                         -- 선택 항목
+  gender text,
+  birth_date date,
+  phone text,
+  org_email text,                     -- 소속 기관 이메일 (방문자 통계 파악 목적)
   email text not null,
   consent_required_at timestamptz,    -- [필수] 동의 일시 (서버 기록, null = 동의 없음)
   consent_optional_at timestamptz,    -- [선택] 동의 일시 (서버 기록)
@@ -38,7 +39,7 @@ create policy "profiles_delete_own_or_admin" on public.profiles
 
 -- 컬럼 단위 권한: 동의 증적·이메일·가입일은 클라이언트가 수정 불가
 revoke insert, update on public.profiles from anon, authenticated;
-grant update (name, gender, birth_date, phone) on public.profiles to authenticated;
+grant update (name, gender, birth_date, phone, org_email) on public.profiles to authenticated;
 
 -- 가입 시 서버가 프로필을 생성 (가입 폼의 동의 표시를 서버 시각으로 기록).
 -- 이메일 가입: 폼의 동의 플래그를 그대로 반영해 동의 일시를 즉시 기록한다.
@@ -52,7 +53,7 @@ security definer set search_path = public
 as $$
 begin
   insert into public.profiles (
-    id, name, gender, birth_date, phone, email,
+    id, name, gender, birth_date, phone, org_email, email,
     consent_required_at, consent_optional_at, policy_version
   )
   values (
@@ -67,6 +68,7 @@ begin
     nullif(new.raw_user_meta_data ->> 'gender', ''),
     nullif(new.raw_user_meta_data ->> 'birth_date', '')::date,
     nullif(new.raw_user_meta_data ->> 'phone', ''),
+    nullif(new.raw_user_meta_data ->> 'org_email', ''),
     coalesce(new.email, ''),
     case when coalesce(new.raw_user_meta_data ->> 'consent_required', '') = 'true'
          then now() else null end,

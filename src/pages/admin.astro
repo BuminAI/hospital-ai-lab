@@ -199,7 +199,7 @@ import {
                 <table id="members-table">
                   <thead>
                     <tr>
-                      <th>이름</th><th>이메일</th><th>성별</th><th>생년월일</th><th>휴대폰</th><th>가입일</th><th>동의</th>
+                      <th>이름</th><th>이메일</th><th>성별</th><th>생년월일</th><th>휴대폰</th><th>소속 이메일</th><th>가입일</th><th>동의</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
@@ -309,7 +309,7 @@ import {
         .order('created_at', { ascending: false });
       const tbody = $('members-table').querySelector('tbody');
       if (error) {
-        tbody.innerHTML = `<tr><td colspan="8">${escHtml(error.message)}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="9">${escHtml(error.message)}</td></tr>`;
         return;
       }
       $('member-count').textContent = `(${data.length}명)`;
@@ -321,11 +321,12 @@ import {
             <td>${escHtml(m.gender || '-')}</td>
             <td>${escHtml(m.birth_date || '-')}</td>
             <td>${escHtml(m.phone || '-')}</td>
+            <td>${escHtml(m.org_email || '-')}</td>
             <td>${fmtD(m.created_at)}</td>
             <td>${m.consent_required_at ? '필수 ' + fmtD(m.consent_required_at) + (m.consent_optional_at ? ' / 선택 ' + fmtD(m.consent_optional_at) : '') : '<strong>동의 기록 없음</strong>'}</td>
           </tr>`
         )
-        .join('') || '<tr><td colspan="7">아직 가입한 회원이 없습니다.</td></tr>';
+        .join('') || '<tr><td colspan="9">아직 가입한 회원이 없습니다.</td></tr>';
     }
 
     async function loadAdminNotes() {
