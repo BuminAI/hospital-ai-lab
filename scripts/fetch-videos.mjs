@@ -24,7 +24,8 @@ const KEYWORD_QUERIES = [
   '의료 AI 실무',
   '챗GPT 의료',
 ];
-const CLAUDE_QUERIES = ['클로드 AI', 'Claude AI', '클로드 코드', 'Claude Code', '클로드 코워크'];
+// 한국어 영상을 얻기 위해 한국어 검색어만 사용한다 (독자가 한국 병원 종사자)
+const CLAUDE_QUERIES = ['클로드 AI', '클로드 코드', '클로드 코워크', '클로드 인공지능', '클로드 사용법'];
 
 // 최근 1개월 업로드 필터 (YouTube search "이번 달")
 const THIS_MONTH = '&sp=EgIIBA%253D%253D';
@@ -90,7 +91,9 @@ function walkVideos(node, out) {
 }
 
 async function search(query, thisMonth) {
-  const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}${thisMonth ? THIS_MONTH : ''}`;
+  // gl=KR&hl=ko: 실행 서버(미국 GitHub 러너 등) 위치와 무관하게 한국 지역·한국어
+  // 검색 결과를 강제한다. Accept-Language 헤더만으로는 부족하다.
+  const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}&gl=KR&hl=ko${thisMonth ? THIS_MONTH : ''}`;
   const res = await fetchRetry(url, { headers: HEADERS });
   const html = await res.text();
   const m = /var ytInitialData = (\{.*?\});<\/script>/s.exec(html);
@@ -152,6 +155,7 @@ async function collectClaude() {
       if (seen.has(it.videoId)) continue;
       if (it.views < 50000) continue;
       if (!CLAUDE.test(it.title)) continue;
+      if (!/[가-힣]/.test(it.title)) continue; // 한국어 영상만
       if (SCAM.test(it.title) || CLICKBAIT.test(it.title)) continue;
       seen.set(it.videoId, it);
     }
@@ -200,13 +204,13 @@ async function main() {
   }
 
   const vKeyword = await verifyPool(keyword, 8); // 키워드 영상은 이미 한국어·의료 관련
-  const vClaude = await verifyPool(claude, 12);
-  // 클로드 폴백은 한국어 제목을 앞에 (독자 접근성)
+  const vClaude = await verifyPool(claude, 14);
+  // 클로드 폴백은 실제 제목(oEmbed)에도 한글이 있는 한국어 영상만 채택한다.
+  // (외국어 영상은 독자가 이해하기 어려우므로, 5개를 못 채우더라도 넣지 않는다)
   const koClaude = vClaude.filter((v) => hasKo(v.title));
-  const enClaude = vClaude.filter((v) => !hasKo(v.title));
 
   const now = new Date().toISOString();
-  const ordered = [...vKeyword, ...koClaude, ...enClaude];
+  const ordered = [...vKeyword, ...koClaude];
   const seenAuto = new Set();
   const auto = [];
   for (const v of ordered) {
