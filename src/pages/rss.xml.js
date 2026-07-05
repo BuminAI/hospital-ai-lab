@@ -10,6 +10,9 @@ export async function GET(context) {
   return rss({
     title: SITE_TITLE,
     description: SITE_TAGLINE,
+    // 브라우저에서 열면 원본 XML 대신 안내 페이지로 보이도록 XSL 스타일시트 지정.
+    // RSS 리더는 이 스타일시트를 무시하고 정상적으로 구독한다.
+    stylesheet: `${BASE}/rss-styles.xsl`,
     // 채널 링크에도 base(하위 경로)를 포함시킨다.
     site: new URL(`${BASE}/`, context.site).href,
     items: posts.map((post) => ({
