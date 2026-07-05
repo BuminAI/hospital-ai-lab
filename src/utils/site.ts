@@ -29,8 +29,11 @@ export function formatDate(date: Date): string {
 export const NAVER_SITE_VERIFICATION = 'f98a7fd2869d359cbadc089f5403db28d5cadd70';
 
 // ── 방문자 통계 (GoatCounter) ────────────────────────────────
-// goatcounter.com 가입 시 정한 코드를 넣으면 전 페이지에 집계 스크립트가 붙는다.
+// goatcounter.com 가입 시 정한 코드를 넣으면 전 페이지에 집계 스크립트가 붙고,
+// 블로그 카드에 글별 조회수도 표시된다(공개 카운터 API, 인증 불필요).
 // 예: 코드가 'hospital-ai-lab'이면 대시보드는 https://hospital-ai-lab.goatcounter.com
+// 필수: GoatCounter 사이트 설정에서 "Allow using the visitor counter"를 켜야
+// 조회수 API(/counter/*.json)가 동작한다 (기본값은 꺼짐).
 export const GOATCOUNTER_CODE = '';
 
 // ── 회원 기능 (Supabase) ─────────────────────────────────────

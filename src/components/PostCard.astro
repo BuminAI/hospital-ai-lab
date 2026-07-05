@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { withBase, formatDate } from '../utils/site';
+import { withBase, formatDate, GOATCOUNTER_CODE } from '../utils/site';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -18,12 +18,41 @@ const Heading = headingLevel;
     <time datetime={post.data.pubDate.toISOString()}>
       {formatDate(post.data.pubDate)}
     </time>
+    {
+      GOATCOUNTER_CODE && (
+        <span class="views" data-view-path={withBase(`/blog/${post.id}/`)} hidden />
+      )
+    }
   </div>
   <Heading class="title">
     <a href={withBase(`/blog/${post.id}/`)}>{post.data.title}</a>
   </Heading>
   <p class="description">{post.data.description}</p>
 </article>
+
+<script define:vars={{ GOATCOUNTER_CODE }}>
+  // GoatCounter 공개 조회수 배지 API(/counter/<path>.json, 인증 불필요, CORS 허용).
+  // 컴포넌트가 카드마다 반복돼도 Astro가 스크립트를 페이지당 한 번만 실행한다.
+  if (GOATCOUNTER_CODE) {
+    document.querySelectorAll('.views[data-view-path]').forEach(async (el) => {
+      try {
+        const path = el.getAttribute('data-view-path');
+        // 경로 전체(선행 슬래시 포함)를 인코딩해서 붙인다 — GoatCounter 실사용
+        // 사례에서 검증된 형식: /counter/<encodeURIComponent(경로)>.json
+        const res = await fetch(
+          `https://${GOATCOUNTER_CODE}.goatcounter.com/counter/${encodeURIComponent(path)}.json`
+        );
+        // 집계 이력이 없는 경로는 404를 주지만 본문은 여전히 유효한 JSON({"count":"0"})이다.
+        const data = await res.json();
+        const n = Number(data.count || 0);
+        el.textContent = `· 조회 ${n.toLocaleString('ko-KR')}회`;
+        el.hidden = false;
+      } catch {
+        // 통계 서비스 연결 전이거나 실패 시 조용히 숨김 유지 (레이아웃 깨짐 방지)
+      }
+    });
+  }
+</script>
 
 <style>
   .post-card {
@@ -35,9 +64,13 @@ const Heading = headingLevel;
   .meta {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     font-size: 0.875rem;
     color: var(--color-muted);
+  }
+
+  .views {
+    white-space: nowrap;
   }
 
   .title {
