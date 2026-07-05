@@ -8,6 +8,7 @@ import {
 } from '../utils/site';
 
 const privacyUrl = withBase('/privacy/');
+const signupUrl = withBase('/signup/');
 ---
 
 <BaseLayout title="로그인" description="병원 AI 연구소 회원 로그인" noindex>
@@ -20,38 +21,88 @@ const privacyUrl = withBase('/privacy/');
       !SUPABASE_URL ? (
         <p class="empty">회원 기능은 준비 중입니다. 조금만 기다려 주세요.</p>
       ) : (
-        <div class="member-form">
-          <div id="login-area">
+        <div class="auth">
+          {/* 로딩 중 */}
+          <p class="loading" id="auth-loading">불러오는 중…</p>
+
+          {/* 이미 로그인된 상태 */}
+          <div id="logged-in" class="auth-card" hidden>
+            <h2>이미 로그인되어 있습니다</h2>
+            <p class="who" id="li-who" />
+            <div class="row">
+              <a class="btn full" href={withBase('/notes/')}>강의노트 보기</a>
+              <button class="btn ghost full" id="li-logout" type="button">로그아웃</button>
+            </div>
+          </div>
+
+          {/* 로그인 폼 */}
+          <div id="login-area" class="auth-card" hidden>
             <form id="login-form" novalidate>
-              <label>이메일<input type="email" id="l-email" autocomplete="email" required /></label>
-              <label>비밀번호<input type="password" id="l-password" autocomplete="current-password" required /></label>
-              <button class="btn" type="submit" id="l-submit">로그인</button>
-              <p class="hint" id="l-status"></p>
+              <label>이메일
+                <input type="email" id="l-email" autocomplete="email" placeholder="you@example.com" required />
+              </label>
+              <label>비밀번호
+                <span class="pw-wrap">
+                  <input type="password" id="l-password" autocomplete="current-password" required />
+                  <button type="button" class="pw-toggle" id="l-pw-toggle">보기</button>
+                </span>
+              </label>
+              <button class="btn full" type="submit" id="l-submit">로그인</button>
+              <p class="status" id="l-status" />
+              <p class="hint resend" id="l-resend-wrap" hidden>
+                메일이 오지 않았나요? <a href="#" id="l-resend">인증 메일 다시 보내기</a>
+              </p>
             </form>
 
             <div class="divider"><span>또는</span></div>
 
             <div class="oauth-buttons">
-              <button type="button" class="btn oauth google" id="oauth-google">Google로 로그인</button>
-              <button type="button" class="btn oauth kakao" id="oauth-kakao">카카오로 로그인</button>
+              <button type="button" class="btn oauth google" id="oauth-google">
+                <svg viewBox="0 0 18 18" width="18" height="18" aria-hidden="true">
+                  <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z" />
+                  <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z" />
+                  <path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z" />
+                  <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.47.9 11.43 0 9 0A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z" />
+                </svg>
+                Google로 계속하기
+              </button>
+              <button type="button" class="btn oauth kakao" id="oauth-kakao">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path fill="#191600" d="M12 3C6.9 3 3 6.3 3 10.3c0 2.6 1.7 4.9 4.3 6.2-.2.7-.7 2.5-.8 2.9 0 0 0 .3.2.3.1.1.3 0 .3 0 .4-.1 2.6-1.7 3.5-2.4.4 0 .9.1 1.2.1 5.1 0 9-3.3 9-7.3S17.1 3 12 3z" />
+                </svg>
+                카카오로 계속하기
+              </button>
             </div>
 
-            <p class="hint">
-              <a href="#" id="l-reset">비밀번호를 잊으셨나요?</a> ·
-              <a href={withBase('/signup/')}>회원가입</a>
+            <p class="foot">
+              <a href="#" id="l-reset">비밀번호를 잊으셨나요?</a>
+              <span aria-hidden="true">·</span>
+              <a href={signupUrl}>회원가입</a>
             </p>
           </div>
 
-          <form id="recovery-form" hidden>
+          {/* 비밀번호 재설정(메일 링크로 진입) */}
+          <form id="recovery-form" class="auth-card" hidden>
             <h2>새 비밀번호 설정</h2>
-            <label>새 비밀번호 (8자 이상)<input type="password" id="r-password" autocomplete="new-password" minlength="8" /></label>
-            <button class="btn" type="submit">변경</button>
-            <p class="hint" id="r-status"></p>
+            <label>새 비밀번호 (8자 이상)
+              <span class="pw-wrap">
+                <input type="password" id="r-password" autocomplete="new-password" minlength="8" />
+                <button type="button" class="pw-toggle" id="r-pw-toggle">보기</button>
+              </span>
+            </label>
+            <button class="btn full" type="submit">비밀번호 변경</button>
+            <p class="status" id="r-status" />
           </form>
 
-          <div id="oauth-consent" class="consent-panel" hidden>
-            <h2>처음 로그인하셨네요</h2>
+          {/* 구글·카카오 최초 로그인 동의 */}
+          <div id="oauth-consent" class="auth-card" hidden>
+            <h2>처음 오셨네요 👋</h2>
             <p class="hint">강의노트를 보시려면 아래 동의가 필요합니다.</p>
+            <label class="check">
+              <input type="checkbox" id="oc-all" />
+              <span><strong>전체 동의</strong></span>
+            </label>
+            <hr class="consent-divider" />
             <label class="check">
               <input type="checkbox" id="oc-age" />
               <span>[필수] 만 14세 이상입니다.</span>
@@ -61,15 +112,14 @@ const privacyUrl = withBase('/privacy/');
               <span>
                 [필수] 개인정보 수집·이용에 동의합니다.
                 <span class="small">
-                  (항목: 이름, 이메일 / 목적: 회원 관리, 회원 전용 콘텐츠 제공
-                  / 보유: 탈퇴 시까지 / 동의를 거부할 권리가 있으나, 거부 시
-                  이용이 불가합니다 —
-                  <a href={privacyUrl} target="_blank">처리방침 전문</a>)
+                  (항목: 이름, 이메일 / 목적: 회원 관리, 회원 전용 콘텐츠 제공 /
+                  보유: 탈퇴 시까지 / 동의를 거부할 권리가 있으나, 거부 시 이용이
+                  불가합니다 — <a href={privacyUrl} target="_blank">처리방침 전문</a>)
                 </span>
               </span>
             </label>
-            <button class="btn" id="oc-submit">동의하고 계속하기</button>
-            <p class="hint" id="oc-status"></p>
+            <button class="btn full" id="oc-submit" type="button">동의하고 계속하기</button>
+            <p class="status" id="oc-status" />
           </div>
         </div>
       )
@@ -91,7 +141,49 @@ const privacyUrl = withBase('/privacy/');
     const notesUrl = new URL('../notes/', location.href).pathname;
     const loginUrl = new URL('../login/', location.href).href;
 
-    // 프로필의 동의 기록 여부만 확인한다 (없음/있음만 판단, 값 자체는 서버 트리거·RPC 전용)
+    const show = (id) => {
+      ['auth-loading', 'logged-in', 'login-area', 'recovery-form', 'oauth-consent'].forEach(
+        (x) => ($(x).hidden = x !== id)
+      );
+    };
+
+    // 비밀번호 표시/숨김 토글
+    function bindToggle(btnId, inputId) {
+      $(btnId).addEventListener('click', () => {
+        const inp = $(inputId);
+        const showing = inp.type === 'text';
+        inp.type = showing ? 'password' : 'text';
+        $(btnId).textContent = showing ? '보기' : '숨기기';
+      });
+    }
+    bindToggle('l-pw-toggle', 'l-password');
+    bindToggle('r-pw-toggle', 'r-password');
+
+    // 실제로 켜져 있는 소셜 로그인만 활성화한다.
+    // Supabase 설정에서 카카오를 켜면 코드 수정 없이 자동으로 버튼이 살아난다.
+    async function applyProviderState() {
+      try {
+        const res = await fetch(`${SUPABASE_URL}/auth/v1/settings`, {
+          headers: { apikey: SUPABASE_ANON_KEY },
+        });
+        const ext = (await res.json()).external || {};
+        [
+          ['oauth-google', 'google'],
+          ['oauth-kakao', 'kakao'],
+        ].forEach(([id, key]) => {
+          if (!ext[key]) {
+            const b = $(id);
+            b.disabled = true;
+            b.classList.add('soon');
+            b.append(document.createTextNode(' (준비 중)'));
+          }
+        });
+      } catch {
+        /* 설정 조회 실패 시 버튼은 그대로 두고 클릭 시 안내 */
+      }
+    }
+
+    // 프로필의 동의 기록 여부 확인
     async function getConsentStatus(userId) {
       const { data, error } = await sb
         .from('profiles')
@@ -102,29 +194,34 @@ const privacyUrl = withBase('/privacy/');
       return !!(data && data.consent_required_at);
     }
 
-    // 이메일/비밀번호 로그인 또는 구글·카카오 인증 성공 후 공통으로 거치는 관문.
-    // 동의 기록이 있으면 강의노트로, 없으면(=구글·카카오 최초 로그인) 동의 화면을 보여준다.
-    async function afterAuth(userId) {
-      const consented = await getConsentStatus(userId);
-      if (consented) {
-        location.href = notesUrl;
-        return;
-      }
-      $('login-area').hidden = true;
-      $('oauth-consent').hidden = false;
+    function showLoggedIn(session) {
+      const name = session.user.user_metadata?.name || session.user.email;
+      $('li-who').textContent = `${name} 님으로 로그인됨`;
+      show('logged-in');
     }
 
-    // 비밀번호 재설정 메일로 들어온 경우
-    sb.auth.onAuthStateChange((event) => {
-      if (event === 'PASSWORD_RECOVERY') {
-        $('recovery-form').hidden = false;
-        $('login-area').hidden = true;
+    // 로그인·인증 성공 후 공통 관문
+    async function afterAuth(session, { redirect }) {
+      const consented = await getConsentStatus(session.user.id);
+      if (consented) {
+        if (redirect) location.href = notesUrl;
+        else showLoggedIn(session);
+        return;
       }
+      show('oauth-consent');
+    }
+
+    // 비밀번호 재설정 메일로 진입한 경우
+    sb.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') show('recovery-form');
     });
 
+    // ── 이메일/비밀번호 로그인 ──
     $('login-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const status = $('l-status');
+      $('l-resend-wrap').hidden = true;
+      status.className = 'status';
       try {
         status.textContent = '로그인 중…';
         $('l-submit').disabled = true;
@@ -132,25 +229,41 @@ const privacyUrl = withBase('/privacy/');
           email: $('l-email').value.trim(),
           password: $('l-password').value,
         });
-        if (error)
-          throw new Error(
-            /confirm/i.test(error.message)
-              ? '이메일 인증이 아직 안 됐습니다. 가입 확인 메일의 링크를 먼저 눌러 주세요.'
-              : '이메일 또는 비밀번호가 올바르지 않습니다.'
-          );
-        status.textContent = '로그인 성공 — 확인 중…';
-        await afterAuth(data.user.id);
+        if (error) {
+          if (/confirm|not confirmed/i.test(error.message)) {
+            $('l-resend-wrap').hidden = false;
+            throw new Error('이메일 인증이 아직 안 됐습니다. 가입 확인 메일의 링크를 먼저 눌러 주세요.');
+          }
+          throw new Error('이메일 또는 비밀번호가 올바르지 않습니다.');
+        }
+        status.textContent = '로그인 성공 — 이동 중…';
+        await afterAuth(data.session, { redirect: true });
       } catch (err) {
+        status.className = 'status err';
         status.textContent = err.message;
       } finally {
         $('l-submit').disabled = false;
       }
     });
 
+    // ── 인증 메일 재발송 ──
+    $('l-resend').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const email = $('l-email').value.trim();
+      if (!email) return;
+      const { error } = await sb.auth.resend({ type: 'signup', email });
+      $('l-status').className = 'status';
+      $('l-status').textContent = error
+        ? `재발송 실패: ${error.message}`
+        : '인증 메일을 다시 보냈습니다. 메일함(스팸함 포함)을 확인해 주세요.';
+    });
+
+    // ── 비밀번호 재설정 메일 요청 ──
     $('l-reset').addEventListener('click', async (e) => {
       e.preventDefault();
       const email = $('l-email').value.trim();
       const status = $('l-status');
+      status.className = 'status';
       if (!email) {
         status.textContent = '이메일을 먼저 입력한 뒤 다시 눌러 주세요.';
         return;
@@ -158,43 +271,75 @@ const privacyUrl = withBase('/privacy/');
       const { error } = await sb.auth.resetPasswordForEmail(email, {
         redirectTo: location.origin + location.pathname,
       });
-      status.textContent = error ? `재설정 메일 발송 실패: ${error.message}` : '비밀번호 재설정 메일을 보냈습니다.';
+      status.textContent = error
+        ? `재설정 메일 발송 실패: ${error.message}`
+        : '비밀번호 재설정 메일을 보냈습니다. 메일함을 확인해 주세요.';
     });
 
+    // ── 새 비밀번호 저장 ──
     $('recovery-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const status = $('r-status');
       const pw = $('r-password').value;
+      status.className = 'status';
       if (pw.length < 8) {
+        status.className = 'status err';
         status.textContent = '비밀번호는 8자 이상이어야 합니다.';
         return;
       }
       const { error } = await sb.auth.updateUser({ password: pw });
       if (error) {
+        status.className = 'status err';
         status.textContent = `변경 실패: ${error.message}`;
         return;
       }
-      // 안내 문구("다시 로그인해 주세요")와 실제 상태를 일치시키기 위해 로그아웃
       await sb.auth.signOut();
       status.textContent = '비밀번호가 변경됐습니다. 다시 로그인해 주세요.';
       setTimeout(() => location.reload(), 1500);
     });
 
-    async function startOAuth(provider) {
+    // ── 구글·카카오 로그인 ──
+    async function startOAuth(provider, label) {
       const status = $('l-status');
-      status.textContent = `${provider === 'google' ? 'Google' : '카카오'}로 이동합니다…`;
+      status.className = 'status';
+      status.textContent = `${label}(으)로 이동합니다…`;
       const { error } = await sb.auth.signInWithOAuth({
         provider,
         options: { redirectTo: loginUrl },
       });
-      if (error) status.textContent = `로그인 실패: ${error.message}`;
+      if (error) {
+        status.className = 'status err';
+        if (/not enabled|unsupported provider/i.test(error.message)) {
+          status.textContent = `${label} 로그인은 아직 준비 중입니다. 이메일 또는 다른 방법으로 로그인해 주세요.`;
+        } else {
+          status.textContent = `로그인 실패: ${error.message}`;
+        }
+      }
     }
-    $('oauth-google').addEventListener('click', () => startOAuth('google'));
-    $('oauth-kakao').addEventListener('click', () => startOAuth('kakao'));
+    $('oauth-google').addEventListener('click', () => startOAuth('google', 'Google'));
+    $('oauth-kakao').addEventListener('click', () => startOAuth('kakao', '카카오'));
 
+    // ── 로그아웃 ──
+    $('li-logout').addEventListener('click', async () => {
+      await sb.auth.signOut();
+      location.reload();
+    });
+
+    // ── OAuth 최초 동의 ──
+    const ocSubs = [$('oc-age'), $('oc-consent')];
+    $('oc-all').addEventListener('change', (e) => {
+      ocSubs.forEach((c) => (c.checked = e.target.checked));
+    });
+    ocSubs.forEach((c) =>
+      c.addEventListener('change', () => {
+        $('oc-all').checked = ocSubs.every((s) => s.checked);
+      })
+    );
     $('oc-submit').addEventListener('click', async () => {
       const status = $('oc-status');
+      status.className = 'status';
       if (!$('oc-age').checked || !$('oc-consent').checked) {
+        status.className = 'status err';
         status.textContent = '필수 항목에 모두 체크해 주세요.';
         return;
       }
@@ -203,30 +348,48 @@ const privacyUrl = withBase('/privacy/');
         p_policy_version: PRIVACY_POLICY_VERSION,
       });
       if (error) {
+        status.className = 'status err';
         status.textContent = `오류: ${error.message}`;
         return;
       }
       location.href = notesUrl;
     });
 
-    // 구글·카카오 인증에서 돌아온 경우(또는 세션이 남아 있는 경우) 자동으로 관문 통과
-    const {
-      data: { session },
-    } = await sb.auth.getSession();
-    if (session) {
-      try {
-        await afterAuth(session.user.id);
-      } catch (err) {
-        $('l-status').textContent = err.message;
-      }
+    // ── 초기 상태 판별 ──
+    await applyProviderState();
+    try {
+      const {
+        data: { session },
+      } = await sb.auth.getSession();
+      if (session) await afterAuth(session, { redirect: false });
+      else show('login-area');
+    } catch (err) {
+      show('login-area');
+      $('l-status').className = 'status err';
+      $('l-status').textContent = err.message;
     }
   })();
 </script>
 
 <style>
-  .member-form {
-    max-width: 26rem;
+  .auth {
+    max-width: 24rem;
+    margin-top: 1rem;
     padding-bottom: 2rem;
+  }
+
+  .loading {
+    color: var(--color-muted);
+  }
+
+  .auth-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+  }
+
+  .auth-card + .auth-card {
+    margin-top: 1rem;
   }
 
   form {
@@ -246,28 +409,85 @@ const privacyUrl = withBase('/privacy/');
     width: 100%;
     margin-top: 0.35rem;
     font: inherit;
+    color: var(--color-text);
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    padding: 0.55rem 0.75rem;
+    padding: 0.6rem 0.75rem;
   }
 
-  .btn {
-    align-self: flex-start;
+  input:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+  }
+
+  .pw-wrap {
+    position: relative;
+    display: block;
+    margin-top: 0.35rem;
+  }
+
+  .pw-wrap input {
+    margin-top: 0;
+    padding-right: 3.5rem;
+  }
+
+  .pw-toggle {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .pw-toggle:hover {
+    color: var(--color-primary);
+  }
+
+  .btn.full {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .btn.ghost {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn.ghost:hover {
+    border-color: var(--color-primary);
+  }
+
+  .status {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin: 0;
+    min-height: 1.2em;
+  }
+
+  .status.err {
+    color: #b3261e;
   }
 
   .hint {
-    margin-top: 1rem;
     font-size: 0.875rem;
     color: var(--color-muted);
   }
 
-  #recovery-form h2,
-  #oauth-consent h2 {
-    font-size: 1.1rem;
-  }
-
-  .empty {
-    color: var(--color-muted);
+  .resend a,
+  .foot a {
+    font-weight: 600;
   }
 
   .divider {
@@ -290,33 +510,74 @@ const privacyUrl = withBase('/privacy/');
   .oauth-buttons {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.6rem;
   }
 
   .btn.oauth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
     background: var(--color-bg);
-    color: var(--color-text);
+    color: #191600;
     border: 1px solid var(--color-border);
-    text-align: center;
+    font-weight: 600;
   }
 
   .btn.oauth:hover {
-    border-color: var(--color-primary);
+    border-color: #b9c2cc;
+    background: var(--color-surface);
   }
 
   .btn.oauth.kakao {
     background: #fee500;
     border-color: #fee500;
-    color: #191600;
   }
 
-  .consent-panel {
+  .btn.oauth.kakao:hover {
+    background: #f2d900;
+    border-color: #f2d900;
+  }
+
+  .btn.oauth.soon {
+    opacity: 0.5;
+    cursor: default;
+    background: var(--color-surface);
+    color: var(--color-muted);
+    border-color: var(--color-border);
+  }
+
+  .foot {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .who {
+    color: var(--color-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  #logged-in h2,
+  #oauth-consent h2,
+  #recovery-form h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  #logged-in .row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  #oauth-consent {
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
-    background: var(--color-surface);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.4rem;
   }
 
   .check {
@@ -333,8 +594,18 @@ const privacyUrl = withBase('/privacy/');
     margin-top: 0.3rem;
   }
 
+  .consent-divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 0;
+  }
+
   .small {
     font-weight: 400;
     font-size: 0.8rem;
+  }
+
+  .empty {
+    color: var(--color-muted);
   }
 </style>

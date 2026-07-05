@@ -120,6 +120,24 @@ import {
     $('oauth-google').addEventListener('click', () => startOAuth('google'));
     $('oauth-kakao').addEventListener('click', () => startOAuth('kakao'));
 
+    // 실제로 켜져 있는 소셜 로그인만 활성화 (Supabase 설정 자동 반영)
+    (async () => {
+      try {
+        const res = await fetch(`${SUPABASE_URL}/auth/v1/settings`, {
+          headers: { apikey: SUPABASE_ANON_KEY },
+        });
+        const ext = (await res.json()).external || {};
+        [['oauth-google', 'google'], ['oauth-kakao', 'kakao']].forEach(([id, key]) => {
+          if (!ext[key]) {
+            const b = $(id);
+            b.disabled = true;
+            b.classList.add('soon');
+            b.append(document.createTextNode(' (준비 중)'));
+          }
+        });
+      } catch {}
+    })();
+
     // 전체 동의: 누르면 하위 항목을 모두 같은 상태로, 하위 항목을 개별
     // 조작하면 전체 동의 체크 상태를 다시 계산한다 (표준 "전체 동의" UX)
     const subChecks = [$('c-age'), $('c-required'), $('c-optional')];
@@ -221,6 +239,14 @@ import {
     background: #fee500;
     border-color: #fee500;
     color: #191600;
+  }
+
+  .btn.oauth.soon {
+    opacity: 0.5;
+    cursor: default;
+    background: var(--color-surface);
+    color: var(--color-muted);
+    border-color: var(--color-border);
   }
 
   .divider {
