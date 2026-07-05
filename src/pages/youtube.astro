@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
+---
+
+<BaseLayout
+  title="유튜브 강의"
+  description="병원 AI 연구소의 연구와 AI 활용법을 영상 강의로도 나눕니다. 유튜브 채널을 안내합니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>유튜브 강의</h1>
+      <p class="lead">
+        연구 내용과 병원 실무에서 쓸 수 있는 AI 활용법을 영상 강의로도 나누려
+        합니다.
+      </p>
+    </header>
+
+    <div class="channel-card">
+      <span class="chip">준비 중</span>
+      <h2>첫 강의 영상을 준비하고 있습니다</h2>
+      <p>
+        아직 영상 제작 전입니다. 채널을 미리 구독해 두시면 첫 영상이 올라올 때
+        바로 확인하실 수 있습니다.
+      </p>
+      <a class="btn" href={CHANNEL_URL} target="_blank" rel="noopener">
+        유튜브 채널 바로가기
+      </a>
+      <p class="url">{CHANNEL_URL}</p>
+    </div>
+
+    <section class="note">
+      <p>
+        새 영상 소식은 블로그의 <strong>소식</strong> 카테고리와 RSS로도 함께
+        전할 예정입니다.
+      </p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .channel-card {
+    margin-top: 1.5rem;
+    max-width: var(--prose-width);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2.5rem 2.25rem;
+    text-align: center;
+  }
+
+  .channel-card h2 {
+    margin-top: 1rem;
+    font-size: 1.35rem;
+  }
+
+  .channel-card p {
+    margin-top: 0.75rem;
+    color: var(--color-muted);
+  }
+
+  .channel-card .btn {
+    margin-top: 1.75rem;
+  }
+
+  .url {
+    font-size: 0.875rem;
+    word-break: break-all;
+  }
+
+  .note {
+    margin-top: 2.5rem;
+    max-width: var(--prose-width);
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+</style>
