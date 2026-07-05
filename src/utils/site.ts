@@ -34,7 +34,7 @@ export const NAVER_SITE_VERIFICATION = 'f98a7fd2869d359cbadc089f5403db28d5cadd70
 // 예: 코드가 'hospital-ai-lab'이면 대시보드는 https://hospital-ai-lab.goatcounter.com
 // 필수: GoatCounter 사이트 설정에서 "Allow using the visitor counter"를 켜야
 // 조회수 API(/counter/*.json)가 동작한다 (기본값은 꺼짐).
-export const GOATCOUNTER_CODE = '';
+export const GOATCOUNTER_CODE = 'hospital-ai-lab';
 
 // ── 회원 기능 (Supabase) ─────────────────────────────────────
 // Supabase 프로젝트를 만든 뒤 Project Settings → API의 URL과 anon public 키를 넣는다.
