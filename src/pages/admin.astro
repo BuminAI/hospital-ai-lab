@@ -142,7 +142,10 @@ import {
       <p class="section-desc">
         "추천 영상" 페이지에 넣을 유튜브 영상입니다. ① 유튜브 링크를
         붙여넣으면 아래에 썸네일이 미리 보입니다. ② 영상 제목을 적고 ③ "추가"를
-        누르면 됩니다.
+        누르면 됩니다.<br />
+        <strong>매주 수요일</strong> 자동으로 최신 영상을 검색해 <span class="chip auto">자동</span>
+        영상을 새로 채웁니다. 여기서 직접 추가한 <span class="chip">수동</span> 영상은
+        자동 갱신 때 지워지지 않고 그대로 유지됩니다.
       </p>
       <div class="form-grid">
         <label>① 유튜브 링크
@@ -729,7 +732,7 @@ import {
         <div class="post-row">
           <span class="post-title">
             <img class="thumb-sm" src="https://img.youtube.com/vi/${esc(v.videoId)}/default.jpg" alt="" />
-            ${esc(v.title)}
+            ${v.source === 'manual' ? '<span class="chip">수동</span> ' : '<span class="chip auto">자동</span> '}${esc(v.title)}
           </span>
           <span class="post-actions">
             <a class="btn ghost" href="${esc(v.url)}" target="_blank" rel="noopener">보기</a>
@@ -773,7 +776,8 @@ import {
     status.textContent = '저장 중…';
     try {
       const { sha, videos } = await loadVideosFile();
-      videos.unshift({ videoId, title, url, addedAt: new Date().toISOString() });
+      // source:"manual" — 매주 수요일 자동 갱신 때 삭제되지 않고 보존된다
+      videos.unshift({ videoId, title, url, source: 'manual', addedAt: new Date().toISOString() });
       await saveVideos(videos, sha, `수정: 추천 영상 추가 - ${title}`);
       status.textContent = '저장됨 — 1~2분 후 사이트에 반영됩니다.';
       $('video-url').value = '';
@@ -1117,6 +1121,11 @@ import {
     border-radius: 4px;
     vertical-align: middle;
     margin-right: 0.5rem;
+  }
+
+  .chip.auto {
+    background: #eef4fa;
+    color: #0b5394;
   }
 
   .video-preview {

@@ -1,0 +1,58 @@
+name: Update Recommended Videos
+
+on:
+  schedule:
+    # 매주 수요일 KST 09:00 (= UTC 수요일 00:00). GitHub cron은 UTC 기준이며 수 분 지연될 수 있다.
+    - cron: '0 0 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# 배포 워크플로(deploy.yml)와 같은 그룹으로 묶어 동시 배포 충돌을 막는다
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 실패해도(유튜브 일시 차단 등) 워크플로 전체가 멈추지 않도록: 수집 실패 시
+      # 기존 목록을 그대로 두고 다음 단계로 넘어간다.
+      - name: 추천 영상 수집 (수동 항목 보존)
+        run: node scripts/fetch-videos.mjs || echo "수집 건너뜀(기존 목록 유지)"
+
+      - name: recommended-videos.json 커밋
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/recommended-videos.json
+          git diff --cached --quiet || git commit -m "유지보수: 추천 영상 자동 업데이트"
+          git push
+
+      # 봇 커밋은 deploy.yml을 트리거하지 못하므로(GitHub 재귀 방지)
+      # 이 워크플로가 직접 빌드·배포까지 수행한다.
+      - name: Astro 빌드
+        uses: withastro/action@v3
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages 배포
+        id: deployment
+        uses: actions/deploy-pages@v4
