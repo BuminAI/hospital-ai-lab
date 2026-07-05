@@ -43,5 +43,10 @@ const { site, base } = resolveSiteAndBase();
 export default defineConfig({
   site,
   base,
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // 관리자 페이지는 검색엔진 사이트맵에서 제외
+      filter: (page) => !page.includes('/admin'),
+    }),
+  ],
 });

@@ -9,14 +9,17 @@ import {
   DISCLAIMER,
   NAVER_SITE_VERIFICATION,
   GOOGLE_SITE_VERIFICATION,
+  GOATCOUNTER_CODE,
 } from '../utils/site';
 
 interface Props {
   title?: string;
   description?: string;
+  /** true면 검색엔진 색인에서 제외 (관리자 페이지 등) */
+  noindex?: boolean;
 }
 
-const { title, description = SITE_TAGLINE } = Astro.props;
+const { title, description = SITE_TAGLINE, noindex = false } = Astro.props;
 const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
 // 디렉터리 URL은 끝 슬래시를 붙여 sitemap과 canonical을 일치시킨다.
 const canonicalPath =
@@ -52,6 +55,7 @@ const year = new Date().getFullYear();
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     {
       NAVER_SITE_VERIFICATION && (
         <meta name="naver-site-verification" content={NAVER_SITE_VERIFICATION} />
@@ -81,6 +85,16 @@ const year = new Date().getFullYear();
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="ko_KR" />
+    {
+      GOATCOUNTER_CODE && !noindex && (
+        <script
+          is:inline
+          async
+          data-goatcounter={`https://${GOATCOUNTER_CODE}.goatcounter.com/count`}
+          src="https://gc.zgo.at/count.js"
+        />
+      )
+    }
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>

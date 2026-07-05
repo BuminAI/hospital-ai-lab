@@ -27,6 +27,11 @@ export function formatDate(date: Date): string {
 // 모든 페이지 <head>에 확인용 메타태그가 자동으로 들어간다. 비우면 출력 안 함.
 // 예: <meta name="naver-site-verification" content="abc123" /> → 'abc123'
 export const NAVER_SITE_VERIFICATION = 'f98a7fd2869d359cbadc089f5403db28d5cadd70';
+
+// ── 방문자 통계 (GoatCounter) ────────────────────────────────
+// goatcounter.com 가입 시 정한 코드를 넣으면 전 페이지에 집계 스크립트가 붙는다.
+// 예: 코드가 'hospital-ai-lab'이면 대시보드는 https://hospital-ai-lab.goatcounter.com
+export const GOATCOUNTER_CODE = '';
 export const GOOGLE_SITE_VERIFICATION = '5zd4BPyIzNe4dZJnx59GxYhFTkVoNQmcRoIJ9YS_f4Q';
 
 export const SITE_TITLE = '병원 AI 연구소';
