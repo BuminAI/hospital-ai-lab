@@ -1,4 +1,4 @@
-export type ResearchIconName = 'chart' | 'scale' | 'shield' | 'clipboard';
+export type ResearchIconName = 'chart' | 'book' | 'users' | 'clipboard';
 
 export interface ResearchArea {
   title: string;
@@ -18,16 +18,18 @@ export const researchAreas: ResearchArea[] = [
     icon: 'chart',
   },
   {
-    title: '의료 자원 배분의 경제학적 접근',
-    short: '경제학적 관점에서 병원의 인력·병상·예산 배분 문제를 데이터로 분석합니다.',
-    full: '경제학적 관점에서 병원의 인력·병상·예산 배분 문제를 데이터로 분석합니다. AI 기반 예측 모델이 실제 자원 배분 결정에 어떻게 기여할 수 있는지 살펴봅니다.',
-    icon: 'scale',
+    title: '병원 AI 교육',
+    short:
+      '코딩 배경이 없는 병원 행정·간호 실무자가 AI를 판단하는 눈을 기르도록 강의노트와 영상으로 돕습니다.',
+    full: '코딩 배경이 없는 병원 행정·간호 실무자를 대상으로, AI 도입을 판단할 수 있는 최소한의 지식을 강의노트와 영상 강의로 전합니다. 제작 기술이 아니라 제안서를 읽고 질문하는 능력을 기르는 데 초점을 둡니다.',
+    icon: 'book',
   },
   {
-    title: '통계적 타당성과 의료 AI',
-    short: '의료 AI 모델의 통계적 타당성을 검증하는 방법을 연구합니다.',
-    full: '의료 AI 모델의 통계적 타당성을 검증하는 방법을 연구합니다. 그럴듯해 보이지만 통계적으로 취약한 AI 활용 사례를 짚어내는 것도 이 분야의 중요한 역할입니다.',
-    icon: 'shield',
+    title: 'AI 연구 협업',
+    short:
+      '병원 현장의 실무자, 통계·경제 연구자들과 함께 의료 AI 연구를 넓혀갈 협업을 찾습니다.',
+    full: '병원 현장의 행정·간호 실무자, 통계학·경제학 연구자들과 함께 의료 AI 연구를 확장할 협업을 찾습니다. 현장의 문제의식과 연구 방법론이 만나는 지점에서 새로운 질문을 함께 만들어가고자 합니다.',
+    icon: 'users',
   },
   {
     title: '병원 기획자를 위한 AI 활용법',
