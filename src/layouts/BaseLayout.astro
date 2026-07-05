@@ -7,6 +7,8 @@ import {
   SITE_TAGLINE,
   CONTACT_EMAIL,
   DISCLAIMER,
+  NAVER_SITE_VERIFICATION,
+  GOOGLE_SITE_VERIFICATION,
 } from '../utils/site';
 
 interface Props {
@@ -48,6 +50,16 @@ const year = new Date().getFullYear();
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {
+      NAVER_SITE_VERIFICATION && (
+        <meta name="naver-site-verification" content={NAVER_SITE_VERIFICATION} />
+      )
+    }
+    {
+      GOOGLE_SITE_VERIFICATION && (
+        <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+      )
+    }
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <link rel="canonical" href={canonical} />
     <link
