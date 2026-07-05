@@ -22,7 +22,15 @@ import {
       !SUPABASE_URL ? (
         <p class="empty">회원 기능은 준비 중입니다. 조금만 기다려 주세요.</p>
       ) : (
-        <form class="member-form" id="signup-form" novalidate>
+        <div class="member-form">
+          <div class="oauth-buttons">
+            <button type="button" class="btn oauth google" id="oauth-google">Google로 계속하기</button>
+            <button type="button" class="btn oauth kakao" id="oauth-kakao">카카오로 계속하기</button>
+          </div>
+          <p class="hint" id="oauth-status"></p>
+          <div class="divider"><span>또는 이메일로 가입</span></div>
+
+        <form id="signup-form" novalidate>
           <label>이름 <span class="req">필수</span><input type="text" id="f-name" autocomplete="name" required /></label>
           <label>이메일 <span class="req">필수</span><input type="email" id="f-email" autocomplete="email" required /></label>
           <label>비밀번호 <span class="req">필수</span> <span class="small">(8자 이상)</span><input type="password" id="f-password" autocomplete="new-password" minlength="8" required /></label>
@@ -75,6 +83,7 @@ import {
           <p class="hint" id="f-status"></p>
           <p class="hint">이미 회원이신가요? <a href={withBase('/login/')}>로그인</a></p>
         </form>
+        </div>
       )
     }
   </div>
@@ -91,6 +100,20 @@ import {
     );
     const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const $ = (id) => document.getElementById(id);
+    const loginUrl = new URL('../login/', location.href).href;
+
+    // 구글·카카오는 로그인 페이지의 관문(동의 확인)으로 돌아가게 한다
+    async function startOAuth(provider) {
+      const status = $('oauth-status');
+      status.textContent = `${provider === 'google' ? 'Google' : '카카오'}로 이동합니다…`;
+      const { error } = await sb.auth.signInWithOAuth({
+        provider,
+        options: { redirectTo: loginUrl },
+      });
+      if (error) status.textContent = `로그인 실패: ${error.message}`;
+    }
+    $('oauth-google').addEventListener('click', () => startOAuth('google'));
+    $('oauth-kakao').addEventListener('click', () => startOAuth('kakao'));
 
     $('signup-form').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -150,11 +173,54 @@ import {
 <style>
   .member-form {
     max-width: 28rem;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  #signup-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 1rem;
-    padding-bottom: 2rem;
+  }
+
+  .oauth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .btn.oauth {
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .btn.oauth:hover {
+    border-color: var(--color-primary);
+  }
+
+  .btn.oauth.kakao {
+    background: #fee500;
+    border-color: #fee500;
+    color: #191600;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
   }
 
   label {

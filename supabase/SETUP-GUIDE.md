@@ -23,6 +23,39 @@
 2. (기본값 확인) **Authentication → Sign In / Up** 에서 Email 로그인이 켜져 있고,
    "Confirm email"이 켜져 있는지 확인 (가입 시 이메일 인증)
 
+## 3-1. (선택) 구글·카카오 로그인 연결
+
+이메일 가입 없이 구글·카카오 계정으로 바로 로그인할 수 있게 합니다. 둘 다
+Supabase가 공식 지원하는 방식입니다. 하나만 켜도 되고 둘 다 켜도 됩니다.
+
+### 구글
+
+1. [Google Cloud Console](https://console.cloud.google.com/apis/credentials) → **사용자 인증 정보 만들기 → OAuth 클라이언트 ID → 웹 애플리케이션**
+2. **승인된 리디렉션 URI**에 Supabase 대시보드 **Authentication → Providers → Google** 화면에 표시된 콜백 URL(`https://xxxx.supabase.co/auth/v1/callback` 형태)을 그대로 붙여넣기
+3. 생성된 **클라이언트 ID**와 **클라이언트 보안 비밀**을 Supabase의 같은 화면(Google Provider)에 입력하고 저장, **Enable Sign in with Google**을 켜기
+
+### 카카오
+
+1. [카카오 디벨로퍼스](https://developers.kakao.com) → **내 애플리케이션 → 애플리케이션 추가**
+2. 생성한 앱의 **앱 설정 → 앱 키**에서 **REST API 키** 복사 (이것이 client_id)
+3. **제품 설정 → 카카오 로그인**에서 활성화 ON, **Redirect URI**에 Supabase Kakao Provider 화면의 콜백 URL(`https://xxxx.supabase.co/auth/v1/callback`) 입력
+4. 같은 화면(카카오 로그인 → 보안)에서 **Client Secret 코드** 생성·활성화 후 복사
+5. **동의항목**에서 닉네임(profile_nickname)과 카카오계정(이메일, account_email)을 "필수 동의" 또는 "선택 동의"로 설정 (이메일을 받아야 회원 관리가 되므로 최소 "선택 동의"는 켜기)
+6. Supabase 대시보드 **Authentication → Providers → Kakao**에 REST API 키(client_id)와 Client Secret 코드(client_secret)를 입력하고 저장, 활성화
+
+> 구글·카카오로 처음 로그인한 사람은 우리 동의 체크박스(가입 폼)를 거치지
+> 않으므로, 로그인 화면이 최초 1회 별도 동의 화면을 자동으로 보여줍니다.
+> 이 동작을 위해 `migrate-oauth.sql`(또는 최신 `setup.sql`)이 DB에
+> 반영되어 있어야 합니다 — 아래 참고.
+
+## 3-2. 이미 setup.sql을 실행했다면 — 마이그레이션 1개 추가 실행
+
+구글·카카오 지원을 위해 `setup.sql`에 함수가 하나 추가됐습니다
+(`record_consent`). setup.sql을 **이미 한 번 실행한 적이 있다면**, 전체를
+다시 실행하지 말고 `migrate-oauth.sql` 내용만 SQL Editor에 붙여넣어
+실행하세요. 아직 한 번도 실행한 적이 없다면 이 단계는 건너뛰어도 됩니다
+(2단계에서 최신 setup.sql을 실행하면 이미 포함되어 있습니다).
+
 ## 4. 관리자 계정 만들기
 
 - 사이트 회원가입 페이지에서 **choyj80@naver.com** 으로 가입 →

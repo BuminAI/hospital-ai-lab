@@ -1,4 +1,4 @@
--- 병원 AI 연구소 회원 기능 초기 설정 (v2 — 보안 검토 반영)
+-- 병원 AI 연구소 회원 기능 초기 설정 (v3 — 구글·카카오 로그인 대응)
 -- Supabase 대시보드 → SQL Editor에 전체를 붙여넣고 Run 하세요. (1회)
 
 -- 관리자 판별: 이 이메일로 로그인한 계정만 관리자 권한을 갖는다.
@@ -40,7 +40,11 @@ create policy "profiles_delete_own_or_admin" on public.profiles
 revoke insert, update on public.profiles from anon, authenticated;
 grant update (name, gender, birth_date, phone) on public.profiles to authenticated;
 
--- 가입 시 서버가 프로필을 생성 (가입 폼의 동의 표시를 서버 시각으로 기록)
+-- 가입 시 서버가 프로필을 생성 (가입 폼의 동의 표시를 서버 시각으로 기록).
+-- 이메일 가입: 폼의 동의 플래그를 그대로 반영해 동의 일시를 즉시 기록한다.
+-- 구글·카카오 로그인: 우리 동의 화면을 거치지 않았으므로 동의 컬럼은 비워
+-- 두고(consent_required_at = null), 로그인 직후 화면에서 record_consent()로
+-- 별도 동의를 받는다. 제공자별로 이름 필드 키가 달라 여러 후보를 순서대로 시도한다.
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
@@ -53,7 +57,13 @@ begin
   )
   values (
     new.id,
-    coalesce(nullif(new.raw_user_meta_data ->> 'name', ''), '(이름 없음)'),
+    coalesce(
+      nullif(new.raw_user_meta_data ->> 'name', ''),
+      nullif(new.raw_user_meta_data ->> 'full_name', ''),
+      nullif(new.raw_user_meta_data ->> 'nickname', ''),
+      nullif(new.email, ''),
+      '(이름 없음)'
+    ),
     nullif(new.raw_user_meta_data ->> 'gender', ''),
     nullif(new.raw_user_meta_data ->> 'birth_date', '')::date,
     nullif(new.raw_user_meta_data ->> 'phone', ''),
@@ -71,6 +81,27 @@ $$;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function public.handle_new_user();
+
+-- 구글·카카오 로그인 최초 진입 시, 로그인 화면에서 동의를 받은 뒤 호출한다.
+-- 서버 시각으로 기록하므로 클라이언트가 동의 일시를 위조할 수 없다.
+-- (선택 항목 동의는 대상이 없음 — 소셜 로그인은 이름·이메일만 수집한다)
+create or replace function public.record_consent(p_policy_version text)
+returns void
+language plpgsql
+security definer set search_path = public
+as $$
+begin
+  if auth.uid() is null then
+    raise exception 'not authenticated';
+  end if;
+  update public.profiles
+  set consent_required_at = coalesce(consent_required_at, now()),
+      policy_version = coalesce(policy_version, p_policy_version)
+  where id = auth.uid();
+end
+$$;
+
+grant execute on function public.record_consent(text) to authenticated;
 
 -- ── 강의노트 (회원 전용 콘텐츠) ──────────────────────────────
 create table public.lecture_notes (
