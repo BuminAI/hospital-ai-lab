@@ -14,7 +14,7 @@ import {
       <h1>회원가입</h1>
       <p class="lead">
         가입하면 회원 전용 <a href={withBase('/notes/')}>강의노트</a>를 볼 수
-        있습니다. 아래 항목은 모두 필수입니다.
+        있습니다. 이름·이메일·비밀번호만 있으면 되고, 나머지는 선택입니다.
       </p>
     </header>
 
@@ -41,19 +41,23 @@ import {
           <label>비밀번호 <span class="req">필수</span> <span class="small">(8자 이상)</span><input type="password" id="f-password" autocomplete="new-password" minlength="8" required /></label>
           <label>비밀번호 확인 <span class="req">필수</span><input type="password" id="f-password2" autocomplete="new-password" required /></label>
 
-          <p class="stat-notice">
-            아래 항목은 방문자 통계 파악 목적으로만 사용됩니다.
-          </p>
-          <label>성별 <span class="req">필수</span>
-            <select id="f-gender" required>
-              <option value="" disabled selected>선택해 주세요</option>
-              <option value="여성">여성</option>
-              <option value="남성">남성</option>
-            </select>
-          </label>
-          <label>생년월일 <span class="req">필수</span><input type="date" id="f-birth" required /></label>
-          <label>휴대폰번호 <span class="req">필수</span><input type="tel" id="f-phone" placeholder="010-0000-0000" autocomplete="tel" required /></label>
-          <label>소속 기관 이메일 <span class="req">필수</span> <span class="small">(로그인 이메일과 달라도 됩니다)</span><input type="email" id="f-org-email" placeholder="예: name@hospital.or.kr" required /></label>
+          <details class="optional-fields">
+            <summary>선택 입력 (방문자 통계 목적)</summary>
+            <p class="stat-notice">
+              아래 항목은 모두 선택입니다. 입력하시면 방문자 통계 파악에만
+              쓰이며, 비워 두셔도 가입과 서비스 이용에 제한이 없습니다.
+            </p>
+            <label>성별 <span class="opt">선택</span>
+              <select id="f-gender">
+                <option value="" selected>선택 안 함</option>
+                <option value="여성">여성</option>
+                <option value="남성">남성</option>
+              </select>
+            </label>
+            <label>생년월일 <span class="opt">선택</span><input type="date" id="f-birth" /></label>
+            <label>휴대폰번호 <span class="opt">선택</span><input type="tel" id="f-phone" placeholder="010-0000-0000" autocomplete="tel" /></label>
+            <label>소속 기관 이메일 <span class="opt">선택</span> <span class="small">(로그인 이메일과 달라도 됩니다)</span><input type="email" id="f-org-email" placeholder="예: name@hospital.or.kr" /></label>
+          </details>
 
           <div class="consents">
             <label class="check all-agree">
@@ -70,12 +74,21 @@ import {
               <span>
                 <strong>[필수]</strong> 개인정보 수집·이용에 동의합니다.
                 <span class="small">
-                  (항목: 이름, 이메일, 비밀번호, 성별, 생년월일, 휴대폰번호,
-                  소속 기관 이메일 /
-                  목적: 회원 관리, 방문자 통계 파악, 회원 전용 콘텐츠 제공 /
-                  보유: 탈퇴 시까지 / 동의를 거부할 권리가 있으나, 거부 시
-                  회원가입이 불가합니다 —
+                  (항목: 이름, 이메일, 비밀번호 / 목적: 회원 관리, 회원 전용
+                  콘텐츠 제공 / 보유: 탈퇴 시까지 / 동의를 거부하면 회원가입이
+                  불가합니다 —
                   <a href={withBase('/privacy/')} target="_blank">처리방침 전문</a>)
+                </span>
+              </span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="c-optional" />
+              <span>
+                <strong>[선택]</strong> 통계 목적의 선택 항목 수집에 동의합니다.
+                <span class="small">
+                  (항목: 성별, 생년월일, 휴대폰번호, 소속 기관 이메일 / 목적:
+                  방문자 통계 파악 / 보유: 탈퇴 시까지 / 동의하지 않아도
+                  회원가입에는 영향이 없으며, 선택 항목은 저장되지 않습니다)
                 </span>
               </span>
             </label>
@@ -134,7 +147,7 @@ import {
 
     // 전체 동의: 누르면 하위 항목을 모두 같은 상태로, 하위 항목을 개별
     // 조작하면 전체 동의 체크 상태를 다시 계산한다 (표준 "전체 동의" UX)
-    const subChecks = [$('c-age'), $('c-required')];
+    const subChecks = [$('c-age'), $('c-required'), $('c-optional')];
     $('c-all').addEventListener('change', (e) => {
       subChecks.forEach((c) => (c.checked = e.target.checked));
     });
@@ -157,28 +170,33 @@ import {
         if (!$('c-age').checked) throw new Error('만 14세 이상 확인에 체크해 주세요.');
         if (!$('c-required').checked) throw new Error('[필수] 개인정보 수집·이용 동의에 체크해 주세요.');
 
+        // 선택 항목: 입력값이 하나라도 있으면 [선택] 동의가 있어야 저장한다.
         const gender = $('f-gender').value;
         const birth = $('f-birth').value;
         const phone = $('f-phone').value.trim();
         const orgEmail = $('f-org-email').value.trim();
-        if (!gender || !birth || !phone || !orgEmail)
-          throw new Error('성별·생년월일·휴대폰번호·소속 기관 이메일을 모두 입력해 주세요.');
+        const hasOptional = !!(gender || birth || phone || orgEmail);
+        if (hasOptional && !$('c-optional').checked)
+          throw new Error('선택 항목을 입력하셨다면 [선택] 동의에 체크하거나, 선택 항목을 비워 주세요.');
+        const sendOptional = hasOptional && $('c-optional').checked;
 
         status.textContent = '가입 처리 중…';
         $('f-submit').disabled = true;
 
-        // 동의 "여부"만 보낸다 — 동의 일시는 서버(DB 트리거)가 서버 시각으로 기록
+        // 동의 "여부"만 보낸다 — 동의 일시는 서버(DB 트리거)가 서버 시각으로 기록.
+        // 선택 항목은 동의가 있을 때만 담아 보낸다(그 외에는 저장하지 않음).
         const { data, error } = await sb.auth.signUp({
           email,
           password: pw,
           options: {
             data: {
               name,
-              gender,
-              birth_date: birth,
-              phone,
-              org_email: orgEmail,
+              gender: sendOptional ? gender || null : null,
+              birth_date: sendOptional ? birth || null : null,
+              phone: sendOptional ? phone || null : null,
+              org_email: sendOptional ? orgEmail || null : null,
               consent_required: true,
+              consent_optional: sendOptional,
               policy_version: PRIVACY_POLICY_VERSION,
             },
           },
@@ -282,8 +300,37 @@ import {
     font-size: 0.75rem;
   }
 
+  .opt {
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .optional-fields {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.5rem 1.1rem 1rem;
+  }
+
+  .optional-fields > summary {
+    cursor: pointer;
+    padding: 0.6rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .optional-fields[open] > summary {
+    margin-bottom: 0.25rem;
+  }
+
+  .optional-fields label {
+    display: block;
+    margin-top: 0.85rem;
+  }
+
   .stat-notice {
-    margin: -0.4rem 0 0;
+    margin: 0.5rem 0 0;
     font-size: 0.8rem;
     color: var(--color-muted);
   }
