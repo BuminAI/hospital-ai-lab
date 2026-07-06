@@ -1,103 +1,187 @@
 {
-  "updatedAt": "2026-07-05T02:49:39.342Z",
-  "windowFrom": "2026-07-04T02:49:39.342Z",
-  "windowTo": "2026-07-05T02:49:39.342Z",
+  "updatedAt": "2026-07-06T12:27:57.599Z",
+  "windowFrom": "2026-07-05T12:27:57.599Z",
+  "windowTo": "2026-07-06T12:27:57.599Z",
   "items": [
     {
-      "title": "양산시, 동남권 의료 AI 허브 발돋움 기반 마련",
-      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9KNkVuRFJ1VVdvYUVndnB1cEtOeGJZdkxjQnpjSE5QejlBS094U0lVNHdPY2NnS3Y0SGlTck8teUpLNDZGajRySjlEYmF5bzV2QThyMVhIbEZVd3l1NjRnUUNhMFpHV3ktdWc?oc=5",
-      "source": "경남도민일보",
-      "pubDate": "2026-07-05T02:08:39.000Z"
+      "title": "전남대병원, 국내 최초 AI·AR 기반 지능형 스마트 병원동행 서비스 구축 > 뉴스",
+      "link": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTFBuLXRreG1tdTdTRENNOHEyd2ZCRDcwRnE4VTRaSWlvd1ZnemFyWXZjUi0xSFdwUkhfTGxSYmRaZ0poTWc?oc=5",
+      "source": "더코리아",
+      "pubDate": "2026-07-06T12:23:00.000Z"
     },
     {
-      "title": "순천향대, 글로컬대학 성과평가 유일한 ‘A’… AI의료융합 선도 입증",
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9hODZVSmU2MWlnQXBHWXlaNUVxeDMtbmFCTVZ4eU5XdFlKcDR3Q3hDczVwOFNiYmt4ckRkd3JYU1JqZ1hmdl9hbUNyUmpwV2x3US1JcmNyS0tZTk4yQ0o0bmZvNXJqYS1EZnAzVmJmemRIVWEtYVpPSVVXQQ?oc=5",
-      "source": "아산뉴스",
-      "pubDate": "2026-07-05T01:16:00.000Z"
+      "title": "가천대 길병원, AI 음성인식 EMR 도입으로 환자 중심 진료 강화",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5NR3p6Um1Eb2h1UHJNNUp4XzJaZ0JVV3JxLWVaYlhEZEN0RkpSMzg4MXBsOEI5MmF5bmxDSzRveEl1eUNKSk5wS0daeFIwOWFsZy0xdE8tX05EVWxsQ3VIYzZydmRpd082RFZVd0JBV0Q?oc=5",
+      "source": "팍스메디컬뉴스",
+      "pubDate": "2026-07-06T12:12:49.000Z"
     },
     {
-      "title": "비공개 데이터의 마법, '연합학습'...AI 신약개발 플랫폼의 조건",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBHWmJ0a0h1TGZpSWpiaGxGZ3BxbjM1SUI1eTQ2ZXozRzFSZXNVYXZrejlKNmpTUTFuRTItWmg2Slhhb3Z2MXZSaUl0d0hzTEROTW5RR0ZKMEVsTHI2NVRlVE13N0dNNzM1WmdKdQ?oc=5",
-      "source": "팜뉴스",
-      "pubDate": "2026-07-05T00:05:00.000Z"
-    },
-    {
-      "title": "순천향대, AI의료융합 혁신성과 인정받아",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5CWmhNbnNzT1Z6YU44b1VRamNtZ0NER1lnY1JrcW5KY29OamxnUDVhRmpMbUhfeEZSeV8xOGxsQTN3OVlEcUg5Mm9jYm10RTRHM2xlWk10VGNyZw?oc=5",
-      "source": "브릿지경제",
-      "pubDate": "2026-07-04T23:52:00.000Z"
-    },
-    {
-      "title": "[제약·바이오 트렌드] 광동제약, 사내 AI 해커톤 ‘광동 플레이그라운드’ 개최 外",
-      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9iRE5KQ2hOZW0teWFXVUN0NVR5X3JDbTVWWG5pelYzWDBhX2U3V0RJcmtDb2RVS2tSNEFLN1V1ZU1XZFVQUmR0bFNNZWhqRjV3NVIwSw?oc=5",
-      "source": "v.daum.net",
-      "pubDate": "2026-07-04T21:35:41.000Z"
-    },
-    {
-      "title": "앤트로픽, AI로 신약도 직접 만든다…소외질환부터 공략",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1iRjhVem5MMEk5TVZvUHdwcE5xYXJwcEZ4c0FuX05qeXVVbnZNVXZwWnRmYUhpdWV4NmRDRTBHZGx4ZTBCakk0cUhCbE9yNUxMLTR4Vndn?oc=5",
-      "source": "위키트리",
-      "pubDate": "2026-07-04T21:30:00.000Z"
-    },
-    {
-      "title": "신생아중환자실의 위기…데이터·AI에서 찾는 해법 [내일의 닥터]",
-      "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxPeFkwaHk5NXJNSTNNby16LXlnbVVJdXNnWC0tNjFDYi1kdU9qNmNxSUV4bE5FeDFRQjhBdFVKLTd1MWdibFRCMlhSbjAtaHRNQnJhUnhHcHN6OVdqbWJ5ZE9RMGhreXRNeTBqTHJzaVBBaW4tQWVyYkFXWW4wem9EQUVpX0ZXRU4yZHdLbkFLOEMxZDVwdkZScE1nbVctR3Y1bzhnS25Ja1NFVUVuQzJqXzBHRkFDR2RBU3I3OWdVT3BHb19Oc0ZURHE1eXBtZVJwWFJSYTRiQVQxT05LVVBRWUlndUh1dE4zSS1VYUo1OFNRTnZCYzlNREF3Uzg4U05wMVZab1A5QTg2V1ZhdkNYblBxblJnMF9z0gGbAkFVX3lxTE9ZUUlYRTJreU5FeVJ2TTd2WmJqd3RZSWh0NlNVb2RKTVhfZFhzeE1OUy1uYXRleWpCMXU4amN1RDVrQXBTaDBldmI0clR3ZV8zV0wzTHozS1d2T2dSaENzR0JpV0ROaDVlSEJaS191YTNDUmh1MVItakFaQ1hjOEpNS0VfSHNvR2RzYjNaaC1LcWozWDVTMWctcFVpX3lzYTZIZk05dVZDOS1jeWxVZzJJNWxXdzRpcnp3WmFKVEg3X2VTem9vU2FVbWVyTkdjZThUVHdkQjBoYzJnMmF3eWNkTUo3VU41NTFwcUo2TGd6LUdXbHItci1DS2ZjUDhzTFUxd1FmNnhybXdiR0kyVEVOVGo1SGFfNzFHUGM?oc=5",
-      "source": "데일리안",
-      "pubDate": "2026-07-04T21:00:00.000Z"
-    },
-    {
-      "title": "AI, 중국 전통 의학에 새로운 길 열다",
-      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9tcnpPY1RyaHZIcFVQYWc3aS1uWjlreEdrRkVuTnQwMUYxRHBQVHFwaWRHYVZFcElNMTROdld5Y3BNcjh0TGlQYUVXb9IBQkFVX3lxTE5uSjZQWUhKZ1B0NUkxMFR2d2duWVFIQ2VSRU9iSlJKcVQ0ZDZGcXFkYklRbGxGME1EckhEVWE1V2FNZw?oc=5",
-      "source": "VOI.id",
-      "pubDate": "2026-07-04T19:01:48.000Z"
-    },
-    {
-      "title": "두나무앤파트너스, AI 의료영상 에어스메디컬에 누적 97억 후속 투자",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE85OUN3NXMtYVFkc2pwTHNST0dBeDBhTnFtZXpnUkxXTVpjMmFGdTZBR0NDb1JIQnVPREtrNS1SUEpFckFaUHM1ZElhSzJQLUx4YnJNdGh5Y1pIMWpSNzln?oc=5",
-      "source": "헬로티",
-      "pubDate": "2026-07-04T13:55:22.000Z"
-    },
-    {
-      "title": "政, 빅데이터·AI 기반 ‘초정밀 헬스케어’ 추진",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB4akotYkVqbTB1Uk45dzE4ZS1uNWVPQkdTVXRYMVpSV0h0cV9xWDZqODItSnFqNEx2ZDdmYzU2MGROT09wZzlidkdFR1FTMnMwOWFmUkN0eFUzS0lCWmw5U0FZTWNCUmJk?oc=5",
-      "source": "데일리메디",
-      "pubDate": "2026-07-04T11:00:00.000Z"
-    },
-    {
-      "title": "정부 정책 역점 ‘피지컬 AI’…의료업계도 주목",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9zeG5xeEd2RUtvLUs1Tno4S085RDEzdWRnUjZNU1IzOEhJNXpmYTZhQ0FWS2hWdGc5Qnd3Z0tNUE5KY3g4N3paSVVCckpRU3FOT3VNbkUzLXhDWllaMkJNMjRGVzJxSmhx?oc=5",
-      "source": "데일리메디",
-      "pubDate": "2026-07-04T10:19:00.000Z"
-    },
-    {
-      "title": "AI·로봇이 요양 현장을 구할 수 있을까",
-      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFB3TnM0ZnhTbXZTNlYxemd2UWx2T1BRLXNGZHhiVUhhaTVibWNfVHVPV1R2UjloZV9FbkZvMTAyUlpvVVpuS005WHBn?oc=5",
-      "source": "뉴스N연합",
-      "pubDate": "2026-07-04T08:30:14.000Z"
-    },
-    {
-      "title": "근침윤성 방광암 환자, 인공지능 기반 정밀의료 플랫폼 개발…수술 전 항암치료 효과 예측 등",
-      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9pTmlOZ0pZSGdnTm5GMm5HdURweElsWXY0Ty1TTmE3eUFiaHgta2V1M2xoXzVwZ1QwY2s5NTM1Zkx1RV9Bc1FTb28zTjJTWjJEV2taQnQ5M1J4T2E0elRzYmhVeHpkTzA2TVo4?oc=5",
-      "source": "medicalworldnews.co.kr",
-      "pubDate": "2026-07-04T07:52:30.000Z"
-    },
-    {
-      "title": "정은경 장관, 의료AI·디지털 헬스 기업과 보건의료데이터 활용 정책 해법 모색",
-      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9ZcU5VZ3ZYblpPUzhsUWtwbkJhcTFQUXBYZmdJRWJzaGxvS3V3NFZFenhfR050a3Bla3hzVWJLLS1RelRqTWQ4SWRpSlZRbTVVdUZLZWZ5ZXc4a3I1dkFiM19R?oc=5",
-      "source": "서울Pn",
-      "pubDate": "2026-07-04T04:48:52.000Z"
-    },
-    {
-      "title": "AI·바이오 메디시티, 메디엑스포서 14개 유관기관 ‘의료데이터 활용 활성화 협의체’ MOU 체결",
-      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9ETG85dWdnV25EMm5kWlZoaDNESDM0ZDZKelRmWlMtbDJZWXQ1THkzRzFWUGJxUmJZWUQ3NXFtRnhIUHBOcndXNFhOZDF5eWFxMjVhT2RWNA?oc=5",
-      "source": "MEDI:GATE NEWS",
-      "pubDate": "2026-07-04T04:33:00.000Z"
-    },
-    {
-      "title": "젊은 과학자들이 인공지능을 연구하고 의료 분야에 적용하도록 장려합니다.",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPdmVPX3UzWHo0blJLeXpNWTNUOTR6am5aWlg5SG1Wd2pSYU5rcElwdUtzSVdQZDlJbkN0MVNSdW1YNkhabzRMZDNXSy1VeVgzcFJhUXJyRzMwaUItV3JxX3MtV1Y1NHFHRzA0aGlsQzBQVDFmSUZCYUFzN2ZLVFJORVNQS25KY08wSzZOOEozOW94VWNMRWFSSVVpTVhiRlU1VWc?oc=5",
+      "title": "중국, 인공지능 기반 의료기기 상용화 가속화.",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxONEw5T3J0X2R4VDhaUUpId05IanY2aWdmMmZpdngyVlBIV2NBdWlkR245OUlwbnZtRFdwMXZMUE90ZmpWRjJiWGo1MDdHR3lIRVE4UlNqem1GblNzUTd2UjNOV0ZpMzF3dWdZVHlEVlEwZ0FxRzJobC1mZTZMSnhZZlFpdW1ubjUxTDNOWER6Yw?oc=5",
       "source": "Vietnam.vn",
-      "pubDate": "2026-07-04T03:49:10.000Z"
+      "pubDate": "2026-07-06T11:50:39.000Z"
+    },
+    {
+      "title": "울산병원, 지역 최초 폐암 진단 AI 솔루션 ‘루카스 플러스’ 도입",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5lampiLWM1TXZkYmZmSGs0RGkxU0hmc1BDbEVLUG9pTHVkVVkyVVVkM21tZ3h4ZW45blVXM2dvMWFWTy1TNEdkX19IaEdWNWdyOFZzMFBSM1hacC1IU2dFSTRsR21BenYtWFBmN1pn0gFuQVVfeXFMTmVqamItYzVNdmRiZmZIazREaTFTSGZzUENsRUtQb2lMdWRVWTJVVWQzbW1neHhlbjluVVczZ28xYVZPLVM0R2RfX0hoR1Y1Z3I4VnMwUFIzWFpwLUhTZ0VJNGxHbUF6di1YUGY3Wmc?oc=5",
+      "source": "iusm.co.kr",
+      "pubDate": "2026-07-06T11:41:41.000Z"
+    },
+    {
+      "title": "분당제생병원, 경기남부 '첫' AI 디지털 혈액세포 분석 시스템 도입",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5oQmxfaktqZjRNT1dKVHAxaVhGSmRQQVFaRF82MkVKU21IdkYwZW05Y3ptX1NHNWxubW1NLTd5WVZHSzU1VHUyejBQRGxHSnFaSEdVRndjTTZIMWpNaDlpUVdXbTdTOTJvU0E?oc=5",
+      "source": "헬스경향",
+      "pubDate": "2026-07-06T10:56:41.000Z"
+    },
+    {
+      "title": "전남대병원, AIㆍAR 기반 ‘지능형 스마트 병원동행 서비스’ 구축 착수",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBqX2wxLWZ6TzBwakxQVW9feWxxQzdjUkdZTUJ5c2gtNzctbExZTzA5eFBlSndRMjFWVTliSVcxdEVESEphYWhGNFJJM1F5WkUyMUREQUxrYjZ5QllPSml2bGt3RlRLTG8?oc=5",
+      "source": "의약뉴스",
+      "pubDate": "2026-07-06T10:12:15.000Z"
+    },
+    {
+      "title": "‘2026 AI안전보건박람회’ 개막… “AI·스마트 기술로 산재 막는다”",
+      "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1WQlVXLUlZTmdKemZ5Vk9nckI3aGlkeUlmWnlzbjh4SjU1OFFNSE1BWnFGMzlRZGhwYkZhLWhaUUF4LWhQ?oc=5",
+      "source": "산업일보",
+      "pubDate": "2026-07-06T10:10:55.000Z"
+    },
+    {
+      "title": "메디시티 대구, '2026 메디엑스포 코리아' 3만2천 명 몰리며 성황…의료데이터로 AI·바이오 혁신 가속",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFA5dDluNDg3MWs0NUUwS3phTk9EcHlsaXNpT185RHJyTWdhTEZyZ0h5c0dYUExvczh6NS04RFA1MElQZ3pneUJ0V3d0QzJ3VGNvSWwzQ1IwVjBJZl9fNEt4RWVSN1pyem9RU0t0Tm9n0gFyQVVfeXFMUF9Lc2ktb1NyYlZwVDlXYVUtN1prbXRtNUpIcWZtMHQxZmFFN0Q1SEhUeVlCVzF3di1Id1ZERWp4NHpVNkM1eHltdEltcGh6MmlxMWVlSEM3bkYxTkNUVHNYTks3N1NPZjdLa3NCaTFjenhn?oc=5",
+      "source": "폴리뉴스 Polinews",
+      "pubDate": "2026-07-06T10:00:05.000Z"
+    },
+    {
+      "title": "‘AI로 무장한 보건의료 인재’…충북대 RISE, 지역 정주형 융합교육 본격화",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5UUkFmdmw3ZE1Jd1NYQXVraFRqeU1ETk5DSGVTQlJNYUtKWFZoLWk1ZW02QzJiVUFTUjZHd2pmWU1IdDNoYXZ1LUVyX3JoQUxEXzJ5Wmtzb1RPbWJtR1BCZTM1amdrM2JGSzdvZw?oc=5",
+      "source": "공뉴스",
+      "pubDate": "2026-07-06T09:56:07.000Z"
+    },
+    {
+      "title": "동아대병원, 부울경 최초 AI 기반 의무기록 시스템 구축 운영",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOREdYWjhkZ0ZqWUpNUGh0MENfSTFwYnZ2XzNqV3NVSmtraXNUcUFBZ0ZYX1Z2Sk0xU2lCdUU5R3U2N2dKNDdxREgxRENFVUE2OVVkczhHeklSazJPYkdOZkhxbzVJNmwwOFJqZDRDeWpjbW00UWdiQ1FQblBEajZZOXA0UWpYb2haQUZz?oc=5",
+      "source": "국제신문",
+      "pubDate": "2026-07-06T09:40:00.000Z"
+    },
+    {
+      "title": "한수원, 국제안전보건전시회 참가… AI·로봇 접목한 원전 안전기술 공개",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1LeUFCRXNySkdCaFlEYXo5R29BbU8xRjdueDdEdWFQQ1Z0WFhEV3ZrVWl4X2lpSnR1Zl9zSkRsQ0VLVU5fNDRoVmJ1eFVRYUxTczQ4S1JjdnVINHl2Y3A3OWVBclV0aGg2U2x6OFN6a2o?oc=5",
+      "source": "Korea IT Times",
+      "pubDate": "2026-07-06T09:33:13.000Z"
+    },
+    {
+      "title": "심평원 대구경북본부, 메디엑스포서 의료AI 기업 시장 진입 지원",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9UWHNvWl9sMFBOcXZKV3NKcE9TdTNpU0d2WlRObE9kYUM1bk93SEVyQUI0NDU1M21rOUJWaDh4dTlEUFNEU1BFSjRkTG1tbmplNXJtSWREaUZ2eUI4bFVPeHF1c1ZVX3BJU1pyOVJXUGM?oc=5",
+      "source": "팍스메디컬뉴스",
+      "pubDate": "2026-07-06T08:53:47.000Z"
+    },
+    {
+      "title": "['AI 혁신 허브' 싱가포르, AI 전문가 몸값 치솟는다…최고 연봉 25만 달러 육박] 금융·의료·빅테크 인재 확보 전쟁…연구 과학자 및 솔루션 아키텍트가 고소득 직무 주도",
+      "link": "https://news.google.com/rss/articles/CBMiQEFVX3lxTE0wLWJaVmZhTzZRaUVIWnROYUZPVHJNWm5fV21rcnpsMHR5M0pqeURMX0dtcXYtOExJbXRnbUctNUM?oc=5",
+      "source": "AI넷",
+      "pubDate": "2026-07-06T08:51:55.000Z"
+    },
+    {
+      "title": "7월은 ‘산업안전보건의 달’… AI 안전기술 한자리에",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFB0M2xKMXdLRWlxWEVvS1NOOERObWRibVVhbWNuRDFTNzM4TTI2ZzdWWXc2SEJpbHlWd0RoenZ3U3ZTN0xGRUtrV2lJckZYb3pDVVFIYjhSVWxEeDg4cDZGUG5VWWp0SUJpc2fSAW5BVV95cUxPQzQ3U2RMbE92V2dsQ2RrUFlpZG45WFFnUUEyMDhDb2otbVhzTzJhYUZOVENkV0pFcVJsWm45cHZhVGtMMG5NRzN5X0FRYU9WMEZSbjl4ZDNMMENzN3dqRTRPNVVQNTRLWlhuc3gxdw?oc=5",
+      "source": "the-pr.co.kr",
+      "pubDate": "2026-07-06T08:43:10.000Z"
+    },
+    {
+      "title": "[포토뉴스] 산업현장 안전도 'AI 시대' … 안전보건박람회 개막",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9hNzFHOEo4eFR2LU9yWlk0V3o4LXBQLVQ5SDlfSGRzWjdDRzNpNXZpMk1Kb21CbF9QaE44Q1Y4WWVBS2pDMWtmR2d3Q0NLb3huS2VNUGQyZ0kxZkVVWDQ4S3pQdTA4Tk9Sbi1Kd2Z1dHRHOVXSAXNBVV95cUxPYTcxRzhKOHhUdi1PclpZNFd6OC1wUC1UOUg5X0hkc1o3Q0czaTV2aTJNSm9tQmxfUGhOOENWOFllQUtqQzFrZkdnd0NDS294bktlTVBkMmdJMWZFVVg0OEt6UHUwOE5PUm4tSndmdXR0RzlV?oc=5",
+      "source": "세이프타임즈",
+      "pubDate": "2026-07-06T08:41:43.000Z"
+    },
+    {
+      "title": "정강의료재단, AI 기반 병원 혁신 전략 모색",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA3aHUteGNlUmxUMkJnR1BYT193WnpLMTgtYW1hLW5KV19ndnBHZmhEVHRhYTFzQXY5MGVSSnRPdER6T21aQlFyWml2R3pUX1YyM1VyNVRYUW9KbmM?oc=5",
+      "source": "경기일보",
+      "pubDate": "2026-07-06T08:38:55.000Z"
+    },
+    {
+      "title": "디지털치료기기 스타트업 오디엔, 국가 의료AI 사업‘닥터앤서3.0’ 당뇨병 분야 컨소시엄 참여",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9hRi1CWEh0TkZCXzVubjFNOHNDSzVPY3FuNUwwOVZBSmZyVC15R2JhcjNVLWM3Z0FrMzRlbS1tZmxEQ1g0WkN4anEwWjFQblEwRk1ZUG96ZXlFY2ZlbWRQOE5Cdm90b1E2N1Rr?oc=5",
+      "source": "한경매거진&북",
+      "pubDate": "2026-07-06T08:35:00.000Z"
+    },
+    {
+      "title": "디지털팜, 의료기기 품질·정보보호 국제표준 인증 획득 \"AI 경영시스템까지 고도화\"",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1fXzhocHlrUTZjRU81OTc3alZnQmNUZ2ZnQko5Z19fMXNiMmg5QlpVS2JzZlItWTFiRHBfelBvak9MNzZYTTA2MnNpbjhXMVQtT0dxQ0txTFZ3Q3J6TDVkYmdQOHQybnplOUhF?oc=5",
+      "source": "한경매거진&북",
+      "pubDate": "2026-07-06T08:33:00.000Z"
+    },
+    {
+      "title": "블랙야크아이앤씨, 국제안전보건전시회 참가...AI 안전 플랫폼 등 공개",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5jdUlFbTdoUENTVU5OV2ZrZktUX080M0Itd0NlWEhfRzR1ZHpuRnhLdUhlS2UteFRCNHRPR0RQMnNEQVFHNzBUNU5YNTlQU0VTWk9XSGdGVFIxaWpFVzR6YTdvc0x6bzBtX3A4OWhfTdIBc0FVX3lxTE1Ca0VlNVk1RnFPQ091WDJKa3VPZjJ0WWMwQXhMbE55VnNUOG5MVE9rWmh2ckFPSklQc28tVVZJa1JXRkhJR0pKZXowU0RoMjBKaTFyYWtjdlZHcUhnbDhZbGNUNzhaTWpMLUd6c01DcEdGXzQ?oc=5",
+      "source": "데일리한국",
+      "pubDate": "2026-07-06T08:29:28.000Z"
+    },
+    {
+      "title": "가천대 길병원, AI음성인식 EMR 도입…진료 기록 자동화로 진료 지원 강화",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBfVVNIYU5rSFAtTFJKbm9yYzJrdUZNdV9naVg3NEJrdGQ4d2d3Yl9QdjBvRFJXYjFPNkZIN0h5aEU5TmhSMV9nTGd4MDhfVkp0NmxWQ1V1QllPcGtJdmZpaHhB?oc=5",
+      "source": "경기신문",
+      "pubDate": "2026-07-06T08:28:18.000Z"
+    },
+    {
+      "title": "AI 활용한 최첨단 미래 안전기술 한 자리에... 'AI 안전보건박람회' 개막",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9XdEg2eW9rYXJOZ2RROHlQcHpYZUFrTDloOFdZN1Q3VkhzbHVDck9tdmFCdkJSckw4UEdmdVJHb2tXWUxLa2tIT3V3d1NjRVZIX1o1dk1XaG02MnE2VThpQjdCb1BISnhpeTVB?oc=5",
+      "source": "BBS불교방송",
+      "pubDate": "2026-07-06T08:26:13.000Z"
+    },
+    {
+      "title": "전남대병원, 국내 최초 AI·AR ‘지능형 스마트 병원동행 서비스’ 구축",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1FMzAtWEtNeENqT1d4cHJadXFycFZwb2p3RndTX055UDlIMWFTdlFFOEJqTkhwWjI1MzJKcUFYOHMwSmpxMlVvUTRSVGYtSHFSaEM4U2E5LUg4blBNSVI3WC1XM2NuT3lpRVE?oc=5",
+      "source": "병원신문",
+      "pubDate": "2026-07-06T08:24:07.000Z"
+    },
+    {
+      "title": "경상국립대 컴퓨터공학과·경상국립대병원 공동 연구팀, 혈청 항체 데이터로 희귀질환 진단 AI 개발",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9ZWjRpN184OE0zT3doWFoteG1iTWE2RkVvTGdJYXltSHNoQl9zbVVoLUhoMm80dm0xa3ozSEhQYVlPWjhLeGs2bE9hRnI2WGZ3Z3YtX2phcXVDTzY1bHJYVWptWkhZRTE5OVctTGl3?oc=5",
+      "source": "gukjenews.com",
+      "pubDate": "2026-07-06T08:13:06.000Z"
+    },
+    {
+      "title": "전남대병원, AI·AR 기반 '스마트 병원동행' 구축 나선다",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBlS2FfMmJBWE1QeDRlQ2U0TV9lV1RtWHBOTEVWR0hpZDlpUEl4TjlZWGttNm9zaEdsaXBjQlplYndNcmlUVjFRdGNiTnB2b2dyV2cxVHFGYkluSnJ3dFM0NWVrYlc1eWZfclc0?oc=5",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-07-06T08:11:11.000Z"
+    },
+    {
+      "title": "[속보] 오산시, KAIST·WHO·구글과 기후보건 AI 첫 전략회의 개최",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5JLUhueXpXSnVPM2hBQnM5X2hFRENMVk1QaDhGdERYbW9hamV5VThoNkNHVjgwLVVFb0FuUFpYZW51Q1B3d3prbFRxM0N5UC1ETmYtOF9udnV1RmVMbTQwTFJ3TDHSAWhBVV95cUxORnoycl81QjdiMlhWOWlLZ3ZMUHp4UG9TSTY1UmU1TTF3cWYyUWZxc2JPUW5FZ1V6OEUtR0x0MVlOS3U2Wmk1ZUZxQUwzVHR3UnhUbkpLNXNUNjNqZlM5UnhCbXkybjBPdA?oc=5",
+      "source": "경인방송 뉴스",
+      "pubDate": "2026-07-06T08:09:15.000Z"
+    },
+    {
+      "title": "경상국립대·경상국립대병원, 혈청 항체 기반 희귀질환 진단 AI 개발",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1PeTRfVHpWazBjQ0RQd2xfRF9KcXd4UlNUNy1XZnJVMFZBbkNKWmhKMUhTMnJRdE45SFdzdDd4b3NSS2d1NE5lN0JWeDAtVHJrS3lv?oc=5",
+      "source": "네이트",
+      "pubDate": "2026-07-06T08:09:00.000Z"
+    },
+    {
+      "title": "심평원 대구경북본부, ‘MEDI EXPO’서 의료AI 지원",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE53UnJkY2JxdUN5cUZnNm1jMEtOa1ZOT0lwbDlsMHJOSFdQMG9aUURXMmhwbXZGM0tLbGdJeGVWMjVHa2dRVFNTNDFvTjBrWmVUZFpYRjQteG9tU2ktQnZKa0cwUTZZNzNNdENUbtIBb0FVX3lxTE4yTVA3NnVOeDNCSWp3UGJKWFZnTWFCc3JReGpfVE5LVmpoSHozSE9CYkFsVzFVdFREYmRpSjkxUnRxZUJmY3hWMWVGU0paZGZxcWtJUjNWMzFCQVdaRWpQYnluZVkyMFlQNHNiQlFBMA?oc=5",
+      "source": "한스경제",
+      "pubDate": "2026-07-06T08:07:51.000Z"
+    },
+    {
+      "title": "양산부산대병원, 바이오메디컬 AI 상용화 사업 '핵심 참여'",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ha3pGcVFsX0ZDYm5PNXRSM1lkeEl4YUoyR1IxVEU0ME1sRVkybVpJRzZlaWk3dW1TdGtZSFlYd2JwaVBPZ2hRN0pHMW1FNVVDQ25UeENnbk1ldmRIdEhDQkxZNGpNZ1loTlkyS0tFNFF2Vnh6U0Q2SdIBeEFVX3lxTE9ha3pGcVFsX0ZDYm5PNXRSM1lkeEl4YUoyR1IxVEU0ME1sRVkybVpJRzZlaWk3dW1TdGtZSFlYd2JwaVBPZ2hRN0pHMW1FNVVDQ25UeENnbk1ldmRIdEhDQkxZNGpNZ1loTlkyS0tFNFF2Vnh6U0Q2SQ?oc=5",
+      "source": "뉴시스",
+      "pubDate": "2026-07-06T08:03:15.000Z"
+    },
+    {
+      "title": "대웅제약·기장병원, AI 스마트 병동 구축 나서",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1KMjRUdGg1ZFdoTkhrVm5IMmJmRlQ1dWNRbm9qWkM3VUlQU2dmYkhoeWFkWHRQc0VUU2dIU2thZjZTanVVVnF1MTN4bkRqV1h0ckhuaE9TUnB5eDJ0Y2JSaUoyRmlGcnEtNmRxUDctSXfSAXRBVV95cUxNZWdEalc0UFhCTzJkcGt6MnRVbnV1X3JjOURSOWRRblVMaml3UThlSkhsV2RaenhfVVhWVmQ3cXo1U09FSEp0V3JmSVZMY3VtTU00MnNuMWdQQUhYQXFSOFk0UUpxN3djVEJTWXhMNzkyM2h6TQ?oc=5",
+      "source": "우먼타임스",
+      "pubDate": "2026-07-06T08:02:58.000Z"
+    },
+    {
+      "title": "가천대 길병원, 20개 진료과에 AI 음성인식 EMR 도입",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1hc1c4WHk3UXZmRDJKUHltMi04VTAxdDU5Y3ZueXpVOVQyOGh6OWFVQ2hKa0ZxZWY0M1pEa2hDSnMtUVN0VURRdFcyNjdCdw?oc=5",
+      "source": "전자신문",
+      "pubDate": "2026-07-06T07:53:06.000Z"
     }
   ]
 }
