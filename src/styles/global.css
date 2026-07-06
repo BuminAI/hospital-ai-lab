@@ -1,3 +1,15 @@
+/* ── 웹폰트 (self-host, SIL Open Font License 1.1) ─────────
+   Pretendard를 외부 CDN 대신 직접 호스팅한다(public/fonts). 라이선스는
+   public/fonts/Pretendard-OFL.txt. font-display:swap이라 로딩 중에는
+   시스템 한글 폰트로 즉시 표시되고, 준비되면 자연스럽게 교체된다. */
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/PretendardVariable.woff2') format('woff2');
+}
+
 /* ── 디자인 토큰 ─────────────────────────────────────────── */
 :root {
   --color-bg: #ffffff;
