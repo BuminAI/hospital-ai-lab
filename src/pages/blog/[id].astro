@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { withBase, formatDate } from '../../utils/site';
+import { withBase, formatDate, SITE_TITLE } from '../../utils/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -13,9 +13,32 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// BlogPosting 구조화 데이터. 저자는 개인 창작 정보 없이 발행 주체(연구소)로 표기.
+const canonicalUrl = Astro.site
+  ? new URL(withBase(`/blog/${post.id}/`), Astro.site).href
+  : withBase(`/blog/${post.id}/`);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  articleSection: post.data.category,
+  mainEntityOfPage: canonicalUrl,
+  author: { '@type': 'Organization', name: SITE_TITLE },
+  publisher: { '@type': 'Organization', name: SITE_TITLE },
+};
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  pubDate={post.data.pubDate}
+  category={post.data.category}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   <div class="container">
     <article>
       <header class="post-head">

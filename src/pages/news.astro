@@ -51,6 +51,7 @@ const items = news.items;
               <li>
                 <a href={item.link} target="_blank" rel="noopener">
                   {item.title}
+                  <span class="sr-only"> (새 탭으로 열림)</span>
                 </a>
                 <span class="meta">
                   {item.source && <>{item.source} · </>}

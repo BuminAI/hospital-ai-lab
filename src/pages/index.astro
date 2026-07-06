@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import ResearchIcon from '../components/ResearchIcon.astro';
 import { researchAreas } from '../data/research';
-import { withBase, SITE_TAGLINE } from '../utils/site';
+import { withBase, SITE_TAGLINE, SITE_TITLE } from '../utils/site';
 import news from '../data/news.json';
 import videos from '../data/recommended-videos.json';
 
@@ -15,9 +15,27 @@ const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
 const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 4);
 const homeVideos = videos.slice(0, 3);
+
+// 홈에만 넣는 구조화 데이터 (site.ts 확정값만 사용, 창작 정보 없음)
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_TITLE,
+  url: siteUrl,
+  logo: `${siteUrl}${withBase('/og-default.png')}`,
+};
+const siteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_TITLE,
+  url: siteUrl,
+};
 ---
 
 <BaseLayout description={SITE_TAGLINE}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(orgJsonLd)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(siteJsonLd)} />
   <!-- 히어로 -->
   <section class="hero">
     <div class="container">
@@ -91,7 +109,10 @@ const homeVideos = videos.slice(0, 3);
                   width="480"
                   height="360"
                 />
-                <p class="video-title">{v.title}</p>
+                <p class="video-title">
+                  {v.title}
+                  <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
+                </p>
               </a>
             ))}
           </div>
@@ -114,6 +135,7 @@ const homeVideos = videos.slice(0, 3);
               <li>
                 <a href={item.link} target="_blank" rel="noopener">
                   {item.title}
+                  <span class="sr-only"> (새 탭으로 열림)</span>
                 </a>
                 {item.source && <span class="src">{item.source}</span>}
               </li>
@@ -132,7 +154,7 @@ const homeVideos = videos.slice(0, 3);
           <h2>회원 전용 강의노트</h2>
           <p>
             가입하면 병원 행정·간호 실무자를 위한 강의노트를 볼 수 있습니다.
-            이름과 이메일이면 충분합니다.
+            Google 계정으로 간편하게 가입할 수도 있습니다.
           </p>
         </div>
         <div class="notes-actions">
@@ -243,6 +265,7 @@ const homeVideos = videos.slice(0, 3);
     object-fit: cover;
     border-radius: var(--radius);
     border: 1px solid var(--color-border);
+    background: var(--color-surface);
   }
 
   .video-title {

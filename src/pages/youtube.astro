@@ -33,7 +33,10 @@ const CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
                 width="480"
                 height="360"
               />
-              <p class="video-title">{v.title}</p>
+              <p class="video-title">
+                {v.title}
+                <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
+              </p>
             </a>
           ))}
         </div>
@@ -86,6 +89,7 @@ const CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
     object-fit: cover;
     border-radius: var(--radius);
     border: 1px solid var(--color-border);
+    background: var(--color-surface);
   }
 
   .video-title {

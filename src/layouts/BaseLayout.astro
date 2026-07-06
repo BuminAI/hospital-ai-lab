@@ -17,10 +17,27 @@ interface Props {
   description?: string;
   /** true면 검색엔진 색인에서 제외 (관리자 페이지 등) */
   noindex?: boolean;
+  /** 소셜 공유 타입. 글 상세는 'article' */
+  ogType?: 'website' | 'article';
+  /** article일 때 발행일 (og·JSON-LD용) */
+  pubDate?: Date;
+  /** article일 때 분류(카테고리) */
+  category?: string;
 }
 
-const { title, description = SITE_TAGLINE, noindex = false } = Astro.props;
+const {
+  title,
+  description = SITE_TAGLINE,
+  noindex = false,
+  ogType = 'website',
+  pubDate,
+  category,
+} = Astro.props;
 const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
+// 소셜 공유 대표 이미지 (절대 URL 필요)
+const ogImage = Astro.site
+  ? new URL(withBase('/og-default.png'), Astro.site).href
+  : withBase('/og-default.png');
 // 디렉터리 URL은 끝 슬래시를 붙여 sitemap과 canonical을 일치시킨다.
 const canonicalPath =
   Astro.url.pathname.endsWith('/') || /\.[a-z0-9]+$/i.test(Astro.url.pathname)
@@ -67,6 +84,8 @@ const year = new Date().getFullYear();
       )
     }
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
     <link rel="canonical" href={canonical} />
     <link
       rel="alternate"
@@ -79,12 +98,26 @@ const year = new Date().getFullYear();
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE_TITLE} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="ko_KR" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE_TITLE} />
+    {
+      ogType === 'article' && pubDate && (
+        <meta property="article:published_time" content={pubDate.toISOString()} />
+      )
+    }
+    {ogType === 'article' && category && <meta property="article:section" content={category} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     {
       GOATCOUNTER_CODE && !noindex && (
         <script
@@ -101,22 +134,27 @@ const year = new Date().getFullYear();
     <header class="site-header">
       <div class="container header-inner">
         <a class="site-name" href={withBase('/')}>병원 AI 연구소</a>
-        <nav aria-label="주 메뉴">
-          <ul>
-            {
-              nav.map((item) => (
-                <li>
-                  <a
-                    href={withBase(item.href)}
-                    aria-current={isActive(item.href) ? 'page' : undefined}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </nav>
+        <details class="nav-disclosure">
+          <summary aria-label="주 메뉴 열기/닫기">
+            <span class="menu-label">메뉴</span>
+          </summary>
+          <nav aria-label="주 메뉴">
+            <ul>
+              {
+                nav.map((item) => (
+                  <li>
+                    <a
+                      href={withBase(item.href)}
+                      aria-current={isActive(item.href) ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </details>
       </div>
     </header>
 
@@ -148,8 +186,8 @@ const year = new Date().getFullYear();
     left: -9999px;
     top: 0;
     z-index: 100;
-    background: var(--color-primary);
-    color: #ffffff;
+    background: var(--btn-bg);
+    color: var(--btn-fg);
     font-weight: 600;
     padding: 0.6rem 1.1rem;
     border-radius: 0 0 8px 0;
@@ -160,6 +198,9 @@ const year = new Date().getFullYear();
   }
 
   .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     border-bottom: 1px solid var(--color-border);
     background: var(--color-bg);
   }
@@ -171,6 +212,32 @@ const year = new Date().getFullYear();
     flex-wrap: wrap;
     gap: 0.5rem 1.5rem;
     padding-block: 1.1rem;
+  }
+
+  /* 접이식 네비게이션: 데스크톱은 항상 펼침, 모바일은 '메뉴' 버튼으로 토글 */
+  .nav-disclosure summary {
+    display: none;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+
+  .nav-disclosure summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-disclosure summary::before {
+    content: '☰ ';
+  }
+
+  /* 데스크톱: details가 닫혀 있어도 메뉴는 항상 펼쳐 보인다 */
+  .nav-disclosure > nav {
+    display: block;
   }
 
   .site-name {
@@ -260,10 +327,47 @@ const year = new Date().getFullYear();
   }
 
   @media (max-width: 40rem) {
-    .header-inner {
+    .nav-disclosure summary {
+      display: inline-block;
+    }
+
+    .nav-disclosure {
+      position: relative;
+    }
+
+    /* 모바일: 닫혀 있으면 메뉴 감춤 */
+    .nav-disclosure:not([open]) > nav {
+      display: none;
+    }
+
+    /* 모바일: 열면 헤더 아래로 카드형 드롭다운 */
+    .nav-disclosure[open] > nav {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 0.65rem);
+      min-width: 12rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+      padding: 0.5rem;
+      z-index: 60;
+    }
+
+    .nav-disclosure[open] > nav ul {
       flex-direction: column;
-      align-items: flex-start;
-      padding-block: 1rem;
+      gap: 0;
+    }
+
+    .nav-disclosure[open] > nav li a {
+      display: block;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    .nav-disclosure[open] > nav li a:hover,
+    .nav-disclosure[open] > nav li a[aria-current='page'] {
+      background: var(--color-primary-soft);
     }
   }
 </style>
