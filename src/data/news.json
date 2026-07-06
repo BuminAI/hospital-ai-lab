@@ -1,8 +1,13 @@
 {
-  "updatedAt": "2026-07-06T12:45:00.782Z",
-  "windowFrom": "2026-07-05T12:45:00.782Z",
-  "windowTo": "2026-07-06T12:45:00.782Z",
+  "updatedAt": "2026-07-06T13:02:07.799Z",
+  "source": "메디칼타임즈",
   "items": [
+    {
+      "title": "GE헬스케어, 차세대 심혈관 초음파 비비드 파이오니어 출시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169613",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-06T08:30:02.000Z"
+    },
     {
       "title": "한독, 'AI 응용제품 신속 상용화 지원사업' 선정…혁신 지속",
       "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBsX1FON29renVBSHNScnNSVjJvUXNkdkVsa3FWQW1KYV9lOWdiVTh3SmxRWm12LXQzUENFN1V2NEctTG1ZamltRVVIbEN6bDZlZmZXQ1JOLTdzQzNZaFpyWTdqa2RFcUhKSFJJYlMtNXhYZE0?oc=5",
@@ -14,6 +19,132 @@
       "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5fMk5INGloV2UtdWFEUW9PRWxaUlFFYjJtN0paWGNueWJUa2hkekZsUjZjeS1hMDZRX2NFSzh2SUdPZlMxdllfeFhQcGxxTlRDM0lYVlFaUTJOQzRYUGxRQVFwSG4xT0ZXZGVjbXNRTkN0ekU?oc=5",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-05T20:00:00.000Z"
+    },
+    {
+      "title": "딥노이드, 생성형 의료 AI 연구 ACL 게재…비용 절감·환각 억제",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169589",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-03T02:48:26.000Z"
+    },
+    {
+      "title": "휴이노, AI CDSS '바이탈 피카소' 식약처 제조인증 획득",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169586",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-03T02:01:51.000Z"
+    },
+    {
+      "title": "케어랩스, 빅테크 출신 임원 영입…헬스케어 경쟁력 강화",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169537",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-01T03:43:15.000Z"
+    },
+    {
+      "title": "온코크로스, 온코마스터 합병 완료…환자 데이터 AI 플랫폼 탄력",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169535",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-01T02:57:59.000Z"
+    },
+    {
+      "title": "글로벌 시장 공략 속도내는 뷰노…중동 5개국 수출 계약 축포",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169544",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-01T02:57:38.000Z"
+    },
+    {
+      "title": "10년 이어온 AI 의사 대체 논쟁…\"거부감보다는 제도가 문제\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169446",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-28T20:30:00.000Z"
+    },
+    {
+      "title": "의료기기 허가 절차 손질 나선 FDA…국내 기업 새 기회 맞나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169473",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-28T20:10:00.000Z"
+    },
+    {
+      "title": "\"의료 AI 안착 관건은 사람과 조직…맞춤형 인력 양성 시급\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169465",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-26T20:30:00.000Z"
+    },
+    {
+      "title": "딥노이드, 'M4CXR' 식약처 허가…생성형 의료 AI 상용화 시동",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169463",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-26T03:08:42.000Z"
+    },
+    {
+      "title": "의료공백 속 응급실 구원투수…세브란스, 뇌출혈 AI 실증 착수",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169457",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-26T02:59:09.000Z"
+    },
+    {
+      "title": "일상속으로 들어오는 유전체 검사…AI 맞물리며 시장 확대",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169455",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-26T02:52:26.000Z"
+    },
+    {
+      "title": "\"결국 살 길은 플랫폼\"…의료 AI 기업들 체질 개선 속도",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169440",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-25T20:30:00.000Z"
+    },
+    {
+      "title": "메디스비, 정부 AI 상용화 과제 선정…의료 로봇 시장 공략 속도",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169598",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-24T03:36:12.000Z"
+    },
+    {
+      "title": "디지털헬스학회, 춘계학술대회서 전 생애주기 AI 혁신 모색",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169426",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-24T03:30:20.000Z"
+    },
+    {
+      "title": "레몬헬스케어, 공모가 상단 1만 원 확정…7월 코스닥 상장",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169425",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-24T02:56:17.000Z"
+    },
+    {
+      "title": "카카오헬스, 정부 의료 데이터 사업 수주 \"AI 생태계 선도\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169409",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-24T02:56:05.000Z"
+    },
+    {
+      "title": "스마트병원 구축 기술만으론 부족 \"최적화·현장 소통 필수\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169402",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-23T20:20:00.000Z"
+    },
+    {
+      "title": "코어라인, 흉부 촬영 AI 기술 독일간다....민트메디컬과 협력",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169399",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-23T02:45:07.000Z"
+    },
+    {
+      "title": "디지털 헬스케어 법제화 속도…의료계 \"효과적 통제안 필요\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169394",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-22T20:30:00.000Z"
+    },
+    {
+      "title": "보험 가입하면 건강관리로 연계...카카오헬스-롯데손보 맛손",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169377",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-22T02:56:31.000Z"
+    },
+    {
+      "title": "퍼즐에이아이, 의료 AI 테스트베드 사업 선정",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169598",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-06-22T02:29:18.000Z"
     }
   ]
 }
