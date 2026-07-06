@@ -66,12 +66,16 @@ async function fetchPage(page) {
   const start = html.indexOf('newsListWrap');
   const region = start >= 0 ? html.slice(start) : html;
   const rows = [];
-  // 각 기사 블록은 'newsList_cont_img'로 시작한다
-  for (const chunk of region.split('newsList_cont_img').slice(1)) {
-    const idM = chunk.match(/NewsView\.html\?ID=(\d+)/);
-    const titleM = chunk.match(/headLine">([\s\S]*?)<\/h4>/);
-    const dateM = chunk.match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/);
-    const summM = chunk.match(/list_txt">([\s\S]*?)<\/div>/);
+  // 각 기사는 <article class="newsList_cont ..."> 로 시작하고, 그 블록의
+  // 첫 <a href=".../NewsView.html?ID=N"> 가 이 기사의 링크다. (기사 링크가
+  // 이미지 div를 감싸므로, 이미지 마커로 자르면 ID가 어긋난다 — 반드시
+  // article 블록 단위로 파싱한다.)
+  for (const part of region.split(/<article class="newsList_cont\b/).slice(1)) {
+    const block = part.split('</article>')[0];
+    const idM = block.match(/NewsView\.html\?ID=(\d+)/);
+    const titleM = block.match(/headLine">([\s\S]*?)<\/h4>/);
+    const dateM = block.match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/);
+    const summM = block.match(/list_txt">([\s\S]*?)<\/div>/);
     if (!idM || !titleM || !dateM) continue;
     const pubDate = kstToIso(dateM[1]);
     if (!pubDate) continue;
