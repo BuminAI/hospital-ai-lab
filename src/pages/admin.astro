@@ -13,8 +13,8 @@ import {
     <header class="page-head">
       <h1>관리자 대시보드</h1>
       <p class="lead">
-        새 글 작성, 수정·삭제, 이미지 업로드, 추천 영상, 회원·강의노트를 이
-        페이지에서 바로 처리합니다. 저장하면 1~2분 안에 사이트에 반영됩니다.
+        새 글 작성, 수정·삭제, 이미지 업로드, 추천 영상, AI 뉴스, 회원·강의노트를
+        이 페이지에서 바로 처리합니다. 저장하면 1~2분 안에 사이트에 반영됩니다.
       </p>
     </header>
 
@@ -25,6 +25,7 @@ import {
       <a href="#manage-post-panel">📝 글 관리</a>
       <a href="#image-panel">🖼️ 이미지</a>
       <a href="#video-panel">▶️ 추천 영상</a>
+      <a href="#news-panel">📰 AI 뉴스</a>
       <a href="#member-panel">👥 회원·강의노트</a>
       <a href="#deploy-panel">🚀 배포 상태</a>
       <a href="#stats-panel">📊 방문자 통계</a>
@@ -92,8 +93,13 @@ import {
       </label>
       <div class="row">
         <label class="check"><input type="checkbox" id="new-publish" checked /> 바로 발행 (해제하면 초안으로 저장)</label>
+        <label class="check"><input type="checkbox" id="new-featured" /> ★ 홈 대표글로 지정</label>
         <button class="btn" id="new-save">저장</button>
       </div>
+      <p class="hint">
+        대표글로 지정하면 기존에 지정돼 있던 다른 글의 표시는 자동으로
+        해제됩니다(한 번에 하나만 대표글).
+      </p>
       <p class="hint" id="new-status"></p>
     </section>
 
@@ -164,6 +170,21 @@ import {
       </div>
       <p class="hint" id="video-status"></p>
       <div id="videos-list" class="posts">토큰을 설정하면 표시됩니다.</div>
+    </section>
+
+    <!-- AI 뉴스 관리 -->
+    <section class="panel" id="news-panel">
+      <div class="panel-head">
+        <h2>📰 AI 뉴스 관리</h2>
+        <button class="btn ghost" id="news-refresh">새로고침</button>
+      </div>
+      <p class="section-desc">
+        메디칼타임즈 '의료기기·AI' 지면에서 매일 오전 7시 자동으로 수집해
+        쌓이는 목록입니다. 잘못 올라온 기사는 여기서 바로 지울 수 있습니다.
+        다만 최근 2주 안의 기사는 크롤러가 다음 날 다시 찾아내 자동으로
+        재등록할 수 있습니다.
+      </p>
+      <div id="news-list" class="posts">토큰을 설정하면 표시됩니다.</div>
     </section>
 
     <!-- 회원·강의노트 관리 (Supabase) -->
@@ -500,6 +521,18 @@ import {
     return `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
   }
 
+  // frontmatter의 featured 값을 켜거나 끈 새 마크다운 텍스트를 돌려준다.
+  // 줄이 없으면(기존 글) 새로 추가하고, 있으면 값만 바꾼다.
+  function setFeatured(raw: string, on: boolean): string {
+    const m = raw.match(/^(---\r?\n)([\s\S]*?)(\r?\n---)/);
+    if (!m) return raw;
+    let fm = m[2];
+    fm = /^featured:\s*(true|false)\s*$/m.test(fm)
+      ? fm.replace(/^featured:\s*(true|false)\s*$/m, `featured: ${on}`)
+      : `${fm}\nfeatured: ${on}`;
+    return raw.slice(0, m.index) + m[1] + fm + m[3] + raw.slice((m.index || 0) + m[0].length);
+  }
+
   // innerHTML 삽입용 HTML 이스케이프
   function esc(s: string): string {
     return String(s)
@@ -548,16 +581,18 @@ import {
           const fm = (text.match(/^---\r?\n([\s\S]*?)\r?\n---/) || [])[1] || '';
           const title = (fm.match(/^title:\s*"?(.+?)"?\s*$/m) || [])[1] || f.name;
           const draft = /^draft:\s*true/m.test(fm);
-          return { name: f.name, path: f.path, sha: file.sha, title, draft };
+          const featured = /^featured:\s*true/m.test(fm);
+          return { name: f.name, path: f.path, sha: file.sha, title, draft, featured };
         })
       );
       el.innerHTML = rows
         .map(
           (p) => `
         <div class="post-row">
-          <span class="post-title">${p.draft ? '<span class="chip">초안</span> ' : ''}${esc(p.title)}</span>
+          <span class="post-title">${p.featured ? '<span class="chip auto">★ 대표글</span> ' : ''}${p.draft ? '<span class="chip">초안</span> ' : ''}${esc(p.title)}</span>
           <span class="post-file">${esc(p.name)}</span>
           <span class="post-actions">
+            <button class="btn ghost" data-star="${esc(p.path)}" data-starred="${p.featured ? '1' : '0'}">${p.featured ? '★ 대표글 해제' : '☆ 대표글로 지정'}</button>
             <button class="btn ghost" data-edit="${esc(p.path)}">수정</button>
             <button class="btn ghost danger" data-del="${esc(p.path)}" data-sha="${esc(p.sha)}" data-name="${esc(p.name)}">삭제</button>
           </span>
@@ -568,8 +603,53 @@ import {
       el.querySelectorAll('[data-del]').forEach((b: any) =>
         b.addEventListener('click', () => deletePost(b.dataset.del, b.dataset.sha, b.dataset.name))
       );
+      el.querySelectorAll('[data-star]').forEach((b: any) =>
+        b.addEventListener('click', () => toggleFeaturedPost(b.dataset.star, b.dataset.starred !== '1'))
+      );
     } catch (e: any) {
       el.textContent = e.message;
+    }
+  }
+
+  // 대표글은 한 번에 하나만 유지한다 — exceptPath를 제외한 글 중 이미
+  // 대표글로 표시된 것이 있으면 찾아서 해제한다.
+  async function clearOtherFeatured(exceptPath: string) {
+    const files = await gh(`/contents/${BLOG_DIR}`);
+    const mds = files.filter((f: any) => f.name.endsWith('.md') && f.path !== exceptPath);
+    for (const f of mds) {
+      const file = await gh(`/contents/${f.path}`);
+      const text = b64decode(file.content);
+      const fm = (text.match(/^---\r?\n([\s\S]*?)\r?\n---/) || [])[1] || '';
+      if (/^featured:\s*true/m.test(fm)) {
+        await gh(`/contents/${f.path}`, {
+          method: 'PUT',
+          body: JSON.stringify({
+            message: `수정: ${f.name} 대표글 해제`,
+            content: b64encode(setFeatured(text, false)),
+            sha: file.sha,
+          }),
+        });
+      }
+    }
+  }
+
+  async function toggleFeaturedPost(path: string, turnOn: boolean) {
+    try {
+      if (turnOn) await clearOtherFeatured(path);
+      const file = await gh(`/contents/${path}`);
+      const text = b64decode(file.content);
+      await gh(`/contents/${path}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          message: `수정: ${path.split('/').pop()} 대표글 ${turnOn ? '지정' : '해제'}`,
+          content: b64encode(setFeatured(text, turnOn)),
+          sha: file.sha,
+        }),
+      });
+      loadPosts();
+      setTimeout(loadRuns, 4000);
+    } catch (e: any) {
+      alert(e.message);
     }
   }
 
@@ -597,6 +677,7 @@ import {
       if (await ghExists(`/contents/${BLOG_DIR}/${filename}`)) {
         throw new Error(`같은 날짜·주소의 글(${filename})이 이미 있습니다. 주소(슬러그)를 바꿔 주세요.`);
       }
+      const featured = $('new-featured').checked;
       const md = [
         '---',
         `title: ${yamlQuote(title)}`,
@@ -604,18 +685,21 @@ import {
         `pubDate: ${date}`,
         `category: ${yamlQuote($('new-category').value)}`,
         `draft: ${$('new-publish').checked ? 'false' : 'true'}`,
+        `featured: ${featured}`,
         '---',
         '',
         body,
         '',
       ].join('\n');
       status.textContent = '저장 중…';
+      if (featured) await clearOtherFeatured(`${BLOG_DIR}/${filename}`);
       await gh(`/contents/${BLOG_DIR}/${filename}`, {
         method: 'PUT',
         body: JSON.stringify({ message: `글: ${title}`, content: b64encode(md) }),
       });
       status.textContent = `저장됨 (${filename}) — 1~2분 후 사이트에 반영됩니다.`;
       $('new-title').value = $('new-slug').value = $('new-description').value = $('new-body').value = '';
+      $('new-featured').checked = false;
       loadPosts();
       setTimeout(loadRuns, 4000);
     } catch (e: any) {
@@ -805,6 +889,68 @@ import {
     }
   }
 
+  // ── AI 뉴스 관리 ────────────────────────────────────────
+  const NEWS_PATH = 'src/data/news.json';
+
+  async function loadNewsFile(): Promise<{ sha: string; data: any }> {
+    const file = await gh(`/contents/${NEWS_PATH}`);
+    const data = JSON.parse(b64decode(file.content) || '{}');
+    if (!Array.isArray(data.items)) data.items = [];
+    return { sha: file.sha, data };
+  }
+
+  async function saveNewsData(data: any, sha: string, message: string) {
+    await gh(`/contents/${NEWS_PATH}`, {
+      method: 'PUT',
+      body: JSON.stringify({ message, content: b64encode(JSON.stringify(data, null, 2) + '\n'), sha }),
+    });
+  }
+
+  async function loadNewsList() {
+    const el = $('news-list');
+    el.textContent = '불러오는 중…';
+    try {
+      const { data } = await loadNewsFile();
+      const items = data.items as any[];
+      el.innerHTML =
+        items
+          .map(
+            (n: any, i: number) => `
+        <div class="post-row">
+          <span class="post-title"><a href="${esc(n.link)}" target="_blank" rel="noopener">${esc(n.title)}</a></span>
+          <span class="post-file">${esc(n.source || '')} · ${esc(String(n.pubDate || '').slice(0, 10))}</span>
+          <span class="post-actions">
+            <button class="btn ghost danger" data-newsdel="${i}" data-newstitle="${esc(n.title)}">삭제</button>
+          </span>
+        </div>`
+          )
+          .join('') || '<p class="hint">아직 수집된 기사가 없습니다.</p>';
+      el.querySelectorAll('[data-newsdel]').forEach((b: any) =>
+        b.addEventListener('click', () => deleteNewsItem(Number(b.dataset.newsdel), b.dataset.newstitle))
+      );
+    } catch (e: any) {
+      el.textContent = e.message;
+    }
+  }
+
+  async function deleteNewsItem(index: number, title: string) {
+    if (
+      !confirm(
+        `AI 뉴스 "${title}"을(를) 목록에서 삭제할까요?\n(최근 2주 안의 기사는 다음 날 자동 수집 때 다시 나타날 수 있습니다)`
+      )
+    )
+      return;
+    try {
+      const { sha, data } = await loadNewsFile();
+      data.items.splice(index, 1);
+      await saveNewsData(data, sha, `수정: AI 뉴스 삭제 - ${title}`);
+      loadNewsList();
+      setTimeout(loadRuns, 4000);
+    } catch (e: any) {
+      alert(e.message);
+    }
+  }
+
   // ── 이미지 업로드 ───────────────────────────────────────
   async function uploadImage() {
     const status = $('img-status');
@@ -864,6 +1010,7 @@ import {
   $('img-upload').addEventListener('click', uploadImage);
   $('videos-refresh').addEventListener('click', loadVideosList);
   $('video-add').addEventListener('click', addVideo);
+  $('news-refresh').addEventListener('click', loadNewsList);
 
   $('new-date').value = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Seoul' });
   updateTokenStatus();
@@ -871,6 +1018,7 @@ import {
     loadPosts();
     loadRuns();
     loadVideosList();
+    loadNewsList();
   }
 </script>
 
