@@ -2,8 +2,12 @@ name: Update AI News
 
 on:
   schedule:
-    # 매일 KST 07:00 (= UTC 22:00 전날). GitHub cron은 UTC 기준이며 수 분 지연될 수 있다.
-    - cron: '0 22 * * *'
+    # 3시간 간격 (UTC). KST로는 00:17/03:17/06:17/09:17/12:17/15:17/18:17/21:17.
+    # GitHub cron은 수 시간씩 지연될 수 있어(실측 12~14시간) 하루 1회로는
+    # 특정 시각을 보장할 수 없다. 자주 돌리되 스크립트가 "새 기사 있을 때만"
+    # 파일을 바꾸므로 불필요한 커밋·배포는 생기지 않는다.
+    # 정각(:00)은 예약이 몰려 지연이 심해 :17로 비켜 둔다.
+    - cron: '17 */3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -19,6 +23,8 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
@@ -28,24 +34,35 @@ jobs:
         with:
           node-version: 20
 
-      - name: 뉴스 수집 (직전 24시간)
+      - name: 뉴스 수집 (신규 기사 누적)
         run: node scripts/fetch-news.mjs
 
-      - name: news.json 커밋
+      - name: news.json 커밋 (변경 있을 때만)
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/news.json
-          git diff --cached --quiet || git commit -m "유지보수: AI 뉴스 자동 업데이트"
-          git push
+          if git diff --cached --quiet; then
+            echo "새 기사 없음 — 커밋·배포 생략"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "유지보수: AI 뉴스 자동 업데이트"
+            # 그 사이 다른 커밋이 main에 올라왔어도 밀리지 않도록 rebase 후 push
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       # 봇 커밋은 deploy.yml을 트리거하지 못하므로(GitHub 재귀 방지)
-      # 이 워크플로가 직접 빌드·배포까지 수행한다.
+      # 이 워크플로가 직접 빌드·배포까지 수행한다. 변경 있을 때만.
       - name: Astro 빌드
+        if: steps.commit.outputs.changed == 'true'
         uses: withastro/action@v3
 
   deploy:
     needs: update
+    if: needs.update.outputs.changed == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

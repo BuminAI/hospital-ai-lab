@@ -6,7 +6,9 @@
 // 해당 지면을 직접 크롤링하는 방식으로 바꿨다.
 //
 // 누적 정책: 기존 news.json 항목을 지우지 않고 새 기사를 병합한다
-// (제목 기준 중복 제거). GitHub Actions가 매일 KST 07:00에 실행한다.
+// (제목 기준 중복 제거). GitHub Actions가 3시간 간격으로 실행한다 —
+// GitHub cron은 수 시간씩 지연될 수 있어(실측: 12~14시간), 하루 1회가
+// 아니라 자주 돌리고 "새 기사가 있을 때만" 커밋하는 방식으로 보완한다.
 import { readFile, writeFile } from 'node:fs/promises';
 
 const LIST_URL = 'https://www.medicaltimes.com/Main/News/List.html?MainCate=4';
@@ -141,6 +143,14 @@ const items = [...fresh, ...existing]
   })
   .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
   .slice(0, MAX_ITEMS);
+
+// 목록이 그대로면 파일을 건드리지 않는다 — 이 스크립트는 하루 여러 번
+// 돌기 때문에(GitHub cron 지연 대비), 변경 없는 실행이 커밋·배포를
+// 만들지 않도록 여기서 조용히 끝낸다.
+if (JSON.stringify(items) === JSON.stringify(existing)) {
+  console.log(`변경 없음: 새 기사 없이 종료 (누적 ${items.length}건 유지)`);
+  process.exit(0);
+}
 
 const data = {
   updatedAt: now.toISOString(),

@@ -1,18 +1,21 @@
 // 추천 강의 영상 자동 수집기
-// 매주 수요일(.github/workflows/update-videos.yml)에 실행되어
-// src/data/recommended-videos.json의 자동(source:"auto") 항목을 갱신한다.
-// 관리자 페이지에서 수동으로 추가한 항목(source:"manual")은 절대 건드리지 않는다.
+// 매주 월·수·금(.github/workflows/update-videos.yml)에 실행되어
+// src/data/recommended-videos.json에 새 영상을 최대 3개까지 "추가"한다.
+// 기존 항목(자동·수동 모두)은 지우지 않고 계속 누적한다.
 //
 // 정책 (오너 지정 기준)
 //  - 주제: 입문·클로드·병원·의료 (클로드 입문 또는 병원/의료 AI 영상)
 //  - 기간: 최근 3개월 이내 / 조회수: 5만 이상 / 한국어 영상만
-//  - 자극적·사기성 제목은 제외, 조회수순 상위 5개
+//  - 자극적·사기성 제목은 제외, 조회수순 상위에서 새 영상 3개
 //  - 모든 후보는 유튜브 oEmbed로 실제 존재·정확한 제목을 확인한 것만 싣는다
 //  - 검색이 실패하면 기존 파일을 그대로 둔다(빈 목록으로 덮어쓰지 않음)
+//  - 같은 날(KST) 이미 자동 추가가 있었으면 건너뛴다 — GitHub cron 지연을
+//    보완하려고 예약을 여러 개 걸어도 하루 한 번만 추가되도록.
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/recommended-videos.json', import.meta.url);
-const TARGET = 5; // 자동 영상 목표 개수
+const MAX_NEW = 3; // 실행 1회당 새로 추가할 최대 개수
+const MAX_TOTAL = 200; // 누적 상한 (넘으면 가장 오래된 자동 항목부터 정리)
 const RECENT_DAYS = 95; // "최근 3개월" 허용치(여유 며칠)
 const MIN_VIEWS = 50000; // 조회수 5만 이상
 
@@ -144,14 +147,28 @@ async function collect() {
   return [...seen.values()].sort((a, b) => b.views - a.views); // 조회수순
 }
 
+// KST 기준 날짜 문자열 (YYYY-MM-DD)
+function kstDate(iso) {
+  return new Date(new Date(iso).getTime() + 9 * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 10);
+}
+
 async function main() {
-  // 기존 파일에서 수동 항목 보존
+  // 기존 목록 전체를 보존한다 (자동·수동 모두 누적)
   let existing = [];
   try {
     existing = JSON.parse(await readFile(OUT, 'utf8'));
   } catch {}
-  const manual = existing.filter((v) => v.source === 'manual');
-  const manualIds = new Set(manual.map((v) => v.videoId));
+  const existingIds = new Set(existing.map((v) => v.videoId));
+
+  // 같은 날(KST) 자동 추가가 이미 있었으면 종료 — 예약이 여러 번 걸려도
+  // 하루 한 번만 추가한다.
+  const today = kstDate(new Date().toISOString());
+  if (existing.some((v) => v.source === 'auto' && v.addedAt && kstDate(v.addedAt) === today)) {
+    console.log(`오늘(${today})은 이미 자동 추가가 있었습니다. 건너뜁니다.`);
+    return;
+  }
 
   const candidates = await collect();
 
@@ -160,44 +177,53 @@ async function main() {
     process.exit(1);
   }
 
-  // 검증(oEmbed): 실제 제목을 받아온다. 상위 후보만 확인해 요청을 아낀다.
+  // 검증(oEmbed): 실제 제목을 받아온다. 이미 목록에 있는 영상은 건너뛰고,
+  // 새 영상만 최대 MAX_NEW개 고른다.
   const now = new Date().toISOString();
-  const ordered = [];
-  for (const p of candidates.slice(0, 16)) {
-    if (ordered.length >= TARGET) break;
-    if (manualIds.has(p.videoId)) continue;
+  const fresh = [];
+  for (const p of candidates.slice(0, 24)) {
+    if (fresh.length >= MAX_NEW) break;
+    if (existingIds.has(p.videoId)) continue;
     const title = await verify(p.videoId);
     if (!title) continue; // 삭제·비공개 제외
     // 실제 제목(oEmbed 원제)에도 한글·낚시성·사기성 필터 재적용
     if (!/[가-힣]/.test(title)) continue;
     if (CLICKBAIT.test(title) || SCAM.test(title)) continue;
-    ordered.push({ videoId: p.videoId, title: title.trim() });
-  }
-
-  const seenAuto = new Set();
-  const auto = [];
-  for (const v of ordered) {
-    if (auto.length >= TARGET) break;
-    if (seenAuto.has(v.videoId)) continue;
-    seenAuto.add(v.videoId);
-    auto.push({
-      videoId: v.videoId,
-      title: v.title,
-      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    fresh.push({
+      videoId: p.videoId,
+      title: title.trim(),
+      url: `https://www.youtube.com/watch?v=${p.videoId}`,
       source: 'auto',
       addedAt: now,
     });
+    existingIds.add(p.videoId);
   }
 
-  if (auto.length === 0) {
-    console.error('검증 통과한 자동 영상이 없습니다. 기존 목록을 유지합니다.');
-    process.exit(1);
+  if (fresh.length === 0) {
+    console.log('기준을 통과한 새 영상이 없습니다. 기존 목록을 그대로 둡니다.');
+    return; // 새 영상이 없는 것은 오류가 아니다 (커밋 생략)
   }
 
-  // 수동 항목을 앞에, 자동 항목을 뒤에
-  const final = [...manual, ...auto];
+  // 새 영상을 앞에 두고 누적. 상한을 넘으면 가장 오래된 "자동" 항목부터
+  // 정리한다 (수동 항목은 절대 지우지 않음).
+  let final = [...fresh, ...existing];
+  if (final.length > MAX_TOTAL) {
+    let overflow = final.length - MAX_TOTAL;
+    final = final
+      .slice()
+      .reverse()
+      .filter((v) => {
+        if (overflow > 0 && v.source === 'auto') {
+          overflow--;
+          return false;
+        }
+        return true;
+      })
+      .reverse();
+  }
+
   await writeFile(OUT, JSON.stringify(final, null, 2) + '\n', 'utf8');
-  console.log(`저장 완료: 수동 ${manual.length}건 + 자동 ${auto.length}건`);
+  console.log(`저장 완료: 신규 ${fresh.length}건 추가, 누적 ${final.length}건`);
 }
 
 main().catch((e) => {

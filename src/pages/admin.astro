@@ -149,9 +149,10 @@ import {
         "추천 영상" 페이지에 넣을 유튜브 영상입니다. ① 유튜브 링크를
         붙여넣으면 아래에 썸네일이 미리 보입니다. ② 영상 제목을 적고 ③ "추가"를
         누르면 됩니다.<br />
-        <strong>매주 수요일</strong> 자동으로 최신 영상을 검색해 <span class="chip auto">자동</span>
-        영상을 새로 채웁니다. 여기서 직접 추가한 <span class="chip">수동</span> 영상은
-        자동 갱신 때 지워지지 않고 그대로 유지됩니다.
+        <strong>매주 월·수·금</strong> 자동으로 최신 영상을 검색해
+        <span class="chip auto">자동</span> 영상을 3개까지 새로 추가합니다.
+        기존 영상(<span class="chip">수동</span>·<span class="chip auto">자동</span> 모두)은
+        지워지지 않고 계속 쌓입니다.
       </p>
       <div class="form-grid">
         <label>① 유튜브 링크
@@ -179,10 +180,10 @@ import {
         <button class="btn ghost" id="news-refresh">새로고침</button>
       </div>
       <p class="section-desc">
-        메디칼타임즈 '의료기기·AI' 지면에서 매일 오전 7시 자동으로 수집해
-        쌓이는 목록입니다. 잘못 올라온 기사는 여기서 바로 지울 수 있습니다.
-        다만 최근 2주 안의 기사는 크롤러가 다음 날 다시 찾아내 자동으로
-        재등록할 수 있습니다.
+        메디칼타임즈 '의료기기·AI' 지면에서 하루 여러 차례(3시간 간격) 자동으로
+        확인해 새 기사만 쌓는 목록입니다. 잘못 올라온 기사는 여기서 바로 지울
+        수 있습니다. 다만 최근 2주 안의 기사는 크롤러가 다음 실행 때 다시
+        찾아내 자동으로 재등록할 수 있습니다.
       </p>
       <div id="news-list" class="posts">토큰을 설정하면 표시됩니다.</div>
     </section>
