@@ -1,0 +1,59 @@
+---
+import { withBase } from '../utils/site';
+
+interface Props {
+  /** 현재 페이지는 목록에서 제외 */
+  current: 'guide' | 'glossary' | 'faq' | 'checklist';
+}
+
+const { current } = Astro.props;
+
+const all = [
+  { key: 'guide', href: '/guide/', label: '입문 가이드 허브' },
+  { key: 'glossary', href: '/glossary/', label: '의료 AI 용어 사전' },
+  { key: 'faq', href: '/faq/', label: '자주 묻는 질문' },
+  { key: 'checklist', href: '/checklist/', label: 'AI 도입 검토 체크리스트' },
+] as const;
+
+const items = all.filter((item) => item.key !== current);
+---
+
+<nav class="guide-related" aria-label="관련 자료">
+  <span class="label">함께 보면 좋은 자료</span>
+  <ul>
+    {
+      items.map((item) => (
+        <li>
+          <a href={withBase(item.href)}>{item.label} →</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .guide-related {
+    margin-top: 3rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  .guide-related ul {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+  }
+
+  .guide-related a {
+    font-weight: 600;
+  }
+</style>

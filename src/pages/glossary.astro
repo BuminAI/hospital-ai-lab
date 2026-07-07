@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GuideRelated from '../components/GuideRelated.astro';
+import { glossaryCategories, glossaryTerms } from '../data/glossary';
+---
+
+<BaseLayout
+  title="의료 AI 용어 사전"
+  description="병원 행정·간호가 제안서·회의·기사에서 마주치는 의료 AI 용어를 항목별로 정리했습니다. 정의는 확인된 공식 문서·학술자료를 근거로 작성했습니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>의료 AI 용어 사전</h1>
+      <p class="lead">
+        병원 행정·간호가 제안서·회의·기사에서 실제로 마주치는 용어를 정리했습니다.
+        표준 정의를 소개하는 일반 정보이며, 특정 병원의 상황에 대한 조언이 아닙니다.
+      </p>
+    </header>
+
+    {
+      glossaryCategories.map((category) => {
+        const terms = glossaryTerms.filter((t) => t.category === category);
+        if (terms.length === 0) return null;
+        return (
+          <section class="category">
+            <h2>{category}</h2>
+            <dl class="terms">
+              {terms.map((t) => (
+                <div class="term">
+                  <dt>
+                    {t.term}
+                    {t.reading && <span class="reading">{t.reading}</span>}
+                  </dt>
+                  <dd>
+                    <p>{t.definition}</p>
+                    <p class="why">
+                      <strong>왜 중요한가</strong> {t.whyMatters}
+                    </p>
+                    {t.source && (
+                      <p class="source">
+                        <a href={t.source} target="_blank" rel="noopener">
+                          출처 보기<span class="sr-only"> (새 탭으로 열림)</span>
+                        </a>
+                      </p>
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        );
+      })
+    }
+
+    <GuideRelated current="glossary" />
+  </div>
+</BaseLayout>
+
+<style>
+  .category {
+    margin-top: 3rem;
+    max-width: var(--prose-width);
+  }
+
+  .category:first-of-type {
+    margin-top: 2.5rem;
+  }
+
+  .category h2 {
+    font-size: 1.3rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .terms {
+    margin: 1.5rem 0 0;
+  }
+
+  .term {
+    padding: 1.25rem 0;
+  }
+
+  .term + .term {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .term dt {
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .reading {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-muted);
+  }
+
+  .term dd {
+    margin: 0.6rem 0 0;
+  }
+
+  .term dd p {
+    color: var(--color-text);
+  }
+
+  .term dd p + p {
+    margin-top: 0.6rem;
+  }
+
+  .why {
+    color: var(--color-muted) !important;
+    font-size: 0.95rem;
+  }
+
+  .why strong {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .source {
+    font-size: 0.85rem;
+  }
+
+  .source a {
+    font-weight: 600;
+  }
+</style>

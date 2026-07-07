@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GuideRelated from '../components/GuideRelated.astro';
+import { faqItems } from '../data/faq';
+---
+
+<BaseLayout
+  title="자주 묻는 질문"
+  description="병원 행정·간호 종사자가 의료 AI를 접하며 실제로 궁금해하는 질문에 답합니다. 일반 정보이며 특정 환자에 대한 진단·치료 조언이 아닙니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>자주 묻는 질문</h1>
+      <p class="lead">
+        병원 행정·간호 종사자가 의료 AI를 접하며 실제로 궁금해하는 질문에
+        답합니다. 일반 정보이며, 특정 환자에 대한 진단·치료 조언이 아닙니다.
+      </p>
+    </header>
+
+    <div class="faq-list">
+      {
+        faqItems.map((item) => (
+          <details class="faq-item">
+            <summary>{item.question}</summary>
+            <div class="answer">
+              <p>{item.answer}</p>
+              {item.source && (
+                <p class="source">
+                  <a href={item.source} target="_blank" rel="noopener">
+                    출처 보기<span class="sr-only"> (새 탭으로 열림)</span>
+                  </a>
+                </p>
+              )}
+            </div>
+          </details>
+        ))
+      }
+    </div>
+
+    <GuideRelated current="faq" />
+  </div>
+</BaseLayout>
+
+<style>
+  .faq-list {
+    margin-top: 2.5rem;
+    max-width: var(--prose-width);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    padding: 1.1rem 0;
+    font-weight: 600;
+    font-size: 1.02rem;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::before {
+    content: '+ ';
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .faq-item[open] summary::before {
+    content: '− ';
+  }
+
+  .answer {
+    padding: 0 0 1.5rem;
+    color: var(--color-muted);
+  }
+
+  .source {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .source a {
+    font-weight: 600;
+  }
+</style>
