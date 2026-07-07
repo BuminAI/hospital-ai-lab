@@ -130,29 +130,57 @@ const year = new Date().getFullYear();
     <header class="site-header">
       <div class="container header-inner">
         <a class="site-name" href={withBase('/')}>병원 AI 연구소</a>
-        <details class="nav-disclosure">
-          <summary aria-label="주 메뉴 열기/닫기">
-            <span class="menu-label">메뉴</span>
-          </summary>
-          <nav aria-label="주 메뉴">
-            <ul>
-              {
-                nav.map((item) => (
-                  <li>
-                    <a
-                      href={withBase(item.href)}
-                      aria-current={isActive(item.href) ? 'page' : undefined}
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
-        </details>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="주 메뉴 열기/닫기"
+        >
+          <span class="menu-label">☰ 메뉴</span>
+        </button>
+        <nav id="primary-nav" aria-label="주 메뉴">
+          <ul>
+            {
+              nav.map((item) => (
+                <li>
+                  <a
+                    href={withBase(item.href)}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
       </div>
     </header>
+
+    <script is:inline>
+      // 모바일 메뉴 토글. <details>는 최신 브라우저가 닫힌 상태의 자식을
+      // content-visibility로 강제 숨겨 CSS display:block으로도 못 되돌리는
+      // 경우가 있어, 버튼 클릭으로 클래스를 토글하는 방식으로 대체했다.
+      (function () {
+        var btn = document.querySelector('.nav-toggle');
+        var nav = document.getElementById('primary-nav');
+        if (!btn || !nav) return;
+        function setOpen(open) {
+          btn.setAttribute('aria-expanded', String(open));
+          nav.classList.toggle('is-open', open);
+        }
+        btn.addEventListener('click', function () {
+          setOpen(btn.getAttribute('aria-expanded') !== 'true');
+        });
+        document.addEventListener('click', function (e) {
+          if (!btn.contains(e.target) && !nav.contains(e.target)) setOpen(false);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') setOpen(false);
+        });
+      })();
+    </script>
 
     <main id="main">
       <slot />
@@ -211,28 +239,21 @@ const year = new Date().getFullYear();
   }
 
   /* 접이식 네비게이션: 데스크톱은 항상 펼침, 모바일은 '메뉴' 버튼으로 토글 */
-  .nav-disclosure summary {
+  .nav-toggle {
     display: none;
     cursor: pointer;
-    list-style: none;
+    font: inherit;
     font-weight: 600;
     font-size: 0.95rem;
     color: var(--color-primary);
+    background: var(--color-bg);
     padding: 0.35rem 0.75rem;
     border: 1px solid var(--color-border);
     border-radius: 8px;
   }
 
-  .nav-disclosure summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .nav-disclosure summary::before {
-    content: '☰ ';
-  }
-
-  /* 데스크톱: details가 닫혀 있어도 메뉴는 항상 펼쳐 보인다 */
-  .nav-disclosure > nav {
+  /* 데스크톱: 항상 펼쳐 보인다 */
+  #primary-nav {
     display: block;
   }
 
@@ -323,21 +344,22 @@ const year = new Date().getFullYear();
   }
 
   @media (max-width: 40rem) {
-    .nav-disclosure summary {
-      display: inline-block;
-    }
-
-    .nav-disclosure {
+    .header-inner {
       position: relative;
     }
 
+    .nav-toggle {
+      display: inline-block;
+    }
+
     /* 모바일: 닫혀 있으면 메뉴 감춤 */
-    .nav-disclosure:not([open]) > nav {
+    #primary-nav {
       display: none;
     }
 
     /* 모바일: 열면 헤더 아래로 카드형 드롭다운 */
-    .nav-disclosure[open] > nav {
+    #primary-nav.is-open {
+      display: block;
       position: absolute;
       right: 0;
       top: calc(100% + 0.65rem);
@@ -350,19 +372,19 @@ const year = new Date().getFullYear();
       z-index: 60;
     }
 
-    .nav-disclosure[open] > nav ul {
+    #primary-nav.is-open ul {
       flex-direction: column;
       gap: 0;
     }
 
-    .nav-disclosure[open] > nav li a {
+    #primary-nav.is-open li a {
       display: block;
       padding: 0.6rem 0.75rem;
       border-radius: 8px;
     }
 
-    .nav-disclosure[open] > nav li a:hover,
-    .nav-disclosure[open] > nav li a[aria-current='page'] {
+    #primary-nav.is-open li a:hover,
+    #primary-nav.is-open li a[aria-current='page'] {
       background: var(--color-primary-soft);
     }
   }
