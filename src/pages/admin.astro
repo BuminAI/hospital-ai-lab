@@ -27,6 +27,7 @@ import {
       <a href="#video-panel">▶️ 추천 영상</a>
       <a href="#news-panel">📰 AI 뉴스</a>
       <a href="#member-panel">👥 회원·강의노트</a>
+      <a href="#ai-apps-admin">🖼️ AI로 만든 앱</a>
       <a href="#deploy-panel">🚀 배포 상태</a>
       <a href="#stats-panel">📊 방문자 통계</a>
     </nav>
@@ -248,6 +249,25 @@ import {
               </div>
               <p class="hint" id="note-status"></p>
               <div id="admin-notes-list" class="posts"></div>
+
+              <h3 class="notes-h" id="ai-apps-admin">AI로 만든 앱</h3>
+              <p class="section-desc">
+                jpg·png 카드뉴스 이미지를 올리면 회원 전용 페이지(/ai-apps/)에
+                썸네일로 표시됩니다. 로그인한 회원만 이미지를 내려받을 수
+                있습니다.
+              </p>
+              <div class="form-grid">
+                <label>제목<input type="text" id="app-title" /></label>
+                <label class="check" style="align-self: end;"><input type="checkbox" id="app-published" checked /> 공개 (회원에게 표시)</label>
+              </div>
+              <label class="block">이미지 파일 (jpg·png)
+                <input type="file" id="app-file" accept="image/jpeg,image/png" />
+              </label>
+              <div class="row">
+                <button class="btn" id="app-save">추가</button>
+              </div>
+              <p class="hint" id="app-status"></p>
+              <div id="admin-apps-list" class="posts"></div>
             </div>
           </div>
         )
@@ -321,6 +341,7 @@ import {
       if (isAdmin) {
         loadMembers();
         loadAdminNotes();
+        loadAdminApps();
       }
     }
 
@@ -396,6 +417,87 @@ import {
       );
     }
 
+    // ── AI로 만든 앱 (Supabase Storage 비공개 버킷 'ai-apps') ──────────
+    async function loadAdminApps() {
+      const { data, error } = await sb
+        .from('ai_apps')
+        .select('id, title, storage_path, published, created_at')
+        .order('created_at', { ascending: false });
+      const el = $('admin-apps-list');
+      if (error) {
+        el.textContent = error.message;
+        return;
+      }
+      el.innerHTML = data
+        .map(
+          (a) => `<div class="post-row">
+            <span class="post-title">
+              <span class="app-admin-thumb" data-thumb="${a.id}" data-path="${escHtml(a.storage_path)}"></span>
+              ${a.published ? '' : '<span class="chip">비공개</span> '}${escHtml(a.title)}
+            </span>
+            <span class="post-file">${fmtD(a.created_at)}</span>
+            <span class="post-actions">
+              <button class="btn ghost" data-atoggle="${a.id}" data-published="${a.published ? '1' : '0'}">${a.published ? '비공개로' : '공개로'}</button>
+              <button class="btn ghost danger" data-adel="${a.id}" data-apath="${escHtml(a.storage_path)}" data-atitle="${escHtml(a.title)}">삭제</button>
+            </span>
+          </div>`
+        )
+        .join('') || '<p class="hint">아직 등록된 앱 카드가 없습니다. 위에서 첫 이미지를 올리세요.</p>';
+
+      // 작은 썸네일 미리보기 (비공개 버킷이라 인증된 다운로드로 받아온다)
+      el.querySelectorAll('[data-thumb]').forEach(async (span) => {
+        const { data: blob, error: dErr } = await sb.storage.from('ai-apps').download(span.dataset.path);
+        if (dErr || !blob) return;
+        const url = URL.createObjectURL(blob);
+        span.innerHTML = `<img class="thumb-sm" src="${url}" alt="" />`;
+      });
+
+      el.querySelectorAll('[data-atoggle]').forEach((b) =>
+        b.addEventListener('click', async () => {
+          const nextPublished = b.dataset.published !== '1';
+          const { error: e4 } = await sb.from('ai_apps').update({ published: nextPublished }).eq('id', b.dataset.atoggle);
+          if (e4) { alert(e4.message); return; }
+          loadAdminApps();
+        })
+      );
+      el.querySelectorAll('[data-adel]').forEach((b) =>
+        b.addEventListener('click', async () => {
+          if (!confirm(`"${b.dataset.atitle}" 카드를 삭제할까요? 이미지 파일도 함께 지워집니다.`)) return;
+          const { error: e5 } = await sb.storage.from('ai-apps').remove([b.dataset.apath]);
+          if (e5) { alert(e5.message); return; }
+          const { error: e6 } = await sb.from('ai_apps').delete().eq('id', b.dataset.adel);
+          if (e6) { alert(e6.message); return; }
+          loadAdminApps();
+        })
+      );
+    }
+
+    async function uploadAiApp() {
+      const status = $('app-status');
+      const title = $('app-title').value.trim();
+      const file = $('app-file').files && $('app-file').files[0];
+      if (!title) { status.textContent = '제목을 입력하세요.'; return; }
+      if (!file) { status.textContent = '이미지 파일을 선택하세요.'; return; }
+      if (!/^image\/(jpeg|png)$/.test(file.type)) {
+        status.textContent = 'jpg 또는 png 파일만 올릴 수 있습니다.';
+        return;
+      }
+      status.textContent = '업로드 중…';
+      const ext = file.type === 'image/png' ? 'png' : 'jpg';
+      const path = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
+      const { error: upErr } = await sb.storage.from('ai-apps').upload(path, file, { contentType: file.type });
+      if (upErr) { status.textContent = '업로드 실패: ' + upErr.message; return; }
+      const { error: insErr } = await sb
+        .from('ai_apps')
+        .insert({ title, storage_path: path, published: $('app-published').checked });
+      if (insErr) { status.textContent = '저장 실패: ' + insErr.message; return; }
+      status.textContent = '저장됨 — 회원 페이지에 바로 반영됩니다.';
+      $('app-title').value = '';
+      $('app-file').value = '';
+      $('app-published').checked = true;
+      loadAdminApps();
+    }
+
     $('sb-login-btn').addEventListener('click', async () => {
       const status = $('sb-login-status');
       status.textContent = '로그인 중…';
@@ -453,6 +555,8 @@ import {
       $('note-cancel').hidden = true;
       $('note-status').textContent = '';
     });
+
+    $('app-save').addEventListener('click', uploadAiApp);
 
     showAdminIfLoggedIn();
   })();

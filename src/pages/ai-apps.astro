@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
+---
+
+<BaseLayout
+  title="AI로 만든 앱"
+  description="연구소장이 AI로 직접 만든 앱을 카드뉴스로 소개합니다. 회원 전용이며, 로그인하면 이미지를 내려받을 수 있습니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>AI로 만든 앱</h1>
+      <p class="lead">
+        직접 AI로 만든 앱을 카드뉴스 형태로 소개합니다. 회원 전용이며,
+        로그인하면 이미지를 내려받을 수 있습니다.
+      </p>
+    </header>
+
+    {
+      !SUPABASE_URL ? (
+        <p class="empty">회원 기능은 준비 중입니다. 조금만 기다려 주세요.</p>
+      ) : (
+        <div>
+          <div id="guest" hidden>
+            <p class="empty">
+              이 콘텐츠는 회원에게만 공개됩니다.
+              <a href={withBase('/login/')}>로그인</a>하거나
+              <a href={withBase('/signup/')}>회원가입</a> 후 이용해 주세요.
+            </p>
+          </div>
+
+          <div id="member" hidden>
+            <div class="member-bar">
+              <span id="member-name"></span>
+              <button class="btn ghost" id="logout">로그아웃</button>
+            </div>
+            <div id="apps-status" class="hint">불러오는 중…</div>
+            <div id="apps-grid" class="apps-grid"></div>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY }}>
+  (async () => {
+    if (!SUPABASE_URL) return;
+    const { createClient } = await import(
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
+    );
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) =>
+      String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+    function slugFilename(title, path) {
+      const ext = (path.split('.').pop() || 'jpg').toLowerCase();
+      const base = title.trim().replace(/[\\/:*?"<>|]+/g, '').slice(0, 60) || 'ai-app';
+      return `${base}.${ext}`;
+    }
+
+    async function loadApps() {
+      const status = $('apps-status');
+      const grid = $('apps-grid');
+      const { data, error } = await sb
+        .from('ai_apps')
+        .select('id, title, storage_path, created_at')
+        .eq('published', true)
+        .order('created_at', { ascending: false });
+      if (error) {
+        status.textContent = '목록을 불러오지 못했습니다: ' + error.message;
+        return;
+      }
+      if (!data.length) {
+        status.textContent = '아직 등록된 항목이 없습니다.';
+        return;
+      }
+      status.hidden = true;
+      grid.innerHTML = data
+        .map(
+          (a) => `
+        <article class="app-card" data-id="${a.id}">
+          <div class="app-thumb-wrap"><span class="app-loading">불러오는 중…</span></div>
+          <p class="app-title">${esc(a.title)}</p>
+          <button class="btn app-download" data-id="${a.id}" disabled>다운로드</button>
+        </article>`
+        )
+        .join('');
+
+      // 카드마다 이미지를 인증된 요청으로 받아 미리보기 + 다운로드에 함께 쓴다
+      // (비공개 버킷이라 일반 <img src="URL">로는 못 불러온다)
+      for (const a of data) {
+        const card = grid.querySelector(`.app-card[data-id="${a.id}"]`);
+        const wrap = card.querySelector('.app-thumb-wrap');
+        const btn = card.querySelector('.app-download');
+        try {
+          const { data: blob, error: dErr } = await sb.storage.from('ai-apps').download(a.storage_path);
+          if (dErr) throw dErr;
+          const url = URL.createObjectURL(blob);
+          wrap.innerHTML = `<img src="${url}" alt="${esc(a.title)}" loading="lazy" />`;
+          const filename = slugFilename(a.title, a.storage_path);
+          btn.disabled = false;
+          btn.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+          });
+        } catch (e) {
+          wrap.innerHTML = `<span class="app-error">이미지를 불러오지 못했습니다</span>`;
+        }
+      }
+    }
+
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) {
+      $('guest').hidden = false;
+      return;
+    }
+    const { data: profile, error: pErr } = await sb
+      .from('profiles')
+      .select('id, consent_required_at')
+      .eq('id', session.user.id)
+      .maybeSingle();
+    if (pErr || !profile || !profile.consent_required_at) {
+      $('guest').hidden = false;
+      $('guest').querySelector('.empty').textContent = pErr
+        ? `회원 정보 확인에 실패했습니다: ${pErr.message}`
+        : '이 계정에는 가입 동의 기록이 없어 콘텐츠를 볼 수 없습니다. 로그아웃 후 다시 로그인하거나 운영자에게 문의해 주세요.';
+      return;
+    }
+    $('member').hidden = false;
+    const name = session.user.user_metadata?.name || session.user.email;
+    $('member-name').textContent = `${name} 님`;
+    $('logout').addEventListener('click', async () => {
+      await sb.auth.signOut();
+      location.reload();
+    });
+    loadApps();
+  })();
+</script>
+
+<style>
+  .member-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+  }
+
+  .btn.ghost {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 1rem;
+  }
+
+  .empty,
+  .hint {
+    color: var(--color-muted);
+  }
+
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .app-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .app-thumb-wrap {
+    aspect-ratio: 4 / 5;
+    background: var(--color-surface);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .app-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .app-loading,
+  .app-error {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .app-title {
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+
+  .app-download {
+    width: 100%;
+    text-align: center;
+  }
+
+  .app-download:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  @media (max-width: 52rem) {
+    .apps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 32rem) {
+    .apps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

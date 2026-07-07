@@ -136,3 +136,60 @@ create policy "notes_update_admin" on public.lecture_notes
   for update using (public.is_admin());
 create policy "notes_delete_admin" on public.lecture_notes
   for delete using (public.is_admin());
+
+-- ── AI로 만든 앱 (회원 전용 카드뉴스 이미지) ─────────────────
+-- 이미지 파일을 담을 비공개 버킷. public=false이므로 URL을 알아도
+-- 로그인 없이는 파일을 받을 수 없다(아래 storage.objects 정책이 실제 방어선).
+insert into storage.buckets (id, name, public, allowed_mime_types)
+values ('ai-apps', 'ai-apps', false, array['image/jpeg', 'image/png'])
+on conflict (id) do nothing;
+
+create table public.ai_apps (
+  id bigint generated always as identity primary key,
+  title text not null,
+  storage_path text not null,        -- ai-apps 버킷 안의 경로
+  published boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+alter table public.ai_apps enable row level security;
+
+create policy "ai_apps_select_member_or_admin" on public.ai_apps
+  for select using (
+    public.is_admin()
+    or (
+      published
+      and auth.uid() is not null
+      and exists (
+        select 1 from public.profiles p
+        where p.id = auth.uid() and p.consent_required_at is not null
+      )
+    )
+  );
+create policy "ai_apps_insert_admin" on public.ai_apps
+  for insert with check (public.is_admin());
+create policy "ai_apps_update_admin" on public.ai_apps
+  for update using (public.is_admin());
+create policy "ai_apps_delete_admin" on public.ai_apps
+  for delete using (public.is_admin());
+
+-- 이미지 파일 자체의 접근 권한 (진짜 방어선). 조회는 회원·관리자,
+-- 업로드·삭제는 관리자만.
+create policy "ai_apps_storage_select" on storage.objects
+  for select using (
+    bucket_id = 'ai-apps'
+    and (
+      public.is_admin()
+      or (
+        auth.uid() is not null
+        and exists (
+          select 1 from public.profiles p
+          where p.id = auth.uid() and p.consent_required_at is not null
+        )
+      )
+    )
+  );
+create policy "ai_apps_storage_insert_admin" on storage.objects
+  for insert with check (bucket_id = 'ai-apps' and public.is_admin());
+create policy "ai_apps_storage_delete_admin" on storage.objects
+  for delete using (bucket_id = 'ai-apps' and public.is_admin());
