@@ -9,8 +9,10 @@
 //  - 자극적·사기성 제목은 제외, 조회수순 상위에서 새 영상 3개
 //  - 모든 후보는 유튜브 oEmbed로 실제 존재·정확한 제목을 확인한 것만 싣는다
 //  - 검색이 실패하면 기존 파일을 그대로 둔다(빈 목록으로 덮어쓰지 않음)
-//  - 같은 날(KST) 이미 자동 추가가 있었으면 건너뛴다 — GitHub cron 지연을
-//    보완하려고 예약을 여러 개 걸어도 하루 한 번만 추가되도록.
+//  - 최근 24시간 안에 자동 추가가 있었으면 건너뛴다 — GitHub cron 지연을
+//    보완하려고 예약을 여러 개 걸어도(본+예비) 한 주기에 한 번만 추가되도록.
+//    (달력 날짜 비교는 예비 실행이 자정을 넘겨 지연되면 뚫리므로 시간 창 사용.
+//     월→수 정규 간격은 48시간이라 24시간 창이면 정규 주기는 막히지 않는다.)
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/recommended-videos.json', import.meta.url);
@@ -147,26 +149,34 @@ async function collect() {
   return [...seen.values()].sort((a, b) => b.views - a.views); // 조회수순
 }
 
-// KST 기준 날짜 문자열 (YYYY-MM-DD)
-function kstDate(iso) {
-  return new Date(new Date(iso).getTime() + 9 * 60 * 60 * 1000)
-    .toISOString()
-    .slice(0, 10);
-}
-
 async function main() {
-  // 기존 목록 전체를 보존한다 (자동·수동 모두 누적)
+  // 기존 목록 전체를 보존한다 (자동·수동 모두 누적).
+  // 파일이 "없는" 경우만 빈 목록으로 시작하고, 파싱 실패(문법 오류 등)는
+  // 반드시 중단한다 — 그냥 진행하면 다음 저장에서 기존 항목(수동 포함)이
+  // 통째로 사라지기 때문.
   let existing = [];
   try {
     existing = JSON.parse(await readFile(OUT, 'utf8'));
-  } catch {}
+  } catch (e) {
+    if (e.code !== 'ENOENT') {
+      console.error(`recommended-videos.json 읽기/파싱 실패 — 기존 파일 보호를 위해 중단: ${e.message}`);
+      process.exit(1);
+    }
+  }
+  if (!Array.isArray(existing)) {
+    console.error('recommended-videos.json이 배열이 아닙니다 — 기존 파일 보호를 위해 중단.');
+    process.exit(1);
+  }
   const existingIds = new Set(existing.map((v) => v.videoId));
 
-  // 같은 날(KST) 자동 추가가 이미 있었으면 종료 — 예약이 여러 번 걸려도
-  // 하루 한 번만 추가한다.
-  const today = kstDate(new Date().toISOString());
-  if (existing.some((v) => v.source === 'auto' && v.addedAt && kstDate(v.addedAt) === today)) {
-    console.log(`오늘(${today})은 이미 자동 추가가 있었습니다. 건너뜁니다.`);
+  // 최근 24시간 안에 자동 추가가 있었으면 종료 — 본·예비 예약이 지연돼
+  // 자정을 넘겨 돌아도 한 주기(월/수/금)에 한 번만 추가한다.
+  const lastAuto = existing
+    .filter((v) => v.source === 'auto' && v.addedAt)
+    .map((v) => Date.parse(v.addedAt))
+    .sort((a, b) => b - a)[0];
+  if (lastAuto && Date.now() - lastAuto < 24 * 3600 * 1000) {
+    console.log('최근 24시간 내 자동 추가가 있었습니다. 건너뜁니다.');
     return;
   }
 

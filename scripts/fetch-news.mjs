@@ -120,14 +120,19 @@ const fresh = collected
   }));
 
 // ── 기존 항목과 병합 (누적) ────────────────────────────
+// 파일이 "없는" 경우만 빈 목록으로 시작한다. 파싱 실패(손상)는 중단 —
+// 그대로 진행하면 누적 이력이 최근 수집분만으로 리셋되기 때문.
 let existing = [];
 try {
   const prev = JSON.parse(
     await readFile(new URL('../src/data/news.json', import.meta.url), 'utf8')
   );
   if (Array.isArray(prev.items)) existing = prev.items;
-} catch {
-  // 파일이 없거나 손상 — 새로 시작
+} catch (e) {
+  if (e.code !== 'ENOENT') {
+    console.error(`news.json 읽기/파싱 실패 — 누적 이력 보호를 위해 중단: ${e.message}`);
+    process.exit(1);
+  }
 }
 
 const now = new Date();

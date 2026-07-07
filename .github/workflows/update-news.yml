@@ -11,20 +11,21 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: write # 커밋·푸시
+  actions: write # deploy.yml 수동 트리거(gh workflow run)
 
-# 배포 워크플로(deploy.yml)와 같은 그룹으로 묶어 동시 배포 충돌을 막는다
+# 자기 자신의 중복 실행만 직렬화한다. 배포 워크플로(deploy.yml)의 'pages'
+# 그룹과 공유하지 않는 이유: 한 그룹에는 대기 1개만 남고 새 실행이 대기분을
+# "취소"하는데, 크론이 자주 도는 이 워크플로가 그룹에 끼면 오너 푸시로 생긴
+# deploy 대기 실행을 취소해 버려, 크론 쪽이 '변경 없음'으로 끝나는 경우
+# 오너 변경분이 영영 배포되지 않는 구멍이 생긴다.
 concurrency:
-  group: pages
+  group: update-news
   cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
@@ -34,8 +35,10 @@ jobs:
         with:
           node-version: 20
 
+      # 수집 실패(사이트 장애 등)는 오류로 남기지 않는다 — 파일이 안 바뀌므로
+      # 아래 커밋 단계가 '변경 없음'으로 안전하게 끝난다.
       - name: 뉴스 수집 (신규 기사 누적)
-        run: node scripts/fetch-news.mjs
+        run: node scripts/fetch-news.mjs || echo "수집 건너뜀(기존 목록 유지)"
 
       - name: news.json 커밋 (변경 있을 때만)
         id: commit
@@ -54,20 +57,12 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # 봇 커밋은 deploy.yml을 트리거하지 못하므로(GitHub 재귀 방지)
-      # 이 워크플로가 직접 빌드·배포까지 수행한다. 변경 있을 때만.
-      - name: Astro 빌드
+      # 봇 커밋의 push는 재귀 방지 때문에 deploy.yml을 자동 트리거하지 못하지만,
+      # workflow_dispatch는 예외라서 GITHUB_TOKEN으로 직접 실행할 수 있다.
+      # 배포를 deploy.yml 한 곳에 모아 두면 어떤 배포든 항상 최신 main을
+      # 빌드하므로, 배포 대기열에서 실행이 취소되어도 사이트가 뒤처지지 않는다.
+      - name: 배포 트리거 (deploy.yml)
         if: steps.commit.outputs.changed == 'true'
-        uses: withastro/action@v3
-
-  deploy:
-    needs: update
-    if: needs.update.outputs.changed == 'true'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: GitHub Pages 배포
-        id: deployment
-        uses: actions/deploy-pages@v4
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml
