@@ -222,17 +222,17 @@ import {
                 <table id="members-table">
                   <thead>
                     <tr>
-                      <th>이름</th><th>이메일</th><th>성별</th><th>생년월일</th><th>휴대폰</th><th>소속 이메일</th><th>가입일</th><th>동의</th>
+                      <th>이름</th><th>이메일</th><th>성별</th><th>생년월일</th><th>휴대폰</th><th>소속 이메일</th><th>가입일</th><th>동의</th><th>관리</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
                 </table>
               </div>
               <p class="hint">
-                <strong>탈퇴(파기) 처리:</strong> Supabase 대시보드 →
-                Authentication → Users에서 해당 계정을 삭제하면 프로필까지
-                자동으로 완전 파기됩니다. (계정 삭제 한 번이면 끝 — 다른 절차
-                불필요)
+                <strong>탈퇴(파기) 처리:</strong> 위 표의 "삭제" 버튼을 누르면
+                계정이 즉시 완전히 파기됩니다(되돌릴 수 없음). 버튼이 실패하면
+                Supabase 대시보드 → Authentication → Users에서 해당 계정을
+                직접 삭제해도 동일하게 처리됩니다.
               </p>
 
               <h3 class="notes-h">강의노트</h3>
@@ -352,7 +352,7 @@ import {
         .order('created_at', { ascending: false });
       const tbody = $('members-table').querySelector('tbody');
       if (error) {
-        tbody.innerHTML = `<tr><td colspan="9">${escHtml(error.message)}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="10">${escHtml(error.message)}</td></tr>`;
         return;
       }
       $('member-count').textContent = `(${data.length}명)`;
@@ -367,9 +367,32 @@ import {
             <td>${escHtml(m.org_email || '-')}</td>
             <td>${fmtD(m.created_at)}</td>
             <td>${m.consent_required_at ? '필수 ' + fmtD(m.consent_required_at) + (m.consent_optional_at ? ' / 선택 ' + fmtD(m.consent_optional_at) : '') : '<strong>동의 기록 없음</strong>'}</td>
+            <td>${m.email === ADMIN_EMAIL ? '' : `<button class="btn ghost danger" data-mdel="${m.id}" data-mname="${escHtml(m.name)}" data-memail="${escHtml(m.email)}">삭제</button>`}</td>
           </tr>`
         )
-        .join('') || '<tr><td colspan="9">아직 가입한 회원이 없습니다.</td></tr>';
+        .join('') || '<tr><td colspan="10">아직 가입한 회원이 없습니다.</td></tr>';
+      tbody.querySelectorAll('[data-mdel]').forEach((b) =>
+        b.addEventListener('click', () => deleteMember(b.dataset.mdel, b.dataset.mname, b.dataset.memail))
+      );
+    }
+
+    async function deleteMember(id, name, email) {
+      if (
+        !confirm(
+          `회원 "${name}"(${email})을(를) 완전히 삭제할까요?\n계정·프로필이 즉시 파기되며 되돌릴 수 없습니다.`
+        )
+      )
+        return;
+      const { error } = await sb.rpc('admin_delete_member', { target_id: id });
+      if (error) {
+        alert(
+          '삭제 실패: ' +
+            error.message +
+            '\n\nSupabase 대시보드 → Authentication → Users에서 직접 삭제해 주세요. (migrate-admin-delete-member.sql을 아직 실행하지 않았다면 먼저 실행해야 합니다)'
+        );
+        return;
+      }
+      loadMembers();
     }
 
     async function loadAdminNotes() {
@@ -1127,7 +1150,13 @@ import {
   }
 </script>
 
-<style>
+<style is:global>
+  /* 이 페이지는 목록 항목 대부분을 JS(innerHTML)로 그린다. Astro의 스타일
+     스코프(data-astro-cid-*)는 컴파일 시점 템플릿에만 붙고 런타임에 넣은
+     요소에는 안 붙어서, 스코프가 걸린 채로는 .btn.ghost 같은 규칙이 그런
+     요소에 안 먹는다(전역 .btn 기본값으로 떨어져 버튼이 커 보이는 원인이었음).
+     그래서 이 페이지는 스타일을 전역으로 둔다. */
+
   /* 상단 점프 내비게이션 */
   .admin-nav {
     position: sticky;

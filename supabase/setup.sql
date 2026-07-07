@@ -105,6 +105,30 @@ $$;
 
 grant execute on function public.record_consent(text) to authenticated;
 
+-- 관리자 대시보드에서 회원을 직접 삭제하는 기능. 클라이언트(anon/authenticated
+-- 키)는 auth.users를 직접 지울 권한이 없어(service_role 키가 필요하며, 그
+-- 키는 사이트 코드에 절대 넣으면 안 됨) 관리자만 실행 가능한 서버 함수로
+-- 우회한다. auth.users를 지우면 profiles 등 연결된 행은 on delete cascade로
+-- 함께 정리된다.
+create or replace function public.admin_delete_member(target_id uuid)
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if not public.is_admin() then
+    raise exception 'not authorized';
+  end if;
+  if target_id = auth.uid() then
+    raise exception '관리자 본인 계정은 여기서 삭제할 수 없습니다';
+  end if;
+  delete from auth.users where id = target_id;
+end;
+$$;
+
+grant execute on function public.admin_delete_member(uuid) to authenticated;
+
 -- ── 강의노트 (회원 전용 콘텐츠) ──────────────────────────────
 create table public.lecture_notes (
   id bigint generated always as identity primary key,
