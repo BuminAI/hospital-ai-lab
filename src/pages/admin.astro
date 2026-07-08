@@ -18,55 +18,82 @@ import {
       </p>
     </header>
 
-    <!-- 상단 점프 내비게이션 -->
-    <nav class="admin-nav" aria-label="관리 메뉴">
-      <a href="#token-panel">🔑 접속 토큰</a>
-      <a href="#new-post-panel">✏️ 새 글 쓰기</a>
-      <a href="#manage-post-panel">📝 글 관리</a>
-      <a href="#image-panel">🖼️ 이미지</a>
-      <a href="#video-panel">▶️ 추천 영상</a>
-      <a href="#news-panel">📰 AI 뉴스</a>
-      <a href="#member-panel">👥 회원·강의노트</a>
-      <a href="#ai-apps-admin">🖼️ AI로 만든 앱</a>
-      <a href="#deploy-panel">🚀 배포 상태</a>
-      <a href="#stats-panel">📊 방문자 통계</a>
-    </nav>
+    {
+      !SUPABASE_URL ? (
+        <p class="hint">
+          회원 기능이 아직 연결되지 않았습니다. supabase/SETUP-GUIDE.md의
+          안내대로 개통한 뒤 사용할 수 있습니다.
+        </p>
+      ) : (
+        <div id="admin-login-gate" class="panel">
+          <h2>관리자 로그인</h2>
+          <p class="hint">관리자 계정({ADMIN_EMAIL})으로 로그인하세요.</p>
+          <div class="row">
+            <input type="email" id="gate-email" placeholder="관리자 이메일" value={ADMIN_EMAIL} />
+            <input type="password" id="gate-password" placeholder="비밀번호" />
+            <button class="btn" id="gate-login-btn">로그인</button>
+          </div>
+          <p class="hint" id="gate-status"></p>
+        </div>
+      )
+    }
 
-    <!-- 토큰 -->
-    <section class="panel" id="token-panel">
-      <h2>🔑 접속 토큰</h2>
-      <p class="section-desc">
-        아래 모든 기능(글·이미지·영상 관리)을 쓰려면 GitHub 토큰이 먼저
-        필요합니다. 이 컴퓨터에서 처음 한 번만 설정하면 됩니다.
-      </p>
-      <p class="status-line" id="token-status">
-        <span class="dot dot-off"></span>토큰이 설정되지 않았습니다.
-      </p>
-      <div class="row">
-        <input
-          type="password"
-          id="token-input"
-          placeholder="GitHub Fine-grained 토큰 (github_pat_...)"
-          autocomplete="off"
-        />
-        <button class="btn" id="token-save">저장</button>
-        <button class="btn ghost" id="token-clear">지우기</button>
+    <div id="admin-dashboard" hidden>
+      <div class="admin-topbar">
+        <button class="btn ghost" id="admin-logout">로그아웃</button>
       </div>
-      <details>
-        <summary>토큰 만드는 방법 (처음 한 번)</summary>
-        <ol>
-          <li>GitHub 로그인 → 우측 상단 프로필 → <strong>Settings</strong></li>
-          <li>왼쪽 맨 아래 <strong>Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</strong></li>
-          <li>Token name에 아무 이름(예: site-admin)을 적고, Expiration(만료 기한)을 정합니다 — 만료되면 같은 방법으로 새로 만들어 다시 저장하면 됩니다</li>
-          <li>Repository access: <strong>Only select repositories → hospital-ai-lab</strong> 선택</li>
-          <li>Permissions → Repository permissions에서 <strong>Contents: Read and write</strong>, <strong>Actions: Read-only</strong> 설정</li>
-          <li>생성된 <code>github_pat_...</code> 값을 위 칸에 붙여넣고 저장</li>
-        </ol>
-        <p>토큰은 이 브라우저에만 저장되며 서버로 전송되지 않습니다. 공용 PC에서는 사용 후 "지우기"를 누르세요.</p>
-      </details>
-    </section>
 
-    <!-- 새 글 -->
+      <!-- 상단 점프 내비게이션 -->
+      <nav class="admin-nav" aria-label="관리 메뉴">
+        <a href="#token-panel">🔑 GitHub 연동</a>
+        <a href="#new-post-panel">✏️ 새 글 쓰기</a>
+        <a href="#manage-post-panel">📝 글 관리</a>
+        <a href="#image-panel">🖼️ 이미지</a>
+        <a href="#video-panel">▶️ 추천 영상</a>
+        <a href="#news-panel">📰 AI 뉴스</a>
+        <a href="#member-panel">👥 회원·강의노트</a>
+        <a href="#ai-apps-admin">🖼️ AI로 만든 앱</a>
+        <a href="#deploy-panel">🚀 배포 상태</a>
+        <a href="#stats-panel">📊 방문자 통계</a>
+      </nav>
+
+      <!-- 토큰 -->
+      <section class="panel" id="token-panel">
+        <h2>🔑 GitHub 연동</h2>
+        <p class="section-desc">
+          글·이미지·영상·뉴스 관리 기능을 쓰려면 GitHub 토큰이 필요합니다.
+          한 번만 저장해 두면 이후로는 로그인만으로 어느 기기·브라우저에서든
+          자동으로 연결됩니다(토큰은 이 브라우저가 아니라 서버에 안전하게
+          보관됩니다).
+        </p>
+        <p class="status-line" id="token-status">
+          <span class="dot dot-off"></span>확인 중…
+        </p>
+        <div class="row">
+          <input
+            type="password"
+            id="token-input"
+            placeholder="GitHub Fine-grained 토큰 (github_pat_...)"
+            autocomplete="off"
+          />
+          <button class="btn" id="token-save">저장</button>
+          <button class="btn ghost" id="token-clear">연동 해제</button>
+        </div>
+        <details>
+          <summary>토큰 만드는 방법 (처음 한 번)</summary>
+          <ol>
+            <li>GitHub 로그인 → 우측 상단 프로필 → <strong>Settings</strong></li>
+            <li>왼쪽 맨 아래 <strong>Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</strong></li>
+            <li>Token name에 아무 이름(예: site-admin)을 적고, Expiration(만료 기한)을 정합니다 — 만료되면 같은 방법으로 새로 만들어 다시 저장하면 됩니다</li>
+            <li>Repository access: <strong>Only select repositories → hospital-ai-lab</strong> 선택</li>
+            <li>Permissions → Repository permissions에서 <strong>Contents: Read and write</strong>, <strong>Actions: Read-only</strong> 설정</li>
+            <li>생성된 <code>github_pat_...</code> 값을 위 칸에 붙여넣고 저장</li>
+          </ol>
+          <p>저장하면 관리자 계정으로 로그인한 어떤 기기에서도 다시 붙여넣을 필요가 없습니다.</p>
+        </details>
+      </section>
+
+      <!-- 새 글 -->
     <section class="panel" id="new-post-panel">
       <h2>✏️ 새 글 쓰기</h2>
       <p class="section-desc">
@@ -198,87 +225,61 @@ import {
 
     <!-- 회원·강의노트 관리 (Supabase) -->
     <section class="panel" id="member-panel">
-      <h2>👥 회원 · 강의노트 관리</h2>
-      {
-        !SUPABASE_URL ? (
-          <p class="hint">
-            회원 기능이 아직 연결되지 않았습니다. supabase/SETUP-GUIDE.md의
-            안내대로 개통한 뒤 사용할 수 있습니다.
-          </p>
-        ) : (
-          <div>
-            <div id="sb-login">
-              <p class="hint">관리자 계정({ADMIN_EMAIL})으로 로그인하세요.</p>
-              <div class="row">
-                <input type="email" id="sb-email" placeholder="관리자 이메일" value={ADMIN_EMAIL} />
-                <input type="password" id="sb-password" placeholder="비밀번호" />
-                <button class="btn" id="sb-login-btn">로그인</button>
-              </div>
-              <p class="hint" id="sb-login-status"></p>
-            </div>
+      <div class="panel-head">
+        <h2>👥 회원 · 강의노트 관리</h2>
+        <button class="btn ghost" id="members-refresh">새로고침</button>
+      </div>
+      <h3>회원 목록 <span id="member-count" class="hint"></span></h3>
+      <div class="table-wrap">
+        <table id="members-table">
+          <thead>
+            <tr>
+              <th>이름</th><th>이메일</th><th>성별</th><th>생년월일</th><th>휴대폰</th><th>소속 이메일</th><th>가입일</th><th>동의</th><th>관리</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint">
+        <strong>탈퇴(파기) 처리:</strong> 위 표의 "삭제" 버튼을 누르면
+        계정이 즉시 완전히 파기됩니다(되돌릴 수 없음). 버튼이 실패하면
+        Supabase 대시보드 → Authentication → Users에서 해당 계정을
+        직접 삭제해도 동일하게 처리됩니다.
+      </p>
 
-            <div id="sb-admin" hidden>
-              <div class="panel-head">
-                <h3>회원 목록 <span id="member-count" class="hint"></span></h3>
-                <span class="row">
-                  <button class="btn ghost" id="members-refresh">새로고침</button>
-                  <button class="btn ghost" id="sb-logout">관리자 로그아웃</button>
-                </span>
-              </div>
-              <div class="table-wrap">
-                <table id="members-table">
-                  <thead>
-                    <tr>
-                      <th>이름</th><th>이메일</th><th>성별</th><th>생년월일</th><th>휴대폰</th><th>소속 이메일</th><th>가입일</th><th>동의</th><th>관리</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-              </div>
-              <p class="hint">
-                <strong>탈퇴(파기) 처리:</strong> 위 표의 "삭제" 버튼을 누르면
-                계정이 즉시 완전히 파기됩니다(되돌릴 수 없음). 버튼이 실패하면
-                Supabase 대시보드 → Authentication → Users에서 해당 계정을
-                직접 삭제해도 동일하게 처리됩니다.
-              </p>
+      <h3 class="notes-h">강의노트</h3>
+      <div class="form-grid">
+        <label>제목<input type="text" id="note-title" /></label>
+        <label class="check" style="align-self: end;"><input type="checkbox" id="note-published" checked /> 공개 (회원에게 표시)</label>
+      </div>
+      <label class="block">내용 (마크다운: ##제목, -목록, **굵게**, [링크](주소))
+        <textarea id="note-body" rows="10"></textarea>
+      </label>
+      <div class="row">
+        <button class="btn" id="note-save">저장</button>
+        <button class="btn ghost" id="note-cancel" hidden>새 노트로 전환</button>
+      </div>
+      <p class="hint" id="note-status"></p>
+      <div id="admin-notes-list" class="posts"></div>
 
-              <h3 class="notes-h">강의노트</h3>
-              <div class="form-grid">
-                <label>제목<input type="text" id="note-title" /></label>
-                <label class="check" style="align-self: end;"><input type="checkbox" id="note-published" checked /> 공개 (회원에게 표시)</label>
-              </div>
-              <label class="block">내용 (마크다운: ##제목, -목록, **굵게**, [링크](주소))
-                <textarea id="note-body" rows="10"></textarea>
-              </label>
-              <div class="row">
-                <button class="btn" id="note-save">저장</button>
-                <button class="btn ghost" id="note-cancel" hidden>새 노트로 전환</button>
-              </div>
-              <p class="hint" id="note-status"></p>
-              <div id="admin-notes-list" class="posts"></div>
-
-              <h3 class="notes-h" id="ai-apps-admin">AI로 만든 앱</h3>
-              <p class="section-desc">
-                jpg·png 카드뉴스 이미지를 올리면 회원 전용 페이지(/ai-apps/)에
-                썸네일로 표시됩니다. 로그인한 회원만 이미지를 내려받을 수
-                있습니다.
-              </p>
-              <div class="form-grid">
-                <label>제목<input type="text" id="app-title" /></label>
-                <label class="check" style="align-self: end;"><input type="checkbox" id="app-published" checked /> 공개 (회원에게 표시)</label>
-              </div>
-              <label class="block">이미지 파일 (jpg·png)
-                <input type="file" id="app-file" accept="image/jpeg,image/png" />
-              </label>
-              <div class="row">
-                <button class="btn" id="app-save">추가</button>
-              </div>
-              <p class="hint" id="app-status"></p>
-              <div id="admin-apps-list" class="posts"></div>
-            </div>
-          </div>
-        )
-      }
+      <h3 class="notes-h" id="ai-apps-admin">AI로 만든 앱</h3>
+      <p class="section-desc">
+        jpg·png 카드뉴스 이미지를 올리면 회원 전용 페이지(/ai-apps/)에
+        썸네일로 표시됩니다. 로그인한 회원만 이미지를 내려받을 수
+        있습니다.
+      </p>
+      <div class="form-grid">
+        <label>제목<input type="text" id="app-title" /></label>
+        <label class="check" style="align-self: end;"><input type="checkbox" id="app-published" checked /> 공개 (회원에게 표시)</label>
+      </div>
+      <label class="block">이미지 파일 (jpg·png)
+        <input type="file" id="app-file" accept="image/jpeg,image/png" />
+      </label>
+      <div class="row">
+        <button class="btn" id="app-save">추가</button>
+      </div>
+      <p class="hint" id="app-status"></p>
+      <div id="admin-apps-list" class="posts"></div>
     </section>
 
     <!-- 배포 상태 -->
@@ -320,14 +321,17 @@ import {
           </div>
         )
       }
-    </section>
+      </section>
+    </div>
   </div>
 </BaseLayout>
 
 <script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, ADMIN_EMAIL }}>
-  // 회원·강의노트 관리 (Supabase) — 관리자 이메일 계정으로만 데이터 접근 가능(RLS)
+  // 관리자 로그인 통합 (Supabase) — 이 로그인 하나로 대시보드 전체가
+  // 열리고, GitHub 토큰도 서버(admin_secrets 테이블, RLS로 관리자만 접근)
+  // 에서 자동으로 불러온다. 사이트 코드에는 어떤 비밀값도 들어있지 않다.
   (async () => {
-    if (!SUPABASE_URL || !document.getElementById('sb-login')) return;
+    if (!SUPABASE_URL || !document.getElementById('admin-login-gate')) return;
     const { createClient } = await import(
       'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
     );
@@ -340,15 +344,57 @@ import {
 
     let editingNoteId = null;
 
+    function updateTokenPanelUI() {
+      const has = !!window.__adminGithubToken;
+      $('token-status').innerHTML = has
+        ? '<span class="dot dot-on"></span>GitHub 연동되어 있습니다. 어느 기기에서 로그인해도 그대로 적용됩니다.'
+        : '<span class="dot dot-off"></span>아직 GitHub 토큰이 없습니다. 아래에 붙여넣고 저장하세요.';
+    }
+
+    async function loadGithubToken() {
+      const { data, error } = await sb
+        .from('admin_secrets')
+        .select('value')
+        .eq('key', 'github_pat')
+        .maybeSingle();
+      window.__adminGithubToken = error ? '' : data?.value || '';
+      updateTokenPanelUI();
+    }
+
+    async function saveGithubToken() {
+      const status = $('token-status');
+      const v = $('token-input').value.trim();
+      if (!v) return;
+      const { error } = await sb
+        .from('admin_secrets')
+        .upsert({ key: 'github_pat', value: v, updated_at: new Date().toISOString() });
+      if (error) {
+        status.textContent = '저장 실패: ' + error.message;
+        return;
+      }
+      window.__adminGithubToken = v;
+      $('token-input').value = '';
+      updateTokenPanelUI();
+      window.dispatchEvent(new CustomEvent('admin-github-token-ready'));
+    }
+
+    async function clearGithubToken() {
+      await sb.from('admin_secrets').delete().eq('key', 'github_pat');
+      window.__adminGithubToken = '';
+      updateTokenPanelUI();
+    }
+
     async function showAdminIfLoggedIn() {
       const { data: { session } } = await sb.auth.getSession();
       const isAdmin = session && session.user.email === ADMIN_EMAIL;
-      $('sb-login').hidden = !!isAdmin;
-      $('sb-admin').hidden = !isAdmin;
+      $('admin-login-gate').hidden = !!isAdmin;
+      $('admin-dashboard').hidden = !isAdmin;
       if (isAdmin) {
+        await loadGithubToken();
         loadMembers();
         loadAdminNotes();
         loadAdminApps();
+        window.dispatchEvent(new CustomEvent('admin-ready'));
       }
     }
 
@@ -528,12 +574,12 @@ import {
       loadAdminApps();
     }
 
-    $('sb-login-btn').addEventListener('click', async () => {
-      const status = $('sb-login-status');
+    $('gate-login-btn').addEventListener('click', async () => {
+      const status = $('gate-status');
       status.textContent = '로그인 중…';
       const { data, error } = await sb.auth.signInWithPassword({
-        email: $('sb-email').value.trim(),
-        password: $('sb-password').value,
+        email: $('gate-email').value.trim(),
+        password: $('gate-password').value,
       });
       if (error) {
         status.textContent = '로그인 실패: 이메일 또는 비밀번호를 확인하세요.';
@@ -545,14 +591,18 @@ import {
         return;
       }
       status.textContent = '';
+      $('gate-password').value = '';
       showAdminIfLoggedIn();
     });
 
-    $('sb-logout').addEventListener('click', async () => {
+    $('admin-logout').addEventListener('click', async () => {
       await sb.auth.signOut();
+      window.__adminGithubToken = '';
       showAdminIfLoggedIn();
     });
     $('members-refresh').addEventListener('click', loadMembers);
+    $('token-save').addEventListener('click', saveGithubToken);
+    $('token-clear').addEventListener('click', clearGithubToken);
 
     $('note-save').addEventListener('click', async () => {
       const status = $('note-status');
@@ -596,20 +646,15 @@ import {
   const REPO = 'BuminAI/hospital-ai-lab';
   const API = `https://api.github.com/repos/${REPO}`;
   const BLOG_DIR = 'src/content/blog';
-  const TOKEN_KEY = 'hal_admin_token';
 
   const $ = (id: string) => document.getElementById(id) as any;
 
   // ── 토큰 ────────────────────────────────────────────────
+  // 토큰 자체의 저장·조회·상태 표시는 위쪽 Supabase 스크립트가 전담한다
+  // (서버의 admin_secrets 테이블에 보관). 여기서는 그 스크립트가
+  // window.__adminGithubToken에 채워 둔 값을 읽기만 한다.
   function getToken(): string {
-    return localStorage.getItem(TOKEN_KEY) || '';
-  }
-
-  function updateTokenStatus() {
-    const has = !!getToken();
-    $('token-status').innerHTML = has
-      ? '<span class="dot dot-on"></span>토큰이 설정되어 있습니다. 아래 기능을 사용할 수 있습니다.'
-      : '<span class="dot dot-off"></span>토큰이 설정되지 않았습니다. 아래 안내에 따라 토큰을 만들어 붙여넣으세요.';
+    return (window as any).__adminGithubToken || '';
   }
 
   async function gh(path: string, options: RequestInit = {}) {
@@ -1123,20 +1168,7 @@ import {
   }
 
   // ── 초기화 ──────────────────────────────────────────────
-  $('token-save').addEventListener('click', () => {
-    const v = $('token-input').value.trim();
-    if (v) {
-      localStorage.setItem(TOKEN_KEY, v);
-      $('token-input').value = '';
-      updateTokenStatus();
-      loadPosts();
-      loadRuns();
-    }
-  });
-  $('token-clear').addEventListener('click', () => {
-    localStorage.removeItem(TOKEN_KEY);
-    updateTokenStatus();
-  });
+  // 토큰 저장/해제 버튼은 위쪽 Supabase 스크립트가 처리한다(서버 저장).
   $('runs-refresh').addEventListener('click', loadRuns);
   $('posts-refresh').addEventListener('click', loadPosts);
   $('new-save').addEventListener('click', saveNewPost);
@@ -1151,13 +1183,17 @@ import {
   $('news-refresh').addEventListener('click', loadNewsList);
 
   $('new-date').value = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Seoul' });
-  updateTokenStatus();
-  if (getToken()) {
+
+  // 관리자 로그인이 끝나 토큰을 서버에서 불러온 뒤(admin-ready), 또는
+  // 첫 설정으로 토큰을 방금 저장한 뒤(admin-github-token-ready) 목록을 연다.
+  function loadAllGithubPanels() {
     loadPosts();
     loadRuns();
     loadVideosList();
     loadNewsList();
   }
+  window.addEventListener('admin-ready', loadAllGithubPanels);
+  window.addEventListener('admin-github-token-ready', loadAllGithubPanels);
 </script>
 
 <style is:global>
@@ -1474,8 +1510,19 @@ import {
     font-size: 1.05rem;
   }
 
-  #sb-admin h3 {
+  #member-panel h3 {
     font-size: 1.05rem;
+  }
+
+  .admin-topbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+  }
+
+  #admin-login-gate {
+    max-width: 30rem;
+    margin: 2rem auto 0;
   }
 
   @media (max-width: 40rem) {

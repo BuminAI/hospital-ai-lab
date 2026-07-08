@@ -129,6 +129,25 @@ $$;
 
 grant execute on function public.admin_delete_member(uuid) to authenticated;
 
+-- 관리자 로그인 통합용: GitHub 토큰 등 비밀값을 사이트 코드가 아니라
+-- 여기(서버)에만 저장한다. RLS로 관리자 계정만 읽고 쓸 수 있다.
+create table public.admin_secrets (
+  key text primary key,
+  value text not null,
+  updated_at timestamptz not null default now()
+);
+
+alter table public.admin_secrets enable row level security;
+
+create policy "admin_secrets_select_admin" on public.admin_secrets
+  for select using (public.is_admin());
+create policy "admin_secrets_upsert_admin" on public.admin_secrets
+  for insert with check (public.is_admin());
+create policy "admin_secrets_update_admin" on public.admin_secrets
+  for update using (public.is_admin());
+create policy "admin_secrets_delete_admin" on public.admin_secrets
+  for delete using (public.is_admin());
+
 -- ── 강의노트 (회원 전용 콘텐츠) ──────────────────────────────
 create table public.lecture_notes (
   id bigint generated always as identity primary key,
