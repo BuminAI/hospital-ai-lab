@@ -617,14 +617,15 @@ import {
         ...(options.headers || {}),
       },
     });
-    if (res.status === 401) throw new Error('토큰이 유효하지 않습니다. 새 토큰을 설정하세요.');
-    if (res.status === 403)
-      throw new Error(
-        '권한이 없습니다(403). 토큰 설정에서 저장소 선택(hospital-ai-lab)과 권한(Contents: Read and write, Actions: Read-only)을 확인하세요.'
-      );
-    if (res.status === 404) throw new Error('찾을 수 없습니다(404). 토큰의 저장소 권한을 확인하세요.');
     if (!res.ok) {
       const body = await res.json().catch(() => ({}));
+      const reason = body.message ? ` (GitHub: ${body.message})` : '';
+      if (res.status === 401) throw new Error(`토큰이 유효하지 않습니다. 새 토큰을 설정하세요.${reason}`);
+      if (res.status === 403)
+        throw new Error(
+          `권한이 없습니다(403). 토큰 설정에서 저장소 선택(hospital-ai-lab)과 권한(Contents: Read and write, Actions: Read-only)을 확인하세요.${reason}`
+        );
+      if (res.status === 404) throw new Error(`찾을 수 없습니다(404). 토큰의 저장소 권한을 확인하세요.${reason}`);
       throw new Error(`GitHub API 오류 ${res.status}: ${body.message || ''}`);
     }
     return res.status === 204 ? null : res.json();
