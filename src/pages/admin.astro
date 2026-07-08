@@ -152,7 +152,7 @@ import {
         누르면 됩니다.<br />
         <strong>매주 월·수·금</strong> 자동으로 최신 영상을 검색해
         <span class="chip auto">자동</span> 영상을 3개까지 새로 추가합니다.
-        기존 영상(<span class="chip">수동</span>·<span class="chip auto">자동</span> 모두)은
+        기존 영상(<span class="chip">수동</span>·<span class="chip auto">자동</span>·직접 만든 영상 모두)은
         지워지지 않고 계속 쌓입니다.
       </p>
       <div class="form-grid">
@@ -167,6 +167,13 @@ import {
         <img id="video-preview-img" alt="" />
         <span class="video-preview-label">✓ 유튜브 영상을 찾았습니다. 제목을 적고 추가하세요.</span>
       </div>
+      <div class="row">
+        <label class="check"><input type="checkbox" id="video-own" /> 내가 만든 영상입니다 (연구소장 채널)</label>
+      </div>
+      <p class="hint">
+        체크하면 "추천 영상" 목록이 아니라 그 페이지 아래 "연구소장이 직접
+        만든 영상" 코너에 들어갑니다.
+      </p>
       <div class="row">
         <button class="btn" id="video-add">③ 추가</button>
       </div>
@@ -946,7 +953,7 @@ import {
         <div class="post-row">
           <span class="post-title">
             <img class="thumb-sm" src="https://img.youtube.com/vi/${esc(v.videoId)}/default.jpg" alt="" />
-            ${v.source === 'manual' ? '<span class="chip">수동</span> ' : '<span class="chip auto">자동</span> '}${esc(v.title)}
+            ${v.source === 'own' ? '<span class="chip auto">내가 만든 영상</span> ' : v.source === 'manual' ? '<span class="chip">수동</span> ' : '<span class="chip auto">자동</span> '}${esc(v.title)}
           </span>
           <span class="post-actions">
             <a class="btn ghost" href="${esc(v.url)}" target="_blank" rel="noopener">보기</a>
@@ -990,12 +997,14 @@ import {
     status.textContent = '저장 중…';
     try {
       const { sha, videos } = await loadVideosFile();
-      // source:"manual" — 매주 수요일 자동 갱신 때 삭제되지 않고 보존된다
-      videos.unshift({ videoId, title, url, source: 'manual', addedAt: new Date().toISOString() });
+      // source:"manual"/"own" — 자동 갱신 때 삭제되지 않고 계속 보존된다
+      const source = $('video-own').checked ? 'own' : 'manual';
+      videos.unshift({ videoId, title, url, source, addedAt: new Date().toISOString() });
       await saveVideos(videos, sha, `수정: 추천 영상 추가 - ${title}`);
       status.textContent = '저장됨 — 1~2분 후 사이트에 반영됩니다.';
       $('video-url').value = '';
       $('video-title').value = '';
+      $('video-own').checked = false;
       $('video-preview').hidden = true;
       loadVideosList();
       setTimeout(loadRuns, 4000);

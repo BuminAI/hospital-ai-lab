@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import videos from '../data/recommended-videos.json';
+import allVideos from '../data/recommended-videos.json';
 
 const CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
+// 다른 채널 추천 영상과 연구소장이 직접 만든 영상을 구분해 보여준다
+const videos = allVideos.filter((v) => v.source !== 'own');
+const ownVideos = allVideos.filter((v) => v.source === 'own');
 ---
 
 <BaseLayout
@@ -47,16 +50,38 @@ const CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
 
     <section class="channel-section">
       <h2>연구소장이 직접 만든 영상</h2>
-      <div class="channel-card">
-        <span class="chip">준비 중</span>
-        <p>
-          아직 영상 제작 전입니다. 채널을 미리 구독해 두시면 첫 영상이 올라올
-          때 바로 확인하실 수 있습니다.
-        </p>
-        <a class="btn" href={CHANNEL_URL} target="_blank" rel="noopener">
-          유튜브 채널 바로가기
-        </a>
-      </div>
+      {
+        ownVideos.length > 0 ? (
+          <div class="video-grid">
+            {ownVideos.map((v) => (
+              <a class="video-card" href={v.url} target="_blank" rel="noopener">
+                <img
+                  src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+                  alt=""
+                  loading="lazy"
+                  width="480"
+                  height="360"
+                />
+                <p class="video-title">
+                  {v.title}
+                  <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
+                </p>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="channel-card">
+            <span class="chip">준비 중</span>
+            <p>
+              아직 영상 제작 전입니다. 채널을 미리 구독해 두시면 첫 영상이
+              올라올 때 바로 확인하실 수 있습니다.
+            </p>
+            <a class="btn" href={CHANNEL_URL} target="_blank" rel="noopener">
+              유튜브 채널 바로가기
+            </a>
+          </div>
+        )
+      }
     </section>
   </div>
 </BaseLayout>

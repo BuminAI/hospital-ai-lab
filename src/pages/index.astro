@@ -17,7 +17,9 @@ const recentPosts = allPosts.filter((p) => p.id !== featured?.id).slice(0, 3);
 
 const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 5);
-const homeVideos = videos.slice(0, 3);
+// 연구소장이 직접 만든 영상은 별도 코너(/youtube/)에서만 보여주고,
+// 홈의 "추천 강의 영상"에는 다른 채널 영상만 노출한다
+const homeVideos = videos.filter((v) => v.source !== 'own').slice(0, 3);
 
 // 홈에만 넣는 구조화 데이터 (site.ts 확정값만 사용, 창작 정보 없음)
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
