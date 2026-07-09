@@ -344,6 +344,22 @@ import {
 
     let editingNoteId = null;
 
+    // Supabase에 아직 설치되지 않은 테이블·함수·버킷을 부르면 나오는 오류를
+    // "무엇을 해야 하는지"가 보이는 안내로 바꾼다. (설치가 덜 된 DB에서
+    // "Could not find the table ... in the schema cache" 같은 메시지가 나온다)
+    function dbSetupHint(error) {
+      const m = (error && error.message) || String(error || '');
+      if (/schema cache|does not exist|Bucket not found/i.test(m)) {
+        return (
+          'Supabase에 이 기능의 설치(마이그레이션)가 아직 안 된 상태입니다. ' +
+          '저장소의 supabase/migrate-2026-07-09-catchup.sql 내용 전체를 ' +
+          'Supabase 대시보드 → SQL Editor에 붙여넣고 Run 한 번만 실행하면 해결됩니다. ' +
+          '(원래 오류: ' + m + ')'
+        );
+      }
+      return m;
+    }
+
     function updateTokenPanelUI() {
       const has = !!window.__adminGithubToken;
       $('token-status').innerHTML = has
@@ -359,6 +375,9 @@ import {
         .maybeSingle();
       window.__adminGithubToken = error ? '' : data?.value || '';
       updateTokenPanelUI();
+      if (error) {
+        $('token-status').textContent = '연동 상태 확인 실패: ' + dbSetupHint(error);
+      }
     }
 
     async function saveGithubToken() {
@@ -369,7 +388,7 @@ import {
         .from('admin_secrets')
         .upsert({ key: 'github_pat', value: v, updated_at: new Date().toISOString() });
       if (error) {
-        status.textContent = '저장 실패: ' + error.message;
+        status.textContent = '저장 실패: ' + dbSetupHint(error);
         return;
       }
       window.__adminGithubToken = v;
@@ -562,11 +581,11 @@ import {
       const ext = file.type === 'image/png' ? 'png' : 'jpg';
       const path = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
       const { error: upErr } = await sb.storage.from('ai-apps').upload(path, file, { contentType: file.type });
-      if (upErr) { status.textContent = '업로드 실패: ' + upErr.message; return; }
+      if (upErr) { status.textContent = '업로드 실패: ' + dbSetupHint(upErr); return; }
       const { error: insErr } = await sb
         .from('ai_apps')
         .insert({ title, storage_path: path, published: $('app-published').checked });
-      if (insErr) { status.textContent = '저장 실패: ' + insErr.message; return; }
+      if (insErr) { status.textContent = '저장 실패: ' + dbSetupHint(insErr); return; }
       status.textContent = '저장됨 — 회원 페이지에 바로 반영됩니다.';
       $('app-title').value = '';
       $('app-file').value = '';
