@@ -68,11 +68,11 @@ npm run build    # 배포본 생성(dist/)
 | 워크플로 | 스케줄(UTC→KST) | 하는 일 |
 | --- | --- | --- |
 | `deploy.yml` | main push 시 | Astro 빌드 → GitHub Pages 배포 |
-| `update-news.yml` | 3시간 간격(`17 */3 * * *`) | 메디칼타임즈 '의료기기·AI' 지면 크롤링 → `src/data/news.json`에 신규 기사만 누적. 변경 없으면 커밋·배포 생략 |
-| `update-videos.yml` | 월·수·금 KST 09:07(+예비 15:07) | 유튜브에서 클로드·병원·의료 AI 입문 영상 최대 3개 신규 추가 → `src/data/recommended-videos.json`. 기존 항목(수동·자동·직접 제작 전부)은 절대 안 지움. 같은 주기 중복 방지: 최근 24시간 내 auto 추가 있으면 건너뜀 |
+| `update-news.yml` | 1시간 간격(`17 * * * *`) | 메디칼타임즈 '의료기기·AI' 지면 크롤링 → `src/data/news.json`에 신규 기사만 누적. 변경 없으면 커밋·배포 생략 |
+| `update-videos.yml` | 월·수·금 KST 09:07 + 예비 12:07/15:07/18:07/21:07 | 유튜브에서 클로드·병원·의료 AI 입문 영상 최대 3개 신규 추가 → `src/data/recommended-videos.json`. 기존 항목(수동·자동·직접 제작 전부)은 절대 안 지움. 같은 주기 중복 방지: 최근 24시간 내 auto 추가 있으면 건너뜀. 수동 즉시 갱신은 `gh workflow run update-videos.yml -f force=true` |
 
 - 수집 스크립트: `scripts/fetch-news.mjs`, `scripts/fetch-videos.mjs`
-- GitHub cron은 수 시간 지연될 수 있음(실측 12~14시간) → 그래서 뉴스는 자주 돌리고 "새 기사 있을 때만" 커밋하는 방식으로 설계됨.
+- GitHub cron은 예약을 자주 지연·누락시킴(실측: 3시간 간격 예약이 하루 2~3회만 실행, 최대 13시간 공백) → 그래서 예약을 촘촘히 걸고 "새 기사 있을 때만" 커밋하는 방식으로 설계됨 (2026-07-09 조정).
 - 두 워크플로 모두 `deploy.yml`과 배포 대기열을 공유하지 않도록(오너 직접 push 배포가 취소당하지 않게) 각자 별도 concurrency 그룹 사용 + 완료 후 `gh workflow run deploy.yml`로 배포를 위임함.
 
 ### 4-2. 매일 블로그 자동 작성 (⚠️ 로컬 — 새 컴퓨터에서 반드시 재설정)
@@ -80,8 +80,11 @@ npm run build    # 배포본 생성(dist/)
 - **이건 GitHub Actions가 아니라 Claude 앱의 예약 작업(scheduled task)**입니다. 매일 KST 22:00경 이 컴퓨터의 Claude 앱이 열려 있을 때 실행되어, 주제 선정 → 작성 → 출처 검증 → 발행까지 자동으로 합니다.
 - 저장 위치: `C:\Users\a\.claude\scheduled-tasks\daily-blog-post\SKILL.md` (로컬 파일 — git에 없고 새 컴퓨터에 자동으로 안 생김)
 - **오너 지시(2026-07-08)**: 이 자동 글은 사실 검증(모든 주장에 객관적 출처, 확인 안 되면 무발행)을 통과하면 **오너 승인 없이 바로 발행**한다. 이 예외는 CLAUDE.md의 "작업 규칙"에도 명시되어 있음.
-- **새 컴퓨터에서 이어가려면**: 새 Claude 세션에게 "매일 오후 10시에 병원 AI 연구소 블로그 글 1개를 주제 선정부터 작성·검증·발행까지 자동으로 수행하는 예약 작업을 다시 만들어줘. CLAUDE.md와 이 HANDOFF.md를 참고해서"라고 요청하면 된다. (schedule 스킬로 재생성)
-- 앱이 꺼져 있으면 그 날은 건너뛰지 않고 다음에 앱을 열 때 실행됨(하루 밀릴 수 있음).
+- **무인 실행이 멈추지 않게 하는 핵심 장치(2026-07-09, 오너 승인)**: 예약 세션이 쓰는 도구(WebFetch·WebSearch·git·gh·빌드·블로그 폴더 쓰기)를 `.claude/settings.json`(git에 커밋됨)에 사전 허용해 뒀다. 이게 없으면 무인 세션이 승인 창에 걸려 영영 멈춘다 — 실제로 2026-07-09 실행이 출처 확인(WebFetch) 승인 대기에 걸려 멈춘 것을 확인하고 넣은 조치다. 예약 작업에 새 도구를 쓰게 하려면 이 허용 목록도 함께 갱신할 것.
+- 실행이 끝날 때마다 알림이 오도록 설정되어 있다(notifyOnCompletion). 알림이 안 오면 그 날 실행이 안 된 것.
+- 같은 날짜 글이 이미 있으면 중복 발행하지 않고 건너뛴다(작업 프롬프트에 명시).
+- **새 컴퓨터에서 이어가려면**: 새 Claude 세션에게 "매일 오후 10시에 병원 AI 연구소 블로그 글 1개를 주제 선정부터 작성·검증·발행까지 자동으로 수행하는 예약 작업을 다시 만들어줘. CLAUDE.md와 이 HANDOFF.md를 참고해서"라고 요청하면 된다. (schedule 스킬로 재생성. 도구 허용 목록은 저장소에 있어 자동으로 적용됨)
+- 앱이 꺼져 있으면 그 날은 건너뛰지 않고 다음에 앱을 열 때 실행됨(하루 밀릴 수 있음). 밤 10시에 컴퓨터와 Claude 앱이 켜져 있어야 정시에 발행된다.
 
 ## 5. 외부 서비스 · 크리덴셜 위치
 
@@ -109,6 +112,8 @@ npm run build    # 배포본 생성(dist/)
 - **PowerShell 5.1 큰따옴표 버그**: git commit 메시지에 큰따옴표를 넣으면 인자가 깨져 커밋이 실패한다. 커밋 메시지에 큰따옴표를 쓰지 말 것(작은따옴표나 낫표 「」 사용).
 - **GitHub Pages 배포가 가끔 실패한다**: "Deployment failed, try again later"가 간헐적으로 뜬다. 같은 run을 반복 rerun하기보다 `gh workflow run deploy.yml`로 새로 실행하는 편이 더 잘 통한다.
 - **preview_screenshot 툴이 자주 타임아웃난다**: 사이트 문제가 아니라 툴 자체 문제. `preview_eval`(getComputedStyle 등)·`preview_snapshot`·`preview_inspect`로 대체 검증할 것.
+- **무인 예약 세션은 승인 창에 걸리면 영영 멈춘다**: 예약 작업이 "실행됐다"고 기록되는데 결과물이 없으면 십중팔구 도구 승인 대기다. 해결은 `.claude/settings.json`의 permissions.allow에 그 도구를 사전 등록하는 것(§4-2 참조).
+- **GitHub 예약(cron)은 크게 못 믿는다**: 예약 횟수의 상당 부분이 실행되지 않거나 9~13시간 늦게 돈다. 특정 시각 보장이 필요하면 예약을 촘촘히 여러 개 걸고 스크립트를 멱등(변경 없으면 아무것도 안 함)하게 만들 것.
 - **Astro 스코프드 스타일은 `innerHTML`로 넣은 요소에 안 먹는다**: admin.astro처럼 목록을 JS로 그리는 페이지는 `<style is:global>`을 써야 한다(안 그러면 `.btn.ghost` 같은 규칙이 무시되고 전역 기본 스타일로 떨어진다).
 - **Astro 컴포넌트의 `<details>`로 "데스크톱은 항상 펼침" 흉내내지 말 것**: 최신 Chrome이 닫힌 `<details>`의 자식(요약 제외)을 `content-visibility`로 강제 숨겨 CSS `display:block`으로도 못 되돌린다. 토글이 필요하면 버튼+JS로 만들 것.
 - **정적 사이트에는 진짜 파일 접근 제어가 없다**: `public/`에 넣은 건 전부 공개된다. "로그인한 사람만 다운로드"가 필요하면 Supabase Storage의 비공개 버킷 + RLS를 써야 한다(AI로 만든 앱 기능이 이 패턴).
