@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git fetch*)",
+      "Bash(git pull *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push*)",
+      "Bash(gh run *)",
+      "Bash(gh workflow run *)",
+      "Bash(./.claude/run-npm.cmd build*)",
+      "Bash(curl -s https://hospital-ai-lab.com*)",
+      "Write(src/content/blog/**)",
+      "Edit(src/content/blog/**)"
+    ]
+  }
+}
