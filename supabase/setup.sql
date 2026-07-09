@@ -181,16 +181,21 @@ create policy "notes_delete_admin" on public.lecture_notes
   for delete using (public.is_admin());
 
 -- ── AI로 만든 앱 (회원 전용 카드뉴스 이미지) ─────────────────
--- 이미지 파일을 담을 비공개 버킷. public=false이므로 URL을 알아도
--- 로그인 없이는 파일을 받을 수 없다(아래 storage.objects 정책이 실제 방어선).
-insert into storage.buckets (id, name, public, allowed_mime_types)
-values ('ai-apps', 'ai-apps', false, array['image/jpeg', 'image/png'])
-on conflict (id) do nothing;
+-- 배포 파일(zip·apk·exe·pdf 등, 형식 제한 없음)을 담을 비공개 버킷.
+-- public=false이므로 URL을 알아도 로그인 없이는 파일을 받을 수 없다
+-- (아래 storage.objects 정책이 실제 방어선). 용량은 200MB로 제한한다
+-- (Supabase 요금제 자체 상한이 더 낮으면 그 값이 우선 적용된다).
+insert into storage.buckets (id, name, public, file_size_limit)
+values ('ai-apps', 'ai-apps', false, 209715200)
+on conflict (id) do update set file_size_limit = 209715200, allowed_mime_types = null;
 
 create table public.ai_apps (
   id bigint generated always as identity primary key,
   title text not null,
+  description text,                  -- 회원에게 보여줄 프로그램 설명
   storage_path text not null,        -- ai-apps 버킷 안의 경로
+  file_name text,                    -- 원본 파일명(다운로드 시 그대로 사용)
+  file_size bigint,                  -- 바이트 단위 (업로드 시 저장, 목록 표시용)
   published boolean not null default false,
   created_at timestamptz not null default now()
 );
@@ -216,7 +221,7 @@ create policy "ai_apps_update_admin" on public.ai_apps
 create policy "ai_apps_delete_admin" on public.ai_apps
   for delete using (public.is_admin());
 
--- 이미지 파일 자체의 접근 권한 (진짜 방어선). 조회는 회원·관리자,
+-- 배포 파일 자체의 접근 권한 (진짜 방어선). 조회는 회원·관리자,
 -- 업로드·삭제는 관리자만.
 create policy "ai_apps_storage_select" on storage.objects
   for select using (

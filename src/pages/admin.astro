@@ -264,16 +264,19 @@ import {
 
       <h3 class="notes-h" id="ai-apps-admin">AI로 만든 앱</h3>
       <p class="section-desc">
-        jpg·png 카드뉴스 이미지를 올리면 회원 전용 페이지(/ai-apps/)에
-        썸네일로 표시됩니다. 로그인한 회원만 이미지를 내려받을 수
-        있습니다.
+        AI로 만든 프로그램 파일(zip·apk·exe·pdf 등 형식 제한 없음, 최대
+        200MB)을 설명과 함께 올리면 회원 전용 페이지(/ai-apps/)에 등록되고,
+        로그인한 회원만 내려받을 수 있습니다.
       </p>
       <div class="form-grid">
         <label>제목<input type="text" id="app-title" /></label>
         <label class="check" style="align-self: end;"><input type="checkbox" id="app-published" checked /> 공개 (회원에게 표시)</label>
       </div>
-      <label class="block">이미지 파일 (jpg·png)
-        <input type="file" id="app-file" accept="image/jpeg,image/png" />
+      <label class="block">설명 (이 프로그램이 무엇을 하는지 회원에게 보여줄 안내)
+        <textarea id="app-description" rows="4"></textarea>
+      </label>
+      <label class="block">배포 파일 (형식 제한 없음, 최대 200MB)
+        <input type="file" id="app-file" />
       </label>
       <div class="row">
         <button class="btn" id="app-save">추가</button>
@@ -349,6 +352,17 @@ import {
     // "Could not find the table ... in the schema cache" 같은 메시지가 나온다)
     function dbSetupHint(error) {
       const m = (error && error.message) || String(error || '');
+      if (
+        /mime type .* is not supported|exceeded the maximum allowed size/i.test(m) ||
+        /'(description|file_name|file_size)' column/i.test(m)
+      ) {
+        return (
+          'Supabase에 "AI로 만든 앱 파일 업로드" 마이그레이션이 아직 안 된 상태입니다. ' +
+          '저장소의 supabase/migrate-2026-07-10-ai-apps-files.sql 내용 전체를 ' +
+          'Supabase 대시보드 → SQL Editor에 붙여넣고 Run 한 번만 실행하면 해결됩니다. ' +
+          '(원래 오류: ' + m + ')'
+        );
+      }
       if (/schema cache|does not exist|Bucket not found/i.test(m)) {
         return (
           'Supabase에 이 기능의 설치(마이그레이션)가 아직 안 된 상태입니다. ' +
@@ -513,22 +527,29 @@ import {
     }
 
     // ── AI로 만든 앱 (Supabase Storage 비공개 버킷 'ai-apps') ──────────
+    function fmtBytes(n) {
+      if (n === null || n === undefined) return '';
+      if (n < 1024) return n + 'B';
+      if (n < 1024 * 1024) return (n / 1024).toFixed(0) + 'KB';
+      return (n / 1024 / 1024).toFixed(1) + 'MB';
+    }
+
     async function loadAdminApps() {
       const { data, error } = await sb
         .from('ai_apps')
-        .select('id, title, storage_path, published, created_at')
+        .select('id, title, storage_path, file_name, file_size, published, created_at')
         .order('created_at', { ascending: false });
       const el = $('admin-apps-list');
       if (error) {
-        el.textContent = error.message;
+        el.textContent = dbSetupHint(error);
         return;
       }
       el.innerHTML = data
         .map(
           (a) => `<div class="post-row">
             <span class="post-title">
-              <span class="app-admin-thumb" data-thumb="${a.id}" data-path="${escHtml(a.storage_path)}"></span>
               ${a.published ? '' : '<span class="chip">비공개</span> '}${escHtml(a.title)}
+              <span class="hint"> · ${escHtml(a.file_name || a.storage_path)}${a.file_size ? ' · ' + fmtBytes(a.file_size) : ''}</span>
             </span>
             <span class="post-file">${fmtD(a.created_at)}</span>
             <span class="post-actions">
@@ -537,15 +558,7 @@ import {
             </span>
           </div>`
         )
-        .join('') || '<p class="hint">아직 등록된 앱 카드가 없습니다. 위에서 첫 이미지를 올리세요.</p>';
-
-      // 작은 썸네일 미리보기 (비공개 버킷이라 인증된 다운로드로 받아온다)
-      el.querySelectorAll('[data-thumb]').forEach(async (span) => {
-        const { data: blob, error: dErr } = await sb.storage.from('ai-apps').download(span.dataset.path);
-        if (dErr || !blob) return;
-        const url = URL.createObjectURL(blob);
-        span.innerHTML = `<img class="thumb-sm" src="${url}" alt="" />`;
-      });
+        .join('') || '<p class="hint">아직 등록된 앱이 없습니다. 위에서 첫 파일을 올리세요.</p>';
 
       el.querySelectorAll('[data-atoggle]').forEach((b) =>
         b.addEventListener('click', async () => {
@@ -570,24 +583,34 @@ import {
     async function uploadAiApp() {
       const status = $('app-status');
       const title = $('app-title').value.trim();
+      const description = $('app-description').value.trim();
       const file = $('app-file').files && $('app-file').files[0];
       if (!title) { status.textContent = '제목을 입력하세요.'; return; }
-      if (!file) { status.textContent = '이미지 파일을 선택하세요.'; return; }
-      if (!/^image\/(jpeg|png)$/.test(file.type)) {
-        status.textContent = 'jpg 또는 png 파일만 올릴 수 있습니다.';
+      if (!file) { status.textContent = '배포할 파일을 선택하세요.'; return; }
+      const MAX_BYTES = 200 * 1024 * 1024;
+      if (file.size > MAX_BYTES) {
+        status.textContent = `파일이 너무 큽니다(${fmtBytes(file.size)}). 최대 200MB까지 올릴 수 있습니다.`;
         return;
       }
-      status.textContent = '업로드 중…';
-      const ext = file.type === 'image/png' ? 'png' : 'jpg';
+      status.textContent = '업로드 중… (파일이 크면 시간이 걸릴 수 있습니다)';
+      const ext = (file.name.split('.').pop() || 'bin').toLowerCase().replace(/[^a-z0-9]/g, '') || 'bin';
       const path = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
-      const { error: upErr } = await sb.storage.from('ai-apps').upload(path, file, { contentType: file.type });
+      const { error: upErr } = await sb.storage
+        .from('ai-apps')
+        .upload(path, file, { contentType: file.type || 'application/octet-stream' });
       if (upErr) { status.textContent = '업로드 실패: ' + dbSetupHint(upErr); return; }
-      const { error: insErr } = await sb
-        .from('ai_apps')
-        .insert({ title, storage_path: path, published: $('app-published').checked });
+      const { error: insErr } = await sb.from('ai_apps').insert({
+        title,
+        description: description || null,
+        storage_path: path,
+        file_name: file.name,
+        file_size: file.size,
+        published: $('app-published').checked,
+      });
       if (insErr) { status.textContent = '저장 실패: ' + dbSetupHint(insErr); return; }
       status.textContent = '저장됨 — 회원 페이지에 바로 반영됩니다.';
       $('app-title').value = '';
+      $('app-description').value = '';
       $('app-file').value = '';
       $('app-published').checked = true;
       loadAdminApps();

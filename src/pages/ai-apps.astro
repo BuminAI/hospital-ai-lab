@@ -5,14 +5,14 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
 
 <BaseLayout
   title="AI로 만든 앱"
-  description="연구소장이 AI로 직접 만든 앱을 카드뉴스로 소개합니다. 회원 전용이며, 로그인하면 이미지를 내려받을 수 있습니다."
+  description="연구소장이 AI로 직접 만든 프로그램을 소개하고 배포합니다. 회원 전용이며, 로그인하면 파일을 내려받을 수 있습니다."
 >
   <div class="container">
     <header class="page-head">
       <h1>AI로 만든 앱</h1>
       <p class="lead">
-        직접 AI로 만든 앱을 카드뉴스 형태로 소개합니다. 회원 전용이며,
-        로그인하면 이미지를 내려받을 수 있습니다.
+        직접 AI로 만든 프로그램을 소개하고 배포합니다. 회원 전용이며,
+        로그인하면 파일을 내려받을 수 있습니다.
       </p>
     </header>
 
@@ -54,10 +54,16 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     const esc = (s) =>
       String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-    function slugFilename(title, path) {
-      const ext = (path.split('.').pop() || 'jpg').toLowerCase();
-      const base = title.trim().replace(/[\\/:*?"<>|]+/g, '').slice(0, 60) || 'ai-app';
-      return `${base}.${ext}`;
+    function extBadge(name) {
+      const m = /\.([a-z0-9]+)$/i.exec(name || '');
+      return m ? m[1].toUpperCase() : '파일';
+    }
+
+    function fmtBytes(n) {
+      if (n === null || n === undefined) return '';
+      if (n < 1024) return n + 'B';
+      if (n < 1024 * 1024) return (n / 1024).toFixed(0) + 'KB';
+      return (n / 1024 / 1024).toFixed(1) + 'MB';
     }
 
     async function loadApps() {
@@ -65,7 +71,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
       const grid = $('apps-grid');
       const { data, error } = await sb
         .from('ai_apps')
-        .select('id, title, storage_path, created_at')
+        .select('id, title, description, storage_path, file_name, file_size, created_at')
         .eq('published', true)
         .order('created_at', { ascending: false });
       if (error) {
@@ -81,38 +87,43 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         .map(
           (a) => `
         <article class="app-card" data-id="${a.id}">
-          <div class="app-thumb-wrap"><span class="app-loading">불러오는 중…</span></div>
+          <div class="app-badge">${esc(extBadge(a.file_name || a.storage_path))}</div>
           <p class="app-title">${esc(a.title)}</p>
-          <button class="btn app-download" data-id="${a.id}" disabled>다운로드</button>
+          ${a.description ? `<p class="app-desc">${esc(a.description)}</p>` : ''}
+          <p class="app-meta">${a.file_size ? esc(fmtBytes(a.file_size)) : ''}</p>
+          <button class="btn app-download" data-id="${a.id}">다운로드</button>
         </article>`
         )
         .join('');
 
-      // 카드마다 이미지를 인증된 요청으로 받아 미리보기 + 다운로드에 함께 쓴다
-      // (비공개 버킷이라 일반 <img src="URL">로는 못 불러온다)
-      for (const a of data) {
-        const card = grid.querySelector(`.app-card[data-id="${a.id}"]`);
-        const wrap = card.querySelector('.app-thumb-wrap');
-        const btn = card.querySelector('.app-download');
-        try {
-          const { data: blob, error: dErr } = await sb.storage.from('ai-apps').download(a.storage_path);
-          if (dErr) throw dErr;
-          const url = URL.createObjectURL(blob);
-          wrap.innerHTML = `<img src="${url}" alt="${esc(a.title)}" loading="lazy" />`;
-          const filename = slugFilename(a.title, a.storage_path);
-          btn.disabled = false;
-          btn.addEventListener('click', () => {
+      // 다운로드 버튼을 누를 때만 파일을 받는다(목록을 열 때 전부 미리
+      // 받으면 배포 파일이 클 경우 방문 즉시 큰 트래픽이 발생하기 때문).
+      grid.querySelectorAll('.app-download').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const app = data.find((x) => String(x.id) === btn.dataset.id);
+          if (!app) return;
+          const original = btn.textContent;
+          btn.disabled = true;
+          btn.textContent = '내려받는 중…';
+          try {
+            const { data: blob, error: dErr } = await sb.storage.from('ai-apps').download(app.storage_path);
+            if (dErr) throw dErr;
+            const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.download = filename;
+            link.download = app.file_name || app.storage_path;
             document.body.appendChild(link);
             link.click();
             link.remove();
-          });
-        } catch (e) {
-          wrap.innerHTML = `<span class="app-error">이미지를 불러오지 못했습니다</span>`;
-        }
-      }
+            URL.revokeObjectURL(url);
+          } catch (e) {
+            alert('다운로드에 실패했습니다: ' + (e.message || e));
+          } finally {
+            btn.disabled = false;
+            btn.textContent = original;
+          }
+        });
+      });
     }
 
     const { data: { session } } = await sb.auth.getSession();
@@ -143,7 +154,12 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
   })();
 </script>
 
-<style>
+<style is:global>
+  /* AI 앱 카드는 JS가 innerHTML로 런타임에 그려 넣는다. Astro의 스코프드
+     CSS는 빌드 시점 템플릿 요소에만 붙는 data-astro-cid 속성으로 동작해
+     런타임 삽입 요소에는 적용되지 않으므로(admin.astro와 동일 원인) 여기서도
+     is:global을 쓴다. 페이지 고유 클래스명(app-*, apps-grid)만 써서 다른
+     페이지와 충돌하지 않게 한다. */
   .member-bar {
     display: flex;
     align-items: center;
@@ -178,37 +194,38 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.6rem;
   }
 
-  .app-thumb-wrap {
-    aspect-ratio: 4 / 5;
+  .app-badge {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 10px;
     background: var(--color-surface);
-    border-radius: 8px;
+    color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-  }
-
-  .app-thumb-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .app-loading,
-  .app-error {
-    font-size: 0.85rem;
-    color: var(--color-muted);
-    text-align: center;
-    padding: 0 1rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
   }
 
   .app-title {
     font-weight: 600;
     font-size: 0.98rem;
+  }
+
+  .app-desc {
+    font-size: 0.88rem;
+    color: var(--color-muted);
+    white-space: pre-wrap;
+    flex: 1;
+  }
+
+  .app-meta {
+    font-size: 0.8rem;
+    color: var(--color-muted);
   }
 
   .app-download {
