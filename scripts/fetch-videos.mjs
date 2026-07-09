@@ -171,11 +171,13 @@ async function main() {
 
   // 최근 24시간 안에 자동 추가가 있었으면 종료 — 본·예비 예약이 지연돼
   // 자정을 넘겨 돌아도 한 주기(월/수/금)에 한 번만 추가한다.
+  // FORCE_UPDATE=1 (workflow_dispatch의 force 입력)일 때만 이 창을 무시한다
+  // — 오너가 "지금 바로 갱신"을 요청한 수동 실행용.
   const lastAuto = existing
     .filter((v) => v.source === 'auto' && v.addedAt)
     .map((v) => Date.parse(v.addedAt))
     .sort((a, b) => b - a)[0];
-  if (lastAuto && Date.now() - lastAuto < 24 * 3600 * 1000) {
+  if (!process.env.FORCE_UPDATE && lastAuto && Date.now() - lastAuto < 24 * 3600 * 1000) {
     console.log('최근 24시간 내 자동 추가가 있었습니다. 건너뜁니다.');
     return;
   }
