@@ -265,8 +265,8 @@ import {
       <h3 class="notes-h" id="ai-apps-admin">AI로 만든 앱</h3>
       <p class="section-desc">
         AI로 만든 프로그램 파일(zip·apk·exe·pdf 등 형식 제한 없음, 최대
-        200MB)을 설명과 함께 올리면 회원 전용 페이지(/ai-apps/)에 등록되고,
-        로그인한 회원만 내려받을 수 있습니다.
+        50MB — Supabase 무료 요금제 상한)을 설명과 함께 올리면 회원 전용
+        페이지(/ai-apps/)에 등록되고, 로그인한 회원만 내려받을 수 있습니다.
       </p>
       <div class="form-grid">
         <label>제목<input type="text" id="app-title" /></label>
@@ -275,7 +275,7 @@ import {
       <label class="block">설명 (이 프로그램이 무엇을 하는지 회원에게 보여줄 안내)
         <textarea id="app-description" rows="4"></textarea>
       </label>
-      <label class="block">배포 파일 (형식 제한 없음, 최대 200MB)
+      <label class="block">배포 파일 (형식 제한 없음, 최대 50MB)
         <input type="file" id="app-file" />
       </label>
       <div class="row">
@@ -352,8 +352,18 @@ import {
     // "Could not find the table ... in the schema cache" 같은 메시지가 나온다)
     function dbSetupHint(error) {
       const m = (error && error.message) || String(error || '');
+      // Supabase 무료 요금제는 파일당 50MB가 절대 상한이라 버킷 설정을 더
+      // 크게 잡아도 서버가 그대로 거부한다(마이그레이션 문제가 아님).
+      if (/exceeded the maximum allowed size/i.test(m)) {
+        return (
+          '파일이 Supabase 무료 요금제 상한(50MB)을 넘었습니다. 파일을 50MB ' +
+          '이하로 줄이거나, 그보다 큰 파일을 계속 다뤄야 한다면 Supabase를 ' +
+          '유료 요금제로 전환해야 합니다(무료 요금제는 상한을 올릴 수 없습니다). ' +
+          '(원래 오류: ' + m + ')'
+        );
+      }
       if (
-        /mime type .* is not supported|exceeded the maximum allowed size/i.test(m) ||
+        /mime type .* is not supported/i.test(m) ||
         /'(description|file_name|file_size)' column/i.test(m)
       ) {
         return (
@@ -587,9 +597,11 @@ import {
       const file = $('app-file').files && $('app-file').files[0];
       if (!title) { status.textContent = '제목을 입력하세요.'; return; }
       if (!file) { status.textContent = '배포할 파일을 선택하세요.'; return; }
-      const MAX_BYTES = 200 * 1024 * 1024;
+      // Supabase 무료 요금제의 절대 상한(50MB, 유료 전환 없이는 못 올림).
+      // 버킷 설정을 더 크게 잡아도 이 값을 넘으면 서버가 그대로 거부한다.
+      const MAX_BYTES = 50 * 1024 * 1024;
       if (file.size > MAX_BYTES) {
-        status.textContent = `파일이 너무 큽니다(${fmtBytes(file.size)}). 최대 200MB까지 올릴 수 있습니다.`;
+        status.textContent = `파일이 너무 큽니다(${fmtBytes(file.size)}). Supabase 무료 요금제 상한인 50MB까지만 올릴 수 있습니다.`;
         return;
       }
       status.textContent = '업로드 중… (파일이 크면 시간이 걸릴 수 있습니다)';

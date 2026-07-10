@@ -205,11 +205,13 @@ create policy "notes_delete_admin" on public.lecture_notes
 -- ── AI로 만든 앱 (회원 전용 카드뉴스 이미지) ─────────────────
 -- 배포 파일(zip·apk·exe·pdf 등, 형식 제한 없음)을 담을 비공개 버킷.
 -- public=false이므로 URL을 알아도 로그인 없이는 파일을 받을 수 없다
--- (아래 storage.objects 정책이 실제 방어선). 용량은 200MB로 제한한다
--- (Supabase 요금제 자체 상한이 더 낮으면 그 값이 우선 적용된다).
+-- (아래 storage.objects 정책이 실제 방어선). 용량은 50MB로 제한한다 —
+-- Supabase 무료 요금제는 프로젝트 전체에 50MB 절대 상한이 걸려 있어
+-- (실측 확인: 50MB 성공, 51MB 거부) 버킷 설정을 더 크게 잡아도 그대로
+-- 적용된다. 유료 요금제로 전환하면 이 값을 올릴 수 있다.
 insert into storage.buckets (id, name, public, file_size_limit)
-values ('ai-apps', 'ai-apps', false, 209715200)
-on conflict (id) do update set file_size_limit = 209715200, allowed_mime_types = null;
+values ('ai-apps', 'ai-apps', false, 52428800)
+on conflict (id) do update set file_size_limit = 52428800, allowed_mime_types = null;
 
 create table public.ai_apps (
   id bigint generated always as identity primary key,

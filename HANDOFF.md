@@ -112,7 +112,8 @@ npm run build    # 배포본 생성(dist/)
 - `migrate-ai-apps.sql` — "AI로 만든 앱" 회원 전용 Storage 버킷·테이블
 - `migrate-admin-delete-member.sql` — 관리자의 회원 완전삭제 RPC
 - `migrate-admin-github-token.sql` — 관리자 로그인 통합용 `admin_secrets` 테이블
-- `migrate-2026-07-10-ai-apps-files.sql` — "AI로 만든 앱"을 이미지 전용에서 실제 배포 파일(zip·apk·exe·pdf 등, 최대 200MB)로 확장. 미실행 시 관리자 화면 업로드가 "mime type ... is not supported" 또는 "column ... does not exist" 오류로 실패한다
+- `migrate-2026-07-10-ai-apps-files.sql` — "AI로 만든 앱"을 이미지 전용에서 실제 배포 파일(zip·apk·exe·pdf 등)로 확장. 미실행 시 관리자 화면 업로드가 "mime type ... is not supported" 또는 "column ... does not exist" 오류로 실패한다
+- `migrate-2026-07-10-ai-apps-size-cap-fix.sql` — 버킷 용량 표시를 실제 상한(50MB — Supabase 무료 요금제 절대 상한, 실측 확인: 50MB 성공/51MB 거부)에 맞게 정정. 유료 전환 전에는 이 값을 못 올린다
 
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
@@ -126,6 +127,7 @@ npm run build    # 배포본 생성(dist/)
 - **Astro 컴포넌트의 `<details>`로 "데스크톱은 항상 펼침" 흉내내지 말 것**: 최신 Chrome이 닫힌 `<details>`의 자식(요약 제외)을 `content-visibility`로 강제 숨겨 CSS `display:block`으로도 못 되돌린다. 토글이 필요하면 버튼+JS로 만들 것.
 - **정적 사이트에는 진짜 파일 접근 제어가 없다**: `public/`에 넣은 건 전부 공개된다. "로그인한 사람만 다운로드"가 필요하면 Supabase Storage의 비공개 버킷 + RLS를 써야 한다(AI로 만든 앱 기능이 이 패턴).
 - **비밀값(GitHub 토큰 등)을 사이트 코드나 localStorage에 하드코딩하지 말 것**: 정적 사이트는 방문자 전원에게 코드가 공개된다. 서버(Supabase) + RLS만이 실제 방어선이다.
+- **Supabase 무료 요금제는 파일당 50MB가 절대 상한이다**(공식 문서로 확인, 실측으로도 재현: 50MB 성공/51MB 거부). 버킷의 `file_size_limit`을 그보다 크게 설정해도 서버가 조용히 50MB에서 막는다 — 오류가 "파일 형식" 문제처럼 보여도 실제로는 용량 문제일 수 있으니 먼저 파일 크기부터 의심할 것. 올리려면 유료 요금제 전환이 유일한 방법이다.
 
 ## 7. 주요 파일 지도
 
@@ -137,7 +139,7 @@ src/
 │   ├── news.astro          # AI 뉴스 (메디칼타임즈 자동 수집)
 │   ├── youtube.astro       # 추천 영상 + 연구소장 직접 제작 영상
 │   ├── notes.astro         # 강의노트 (회원 전용, Supabase)
-│   ├── ai-apps.astro       # AI로 만든 앱 (회원 전용, Supabase Storage, 파일 형식 제한 없음·최대 200MB)
+│   ├── ai-apps.astro       # AI로 만든 앱 (회원 전용, Supabase Storage, 파일 형식 제한 없음·최대 50MB — 요금제 절대 상한)
 │   ├── glossary.astro, faq.astro, checklist.astro, guide.astro   # 입문 가이드 4종
 │   ├── login.astro / signup.astro   # 회원 기능(Supabase, 구글 OAuth 포함)
 │   ├── admin.astro          # 관리자 대시보드 (이메일+비번 로그인 하나로 통합, §3)
