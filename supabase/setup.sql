@@ -216,7 +216,7 @@ on conflict (id) do update set file_size_limit = 52428800, allowed_mime_types = 
 create table public.ai_apps (
   id bigint generated always as identity primary key,
   title text not null,
-  description text,                  -- 회원에게 보여줄 프로그램 설명
+  description text,                  -- 목록에 보여줄 프로그램 설명 (비회원에게도 공개)
   storage_path text not null,        -- ai-apps 버킷 안의 경로
   file_name text,                    -- 원본 파일명(다운로드 시 그대로 사용)
   file_size bigint,                  -- 바이트 단위 (업로드 시 저장, 목록 표시용)
@@ -226,18 +226,11 @@ create table public.ai_apps (
 
 alter table public.ai_apps enable row level security;
 
-create policy "ai_apps_select_member_or_admin" on public.ai_apps
-  for select using (
-    public.is_admin()
-    or (
-      published
-      and auth.uid() is not null
-      and exists (
-        select 1 from public.profiles p
-        where p.id = auth.uid() and p.consent_required_at is not null
-      )
-    )
-  );
+-- 목록(제목·설명)은 누구나 볼 수 있다 — 실제 방어선은 아래 storage.objects
+-- 정책(파일 다운로드는 로그인·동의 완료 회원만)이라 여기서 비회원을 막을
+-- 필요가 없다. 비공개(published=false) 항목만 관리자에게만 보인다.
+create policy "ai_apps_select_published_or_admin" on public.ai_apps
+  for select using (public.is_admin() or published);
 create policy "ai_apps_insert_admin" on public.ai_apps
   for insert with check (public.is_admin());
 create policy "ai_apps_update_admin" on public.ai_apps

@@ -5,14 +5,14 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
 
 <BaseLayout
   title="AI로 만든 앱"
-  description="연구소장이 AI로 직접 만든 프로그램을 소개하고 배포합니다. 회원 전용이며, 로그인하면 파일을 내려받을 수 있습니다."
+  description="연구소장이 AI로 직접 만든 프로그램을 소개합니다. 목록은 누구나 볼 수 있고, 로그인하면 파일을 내려받을 수 있습니다."
 >
   <div class="container">
     <header class="page-head">
       <h1>AI로 만든 앱</h1>
       <p class="lead">
-        직접 AI로 만든 프로그램을 소개하고 배포합니다. 회원 전용이며,
-        로그인하면 파일을 내려받을 수 있습니다.
+        직접 AI로 만든 프로그램을 소개합니다. 어떤 것들이 있는지는 누구나
+        볼 수 있고, 로그인하면 파일을 내려받을 수 있습니다.
       </p>
     </header>
 
@@ -21,22 +21,18 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         <p class="empty">회원 기능은 준비 중입니다. 조금만 기다려 주세요.</p>
       ) : (
         <div>
-          <div id="guest" hidden>
+          <div id="guest-banner" hidden>
             <p class="empty">
-              이 콘텐츠는 회원에게만 공개됩니다.
-              <a href={withBase('/login/')}>로그인</a>하거나
+              다운로드하려면 <a href={withBase('/login/')}>로그인</a>하거나
               <a href={withBase('/signup/')}>회원가입</a> 후 이용해 주세요.
             </p>
           </div>
-
-          <div id="member" hidden>
-            <div class="member-bar">
-              <span id="member-name"></span>
-              <button class="btn ghost" id="logout">로그아웃</button>
-            </div>
-            <div id="apps-status" class="hint">불러오는 중…</div>
-            <div id="apps-grid" class="apps-grid"></div>
+          <div id="member-bar" class="member-bar" hidden>
+            <span id="member-name"></span>
+            <button class="btn ghost" id="logout">로그아웃</button>
           </div>
+          <div id="apps-status" class="hint">불러오는 중…</div>
+          <div id="apps-grid" class="apps-grid"></div>
         </div>
       )
     }
@@ -66,7 +62,10 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
       return (n / 1024 / 1024).toFixed(1) + 'MB';
     }
 
-    async function loadApps() {
+    // 목록(제목·설명)은 비회원도 볼 수 있다 — 실제 방어선은 다운로드
+    // 요청 자체를 막는 storage.objects 권한(로그인+동의 완료 회원만)이라
+    // 여기서는 canDownload로 버튼만 활성/비활성 처리한다.
+    async function loadApps(canDownload) {
       const status = $('apps-status');
       const grid = $('apps-grid');
       const { data, error } = await sb
@@ -91,10 +90,12 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
           <p class="app-title">${esc(a.title)}</p>
           ${a.description ? `<p class="app-desc">${esc(a.description)}</p>` : ''}
           <p class="app-meta">${a.file_size ? esc(fmtBytes(a.file_size)) : ''}</p>
-          <button class="btn app-download" data-id="${a.id}">다운로드</button>
+          <button class="btn app-download" data-id="${a.id}" ${canDownload ? '' : 'disabled title="로그인 후 다운로드할 수 있습니다"'}>${canDownload ? '다운로드' : '🔒 로그인 필요'}</button>
         </article>`
         )
         .join('');
+
+      if (!canDownload) return; // 비활성 버튼에는 다운로드 로직을 붙이지 않는다
 
       // 다운로드 버튼을 누를 때만 파일을 받는다(목록을 열 때 전부 미리
       // 받으면 배포 파일이 클 경우 방문 즉시 큰 트래픽이 발생하기 때문).
@@ -127,30 +128,32 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     }
 
     const { data: { session } } = await sb.auth.getSession();
-    if (!session) {
-      $('guest').hidden = false;
-      return;
+    let canDownload = false;
+    if (session) {
+      const { data: profile, error: pErr } = await sb
+        .from('profiles')
+        .select('id, consent_required_at')
+        .eq('id', session.user.id)
+        .maybeSingle();
+      if (!pErr && profile && profile.consent_required_at) {
+        canDownload = true;
+        $('member-bar').hidden = false;
+        const name = session.user.user_metadata?.name || session.user.email;
+        $('member-name').textContent = `${name} 님`;
+        $('logout').addEventListener('click', async () => {
+          await sb.auth.signOut();
+          location.reload();
+        });
+      } else {
+        $('guest-banner').hidden = false;
+        $('guest-banner').querySelector('.empty').textContent = pErr
+          ? `회원 정보 확인에 실패했습니다: ${pErr.message}`
+          : '이 계정에는 가입 동의 기록이 없어 다운로드할 수 없습니다. 로그아웃 후 다시 로그인하거나 운영자에게 문의해 주세요.';
+      }
+    } else {
+      $('guest-banner').hidden = false;
     }
-    const { data: profile, error: pErr } = await sb
-      .from('profiles')
-      .select('id, consent_required_at')
-      .eq('id', session.user.id)
-      .maybeSingle();
-    if (pErr || !profile || !profile.consent_required_at) {
-      $('guest').hidden = false;
-      $('guest').querySelector('.empty').textContent = pErr
-        ? `회원 정보 확인에 실패했습니다: ${pErr.message}`
-        : '이 계정에는 가입 동의 기록이 없어 콘텐츠를 볼 수 없습니다. 로그아웃 후 다시 로그인하거나 운영자에게 문의해 주세요.';
-      return;
-    }
-    $('member').hidden = false;
-    const name = session.user.user_metadata?.name || session.user.email;
-    $('member-name').textContent = `${name} 님`;
-    $('logout').addEventListener('click', async () => {
-      await sb.auth.signOut();
-      location.reload();
-    });
-    loadApps();
+    loadApps(canDownload);
   })();
 </script>
 
