@@ -265,16 +265,25 @@ import {
       <h3 class="notes-h" id="ai-apps-admin">AI로 만든 앱</h3>
       <p class="section-desc">
         AI로 만든 프로그램 파일(zip·apk·exe·pdf 등 형식 제한 없음, 최대
-        50MB — Supabase 무료 요금제 상한)을 설명과 함께 올리면 회원 전용
-        페이지(/ai-apps/)에 등록되고, 로그인한 회원만 내려받을 수 있습니다.
+        50MB — Supabase 무료 요금제 상한)과 카드뉴스 미리보기 이미지 2장을
+        올리면 목록 페이지(/ai-apps/)에 등록됩니다. 목록(제목·이미지·설명)은
+        누구나 볼 수 있고, 배포 파일 다운로드만 로그인한 회원 전용입니다.
       </p>
       <div class="form-grid">
         <label>제목<input type="text" id="app-title" /></label>
-        <label class="check" style="align-self: end;"><input type="checkbox" id="app-published" checked /> 공개 (회원에게 표시)</label>
+        <label class="check" style="align-self: end;"><input type="checkbox" id="app-published" checked /> 공개 (모두에게 표시)</label>
       </div>
-      <label class="block">설명 (이 프로그램이 무엇을 하는지 회원에게 보여줄 안내)
+      <label class="block">설명 (이 프로그램이 무엇을 하는지 보여줄 짧은 안내, 선택)
         <textarea id="app-description" rows="4"></textarea>
       </label>
+      <div class="form-grid">
+        <label class="block">앱 화면 이미지 (선택, jpg·png·webp, 최대 10MB)
+          <input type="file" id="app-screenshot-app" accept="image/jpeg,image/png,image/webp" />
+        </label>
+        <label class="block">결과물 화면 이미지 (선택, jpg·png·webp, 최대 10MB)
+          <input type="file" id="app-screenshot-result" accept="image/jpeg,image/png,image/webp" />
+        </label>
+      </div>
       <label class="block">배포 파일 (형식 제한 없음, 최대 50MB)
         <input type="file" id="app-file" />
       </label>
@@ -369,6 +378,17 @@ import {
         return (
           'Supabase에 "AI로 만든 앱 파일 업로드" 마이그레이션이 아직 안 된 상태입니다. ' +
           '저장소의 supabase/migrate-2026-07-10-ai-apps-files.sql 내용 전체를 ' +
+          'Supabase 대시보드 → SQL Editor에 붙여넣고 Run 한 번만 실행하면 해결됩니다. ' +
+          '(원래 오류: ' + m + ')'
+        );
+      }
+      if (
+        /'(screenshot_app_path|screenshot_result_path)' column/i.test(m) ||
+        /bucket.*ai-app-images|ai-app-images.*bucket/i.test(m)
+      ) {
+        return (
+          'Supabase에 "AI 앱 카드뉴스 이미지" 마이그레이션이 아직 안 된 상태입니다. ' +
+          '저장소의 supabase/migrate-2026-07-10-ai-apps-screenshots.sql 내용 전체를 ' +
           'Supabase 대시보드 → SQL Editor에 붙여넣고 Run 한 번만 실행하면 해결됩니다. ' +
           '(원래 오류: ' + m + ')'
         );
@@ -547,7 +567,9 @@ import {
     async function loadAdminApps() {
       const { data, error } = await sb
         .from('ai_apps')
-        .select('id, title, storage_path, file_name, file_size, published, created_at')
+        .select(
+          'id, title, storage_path, file_name, file_size, screenshot_app_path, screenshot_result_path, published, created_at'
+        )
         .order('created_at', { ascending: false });
       const el = $('admin-apps-list');
       if (error) {
@@ -555,19 +577,20 @@ import {
         return;
       }
       el.innerHTML = data
-        .map(
-          (a) => `<div class="post-row">
+        .map((a) => {
+          const shotCount = [a.screenshot_app_path, a.screenshot_result_path].filter(Boolean).length;
+          return `<div class="post-row">
             <span class="post-title">
               ${a.published ? '' : '<span class="chip">비공개</span> '}${escHtml(a.title)}
-              <span class="hint"> · ${escHtml(a.file_name || a.storage_path)}${a.file_size ? ' · ' + fmtBytes(a.file_size) : ''}</span>
+              <span class="hint"> · ${escHtml(a.file_name || a.storage_path)}${a.file_size ? ' · ' + fmtBytes(a.file_size) : ''}${shotCount ? ` · 🖼️ 이미지 ${shotCount}장` : ' · 이미지 없음'}</span>
             </span>
             <span class="post-file">${fmtD(a.created_at)}</span>
             <span class="post-actions">
               <button class="btn ghost" data-atoggle="${a.id}" data-published="${a.published ? '1' : '0'}">${a.published ? '비공개로' : '공개로'}</button>
-              <button class="btn ghost danger" data-adel="${a.id}" data-apath="${escHtml(a.storage_path)}" data-atitle="${escHtml(a.title)}">삭제</button>
+              <button class="btn ghost danger" data-adel="${a.id}" data-apath="${escHtml(a.storage_path)}" data-ashot1="${escHtml(a.screenshot_app_path || '')}" data-ashot2="${escHtml(a.screenshot_result_path || '')}" data-atitle="${escHtml(a.title)}">삭제</button>
             </span>
-          </div>`
-        )
+          </div>`;
+        })
         .join('') || '<p class="hint">아직 등록된 앱이 없습니다. 위에서 첫 파일을 올리세요.</p>';
 
       el.querySelectorAll('[data-atoggle]').forEach((b) =>
@@ -580,14 +603,40 @@ import {
       );
       el.querySelectorAll('[data-adel]').forEach((b) =>
         b.addEventListener('click', async () => {
-          if (!confirm(`"${b.dataset.atitle}" 카드를 삭제할까요? 이미지 파일도 함께 지워집니다.`)) return;
+          if (!confirm(`"${b.dataset.atitle}" 카드를 삭제할까요? 배포 파일과 미리보기 이미지도 함께 지워집니다.`)) return;
           const { error: e5 } = await sb.storage.from('ai-apps').remove([b.dataset.apath]);
           if (e5) { alert(e5.message); return; }
+          const shots = [b.dataset.ashot1, b.dataset.ashot2].filter(Boolean);
+          if (shots.length) await sb.storage.from('ai-app-images').remove(shots);
           const { error: e6 } = await sb.from('ai_apps').delete().eq('id', b.dataset.adel);
           if (e6) { alert(e6.message); return; }
           loadAdminApps();
         })
       );
+    }
+
+    // 이미지는 'ai-app-images'(공개 버킷)에 올린다. 실패해도(용량 초과 등)
+    // 전체 저장을 막지 않고 그 이미지만 건너뛴다 — 배포 파일 업로드까지
+    // 끝난 뒤에 이미지 하나 때문에 처음부터 다시 시키는 건 번거롭다.
+    // warnings 배열에 실패 사유를 모아 마지막에 한 번에 보여준다.
+    async function uploadScreenshot(inputId, warnings, label) {
+      const file = $(inputId).files && $(inputId).files[0];
+      if (!file) return null;
+      const MAX_IMG_BYTES = 10 * 1024 * 1024;
+      if (file.size > MAX_IMG_BYTES) {
+        warnings.push(`${label} 이미지는 10MB를 넘어 건너뜀`);
+        return null;
+      }
+      const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '') || 'jpg';
+      const path = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
+      const { error } = await sb.storage
+        .from('ai-app-images')
+        .upload(path, file, { contentType: file.type || 'image/jpeg' });
+      if (error) {
+        warnings.push(`${label} 이미지 업로드 실패: ${error.message}`);
+        return null;
+      }
+      return path;
     }
 
     async function uploadAiApp() {
@@ -611,19 +660,32 @@ import {
         .from('ai-apps')
         .upload(path, file, { contentType: file.type || 'application/octet-stream' });
       if (upErr) { status.textContent = '업로드 실패: ' + dbSetupHint(upErr); return; }
+
+      const warnings = [];
+      const screenshotAppPath = await uploadScreenshot('app-screenshot-app', warnings, '앱 화면');
+      const screenshotResultPath = await uploadScreenshot('app-screenshot-result', warnings, '결과물 화면');
+
       const { error: insErr } = await sb.from('ai_apps').insert({
         title,
         description: description || null,
         storage_path: path,
         file_name: file.name,
         file_size: file.size,
+        screenshot_app_path: screenshotAppPath,
+        screenshot_result_path: screenshotResultPath,
         published: $('app-published').checked,
       });
-      if (insErr) { status.textContent = '저장 실패: ' + dbSetupHint(insErr); return; }
-      status.textContent = '저장됨 — 회원 페이지에 바로 반영됩니다.';
+      if (insErr) {
+        status.textContent =
+          '저장 실패: ' + dbSetupHint(insErr) + (warnings.length ? ' / ' + warnings.join(', ') : '');
+        return;
+      }
+      status.textContent = '저장됨 — 목록 페이지에 바로 반영됩니다.' + (warnings.length ? ' (' + warnings.join(', ') + ')' : '');
       $('app-title').value = '';
       $('app-description').value = '';
       $('app-file').value = '';
+      $('app-screenshot-app').value = '';
+      $('app-screenshot-result').value = '';
       $('app-published').checked = true;
       loadAdminApps();
     }

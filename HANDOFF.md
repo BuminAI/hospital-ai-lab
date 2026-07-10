@@ -116,6 +116,7 @@ npm run build    # 배포본 생성(dist/)
 - `migrate-2026-07-10-ai-apps-size-cap-fix.sql` — 버킷 용량 표시를 실제 상한(50MB — Supabase 무료 요금제 절대 상한, 실측 확인: 50MB 성공/51MB 거부)에 맞게 정정. 유료 전환 전에는 이 값을 못 올린다
 - `migrate-2026-07-10-email-notify.sql` — 새 글 발행 이메일 알림용 `email_notify_new_post`·`email_unsub_token` 컬럼과 수신거부 함수
 - `migrate-2026-07-10-ai-apps-public-list.sql` — "AI로 만든 앱" 목록(제목·설명)을 비회원에게도 공개(다운로드는 여전히 회원 전용)
+- `migrate-2026-07-10-ai-apps-screenshots.sql` — "AI로 만든 앱" 카드에 앱 화면·결과물 화면 미리보기 이미지 2장(선택, 각 최대 10MB) 추가. 공개 버킷 `ai-app-images`에 저장돼 로그인 없이도 바로 보인다
 
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 

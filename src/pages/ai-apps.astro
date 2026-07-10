@@ -39,7 +39,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
   </div>
 </BaseLayout>
 
-<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY }}>
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, signupUrl: withBase('/signup/') }}>
   (async () => {
     if (!SUPABASE_URL) return;
     const { createClient } = await import(
@@ -62,15 +62,40 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
       return (n / 1024 / 1024).toFixed(1) + 'MB';
     }
 
-    // 목록(제목·설명)은 비회원도 볼 수 있다 — 실제 방어선은 다운로드
+    // 미리보기 이미지는 'ai-app-images'(공개 버킷)에 있어 로그인 없이도
+    // 바로 표시할 수 있다(서명 없는 공개 URL).
+    function imageUrl(path) {
+      if (!path) return null;
+      return sb.storage.from('ai-app-images').getPublicUrl(path).data.publicUrl;
+    }
+
+    function shotsHtml(a) {
+      const shots = [
+        [a.screenshot_app_path, '앱 화면'],
+        [a.screenshot_result_path, '결과물 화면'],
+      ].filter(([path]) => path);
+      if (!shots.length) {
+        return `<div class="app-badge">${esc(extBadge(a.file_name || a.storage_path))}</div>`;
+      }
+      return `<div class="app-shots">${shots
+        .map(
+          ([path, label]) =>
+            `<figure><img src="${esc(imageUrl(path))}" alt="${esc(a.title)} ${label}" loading="lazy" /><figcaption>${label}</figcaption></figure>`
+        )
+        .join('')}</div>`;
+    }
+
+    // 목록(제목·이미지·설명)은 비회원도 볼 수 있다 — 실제 방어선은 다운로드
     // 요청 자체를 막는 storage.objects 권한(로그인+동의 완료 회원만)이라
-    // 여기서는 canDownload로 버튼만 활성/비활성 처리한다.
+    // 여기서는 canDownload로 버튼을 다운로드/회원가입 링크로 바꿔 보여준다.
     async function loadApps(canDownload) {
       const status = $('apps-status');
       const grid = $('apps-grid');
       const { data, error } = await sb
         .from('ai_apps')
-        .select('id, title, description, storage_path, file_name, file_size, created_at')
+        .select(
+          'id, title, description, storage_path, file_name, file_size, screenshot_app_path, screenshot_result_path, created_at'
+        )
         .eq('published', true)
         .order('created_at', { ascending: false });
       if (error) {
@@ -86,16 +111,20 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         .map(
           (a) => `
         <article class="app-card" data-id="${a.id}">
-          <div class="app-badge">${esc(extBadge(a.file_name || a.storage_path))}</div>
+          ${shotsHtml(a)}
           <p class="app-title">${esc(a.title)}</p>
           ${a.description ? `<p class="app-desc">${esc(a.description)}</p>` : ''}
           <p class="app-meta">${a.file_size ? esc(fmtBytes(a.file_size)) : ''}</p>
-          <button class="btn app-download" data-id="${a.id}" ${canDownload ? '' : 'disabled title="로그인 후 다운로드할 수 있습니다"'}>${canDownload ? '다운로드' : '🔒 로그인 필요'}</button>
+          ${
+            canDownload
+              ? `<button class="btn app-download" data-id="${a.id}">다운로드</button>`
+              : `<a class="btn app-download" href="${esc(signupUrl)}">🔒 회원가입하고 다운로드</a>`
+          }
         </article>`
         )
         .join('');
 
-      if (!canDownload) return; // 비활성 버튼에는 다운로드 로직을 붙이지 않는다
+      if (!canDownload) return; // 비회원 버튼은 회원가입 링크라 별도 로직이 필요 없다
 
       // 다운로드 버튼을 누를 때만 파일을 받는다(목록을 열 때 전부 미리
       // 받으면 배포 파일이 클 경우 방문 즉시 큰 트래픽이 발생하기 때문).
@@ -214,6 +243,32 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     letter-spacing: 0.02em;
   }
 
+  .app-shots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .app-shots figure {
+    margin: 0;
+  }
+
+  .app-shots img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--color-surface);
+    display: block;
+  }
+
+  .app-shots figcaption {
+    margin-top: 0.3rem;
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
+
   .app-title {
     font-weight: 600;
     font-size: 0.98rem;
@@ -232,8 +287,10 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
   }
 
   .app-download {
+    display: block;
     width: 100%;
     text-align: center;
+    box-sizing: border-box;
   }
 
   .app-download:disabled {

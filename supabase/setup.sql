@@ -213,13 +213,26 @@ insert into storage.buckets (id, name, public, file_size_limit)
 values ('ai-apps', 'ai-apps', false, 52428800)
 on conflict (id) do update set file_size_limit = 52428800, allowed_mime_types = null;
 
+-- 카드뉴스 미리보기 이미지(앱 화면·결과물 화면)를 담을 공개 버킷.
+-- public=true라 로그인 없이도 바로 보인다 — 배포 파일이 들어가는
+-- 'ai-apps'(비공개) 버킷과는 목적이 달라 분리했다. 업로드·삭제는
+-- 관리자만 가능하다(아래 정책). 용량은 이미지 용도라 10MB로 낮게 잡는다.
+insert into storage.buckets (id, name, public, allowed_mime_types, file_size_limit)
+values ('ai-app-images', 'ai-app-images', true, array['image/jpeg', 'image/png', 'image/webp'], 10485760)
+on conflict (id) do update set
+  public = true,
+  allowed_mime_types = array['image/jpeg', 'image/png', 'image/webp'],
+  file_size_limit = 10485760;
+
 create table public.ai_apps (
   id bigint generated always as identity primary key,
   title text not null,
   description text,                  -- 목록에 보여줄 프로그램 설명 (비회원에게도 공개)
-  storage_path text not null,        -- ai-apps 버킷 안의 경로
+  storage_path text not null,        -- ai-apps 버킷 안의 경로 (배포 파일)
   file_name text,                    -- 원본 파일명(다운로드 시 그대로 사용)
   file_size bigint,                  -- 바이트 단위 (업로드 시 저장, 목록 표시용)
+  screenshot_app_path text,          -- ai-app-images 버킷 안의 경로 ("앱 화면" 미리보기, 선택)
+  screenshot_result_path text,       -- ai-app-images 버킷 안의 경로 ("결과물 화면" 미리보기, 선택)
   published boolean not null default false,
   created_at timestamptz not null default now()
 );
@@ -258,3 +271,11 @@ create policy "ai_apps_storage_insert_admin" on storage.objects
   for insert with check (bucket_id = 'ai-apps' and public.is_admin());
 create policy "ai_apps_storage_delete_admin" on storage.objects
   for delete using (bucket_id = 'ai-apps' and public.is_admin());
+
+-- 미리보기 이미지 버킷은 public=true라 조회에는 정책이 필요 없다
+-- (Supabase 공개 버킷은 RLS를 우회해 누구나 바로 볼 수 있다). 업로드·
+-- 삭제만 관리자로 제한한다.
+create policy "ai_app_images_insert_admin" on storage.objects
+  for insert with check (bucket_id = 'ai-app-images' and public.is_admin());
+create policy "ai_app_images_delete_admin" on storage.objects
+  for delete using (bucket_id = 'ai-app-images' and public.is_admin());
