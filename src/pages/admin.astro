@@ -373,31 +373,14 @@ import {
       }
       if (
         /mime type .* is not supported/i.test(m) ||
-        /'(description|file_name|file_size)' column/i.test(m)
+        /'(description|file_name|file_size|screenshot_app_path|screenshot_result_path)' column/i.test(m) ||
+        /bucket.*ai-app-images|ai-app-images.*bucket/i.test(m) ||
+        /schema cache|does not exist|Bucket not found/i.test(m)
       ) {
-        return (
-          'Supabase에 "AI로 만든 앱 파일 업로드" 마이그레이션이 아직 안 된 상태입니다. ' +
-          '저장소의 supabase/migrate-2026-07-10-ai-apps-files.sql 내용 전체를 ' +
-          'Supabase 대시보드 → SQL Editor에 붙여넣고 Run 한 번만 실행하면 해결됩니다. ' +
-          '(원래 오류: ' + m + ')'
-        );
-      }
-      if (
-        /'(screenshot_app_path|screenshot_result_path)' column/i.test(m) ||
-        /bucket.*ai-app-images|ai-app-images.*bucket/i.test(m)
-      ) {
-        return (
-          'Supabase에 "AI 앱 카드뉴스 이미지" 마이그레이션이 아직 안 된 상태입니다. ' +
-          '저장소의 supabase/migrate-2026-07-10-ai-apps-screenshots.sql 내용 전체를 ' +
-          'Supabase 대시보드 → SQL Editor에 붙여넣고 Run 한 번만 실행하면 해결됩니다. ' +
-          '(원래 오류: ' + m + ')'
-        );
-      }
-      if (/schema cache|does not exist|Bucket not found/i.test(m)) {
         return (
           'Supabase에 이 기능의 설치(마이그레이션)가 아직 안 된 상태입니다. ' +
-          '저장소의 supabase/migrate-2026-07-09-catchup.sql 내용 전체를 ' +
-          'Supabase 대시보드 → SQL Editor에 붙여넣고 Run 한 번만 실행하면 해결됩니다. ' +
+          '저장소의 supabase/setup.sql 내용 전체를 Supabase 대시보드 → SQL Editor에 ' +
+          '붙여넣고 Run 한 번만 실행하면 해결됩니다(몇 번을 다시 실행해도 안전합니다). ' +
           '(원래 오류: ' + m + ')'
         );
       }
@@ -504,7 +487,7 @@ import {
         alert(
           '삭제 실패: ' +
             error.message +
-            '\n\nSupabase 대시보드 → Authentication → Users에서 직접 삭제해 주세요. (migrate-admin-delete-member.sql을 아직 실행하지 않았다면 먼저 실행해야 합니다)'
+            '\n\nSupabase 대시보드 → Authentication → Users에서 직접 삭제해 주세요. (supabase/setup.sql을 아직 실행하지 않았다면 먼저 실행해야 합니다)'
         );
         return;
       }

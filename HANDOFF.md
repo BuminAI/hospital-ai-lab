@@ -103,20 +103,16 @@ npm run build    # 배포본 생성(dist/)
 | GoatCounter | 방문자 통계 | `src/utils/site.ts`의 `GOATCOUNTER_CODE = 'hospital-ai-lab'` |
 | 네이버/구글 | 검색 등록 | `src/utils/site.ts`의 `NAVER_SITE_VERIFICATION`·`GOOGLE_SITE_VERIFICATION` |
 
-### Supabase 마이그레이션 체크리스트
+### Supabase 마이그레이션 (2026-07-11부터 — 파일 하나로 통합)
 
-`setup.sql`을 처음부터 새로 실행한다면 아래 전부 포함되어 있어 신경 쓸 필요 없음. **기존 Supabase 프로젝트를 계속 쓰는 경우** 아래 마이그레이션들이 실제로 실행됐는지 불확실하면 다시 실행해도 안전함(대부분 `create or replace`/`if not exists` 사용):
+예전에는 기능이 추가될 때마다 `migrate-*.sql` 파일을 따로 실행해야 했다.
+이제 `setup.sql`이 완전히 재실행 안전(idempotent)하게 바뀌어서 그럴 필요가
+없다 — **`setup.sql` 전체를 다시 실행하면 항상 최신 상태로 맞춰진다**(이미
+있는 테이블·정책·컬럼은 건드리지 않고 없는 것만 채움). 개별
+`migrate-*.sql` 파일들은 전부 지웠다(git 이력에서는 여전히 볼 수 있음).
 
-- `migrate-oauth.sql` — 구글 로그인 대응
-- `migrate-org-email.sql` — 소속 기관 이메일(선택 항목)
-- `migrate-ai-apps.sql` — "AI로 만든 앱" 회원 전용 Storage 버킷·테이블
-- `migrate-admin-delete-member.sql` — 관리자의 회원 완전삭제 RPC
-- `migrate-admin-github-token.sql` — 관리자 로그인 통합용 `admin_secrets` 테이블
-- `migrate-2026-07-10-ai-apps-files.sql` — "AI로 만든 앱"을 이미지 전용에서 실제 배포 파일(zip·apk·exe·pdf 등)로 확장. 미실행 시 관리자 화면 업로드가 "mime type ... is not supported" 또는 "column ... does not exist" 오류로 실패한다
-- `migrate-2026-07-10-ai-apps-size-cap-fix.sql` — 버킷 용량 표시를 실제 상한(50MB — Supabase 무료 요금제 절대 상한, 실측 확인: 50MB 성공/51MB 거부)에 맞게 정정. 유료 전환 전에는 이 값을 못 올린다
-- `migrate-2026-07-10-email-notify.sql` — 새 글 발행 이메일 알림용 `email_notify_new_post`·`email_unsub_token` 컬럼과 수신거부 함수
-- `migrate-2026-07-10-ai-apps-public-list.sql` — "AI로 만든 앱" 목록(제목·설명)을 비회원에게도 공개(다운로드는 여전히 회원 전용)
-- `migrate-2026-07-10-ai-apps-screenshots.sql` — "AI로 만든 앱" 카드에 앱 화면·결과물 화면 미리보기 이미지 2장(선택, 각 최대 10MB) 추가. 공개 버킷 `ai-app-images`에 저장돼 로그인 없이도 바로 보인다
+관리자 화면에서 "Supabase에 이 기능의 설치가 아직 안 된 상태입니다" 같은
+오류가 보이면 `setup.sql`을 SQL Editor에 다시 붙여넣고 Run 하면 된다.
 
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
@@ -156,7 +152,7 @@ src/
 .claude/agents/               # planner·writer·reviewer·builder·maintainer
 .claude/skills/               # new-post·maintenance·update-page
 .claude/scheduled-tasks/daily-blog-post/   # 로컬 전용, §4-2 참고
-supabase/                    # setup.sql + migrate-*.sql 5개 + SETUP-GUIDE.md
+supabase/                    # setup.sql(재실행 안전, 이거 하나만 유지) + SETUP-GUIDE.md
 scripts/                     # fetch-news.mjs·fetch-videos.mjs·gen-assets.mjs
 public/                      # favicon, og-default.png, fonts/(Pretendard 자체호스팅)
 ```

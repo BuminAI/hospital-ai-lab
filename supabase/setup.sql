@@ -1,5 +1,11 @@
--- 병원 AI 연구소 회원 기능 초기 설정 (v3 — 구글·카카오 로그인 대응)
--- Supabase 대시보드 → SQL Editor에 전체를 붙여넣고 Run 하세요. (1회)
+-- 병원 AI 연구소 회원 기능 설정 (전체 통합본 — 이 파일 하나로 충분)
+-- Supabase 대시보드 → SQL Editor에 전체를 붙여넣고 Run 하세요.
+--
+-- 새 프로젝트든, 이미 예전 버전을 실행해 둔 기존 프로젝트든 이 파일
+-- 하나만 실행하면 항상 최신 상태로 맞춰집니다. 몇 번을 다시 실행해도
+-- 안전합니다(이미 있는 테이블·정책·컬럼은 건드리지 않고, 없는 것만
+-- 채웁니다) — 그래서 개별 migrate-*.sql 파일들은 더 이상 필요 없고,
+-- 이 파일 하나만 최신 버전으로 유지하면 됩니다.
 
 -- 관리자 판별: 이 이메일로 로그인한 계정만 관리자 권한을 갖는다.
 create or replace function public.is_admin() returns boolean
@@ -10,7 +16,7 @@ $$;
 -- ── 회원 프로필 ──────────────────────────────────────────────
 -- 프로필 행은 클라이언트가 아니라 아래 트리거(서버)가 생성한다.
 -- 동의 일시는 서버 시각(now())으로 기록되어 위·변조가 불가능하다.
-create table public.profiles (
+create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   name text not null,
   gender text,
@@ -26,15 +32,24 @@ create table public.profiles (
   created_at timestamptz not null default now()
 );
 
+-- 위 create table이 "이미 테이블이 있어 건너뛴" 경우(오래된 프로젝트)에도
+-- 이후에 추가된 컬럼이 빠지지 않도록 명시적으로 채워 둔다.
+alter table public.profiles add column if not exists org_email text;
+alter table public.profiles add column if not exists email_notify_new_post boolean not null default false;
+alter table public.profiles add column if not exists email_unsub_token uuid not null default gen_random_uuid();
+
 alter table public.profiles enable row level security;
 
 -- 조회: 본인 또는 관리자만
+drop policy if exists "profiles_select_own_or_admin" on public.profiles;
 create policy "profiles_select_own_or_admin" on public.profiles
   for select using (auth.uid() = id or public.is_admin());
 -- 수정: 본인만 + 아래 컬럼 단위 권한으로 이름·선택항목만 수정 가능
+drop policy if exists "profiles_update_own" on public.profiles;
 create policy "profiles_update_own" on public.profiles
   for update using (auth.uid() = id) with check (auth.uid() = id);
 -- 삭제: 본인(잊힐 권리) 또는 관리자
+drop policy if exists "profiles_delete_own_or_admin" on public.profiles;
 create policy "profiles_delete_own_or_admin" on public.profiles
   for delete using (auth.uid() = id or public.is_admin());
 -- insert 정책 없음: 클라이언트는 프로필을 만들 수 없다 (트리거 전용)
@@ -84,6 +99,7 @@ begin
 end
 $$;
 
+drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function public.handle_new_user();
@@ -153,7 +169,7 @@ grant execute on function public.admin_delete_member(uuid) to authenticated;
 
 -- 관리자 로그인 통합용: GitHub 토큰 등 비밀값을 사이트 코드가 아니라
 -- 여기(서버)에만 저장한다. RLS로 관리자 계정만 읽고 쓸 수 있다.
-create table public.admin_secrets (
+create table if not exists public.admin_secrets (
   key text primary key,
   value text not null,
   updated_at timestamptz not null default now()
@@ -161,17 +177,21 @@ create table public.admin_secrets (
 
 alter table public.admin_secrets enable row level security;
 
+drop policy if exists "admin_secrets_select_admin" on public.admin_secrets;
 create policy "admin_secrets_select_admin" on public.admin_secrets
   for select using (public.is_admin());
+drop policy if exists "admin_secrets_upsert_admin" on public.admin_secrets;
 create policy "admin_secrets_upsert_admin" on public.admin_secrets
   for insert with check (public.is_admin());
+drop policy if exists "admin_secrets_update_admin" on public.admin_secrets;
 create policy "admin_secrets_update_admin" on public.admin_secrets
   for update using (public.is_admin());
+drop policy if exists "admin_secrets_delete_admin" on public.admin_secrets;
 create policy "admin_secrets_delete_admin" on public.admin_secrets
   for delete using (public.is_admin());
 
 -- ── 강의노트 (회원 전용 콘텐츠) ──────────────────────────────
-create table public.lecture_notes (
+create table if not exists public.lecture_notes (
   id bigint generated always as identity primary key,
   title text not null,
   body text not null,               -- 마크다운 (##, ###, -, **굵게**, [링크](url))
@@ -183,6 +203,7 @@ create table public.lecture_notes (
 alter table public.lecture_notes enable row level security;
 
 -- 필수 동의가 기록된 회원만 공개 노트를 읽을 수 있다
+drop policy if exists "notes_select_member_or_admin" on public.lecture_notes;
 create policy "notes_select_member_or_admin" on public.lecture_notes
   for select using (
     public.is_admin()
@@ -195,10 +216,13 @@ create policy "notes_select_member_or_admin" on public.lecture_notes
       )
     )
   );
+drop policy if exists "notes_insert_admin" on public.lecture_notes;
 create policy "notes_insert_admin" on public.lecture_notes
   for insert with check (public.is_admin());
+drop policy if exists "notes_update_admin" on public.lecture_notes;
 create policy "notes_update_admin" on public.lecture_notes
   for update using (public.is_admin());
+drop policy if exists "notes_delete_admin" on public.lecture_notes;
 create policy "notes_delete_admin" on public.lecture_notes
   for delete using (public.is_admin());
 
@@ -224,7 +248,7 @@ on conflict (id) do update set
   allowed_mime_types = array['image/jpeg', 'image/png', 'image/webp'],
   file_size_limit = 10485760;
 
-create table public.ai_apps (
+create table if not exists public.ai_apps (
   id bigint generated always as identity primary key,
   title text not null,
   description text,                  -- 목록에 보여줄 프로그램 설명 (비회원에게도 공개)
@@ -237,22 +261,36 @@ create table public.ai_apps (
   created_at timestamptz not null default now()
 );
 
+-- 위 create table이 "이미 테이블이 있어 건너뛴" 경우(오래된 프로젝트)에도
+-- 이후에 추가된 컬럼이 빠지지 않도록 명시적으로 채워 둔다.
+alter table public.ai_apps add column if not exists description text;
+alter table public.ai_apps add column if not exists file_name text;
+alter table public.ai_apps add column if not exists file_size bigint;
+alter table public.ai_apps add column if not exists screenshot_app_path text;
+alter table public.ai_apps add column if not exists screenshot_result_path text;
+
 alter table public.ai_apps enable row level security;
 
 -- 목록(제목·설명)은 누구나 볼 수 있다 — 실제 방어선은 아래 storage.objects
 -- 정책(파일 다운로드는 로그인·동의 완료 회원만)이라 여기서 비회원을 막을
 -- 필요가 없다. 비공개(published=false) 항목만 관리자에게만 보인다.
+drop policy if exists "ai_apps_select_member_or_admin" on public.ai_apps;
+drop policy if exists "ai_apps_select_published_or_admin" on public.ai_apps;
 create policy "ai_apps_select_published_or_admin" on public.ai_apps
   for select using (public.is_admin() or published);
+drop policy if exists "ai_apps_insert_admin" on public.ai_apps;
 create policy "ai_apps_insert_admin" on public.ai_apps
   for insert with check (public.is_admin());
+drop policy if exists "ai_apps_update_admin" on public.ai_apps;
 create policy "ai_apps_update_admin" on public.ai_apps
   for update using (public.is_admin());
+drop policy if exists "ai_apps_delete_admin" on public.ai_apps;
 create policy "ai_apps_delete_admin" on public.ai_apps
   for delete using (public.is_admin());
 
 -- 배포 파일 자체의 접근 권한 (진짜 방어선). 조회는 회원·관리자,
 -- 업로드·삭제는 관리자만.
+drop policy if exists "ai_apps_storage_select" on storage.objects;
 create policy "ai_apps_storage_select" on storage.objects
   for select using (
     bucket_id = 'ai-apps'
@@ -267,15 +305,19 @@ create policy "ai_apps_storage_select" on storage.objects
       )
     )
   );
+drop policy if exists "ai_apps_storage_insert_admin" on storage.objects;
 create policy "ai_apps_storage_insert_admin" on storage.objects
   for insert with check (bucket_id = 'ai-apps' and public.is_admin());
+drop policy if exists "ai_apps_storage_delete_admin" on storage.objects;
 create policy "ai_apps_storage_delete_admin" on storage.objects
   for delete using (bucket_id = 'ai-apps' and public.is_admin());
 
 -- 미리보기 이미지 버킷은 public=true라 조회에는 정책이 필요 없다
 -- (Supabase 공개 버킷은 RLS를 우회해 누구나 바로 볼 수 있다). 업로드·
 -- 삭제만 관리자로 제한한다.
+drop policy if exists "ai_app_images_insert_admin" on storage.objects;
 create policy "ai_app_images_insert_admin" on storage.objects
   for insert with check (bucket_id = 'ai-app-images' and public.is_admin());
+drop policy if exists "ai_app_images_delete_admin" on storage.objects;
 create policy "ai_app_images_delete_admin" on storage.objects
   for delete using (bucket_id = 'ai-app-images' and public.is_admin());
