@@ -112,6 +112,7 @@ npm run build    # 배포본 생성(dist/)
 - `migrate-ai-apps.sql` — "AI로 만든 앱" 회원 전용 Storage 버킷·테이블
 - `migrate-admin-delete-member.sql` — 관리자의 회원 완전삭제 RPC
 - `migrate-admin-github-token.sql` — 관리자 로그인 통합용 `admin_secrets` 테이블
+- `migrate-2026-07-10-ai-apps-files.sql` — "AI로 만든 앱"을 이미지 전용에서 실제 배포 파일(zip·apk·exe·pdf 등, 최대 200MB)로 확장. 미실행 시 관리자 화면 업로드가 "mime type ... is not supported" 또는 "column ... does not exist" 오류로 실패한다
 
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
@@ -136,7 +137,7 @@ src/
 │   ├── news.astro          # AI 뉴스 (메디칼타임즈 자동 수집)
 │   ├── youtube.astro       # 추천 영상 + 연구소장 직접 제작 영상
 │   ├── notes.astro         # 강의노트 (회원 전용, Supabase)
-│   ├── ai-apps.astro       # AI로 만든 앱 (회원 전용, Supabase Storage)
+│   ├── ai-apps.astro       # AI로 만든 앱 (회원 전용, Supabase Storage, 파일 형식 제한 없음·최대 200MB)
 │   ├── glossary.astro, faq.astro, checklist.astro, guide.astro   # 입문 가이드 4종
 │   ├── login.astro / signup.astro   # 회원 기능(Supabase, 구글 OAuth 포함)
 │   ├── admin.astro          # 관리자 대시보드 (이메일+비번 로그인 하나로 통합, §3)
