@@ -21,6 +21,8 @@ create table public.profiles (
   consent_required_at timestamptz,    -- [필수] 동의 일시 (서버 기록, null = 동의 없음)
   consent_optional_at timestamptz,    -- [선택] 동의 일시 (서버 기록)
   policy_version text,                -- 동의 당시 처리방침 버전
+  email_notify_new_post boolean not null default false, -- [선택] 새 글 발행 이메일 알림
+  email_unsub_token uuid not null default gen_random_uuid(), -- 로그인 없이 수신거부하는 링크용 토큰
   created_at timestamptz not null default now()
 );
 
@@ -39,7 +41,7 @@ create policy "profiles_delete_own_or_admin" on public.profiles
 
 -- 컬럼 단위 권한: 동의 증적·이메일·가입일은 클라이언트가 수정 불가
 revoke insert, update on public.profiles from anon, authenticated;
-grant update (name, gender, birth_date, phone, org_email) on public.profiles to authenticated;
+grant update (name, gender, birth_date, phone, org_email, email_notify_new_post) on public.profiles to authenticated;
 
 -- 가입 시 서버가 프로필을 생성 (가입 폼의 동의 표시를 서버 시각으로 기록).
 -- 이메일 가입: 폼의 동의 플래그를 그대로 반영해 동의 일시를 즉시 기록한다.
@@ -54,7 +56,8 @@ as $$
 begin
   insert into public.profiles (
     id, name, gender, birth_date, phone, org_email, email,
-    consent_required_at, consent_optional_at, policy_version
+    consent_required_at, consent_optional_at, policy_version,
+    email_notify_new_post
   )
   values (
     new.id,
@@ -74,7 +77,8 @@ begin
          then now() else null end,
     case when coalesce(new.raw_user_meta_data ->> 'consent_optional', '') = 'true'
          then now() else null end,
-    nullif(new.raw_user_meta_data ->> 'policy_version', '')
+    nullif(new.raw_user_meta_data ->> 'policy_version', ''),
+    coalesce(new.raw_user_meta_data ->> 'email_notify', '') = 'true'
   );
   return new;
 end
@@ -104,6 +108,24 @@ end
 $$;
 
 grant execute on function public.record_consent(text) to authenticated;
+
+-- 새 글 발행 이메일 알림 수신거부. 이메일 안의 링크를 누르면 로그인 없이도
+-- 바로 해제되도록(표준 관행) anon 권한으로 실행 가능하게 한다. 토큰은 각
+-- 회원의 profiles.email_unsub_token(추측 불가능한 uuid)이라 다른 사람의
+-- 설정은 건드릴 수 없다.
+create or replace function public.unsubscribe_email_notify(p_token uuid)
+returns void
+language plpgsql
+security definer set search_path = public
+as $$
+begin
+  update public.profiles
+  set email_notify_new_post = false
+  where email_unsub_token = p_token;
+end
+$$;
+
+grant execute on function public.unsubscribe_email_notify(uuid) to anon, authenticated;
 
 -- 관리자 대시보드에서 회원을 직접 삭제하는 기능. 클라이언트(anon/authenticated
 -- 키)는 auth.users를 직접 지울 권한이 없어(service_role 키가 필요하며, 그

@@ -29,6 +29,10 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
           <div id="member" hidden>
             <div class="member-bar">
               <span id="member-name"></span>
+              <label class="email-notify-toggle">
+                <input type="checkbox" id="email-notify" />
+                새 글 이메일 알림
+              </label>
               <button class="btn ghost" id="logout">로그아웃</button>
             </div>
             <div id="notes-list" class="notes-list">불러오는 중…</div>
@@ -137,7 +141,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     // 프로필·동의 기록 확인 — 없으면 "노트 없음"과 구분되는 안내를 보여준다
     const { data: profile, error: pErr } = await sb
       .from('profiles')
-      .select('id, consent_required_at')
+      .select('id, consent_required_at, email_notify_new_post')
       .eq('id', session.user.id)
       .maybeSingle();
     if (pErr || !profile || !profile.consent_required_at) {
@@ -154,6 +158,22 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
       await sb.auth.signOut();
       location.reload();
     });
+    // 새 글 이메일 알림 옵트인 — 회원가입 이후에도 언제든 여기서 켜고 끌 수 있다
+    const emailNotify = $('email-notify');
+    emailNotify.checked = !!profile.email_notify_new_post;
+    emailNotify.addEventListener('change', async () => {
+      const checked = emailNotify.checked;
+      emailNotify.disabled = true;
+      const { error } = await sb
+        .from('profiles')
+        .update({ email_notify_new_post: checked })
+        .eq('id', session.user.id);
+      emailNotify.disabled = false;
+      if (error) {
+        alert('저장하지 못했습니다: ' + error.message);
+        emailNotify.checked = !checked;
+      }
+    });
     $('note-back').addEventListener('click', (e) => {
       e.preventDefault();
       showList();
@@ -168,9 +188,22 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    flex-wrap: wrap;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
     color: var(--color-muted);
+  }
+
+  .email-notify-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .email-notify-toggle input {
+    width: auto;
   }
 
   .btn.ghost {

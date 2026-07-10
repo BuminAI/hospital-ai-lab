@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
+---
+
+<BaseLayout
+  title="이메일 수신거부"
+  description="새 글 발행 이메일 알림 수신을 거부합니다."
+  noindex
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>이메일 수신거부</h1>
+      <p class="lead" id="status">처리 중입니다…</p>
+    </header>
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY }}>
+  (async () => {
+    const status = document.getElementById('status');
+    if (!SUPABASE_URL) {
+      status.textContent = '회원 기능은 준비 중입니다.';
+      return;
+    }
+    const token = new URLSearchParams(location.search).get('token');
+    if (!token) {
+      status.textContent = '잘못된 접근입니다. 이메일 안의 링크를 다시 눌러주세요.';
+      return;
+    }
+    const { createClient } = await import(
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
+    );
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const { error } = await sb.rpc('unsubscribe_email_notify', { p_token: token });
+    status.textContent = error
+      ? `수신거부 처리에 실패했습니다: ${error.message}`
+      : '수신거부가 완료되었습니다. 앞으로 새 글 알림 이메일이 발송되지 않습니다.';
+  })();
+</script>
+
+<style>
+  .page-head {
+    text-align: center;
+    padding-block: 4rem 3rem;
+  }
+</style>

@@ -43,7 +43,7 @@ export const SUPABASE_URL = 'https://qasjbbkegjqilrqylvdb.supabase.co';
 export const SUPABASE_ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFhc2piYmtlZ2pxaWxycXlsdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNDQwMzgsImV4cCI6MjA5ODcyMDAzOH0.s9KhnZjvcIaPxOdiT0yFwcR2VeAXzJMqdLZn0TiQvdg';
 // 개인정보 처리방침 버전 (방침 개정 시 날짜 갱신 — 동의 기록에 함께 저장됨)
-export const PRIVACY_POLICY_VERSION = '2026-07-05';
+export const PRIVACY_POLICY_VERSION = '2026-07-10';
 // 관리자(오너) 이메일 — supabase/setup.sql의 is_admin()과 일치해야 한다
 export const ADMIN_EMAIL = 'choyj80@naver.com';
 export const GOOGLE_SITE_VERIFICATION = '5zd4BPyIzNe4dZJnx59GxYhFTkVoNQmcRoIJ9YS_f4Q';

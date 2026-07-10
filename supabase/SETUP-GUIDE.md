@@ -101,12 +101,51 @@ setup.sql을 **이미 한 번 실행한 적이 있다면**,
 실행하세요. 아직 한 번도 실행한 적이 없다면 건너뛰어도 됩니다(최신
 setup.sql에 이미 포함되어 있습니다).
 
+## 3-8. 이미 setup.sql을 실행했다면 — "새 글 이메일 알림" 마이그레이션 추가 실행
+
+회원이 이메일로 새 글 알림을 받을 수 있는 기능이 추가됩니다(가입 시
+[선택] 동의, 또는 강의노트 페이지에서 언제든 켜고 끌 수 있음).
+setup.sql을 **이미 한 번 실행한 적이 있다면**,
+`migrate-2026-07-10-email-notify.sql` 내용만 SQL Editor에 붙여넣어
+실행하세요. 아직 한 번도 실행한 적이 없다면 건너뛰어도 됩니다(최신
+setup.sql에 이미 포함되어 있습니다).
+
+이 기능은 DB 마이그레이션 외에 아래 4-1 단계(Resend 이메일 서비스 연결)도
+함께 해야 실제로 발송됩니다.
+
 ## 4. 관리자 계정 만들기
 
 - 사이트 회원가입 페이지에서 **choyj80@naver.com** 으로 가입 →
   메일 인증 → 이 계정으로 로그인하면 관리자 대시보드에서 회원·강의노트 관리 가능
 - (setup.sql의 is_admin()이 이 이메일만 관리자로 인정합니다.
   관리자 이메일을 바꾸려면 setup.sql의 이메일과 src/utils/site.ts의 ADMIN_EMAIL을 함께 수정)
+
+## 4-1. 새 글 이메일 알림을 실제로 보내려면 — Resend 연결 (약 10분)
+
+새 글이 발행되면 GitHub Actions가 자동으로 이메일을 보냅니다(글 발행 즉시,
+`.github/workflows/deploy.yml`의 `notify` 단계). 이메일을 실제로 보내는
+서비스로 [Resend](https://resend.com)(무료, 하루 100통)를 씁니다.
+
+1. https://resend.com 에서 가입
+2. 왼쪽 메뉴 **API Keys** → **Create API Key** → 생성된 키(`re_`로 시작)를
+   복사해 둠
+3. 왼쪽 메뉴 **Domains** → **Add Domain** → `hospital-ai-lab.com` 입력
+4. 화면에 나오는 DNS 레코드(TXT·CNAME 등 보통 3개)를 도메인을 산 곳(가비아)의
+   DNS 설정 화면에 그대로 추가. (사이트 자체를 GitHub Pages로 연결할 때 이미
+   가비아 DNS를 만져본 적이 있다면 같은 화면입니다)
+5. 몇 분~몇 시간 뒤 Resend Domains 화면에서 **Verified**로 바뀌면 완료
+   (레코드 전파는 즉시 되기도 하고 최대 하루 걸리기도 합니다)
+6. GitHub 저장소 → **Settings → Secrets and variables → Actions** →
+   **New repository secret**으로 아래 2개를 추가:
+   - `RESEND_API_KEY`: 2번에서 복사한 키
+   - `SUPABASE_SERVICE_ROLE_KEY`: Supabase **Project Settings → API**의
+     `service_role` `secret` 키 (anon 키와 다른 키입니다 — 이 키는 절대
+     사이트 코드나 브라우저에 넣지 마세요. GitHub Secrets에만 저장하며,
+     GitHub Actions 안에서만 서버 대 서버로 쓰입니다)
+
+> 도메인 인증 전까지는 이메일 발송이 실패로 남고(사이트 배포 자체는
+> 영향 없음), 자동으로 다음 배포 때 다시 시도됩니다. 인증만 마치면 밀려
+> 있던 새 글의 알림이 그다음 배포 때 나갑니다.
 
 ## 5. 사이트에 연결
 

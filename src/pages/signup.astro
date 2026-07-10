@@ -92,6 +92,16 @@ import {
                 </span>
               </span>
             </label>
+            <label class="check">
+              <input type="checkbox" id="c-email-notify" />
+              <span>
+                <strong>[선택]</strong> 새 글이 올라오면 이메일로 알림을 받습니다.
+                <span class="small">
+                  (가입 이메일로 발송 / 각 메일 하단 링크로 언제든 수신거부
+                  가능 / 동의하지 않아도 회원가입에는 영향이 없습니다)
+                </span>
+              </span>
+            </label>
           </div>
 
           <button class="btn" type="submit" id="f-submit">가입하기</button>
@@ -147,7 +157,7 @@ import {
 
     // 전체 동의: 누르면 하위 항목을 모두 같은 상태로, 하위 항목을 개별
     // 조작하면 전체 동의 체크 상태를 다시 계산한다 (표준 "전체 동의" UX)
-    const subChecks = [$('c-age'), $('c-required'), $('c-optional')];
+    const subChecks = [$('c-age'), $('c-required'), $('c-optional'), $('c-email-notify')];
     $('c-all').addEventListener('change', (e) => {
       subChecks.forEach((c) => (c.checked = e.target.checked));
     });
@@ -197,6 +207,7 @@ import {
               org_email: sendOptional ? orgEmail || null : null,
               consent_required: true,
               consent_optional: sendOptional,
+              email_notify: $('c-email-notify').checked,
               policy_version: PRIVACY_POLICY_VERSION,
             },
           },

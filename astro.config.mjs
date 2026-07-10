@@ -47,7 +47,10 @@ export default defineConfig({
     sitemap({
       // 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외
       filter: (page) =>
-        !page.includes('/admin') && !page.includes('/signup') && !page.includes('/login'),
+        !page.includes('/admin') &&
+        !page.includes('/signup') &&
+        !page.includes('/login') &&
+        !page.includes('/unsubscribe'),
     }),
   ],
 });
