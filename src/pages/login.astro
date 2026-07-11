@@ -186,13 +186,53 @@ const signupUrl = withBase('/signup/');
       show('logged-in');
     }
 
+    // 가입 페이지에서 약관 동의를 마치고 "Google로 가입"을 누른 경우, 그
+    // 동의 내용이 이 탭(sessionStorage)에 잠시 보관되어 넘어온다. 구글 인증을
+    // 마치고 여기로 돌아오면 그 동의를 서버에 기록해, 동의 화면을 두 번
+    // 보여주지 않는다. (버전이 다르거나 1시간이 지났으면 무효 → 다시 묻는다)
+    const PENDING_CONSENT_KEY = 'oauth-signup-consent';
+    function readPendingConsent() {
+      try {
+        const raw = sessionStorage.getItem(PENDING_CONSENT_KEY);
+        if (!raw) return null;
+        const p = JSON.parse(raw);
+        if (!p || p.v !== PRIVACY_POLICY_VERSION) return null;
+        if (!p.at || Date.now() - p.at > 60 * 60 * 1000) return null;
+        return p;
+      } catch {
+        return null;
+      }
+    }
+    const clearPendingConsent = () =>
+      sessionStorage.removeItem(PENDING_CONSENT_KEY);
+
     // 로그인·인증 성공 후 공통 관문
     async function afterAuth(session, { redirect }) {
       const consented = await getConsentStatus(session.user.id);
       if (consented) {
+        clearPendingConsent();
         if (redirect) location.href = notesUrl;
         else showLoggedIn(session);
         return;
+      }
+      const pending = readPendingConsent();
+      if (pending) {
+        const { error } = await sb.rpc('record_consent', {
+          p_policy_version: pending.v,
+        });
+        if (!error) {
+          if (pending.emailNotify) {
+            // 알림 설정 저장이 실패해도 가입 진행은 막지 않는다
+            await sb
+              .from('profiles')
+              .update({ email_notify_new_post: true })
+              .eq('id', session.user.id);
+          }
+          clearPendingConsent();
+          location.href = notesUrl;
+          return;
+        }
+        // 기록에 실패하면 아래 동의 화면으로 폴백해 다시 받는다
       }
       show('oauth-consent');
     }
@@ -357,6 +397,13 @@ const signupUrl = withBase('/signup/');
 </script>
 
 <style>
+  /* hidden 속성이 아래의 display 규칙(form, #oauth-consent 등)에 지지 않도록
+     하는 가드. 이게 없으면 숨겨 둔 카드("새 비밀번호 설정", 동의 화면)가
+     hidden 상태여도 항상 화면에 보인다 — 실제로 발생했던 버그. */
+  [hidden] {
+    display: none !important;
+  }
+
   .page-head {
     text-align: center;
     padding-block: 3rem 1.25rem;
