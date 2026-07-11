@@ -1,17 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../utils/site';
-import { guideIntro, guideSteps } from '../data/guide';
+import { guideHero, guideSteps, guideClosing } from '../data/guide';
 ---
 
 <BaseLayout
   title="입문 가이드"
-  description="코딩 배경이 없는 병원 행정·간호 종사자를 위한 의료 AI 입문 로드맵. 무엇을, 어떤 순서로 이해하면 되는지 단계별로 안내합니다."
+  description="책 대신 실전으로 AI를 익히는 다섯 단계. 유튜브 최신 영상 보기부터 따라 하기, 가르치기, 업무 적용, 전문가 교육까지 - 병원 행정·간호 종사자를 위한 입문 가이드입니다."
 >
   <div class="container">
     <header class="page-head">
-      <h1>입문 가이드</h1>
-      <p class="lead">{guideIntro}</p>
+      <h1>{guideHero.h1}</h1>
+      <p class="subtitle">{guideHero.subtitle}</p>
+      <p class="lead">{guideHero.intro}</p>
     </header>
 
     <ol class="steps">
@@ -19,25 +20,30 @@ import { guideIntro, guideSteps } from '../data/guide';
         guideSteps.map((step) => (
           <li class="step">
             <h2>{step.title}</h2>
+            <p class="step-lead"><strong>결론: {step.lead}</strong></p>
             <p>{step.body}</p>
-            <ul class="step-links">
-              {step.links.map((link) => (
-                <li>
-                  {link.external ? (
-                    <a href={link.href} target="_blank" rel="noopener">
-                      {link.label}
-                      <span class="sr-only"> (새 탭으로 열림)</span>
-                    </a>
-                  ) : (
-                    <a href={withBase(link.href)}>{link.label} →</a>
-                  )}
-                </li>
-              ))}
-            </ul>
+            {step.links.length > 0 && (
+              <ul class="step-links">
+                {step.links.map((link) => (
+                  <li>
+                    {link.external ? (
+                      <a href={link.href} target="_blank" rel="noopener">
+                        {link.label}
+                        <span class="sr-only"> (새 탭으로 열림)</span>
+                      </a>
+                    ) : (
+                      <a href={withBase(link.href)}>{link.label} →</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))
       }
     </ol>
+
+    <p class="cycle-closing">{guideClosing}</p>
 
     <section class="see-also">
       <h2>더 볼 자료</h2>
@@ -60,6 +66,14 @@ import { guideIntro, guideSteps } from '../data/guide';
 </BaseLayout>
 
 <style>
+  .subtitle {
+    margin-top: 0.5rem;
+    max-width: var(--prose-width);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
   .steps {
     list-style: none;
     margin: 2.5rem 0 0;
@@ -96,6 +110,19 @@ import { guideIntro, guideSteps } from '../data/guide';
   .step p {
     margin-top: 0.6rem;
     color: var(--color-muted);
+  }
+
+  .step-lead strong {
+    color: var(--color-text);
+  }
+
+  .cycle-closing {
+    margin: 2.5rem 0 0;
+    max-width: var(--prose-width);
+    padding: 1.5rem 1.75rem;
+    background: var(--color-primary-soft);
+    border-radius: var(--radius);
+    color: var(--color-text);
   }
 
   .step-links {
