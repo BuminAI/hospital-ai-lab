@@ -322,11 +322,21 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
   }
 
   .lightbox img {
-    max-width: 100%;
-    max-height: 100%;
+    display: block;
+    width: auto;
+    height: auto;
+    /* 썸네일(약 142×106px)의 약 4배 크기로 고정. 화면을 꽉 채우지 않도록
+       뷰포트 상한도 함께 둔다. 로딩 중에도 빈 화면처럼 보이지 않도록
+       최소 크기와 옅은 배경을 준다(이미지 크기를 아직 몰라 사라져
+       보이던 문제 수정). */
+    min-width: 120px;
+    min-height: 90px;
+    max-width: min(568px, 90vw);
+    max-height: min(426px, 80vh);
     object-fit: contain;
     border-radius: 8px;
     cursor: default;
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
 
