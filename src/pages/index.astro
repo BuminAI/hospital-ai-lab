@@ -32,6 +32,25 @@ const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 const featured = allPosts.find((p) => p.data.featured) ?? allPosts[0];
 const recentPosts = allPosts.filter((p) => p.id !== featured?.id).slice(0, 3);
 
+// 히어로의 "최근 소식" 미니 피드 + 아래쪽 전체 게시판이 공유하는 시드 데이터.
+// 강의노트·AI 앱은 클라이언트에서 불러와 이 배열에 합쳐진다(아래 스크립트).
+const blogFeedSeed = recentPosts.map((post) => ({
+  badgeClass: 'feed-badge-blog',
+  badgeLabel: '📝 칼럼',
+  title: post.data.title,
+  dateIso: post.data.pubDate.toISOString(),
+  href: withBase(`/blog/${post.id}/`),
+}));
+const featuredSeed = featured
+  ? {
+      badgeClass: 'feed-badge-star',
+      badgeLabel: '★ 대표글',
+      title: featured.data.title,
+      dateIso: featured.data.pubDate.toISOString(),
+      href: withBase(`/blog/${featured.id}/`),
+    }
+  : null;
+
 const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 5);
 // 연구소장이 직접 만든 영상은 별도 코너(/youtube/)에서만 보여주고,
@@ -76,19 +95,29 @@ const siteJsonLd = {
         <p class="bookmark-hint" id="bookmark-hint" hidden></p>
       </div>
 
-      {
-        featured && (
-          <a class="hero-featured" href={withBase(`/blog/${featured.id}/`)}>
-            <div class="hf-meta">
-              <span class="chip">{featured.data.category}</span>
-              <span class="hf-label">가장 최근 글</span>
-            </div>
-            <h2 class="hf-title">{featured.data.title}</h2>
-            <p class="hf-desc">{featured.data.description}</p>
-            <span class="hf-more">이어 읽기 →</span>
-          </a>
-        )
-      }
+      <div class="hero-feed-card">
+        <div class="hero-feed-head">
+          <span class="live-dot" aria-hidden="true"></span>
+          지금도 계속 업데이트되고 있습니다
+        </div>
+        <ul class="hero-feed" id="hero-feed">
+          {featuredSeed && (
+            <li class="feed-row" data-date={featuredSeed.dateIso}>
+              <span class={`feed-badge ${featuredSeed.badgeClass}`}>{featuredSeed.badgeLabel}</span>
+              <a class="feed-title" href={featuredSeed.href}>{featuredSeed.title}</a>
+              <time class="feed-date">{formatDate(new Date(featuredSeed.dateIso))}</time>
+            </li>
+          )}
+          {blogFeedSeed.slice(0, 3).map((item) => (
+            <li class="feed-row" data-date={item.dateIso}>
+              <span class={`feed-badge ${item.badgeClass}`}>{item.badgeLabel}</span>
+              <a class="feed-title" href={item.href}>{item.title}</a>
+              <time class="feed-date">{formatDate(new Date(item.dateIso))}</time>
+            </li>
+          ))}
+        </ul>
+        <a class="hero-feed-more" href="#activity-feed">최근 게시 소식 전체 보기 ↓</a>
+      </div>
     </div>
   </section>
 
@@ -115,7 +144,7 @@ const siteJsonLd = {
        블로그는 빌드 시점에 바로 나오고(무JS에서도 보임), 강의노트·AI 앱은
        페이지가 뜬 뒤 자바스크립트가 불러와 같은 목록에 합쳐 넣는다. -->
   {
-    recentPosts.length > 0 && (
+    blogFeedSeed.length > 0 && (
       <section class="section">
         <div class="container">
           <div class="section-head">
@@ -123,16 +152,15 @@ const siteJsonLd = {
           </div>
           <p class="feed-note">
             칼럼·강의노트·AI로 만든 앱 — 새로 올라온 순서대로 모았습니다.
-            이 홈페이지는 지금도 계속 업데이트되고 있습니다.
           </p>
           <ul class="activity-feed" id="activity-feed">
-            {recentPosts.map((post) => (
-              <li class="feed-row" data-date={post.data.pubDate.toISOString()}>
-                <span class="feed-badge feed-badge-blog">📝 칼럼</span>
-                <a class="feed-title" href={withBase(`/blog/${post.id}/`)}>
-                  {post.data.title}
+            {blogFeedSeed.map((item) => (
+              <li class="feed-row" data-date={item.dateIso}>
+                <span class={`feed-badge ${item.badgeClass}`}>{item.badgeLabel}</span>
+                <a class="feed-title" href={item.href}>
+                  {item.title}
                 </a>
-                <time class="feed-date">{formatDate(post.data.pubDate)}</time>
+                <time class="feed-date">{formatDate(new Date(item.dateIso))}</time>
               </li>
             ))}
           </ul>
@@ -267,13 +295,15 @@ const siteJsonLd = {
   </p>
 </BaseLayout>
 
-<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY }}>
-  // "최근 게시 소식"에 강의노트·AI로 만든 앱을 더한다. 블로그는 이미
-  // 빌드 시점에 목록에 들어가 있으므로, 여기서는 두 종류만 불러와
-  // 같은 목록에 이어 붙이고 날짜순으로 다시 정렬한다.
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, blogFeedSeed, featuredSeed }}>
+  // 히어로의 "최근 소식" 미니 피드와, 아래쪽 "최근 게시 소식" 전체
+  // 게시판을 같은 데이터에서 함께 채운다. 블로그는 빌드 시점에 이미
+  // 받은 값(blogFeedSeed)이고, 강의노트·AI로 만든 앱만 여기서 불러와
+  // 합친 뒤 날짜순으로 정렬해 두 곳에 나눠 그린다.
   (async () => {
-    const list = document.getElementById('activity-feed');
-    if (!list || !SUPABASE_URL) return;
+    const heroFeed = document.getElementById('hero-feed');
+    const mainFeed = document.getElementById('activity-feed');
+    if (!mainFeed) return;
 
     const fmt = (iso) =>
       new Date(iso).toLocaleDateString('ko-KR', {
@@ -283,7 +313,7 @@ const siteJsonLd = {
         day: 'numeric',
       });
 
-    function addRow({ badgeClass, badgeLabel, title, dateIso, href }) {
+    function makeRow({ badgeClass, badgeLabel, title, dateIso, href }) {
       const li = document.createElement('li');
       li.className = 'feed-row';
       li.dataset.date = dateIso;
@@ -302,62 +332,76 @@ const siteJsonLd = {
       dateEl.textContent = fmt(dateIso);
 
       li.append(badge, titleEl, dateEl);
-      list.appendChild(li);
+      return li;
     }
 
-    try {
-      const { createClient } = await import(
-        'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
-      );
-      const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      const notesUrl = new URL('notes/', location.href).pathname;
-      const appsUrl = new URL('ai-apps/', location.href).pathname;
-
-      const [{ data: notes }, { data: apps }] = await Promise.all([
-        sb
-          .from('lecture_notes')
-          .select('id,title,created_at')
-          .eq('published', true)
-          .order('created_at', { ascending: false })
-          .limit(3),
-        sb
-          .from('ai_apps')
-          .select('id,title,created_at')
-          .eq('published', true)
-          .order('created_at', { ascending: false })
-          .limit(3),
-      ]);
-
-      (notes || []).forEach((n) =>
-        addRow({
-          badgeClass: 'feed-badge-note',
-          badgeLabel: '📚 강의노트',
-          title: n.title,
-          dateIso: n.created_at,
-          href: notesUrl,
-        })
-      );
-      (apps || []).forEach((a) =>
-        addRow({
-          badgeClass: 'feed-badge-app',
-          badgeLabel: '🖼️ AI로 만든 앱',
-          title: a.title,
-          dateIso: a.created_at,
-          href: appsUrl,
-        })
-      );
-
-      // 합쳐진 목록을 날짜 최신순으로 다시 정렬하고, 너무 길어지지 않게
-      // 상위 6개만 남긴다(나머지는 각 more 링크로 유도).
-      const rows = [...list.querySelectorAll('.feed-row')].sort(
-        (a, b) => new Date(b.dataset.date) - new Date(a.dataset.date)
-      );
-      rows.forEach((row) => list.appendChild(row));
-      rows.slice(6).forEach((row) => row.remove());
-    } catch {
-      // 강의노트·AI 앱을 못 불러와도 블로그 목록은 이미 화면에 있으니
-      // 조용히 넘어간다(레이아웃이 깨지지 않게).
+    function render(container, rows) {
+      if (!container) return;
+      container.innerHTML = '';
+      rows.forEach((r) => container.appendChild(makeRow(r)));
     }
+
+    const items = [...blogFeedSeed];
+
+    if (SUPABASE_URL) {
+      try {
+        const { createClient } = await import(
+          'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
+        );
+        const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const notesUrl = new URL('notes/', location.href).pathname;
+        const appsUrl = new URL('ai-apps/', location.href).pathname;
+
+        const [{ data: notes }, { data: apps }] = await Promise.all([
+          sb
+            .from('lecture_notes')
+            .select('id,title,created_at')
+            .eq('published', true)
+            .order('created_at', { ascending: false })
+            .limit(3),
+          sb
+            .from('ai_apps')
+            .select('id,title,created_at')
+            .eq('published', true)
+            .order('created_at', { ascending: false })
+            .limit(3),
+        ]);
+
+        (notes || []).forEach((n) =>
+          items.push({
+            badgeClass: 'feed-badge-note',
+            badgeLabel: '📚 강의노트',
+            title: n.title,
+            dateIso: n.created_at,
+            href: notesUrl,
+          })
+        );
+        (apps || []).forEach((a) =>
+          items.push({
+            badgeClass: 'feed-badge-app',
+            badgeLabel: '🖼️ AI로 만든 앱',
+            title: a.title,
+            dateIso: a.created_at,
+            href: appsUrl,
+          })
+        );
+      } catch {
+        // 강의노트·AI 앱을 못 불러와도 블로그 목록은 그대로 보이니
+        // 조용히 넘어간다(레이아웃이 깨지지 않게).
+      }
+    }
+
+    items.sort((a, b) => new Date(b.dateIso) - new Date(a.dateIso));
+
+    // 전체 게시판: 최신 6개.
+    render(mainFeed, items.slice(0, 6));
+
+    // 히어로 미니 피드: 대표글이 있으면 맨 위에 고정, 나머지는 최신순으로
+    // 채워 총 4개를 넘지 않게 한다.
+    const heroRows = featuredSeed
+      ? [featuredSeed, ...items.filter((i) => i.href !== featuredSeed.href).slice(0, 3)]
+      : items.slice(0, 4);
+    render(heroFeed, heroRows);
   })();
 </script>
 
@@ -439,54 +483,60 @@ const siteJsonLd = {
     display: none;
   }
 
-  /* 히어로 안의 최근 글 카드 */
-  .hero-featured {
-    display: block;
-    color: var(--color-text);
+  /* 히어로 안의 "최근 소식" 미니 피드 카드 — 사이트가 계속 갱신되고
+     있음을 방문 즉시 보여준다(맨 위 칼럼·강의노트·AI 앱을 뒤섞은 목록). */
+  .hero-feed-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    padding: 1.75rem;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    padding: 1.5rem 1.6rem;
   }
 
-  .hero-featured:hover {
-    text-decoration: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 6px 20px rgba(11, 83, 148, 0.08);
-    transform: translateY(-2px);
-  }
-
-  .hf-meta {
+  .hero-feed-head {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-  }
-
-  .hf-label {
-    font-size: 0.8rem;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--color-muted);
   }
 
-  .hf-title {
-    margin-top: 0.85rem;
-    font-size: 1.4rem;
-    line-height: 1.4;
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #2fa84f;
+    box-shadow: 0 0 0 rgba(47, 168, 79, 0.5);
+    animation: live-pulse 2s infinite;
   }
 
-  .hf-desc {
-    margin-top: 0.75rem;
-    color: var(--color-muted);
-    font-size: 0.95rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  @keyframes live-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(47, 168, 79, 0.5);
+    }
+    70% {
+      box-shadow: 0 0 0 7px rgba(47, 168, 79, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(47, 168, 79, 0);
+    }
   }
 
-  .hf-more {
+  @media (prefers-reduced-motion: reduce) {
+    .live-dot {
+      animation: none;
+    }
+  }
+
+  .hero-feed {
+    margin-top: 0.9rem;
+  }
+
+  .hero-feed-more {
     display: inline-block;
-    margin-top: 1.1rem;
+    margin-top: 1rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-primary);
   }
@@ -712,24 +762,31 @@ const siteJsonLd = {
 </style>
 
 <style is:global>
-  /* 최근 게시 소식 목록은 강의노트·AI 앱 항목이 자바스크립트(innerHTML이
-     아닌 createElement이지만 마찬가지로 런타임 삽입)로 더해지고, 그런
-     요소는 Astro 스코프드 스타일이 적용되지 않는다(HANDOFF §6). 그래서
-     블로그 항목(빌드 시점에 이미 존재)과 똑같이 보이도록 이 클래스들만
-     전역으로 선언하고, .activity-feed 아래로만 한정해 다른 페이지로 새지
-     않게 한다. */
-  .activity-feed {
+  /* 최근 게시 소식(히어로 미니 피드 + 아래쪽 전체 게시판) 항목은 강의노트·
+     AI 앱이 자바스크립트(createElement)로 더해지거나 통째로 다시 그려지고,
+     그런 요소는 Astro 스코프드 스타일이 적용되지 않는다(HANDOFF §6). 그래서
+     이 클래스들만 전역으로 선언하고, .activity-feed·.hero-feed 아래로만
+     한정해 다른 페이지로 새지 않게 한다. */
+  .activity-feed,
+  .hero-feed {
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  .activity-feed {
     max-width: 52rem;
   }
 
-  .activity-feed .feed-row {
+  .activity-feed .feed-row,
+  .hero-feed .feed-row {
     display: flex;
     align-items: baseline;
     gap: 0.9rem;
     flex-wrap: wrap;
+  }
+
+  .activity-feed .feed-row {
     padding: 0.9rem 0;
     border-bottom: 1px solid var(--color-border);
   }
@@ -738,7 +795,18 @@ const siteJsonLd = {
     border-top: 1px solid var(--color-border);
   }
 
-  .activity-feed .feed-badge {
+  /* 히어로 미니 피드는 더 촘촘하게 — 공간이 좁아 한 줄씩 압축한다 */
+  .hero-feed .feed-row {
+    gap: 0.6rem;
+    padding: 0.55rem 0;
+  }
+
+  .hero-feed .feed-row + .feed-row {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .activity-feed .feed-badge,
+  .hero-feed .feed-badge {
     flex-shrink: 0;
     font-size: 0.75rem;
     font-weight: 600;
@@ -747,47 +815,72 @@ const siteJsonLd = {
     padding: 0.15rem 0.65rem;
   }
 
-  .activity-feed .feed-badge-blog {
+  .activity-feed .feed-badge-blog,
+  .hero-feed .feed-badge-blog {
     color: var(--color-primary);
     background: var(--color-primary-soft);
   }
 
-  .activity-feed .feed-badge-note {
+  .activity-feed .feed-badge-note,
+  .hero-feed .feed-badge-note {
     color: #7a4de8;
     background: #f1ecfc;
   }
 
-  .activity-feed .feed-badge-app {
+  .activity-feed .feed-badge-app,
+  .hero-feed .feed-badge-app {
     color: #0f8a5f;
     background: #e6f6ee;
+  }
+
+  .activity-feed .feed-badge-star,
+  .hero-feed .feed-badge-star {
+    color: #9a6b00;
+    background: #fdf0d5;
   }
 
   /* 사이트 전체가 시스템 다크모드 설정만 따르므로(global.css) 이 배지도
      같은 방식으로 맞춘다 — 별도 테마 토글은 이 사이트에 없다. */
   @media (prefers-color-scheme: dark) {
-    .activity-feed .feed-badge-note {
+    .activity-feed .feed-badge-note,
+    .hero-feed .feed-badge-note {
       color: #cbb6ff;
       background: #2a2140;
     }
 
-    .activity-feed .feed-badge-app {
+    .activity-feed .feed-badge-app,
+    .hero-feed .feed-badge-app {
       color: #8fe0bb;
       background: #123526;
     }
+
+    .activity-feed .feed-badge-star,
+    .hero-feed .feed-badge-star {
+      color: #f0c869;
+      background: #3a2c0f;
+    }
   }
 
-  .activity-feed .feed-title {
+  .activity-feed .feed-title,
+  .hero-feed .feed-title {
     flex: 1 1 16rem;
     color: var(--color-text);
     font-weight: 500;
     line-height: 1.5;
   }
 
-  .activity-feed .feed-title:hover {
+  .hero-feed .feed-title {
+    flex-basis: 10rem;
+    font-size: 0.9rem;
+  }
+
+  .activity-feed .feed-title:hover,
+  .hero-feed .feed-title:hover {
     color: var(--color-primary);
   }
 
-  .activity-feed .feed-date {
+  .activity-feed .feed-date,
+  .hero-feed .feed-date {
     flex-shrink: 0;
     font-size: 0.8rem;
     color: var(--color-muted);
