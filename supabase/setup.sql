@@ -216,6 +216,21 @@ create policy "notes_select_member_or_admin" on public.lecture_notes
       )
     )
   );
+-- 비회원(anon)도 발행된 강의노트의 "제목·날짜"만 볼 수 있게 허용한다
+-- (홈 화면 "최근 게시 소식" 미리보기용, 2026-07-11 추가). 위 정책엔 to
+-- 제한이 없어 anon에도 적용되지만 auth.uid()가 없어 항상 거부되므로,
+-- anon 전용 정책을 별도로 추가한다(허용 정책은 OR로 합쳐진다 - 위
+-- 정책은 그대로 두고 이 정책만 추가되는 것이라 회원용 로직은 안 바뀜).
+-- 본문(body)은 컬럼 단위 권한으로 anon에게 아예 주지 않아 여전히
+-- 회원+동의 완료자만 읽을 수 있다.
+drop policy if exists "notes_select_title_anon" on public.lecture_notes;
+create policy "notes_select_title_anon" on public.lecture_notes
+  for select
+  to anon
+  using (published);
+revoke select on public.lecture_notes from anon;
+grant select (id, title, created_at) on public.lecture_notes to anon;
+
 drop policy if exists "notes_insert_admin" on public.lecture_notes;
 create policy "notes_insert_admin" on public.lecture_notes
   for insert with check (public.is_admin());

@@ -1,12 +1,29 @@
 ---
+import { execSync } from 'node:child_process';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
 import ResearchIcon from '../components/ResearchIcon.astro';
 import { researchAreas } from '../data/research';
-import { withBase, SITE_TAGLINE, SITE_TITLE } from '../utils/site';
+import {
+  withBase,
+  formatDate,
+  SITE_TAGLINE,
+  SITE_TITLE,
+  SITE_VERSION,
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY,
+} from '../utils/site';
 import news from '../data/news.json';
 import videos from '../data/recommended-videos.json';
+
+// 마지막 업데이트일 = 마지막 커밋 날짜(빌드 시 자동 계산, 수동 갱신 불필요).
+// git 정보를 못 구하는 예외적 빌드 환경 대비 폴백만 둔다.
+let lastUpdated = '';
+try {
+  lastUpdated = execSync('git log -1 --format=%cd --date=format:%Y-%m-%d').toString().trim();
+} catch {
+  lastUpdated = new Date().toISOString().slice(0, 10);
+}
 
 const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -94,19 +111,35 @@ const siteJsonLd = {
     </div>
   </section>
 
-  <!-- 최근 글 -->
+  <!-- 최근 게시 소식: 칼럼·강의노트·AI로 만든 앱을 한 게시판에 모은다.
+       블로그는 빌드 시점에 바로 나오고(무JS에서도 보임), 강의노트·AI 앱은
+       페이지가 뜬 뒤 자바스크립트가 불러와 같은 목록에 합쳐 넣는다. -->
   {
     recentPosts.length > 0 && (
       <section class="section">
         <div class="container">
           <div class="section-head">
-            <h2>최근 글</h2>
-            <a class="more" href={withBase('/blog/')}>블로그 전체 보기 →</a>
+            <h2>최근 게시 소식</h2>
           </div>
-          <div class="grid-3">
+          <p class="feed-note">
+            칼럼·강의노트·AI로 만든 앱 — 새로 올라온 순서대로 모았습니다.
+            이 홈페이지는 지금도 계속 업데이트되고 있습니다.
+          </p>
+          <ul class="activity-feed" id="activity-feed">
             {recentPosts.map((post) => (
-              <PostCard post={post} />
+              <li class="feed-row" data-date={post.data.pubDate.toISOString()}>
+                <span class="feed-badge feed-badge-blog">📝 칼럼</span>
+                <a class="feed-title" href={withBase(`/blog/${post.id}/`)}>
+                  {post.data.title}
+                </a>
+                <time class="feed-date">{formatDate(post.data.pubDate)}</time>
+              </li>
             ))}
+          </ul>
+          <div class="feed-links">
+            <a class="more" href={withBase('/blog/')}>블로그 전체 보기 →</a>
+            <a class="more" href={withBase('/notes/')}>강의노트 보기 →</a>
+            <a class="more" href={withBase('/ai-apps/')}>AI로 만든 앱 보기 →</a>
           </div>
         </div>
       </section>
@@ -226,7 +259,107 @@ const siteJsonLd = {
       </div>
     </div>
   </section>
+
+  <!-- 개발 상태 표시: 이 홈페이지가 계속 업데이트되고 있음을 알린다.
+       버전은 사람이 판단해 올리고, 날짜는 마지막 커밋에서 자동 계산된다. -->
+  <p class="dev-status">
+    🔧 이 홈페이지는 아직 계속 업데이트되고 있습니다 · v{SITE_VERSION} · 최근 업데이트 {lastUpdated}
+  </p>
 </BaseLayout>
+
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY }}>
+  // "최근 게시 소식"에 강의노트·AI로 만든 앱을 더한다. 블로그는 이미
+  // 빌드 시점에 목록에 들어가 있으므로, 여기서는 두 종류만 불러와
+  // 같은 목록에 이어 붙이고 날짜순으로 다시 정렬한다.
+  (async () => {
+    const list = document.getElementById('activity-feed');
+    if (!list || !SUPABASE_URL) return;
+
+    const fmt = (iso) =>
+      new Date(iso).toLocaleDateString('ko-KR', {
+        timeZone: 'Asia/Seoul',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+
+    function addRow({ badgeClass, badgeLabel, title, dateIso, href }) {
+      const li = document.createElement('li');
+      li.className = 'feed-row';
+      li.dataset.date = dateIso;
+
+      const badge = document.createElement('span');
+      badge.className = `feed-badge ${badgeClass}`;
+      badge.textContent = badgeLabel;
+
+      const titleEl = document.createElement('a');
+      titleEl.className = 'feed-title';
+      titleEl.href = href;
+      titleEl.textContent = title;
+
+      const dateEl = document.createElement('time');
+      dateEl.className = 'feed-date';
+      dateEl.textContent = fmt(dateIso);
+
+      li.append(badge, titleEl, dateEl);
+      list.appendChild(li);
+    }
+
+    try {
+      const { createClient } = await import(
+        'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
+      );
+      const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      const notesUrl = new URL('notes/', location.href).pathname;
+      const appsUrl = new URL('ai-apps/', location.href).pathname;
+
+      const [{ data: notes }, { data: apps }] = await Promise.all([
+        sb
+          .from('lecture_notes')
+          .select('id,title,created_at')
+          .eq('published', true)
+          .order('created_at', { ascending: false })
+          .limit(3),
+        sb
+          .from('ai_apps')
+          .select('id,title,created_at')
+          .eq('published', true)
+          .order('created_at', { ascending: false })
+          .limit(3),
+      ]);
+
+      (notes || []).forEach((n) =>
+        addRow({
+          badgeClass: 'feed-badge-note',
+          badgeLabel: '📚 강의노트',
+          title: n.title,
+          dateIso: n.created_at,
+          href: notesUrl,
+        })
+      );
+      (apps || []).forEach((a) =>
+        addRow({
+          badgeClass: 'feed-badge-app',
+          badgeLabel: '🖼️ AI로 만든 앱',
+          title: a.title,
+          dateIso: a.created_at,
+          href: appsUrl,
+        })
+      );
+
+      // 합쳐진 목록을 날짜 최신순으로 다시 정렬하고, 너무 길어지지 않게
+      // 상위 6개만 남긴다(나머지는 각 more 링크로 유도).
+      const rows = [...list.querySelectorAll('.feed-row')].sort(
+        (a, b) => new Date(b.dataset.date) - new Date(a.dataset.date)
+      );
+      rows.forEach((row) => list.appendChild(row));
+      rows.slice(6).forEach((row) => row.remove());
+    } catch {
+      // 강의노트·AI 앱을 못 불러와도 블로그 목록은 이미 화면에 있으니
+      // 조용히 넘어간다(레이아웃이 깨지지 않게).
+    }
+  })();
+</script>
 
 <script is:inline>
   // 브라우저 보안 정책상 웹페이지가 북마크를 자동으로 추가할 방법은 없다
@@ -458,6 +591,32 @@ const siteJsonLd = {
     line-height: 1.4;
   }
 
+  /* 최근 게시 소식 (블로그·강의노트·AI 앱 통합 게시판) */
+  .feed-note {
+    margin-top: -0.75rem;
+    margin-bottom: 1.5rem;
+    max-width: 40rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+  .feed-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 1.25rem;
+  }
+
+  /* 개발 상태 표시줄 */
+  .dev-status {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+
   /* AI 뉴스 미리보기 */
   .news-preview {
     list-style: none;
@@ -549,5 +708,88 @@ const siteJsonLd = {
     .hero {
       padding-block: 3rem 2.75rem;
     }
+  }
+</style>
+
+<style is:global>
+  /* 최근 게시 소식 목록은 강의노트·AI 앱 항목이 자바스크립트(innerHTML이
+     아닌 createElement이지만 마찬가지로 런타임 삽입)로 더해지고, 그런
+     요소는 Astro 스코프드 스타일이 적용되지 않는다(HANDOFF §6). 그래서
+     블로그 항목(빌드 시점에 이미 존재)과 똑같이 보이도록 이 클래스들만
+     전역으로 선언하고, .activity-feed 아래로만 한정해 다른 페이지로 새지
+     않게 한다. */
+  .activity-feed {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 52rem;
+  }
+
+  .activity-feed .feed-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .activity-feed .feed-row:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .activity-feed .feed-badge {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: 999px;
+    padding: 0.15rem 0.65rem;
+  }
+
+  .activity-feed .feed-badge-blog {
+    color: var(--color-primary);
+    background: var(--color-primary-soft);
+  }
+
+  .activity-feed .feed-badge-note {
+    color: #7a4de8;
+    background: #f1ecfc;
+  }
+
+  .activity-feed .feed-badge-app {
+    color: #0f8a5f;
+    background: #e6f6ee;
+  }
+
+  /* 사이트 전체가 시스템 다크모드 설정만 따르므로(global.css) 이 배지도
+     같은 방식으로 맞춘다 — 별도 테마 토글은 이 사이트에 없다. */
+  @media (prefers-color-scheme: dark) {
+    .activity-feed .feed-badge-note {
+      color: #cbb6ff;
+      background: #2a2140;
+    }
+
+    .activity-feed .feed-badge-app {
+      color: #8fe0bb;
+      background: #123526;
+    }
+  }
+
+  .activity-feed .feed-title {
+    flex: 1 1 16rem;
+    color: var(--color-text);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .activity-feed .feed-title:hover {
+    color: var(--color-primary);
+  }
+
+  .activity-feed .feed-date {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    color: var(--color-muted);
   }
 </style>

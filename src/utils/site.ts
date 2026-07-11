@@ -51,6 +51,12 @@ export const GOOGLE_SITE_VERIFICATION = '5zd4BPyIzNe4dZJnx59GxYhFTkVoNQmcRoIJ9YS
 
 export const SITE_TITLE = '병원 AI 연구소';
 export const SITE_TAGLINE = '의료 현장의 문제를 AI로 풉니다.';
+
+// 홈 화면 하단에 "아직 계속 개발 중"임을 보여주는 버전 표시. 배포일은
+// 빌드 시 git 커밋 시각에서 자동으로 구하므로(index.astro) 여기서는
+// 버전 숫자만 관리하면 된다. 기능이 크게 늘거나 바뀔 때 사람이 판단해
+// 올린다 — 자동 계산값이 아니다.
+export const SITE_VERSION = '0.9';
 export const CONTACT_EMAIL = 'choyj80@naver.com';
 export const DISCLAIMER =
   '본 사이트의 콘텐츠는 일반적인 정보 제공과 연구·교육 목적이며, 특정 환자에 대한 의학적 진단이나 조언을 대신하지 않습니다.';
