@@ -28,9 +28,7 @@ try {
 const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-// 관리자가 특정 글을 "대표글"로 지정하면 그 글을, 아니면 가장 최근 글을 히어로에 노출
-const featured = allPosts.find((p) => p.data.featured) ?? allPosts[0];
-const recentPosts = allPosts.filter((p) => p.id !== featured?.id).slice(0, 3);
+const recentPosts = allPosts.slice(0, 4);
 
 // 히어로의 "최근 소식" 미니 피드 + 아래쪽 전체 게시판이 공유하는 시드 데이터.
 // 강의노트·AI 앱은 클라이언트에서 불러와 이 배열에 합쳐진다(아래 스크립트).
@@ -41,15 +39,6 @@ const blogFeedSeed = recentPosts.map((post) => ({
   dateIso: post.data.pubDate.toISOString(),
   href: withBase(`/blog/${post.id}/`),
 }));
-const featuredSeed = featured
-  ? {
-      badgeClass: 'feed-badge-star',
-      badgeLabel: '★ 대표글',
-      title: featured.data.title,
-      dateIso: featured.data.pubDate.toISOString(),
-      href: withBase(`/blog/${featured.id}/`),
-    }
-  : null;
 
 const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 5);
@@ -101,14 +90,7 @@ const siteJsonLd = {
           지금도 계속 업데이트되고 있습니다
         </div>
         <ul class="hero-feed" id="hero-feed">
-          {featuredSeed && (
-            <li class="feed-row" data-date={featuredSeed.dateIso}>
-              <span class={`feed-badge ${featuredSeed.badgeClass}`}>{featuredSeed.badgeLabel}</span>
-              <a class="feed-title" href={featuredSeed.href}>{featuredSeed.title}</a>
-              <time class="feed-date">{formatDate(new Date(featuredSeed.dateIso))}</time>
-            </li>
-          )}
-          {blogFeedSeed.slice(0, 3).map((item) => (
+          {blogFeedSeed.slice(0, 4).map((item) => (
             <li class="feed-row" data-date={item.dateIso}>
               <span class={`feed-badge ${item.badgeClass}`}>{item.badgeLabel}</span>
               <a class="feed-title" href={item.href}>{item.title}</a>
@@ -295,7 +277,7 @@ const siteJsonLd = {
   </p>
 </BaseLayout>
 
-<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, blogFeedSeed, featuredSeed }}>
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, blogFeedSeed }}>
   // 히어로의 "최근 소식" 미니 피드와, 아래쪽 "최근 게시 소식" 전체
   // 게시판을 같은 데이터에서 함께 채운다. 블로그는 빌드 시점에 이미
   // 받은 값(blogFeedSeed)이고, 강의노트·AI로 만든 앱만 여기서 불러와
@@ -393,15 +375,9 @@ const siteJsonLd = {
 
     items.sort((a, b) => new Date(b.dateIso) - new Date(a.dateIso));
 
-    // 전체 게시판: 최신 6개.
+    // 전체 게시판: 최신 6개. 히어로 미니 피드: 최신 4개.
     render(mainFeed, items.slice(0, 6));
-
-    // 히어로 미니 피드: 대표글이 있으면 맨 위에 고정, 나머지는 최신순으로
-    // 채워 총 4개를 넘지 않게 한다.
-    const heroRows = featuredSeed
-      ? [featuredSeed, ...items.filter((i) => i.href !== featuredSeed.href).slice(0, 3)]
-      : items.slice(0, 4);
-    render(heroFeed, heroRows);
+    render(heroFeed, items.slice(0, 4));
   })();
 </script>
 
@@ -833,12 +809,6 @@ const siteJsonLd = {
     background: #e6f6ee;
   }
 
-  .activity-feed .feed-badge-star,
-  .hero-feed .feed-badge-star {
-    color: #9a6b00;
-    background: #fdf0d5;
-  }
-
   /* 사이트 전체가 시스템 다크모드 설정만 따르므로(global.css) 이 배지도
      같은 방식으로 맞춘다 — 별도 테마 토글은 이 사이트에 없다. */
   @media (prefers-color-scheme: dark) {
@@ -852,12 +822,6 @@ const siteJsonLd = {
     .hero-feed .feed-badge-app {
       color: #8fe0bb;
       background: #123526;
-    }
-
-    .activity-feed .feed-badge-star,
-    .hero-feed .feed-badge-star {
-      color: #f0c869;
-      background: #3a2c0f;
     }
   }
 
