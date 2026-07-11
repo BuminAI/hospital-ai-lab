@@ -33,6 +33,10 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
           </div>
           <div id="apps-status" class="hint">불러오는 중…</div>
           <div id="apps-grid" class="apps-grid"></div>
+          <div id="lightbox" class="lightbox" hidden>
+            <button class="lightbox-close" id="lightbox-close" aria-label="닫기">✕</button>
+            <img id="lightbox-img" src="" alt="" />
+          </div>
         </div>
       )
     }
@@ -78,12 +82,35 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         return `<div class="app-badge">${esc(extBadge(a.file_name || a.storage_path))}</div>`;
       }
       return `<div class="app-shots">${shots
-        .map(
-          ([path, label]) =>
-            `<figure><img src="${esc(imageUrl(path))}" alt="${esc(a.title)} ${label}" loading="lazy" /><figcaption>${label}</figcaption></figure>`
-        )
+        .map(([path, label]) => {
+          const url = esc(imageUrl(path));
+          const alt = esc(`${a.title} ${label}`);
+          return `<figure><img src="${url}" alt="${alt}" loading="lazy" class="app-shot-img" data-full="${url}" data-alt="${alt}" tabindex="0" role="button" aria-label="${alt} 크게 보기" /><figcaption>${label}</figcaption></figure>`;
+        })
         .join('')}</div>`;
     }
+
+    function openLightbox(src, alt) {
+      $('lightbox-img').src = src;
+      $('lightbox-img').alt = alt;
+      $('lightbox').hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      $('lightbox').hidden = true;
+      $('lightbox-img').src = '';
+      document.body.style.overflow = '';
+    }
+
+    $('lightbox-close').addEventListener('click', closeLightbox);
+    // 이미지 바깥(어두운 배경)을 눌러도 닫힌다 — 이미지 자체를 누른 건 제외.
+    $('lightbox').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !$('lightbox').hidden) closeLightbox();
+    });
 
     // 목록(제목·이미지·설명)은 비회원도 볼 수 있다 — 실제 방어선은 다운로드
     // 요청 자체를 막는 storage.objects 권한(로그인+동의 완료 회원만)이라
@@ -123,6 +150,17 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         </article>`
         )
         .join('');
+
+      // 스크린샷은 회원 여부와 무관하게 누구나 클릭해서 크게 볼 수 있다.
+      grid.querySelectorAll('.app-shot-img').forEach((img) => {
+        img.addEventListener('click', () => openLightbox(img.dataset.full, img.dataset.alt));
+        img.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox(img.dataset.full, img.dataset.alt);
+          }
+        });
+      });
 
       if (!canDownload) return; // 비회원 버튼은 회원가입 링크라 별도 로직이 필요 없다
 
@@ -260,6 +298,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     border-radius: 8px;
     background: var(--color-surface);
     display: block;
+    cursor: zoom-in;
   }
 
   .app-shots figcaption {
@@ -267,6 +306,47 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     font-size: 0.72rem;
     color: var(--color-muted);
     text-align: center;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    cursor: zoom-out;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: default;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
   }
 
   .app-title {
