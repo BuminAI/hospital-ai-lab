@@ -43,18 +43,21 @@ import {
         <button class="btn ghost" id="admin-logout">로그아웃</button>
       </div>
 
-      <!-- 상단 점프 내비게이션 -->
+      <!-- 탭 메뉴: 누르면 그 항목만 보이고 나머지는 숨겨져 스크롤할 필요가
+           없다(예전엔 페이지 안에서 앵커로 점프만 해서, 강의노트처럼 뒤쪽에
+           있는 항목은 회원 목록을 한참 지나야 보였다). -->
       <nav class="admin-nav" aria-label="관리 메뉴">
-        <a href="#token-panel">🔑 GitHub 연동</a>
-        <a href="#new-post-panel">✏️ 새 글 쓰기</a>
-        <a href="#manage-post-panel">📝 글 관리</a>
-        <a href="#image-panel">🖼️ 이미지</a>
-        <a href="#video-panel">▶️ 추천 영상</a>
-        <a href="#news-panel">📰 AI 뉴스</a>
-        <a href="#member-panel">👥 회원·강의노트</a>
-        <a href="#ai-apps-admin">🖼️ AI로 만든 앱</a>
-        <a href="#deploy-panel">🚀 배포 상태</a>
-        <a href="#stats-panel">📊 방문자 통계</a>
+        <a href="#token-panel" data-tab="token-panel">🔑 GitHub 연동</a>
+        <a href="#new-post-panel" data-tab="new-post-panel">✏️ 새 글 쓰기</a>
+        <a href="#manage-post-panel" data-tab="manage-post-panel">📝 글 관리</a>
+        <a href="#image-panel" data-tab="image-panel">🖼️ 이미지</a>
+        <a href="#video-panel" data-tab="video-panel">▶️ 추천 영상</a>
+        <a href="#news-panel" data-tab="news-panel">📰 AI 뉴스</a>
+        <a href="#member-panel" data-tab="member-panel">👥 회원</a>
+        <a href="#notes-panel" data-tab="notes-panel">📝 강의노트</a>
+        <a href="#ai-apps-admin" data-tab="ai-apps-admin">🖼️ AI로 만든 앱</a>
+        <a href="#deploy-panel" data-tab="deploy-panel">🚀 배포 상태</a>
+        <a href="#stats-panel" data-tab="stats-panel">📊 방문자 통계</a>
       </nav>
 
       <!-- 토큰 -->
@@ -226,7 +229,7 @@ import {
     <!-- 회원·강의노트 관리 (Supabase) -->
     <section class="panel" id="member-panel">
       <div class="panel-head">
-        <h2>👥 회원 · 강의노트 관리</h2>
+        <h2>👥 회원 관리</h2>
         <button class="btn ghost" id="members-refresh">새로고침</button>
       </div>
       <h3>회원 목록 <span id="member-count" class="hint"></span></h3>
@@ -246,8 +249,10 @@ import {
         Supabase 대시보드 → Authentication → Users에서 해당 계정을
         직접 삭제해도 동일하게 처리됩니다.
       </p>
+    </section>
 
-      <h3 class="notes-h">강의노트</h3>
+    <section class="panel" id="notes-panel">
+      <h2>📝 강의노트 관리</h2>
       <div class="form-grid">
         <label>제목<input type="text" id="note-title" /></label>
         <label class="check" style="align-self: end;"><input type="checkbox" id="note-published" checked /> 공개 (회원에게 표시)</label>
@@ -261,8 +266,10 @@ import {
       </div>
       <p class="hint" id="note-status"></p>
       <div id="admin-notes-list" class="posts"></div>
+    </section>
 
-      <h3 class="notes-h" id="ai-apps-admin">AI로 만든 앱</h3>
+    <section class="panel" id="ai-apps-admin">
+      <h2>🖼️ AI로 만든 앱 관리</h2>
       <p class="section-desc">
         AI로 만든 프로그램 파일(zip·apk·exe·pdf 등 형식 제한 없음, 최대
         50MB — Supabase 무료 요금제 상한)과 카드뉴스 미리보기 이미지 2장을
@@ -430,6 +437,34 @@ import {
       await sb.from('admin_secrets').delete().eq('key', 'github_pat');
       window.__adminGithubToken = '';
       updateTokenPanelUI();
+    }
+
+    // 탭 메뉴: 누른 항목의 패널만 보이고 나머지는 숨긴다. 로그인 여부와
+    // 무관하게 한 번만 연결해 두면 되므로(패널 자체는 로그인 전엔 어차피
+    // #admin-dashboard 전체가 숨겨져 있음) 클릭 리스너는 중복 연결을 막기
+    // 위해 이 함수를 두 번 이상 부르지 않는다.
+    function initAdminTabs() {
+      const navLinks = [...document.querySelectorAll('.admin-nav a[data-tab]')];
+      const panels = navLinks.map((a) => document.getElementById(a.dataset.tab)).filter(Boolean);
+
+      function showTab(id) {
+        panels.forEach((p) => { p.hidden = p.id !== id; });
+        navLinks.forEach((a) => a.classList.toggle('active', a.dataset.tab === id));
+      }
+
+      navLinks.forEach((a) => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          showTab(a.dataset.tab);
+          history.replaceState(null, '', '#' + a.dataset.tab);
+        });
+      });
+
+      // 새로고침 시 주소 끝에 유효한 #패널id가 있으면 그 탭을 그대로
+      // 보여주고, 없으면 첫 번째 탭을 기본으로 보여준다.
+      const fromHash = location.hash.slice(1);
+      const initial = panels.some((p) => p.id === fromHash) ? fromHash : panels[0] && panels[0].id;
+      if (initial) showTab(initial);
     }
 
     async function showAdminIfLoggedIn() {
@@ -821,6 +856,7 @@ import {
     $('app-save').addEventListener('click', uploadAiApp);
     $('app-cancel').addEventListener('click', cancelEditApp);
 
+    initAdminTabs();
     showAdminIfLoggedIn();
   })();
 </script>
@@ -1417,6 +1453,12 @@ import {
     color: var(--color-primary);
   }
 
+  .admin-nav a.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+  }
+
   /* 모바일: 여러 줄로 쌓이지 않게 한 줄 가로 스크롤 */
   @media (max-width: 40rem) {
     .admin-nav {
@@ -1686,11 +1728,6 @@ import {
   #members-table th {
     color: var(--color-muted);
     font-weight: 600;
-  }
-
-  .notes-h {
-    margin-top: 2rem;
-    font-size: 1.05rem;
   }
 
   #member-panel h3 {
