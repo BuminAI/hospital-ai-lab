@@ -321,6 +321,13 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     box-sizing: border-box;
   }
 
+  /* [hidden] 자체는 명시도가 .lightbox와 같아서(둘 다 0-1-0), 이 규칙이
+     없으면 위 display:flex가 브라우저 기본 숨김 규칙을 이겨버려 닫아도
+     검정 화면이 그대로 남는다. 명시도를 더 높여 확실히 이기게 한다. */
+  .lightbox[hidden] {
+    display: none;
+  }
+
   .lightbox img {
     display: block;
     width: auto;
