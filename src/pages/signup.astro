@@ -160,12 +160,27 @@ import {
     const subChecks = [$('c-age'), $('c-required'), $('c-optional'), $('c-email-notify')];
     $('c-all').addEventListener('change', (e) => {
       subChecks.forEach((c) => (c.checked = e.target.checked));
+      syncOptionalFields();
     });
     subChecks.forEach((c) =>
       c.addEventListener('change', () => {
         $('c-all').checked = subChecks.every((sc) => sc.checked);
       })
     );
+
+    // [선택] 동의 체크박스와 선택 입력 항목(<details>)을 연결한다. 지금까지는
+    // 둘이 서로 무관해서, 동의만 체크하고 정작 입력창은 열어보지 않은 채
+    // 그대로 가입되는 문제가 있었다 — 체크하면 바로 열어서 보여준다.
+    const optionalFields = document.querySelector('.optional-fields');
+    function syncOptionalFields() {
+      optionalFields.open = $('c-optional').checked;
+    }
+    $('c-optional').addEventListener('change', () => {
+      syncOptionalFields();
+      if ($('c-optional').checked) {
+        optionalFields.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
 
     $('signup-form').addEventListener('submit', async (e) => {
       e.preventDefault();
