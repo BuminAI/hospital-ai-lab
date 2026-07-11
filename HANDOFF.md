@@ -124,6 +124,7 @@ npm run build    # 배포본 생성(dist/)
 - **무인 예약 세션은 승인 창에 걸리면 영영 멈춘다**: 예약 작업이 "실행됐다"고 기록되는데 결과물이 없으면 십중팔구 도구 승인 대기다. 해결은 `.claude/settings.json`의 permissions.allow에 그 도구를 사전 등록하는 것(§4-2 참조).
 - **GitHub 예약(cron)은 크게 못 믿는다**: 예약 횟수의 상당 부분이 실행되지 않거나 9~13시간 늦게 돈다. 특정 시각 보장이 필요하면 예약을 촘촘히 여러 개 걸고 스크립트를 멱등(변경 없으면 아무것도 안 함)하게 만들 것.
 - **Astro 스코프드 스타일은 `innerHTML`로 넣은 요소에 안 먹는다**: admin.astro처럼 목록을 JS로 그리는 페이지는 `<style is:global>`을 써야 한다(안 그러면 `.btn.ghost` 같은 규칙이 무시되고 전역 기본 스타일로 떨어진다).
+- **`hidden` 속성은 같은 요소에 `display:` CSS가 걸려 있으면 무시된다**: 작성자 CSS(`form { display:flex }` 등)가 브라우저 기본 `[hidden]{display:none}`보다 우선이라, JS로 hidden을 붙여도 요소가 계속 보인다. ai-apps 라이트박스(07-10)와 login 페이지의 "새 비밀번호 설정" 카드(07-11)에서 두 번 실제 발생. JS로 hidden을 토글하는 페이지에는 `[hidden] { display:none !important; }` 가드를 스타일에 넣을 것.
 - **Astro 컴포넌트의 `<details>`로 "데스크톱은 항상 펼침" 흉내내지 말 것**: 최신 Chrome이 닫힌 `<details>`의 자식(요약 제외)을 `content-visibility`로 강제 숨겨 CSS `display:block`으로도 못 되돌린다. 토글이 필요하면 버튼+JS로 만들 것.
 - **정적 사이트에는 진짜 파일 접근 제어가 없다**: `public/`에 넣은 건 전부 공개된다. "로그인한 사람만 다운로드"가 필요하면 Supabase Storage의 비공개 버킷 + RLS를 써야 한다(AI로 만든 앱 기능이 이 패턴).
 - **비밀값(GitHub 토큰 등)을 사이트 코드나 localStorage에 하드코딩하지 말 것**: 정적 사이트는 방문자 전원에게 코드가 공개된다. 서버(Supabase) + RLS만이 실제 방어선이다.
