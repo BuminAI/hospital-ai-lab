@@ -19,7 +19,9 @@ import { CONTACT_EMAIL } from '../utils/site';
     <div class="email-card">
       <p class="label">이메일</p>
       <p class="email">{CONTACT_EMAIL}</p>
-      <a class="btn" href={`mailto:${CONTACT_EMAIL}`}>메일 보내기</a>
+      <button type="button" class="btn" id="copy-email">📋 메일 주소 복사</button>
+      <p class="copy-hint">복사한 주소를 평소 쓰시는 메일 앱에 붙여넣어 보내주세요.</p>
+      <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
     </div>
 
     <section class="guide">
@@ -32,6 +34,46 @@ import { CONTACT_EMAIL } from '../utils/site';
     </section>
   </div>
 </BaseLayout>
+
+<script is:inline define:vars={{ CONTACT_EMAIL }}>
+  (() => {
+    const btn = document.getElementById('copy-email');
+    const status = document.getElementById('copy-status');
+    if (!btn) return;
+    const originalLabel = btn.textContent;
+    let resetTimer;
+
+    async function copyEmail() {
+      try {
+        await navigator.clipboard.writeText(CONTACT_EMAIL);
+      } catch {
+        // 클립보드 API를 쓸 수 없는 환경(구형 브라우저·비보안 접속) 대비 폴백
+        const ta = document.createElement('textarea');
+        ta.value = CONTACT_EMAIL;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+        } catch {
+          status.textContent = '복사에 실패했습니다. 이메일 주소를 직접 선택해 복사해 주세요.';
+          document.body.removeChild(ta);
+          return;
+        }
+        document.body.removeChild(ta);
+      }
+      btn.textContent = '✅ 복사했습니다';
+      status.textContent = `${CONTACT_EMAIL} 이(가) 클립보드에 복사됐습니다.`;
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        btn.textContent = originalLabel;
+      }, 2000);
+    }
+
+    btn.addEventListener('click', copyEmail);
+  })();
+</script>
 
 <style>
   .email-card {
@@ -59,6 +101,19 @@ import { CONTACT_EMAIL } from '../utils/site';
 
   .email-card .btn {
     margin-top: 1.75rem;
+  }
+
+  .copy-hint {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  .copy-status {
+    min-height: 1.2em;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--color-primary);
   }
 
   .guide {
