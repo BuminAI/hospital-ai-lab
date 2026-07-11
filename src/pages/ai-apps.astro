@@ -14,6 +14,11 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         직접 AI로 만든 프로그램을 소개합니다. 어떤 것들이 있는지는 누구나
         볼 수 있고, 로그인하면 파일을 내려받을 수 있습니다.
       </p>
+      <p class="shots-disclaimer">
+        ※ 카드에 보이는 "앱 화면"·"결과물 화면" 스크린샷 속 수치·이름 등
+        데이터는 사용법을 보여주기 위해 만든 예시(가상) 데이터이며, 실제
+        환자·병원 데이터가 아닙니다.
+      </p>
     </header>
 
     {
@@ -249,6 +254,12 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
 
   .empty,
   .hint {
+    color: var(--color-muted);
+  }
+
+  .shots-disclaimer {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
     color: var(--color-muted);
   }
 
