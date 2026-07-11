@@ -89,7 +89,8 @@ npm run build    # 배포본 생성(dist/)
 ### 4-3. 매일 사이트 자가 점검 (⚠️ 로컬 — 새 컴퓨터에서 재설정 필요)
 
 - **매일 오전 9시경** 실행되는 Claude 예약 작업(`site-health-check`). **보고 전용**(수리 안 함, 오너 지시 2026-07-10) — 주요 페이지 접속, 뉴스·영상·블로그 자동화 신선도, GitHub Actions 실패, Supabase 서버 상태(마이그레이션 누락 감지 포함), 최근 글 출처 링크 생존을 점검하고 결과를 보고한다.
-- **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\a\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다(네이버 앱 비밀번호 재입력).
+- **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\a\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다.
+  - **네이버 SMTP는 일반 로그인 비밀번호로는 인증이 안 된다(2026-07-11 확인, `5.5.1 Authentication Required`).** 반드시 "앱 비밀번호"를 따로 발급해야 함: 네이버 계정 → 보안설정 → **2단계 인증** → **애플리케이션 비밀번호 관리** 화면에서 이름(아무 값이나) 입력 후 "생성하기" → 영문 대문자+숫자 12자리 발급. 이 값을 `naver-smtp.xml`에 저장해야 한다(2단계 인증 자체가 꺼져 있어도 이 화면은 그대로 쓸 수 있었음). 일반 비밀번호나 2단계 인증 OTP(6자리 숫자)는 여기 쓸 수 없다 — 반드시 이 화면에서 생성된 값이어야 한다.
 - 저장 위치: `C:\Users\a\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음)
 - 새 컴퓨터에서는 새 Claude 세션에게 "HANDOFF.md 4-3 참고해서 매일 아침 사이트 자가 점검(보고 전용) 예약 작업을 다시 만들어줘"라고 요청하면 된다.
 
