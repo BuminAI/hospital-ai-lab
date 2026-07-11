@@ -37,10 +37,13 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
             </div>
             <div id="notes-list" class="notes-list">불러오는 중…</div>
             <article id="note-view" hidden>
-              <h2 id="note-title"></h2>
-              <p class="note-date" id="note-date"></p>
+              <p class="note-nav"><a href="#" id="note-back-top">← 목록으로</a></p>
+              <header class="note-head">
+                <h2 id="note-title"></h2>
+                <p class="note-date" id="note-date"></p>
+              </header>
               <div class="prose" id="note-body"></div>
-              <p><a href="#" id="note-back">← 목록으로</a></p>
+              <p class="note-nav"><a href="#" id="note-back">← 목록으로</a></p>
             </article>
           </div>
         </div>
@@ -89,6 +92,16 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     const fmtDate = (iso) =>
       new Date(iso).toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: 'long', day: 'numeric' });
 
+    // 카드에 보여줄 본문 미리보기 — 마크다운 기호를 걷어내고 앞부분만 자른다
+    function excerpt(md) {
+      const text = md
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+        .replace(/[#*`>_-]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      return text.length > 110 ? text.slice(0, 110) + '…' : text;
+    }
+
     let notes = [];
 
     function showList() {
@@ -121,14 +134,25 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         el.textContent = '아직 등록된 강의노트가 없습니다.';
         return;
       }
+      const NEW_DAYS = 7 * 24 * 60 * 60 * 1000;
       el.innerHTML = notes
-        .map(
-          (n, i) =>
-            `<button class="note-row" data-i="${i}"><span class="note-row-title"></span><span class="note-row-date">${fmtDate(n.created_at)}</span></button>`
-        )
+        .map((n, i) => {
+          const isNew = Date.now() - new Date(n.created_at).getTime() < NEW_DAYS;
+          return `<button class="card note-card" data-i="${i}">
+            <span class="note-meta">
+              ${isNew ? '<span class="chip">NEW</span>' : ''}
+              <span class="note-kind">📚 강의노트</span>
+              <time>${fmtDate(n.created_at)}</time>
+            </span>
+            <span class="note-title"></span>
+            <span class="note-excerpt"></span>
+            <span class="note-open">펼쳐 읽기 →</span>
+          </button>`;
+        })
         .join('');
-      el.querySelectorAll('.note-row').forEach((b, i) => {
-        b.querySelector('.note-row-title').textContent = notes[i].title;
+      el.querySelectorAll('.note-card').forEach((b, i) => {
+        b.querySelector('.note-title').textContent = notes[i].title;
+        b.querySelector('.note-excerpt').textContent = excerpt(notes[i].body);
         b.addEventListener('click', () => showNote(notes[Number(b.dataset.i)]));
       });
     }
@@ -153,7 +177,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     }
     $('member').hidden = false;
     const name = session.user.user_metadata?.name || session.user.email;
-    $('member-name').textContent = `${name} 님`;
+    $('member-name').textContent = `👋 ${name} 님`;
     $('logout').addEventListener('click', async () => {
       await sb.auth.signOut();
       location.reload();
@@ -174,10 +198,12 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         emailNotify.checked = !checked;
       }
     });
-    $('note-back').addEventListener('click', (e) => {
-      e.preventDefault();
-      showList();
-    });
+    ['note-back', 'note-back-top'].forEach((id) =>
+      $(id).addEventListener('click', (e) => {
+        e.preventDefault();
+        showList();
+      })
+    );
     loadNotes();
   })();
 </script>
@@ -189,9 +215,17 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
+    max-width: 52rem;
+    margin-bottom: 1.75rem;
+    padding: 0.75rem 1.1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
     font-size: 0.95rem;
-    color: var(--color-muted);
+  }
+
+  #member-name {
+    font-weight: 700;
   }
 
   .email-notify-toggle {
@@ -199,11 +233,13 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     align-items: center;
     gap: 0.4rem;
     font-size: 0.85rem;
+    color: var(--color-muted);
     cursor: pointer;
   }
 
   .email-notify-toggle input {
     width: auto;
+    accent-color: var(--color-primary);
   }
 
   .btn.ghost {
@@ -213,58 +249,104 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     padding: 0.4rem 1rem;
   }
 
-  .notes-list {
-    display: flex;
-    flex-direction: column;
-    max-width: 52rem;
+  #note-view {
+    max-width: var(--prose-width);
   }
 
-  .note-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    text-align: left;
-    font: inherit;
-    background: none;
-    border: none;
+  .note-head {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--color-border);
-    padding: 1rem 0.25rem;
-    cursor: pointer;
-  }
-
-  .note-row:first-child {
-    border-top: 1px solid var(--color-border);
-  }
-
-  .note-row:hover .note-row-title {
-    color: var(--color-primary);
-  }
-
-  .note-row-title {
-    font-weight: 600;
-  }
-
-  .note-row-date {
-    font-size: 0.85rem;
-    color: var(--color-muted);
   }
 
   #note-view h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
   }
 
   .note-date {
-    margin: 0.5rem 0 1.5rem;
+    margin: 0.6rem 0 0;
     font-size: 0.875rem;
     color: var(--color-muted);
   }
 
   #note-view .prose {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .note-nav {
+    margin-bottom: 1.25rem;
+  }
+
+  .note-nav a {
+    font-weight: 600;
   }
 
   .empty {
     color: var(--color-muted);
+  }
+</style>
+
+<style is:global>
+  /* 강의노트 목록 카드는 JS(innerHTML)로 그려져 Astro 스코프드 스타일이
+     적용되지 않는다(HANDOFF §6). 그래서 이 블록만 전역으로 선언하고,
+     다른 페이지에 새지 않게 .notes-list 아래로만 한정한다. */
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 52rem;
+    color: var(--color-muted);
+  }
+
+  .notes-list .note-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .notes-list .note-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  .notes-list .note-kind {
+    font-weight: 600;
+  }
+
+  .notes-list .note-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .notes-list .note-card:hover .note-title {
+    color: var(--color-primary);
+  }
+
+  .notes-list .note-excerpt {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .notes-list .note-open {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 0.15rem;
   }
 </style>
