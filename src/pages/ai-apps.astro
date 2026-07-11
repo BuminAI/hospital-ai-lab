@@ -332,14 +332,14 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     display: block;
     width: auto;
     height: auto;
-    /* 썸네일(약 142×106px)의 약 4배 크기로 고정. 화면을 꽉 채우지 않도록
-       뷰포트 상한도 함께 둔다. 로딩 중에도 빈 화면처럼 보이지 않도록
-       최소 크기와 옅은 배경을 준다(이미지 크기를 아직 몰라 사라져
-       보이던 문제 수정). */
+    /* 이전 크기(썸네일의 약 4배, 568×426)에서 다시 3배 키운 값
+       (1704×1278). 화면보다 커지지 않도록 뷰포트 상한도 함께 둔다.
+       로딩 중에도 빈 화면처럼 보이지 않도록 최소 크기와 옅은 배경을
+       준다(이미지 크기를 아직 몰라 사라져 보이던 문제 수정). */
     min-width: 120px;
     min-height: 90px;
-    max-width: min(568px, 90vw);
-    max-height: min(426px, 80vh);
+    max-width: min(1704px, 92vw);
+    max-height: min(1278px, 88vh);
     object-fit: contain;
     border-radius: 8px;
     cursor: default;
