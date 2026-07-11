@@ -9,12 +9,12 @@ const ownVideos = allVideos.filter((v) => v.source === 'own');
 ---
 
 <BaseLayout
-  title="추천 강의 영상"
-  description="병원 AI 연구소가 병원 행정·간호 실무자에게 참고할 만한 강의 영상을 추천합니다."
+  title="추천 영상"
+  description="병원 AI 연구소가 병원 행정·간호 실무자에게 참고할 만한 AI 입문 영상을 추천합니다."
 >
   <div class="container">
     <header class="page-head">
-      <h1>추천 강의 영상</h1>
+      <h1>추천 영상</h1>
       <p class="lead">
         병원 행정·간호 실무자에게 도움이 될 만한 AI 입문 강의 영상을 매주
         월·수·금 3개씩 새로 찾아 쌓아 갑니다. 최근 3개월 이내에 올라온
@@ -24,32 +24,8 @@ const ownVideos = allVideos.filter((v) => v.source === 'own');
       </p>
     </header>
 
-    {
-      videos.length > 0 ? (
-        <div class="video-grid">
-          {videos.map((v) => (
-            <a class="video-card" href={v.url} target="_blank" rel="noopener">
-              <img
-                src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
-                alt=""
-                loading="lazy"
-                width="480"
-                height="360"
-              />
-              <p class="video-title">
-                {v.title}
-                <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
-              </p>
-            </a>
-          ))}
-        </div>
-      ) : (
-        <p class="empty">아직 추천 영상이 없습니다.</p>
-      )
-    }
-
-    <section class="channel-section">
-      <h2>연구소장이 직접 만든 영상</h2>
+    <section>
+      <h2 class="section-label">연구소장이 직접 만든 영상</h2>
       {
         ownVideos.length > 0 ? (
           <div class="video-grid">
@@ -80,6 +56,33 @@ const ownVideos = allVideos.filter((v) => v.source === 'own');
               유튜브 채널 바로가기
             </a>
           </div>
+        )
+      }
+    </section>
+
+    <section class="channel-section">
+      <h2 class="section-label">다른 채널의 추천 영상</h2>
+      {
+        videos.length > 0 ? (
+          <div class="video-grid">
+            {videos.map((v) => (
+              <a class="video-card" href={v.url} target="_blank" rel="noopener">
+                <img
+                  src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+                  alt=""
+                  loading="lazy"
+                  width="480"
+                  height="360"
+                />
+                <p class="video-title">
+                  {v.title}
+                  <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
+                </p>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="empty">아직 추천 영상이 없습니다.</p>
         )
       }
     </section>
@@ -129,15 +132,20 @@ const ownVideos = allVideos.filter((v) => v.source === 'own');
     color: var(--color-muted);
   }
 
+  .section-label {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--color-muted);
+  }
+
+  header + section {
+    margin-top: 1.5rem;
+  }
+
   .channel-section {
     margin-top: 3.5rem;
     padding-top: 2.5rem;
     border-top: 1px solid var(--color-border);
-  }
-
-  .channel-section h2 {
-    font-size: 1.1rem;
-    color: var(--color-muted);
   }
 
   .channel-card {
