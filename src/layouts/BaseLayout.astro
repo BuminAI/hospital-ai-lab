@@ -46,6 +46,8 @@ const canonicalPath =
 const canonical = Astro.site ? new URL(canonicalPath, Astro.site) : Astro.url;
 const currentPath = stripBase(Astro.url.pathname);
 
+// "문의"는 상단에서 빼고 푸터·홈 하단 밴드로 옮겼다(메뉴 밀도 완화, 2026-07-12).
+// 페이지(/contact/)와 주소는 그대로 유지된다.
 const nav = [
   { href: '/', label: '홈' },
   { href: '/about/', label: '소개' },
@@ -55,7 +57,16 @@ const nav = [
   { href: '/ai-apps/', label: 'AI로 만든 앱' },
   { href: '/youtube/', label: '추천 영상' },
   { href: '/guide/', label: '입문 가이드' },
+];
+
+// 푸터 사이트맵 — 상단 메뉴에 없는 진입로를 보강한다
+const footerNav = [
+  { href: '/guide/', label: '입문 가이드' },
+  { href: '/glossary/', label: '의료 AI 용어 사전' },
+  { href: '/faq/', label: '자주 묻는 질문' },
+  { href: '/checklist/', label: 'AI 도입 체크리스트' },
   { href: '/contact/', label: '문의' },
+  { href: '/login/', label: '회원 로그인' },
 ];
 
 function isActive(href: string): boolean {
@@ -88,6 +99,15 @@ const year = new Date().getFullYear();
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />
     <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+    <link
+      rel="preload"
+      href={withBase('/fonts/PretendardVariable.woff2')}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e141d" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={canonical} />
     <link
       rel="alternate"
@@ -130,7 +150,19 @@ const year = new Date().getFullYear();
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="site-name" href={withBase('/')}>병원 AI 연구소</a>
+        <a class="site-name" href={withBase('/')}>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="1" y="1" width="22" height="22" rx="6" fill="var(--color-primary)"></rect>
+            <path
+              d="M5.5 12h3.5l2-4 3 8 2-4h2.5"
+              stroke="#fff"
+              stroke-width="1.8"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          병원 AI 연구소
+        </a>
         <button
           type="button"
           class="nav-toggle"
@@ -138,7 +170,7 @@ const year = new Date().getFullYear();
           aria-controls="primary-nav"
           aria-label="주 메뉴 열기/닫기"
         >
-          <span class="menu-label">☰ 메뉴</span>
+          <span class="menu-label">메뉴</span>
         </button>
         <nav id="primary-nav" aria-label="주 메뉴">
           <ul>
@@ -188,18 +220,32 @@ const year = new Date().getFullYear();
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p class="footer-title">병원 AI 연구소 <span>Hospital AI Lab</span></p>
-        <p class="footer-disclaimer">{DISCLAIMER}</p>
-        <div class="footer-meta">
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          <span aria-hidden="true">·</span>
-          <a href={withBase('/rss.xml')}>RSS 구독</a>
-          <span aria-hidden="true">·</span>
-          <a href={withBase('/privacy/')}>개인정보 처리방침</a>
-          <span aria-hidden="true">·</span>
-          <span>© {year} 병원 AI 연구소</span>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <p class="footer-title">병원 AI 연구소 <span>Hospital AI Lab</span></p>
+          <p class="footer-disclaimer">{DISCLAIMER}</p>
+          <div class="footer-meta">
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            <span aria-hidden="true">·</span>
+            <a href={withBase('/rss.xml')}>새 글 자동 받기(RSS)</a>
+            <span aria-hidden="true">·</span>
+            <a href={withBase('/privacy/')}>개인정보 처리방침</a>
+            <span aria-hidden="true">·</span>
+            <span>© {year} 병원 AI 연구소</span>
+          </div>
         </div>
+        <nav class="footer-nav" aria-label="푸터">
+          <p class="footer-nav-title">둘러보기</p>
+          <ul>
+            {
+              footerNav.map((item) => (
+                <li>
+                  <a href={withBase(item.href)}>{item.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
       </div>
     </footer>
   </body>
@@ -227,7 +273,9 @@ const year = new Date().getFullYear();
     top: 0;
     z-index: 50;
     border-bottom: 1px solid var(--color-border);
-    background: var(--color-bg);
+    background: var(--header-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 
   .header-inner {
@@ -259,9 +307,12 @@ const year = new Date().getFullYear();
   }
 
   .site-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-heading);
     letter-spacing: -0.02em;
   }
 
@@ -270,7 +321,7 @@ const year = new Date().getFullYear();
     color: var(--color-primary);
   }
 
-  nav ul {
+  #primary-nav ul {
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem 1.4rem;
@@ -279,20 +330,24 @@ const year = new Date().getFullYear();
     list-style: none;
   }
 
-  nav a {
+  #primary-nav a {
     font-size: 0.95rem;
     color: var(--color-muted);
     font-weight: 500;
   }
 
-  nav a:hover {
+  #primary-nav a:hover {
     color: var(--color-primary);
     text-decoration: none;
   }
 
-  nav a[aria-current='page'] {
+  /* 활성 메뉴: 굵기 대신 밑줄 인디케이터 — 페이지 이동 시 글자폭 흔들림 방지 */
+  #primary-nav a[aria-current='page'] {
     color: var(--color-primary);
-    font-weight: 700;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.55em;
   }
 
   main {
@@ -306,9 +361,48 @@ const year = new Date().getFullYear();
     background: var(--color-surface);
   }
 
+  .footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 2rem 3rem;
+  }
+
+  @media (max-width: 40rem) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .footer-nav-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    text-transform: uppercase;
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    margin: 0.85rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1.5rem;
+  }
+
+  .footer-nav a {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-primary);
+  }
+
   .footer-title {
     font-weight: 700;
     letter-spacing: -0.02em;
+    color: var(--color-heading);
   }
 
   .footer-title span {
@@ -368,7 +462,7 @@ const year = new Date().getFullYear();
       background: var(--color-bg);
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+      box-shadow: var(--shadow-lg);
       padding: 0.5rem;
       z-index: 60;
     }

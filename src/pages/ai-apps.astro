@@ -38,7 +38,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
           </div>
           <div id="apps-status" class="hint">불러오는 중…</div>
           <div id="apps-grid" class="apps-grid"></div>
-          <div id="lightbox" class="lightbox" hidden>
+          <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="스크린샷 크게 보기" hidden>
             <button class="lightbox-close" id="lightbox-close" aria-label="닫기">✕</button>
             <img id="lightbox-img" src="" alt="" />
           </div>
@@ -95,17 +95,26 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         .join('')}</div>`;
     }
 
-    function openLightbox(src, alt) {
+    // 접근성: 열 때 닫기 버튼으로 포커스를 옮기고, 닫으면 열었던
+    // 썸네일로 포커스를 되돌린다 (키보드 사용자 기준점 유지)
+    let lightboxTrigger = null;
+    function openLightbox(src, alt, trigger) {
+      lightboxTrigger = trigger || null;
       $('lightbox-img').src = src;
       $('lightbox-img').alt = alt;
       $('lightbox').hidden = false;
       document.body.style.overflow = 'hidden';
+      $('lightbox-close').focus();
     }
 
     function closeLightbox() {
       $('lightbox').hidden = true;
       $('lightbox-img').src = '';
       document.body.style.overflow = '';
+      if (lightboxTrigger) {
+        lightboxTrigger.focus();
+        lightboxTrigger = null;
+      }
     }
 
     $('lightbox-close').addEventListener('click', closeLightbox);
@@ -131,7 +140,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         .eq('published', true)
         .order('created_at', { ascending: false });
       if (error) {
-        status.textContent = '목록을 불러오지 못했습니다: ' + error.message;
+        status.textContent = '잠시 문제가 생겨 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ' + error.message + ')';
         return;
       }
       if (!data.length) {
@@ -150,7 +159,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
           ${
             canDownload
               ? `<button class="btn app-download" data-id="${a.id}">다운로드</button>`
-              : `<a class="btn app-download" href="${esc(signupUrl)}">🔒 회원가입하고 다운로드</a>`
+              : `<a class="btn app-download" href="${esc(signupUrl)}">회원가입하고 다운로드</a>`
           }
         </article>`
         )
@@ -158,11 +167,11 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
 
       // 스크린샷은 회원 여부와 무관하게 누구나 클릭해서 크게 볼 수 있다.
       grid.querySelectorAll('.app-shot-img').forEach((img) => {
-        img.addEventListener('click', () => openLightbox(img.dataset.full, img.dataset.alt));
+        img.addEventListener('click', () => openLightbox(img.dataset.full, img.dataset.alt, img));
         img.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            openLightbox(img.dataset.full, img.dataset.alt);
+            openLightbox(img.dataset.full, img.dataset.alt, img);
           }
         });
       });
@@ -190,7 +199,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
             link.remove();
             URL.revokeObjectURL(url);
           } catch (e) {
-            alert('다운로드에 실패했습니다: ' + (e.message || e));
+            alert('잠시 문제가 생겨 다운로드하지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ' + (e.message || e) + ')');
           } finally {
             btn.disabled = false;
             btn.textContent = original;
@@ -219,7 +228,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
       } else {
         $('guest-banner').hidden = false;
         $('guest-banner').querySelector('.empty').textContent = pErr
-          ? `회원 정보 확인에 실패했습니다: ${pErr.message}`
+          ? `잠시 문제가 생겨 회원 정보를 확인하지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ${pErr.message})`
           : '이 계정에는 가입 동의 기록이 없어 다운로드할 수 없습니다. 로그아웃 후 다시 로그인하거나 운영자에게 문의해 주세요.';
       }
     } else {
@@ -245,10 +254,9 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     color: var(--color-muted);
   }
 
-  .btn.ghost {
-    background: var(--color-bg);
-    color: var(--color-primary);
-    border: 1px solid var(--color-border);
+  /* 기본 스타일은 global.css의 .btn.ghost를 쓰고, 바(bar) 안에 맞게
+     크기만 줄인다 */
+  .member-bar .btn.ghost {
     padding: 0.4rem 1rem;
   }
 

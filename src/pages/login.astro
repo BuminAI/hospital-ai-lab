@@ -56,7 +56,7 @@ const signupUrl = withBase('/signup/');
               <label>비밀번호
                 <span class="pw-wrap">
                   <input type="password" id="l-password" autocomplete="current-password" required />
-                  <button type="button" class="pw-toggle" id="l-pw-toggle">보기</button>
+                  <button type="button" class="pw-toggle" id="l-pw-toggle" aria-label="비밀번호 표시">보기</button>
                 </span>
               </label>
               <button class="btn full" type="submit" id="l-submit">로그인</button>
@@ -79,7 +79,7 @@ const signupUrl = withBase('/signup/');
             <label>새 비밀번호 (8자 이상)
               <span class="pw-wrap">
                 <input type="password" id="r-password" autocomplete="new-password" minlength="8" />
-                <button type="button" class="pw-toggle" id="r-pw-toggle">보기</button>
+                <button type="button" class="pw-toggle" id="r-pw-toggle" aria-label="비밀번호 표시">보기</button>
               </span>
             </label>
             <button class="btn full" type="submit">비밀번호 변경</button>
@@ -88,7 +88,7 @@ const signupUrl = withBase('/signup/');
 
           {/* 구글 로그인 최초 동의 */}
           <div id="oauth-consent" class="auth-card" hidden>
-            <h2>처음 오셨네요 👋</h2>
+            <h2>처음 오셨네요</h2>
             <p class="hint">강의노트를 보시려면 아래 동의가 필요합니다.</p>
             <label class="check">
               <input type="checkbox" id="oc-all" />
@@ -105,8 +105,9 @@ const signupUrl = withBase('/signup/');
                 [필수] 개인정보 수집·이용에 동의합니다.
                 <span class="small">
                   (항목: 이름, 이메일 / 목적: 회원 관리, 회원 전용 콘텐츠 제공 /
-                  보유: 탈퇴 시까지 / 동의를 거부할 권리가 있으나, 거부 시 이용이
-                  불가합니다 — <a href={privacyUrl} target="_blank">처리방침 전문</a>)
+                  보유: 탈퇴 시까지 / 동의하지 않을 수 있으나, 동의하지 않으면
+                  회원 기능(강의노트 열람 등)을 이용할 수 없습니다 —
+                  <a href={privacyUrl} target="_blank">처리방침 전문</a>)
                 </span>
               </span>
             </label>
@@ -176,7 +177,7 @@ const signupUrl = withBase('/signup/');
         .select('consent_required_at')
         .eq('id', userId)
         .maybeSingle();
-      if (error) throw new Error(`회원 정보 확인 실패: ${error.message}`);
+      if (error) throw new Error(`회원 정보를 확인하지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ${error.message})`);
       return !!(data && data.consent_required_at);
     }
 
@@ -280,7 +281,7 @@ const signupUrl = withBase('/signup/');
       const { error } = await sb.auth.resend({ type: 'signup', email });
       $('l-status').className = 'status';
       $('l-status').textContent = error
-        ? `재발송 실패: ${error.message}`
+        ? `인증 메일을 다시 보내지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ${error.message})`
         : '인증 메일을 다시 보냈습니다. 메일함(스팸함 포함)을 확인해 주세요.';
     });
 
@@ -298,7 +299,7 @@ const signupUrl = withBase('/signup/');
         redirectTo: location.origin + location.pathname,
       });
       status.textContent = error
-        ? `재설정 메일 발송 실패: ${error.message}`
+        ? `재설정 메일을 보내지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ${error.message})`
         : '비밀번호 재설정 메일을 보냈습니다. 메일함을 확인해 주세요.';
     });
 
@@ -316,7 +317,7 @@ const signupUrl = withBase('/signup/');
       const { error } = await sb.auth.updateUser({ password: pw });
       if (error) {
         status.className = 'status err';
-        status.textContent = `변경 실패: ${error.message}`;
+        status.textContent = `비밀번호를 변경하지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ${error.message})`;
         return;
       }
       await sb.auth.signOut();
@@ -328,7 +329,7 @@ const signupUrl = withBase('/signup/');
     async function startOAuth(provider, label) {
       const status = $('l-status');
       status.className = 'status';
-      status.textContent = `${label}(으)로 이동합니다…`;
+      status.textContent = `${label} 로그인 화면으로 이동합니다…`;
       const { error } = await sb.auth.signInWithOAuth({
         provider,
         options: { redirectTo: loginUrl },
@@ -338,7 +339,7 @@ const signupUrl = withBase('/signup/');
         if (/not enabled|unsupported provider/i.test(error.message)) {
           status.textContent = `${label} 로그인은 아직 준비 중입니다. 이메일 또는 다른 방법으로 로그인해 주세요.`;
         } else {
-          status.textContent = `로그인 실패: ${error.message}`;
+          status.textContent = `잠시 문제가 생겨 로그인하지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ${error.message})`;
         }
       }
     }
@@ -374,7 +375,7 @@ const signupUrl = withBase('/signup/');
       });
       if (error) {
         status.className = 'status err';
-        status.textContent = `오류: ${error.message}`;
+        status.textContent = `잠시 문제가 생겨 동의를 저장하지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ${error.message})`;
         return;
       }
       location.href = notesUrl;
@@ -424,7 +425,7 @@ const signupUrl = withBase('/signup/');
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: 1.75rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-sm);
   }
 
   .auth-card + .auth-card {
@@ -448,6 +449,7 @@ const signupUrl = withBase('/signup/');
     width: 100%;
     margin-top: 0.35rem;
     font: inherit;
+    background: var(--color-bg);
     color: var(--color-text);
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -481,7 +483,7 @@ const signupUrl = withBase('/signup/');
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    padding: 0.25rem 0.4rem;
+    padding: 0.6rem 0.5rem;
   }
 
   .pw-toggle:hover {
@@ -498,16 +500,6 @@ const signupUrl = withBase('/signup/');
     cursor: default;
   }
 
-  .btn.ghost {
-    background: var(--color-bg);
-    color: var(--color-primary);
-    border: 1px solid var(--color-border);
-  }
-
-  .btn.ghost:hover {
-    border-color: var(--color-primary);
-  }
-
   .status {
     font-size: 0.875rem;
     color: var(--color-muted);
@@ -517,6 +509,13 @@ const signupUrl = withBase('/signup/');
 
   .status.err {
     color: #b3261e;
+  }
+
+  /* 다크 배경에서는 어두운 빨강이 안 보여 밝은 오류색으로 바꾼다 */
+  @media (prefers-color-scheme: dark) {
+    .status.err {
+      color: #f28b82;
+    }
   }
 
   .hint {

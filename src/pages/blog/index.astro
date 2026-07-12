@@ -6,6 +6,9 @@ import PostCard from '../../components/PostCard.astro';
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+// 콘텐츠 스키마의 category 4종 (글이 없는 분류도 버튼은 노출)
+const CATEGORIES = ['논문리뷰', 'AI도구', '칼럼', '소식'] as const;
 ---
 
 <BaseLayout
@@ -16,18 +19,33 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     <header class="page-head">
       <h1>블로그</h1>
       <p class="lead">
-        논문리뷰 · AI도구 · 칼럼 · 소식. 연구 과정과 결과를 간호·행정을 비롯한
-        병원 종사자들이 이해할 수 있는 언어로 기록합니다.
+        어려운 논문과 새 AI 도구를, 병원 행정·간호 실무자가 읽고 바로 쓸 수
+        있는 말로 풀어 씁니다.
       </p>
     </header>
 
     {
       posts.length > 0 ? (
-        <div class="post-list">
-          {posts.map((post) => (
-            <PostCard post={post} headingLevel="h2" />
-          ))}
-        </div>
+        <>
+          <div class="filter" role="group" aria-label="분류별로 보기">
+            <button type="button" class="chip filter-btn" data-filter="all" aria-pressed="true">
+              전체
+            </button>
+            {CATEGORIES.map((c) => (
+              <button type="button" class="chip filter-btn" data-filter={c} aria-pressed="false">
+                {c}
+              </button>
+            ))}
+          </div>
+          <div class="post-list">
+            {posts.map((post) => (
+              <PostCard post={post} headingLevel="h2" />
+            ))}
+          </div>
+          <p class="empty" id="filter-empty" role="status" hidden>
+            이 분류의 글이 아직 없습니다.
+          </p>
+        </>
       ) : (
         <p class="empty">아직 발행된 글이 없습니다.</p>
       )
@@ -35,7 +53,56 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   </div>
 </BaseLayout>
 
+<script>
+  // 카테고리 필터: 버튼을 누르면 해당 분류의 카드만 남긴다.
+  // 숨김은 hidden 속성 토글 — global.css의 [hidden] 전역 가드가 확실히 숨겨 준다.
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.post-list .post-card');
+  const emptyNote = document.getElementById('filter-empty');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      let shown = 0;
+      cards.forEach((card) => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.hidden = !show;
+        if (show) shown += 1;
+      });
+      if (emptyNote) emptyNote.hidden = shown > 0;
+    });
+  });
+</script>
+
 <style>
+  .filter {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* .chip 모양을 그대로 쓰되 버튼 기본 스타일과 터치 표적만 보강 */
+  .filter-btn {
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-soft);
+  }
+
+  .filter-btn[aria-pressed='true'] {
+    color: var(--btn-fg);
+    background: var(--btn-bg);
+    border-color: var(--btn-bg);
+  }
+
   .post-list {
     margin-top: 1.5rem;
     display: grid;

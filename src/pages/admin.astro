@@ -28,9 +28,9 @@ import {
         <div id="admin-login-gate" class="panel">
           <h2>관리자 로그인</h2>
           <p class="hint">관리자 계정({ADMIN_EMAIL})으로 로그인하세요.</p>
-          <div class="row">
-            <input type="email" id="gate-email" placeholder="관리자 이메일" value={ADMIN_EMAIL} />
-            <input type="password" id="gate-password" placeholder="비밀번호" />
+          <div class="row gate-row">
+            <label>이메일<input type="email" id="gate-email" placeholder="관리자 이메일" autocomplete="username" value={ADMIN_EMAIL} /></label>
+            <label>비밀번호<input type="password" id="gate-password" placeholder="비밀번호" autocomplete="current-password" /></label>
             <button class="btn" id="gate-login-btn">로그인</button>
           </div>
           <p class="hint" id="gate-status"></p>
@@ -40,6 +40,7 @@ import {
 
     <div id="admin-dashboard" hidden>
       <div class="admin-topbar">
+        <span id="admin-summary"></span>
         <button class="btn ghost" id="admin-logout">로그아웃</button>
       </div>
 
@@ -47,15 +48,15 @@ import {
            없다(예전엔 페이지 안에서 앵커로 점프만 해서, 강의노트처럼 뒤쪽에
            있는 항목은 회원 목록을 한참 지나야 보였다). -->
       <nav class="admin-nav" aria-label="관리 메뉴">
-        <a href="#token-panel" data-tab="token-panel">🔑 GitHub 연동</a>
         <a href="#blog-panel" data-tab="blog-panel">📝 블로그</a>
         <a href="#news-panel" data-tab="news-panel">📰 AI 뉴스</a>
-        <a href="#member-panel" data-tab="member-panel">👥 회원</a>
-        <a href="#notes-panel" data-tab="notes-panel">📚 강의노트</a>
-        <a href="#ai-apps-admin" data-tab="ai-apps-admin">🖼️ AI로 만든 앱</a>
         <a href="#video-panel" data-tab="video-panel">▶️ 추천 영상</a>
-        <a href="#deploy-panel" data-tab="deploy-panel">🚀 배포 상태</a>
+        <a href="#notes-panel" data-tab="notes-panel">📚 강의노트</a>
+        <a href="#ai-apps-admin" data-tab="ai-apps-admin">📦 AI로 만든 앱</a>
+        <a href="#member-panel" data-tab="member-panel">👥 회원</a>
+        <a href="#deploy-panel" data-tab="deploy-panel">🚀 사이트 반영 상태</a>
         <a href="#stats-panel" data-tab="stats-panel">📊 방문자 통계</a>
+        <a href="#token-panel" data-tab="token-panel">🔑 GitHub 연동</a>
       </nav>
 
       <!-- 토큰 -->
@@ -106,7 +107,7 @@ import {
       </p>
       <div class="form-grid">
         <label>제목<input type="text" id="new-title" placeholder="글 제목" /></label>
-        <label>주소(영문 슬러그)<input type="text" id="new-slug" placeholder="예: ai-tools-guide (비우면 자동)" /></label>
+        <label>글 주소(영어, 비워두면 자동 생성)<input type="text" id="new-slug" placeholder="예: ai-tools-guide (비우면 자동)" /></label>
         <label>카테고리
           <select id="new-category">
             <option>칼럼</option>
@@ -120,7 +121,7 @@ import {
       <label class="block">요약(목록·검색에 표시)
         <textarea id="new-description" rows="2" placeholder="한두 문장 요약"></textarea>
       </label>
-      <label class="block">본문 (마크다운)
+      <label class="block">본문 (마크다운: ## 소제목, - 목록, **굵게**, [링크](주소))
         <textarea id="new-body" rows="14" placeholder="## 소제목&#10;&#10;본문을 마크다운으로 작성합니다."></textarea>
       </label>
       <div class="row">
@@ -132,7 +133,8 @@ import {
       <h3 class="panel-subhead">🖼️ 이미지 업로드</h3>
       <p class="section-desc">
         위 본문에 넣을 사진을 올립니다. 올린 뒤 나오는 코드를 복사해서 본문에
-        붙여넣으면 사진이 표시됩니다.
+        붙여넣으면 사진이 표시됩니다. 붙여넣은 코드의 '설명' 부분은 사진을
+        설명하는 말로 바꿔 주세요. 사진도 글처럼 1~2분 후 사이트에 반영됩니다.
       </p>
       <div class="row">
         <input type="file" id="img-file" accept="image/*" />
@@ -148,7 +150,7 @@ import {
         이미 올린 글의 목록입니다. "수정"으로 내용을 고치거나 "삭제"로
         내릴 수 있습니다.
       </p>
-      <div id="posts-list" class="posts">토큰을 설정하면 표시됩니다.</div>
+      <div id="posts-list" class="posts">아직 GitHub 연동이 안 됐습니다. 위 탭에서 'GitHub 연동'을 눌러 토큰을 저장하면 이 목록이 나타납니다.</div>
       <div id="editor" class="editor" hidden>
         <h3>수정: <span id="editor-name"></span></h3>
         <textarea id="editor-body" rows="18"></textarea>
@@ -163,7 +165,7 @@ import {
     <!-- AI 뉴스 관리 -->
     <section class="panel" id="news-panel">
       <div class="panel-head">
-        <h2>📰 AI 뉴스 관리</h2>
+        <h2>📰 AI 뉴스</h2>
         <button class="btn ghost" id="news-refresh">새로고침</button>
       </div>
       <p class="section-desc">
@@ -172,13 +174,13 @@ import {
         수 있습니다. 다만 최근 2주 안의 기사는 크롤러가 다음 실행 때 다시
         찾아내 자동으로 재등록할 수 있습니다.
       </p>
-      <div id="news-list" class="posts">토큰을 설정하면 표시됩니다.</div>
+      <div id="news-list" class="posts">아직 GitHub 연동이 안 됐습니다. 위 탭에서 'GitHub 연동'을 눌러 토큰을 저장하면 이 목록이 나타납니다.</div>
     </section>
 
     <!-- 회원·강의노트 관리 (Supabase) -->
     <section class="panel" id="member-panel">
       <div class="panel-head">
-        <h2>👥 회원 관리</h2>
+        <h2>👥 회원</h2>
         <button class="btn ghost" id="members-refresh">새로고침</button>
       </div>
       <h3>회원 목록 <span id="member-count" class="hint"></span></h3>
@@ -201,7 +203,7 @@ import {
     </section>
 
     <section class="panel" id="notes-panel">
-      <h2>📝 강의노트 관리</h2>
+      <h2>📚 강의노트</h2>
       <div class="form-grid">
         <label>제목<input type="text" id="note-title" /></label>
         <label class="check" style="align-self: end;"><input type="checkbox" id="note-published" checked /> 공개 (회원에게 표시)</label>
@@ -218,7 +220,7 @@ import {
     </section>
 
     <section class="panel" id="ai-apps-admin">
-      <h2>🖼️ AI로 만든 앱 관리</h2>
+      <h2>📦 AI로 만든 앱</h2>
       <p class="section-desc">
         AI로 만든 프로그램 파일(zip·apk·exe·pdf 등 형식 제한 없음, 최대
         50MB — Supabase 무료 요금제 상한)과 카드뉴스 미리보기 이미지 2장을
@@ -254,7 +256,7 @@ import {
     <!-- 추천 강의 영상 관리 -->
     <section class="panel" id="video-panel">
       <div class="panel-head">
-        <h2>▶️ 추천 강의 영상 관리</h2>
+        <h2>▶️ 추천 영상</h2>
         <button class="btn ghost" id="videos-refresh">새로고침</button>
       </div>
       <p class="section-desc">
@@ -289,21 +291,21 @@ import {
         <button class="btn" id="video-add">③ 추가</button>
       </div>
       <p class="hint" id="video-status"></p>
-      <div id="videos-list" class="posts">토큰을 설정하면 표시됩니다.</div>
+      <div id="videos-list" class="posts">아직 GitHub 연동이 안 됐습니다. 위 탭에서 'GitHub 연동'을 눌러 토큰을 저장하면 이 목록이 나타납니다.</div>
     </section>
 
     <!-- 배포 상태 -->
     <section class="panel" id="deploy-panel">
       <div class="panel-head">
-        <h2>🚀 배포 상태</h2>
+        <h2>🚀 사이트 반영 상태</h2>
         <button class="btn ghost" id="runs-refresh">새로고침</button>
       </div>
       <p class="section-desc">
         글이나 영상을 저장하면 사이트에 반영되는 과정입니다. ✅ 성공이 뜨면
-        1분 안에 실제 사이트에 나타납니다. (확인용이며 직접 조작할 필요는
-        없습니다.)
+        1분 안에 실제 사이트에 나타납니다. ⏳ 진행 중이면 잠시 후
+        '새로고침'을 눌러 주세요. (확인용이며 직접 조작할 필요는 없습니다.)
       </p>
-      <div id="runs-list" class="runs">토큰을 설정하면 표시됩니다.</div>
+      <div id="runs-list" class="runs">아직 GitHub 연동이 안 됐습니다. 위 탭에서 'GitHub 연동'을 눌러 토큰을 저장하면 이 목록이 나타납니다.</div>
     </section>
 
     <!-- 방문자 통계 -->
@@ -354,6 +356,18 @@ import {
 
     let editingNoteId = null;
     let editingApp = null; // 수정 중인 AI 앱의 전체 행(기존 파일·이미지 경로 유지용)
+
+    // 상단 요약 줄: 이미 불러온 데이터에서 텍스트 조각만 채운다(추가 API
+    // 호출 없음). 아래 GitHub 스크립트에도 같은 함수가 있고, 둘이 같은
+    // dataset을 나눠 쓴다.
+    function setAdminSummary(key, text) {
+      const el = document.getElementById('admin-summary');
+      if (!el) return;
+      el.dataset[key] = text;
+      el.textContent = [el.dataset.posts, el.dataset.deploy, el.dataset.members]
+        .filter(Boolean)
+        .join(' · ');
+    }
 
     // Supabase에 아직 설치되지 않은 테이블·함수·버킷을 부르면 나오는 오류를
     // "무엇을 해야 하는지"가 보이는 안내로 바꾼다. (설치가 덜 된 DB에서
@@ -478,10 +492,11 @@ import {
         .order('created_at', { ascending: false });
       const tbody = $('members-table').querySelector('tbody');
       if (error) {
-        tbody.innerHTML = `<tr><td colspan="10">${escHtml(error.message)}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="9">${escHtml(error.message)}</td></tr>`;
         return;
       }
       $('member-count').textContent = `(${data.length}명)`;
+      setAdminSummary('members', `회원 ${data.length}명`);
       tbody.innerHTML = data
         .map(
           (m) => `<tr>
@@ -496,7 +511,7 @@ import {
             <td>${m.email === ADMIN_EMAIL ? '' : `<button class="btn ghost danger" data-mdel="${m.id}" data-mname="${escHtml(m.name)}" data-memail="${escHtml(m.email)}">삭제</button>`}</td>
           </tr>`
         )
-        .join('') || '<tr><td colspan="10">아직 가입한 회원이 없습니다.</td></tr>';
+        .join('') || '<tr><td colspan="9">아직 가입한 회원이 없습니다.</td></tr>';
       tbody.querySelectorAll('[data-mdel]').forEach((b) =>
         b.addEventListener('click', () => deleteMember(b.dataset.mdel, b.dataset.mname, b.dataset.memail))
       );
@@ -509,6 +524,8 @@ import {
         )
       )
         return;
+      // 가장 위험한 동작이라 한 겹 더 확인한다.
+      if (prompt('확인을 위해 "삭제"라고 입력하세요') !== '삭제') return;
       const { error } = await sb.rpc('admin_delete_member', { target_id: id });
       if (error) {
         alert(
@@ -558,7 +575,7 @@ import {
       );
       el.querySelectorAll('[data-ndel]').forEach((b) =>
         b.addEventListener('click', async () => {
-          if (!confirm(`강의노트 "${b.dataset.ntitle}"를 삭제할까요?`)) return;
+          if (!confirm(`강의노트 "${b.dataset.ntitle}"를 삭제할까요?\n삭제하면 되돌릴 수 없습니다.`)) return;
           const { error: e3 } = await sb.from('lecture_notes').delete().eq('id', b.dataset.ndel);
           if (e3) alert(e3.message);
           loadAdminNotes();
@@ -620,7 +637,7 @@ import {
       );
       el.querySelectorAll('[data-adel]').forEach((b) =>
         b.addEventListener('click', async () => {
-          if (!confirm(`"${b.dataset.atitle}" 카드를 삭제할까요? 배포 파일과 미리보기 이미지도 함께 지워집니다.`)) return;
+          if (!confirm(`"${b.dataset.atitle}" 카드를 삭제할까요?\n배포 파일과 미리보기 이미지도 함께 지워지며, 되돌릴 수 없습니다.`)) return;
           const { error: e5 } = await sb.storage.from('ai-apps').remove([b.dataset.apath]);
           if (e5) { alert(e5.message); return; }
           const shots = [b.dataset.ashot1, b.dataset.ashot2].filter(Boolean);
@@ -802,6 +819,11 @@ import {
       showAdminIfLoggedIn();
     });
 
+    // 비밀번호 칸에서 Enter 키만 눌러도 로그인 버튼과 똑같이 동작한다.
+    $('gate-password').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') $('gate-login-btn').click();
+    });
+
     $('admin-logout').addEventListener('click', async () => {
       await sb.auth.signOut();
       window.__adminGithubToken = '';
@@ -843,7 +865,17 @@ import {
       $('note-status').textContent = '';
     });
 
-    $('app-save').addEventListener('click', uploadAiApp);
+    // 저장 중 이중 클릭 방지: 처리 도중에는 버튼을 잠그고 끝나면 반드시 푼다.
+    $('app-save').addEventListener('click', async () => {
+      const btn = $('app-save');
+      if (btn.disabled) return;
+      btn.disabled = true;
+      try {
+        await uploadAiApp();
+      } finally {
+        btn.disabled = false;
+      }
+    });
     $('app-cancel').addEventListener('click', cancelEditApp);
 
     initAdminTabs();
@@ -858,6 +890,18 @@ import {
 
   const $ = (id: string) => document.getElementById(id) as any;
 
+  // 상단 요약 줄: 이미 불러온 데이터에서 텍스트 조각만 채운다(추가 API 호출
+  // 없음). 두 스크립트가 각자 자기 조각(dataset)을 넣고 전체 문장을 다시
+  // 조립한다 — 같은 이름의 함수가 위 Supabase 스크립트에도 있다.
+  function setAdminSummary(key: string, text: string) {
+    const el = document.getElementById('admin-summary');
+    if (!el) return;
+    el.dataset[key] = text;
+    el.textContent = [el.dataset.posts, el.dataset.deploy, el.dataset.members]
+      .filter(Boolean)
+      .join(' · ');
+  }
+
   // ── 토큰 ────────────────────────────────────────────────
   // 토큰 자체의 저장·조회·상태 표시는 위쪽 Supabase 스크립트가 전담한다
   // (서버의 admin_secrets 테이블에 보관). 여기서는 그 스크립트가
@@ -868,7 +912,7 @@ import {
 
   async function gh(path: string, options: RequestInit = {}) {
     const token = getToken();
-    if (!token) throw new Error('토큰이 없습니다. 먼저 접속 토큰을 설정하세요.');
+    if (!token) throw new Error("아직 GitHub 연동이 안 됐습니다. 위 탭에서 'GitHub 연동'을 눌러 토큰을 저장하면 이 목록이 나타납니다.");
     const res = await fetch(`${API}${path}`, {
       ...options,
       headers: {
@@ -929,6 +973,9 @@ import {
   }
 
   // ── 배포 상태 ───────────────────────────────────────────
+  // "⏳ 진행 중"인 실행이 있으면 15초 간격으로 몇 번만 다시 확인한다
+  // (GitHub API 호출 한도를 생각해 최대 4회로 제한).
+  let runsAutoRefreshLeft = 4;
   async function loadRuns() {
     const el = $('runs-list');
     try {
@@ -939,6 +986,23 @@ import {
         return `<div class="run"><span>${state}</span><span>${esc(r.name)}</span><span>${t}</span><a href="${esc(r.html_url)}" target="_blank" rel="noopener">로그</a></div>`;
       });
       el.innerHTML = rows.join('') || '실행 기록이 없습니다.';
+      const latest = data.workflow_runs[0];
+      if (latest) {
+        setAdminSummary(
+          'deploy',
+          '최근 반영 ' +
+            (latest.status === 'completed' ? (latest.conclusion === 'success' ? '성공' : '실패') : '진행 중')
+        );
+      }
+      const hasPending = data.workflow_runs.some((r: any) => r.status !== 'completed');
+      if (hasPending) {
+        if (runsAutoRefreshLeft > 0) {
+          runsAutoRefreshLeft--;
+          setTimeout(loadRuns, 15000);
+        }
+      } else {
+        runsAutoRefreshLeft = 4;
+      }
     } catch (e: any) {
       el.textContent = e.message;
     }
@@ -975,6 +1039,7 @@ import {
         </div>`
         )
         .join('');
+      setAdminSummary('posts', `글 ${rows.length}개`);
       el.querySelectorAll('[data-edit]').forEach((b: any) => b.addEventListener('click', () => openEditor(b.dataset.edit)));
       el.querySelectorAll('[data-del]').forEach((b: any) =>
         b.addEventListener('click', () => deletePost(b.dataset.del, b.dataset.sha, b.dataset.name))
@@ -1092,7 +1157,7 @@ import {
   }
 
   async function deletePost(path: string, sha: string, name: string) {
-    if (!confirm(`정말 삭제할까요?\n${name}\n\n삭제하면 사이트에서 내려가며, 되돌리려면 오너에게 요청해야 합니다.`)) return;
+    if (!confirm(`정말 삭제할까요?\n${name}\n\n삭제하면 사이트에서 내려갑니다. 복구하려면 별도 작업이 필요하니 신중히 결정하세요.`)) return;
     try {
       await gh(`/contents/${path}`, {
         method: 'DELETE',
@@ -1306,7 +1371,7 @@ import {
         body: JSON.stringify({ message: `수정: 이미지 업로드 ${name}`, content: b64 }),
       });
       const url = `/images/${ym}/${name}`;
-      status.innerHTML = `업로드됨 — 본문에 붙여넣기: <code>![설명](${url})</code>`;
+      status.innerHTML = `업로드됨 — 본문에 붙여넣기: <code>![설명](${url})</code> (1~2분 후 사이트에 반영됩니다)`;
       input.value = '';
     } catch (e: any) {
       status.textContent = e.message;
@@ -1317,7 +1382,17 @@ import {
   // 토큰 저장/해제 버튼은 위쪽 Supabase 스크립트가 처리한다(서버 저장).
   $('runs-refresh').addEventListener('click', loadRuns);
   $('posts-refresh').addEventListener('click', loadPosts);
-  $('new-save').addEventListener('click', saveNewPost);
+  // 저장 중 이중 클릭 방지: 처리 도중에는 버튼을 잠그고 끝나면 반드시 푼다.
+  $('new-save').addEventListener('click', async () => {
+    const btn = $('new-save');
+    if (btn.disabled) return;
+    btn.disabled = true;
+    try {
+      await saveNewPost();
+    } finally {
+      btn.disabled = false;
+    }
+  });
   $('editor-save').addEventListener('click', saveEditor);
   $('editor-cancel').addEventListener('click', () => {
     $('editor').hidden = true;
@@ -1325,7 +1400,17 @@ import {
   });
   $('img-upload').addEventListener('click', uploadImage);
   $('videos-refresh').addEventListener('click', loadVideosList);
-  $('video-add').addEventListener('click', addVideo);
+  // 저장 중 이중 클릭 방지(영상은 중복 등록될 수 있어 특히 중요).
+  $('video-add').addEventListener('click', async () => {
+    const btn = $('video-add');
+    if (btn.disabled) return;
+    btn.disabled = true;
+    try {
+      await addVideo();
+    } finally {
+      btn.disabled = false;
+    }
+  });
   $('news-refresh').addEventListener('click', loadNewsList);
 
   $('new-date').value = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Seoul' });
@@ -1342,6 +1427,19 @@ import {
   window.addEventListener('admin-github-token-ready', loadAllGithubPanels);
 </script>
 
+<script is:inline>
+  // sticky 탭 바가 사이트 헤더에 가리지 않도록 헤더 실측 높이를 CSS 변수로
+  // 반영한다(헤더는 폭에 따라 두 줄로 감겨 높이가 변한다).
+  (() => {
+    const header = document.querySelector('.site-header');
+    if (!header || typeof ResizeObserver === 'undefined') return;
+    const apply = () =>
+      document.documentElement.style.setProperty('--site-header-h', header.offsetHeight + 'px');
+    new ResizeObserver(apply).observe(header);
+    apply();
+  })();
+</script>
+
 <style is:global>
   /* 이 페이지는 목록 항목 대부분을 JS(innerHTML)로 그린다. Astro의 스타일
      스코프(data-astro-cid-*)는 컴파일 시점 템플릿에만 붙고 런타임에 넣은
@@ -1349,10 +1447,12 @@ import {
      요소에 안 먹는다(전역 .btn 기본값으로 떨어져 버튼이 커 보이는 원인이었음).
      그래서 이 페이지는 스타일을 전역으로 둔다. */
 
-  /* 상단 점프 내비게이션 */
+  /* 상단 점프 내비게이션 — 사이트 헤더(sticky, top:0)에 가리지 않도록
+     헤더 높이만큼 내려서 붙인다. 고정값은 헤더가 두 줄로 감기는 중간 폭에서
+     어긋나므로, 실측 높이를 아래 스크립트가 --site-header-h로 채운다. */
   .admin-nav {
     position: sticky;
-    top: 0;
+    top: var(--site-header-h, 4.5rem);
     z-index: 10;
     display: flex;
     gap: 0.4rem;
@@ -1434,9 +1534,9 @@ import {
     font-weight: 600;
   }
 
-  /* 섹션 앵커 이동 시 sticky 내비에 가리지 않도록 여백 확보 */
+  /* 섹션 앵커 이동 시 사이트 헤더 + sticky 내비에 가리지 않도록 여백 확보 */
   .panel {
-    scroll-margin-top: 4rem;
+    scroll-margin-top: calc(var(--site-header-h, 4.5rem) + 4rem);
     margin-top: 2rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -1479,6 +1579,7 @@ import {
   }
 
   input[type='text'],
+  input[type='email'],
   input[type='password'],
   input[type='date'],
   select,
@@ -1539,20 +1640,45 @@ import {
     margin: 0;
   }
 
+  /* .btn.ghost 기본 스타일은 global.css에 있고, 이 페이지는 목록 행에
+     맞게 크기만 줄인다 */
   .btn.ghost {
-    background: var(--color-bg);
-    color: var(--color-primary);
-    border: 1px solid var(--color-border);
     padding: 0.5rem 1.1rem;
   }
 
-  .btn.ghost:hover {
-    border-color: var(--color-primary);
-    background: var(--color-primary-soft);
-  }
-
+  /* 삭제 버튼은 글자색뿐 아니라 테두리로도 위험 동작임을 드러낸다 */
   .btn.ghost.danger {
     color: #b3261e;
+    border-color: rgba(179, 38, 30, 0.35);
+  }
+
+  .btn.ghost.danger:hover {
+    background: rgba(179, 38, 30, 0.08);
+    border-color: #b3261e;
+  }
+
+  /* 목록 행 버튼 터치 표적 확보 (모바일) */
+  @media (pointer: coarse) {
+    .btn.ghost {
+      padding: 0.65rem 1.1rem;
+    }
+  }
+
+  /* 저장 결과 문구: 내용이 있을 때만 강조해서 성공·실패를 놓치지 않게
+     한다 (#token-status는 항상 내용이 있는 status-line이라 제외) */
+  #gate-status:not(:empty),
+  #new-status:not(:empty),
+  #img-status:not(:empty),
+  #editor-status:not(:empty),
+  #note-status:not(:empty),
+  #app-status:not(:empty),
+  #video-status:not(:empty) {
+    background: var(--color-primary-soft);
+    border-left: 3px solid var(--color-primary);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    color: var(--color-text);
+    font-weight: 600;
   }
 
   .hint {
@@ -1673,13 +1799,33 @@ import {
 
   .admin-topbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
     margin-bottom: 0.5rem;
+  }
+
+  /* 상단 요약 줄(글 수 · 최근 반영 · 회원 수) */
+  #admin-summary {
+    font-size: 0.875rem;
+    color: var(--color-muted);
   }
 
   #admin-login-gate {
     max-width: 30rem;
     margin: 2rem auto 0;
+  }
+
+  /* 로그인 게이트: label로 감싼 입력칸이 한 줄 폭을 나눠 쓰게 한다.
+     (위 input[type='password']의 width:auto는 .row 직속일 때를 위한
+     규칙이라, label 안에서는 다시 꽉 채운다) */
+  .gate-row label {
+    flex: 1 1 12rem;
+  }
+
+  .gate-row label input {
+    width: 100%;
+    min-width: 0;
   }
 
   @media (max-width: 40rem) {

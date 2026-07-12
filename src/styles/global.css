@@ -12,14 +12,48 @@
 
 /* ── 디자인 토큰 ─────────────────────────────────────────── */
 :root {
-  --color-bg: #ffffff;
-  --color-text: #222222;
-  --color-muted: #5c6670;
+  color-scheme: light dark; /* 폼 컨트롤·스크롤바가 테마를 따르게 */
+
+  /* 브랜드 — #0b5394 유지(연속성), 주변 톤만 정돈 */
   --color-primary: #0b5394;
-  --color-primary-strong: #084070;
-  --color-primary-soft: #eef4fa;
-  --color-border: #e5e8ec;
-  --color-surface: #f8fafc;
+  --color-primary-strong: #083c6b;
+  --color-primary-soft: #edf3fa;
+  --color-primary-border: #b9cfe4;
+
+  /* 중립 — 순회색 대신 파란 기 도는 잉크 계열 (오너 선호: 검정·흰색 기반) */
+  --color-bg: #ffffff;
+  --color-surface: #f6f8fb;
+  --color-surface-2: #eceff5;
+  --color-text: #1c2430;
+  --color-heading: #122238; /* 제목 전용 잉크 — 위계가 색으로도 생긴다 */
+  --color-muted: #5a6472;
+  --color-border: #e2e7ee;
+  --color-border-strong: #cbd5e1;
+
+  /* 상태·배지 (페이지별 하드코딩 hex 회수용) */
+  --color-live: #1e9e5a;
+  --color-live-pulse: rgba(30, 158, 90, 0.45);
+  --badge-note-fg: #6b3fd4;
+  --badge-note-bg: #f3eefc;
+  --badge-app-fg: #0a6e4b;
+  --badge-app-bg: #e7f5ee;
+
+  /* 그림자 — 라이트/다크 각각 정의 */
+  --shadow-sm: 0 1px 2px rgba(15, 30, 50, 0.06);
+  --shadow-md: 0 4px 16px rgba(15, 30, 50, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 30, 50, 0.16);
+
+  /* 타이포 스케일 */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.625rem;
+  --text-3xl: clamp(2rem, 1.35rem + 2.2vw, 2.75rem);
+
+  /* 간격 리듬 */
+  --space-section: clamp(3.5rem, 2.5rem + 3vw, 5rem);
 
   --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
@@ -27,7 +61,14 @@
 
   --container: 68rem;
   --prose-width: 44rem;
-  --radius: 10px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  /* 히어로·헤더 */
+  --hero-glow: rgba(11, 83, 148, 0.08);
+  --hero-dot: rgba(11, 83, 148, 0.1);
+  --header-bg: rgba(255, 255, 255, 0.85);
 
   /* 버튼 색은 별도 토큰으로 분리해, 다크모드에서 흰 글씨 대비를 유지한다 */
   --btn-bg: var(--color-primary);
@@ -38,14 +79,30 @@
 /* ── 다크모드 (시스템 설정 따름) ─────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #0f1620;
-    --color-text: #e7ebf0;
-    --color-muted: #9aa6b2;
-    --color-primary: #5aa2e8;
-    --color-primary-strong: #7bb8f0;
-    --color-primary-soft: #17263a;
-    --color-border: #27313d;
-    --color-surface: #151d27;
+    --color-bg: #0e141d;
+    --color-surface: #141c27;
+    --color-surface-2: #1a2432;
+    --color-text: #e6ebf2;
+    --color-heading: #f2f6fb;
+    --color-muted: #98a4b3;
+    --color-border: #263140;
+    --color-border-strong: #364353;
+    --color-primary: #66a9ea;
+    --color-primary-strong: #8cc0f2;
+    --color-primary-soft: #16273c;
+    --color-primary-border: #2e4a68;
+    --color-live: #45c07d;
+    --color-live-pulse: rgba(69, 192, 125, 0.4);
+    --badge-note-fg: #c9b6f5;
+    --badge-note-bg: #271f3d;
+    --badge-app-fg: #83d9b2;
+    --badge-app-bg: #123324;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+    --hero-glow: rgba(102, 169, 234, 0.1);
+    --hero-dot: rgba(122, 178, 235, 0.1);
+    --header-bg: rgba(14, 20, 29, 0.85);
     /* 버튼은 다크 배경 위에서도 흰 글씨가 4.5:1 이상 되도록 중간톤 파랑 */
     --btn-bg: #1f6fbf;
     --btn-bg-hover: #2b7fd0;
@@ -106,14 +163,28 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* hidden 속성이 각 페이지의 display 규칙에 지지 않게 하는 전역 가드.
+   같은 요소에 display가 걸려 있으면 hidden이 무시되는 버그가 이 프로젝트에서
+   여러 번 실제로 발생했다(라이트박스·로그인 카드 등). */
+[hidden] {
+  display: none !important;
+}
+
 h1,
 h2,
 h3,
 h4 {
-  line-height: 1.35;
+  color: var(--color-heading);
+  line-height: 1.3;
   letter-spacing: -0.02em;
   font-weight: 700;
   margin: 0;
+}
+
+h1 {
+  font-weight: 800; /* Pretendard Variable 가변축이라 추가 용량 없음 */
+  line-height: 1.22;
+  letter-spacing: -0.032em; /* 한글 대형 제목은 자간을 더 조여야 단단해 보인다 */
 }
 
 p {
@@ -140,6 +211,19 @@ img {
   outline-offset: 2px;
 }
 
+/* 버튼 토큰을 재사용 — 다크모드에서도 흰 글자 대비 4.5:1 이상이 보장된 색 */
+::selection {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+/* 날짜·조회수 등 숫자가 목록에서 흔들리지 않게 고정폭 숫자 사용 */
+time,
+.feed-date,
+.views {
+  font-variant-numeric: tabular-nums;
+}
+
 /* ── 공용 레이아웃 ───────────────────────────────────────── */
 .container {
   max-width: var(--container);
@@ -155,11 +239,11 @@ img {
 
 /* 페이지 상단 제목 블록 */
 .page-head {
-  padding-block: 3.5rem 1rem;
+  padding-block: clamp(3rem, 2rem + 3vw, 4rem) 1.25rem;
 }
 
 .page-head h1 {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-size: clamp(2rem, 1.5rem + 2vw, 2.5rem);
 }
 
 .page-head .lead {
@@ -176,6 +260,7 @@ img {
   font-weight: 600;
   font-size: 1rem;
   padding: 0.8rem 1.75rem;
+  border: 1px solid transparent; /* ghost 변형과 높이 일치 */
   border-radius: var(--radius);
   transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -183,8 +268,23 @@ img {
 .btn:hover {
   background: var(--btn-bg-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(11, 83, 148, 0.18);
+  box-shadow: var(--shadow-md);
   text-decoration: none;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.ghost {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border-strong);
+}
+
+.btn.ghost:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
 }
 
 /* ── 카드 ────────────────────────────────────────────────── */
@@ -197,8 +297,8 @@ img {
 }
 
 .card:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 4px 14px rgba(11, 83, 148, 0.08);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
@@ -230,12 +330,12 @@ img {
 }
 
 .prose h2 {
-  font-size: 1.375rem;
-  margin-top: 2.25em;
+  font-size: 1.5rem;
+  margin-top: 2.5em;
 }
 
 .prose h3 {
-  font-size: 1.125rem;
+  font-size: var(--text-lg);
   margin-top: 1.75em;
 }
 
@@ -284,7 +384,10 @@ img {
   margin: 2.5em 0;
 }
 
+/* 좁은 화면에서 넓은 표는 표 자체가 가로 스크롤되게 */
 .prose table {
+  display: block;
+  overflow-x: auto;
   border-collapse: collapse;
   width: 100%;
 }

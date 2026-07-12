@@ -126,7 +126,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         .order('created_at', { ascending: false });
       const el = $('notes-list');
       if (error) {
-        el.textContent = '강의노트를 불러오지 못했습니다: ' + error.message;
+        el.textContent = '잠시 문제가 생겨 강의노트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ' + error.message + ')';
         return;
       }
       notes = data;
@@ -141,7 +141,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
           return `<button class="card note-card" data-i="${i}">
             <span class="note-meta">
               ${isNew ? '<span class="chip">NEW</span>' : ''}
-              <span class="note-kind">📚 강의노트</span>
+              <span class="note-kind">강의노트</span>
               <time>${fmtDate(n.created_at)}</time>
             </span>
             <span class="note-title"></span>
@@ -171,13 +171,13 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     if (pErr || !profile || !profile.consent_required_at) {
       $('guest').hidden = false;
       $('guest').querySelector('.empty').textContent = pErr
-        ? `회원 정보 확인에 실패했습니다: ${pErr.message}`
+        ? `잠시 문제가 생겨 회원 정보를 확인하지 못했습니다. 잠시 후 다시 시도해 주세요. 계속 안 되면 문의 페이지로 알려 주세요. (오류 내용: ${pErr.message})`
         : '이 계정에는 가입 동의 기록이 없어 강의노트를 볼 수 없습니다. 로그아웃 후 다시 로그인하거나 운영자에게 문의해 주세요.';
       return;
     }
     $('member').hidden = false;
     const name = session.user.user_metadata?.name || session.user.email;
-    $('member-name').textContent = `👋 ${name} 님`;
+    $('member-name').textContent = `${name} 님`;
     $('logout').addEventListener('click', async () => {
       await sb.auth.signOut();
       location.reload();
@@ -194,7 +194,7 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         .eq('id', session.user.id);
       emailNotify.disabled = false;
       if (error) {
-        alert('저장하지 못했습니다: ' + error.message);
+        alert('잠시 문제가 생겨 알림 설정을 저장하지 못했습니다. 잠시 후 다시 시도해 주세요. (오류 내용: ' + error.message + ')');
         emailNotify.checked = !checked;
       }
     });
@@ -242,10 +242,9 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
     accent-color: var(--color-primary);
   }
 
+  /* 기본 스타일은 global.css의 .btn.ghost를 쓰고, 바(bar) 안에 맞게
+     크기만 줄인다 */
   .btn.ghost {
-    background: var(--color-bg);
-    color: var(--color-primary);
-    border: 1px solid var(--color-border);
     padding: 0.4rem 1rem;
   }
 

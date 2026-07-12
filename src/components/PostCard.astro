@@ -12,7 +12,7 @@ const { post, headingLevel = 'h3' } = Astro.props;
 const Heading = headingLevel;
 ---
 
-<article class="card post-card">
+<article class="card post-card" data-category={post.data.category}>
   <div class="meta">
     <span class="chip">{post.data.category}</span>
     <time datetime={post.data.pubDate.toISOString()}>
@@ -32,26 +32,38 @@ const Heading = headingLevel;
 
 <script define:vars={{ GOATCOUNTER_CODE }}>
   // GoatCounter 공개 조회수 배지 API(/counter/<path>.json, 인증 불필요, CORS 허용).
-  // 컴포넌트가 카드마다 반복돼도 Astro가 스크립트를 페이지당 한 번만 실행한다.
-  if (GOATCOUNTER_CODE) {
-    document.querySelectorAll('.views[data-view-path]').forEach(async (el) => {
-      try {
-        const path = el.getAttribute('data-view-path');
-        // 경로 전체(선행 슬래시 포함)를 인코딩해서 붙인다 — GoatCounter 실사용
-        // 사례에서 검증된 형식: /counter/<encodeURIComponent(경로)>.json
-        const res = await fetch(
-          `https://${GOATCOUNTER_CODE}.goatcounter.com/counter/${encodeURIComponent(path)}.json`
-        );
-        // 집계 이력이 없는 경로는 404를 주지만 본문은 여전히 유효한 JSON({"count":"0"})이다.
-        const data = await res.json();
-        const n = Number(data.count || 0);
-        el.textContent = `· 조회 ${n.toLocaleString('ko-KR')}회`;
-        el.hidden = false;
-      } catch {
-        // 통계 서비스 연결 전이거나 실패 시 조용히 숨김 유지 (레이아웃 깨짐 방지)
-      }
-    });
-  }
+  // 주의: define:vars 스크립트는 인라인으로 처리돼 카드 수만큼 반복 삽입된다.
+  // 첫 번째 복사본만 동작하도록 가드하되, 그 복사본은 자기 카드 직후(파싱
+  // 도중)에 실행되므로 스캔을 문서 파싱 완료 후로 미뤄 모든 카드를 잡는다.
+  (() => {
+    if (window.__viewsBadgeDone) return;
+    window.__viewsBadgeDone = true;
+    if (!GOATCOUNTER_CODE) return;
+    function run() {
+      document.querySelectorAll('.views[data-view-path]').forEach(async (el) => {
+        try {
+          const path = el.getAttribute('data-view-path');
+          // 경로 전체(선행 슬래시 포함)를 인코딩해서 붙인다 — GoatCounter 실사용
+          // 사례에서 검증된 형식: /counter/<encodeURIComponent(경로)>.json
+          const res = await fetch(
+            `https://${GOATCOUNTER_CODE}.goatcounter.com/counter/${encodeURIComponent(path)}.json`
+          );
+          // 집계 이력이 없는 경로는 404를 주지만 본문은 여전히 유효한 JSON({"count":"0"})이다.
+          const data = await res.json();
+          const n = Number(data.count || 0);
+          el.textContent = `· 조회 ${n.toLocaleString('ko-KR')}회`;
+          el.hidden = false;
+        } catch {
+          // 통계 서비스 연결 전이거나 실패 시 조용히 숨김 유지 (레이아웃 깨짐 방지)
+        }
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run, { once: true });
+    } else {
+      run();
+    }
+  })();
 </script>
 
 <style>
@@ -74,7 +86,7 @@ const Heading = headingLevel;
   }
 
   .title {
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
   }
 
   .title a {
@@ -88,5 +100,10 @@ const Heading = headingLevel;
   .description {
     font-size: 0.95rem;
     color: var(--color-muted);
+    /* 그리드에서 카드 높이가 들쭉날쭉하지 않게 2줄로 자름 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 </style>

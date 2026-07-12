@@ -18,13 +18,20 @@ const { Content } = await render(post);
 const canonicalUrl = Astro.site
   ? new URL(withBase(`/blog/${post.id}/`), Astro.site).href
   : withBase(`/blog/${post.id}/`);
+// 대표 이미지는 사이트 공통 OG 이미지(절대 URL 필요 — BaseLayout과 동일 규칙)
+const ogImageUrl = Astro.site
+  ? new URL(withBase('/og-default.png'), Astro.site).href
+  : withBase('/og-default.png');
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: post.data.title,
   description: post.data.description,
   datePublished: post.data.pubDate.toISOString(),
+  // 별도 수정일 필드를 두지 않으므로 발행일과 동일하게 표기
+  dateModified: post.data.pubDate.toISOString(),
   articleSection: post.data.category,
+  image: ogImageUrl,
   mainEntityOfPage: canonicalUrl,
   author: { '@type': 'Organization', name: SITE_TITLE },
   publisher: { '@type': 'Organization', name: SITE_TITLE },

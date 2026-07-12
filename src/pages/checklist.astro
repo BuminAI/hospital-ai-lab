@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideRelated from '../components/GuideRelated.astro';
 import { checklistIntro, checklistSections } from '../data/checklist';
+
+const [introLead, introNotice] = checklistIntro.split('\n\n');
 ---
 
 <BaseLayout
@@ -11,7 +13,8 @@ import { checklistIntro, checklistSections } from '../data/checklist';
   <div class="container">
     <header class="page-head">
       <h1>AI 도입 검토 체크리스트</h1>
-      <p class="lead">{checklistIntro}</p>
+      <p class="lead">{introLead}</p>
+      {introNotice && <p class="notice">{introNotice}</p>}
     </header>
 
     {
@@ -32,6 +35,13 @@ import { checklistIntro, checklistSections } from '../data/checklist';
 </BaseLayout>
 
 <style>
+  .notice {
+    margin-top: 1rem;
+    max-width: var(--prose-width);
+    font-size: 0.92rem;
+    color: var(--color-muted);
+  }
+
   .section {
     margin-top: 2.75rem;
     max-width: var(--prose-width);

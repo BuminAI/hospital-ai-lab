@@ -19,7 +19,7 @@ import { CONTACT_EMAIL } from '../utils/site';
     <div class="email-card">
       <p class="label">이메일</p>
       <p class="email">{CONTACT_EMAIL}</p>
-      <button type="button" class="btn" id="copy-email">📋 메일 주소 복사</button>
+      <button type="button" class="btn" id="copy-email">메일 주소 복사</button>
       <p class="copy-hint">복사한 주소를 평소 쓰시는 메일 앱에 붙여넣어 보내주세요.</p>
       <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
     </div>
@@ -63,7 +63,7 @@ import { CONTACT_EMAIL } from '../utils/site';
         }
         document.body.removeChild(ta);
       }
-      btn.textContent = '✅ 복사했습니다';
+      btn.textContent = '복사했습니다';
       status.textContent = `${CONTACT_EMAIL} 이(가) 클립보드에 복사됐습니다.`;
       clearTimeout(resetTimer);
       resetTimer = setTimeout(() => {
