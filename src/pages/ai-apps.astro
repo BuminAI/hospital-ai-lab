@@ -14,6 +14,11 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
         직접 AI로 만든 프로그램을 소개합니다. 어떤 것들이 있는지는 누구나
         볼 수 있고, 로그인하면 파일을 내려받을 수 있습니다.
       </p>
+      <p class="terms-notice">
+        이용조건: 여기서 내려받은 프로그램은 <strong>개인 학습·업무 참고용</strong>으로만
+        무료 제공됩니다. 파일을 수정하거나 다른 사람·다른 사이트에 재배포하거나
+        상업적으로 이용하는 것은 금지합니다. 저작권은 병원 AI 연구소에 있습니다.
+      </p>
       <p class="shots-disclaimer">
         ※ 카드에 보이는 "앱 화면"·"결과물 화면" 스크린샷 속 수치·이름 등
         데이터는 사용법을 보여주기 위해 만든 예시(가상) 데이터이며, 실제
@@ -263,6 +268,21 @@ import { withBase, SUPABASE_URL, SUPABASE_ANON_KEY } from '../utils/site';
   .empty,
   .hint {
     color: var(--color-muted);
+  }
+
+  .terms-notice {
+    margin-top: 1rem;
+    max-width: var(--prose-width);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1.1rem;
+  }
+
+  .terms-notice strong {
+    color: var(--color-heading);
   }
 
   .shots-disclaimer {
