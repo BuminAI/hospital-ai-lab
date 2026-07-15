@@ -6,6 +6,7 @@ import {
   SITE_TITLE,
   SITE_TAGLINE,
   CONTACT_EMAIL,
+  YOUTUBE_CHANNEL_URL,
   DISCLAIMER,
   NAVER_SITE_VERIFICATION,
   GOOGLE_SITE_VERIFICATION,
@@ -226,6 +227,11 @@ const year = new Date().getFullYear();
           <p class="footer-disclaimer">{DISCLAIMER}</p>
           <div class="footer-meta">
             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            <span aria-hidden="true">·</span>
+            <a href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+              유튜브 채널
+              <span class="sr-only"> (새 탭으로 열림)</span>
+            </a>
             <span aria-hidden="true">·</span>
             <a href={withBase('/rss.xml')}>새 글 자동 받기(RSS)</a>
             <span aria-hidden="true">·</span>

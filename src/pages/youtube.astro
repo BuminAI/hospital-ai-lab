@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import allVideos from '../data/recommended-videos.json';
+import { YOUTUBE_CHANNEL_URL } from '../utils/site';
 
-const CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
 const VISIBLE_LIMIT = 6;
 
 // 다른 채널 추천 영상은 최신 업데이트순(내림차순)으로 정렬한다.
@@ -52,30 +52,38 @@ const ownVideos = allVideos
       </h2>
       {
         ownVideos.length > 0 ? (
-          <div class="video-grid" id="own-grid">
-            {ownVideos.map((v, i) => (
-              <a
-                class="video-card"
-                href={v.url}
-                target="_blank"
-                rel="noopener"
-                data-extra={i >= VISIBLE_LIMIT ? 'true' : undefined}
-                hidden={i >= VISIBLE_LIMIT}
-              >
-                <img
-                  src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
-                  alt=""
-                  loading="lazy"
-                  width="480"
-                  height="360"
-                />
-                <p class="video-title">
-                  {v.title}
-                  <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
-                </p>
+          <>
+            <div class="video-grid" id="own-grid">
+              {ownVideos.map((v, i) => (
+                <a
+                  class="video-card"
+                  href={v.url}
+                  target="_blank"
+                  rel="noopener"
+                  data-extra={i >= VISIBLE_LIMIT ? 'true' : undefined}
+                  hidden={i >= VISIBLE_LIMIT}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+                    alt=""
+                    loading="lazy"
+                    width="480"
+                    height="360"
+                  />
+                  <p class="video-title">
+                    {v.title}
+                    <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
+                  </p>
+                </a>
+              ))}
+            </div>
+            <p class="channel-subscribe">
+              <a href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+                유튜브에서 채널 구독하기 →
+                <span class="sr-only"> (새 탭으로 열림)</span>
               </a>
-            ))}
-          </div>
+            </p>
+          </>
         ) : (
           <div class="channel-card">
             <span class="chip">준비 중</span>
@@ -83,7 +91,7 @@ const ownVideos = allVideos
               아직 영상 제작 전입니다. 채널을 미리 구독해 두시면 첫 영상이
               올라올 때 바로 확인하실 수 있습니다.
             </p>
-            <a class="btn" href={CHANNEL_URL} target="_blank" rel="noopener">
+            <a class="btn" href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
               유튜브 채널 바로가기
             </a>
           </div>
@@ -228,6 +236,14 @@ const ownVideos = allVideos
     font-weight: 600;
     color: var(--color-primary);
     white-space: nowrap;
+  }
+
+  .channel-subscribe {
+    margin-top: 1.25rem;
+  }
+
+  .channel-subscribe a {
+    font-weight: 600;
   }
 
   /* 선정 기준·면책 안내 — lead보다 한 단계 낮은 톤 */

@@ -58,5 +58,6 @@ export const SITE_TAGLINE = '의료 현장의 문제를 AI로 풉니다.';
 // 올린다 — 자동 계산값이 아니다.
 export const SITE_VERSION = '0.9';
 export const CONTACT_EMAIL = 'choyj80@naver.com';
+export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
 export const DISCLAIMER =
   '본 사이트의 콘텐츠는 일반적인 정보 제공과 연구·교육 목적이며, 특정 환자에 대한 의학적 진단이나 조언을 대신하지 않습니다.';
