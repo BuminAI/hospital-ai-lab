@@ -3,9 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import allVideos from '../data/recommended-videos.json';
 
 const CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
-// 다른 채널 추천 영상과 연구소장이 직접 만든 영상을 구분해 보여준다
-const videos = allVideos.filter((v) => v.source !== 'own');
-const ownVideos = allVideos.filter((v) => v.source === 'own');
+const VISIBLE_LIMIT = 6;
+
+// 다른 채널 추천 영상은 최신 업데이트순(내림차순)으로 정렬한다.
+const videos = allVideos
+  .filter((v) => v.source !== 'own')
+  .sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
+
+// 연구소장 영상은 1강→2강→3강 순서(등록 순, addedAt 오름차순)를 그대로
+// 유지한다 — 강의 시리즈라 "최신순"으로 뒤집으면 순서가 깨진다. 두
+// 섹션 모두 6개까지만 보이고 나머지는 소제목을 눌러야 펼쳐진다.
+const ownVideos = allVideos
+  .filter((v) => v.source === 'own')
+  .sort((a, b) => new Date(a.addedAt) - new Date(b.addedAt));
 ---
 
 <BaseLayout
@@ -28,12 +38,30 @@ const ownVideos = allVideos.filter((v) => v.source === 'own');
     </header>
 
     <section>
-      <h2 class="section-label">연구소장이 직접 만든 영상</h2>
+      <h2 class="section-label">
+        {
+          ownVideos.length > VISIBLE_LIMIT ? (
+            <button type="button" class="section-toggle" aria-expanded="false" aria-controls="own-grid">
+              연구소장이 직접 만든 영상
+              <span class="toggle-text">더보기 ({ownVideos.length - VISIBLE_LIMIT}) ▾</span>
+            </button>
+          ) : (
+            '연구소장이 직접 만든 영상'
+          )
+        }
+      </h2>
       {
         ownVideos.length > 0 ? (
-          <div class="video-grid">
-            {ownVideos.map((v) => (
-              <a class="video-card" href={v.url} target="_blank" rel="noopener">
+          <div class="video-grid" id="own-grid">
+            {ownVideos.map((v, i) => (
+              <a
+                class="video-card"
+                href={v.url}
+                target="_blank"
+                rel="noopener"
+                data-extra={i >= VISIBLE_LIMIT ? 'true' : undefined}
+                hidden={i >= VISIBLE_LIMIT}
+              >
                 <img
                   src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
                   alt=""
@@ -64,12 +92,30 @@ const ownVideos = allVideos.filter((v) => v.source === 'own');
     </section>
 
     <section class="channel-section">
-      <h2 class="section-label">다른 채널의 추천 영상</h2>
+      <h2 class="section-label">
+        {
+          videos.length > VISIBLE_LIMIT ? (
+            <button type="button" class="section-toggle" aria-expanded="false" aria-controls="others-grid">
+              다른 채널의 추천 영상
+              <span class="toggle-text">더보기 ({videos.length - VISIBLE_LIMIT}) ▾</span>
+            </button>
+          ) : (
+            '다른 채널의 추천 영상'
+          )
+        }
+      </h2>
       {
         videos.length > 0 ? (
-          <div class="video-grid">
-            {videos.map((v) => (
-              <a class="video-card" href={v.url} target="_blank" rel="noopener">
+          <div class="video-grid" id="others-grid">
+            {videos.map((v, i) => (
+              <a
+                class="video-card"
+                href={v.url}
+                target="_blank"
+                rel="noopener"
+                data-extra={i >= VISIBLE_LIMIT ? 'true' : undefined}
+                hidden={i >= VISIBLE_LIMIT}
+              >
                 <img
                   src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
                   alt=""
@@ -91,6 +137,26 @@ const ownVideos = allVideos.filter((v) => v.source === 'own');
     </section>
   </div>
 </BaseLayout>
+
+<script>
+  // 소제목(section-toggle 버튼)을 누르면 6개 뒤로 숨겨 둔 영상(data-extra)을
+  // 펼치거나 다시 접는다. 서버가 그린 요소를 그대로 쓰므로 스코프드 스타일이
+  // 정상 적용된다(admin·홈처럼 innerHTML로 새로 그리는 페이지가 아님).
+  document.querySelectorAll('.section-toggle').forEach((btn) => {
+    const gridId = btn.getAttribute('aria-controls');
+    const grid = gridId ? document.getElementById(gridId) : null;
+    const extraCards = grid ? grid.querySelectorAll('.video-card[data-extra]') : [];
+    const label = btn.querySelector('.toggle-text');
+    btn.addEventListener('click', () => {
+      const expanding = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', String(expanding));
+      extraCards.forEach((card) => {
+        card.hidden = !expanding;
+      });
+      if (label) label.textContent = expanding ? '접기 ▴' : `더보기 (${extraCards.length}) ▾`;
+    });
+  });
+</script>
 
 <style>
   .video-grid {
@@ -139,6 +205,29 @@ const ownVideos = allVideos.filter((v) => v.source === 'own');
     margin-top: 0;
     font-size: 1.1rem;
     color: var(--color-muted);
+  }
+
+  .section-toggle {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .section-toggle:hover {
+    color: var(--color-primary);
+  }
+
+  .toggle-text {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
   }
 
   /* 선정 기준·면책 안내 — lead보다 한 단계 낮은 톤 */
