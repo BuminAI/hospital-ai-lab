@@ -3,20 +3,36 @@
 다른 컴퓨터 · 다른 Claude 세션에서 이 프로젝트를 이어서 작업할 때 읽는 문서입니다.
 (사이트 운영 규칙은 [CLAUDE.md](CLAUDE.md), 사실의 원천은 [briefing.md](briefing.md), 회원 기능 개통은 [supabase/SETUP-GUIDE.md](supabase/SETUP-GUIDE.md) 참조)
 
-**마지막 갱신: 2026-07-11.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
+**마지막 갱신: 2026-07-16.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
 
 ## 0. 새 컴퓨터로 옮길 때 — 무엇이 자동으로 따라오고, 무엇이 안 따라오는가
 
 | 항목 | 새 컴퓨터로 자동 이전됨? | 비고 |
 | --- | --- | --- |
 | 사이트 코드 전체, 이 문서, CLAUDE.md, briefing.md | ✅ (git clone) | GitHub에 있음 |
+| `.claude/agents/`, `.claude/skills/`, `.claude/settings.json`(도구 사전 허용) | ✅ | git에 커밋됨 |
 | GitHub Actions 자동화(뉴스·영상 수집, 배포) | ✅ | GitHub 클라우드에서 실행, 컴퓨터와 무관 |
 | Supabase(회원·DB·Storage·GitHub 토큰 저장) | ✅ | 클라우드 서비스, 컴퓨터와 무관. 로그인만 다시 하면 됨 |
-| **예약 블로그 자동 작성(daily-blog-post)** | ❌ | Claude 앱의 로컬 예약 작업이라 **이 컴퓨터에서만** 실행됨. 새 컴퓨터에서 §4-2 참고해 다시 만들어야 함 |
+| **예약 작업 2개(daily-blog-post, site-health-check)** | ❌ | Claude 앱의 로컬 예약 작업이라 **이 컴퓨터에서만** 실행됨. 새 컴퓨터에서 §4-2·4-3 참고해 다시 만들어야 함 |
+| **네이버 SMTP 자격 증명(`naver-smtp.xml`)** | ❌ **(복사해도 소용없음)** | Windows DPAPI로 암호화돼 **이 컴퓨터·이 Windows 계정에서만 복호화**된다. 새 컴퓨터에서 앱 비밀번호를 새로 발급받아 다시 만들어야 함(§4-3) |
 | **Claude의 프로젝트 기억(memory, 이 대화의 교훈들)** | ❌ | `C:\Users\a\.claude\projects\...\memory\`에 로컬 저장. 아래 §6에 핵심만 옮겨 적어 둠 |
-| `gh` CLI 로그인, `.claude/run-npm.cmd` | ❌ | 컴퓨터별 로컬 설정(gitignore됨). §2 참고해 새로 설정 |
+| **Claude Code 대화 기록** | ❌ | 로컬 저장. 새 컴퓨터에서는 새 세션으로 시작된다(이 문서를 보여주면 대부분 파악함) |
+| `gh` CLI 로그인, `.claude/run-npm.cmd`, `.claude/launch.json`, `.claude/settings.local.json` | ❌ | 컴퓨터별 로컬 설정(gitignore됨). §2 참고해 새로 만들 것 |
 
-**결론**: 코드와 클라우드 서비스는 그대로 이어지지만, **예약 블로그 자동 작성만은 반드시 새 컴퓨터에서 다시 설정**해야 계속 매일 발행됩니다. 이 문서(HANDOFF.md)를 새 Claude 세션에게 보여주면 나머지는 대부분 알아서 파악합니다.
+**결론**: 코드와 클라우드 서비스는 그대로 이어진다. 새 컴퓨터에서 **반드시 다시 해야 하는 것은 예약 작업 2개 재생성과 네이버 SMTP 앱 비밀번호 재발급** 두 가지뿐이다.
+
+### 0-1. 이동 순서 (이 순서대로 하면 됨)
+
+1. **(옛 컴퓨터) 남은 작업을 push한다.** `git status`로 커밋 안 된 게 없는지 확인 → 있으면 커밋·push. 이게 안 되면 그 작업은 안 따라온다.
+2. **(새 컴퓨터) Node.js 설치** — 18.17 이상. 기본 경로(`C:\Program Files\nodejs`)에 설치하면 §2의 래퍼가 그대로 동작한다.
+3. **(새 컴퓨터) 저장소 복제 + 의존성 설치** — §2의 명령 4줄.
+4. **(새 컴퓨터) `.claude/run-npm.cmd`와 `.claude/launch.json`을 새로 만든다** — §2에 내용 그대로 있음(git에 없는 파일이라 직접 만들어야 함).
+5. **`npm run build`가 성공하는지 확인.** 여기까지 되면 사이트 작업은 바로 이어갈 수 있다.
+6. **`gh auth login`으로 GitHub CLI 로그인** — 배포 상태 확인·워크플로 수동 실행에 필요.
+7. **관리자 페이지(`/admin/`) 로그인 확인** — 이메일+비밀번호만 있으면 되고, GitHub 토큰은 Supabase에 저장돼 있어 자동으로 따라온다(§3).
+8. **예약 작업 2개 재생성** — 새 Claude 세션에게 §4-2·§4-3의 요청 문구를 그대로 말하면 된다.
+9. **네이버 SMTP 앱 비밀번호 재발급 후 자격 증명 재생성**(§4-3). 이걸 안 하면 매일 아침 점검 메일만 안 온다(점검 자체는 됨).
+10. **(옛 컴퓨터) 정리** — 예약 작업 2개를 지운다. 안 지우면 두 컴퓨터가 같은 글을 중복 발행하려 할 수 있다.
 
 ## 1. 이 프로젝트가 무엇인가
 
@@ -49,6 +65,29 @@ npm run build    # 배포본 생성(dist/)
   )
   ```
   사용법: `./.claude/run-npm.cmd build` (`run` 없이 바로 astro 하위 명령을 붙임)
+
+- **`.claude/launch.json`도 gitignore 대상**이라 새로 만들어야 한다(Claude가 미리보기 서버를 띄울 때 씀):
+
+  ```json
+  {
+    "version": "0.0.1",
+    "configurations": [
+      {
+        "name": "preview",
+        "runtimeExecutable": "D:\\hospital-aI-lab\\.claude\\run-npm.cmd",
+        "runtimeArgs": ["preview"],
+        "port": 4321
+      },
+      {
+        "name": "dev",
+        "runtimeExecutable": "D:\\hospital-aI-lab\\.claude\\run-npm.cmd",
+        "runtimeArgs": ["dev"],
+        "port": 4321
+      }
+    ]
+  }
+  ```
+  (새 컴퓨터의 저장소 경로가 다르면 `runtimeExecutable` 경로를 그에 맞게 고칠 것)
 
 - `gh` CLI(GitHub 작업용)가 새 컴퓨터에 없다면 `gh auth login`으로 로그인.
 - `main`에 push하면 `.github/workflows/deploy.yml`이 자동 빌드·배포한다.
@@ -94,6 +133,15 @@ npm run build    # 배포본 생성(dist/)
 - 저장 위치: `C:\Users\a\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음)
 - 새 컴퓨터에서는 새 Claude 세션에게 "HANDOFF.md 4-3 참고해서 매일 아침 사이트 자가 점검(보고 전용) 예약 작업을 다시 만들어줘"라고 요청하면 된다.
 
+### 4-4. 실무 팁 (수동 — 자동화 아님, 2026-07-16 신설)
+
+- `/tips/`(카드 목록) + `/tips/1~10/`(상세). 데이터는 **`src/data/tips.ts` 하나**에 다 들어 있고, 페이지 두 개가 그 파일만 읽는다. 항목을 고치려면 이 파일만 고치면 된다.
+- 원본은 오너가 준 `업무TIP10선.docx`. **제목과 목록만 옮겼고, 원문 각 항목 첫머리의 "핵심" 요약 문장은 오너 지시로 제외**했다.
+- 카드에 보이는 `title`·`hook`은 후킹용으로 새로 쓴 것이고, 상세 페이지 제목(`fullTitle`)이 원문 제목이다.
+- 도구 이름에는 공식 사이트 링크가 붙어 있다(`links`). **링크 42개는 2026-07-16에 전부 실제 접속해 확인**했다. 새 링크를 추가할 때도 반드시 접속 확인할 것(§6의 curl 403 함정 참고).
+- 항목 이름이 `A · B`처럼 두 도구를 담으면 `links`에 각각 넣는다(라벨을 ` · `로 이어 붙이면 이름과 정확히 같아야 함).
+- 관리자 페이지에서 편집하는 기능은 **없다**(코드 직접 수정). 새 팁을 추가하려면 `tips.ts`에 항목을 넣으면 페이지가 자동 생성된다.
+
 ## 5. 외부 서비스 · 크리덴셜 위치
 
 | 서비스 | 용도 | 크리덴셜 / 설정 위치 |
@@ -103,6 +151,9 @@ npm run build    # 배포본 생성(dist/)
 | Supabase | 회원·인증·DB·Storage·GitHub 토큰 보관 | `src/utils/site.ts`의 `SUPABASE_URL`·`SUPABASE_ANON_KEY`(anon 키는 공개용, RLS로 보호). **service_role 키는 절대 코드에 넣지 말 것** |
 | GoatCounter | 방문자 통계 | `src/utils/site.ts`의 `GOATCOUNTER_CODE = 'hospital-ai-lab'` |
 | 네이버/구글 | 검색 등록 | `src/utils/site.ts`의 `NAVER_SITE_VERIFICATION`·`GOOGLE_SITE_VERIFICATION` |
+| 유튜브 채널 | 영상 | `src/utils/site.ts`의 `YOUTUBE_CHANNEL_URL` (추천 영상 페이지·푸터에서 링크) |
+| Resend | 새 글 이메일 알림 | **아직 미설정**(§8). GitHub Secrets에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY` 필요 — `supabase/SETUP-GUIDE.md` 4-1 |
+| 네이버 메일 | 자가 점검 보고 발송 | 앱 비밀번호(§4-3). 이 컴퓨터의 `naver-smtp.xml`에만 있고 **이전 불가** |
 
 ### Supabase 마이그레이션 (2026-07-11부터 — 파일 하나로 통합)
 
@@ -124,7 +175,10 @@ npm run build    # 배포본 생성(dist/)
 - **무인 예약 세션은 승인 창에 걸리면 영영 멈춘다**: 예약 작업이 "실행됐다"고 기록되는데 결과물이 없으면 십중팔구 도구 승인 대기다. 해결은 `.claude/settings.json`의 permissions.allow에 그 도구를 사전 등록하는 것(§4-2 참조).
 - **GitHub 예약(cron)은 크게 못 믿는다**: 예약 횟수의 상당 부분이 실행되지 않거나 9~13시간 늦게 돈다. 특정 시각 보장이 필요하면 예약을 촘촘히 여러 개 걸고 스크립트를 멱등(변경 없으면 아무것도 안 함)하게 만들 것.
 - **Astro 스코프드 스타일은 `innerHTML`로 넣은 요소에 안 먹는다**: admin.astro처럼 목록을 JS로 그리는 페이지는 `<style is:global>`을 써야 한다(안 그러면 `.btn.ghost` 같은 규칙이 무시되고 전역 기본 스타일로 떨어진다).
-- **`hidden` 속성은 같은 요소에 `display:` CSS가 걸려 있으면 무시된다**: 작성자 CSS(`form { display:flex }` 등)가 브라우저 기본 `[hidden]{display:none}`보다 우선이라, JS로 hidden을 붙여도 요소가 계속 보인다. ai-apps 라이트박스(07-10)와 login 페이지의 "새 비밀번호 설정" 카드(07-11)에서 두 번 실제 발생. JS로 hidden을 토글하는 페이지에는 `[hidden] { display:none !important; }` 가드를 스타일에 넣을 것.
+- **`hidden` 속성은 같은 요소에 `display:` CSS가 걸려 있으면 무시된다**: 작성자 CSS(`form { display:flex }` 등)가 브라우저 기본 `[hidden]{display:none}`보다 우선이라, JS로 hidden을 붙여도 요소가 계속 보인다. ai-apps 라이트박스(07-10)와 login 페이지의 "새 비밀번호 설정" 카드(07-11)에서 두 번 실제 발생. **2026-07-12에 `global.css`에 `[hidden] { display:none !important; }` 전역 가드를 넣어 원천 차단했으니 이제 페이지마다 따로 넣을 필요는 없다.**
+- **`curl`이 403·401을 줘도 죽은 링크가 아닐 수 있다**: Claude·Perplexity·Unsplash·Pexels·Make는 curl에 봇 차단으로 403/401을 주지만 브라우저에서는 멀쩡하다. 반대로 Adobe Express는 curl에서 연결 자체가 실패(000)했지만 정상이었다. **링크 검증은 curl로 1차만 거르고, 이상한 코드가 나오면 반드시 브라우저로 확인할 것**(2026-07-16 실무 팁 링크 42개 검증에서 확인).
+- **JSX(.astro)에서 `<a>` 태그 안에 줄바꿈을 두면 그 공백까지 밑줄이 그어진다**: `<a>\n  {label}\n</a>`처럼 쓰면 앞뒤 공백이 링크 텍스트에 포함된다. 링크는 `<a href={..}>{label}</a>`로 붙여 쓸 것(tips/[no].astro 참고).
+- **스크린샷 도구(`computer` action:screenshot)가 자주 30초 타임아웃난다**: 사이트 문제가 아니라 도구 문제. `javascript_tool`로 `getComputedStyle`·DOM 값을 직접 읽어 검증하는 편이 빠르고 확실하다.
 - **Astro 컴포넌트의 `<details>`로 "데스크톱은 항상 펼침" 흉내내지 말 것**: 최신 Chrome이 닫힌 `<details>`의 자식(요약 제외)을 `content-visibility`로 강제 숨겨 CSS `display:block`으로도 못 되돌린다. 토글이 필요하면 버튼+JS로 만들 것.
 - **정적 사이트에는 진짜 파일 접근 제어가 없다**: `public/`에 넣은 건 전부 공개된다. "로그인한 사람만 다운로드"가 필요하면 Supabase Storage의 비공개 버킷 + RLS를 써야 한다(AI로 만든 앱 기능이 이 패턴).
 - **비밀값(GitHub 토큰 등)을 사이트 코드나 localStorage에 하드코딩하지 말 것**: 정적 사이트는 방문자 전원에게 코드가 공개된다. 서버(Supabase) + RLS만이 실제 방어선이다.
@@ -136,35 +190,52 @@ npm run build    # 배포본 생성(dist/)
 src/
 ├── pages/
 │   ├── index.astro, about.astro, contact.astro, privacy.astro
-│   ├── blog/index.astro, blog/[id].astro
+│   ├── blog/index.astro, blog/[id].astro   # 목록에 카테고리 필터(순수 JS)
 │   ├── news.astro          # AI 뉴스 (메디칼타임즈 자동 수집)
-│   ├── youtube.astro       # 추천 영상 + 연구소장 직접 제작 영상
+│   ├── youtube.astro       # 추천 영상 — 연구소장 제작분이 위, 각 섹션 6개까지만 보이고 더보기로 펼침
+│   ├── tips.astro          # 실무 팁 카드 목록 (2026-07-16 신설)
+│   ├── tips/[no].astro     # 실무 팁 상세 (/tips/1/ ~ /tips/10/)
 │   ├── notes.astro         # 강의노트 (회원 전용, Supabase)
 │   ├── ai-apps.astro       # AI로 만든 앱 (회원 전용, Supabase Storage, 파일 형식 제한 없음·최대 50MB — 요금제 절대 상한)
 │   ├── glossary.astro, faq.astro, checklist.astro, guide.astro   # 입문 가이드 4종
 │   ├── login.astro / signup.astro   # 회원 기능(Supabase, 구글 OAuth 포함)
 │   ├── admin.astro          # 관리자 대시보드 (이메일+비번 로그인 하나로 통합, §3)
-│   ├── rss.xml.js, robots.txt.ts
-├── content/blog/            # 블로그 글(마크다운) — _writing-template.md 참고
+│   ├── rss.xml.js, robots.txt.ts    # robots.txt는 파일이 아니라 이 라우트가 생성함
+├── content/blog/            # 블로그 글(마크다운). 현재 10편
 ├── data/                    # research.ts, glossary.ts, faq.ts, checklist.ts, guide.ts,
-│                             # news.json, recommended-videos.json
-├── layouts/BaseLayout.astro # 헤더(모바일 메뉴 버튼)·푸터·다크모드·OG 이미지
+│                             # tips.ts(실무 팁 — 링크 포함), news.json,
+│                             # recommended-videos.json, notified-posts.json(알림 발송 이력)
+├── layouts/BaseLayout.astro # 헤더(로고 SVG·모바일 메뉴)·푸터(2열+사이트맵)·다크모드·OG
 ├── components/              # PostCard, ResearchIcon
+├── styles/global.css        # 디자인 토큰(색·그림자·타이포·간격) — 2026-07-12 전면 개편
 └── utils/site.ts            # 사이트 상수·크리덴셜(한 곳에서 관리)
-.claude/agents/               # planner·writer·reviewer·builder·maintainer
-.claude/skills/               # new-post·maintenance·update-page
-.claude/scheduled-tasks/daily-blog-post/   # 로컬 전용, §4-2 참고
+.claude/agents/               # planner·writer·reviewer·builder·maintainer (git에 있음)
+.claude/skills/               # new-post·maintenance·update-page (git에 있음)
+.claude/settings.json         # 무인 예약 세션용 도구 사전 허용 (git에 있음 — §4-2)
 supabase/                    # setup.sql(재실행 안전, 이거 하나만 유지) + SETUP-GUIDE.md
 scripts/                     # fetch-news.mjs·fetch-videos.mjs·gen-assets.mjs
 public/                      # favicon, og-default.png, fonts/(Pretendard 자체호스팅)
 ```
 
-## 8. 현재 미완료 · 오너 확인 필요 (2026-07-08 기준)
+> **예약 작업은 저장소 안이 아니라 `C:\Users\a\.claude\scheduled-tasks\`에 있다**
+> (`daily-blog-post/`, `site-health-check/`). git에 없으므로 새 컴퓨터에서 재생성 필요(§4-2·4-3).
 
-- [ ] **강의노트 콘텐츠**: 실제로 몇 개 작성됐는지 관리자 페이지에서 확인 필요.
+## 7-1. 상단 메뉴 구성 (2026-07-16 기준, 9개)
+
+홈 · 소개 · 블로그 · AI 뉴스 · 강의노트 · AI로 만든 앱 · 추천 영상 · 실무 팁 · 입문 가이드
+
+- **문의는 상단 메뉴에서 뺐다**(2026-07-12, 메뉴 밀도 완화). 페이지(`/contact/`)와 주소는 그대로 살아 있고, 푸터 사이트맵과 홈 하단 밴드로 들어간다.
+- 용어사전·FAQ·체크리스트는 상단에 없다 — 입문 가이드의 "더 볼 자료"와 푸터 사이트맵에서 연결한다.
+
+## 8. 현재 미완료 · 오너 확인 필요 (2026-07-16 기준)
+
+- [ ] **`setup.sql` 재실행**: 홈 화면 "이어지는 소식"에 강의노트가 뜨려면 비회원에게 제목·날짜만 공개하는 정책이 필요하다(본문은 계속 회원 전용). Supabase SQL Editor에 `setup.sql`을 다시 붙여넣고 Run 하면 적용된다. **안 해도 사이트는 정상**이고 블로그·AI 앱만 표시된다.
+- [ ] **새 글 이메일 알림(Resend)이 아직 한 번도 동작한 적 없음**: GitHub 저장소에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY`가 등록되지 않아 배포 때마다 조용히 건너뛴다(사이트 배포 자체는 정상). 켜려면 `supabase/SETUP-GUIDE.md` 4-1 참고.
 - [ ] **검색엔진 사이트맵 제출**: 네이버 서치어드바이저·구글 서치 콘솔에서 소유확인 후 `sitemap-index.xml` 제출 여부 확인.
-- [ ] **관리자 비밀번호**: `whdudwns80*`로 변경 완료했는지 확인. (Supabase 마이그레이션은 2026-07-11 `setup.sql` 하나로 통합되어 재실행 안전해졌고 정상 작동 확인됨 — §5 참고, 더 이상 별도 확인 불필요)
+- [ ] **관리자 비밀번호**: `whdudwns80*`로 변경 완료했는지 확인.
 - [ ] (선택) 개인정보 처리방침 보호책임자 실명 기재 여부 검토.
+- [ ] (오너 결정 대기) **소개 페이지 약력 타임라인**: 항목이 2개뿐이라 오히려 빈약해 보인다는 진단. "경력 17년(기획 7년)" 한 줄로 대체할지 결정 필요.
+- [ ] (오너 결정 대기) **상단 메뉴 추가 축소**: 현재 9개. 6개까지 줄이는 안이 있으나 강의노트·AI앱·추천영상이 푸터로 내려가는 손실이 있어 보류 중.
 
 ## 9. 반드시 지키는 원칙
 

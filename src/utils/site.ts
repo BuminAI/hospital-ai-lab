@@ -52,11 +52,9 @@ export const GOOGLE_SITE_VERIFICATION = '5zd4BPyIzNe4dZJnx59GxYhFTkVoNQmcRoIJ9YS
 export const SITE_TITLE = '병원 AI 연구소';
 export const SITE_TAGLINE = '의료 현장의 문제를 AI로 풉니다.';
 
-// 홈 화면 하단에 "아직 계속 개발 중"임을 보여주는 버전 표시. 배포일은
-// 빌드 시 git 커밋 시각에서 자동으로 구하므로(index.astro) 여기서는
-// 버전 숫자만 관리하면 된다. 기능이 크게 늘거나 바뀔 때 사람이 판단해
-// 올린다 — 자동 계산값이 아니다.
-export const SITE_VERSION = '0.9';
+// 홈 화면 하단에는 "계속 업데이트되고 있습니다 · 마지막 업데이트 {날짜}"만
+// 표시한다. 날짜는 마지막 git 커밋에서 빌드 시 자동으로 구한다(index.astro).
+// 방문자에게 의미 없는 버전 숫자(v0.9)는 2026-07-12에 뺐다.
 export const CONTACT_EMAIL = 'choyj80@naver.com';
 export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
 export const DISCLAIMER =
