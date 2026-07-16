@@ -1,4 +1,5 @@
 ---
+import { Fragment } from 'astro/jsx-runtime';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../utils/site';
 import { tips } from '../../data/tips';
@@ -8,14 +9,6 @@ export function getStaticPaths() {
 }
 
 const { tip } = Astro.props;
-
-// 각 항목은 "이름 — 설명" 형태다. 앞의 이름만 굵게 떼어내 읽기 쉽게 만든다.
-// 구분자(—)가 없는 항목은 통째로 설명으로 둔다.
-function split(item: string): { name: string | null; desc: string } {
-  const i = item.indexOf(' — ');
-  if (i === -1) return { name: null, desc: item };
-  return { name: item.slice(0, i), desc: item.slice(i + 3) };
-}
 
 const total = tip.groups.reduce((sum, g) => sum + g.items.length, 0);
 const prev = tips.find((t) => t.no === tip.no - 1);
@@ -38,15 +31,27 @@ const next = tips.find((t) => t.no === tip.no + 1);
         <section class="tip-group">
           {group.label && <h2>{group.label}</h2>}
           <ol class="tip-items">
-            {group.items.map((item) => {
-              const { name, desc } = split(item);
-              return (
-                <li>
-                  {name && <strong>{name}</strong>}
-                  <span>{desc}</span>
-                </li>
-              );
-            })}
+            {group.items.map((item) => (
+              <li>
+                {item.name &&
+                  (item.links ? (
+                    // 이름 조각마다 공식 사이트로 링크한다 (예: Otter · Fathom).
+                    // 태그 사이에 줄바꿈을 두면 그 공백까지 밑줄이 그어져 붙여 쓴다.
+                    <strong>
+                      {item.links.map((link, i) => (
+                        <Fragment>
+                          {i > 0 && <span class="sep"> · </span>}
+                          {/* prettier-ignore */}
+                          <a href={link.url} target="_blank" rel="noopener">{link.label}<span class="sr-only"> (새 탭으로 열림)</span></a>
+                        </Fragment>
+                      ))}
+                    </strong>
+                  ) : (
+                    <strong>{item.name}</strong>
+                  ))}
+                <span>{item.desc}</span>
+              </li>
+            ))}
           </ol>
         </section>
       ))
@@ -170,6 +175,23 @@ const next = tips.find((t) => t.no === tip.no + 1);
     color: var(--color-heading);
     font-size: 1.0625rem;
     letter-spacing: -0.01em;
+  }
+
+  /* 공식 사이트로 나가는 링크 — 색만으로 구분되지 않게 밑줄을 함께 쓴다 */
+  .tip-items strong a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .tip-items strong a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .tip-items .sep {
+    color: var(--color-muted);
+    font-weight: 400;
   }
 
   .tip-items strong + span {
