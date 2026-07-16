@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/site';
+import { tips } from '../../data/tips';
+
+export function getStaticPaths() {
+  return tips.map((tip) => ({ params: { no: String(tip.no) }, props: { tip } }));
+}
+
+const { tip } = Astro.props;
+
+// 각 항목은 "이름 — 설명" 형태다. 앞의 이름만 굵게 떼어내 읽기 쉽게 만든다.
+// 구분자(—)가 없는 항목은 통째로 설명으로 둔다.
+function split(item: string): { name: string | null; desc: string } {
+  const i = item.indexOf(' — ');
+  if (i === -1) return { name: null, desc: item };
+  return { name: item.slice(0, i), desc: item.slice(i + 3) };
+}
+
+const total = tip.groups.reduce((sum, g) => sum + g.items.length, 0);
+const prev = tips.find((t) => t.no === tip.no - 1);
+const next = tips.find((t) => t.no === tip.no + 1);
+---
+
+<BaseLayout title={tip.title} description={`${tip.hook} — ${tip.fullTitle}. 병원 기획·홍보·AI 업무에 바로 쓰는 실무 팁 ${total}가지를 정리했습니다.`}>
+  <div class="container">
+    <p class="back"><a href={withBase('/tips/')}>← 실무 팁 목록</a></p>
+
+    <header class="tip-head">
+      <p class="tip-no">TIP {String(tip.no).padStart(2, '0')}</p>
+      <h1>{tip.fullTitle}</h1>
+      <p class="tip-hook">{tip.hook}</p>
+      <p class="tip-count">{total}가지</p>
+    </header>
+
+    {
+      tip.groups.map((group) => (
+        <section class="tip-group">
+          {group.label && <h2>{group.label}</h2>}
+          <ol class="tip-items">
+            {group.items.map((item) => {
+              const { name, desc } = split(item);
+              return (
+                <li>
+                  {name && <strong>{name}</strong>}
+                  <span>{desc}</span>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      ))
+    }
+
+    <nav class="tip-nav" aria-label="다른 실무 팁">
+      {
+        prev ? (
+          <a class="tip-nav-link prev" href={withBase(`/tips/${prev.no}/`)}>
+            <span class="dir">← 이전</span>
+            <span class="name">{prev.title}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next && (
+          <a class="tip-nav-link next" href={withBase(`/tips/${next.no}/`)}>
+            <span class="dir">다음 →</span>
+            <span class="name">{next.title}</span>
+          </a>
+        )
+      }
+    </nav>
+  </div>
+</BaseLayout>
+
+<style>
+  .back {
+    padding-top: 2rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .tip-head {
+    max-width: var(--prose-width);
+    padding-block: 1.5rem 0;
+  }
+
+  .tip-no {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+  }
+
+  .tip-head h1 {
+    margin-top: 0.6rem;
+    font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem);
+  }
+
+  .tip-hook {
+    margin-top: 0.85rem;
+    font-size: 1.075rem;
+    color: var(--color-muted);
+  }
+
+  .tip-count {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+
+  .tip-group {
+    max-width: var(--prose-width);
+    margin-top: 2rem;
+  }
+
+  .tip-group h2 {
+    font-size: var(--text-lg);
+    color: var(--color-primary);
+  }
+
+  .tip-group h2 + .tip-items {
+    margin-top: 1rem;
+  }
+
+  /* 번호를 직접 그려 넣는다 — 기본 마커보다 눈에 잘 띄고 간격을 맞추기 쉽다 */
+  .tip-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: tip-item;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .tip-items li {
+    position: relative;
+    counter-increment: tip-item;
+    padding: 1rem 1.25rem 1rem 3.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+  }
+
+  .tip-items li::before {
+    content: counter(tip-item);
+    position: absolute;
+    left: 1.1rem;
+    top: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tip-items strong {
+    display: block;
+    color: var(--color-heading);
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+  }
+
+  .tip-items strong + span {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .tip-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: var(--prose-width);
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .tip-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    color: var(--color-text);
+    font-size: var(--text-sm);
+  }
+
+  .tip-nav-link.next {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  .tip-nav-link:hover {
+    text-decoration: none;
+  }
+
+  .tip-nav-link:hover .name {
+    color: var(--color-primary);
+  }
+
+  .tip-nav-link .dir {
+    color: var(--color-muted);
+  }
+
+  .tip-nav-link .name {
+    font-weight: 600;
+  }
+</style>

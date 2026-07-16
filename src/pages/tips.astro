@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/site';
+import { tips } from '../data/tips';
+
+// 카드에 보이는 항목 수 — 상세로 들어가기 전 "몇 개짜리인지" 가늠하게 한다
+const countOf = (no: number) => {
+  const t = tips.find((x) => x.no === no);
+  return t ? t.groups.reduce((sum, g) => sum + g.items.length, 0) : 0;
+};
+---
+
+<BaseLayout
+  title="실무 팁"
+  description="병원 기획·홍보·AI 업무에 바로 쓰는 실무 팁을 카드로 정리했습니다. 크롬 확장프로그램, 업무용 AI 도구, 엑셀 기능, 검색 연산자, 발표자료 제작까지 주제별로 모았습니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>실무 팁</h1>
+      <p class="lead">
+        병원 기획·홍보·AI 업무에 바로 쓰는 도구와 방법을 주제별로 모았습니다.
+        카드를 누르면 항목이 펼쳐집니다.
+      </p>
+      <p class="notice">
+        웹 자료를 모아 정리했고, 외국어 자료는 한글로 옮겼습니다. 가격·기능은
+        자주 바뀌니 도입 전에 각 서비스의 공식 페이지에서 최신 정보를 확인해
+        주세요.
+      </p>
+    </header>
+
+    <ul class="tip-grid">
+      {
+        tips.map((tip) => (
+          <li>
+            <a
+              class="tip-card"
+              href={withBase(`/tips/${tip.no}/`)}
+              data-bg={String(tip.no).padStart(2, '0')}
+            >
+              <span class="tip-no">TIP {String(tip.no).padStart(2, '0')}</span>
+              <span class="tip-title">{tip.title}</span>
+              <span class="tip-hook">{tip.hook}</span>
+              <span class="tip-foot">
+                <span class="tip-count">{countOf(tip.no)}가지</span>
+                <span class="tip-more">펼쳐 보기 →</span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .notice {
+    margin-top: 0.9rem;
+    max-width: var(--prose-width);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+
+  .tip-grid {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* 카드뉴스 한 장 — 이미지 파일 없이 CSS로 그린다.
+     번호를 배경에 크게 깔아 카드마다 인상이 구분되게 했다. */
+  .tip-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    min-height: 11.5rem;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(22rem 12rem at 110% -20%, var(--hero-glow), transparent 70%),
+      var(--color-bg);
+    color: var(--color-text);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  }
+
+  .tip-card:hover {
+    text-decoration: none;
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  /* 배경에 깔리는 큰 번호 */
+  .tip-card::after {
+    content: attr(data-bg);
+    position: absolute;
+    right: -0.5rem;
+    bottom: -2.5rem;
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-primary);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .tip-no {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+  }
+
+  .tip-title {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+
+  .tip-card:hover .tip-title {
+    color: var(--color-primary);
+  }
+
+  .tip-hook {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .tip-foot {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.85rem;
+    font-size: var(--text-sm);
+  }
+
+  .tip-count {
+    color: var(--color-muted);
+  }
+
+  .tip-more {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 52rem) {
+    .tip-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 32rem) {
+    .tip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
