@@ -5,6 +5,14 @@
 
 **마지막 갱신: 2026-07-16.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
 
+> **2026-07-16 이사 완료.** 새 컴퓨터(Windows 계정 `choyj`, 저장소 `D:\hospital-ai-lab`)로 옮겼다.
+> 클론 · 의존성 · 빌드(39페이지 성공) · 예약 작업 2개 재생성까지 끝났고, 옛 컴퓨터의 예약 작업은 삭제했다.
+> 이 문서의 로컬 경로는 전부 새 컴퓨터 기준으로 고쳐 뒀다(옛 경로는 `C:\Users\a\...`였음).
+>
+> **아직 남은 것 2가지**
+> - **네이버 SMTP 앱 비밀번호 재발급**(§4-3) — 오너만 발급할 수 있다. 안 하면 아침 점검 **메일만** 안 온다(점검 실행과 앱 알림은 정상).
+> - **`gh` CLI 미설치**(오너 결정) — push만으로 배포되므로 배포에는 무관. 대신 점검 작업이 GitHub Actions 상태를 gh 대신 웹(공개 저장소 Actions 페이지)으로 읽도록 해 뒀다. 나중에 설치하면 `gh auth login`까지 하면 된다.
+
 ## 0. 새 컴퓨터로 옮길 때 — 무엇이 자동으로 따라오고, 무엇이 안 따라오는가
 
 | 항목 | 새 컴퓨터로 자동 이전됨? | 비고 |
@@ -15,7 +23,7 @@
 | Supabase(회원·DB·Storage·GitHub 토큰 저장) | ✅ | 클라우드 서비스, 컴퓨터와 무관. 로그인만 다시 하면 됨 |
 | **예약 작업 2개(daily-blog-post, site-health-check)** | ❌ | Claude 앱의 로컬 예약 작업이라 **이 컴퓨터에서만** 실행됨. 새 컴퓨터에서 §4-2·4-3 참고해 다시 만들어야 함 |
 | **네이버 SMTP 자격 증명(`naver-smtp.xml`)** | ❌ **(복사해도 소용없음)** | Windows DPAPI로 암호화돼 **이 컴퓨터·이 Windows 계정에서만 복호화**된다. 새 컴퓨터에서 앱 비밀번호를 새로 발급받아 다시 만들어야 함(§4-3) |
-| **Claude의 프로젝트 기억(memory, 이 대화의 교훈들)** | ❌ | `C:\Users\a\.claude\projects\...\memory\`에 로컬 저장. 아래 §6에 핵심만 옮겨 적어 둠 |
+| **Claude의 프로젝트 기억(memory, 이 대화의 교훈들)** | ❌ | `C:\Users\choyj\.claude\projects\...\memory\`에 로컬 저장. 아래 §6에 핵심만 옮겨 적어 둠 |
 | **Claude Code 대화 기록** | ❌ | 로컬 저장. 새 컴퓨터에서는 새 세션으로 시작된다(이 문서를 보여주면 대부분 파악함) |
 | `gh` CLI 로그인, `.claude/run-npm.cmd`, `.claude/launch.json`, `.claude/settings.local.json` | ❌ | 컴퓨터별 로컬 설정(gitignore됨). §2 참고해 새로 만들 것 |
 
@@ -74,13 +82,13 @@ npm run build    # 배포본 생성(dist/)
     "configurations": [
       {
         "name": "preview",
-        "runtimeExecutable": "D:\\hospital-aI-lab\\.claude\\run-npm.cmd",
+        "runtimeExecutable": "D:\\hospital-ai-lab\\.claude\\run-npm.cmd",
         "runtimeArgs": ["preview"],
         "port": 4321
       },
       {
         "name": "dev",
-        "runtimeExecutable": "D:\\hospital-aI-lab\\.claude\\run-npm.cmd",
+        "runtimeExecutable": "D:\\hospital-ai-lab\\.claude\\run-npm.cmd",
         "runtimeArgs": ["dev"],
         "port": 4321
       }
@@ -117,7 +125,7 @@ npm run build    # 배포본 생성(dist/)
 ### 4-2. 매일 블로그 자동 작성 (⚠️ 로컬 — 새 컴퓨터에서 반드시 재설정)
 
 - **이건 GitHub Actions가 아니라 Claude 앱의 예약 작업(scheduled task)**입니다. 매일 KST 22:00경 이 컴퓨터의 Claude 앱이 열려 있을 때 실행되어, 주제 선정 → 작성 → 출처 검증 → 발행까지 자동으로 합니다.
-- 저장 위치: `C:\Users\a\.claude\scheduled-tasks\daily-blog-post\SKILL.md` (로컬 파일 — git에 없고 새 컴퓨터에 자동으로 안 생김)
+- 저장 위치: `C:\Users\choyj\.claude\scheduled-tasks\daily-blog-post\SKILL.md` (로컬 파일 — git에 없고 새 컴퓨터에 자동으로 안 생김)
 - **오너 지시(2026-07-08)**: 이 자동 글은 사실 검증(모든 주장에 객관적 출처, 확인 안 되면 무발행)을 통과하면 **오너 승인 없이 바로 발행**한다. 이 예외는 CLAUDE.md의 "작업 규칙"에도 명시되어 있음.
 - **무인 실행이 멈추지 않게 하는 핵심 장치(2026-07-09, 오너 승인)**: 예약 세션이 쓰는 도구(WebFetch·WebSearch·git·gh·빌드·블로그 폴더 쓰기)를 `.claude/settings.json`(git에 커밋됨)에 사전 허용해 뒀다. 이게 없으면 무인 세션이 승인 창에 걸려 영영 멈춘다 — 실제로 2026-07-09 실행이 출처 확인(WebFetch) 승인 대기에 걸려 멈춘 것을 확인하고 넣은 조치다. 예약 작업에 새 도구를 쓰게 하려면 이 허용 목록도 함께 갱신할 것.
 - 실행이 끝날 때마다 알림이 오도록 설정되어 있다(notifyOnCompletion). 알림이 안 오면 그 날 실행이 안 된 것.
@@ -128,9 +136,9 @@ npm run build    # 배포본 생성(dist/)
 ### 4-3. 매일 사이트 자가 점검 (⚠️ 로컬 — 새 컴퓨터에서 재설정 필요)
 
 - **매일 오전 9시경** 실행되는 Claude 예약 작업(`site-health-check`). **보고 전용**(수리 안 함, 오너 지시 2026-07-10) — 주요 페이지 접속, 뉴스·영상·블로그 자동화 신선도, GitHub Actions 실패, Supabase 서버 상태(마이그레이션 누락 감지 포함), 최근 글 출처 링크 생존을 점검하고 결과를 보고한다.
-- **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\a\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다.
+- **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\choyj\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다.
   - **네이버 SMTP는 일반 로그인 비밀번호로는 인증이 안 된다(2026-07-11 확인, `5.5.1 Authentication Required`).** 반드시 "앱 비밀번호"를 따로 발급해야 함: 네이버 계정 → 보안설정 → **2단계 인증** → **애플리케이션 비밀번호 관리** 화면에서 이름(아무 값이나) 입력 후 "생성하기" → 영문 대문자+숫자 12자리 발급. 이 값을 `naver-smtp.xml`에 저장해야 한다(2단계 인증 자체가 꺼져 있어도 이 화면은 그대로 쓸 수 있었음). 일반 비밀번호나 2단계 인증 OTP(6자리 숫자)는 여기 쓸 수 없다 — 반드시 이 화면에서 생성된 값이어야 한다.
-- 저장 위치: `C:\Users\a\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음)
+- 저장 위치: `C:\Users\choyj\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음)
 - 새 컴퓨터에서는 새 Claude 세션에게 "HANDOFF.md 4-3 참고해서 매일 아침 사이트 자가 점검(보고 전용) 예약 작업을 다시 만들어줘"라고 요청하면 된다.
 
 ### 4-4. 실무 팁 (수동 — 자동화 아님, 2026-07-16 신설)
@@ -217,7 +225,7 @@ scripts/                     # fetch-news.mjs·fetch-videos.mjs·gen-assets.mjs
 public/                      # favicon, og-default.png, fonts/(Pretendard 자체호스팅)
 ```
 
-> **예약 작업은 저장소 안이 아니라 `C:\Users\a\.claude\scheduled-tasks\`에 있다**
+> **예약 작업은 저장소 안이 아니라 `C:\Users\choyj\.claude\scheduled-tasks\`에 있다**
 > (`daily-blog-post/`, `site-health-check/`). git에 없으므로 새 컴퓨터에서 재생성 필요(§4-2·4-3).
 
 ## 7-1. 상단 메뉴 구성 (2026-07-16 기준, 9개)
@@ -229,6 +237,8 @@ public/                      # favicon, og-default.png, fonts/(Pretendard 자체
 
 ## 8. 현재 미완료 · 오너 확인 필요 (2026-07-16 기준)
 
+- [ ] **네이버 SMTP 앱 비밀번호 재발급**(이사로 새로 생긴 항목, §4-3): 새 컴퓨터에는 `naver-smtp.xml`이 없다(DPAPI라 이전 불가). 오너가 직접 발급해야 하며, 그때까지 아침 점검 **메일만** 안 나간다(점검 실행·앱 알림은 정상).
+- [ ] (선택) **`gh` CLI 설치**(이사로 새로 생긴 항목): 오너 결정으로 미설치. `winget install GitHub.cli` 후 `gh auth login`. 없어도 배포(push 자동)·점검(웹으로 Actions 확인)은 정상.
 - [ ] **`setup.sql` 재실행**: 홈 화면 "이어지는 소식"에 강의노트가 뜨려면 비회원에게 제목·날짜만 공개하는 정책이 필요하다(본문은 계속 회원 전용). Supabase SQL Editor에 `setup.sql`을 다시 붙여넣고 Run 하면 적용된다. **안 해도 사이트는 정상**이고 블로그·AI 앱만 표시된다.
 - [ ] **새 글 이메일 알림(Resend)이 아직 한 번도 동작한 적 없음**: GitHub 저장소에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY`가 등록되지 않아 배포 때마다 조용히 건너뛴다(사이트 배포 자체는 정상). 켜려면 `supabase/SETUP-GUIDE.md` 4-1 참고.
 - [ ] **검색엔진 사이트맵 제출**: 네이버 서치어드바이저·구글 서치 콘솔에서 소유확인 후 `sitemap-index.xml` 제출 여부 확인.
