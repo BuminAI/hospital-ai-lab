@@ -10,13 +10,15 @@
 > 이 문서의 로컬 경로는 전부 새 컴퓨터 기준으로 고쳐 뒀다(옛 경로는 `C:\Users\a\...`였음).
 >
 > `gh` CLI 설치(2.96.0) · `gh auth login`(BuminAI) · git identity 설정까지 끝냈고, push와 배포가 정상 동작하는 것을 확인했다.
+> **네이버 SMTP도 앱 비밀번호를 새로 발급해 `naver-smtp.xml`을 재생성했고, 실제 발송까지 확인했다.** 즉 이사 관련 미결 항목은 없다.
 >
-> **아직 남은 것 1가지**
-> - **네이버 SMTP 앱 비밀번호 재발급**(§4-3) — 오너만 발급할 수 있다. 안 하면 아침 점검 **메일만** 안 온다(점검 실행과 앱 알림은 정상). 발송 스크립트 `send-report.ps1`은 이미 만들어 뒀으니, `naver-smtp.xml`만 만들면 된다(§4-3에 명령 있음).
->
-> **이사하며 겪은 함정 2가지 (다음 이사 때 참고)**
+> **이사하며 겪은 함정 4가지 (다음 이사 때 참고 — 전부 이 문서에 없던 것들이다)**
 > - **git identity가 아예 없어 첫 커밋이 거부된다**(`Author identity unknown`). §0 표에 없던 항목이다. `git config --global user.name 'BuminAI'` / `user.email 'busanbuminfutures1004@gmail.com'`로 해결.
-> - **이 컴퓨터에는 다른 GitHub 계정(`cyhodr-dotcom`)이 로그인돼 있었다.** 그 상태로는 push가 403(`Permission ... denied to cyhodr-dotcom`)으로 막힌다. gh는 **브라우저에 현재 로그인된 계정**을 그대로 가져가므로, 브라우저를 BuminAI로 바꾸는 것만으로는 부족하고 `gh auth logout` → `gh auth login`으로 저장된 토큰을 갈아끼워야 한다. (이 계정의 정체는 아직 확인되지 않음 — 오너 확인 필요)
+> - **이 컴퓨터에는 다른 GitHub 계정(`cyhodr-dotcom`)이 로그인돼 있었다.** 그 상태로는 push가 403(`Permission ... denied to cyhodr-dotcom`)으로 막힌다. gh는 **브라우저에 현재 로그인된 계정**을 그대로 가져가므로, 브라우저를 BuminAI로 바꾸는 것만으로는 부족하고 `gh auth logout` → `gh auth login`으로 저장된 토큰을 갈아끼워야 한다. (이 계정의 정체는 아직 확인되지 않음 — 오너 확인 필요, §8)
+> - **`gh auth login`은 브라우저에서 "Congratulations"가 떠도 끝난 게 아니다.** 명령창이 그 승인을 받아 토큰을 저장해야 완료된다. 승인 후 명령창에 `✓ Logged in as ...`가 뜰 때까지 창을 닫지 말 것. `gh auth status`로 확인하는 게 확실하다.
+> - **PowerShell 실행 정책 때문에 `.ps1`이 실행되지 않는다**(`PSSecurityException / UnauthorizedAccess`). 새 Windows의 기본값이라 `send-report.ps1`이 막힌다. `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`로 해결(2026-07-16 오너가 직접 적용). 이러면 자동화에 우회 옵션을 넣지 않아도 된다.
+>
+> **npm 참고**: 최신 npm은 설치 스크립트를 기본 차단해 `esbuild`·`sharp`에 경고가 뜨지만, 빌드에는 지장 없었다(승인 불필요).
 
 ## 0. 새 컴퓨터로 옮길 때 — 무엇이 자동으로 따라오고, 무엇이 안 따라오는가
 
@@ -143,7 +145,15 @@ npm run build    # 배포본 생성(dist/)
 - **매일 오전 9시경** 실행되는 Claude 예약 작업(`site-health-check`). **보고 전용**(수리 안 함, 오너 지시 2026-07-10) — 주요 페이지 접속, 뉴스·영상·블로그 자동화 신선도, GitHub Actions 실패, Supabase 서버 상태(마이그레이션 누락 감지 포함), 최근 글 출처 링크 생존을 점검하고 결과를 보고한다.
 - **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\choyj\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다.
   - **네이버 SMTP는 일반 로그인 비밀번호로는 인증이 안 된다(2026-07-11 확인, `5.5.1 Authentication Required`).** 반드시 "앱 비밀번호"를 따로 발급해야 함: 네이버 계정 → 보안설정 → **2단계 인증** → **애플리케이션 비밀번호 관리** 화면에서 이름(아무 값이나) 입력 후 "생성하기" → 영문 대문자+숫자 12자리 발급. 이 값을 `naver-smtp.xml`에 저장해야 한다(2단계 인증 자체가 꺼져 있어도 이 화면은 그대로 쓸 수 있었음). 일반 비밀번호나 2단계 인증 OTP(6자리 숫자)는 여기 쓸 수 없다 — 반드시 이 화면에서 생성된 값이어야 한다.
-- 저장 위치: `C:\Users\choyj\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음)
+  - **`naver-smtp.xml` 재생성 방법(2026-07-16 실제로 이렇게 했음)**: 오너가 직접 PowerShell 창에서 아래 두 줄을 실행한다. 앱 비밀번호는 가려진 입력창에 직접 넣으므로 대화나 파일에 평문으로 남지 않는다. (Claude에게 앱 비밀번호를 불러주지 말 것 — 대화 기록에 평문으로 남는다. 실수로 노출했다면 네이버에서 그 항목을 삭제하고 새로 발급할 것.)
+
+    ```powershell
+    cd "$env:USERPROFILE\.claude\scheduled-tasks\site-health-check"
+    Get-Credential -UserName 'choyj80@naver.com' -Message '네이버 앱 비밀번호' | Export-Clixml naver-smtp.xml
+    ```
+
+  - **실행 정책 주의**: 이걸 만들어도 `.ps1` 실행이 Windows 기본 정책에 막혀 있으면 메일이 안 나간다(`PSSecurityException`). `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` 한 번이면 해결된다(보안 설정이라 오너가 직접). 시험: `.\send-report.ps1 -Subject '시험' -Body '시험'` → `발송 완료:`가 뜨면 정상.
+- 저장 위치: `C:\Users\choyj\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음). 같은 폴더에 `send-report.ps1`(자격 증명 없음 — `naver-smtp.xml`에서 읽음)도 있다.
 - 새 컴퓨터에서는 새 Claude 세션에게 "HANDOFF.md 4-3 참고해서 매일 아침 사이트 자가 점검(보고 전용) 예약 작업을 다시 만들어줘"라고 요청하면 된다.
 
 ### 4-4. 실무 팁 (수동 — 자동화 아님, 2026-07-16 신설)
@@ -242,7 +252,7 @@ public/                      # favicon, og-default.png, fonts/(Pretendard 자체
 
 ## 8. 현재 미완료 · 오너 확인 필요 (2026-07-16 기준)
 
-- [ ] **네이버 SMTP 앱 비밀번호 재발급**(이사로 새로 생긴 항목, §4-3): 새 컴퓨터에는 `naver-smtp.xml`이 없다(DPAPI라 이전 불가). 오너가 직접 발급해야 하며, 그때까지 아침 점검 **메일만** 안 나간다(점검 실행·앱 알림은 정상). `send-report.ps1`은 이미 있음.
+- [x] ~~**네이버 SMTP 앱 비밀번호 재발급**~~ — 2026-07-16 완료. 새 앱 비밀번호로 `naver-smtp.xml` 재생성 + 실제 발송 확인.
 - [ ] (오너 확인 필요) **`cyhodr-dotcom` 계정의 정체**: 이사 때 이 컴퓨터에 이 GitHub 계정이 로그인돼 있어 push가 403으로 막혔다. gh는 BuminAI로 다시 로그인해 해결했지만, 이 계정이 오너의 다른 계정인지 제3자 것인지는 확인되지 않았다. 브라우저 쪽에도 남아 있을 수 있다.
 - [ ] **`setup.sql` 재실행**: 홈 화면 "이어지는 소식"에 강의노트가 뜨려면 비회원에게 제목·날짜만 공개하는 정책이 필요하다(본문은 계속 회원 전용). Supabase SQL Editor에 `setup.sql`을 다시 붙여넣고 Run 하면 적용된다. **안 해도 사이트는 정상**이고 블로그·AI 앱만 표시된다.
 - [ ] **새 글 이메일 알림(Resend)이 아직 한 번도 동작한 적 없음**: GitHub 저장소에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY`가 등록되지 않아 배포 때마다 조용히 건너뛴다(사이트 배포 자체는 정상). 켜려면 `supabase/SETUP-GUIDE.md` 4-1 참고.
