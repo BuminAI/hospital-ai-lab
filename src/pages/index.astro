@@ -38,6 +38,41 @@ const blogFeedSeed = allPosts.slice(0, 10).map((post) => ({
   href: withBase(`/blog/${post.id}/`),
 }));
 
+// 피드에 합칠 AI 뉴스·추천 영상.
+//
+// 둘 다 자동 갱신이라(뉴스 1시간, 영상 매일) 날짜순 정렬에서 항상 최상단을
+// 차지한다. 2건씩 넣어 보니 히어로 미니 피드 4칸을 뉴스·영상이 전부 가져가
+// 칼럼이 한 편도 안 보였다. 그래서 **갈래마다 가장 최근 1건만** 넣는다 —
+// 이러면 히어로에 뉴스 1·영상 1이 오르고 나머지 두 칸은 칼럼·강의노트·앱
+// 몫으로 남는다. 링크는 기사·영상 원문으로 바로 보낸다(외부 새 탭).
+const newsFeedSeed = news.items.slice(0, 1).map((item) => ({
+  badgeClass: 'feed-badge-news',
+  badgeLabel: 'AI 뉴스',
+  title: item.title,
+  dateIso: item.pubDate,
+  href: item.link,
+  external: true,
+}));
+// 영상의 날짜는 업로드일이 아니라 이 사이트에 추가한 날(addedAt)이다 —
+// "소식"의 기준은 우리 사이트에 올라온 시점이기 때문.
+const videoFeedSeed = videos
+  .filter((v) => v.addedAt && v.url)
+  .sort((a, b) => new Date(b.addedAt).valueOf() - new Date(a.addedAt).valueOf())
+  .slice(0, 1)
+  .map((v) => ({
+    badgeClass: 'feed-badge-video',
+    badgeLabel: '추천 영상',
+    title: v.title,
+    dateIso: new Date(v.addedAt).toISOString(),
+    href: v.url,
+    external: true,
+  }));
+
+// 히어로 미니 피드와 아래 게시판이 함께 쓰는 최종 시드(최신순).
+const feedSeed = [...blogFeedSeed, ...newsFeedSeed, ...videoFeedSeed].sort(
+  (a, b) => new Date(b.dateIso).valueOf() - new Date(a.dateIso).valueOf()
+);
+
 const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 5);
 // 홈의 "추천 강의 영상"에는 연구소장이 직접 만든 영상 1편 + 다른 채널
@@ -97,10 +132,15 @@ const siteJsonLd = {
           최근 올라온 소식
         </div>
         <ul class="hero-feed" id="hero-feed">
-          {blogFeedSeed.slice(0, 4).map((item) => (
+          {feedSeed.slice(0, 4).map((item) => (
             <li class="feed-row" data-date={item.dateIso}>
               <span class={`feed-badge ${item.badgeClass}`}>{item.badgeLabel}</span>
-              <a class="feed-title" href={item.href}>{item.title}</a>
+              <a
+                class="feed-title"
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener' : undefined}
+              >{item.title}{item.external && <span class="sr-only"> (새 탭으로 열림)</span>}</a>
               <time class="feed-date" datetime={item.dateIso}>{formatDate(new Date(item.dateIso))}</time>
             </li>
           ))}
@@ -152,22 +192,25 @@ const siteJsonLd = {
        (무JS에서도 보임), 강의노트·AI 앱은 페이지가 뜬 뒤 자바스크립트가
        불러와 같은 목록에 합쳐 넣는다. -->
   {
-    blogFeedSeed.length > 0 && (
+    feedSeed.length > 0 && (
       <section class="section">
         <div class="container">
           <div class="section-head">
             <h2>이어지는 소식</h2>
           </div>
           <p class="feed-note">
-            칼럼·강의노트·AI로 만든 앱 — 새로 올라온 순서대로 모았습니다.
+            칼럼·강의노트·AI로 만든 앱·AI 뉴스·추천 영상 — 새로 올라온 순서대로 모았습니다.
           </p>
           <ul class="activity-feed" id="activity-feed">
-            {blogFeedSeed.slice(4, 10).map((item) => (
+            {feedSeed.slice(4, 10).map((item) => (
               <li class="feed-row" data-date={item.dateIso}>
                 <span class={`feed-badge ${item.badgeClass}`}>{item.badgeLabel}</span>
-                <a class="feed-title" href={item.href}>
-                  {item.title}
-                </a>
+                <a
+                  class="feed-title"
+                  href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener' : undefined}
+                >{item.title}{item.external && <span class="sr-only"> (새 탭으로 열림)</span>}</a>
                 <time class="feed-date" datetime={item.dateIso}>{formatDate(new Date(item.dateIso))}</time>
               </li>
             ))}
@@ -176,6 +219,8 @@ const siteJsonLd = {
             <a class="more" href={withBase('/blog/')}>블로그 전체 보기 →</a>
             <a class="more" href={withBase('/notes/')}>강의노트 보기 →</a>
             <a class="more" href={withBase('/ai-apps/')}>AI로 만든 앱 보기 →</a>
+            <a class="more" href={withBase('/news/')}>AI 뉴스 보기 →</a>
+            <a class="more" href={withBase('/youtube/')}>추천 영상 보기 →</a>
           </div>
         </div>
       </section>
@@ -285,11 +330,11 @@ const siteJsonLd = {
   </p>
 </BaseLayout>
 
-<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, blogFeedSeed }}>
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, feedSeed }}>
   // 히어로의 "최근 소식" 미니 피드와, 아래쪽 "이어지는 소식" 전체
-  // 게시판을 같은 데이터에서 함께 채운다. 블로그는 빌드 시점에 이미
-  // 받은 값(blogFeedSeed)이고, 강의노트·AI로 만든 앱만 여기서 불러와
-  // 합친 뒤 날짜순으로 정렬해 두 곳에 나눠 그린다.
+  // 게시판을 같은 데이터에서 함께 채운다. 칼럼·AI 뉴스·추천 영상은 빌드
+  // 시점에 이미 받은 값(feedSeed)이고, 강의노트·AI로 만든 앱만 여기서
+  // 불러와 합친 뒤 날짜순으로 정렬해 두 곳에 나눠 그린다.
   (async () => {
     const heroFeed = document.getElementById('hero-feed');
     const mainFeed = document.getElementById('activity-feed');
@@ -303,7 +348,7 @@ const siteJsonLd = {
         day: 'numeric',
       });
 
-    function makeRow({ badgeClass, badgeLabel, title, dateIso, href }) {
+    function makeRow({ badgeClass, badgeLabel, title, dateIso, href, external }) {
       const li = document.createElement('li');
       li.className = 'feed-row';
       li.dataset.date = dateIso;
@@ -316,6 +361,15 @@ const siteJsonLd = {
       titleEl.className = 'feed-title';
       titleEl.href = href;
       titleEl.textContent = title;
+      // 뉴스·영상은 외부 원문으로 나간다 — 새 탭 + 스크린리더 안내
+      if (external) {
+        titleEl.target = '_blank';
+        titleEl.rel = 'noopener';
+        const note = document.createElement('span');
+        note.className = 'sr-only';
+        note.textContent = ' (새 탭으로 열림)';
+        titleEl.appendChild(note);
+      }
 
       const dateEl = document.createElement('time');
       dateEl.className = 'feed-date';
@@ -332,7 +386,7 @@ const siteJsonLd = {
       rows.forEach((r) => container.appendChild(makeRow(r)));
     }
 
-    const items = [...blogFeedSeed];
+    const items = [...feedSeed];
 
     if (SUPABASE_URL) {
       try {
@@ -821,6 +875,18 @@ const siteJsonLd = {
   .hero-feed .feed-badge-app {
     color: var(--badge-app-fg);
     background: var(--badge-app-bg);
+  }
+
+  .activity-feed .feed-badge-news,
+  .hero-feed .feed-badge-news {
+    color: var(--badge-news-fg);
+    background: var(--badge-news-bg);
+  }
+
+  .activity-feed .feed-badge-video,
+  .hero-feed .feed-badge-video {
+    color: var(--badge-video-fg);
+    background: var(--badge-video-bg);
   }
 
   .activity-feed .feed-title,
