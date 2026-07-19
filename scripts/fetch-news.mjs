@@ -55,6 +55,55 @@ function kstToIso(s) {
   return Number.isNaN(d.getTime()) ? null : d.toISOString();
 }
 
+// 지면 상단 헤드라인 영역(listTop_wrap)의 기사를 파싱한다.
+// 이 영역은 newsListWrap 위에 있고 <article class="listTop_mainNews">·
+// <article class="listTop_imgNews">로 구성되며, 여기 걸린 기사는 아래
+// 일반 목록(newsList_cont)에 중복해서 나오지 않는다. 즉 이 영역을 읽지
+// 않으면 그 기사는 영영 수집되지 않는다. (2026-07-20 확인 — 최신 기사가
+// 나흘째 누락되던 원인이었다.)
+// 다만 이 영역에는 날짜가 표시되지 않으므로, 날짜는 본문 페이지에서
+// 따로 읽어 온다(fetchArticleMeta).
+function parseTopRows(html) {
+  const start = html.indexOf('listTop_wrap');
+  if (start < 0) return [];
+  const end = html.indexOf('newsListWrap');
+  const region = html.slice(start, end > start ? end : undefined);
+  const rows = [];
+  for (const part of region.split(/<article class="listTop_/).slice(1)) {
+    const block = part.split('</article>')[0];
+    const idM = block.match(/NewsView\.html\?ID=(\d+)/);
+    const titleM = block.match(/headLine[^>]*>([\s\S]*?)<\/h4>/);
+    if (!idM || !titleM) continue;
+    const title = stripTags(titleM[1]);
+    if (!title) continue;
+    rows.push({ id: idM[1], title });
+  }
+  return rows;
+}
+
+// 본문 페이지에서 발행일과 요약을 읽는다.
+// 발행일은 페이지에 박혀 있는 JSON의 "Publish_date" 값을 쓴다(목록의
+// 날짜 표기와 같은 KST 기준). 요약은 og:description을 쓴다 — AI 관련성
+// 판정에 제목만으로는 부족할 때가 있기 때문이다.
+async function fetchArticleMeta(id) {
+  const res = await fetch(ARTICLE_URL(id), {
+    headers: {
+      'user-agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) hospital-ai-lab news fetcher',
+    },
+  });
+  if (!res.ok) throw new Error(`본문 요청 실패(ID ${id}): HTTP ${res.status}`);
+  const html = await res.text();
+  const dateM = html.match(
+    /"Publish_date":"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})"/
+  );
+  if (!dateM) throw new Error(`발행일을 찾지 못함(ID ${id})`);
+  const pubDate = kstToIso(dateM[1]);
+  if (!pubDate) throw new Error(`발행일 형식 이상(ID ${id}): ${dateM[1]}`);
+  const summM = html.match(/<meta property="og:description" content="([^"]*)"/);
+  return { pubDate, summary: summM ? decodeEntities(summM[1]) : '' };
+}
+
 async function fetchPage(page) {
   const url = page > 1 ? `${LIST_URL}&page=${page}` : LIST_URL;
   const res = await fetch(url, {
@@ -88,40 +137,14 @@ async function fetchPage(page) {
       pubDate,
     });
   }
-  return rows;
+  return { rows, topRows: parseTopRows(html) };
 }
 
-// ── 수집 ──────────────────────────────────────────────
-const collected = [];
-let okPages = 0;
-for (let p = 1; p <= PAGES; p++) {
-  try {
-    collected.push(...(await fetchPage(p)));
-    okPages++;
-  } catch (e) {
-    console.error(`수집 실패 — ${e.message}`);
-  }
-}
-
-// 한 페이지도 못 읽었으면 기존 news.json을 덮어쓰지 않고 종료
-if (okPages === 0) {
-  console.error('목록을 한 페이지도 읽지 못했습니다. 기존 news.json을 유지합니다.');
-  process.exit(1);
-}
-
-// AI 관련 기사만, 직접 링크 형태로 정리
-const fresh = collected
-  .filter((r) => isAiRelevant(r.title, r.summary))
-  .map((r) => ({
-    title: r.title,
-    link: ARTICLE_URL(r.id),
-    source: SOURCE,
-    pubDate: r.pubDate,
-  }));
-
-// ── 기존 항목과 병합 (누적) ────────────────────────────
+// ── 기존 목록 읽기 ─────────────────────────────────────
 // 파일이 "없는" 경우만 빈 목록으로 시작한다. 파싱 실패(손상)는 중단 —
 // 그대로 진행하면 누적 이력이 최근 수집분만으로 리셋되기 때문.
+// (상단 헤드라인 기사의 본문을 불필요하게 다시 받지 않으려면 이미
+//  수집한 기사 목록을 먼저 알아야 하므로 수집보다 앞에 둔다.)
 let existing = [];
 try {
   const prev = JSON.parse(
@@ -135,6 +158,59 @@ try {
   }
 }
 
+const knownIds = new Set(
+  existing
+    .map((it) => (it.link || '').match(/ID=(\d+)/))
+    .filter(Boolean)
+    .map((m) => m[1])
+);
+
+// ── 수집 ──────────────────────────────────────────────
+const collected = [];
+const topSeen = new Map();
+let okPages = 0;
+for (let p = 1; p <= PAGES; p++) {
+  try {
+    const { rows, topRows } = await fetchPage(p);
+    collected.push(...rows);
+    for (const t of topRows) if (!topSeen.has(t.id)) topSeen.set(t.id, t);
+    okPages++;
+  } catch (e) {
+    console.error(`수집 실패 — ${e.message}`);
+  }
+}
+
+// 한 페이지도 못 읽었으면 기존 news.json을 덮어쓰지 않고 종료
+if (okPages === 0) {
+  console.error('목록을 한 페이지도 읽지 못했습니다. 기존 news.json을 유지합니다.');
+  process.exit(1);
+}
+
+// 상단 헤드라인 기사 중 아직 수집하지 않은 것만 본문을 읽어 날짜를 채운다.
+// 한 건이 실패해도 나머지 수집을 멈추지 않는다.
+let topAdded = 0;
+for (const t of topSeen.values()) {
+  if (knownIds.has(t.id)) continue;
+  try {
+    const meta = await fetchArticleMeta(t.id);
+    collected.push({ id: t.id, title: t.title, ...meta });
+    topAdded++;
+  } catch (e) {
+    console.error(`상단 기사 건너뜀 — ${e.message}`);
+  }
+}
+
+// AI 관련 기사만, 직접 링크 형태로 정리
+const fresh = collected
+  .filter((r) => isAiRelevant(r.title, r.summary))
+  .map((r) => ({
+    title: r.title,
+    link: ARTICLE_URL(r.id),
+    source: SOURCE,
+    pubDate: r.pubDate,
+  }));
+
+// ── 기존 항목과 병합 (누적) ────────────────────────────
 const now = new Date();
 const seen = new Set();
 const norm = (t) => (t || '').replace(/\s+/g, '');
@@ -169,5 +245,6 @@ await writeFile(
   'utf8'
 );
 console.log(
-  `수집 완료: 신규 ${fresh.length}건 / 누적 ${items.length}건 (페이지 ${okPages}/${PAGES})`
+  `수집 완료: 신규 ${fresh.length}건 / 누적 ${items.length}건 ` +
+    `(페이지 ${okPages}/${PAGES}, 상단 헤드라인 ${topAdded}건 보충)`
 );
