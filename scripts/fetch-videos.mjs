@@ -24,7 +24,10 @@ const RECENT_DAYS = 95; // "최근 3개월" 허용치(여유 며칠)
 // 않았다(측정: 통과 10건 중 신규 2건, 의료계열 0건).
 const MIN_VIEWS = 25000;
 
-// 입문·클로드·병원·의료 주제의 한국어 검색어
+// 입문·클로드·병원·의료 주제의 한국어 검색어.
+// 뒤쪽 의료 계열 검색어는 2026-07-20에 추가했다 — '의료 AI 입문' 같은
+// 좁은 말로는 조건에 맞는 한국어 영상이 거의 잡히지 않아, 자동 수집분이
+// 사실상 전부 클로드 일반 강의가 되어 있었기 때문이다.
 const QUERIES = [
   '클로드 입문',
   '클로드 초보자',
@@ -35,6 +38,15 @@ const QUERIES = [
   '의료 AI 입문',
   '의료 인공지능 입문',
   '간호 AI 입문',
+  '병원 인공지능',
+  '의료 인공지능',
+  '간호사 AI 활용',
+  '병원 업무 자동화 AI',
+  '의료 AI 강의',
+  '헬스케어 AI',
+  '의료진 챗GPT',
+  '병원 챗GPT 활용',
+  '간호 기록 AI',
 ];
 
 // 유튜브 업로드 기간 필터(sp)는 쓰지 않는다.
@@ -51,11 +63,30 @@ const QUERIES = [
 // 최대한 확보하고, 기간 판정은 코드에 맡긴다.
 const THIS_YEAR = '';
 
-// 핵심 주제: 클로드 또는 병원/의료 계열에 반드시 해당해야 한다
-const TOPIC = /클로드|claude|병원|의료|간호|보건|헬스케어|의료진|요양/i;
-// 자극적·낚시성 제목 제외
+// 이 영상이 'AI 이야기'라는 신호. 반드시 하나는 있어야 한다.
+//
+// 예전에는 아래 TOPIC(주제어)만 확인했는데, 그때는 검색어가 전부 클로드
+// 중심이라 문제가 드러나지 않았다. 2026-07-20에 '병원 인공지능' 같은 넓은
+// 검색어를 넣자 AI와 무관한 영상이 '병원'·'요양' 같은 단어만으로 통과했다
+// (실제 사례: 「요양병원의 잠든 노인들 - 추적60분」 시사 다큐). 그래서
+// AI 신호를 별도 조건으로 분리했다.
+const AI_SIGNAL =
+  /(?<![A-Za-z])AI(?![A-Za-z])|인공지능|챗지피티|챗GPT|(?<![A-Za-z])GPT|클로드|claude|제미나이|gemini|코파일럿|copilot|생성형|머신러닝|딥러닝|\bLLM\b/i;
+
+// 병원·의료 현장 계열 주제어 (클로드 일반 강의와 구분하는 기준).
+// 선택이 조회수순이라 조회수가 수십만인 클로드 강의가 수만인 의료 영상을
+// 계속 밀어낸다 — 그래서 신규 자리 하나는 의료 계열에 먼저 배정한다.
+const MEDICAL = /병원|의료|간호|보건|헬스케어|의료진|요양/;
+
+// 채택 조건: AI 이야기이면서, 클로드 계열이거나 병원·의료 계열일 것.
+const isRelevantTitle = (t) =>
+  AI_SIGNAL.test(t) && (/클로드|claude/i.test(t) || MEDICAL.test(t));
+// 자극적·낚시성 제목 제외.
+// 뒤쪽 공포 조장형 표현(죽어가고 있습니다 / 망합니다 …)은 2026-07-20에
+// 추가했다 — 「당신의 뇌가 죽어가고 있습니다…」 같은 영상이 기존 목록을
+// 통과했는데, 병원 실무자용 사이트의 톤과 맞지 않는다.
 const CLICKBAIT =
-  /충격|발칵|경악|소름|난리|폭로|또 터|충격적|딸깍\?|인생역전|인생 역전|대박|떼돈|억대|월수입|월 수입|자동\s*수익|시청\s*금지|안 보면 후회|보지\s*마세요|무조건|미쳤|미친|미쳐|상위\s*\d+\s*%|압도적|모르면 손해|이것만 알면|안 보면 손해|\d+\s*배|전부 공개|완전 공개|다 알려|\d+%\s*활용|\d+%는? 모르/;
+  /충격|발칵|경악|소름|난리|폭로|또 터|충격적|딸깍\?|인생역전|인생 역전|대박|떼돈|억대|월수입|월 수입|자동\s*수익|시청\s*금지|안 보면 후회|보지\s*마세요|무조건|미쳤|미친|미쳐|상위\s*\d+\s*%|압도적|모르면 손해|이것만 알면|안 보면 손해|\d+\s*배|전부 공개|완전 공개|다 알려|\d+%\s*활용|\d+%는? 모르|죽어가|죽습니다|죽는다|망합니다|망한다|끝났습니다|큰일\s*납니다|지금\s*당장\s*멈추/;
 // 사기·과장 수익형 제목 제외
 const SCAM =
   /달러|수익|부자|퇴사|월\s*\d+\s*만|지급|억\s*번|millionaire|make you rich|money|lose thousand|must do now|expert in \d|\$\d/i;
@@ -159,7 +190,7 @@ async function collect() {
     }
     for (const it of items) {
       if (!/[가-힣]/.test(it.title)) continue; // 한국어 영상만
-      if (!TOPIC.test(it.title)) continue; // 클로드 또는 병원/의료 주제
+      if (!isRelevantTitle(it.title)) continue; // AI 이야기 + 클로드/의료 주제
       if (CLICKBAIT.test(it.title) || SCAM.test(it.title)) continue;
       if (!loose.has(it.videoId)) loose.set(it.videoId, it);
       if (daysAgo(it.pub) > RECENT_DAYS) continue; // 최근 3개월
@@ -224,8 +255,10 @@ async function main() {
       if (existingIds.has(p.videoId)) continue;
       const title = await verify(p.videoId);
       if (!title) continue; // 삭제·비공개 제외
-      // 실제 제목(oEmbed 원제)에도 한글·낚시성·사기성 필터 재적용
+      // 실제 제목(oEmbed 원제)에도 한글·주제·낚시성·사기성 필터 재적용.
+      // 검색 목록의 제목이 잘려 있거나 다를 수 있어 원제로 한 번 더 본다.
       if (!/[가-힣]/.test(title)) continue;
+      if (!isRelevantTitle(title)) continue;
       if (CLICKBAIT.test(title) || SCAM.test(title)) continue;
       out.push({
         videoId: p.videoId,
@@ -239,7 +272,12 @@ async function main() {
     return out;
   }
 
-  let fresh = await pick(strict, MAX_NEW);
+  // 신규 자리 중 한 자리는 병원·의료 계열에 먼저 배정한다(있을 때만).
+  // 그 다음 나머지 자리를 조회수순으로 채운다. pick()이 고른 영상은
+  // existingIds에 등록되므로 두 번째 호출에서 중복되지 않는다.
+  const fresh = await pick(strict.filter((c) => MEDICAL.test(c.title)), 1);
+  const medPicked = fresh.length; // 의료 계열로 먼저 채운 자리 수
+  fresh.push(...(await pick(strict, MAX_NEW - fresh.length)));
 
   // 보충 규칙(오너 지시 2026-07-20): 기준을 통과한 새 영상이 하나도 없으면
   // 기준에 못 미치더라도 후보 중 조회수가 가장 높은 1건을 넣는다.
@@ -247,7 +285,7 @@ async function main() {
   // 24시간 중복 방지 창이 있어 하루 한 번을 넘지 않는다).
   let byFallback = false;
   if (fresh.length === 0) {
-    fresh = await pick(loose, 1);
+    fresh.push(...(await pick(loose, 1)));
     byFallback = fresh.length > 0;
   }
 
@@ -276,7 +314,7 @@ async function main() {
 
   await writeFile(OUT, JSON.stringify(final, null, 2) + '\n', 'utf8');
   console.log(
-    `저장 완료: 신규 ${fresh.length}건 추가, 누적 ${final.length}건` +
+    `저장 완료: 신규 ${fresh.length}건 추가(의료 계열 ${medPicked}건), 누적 ${final.length}건` +
       (byFallback ? ' (기준 통과분이 없어 조회수 상위 1건으로 보충)' : '')
   );
 }
