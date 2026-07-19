@@ -19,7 +19,10 @@ const OUT = new URL('../src/data/recommended-videos.json', import.meta.url);
 const MAX_NEW = 3; // 실행 1회당 새로 추가할 최대 개수
 const MAX_TOTAL = 200; // 누적 상한 (넘으면 가장 오래된 자동 항목부터 정리)
 const RECENT_DAYS = 95; // "최근 3개월" 허용치(여유 며칠)
-const MIN_VIEWS = 50000; // 조회수 5만 이상
+// 조회수 기준: 2026-07-20 오너 지시로 5만 → 2.5만(절반)으로 낮췄다.
+// 기존 기준으로는 통과하는 영상이 거의 다 이미 수집돼 새 영상이 나오지
+// 않았다(측정: 통과 10건 중 신규 2건, 의료계열 0건).
+const MIN_VIEWS = 25000;
 
 // 입문·클로드·병원·의료 주제의 한국어 검색어
 const QUERIES = [
@@ -136,9 +139,16 @@ async function verify(videoId) {
   }
 }
 
-// 입문·클로드·병원·의료 주제, 최근 3개월, 5만+, 한국어, 비낚시성
+// 후보를 두 갈래로 모은다.
+//  strict — 정식 기준을 모두 통과 (주제·한국어·비낚시 + 기간·조회수)
+//  loose  — 주제·한국어·비낚시는 통과했으나 기간이나 조회수 기준에 못 미침
+//
+// loose는 "기준에 맞는 새 영상이 하나도 없을 때 그중 조회수가 가장 높은
+// 1건이라도 건다"는 보충 규칙(2026-07-20 오너 지시)에 쓴다. 주제·한국어·
+// 낚시성/사기성 배제는 품질 기준이므로 보충할 때도 절대 풀지 않는다.
 async function collect() {
-  const seen = new Map();
+  const strict = new Map();
+  const loose = new Map();
   for (const q of QUERIES) {
     let items = [];
     try {
@@ -148,16 +158,20 @@ async function collect() {
       continue;
     }
     for (const it of items) {
-      if (seen.has(it.videoId)) continue;
-      if (daysAgo(it.pub) > RECENT_DAYS) continue; // 최근 3개월
-      if (it.views < MIN_VIEWS) continue; // 5만 이상
       if (!/[가-힣]/.test(it.title)) continue; // 한국어 영상만
       if (!TOPIC.test(it.title)) continue; // 클로드 또는 병원/의료 주제
       if (CLICKBAIT.test(it.title) || SCAM.test(it.title)) continue;
-      seen.set(it.videoId, it);
+      if (!loose.has(it.videoId)) loose.set(it.videoId, it);
+      if (daysAgo(it.pub) > RECENT_DAYS) continue; // 최근 3개월
+      if (it.views < MIN_VIEWS) continue; // 조회수 하한
+      if (!strict.has(it.videoId)) strict.set(it.videoId, it);
     }
   }
-  return [...seen.values()].sort((a, b) => b.views - a.views); // 조회수순
+  const byViews = (a, b) => b.views - a.views;
+  return {
+    strict: [...strict.values()].sort(byViews),
+    loose: [...loose.values()].sort(byViews),
+  };
 }
 
 async function main() {
@@ -193,37 +207,52 @@ async function main() {
     return;
   }
 
-  const candidates = await collect();
+  const { strict, loose } = await collect();
 
-  if (candidates.length === 0) {
+  if (loose.length === 0) {
     console.error('수집된 영상이 없습니다. 기존 목록을 유지합니다.');
     process.exit(1);
   }
 
-  // 검증(oEmbed): 실제 제목을 받아온다. 이미 목록에 있는 영상은 건너뛰고,
-  // 새 영상만 최대 MAX_NEW개 고른다.
+  // 검증(oEmbed): 실제 존재·공개 여부와 정확한 제목을 확인한다.
+  // 이미 목록에 있는 영상은 건너뛰고 새 영상만 고른다.
   const now = new Date().toISOString();
-  const fresh = [];
-  for (const p of candidates.slice(0, 24)) {
-    if (fresh.length >= MAX_NEW) break;
-    if (existingIds.has(p.videoId)) continue;
-    const title = await verify(p.videoId);
-    if (!title) continue; // 삭제·비공개 제외
-    // 실제 제목(oEmbed 원제)에도 한글·낚시성·사기성 필터 재적용
-    if (!/[가-힣]/.test(title)) continue;
-    if (CLICKBAIT.test(title) || SCAM.test(title)) continue;
-    fresh.push({
-      videoId: p.videoId,
-      title: title.trim(),
-      url: `https://www.youtube.com/watch?v=${p.videoId}`,
-      source: 'auto',
-      addedAt: now,
-    });
-    existingIds.add(p.videoId);
+  async function pick(candidates, limit) {
+    const out = [];
+    for (const p of candidates.slice(0, 24)) {
+      if (out.length >= limit) break;
+      if (existingIds.has(p.videoId)) continue;
+      const title = await verify(p.videoId);
+      if (!title) continue; // 삭제·비공개 제외
+      // 실제 제목(oEmbed 원제)에도 한글·낚시성·사기성 필터 재적용
+      if (!/[가-힣]/.test(title)) continue;
+      if (CLICKBAIT.test(title) || SCAM.test(title)) continue;
+      out.push({
+        videoId: p.videoId,
+        title: title.trim(),
+        url: `https://www.youtube.com/watch?v=${p.videoId}`,
+        source: 'auto',
+        addedAt: now,
+      });
+      existingIds.add(p.videoId);
+    }
+    return out;
+  }
+
+  let fresh = await pick(strict, MAX_NEW);
+
+  // 보충 규칙(오너 지시 2026-07-20): 기준을 통과한 새 영상이 하나도 없으면
+  // 기준에 못 미치더라도 후보 중 조회수가 가장 높은 1건을 넣는다.
+  // 하루 한 번은 새 링크가 걸리도록 하기 위한 장치다(워크플로가 매일 실행,
+  // 24시간 중복 방지 창이 있어 하루 한 번을 넘지 않는다).
+  let byFallback = false;
+  if (fresh.length === 0) {
+    fresh = await pick(loose, 1);
+    byFallback = fresh.length > 0;
   }
 
   if (fresh.length === 0) {
-    console.log('기준을 통과한 새 영상이 없습니다. 기존 목록을 그대로 둡니다.');
+    console.log('추가할 새 영상이 없습니다(후보가 모두 이미 목록에 있음). 기존 목록을 그대로 둡니다.');
     return; // 새 영상이 없는 것은 오류가 아니다 (커밋 생략)
   }
 
@@ -246,7 +275,10 @@ async function main() {
   }
 
   await writeFile(OUT, JSON.stringify(final, null, 2) + '\n', 'utf8');
-  console.log(`저장 완료: 신규 ${fresh.length}건 추가, 누적 ${final.length}건`);
+  console.log(
+    `저장 완료: 신규 ${fresh.length}건 추가, 누적 ${final.length}건` +
+      (byFallback ? ' (기준 통과분이 없어 조회수 상위 1건으로 보충)' : '')
+  );
 }
 
 main().catch((e) => {

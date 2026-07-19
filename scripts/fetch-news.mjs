@@ -1,7 +1,9 @@
-// 병원·의료 AI 뉴스 수집기 (메디칼타임즈 '의료기기·AI' 지면 직접 크롤링)
+// 병원·의료 AI 뉴스 수집기 (매체 지면 직접 크롤링)
 //
-// 메디칼타임즈(medicaltimes.com)의 '의료기기·AI' 섹션(MainCate=4) 목록을
-// 직접 읽어, 그중 AI 관련이 분명한 기사만 골라 src/data/news.json에 쌓는다.
+// 두 매체에서 AI 관련이 분명한 기사만 골라 src/data/news.json에 쌓는다.
+//   1) 메디칼타임즈(medicaltimes.com) '의료기기·AI' 섹션(MainCate=4)
+//   2) 병원신문(khanews.com) 전체 기사 목록 — 이 매체에는 AI 전용 지면이
+//      없어 전체 목록을 읽고 같은 AI 필터로 거른다 (2026-07-20 오너 지시)
 // 구글 뉴스 검색은 하루 노출분이 들쭉날쭉하고 무관 기사가 섞여, 매체의
 // 해당 지면을 직접 크롤링하는 방식으로 바꿨다.
 //
@@ -9,6 +11,9 @@
 // (제목 기준 중복 제거). GitHub Actions가 3시간 간격으로 실행한다 —
 // GitHub cron은 수 시간씩 지연될 수 있어(실측: 12~14시간), 하루 1회가
 // 아니라 자주 돌리고 "새 기사가 있을 때만" 커밋하는 방식으로 보완한다.
+//
+// 한 매체가 실패해도 다른 매체 수집은 계속한다. 두 매체 모두 한 건도 읽지
+// 못한 경우에만 기존 파일을 그대로 두고 중단한다.
 import { readFile, writeFile } from 'node:fs/promises';
 
 const LIST_URL = 'https://www.medicaltimes.com/Main/News/List.html?MainCate=4';
@@ -17,6 +22,23 @@ const ARTICLE_URL = (id) =>
 const PAGES = 3; // 목록 페이지 수 (최근 며칠치 + 과거 이력 시딩)
 const MAX_ITEMS = 500; // 누적 상한 (오래된 것부터, 이 수를 넘을 때만 잘라냄)
 const SOURCE = '메디칼타임즈';
+
+// ── 병원신문 ──────────────────────────────────────────
+// 전체 기사 목록(섹션 구분 없음)을 최신순으로 읽는다.
+// 페이지 넘김은 하지 않는다 — 이 사이트는 page 파라미터를 줘도(공식
+// 페이지네이션 링크 형식인 page=N&total=...&box_idxno= 까지 포함해도)
+// 서버가 항상 1페이지를 돌려준다(2026-07-20 확인). 1페이지가 최근 4~5일치
+// 약 20건을 담고 있고 이 워크플로는 1시간 간격으로 도므로, 새 기사를
+// 놓칠 여지는 없다.
+const KH_PAGES = 1;
+const KH_LIST_URL = (page) =>
+  `https://www.khanews.com/news/articleList.html?page=${page}`;
+const KH_ARTICLE_URL = (id) =>
+  `https://www.khanews.com/news/articleView.html?idxno=${id}`;
+const KH_SOURCE = '병원신문';
+
+const UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) hospital-ai-lab news fetcher';
 
 // AI 관련성 판정용. 곁가지로 스친 언급(사진 출처 'AI 생성' 등)을 걸러내기 위해,
 // 제목에 AI 신호가 있거나 본문 요약에 AI 언급이 2회 이상일 때만 채택한다.
@@ -140,6 +162,38 @@ async function fetchPage(page) {
   return { rows, topRows: parseTopRows(html) };
 }
 
+// 병원신문 목록 파싱.
+// 각 기사는 <div class="table-row"> 블록이고, 그 안에
+//   <a href="/news/articleView.html?idxno=N" class="links"><strong>제목</strong></a>
+//   <div class="list-dated ...">병원신문 | 2026-07-20 06:00</div>
+// 형태다. 목록에 요약문이 없어서 AI 관련성은 제목으로만 판정한다
+// (메디칼타임즈의 "제목에 AI 신호가 있으면 채택"과 같은 기준).
+async function fetchKhPage(page) {
+  const res = await fetch(KH_LIST_URL(page), { headers: { 'user-agent': UA } });
+  if (!res.ok) throw new Error(`병원신문 목록 실패(page ${page}): HTTP ${res.status}`);
+  const html = await res.text();
+  const rows = [];
+  for (const part of html.split('<div class="table-row">').slice(1)) {
+    const block = part.split('</div>\n</div>')[0].slice(0, 2000);
+    const idM = block.match(/articleView\.html\?idxno=(\d+)/);
+    const titleM = block.match(/class="links"[^>]*>\s*<strong>([\s\S]*?)<\/strong>/);
+    const dateM = block.match(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2})/);
+    if (!idM || !titleM || !dateM) continue;
+    const pubDate = kstToIso(dateM[1]);
+    if (!pubDate) continue;
+    const title = stripTags(titleM[1]);
+    if (!title) continue;
+    rows.push({
+      title,
+      link: KH_ARTICLE_URL(idM[1]),
+      source: KH_SOURCE,
+      summary: '', // 목록에 요약이 없다 — 제목으로만 판정
+      pubDate,
+    });
+  }
+  return rows;
+}
+
 // ── 기존 목록 읽기 ─────────────────────────────────────
 // 파일이 "없는" 경우만 빈 목록으로 시작한다. 파싱 실패(손상)는 중단 —
 // 그대로 진행하면 누적 이력이 최근 수집분만으로 리셋되기 때문.
@@ -180,9 +234,20 @@ for (let p = 1; p <= PAGES; p++) {
   }
 }
 
-// 한 페이지도 못 읽었으면 기존 news.json을 덮어쓰지 않고 종료
-if (okPages === 0) {
-  console.error('목록을 한 페이지도 읽지 못했습니다. 기존 news.json을 유지합니다.');
+// 병원신문 수집 (한 매체가 실패해도 다른 매체는 계속한다)
+let khPages = 0;
+for (let p = 1; p <= KH_PAGES; p++) {
+  try {
+    collected.push(...(await fetchKhPage(p)));
+    khPages++;
+  } catch (e) {
+    console.error(`병원신문 수집 실패 — ${e.message}`);
+  }
+}
+
+// 두 매체 모두 한 페이지도 못 읽었으면 기존 news.json을 덮어쓰지 않고 종료
+if (okPages === 0 && khPages === 0) {
+  console.error('두 매체 모두 목록을 읽지 못했습니다. 기존 news.json을 유지합니다.');
   process.exit(1);
 }
 
@@ -201,12 +266,14 @@ for (const t of topSeen.values()) {
 }
 
 // AI 관련 기사만, 직접 링크 형태로 정리
+// 매체별로 link·source가 이미 붙어 있으면 그대로 쓰고, 메디칼타임즈 항목은
+// id로 링크를 만든다.
 const fresh = collected
   .filter((r) => isAiRelevant(r.title, r.summary))
   .map((r) => ({
     title: r.title,
-    link: ARTICLE_URL(r.id),
-    source: SOURCE,
+    link: r.link || ARTICLE_URL(r.id),
+    source: r.source || SOURCE,
     pubDate: r.pubDate,
   }));
 
@@ -235,7 +302,7 @@ if (JSON.stringify(items) === JSON.stringify(existing)) {
 
 const data = {
   updatedAt: now.toISOString(),
-  source: SOURCE,
+  source: `${SOURCE}·${KH_SOURCE}`,
   items,
 };
 
@@ -244,7 +311,9 @@ await writeFile(
   JSON.stringify(data, null, 2) + '\n',
   'utf8'
 );
+const bySource = (s) => items.filter((i) => i.source === s).length;
 console.log(
   `수집 완료: 신규 ${fresh.length}건 / 누적 ${items.length}건 ` +
-    `(페이지 ${okPages}/${PAGES}, 상단 헤드라인 ${topAdded}건 보충)`
+    `(메디칼타임즈 ${bySource(SOURCE)}건·페이지 ${okPages}/${PAGES}·상단 ${topAdded}건 보충, ` +
+    `병원신문 ${bySource(KH_SOURCE)}건·페이지 ${khPages}/${KH_PAGES})`
 );
