@@ -41,6 +41,8 @@
   --badge-news-bg: #fdf0e2;
   --badge-video-fg: #b0233a;
   --badge-video-bg: #fdeaed;
+  --badge-gov-fg: #1a5f8a;
+  --badge-gov-bg: #e6f2f9;
 
   /* 그림자 — 라이트/다크 각각 정의 */
   --shadow-sm: 0 1px 2px rgba(15, 30, 50, 0.06);
@@ -105,6 +107,8 @@
     --badge-news-bg: #3a2612;
     --badge-video-fg: #f2a3af;
     --badge-video-bg: #3b1720;
+    --badge-gov-fg: #8fc6e8;
+    --badge-gov-bg: #12293a;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);

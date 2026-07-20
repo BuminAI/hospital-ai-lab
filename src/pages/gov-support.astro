@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import programs from '../data/gov-programs.json';
+
+const fmtFull = new Intl.DateTimeFormat('ko-KR', {
+  timeZone: 'Asia/Seoul',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+});
+const fmtDay = new Intl.DateTimeFormat('ko-KR', {
+  timeZone: 'Asia/Seoul',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const updatedAt = fmtFull.format(new Date(programs.updatedAt));
+const items = programs.items;
+// 소스별 건수 — 어디서 모으는지 한눈에 보이게
+const sources = [...new Set(items.map((i) => i.source))];
+---
+
+<BaseLayout
+  title="정부 지원사업"
+  description="보건복지부·한국보건산업진흥원의 병원·의료 분야 지원사업 공고를 매일 자동으로 모아 원문 링크로 안내합니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>정부 지원사업</h1>
+      <p class="lead">
+        병원·의료 분야의 정부·공공기관 지원사업 공고를 매일 자동으로 모읍니다.
+        제목을 누르면 해당 기관의 원문 공고로 이동합니다.
+      </p>
+    </header>
+
+    <p class="updated">
+      마지막 업데이트: <time datetime={programs.updatedAt}>{updatedAt}</time>
+      {sources.length > 0 && <> · 수집처: {sources.join(' · ')}</>}
+    </p>
+
+    <p class="caution">
+      공고에는 <strong>신청 마감이 있습니다.</strong> 아래 날짜는 공고가 올라온
+      날이며 마감일이 아닙니다. 신청 자격·기간·서류는 반드시 원문에서 확인하세요.
+    </p>
+
+    {
+      items.length > 0 ? (
+        <ul class="program-list">
+          {items.map((item) => (
+            <li>
+              <a href={item.link} target="_blank" rel="noopener">
+                {item.title}
+                <span class="sr-only"> (새 탭으로 열림)</span>
+              </a>
+              {item.summary && <p class="summary">{item.summary}</p>}
+              <span class="meta">
+                <span class="src">{item.source}</span>
+                <time datetime={item.pubDate}>{fmtDay.format(new Date(item.pubDate))} 공고</time>
+              </span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty">아직 수집된 공고가 없습니다.</p>
+      )
+    }
+
+    <section class="notice">
+      <p>
+        이 목록은 각 기관 홈페이지에서 자동으로 수집한 것으로, 연구소의
+        편집·추천 의견이 아닙니다. 병원·의료와 관련된 공고만 걸러 담고 있으며,
+        채용·입찰·시상 공고는 제외합니다. 자동 분류이므로 관련 없는 공고가
+        섞이거나 필요한 공고가 빠질 수 있습니다 — 중요한 사업은 각 기관
+        홈페이지에서 직접 확인하시기 바랍니다.
+      </p>
+      <p>
+        현재 <strong>보건복지부</strong>와 <strong>한국보건산업진흥원</strong>의
+        공고를 수집합니다. 시·도 자치단체 공고는 아직 포함되어 있지 않습니다.
+      </p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .updated {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+  .caution {
+    margin-top: 1.25rem;
+    max-width: 52rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-sm, 6px);
+    background: var(--color-surface, transparent);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .program-list {
+    margin: 1.75rem 0 0;
+    padding: 0;
+    list-style: none;
+    max-width: 52rem;
+  }
+
+  .program-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .program-list li:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .program-list a {
+    color: var(--color-text);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .program-list a:hover {
+    color: var(--color-primary);
+  }
+
+  .summary {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  .meta .src {
+    font-weight: 600;
+    color: var(--badge-gov-fg);
+    background: var(--badge-gov-bg);
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+  }
+
+  .empty {
+    margin-top: 1.75rem;
+    color: var(--color-muted);
+  }
+
+  .notice {
+    margin-top: 2.5rem;
+    max-width: 52rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  .notice p + p {
+    margin-top: 0.6rem;
+  }
+</style>

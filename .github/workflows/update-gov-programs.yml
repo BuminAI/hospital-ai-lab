@@ -1,0 +1,65 @@
+name: Update Gov Programs
+
+on:
+  schedule:
+    # 매일 아침 수집 (오너 지시 2026-07-20: 매일 특정 시간에 크롤링).
+    # 본 실행은 KST 08:23(UTC 23:23)이고, GitHub cron이 예약을 자주
+    # 지연·누락시키므로(실측 9~13시간) 낮 시간대에 예비 실행을 몇 개 더 건다.
+    # 스크립트가 "새 공고 있을 때만" 파일을 바꾸므로 여러 번 돌아도
+    # 불필요한 커밋·배포는 생기지 않는다.
+    # 정각(:00)은 예약이 몰려 지연이 심해 비켜 둔다.
+    - cron: '23 23,3,7 * * *' # KST 08:23 / 12:23 / 16:23
+  workflow_dispatch:
+
+permissions:
+  contents: write # 커밋·푸시
+  actions: write # deploy.yml 수동 트리거(gh workflow run)
+
+# 자기 자신의 중복 실행만 직렬화한다. deploy.yml의 'pages' 그룹과 공유하면
+# 크론 실행이 오너 푸시의 배포 대기분을 취소할 수 있어 분리한다.
+# (자세한 사유는 update-news.yml의 동일 주석 참조)
+concurrency:
+  group: update-gov-programs
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 수집 실패(기관 사이트 장애 등)는 오류로 남기지 않는다 — 파일이
+      # 안 바뀌므로 아래 커밋 단계가 '변경 없음'으로 안전하게 끝난다.
+      - name: 정부 지원사업 공고 수집
+        run: node scripts/fetch-gov-programs.mjs || echo "수집 건너뜀(기존 목록 유지)"
+
+      - name: gov-programs.json 커밋 (변경 있을 때만)
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/gov-programs.json
+          if git diff --cached --quiet; then
+            echo "새 공고 없음 — 커밋·배포 생략"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "유지보수: 정부 지원사업 공고 자동 업데이트"
+            # 그 사이 다른 커밋이 main에 올라왔어도 밀리지 않도록 rebase 후 push
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # 봇 커밋의 push는 재귀 방지로 deploy.yml을 자동 트리거하지 못하지만,
+      # workflow_dispatch는 예외라 GITHUB_TOKEN으로 직접 실행할 수 있다.
+      - name: 배포 트리거 (deploy.yml)
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml
