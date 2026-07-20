@@ -3,7 +3,7 @@
 다른 컴퓨터 · 다른 Claude 세션에서 이 프로젝트를 이어서 작업할 때 읽는 문서입니다.
 (사이트 운영 규칙은 [CLAUDE.md](CLAUDE.md), 사실의 원천은 [briefing.md](briefing.md), 회원 기능 개통은 [supabase/SETUP-GUIDE.md](supabase/SETUP-GUIDE.md) 참조)
 
-**마지막 갱신: 2026-07-16.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
+**마지막 갱신: 2026-07-20.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
 
 > **2026-07-16 이사 완료.** 새 컴퓨터(Windows 계정 `choyj`, 저장소 `D:\hospital-ai-lab`)로 옮겼다.
 > 클론 · 의존성 · 빌드(39페이지 성공) · 예약 작업 2개 재생성까지 끝났고, 옛 컴퓨터의 예약 작업은 삭제했다.
@@ -122,8 +122,9 @@ npm run build    # 배포본 생성(dist/)
 | 워크플로 | 스케줄(UTC→KST) | 하는 일 |
 | --- | --- | --- |
 | `deploy.yml` | main push 시 | Astro 빌드 → GitHub Pages 배포 |
-| `update-news.yml` | 1시간 간격(`17 * * * *`) | 메디칼타임즈 '의료기기·AI' 지면 크롤링 → `src/data/news.json`에 신규 기사만 누적. 변경 없으면 커밋·배포 생략 |
-| `update-videos.yml` | 월·수·금 KST 09:07 + 예비 12:07/15:07/18:07/21:07 | 유튜브에서 클로드·병원·의료 AI 입문 영상 최대 3개 신규 추가 → `src/data/recommended-videos.json`. 기존 항목(수동·자동·직접 제작 전부)은 절대 안 지움. 같은 주기 중복 방지: 최근 24시간 내 auto 추가 있으면 건너뜀. 수동 즉시 갱신은 `gh workflow run update-videos.yml -f force=true` |
+| `update-news.yml` | 1시간 간격(`17 * * * *`) | **메디칼타임즈 '의료기기·AI' 지면 + 병원신문 전체 기사** 크롤링 → `src/data/news.json`에 신규 기사만 누적. 변경 없으면 커밋·배포 생략 |
+| `update-videos.yml` | **매일** KST 09:07 + 예비 12:07/15:07/18:07/21:07 | 유튜브에서 클로드·병원·의료 AI 영상 최대 3개 신규 추가 → `src/data/recommended-videos.json`. 기존 항목(수동·자동·직접 제작 전부)은 절대 안 지움. 하루 1회 제한: 최근 24시간 내 auto 추가 있으면 건너뜀. 수동 즉시 갱신은 `gh workflow run update-videos.yml -f force=true` |
+| `update-gov-programs.yml` | 매일 KST 08:23 + 예비 12:23/16:23 | 보건복지부·한국보건산업진흥원 공고 크롤링 → `src/data/gov-programs.json`. 병원·의료 관련 지원사업만 담고 채용·입찰·시상·선정결과·지침개정은 제외 (2026-07-20 신설) |
 
 - 수집 스크립트: `scripts/fetch-news.mjs`, `scripts/fetch-videos.mjs`
 - GitHub cron은 예약을 자주 지연·누락시킴(실측: 3시간 간격 예약이 하루 2~3회만 실행, 최대 13시간 공백) → 그래서 예약을 촘촘히 걸고 "새 기사 있을 때만" 커밋하는 방식으로 설계됨 (2026-07-09 조정).
@@ -205,6 +206,10 @@ npm run build    # 배포본 생성(dist/)
 - **Astro 컴포넌트의 `<details>`로 "데스크톱은 항상 펼침" 흉내내지 말 것**: 최신 Chrome이 닫힌 `<details>`의 자식(요약 제외)을 `content-visibility`로 강제 숨겨 CSS `display:block`으로도 못 되돌린다. 토글이 필요하면 버튼+JS로 만들 것.
 - **정적 사이트에는 진짜 파일 접근 제어가 없다**: `public/`에 넣은 건 전부 공개된다. "로그인한 사람만 다운로드"가 필요하면 Supabase Storage의 비공개 버킷 + RLS를 써야 한다(AI로 만든 앱 기능이 이 패턴).
 - **비밀값(GitHub 토큰 등)을 사이트 코드나 localStorage에 하드코딩하지 말 것**: 정적 사이트는 방문자 전원에게 코드가 공개된다. 서버(Supabase) + RLS만이 실제 방어선이다.
+- **크롤러는 "지면 상단 헤드라인 영역"을 놓치기 쉽다**: 메디칼타임즈 수집기가 `newsListWrap` 이후만 읽어, 그 위 `listTop_wrap`(최신 기사가 배치되는 헤드라인 블록)을 통째로 빠뜨리고 있었다. 헤드라인에 걸린 기사는 아래 일반 목록에 중복해 나오지 않아 **영영 수집되지 않는다**. 나흘간 "새 기사 없음"으로 조용히 지나간 원인이었다(2026-07-20 수정). **"소스가 조용하다"는 판단은 반드시 소스 원문을 직접 확인하고 내릴 것** — 같은 눈으로 두 번 보면 놓친 것을 또 놓친다.
+- **CDATA는 태그를 지우기 전에 벗겨야 한다**: `stripTags`가 `<[^>]+>`로 태그를 먼저 지우면 `<![CDATA[제목]]>` 전체가 한 덩어리로 매칭돼 제목이 빈 문자열이 된다. 보건복지부 RSS가 0건으로 나오던 원인(2026-07-20).
+- **정부 사이트(.go.kr)는 GitHub Actions 러너에서 간헐적으로 연결이 끊긴다**: 보건복지부가 러너에서만 `UND_ERR_CONNECT_TIMEOUT`으로 실패했다(국내 PC·다른 해외 인프라에서는 정상). 완전 차단은 아니고 간헐적이므로 **재시도 + 대체 경로(https/http, www 유무)**로 흡수한다. 한 수집원이 실패해도 나머지는 계속 진행하고, 전부 실패할 때만 기존 파일을 지키며 중단하도록 짤 것.
+- **검색어를 넓히면 필터의 숨은 허점이 드러난다**: 영상 수집기의 주제 필터가 주제어(`병원|의료|요양`…)만 보고 AI 여부는 확인하지 않았다. 검색어가 전부 클로드 중심일 때는 문제가 없었지만 `병원 인공지능` 같은 넓은 검색어를 넣자 「요양병원의 잠든 노인들(추적60분)」 같은 AI 무관 다큐가 통과했다. **필터를 넓힐 때는 기존 조건이 무엇을 전제하고 있었는지 함께 볼 것**(2026-07-20).
 - **Supabase 무료 요금제는 파일당 50MB가 절대 상한이다**(공식 문서로 확인, 실측으로도 재현: 50MB 성공/51MB 거부). 버킷의 `file_size_limit`을 그보다 크게 설정해도 서버가 조용히 50MB에서 막는다 — 오류가 "파일 형식" 문제처럼 보여도 실제로는 용량 문제일 수 있으니 먼저 파일 크기부터 의심할 것. 올리려면 유료 요금제 전환이 유일한 방법이다.
 
 ## 7. 주요 파일 지도
@@ -214,7 +219,8 @@ src/
 ├── pages/
 │   ├── index.astro, about.astro, contact.astro, privacy.astro
 │   ├── blog/index.astro, blog/[id].astro   # 목록에 카테고리 필터(순수 JS)
-│   ├── news.astro          # AI 뉴스 (메디칼타임즈 자동 수집)
+│   ├── news.astro          # AI 뉴스 (메디칼타임즈·병원신문 자동 수집)
+│   ├── gov-support.astro   # 정부 지원사업 (2026-07-20 신설, 자동 수집)
 │   ├── youtube.astro       # 추천 영상 — 연구소장 제작분이 위, 각 섹션 6개까지만 보이고 더보기로 펼침
 │   ├── tips.astro          # 실무 팁 카드 목록 (2026-07-16 신설)
 │   ├── tips/[no].astro     # 실무 팁 상세 (/tips/1/ ~ /tips/10/)
@@ -227,7 +233,8 @@ src/
 ├── content/blog/            # 블로그 글(마크다운). 현재 10편
 ├── data/                    # research.ts, glossary.ts, faq.ts, checklist.ts, guide.ts,
 │                             # tips.ts(실무 팁 — 링크 포함), news.json,
-│                             # recommended-videos.json, notified-posts.json(알림 발송 이력)
+│                             # recommended-videos.json, gov-programs.json(정부 지원사업),
+│                             # notified-posts.json(알림 발송 이력)
 ├── layouts/BaseLayout.astro # 헤더(로고 SVG·모바일 메뉴)·푸터(2열+사이트맵)·다크모드·OG
 ├── components/              # PostCard, ResearchIcon
 ├── styles/global.css        # 디자인 토큰(색·그림자·타이포·간격) — 2026-07-12 전면 개편
@@ -236,17 +243,18 @@ src/
 .claude/skills/               # new-post·maintenance·update-page (git에 있음)
 .claude/settings.json         # 무인 예약 세션용 도구 사전 허용 (git에 있음 — §4-2)
 supabase/                    # setup.sql(재실행 안전, 이거 하나만 유지) + SETUP-GUIDE.md
-scripts/                     # fetch-news.mjs·fetch-videos.mjs·gen-assets.mjs
+scripts/                     # fetch-news.mjs·fetch-videos.mjs·fetch-gov-programs.mjs·gen-assets.mjs
 public/                      # favicon, og-default.png, fonts/(Pretendard 자체호스팅)
 ```
 
 > **예약 작업은 저장소 안이 아니라 `C:\Users\choyj\.claude\scheduled-tasks\`에 있다**
 > (`daily-blog-post/`, `site-health-check/`). git에 없으므로 새 컴퓨터에서 재생성 필요(§4-2·4-3).
 
-## 7-1. 상단 메뉴 구성 (2026-07-16 기준, 9개)
+## 7-1. 상단 메뉴 구성 (2026-07-20 기준, 10개)
 
-홈 · 소개 · 블로그 · AI 뉴스 · 강의노트 · AI로 만든 앱 · 추천 영상 · 실무 팁 · 입문 가이드
+홈 · 소개 · 블로그 · AI 뉴스 · 정부 지원사업 · 강의노트 · AI로 만든 앱 · 추천 영상 · 실무 팁 · 입문 가이드
 
+- **메뉴 개수는 10개로 유지한다(오너 결정 2026-07-20).** 예전에 6개까지 줄이는 안이 있었으나 채택하지 않았다. 새 분야를 추가할 때 이 결정을 근거로 삼되, 계속 늘리는 것은 별개 문제이므로 10개를 넘길 때는 오너에게 확인할 것.
 - **문의는 상단 메뉴에서 뺐다**(2026-07-12, 메뉴 밀도 완화). 페이지(`/contact/`)와 주소는 그대로 살아 있고, 푸터 사이트맵과 홈 하단 밴드로 들어간다.
 - 용어사전·FAQ·체크리스트는 상단에 없다 — 입문 가이드의 "더 볼 자료"와 푸터 사이트맵에서 연결한다.
 
@@ -260,7 +268,8 @@ public/                      # favicon, og-default.png, fonts/(Pretendard 자체
 - [ ] **관리자 비밀번호**: `whdudwns80*`로 변경 완료했는지 확인.
 - [ ] (선택) 개인정보 처리방침 보호책임자 실명 기재 여부 검토.
 - [ ] (오너 결정 대기) **소개 페이지 약력 타임라인**: 항목이 2개뿐이라 오히려 빈약해 보인다는 진단. "경력 17년(기획 7년)" 한 줄로 대체할지 결정 필요.
-- [ ] (오너 결정 대기) **상단 메뉴 추가 축소**: 현재 9개. 6개까지 줄이는 안이 있으나 강의노트·AI앱·추천영상이 푸터로 내려가는 손실이 있어 보류 중.
+- [x] ~~(오너 결정 대기) **상단 메뉴 추가 축소**~~ — 2026-07-20 오너 결정: **10개로 유지**(축소하지 않음). §7-1 참조.
+- [ ] (오너 확인 필요) **정부 지원사업에 시·도 자치단체 추가**: 현재 보건복지부·한국보건산업진흥원만 수집한다. 자치단체 17곳은 사이트 구조가 제각각이라 개별 파서가 필요하고, 중앙·지방을 한 번에 주는 **기업마당/공공데이터포털 오픈API는 오너 명의 회원가입 후 인증키 발급**이 필요하다(키는 GitHub Secrets에 넣어야 함). 발급해 주면 붙일 수 있다.
 
 ## 9. 반드시 지키는 원칙
 
