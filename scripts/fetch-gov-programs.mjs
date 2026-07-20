@@ -50,6 +50,32 @@ const PROGRAM_RE =
 // 때문이다(2026-07-20에 보건복지부 RSS가 0건으로 나오던 원인).
 const unwrapCdata = (s) => s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1');
 
+// 일시적 실패(네트워크·혼잡)에 대비한 재시도 fetch.
+// 실패 원인을 알아볼 수 있게 하위 오류 코드까지 함께 남긴다 — Node의
+// 'fetch failed'만으로는 차단인지 타임아웃인지 구분되지 않기 때문이다.
+async function fetchRetry(url, tries = 3) {
+  let last;
+  for (let i = 0; i < tries; i++) {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          'user-agent': UA,
+          accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'accept-language': 'ko-KR,ko;q=0.9',
+        },
+        signal: AbortSignal.timeout(20000),
+      });
+      if (res.ok) return res;
+      last = new Error(`HTTP ${res.status}`);
+    } catch (e) {
+      const cause = e.cause?.code || e.cause?.message || e.name;
+      last = new Error(`${e.message}${cause ? ` (${cause})` : ''}`);
+    }
+    if (i < tries - 1) await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
+  }
+  throw last;
+}
+
 const decode = (s) =>
   s
     .replace(/&middot;/g, '·')
@@ -78,8 +104,7 @@ const isRelevant = (title, summary = '') => {
 
 // ── 보건복지부 (RSS) ───────────────────────────────────
 async function fetchMohw() {
-  const res = await fetch(MOHW_RSS, { headers: { 'user-agent': UA } });
-  if (!res.ok) throw new Error(`보건복지부 RSS 실패: HTTP ${res.status}`);
+  const res = await fetchRetry(MOHW_RSS);
   const xml = await res.text();
   const rows = [];
   for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
@@ -108,8 +133,7 @@ async function fetchMohw() {
 // 표 한 행이 <tr>이고, 제목은 링크의 title 속성, 등록일은 YYYY-MM-DD.
 // 목록에 요약이 없어 제목만으로 판정한다.
 async function fetchKhidi() {
-  const res = await fetch(KHIDI_LIST, { headers: { 'user-agent': UA } });
-  if (!res.ok) throw new Error(`KHIDI 목록 실패: HTTP ${res.status}`);
+  const res = await fetchRetry(KHIDI_LIST);
   const html = await res.text();
   const rows = [];
   for (const part of html.split('<tr>').slice(1)) {
