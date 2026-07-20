@@ -13,6 +13,7 @@ import {
 } from '../utils/site';
 import news from '../data/news.json';
 import videos from '../data/recommended-videos.json';
+import govPrograms from '../data/gov-programs.json';
 
 // 마지막 업데이트일 = 마지막 커밋 날짜(빌드 시 자동 계산, 수동 갱신 불필요).
 // git 정보를 못 구하는 예외적 빌드 환경 대비 폴백만 둔다.
@@ -68,10 +69,23 @@ const videoFeedSeed = videos
     external: true,
   }));
 
+// 정부 지원사업도 같은 이유로 최신 1건만 넣는다(매일 자동 수집).
+const govFeedSeed = govPrograms.items.slice(0, 1).map((item) => ({
+  badgeClass: 'feed-badge-gov',
+  badgeLabel: '정부 지원사업',
+  title: item.title,
+  dateIso: item.pubDate,
+  href: item.link,
+  external: true,
+}));
+
 // 히어로 미니 피드와 아래 게시판이 함께 쓰는 최종 시드(최신순).
-const feedSeed = [...blogFeedSeed, ...newsFeedSeed, ...videoFeedSeed].sort(
-  (a, b) => new Date(b.dateIso).valueOf() - new Date(a.dateIso).valueOf()
-);
+const feedSeed = [
+  ...blogFeedSeed,
+  ...newsFeedSeed,
+  ...videoFeedSeed,
+  ...govFeedSeed,
+].sort((a, b) => new Date(b.dateIso).valueOf() - new Date(a.dateIso).valueOf());
 
 const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 5);
@@ -199,7 +213,7 @@ const siteJsonLd = {
             <h2>이어지는 소식</h2>
           </div>
           <p class="feed-note">
-            칼럼·강의노트·AI로 만든 앱·AI 뉴스·추천 영상 — 새로 올라온 순서대로 모았습니다.
+            칼럼·강의노트·AI로 만든 앱·AI 뉴스·추천 영상·정부 지원사업 — 새로 올라온 순서대로 모았습니다.
           </p>
           <ul class="activity-feed" id="activity-feed">
             {feedSeed.slice(4, 10).map((item) => (
@@ -221,6 +235,7 @@ const siteJsonLd = {
             <a class="more" href={withBase('/ai-apps/')}>AI로 만든 앱 보기 →</a>
             <a class="more" href={withBase('/news/')}>AI 뉴스 보기 →</a>
             <a class="more" href={withBase('/youtube/')}>추천 영상 보기 →</a>
+            <a class="more" href={withBase('/gov-support/')}>정부 지원사업 보기 →</a>
           </div>
         </div>
       </section>
@@ -887,6 +902,12 @@ const siteJsonLd = {
   .hero-feed .feed-badge-video {
     color: var(--badge-video-fg);
     background: var(--badge-video-bg);
+  }
+
+  .activity-feed .feed-badge-gov,
+  .hero-feed .feed-badge-gov {
+    color: var(--badge-gov-fg);
+    background: var(--badge-gov-bg);
   }
 
   .activity-feed .feed-title,
