@@ -25,8 +25,16 @@ const MAX_ITEMS = 200;
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) hospital-ai-lab gov-program fetcher';
 
-const MOHW_RSS =
-  'https://www.mohw.go.kr/rss/board.es?mid=a10503010100&bid=0003';
+// 보건복지부 '공고' 게시판 RSS.
+// GitHub Actions 러너(Azure 미국 대역)에서는 이 도메인에 TCP 연결 자체가
+// 안 맺어진다(UND_ERR_CONNECT_TIMEOUT, 2026-07-20 실측). 같은 시각 국내
+// PC와 다른 해외 인프라에서는 정상 접속되므로, 클라우드 IP 대역이 차단된
+// 것으로 보인다. 접속 경로를 몇 가지 준비해 두고 되는 것을 쓴다.
+const MOHW_RSS_CANDIDATES = [
+  'https://www.mohw.go.kr/rss/board.es?mid=a10503010100&bid=0003',
+  'http://www.mohw.go.kr/rss/board.es?mid=a10503010100&bid=0003',
+  'https://mohw.go.kr/rss/board.es?mid=a10503010100&bid=0003',
+];
 const MOHW_SOURCE = '보건복지부';
 
 const KHIDI_LIST = 'https://www.khidi.or.kr/board?menuId=MENU01108';
@@ -104,7 +112,17 @@ const isRelevant = (title, summary = '') => {
 
 // ── 보건복지부 (RSS) ───────────────────────────────────
 async function fetchMohw() {
-  const res = await fetchRetry(MOHW_RSS);
+  let res, lastErr;
+  for (const url of MOHW_RSS_CANDIDATES) {
+    try {
+      res = await fetchRetry(url, 2);
+      if (url !== MOHW_RSS_CANDIDATES[0]) console.log(`  (대체 경로 사용: ${url})`);
+      break;
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  if (!res) throw lastErr;
   const xml = await res.text();
   const rows = [];
   for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
