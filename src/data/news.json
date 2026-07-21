@@ -1,7 +1,61 @@
 {
-  "updatedAt": "2026-07-20T21:45:40.389Z",
+  "updatedAt": "2026-07-21T07:42:56.773Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "전북대병원, AI 기반 신소재 의료기기 산업 고도화 본격화",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248114",
+      "source": "병원신문",
+      "pubDate": "2026-07-21T05:00:00.000Z"
+    },
+    {
+      "title": "소아 수술 중 이산화탄소 분압, 채혈 없이 예측 AI 첫 개발",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248110",
+      "source": "병원신문",
+      "pubDate": "2026-07-21T04:49:00.000Z"
+    },
+    {
+      "title": "명지병원, ‘AI 활용’ 응급실 운영 효율 방안 모색",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248106",
+      "source": "병원신문",
+      "pubDate": "2026-07-21T04:41:00.000Z"
+    },
+    {
+      "title": "뉴로핏, 아쿠아 AD 플러스 산업부 혁신제품 지정…공공의료 공략",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169833",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-21T02:22:20.000Z"
+    },
+    {
+      "title": "앤써, KHF 2026에서 AI 기반 간호 근무표 작성 서비스 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169829",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-21T01:49:29.000Z"
+    },
+    {
+      "title": "유진바이오소프트, 임상데이터 분석 자동화 솔루션 출시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169827",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-21T01:44:46.000Z"
+    },
+    {
+      "title": "윗치박스, KHF 2026에서 AI 체형·움직임 분석 솔루션 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169826",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-21T01:35:13.000Z"
+    },
+    {
+      "title": "비싼 엔비디아 없어도 돌아가는 제이엘케이 AI…\"성능 검증\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169824",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-21T01:15:09.000Z"
+    },
+    {
+      "title": "모스티소프트, KHF에서 AI 건강검진 결과 관리 플랫폼 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169820",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-07-21T00:44:50.000Z"
+    },
     {
       "title": "영상 판독문 초안 작성 병원 확산…의학계 기대반 우려반",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169818",
