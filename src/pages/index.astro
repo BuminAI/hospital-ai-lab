@@ -200,11 +200,12 @@ const siteJsonLd = {
     </div>
   </section>
 
-  <!-- 이어지는 소식: 칼럼·강의노트·AI로 만든 앱을 한 게시판에 모은다.
-       히어로 미니 피드가 최신 4건을 보여주므로 여기는 5번째 이후를 이어서
-       보여준다(두 목록이 겹치지 않게). 블로그는 빌드 시점에 바로 나오고
-       (무JS에서도 보임), 강의노트·AI 앱은 페이지가 뜬 뒤 자바스크립트가
-       불러와 같은 목록에 합쳐 넣는다. -->
+  <!-- 이어지는 소식: 칼럼·강의노트·AI 뉴스·추천 영상·정부 지원사업을 한
+       게시판에 모은다. 히어로 미니 피드가 최신 4건을 보여주므로 여기는
+       5번째 이후를 이어서 보여준다(두 목록이 겹치지 않게). 블로그·뉴스·
+       영상·지원사업은 빌드 시점에 바로 나오고(무JS에서도 보임), 강의노트만
+       페이지가 뜬 뒤 자바스크립트가 불러와 같은 목록에 합쳐 넣는다.
+       ('AI로 만든 앱'은 2026-07-21 비공개 처리로 여기서 뺐다.) -->
   {
     feedSeed.length > 0 && (
       <section class="section">
@@ -213,7 +214,7 @@ const siteJsonLd = {
             <h2>이어지는 소식</h2>
           </div>
           <p class="feed-note">
-            칼럼·강의노트·AI로 만든 앱·AI 뉴스·추천 영상·정부 지원사업 — 새로 올라온 순서대로 모았습니다.
+            칼럼·강의노트·AI 뉴스·추천 영상·정부 지원사업 — 새로 올라온 순서대로 모았습니다.
           </p>
           <ul class="activity-feed" id="activity-feed">
             {feedSeed.slice(4, 10).map((item) => (
@@ -232,7 +233,6 @@ const siteJsonLd = {
           <div class="feed-links">
             <a class="more" href={withBase('/blog/')}>블로그 전체 보기 →</a>
             <a class="more" href={withBase('/notes/')}>강의노트 보기 →</a>
-            <a class="more" href={withBase('/ai-apps/')}>AI로 만든 앱 보기 →</a>
             <a class="more" href={withBase('/news/')}>AI 뉴스 보기 →</a>
             <a class="more" href={withBase('/youtube/')}>추천 영상 보기 →</a>
             <a class="more" href={withBase('/gov-support/')}>정부 지원사업 보기 →</a>
@@ -347,8 +347,8 @@ const siteJsonLd = {
 
 <script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, feedSeed }}>
   // 히어로의 "최근 소식" 미니 피드와, 아래쪽 "이어지는 소식" 전체
-  // 게시판을 같은 데이터에서 함께 채운다. 칼럼·AI 뉴스·추천 영상은 빌드
-  // 시점에 이미 받은 값(feedSeed)이고, 강의노트·AI로 만든 앱만 여기서
+  // 게시판을 같은 데이터에서 함께 채운다. 칼럼·AI 뉴스·추천 영상·정부
+  // 지원사업은 빌드 시점에 이미 받은 값(feedSeed)이고, 강의노트만 여기서
   // 불러와 합친 뒤 날짜순으로 정렬해 두 곳에 나눠 그린다.
   (async () => {
     const heroFeed = document.getElementById('hero-feed');
@@ -405,18 +405,16 @@ const siteJsonLd = {
 
     if (SUPABASE_URL) {
       try {
-        // 단순 SELECT 두 번이라 supabase-js 클라이언트 전체를 내려받지
-        // 않고 REST API로 바로 조회한다(외부 스크립트 의존 제거).
+        // 강의노트만 조회한다. 'AI로 만든 앱'은 비공개 처리(2026-07-21
+        // 오너 지시)로 홈 피드에서 뺐다 — 조회 자체를 하지 않는다.
         const headers = { apikey: SUPABASE_ANON_KEY };
         const query = 'select=id,title,created_at&published=eq.true&order=created_at.desc&limit=3';
-        const [notesRes, appsRes] = await Promise.all([
-          fetch(`${SUPABASE_URL}/rest/v1/lecture_notes?${query}`, { headers }),
-          fetch(`${SUPABASE_URL}/rest/v1/ai_apps?${query}`, { headers }),
-        ]);
+        const notesRes = await fetch(
+          `${SUPABASE_URL}/rest/v1/lecture_notes?${query}`,
+          { headers }
+        );
         const notes = notesRes.ok ? await notesRes.json() : [];
-        const apps = appsRes.ok ? await appsRes.json() : [];
         const notesUrl = new URL('notes/', location.href).pathname;
-        const appsUrl = new URL('ai-apps/', location.href).pathname;
 
         (notes || []).forEach((n) =>
           items.push({
@@ -427,18 +425,9 @@ const siteJsonLd = {
             href: notesUrl,
           })
         );
-        (apps || []).forEach((a) =>
-          items.push({
-            badgeClass: 'feed-badge-app',
-            badgeLabel: 'AI로 만든 앱',
-            title: a.title,
-            dateIso: a.created_at,
-            href: appsUrl,
-          })
-        );
       } catch {
-        // 강의노트·AI 앱을 못 불러와도 블로그 목록은 그대로 보이니
-        // 조용히 넘어간다(레이아웃이 깨지지 않게).
+        // 강의노트를 못 불러와도 블로그 목록은 그대로 보이니 조용히
+        // 넘어간다(레이아웃이 깨지지 않게).
       }
     }
 

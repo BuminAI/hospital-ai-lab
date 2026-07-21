@@ -45,12 +45,15 @@ export default defineConfig({
   base,
   integrations: [
     sitemap({
-      // 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외
+      // 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외.
+      // ai-apps는 비공개 처리(2026-07-21 오너 지시) — 메뉴·홈에서 내리고
+      // 검색엔진에도 노출하지 않는다(페이지 자체는 직접 링크로 접근 가능).
       filter: (page) =>
         !page.includes('/admin') &&
         !page.includes('/signup') &&
         !page.includes('/login') &&
-        !page.includes('/unsubscribe'),
+        !page.includes('/unsubscribe') &&
+        !page.includes('/ai-apps'),
     }),
   ],
 });
