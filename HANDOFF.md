@@ -124,7 +124,7 @@ npm run build    # 배포본 생성(dist/)
 | `deploy.yml` | main push 시 | Astro 빌드 → GitHub Pages 배포 |
 | `update-news.yml` | 1시간 간격(`17 * * * *`) | **메디칼타임즈 '의료기기·AI' 지면 + 병원신문 전체 기사** 크롤링 → `src/data/news.json`에 신규 기사만 누적. 변경 없으면 커밋·배포 생략 |
 | `update-videos.yml` | **매일** KST 09:07 + 예비 12:07/15:07/18:07/21:07 | 유튜브에서 클로드·병원·의료 AI 영상 최대 3개 신규 추가 → `src/data/recommended-videos.json`. 기존 항목(수동·자동·직접 제작 전부)은 절대 안 지움. 하루 1회 제한: 최근 24시간 내 auto 추가 있으면 건너뜀. 수동 즉시 갱신은 `gh workflow run update-videos.yml -f force=true` |
-| `update-gov-programs.yml` | 매일 KST 08:23 + 예비 12:23/16:23 | 보건복지부·한국보건산업진흥원 공고 크롤링 → `src/data/gov-programs.json`. 병원·의료 관련 지원사업만 담고 채용·입찰·시상·선정결과·지침개정은 제외 (2026-07-20 신설) |
+| `update-gov-programs.yml` | 매일 KST 09:07 + 예비 12:07/15:07 | 보건복지부·한국보건산업진흥원 공고 크롤링 → `src/data/gov-programs.json`. 병원·의료 관련 지원사업만 담고 채용·입찰·시상·선정결과·지침개정은 제외 (2026-07-20 신설, 07-22 아침 9시로 조정) |
 
 - 수집 스크립트: `scripts/fetch-news.mjs`, `scripts/fetch-videos.mjs`
 - GitHub cron은 예약을 자주 지연·누락시킴(실측: 3시간 간격 예약이 하루 2~3회만 실행, 최대 13시간 공백) → 그래서 예약을 촘촘히 걸고 "새 기사 있을 때만" 커밋하는 방식으로 설계됨 (2026-07-09 조정).
