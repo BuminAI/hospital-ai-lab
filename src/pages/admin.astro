@@ -261,8 +261,9 @@ import {
       </div>
       <p class="section-desc">
         "추천 영상" 페이지에 넣을 유튜브 영상입니다. ① 유튜브 링크를
-        붙여넣으면 아래에 썸네일이 미리 보입니다. ② 영상 제목을 적고 ③ "추가"를
-        누르면 됩니다.<br />
+        붙여넣으면 썸네일이 미리 보이고 <strong>제목이 자동으로 채워집니다</strong>
+        (직접 만든 영상도 마찬가지입니다). ② 제목이 마음에 안 들면 고친 뒤
+        ③ "추가"를 누르면 됩니다.<br />
         <strong>매주 월·수·금</strong> 자동으로 최신 영상을 검색해
         <span class="chip auto">자동</span> 영상을 3개까지 새로 추가합니다.
         기존 영상(<span class="chip">수동</span>·<span class="chip auto">자동</span>·직접 만든 영상 모두)은
@@ -272,13 +273,13 @@ import {
         <label>① 유튜브 링크
           <input type="text" id="video-url" placeholder="https://www.youtube.com/watch?v=..." />
         </label>
-        <label>② 영상 제목
-          <input type="text" id="video-title" placeholder="영상 제목을 그대로 적어 주세요" />
+        <label>② 영상 제목 <span class="hint-inline">(링크를 넣으면 자동으로 채워집니다)</span>
+          <input type="text" id="video-title" placeholder="링크를 넣으면 제목이 자동으로 들어옵니다" />
         </label>
       </div>
       <div class="video-preview" id="video-preview" hidden>
         <img id="video-preview-img" alt="" />
-        <span class="video-preview-label">✓ 유튜브 영상을 찾았습니다. 제목을 적고 추가하세요.</span>
+        <span class="video-preview-label" id="video-preview-label">✓ 유튜브 영상을 찾았습니다.</span>
       </div>
       <div class="row">
         <label class="check"><input type="checkbox" id="video-own" /> 내가 만든 영상입니다 (연구소장 채널)</label>
@@ -1180,6 +1181,23 @@ import {
     return m ? m[1] : null;
   }
 
+  // 유튜브 oEmbed로 실제 영상 제목을 가져온다. 브라우저에서 바로 호출한다
+  // — oEmbed가 요청 Origin에 CORS를 허용하기 때문(수집 스크립트도 같은 API를
+  // 쓴다). 삭제·비공개 영상이거나 네트워크 오류면 null을 돌려주고, 그때는
+  // 관리자가 제목을 직접 적으면 된다.
+  async function fetchYoutubeTitle(id: string): Promise<string | null> {
+    try {
+      const res = await fetch(
+        `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`
+      );
+      if (!res.ok) return null;
+      const d = await res.json();
+      return d && d.title ? String(d.title).trim() : null;
+    } catch {
+      return null;
+    }
+  }
+
   async function loadVideosFile(): Promise<{ sha: string; videos: any[] }> {
     const file = await gh(`/contents/${VIDEOS_PATH}`);
     const videos = JSON.parse(b64decode(file.content) || '[]');
@@ -1226,14 +1244,45 @@ import {
     }
   }
 
-  $('video-url').addEventListener('input', () => {
+  // 링크를 넣으면 썸네일 미리보기 + 제목 자동 채우기.
+  let lastPreviewId: string | null = null; // 마지막으로 조회한 영상 id(중복 조회 방지)
+  let autoFilledTitle = ''; // 자동으로 넣은 제목(관리자가 손으로 고친 값은 안 덮어씀)
+
+  $('video-url').addEventListener('input', async () => {
     const id = extractVideoId($('video-url').value.trim());
     const preview = $('video-preview');
-    if (id) {
-      $('video-preview-img').src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-      preview.hidden = false;
-    } else {
+    const label = $('video-preview-label');
+    if (!id) {
       preview.hidden = true;
+      lastPreviewId = null;
+      return;
+    }
+    if (id === lastPreviewId) return; // 같은 영상이면 다시 조회하지 않음
+    lastPreviewId = id;
+    $('video-preview-img').src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+    preview.hidden = false;
+
+    // 제목은 비어 있거나 앞서 자동으로 넣은 값 그대로일 때만 덮어쓴다
+    // (관리자가 직접 고친 제목은 보존).
+    const titleEl = $('video-title');
+    const cur = titleEl.value.trim();
+    if (cur && cur !== autoFilledTitle) {
+      label.textContent = '✓ 유튜브 영상을 찾았습니다.';
+      return;
+    }
+    label.textContent = '제목을 불러오는 중…';
+    const title = await fetchYoutubeTitle(id);
+    // 응답이 늦게 온 사이 링크가 또 바뀌었으면 이 결과는 버린다
+    if (id !== lastPreviewId) return;
+    const now = titleEl.value.trim();
+    if (title && (!now || now === autoFilledTitle)) {
+      titleEl.value = title;
+      autoFilledTitle = title;
+      label.textContent = '✓ 제목을 자동으로 넣었습니다. 필요하면 고치세요.';
+    } else if (title) {
+      label.textContent = '✓ 유튜브 영상을 찾았습니다.';
+    } else {
+      label.textContent = '✓ 영상을 찾았습니다. 제목은 직접 적어 주세요.';
     }
   });
 
@@ -1262,6 +1311,8 @@ import {
       $('video-title').value = '';
       $('video-own').checked = false;
       $('video-preview').hidden = true;
+      lastPreviewId = null; // 다음 영상은 처음부터 다시 조회·자동채움
+      autoFilledTitle = '';
       loadVideosList();
       setTimeout(loadRuns, 4000);
     } catch (e: any) {
@@ -1684,6 +1735,13 @@ import {
   .hint {
     margin-top: 0.75rem;
     font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  /* 라벨 옆 작은 보조 설명(제목 자동 채움 안내 등) */
+  .hint-inline {
+    font-weight: 400;
+    font-size: 0.8125rem;
     color: var(--color-muted);
   }
 
