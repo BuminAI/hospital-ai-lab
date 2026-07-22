@@ -10,12 +10,13 @@ const videos = allVideos
   .filter((v) => v.source !== 'own')
   .sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
 
-// 연구소장 영상은 1강→2강→3강 순서(등록 순, addedAt 오름차순)를 그대로
-// 유지한다 — 강의 시리즈라 "최신순"으로 뒤집으면 순서가 깨진다. 두
-// 섹션 모두 6개까지만 보이고 나머지는 소제목을 눌러야 펼쳐진다.
+// 연구소장 영상은 최신순(addedAt 내림차순)으로 정렬한다 — 오너 지시
+// (2026-07-22): 강의가 늘면서 최신 강(7·8강)이 6개 노출 한도 뒤 "더보기"에
+// 숨던 문제를 바로잡기 위해, 가장 최근 강이 맨 앞에 오게 한다. 두 섹션
+// 모두 6개까지만 보이고 나머지는 소제목을 눌러야 펼쳐진다.
 const ownVideos = allVideos
   .filter((v) => v.source === 'own')
-  .sort((a, b) => new Date(a.addedAt) - new Date(b.addedAt));
+  .sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
 ---
 
 <BaseLayout

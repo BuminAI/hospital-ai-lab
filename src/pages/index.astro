@@ -91,8 +91,13 @@ const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 5);
 // 홈의 "추천 강의 영상"에는 연구소장이 직접 만든 영상 1편 + 다른 채널
 // 영상 2편을 섞어 보여준다("직접 만든 영상"이 이 사이트의 실적 증거).
+// 제작 영상은 가장 최근 것을 보여준다(오너 지시 2026-07-22). 예전에는
+// JSON 배열 순서에 기대고 있어(명시적 정렬 없음) 불안정했다.
+const latestOwn = videos
+  .filter((v) => v.source === 'own')
+  .sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
 const homeVideos = [
-  ...videos.filter((v) => v.source === 'own').slice(0, 1),
+  ...latestOwn.slice(0, 1),
   ...videos.filter((v) => v.source !== 'own').slice(0, 2),
 ];
 
