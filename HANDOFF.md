@@ -3,7 +3,7 @@
 다른 컴퓨터 · 다른 Claude 세션에서 이 프로젝트를 이어서 작업할 때 읽는 문서입니다.
 (사이트 운영 규칙은 [CLAUDE.md](CLAUDE.md), 사실의 원천은 [briefing.md](briefing.md), 회원 기능 개통은 [supabase/SETUP-GUIDE.md](supabase/SETUP-GUIDE.md) 참조)
 
-**마지막 갱신: 2026-07-22.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
+**마지막 갱신: 2026-07-27.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
 
 > **2026-07-16 이사 완료.** 새 컴퓨터(Windows 계정 `choyj`, 저장소 `D:\hospital-ai-lab`)로 옮겼다.
 > 클론 · 의존성 · 빌드(39페이지 성공) · 예약 작업 2개 재생성까지 끝났고, 옛 컴퓨터의 예약 작업은 삭제했다.
@@ -230,7 +230,7 @@ src/
 │   ├── login.astro / signup.astro   # 회원 기능(Supabase, 구글 OAuth 포함)
 │   ├── admin.astro          # 관리자 대시보드 (이메일+비번 로그인 하나로 통합, §3)
 │   ├── rss.xml.js, robots.txt.ts    # robots.txt는 파일이 아니라 이 라우트가 생성함
-├── content/blog/            # 블로그 글(마크다운). 현재 10편
+├── content/blog/            # 블로그 글(마크다운). 현재 16편(매일 자동 발행으로 계속 늘어남)
 ├── data/                    # research.ts, glossary.ts, faq.ts, checklist.ts, guide.ts,
 │                             # tips.ts(실무 팁 — 링크 포함), news.json,
 │                             # recommended-videos.json, gov-programs.json(정부 지원사업),
@@ -276,5 +276,9 @@ public/                      # favicon, og-default.png, fonts/(Pretendard 자체
 
 - **사실 검증 절대 원칙**: 모든 사실 주장에 객관적 출처. 할루시네이션 금지. 조금이라도 의심되면 싣지 않는다. (CLAUDE.md 참조)
 - **누구나 이해하기 쉽게 쓴다**: 전문·통계 용어는 풀어서 설명. 블로그·소개 등 모든 글에 공통 적용.
-- 저자 관련 사실은 briefing.md에 있는 것만. 통계학 석사·경제학 박사·SAS 수상 이력은 오너 지시로 비공개(briefing.md에 사유 기록됨).
+- 저자 관련 사실은 briefing.md에 있는 것만.
+  - **실명(조영호)·학력(통계학 석사·경제학 박사)은 2026-07-27 오너 지시로 공개 전환**했다(SEO/GEO 작업).
+    현재 `/about/` 화면, JSON-LD(SchemaOrg.astro), `llms.txt` 세 곳에 나간다. 근거는 briefing.md에 기록됨.
+  - **SAS KOREA 수상 이력은 계속 비공개.** 위 공개 전환의 승인 범위가 아니었다. 공개하려면 오너에게 따로 확인할 것.
+  - ⚠️ 구조화 데이터·llms.txt는 검색엔진·AI가 기계 수집하므로, 되돌려도 외부 캐시·학습분은 남을 수 있다.
 - 새 글은 draft로 시작 → 브랜치 + PR → 오너 머지가 기본. 단, 예약 자동 발행 글은 사실 검증 통과 시 예외적으로 바로 발행(§4-2). 커밋 메시지는 한국어, 큰따옴표 금지(§6).
