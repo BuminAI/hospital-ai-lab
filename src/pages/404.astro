@@ -3,7 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../utils/site';
 ---
 
-<BaseLayout title="페이지를 찾을 수 없습니다">
+{/* 404는 색인 대상이 아니다. noindex가 없으면 존재하지 않는 주소들이
+    "페이지를 찾을 수 없습니다" 제목으로 색인될 수 있다(2026-07-27 추가). */}
+<BaseLayout title="페이지를 찾을 수 없습니다" noindex>
   <div class="container">
     <div class="not-found">
       <p class="code">404</p>

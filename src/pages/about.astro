@@ -46,6 +46,20 @@ const timeline = [
 
     <section class="section">
       <h2>연구소장 소개</h2>
+      {/*
+        이름·직함·학력은 2026-07-27 오너 지시로 공개 전환했다(briefing.md에 근거 기록).
+        ⚠️ 이 블록을 지우면 안 되는 이유: SchemaOrg의 Person JSON-LD가 같은 사실
+        (이름·직함·석사·박사)을 선언하는데, 구글 구조화 데이터 정책은 **화면에 보이지
+        않는 내용을 마크업하는 것을 금지**한다. 여기가 그 근거 화면이다.
+        JSON-LD를 바꾸면 이 블록도 같이 맞춰야 한다.
+      */}
+      <p class="person-line">
+        <strong>조영호</strong> · 병원 AI 연구소 소장
+      </p>
+      <ul class="person-facts">
+        <li>종합병원 근무 17년 (그중 병원 기획 7년)</li>
+        <li>통계학 석사 · 경제학 박사</li>
+      </ul>
       <p>
         종합병원에서 17년간 근무하며, 현장에서 마주치는 크고 작은 문제를
         가까이서 지켜봐 왔습니다. 그중 7년은 병원 기획 업무를 맡아, 의사결정이
@@ -114,6 +128,20 @@ const timeline = [
   .section {
     padding-block: 2.25rem;
     max-width: var(--prose-width);
+  }
+
+  /* 연구소장 신원 — Person JSON-LD가 선언하는 사실의 화면 근거 */
+  .person-line {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  .person-facts {
+    margin: 0 0 1rem;
+    padding-left: 1.1rem;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
 
   .section h2 {
