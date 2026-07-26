@@ -17,10 +17,12 @@ const { Content } = await render(post);
 const canonicalUrl = Astro.site
   ? new URL(withBase(`/blog/${post.id}/`), Astro.site).href
   : withBase(`/blog/${post.id}/`);
-// 대표 이미지는 사이트 공통 OG 이미지(절대 URL 필요 — BaseLayout과 동일 규칙)
+// 대표 이미지는 이 글 전용 OG 이미지(src/pages/og/[...route].ts가 빌드 때 생성).
+// 소셜 태그(BaseLayout)와 JSON-LD가 **같은 이미지**를 가리켜야 하므로 여기서 한 번만 만든다.
+const ogImagePath = `/og/${post.id}.png`;
 const ogImageUrl = Astro.site
-  ? new URL(withBase('/og-default.png'), Astro.site).href
-  : withBase('/og-default.png');
+  ? new URL(withBase(ogImagePath), Astro.site).href
+  : withBase(ogImagePath);
 const siteUrl = Astro.site
   ? Astro.site.href.replace(/\/$/, '')
   : 'https://hospital-ai-lab.com';
@@ -56,6 +58,7 @@ const blogPosting = {
   ogType="article"
   pubDate={post.data.pubDate}
   category={post.data.category}
+  ogImage={ogImagePath}
   schema={[blogPosting]}
 >
   <div class="container">

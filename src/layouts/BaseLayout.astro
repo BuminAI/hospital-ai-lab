@@ -26,6 +26,12 @@ interface Props {
   /** article일 때 분류(카테고리) */
   category?: string;
   /**
+   * 소셜 공유 이미지 경로(사이트 루트 기준, 예: '/og/2026-07-05-foo.png').
+   * 넘기지 않으면 사이트 공통 이미지(/og-default.png)를 쓴다.
+   * 글별 이미지는 src/pages/og/[...route].ts가 빌드 때 만든다.
+   */
+  ogImage?: string;
+  /**
    * 이 페이지에만 해당하는 추가 JSON-LD 노드.
    * Person·Organization·WebSite는 SchemaOrg가 전 페이지에 자동으로 넣으므로,
    * 여기에는 페이지 고유 엔티티만 넘긴다(BlogPosting, FAQPage, DefinedTermSet 등).
@@ -42,12 +48,12 @@ const {
   pubDate,
   category,
   schema = [],
+  ogImage: ogImagePath,
 } = Astro.props;
 const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
 // 소셜 공유 대표 이미지 (절대 URL 필요)
-const ogImage = Astro.site
-  ? new URL(withBase('/og-default.png'), Astro.site).href
-  : withBase('/og-default.png');
+const ogImageRel = withBase(ogImagePath ?? '/og-default.png');
+const ogImage = Astro.site ? new URL(ogImageRel, Astro.site).href : ogImageRel;
 // 디렉터리 URL은 끝 슬래시를 붙여 sitemap과 canonical을 일치시킨다.
 const canonicalPath =
   Astro.url.pathname.endsWith('/') || /\.[a-z0-9]+$/i.test(Astro.url.pathname)
