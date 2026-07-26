@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { withBase, formatDate, SITE_TITLE } from '../../utils/site';
+import { withBase, formatDate } from '../../utils/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-// BlogPosting 구조화 데이터. 저자는 개인 창작 정보 없이 발행 주체(연구소)로 표기.
 const canonicalUrl = Astro.site
   ? new URL(withBase(`/blog/${post.id}/`), Astro.site).href
   : withBase(`/blog/${post.id}/`);
@@ -22,19 +21,32 @@ const canonicalUrl = Astro.site
 const ogImageUrl = Astro.site
   ? new URL(withBase('/og-default.png'), Astro.site).href
   : withBase('/og-default.png');
-const jsonLd = {
-  '@context': 'https://schema.org',
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+
+// BlogPosting 구조화 데이터.
+// 2026-07-27 변경: author를 Organization에서 **저자 Person 엔티티 참조**로 바꿨다.
+// 검색엔진·AI가 "누가 쓴 글인가"로 신뢰도를 판정하기 때문이다(오너 지시, SEO/GEO 작업).
+// Person·Organization·WebSite 본문은 SchemaOrg 컴포넌트가 전 페이지에 넣으므로
+// 여기서는 `@id`로 참조만 하고, 이 노드는 BaseLayout의 schema prop으로 넘겨
+// 같은 @graph에 합쳐진다(script 태그를 따로 만들지 않는다).
+const blogPosting = {
   '@type': 'BlogPosting',
+  '@id': `${canonicalUrl}#article`,
   headline: post.data.title,
   description: post.data.description,
+  url: canonicalUrl,
+  inLanguage: 'ko-KR',
   datePublished: post.data.pubDate.toISOString(),
   // 별도 수정일 필드를 두지 않으므로 발행일과 동일하게 표기
   dateModified: post.data.pubDate.toISOString(),
   articleSection: post.data.category,
   image: ogImageUrl,
-  mainEntityOfPage: canonicalUrl,
-  author: { '@type': 'Organization', name: SITE_TITLE },
-  publisher: { '@type': 'Organization', name: SITE_TITLE },
+  author: { '@id': `${siteUrl}/#person` },
+  publisher: { '@id': `${siteUrl}/#organization` },
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
 };
 ---
 
@@ -44,8 +56,8 @@ const jsonLd = {
   ogType="article"
   pubDate={post.data.pubDate}
   category={post.data.category}
+  schema={[blogPosting]}
 >
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   <div class="container">
     <article>
       <header class="post-head">

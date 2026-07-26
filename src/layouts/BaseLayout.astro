@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SchemaOrg from '../components/SchemaOrg.astro';
 import {
   withBase,
   stripBase,
@@ -24,6 +25,13 @@ interface Props {
   pubDate?: Date;
   /** article일 때 분류(카테고리) */
   category?: string;
+  /**
+   * 이 페이지에만 해당하는 추가 JSON-LD 노드.
+   * Person·Organization·WebSite는 SchemaOrg가 전 페이지에 자동으로 넣으므로,
+   * 여기에는 페이지 고유 엔티티만 넘긴다(BlogPosting, FAQPage, DefinedTermSet 등).
+   * 저자·발행처는 `{'@id': '<사이트주소>/#person'}` 형태로 참조만 하면 된다.
+   */
+  schema?: Record<string, unknown>[];
 }
 
 const {
@@ -33,6 +41,7 @@ const {
   ogType = 'website',
   pubDate,
   category,
+  schema = [],
 } = Astro.props;
 const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
 // 소셜 공유 대표 이미지 (절대 URL 필요)
@@ -111,6 +120,10 @@ const year = new Date().getFullYear();
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0e141d" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={canonical} />
+
+    {/* 구조화 데이터(JSON-LD). 색인 제외 페이지에는 넣지 않는다 —
+        검색·AI에 노출할 페이지가 아니므로 엔티티를 흘릴 이유가 없다. */}
+    {!noindex && <SchemaOrg extra={schema} />}
     <link
       rel="alternate"
       type="application/rss+xml"

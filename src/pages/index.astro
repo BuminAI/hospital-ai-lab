@@ -7,7 +7,6 @@ import { researchAreas } from '../data/research';
 import {
   withBase,
   formatDate,
-  SITE_TITLE,
   SUPABASE_URL,
   SUPABASE_ANON_KEY,
 } from '../utils/site';
@@ -108,27 +107,11 @@ const contentCount = allPosts.length + videos.length;
 const homeDescription =
   '종합병원에서 17년 일한 실무자가 병원 행정·간호의 언어로 의료 AI를 공부하고 기록합니다. 매일 자동으로 모으는 의료 AI 뉴스와 칼럼, 강의노트, 추천 영상을 담았습니다.';
 
-// 홈에만 넣는 구조화 데이터 (site.ts 확정값만 사용, 창작 정보 없음)
-const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
-const orgJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: SITE_TITLE,
-  url: siteUrl,
-  logo: `${siteUrl}${withBase('/og-default.png')}`,
-};
-const siteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: SITE_TITLE,
-  url: siteUrl,
-};
+// 구조화 데이터(JSON-LD)는 2026-07-27부터 SchemaOrg 컴포넌트가 BaseLayout에서
+// 전 페이지에 넣는다(저자 Person + Organization + WebSite). 여기 있던 중복 정의는 제거했다.
 ---
 
 <BaseLayout description={homeDescription}>
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(orgJsonLd)} />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(siteJsonLd)} />
-
   <!-- 히어로: 브랜드 소개 + 가장 최근 글을 전면에 -->
   <section class="hero">
     <div class="container hero-grid">

@@ -1,0 +1,104 @@
+---
+// 구조화 데이터(JSON-LD) — 사이트 전체 공통 엔티티
+//
+// 검색엔진과 AI 검색(ChatGPT·Perplexity·Gemini 등)이 "이 사이트는 무엇이고 누가 쓰는가"를
+// 판정하는 근거다. 2026-07-27 SEO/GEO 작업으로 신설했다.
+//
+// 설계
+//   - Person·Organization·WebSite를 **하나의 @graph**에 담아 BaseLayout에서 전 페이지에 넣는다.
+//   - 각 노드에 고정 `@id`를 부여해, 페이지별 스키마(BlogPosting 등)가 `{'@id': ...}`로
+//     참조만 하면 된다. 같은 정보를 페이지마다 반복하지 않기 위한 구조다.
+//   - 페이지 고유 엔티티는 `extra` prop으로 넘긴다(블로그 글의 BlogPosting, 용어사전의
+//     DefinedTermSet, FAQ의 FAQPage 등). 그러면 페이지마다 script 태그가 따로 생기지 않고
+//     하나의 @graph로 합쳐진다.
+//
+// ⚠️ 사실 근거 (CLAUDE.md 절대 원칙)
+//   여기 들어가는 저자 관련 사실은 **전부 briefing.md에 있는 것만** 쓴다.
+//   - 실명·직함·학력: briefing.md "운영자 이름"·"학력·경력·자격" (2026-07-27 오너 공개 승인)
+//   - knowsAbout: briefing.md "연구(관심) 분야"에 실제로 적힌 것만. 오너가 준 SEO 작업지시서에는
+//     '의료관광 마케팅'·'병원 경영분석'도 있었지만 briefing.md에 근거가 없어 넣지 않았다.
+//   - SAS 수상 이력은 오너 지시로 계속 비공개다. 절대 추가하지 말 것.
+import { SITE_TITLE, CONTACT_EMAIL, YOUTUBE_CHANNEL_URL, withBase } from '../utils/site';
+
+interface Props {
+  /** 이 페이지에만 해당하는 추가 스키마 노드들 (BlogPosting, FAQPage, DefinedTermSet 등) */
+  extra?: Record<string, unknown>[];
+}
+
+const { extra = [] } = Astro.props;
+
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const logoUrl = `${siteUrl}${withBase('/og-default.png')}`;
+
+// 전 페이지에서 `@id`로 참조하는 고정 식별자.
+// 다른 페이지에서 참조할 때는 아래 세 문자열을 그대로 쓴다
+// (`.astro` 프론트매터의 named export는 다른 모듈에서 import가 보장되지 않아
+//  상수로 내보내지 않고 형식만 여기 적어 둔다):
+//   저자   → `${siteUrl}/#person`
+//   연구소 → `${siteUrl}/#organization`
+//   사이트 → `${siteUrl}/#website`
+const person = {
+  '@type': 'Person',
+  '@id': `${siteUrl}/#person`,
+  name: '조영호',
+  alternateName: 'Youngho Cho',
+  url: `${siteUrl}${withBase('/about/')}`,
+  email: `mailto:${CONTACT_EMAIL}`,
+  jobTitle: '병원 AI 연구소 소장',
+  description:
+    '종합병원에서 17년(그중 병원 기획 7년) 근무한 병원 실무자. 통계학 석사·경제학 박사. 병원 행정·간호 실무자를 위한 의료 AI 교육과 연구를 진행한다.',
+  knowsAbout: [
+    '의료 AI',
+    '병원 기획',
+    '병원 운영 데이터 분석',
+    '병원 AI 교육',
+    '생성형 AI 활용',
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'degree',
+      educationalLevel: '석사',
+      name: '통계학 석사',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'degree',
+      educationalLevel: '박사',
+      name: '경제학 박사',
+    },
+  ],
+  sameAs: [YOUTUBE_CHANNEL_URL],
+};
+
+const organization = {
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: SITE_TITLE,
+  alternateName: 'Hospital AI Lab',
+  url: siteUrl,
+  logo: { '@type': 'ImageObject', url: logoUrl },
+  founder: { '@id': `${siteUrl}/#person` },
+  email: CONTACT_EMAIL,
+  sameAs: [YOUTUBE_CHANNEL_URL],
+  areaServed: { '@type': 'Country', name: '대한민국' },
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  url: siteUrl,
+  name: SITE_TITLE,
+  inLanguage: 'ko-KR',
+  publisher: { '@id': `${siteUrl}/#organization` },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [person, organization, website, ...extra],
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
