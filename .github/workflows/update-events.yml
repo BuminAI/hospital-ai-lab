@@ -1,0 +1,59 @@
+name: Update AI Events
+
+on:
+  schedule:
+    # 매일 아침 수집. 정부 지원사업(09:07)과 겹치지 않게 :37로 비켜 둔다.
+    # GitHub cron은 예약을 자주 지연·누락시키므로 낮 시간대 예비 실행을 더 건다.
+    # 스크립트가 "새 행사 있을 때만" 파일을 바꾸므로 여러 번 돌아도
+    # 불필요한 커밋·배포는 생기지 않는다.
+    - cron: '37 0,4,8 * * *' # KST 09:37 / 13:37 / 17:37
+  workflow_dispatch:
+
+permissions:
+  contents: write # 커밋·푸시
+  actions: write # deploy.yml 수동 트리거(gh workflow run)
+
+# 자기 자신의 중복 실행만 직렬화한다. deploy.yml의 'pages' 그룹과 공유하면
+# 크론 실행이 오너 푸시의 배포 대기분을 취소할 수 있어 분리한다.
+concurrency:
+  group: update-events
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 수집 실패(매체 사이트 장애 등)는 오류로 남기지 않는다 — 파일이
+      # 안 바뀌므로 아래 커밋 단계가 '변경 없음'으로 안전하게 끝난다.
+      - name: AI 교육·행사 수집
+        run: node scripts/fetch-events.mjs || echo "수집 건너뜀(기존 목록 유지)"
+
+      - name: events.json 커밋 (변경 있을 때만)
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/events.json
+          if git diff --cached --quiet; then
+            echo "새 행사 없음 — 커밋·배포 생략"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "유지보수: AI 교육·행사 자동 업데이트"
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 배포 트리거 (deploy.yml)
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml

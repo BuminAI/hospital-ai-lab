@@ -124,6 +124,7 @@ npm run build    # 배포본 생성(dist/)
 | `deploy.yml` | main push 시 | Astro 빌드 → GitHub Pages 배포 |
 | `update-news.yml` | 1시간 간격(`17 * * * *`) | **메디칼타임즈 '의료기기·AI' 지면 + 병원신문 전체 기사** 크롤링 → `src/data/news.json`에 신규 기사만 누적. 변경 없으면 커밋·배포 생략 |
 | `update-videos.yml` | **매일** KST 09:07 + 예비 12:07/15:07/18:07/21:07 | 유튜브에서 클로드·병원·의료 AI 영상 최대 3개 신규 추가 → `src/data/recommended-videos.json`. 기존 항목(수동·자동·직접 제작 전부)은 절대 안 지움. 하루 1회 제한: 최근 24시간 내 auto 추가 있으면 건너뜀. 수동 즉시 갱신은 `gh workflow run update-videos.yml -f force=true` |
+| `update-events.yml` | 매일 KST 09:37 + 예비 13:37/17:37 | 메디칼타임즈(의료기기·AI·학술 지면)·병원신문·대한병원협회·한국보건산업진흥원에서 **병원·의료 AI 교육·세미나·컨퍼런스·학술대회** 소식 크롤링 → `src/data/events.json` (2026-07-27 신설). 제목에 행사 표현 + AI·디지털 표현이 함께 있어야 채택하고 수상·인사·MOU는 제외. ⚠️ **수확량이 적다(실측 주 1건 안팎)** — 국내에 병원 AI 행사 자체가 아직 적다. 넓히려면 `AI_RE`를 손볼 것. 최초 1회는 `news.json` 누적분에서 시드를 끌어왔다. |
 | `update-gov-programs.yml` | 매일 KST 09:07 + 예비 12:07/15:07 | 보건복지부·한국보건산업진흥원·**대한병원협회** 공고 크롤링 → `src/data/gov-programs.json`. 병원·의료 관련 지원사업만 담고 채용·입찰·시상·선정결과·지침개정은 제외 (2026-07-20 신설, 07-22 아침 9시로 조정, 07-27 대한병원협회 추가). 병원협회는 복지부 공고를 회원 병원에 전달하는 글이 많아 **수집 순서 맨 뒤**에 두고, 제목 정규화(「」·[]·끝의 '안내/공고' 제거)로 원문과 중복되지 않게 한다. 병원협회 '협회공고' 게시판은 100% 자체 입찰공고라 쓰지 않는다. |
 
 - 수집 스크립트: `scripts/fetch-news.mjs`, `scripts/fetch-videos.mjs`
@@ -221,6 +222,7 @@ src/
 │   ├── blog/index.astro, blog/[id].astro   # 목록에 카테고리 필터(순수 JS)
 │   ├── news.astro          # AI 뉴스 (메디칼타임즈·병원신문 자동 수집)
 │   ├── gov-support.astro   # 정부 지원사업 (2026-07-20 신설, 자동 수집)
+│   ├── events.astro        # AI 교육·행사 (2026-07-27 신설, 자동 수집)
 │   ├── youtube.astro       # 추천 영상 — 연구소장 제작분이 위, 각 섹션 6개까지만 보이고 더보기로 펼침
 │   ├── tips.astro          # 실무 팁 카드 목록 (2026-07-16 신설)
 │   ├── tips/[no].astro     # 실무 팁 상세 (/tips/1/ ~ /tips/10/)
@@ -233,7 +235,7 @@ src/
 ├── content/blog/            # 블로그 글(마크다운). 현재 16편(매일 자동 발행으로 계속 늘어남)
 ├── data/                    # research.ts, glossary.ts, faq.ts, checklist.ts, guide.ts,
 │                             # tips.ts(실무 팁 — 링크 포함), news.json,
-│                             # recommended-videos.json, gov-programs.json(정부 지원사업),
+│                             # recommended-videos.json, gov-programs.json(정부 지원사업), events.json(AI 교육·행사),
 │                             # notified-posts.json(알림 발송 이력)
 ├── layouts/BaseLayout.astro # 헤더(로고 SVG·모바일 메뉴)·푸터(2열+사이트맵)·다크모드·OG
 ├── components/              # PostCard, ResearchIcon
@@ -243,19 +245,19 @@ src/
 .claude/skills/               # new-post·maintenance·update-page (git에 있음)
 .claude/settings.json         # 무인 예약 세션용 도구 사전 허용 (git에 있음 — §4-2)
 supabase/                    # setup.sql(재실행 안전, 이거 하나만 유지) + SETUP-GUIDE.md
-scripts/                     # fetch-news.mjs·fetch-videos.mjs·fetch-gov-programs.mjs·gen-assets.mjs
+scripts/                     # fetch-news.mjs·fetch-videos.mjs·fetch-gov-programs.mjs·fetch-events.mjs·gen-assets.mjs
 public/                      # favicon, og-default.png, fonts/(Pretendard 자체호스팅)
 ```
 
 > **예약 작업은 저장소 안이 아니라 `C:\Users\choyj\.claude\scheduled-tasks\`에 있다**
 > (`daily-blog-post/`, `site-health-check/`). git에 없으므로 새 컴퓨터에서 재생성 필요(§4-2·4-3).
 
-## 7-1. 상단 메뉴 구성 (2026-07-22 기준, 9개)
+## 7-1. 상단 메뉴 구성 (2026-07-27 기준, 10개)
 
-홈 · 소개 · 블로그 · AI 뉴스 · 정부 지원사업 · 강의노트 · 추천 영상 · 실무 팁 · 입문 가이드
+홈 · 소개 · 블로그 · AI 뉴스 · 정부 지원사업 · AI 교육·행사 · 강의노트 · 추천 영상 · 실무 팁 · 입문 가이드
 
 - **'AI로 만든 앱'을 메뉴에서 뺐다(오너 지시 2026-07-22, 비공개 처리).** 상단 메뉴·홈 피드·입문가이드 링크에서 제거하고 `noindex`+사이트맵 제외했다. **페이지(`/ai-apps/`)·관리자 업로드 기능·Supabase 데이터는 그대로 살아 있다** — 직접 주소로만 접근되며 언제든 되돌릴 수 있다(공개 노출 5곳 복구). 자세한 위치는 그 커밋 참조.
-- **메뉴 "축소"는 하지 않는다는 오너 결정(2026-07-20)은 유효하다.** 위 9개는 그 결정을 뒤집은 게 아니라, 특정 분야 하나를 비공개로 돌린 결과다. 새 분야를 추가할 때 10개를 넘기려면 오너에게 확인할 것.
+- **메뉴 개수 10개 유지가 오너 결정(2026-07-20)이다.** 07-22에 'AI로 만든 앱'을 비공개로 내려 9개가 됐다가, 07-27에 'AI 교육·행사'가 들어와 다시 10개가 됐다. **10개를 넘기려면 오너에게 확인할 것.**
 - **문의는 상단 메뉴에서 뺐다**(2026-07-12, 메뉴 밀도 완화). 페이지(`/contact/`)와 주소는 그대로 살아 있고, 푸터 사이트맵과 홈 하단 밴드로 들어간다.
 - 용어사전·FAQ·체크리스트는 상단에 없다 — 입문 가이드의 "더 볼 자료"와 푸터 사이트맵에서 연결한다.
 
