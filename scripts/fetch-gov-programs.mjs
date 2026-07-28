@@ -41,6 +41,25 @@ const KHIDI_LIST = 'https://www.khidi.or.kr/board?menuId=MENU01108';
 const KHIDI_BASE = 'https://www.khidi.or.kr';
 const KHIDI_SOURCE = '한국보건산업진흥원';
 
+// ── 대한병원협회 ─────────────────────────────────────
+// '협회광장 > 공지사항' 게시판 (2026-07-27 오너 지시로 추가).
+//
+// ⚠️ '협회공고'(association-notice.do)는 쓰지 않는다 — 10건 전수 확인 결과
+//    100%가 협회 자체 입찰공고(인쇄·인테리어·장비 구매)라 병원이 신청할 수
+//    있는 지원사업이 하나도 없다. 건강보험공단을 뺀 것과 같은 이유다.
+//
+// ⚠️ 이 게시판은 상당수가 **보건복지부 공고를 회원 병원에 전달하는 글**이다
+//    (실측: 40건 중 공모·모집 4건, 그중 2건이 이미 우리가 복지부에서 직접
+//    수집 중인 공고의 재전달). 그래서 두 가지 장치를 뒀다.
+//      1) 수집 순서상 **맨 마지막**에 둔다 → 중복 시 원문(복지부)이 채택된다.
+//      2) 제목 정규화에서 「」·[] 괄호와 끝의 '안내/공고'를 떼어낸다
+//         (`normTitle`) → "…참여 기관 공모"와 "…참여 기관 공모 안내"가 같은
+//         글로 인식된다.
+const KHA_LIST = 'https://www.kha.or.kr/kha_home/notice_list.do';
+const KHA_VIEW = (no) =>
+  `https://www.kha.or.kr/kha_home/notice_list.do?mode=view&articleNo=${no}`;
+const KHA_SOURCE = '대한병원협회';
+
 // 병원·의료 관련성 판정.
 // 보건복지부 공고 게시판에는 아동·노인복지·기초생활 등 병원과 무관한
 // 공고도 많이 올라온다. 이 사이트 독자(병원 행정·간호)에게 쓸모 있는
@@ -52,6 +71,18 @@ const MED_RE =
 // 걸러내기 위해 함께 확인한다.
 const PROGRAM_RE =
   /공모|모집|지원사업|지원 사업|지원계획|선정|신청|접수|참여기관|참여 기관|시범사업|육성|공고/;
+
+// 제목 정규화 — 같은 공고가 여러 기관을 거치며 조금씩 다른 제목으로 올라오는
+// 것을 한 건으로 묶는다. 대한병원협회가 복지부 공고를 전달하면서 「」를 떼고
+// 끝에 '안내'를 붙이는 식이라, 공백만 지우는 예전 방식으로는 중복이 걸러지지
+// 않았다(2026-07-27 실측 확인).
+//   "2026년도 「거점외상센터 설치지원사업」 참여 기관 공모"
+//   "2026년도 거점외상센터 설치지원사업 참여 기관 공모 안내"  → 같은 글로 인식
+const normTitle = (t) =>
+  (t || '')
+    .replace(/[\s ]/g, '')
+    .replace(/[「」『』[\]()（）]/g, '')
+    .replace(/(안내|공고|알림)+$/, '');
 
 // CDATA는 태그를 지우기 "전에" 벗겨야 한다.
 // <![CDATA[제목]]> 전체가 <[^>]+> 패턴에 통째로 걸려 제목이 사라지기
@@ -101,13 +132,24 @@ const stripTags = (s) =>
 // 같은 게시판에 올라오지만 '지원사업'이 아닌 것들을 제외한다.
 // 직원 채용·공무원 임용, 위원 위촉, 입찰·계약, 시상(정부포상), 이미 끝난
 // 선정결과 발표, 지침·고시 개정 등은 병원이 신청할 수 있는 사업이 아니다.
+// 뒤쪽 항목(의견조회·발령·협조요청·설명회·유공)은 2026-07-27 대한병원협회를
+// 넣으면서 추가했다. 이 게시판은 복지부 고시·개정을 회원 병원에 전달하는 글이
+// 많은데, 그건 병원이 '신청'할 수 있는 지원사업이 아니다.
 const EXCLUDE_RE =
-  /채용|공무원|임용|합격자|면접시험|인사발령|행정처분|공시송달|입찰|낙찰|(상임|자문|심사|감정|평가|운영)위원|위촉|정부포상|유공자|표창|선정\s*결과|결과\s*공고|지침[^.]{0,20}개정|일부\s*개정|고시\s*개정/;
+  /채용|공무원|임용|합격자|면접시험|인사발령|행정처분|공시송달|입찰|낙찰|(상임|자문|심사|감정|평가|운영)위원|위촉|정부포상|유공|표창|선정\s*결과|결과\s*공고|지침[^.]{0,20}개정|일부\s*개정|고시\s*개정|의견\s*조회|발령|협조\s*요청|설명회/;
 
-const isRelevant = (title, summary = '') => {
+// 채택 조건:
+//   1) 제외 대상이 아니고
+//   2) 지원사업 성격(공모·모집·신청 등)이 제목에 있고
+//   3) 병원·의료 관련일 것 — 단 대한병원협회처럼 게시판 자체가 병원 대상이면
+//      3)은 건너뛴다(skipMedCheck). 예: "환자안전 우수사례 공모전"은 병원 대상이
+//      분명한데 MED_RE 단어가 하나도 없어 그냥 두면 걸러진다.
+const isRelevant = (row) => {
+  const { title, summary = '', skipMedCheck = false } = row;
   if (EXCLUDE_RE.test(title)) return false;
-  const text = `${title} ${summary}`;
-  return MED_RE.test(text) && PROGRAM_RE.test(title);
+  if (!PROGRAM_RE.test(title)) return false;
+  if (skipMedCheck) return true;
+  return MED_RE.test(`${title} ${summary}`);
 };
 
 // ── 보건복지부 (RSS) ───────────────────────────────────
@@ -172,12 +214,49 @@ async function fetchKhidi() {
   return rows;
 }
 
+// 대한병원협회 공지사항 파싱.
+// 한 행이 <div class="tr ...>이고 그 안에
+//   <div class="td tb_03"><a href="?mode=view&articleNo=N" ...><span>제목</span></a></div>
+//   <div class="td tb_05">2026-07-28</div>
+// 구조다. 상세 링크가 상대경로(?mode=view…)라 절대 URL로 다시 만든다.
+//
+// 이 게시판은 병원 대상이라 의료 관련성(MED_RE)을 따로 보지 않는다(skipMedCheck).
+// 대신 고시·개정·의견조회 같은 '전달 공지'가 많아 EXCLUDE_RE 쪽을 더 촘촘히 본다.
+async function fetchKha() {
+  const res = await fetchRetry(KHA_LIST, 2);
+  const html = await res.text();
+  const rows = [];
+  for (const part of html.split('<div class="tr ').slice(1)) {
+    const block = part.slice(0, 3000);
+    const idM = block.match(/articleNo=(\d+)/);
+    const titleM = block.match(/<span>([\s\S]*?)<\/span>/);
+    const dateM = block.match(/tb_05">\s*(\d{4}-\d{2}-\d{2})/);
+    if (!idM || !titleM || !dateM) continue;
+    const title = stripTags(titleM[1]);
+    if (!title) continue;
+    const d = new Date(`${dateM[1]}T00:00:00+09:00`);
+    if (Number.isNaN(d.getTime())) continue;
+    rows.push({
+      title,
+      link: KHA_VIEW(idM[1]),
+      source: KHA_SOURCE,
+      summary: '',
+      pubDate: d.toISOString(),
+      skipMedCheck: true,
+    });
+  }
+  return rows;
+}
+
 // ── 수집 ──────────────────────────────────────────────
 const collected = [];
 let okSources = 0;
 for (const [name, fn] of [
   [MOHW_SOURCE, fetchMohw],
   [KHIDI_SOURCE, fetchKhidi],
+  // 대한병원협회는 복지부 공고를 전달하는 경우가 많아 **맨 마지막**에 둔다.
+  // 아래 dedup이 먼저 나온 것을 채택하므로, 같은 공고면 원문 기관이 남는다.
+  [KHA_SOURCE, fetchKha],
 ]) {
   try {
     const rows = await fn();
@@ -195,7 +274,8 @@ if (okSources === 0) {
   process.exit(1);
 }
 
-const fresh = collected.filter((r) => isRelevant(r.title, r.summary));
+// skipMedCheck는 판정에만 쓰고 저장 데이터에는 남기지 않는다.
+const fresh = collected.filter(isRelevant).map(({ skipMedCheck, ...rest }) => rest);
 
 // ── 기존 항목과 병합 (누적) ────────────────────────────
 let existing = [];
@@ -210,10 +290,9 @@ try {
 }
 
 const seen = new Set();
-const norm = (t) => (t || '').replace(/\s+/g, '');
 const items = [...fresh, ...existing]
   .filter((it) => {
-    const key = norm(it.title);
+    const key = normTitle(it.title);
     if (!key || seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -240,5 +319,5 @@ await writeFile(
 const bySource = (s) => items.filter((i) => i.source === s).length;
 console.log(
   `수집 완료: 신규 판정 ${fresh.length}건 / 누적 ${items.length}건 ` +
-    `(보건복지부 ${bySource(MOHW_SOURCE)}건, 진흥원 ${bySource(KHIDI_SOURCE)}건)`
+    `(보건복지부 ${bySource(MOHW_SOURCE)}건, 진흥원 ${bySource(KHIDI_SOURCE)}건, 병원협회 ${bySource(KHA_SOURCE)}건)`
 );
