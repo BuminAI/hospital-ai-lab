@@ -2,11 +2,47 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideRelated from '../components/GuideRelated.astro';
 import { faqItems } from '../data/faq';
+import { withBase } from '../utils/site';
+
+// FAQPage 구조화 데이터 — AI 답변 엔진(ChatGPT·Perplexity 등)이 질문-답변 쌍을
+// 그대로 파싱해 인용할 수 있게 한다. 이 사이트에서 AEO 가치가 가장 큰 자산이다.
+//
+// ⚠️ 참고: 구글 FAQ 리치 결과(검색 화면의 아코디언)는 2026-05-07부터 대부분
+//    노출되지 않는다. 그래도 넣는 이유는 검색 화면 장식이 아니라 **AI 엔진의
+//    Q&A 파싱**과 페이지 의미 구조 명시에 있다. 커밋·문서에 '검색 노출 개선'이라고
+//    쓰지 말 것 — 사실과 다르다.
+//
+// 답변 본문이 <details> 안에 그대로 렌더되므로 '숨겨진 콘텐츠 마크업'이 아니다
+// (접혀 있어도 HTML에 있고 사용자가 펼칠 수 있으면 구글 정책상 허용된다).
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/faq/')}`;
+
+const faqPage = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'ko-KR',
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  mainEntity: faqItems.map((item, i) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#q${i + 1}`,
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      // 화면에 보이는 답변 본문 그대로. 출처 링크는 넣지 않는다 —
+      // 넣으면 Answer.text가 화면 문장과 달라진다.
+      text: item.answer,
+    },
+  })),
+};
 ---
 
 <BaseLayout
   title="자주 묻는 질문"
   description="병원 행정·간호 종사자가 의료 AI를 접하며 실제로 궁금해하는 질문에 답합니다. 일반 정보이며 특정 환자에 대한 진단·치료 조언이 아닙니다."
+  schema={[faqPage]}
 >
   <div class="container">
     <header class="page-head">

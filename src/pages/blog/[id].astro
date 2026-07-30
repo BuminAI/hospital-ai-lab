@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
 import { withBase, formatDate } from '../../utils/site';
 
 export async function getStaticPaths() {
@@ -13,6 +14,22 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// 함께 읽으면 좋은 글 — 같은 분류 우선, 모자라면 최신순으로 채운다.
+//
+// 왜 넣었나: 글 하단이 '블로그 목록으로' 링크 하나뿐이라 글끼리 이어지는 문맥
+// 링크가 거의 없었다. 실측(2026-07-27) 결과 16편 중 9편이 다른 글로부터 받는
+// 문맥 인바운드 링크가 0건이었다. 검색엔진이 사이트 구조를 이해하고 방문자가
+// 다음 글로 넘어가는 데 둘 다 필요하다. 콘텐츠 창작 없이 기존 데이터만 쓴다.
+const RELATED_COUNT = 3;
+const others = (await getCollection('blog', ({ data }) => !data.draft))
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const sameCategory = others.filter((p) => p.data.category === post.data.category);
+const related = [
+  ...sameCategory,
+  ...others.filter((p) => p.data.category !== post.data.category),
+].slice(0, RELATED_COUNT);
 
 const canonicalUrl = Astro.site
   ? new URL(withBase(`/blog/${post.id}/`), Astro.site).href
@@ -69,6 +86,11 @@ const blogPosting = {
           <time datetime={post.data.pubDate.toISOString()}>
             {formatDate(post.data.pubDate)}
           </time>
+          {/* 저자 표시 — BlogPosting JSON-LD가 author를 선언하므로 화면에도
+              같은 사실이 보여야 한다(구글은 비가시 콘텐츠 마크업을 금지한다). */}
+          <span class="byline">
+            <a href={withBase('/about/')} rel="author">조영호</a> · 병원 AI 연구소 소장
+          </span>
         </div>
         <h1>{post.data.title}</h1>
         <p class="description">{post.data.description}</p>
@@ -82,10 +104,47 @@ const blogPosting = {
         <a href={withBase('/blog/')}>← 블로그 목록으로</a>
       </footer>
     </article>
+
+    {
+      related.length > 0 && (
+        <section class="related" aria-labelledby="related-heading">
+          <h2 id="related-heading">함께 읽으면 좋은 글</h2>
+          <div class="related-grid">
+            {related.map((p) => (
+              <PostCard post={p} headingLevel="h3" />
+            ))}
+          </div>
+        </section>
+      )
+    }
   </div>
 </BaseLayout>
 
 <style>
+  .byline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* 함께 읽으면 좋은 글 */
+  .related {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .related-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+
   .post-head {
     padding-block: 3.5rem 2.5rem;
     border-bottom: 1px solid var(--color-border);

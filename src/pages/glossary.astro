@@ -1,12 +1,48 @@
 ---
+import { withBase } from '../utils/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideRelated from '../components/GuideRelated.astro';
 import { glossaryCategories, glossaryTerms } from '../data/glossary';
+
+// DefinedTermSet 구조화 데이터 — AI 답변 엔진이 '이 사이트에 용어 정의가 있다'를
+// 기계적으로 알아보게 한다. 용어마다 고유 @id(=페이지 앵커)를 줘서 딥링크로
+// 인용될 수 있게 했다.
+//
+// ⚠️ 넣지 않는 것과 이유
+//   - whyMatters: 정의가 아니라 실무 조언이라 description에 넣으면 검색엔진이
+//     정의문으로 오독한다.
+//   - reading: 값 상당수가 이표기가 아니라 설명 문장이다
+//     ('Sensitivity, 재현율(Recall)로도 불림'). alternateName에 넣으면 틀린 메타데이터가 된다.
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/glossary/')}`;
+
+const definedTermSet = {
+  '@type': 'DefinedTermSet',
+  '@id': `${pageUrl}#termset`,
+  url: pageUrl,
+  name: '의료 AI 용어 사전',
+  description:
+    '병원 제안서·회의에서 마주치는 의료 AI 용어를 병원 행정·간호 실무자 눈높이로 풀어 쓴 한국어 정의 모음.',
+  inLanguage: 'ko-KR',
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  hasDefinedTerm: glossaryTerms.map((t) => ({
+    '@type': 'DefinedTerm',
+    '@id': `${pageUrl}#${t.id}`,
+    url: `${pageUrl}#${t.id}`,
+    name: t.term,
+    description: t.definition,
+    termCode: t.id,
+    inDefinedTermSet: { '@id': `${pageUrl}#termset` },
+  })),
+};
 ---
 
 <BaseLayout
   title="의료 AI 용어 사전"
   description="병원 행정·간호가 제안서·회의·기사에서 마주치는 의료 AI 용어를 항목별로 정리했습니다. 정의는 확인된 공식 문서·학술자료를 근거로 작성했습니다."
+  schema={[definedTermSet]}
 >
   <div class="container">
     <header class="page-head">
@@ -26,7 +62,7 @@ import { glossaryCategories, glossaryTerms } from '../data/glossary';
             <h2>{category}</h2>
             <dl class="terms">
               {terms.map((t) => (
-                <div class="term">
+                <div class="term" id={t.id}>
                   <dt>
                     {t.term}
                     {t.reading && <span class="reading">{t.reading}</span>}
@@ -57,6 +93,13 @@ import { glossaryCategories, glossaryTerms } from '../data/glossary';
 </BaseLayout>
 
 <style>
+  /* 앵커로 이동할 때 sticky 헤더에 용어 제목이 가리지 않게 한다.
+     BaseLayout의 .site-header가 position:sticky이고 global.css에
+     scroll-behavior:smooth라 이게 없으면 제목이 헤더 뒤로 숨는다. */
+  .term {
+    scroll-margin-top: 5rem;
+  }
+
   .category {
     margin-top: 3rem;
     max-width: var(--prose-width);

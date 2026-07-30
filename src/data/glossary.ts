@@ -1,6 +1,13 @@
 export type GlossaryCategory = '성능지표' | '규제·인증' | '기술·모델' | '데이터·개인정보' | '도입·운영';
 
 export interface GlossaryTerm {
+  /**
+   * URL 앵커용 ASCII 슬러그 (예: '#sensitivity').
+   * 용어명이 한글·슬래시·괄호 조합이라 자동 변환하면 퍼센트 인코딩되거나
+   * 빈 문자열이 되므로 손으로 부여한다.
+   * ⚠️ 한 번 공개하면 외부에서 이 주소로 링크가 걸리므로 나중에 바꾸지 말 것.
+   */
+  id: string;
   term: string;
   reading?: string;
   category: GlossaryCategory;
@@ -19,6 +26,7 @@ export const glossaryCategories: GlossaryCategory[] = [
 
 export const glossaryTerms: GlossaryTerm[] = [
   {
+    id: 'sensitivity',
     term: '민감도',
     reading: 'Sensitivity, 재현율(Recall)로도 불림',
     category: '성능지표',
@@ -29,6 +37,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2781307',
   },
   {
+    id: 'specificity',
     term: '특이도',
     reading: 'Specificity',
     category: '성능지표',
@@ -39,6 +48,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2781307',
   },
   {
+    id: 'auroc',
     term: 'AUROC / AUC',
     reading: 'Area Under the ROC Curve, 곡선하면적',
     category: '성능지표',
@@ -49,6 +59,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2781307',
   },
   {
+    id: 'precision',
     term: '정밀도',
     reading: 'Precision, 양성예측도(PPV)와 유사 개념',
     category: '성능지표',
@@ -59,6 +70,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://www.mfds.go.kr/brd/m_1056/view.do?seq=28&itm_seq_1=0&itm_seq_2=0&multi_itm_seq=0&page=1',
   },
   {
+    id: 'false-positive-negative',
     term: '위양성 / 위음성',
     reading: 'False Positive / False Negative',
     category: '성능지표',
@@ -68,6 +80,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       "무엇을 더 줄일지는 병원의 정책 판단입니다. 위음성을 줄이려 민감도를 높이면 위양성 알림이 늘고, 반대도 마찬가지입니다. 도입 회의에서 '우리 병동은 어느 쪽 오류가 더 위험한가'를 먼저 합의해야 설정값을 정할 수 있습니다.",
   },
   {
+    id: 'samd',
     term: '소프트웨어 의료기기 (SaMD)',
     reading: 'Software as a Medical Device',
     category: '규제·인증',
@@ -78,6 +91,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://www.mfds.go.kr/brd/m_1060/view.do?seq=15628',
   },
   {
+    id: 'mfds-approval',
     term: '식약처 허가·인증·신고',
     reading: '식품의약품안전처 인허가',
     category: '규제·인증',
@@ -88,6 +102,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://emedi.mfds.go.kr/msismext/emd/bif/prmProcssView.do',
   },
   {
+    id: 'clinical-validity',
     term: '임상적 유효성',
     reading: 'Clinical Validity',
     category: '규제·인증',
@@ -98,6 +113,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://www.mfds.go.kr/brd/m_1060/view.do?seq=15628',
   },
   {
+    id: 'change-control-plan',
     term: '변경관리 계획서',
     reading: 'Predetermined Change Control Plan',
     category: '규제·인증',
@@ -108,6 +124,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://www.medipharmhealth.co.kr/news/article.html?no=117386',
   },
   {
+    id: 'generative-ai',
     term: '생성형 AI',
     reading: 'Generative AI',
     category: '기술·모델',
@@ -118,6 +135,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://www.mfds.go.kr/brd/m_1060/view.do?seq=15628',
   },
   {
+    id: 'llm',
     term: '대규모 언어모델 (LLM)',
     reading: 'Large Language Model',
     category: '기술·모델',
@@ -127,6 +145,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       '병원에서 접하는 상담·요약·문서작성 AI 대부분이 LLM 기반입니다. LLM은 그럴듯하지만 틀린 답을 만들 수 있어(할루시네이션), 결과를 사람이 반드시 검토한다는 전제 위에서만 도입해야 합니다.',
   },
   {
+    id: 'hallucination',
     term: '할루시네이션',
     reading: 'Hallucination, 환각',
     category: '기술·모델',
@@ -136,6 +155,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       "약물 용량, 진단명, 참고문헌 등에서 할루시네이션이 발생하면 환자 안전에 직접적 위험이 됩니다. 생성형 AI 도입 시 '출력 검증 절차가 있는가'를 반드시 확인해야 합니다.",
   },
   {
+    id: 'machine-learning',
     term: '머신러닝',
     reading: 'Machine Learning, 기계학습',
     category: '기술·모델',
@@ -146,6 +166,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://www.who.int/publications/i/item/9789240029200',
   },
   {
+    id: 'explainability',
     term: '설명가능성',
     reading: 'Explainability',
     category: '기술·모델',
@@ -156,6 +177,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://www.who.int/publications/i/item/9789240029200',
   },
   {
+    id: 'emr',
     term: '전자의무기록 (EMR)',
     reading: 'Electronic Medical Record',
     category: '데이터·개인정보',
@@ -166,6 +188,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://emrcert.mohw.go.kr/menu.es?mid=a10102020000',
   },
   {
+    id: 'pseudonymization',
     term: '가명정보 / 가명처리',
     reading: 'Pseudonymized Information',
     category: '데이터·개인정보',
@@ -176,6 +199,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1257&ccfNo=2&cciNo=4&cnpClsNo=1',
   },
   {
+    id: 'de-identification',
     term: '비식별화',
     reading: 'De-identification',
     category: '데이터·개인정보',
@@ -186,6 +210,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://www.mohw.go.kr/board.es?mid=a10501010000&bid=0003&list_no=1480106&act=view',
   },
   {
+    id: 'cdss',
     term: '임상의사결정지원시스템 (CDSS)',
     reading: 'Clinical Decision Support System',
     category: '도입·운영',
@@ -196,6 +221,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     source: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11073764/',
   },
   {
+    id: 'post-market-surveillance',
     term: '시판후 성능관리',
     reading: 'Post-market Performance Management',
     category: '도입·운영',
