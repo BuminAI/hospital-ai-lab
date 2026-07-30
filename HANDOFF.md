@@ -191,6 +191,29 @@ npm run build    # 배포본 생성(dist/)
 관리자 화면에서 "Supabase에 이 기능의 설치가 아직 안 된 상태입니다" 같은
 오류가 보이면 `setup.sql`을 SQL Editor에 다시 붙여넣고 Run 하면 된다.
 
+## 5-1. SEO / AEO 구조 (2026-07-27~28 구축)
+
+검색엔진과 AI 답변 엔진(ChatGPT·Perplexity·Gemini) 노출을 위한 장치들이다.
+**손대기 전에 이 절을 읽을 것** — 서로 물려 있어 하나만 지우면 정책 위반이 되는 것이 있다.
+
+| 장치 | 위치 | 주의 |
+| --- | --- | --- |
+| AI 크롤러 명시 허용 | `src/pages/robots.txt.ts` | `public/robots.txt`를 만들면 충돌. **Disallow 쓰지 말 것**(noindex를 못 읽게 됨) |
+| 저자·연구소·사이트 엔티티 | `src/components/SchemaOrg.astro` → BaseLayout에서 전 페이지 | 실명·학력은 `/about/` 화면에도 **반드시 함께** 있어야 한다(비가시 마크업 = 구글 정책 위반) |
+| BreadcrumbList | `BaseLayout.astro` (경로에서 자동 생성) | 메뉴 목록(`nav`·`footerNav`)의 label을 이름으로 쓴다 |
+| BlogPosting | `src/pages/blog/[id].astro` | author를 `@id`로 참조. 글 화면에도 저자 표시가 있어야 한다 |
+| FAQPage | `src/pages/faq.astro` | 구글 FAQ 리치결과는 2026-05부터 사실상 미노출. **AI 인용용**이지 검색 장식이 아니다 |
+| DefinedTermSet + 용어 앵커 | `src/pages/glossary.astro`, `src/data/glossary.ts`의 `id` | **슬러그는 바꾸지 말 것**(외부 링크가 깨진다). `.term { scroll-margin-top }` 없으면 앵커가 헤더에 가림 |
+| ItemList | `src/pages/checklist.astro` | HowTo 아님(순서 있는 방법이 아니라 점검 항목) |
+| CollectionPage | `news`·`gov-support`·`events` | 자동 수집 목록임을 명시. 본문은 안 옮기고 링크만 |
+| 글별 OG 이미지 | `src/pages/og/[...route].ts` | 키는 `post.id`(Astro 5에 `slug` 없음), 폰트 지정 필수(한글), `await` 필수 |
+| llms.txt | `public/llms.txt` | AI 엔진용 사이트 안내 |
+| RSS 검증 항목 | `src/pages/rss.xml.js` | `atom:link rel=self`·`lastBuildDate`. lastBuildDate는 **최신 글 발행일**(빌드 시각 쓰면 매 배포마다 바뀜) |
+| 관련글 모듈 | `src/pages/blog/[id].astro` | 같은 분류 우선 3편. 이게 없으면 글 절반이 문맥 인바운드 링크 0건이 된다 |
+
+**남은 것 (오너가 직접 해야 함)**: 구글 서치콘솔·네이버 서치어드바이저·Bing 웹마스터에
+사이트맵(`sitemap-index.xml`)과 RSS 제출. 소유확인 메타 태그는 이미 둘 다 들어가 있다.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **Node가 PATH에 없을 수 있다**: `.claude/run-npm.cmd` 래퍼로 절대경로 실행(§2).
@@ -211,6 +234,8 @@ npm run build    # 배포본 생성(dist/)
 - **CDATA는 태그를 지우기 전에 벗겨야 한다**: `stripTags`가 `<[^>]+>`로 태그를 먼저 지우면 `<![CDATA[제목]]>` 전체가 한 덩어리로 매칭돼 제목이 빈 문자열이 된다. 보건복지부 RSS가 0건으로 나오던 원인(2026-07-20).
 - **정부 사이트(.go.kr)는 GitHub Actions 러너에서 간헐적으로 연결이 끊긴다**: 보건복지부가 러너에서만 `UND_ERR_CONNECT_TIMEOUT`으로 실패했다(국내 PC·다른 해외 인프라에서는 정상). 완전 차단은 아니고 간헐적이므로 **재시도 + 대체 경로(https/http, www 유무)**로 흡수한다. 한 수집원이 실패해도 나머지는 계속 진행하고, 전부 실패할 때만 기존 파일을 지키며 중단하도록 짤 것.
 - **검색어를 넓히면 필터의 숨은 허점이 드러난다**: 영상 수집기의 주제 필터가 주제어(`병원|의료|요양`…)만 보고 AI 여부는 확인하지 않았다. 검색어가 전부 클로드 중심일 때는 문제가 없었지만 `병원 인공지능` 같은 넓은 검색어를 넣자 「요양병원의 잠든 노인들(추적60분)」 같은 AI 무관 다큐가 통과했다. **필터를 넓힐 때는 기존 조건이 무엇을 전제하고 있었는지 함께 볼 것**(2026-07-20).
+- **구조화 데이터는 화면에 보이는 사실만 마크업해야 한다**: 구글은 비가시 콘텐츠 마크업을 정책 위반으로 본다. 2026-07-27에 저자 Person JSON-LD(실명·학력)를 넣고 `/about/` 화면에는 안 넣은 상태가 잠깐 있었는데, push 전에 발견해 화면 표시를 함께 넣어 해소했다. **JSON-LD를 고치면 대응하는 화면 블록도 같이 고칠 것.**
+- **`@astrojs/rss`의 `lastBuildDate`에 빌드 시각을 쓰면 안 된다**: 이 사이트는 뉴스 수집으로 하루에도 여러 번 배포돼, 내용이 안 바뀌어도 피드가 갱신된 것처럼 보인다. 최신 글 발행일을 쓴다.
 - **Supabase 무료 요금제는 파일당 50MB가 절대 상한이다**(공식 문서로 확인, 실측으로도 재현: 50MB 성공/51MB 거부). 버킷의 `file_size_limit`을 그보다 크게 설정해도 서버가 조용히 50MB에서 막는다 — 오류가 "파일 형식" 문제처럼 보여도 실제로는 용량 문제일 수 있으니 먼저 파일 크기부터 의심할 것. 올리려면 유료 요금제 전환이 유일한 방법이다.
 
 ## 7. 주요 파일 지도
