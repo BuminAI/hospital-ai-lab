@@ -1,0 +1,80 @@
+---
+// 일본어판 홈
+import JaLayout from '../../layouts/JaLayout.astro';
+import ja from '../../i18n/ja.json';
+import subsidies from '../../data/ja/subsidies.json';
+import { withBase } from '../../utils/site';
+
+// 홈에는 마감 임박 순 5건만. 일본 사용자는 정보가 화면에 미리 보이는 것을
+// 신뢰의 근거로 삼으므로, 목록으로 들어가야만 내용을 볼 수 있게 두지 않는다.
+const top = subsidies.items.slice(0, 5);
+const updated = new Date(subsidies.updatedAt);
+
+const fmtJa = (iso) => {
+  if (!iso) return null;
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? null : `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+};
+---
+
+<JaLayout
+  title={ja.home.metaTitle}
+  description={ja.home.metaDescription}
+  koPath="/"
+  updated={updated}
+>
+  <p class="ja-updated" style="letter-spacing:.08em">{ja.home.heroEyebrow}</p>
+  <h1>{ja.home.heroTitle}<br />{ja.home.heroTitle2}</h1>
+  <p>{ja.home.heroLead}</p>
+
+  <p style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+    <a class="ja-cta" href={withBase('/ja/subsidies/')}>{ja.home.ctaSubsidies}</a>
+    <a class="ja-cta ja-cta-ghost" href={withBase('/ja/about/')}>{ja.home.ctaAbout}</a>
+  </p>
+
+  <h2>{ja.home.subsidiesTitle}</h2>
+  <p>{ja.home.subsidiesDesc}</p>
+  <ul class="ja-list">
+    {top.map((item) => (
+      <li>
+        <a class="ja-item-title ja-ext" href={item.link} target="_blank" rel="noopener">
+          {item.title}
+          <span class="sr-only">（{ja.ui.external}）</span>
+        </a>
+        <span class="ja-item-meta">
+          {fmtJa(item.endDate) && <span>{ja.subsidies.labelDeadline}：{fmtJa(item.endDate)}</span>}
+          {item.area && <span class="ja-badge ja-badge-gov">{item.area}</span>}
+        </span>
+      </li>
+    ))}
+  </ul>
+  <p style="margin-top:12px"><a href={withBase('/ja/subsidies/')}>{ja.ui.viewAll} →</a></p>
+
+  <h2>{ja.home.introTitle}</h2>
+  <p>{ja.home.introBody}</p>
+
+  <div class="ja-note">
+    <p><strong>{ja.home.koNoticeTitle}</strong></p>
+    <p style="margin-top:6px">{ja.home.koNoticeBody}</p>
+    <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{ja.ui.langKo} →</a></p>
+  </div>
+</JaLayout>
+
+<style>
+  .ja-cta {
+    display: inline-block;
+    background: var(--ja-primary);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-size: 14.5px;
+  }
+  .ja-cta:hover { background: var(--ja-primary-dk); }
+  .ja-cta-ghost {
+    background: transparent;
+    color: var(--ja-primary);
+    border: 1px solid var(--ja-primary);
+  }
+  .ja-cta-ghost:hover { background: var(--ja-surface); color: var(--ja-primary); }
+</style>

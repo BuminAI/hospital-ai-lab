@@ -43,12 +43,30 @@ const { site, base } = resolveSiteAndBase();
 export default defineConfig({
   site,
   base,
+  // ── 다국어 (2026-07-31 일본어판 추가) ──────────────────
+  // ⚠️ prefixDefaultLocale: false 가 핵심이다. 이게 true면 기존 한국어 URL이
+  //    전부 /ko/ 아래로 밀려나 지금까지 쌓은 검색 자산이 통째로 날아간다.
+  //    한국어는 루트(/about/)에 그대로 두고, 일본어만 /ja/ 하위에 새로 만든다.
+  i18n: {
+    defaultLocale: 'ko',
+    locales: ['ko', 'ja'],
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false,
+    },
+  },
   integrations: [
     sitemap({
       // lastmod를 넣어 크롤러에 갱신 신호를 준다. 이 사이트는 뉴스가 매시,
       // 정부 지원사업·추천 영상이 매일 자동 갱신되므로 재크롤 유도가 실질적으로 중요하다.
       // (빌드 시각 기준이라 페이지별 정밀 수정일은 아니지만, 없는 것보다 낫다.)
       lastmod: new Date(),
+      // 사이트맵에 언어 대응 관계를 넣어 구글이 ko/ja를 같은 페이지의
+      // 다른 언어판으로 인식하게 한다(hreflang과 짝을 이룬다).
+      i18n: {
+        defaultLocale: 'ko',
+        locales: { ko: 'ko-KR', ja: 'ja-JP' },
+      },
       // 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외.
       // ai-apps는 비공개 처리(2026-07-21 오너 지시) — 메뉴·홈에서 내리고
       // 검색엔진에도 노출하지 않는다(페이지 자체는 직접 링크로 접근 가능).

@@ -1,0 +1,370 @@
+/* ── 일본어판 디자인 토큰 (2026-07-31 신설) ──────────────────
+   한국어판의 여백 중심 미니멀 디자인을 그대로 옮기면 일본 사용자에게는
+   "정보가 없는 미완성 사이트"로 읽힌다. 일본어판은 정보 밀도와 구조화된
+   레이아웃(2컬럼·브레드크럼·상시 사이드바)으로 신뢰를 만든다.
+
+   ⚠️ 이 파일은 `[data-locale="ja"]` 안에서만 적용된다. 한국어판 스타일에
+      영향을 주지 않도록 모든 선택자에 이 접두사를 붙일 것.
+
+   ⚠️ 폰트는 self-host 하지 않고 시스템 일본어 폰트를 우선 쓴다.
+      한국어판이 Pretendard(2MB)를 이미 preload 하는데 Noto Sans JP까지
+      받아오면 일본 모바일에서 초기 로딩이 눈에 띄게 느려진다. 일본 환경에는
+      Hiragino(Mac)·Yu Gothic(Windows)이 기본 탑재돼 있어 품질 손실이 작다. */
+
+[data-locale='ja'] {
+  /* Color — 신뢰 블루 기조 */
+  --ja-base: #ffffff;
+  --ja-surface: #f7f8fa;
+  --ja-surface-2: #eef1f5;
+  --ja-border: #dde2e8;
+  --ja-text: #1a1a1a;
+  --ja-text-sub: #5a6270;
+  --ja-primary: #0b3b8c;
+  --ja-primary-dk: #072a66;
+  --ja-accent: #c85410; /* CTA — 원안 #E86A17은 흰 배경 대비 3.0:1이라 본문용으로 부족해 어둡게 조정 */
+  --ja-badge-new: #c62828;
+  --ja-badge-info: #15619f;
+  --ja-badge-gov: #17663d;
+
+  /* Typography — 일본어는 시스템 폰트 우선 */
+  --ja-font: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium',
+    'Yu Gothic', YuGothic, Meiryo, 'Noto Sans JP', sans-serif;
+
+  /* Layout */
+  --ja-max: 1120px;
+  --ja-sidebar: 300px;
+  --ja-gap: 32px;
+}
+
+/* 다크모드에서도 읽히게 — 한국어판이 prefers-color-scheme 다크를 쓰므로
+   일본어판만 라이트로 고정하면 사용자 설정을 무시하게 된다. 색만 맞춘다. */
+@media (prefers-color-scheme: dark) {
+  [data-locale='ja'] {
+    --ja-base: #0e141d;
+    --ja-surface: #161f2b;
+    --ja-surface-2: #1d2836;
+    --ja-border: #2b3646;
+    --ja-text: #e8edf4;
+    --ja-text-sub: #a2aebd;
+    --ja-primary: #7fb0e8;
+    --ja-primary-dk: #a8cbf2;
+    --ja-accent: #f0955a;
+    --ja-badge-new: #ef6b6b;
+    --ja-badge-info: #6fb0e0;
+    --ja-badge-gov: #64c799;
+  }
+}
+
+/* ── 본문 조판 ─────────────────────────────────────────── */
+/* ⚠️ 반드시 `[data-locale='ja'] body`로 지정할 것.
+   data-locale은 <html>에 붙는데, global.css가 `body { font-family / font-size /
+   letter-spacing }`을 직접 지정하고 있어서 html에만 걸면 body 규칙이 이긴다.
+   (2026-07-31 실측: 폰트가 Pretendard, 자간이 -0.18px로 남아 일본어 조판이
+   전혀 적용되지 않았다.) */
+[data-locale='ja'] body {
+  font-family: var(--ja-font);
+  font-size: 15.5px;
+  line-height: 1.95;
+  letter-spacing: 0.04em;
+  color: var(--ja-text);
+  background: var(--ja-base);
+
+  /* 일본어 조판 필수 */
+  line-break: strict; /* 금칙처리 — 행 첫머리에 、。등이 오지 않게 */
+  word-break: normal;
+  overflow-wrap: anywhere;
+  text-align: left; /* justify는 일본어에서 어색하다 */
+  font-feature-settings: 'palt' 1; /* 프로포셔널 자간 */
+}
+
+[data-locale='ja'] h1,
+[data-locale='ja'] h2,
+[data-locale='ja'] h3 {
+  color: var(--ja-text);
+  letter-spacing: 0.02em;
+}
+
+[data-locale='ja'] h1 {
+  font-size: 26px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+/* 볼드 대신 보더+배경으로 강조한다 — 일본어는 볼드가 뭉개져 가독성이 떨어진다 */
+[data-locale='ja'] h2 {
+  font-size: 21px;
+  line-height: 1.6;
+  border-left: 5px solid var(--ja-primary);
+  padding: 6px 0 6px 12px;
+  background: var(--ja-surface);
+  margin: 32px 0 16px;
+}
+
+[data-locale='ja'] h3 {
+  font-size: 17px;
+  border-bottom: 2px solid var(--ja-border);
+  padding-bottom: 6px;
+  margin: 24px 0 12px;
+}
+
+[data-locale='ja'] a {
+  color: var(--ja-primary);
+}
+
+/* ── 2컬럼 셸 ──────────────────────────────────────────── */
+[data-locale='ja'] .ja-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--ja-sidebar);
+  gap: var(--ja-gap);
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+@media (max-width: 860px) {
+  [data-locale='ja'] .ja-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ── 헤더 ──────────────────────────────────────────────── */
+[data-locale='ja'] .ja-header {
+  background: var(--ja-base);
+  border-bottom: 3px solid var(--ja-primary);
+}
+
+[data-locale='ja'] .ja-header-inner {
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+[data-locale='ja'] .ja-brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ja-primary);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+[data-locale='ja'] .ja-brand-sub {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--ja-text-sub);
+  letter-spacing: 0.06em;
+}
+
+[data-locale='ja'] .ja-nav {
+  background: var(--ja-surface);
+  border-bottom: 1px solid var(--ja-border);
+}
+
+[data-locale='ja'] .ja-nav ul {
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+[data-locale='ja'] .ja-nav a {
+  display: block;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  color: var(--ja-text);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+[data-locale='ja'] .ja-nav a:hover,
+[data-locale='ja'] .ja-nav a[aria-current='page'] {
+  color: var(--ja-primary);
+  border-bottom-color: var(--ja-primary);
+  background: var(--ja-base);
+}
+
+/* ── 브레드크럼 ────────────────────────────────────────── */
+[data-locale='ja'] .ja-breadcrumb {
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 10px 20px 0;
+  font-size: 12.5px;
+  color: var(--ja-text-sub);
+}
+
+[data-locale='ja'] .ja-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+[data-locale='ja'] .ja-breadcrumb li + li::before {
+  content: '＞';
+  margin-right: 6px;
+  color: var(--ja-border);
+}
+
+/* ── 사이드바 ──────────────────────────────────────────── */
+[data-locale='ja'] .ja-side section {
+  border: 1px solid var(--ja-border);
+  border-radius: 4px;
+  background: var(--ja-base);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+[data-locale='ja'] .ja-side h2 {
+  font-size: 14px;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--ja-primary);
+  color: #fff;
+  border: 0;
+  letter-spacing: 0.04em;
+}
+
+[data-locale='ja'] .ja-side .ja-side-body {
+  padding: 14px;
+  font-size: 13.5px;
+  line-height: 1.85;
+}
+
+[data-locale='ja'] .ja-side dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+}
+
+[data-locale='ja'] .ja-side dt {
+  color: var(--ja-text-sub);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+[data-locale='ja'] .ja-side dd {
+  margin: 0;
+}
+
+/* ── 뱃지·메타 ─────────────────────────────────────────── */
+[data-locale='ja'] .ja-badge {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 1px 7px;
+  border-radius: 3px;
+  color: #fff;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+
+[data-locale='ja'] .ja-badge-new {
+  background: var(--ja-badge-new);
+}
+[data-locale='ja'] .ja-badge-gov {
+  background: var(--ja-badge-gov);
+}
+[data-locale='ja'] .ja-badge-info {
+  background: var(--ja-badge-info);
+}
+
+[data-locale='ja'] .ja-updated {
+  font-size: 12.5px;
+  color: var(--ja-text-sub);
+}
+
+/* ── 목록 ──────────────────────────────────────────────── */
+[data-locale='ja'] .ja-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ja-border);
+}
+
+[data-locale='ja'] .ja-list > li {
+  border-bottom: 1px solid var(--ja-border);
+  padding: 13px 2px;
+}
+
+[data-locale='ja'] .ja-list .ja-item-title {
+  color: var(--ja-text);
+  text-decoration: none;
+  line-height: 1.7;
+}
+
+[data-locale='ja'] .ja-list .ja-item-title:hover {
+  color: var(--ja-primary);
+  text-decoration: underline;
+}
+
+[data-locale='ja'] .ja-list .ja-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  font-size: 12.5px;
+  color: var(--ja-text-sub);
+}
+
+/* ── 주의 박스 ─────────────────────────────────────────── */
+[data-locale='ja'] .ja-caution {
+  border: 1px solid var(--ja-border);
+  border-left: 5px solid var(--ja-accent);
+  background: var(--ja-surface);
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.85;
+  margin: 16px 0;
+}
+
+[data-locale='ja'] .ja-note {
+  font-size: 12.5px;
+  line-height: 1.85;
+  color: var(--ja-text-sub);
+  border-top: 1px solid var(--ja-border);
+  margin-top: 32px;
+  padding-top: 16px;
+}
+
+/* ── 푸터 ──────────────────────────────────────────────── */
+[data-locale='ja'] .ja-footer {
+  border-top: 3px solid var(--ja-primary);
+  background: var(--ja-surface);
+  font-size: 13px;
+}
+
+[data-locale='ja'] .ja-footer-inner {
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+}
+
+[data-locale='ja'] .ja-footer ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+/* 외부 링크 아이콘 */
+[data-locale='ja'] .ja-ext::after {
+  content: '↗';
+  font-size: 0.85em;
+  margin-left: 3px;
+  color: var(--ja-text-sub);
+}

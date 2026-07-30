@@ -1,0 +1,81 @@
+---
+// 運営者について — 일본어판 신뢰 시그널의 핵심 페이지
+import JaLayout from '../../layouts/JaLayout.astro';
+import ja from '../../i18n/ja.json';
+import { withBase, CONTACT_EMAIL, YOUTUBE_CHANNEL_URL } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+
+// ProfilePage — AI 답변 엔진이 '누가 쓰는 사이트인가'를 판정하는 근거.
+// 화면에 보이는 사실만 마크업한다(구글은 비가시 콘텐츠 마크업을 금지).
+const profilePage = {
+  '@type': 'ProfilePage',
+  '@id': `${siteRoot}${withBase('/ja/about/')}#profile`,
+  inLanguage: 'ja-JP',
+  mainEntity: { '@id': `${siteRoot}/#person` },
+};
+---
+
+<JaLayout
+  title={ja.about.metaTitle}
+  description={ja.about.metaDescription}
+  crumb={ja.nav.about}
+  koPath="/about/"
+  schema={[profilePage]}
+>
+  <h1>{ja.about.pageTitle}</h1>
+  <p>{ja.about.pageLead}</p>
+
+  <table class="ja-profile">
+    <tbody>
+      <tr><th>氏名</th><td>{ja.profile.name}</td></tr>
+      <tr><th>役職</th><td>{ja.profile.role}</td></tr>
+      <tr><th>経歴</th><td>{ja.profile.career}</td></tr>
+      <tr><th>学位</th><td>{ja.profile.education}</td></tr>
+      <tr>
+        <th>発信</th>
+        <td>
+          <a class="ja-ext" href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+            {ja.profile.youtube}<span class="sr-only">（{ja.ui.external}）</span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>{ja.about.whyTitle}</h2>
+  <p>{ja.about.why}</p>
+
+  <h2>{ja.about.stanceTitle}</h2>
+  <p>{ja.about.stance}</p>
+
+  <h2>{ja.about.methodTitle}</h2>
+  <p>{ja.about.method}</p>
+
+  <h2>{ja.about.contactTitle}</h2>
+  <p>{ja.about.contact}</p>
+  <p style="margin-top:8px"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+</JaLayout>
+
+<style>
+  .ja-profile {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 8px;
+    font-size: 14.5px;
+  }
+  .ja-profile th,
+  .ja-profile td {
+    border: 1px solid var(--ja-border);
+    padding: 9px 12px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.85;
+  }
+  .ja-profile th {
+    background: var(--ja-surface);
+    width: 6.5em;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+</style>

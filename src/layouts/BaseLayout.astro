@@ -15,6 +15,12 @@ import {
 } from '../utils/site';
 
 interface Props {
+  /**
+   * 이 페이지에 대응하는 일본어판 경로(예: '/ja/subsidies/').
+   * 넘기면 hreflang 짝을 만들어 구글이 두 언어판을 같은 페이지로 인식한다.
+   * **양쪽 다 서로를 가리켜야** 유효하다 — 한쪽만 있으면 구글이 무시한다.
+   */
+  jaPath?: string;
   title?: string;
   description?: string;
   /** true면 검색엔진 색인에서 제외 (관리자 페이지 등) */
@@ -41,6 +47,7 @@ interface Props {
 }
 
 const {
+  jaPath,
   title,
   description = SITE_TAGLINE,
   noindex = false,
@@ -168,6 +175,22 @@ const breadcrumb =
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0e141d" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={canonical} />
+
+    {/* hreflang — 일본어판이 있는 페이지만. 짝이 서로를 가리켜야 유효하다.
+        한국어가 원본이므로 x-default는 한국어를 가리킨다. */}
+    {
+      jaPath && (
+        <>
+          <link rel="alternate" hreflang="ko" href={canonical} />
+          <link
+            rel="alternate"
+            hreflang="ja"
+            href={`${siteRoot}${withBase(jaPath)}`}
+          />
+          <link rel="alternate" hreflang="x-default" href={canonical} />
+        </>
+      )
+    }
 
     {/* 구조화 데이터(JSON-LD). 색인 제외 페이지에는 넣지 않는다 —
         검색·AI에 노출할 페이지가 아니므로 엔티티를 흘릴 이유가 없다. */}

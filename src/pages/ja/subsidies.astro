@@ -1,0 +1,135 @@
+---
+// 補助金・助成金情報 — jGrants(디지털청) 공개 API 자동 수집
+// 데이터: scripts/fetch-jgrants.mjs → src/data/ja/subsidies.json
+import JaLayout from '../../layouts/JaLayout.astro';
+import ja from '../../i18n/ja.json';
+import subsidies from '../../data/ja/subsidies.json';
+import { withBase } from '../../utils/site';
+
+const items = subsidies.items;
+const updated = new Date(subsidies.updatedAt);
+
+const siteRoot = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/ja/subsidies/')}`;
+
+// 일본어 날짜 표기 (2026年8月14日)
+const fmtJa = (iso: string | null) => {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+};
+
+// 금액은 만엔 단위로 — 일본 공모 문서 관행
+const fmtAmount = (yen: number | null) => {
+  if (!yen) return null;
+  const man = yen / 10000;
+  return `${man.toLocaleString('ja-JP')}万円`;
+};
+
+// 7일 이내 마감이면 '新着'이 아니라 '締切間近'를 보여주는 편이 실무에 맞다
+const DAY = 86400000;
+const now = Date.now();
+const isSoon = (iso: string | null) => {
+  if (!iso) return false;
+  const t = new Date(iso).getTime();
+  return !Number.isNaN(t) && t - now > 0 && t - now < 14 * DAY;
+};
+
+// CollectionPage + ItemList — AI 답변 엔진이 '무엇을 모은 목록인지' 알게 한다
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: ja.subsidies.pageTitle,
+  description: ja.subsidies.metaDescription,
+  inLanguage: 'ja-JP',
+  dateModified: subsidies.updatedAt,
+  isPartOf: { '@id': `${siteRoot}/#website-ja` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.slice(0, 30).map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.title,
+      url: it.link,
+    })),
+  },
+};
+---
+
+<JaLayout
+  title={ja.subsidies.metaTitle}
+  description={ja.subsidies.metaDescription}
+  crumb={ja.nav.subsidies}
+  koPath="/gov-support/"
+  updated={updated}
+  schema={[collectionPage]}
+>
+  <h1>{ja.subsidies.pageTitle}</h1>
+  <p>{ja.subsidies.pageLead}</p>
+
+  <p class="ja-caution">{ja.subsidies.caution}</p>
+
+  <p class="ja-updated" style="margin-bottom:8px">
+    {ja.subsidies.countLabel}：{items.length}件
+  </p>
+
+  {
+    items.length > 0 ? (
+      <ul class="ja-list">
+        {items.map((item) => {
+          const deadline = fmtJa(item.endDate);
+          const amount = fmtAmount(item.maxLimit);
+          return (
+            <li>
+              <a
+                class="ja-item-title ja-ext"
+                href={item.link}
+                target="_blank"
+                rel="noopener"
+              >
+                {item.title}
+                <span class="sr-only">（{ja.ui.external}）</span>
+              </a>
+              <span class="ja-item-meta">
+                {isSoon(item.endDate) && <span class="ja-badge ja-badge-new">締切間近</span>}
+                {deadline && (
+                  <span>
+                    {ja.subsidies.labelDeadline}：{deadline}
+                  </span>
+                )}
+                {amount && (
+                  <span>
+                    {ja.subsidies.labelMaxAmount}：{amount}
+                  </span>
+                )}
+                {item.rate && (
+                  <span>
+                    {ja.subsidies.labelRate}：{item.rate}
+                  </span>
+                )}
+                {item.area && <span class="ja-badge ja-badge-gov">{item.area}</span>}
+              </span>
+              {item.usePurpose && (
+                <span class="ja-item-meta">
+                  {ja.subsidies.labelPurpose}：{item.usePurpose}
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    ) : (
+      <p>{ja.ui.noItems}</p>
+    )
+  }
+
+  <div class="ja-note">
+    <p>{ja.subsidies.noticeSource}</p>
+    <p style="margin-top:8px">{ja.subsidies.noticeFilter}</p>
+  </div>
+</JaLayout>

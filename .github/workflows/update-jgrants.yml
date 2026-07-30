@@ -1,0 +1,56 @@
+name: Update JA Subsidies
+
+on:
+  schedule:
+    # 매일 JST 09:07 = UTC 00:07. 일본 독자가 아침에 보는 시각에 맞춘다.
+    # GitHub cron은 예약을 자주 지연·누락시키므로 낮 시간대 예비를 더 건다.
+    # 스크립트가 "변경 있을 때만" 파일을 바꾸므로 여러 번 돌아도 문제없다.
+    - cron: '7 0,4,8 * * *' # JST 09:07 / 13:07 / 17:07
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: update-jgrants
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # jGrants API 장애는 오류로 남기지 않는다 — 파일이 안 바뀌므로
+      # 아래 커밋 단계가 '변경 없음'으로 안전하게 끝난다.
+      - name: 補助金 수집 (jGrants 공개 API)
+        run: node scripts/fetch-jgrants.mjs || echo "수집 건너뜀(기존 목록 유지)"
+
+      - name: subsidies.json 커밋 (변경 있을 때만)
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/ja/subsidies.json
+          if git diff --cached --quiet; then
+            echo "새 공모 없음 — 커밋·배포 생략"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "유지보수: 일본어판 보조금 정보 자동 업데이트"
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 배포 트리거 (deploy.yml)
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml
