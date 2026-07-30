@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../utils/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import events from '../data/events.json';
 
@@ -20,11 +21,41 @@ const fmtDay = new Intl.DateTimeFormat('ko-KR', {
 const updatedAt = fmtFull.format(new Date(events.updatedAt));
 const items = events.items;
 const sources = [...new Set(items.map((i) => i.source))];
+
+// CollectionPage + ItemList 구조화 데이터.
+// 이 페이지는 자동 수집 목록이라 본문 글이 아니다. AI 답변 엔진과 검색엔진에
+// '무엇을 모은 목록이고 지금 몇 건인지'를 명시해 준다. 개별 항목은 외부 원문
+// 링크라 url만 싣고 본문은 옮기지 않는다(저작권).
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/events/')}`;
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: 'AI 교육·행사',
+  description: '병원·의료 분야의 AI·디지털 관련 교육, 세미나, 컨퍼런스, 학술대회 소식 목록.',
+  inLanguage: 'ko-KR',
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  dateModified: events.updatedAt,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.slice(0, 30).map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.title,
+      url: it.link,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title="AI 교육·행사"
   description="병원·의료 분야의 AI·디지털 관련 교육, 세미나, 컨퍼런스, 학술대회 소식을 매일 자동으로 모아 원문 링크로 안내합니다."
+  schema={[collectionPage]}
 >
   <div class="container">
     <header class="page-head">

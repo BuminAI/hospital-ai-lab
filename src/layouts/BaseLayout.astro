@@ -93,6 +93,47 @@ function isActive(href: string): boolean {
 }
 
 const year = new Date().getFullYear();
+
+// ── BreadcrumbList 구조화 데이터 (전 페이지 자동) ──────────
+// 검색 결과에 '홈 > 블로그 > 글제목' 경로가 표시되고, AI 엔진이 페이지의
+// 계층 위치를 이해한다. 상단 메뉴·푸터 목록에서 이름을 찾아 만들기 때문에
+// 페이지마다 따로 지정할 필요가 없다.
+const siteRoot = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const allNav = [...nav, ...footerNav];
+
+// 현재 경로를 조각내며 각 단계의 이름을 찾는다.
+// 예: /blog/2026-07-19-foo/ → [홈, 블로그, <글 제목>]
+const segments = currentPath.split('/').filter(Boolean);
+const crumbs: { name: string; url: string }[] = [
+  { name: '홈', url: `${siteRoot}${withBase('/')}` },
+];
+let acc = '';
+segments.forEach((seg, i) => {
+  acc += `/${seg}`;
+  const isLast = i === segments.length - 1;
+  const known = allNav.find((n) => n.href.replace(/\/$/, '') === acc);
+  // 마지막 조각은 페이지 제목을 쓴다(글 제목 등 메뉴에 없는 이름).
+  const name = known ? known.label : isLast && title ? title : seg;
+  crumbs.push({ name, url: `${siteRoot}${withBase(`${acc}/`)}` });
+});
+
+const breadcrumb =
+  crumbs.length > 1
+    ? [
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${siteRoot}${canonicalPath}#breadcrumb`,
+          itemListElement: crumbs.map((c, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: c.name,
+            item: c.url,
+          })),
+        },
+      ]
+    : [];
 ---
 
 <!doctype html>
@@ -130,7 +171,7 @@ const year = new Date().getFullYear();
 
     {/* 구조화 데이터(JSON-LD). 색인 제외 페이지에는 넣지 않는다 —
         검색·AI에 노출할 페이지가 아니므로 엔티티를 흘릴 이유가 없다. */}
-    {!noindex && <SchemaOrg extra={schema} />}
+    {!noindex && <SchemaOrg extra={[...breadcrumb, ...schema]} />}
     <link
       rel="alternate"
       type="application/rss+xml"

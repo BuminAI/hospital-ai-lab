@@ -1,14 +1,44 @@
 ---
+import { withBase } from '../utils/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideRelated from '../components/GuideRelated.astro';
 import { checklistIntro, checklistSections } from '../data/checklist';
 
 const [introLead, introNotice] = checklistIntro.split('\n\n');
+
+// ItemList 구조화 데이터.
+// HowTo를 쓰지 않는 이유: 이건 순서대로 따라 하는 '방법'이 아니라 검토할 항목의
+// 모음이다. 게다가 구글은 2023년부터 HowTo 리치 결과를 사실상 내리지 않는다.
+// ItemList는 AI 답변 엔진이 '체크리스트 항목 N개'를 그대로 인용하기 좋은 형태다.
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/checklist/')}`;
+const allChecklistItems = checklistSections.flatMap((sec) =>
+  sec.items.map((it) => ({ section: sec.title, text: it }))
+);
+const itemList = {
+  '@type': 'ItemList',
+  '@id': `${pageUrl}#checklist`,
+  url: pageUrl,
+  name: 'AI 도입 검토 체크리스트',
+  description:
+    '병원이 AI 의료기기·솔루션 도입 제안을 받았을 때 행정·간호 부서가 확인할 항목을 주제별로 정리한 점검 목록.',
+  inLanguage: 'ko-KR',
+  numberOfItems: allChecklistItems.length,
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  itemListElement: allChecklistItems.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `[${it.section}] ${it.text}`,
+  })),
+};
 ---
 
 <BaseLayout
   title="AI 도입 검토 체크리스트"
   description="병원 AI 의료기기·솔루션 도입 제안을 검토할 때 행정·간호 부서가 확인할 항목을 주제별로 정리한 일반 가이드입니다."
+  schema={[itemList]}
 >
   <div class="container">
     <header class="page-head">

@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../utils/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import programs from '../data/gov-programs.json';
 
@@ -21,11 +22,41 @@ const updatedAt = fmtFull.format(new Date(programs.updatedAt));
 const items = programs.items;
 // 소스별 건수 — 어디서 모으는지 한눈에 보이게
 const sources = [...new Set(items.map((i) => i.source))];
+
+// CollectionPage + ItemList 구조화 데이터.
+// 이 페이지는 자동 수집 목록이라 본문 글이 아니다. AI 답변 엔진과 검색엔진에
+// '무엇을 모은 목록이고 지금 몇 건인지'를 명시해 준다. 개별 항목은 외부 원문
+// 링크라 url만 싣고 본문은 옮기지 않는다(저작권).
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/gov-support/')}`;
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: '정부 지원사업',
+  description: '보건복지부·한국보건산업진흥원·대한병원협회의 병원·의료 분야 지원사업 공고 목록.',
+  inLanguage: 'ko-KR',
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  dateModified: programs.updatedAt,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.slice(0, 30).map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.title,
+      url: it.link,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title="정부 지원사업"
   description="보건복지부·한국보건산업진흥원·대한병원협회의 병원·의료 분야 지원사업 공고를 매일 자동으로 모아 원문 링크로 안내합니다."
+  schema={[collectionPage]}
 >
   <div class="container">
     <header class="page-head">
