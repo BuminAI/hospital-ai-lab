@@ -33,6 +33,10 @@ interface Props {
 
 const { title, description, crumb, koPath = '/', updated, schema = [] } = Astro.props;
 
+// 更新日は日本のサイトでは必須の信頼シグナルであり、検索側にも鮮度を伝える。
+// ページ側で updated を渡さない場合はビルド日(=最終公開日)を使う。
+const updatedAt = updated ?? new Date();
+
 const SITE_JA = '病院AI研究所';
 const pageTitle = crumb ? `${title}｜${SITE_JA}` : `${title}｜${SITE_JA}`;
 
@@ -61,10 +65,15 @@ const isActive = (href: string) =>
 // ── 구조화 데이터 (일본어) ─────────────────────────────
 // 한국어판 SchemaOrg와 같은 @id를 쓴다. 같은 조직·같은 사람이므로
 // 언어판이 달라도 엔티티는 하나여야 검색엔진이 혼동하지 않는다.
+// name には氏名だけを入れ、読み仮名は alternateName に分ける。
+// 「曺永熩（チョ・ヨンホ）」をそのまま name にすると、括弧まで氏名の一部として
+// 機械に読まれてしまう。韓国語版の Person(#person) と同一人物なので、
+// ハングル表記も alternateName に併記して同一性を示す。
 const person = {
   '@type': 'Person',
   '@id': `${siteRoot}/#person`,
-  name: ja.profile.name,
+  name: ja.profile.nameShort,
+  alternateName: ['チョ・ヨンホ', '조영호', 'Youngho Cho'],
   jobTitle: ja.profile.role,
   url: `${siteRoot}${withBase('/ja/about/')}`,
   sameAs: [YOUTUBE_CHANNEL_URL],
@@ -105,9 +114,24 @@ const breadcrumbLd =
       ]
     : [];
 
+// WebPage — 各ページの更新日を機械可読にする。画面の「更新日」表示と同じ値を使う
+// (見えていない事実をマークアップしないため)。
+const webPage = {
+  '@type': 'WebPage',
+  '@id': `${canonical}#webpage`,
+  url: canonical,
+  name: title,
+  description,
+  inLanguage: 'ja-JP',
+  isPartOf: { '@id': `${siteRoot}/#website-ja` },
+  dateModified: updatedAt.toISOString(),
+  ...(crumb ? { breadcrumb: { '@id': `${canonical}#breadcrumb` } } : {}),
+  about: { '@id': `${siteRoot}/#organization` },
+};
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [person, organization, website, ...breadcrumbLd, ...schema],
+  '@graph': [person, organization, website, webPage, ...breadcrumbLd, ...schema],
 };
 
 const fmtJa = (d: Date) =>
@@ -147,7 +171,16 @@ const year = new Date().getFullYear();
       property="og:image"
       content={`${siteRoot}${withBase('/og-default.png')}`}
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="病院AI研究所" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={`${siteRoot}${withBase('/og-default.png')}`}
+    />
 
     {
       GOATCOUNTER_CODE && (
@@ -200,11 +233,9 @@ const year = new Date().getFullYear();
 
     <div class="ja-shell">
       <main id="ja-main">
-        {updated && (
-          <p class="ja-updated">
-            {ja.ui.updated}：<time datetime={updated.toISOString()}>{fmtJa(updated)}</time>
-          </p>
-        )}
+        <p class="ja-updated">
+          {ja.ui.updated}：<time datetime={updatedAt.toISOString()}>{fmtJa(updatedAt)}</time>
+        </p>
         <slot />
       </main>
 
@@ -215,7 +246,7 @@ const year = new Date().getFullYear();
           <div class="ja-side-body">
             <dl>
               <dt>氏名</dt>
-              <dd>{ja.profile.name}</dd>
+              <dd>{ja.profile.nameShort}</dd>
               <dt>役職</dt>
               <dd>{ja.profile.role}</dd>
               <dt>経歴</dt>

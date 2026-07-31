@@ -50,6 +50,18 @@ const fmtJa = (iso) => {
   </ul>
   <p style="margin-top:12px"><a href={withBase('/ja/subsidies/')}>{ja.ui.viewAll} →</a></p>
 
+  <h2>{ja.home.resourcesTitle}</h2>
+  <div class="ja-cards">
+    <a class="ja-card" href={withBase('/ja/glossary/')}>
+      <span class="ja-card-t">{ja.nav.glossary}</span>
+      <span class="ja-card-d">{ja.home.glossaryDesc}</span>
+    </a>
+    <a class="ja-card" href={withBase('/ja/faq/')}>
+      <span class="ja-card-t">{ja.nav.faq}</span>
+      <span class="ja-card-d">{ja.home.faqDesc}</span>
+    </a>
+  </div>
+
   <h2>{ja.home.introTitle}</h2>
   <p>{ja.home.introBody}</p>
 
@@ -77,4 +89,24 @@ const fmtJa = (iso) => {
     border: 1px solid var(--ja-primary);
   }
   .ja-cta-ghost:hover { background: var(--ja-surface); color: var(--ja-primary); }
+
+  /* 資料カード — 日本の利用者は情報が画面に見えていることを信頼の根拠にする */
+  .ja-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .ja-card {
+    display: block;
+    border: 1px solid var(--ja-border);
+    border-left: 4px solid var(--ja-primary);
+    background: var(--ja-base);
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--ja-text);
+  }
+  .ja-card:hover { background: var(--ja-surface); }
+  .ja-card-t { display: block; font-size: 15.5px; color: var(--ja-primary); margin-bottom: 6px; }
+  .ja-card-d { display: block; font-size: 13.5px; color: var(--ja-text-sub); line-height: 1.8; }
 </style>

@@ -224,6 +224,7 @@ npm run build    # 배포본 생성(dist/)
 | i18n 라우팅 | `astro.config.mjs` | **`prefixDefaultLocale: false` 절대 바꾸지 말 것.** true가 되면 기존 한국어 URL이 전부 `/ko/` 아래로 밀려 검색 자산이 통째로 날아간다 |
 | 레이아웃 | `src/layouts/JaLayout.astro` | 한국어 `BaseLayout`과 **완전히 분리**했다. 한 파일에 조건문으로 합치지 말 것 |
 | 디자인 토큰 | `src/styles/ja-tokens.css` | 선택자는 반드시 `[data-locale='ja'] body` — `html`에만 걸면 `global.css`의 `body` 규칙이 이겨서 일본어 조판이 적용되지 않는다(실제로 한 번 겪음) |
+| 운영자 이름 | `src/i18n/ja.json`의 `profile.name`/`nameShort` | 한자 **曺永熩**(2026-07-31 오너 확인). JSON-LD `name`에는 한자만 넣고 요미가나·한글·영문은 `alternateName`에 둔다 — 괄호까지 이름으로 읽히지 않게 |
 | 문자열 | `src/i18n/ja.json` | です・ます조 통일. である조 섞지 말 것. 용어 대역 준수(`政府支援事業`✗→`補助金・助成金`, `電子医務記録`✗→`電子カルテ`, `院務課`✗→`医事課`, `生成型AI`✗→`生成AI`) |
 | 補助金 수집 | `scripts/fetch-jgrants.mjs` + `update-jgrants.yml` | jGrants(디지털청) 공개 API, 인증 불필요. 매일 JST 09:07 |
 | hreflang | `JaLayout` + `BaseLayout`의 `jaPath` prop | **양쪽이 서로를 가리켜야** 구글이 인정한다. 한쪽만 넣으면 무시된다 |
