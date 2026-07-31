@@ -1,0 +1,124 @@
+---
+// 用語集 — 한국어판 glossary를 일본 독자용으로 현지화한 것
+//
+// ⚠️ 단순 번역이 아니다. 규제·제도 항목(薬機法·個人情報保護法 등)은 일본 제도로
+//    다시 썼고, 출처를 실제 접속해 확인했다. 고칠 때도 같은 원칙을 지킬 것.
+// ⚠️ id는 한국어판과 같은 슬러그다. 앵커 URL이라 바꾸면 외부 링크가 깨진다.
+import JaLayout from '../../layouts/JaLayout.astro';
+import ja from '../../i18n/ja.json';
+import { glossaryTermsJa, glossaryCategoriesJa } from '../../data/ja/glossary';
+import { withBase } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/ja/glossary/')}`;
+
+// DefinedTermSet — AI 답변 엔진이 용어 정의를 딥링크로 인용할 수 있게 한다
+const definedTermSet = {
+  '@type': 'DefinedTermSet',
+  '@id': `${pageUrl}#termset`,
+  url: pageUrl,
+  name: ja.glossary.pageTitle,
+  description: ja.glossary.metaDescription,
+  inLanguage: 'ja-JP',
+  isPartOf: { '@id': `${siteRoot}/#website-ja` },
+  hasDefinedTerm: glossaryTermsJa.map((t) => ({
+    '@type': 'DefinedTerm',
+    '@id': `${pageUrl}#${t.id}`,
+    url: `${pageUrl}#${t.id}`,
+    name: t.term,
+    description: t.definition,
+    termCode: t.id,
+    inDefinedTermSet: { '@id': `${pageUrl}#termset` },
+  })),
+};
+---
+
+<JaLayout
+  title={ja.glossary.metaTitle}
+  description={ja.glossary.metaDescription}
+  crumb={ja.nav.glossary}
+  koPath="/glossary/"
+  schema={[definedTermSet]}
+>
+  <h1>{ja.glossary.pageTitle}</h1>
+  <p>{ja.glossary.pageLead}</p>
+
+  <p class="ja-caution">{ja.glossary.caution}</p>
+
+  <nav class="ja-index" aria-label="用語索引">
+    <ul>
+      {glossaryTermsJa.map((t) => (
+        <li><a href={`#${t.id}`}>{t.term}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  {glossaryCategoriesJa.map((cat) => {
+    const terms = glossaryTermsJa.filter((t) => t.category === cat);
+    if (terms.length === 0) return null;
+    return (
+      <section>
+        <h2>{cat}</h2>
+        <dl class="ja-terms">
+          {terms.map((t) => (
+            <div class="ja-term" id={t.id}>
+              <dt>
+                {t.term}
+                {t.reading && <span class="ja-reading">{t.reading}</span>}
+              </dt>
+              <dd>
+                <p>{t.definition}</p>
+                <p class="ja-why"><span>実務での意味</span>{t.whyMatters}</p>
+                {t.sources.length > 0 && (
+                  <p class="ja-src">
+                    {ja.ui.source}：
+                    {t.sources.map((src, i) => (
+                      <>
+                        {i > 0 && ' / '}
+                        <a class="ja-ext" href={src} target="_blank" rel="noopener">
+                          {new URL(src).hostname.replace(/^www\./, '')}
+                          <span class="sr-only">（{ja.ui.external}）</span>
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    );
+  })}
+
+  <div class="ja-note"><p>{ja.glossary.notice}</p></div>
+</JaLayout>
+
+<style>
+  .ja-index {
+    border: 1px solid var(--ja-border);
+    background: var(--ja-surface);
+    padding: 12px 14px;
+    margin: 16px 0 8px;
+  }
+  .ja-index ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    font-size: 13.5px;
+  }
+  .ja-terms { margin: 0; }
+  /* 앵커로 이동할 때 헤더에 제목이 가리지 않게 */
+  .ja-term { scroll-margin-top: 4rem; padding: 14px 0; border-bottom: 1px solid var(--ja-border); }
+  .ja-term dt { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .ja-reading {
+    display: block; font-size: 12.5px; font-weight: 400;
+    color: var(--ja-text-sub); letter-spacing: 0.02em;
+  }
+  .ja-term dd { margin: 0; }
+  .ja-why { margin-top: 8px; font-size: 14px; color: var(--ja-text-sub); }
+  .ja-why span {
+    display: inline-block; margin-right: 8px; padding: 0 8px;
+    background: var(--ja-surface-2); border-radius: 3px; font-size: 12.5px;
+  }
+  .ja-src { margin-top: 6px; font-size: 12.5px; }
+</style>
