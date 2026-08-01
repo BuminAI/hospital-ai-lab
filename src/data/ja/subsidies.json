@@ -1,42 +1,6 @@
 {
-  "updatedAt": "2026-07-30T22:56:40.074Z",
+  "updatedAt": "2026-08-01T07:57:10.713Z",
   "items": [
-    {
-      "id": "a0WJ200000CDVdPMAX",
-      "title": "令和７年度臨床研修費等補助金（歯科医師）",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDVdPMAX",
-      "usePurpose": "人材育成を行いたい",
-      "catchPhrase": "",
-      "maxLimit": 0,
-      "rate": "",
-      "area": "東京都",
-      "startDate": "2025-10-14T15:00:00.000Z",
-      "endDate": "2026-07-31T14:59:00.000Z"
-    },
-    {
-      "id": "a0WJ200000CDY70MAH",
-      "title": "令和8年度病院診療情報デジタル推進事業（電子カルテシステムの整備）",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDY70MAH",
-      "usePurpose": "新たな事業を行いたい",
-      "catchPhrase": "",
-      "maxLimit": 0,
-      "rate": "200床以上の病院：1/2　200床未満の病院：3/4",
-      "area": "東京都",
-      "startDate": "2026-04-14T15:00:00.000Z",
-      "endDate": "2026-07-31T14:59:00.000Z"
-    },
-    {
-      "id": "a0WJ200000CDY71MAH",
-      "title": "令和8年度病院診療情報デジタル推進事業（事務作業支援）",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDY71MAH",
-      "usePurpose": "新たな事業を行いたい",
-      "catchPhrase": "",
-      "maxLimit": 3600000,
-      "rate": "3/4",
-      "area": "東京都",
-      "startDate": "2026-04-14T15:00:00.000Z",
-      "endDate": "2026-07-31T14:59:00.000Z"
-    },
     {
       "id": "a0WJ200000CDYSeMAP",
       "title": "東京都医療機関等における賃上げ・物価上昇に対する支援事業(助産所、施術所、歯科技工所　申請用）",
