@@ -51,12 +51,20 @@ const canonical = `${siteRoot}${withBase(canonicalPath)}`;
 // x-default는 한국어판(원본)으로 둔다.
 const koHref = `${siteRoot}${withBase(koPath)}`;
 
+// メニューは韓国語版の並び（ホーム→運営者→補助金→動画→ノウハウ→入門）に合わせている。
+// 韓国語版にあってここに無い区分（コラム・ニュース・イベント・講義ノート）は、
+// 日本語の中身がまだ無いため出していない。中身のないページを並べても
+// 利用者の信頼を損ない、検索側にも薄いページとして扱われる。
 const nav = [
   { href: '/ja/', label: ja.nav.home },
+  { href: '/ja/about/', label: ja.nav.about },
   { href: '/ja/subsidies/', label: ja.nav.subsidies },
+  { href: '/ja/videos/', label: ja.nav.videos },
+  { href: '/ja/tips/', label: ja.nav.tips },
+  { href: '/ja/guide/', label: ja.nav.guide },
+  { href: '/ja/checklist/', label: ja.nav.checklist },
   { href: '/ja/glossary/', label: ja.nav.glossary },
   { href: '/ja/faq/', label: ja.nav.faq },
-  { href: '/ja/about/', label: ja.nav.about },
 ];
 
 const isActive = (href: string) =>

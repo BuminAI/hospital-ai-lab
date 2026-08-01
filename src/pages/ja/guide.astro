@@ -1,0 +1,81 @@
+---
+import JaLayout from '../../layouts/JaLayout.astro';
+import JaSections from '../../components/JaSections.astro';
+import { guideJa } from '../../data/ja/pages';
+import ja from '../../i18n/ja.json';
+import { withBase } from '../../utils/site';
+
+const p = guideJa;
+
+// 見出しが順を追ったステップになっているので ItemList で構造を伝える。
+// 画面に見えている見出しと順番をそのまま入れる（見えない情報は入れない）。
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.meta.pageTitle,
+    numberOfItems: p.sections.length,
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    itemListElement: p.sections.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.heading,
+    })),
+  },
+];
+---
+
+<JaLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={ja.nav.guide}
+  koPath="/guide/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="ja-lead">{p.meta.lead}</p>
+
+  <JaSections sections={p.sections} />
+
+  <section class="ja-next">
+    <h2>あわせてご覧ください</h2>
+    <ul>
+      <li>
+        <a href={withBase('/ja/videos/')}>{ja.nav.videos}</a> —
+        当研究所が制作した入門シリーズ（全12回）です。
+      </li>
+      <li>
+        <a href={withBase('/ja/glossary/')}>{ja.nav.glossary}</a> —
+        提案書や会議で出てくる用語を調べられます。
+      </li>
+      <li>
+        <a href={withBase('/ja/checklist/')}>{ja.nav.checklist}</a> —
+        導入の提案を受けたときに確認する項目です。
+      </li>
+    </ul>
+  </section>
+</JaLayout>
+
+<style>
+  .ja-next {
+    margin-top: 36px;
+    border-top: 1px solid var(--ja-border);
+    padding-top: 20px;
+  }
+  .ja-next h2 {
+    font-size: 15px;
+    color: var(--ja-text-sub);
+    margin-bottom: 10px;
+  }
+  .ja-next ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ja-next li {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+</style>

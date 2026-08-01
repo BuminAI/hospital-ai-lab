@@ -52,6 +52,22 @@ const fmtJa = (iso) => {
 
   <h2>{ja.home.resourcesTitle}</h2>
   <div class="ja-cards">
+    <a class="ja-card" href={withBase('/ja/videos/')}>
+      <span class="ja-card-t">{ja.nav.videos}</span>
+      <span class="ja-card-d">{ja.home.videosDesc}</span>
+    </a>
+    <a class="ja-card" href={withBase('/ja/guide/')}>
+      <span class="ja-card-t">{ja.nav.guide}</span>
+      <span class="ja-card-d">{ja.home.guideDesc}</span>
+    </a>
+    <a class="ja-card" href={withBase('/ja/tips/')}>
+      <span class="ja-card-t">{ja.nav.tips}</span>
+      <span class="ja-card-d">{ja.home.tipsDesc}</span>
+    </a>
+    <a class="ja-card" href={withBase('/ja/checklist/')}>
+      <span class="ja-card-t">{ja.nav.checklist}</span>
+      <span class="ja-card-d">{ja.home.checklistDesc}</span>
+    </a>
     <a class="ja-card" href={withBase('/ja/glossary/')}>
       <span class="ja-card-t">{ja.nav.glossary}</span>
       <span class="ja-card-d">{ja.home.glossaryDesc}</span>

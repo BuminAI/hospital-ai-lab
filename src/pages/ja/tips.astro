@@ -1,0 +1,52 @@
+---
+import JaLayout from '../../layouts/JaLayout.astro';
+import JaSections from '../../components/JaSections.astro';
+import { tipsJa } from '../../data/ja/pages';
+import ja from '../../i18n/ja.json';
+import { withBase } from '../../utils/site';
+
+const p = tipsJa;
+
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.meta.pageTitle,
+    numberOfItems: p.sections.length,
+    itemListElement: p.sections.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.heading,
+    })),
+  },
+];
+---
+
+<JaLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={ja.nav.tips}
+  koPath="/tips/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="ja-lead">{p.meta.lead}</p>
+
+  {/* 院内規程の確認を先に促す。ツールの紹介より前に置く */}
+  <p class="ja-caution">
+    ここで紹介するツールを業務でお使いになる前に、自院の情報セキュリティ規程で認められている範囲かをご確認ください。患者さんの情報や職員の個人情報を外部のサービスに入力しないことは、いずれのツールでも共通の前提です。
+  </p>
+
+  <JaSections sections={p.sections} />
+</JaLayout>
+
+<style>
+  .ja-caution {
+    border: 1px solid var(--ja-border);
+    border-left: 4px solid var(--ja-accent, #b3261e);
+    background: var(--ja-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.9;
+    margin-bottom: 26px;
+  }
+</style>

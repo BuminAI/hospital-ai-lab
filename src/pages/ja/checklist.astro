@@ -1,0 +1,53 @@
+---
+import JaLayout from '../../layouts/JaLayout.astro';
+import JaSections from '../../components/JaSections.astro';
+import { checklistJa } from '../../data/ja/pages';
+import ja from '../../i18n/ja.json';
+import { withBase } from '../../utils/site';
+
+const p = checklistJa;
+const total = p.sections.reduce((n, s) => n + s.items.length, 0);
+
+// 区分ごとの点検項目を ItemList で示す。件数も画面に表示しているので一致する。
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.meta.pageTitle,
+    numberOfItems: p.sections.length,
+    itemListElement: p.sections.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.heading,
+    })),
+  },
+];
+---
+
+<JaLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={ja.nav.checklist}
+  koPath="/checklist/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="ja-lead">{p.meta.lead}</p>
+
+  <p class="ja-count">
+    {p.sections.length}区分・全{total}項目
+  </p>
+
+  <JaSections sections={p.sections} checkbox />
+</JaLayout>
+
+<style>
+  .ja-count {
+    font-size: 13px;
+    color: var(--ja-text-sub);
+    border: 1px solid var(--ja-border);
+    background: var(--ja-surface);
+    padding: 8px 12px;
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+</style>

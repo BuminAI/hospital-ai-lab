@@ -1,0 +1,161 @@
+---
+import JaLayout from '../../layouts/JaLayout.astro';
+import { videosJa, videosMetaJa } from '../../data/ja/pages';
+import ja from '../../i18n/ja.json';
+import { withBase, YOUTUBE_CHANNEL_URL } from '../../utils/site';
+
+const p = videosMetaJa;
+
+// ⚠️ VideoObject は使わない。uploadDate・duration を正確に持っていないためで、
+//    推測で入れると検索側に誤った事実を伝えることになる。
+//    (韓国語版 recommended-videos.json の addedAt は「サイトに追加した日」であって
+//     YouTube への公開日ではない。)
+//    代わりに、画面に見えている一覧の順序を ItemList で伝える。
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.pageTitle,
+    numberOfItems: videosJa.length,
+    itemListElement: videosJa.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.titleJa,
+      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    })),
+  },
+];
+---
+
+<JaLayout
+  title={p.title}
+  description={p.description}
+  crumb={ja.nav.videos}
+  koPath="/youtube/"
+  schema={schema}
+>
+  <h1>{p.pageTitle}</h1>
+  <p class="ja-lead">{p.lead}</p>
+
+  {/* 言語の案内は再生前に出す。見てから気づく形にすると信頼を損ねる */}
+  <p class="ja-notice">{p.notice}</p>
+
+  <p class="ja-count">全{videosJa.length}回</p>
+
+  <ul class="ja-videos">
+    {
+      videosJa.map((v) => (
+        <li>
+          <a
+            href={`https://www.youtube.com/watch?v=${v.videoId}`}
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              width="320"
+              height="180"
+            />
+            <div class="ja-video-text">
+              <span class="ja-video-title">{v.titleJa}</span>
+              <span class="ja-video-note">{v.note}</span>
+              <span class="ja-video-ext">
+                YouTubeで見る<span class="sr-only">（{ja.ui.external}）</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="ja-channel">
+    <a href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+      {ja.profile.youtube}<span class="sr-only">（{ja.ui.external}）</span>
+    </a>
+  </p>
+</JaLayout>
+
+<style>
+  .ja-notice {
+    border: 1px solid var(--ja-border);
+    border-left: 4px solid var(--ja-primary);
+    background: var(--ja-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+  }
+  .ja-count {
+    font-size: 13px;
+    color: var(--ja-text-sub);
+    margin-bottom: 16px;
+  }
+  .ja-videos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ja-videos a {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border: 1px solid var(--ja-border);
+    background: var(--ja-base);
+    padding: 12px;
+    text-decoration: none;
+    color: var(--ja-text);
+  }
+  .ja-videos a:hover {
+    background: var(--ja-surface);
+    border-color: var(--ja-primary);
+  }
+  .ja-videos img {
+    width: 160px;
+    height: 90px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--ja-surface);
+  }
+  .ja-video-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+  }
+  .ja-video-title {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--ja-primary);
+  }
+  .ja-video-note {
+    font-size: 13px;
+    color: var(--ja-text-sub);
+    line-height: 1.85;
+  }
+  .ja-video-ext {
+    font-size: 12px;
+    color: var(--ja-text-sub);
+  }
+  .ja-channel {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--ja-border);
+    font-size: 14px;
+  }
+
+  @media (max-width: 560px) {
+    .ja-videos a {
+      flex-direction: column;
+    }
+    .ja-videos img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>
