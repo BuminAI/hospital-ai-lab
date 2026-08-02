@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-07-31T20:44:06.600Z",
+  "updatedAt": "2026-08-02T20:31:29.265Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "허가 임상 간소화되는 의료 AI…병원들 검증 책임 부담감",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169981",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-02T20:30:00.000Z"
+    },
     {
       "title": "현실 이해부터 환각 제어까지…의료 AI 발전을 위한 과제는?",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169982",
@@ -135,14 +141,14 @@
       "pubDate": "2026-07-26T20:20:00.000Z"
     },
     {
-      "title": "의료AI 사고실험실(하)",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169917",
+      "title": "의료AI 사고실험실(상)",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169916",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-26T20:00:00.000Z"
     },
     {
-      "title": "의료AI 사고실험실(상)",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169916",
+      "title": "의료AI 사고실험실(하)",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169917",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-26T20:00:00.000Z"
     },
