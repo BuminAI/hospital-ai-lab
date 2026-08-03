@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-08-02T20:31:29.265Z",
+  "updatedAt": "2026-08-03T08:52:41.037Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "폐 딱딱하게 굳는 특발성 폐섬유증, AI로 경과 확인하고 예후 예측",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248624",
+      "source": "병원신문",
+      "pubDate": "2026-08-03T07:28:00.000Z"
+    },
+    {
+      "title": "선메디컬센터 선병원, AI 도입 전략 컨설팅 프로젝트 마무리",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248621",
+      "source": "병원신문",
+      "pubDate": "2026-08-03T07:00:00.000Z"
+    },
     {
       "title": "허가 임상 간소화되는 의료 AI…병원들 검증 책임 부담감",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169981",
@@ -141,14 +153,14 @@
       "pubDate": "2026-07-26T20:20:00.000Z"
     },
     {
-      "title": "의료AI 사고실험실(상)",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169916",
+      "title": "의료AI 사고실험실(하)",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169917",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-26T20:00:00.000Z"
     },
     {
-      "title": "의료AI 사고실험실(하)",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169917",
+      "title": "의료AI 사고실험실(상)",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169916",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-26T20:00:00.000Z"
     },
