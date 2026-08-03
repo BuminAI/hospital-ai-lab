@@ -38,7 +38,7 @@ const collectionPage = {
   '@id': `${pageUrl}#collection`,
   url: pageUrl,
   name: 'AI 뉴스',
-  description: '메디칼타임즈와 병원신문에서 매시간 자동 수집한 의료 AI 관련 기사 목록.',
+  description: '메디칼타임즈와 병원신문의 의료 AI 관련 기사를 매시간 확인해 쌓아 온 목록.',
   inLanguage: 'ko-KR',
   isPartOf: { '@id': `${siteUrl}/#website` },
   dateModified: news.updatedAt,
@@ -57,15 +57,15 @@ const collectionPage = {
 
 <BaseLayout
   title="AI 뉴스"
-  description="메디칼타임즈 '의료기기·AI' 지면과 병원신문의 AI 관련 기사를 매일 자동으로 모아 쌓아 보여드립니다."
+  description="메디칼타임즈 '의료기기·AI' 지면과 병원신문에 올라온 의료 AI 기사를 하루 여러 차례 챙겨 한자리에 쌓아 둡니다."
   schema={[collectionPage]}
 >
   <div class="container">
     <header class="page-head">
       <h1>AI 뉴스</h1>
       <p class="lead">
-        메디칼타임즈 '의료기기·AI' 지면과 병원신문에서 AI 관련 기사를 하루
-        여러 차례 자동으로 확인해 모읍니다. 지난 기사는 지우지 않고 계속 쌓입니다.
+        메디칼타임즈 '의료기기·AI' 지면과 병원신문에서 AI 관련 기사를 하루에도
+        몇 번씩 새로 챙겨 옵니다. 지난 기사는 지우지 않아 그대로 쌓입니다.
       </p>
     </header>
 
@@ -95,15 +95,16 @@ const collectionPage = {
           })}
         </ul>
       ) : (
-        <p class="empty">아직 수집된 기사가 없습니다.</p>
+        <p class="empty">아직 담긴 기사가 없습니다.</p>
       )
     }
 
     <section class="notice">
       <p>
-        이 목록은 메디칼타임즈 '의료기기·AI' 지면과 병원신문에서 자동으로 수집한
-        것으로, 연구소의 편집·추천 의견이 아닙니다. 제목을 누르면
-        해당 매체의 기사로 이동합니다.
+        이 목록은 메디칼타임즈 '의료기기·AI' 지면과 병원신문에 실린 기사 가운데
+        AI 관련 표현이 들어간 것을 골라 제목과 링크만 걸어 둔 것입니다. 연구소가
+        읽어 보고 고른 기사도, 추천하는 기사도 아닙니다. 제목을 누르면 해당
+        매체의 원문으로 이동합니다.
       </p>
     </section>
   </div>

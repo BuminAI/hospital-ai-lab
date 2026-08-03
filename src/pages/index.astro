@@ -117,7 +117,7 @@ const contentCount = allPosts.length + videos.length;
 
 // 홈 전용 설명문 (briefing.md 사실 범위: 경력·대상 독자·콘텐츠 종류만)
 const homeDescription =
-  '종합병원에서 17년 일한 실무자가 병원 행정·간호의 언어로 의료 AI를 공부하고 기록합니다. 매일 자동으로 모으는 의료 AI 뉴스와 칼럼, 강의노트, 추천 영상을 담았습니다.';
+  '종합병원에서 17년 일한 실무자가 병원 행정·간호의 언어로 의료 AI를 공부하고 기록합니다. 날마다 새로 챙기는 의료 AI 뉴스와 함께 칼럼, 강의노트, 추천 영상을 담았습니다.';
 
 // 구조화 데이터(JSON-LD)는 2026-07-27부터 SchemaOrg 컴포넌트가 BaseLayout에서
 // 전 페이지에 넣는다(저자 Person + Organization + WebSite). 여기 있던 중복 정의는 제거했다.
@@ -169,7 +169,7 @@ const homeDescription =
     <div class="container">
       <ul>
         <li><strong>종합병원 근무 17년</strong> (기획 7년)</li>
-        <li>매일 자동 수집한 의료 AI 뉴스 <strong>{news.items.length}건</strong></li>
+        <li>지금까지 모은 의료 AI 뉴스 <strong>{news.items.length}건</strong></li>
         <li>글·추천 영상 <strong>{contentCount}건</strong></li>
         <li>마지막 업데이트 {lastUpdated}</li>
       </ul>
@@ -327,13 +327,13 @@ const homeDescription =
         <div>
           <h2>새 글과 AI 뉴스를 놓치지 마세요</h2>
           <p>
-            매일 자동으로 모으는 의료 AI 뉴스와 새 칼럼을 받아보세요.
+            날마다 새로 올라오는 의료 AI 뉴스와 새 칼럼을 받아보세요.
             회원가입하면 병원 행정·간호 실무자를 위한 강의노트까지 볼 수 있습니다.
           </p>
         </div>
         <div class="band-actions">
           <a class="btn" href={withBase('/signup/')}>회원가입</a>
-          <a class="btn ghost" href={withBase('/rss.xml')}>새 글 자동 받기(RSS)</a>
+          <a class="btn ghost" href={withBase('/rss.xml')}>RSS로 구독하기</a>
           <a class="btn ghost" href={withBase('/contact/')}>문의하기</a>
         </div>
       </div>
