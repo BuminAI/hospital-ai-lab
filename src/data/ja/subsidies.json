@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-08-01T07:57:10.713Z",
+  "updatedAt": "2026-08-03T12:42:25.487Z",
   "items": [
     {
       "id": "a0WJ200000CDYSeMAP",
-      "title": "東京都医療機関等における賃上げ・物価上昇に対する支援事業(助産所、施術所、歯科技工所　申請用）",
+      "title": "東京都医療機関等における賃上げ・物価上昇に対する支援事業(助産所、施術所、歯科技工所 申請用）",
       "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDYSeMAP",
       "usePurpose": "資金繰りを改善したい",
       "catchPhrase": "",
@@ -15,7 +15,7 @@
     },
     {
       "id": "a0WJ200000CDacHMAT",
-      "title": "東京都医療機関等における賃上げ・物価上昇に対する支援事業(診療所・歯科診療所、訪問看護ステーション　申請用）",
+      "title": "東京都医療機関等における賃上げ・物価上昇に対する支援事業(診療所・歯科診療所、訪問看護ステーション 申請用）",
       "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDacHMAT",
       "usePurpose": "資金繰りを改善したい",
       "catchPhrase": "",
@@ -30,7 +30,7 @@
       "title": "令和８年度東京都医療機関等物価高騰緊急対策支援金 （病院・有床診療所・有床助産所申請用）",
       "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDd3iMAD",
       "usePurpose": "資金繰りを改善したい",
-      "catchPhrase": "【東京都令和８年度事業】東京都では、物価高騰に直面する医療機関等の負担軽減に向けた緊急対策として、\n支援金を支給します。",
+      "catchPhrase": "【東京都令和８年度事業】東京都では、物価高騰に直面する医療機関等の負担軽減に向けた緊急対策として、 支援金を支給します。",
       "maxLimit": 5511246000,
       "rate": "ー",
       "area": "東京都",
@@ -39,15 +39,27 @@
     },
     {
       "id": "a0WJ200000CDd4BMAT",
-      "title": "令和８年度東京都医療機関等物価高騰緊急対策支援金(無床診療所・歯科診療所・無床助産所、施術所・歯科技工所　申請用）",
+      "title": "令和８年度東京都医療機関等物価高騰緊急対策支援金(無床診療所・歯科診療所・無床助産所、施術所・歯科技工所 申請用）",
       "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDd4BMAT",
       "usePurpose": "資金繰りを改善したい",
-      "catchPhrase": "【東京都令和８年度事業】東京都では、物価高騰に直面する医療機関等の負担軽減に向けた緊急対策として、\n支援金を支給します。",
+      "catchPhrase": "【東京都令和８年度事業】東京都では、物価高騰に直面する医療機関等の負担軽減に向けた緊急対策として、 支援金を支給します。",
       "maxLimit": 5511246000,
       "rate": "ー",
       "area": "東京都",
       "startDate": "2026-07-22T15:00:00.000Z",
       "endDate": "2026-08-14T15:00:00.000Z"
+    },
+    {
+      "id": "a0WJ200000CDdlrMAD",
+      "title": "【施行】令和8年度愛知県介護テクノロジー導入支援事業費補助金",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDdlrMAD",
+      "usePurpose": "設備整備・IT導入をしたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "4/5",
+      "area": "愛知県",
+      "startDate": "2026-07-31T00:00:00.000Z",
+      "endDate": "2026-08-31T14:59:00.000Z"
     },
     {
       "id": "a0WJ200000CDXuqMAH",
@@ -80,7 +92,7 @@
       "usePurpose": "新たな事業を行いたい",
       "catchPhrase": "",
       "maxLimit": 0,
-      "rate": "200床以上の病院：1/2　200床未満の医療機関：3/4",
+      "rate": "200床以上の病院：1/2 200床未満の医療機関：3/4",
       "area": "東京都",
       "startDate": "2026-04-14T15:00:00.000Z",
       "endDate": "2026-10-30T14:59:00.000Z"
@@ -99,7 +111,7 @@
     },
     {
       "id": "a0WJ200000CDap3MAD",
-      "title": "令和8年度　育児・介護との両立のためのテレワーク活用促進奨励金",
+      "title": "令和8年度 育児・介護との両立のためのテレワーク活用促進奨励金",
       "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDap3MAD",
       "usePurpose": "雇用・職場環境を改善したい",
       "catchPhrase": "都内中小企業等の「テレワークを活用した育児・介護との両立」に向けた取り組みを後押しします。",
