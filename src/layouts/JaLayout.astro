@@ -10,6 +10,7 @@
 import '../styles/global.css';
 import '../styles/ja-tokens.css';
 import ja from '../i18n/ja.json';
+import navConfig from '../data/ja/content/nav.json';
 import {
   withBase,
   stripBase,
@@ -55,17 +56,19 @@ const koHref = `${siteRoot}${withBase(koPath)}`;
 // 韓国語版にあってここに無い区分（コラム・ニュース・イベント・講義ノート）は、
 // 日本語の中身がまだ無いため出していない。中身のないページを並べても
 // 利用者の信頼を損ない、検索側にも薄いページとして扱われる。
-const nav = [
-  { href: '/ja/', label: ja.nav.home },
-  { href: '/ja/about/', label: ja.nav.about },
-  { href: '/ja/subsidies/', label: ja.nav.subsidies },
-  { href: '/ja/videos/', label: ja.nav.videos },
-  { href: '/ja/tips/', label: ja.nav.tips },
-  { href: '/ja/guide/', label: ja.nav.guide },
-  { href: '/ja/checklist/', label: ja.nav.checklist },
-  { href: '/ja/glossary/', label: ja.nav.glossary },
-  { href: '/ja/faq/', label: ja.nav.faq },
-];
+//
+// ⚠️ メニューの表示・非表示は src/data/ja/content/nav.json で管理します
+//    (管理画面 /admin-ja/ の「公開状態」から切り替えられます)。
+//    ここを直接書き換えないでください。
+//    label は ja.nav の키(key)から引きます。
+//    ホーム(/ja/)は常に表示します — 消すと日本語版の入口が無くなるため。
+const navLabels = ja.nav as Record<string, string>;
+const nav = navConfig
+  .filter((item) => item.href === '/ja/' || item.enabled)
+  .map((item) => ({
+    href: item.href,
+    label: navLabels[item.key] ?? item.key,
+  }));
 
 const isActive = (href: string) =>
   href === '/ja/' ? canonicalPath === '/ja/' : canonicalPath.startsWith(href);
@@ -142,6 +145,17 @@ const jsonLd = {
   '@graph': [person, organization, website, webPage, ...breadcrumbLd, ...schema],
 };
 
+// ⚠️ セキュリティ上必須 — 絶対に削除しないこと。
+// <script type="application/ld+json"> の中身はブラウザが「HTML の中の
+// スクリプト要素」として先に読むため、本文に "</script>" という文字が
+// 入っていると、そこでスクリプト要素が閉じてしまい、続く文字列が
+// 生きた HTML として実行される(蓄積型 XSS)。
+// 管理画面 /admin-ja/ から入る用語の説明・FAQ の回答・動画タイトル、
+// および jGrants から自動取得する公募名も、すべてこの JSON-LD に入る。
+// JSON 文字列の中では "<" と "<" は同じ意味なので、"<" をすべて
+// エスケープしても構造化データの意味は一切変わらない。
+const jsonLdText = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
+
 const fmtJa = (d: Date) =>
   `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
 
@@ -162,7 +176,7 @@ const year = new Date().getFullYear();
     <link rel="alternate" hreflang="ja" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={koHref} />
 
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" is:inline set:html={jsonLdText} />
 
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />

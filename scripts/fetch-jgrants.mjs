@@ -24,6 +24,28 @@ const OUT = new URL('../src/data/ja/subsidies.json', import.meta.url);
 const BASE = 'https://api.jgrants-portal.go.jp/exp/v1/public';
 const MAX_ITEMS = 300;
 
+// ⚠️ 외부 API에서 온 문자열은 그대로 믿지 않는다(보안).
+//    공모 제목에 '<' 나 '</script>' 같은 글자가 한 번이라도 섞여 들어오면,
+//    그 값이 /ja/subsidies/ 의 구조화 데이터(JSON-LD)에 실려 나가고,
+//    이 수집기는 GitHub Actions가 자동 커밋·자동 배포하므로 사람 손을 전혀
+//    거치지 않고 방문자 브라우저까지 도달한다.
+//    (레이아웃(JaLayout.astro)에도 이스케이프를 넣어 두었지만, 애초에
+//     저장하지 않는 것이 한 겹 더 안전하다.)
+//    제어문자 제거 → '<' 제거 → 공백 정리 → 길이 제한.
+const cleanText = (v, max = 300) =>
+  String(v ?? '')
+    .replace(/[\u0000-\u001f\u007f\u2028\u2029]/g, ' ')
+    .replace(/</g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, max);
+
+/** 링크는 http(s) 절대 주소만 통과시킨다. 아니면 빈 문자열을 돌려준다. */
+const cleanUrl = (v) => {
+  const s = cleanText(v, 500);
+  return /^https?:\/\//i.test(s) ? s : '';
+};
+
 // 의료·병원 관련 보조금을 폭넓게 건지는 키워드.
 // jGrants는 키워드가 제목·본문 어디에든 걸리면 반환하므로, 여기서 넓게 받고
 // 아래 isRelevant()로 좁힌다.
@@ -129,21 +151,23 @@ for (const r of relevant) {
   } catch (e) {
     console.error(`  상세 실패(${r.id}) — ${e.message}`);
   }
+  const id = cleanText(r.id, 100);
   items.push({
-    id: r.id,
-    title: r.title ?? '',
+    id,
+    title: cleanText(r.title),
     // 공식 상세 페이지. 못 받았으면 jGrants 표준 주소로 조립한다.
+    // (받은 주소가 http(s) 절대 주소가 아니면 믿지 않고 표준 주소를 쓴다)
     link:
-      detail.front_subsidy_detail_page_url ??
-      `https://www.jgrants-portal.go.jp/subsidy/${r.id}`,
+      cleanUrl(detail.front_subsidy_detail_page_url) ||
+      `https://www.jgrants-portal.go.jp/subsidy/${encodeURIComponent(id)}`,
     // ⚠️ institution_name은 기관명이 아니라 사업명 변형이다
     //    (예: '医療機関におけるAI技術活用促進事業1'). 실시기관으로 표기하면
     //    사실 오류가 되므로 쓰지 않는다. 대신 실제로 쓸모 있는 '용도'를 담는다.
-    usePurpose: detail.use_purpose ?? '',
-    catchPhrase: detail.subsidy_catch_phrase ?? '',
+    usePurpose: cleanText(detail.use_purpose, 600),
+    catchPhrase: cleanText(detail.subsidy_catch_phrase),
     maxLimit: r.subsidy_max_limit ?? detail.subsidy_max_limit ?? null,
-    rate: detail.subsidy_rate ?? '',
-    area: r.target_area_search ?? detail.target_area_search ?? '',
+    rate: cleanText(detail.subsidy_rate, 200),
+    area: cleanText(r.target_area_search ?? detail.target_area_search, 200),
     startDate: r.acceptance_start_datetime ?? null,
     endDate: r.acceptance_end_datetime ?? null,
   });

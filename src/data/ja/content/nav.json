@@ -1,0 +1,47 @@
+[
+  {
+    "href": "/ja/",
+    "key": "home",
+    "enabled": true
+  },
+  {
+    "href": "/ja/about/",
+    "key": "about",
+    "enabled": true
+  },
+  {
+    "href": "/ja/subsidies/",
+    "key": "subsidies",
+    "enabled": true
+  },
+  {
+    "href": "/ja/videos/",
+    "key": "videos",
+    "enabled": true
+  },
+  {
+    "href": "/ja/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/ja/guide/",
+    "key": "guide",
+    "enabled": true
+  },
+  {
+    "href": "/ja/checklist/",
+    "key": "checklist",
+    "enabled": true
+  },
+  {
+    "href": "/ja/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/ja/faq/",
+    "key": "faq",
+    "enabled": true
+  }
+]
