@@ -3,7 +3,7 @@
 다른 컴퓨터 · 다른 Claude 세션에서 이 프로젝트를 이어서 작업할 때 읽는 문서입니다.
 (사이트 운영 규칙은 [CLAUDE.md](CLAUDE.md), 사실의 원천은 [briefing.md](briefing.md), 회원 기능 개통은 [supabase/SETUP-GUIDE.md](supabase/SETUP-GUIDE.md) 참조)
 
-**마지막 갱신: 2026-07-31.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
+**마지막 갱신: 2026-08-12.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
 
 > **2026-07-16 이사 완료.** 새 컴퓨터(Windows 계정 `choyj`, 저장소 `D:\hospital-ai-lab`)로 옮겼다.
 > 클론 · 의존성 · 빌드(39페이지 성공) · 예약 작업 2개 재생성까지 끝났고, 옛 컴퓨터의 예약 작업은 삭제했다.
@@ -20,6 +20,8 @@
 >
 > **npm 참고**: 최신 npm은 설치 스크립트를 기본 차단해 `esbuild`·`sharp`에 경고가 뜨지만, 빌드에는 지장 없었다(승인 불필요).
 
+> **2026-08-12 계정 이름 정정.** 이 문서 곳곳의 `choyj` 계정 경로가 실제 컴퓨터와 맞지 않는 것을 발견했다 — 지금 컴퓨터의 Windows 계정은 `a`다(`C:\Users\a\...`). 확인해 보니 `.claude/run-npm.cmd`·`launch.json`·예약 작업 2개(`daily-blog-post`·`site-health-check`)·`gh` 로그인(BuminAI)·네이버 SMTP 자격 증명까지 전부 이미 이 계정에서 정상 동작 중이었다. 즉 실제로 뭔가 고장 난 건 없고, 문서의 경로 표기만 실제와 다르게 남아 있던 것이라 `a`로 맞췄다. (계정이 언제·왜 바뀌었는지는 확인되지 않음 — 참고만 할 것)
+
 ## 0. 새 컴퓨터로 옮길 때 — 무엇이 자동으로 따라오고, 무엇이 안 따라오는가
 
 | 항목 | 새 컴퓨터로 자동 이전됨? | 비고 |
@@ -30,7 +32,7 @@
 | Supabase(회원·DB·Storage·GitHub 토큰 저장) | ✅ | 클라우드 서비스, 컴퓨터와 무관. 로그인만 다시 하면 됨 |
 | **예약 작업 2개(daily-blog-post, site-health-check)** | ❌ | Claude 앱의 로컬 예약 작업이라 **이 컴퓨터에서만** 실행됨. 새 컴퓨터에서 §4-2·4-3 참고해 다시 만들어야 함 |
 | **네이버 SMTP 자격 증명(`naver-smtp.xml`)** | ❌ **(복사해도 소용없음)** | Windows DPAPI로 암호화돼 **이 컴퓨터·이 Windows 계정에서만 복호화**된다. 새 컴퓨터에서 앱 비밀번호를 새로 발급받아 다시 만들어야 함(§4-3) |
-| **Claude의 프로젝트 기억(memory, 이 대화의 교훈들)** | ❌ | `C:\Users\choyj\.claude\projects\...\memory\`에 로컬 저장. 아래 §6에 핵심만 옮겨 적어 둠 |
+| **Claude의 프로젝트 기억(memory, 이 대화의 교훈들)** | ❌ | `C:\Users\a\.claude\projects\...\memory\`에 로컬 저장. 아래 §6에 핵심만 옮겨 적어 둠 |
 | **Claude Code 대화 기록** | ❌ | 로컬 저장. 새 컴퓨터에서는 새 세션으로 시작된다(이 문서를 보여주면 대부분 파악함) |
 | `gh` CLI 로그인, `.claude/run-npm.cmd`, `.claude/launch.json`, `.claude/settings.local.json` | ❌ | 컴퓨터별 로컬 설정(gitignore됨). §2 참고해 새로 만들 것 |
 
@@ -135,7 +137,7 @@ npm run build    # 배포본 생성(dist/)
 ### 4-2. 매일 블로그 자동 작성 (⚠️ 로컬 — 새 컴퓨터에서 반드시 재설정)
 
 - **이건 GitHub Actions가 아니라 Claude 앱의 예약 작업(scheduled task)**입니다. 매일 KST 22:00경 이 컴퓨터의 Claude 앱이 열려 있을 때 실행되어, 주제 선정 → 작성 → 출처 검증 → 발행까지 자동으로 합니다.
-- 저장 위치: `C:\Users\choyj\.claude\scheduled-tasks\daily-blog-post\SKILL.md` (로컬 파일 — git에 없고 새 컴퓨터에 자동으로 안 생김)
+- 저장 위치: `C:\Users\a\.claude\scheduled-tasks\daily-blog-post\SKILL.md` (로컬 파일 — git에 없고 새 컴퓨터에 자동으로 안 생김)
 - **오너 지시(2026-07-08)**: 이 자동 글은 사실 검증(모든 주장에 객관적 출처, 확인 안 되면 무발행)을 통과하면 **오너 승인 없이 바로 발행**한다. 이 예외는 CLAUDE.md의 "작업 규칙"에도 명시되어 있음.
 - **무인 실행이 멈추지 않게 하는 핵심 장치(2026-07-09, 오너 승인)**: 예약 세션이 쓰는 도구(WebFetch·WebSearch·git·gh·빌드·블로그 폴더 쓰기)를 `.claude/settings.json`(git에 커밋됨)에 사전 허용해 뒀다. 이게 없으면 무인 세션이 승인 창에 걸려 영영 멈춘다 — 실제로 2026-07-09 실행이 출처 확인(WebFetch) 승인 대기에 걸려 멈춘 것을 확인하고 넣은 조치다. 예약 작업에 새 도구를 쓰게 하려면 이 허용 목록도 함께 갱신할 것.
 - 실행이 끝날 때마다 알림이 오도록 설정되어 있다(notifyOnCompletion). 알림이 안 오면 그 날 실행이 안 된 것.
@@ -146,7 +148,7 @@ npm run build    # 배포본 생성(dist/)
 ### 4-3. 매일 사이트 자가 점검 (⚠️ 로컬 — 새 컴퓨터에서 재설정 필요)
 
 - **매일 오전 9시경** 실행되는 Claude 예약 작업(`site-health-check`). **보고 전용**(수리 안 함, 오너 지시 2026-07-10) — 주요 페이지 접속, 뉴스·영상·블로그 자동화 신선도, GitHub Actions 실패, Supabase 서버 상태(마이그레이션 누락 감지 포함), 최근 글 출처 링크 생존을 점검하고 결과를 보고한다.
-- **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\choyj\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다.
+- **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\a\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다.
   - **네이버 SMTP는 일반 로그인 비밀번호로는 인증이 안 된다(2026-07-11 확인, `5.5.1 Authentication Required`).** 반드시 "앱 비밀번호"를 따로 발급해야 함: 네이버 계정 → 보안설정 → **2단계 인증** → **애플리케이션 비밀번호 관리** 화면에서 이름(아무 값이나) 입력 후 "생성하기" → 영문 대문자+숫자 12자리 발급. 이 값을 `naver-smtp.xml`에 저장해야 한다(2단계 인증 자체가 꺼져 있어도 이 화면은 그대로 쓸 수 있었음). 일반 비밀번호나 2단계 인증 OTP(6자리 숫자)는 여기 쓸 수 없다 — 반드시 이 화면에서 생성된 값이어야 한다.
   - **`naver-smtp.xml` 재생성 방법(2026-07-16 실제로 이렇게 했음)**: 오너가 직접 PowerShell 창에서 아래 두 줄을 실행한다. 앱 비밀번호는 가려진 입력창에 직접 넣으므로 대화나 파일에 평문으로 남지 않는다. (Claude에게 앱 비밀번호를 불러주지 말 것 — 대화 기록에 평문으로 남는다. 실수로 노출했다면 네이버에서 그 항목을 삭제하고 새로 발급할 것.)
 
@@ -156,7 +158,7 @@ npm run build    # 배포본 생성(dist/)
     ```
 
   - **실행 정책 주의**: 이걸 만들어도 `.ps1` 실행이 Windows 기본 정책에 막혀 있으면 메일이 안 나간다(`PSSecurityException`). `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` 한 번이면 해결된다(보안 설정이라 오너가 직접). 시험: `.\send-report.ps1 -Subject '시험' -Body '시험'` → `발송 완료:`가 뜨면 정상.
-- 저장 위치: `C:\Users\choyj\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음). 같은 폴더에 `send-report.ps1`(자격 증명 없음 — `naver-smtp.xml`에서 읽음)도 있다.
+- 저장 위치: `C:\Users\a\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음). 같은 폴더에 `send-report.ps1`(자격 증명 없음 — `naver-smtp.xml`에서 읽음)도 있다.
 - 새 컴퓨터에서는 새 Claude 세션에게 "HANDOFF.md 4-3 참고해서 매일 아침 사이트 자가 점검(보고 전용) 예약 작업을 다시 만들어줘"라고 요청하면 된다.
 
 ### 4-4. 실무 팁 (수동 — 자동화 아님, 2026-07-16 신설)
@@ -311,7 +313,7 @@ scripts/                     # fetch-news.mjs·fetch-videos.mjs·fetch-gov-progr
 public/                      # favicon, og-default.png, fonts/(Pretendard 자체호스팅)
 ```
 
-> **예약 작업은 저장소 안이 아니라 `C:\Users\choyj\.claude\scheduled-tasks\`에 있다**
+> **예약 작업은 저장소 안이 아니라 `C:\Users\a\.claude\scheduled-tasks\`에 있다**
 > (`daily-blog-post/`, `site-health-check/`). git에 없으므로 새 컴퓨터에서 재생성 필요(§4-2·4-3).
 
 ## 7-1. 상단 메뉴 구성 (2026-07-27 기준, 10개)
