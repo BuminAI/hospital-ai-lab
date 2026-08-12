@@ -2,18 +2,48 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import { withBase } from '../../utils/site';
+import { BLOG_CATEGORIES } from '../../data/blog-categories';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-// 콘텐츠 스키마의 category 4종 (글이 없는 분류도 버튼은 노출)
-const CATEGORIES = ['논문리뷰', 'AI도구', '칼럼', '소식'] as const;
+// Blog + ItemList 구조화 데이터 (2026-08-12 AEO 보강).
+// AI 답변 엔진이 "이 사이트에 어떤 글이 있는가"를 한 번에 열거할 수 있게 한다.
+// 개별 글의 상세 정보는 각 글 페이지의 BlogPosting에 있으므로, 여기서는
+// 제목·주소·발행일만 담아 목록의 성격만 밝힌다(같은 내용을 중복 선언하지 않는다).
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/blog/')}`;
+
+const blogSchema = {
+  '@type': 'Blog',
+  '@id': `${pageUrl}#blog`,
+  url: pageUrl,
+  name: '병원 AI 연구소 블로그',
+  description:
+    '병원 행정·간호 실무자를 위해 의료 AI 논문·도구·규제를 쉬운 말로 풀어 쓴 글 모음입니다.',
+  inLanguage: 'ko-KR',
+  publisher: { '@id': `${siteUrl}/#organization` },
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  blogPost: posts.map((post) => ({
+    '@type': 'BlogPosting',
+    '@id': `${siteUrl}${withBase(`/blog/${post.id}/`)}#article`,
+    headline: post.data.title,
+    url: `${siteUrl}${withBase(`/blog/${post.id}/`)}`,
+    datePublished: post.data.pubDate.toISOString(),
+    articleSection: post.data.category,
+    author: { '@id': `${siteUrl}/#person` },
+  })),
+};
 ---
 
 <BaseLayout
   title="블로그"
   description="논문리뷰, AI도구, 칼럼, 소식 — 병원과 AI에 대한 기록을 나눕니다."
+  schema={[blogSchema]}
 >
   <div class="container">
     <header class="page-head">
@@ -27,16 +57,26 @@ const CATEGORIES = ['논문리뷰', 'AI도구', '칼럼', '소식'] as const;
     {
       posts.length > 0 ? (
         <>
-          <div class="filter" role="group" aria-label="분류별로 보기">
-            <button type="button" class="chip filter-btn" data-filter="all" aria-pressed="true">
+          {/* 2026-08-12: <button>에서 실제 링크로 바꿨다. 분류마다 색인 가능한
+              고유 주소(/blog/category/[slug]/)가 생겼으므로, 필터 칩도 그
+              주소를 가리켜야 검색·AI 엔진과 자바스크립트 없는 환경에서도
+              분류별 글 목록에 닿을 수 있다. 클릭 시 JS가 즉시 걸러 보여주는
+              기존 동작은 preventDefault로 그대로 유지한다(blog-filter.js 아래). */}
+          <nav class="filter" aria-label="분류별로 보기">
+            <a href={withBase('/blog/')} class="chip filter-btn" data-filter="all" aria-current="true">
               전체
-            </button>
-            {CATEGORIES.map((c) => (
-              <button type="button" class="chip filter-btn" data-filter={c} aria-pressed="false">
-                {c}
-              </button>
+            </a>
+            {BLOG_CATEGORIES.map((c) => (
+              <a
+                href={withBase(`/blog/category/${c.slug}/`)}
+                class="chip filter-btn"
+                data-filter={c.label}
+                aria-current="false"
+              >
+                {c.label}
+              </a>
             ))}
-          </div>
+          </nav>
           <div class="post-list">
             {posts.map((post) => (
               <PostCard post={post} headingLevel="h2" />
@@ -54,16 +94,20 @@ const CATEGORIES = ['논문리뷰', 'AI도구', '칼럼', '소식'] as const;
 </BaseLayout>
 
 <script>
-  // 카테고리 필터: 버튼을 누르면 해당 분류의 카드만 남긴다.
+  // 카테고리 필터: 칩(링크)을 누르면 해당 분류의 카드만 이 페이지 안에서
+  // 즉시 걸러 보여준다(preventDefault로 실제 이동은 막는다). 자바스크립트가
+  // 없거나 크롤러처럼 JS를 안 돌리는 환경에서는 href가 그대로 살아 있어
+  // /blog/category/[slug]/ 전용 페이지로 정상 이동한다.
   // 숨김은 hidden 속성 토글 — global.css의 [hidden] 전역 가드가 확실히 숨겨 준다.
-  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const buttons = document.querySelectorAll<HTMLAnchorElement>('.filter-btn');
   const cards = document.querySelectorAll<HTMLElement>('.post-list .post-card');
   const emptyNote = document.getElementById('filter-empty');
 
   buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const filter = btn.dataset.filter;
-      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      buttons.forEach((b) => b.setAttribute('aria-current', String(b === btn)));
       let shown = 0;
       cards.forEach((card) => {
         const show = filter === 'all' || card.dataset.category === filter;
@@ -97,7 +141,7 @@ const CATEGORIES = ['논문리뷰', 'AI도구', '칼럼', '소식'] as const;
     background: var(--color-primary-soft);
   }
 
-  .filter-btn[aria-pressed='true'] {
+  .filter-btn[aria-current='true'] {
     color: var(--btn-fg);
     background: var(--btn-bg);
     border-color: var(--btn-bg);

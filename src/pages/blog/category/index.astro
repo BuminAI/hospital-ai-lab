@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { withBase } from '../../../utils/site';
+import { BLOG_CATEGORIES } from '../../../data/blog-categories';
+
+// 분류 허브 페이지 (2026-08-12 추가).
+//
+// 왜 필요한가: /blog/category/[slug].astro 각 페이지의 BreadcrumbList가
+// "홈 > 블로그 > 분류 > AI도구 글 모음"처럼 중간에 '분류' 단계를 넣는데,
+// 그 '분류' 항목이 가리키는 /blog/category/ 주소가 실제 페이지가 아니면
+// 깨진 링크가 된다(검색엔진 구조화 데이터는 존재하는 URL을 가리켜야 한다).
+// 이 페이지가 그 주소를 채운다.
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const counts = Object.fromEntries(
+  BLOG_CATEGORIES.map((c) => [c.slug, posts.filter((p) => p.data.category === c.label).length])
+);
+---
+
+<BaseLayout
+  title="분류별 글 모음"
+  description="병원 AI 연구소 블로그를 논문리뷰·AI도구·칼럼·소식 네 분류로 나눠 볼 수 있습니다."
+>
+  <div class="container">
+    <header class="page-head">
+      <h1>분류별 글 모음</h1>
+      <p class="lead">
+        어려운 논문과 새 AI 도구를 병원 행정·간호 실무자가 읽고 바로 쓸 수 있는
+        말로 풀어 씁니다. 관심 있는 분류를 골라 보세요.
+      </p>
+    </header>
+
+    <div class="category-grid">
+      {
+        BLOG_CATEGORIES.map((c) => (
+          <a class="card category-card" href={withBase(`/blog/category/${c.slug}/`)}>
+            <span class="chip">{c.label}</span>
+            <p class="count">{counts[c.slug]}편</p>
+            <p class="desc">{c.description}</p>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="back-link">
+      <a href={withBase('/blog/')}>← 블로그 전체 보기</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .category-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .category-card {
+    display: block;
+    color: var(--color-text);
+  }
+
+  .category-card:hover {
+    text-decoration: none;
+  }
+
+  .category-card:hover .chip {
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+  }
+
+  .count {
+    margin-top: 0.85rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .desc {
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+
+  .back-link {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .back-link a {
+    font-weight: 600;
+  }
+
+  @media (max-width: 52rem) {
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
