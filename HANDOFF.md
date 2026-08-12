@@ -211,11 +211,32 @@ npm run build    # 배포본 생성(dist/)
 | CollectionPage | `news`·`gov-support`·`events` | 자동 수집 목록임을 명시. 본문은 안 옮기고 링크만 |
 | 글별 OG 이미지 | `src/pages/og/[...route].ts` | 키는 `post.id`(Astro 5에 `slug` 없음), 폰트 지정 필수(한글), `await` 필수 |
 | llms.txt | `public/llms.txt` | AI 엔진용 사이트 안내 |
+| 분류별 아카이브 | `src/pages/blog/category/[slug].astro`·`index.astro`, `src/data/blog-categories.ts` | 2026-08-12 신설. **슬러그는 바꾸지 말 것**(외부 링크가 깨진다). `/blog/`의 필터 칩이 이 주소를 가리키는 링크이고, JS는 preventDefault로 화면 내 필터만 한다 — JS 없이도 분류별 페이지에 닿게 하려는 구조다 |
+| 페이지별 실제 수정일 | `src/utils/git-lastmod.mjs` | 2026-08-12 신설. 사이트맵 lastmod·일본어판 「更新日」·글의 dateModified가 전부 이걸 쓴다. `git log -1 -- <파일>`로 구한다 |
 | RSS 검증 항목 | `src/pages/rss.xml.js` | `atom:link rel=self`·`lastBuildDate`. lastBuildDate는 **최신 글 발행일**(빌드 시각 쓰면 매 배포마다 바뀜) |
 | 관련글 모듈 | `src/pages/blog/[id].astro` | 같은 분류 우선 3편. 이게 없으면 글 절반이 문맥 인바운드 링크 0건이 된다 |
 
 **남은 것 (오너가 직접 해야 함)**: 구글 서치콘솔·네이버 서치어드바이저·Bing 웹마스터에
 사이트맵(`sitemap-index.xml`)과 RSS 제출. 소유확인 메타 태그는 이미 둘 다 들어가 있다.
+
+### 2026-08-12 보강 — 여기서 배운 것 두 가지 (되돌리지 말 것)
+
+- **빌드 시각을 수정일로 쓰면 안 된다.** 예전에는 사이트맵 lastmod와 일본어판
+  「更新日」이 모두 빌드 시각이었다. 이 사이트는 뉴스 자동 수집으로 하루에도
+  수십 번 배포되므로, 몇 달째 그대로인 페이지까지 매번 "오늘 수정됨"이 됐다.
+  검색엔진은 lastmod가 실제와 어긋나는 사이트의 값을 아예 무시해 버리고,
+  일본어판은 **화면에 보이는 날짜가 사실과 달라 사실 검증 원칙에도 어긋났다.**
+  지금은 `src/utils/git-lastmod.mjs`가 파일별 마지막 커밋 시각을 구한다.
+- **⚠️ 그래서 `deploy.yml`의 체크아웃에 `fetch-depth: 0`이 반드시 필요하다.**
+  기본값인 얕은 클론(depth=1)은 커밋이 하나뿐이라 모든 파일이 같은 날짜로
+  나온다 — 로컬에서는 멀쩡한데 배포본만 전 페이지가 빌드 시각으로 돌아간다
+  (2026-08-12에 실제로 이 증상을 겪고 원인을 찾았다). 이 옵션을 지우면 위
+  기능이 통째로 무력화되므로 절대 지우지 말 것.
+- **hreflang은 양쪽이 서로를 가리켜야 한다** — 이 문서에 원래 적혀 있던
+  주의사항인데, 실제로는 한국어판 9개 중 6개(`checklist`·`faq`·`glossary`·
+  `guide`·`tips`·`youtube`)에 `jaPath`가 빠져 한쪽만 걸린 상태였다.
+  2026-08-12에 전부 채워 9쌍 모두 양방향이 됐다. **일본어 페이지를 새로
+  만들면 대응하는 한국어 페이지의 `jaPath`도 반드시 같이 넣을 것.**
 
 ## 5-2. 일본어판 `/ja/` (2026-07-31 신설)
 
