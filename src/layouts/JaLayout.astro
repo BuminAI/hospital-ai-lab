@@ -28,13 +28,18 @@ interface Props {
   crumb?: string;
   /** 이 페이지의 한국어판 경로(hreflang·언어 전환용). 없으면 한국어 홈. */
   koPath?: string;
+  /**
+   * 이 페이지의 러시아어판 경로(2026-08-12 추가). 넘기면 hreflang에 ru도
+   * 함께 걸린다 — 러시아어판이 아직 없는 ja 페이지는 넘기지 않으면 된다.
+   */
+  ruPath?: string;
   /** 갱신일 표기 */
   updated?: Date;
   /** 페이지 고유 JSON-LD 노드 */
   schema?: Record<string, unknown>[];
 }
 
-const { title, description, crumb, koPath = '/', updated, schema = [] } = Astro.props;
+const { title, description, crumb, koPath = '/', ruPath, updated, schema = [] } = Astro.props;
 
 const SITE_JA = '病院AI研究所';
 const pageTitle = crumb ? `${title}｜${SITE_JA}` : `${title}｜${SITE_JA}`;
@@ -60,6 +65,7 @@ const updatedAt =
 // hreflang — 같은 내용의 한국어판이 있는 페이지끼리 짝지어 준다.
 // x-default는 한국어판(원본)으로 둔다.
 const koHref = `${siteRoot}${withBase(koPath)}`;
+const ruHref = ruPath ? `${siteRoot}${withBase(ruPath)}` : undefined;
 
 // メニューは韓国語版の並び（ホーム→運営者→補助金→動画→ノウハウ→入門）に合わせている。
 // 韓国語版にあってここに無い区分（コラム・ニュース・イベント・講義ノート）は、
@@ -183,6 +189,7 @@ const year = new Date().getFullYear();
     {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
     <link rel="alternate" hreflang="ko" href={koHref} />
     <link rel="alternate" hreflang="ja" href={canonical} />
+    {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
     <link rel="alternate" hreflang="x-default" href={koHref} />
 
     <script type="application/ld+json" is:inline set:html={jsonLdText} />

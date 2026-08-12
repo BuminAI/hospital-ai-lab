@@ -45,13 +45,14 @@ const { site, base } = resolveSiteAndBase();
 export default defineConfig({
   site,
   base,
-  // ── 다국어 (2026-07-31 일본어판 추가) ──────────────────
+  // ── 다국어 (2026-07-31 일본어판, 2026-08-12 러시아어판 추가) ──
   // ⚠️ prefixDefaultLocale: false 가 핵심이다. 이게 true면 기존 한국어 URL이
   //    전부 /ko/ 아래로 밀려나 지금까지 쌓은 검색 자산이 통째로 날아간다.
-  //    한국어는 루트(/about/)에 그대로 두고, 일본어만 /ja/ 하위에 새로 만든다.
+  //    한국어는 루트(/about/)에 그대로 두고, 일본어는 /ja/, 러시아어는 /ru/
+  //    하위에 새로 만든다.
   i18n: {
     defaultLocale: 'ko',
-    locales: ['ko', 'ja'],
+    locales: ['ko', 'ja', 'ru'],
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: false,
@@ -74,11 +75,11 @@ export default defineConfig({
         else delete item.lastmod;
         return item;
       },
-      // 사이트맵에 언어 대응 관계를 넣어 구글이 ko/ja를 같은 페이지의
+      // 사이트맵에 언어 대응 관계를 넣어 구글이 ko/ja/ru를 같은 페이지의
       // 다른 언어판으로 인식하게 한다(hreflang과 짝을 이룬다).
       i18n: {
         defaultLocale: 'ko',
-        locales: { ko: 'ko-KR', ja: 'ja-JP' },
+        locales: { ko: 'ko-KR', ja: 'ja-JP', ru: 'ru-RU' },
       },
       // 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외.
       // ai-apps는 비공개 처리(2026-07-21 오너 지시) — 메뉴·홈에서 내리고

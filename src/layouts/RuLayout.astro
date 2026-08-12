@@ -1,0 +1,316 @@
+---
+// 러시아어판 전용 레이아웃 (2026-08-12 신설)
+//
+// 한국어판 BaseLayout, 일본어판 JaLayout과 완전히 분리했다 — 언어판 하나를
+// 고치다 다른 언어판이 휘말리는 사고를 막기 위해서다(이 저장소의 기존 원칙,
+// JaLayout.astro 주석 참고).
+//
+// 구성은 일본어판(2컬럼 + パンくずリスト + 상시 사이드바)을 그대로 가져왔다.
+// 의료(YMYL) 콘텐츠에서 저자 신뢰 신호를 상시 노출하는 것은 언어와 무관하게
+// 유효한 설계라는 판단이다(사실 주장이 아니라 설계 판단 — 필요하면 나중에
+// 단순 1컬럼으로 바꿀 수 있다).
+import '../styles/global.css';
+import '../styles/ru-tokens.css';
+import ru from '../i18n/ru.json';
+import navConfig from '../data/ru/content/nav.json';
+import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
+import {
+  withBase,
+  BASE,
+  stripBase,
+  CONTACT_EMAIL,
+  YOUTUBE_CHANNEL_URL,
+  GOATCOUNTER_CODE,
+} from '../utils/site';
+
+interface Props {
+  title: string;
+  description: string;
+  /** 브레드크럼 마지막 항목 이름. 홈이면 넘기지 않는다. */
+  crumb?: string;
+  /** 이 페이지의 한국어판 경로(hreflang·언어 전환용). 없으면 한국어 홈. */
+  koPath?: string;
+  /** 이 페이지의 일본어판 경로. 아직 일본어판이 없는 페이지는 넘기지 않는다. */
+  jaPath?: string;
+  /** 갱신일 표기 */
+  updated?: Date;
+  /** 페이지 고유 JSON-LD 노드 */
+  schema?: Record<string, unknown>[];
+}
+
+const { title, description, crumb, koPath = '/', jaPath, updated, schema = [] } = Astro.props;
+
+const SITE_RU = 'Лаборатория ИИ для больниц';
+
+const siteRoot = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const currentPath = stripBase(Astro.url.pathname);
+const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+const canonical = `${siteRoot}${withBase(canonicalPath)}`;
+const pageTitle = `${title} | ${SITE_RU}`;
+
+// 갱신일: 페이지가 안 넘기면 이 경로의 실제 마지막 커밋일을 쓴다(빌드 시각이
+// 아님 — 뉴스 자동 수집으로 하루에도 여러 번 재빌드되는 사이트라, 안 그러면
+// 안 바뀐 페이지까지 매번 "오늘 갱신"으로 보인다. ja판과 같은 이유·같은 유틸).
+const updatedAt = updated ?? lastModifiedForPath(Astro.url.pathname, BASE) ?? new Date();
+
+// hreflang — 짝이 서로를 가리켜야 유효하다. x-default는 한국어(원본).
+const koHref = `${siteRoot}${withBase(koPath)}`;
+const jaHref = jaPath ? `${siteRoot}${withBase(jaPath)}` : undefined;
+
+// 메뉴 표시·비표시는 src/data/ru/content/nav.json에서 관리한다
+// (홈은 항상 표시 — 지우면 러시아어판 입구가 없어진다).
+const navLabels = ru.nav as Record<string, string>;
+const nav = navConfig
+  .filter((item) => item.href === '/ru/' || item.enabled)
+  .map((item) => ({
+    href: item.href,
+    label: navLabels[item.key] ?? item.key,
+  }));
+
+const isActive = (href: string) =>
+  href === '/ru/' ? canonicalPath === '/ru/' : canonicalPath.startsWith(href);
+
+// ── 구조화 데이터 ────────────────────────────────────────
+// 한국어·일본어판 SchemaOrg와 같은 @id를 쓴다 — 같은 조직·같은 사람이므로
+// 언어판이 달라도 엔티티는 하나여야 검색엔진이 혼동하지 않는다.
+// name에는 성명만 넣고, 다른 표기는 alternateName으로 분리한다(괄호까지
+// 이름으로 기계에 읽히지 않게 — ja판과 같은 이유).
+// 키릴 표기 "Чо Ёнхо"는 콘체비치 표기법 기준으로 오너가 2026-08-12 확인했다
+// (briefing.md에 없는 값을 임의로 만들지 않았다 — CLAUDE.md 절대 원칙).
+const person = {
+  '@type': 'Person',
+  '@id': `${siteRoot}/#person`,
+  name: ru.profile.nameShort,
+  alternateName: ['조영호', 'Youngho Cho'],
+  jobTitle: ru.profile.role,
+  url: `${siteRoot}${withBase('/ru/about/')}`,
+  sameAs: [YOUTUBE_CHANNEL_URL],
+};
+const organization = {
+  '@type': 'Organization',
+  '@id': `${siteRoot}/#organization`,
+  name: SITE_RU,
+  url: siteRoot,
+  founder: { '@id': `${siteRoot}/#person` },
+  email: CONTACT_EMAIL,
+};
+const website = {
+  '@type': 'WebSite',
+  '@id': `${siteRoot}/#website-ru`,
+  url: `${siteRoot}${withBase('/ru/')}`,
+  name: SITE_RU,
+  inLanguage: 'ru-RU',
+  publisher: { '@id': `${siteRoot}/#organization` },
+};
+const crumbs = [
+  { name: ru.ui.breadcrumbHome, url: `${siteRoot}${withBase('/ru/')}` },
+  ...(crumb ? [{ name: crumb, url: canonical }] : []),
+];
+const breadcrumbLd =
+  crumbs.length > 1
+    ? [
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${canonical}#breadcrumb`,
+          itemListElement: crumbs.map((c, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: c.name,
+            item: c.url,
+          })),
+        },
+      ]
+    : [];
+
+// WebPage — 화면에 보이는 갱신일과 같은 값을 기계도 읽을 수 있게 한다
+// (안 보이는 사실을 마크업하지 않는다는 원칙, ja판과 동일).
+const webPage = {
+  '@type': 'WebPage',
+  '@id': `${canonical}#webpage`,
+  url: canonical,
+  name: title,
+  description,
+  inLanguage: 'ru-RU',
+  isPartOf: { '@id': `${siteRoot}/#website-ru` },
+  dateModified: updatedAt.toISOString(),
+  ...(crumb ? { breadcrumb: { '@id': `${canonical}#breadcrumb` } } : {}),
+  about: { '@id': `${siteRoot}/#organization` },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [person, organization, website, webPage, ...breadcrumbLd, ...schema],
+};
+
+// ⚠️ 보안상 반드시 필요 — 절대 지우지 말 것.
+// <script type="application/ld+json"> 안의 내용은 브라우저가 "HTML 안의
+// 스크립트 요소"로 먼저 읽는다. 본문에 "</script>"라는 글자가 있으면
+// 거기서 스크립트 요소가 닫혀 버리고 뒤에 오는 글자가 살아있는 HTML로
+// 실행된다(저장형 XSS). "<"를 전부 이스케이프해도 구조화 데이터의 의미는
+// 전혀 달라지지 않는다.
+const jsonLdText = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
+
+const fmtRu = (d: Date) =>
+  new Intl.DateTimeFormat('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="ru" data-locale="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="preload"
+      href={withBase('/fonts/PretendardVariable.woff2')}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
+    <link rel="alternate" hreflang="ko" href={koHref} />
+    {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
+    <link rel="alternate" hreflang="ru" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={koHref} />
+
+    <script type="application/ld+json" is:inline set:html={jsonLdText} />
+
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_RU} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <meta property="og:image" content={`${siteRoot}${withBase('/og-default.png')}`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE_RU} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteRoot}${withBase('/og-default.png')}`} />
+
+    {
+      GOATCOUNTER_CODE && (
+        <script
+          is:inline
+          async
+          data-goatcounter={`https://${GOATCOUNTER_CODE}.goatcounter.com/count`}
+          src="https://gc.zgo.at/count.js"
+        />
+      )
+    }
+  </head>
+  <body>
+    <a class="skip-link" href="#ru-main">Перейти к содержимому</a>
+
+    <header class="ru-header">
+      <div class="ru-header-inner">
+        <a class="ru-brand" href={withBase('/ru/')}>
+          {SITE_RU}
+          <span class="ru-brand-sub">HOSPITAL AI LAB — практическая информация о медицинском ИИ</span>
+        </a>
+        <div class="ru-langs">
+          <a class="ru-lang" href={withBase(koPath)} hreflang="ko">{ru.ui.langKo}</a>
+          {jaPath && <a class="ru-lang" href={withBase(jaPath)} hreflang="ja">{ru.ui.langJa}</a>}
+        </div>
+      </div>
+    </header>
+
+    <nav class="ru-nav" aria-label="Главное меню">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav class="ru-breadcrumb" aria-label="Хлебные крошки">
+      <ol>
+        <li><a href={withBase('/ru/')}>{ru.ui.breadcrumbHome}</a></li>
+        {crumb && <li aria-current="page">{crumb}</li>}
+      </ol>
+    </nav>
+
+    <div class="ru-shell">
+      <main id="ru-main">
+        <p class="ru-updated">
+          {ru.ui.updated}: <time datetime={updatedAt.toISOString()}>{fmtRu(updatedAt)}</time>
+        </p>
+        <slot />
+      </main>
+
+      <aside class="ru-side">
+        {/* 운영자 신뢰 블록 — ja판과 같은 이유로 상시 노출한다 */}
+        <section>
+          <h2>{ru.ui.sidebarProfileTitle}</h2>
+          <div class="ru-side-body">
+            <dl>
+              <dt>Имя</dt>
+              <dd>{ru.profile.name}</dd>
+              <dt>Должность</dt>
+              <dd>{ru.profile.role}</dd>
+              <dt>Опыт</dt>
+              <dd>{ru.profile.careerShort}</dd>
+              <dt>Образование</dt>
+              <dd>{ru.profile.educationShort}</dd>
+            </dl>
+            <p style="margin-top:10px">
+              <a class="ru-ext" href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+                {ru.profile.youtube}
+                <span class="sr-only"> ({ru.ui.external})</span>
+              </a>
+            </p>
+            <p style="margin-top:6px">
+              <a href={withBase('/ru/about/')}>{ru.nav.about}</a>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>{ru.ui.langKo}</h2>
+          <div class="ru-side-body">
+            <p>
+              Основная версия сайта — корейская. На ней больше материалов: колонки, словарь терминов,
+              чек-лист внедрения.
+            </p>
+            <p style="margin-top:8px">
+              <a href={withBase('/')} hreflang="ko">{ru.ui.langKo}</a>
+            </p>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="ru-footer">
+      <div class="ru-footer-inner">
+        <ul>
+          <li><a href={withBase('/ru/about/')}>{ru.footer.about}</a></li>
+          <li><a href={withBase('/privacy/')}>{ru.footer.privacy}</a></li>
+          <li><a href={`mailto:${CONTACT_EMAIL}`}>{ru.footer.contact}</a></li>
+          <li><a href={withBase('/sitemap-index.xml')}>{ru.footer.sitemap}</a></li>
+        </ul>
+        <p>{ru.ui.disclaimer}</p>
+        <p style="margin-top:10px">© {year} {SITE_RU}</p>
+      </div>
+    </footer>
+  </body>
+</html>

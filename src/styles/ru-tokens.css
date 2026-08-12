@@ -1,0 +1,370 @@
+/* ── 러시아어판 디자인 토큰 (2026-08-12 신설) ──────────────────
+   일본어판(ja-tokens.css)의 2컬럼·브레드크럼·상시 사이드바 구조를 그대로
+   가져왔다 — 의료(YMYL) 콘텐츠에서 저자 신뢰 신호를 상시 노출하는 것은
+   언어와 무관하게 유효한 설계라고 판단했다(HANDOFF.md 5-3절 참고).
+
+   ⚠️ 이 파일은 `[data-locale="ru"]` 안에서만 적용된다. 한국어·일본어판
+      스타일에 영향을 주지 않도록 모든 선택자에 이 접두사를 붙일 것.
+
+   ⚠️ 일본어판과 달리 폰트 대체 로직이 없다. Pretendard 최신판이 키릴 문자를
+      이미 지원해서(공식 문서 확인) 한국어판이 쓰는 self-host 폰트를 그대로
+      쓸 수 있다 — 시스템 폰트로 전환할 필요가 없다. */
+
+[data-locale='ru'] {
+  /* Color — 신뢰 블루 계열(ja와 같은 계통, 색조만 살짝 다르게) */
+  --ru-base: #ffffff;
+  --ru-surface: #f6f8fa;
+  --ru-surface-2: #edf1f6;
+  --ru-border: #dbe1e9;
+  --ru-text: #1a1a1a;
+  --ru-text-sub: #5a6270;
+  --ru-primary: #0b458c;
+  --ru-primary-dk: #073266;
+  --ru-accent: #b5480f;
+  --ru-badge-new: #c62828;
+  --ru-badge-info: #15619f;
+  --ru-badge-gov: #17663d;
+
+  /* Layout */
+  --ru-max: 1120px;
+  --ru-sidebar: 300px;
+  --ru-gap: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-locale='ru'] {
+    --ru-base: #0e141d;
+    --ru-surface: #161f2b;
+    --ru-surface-2: #1d2836;
+    --ru-border: #2b3646;
+    --ru-text: #e8edf4;
+    --ru-text-sub: #a2aebd;
+    --ru-primary: #7fb0e8;
+    --ru-primary-dk: #a8cbf2;
+    --ru-accent: #f0955a;
+    --ru-badge-new: #ef6b6b;
+    --ru-badge-info: #6fb0e0;
+    --ru-badge-gov: #64c799;
+  }
+}
+
+/* ── 본문 조판 ─────────────────────────────────────────── */
+/* ⚠️ 반드시 `[data-locale='ru'] body`로 지정할 것 — html에만 걸면
+   global.css의 body{font-family 등} 규칙이 이긴다(일본어판이 2026-07-31에
+   실제로 겪은 버그, HANDOFF.md 6절 참고). 폰트는 global.css가 이미 지정한
+   Pretendard를 그대로 쓰므로 여기서 font-family를 재정의하지 않는다. */
+[data-locale='ru'] body {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--ru-text);
+  background: var(--ru-base);
+}
+
+[data-locale='ru'] h1,
+[data-locale='ru'] h2,
+[data-locale='ru'] h3 {
+  color: var(--ru-text);
+}
+
+[data-locale='ru'] h1 {
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+[data-locale='ru'] h2 {
+  font-size: 21px;
+  line-height: 1.4;
+  border-left: 5px solid var(--ru-primary);
+  padding: 6px 0 6px 12px;
+  background: var(--ru-surface);
+  margin: 32px 0 16px;
+}
+
+[data-locale='ru'] h3 {
+  font-size: 17px;
+  border-bottom: 2px solid var(--ru-border);
+  padding-bottom: 6px;
+  margin: 24px 0 12px;
+}
+
+[data-locale='ru'] a {
+  color: var(--ru-primary);
+}
+
+/* ── 2컬럼 셸 ──────────────────────────────────────────── */
+[data-locale='ru'] .ru-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--ru-sidebar);
+  gap: var(--ru-gap);
+  max-width: var(--ru-max);
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+@media (max-width: 860px) {
+  [data-locale='ru'] .ru-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ── 헤더 ──────────────────────────────────────────────── */
+[data-locale='ru'] .ru-header {
+  background: var(--ru-base);
+  border-bottom: 3px solid var(--ru-primary);
+}
+
+[data-locale='ru'] .ru-header-inner {
+  max-width: var(--ru-max);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+[data-locale='ru'] .ru-brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ru-primary);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+[data-locale='ru'] .ru-brand-sub {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--ru-text-sub);
+  letter-spacing: 0.03em;
+}
+
+[data-locale='ru'] .ru-langs {
+  display: flex;
+  gap: 8px;
+}
+
+[data-locale='ru'] .ru-lang {
+  font-size: 12.5px;
+  color: var(--ru-text-sub);
+  text-decoration: none;
+  border: 1px solid var(--ru-border);
+  border-radius: 3px;
+  padding: 4px 10px;
+}
+
+[data-locale='ru'] .ru-lang:hover {
+  color: var(--ru-primary);
+  border-color: var(--ru-primary);
+}
+
+[data-locale='ru'] .ru-nav {
+  background: var(--ru-surface);
+  border-bottom: 1px solid var(--ru-border);
+}
+
+[data-locale='ru'] .ru-nav ul {
+  max-width: var(--ru-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+[data-locale='ru'] .ru-nav a {
+  display: block;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  color: var(--ru-text);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+[data-locale='ru'] .ru-nav a:hover,
+[data-locale='ru'] .ru-nav a[aria-current='page'] {
+  color: var(--ru-primary);
+  border-bottom-color: var(--ru-primary);
+  background: var(--ru-base);
+}
+
+/* ── 브레드크럼 ────────────────────────────────────────── */
+[data-locale='ru'] .ru-breadcrumb {
+  max-width: var(--ru-max);
+  margin: 0 auto;
+  padding: 10px 20px 0;
+  font-size: 12.5px;
+  color: var(--ru-text-sub);
+}
+
+[data-locale='ru'] .ru-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+[data-locale='ru'] .ru-breadcrumb li + li::before {
+  content: '›';
+  margin-right: 6px;
+  color: var(--ru-border);
+}
+
+/* ── 사이드바 ──────────────────────────────────────────── */
+[data-locale='ru'] .ru-side section {
+  border: 1px solid var(--ru-border);
+  border-radius: 4px;
+  background: var(--ru-base);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+[data-locale='ru'] .ru-side h2 {
+  font-size: 14px;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--ru-primary);
+  color: #fff;
+  border: 0;
+  letter-spacing: 0.02em;
+}
+
+[data-locale='ru'] .ru-side .ru-side-body {
+  padding: 14px;
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+[data-locale='ru'] .ru-side dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+}
+
+[data-locale='ru'] .ru-side dt {
+  color: var(--ru-text-sub);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+[data-locale='ru'] .ru-side dd {
+  margin: 0;
+}
+
+/* ── 뱃지·메타 ─────────────────────────────────────────── */
+[data-locale='ru'] .ru-badge {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 1px 7px;
+  border-radius: 3px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+
+[data-locale='ru'] .ru-badge-new {
+  background: var(--ru-badge-new);
+}
+[data-locale='ru'] .ru-badge-gov {
+  background: var(--ru-badge-gov);
+}
+[data-locale='ru'] .ru-badge-info {
+  background: var(--ru-badge-info);
+}
+
+[data-locale='ru'] .ru-updated {
+  font-size: 12.5px;
+  color: var(--ru-text-sub);
+}
+
+/* ── 목록 ──────────────────────────────────────────────── */
+[data-locale='ru'] .ru-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ru-border);
+}
+
+[data-locale='ru'] .ru-list > li {
+  border-bottom: 1px solid var(--ru-border);
+  padding: 13px 2px;
+}
+
+[data-locale='ru'] .ru-list .ru-item-title {
+  color: var(--ru-text);
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+[data-locale='ru'] .ru-list .ru-item-title:hover {
+  color: var(--ru-primary);
+  text-decoration: underline;
+}
+
+[data-locale='ru'] .ru-list .ru-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  font-size: 12.5px;
+  color: var(--ru-text-sub);
+}
+
+/* ── 주의 박스 ─────────────────────────────────────────── */
+[data-locale='ru'] .ru-caution {
+  border: 1px solid var(--ru-border);
+  border-left: 5px solid var(--ru-accent);
+  background: var(--ru-surface);
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  margin: 16px 0;
+}
+
+[data-locale='ru'] .ru-note {
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--ru-text-sub);
+  border-top: 1px solid var(--ru-border);
+  margin-top: 32px;
+  padding-top: 16px;
+}
+
+/* ── 푸터 ──────────────────────────────────────────────── */
+[data-locale='ru'] .ru-footer {
+  border-top: 3px solid var(--ru-primary);
+  background: var(--ru-surface);
+  font-size: 13px;
+}
+
+[data-locale='ru'] .ru-footer-inner {
+  max-width: var(--ru-max);
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+}
+
+[data-locale='ru'] .ru-footer ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+/* 외부 링크 아이콘 */
+[data-locale='ru'] .ru-ext::after {
+  content: '↗';
+  font-size: 0.85em;
+  margin-left: 3px;
+  color: var(--ru-text-sub);
+}

@@ -1,0 +1,33 @@
+---
+// 러시아어판 홈 (Phase A — 최소 콘텐츠).
+// 인프라(레이아웃·라우팅·hreflang)가 정상 동작하는지 증명하는 최소 페이지다.
+// 용어사전·FAQ·체크리스트 등 실제 콘텐츠는 Phase B에서 출처 검증 후 채운다
+// (계획: C:\Users\a\.claude\plans\mighty-booping-kernighan.md).
+import RuLayout from '../../layouts/RuLayout.astro';
+import ru from '../../i18n/ru.json';
+import { withBase } from '../../utils/site';
+
+const description =
+  'Больничная AI-лаборатория — сайт об использовании искусственного интеллекта в больницах, ' +
+  'который ведёт специалист с 17-летним опытом работы в больнице Южной Кореи. Русская версия ' +
+  'сайта пока в разработке.';
+---
+
+<RuLayout title="Главная" description={description} koPath="/" jaPath="/ja/">
+  <h1>{ru.profile.role}</h1>
+  <p>
+    Автор сайта {ru.profile.career} {ru.profile.education}
+  </p>
+  <p>
+    Основная (корейская) версия сайта посвящена практическим вопросам внедрения ИИ в больницах —
+    с точки зрения администрации и сестринского персонала, а не только врачей. Материалы включают
+    разбор исследований, обзоры инструментов ИИ и колонки о регулировании.
+  </p>
+
+  <div class="ru-caution">{ru.ui.underConstruction}</div>
+
+  <p>
+    <a href={withBase('/')} hreflang="ko">{ru.ui.langKo} →</a><br />
+    <a href={withBase('/ja/')} hreflang="ja">{ru.ui.langJa} →</a>
+  </p>
+</RuLayout>

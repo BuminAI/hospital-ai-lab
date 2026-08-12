@@ -16,11 +16,17 @@ import {
 
 interface Props {
   /**
-   * 이 페이지에 대응하는 일본어판 경로(예: '/ja/subsidies/').
-   * 넘기면 hreflang 짝을 만들어 구글이 두 언어판을 같은 페이지로 인식한다.
-   * **양쪽 다 서로를 가리켜야** 유효하다 — 한쪽만 있으면 구글이 무시한다.
+   * @deprecated 2026-08-12 러시아어판 추가로 alternates로 일반화했다.
+   * 새 페이지는 이 prop 대신 `alternates={{ ja: '...' }}`을 쓸 것.
+   * 기존 호출부는 안 고쳐도 계속 동작하도록 남겨 둔다(내부에서 alternates.ja로 병합).
    */
   jaPath?: string;
+  /**
+   * 이 페이지에 대응하는 다른 언어판 경로. 예: {ja: '/ja/subsidies/', ru: '/ru/subsidies/'}.
+   * 넘기면 hreflang 짝을 만들어 구글이 여러 언어판을 같은 페이지로 인식한다.
+   * **모든 언어판이 서로를 가리켜야** 유효하다 — 한쪽만 있으면 구글이 무시한다.
+   */
+  alternates?: Partial<Record<'ja' | 'ru', string>>;
   title?: string;
   description?: string;
   /** true면 검색엔진 색인에서 제외 (관리자 페이지 등) */
@@ -48,6 +54,7 @@ interface Props {
 
 const {
   jaPath,
+  alternates: alternatesProp,
   title,
   description = SITE_TAGLINE,
   noindex = false,
@@ -58,6 +65,12 @@ const {
   ogImage: ogImagePath,
 } = Astro.props;
 const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
+// 레거시 jaPath와 신규 alternates를 병합한다. alternates.ja가 명시되면 그것이
+// 우선하고, 없으면 jaPath가 대신 채운다 — 기존 호출부를 안 고쳐도 되게 하려고.
+const alternates: Partial<Record<'ja' | 'ru', string>> = {
+  ...(jaPath ? { ja: jaPath } : {}),
+  ...alternatesProp,
+};
 // 소셜 공유 대표 이미지 (절대 URL 필요)
 const ogImageRel = withBase(ogImagePath ?? '/og-default.png');
 const ogImage = Astro.site ? new URL(ogImageRel, Astro.site).href : ogImageRel;
@@ -181,17 +194,30 @@ const breadcrumb =
     <meta name="theme-color" content="#0e141d" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={canonical} />
 
-    {/* hreflang — 일본어판이 있는 페이지만. 짝이 서로를 가리켜야 유효하다.
+    {/* hreflang — 다른 언어판이 있는 페이지만. 짝이 서로를 가리켜야 유효하다.
         한국어가 원본이므로 x-default는 한국어를 가리킨다. */}
     {
-      jaPath && (
+      Object.keys(alternates).length > 0 && (
         <>
           <link rel="alternate" hreflang="ko" href={canonical} />
-          <link
-            rel="alternate"
-            hreflang="ja"
-            href={`${siteRoot}${withBase(jaPath)}`}
-          />
+          {
+            alternates.ja && (
+              <link
+                rel="alternate"
+                hreflang="ja"
+                href={`${siteRoot}${withBase(alternates.ja)}`}
+              />
+            )
+          }
+          {
+            alternates.ru && (
+              <link
+                rel="alternate"
+                hreflang="ru"
+                href={`${siteRoot}${withBase(alternates.ru)}`}
+              />
+            )
+          }
           <link rel="alternate" hreflang="x-default" href={canonical} />
         </>
       )
