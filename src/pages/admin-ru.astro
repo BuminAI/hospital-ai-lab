@@ -1,0 +1,953 @@
+---
+// 러시아어판(Лаборатория ИИ для больниц) 전용 관리자 대시보드 — /admin-ru/
+//
+// ⚠️ 한국어판 관리자(src/pages/admin.astro)·일본어판 관리자(admin-ja.astro)는
+//    절대 수정하지 않는다. 이 페이지는 인증 방식(Supabase 로그인 +
+//    admin_secrets의 GitHub PAT)과 CSS 클래스만 같은 방식으로 복제한
+//    별도 페이지다(이 저장소는 언어판 간 공용 유틸을 두지 않는 관례).
+//
+// ⚠️ 반드시 BaseLayout + noindex. RuLayout에는 noindex 기능이 없고
+//    robots.txt도 아무것도 막지 않으므로, RuLayout으로 만들면 관리자
+//    페이지가 검색엔진에 색인된다.
+//
+// ⚠️ 경로를 바꾸지 말 것. astro.config.mjs의 사이트맵 필터가
+//    page.includes('/admin')으로 제외하므로 '/admin-ru/'여야 빠진다.
+//
+// 편집 대상 데이터(GitHub Contents API로 커밋 → Actions 재빌드):
+//    src/data/ru/content/nav.json   상단 메뉴 표시/비표시
+// Phase B에서 glossary.json·faq.json·checklist.json·guide.json·tips.json·
+// videos.json이 생기면, admin-ja.astro의 해당 패널(용어집·FAQ·본문 페이지 등)을
+// 그대로 본떠 이 파일에 탭을 추가한다 — 지금은 nav.json 하나뿐이라 그 패널만 있다.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SUPABASE_URL, SUPABASE_ANON_KEY, ADMIN_EMAIL } from '../utils/site';
+import navConfig from '../data/ru/content/nav.json';
+import ru from '../i18n/ru.json';
+
+// 메뉴 항목의 한국어 설명 — 운영자는 러시아어를 읽지 못하므로
+// 러시아어 메뉴명 옆에 한국어 이름을 함께 보여준다.
+const navLabelKo: Record<string, string> = {
+  home: '홈',
+  about: '운영자 소개',
+  glossary: '용어집',
+  faq: '자주 묻는 질문',
+  checklist: '도입 체크리스트',
+  guide: '입문 가이드',
+  tips: '실무 팁',
+  videos: '추천 영상',
+};
+const navLabels = ru.nav as Record<string, string>;
+const navRows = navConfig.map((n) => ({
+  href: n.href,
+  key: n.key,
+  ru: navLabels[n.key] ?? n.key,
+  ko: navLabelKo[n.key] ?? n.key,
+}));
+---
+
+<BaseLayout
+  title="러시아어판 관리자"
+  description="러시아어판(Лаборатория ИИ для больниц) 콘텐츠 관리 대시보드"
+  noindex
+>
+  <div class="container admin-ru">
+    <header class="page-head">
+      <h1>러시아어판 관리자</h1>
+      <p class="lead">
+        러시아어판 사이트(Лаборатория ИИ для больниц, /ru/)의 내용을 여기서
+        고칩니다. 화면 안내는 모두 한국어이고, <strong>입력하는 내용만
+        러시아어</strong>입니다. 저장하면 사이트에 반영되기까지 2~3분 걸립니다.
+      </p>
+      <p class="lead">
+        지금은 <strong>상단 메뉴 표시</strong> 항목만 있습니다. 용어집·FAQ·체크리스트
+        등은 출처 검증을 마친 콘텐츠가 준비되는 대로 탭이 추가됩니다.
+      </p>
+    </header>
+
+    {
+      !SUPABASE_URL ? (
+        <p class="hint">
+          회원 기능이 아직 연결되지 않았습니다. supabase/SETUP-GUIDE.md의
+          안내대로 개통한 뒤 사용할 수 있습니다.
+        </p>
+      ) : (
+        <div id="admin-login-gate" class="panel">
+          <h2>관리자 로그인</h2>
+          <p class="hint">관리자 계정({ADMIN_EMAIL})으로 로그인하세요.</p>
+          <div class="row gate-row">
+            <label>
+              이메일
+              <input
+                type="email"
+                id="gate-email"
+                placeholder="관리자 이메일"
+                autocomplete="username"
+                value={ADMIN_EMAIL}
+              />
+            </label>
+            <label>
+              비밀번호
+              <input
+                type="password"
+                id="gate-password"
+                placeholder="비밀번호"
+                autocomplete="current-password"
+              />
+            </label>
+            <button class="btn" id="gate-login-btn">로그인</button>
+          </div>
+          <p class="hint save-status" id="gate-status" />
+          <p class="hint">
+            한국어판 관리자(/admin/)나 일본어판 관리자(/admin-ja/)에서 이미
+            로그인했다면 여기서는 다시 로그인하지 않아도 됩니다.
+          </p>
+        </div>
+      )
+    }
+
+    <div id="admin-dashboard" hidden>
+      <div class="admin-topbar">
+        <span id="admin-summary"></span>
+        <button class="btn ghost" id="admin-logout">로그아웃</button>
+      </div>
+
+      <nav class="admin-nav" aria-label="러시아어판 관리 메뉴">
+        <a href="#rn-panel" data-tab="rn-panel">🧭 상단 메뉴 표시</a>
+        <a href="#rs-panel" data-tab="rs-panel">🚀 사이트 반영 상태</a>
+        <a href="#rt-panel" data-tab="rt-panel">🔑 GitHub 연동</a>
+      </nav>
+
+      <!-- ── 1. 상단 메뉴 표시 ────────────────────────────── -->
+      <section class="panel" id="rn-panel">
+        <div class="panel-head">
+          <h2>🧭 상단 메뉴 표시</h2>
+          <button class="btn ghost" id="rn-refresh">새로고침</button>
+        </div>
+        <p class="section-desc">
+          러시아어판 화면 <strong>맨 위 메뉴줄</strong>에 어떤 분야를 보여줄지만
+          정하는 설정입니다. 체크를 풀면 그 항목이 <strong>메뉴줄에서만</strong>
+          사라집니다.
+        </p>
+        <p class="warn-box">
+          ⚠️ <strong>이것은 "페이지 내리기"가 아닙니다.</strong> 체크를 풀어도
+          페이지 자체와 사이트맵 등록은 그대로 남습니다. 정말로 검색에 안
+          나오게 하고 싶다면 개발자에게 알려 주세요.
+        </p>
+        <p class="warn-box">홈(Главная)은 러시아어판의 입구라 끌 수 없습니다.</p>
+        <div id="rn-list" class="posts">불러오는 중…</div>
+        <div class="row">
+          <button class="btn" id="rn-save">저장</button>
+        </div>
+        <p class="hint save-status" id="rn-status"></p>
+      </section>
+
+      <!-- ── 2. 사이트 반영 상태 ─────────────────────────── -->
+      <section class="panel" id="rs-panel">
+        <div class="panel-head">
+          <h2>🚀 사이트 반영 상태</h2>
+          <button class="btn ghost" id="rs-refresh">새로고침</button>
+        </div>
+        <p class="section-desc">
+          저장한 내용이 실제 사이트에 반영되는 과정입니다. ✅ 성공이 뜨면
+          반영이 끝난 것입니다. ⏳ 진행 중이면 잠시 후 '새로고침'을 눌러
+          주세요.
+        </p>
+        <div id="rs-runs" class="runs">불러오는 중…</div>
+      </section>
+
+      <!-- ── 3. GitHub 연동 ─────────────────────────────── -->
+      <section class="panel" id="rt-panel">
+        <h2>🔑 GitHub 연동</h2>
+        <p class="section-desc">
+          러시아어판 내용을 저장하려면 GitHub 토큰이 필요합니다. 한국어판이나
+          일본어판 관리자에서 이미 저장해 두었다면 여기서는 아무것도 하지
+          않아도 됩니다 — 같은 토큰을 함께 씁니다.
+        </p>
+        <p class="status-line" id="token-status">
+          <span class="dot dot-off"></span>확인 중…
+        </p>
+        <div class="row">
+          <input
+            type="password"
+            id="token-input"
+            placeholder="GitHub Fine-grained 토큰 (github_pat_...)"
+            autocomplete="off"
+          />
+          <button class="btn" id="token-save">저장</button>
+        </div>
+        <details>
+          <summary>토큰 만드는 방법 (처음 한 번)</summary>
+          <ol>
+            <li>GitHub 로그인 → 우측 상단 프로필 → <strong>Settings</strong></li>
+            <li>
+              왼쪽 맨 아래 <strong>Developer settings → Personal access tokens
+              → Fine-grained tokens → Generate new token</strong>
+            </li>
+            <li>Repository access: <strong>Only select repositories → hospital-ai-lab</strong></li>
+            <li>
+              Permissions → Repository permissions에서
+              <strong>Contents: Read and write</strong>, <strong>Actions: Read-only</strong>로 설정
+            </li>
+            <li>Generate token 후 생성된 <code>github_pat_...</code> 값을 위 칸에 붙여넣고 저장</li>
+          </ol>
+        </details>
+      </section>
+    </div>
+
+    <!-- 메뉴 항목의 한국어/러시아어 이름 대응표 -->
+    <template
+      id="ru-nav-labels"
+      data-values={navRows.map((n) => `${n.key}\t${n.ru}\t${n.ko}`).join('\n')}
+    ></template>
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, ADMIN_EMAIL }}>
+  // 로그인 + GitHub 토큰 불러오기 + 탭 전환.
+  // define:vars를 쓰므로 이 스크립트는 반드시 is:inline(번들 불가, 순수 JS)이다.
+  // 아래 번들 스크립트와는 window.__adminGithubToken 과
+  // admin-ready / admin-github-token-ready 이벤트로만 통신한다.
+  (async () => {
+    if (!SUPABASE_URL || !document.getElementById('admin-login-gate')) return;
+    const { createClient } = await import(
+      'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/+esm'
+    );
+    const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const $ = (id) => document.getElementById(id);
+
+    function updateTokenPanelUI() {
+      const el = $('token-status');
+      if (!el) return;
+      el.innerHTML = window.__adminGithubToken
+        ? '<span class="dot dot-on"></span>GitHub 연동되어 있습니다. 어느 기기에서 로그인해도 그대로 적용됩니다.'
+        : '<span class="dot dot-off"></span>아직 GitHub 토큰이 없습니다. 아래에 붙여넣고 저장하세요.';
+    }
+
+    async function loadGithubToken() {
+      const { data, error } = await sb
+        .from('admin_secrets')
+        .select('value')
+        .eq('key', 'github_pat')
+        .maybeSingle();
+      window.__adminGithubToken = error ? '' : (data && data.value) || '';
+      updateTokenPanelUI();
+      if (error && $('token-status')) {
+        $('token-status').textContent =
+          '연동 상태 확인 실패: ' +
+          (error.message || '') +
+          ' — 저장소의 supabase/setup.sql을 Supabase 대시보드 → SQL Editor에 붙여넣고 한 번 실행하면 해결되는 경우가 많습니다.';
+      }
+    }
+
+    async function saveGithubToken() {
+      const status = $('token-status');
+      const v = $('token-input').value.trim();
+      if (!v) return;
+      const { error } = await sb
+        .from('admin_secrets')
+        .upsert({ key: 'github_pat', value: v, updated_at: new Date().toISOString() });
+      if (error) {
+        status.textContent = '저장 실패: ' + (error.message || '');
+        return;
+      }
+      window.__adminGithubToken = v;
+      $('token-input').value = '';
+      updateTokenPanelUI();
+      window.dispatchEvent(new CustomEvent('admin-github-token-ready'));
+    }
+
+    function initAdminTabs() {
+      const navLinks = [...document.querySelectorAll('.admin-nav a[data-tab]')];
+      const panels = navLinks
+        .map((a) => document.getElementById(a.dataset.tab))
+        .filter(Boolean);
+
+      function showTab(id) {
+        panels.forEach((p) => {
+          p.hidden = p.id !== id;
+        });
+        navLinks.forEach((a) => a.classList.toggle('active', a.dataset.tab === id));
+      }
+
+      navLinks.forEach((a) => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          showTab(a.dataset.tab);
+          history.replaceState(null, '', '#' + a.dataset.tab);
+        });
+      });
+
+      const fromHash = location.hash.slice(1);
+      const initial = panels.some((p) => p.id === fromHash)
+        ? fromHash
+        : panels[0] && panels[0].id;
+      if (initial) showTab(initial);
+    }
+
+    async function showAdminIfLoggedIn() {
+      const {
+        data: { session },
+      } = await sb.auth.getSession();
+      const isAdmin = session && session.user.email === ADMIN_EMAIL;
+      $('admin-login-gate').hidden = !!isAdmin;
+      $('admin-dashboard').hidden = !isAdmin;
+      if (isAdmin) {
+        await loadGithubToken();
+        window.dispatchEvent(new CustomEvent('admin-ready'));
+      }
+    }
+
+    $('gate-login-btn').addEventListener('click', async () => {
+      const status = $('gate-status');
+      status.textContent = '로그인 중…';
+      const { data, error } = await sb.auth.signInWithPassword({
+        email: $('gate-email').value.trim(),
+        password: $('gate-password').value,
+      });
+      if (error) {
+        status.textContent = '로그인 실패: 이메일 또는 비밀번호를 확인하세요.';
+        return;
+      }
+      if (data.user.email !== ADMIN_EMAIL) {
+        status.textContent = '관리자 계정이 아닙니다.';
+        await sb.auth.signOut();
+        return;
+      }
+      status.textContent = '';
+      $('gate-password').value = '';
+      showAdminIfLoggedIn();
+    });
+
+    $('gate-password').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') $('gate-login-btn').click();
+    });
+
+    $('admin-logout').addEventListener('click', async () => {
+      await sb.auth.signOut();
+      window.__adminGithubToken = '';
+      showAdminIfLoggedIn();
+    });
+
+    $('token-save').addEventListener('click', saveGithubToken);
+
+    initAdminTabs();
+    showAdminIfLoggedIn();
+  })();
+</script>
+
+<script is:inline>
+  // sticky 탭 바가 사이트 헤더에 가리지 않도록 헤더 실측 높이를 CSS 변수로 반영.
+  (() => {
+    const header = document.querySelector('.site-header');
+    if (!header || typeof ResizeObserver === 'undefined') return;
+    const apply = () =>
+      document.documentElement.style.setProperty(
+        '--site-header-h',
+        header.offsetHeight + 'px'
+      );
+    new ResizeObserver(apply).observe(header);
+    apply();
+  })();
+</script>
+
+<script>
+  // ── 공통 ────────────────────────────────────────────────
+  const REPO = 'BuminAI/hospital-ai-lab';
+  const API = `https://api.github.com/repos/${REPO}`;
+
+  const P = {
+    nav: 'src/data/ru/content/nav.json',
+    // Phase B에서 glossary.json 등이 생기면 여기에 추가한다.
+  };
+
+  const APPLIED = ' 사이트에 반영되기까지 2~3분 걸립니다.';
+
+  const $ = (id: string) => document.getElementById(id) as any;
+
+  function getToken(): string {
+    return (window as any).__adminGithubToken || '';
+  }
+
+  async function gh(path: string, options: RequestInit = {}) {
+    const token = getToken();
+    if (!token)
+      throw new Error(
+        "아직 GitHub 연동이 안 됐습니다. 위 탭에서 'GitHub 연동'을 눌러 토큰을 저장하면 이 목록이 나타납니다."
+      );
+    const res = await fetch(`${API}${path}`, {
+      ...options,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        ...(options.headers || {}),
+      },
+    });
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      const reason = body.message ? ` (GitHub: ${body.message})` : '';
+      if (res.status === 401)
+        throw new Error(`토큰이 유효하지 않습니다. 새 토큰을 설정하세요.${reason}`);
+      if (res.status === 403)
+        throw new Error(
+          `권한이 없습니다(403). 토큰 설정에서 저장소 선택(hospital-ai-lab)과 권한(Contents: Read and write, Actions: Read-only)을 확인하세요.${reason}`
+        );
+      if (res.status === 404)
+        throw new Error(`찾을 수 없습니다(404). 토큰의 저장소 권한을 확인하세요.${reason}`);
+      throw new Error(`GitHub API 오류 ${res.status}: ${body.message || ''}`);
+    }
+    return res.status === 204 ? null : res.json();
+  }
+
+  // UTF-8 안전 base64 (러시아어·한글 등 멀티바이트 처리). 한 글자도 바꾸지 말 것.
+  function b64encode(str: string): string {
+    const bytes = new TextEncoder().encode(str);
+    let bin = '';
+    for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return btoa(bin);
+  }
+
+  function b64decode(b64: string): string {
+    const bin = atob(b64.replace(/\n/g, ''));
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+
+  function esc(s: unknown): string {
+    return String(s ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // ── JSON 파일 읽기·쓰기 ─────────────────────────────────
+  type Loaded = { sha: string; data: any };
+
+  async function loadJson(path: string): Promise<Loaded> {
+    const file = await gh(`/contents/${path}`);
+    const raw = b64decode(file.content);
+    let data: any;
+    try {
+      data = JSON.parse(raw);
+    } catch (e: any) {
+      throw new Error(
+        `저장소의 ${path} 파일이 올바른 JSON 형식이 아닙니다. 이 화면에서는 고칠 수 없으니 개발자에게 알려 주세요. (원래 오류: ${e.message})`
+      );
+    }
+    return { sha: file.sha, data };
+  }
+
+  /**
+   * 저장 직전에 파일을 다시 읽어 sha가 그대로인지 확인한다.
+   * 그 사이 다른 사람이나 자동 수집이 같은 파일을 바꿨으면
+   * **덮어쓰지 않고** 한국어 안내와 함께 중단한다.
+   */
+  async function saveJson(
+    path: string,
+    data: any,
+    expectedSha: string,
+    message: string
+  ): Promise<string> {
+    const fresh = await gh(`/contents/${path}`);
+    if (fresh.sha !== expectedSha) {
+      throw new Error(
+        '저장하지 않았습니다 — 이 화면을 연 뒤에 같은 파일이 다른 곳에서 바뀌었습니다. ' +
+          '그대로 저장하면 그 변경분이 지워지므로 중단했습니다. ' +
+          "'새로고침'을 눌러 최신 내용을 불러온 뒤 다시 고쳐 주세요."
+      );
+    }
+    const res = await gh(`/contents/${path}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        message,
+        content: b64encode(JSON.stringify(data, null, 2) + '\n'),
+        sha: expectedSha,
+      }),
+    });
+    return res.content.sha as string;
+  }
+
+  // ── 화면 표시 도우미 ────────────────────────────────────
+  function ok(id: string, msg: string) {
+    const el = $(id);
+    el.classList.remove('bad');
+    el.textContent = msg;
+  }
+
+  function bad(id: string, msg: string) {
+    const el = $(id);
+    el.classList.add('bad');
+    el.textContent = msg;
+  }
+
+  /** 저장 버튼 이중 클릭 잠금 */
+  function lock(btnId: string, fn: () => Promise<void>) {
+    $(btnId).addEventListener('click', async () => {
+      const btn = $(btnId);
+      if (btn.disabled) return;
+      btn.disabled = true;
+      try {
+        await fn();
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+
+  function setAdminSummary(key: string, text: string) {
+    const el = document.getElementById('admin-summary');
+    if (!el) return;
+    el.dataset[key] = text;
+    el.textContent = [el.dataset.deploy].filter(Boolean).join(' · ');
+  }
+
+  // 메뉴 항목의 한국어/러시아어 이름 대응표
+  const NAV_LABELS: Record<string, { ru: string; ko: string }> = {};
+  {
+    const tpl = document.getElementById('ru-nav-labels');
+    const raw = tpl ? (tpl as HTMLElement).dataset.values || '' : '';
+    raw
+      .split('\n')
+      .filter(Boolean)
+      .forEach((line) => {
+        const [key, ruLabel, koLabel] = line.split('\t');
+        if (key) NAV_LABELS[key] = { ru: ruLabel, ko: koLabel };
+      });
+  }
+
+  // ══ 1. 상단 메뉴 표시 ═══════════════════════════════════
+  let rnSha = '';
+
+  async function loadNav() {
+    const el = $('rn-list');
+    el.textContent = '불러오는 중…';
+    try {
+      const { sha, data } = await loadJson(P.nav);
+      if (!Array.isArray(data)) throw new Error('nav.json 이 목록(배열) 형태가 아닙니다.');
+      rnSha = sha;
+      el.innerHTML = data
+        .map((n: any, i: number) => {
+          const isHome = n.href === '/ru/';
+          const label = NAV_LABELS[n.key] || { ru: n.key, ko: n.key };
+          return `
+          <div class="post-row">
+            <span class="post-title">
+              <label class="check">
+                <input type="checkbox" data-rnrow="${i}" ${n.enabled || isHome ? 'checked' : ''} ${isHome ? 'disabled' : ''} />
+                ${esc(label.ru)} <span class="hint-inline">(${esc(label.ko)})</span>
+              </label>
+            </span>
+            <span class="post-file">${esc(n.href)}${isHome ? ' · 끌 수 없음' : ''}</span>
+          </div>`;
+        })
+        .join('');
+      ok('rn-status', '');
+    } catch (e: any) {
+      el.textContent = e.message;
+    }
+  }
+
+  lock('rn-save', async () => {
+    try {
+      ok('rn-status', '저장 중…');
+      const { sha, data } = await loadJson(P.nav);
+      if (sha !== rnSha) {
+        throw new Error(
+          "이 화면을 연 뒤에 메뉴 설정이 다른 곳에서 바뀌었습니다. '새로고침'을 눌러 최신 내용을 확인한 뒤 다시 설정해 주세요."
+        );
+      }
+      const boxes = [...$('rn-list').querySelectorAll('[data-rnrow]')] as any[];
+      if (boxes.length !== data.length) {
+        throw new Error("화면과 저장된 내용의 항목 수가 다릅니다. '새로고침'을 눌러 주세요.");
+      }
+      const next = data.map((n: any, i: number) => ({
+        href: n.href,
+        key: n.key,
+        enabled: n.href === '/ru/' ? true : !!boxes[i].checked,
+      }));
+      if (!next.some((n: any) => n.enabled)) {
+        throw new Error('메뉴가 하나도 남지 않습니다. 최소 한 개는 켜 두어야 합니다.');
+      }
+      rnSha = await saveJson(P.nav, next, rnSha, '수정: 러시아어판 메뉴 공개 상태 변경');
+      const onCount = next.filter((n: any) => n.enabled).length;
+      ok(
+        'rn-status',
+        `저장했습니다. 러시아어판 상단 메뉴에 ${onCount}개가 표시됩니다.` + APPLIED
+      );
+      setTimeout(loadRuns, 4000);
+    } catch (e: any) {
+      bad('rn-status', e.message);
+    }
+  });
+
+  $('rn-refresh').addEventListener('click', loadNav);
+
+  // ══ 2. 사이트 반영 상태 ═════════════════════════════════
+  const WORKFLOW_KO: Record<string, string> = {
+    'Deploy to GitHub Pages': '사이트 반영(배포)',
+    'Update AI News': 'AI 뉴스 수집',
+    'Update Gov Programs': '정부 지원사업 수집',
+    'Update AI Events': 'AI 행사 수집',
+    'Update Recommended Videos': '추천 영상 수집',
+    'Update JA Subsidies': '일본 보조금 수집',
+  };
+
+  function workflowKo(name: string): string {
+    return WORKFLOW_KO[name] || name;
+  }
+
+  const CONCLUSION_KO: Record<string, string> = {
+    success: '성공',
+    failure: '실패',
+    cancelled: '취소됨',
+    timed_out: '시간 초과',
+    startup_failure: '시작 실패',
+    skipped: '건너뜀',
+    neutral: '실행하지 않음',
+    action_required: '사람의 조치 필요',
+    stale: '너무 오래되어 취소됨',
+  };
+
+  function conclusionKo(c: string): string {
+    return CONCLUSION_KO[c] || c || '알 수 없음';
+  }
+
+  let runsAutoRefreshLeft = 4;
+  async function loadRuns() {
+    const el = $('rs-runs');
+    try {
+      const data = await gh('/actions/runs?per_page=8');
+      const rows = data.workflow_runs.map((r: any) => {
+        const state =
+          r.status === 'completed'
+            ? r.conclusion === 'success'
+              ? '✅ 성공'
+              : `❌ ${conclusionKo(r.conclusion)}`
+            : '⏳ 진행 중';
+        const t = new Date(r.created_at).toLocaleString('ko-KR', {
+          timeZone: 'Asia/Seoul',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+        return `<div class="run"><span>${state}</span><span>${esc(workflowKo(r.name))}</span><span>${t}</span><a href="${esc(r.html_url)}" target="_blank" rel="noopener">로그</a></div>`;
+      });
+      el.innerHTML = rows.join('') || '실행 기록이 없습니다.';
+      const latest = data.workflow_runs[0];
+      if (latest) {
+        setAdminSummary(
+          'deploy',
+          '최근 반영 ' +
+            (latest.status === 'completed'
+              ? latest.conclusion === 'success'
+                ? '성공'
+                : '실패'
+              : '진행 중')
+        );
+      }
+      const hasPending = data.workflow_runs.some((r: any) => r.status !== 'completed');
+      if (hasPending) {
+        if (runsAutoRefreshLeft > 0) {
+          runsAutoRefreshLeft--;
+          setTimeout(loadRuns, 15000);
+        }
+      } else {
+        runsAutoRefreshLeft = 4;
+      }
+    } catch (e: any) {
+      el.textContent = e.message;
+    }
+  }
+
+  $('rs-refresh').addEventListener('click', () => {
+    runsAutoRefreshLeft = 4;
+    loadRuns();
+  });
+
+  // ══ 부팅 ══════════════════════════════════════════════
+  async function loadAllPanels() {
+    loadNav();
+    loadRuns();
+  }
+  window.addEventListener('admin-ready', loadAllPanels);
+  window.addEventListener('admin-github-token-ready', loadAllPanels);
+</script>
+
+<style is:global>
+  /* 이 페이지는 목록을 JS(innerHTML)로 그린다. Astro의 스타일 스코프는
+     런타임에 넣은 요소에 안 붙어서 .btn.ghost 같은 규칙이 안 먹는다.
+     그래서 한국어판·일본어판 관리자와 마찬가지로 전역 스타일을 쓴다.
+     (태그 셀렉터는 .admin-ru 안쪽으로 한정해 다른 화면을 오염시키지 않는다) */
+
+  .admin-nav {
+    position: sticky;
+    top: var(--site-header-h, 4.5rem);
+    z-index: 10;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-top: 0.5rem;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .admin-nav a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    white-space: nowrap;
+  }
+
+  .admin-nav a:hover {
+    text-decoration: none;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .admin-nav a.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+  }
+
+  @media (max-width: 40rem) {
+    .admin-nav {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  .admin-ru .section-desc {
+    margin-top: -0.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .admin-ru .warn-box {
+    margin: 0 0 1rem;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    background: #fff7e6;
+    border: 1px solid #f0c36d;
+    border-left: 4px solid #d99000;
+    border-radius: 6px;
+  }
+
+  .admin-ru .status-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .admin-ru .dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .admin-ru .dot-on {
+    background: #1a9d54;
+  }
+
+  .admin-ru .dot-off {
+    background: #c0392b;
+  }
+
+  .admin-ru .panel {
+    scroll-margin-top: calc(var(--site-header-h, 4.5rem) + 4rem);
+    margin-top: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    max-width: 52rem;
+  }
+
+  .admin-ru .panel h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .admin-ru .panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .admin-ru .panel-head h2,
+  .admin-ru .panel-head h3 {
+    margin-bottom: 0;
+  }
+
+  .admin-ru .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 0.75rem;
+  }
+
+  .admin-ru input[type='text'],
+  .admin-ru input[type='email'],
+  .admin-ru input[type='password'],
+  .admin-ru select,
+  .admin-ru textarea {
+    font: inherit;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    background: var(--color-bg);
+    width: 100%;
+  }
+
+  .admin-ru input[type='password'] {
+    flex: 1;
+    min-width: 12rem;
+    width: auto;
+  }
+
+  .admin-ru label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  .admin-ru .check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    color: var(--color-text);
+  }
+
+  .admin-ru .check input {
+    width: auto;
+    margin: 0;
+  }
+
+  .admin-ru .btn.ghost {
+    padding: 0.5rem 1.1rem;
+  }
+
+  @media (pointer: coarse) {
+    .admin-ru .btn.ghost {
+      padding: 0.65rem 1.1rem;
+    }
+  }
+
+  .admin-ru .save-status:not(:empty) {
+    background: var(--color-primary-soft);
+    border-left: 3px solid var(--color-primary);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .admin-ru .save-status.bad:not(:empty) {
+    background: rgba(179, 38, 30, 0.07);
+    border-left-color: #b3261e;
+  }
+
+  .admin-ru .hint {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .admin-ru .hint-inline {
+    font-weight: 400;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+
+  .admin-ru details {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+  .admin-ru details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .admin-ru details ol {
+    padding-left: 1.4rem;
+  }
+
+  .admin-ru .runs .run {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9rem;
+  }
+
+  .admin-ru .post-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .admin-ru .post-title {
+    font-weight: 600;
+    flex: 1 1 14rem;
+  }
+
+  .admin-ru .post-file {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+
+  .admin-ru .admin-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .admin-ru #admin-summary {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .admin-ru #admin-login-gate {
+    max-width: 30rem;
+    margin: 2rem auto 0;
+  }
+
+  .admin-ru .gate-row label {
+    flex: 1 1 12rem;
+  }
+
+  .admin-ru .gate-row label input {
+    width: 100%;
+    min-width: 0;
+  }
+</style>
