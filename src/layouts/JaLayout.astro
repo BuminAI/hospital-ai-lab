@@ -11,8 +11,10 @@ import '../styles/global.css';
 import '../styles/ja-tokens.css';
 import ja from '../i18n/ja.json';
 import navConfig from '../data/ja/content/nav.json';
+import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import {
   withBase,
+  BASE,
   stripBase,
   CONTACT_EMAIL,
   YOUTUBE_CHANNEL_URL,
@@ -34,10 +36,6 @@ interface Props {
 
 const { title, description, crumb, koPath = '/', updated, schema = [] } = Astro.props;
 
-// 更新日は日本のサイトでは必須の信頼シグナルであり、検索側にも鮮度を伝える。
-// ページ側で updated を渡さない場合はビルド日(=最終公開日)を使う。
-const updatedAt = updated ?? new Date();
-
 const SITE_JA = '病院AI研究所';
 const pageTitle = crumb ? `${title}｜${SITE_JA}` : `${title}｜${SITE_JA}`;
 
@@ -47,6 +45,17 @@ const siteRoot = Astro.site
 const currentPath = stripBase(Astro.url.pathname);
 const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
 const canonical = `${siteRoot}${withBase(canonicalPath)}`;
+
+// 更新日は日本のサイトでは必須の信頼シグナルであり、検索側にも鮮度を伝える。
+//
+// ⚠️ 2026-08-12 修正: 以前はページ側が updated を渡さないとビルド時刻を使っていた。
+//    このサイトはニュース自動収集で1日に何十回も再ビルドされるため、何か月も
+//    変わっていないページまで毎回「本日更新」と表示していた（画面に出る日付が
+//    事実と異なる＝サイトの事実検証原則に反する）。ページ側の指定が無いときは
+//    そのページのソースファイルの最終コミット日時を使う。git が使えない
+//    ビルド環境ではビルド日に戻す。
+const updatedAt =
+  updated ?? lastModifiedForPath(Astro.url.pathname, BASE) ?? new Date();
 
 // hreflang — 같은 내용의 한국어판이 있는 페이지끼리 짝지어 준다.
 // x-default는 한국어판(원본)으로 둔다.
