@@ -1,4 +1,5 @@
 ---
+import { execSync } from 'node:child_process';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
@@ -44,6 +45,23 @@ const siteUrl = Astro.site
   ? Astro.site.href.replace(/\/$/, '')
   : 'https://hospital-ai-lab.com';
 
+// 수정일(dateModified) — 이 글 파일의 마지막 git 커밋 시각(2026-08-12 추가).
+// 발행 후 오탈자·수치 정정 등으로 글을 고치면 검색·AI 엔진에 "최신 정보"라는
+// 신호를 준다(SEO 순위·AEO 최신성 판단 둘 다에 쓰인다). git 정보를 못 구하는
+// 예외적 빌드 환경에서는 발행일로 폴백한다(홈 화면의 마지막 커밋일 계산과
+// 같은 방식, index.astro 참고).
+let dateModifiedIso = post.data.pubDate.toISOString();
+try {
+  const gitDate = execSync(
+    `git log -1 --format=%cI -- "src/content/blog/${post.id}.md"`
+  )
+    .toString()
+    .trim();
+  if (gitDate) dateModifiedIso = gitDate;
+} catch {
+  // 폴백: 위에서 이미 발행일로 초기화해 두었다.
+}
+
 // BlogPosting 구조화 데이터.
 // 2026-07-27 변경: author를 Organization에서 **저자 Person 엔티티 참조**로 바꿨다.
 // 검색엔진·AI가 "누가 쓴 글인가"로 신뢰도를 판정하기 때문이다(오너 지시, SEO/GEO 작업).
@@ -58,8 +76,7 @@ const blogPosting = {
   url: canonicalUrl,
   inLanguage: 'ko-KR',
   datePublished: post.data.pubDate.toISOString(),
-  // 별도 수정일 필드를 두지 않으므로 발행일과 동일하게 표기
-  dateModified: post.data.pubDate.toISOString(),
+  dateModified: dateModifiedIso,
   articleSection: post.data.category,
   image: ogImageUrl,
   author: { '@id': `${siteUrl}/#person` },

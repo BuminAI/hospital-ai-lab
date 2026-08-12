@@ -1,4 +1,6 @@
 // @ts-check
+import { execSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
@@ -40,6 +42,85 @@ function resolveSiteAndBase() {
 
 const { site, base } = resolveSiteAndBase();
 
+// ─────────────────────────────────────────────────────────────────────────────
+// 사이트맵 lastmod — 페이지별 실제 수정일 (2026-08-12)
+//
+// 왜 고쳤나: 예전에는 모든 URL에 `lastmod: new Date()`(빌드 시각)를 넣었다.
+// 이 사이트는 뉴스 수집으로 하루에도 수십 번 배포되므로, 몇 달째 그대로인
+// 페이지까지 매번 "방금 수정됨"으로 보고됐다. 검색엔진은 lastmod가 실제와
+// 어긋나는 사이트의 값을 신뢰하지 않고 무시해 버린다 — 정말 새 글이 올라와도
+// 재크롤 신호가 먹히지 않게 된다는 뜻이다. 그래서 URL을 원본 파일로 되짚어
+// git의 마지막 커밋 시각을 쓴다.
+//
+// 자동 수집 목록 페이지(/news/ 등)는 .astro 파일이 아니라 데이터 JSON이
+// 바뀔 때 내용이 달라지므로 그 JSON의 커밋 시각을 본다.
+// ─────────────────────────────────────────────────────────────────────────────
+const VOLATILE_DATA_SOURCES = {
+  '/news': 'src/data/news.json',
+  '/gov-support': 'src/data/gov-programs.json',
+  '/events': 'src/data/events.json',
+  '/youtube': 'src/data/recommended-videos.json',
+  '/ja/subsidies': 'src/data/ja/subsidies.json',
+};
+
+// 동적 라우트(`[no].astro` 등)는 URL에서 파일명을 그대로 유추할 수 없다.
+// 실제 내용이 담긴 데이터 파일을 수정일의 근거로 삼는다.
+const DYNAMIC_ROUTE_SOURCES = [
+  { pattern: /^\/tips\/\d+$/, file: 'src/data/tips.ts' },
+];
+
+const gitDateCache = new Map();
+
+function gitLastModified(file) {
+  if (gitDateCache.has(file)) return gitDateCache.get(file);
+  let result;
+  try {
+    const out = execSync(`git log -1 --format=%cI -- "${file}"`, {
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .toString()
+      .trim();
+    result = out ? new Date(out) : undefined;
+  } catch {
+    // git이 없거나(내려받은 tarball 빌드 등) 파일이 추적되지 않는 경우.
+    // lastmod를 거짓으로 채우느니 생략하는 편이 낫다.
+    result = undefined;
+  }
+  gitDateCache.set(file, result);
+  return result;
+}
+
+/** 사이트맵 URL을 저장소 안의 원본 파일 경로로 되짚는다. 못 찾으면 undefined. */
+function sourceFileForUrl(url) {
+  let path;
+  try {
+    path = new URL(url).pathname;
+  } catch {
+    return undefined;
+  }
+  // base(하위 경로)와 앞뒤 슬래시를 떼어 사이트 내부 경로만 남긴다.
+  if (base !== '/' && path.startsWith(base)) path = path.slice(base.length);
+  path = `/${path.replace(/^\/+|\/+$/g, '')}`;
+
+  if (VOLATILE_DATA_SOURCES[path]) return VOLATILE_DATA_SOURCES[path];
+
+  // 블로그 글은 마크다운 원문이 곧 내용이다.
+  const blogMatch = path.match(/^\/blog\/([^/]+)$/);
+  if (blogMatch) {
+    const md = `src/content/blog/${blogMatch[1]}.md`;
+    if (existsSync(md)) return md;
+  }
+
+  const dynamic = DYNAMIC_ROUTE_SOURCES.find((r) => r.pattern.test(path));
+  if (dynamic) return dynamic.file;
+
+  if (path === '/') return 'src/pages/index.astro';
+
+  // 나머지 고정 페이지는 대응하는 .astro 파일을 찾는다.
+  const candidates = [`src/pages${path}.astro`, `src/pages${path}/index.astro`];
+  return candidates.find((c) => existsSync(c));
+}
+
 export default defineConfig({
   site,
   base,
@@ -57,10 +138,15 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      // lastmod를 넣어 크롤러에 갱신 신호를 준다. 이 사이트는 뉴스가 매시,
-      // 정부 지원사업·추천 영상이 매일 자동 갱신되므로 재크롤 유도가 실질적으로 중요하다.
-      // (빌드 시각 기준이라 페이지별 정밀 수정일은 아니지만, 없는 것보다 낫다.)
-      lastmod: new Date(),
+      // 페이지별 실제 수정일을 넣는다(위 gitLastModified 주석 참고).
+      // 되짚을 원본 파일을 못 찾은 URL은 lastmod 없이 내보낸다 — 거짓 날짜보다 낫다.
+      serialize(item) {
+        const source = sourceFileForUrl(item.url);
+        const lastmod = source ? gitLastModified(source) : undefined;
+        if (lastmod) item.lastmod = lastmod.toISOString();
+        else delete item.lastmod;
+        return item;
+      },
       // 사이트맵에 언어 대응 관계를 넣어 구글이 ko/ja를 같은 페이지의
       // 다른 언어판으로 인식하게 한다(hreflang과 짝을 이룬다).
       i18n: {
