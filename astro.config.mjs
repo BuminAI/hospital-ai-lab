@@ -64,9 +64,14 @@ const VOLATILE_DATA_SOURCES = {
 };
 
 // 동적 라우트(`[no].astro` 등)는 URL에서 파일명을 그대로 유추할 수 없다.
-// 실제 내용이 담긴 데이터 파일을 수정일의 근거로 삼는다.
+// 또 목록 페이지는 자기 .astro 파일이 아니라 **나열하는 대상**이 바뀔 때
+// 내용이 달라진다(글이 한 편 늘면 /blog/ 화면도 바뀐다). 그래서 둘 다
+// 실제 내용의 출처가 되는 파일·폴더를 수정일의 근거로 삼는다.
+// (git log는 폴더 경로에도 그대로 동작한다.)
 const DYNAMIC_ROUTE_SOURCES = [
   { pattern: /^\/tips\/\d+$/, file: 'src/data/tips.ts' },
+  { pattern: /^\/blog$/, file: 'src/content/blog' },
+  { pattern: /^\/blog\/category(\/[^/]+)?$/, file: 'src/content/blog' },
 ];
 
 const gitDateCache = new Map();
