@@ -22,6 +22,14 @@ jobs:
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
+        with:
+          # ⚠️ fetch-depth: 0 (전체 이력)이 반드시 필요하다.
+          # 사이트맵의 lastmod와 일본어판 「更新日」, 글의 dateModified는
+          # `git log -1 -- <파일>`로 파일별 마지막 수정일을 구한다
+          # (src/utils/git-lastmod.mjs). 기본값인 얕은 클론(depth=1)에서는
+          # 커밋이 하나뿐이라 모든 파일이 그 커밋 날짜로 나와, 결국 전 페이지가
+          # "빌드 시각에 수정됨"이 된다 — 고치려던 문제가 그대로 재현된다.
+          fetch-depth: 0
       # withastro/action이 Node 설치 → npm install → astro build → 업로드까지 처리.
       # astro.config.mjs가 GITHUB_REPOSITORY 환경 변수를 읽어
       # site(https://아이디.github.io)와 base(/저장소명)를 자동으로 맞춘다.
