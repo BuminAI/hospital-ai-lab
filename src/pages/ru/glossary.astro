@@ -1,0 +1,116 @@
+---
+// Словарь терминов — 러시아 제도를 새로 조사해 쓴 용어집(번역 아님)
+//
+// ⚠️ 제도 관련 항목(152-ФЗ, Постановление №1684 등)은 러시아 제도로
+//    새로 조사해 썼고, 출처를 실제 접속해 확인했다(src/data/ru/content/glossary.json).
+//    고칠 때도 같은 원칙을 지킬 것.
+import RuLayout from '../../layouts/RuLayout.astro';
+import ru from '../../i18n/ru.json';
+import { glossaryTermsRu, glossaryCategoriesRu } from '../../data/ru/glossary';
+import { withBase } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/ru/glossary/')}`;
+
+// DefinedTermSet — AI 답변 엔진이 용어 정의를 딥링크로 인용할 수 있게 한다
+const definedTermSet = {
+  '@type': 'DefinedTermSet',
+  '@id': `${pageUrl}#termset`,
+  url: pageUrl,
+  name: ru.glossary.pageTitle,
+  description: ru.glossary.metaDescription,
+  inLanguage: 'ru-RU',
+  isPartOf: { '@id': `${siteRoot}/#website-ru` },
+  hasDefinedTerm: glossaryTermsRu.map((t) => ({
+    '@type': 'DefinedTerm',
+    '@id': `${pageUrl}#${t.id}`,
+    url: `${pageUrl}#${t.id}`,
+    name: t.term,
+    description: t.definition,
+    termCode: t.id,
+    inDefinedTermSet: { '@id': `${pageUrl}#termset` },
+  })),
+};
+---
+
+<RuLayout
+  title={ru.glossary.pageTitle}
+  description={ru.glossary.metaDescription}
+  crumb={ru.nav.glossary}
+  koPath="/glossary/"
+  schema={[definedTermSet]}
+>
+  <h1>{ru.glossary.pageTitle}</h1>
+  <p>{ru.glossary.pageLead}</p>
+
+  <p class="ru-caution">{ru.glossary.caution}</p>
+
+  <nav class="ru-index" aria-label="Указатель терминов">
+    <ul>
+      {glossaryTermsRu.map((t) => (
+        <li><a href={`#${t.id}`}>{t.term}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  {glossaryCategoriesRu.map((cat) => {
+    const terms = glossaryTermsRu.filter((t) => t.category === cat);
+    if (terms.length === 0) return null;
+    return (
+      <section>
+        <h2>{cat}</h2>
+        <dl class="ru-terms">
+          {terms.map((t) => (
+            <div class="ru-term" id={t.id}>
+              <dt>{t.term}</dt>
+              <dd>
+                <p>{t.definition}</p>
+                <p class="ru-why"><span>Практическое значение</span>{t.whyMatters}</p>
+                {t.sources.length > 0 && (
+                  <p class="ru-src">
+                    {ru.ui.source}:{' '}
+                    {t.sources.map((src, i) => (
+                      <>
+                        {i > 0 && ' / '}
+                        <a class="ru-ext" href={src} target="_blank" rel="noopener">
+                          {new URL(src).hostname.replace(/^www\./, '')}
+                          <span class="sr-only"> ({ru.ui.external})</span>
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    );
+  })}
+
+  <div class="ru-note"><p>{ru.glossary.notice}</p></div>
+</RuLayout>
+
+<style>
+  .ru-index {
+    border: 1px solid var(--ru-border);
+    background: var(--ru-surface);
+    padding: 12px 14px;
+    margin: 16px 0 8px;
+  }
+  .ru-index ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    font-size: 13.5px;
+  }
+  .ru-terms { margin: 0; }
+  .ru-term { scroll-margin-top: 4rem; padding: 14px 0; border-bottom: 1px solid var(--ru-border); }
+  .ru-term dt { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .ru-term dd { margin: 0; }
+  .ru-why { margin-top: 8px; font-size: 14px; color: var(--ru-text-sub); }
+  .ru-why span {
+    display: inline-block; margin-right: 8px; padding: 0 8px;
+    background: var(--ru-surface-2); border-radius: 3px; font-size: 12.5px;
+  }
+  .ru-src { margin-top: 6px; font-size: 12.5px; }
+</style>

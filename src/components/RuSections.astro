@@ -1,0 +1,106 @@
+---
+// 러시아어판 본문 섹션 공통 렌더러.
+// guide·checklist(+ Phase C의 tips)가 같은 {heading, body, items} 구조를 쓴다.
+// ja판 JaSections.astro와 동일한 패턴.
+import type { RuSection } from '../data/ru/pages';
+
+interface Props {
+  sections: RuSection[];
+  /** 항목 앞에 체크박스 모양을 붙일지(체크리스트용) */
+  checkbox?: boolean;
+}
+
+const { sections, checkbox = false } = Astro.props;
+
+// 러시아어 제목은 URL 앵커로 쓰기 어려우므로 순번 기반 id를 쓴다.
+const anchor = (i: number) => `s${i + 1}`;
+---
+
+<div class="ru-sections">
+  {
+    sections.map((s, i) => (
+      <section class="ru-section" id={anchor(i)}>
+        <h2>
+          <a href={`#${anchor(i)}`} class="ru-anchor" aria-label={`Ссылка на раздел «${s.heading}»`}>
+            {s.heading}
+          </a>
+        </h2>
+        {s.body && <p class="ru-section-body">{s.body}</p>}
+        {s.items.length > 0 && (
+          <ul class={checkbox ? 'ru-check' : 'ru-list'}>
+            {s.items.map((it) => (
+              <li>{it}</li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .ru-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .ru-section {
+    scroll-margin-top: 20px;
+  }
+  .ru-section h2 {
+    font-size: 17px;
+    color: var(--ru-primary);
+    border-left: 4px solid var(--ru-primary);
+    padding-left: 10px;
+    margin-bottom: 12px;
+  }
+  .ru-anchor {
+    color: inherit;
+    text-decoration: none;
+  }
+  .ru-anchor:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .ru-section-body {
+    margin-bottom: 12px;
+  }
+  .ru-list,
+  .ru-check {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ru-list li,
+  .ru-check li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 14.5px;
+    line-height: 1.9;
+  }
+  .ru-list li::before {
+    content: '–';
+    position: absolute;
+    left: 4px;
+    color: var(--ru-primary);
+  }
+  .ru-check li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 0.55em;
+    width: 11px;
+    height: 11px;
+    border: 1.5px solid var(--ru-primary);
+  }
+  .ru-check li {
+    border-bottom: 1px dotted var(--ru-border);
+    padding-bottom: 8px;
+  }
+  .ru-check li:last-child {
+    border-bottom: none;
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+import RuLayout from '../../layouts/RuLayout.astro';
+import RuSections from '../../components/RuSections.astro';
+import { checklistRu } from '../../data/ru/pages';
+import ru from '../../i18n/ru.json';
+import { withBase } from '../../utils/site';
+
+const p = checklistRu;
+
+// 화면에 보이는 소제목·순서 그대로 ItemList로 알린다(보이지 않는 정보는 넣지 않는다).
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.meta.pageTitle,
+    numberOfItems: p.sections.length,
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    itemListElement: p.sections.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.heading,
+    })),
+  },
+];
+---
+
+<RuLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={ru.nav.checklist}
+  koPath="/checklist/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="ru-lead">{p.meta.lead}</p>
+
+  <RuSections sections={p.sections} checkbox />
+
+  <section class="ru-next">
+    <h2>Смотрите также</h2>
+    <ul>
+      <li>
+        <a href={withBase('/ru/glossary/')}>{ru.nav.glossary}</a> —
+        объяснение терминов, использованных в этом чек-листе.
+      </li>
+      <li>
+        <a href={withBase('/ru/faq/')}>{ru.nav.faq}</a> —
+        ответы на частые вопросы о внедрении ИИ.
+      </li>
+      <li>
+        <a href={withBase('/ru/guide/')}>{ru.nav.guide}</a> —
+        с чего начать, если вы впервые сталкиваетесь с этой темой.
+      </li>
+    </ul>
+  </section>
+</RuLayout>
+
+<style>
+  .ru-lead {
+    color: var(--ru-text-sub);
+  }
+  .ru-next {
+    margin-top: 36px;
+    border-top: 1px solid var(--ru-border);
+    padding-top: 20px;
+  }
+  .ru-next h2 {
+    font-size: 15px;
+    color: var(--ru-text-sub);
+    margin-bottom: 10px;
+    border: 0;
+    padding: 0;
+    background: none;
+  }
+  .ru-next ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ru-next li {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+</style>

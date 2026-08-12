@@ -1,0 +1,82 @@
+---
+// Об авторе — 러시아어판 신뢰 시그널의 핵심 페이지 (ja/about.astro와 같은 패턴)
+import RuLayout from '../../layouts/RuLayout.astro';
+import ru from '../../i18n/ru.json';
+import { withBase, CONTACT_EMAIL, YOUTUBE_CHANNEL_URL } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+
+// ProfilePage — AI 답변 엔진이 '누가 쓰는 사이트인가'를 판정하는 근거.
+// 화면에 보이는 사실만 마크업한다(구글은 비가시 콘텐츠 마크업을 금지).
+const profilePage = {
+  '@type': 'ProfilePage',
+  '@id': `${siteRoot}${withBase('/ru/about/')}#profile`,
+  inLanguage: 'ru-RU',
+  mainEntity: { '@id': `${siteRoot}/#person` },
+};
+---
+
+<RuLayout
+  title={ru.about.pageTitle}
+  description={ru.about.metaDescription}
+  crumb={ru.nav.about}
+  koPath="/about/"
+  jaPath="/ja/about/"
+  schema={[profilePage]}
+>
+  <h1>{ru.about.pageTitle}</h1>
+  <p>{ru.about.pageLead}</p>
+
+  <table class="ru-profile">
+    <tbody>
+      <tr><th>Имя</th><td>{ru.profile.name}</td></tr>
+      <tr><th>Должность</th><td>{ru.profile.role}</td></tr>
+      <tr><th>Опыт</th><td>{ru.profile.career}</td></tr>
+      <tr><th>Образование</th><td>{ru.profile.education}</td></tr>
+      <tr>
+        <th>Канал</th>
+        <td>
+          <a class="ru-ext" href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+            {ru.profile.youtube}<span class="sr-only"> ({ru.ui.external})</span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>{ru.about.whyTitle}</h2>
+  <p>{ru.about.why}</p>
+
+  <h2>{ru.about.stanceTitle}</h2>
+  <p>{ru.about.stance}</p>
+
+  <h2>{ru.about.methodTitle}</h2>
+  <p>{ru.about.method}</p>
+
+  <h2>{ru.about.contactTitle}</h2>
+  <p>{ru.about.contact}</p>
+  <p style="margin-top:8px"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+</RuLayout>
+
+<style>
+  .ru-profile {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 8px;
+    font-size: 14.5px;
+  }
+  .ru-profile th,
+  .ru-profile td {
+    border: 1px solid var(--ru-border);
+    padding: 9px 12px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.8;
+  }
+  .ru-profile th {
+    background: var(--ru-surface);
+    width: 8em;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+</style>

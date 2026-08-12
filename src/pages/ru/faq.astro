@@ -1,0 +1,77 @@
+---
+// Частые вопросы — 러시아 제도 기준으로 새로 쓴 FAQ
+import RuLayout from '../../layouts/RuLayout.astro';
+import ru from '../../i18n/ru.json';
+import { faqItemsRu } from '../../data/ru/faq';
+import { withBase } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/ru/faq/')}`;
+
+// FAQPage — AI 답변 엔진이 Q&A 쌍을 그대로 인용할 수 있게 한다.
+// 답변이 <details> 안에 실제로 렌더되므로 '숨겨진 콘텐츠 마크업'이 아니다.
+const faqPage = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'ru-RU',
+  isPartOf: { '@id': `${siteRoot}/#website-ru` },
+  mainEntity: faqItemsRu.map((it, i) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#q${i + 1}`,
+    name: it.question,
+    acceptedAnswer: { '@type': 'Answer', text: it.answer },
+  })),
+};
+---
+
+<RuLayout
+  title={ru.faq.pageTitle}
+  description={ru.faq.metaDescription}
+  crumb={ru.nav.faq}
+  koPath="/faq/"
+  schema={[faqPage]}
+>
+  <h1>{ru.faq.pageTitle}</h1>
+  <p>{ru.faq.pageLead}</p>
+
+  <div class="ru-faq">
+    {faqItemsRu.map((item) => (
+      <details class="ru-faq-item">
+        <summary>{item.question}</summary>
+        <div class="ru-faq-a">
+          <p>{item.answer}</p>
+          {item.sources.length > 0 && (
+            <p class="ru-src">
+              {ru.ui.source}:{' '}
+              {item.sources.map((src, i) => (
+                <>
+                  {i > 0 && ' / '}
+                  <a class="ru-ext" href={src} target="_blank" rel="noopener">
+                    {new URL(src).hostname.replace(/^www\./, '')}
+                    <span class="sr-only"> ({ru.ui.external})</span>
+                  </a>
+                </>
+              ))}
+            </p>
+          )}
+        </div>
+      </details>
+    ))}
+  </div>
+
+  <div class="ru-note"><p>{ru.faq.notice}</p></div>
+</RuLayout>
+
+<style>
+  .ru-faq { margin-top: 16px; border-top: 1px solid var(--ru-border); }
+  .ru-faq-item { border-bottom: 1px solid var(--ru-border); }
+  .ru-faq-item summary {
+    cursor: pointer; padding: 14px 4px; font-size: 15px; line-height: 1.7;
+    list-style-position: outside;
+  }
+  .ru-faq-item summary:hover { color: var(--ru-primary); }
+  .ru-faq-item[open] summary { color: var(--ru-primary); }
+  .ru-faq-a { padding: 0 4px 16px; }
+  .ru-src { margin-top: 8px; font-size: 12.5px; }
+</style>

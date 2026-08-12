@@ -1,33 +1,91 @@
 ---
-// 러시아어판 홈 (Phase A — 최소 콘텐츠).
-// 인프라(레이아웃·라우팅·hreflang)가 정상 동작하는지 증명하는 최소 페이지다.
-// 용어사전·FAQ·체크리스트 등 실제 콘텐츠는 Phase B에서 출처 검증 후 채운다
-// (계획: C:\Users\a\.claude\plans\mighty-booping-kernighan.md).
+// 러시아어판 홈 (Phase B — 실제 콘텐츠로 교체)
 import RuLayout from '../../layouts/RuLayout.astro';
 import ru from '../../i18n/ru.json';
 import { withBase } from '../../utils/site';
-
-const description =
-  'Больничная AI-лаборатория — сайт об использовании искусственного интеллекта в больницах, ' +
-  'который ведёт специалист с 17-летним опытом работы в больнице Южной Кореи. Русская версия ' +
-  'сайта пока в разработке.';
 ---
 
-<RuLayout title="Главная" description={description} koPath="/" jaPath="/ja/">
-  <h1>{ru.profile.role}</h1>
-  <p>
-    Автор сайта {ru.profile.career} {ru.profile.education}
-  </p>
-  <p>
-    Основная (корейская) версия сайта посвящена практическим вопросам внедрения ИИ в больницах —
-    с точки зрения администрации и сестринского персонала, а не только врачей. Материалы включают
-    разбор исследований, обзоры инструментов ИИ и колонки о регулировании.
+<RuLayout title={ru.home.metaTitle} description={ru.home.metaDescription} koPath="/" jaPath="/ja/">
+  <p class="ru-updated" style="letter-spacing:.06em">{ru.home.heroEyebrow}</p>
+  <h1>{ru.home.heroTitle}<br />{ru.home.heroTitle2}</h1>
+  <p>{ru.home.heroLead}</p>
+
+  <p style="margin-top:16px">
+    <a class="ru-cta" href={withBase('/ru/about/')}>{ru.home.ctaAbout}</a>
   </p>
 
-  <div class="ru-caution">{ru.ui.underConstruction}</div>
+  <h2>{ru.home.resourcesTitle}</h2>
+  <div class="ru-cards">
+    <a class="ru-card" href={withBase('/ru/glossary/')}>
+      <span class="ru-card-t">{ru.nav.glossary}</span>
+      <span class="ru-card-d">{ru.home.glossaryDesc}</span>
+    </a>
+    <a class="ru-card" href={withBase('/ru/faq/')}>
+      <span class="ru-card-t">{ru.nav.faq}</span>
+      <span class="ru-card-d">{ru.home.faqDesc}</span>
+    </a>
+    <a class="ru-card" href={withBase('/ru/guide/')}>
+      <span class="ru-card-t">{ru.nav.guide}</span>
+      <span class="ru-card-d">{ru.home.guideDesc}</span>
+    </a>
+    <a class="ru-card" href={withBase('/ru/checklist/')}>
+      <span class="ru-card-t">{ru.nav.checklist}</span>
+      <span class="ru-card-d">{ru.home.checklistDesc}</span>
+    </a>
+  </div>
 
-  <p>
-    <a href={withBase('/')} hreflang="ko">{ru.ui.langKo} →</a><br />
-    <a href={withBase('/ja/')} hreflang="ja">{ru.ui.langJa} →</a>
-  </p>
+  <h2>{ru.home.introTitle}</h2>
+  <p>{ru.home.introBody}</p>
+
+  <div class="ru-note">
+    <p><strong>{ru.home.koNoticeTitle}</strong></p>
+    <p style="margin-top:6px">{ru.home.koNoticeBody}</p>
+    <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{ru.ui.langKo} →</a></p>
+  </div>
 </RuLayout>
+
+<style>
+  .ru-cta {
+    display: inline-block;
+    background: var(--ru-primary);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-size: 14.5px;
+  }
+  .ru-cta:hover {
+    background: var(--ru-primary-dk);
+  }
+
+  .ru-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .ru-card {
+    display: block;
+    border: 1px solid var(--ru-border);
+    border-left: 4px solid var(--ru-primary);
+    background: var(--ru-base);
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--ru-text);
+  }
+  .ru-card:hover {
+    background: var(--ru-surface);
+  }
+  .ru-card-t {
+    display: block;
+    font-size: 15.5px;
+    color: var(--ru-primary);
+    margin-bottom: 6px;
+  }
+  .ru-card-d {
+    display: block;
+    font-size: 13.5px;
+    color: var(--ru-text-sub);
+    line-height: 1.8;
+  }
+</style>

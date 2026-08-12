@@ -3,5 +3,30 @@
     "href": "/ru/",
     "key": "home",
     "enabled": true
+  },
+  {
+    "href": "/ru/about/",
+    "key": "about",
+    "enabled": true
+  },
+  {
+    "href": "/ru/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/ru/faq/",
+    "key": "faq",
+    "enabled": true
+  },
+  {
+    "href": "/ru/checklist/",
+    "key": "checklist",
+    "enabled": true
+  },
+  {
+    "href": "/ru/guide/",
+    "key": "guide",
+    "enabled": true
   }
 ]
