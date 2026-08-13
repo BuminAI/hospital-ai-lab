@@ -1,0 +1,135 @@
+---
+import { execSync } from 'node:child_process';
+import { getCollection, render } from 'astro:content';
+import RuLayout from '../../../layouts/RuLayout.astro';
+import ru from '../../../i18n/ru.json';
+import { withBase } from '../../../utils/site';
+
+const fmt = new Intl.DateTimeFormat('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' });
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blogRu', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const canonicalUrl = `${siteUrl}${withBase(`/ru/blog/${post.id}/`)}`;
+
+// 수정일 — 이 글 파일의 마지막 git 커밋 시각(ko blog/[id].astro와 같은 방식).
+let dateModifiedIso = post.data.pubDate.toISOString();
+try {
+  const gitDate = execSync(
+    `git log -1 --format=%cI -- "src/content/blog-ru/${post.id}.md"`
+  )
+    .toString()
+    .trim();
+  if (gitDate) dateModifiedIso = gitDate;
+} catch {
+  // 폴백: 위에서 이미 발행일로 초기화해 두었다.
+}
+
+// BlogPosting — author는 ko/ja와 같은 Person 엔티티를 @id로 참조한다
+// (같은 사람이므로 언어판마다 엔티티를 새로 만들지 않는다).
+const blogPosting = {
+  '@type': 'BlogPosting',
+  '@id': `${canonicalUrl}#article`,
+  headline: post.data.title,
+  description: post.data.description,
+  url: canonicalUrl,
+  inLanguage: 'ru-RU',
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: dateModifiedIso,
+  articleSection: post.data.category,
+  author: { '@id': `${siteUrl}/#person` },
+  publisher: { '@id': `${siteUrl}/#organization` },
+  isPartOf: { '@id': `${siteUrl}/#website-ru` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+};
+---
+
+<RuLayout
+  title={post.data.title}
+  description={post.data.description}
+  crumb={post.data.title}
+  koPath="/blog/"
+  updated={new Date(dateModifiedIso)}
+  schema={[blogPosting]}
+>
+  <div class="ru-post-meta">
+    <span class="ru-chip">{post.data.category}</span>
+    <time datetime={post.data.pubDate.toISOString()}>{fmt.format(post.data.pubDate)}</time>
+    {/* 저자 표시 — BlogPosting JSON-LD가 author를 선언하므로 화면에도
+        같은 사실이 보여야 한다(구글은 비가시 콘텐츠 마크업을 금지한다). */}
+    <span class="ru-byline">
+      <a href={withBase('/ru/about/')} rel="author">{ru.profile.nameShort}</a>
+    </span>
+  </div>
+  <h1>{post.data.title}</h1>
+  <p class="ru-lead">{post.data.description}</p>
+
+  <div class="ru-prose">
+    <Content />
+  </div>
+
+  <p class="ru-back"><a href={withBase('/ru/blog/')}>← {ru.nav.blog}</a></p>
+</RuLayout>
+
+<style>
+  .ru-post-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--ru-text-sub);
+    margin-bottom: 8px;
+  }
+  .ru-chip {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: var(--ru-primary);
+    color: #fff;
+  }
+  .ru-byline a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  .ru-lead {
+    color: var(--ru-text-sub);
+  }
+  .ru-prose {
+    margin-top: 20px;
+  }
+  .ru-prose :global(h2) {
+    font-size: 19px;
+    border-left: 4px solid var(--ru-primary);
+    padding-left: 10px;
+    background: var(--ru-surface);
+    margin: 28px 0 14px;
+  }
+  .ru-prose :global(p) {
+    line-height: 1.85;
+    margin: 0 0 14px;
+  }
+  .ru-prose :global(li) {
+    line-height: 1.8;
+  }
+  .ru-prose :global(em) {
+    color: var(--ru-text-sub);
+    font-size: 13.5px;
+  }
+  .ru-back {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--ru-border);
+    font-weight: 600;
+  }
+</style>
