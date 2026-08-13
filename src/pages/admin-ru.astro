@@ -19,7 +19,8 @@
 //    src/data/ru/content/faq.json         자주 묻는 질문
 //    src/data/ru/content/guide.json       입문 가이드
 //    src/data/ru/content/checklist.json   도입 체크리스트
-// (tips.json·videos.json은 Phase C에서 추가 예정 — 그때 이 파일에 탭을 더 추가한다)
+//    src/data/ru/content/tips.json        실무 팁 ('본문 페이지' 탭에서 편집)
+//    src/data/ru/content/videos.json      추천 영상 제목·설명
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SUPABASE_URL, SUPABASE_ANON_KEY, ADMIN_EMAIL } from '../utils/site';
 import navConfig from '../data/ru/content/nav.json';
@@ -134,6 +135,7 @@ const navRows = navConfig.map((n) => ({
         <a href="#rg-panel" data-tab="rg-panel">📘 용어집</a>
         <a href="#rf-panel" data-tab="rf-panel">❓ 자주 묻는 질문</a>
         <a href="#rp-panel" data-tab="rp-panel">📄 본문 페이지</a>
+        <a href="#rv-panel" data-tab="rv-panel">🎬 추천 영상</a>
         <a href="#rn-panel" data-tab="rn-panel">🧭 상단 메뉴 표시</a>
         <a href="#rs-panel" data-tab="rs-panel">🚀 사이트 반영 상태</a>
         <a href="#rt-panel" data-tab="rt-panel">🔑 GitHub 연동</a>
@@ -248,6 +250,7 @@ const navRows = navConfig.map((n) => ({
               <option value="">— 고르세요 —</option>
               <option value="guide">С чего начать (입문 가이드)</option>
               <option value="checklist">Чек-лист внедрения (도입 체크리스트)</option>
+              <option value="tips">Практические советы (실무 팁)</option>
             </select>
           </label>
           <button class="btn ghost" id="rp-refresh">새로고침</button>
@@ -312,7 +315,40 @@ const navRows = navConfig.map((n) => ({
         </div>
       </section>
 
-      <!-- ── 4. 상단 메뉴 표시 ────────────────────────────── -->
+      <!-- ── 4. 추천 영상 ─────────────────────────────────── -->
+      <section class="panel" id="rv-panel">
+        <div class="panel-head">
+          <h2>🎬 추천 영상 (Рекомендуемые видео)</h2>
+          <button class="btn ghost" id="rv-refresh">새로고침</button>
+        </div>
+        <p class="section-desc">
+          러시아어판 <code>/ru/videos/</code>에 나오는 영상 목록입니다. 전부
+          연구소장이 직접 만든 한국어 음성 영상(12강)이고, 여기서는
+          <strong>러시아어 제목·설명만</strong> 고칩니다. 영상을 추가·삭제하는
+          기능은 아직 없습니다(한국어판에 새 "직접 만든 영상"이 생기면
+          개발자에게 요청하세요).
+        </p>
+        <div id="rv-list" class="posts">불러오는 중…</div>
+
+        <div id="rv-editor" class="editor" hidden>
+          <h3>영상 수정: <span id="rv-editor-name"></span></h3>
+          <label class="block">
+            러시아어 제목
+            <input type="text" id="rv-edit-title" />
+          </label>
+          <label class="block">
+            러시아어 설명 <span class="hint-inline">비워도 됩니다</span>
+            <textarea id="rv-edit-note" rows="3"></textarea>
+          </label>
+          <div class="row">
+            <button class="btn" id="rv-edit-save">저장</button>
+            <button class="btn ghost" id="rv-edit-cancel">닫기</button>
+          </div>
+          <p class="hint save-status" id="rv-edit-status"></p>
+        </div>
+      </section>
+
+      <!-- ── 5. 상단 메뉴 표시 ────────────────────────────── -->
       <section class="panel" id="rn-panel">
         <div class="panel-head">
           <h2>🧭 상단 메뉴 표시</h2>
@@ -336,7 +372,7 @@ const navRows = navConfig.map((n) => ({
         <p class="hint save-status" id="rn-status"></p>
       </section>
 
-      <!-- ── 5. 사이트 반영 상태 ─────────────────────────── -->
+      <!-- ── 6. 사이트 반영 상태 ─────────────────────────── -->
       <section class="panel" id="rs-panel">
         <div class="panel-head">
           <h2>🚀 사이트 반영 상태</h2>
@@ -350,7 +386,7 @@ const navRows = navConfig.map((n) => ({
         <div id="rs-runs" class="runs">불러오는 중…</div>
       </section>
 
-      <!-- ── 6. GitHub 연동 ─────────────────────────────── -->
+      <!-- ── 7. GitHub 연동 ─────────────────────────────── -->
       <section class="panel" id="rt-panel">
         <h2>🔑 GitHub 연동</h2>
         <p class="section-desc">
@@ -559,7 +595,8 @@ const navRows = navConfig.map((n) => ({
     faq: 'src/data/ru/content/faq.json',
     guide: 'src/data/ru/content/guide.json',
     checklist: 'src/data/ru/content/checklist.json',
-    // Phase C에서 tips.json·videos.json이 생기면 여기에 추가한다.
+    tips: 'src/data/ru/content/tips.json',
+    videos: 'src/data/ru/content/videos.json',
   };
 
   const APPLIED = ' 사이트에 반영되기까지 2~3분 걸립니다.';
@@ -1516,7 +1553,100 @@ const navRows = navConfig.map((n) => ({
   $('rp-page').addEventListener('change', loadPage);
   $('rp-refresh').addEventListener('click', loadPage);
 
-  // ══ 4. 상단 메뉴 표시 ═══════════════════════════════════
+  // ══ 4. 추천 영상 ═══════════════════════════════════════
+  let rvSha = '';
+  let rvVideos: any[] = [];
+  // 편집 중인 영상은 '몇 번째'가 아니라 '어느 영상'인지(videoId)로 기억한다.
+  let rvEditVideoId = '';
+
+  async function loadVideos() {
+    const el = $('rv-list');
+    el.textContent = '불러오는 중…';
+    try {
+      const { sha, data } = await loadJson(P.videos);
+      if (!Array.isArray(data)) throw new Error('videos.json 이 목록(배열) 형태가 아닙니다.');
+      rvSha = sha;
+      rvVideos = data;
+      el.innerHTML =
+        data
+          .map((v: any, i: number) => {
+            const off = !v.titleRu || !v.titleRu.trim();
+            return `
+        <div class="post-row">
+          <img class="thumb-sm" src="https://img.youtube.com/vi/${esc(v.videoId)}/default.jpg" alt="" />
+          <span class="post-title">
+            ${esc(v.titleRu || '(러시아어 제목 없음 — 비공개)')}
+            ${off ? '<span class="chip off">비공개</span>' : ''}
+          </span>
+          <span class="post-file">${esc(v.videoId)}</span>
+          <span class="post-actions">
+            <button class="btn ghost" data-rvedit="${i}">수정</button>
+          </span>
+        </div>`;
+          })
+          .join('') || '<p class="hint">등록된 영상이 없습니다.</p>';
+      el.querySelectorAll('[data-rvedit]').forEach((b: any) =>
+        b.addEventListener('click', () => rvOpen(Number(b.dataset.rvedit)))
+      );
+    } catch (e: any) {
+      el.textContent = e.message;
+    }
+  }
+
+  function rvOpen(i: number) {
+    const v = rvVideos[i];
+    rvEditVideoId = v.videoId;
+    $('rv-editor-name').textContent = v.videoId;
+    $('rv-edit-title').value = v.titleRu || '';
+    $('rv-edit-note').value = v.note || '';
+    ok('rv-edit-status', '');
+    $('rv-editor').hidden = false;
+    $('rv-editor').scrollIntoView({ block: 'center' });
+  }
+
+  $('rv-edit-cancel').addEventListener('click', () => {
+    $('rv-editor').hidden = true;
+    rvEditVideoId = '';
+  });
+
+  lock('rv-edit-save', async () => {
+    const titleRu = $('rv-edit-title').value.trim();
+    const note = $('rv-edit-note').value.trim();
+    const textErr = checkTexts([
+      [titleRu, '러시아어 제목'],
+      [note, '러시아어 설명'],
+    ]);
+    if (textErr) {
+      bad('rv-edit-status', textErr);
+      return;
+    }
+    try {
+      ok('rv-edit-status', '저장 중…');
+      const { sha, data } = await loadJson(P.videos);
+      const idx = data.findIndex((x: any) => x.videoId === rvEditVideoId);
+      if (idx < 0) {
+        throw new Error("그 사이 영상 목록이 바뀌었습니다. '새로고침'을 눌러 다시 확인해 주세요.");
+      }
+      data[idx] = { ...data[idx], titleRu, note };
+      rvSha = await saveJson(
+        P.videos,
+        data,
+        sha,
+        `수정: 러시아어판 영상 정보 수정 - ${rvEditVideoId}`
+      );
+      ok('rv-edit-status', '저장했습니다.' + APPLIED);
+      $('rv-editor').hidden = true;
+      rvEditVideoId = '';
+      loadVideos();
+      setTimeout(loadRuns, 4000);
+    } catch (e: any) {
+      bad('rv-edit-status', e.message);
+    }
+  });
+
+  $('rv-refresh').addEventListener('click', loadVideos);
+
+  // ══ 5. 상단 메뉴 표시 ═══════════════════════════════════
   let rnSha = '';
 
   async function loadNav() {
@@ -1580,7 +1710,7 @@ const navRows = navConfig.map((n) => ({
 
   $('rn-refresh').addEventListener('click', loadNav);
 
-  // ══ 5. 사이트 반영 상태 ═════════════════════════════════
+  // ══ 6. 사이트 반영 상태 ═════════════════════════════════
   const WORKFLOW_KO: Record<string, string> = {
     'Deploy to GitHub Pages': '사이트 반영(배포)',
     'Update AI News': 'AI 뉴스 수집',
@@ -1667,6 +1797,7 @@ const navRows = navConfig.map((n) => ({
   async function loadAllPanels() {
     loadGlossary();
     loadFaq();
+    loadVideos();
     loadNav();
     loadRuns();
   }
@@ -1964,6 +2095,21 @@ const navRows = navConfig.map((n) => ({
   .admin-ru .post-file {
     font-size: 0.8rem;
     color: var(--color-muted);
+  }
+
+  .admin-ru .thumb-sm {
+    width: 48px;
+    height: 27px;
+    object-fit: cover;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+
+  /* 비공개(러시아어 제목 없음) 표시 */
+  .admin-ru .chip.off {
+    background: #fdecea;
+    color: #b3261e;
   }
 
   .admin-ru .editor {

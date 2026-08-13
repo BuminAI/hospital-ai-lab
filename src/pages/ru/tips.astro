@@ -1,0 +1,58 @@
+---
+import RuLayout from '../../layouts/RuLayout.astro';
+import RuSections from '../../components/RuSections.astro';
+import { tipsRu } from '../../data/ru/pages';
+import ru from '../../i18n/ru.json';
+
+const p = tipsRu;
+
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.meta.pageTitle,
+    numberOfItems: p.sections.length,
+    itemListElement: p.sections.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.heading,
+    })),
+  },
+];
+---
+
+<RuLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={ru.nav.tips}
+  koPath="/tips/"
+  jaPath="/ja/tips/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="ru-lead">{p.meta.lead}</p>
+
+  {/* 원내 규정 확인을 도구 소개보다 먼저 안내 */}
+  <p class="ru-caution">
+    Прежде чем использовать перечисленные здесь инструменты в работе,
+    убедитесь, что это допускается регламентом информационной безопасности
+    вашей больницы. Не вводить данные пациентов и сотрудников во внешние
+    сервисы — общее правило для любого из инструментов.
+  </p>
+
+  <RuSections sections={p.sections} />
+</RuLayout>
+
+<style>
+  .ru-lead {
+    color: var(--ru-text-sub);
+  }
+  .ru-caution {
+    border: 1px solid var(--ru-border);
+    border-left: 4px solid var(--ru-accent);
+    background: var(--ru-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 26px;
+  }
+</style>

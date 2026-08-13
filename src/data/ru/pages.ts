@@ -3,7 +3,9 @@
 // ⚠️ 본문 데이터는 JSON에 있다. 편집할 파일:
 //      src/data/ru/content/guide.json
 //      src/data/ru/content/checklist.json
-//    (tips.json·videos.json은 Phase C에서 추가 예정)
+//      src/data/ru/content/tips.json
+//      src/data/ru/content/videos.json
+//      src/data/ru/content/videos-meta.json
 //    이 파일은 JSON을 읽어 타입만 붙인다. 여기에 본문을 직접 쓰지 말 것.
 //
 // ⚠️ 한국어판·일본어판의 번역이 아니다. 러시아 제도·실무에 맞춰 새로 썼고,
@@ -18,6 +20,9 @@
 
 import guideData from './content/guide.json';
 import checklistData from './content/checklist.json';
+import tipsData from './content/tips.json';
+import videosData from './content/videos.json';
+import videosMetaData from './content/videos-meta.json';
 
 export interface RuSection {
   heading: string;
@@ -30,5 +35,32 @@ export interface RuContentPage {
   sections: RuSection[];
 }
 
+export interface RuVideo {
+  videoId: string;
+  titleRu: string;
+  note: string;
+}
+
+export interface RuVideosMeta {
+  title: string;
+  description: string;
+  pageTitle: string;
+  lead: string;
+  /** 시청 전에 전달할 안내. 영상 음성이 한국어라는 사실 등 */
+  notice: string;
+}
+
 export const guideRu: RuContentPage = guideData;
 export const checklistRu: RuContentPage = checklistData;
+export const tipsRu: RuContentPage = tipsData;
+
+export const videosMetaRu: RuVideosMeta = videosMetaData;
+
+// ⚠️ 러시아어 제목(titleRu)이 빈 영상은 공개하지 않는다.
+//    관리자 화면에서 "한국어판에 있고 러시아어판에 없는 영상"을 먼저 등록할 수
+//    있지만, 러시아어 제목을 입력하지 않은 채 한국어 제목으로 노출하지 않는다
+//    (러시아어판에 한국어가 그대로 나오면 신뢰를 해친다). 제목을 입력하는
+//    순간 자동으로 공개된다.
+export const videosRu: RuVideo[] = (videosData as RuVideo[]).filter(
+  (v) => v.titleRu.trim() !== ''
+);

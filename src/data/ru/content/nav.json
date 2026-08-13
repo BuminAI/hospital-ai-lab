@@ -28,5 +28,15 @@
     "href": "/ru/guide/",
     "key": "guide",
     "enabled": true
+  },
+  {
+    "href": "/ru/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/ru/videos/",
+    "key": "videos",
+    "enabled": true
   }
 ]

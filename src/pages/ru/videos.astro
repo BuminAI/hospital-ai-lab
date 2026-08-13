@@ -1,0 +1,159 @@
+---
+import RuLayout from '../../layouts/RuLayout.astro';
+import { videosRu, videosMetaRu } from '../../data/ru/pages';
+import ru from '../../i18n/ru.json';
+import { YOUTUBE_CHANNEL_URL } from '../../utils/site';
+
+const p = videosMetaRu;
+
+// ⚠️ VideoObject는 쓰지 않는다. uploadDate·duration을 정확히 모르기 때문이다
+//    (recommended-videos.json의 addedAt은 사이트 추가일이지 유튜브 공개일이 아님).
+//    화면에 보이는 목록 순서를 ItemList로만 전달한다.
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.pageTitle,
+    numberOfItems: videosRu.length,
+    itemListElement: videosRu.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.titleRu,
+      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    })),
+  },
+];
+---
+
+<RuLayout
+  title={p.title}
+  description={p.description}
+  crumb={ru.nav.videos}
+  koPath="/youtube/"
+  jaPath="/ja/videos/"
+  schema={schema}
+>
+  <h1>{p.pageTitle}</h1>
+  <p class="ru-lead">{p.lead}</p>
+
+  {/* 언어 안내는 재생 전에 — 보고 나서 알게 하면 신뢰를 해친다 */}
+  <p class="ru-notice">{p.notice}</p>
+
+  <p class="ru-count">Всего видео: {videosRu.length}</p>
+
+  <ul class="ru-videos">
+    {
+      videosRu.map((v) => (
+        <li>
+          <a href={`https://www.youtube.com/watch?v=${v.videoId}`} target="_blank" rel="noopener">
+            <img
+              src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              width="320"
+              height="180"
+            />
+            <div class="ru-video-text">
+              <span class="ru-video-title">{v.titleRu}</span>
+              {v.note && <span class="ru-video-note">{v.note}</span>}
+              <span class="ru-video-ext">
+                Смотреть на YouTube<span class="sr-only"> ({ru.ui.external})</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="ru-channel">
+    <a href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+      {ru.profile.youtube}<span class="sr-only"> ({ru.ui.external})</span>
+    </a>
+  </p>
+</RuLayout>
+
+<style>
+  .ru-lead {
+    color: var(--ru-text-sub);
+  }
+  .ru-notice {
+    border: 1px solid var(--ru-border);
+    border-left: 4px solid var(--ru-primary);
+    background: var(--ru-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 18px;
+  }
+  .ru-count {
+    font-size: 13px;
+    color: var(--ru-text-sub);
+    margin-bottom: 16px;
+  }
+  .ru-videos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ru-videos a {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border: 1px solid var(--ru-border);
+    background: var(--ru-base);
+    padding: 12px;
+    text-decoration: none;
+    color: var(--ru-text);
+  }
+  .ru-videos a:hover {
+    background: var(--ru-surface);
+    border-color: var(--ru-primary);
+  }
+  .ru-videos img {
+    width: 160px;
+    height: 90px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--ru-surface);
+  }
+  .ru-video-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+  }
+  .ru-video-title {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ru-primary);
+  }
+  .ru-video-note {
+    font-size: 13px;
+    color: var(--ru-text-sub);
+    line-height: 1.8;
+  }
+  .ru-video-ext {
+    font-size: 12px;
+    color: var(--ru-text-sub);
+  }
+  .ru-channel {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--ru-border);
+    font-size: 14px;
+  }
+
+  @media (max-width: 560px) {
+    .ru-videos a {
+      flex-direction: column;
+    }
+    .ru-videos img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>
