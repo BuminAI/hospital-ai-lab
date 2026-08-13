@@ -11,6 +11,29 @@ const posts = (await getCollection('blogRu', ({ data }) => !data.draft)).sort(
 );
 
 const fmt = new Intl.DateTimeFormat('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// CollectionPage + ItemList — AI 답변 엔진이 "이 블로그에 어떤 글이 있는가"를
+// 순서대로 읽을 수 있게 한다(ko blog/category 페이지와 같은 패턴).
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/ru/blog/')}`;
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: ru.nav.blog,
+  inLanguage: 'ru-RU',
+  isPartOf: { '@id': `${siteUrl}/#website-ru` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: post.data.title,
+      url: `${siteUrl}${withBase(`/ru/blog/${post.id}/`)}`,
+    })),
+  },
+};
 ---
 
 <RuLayout
@@ -18,6 +41,7 @@ const fmt = new Intl.DateTimeFormat('ru-RU', { year: 'numeric', month: 'long', d
   description="Колонки о регулировании медицинского ИИ в России — регистрация медицинских изделий, требования к персональным данным, новое законодательство."
   crumb={ru.nav.blog}
   koPath="/blog/"
+  schema={[collectionPage]}
 >
   <h1>{ru.nav.blog}</h1>
   <p class="ru-lead">
