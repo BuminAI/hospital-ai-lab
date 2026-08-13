@@ -1,0 +1,86 @@
+---
+// Блог — 러시아어판 블로그 목록. ko↔ru 글은 번역이 아닌 독립 집필이라
+// hreflang을 걸지 않는다(뉴스 목록과 같은 이유, HANDOFF.md 5-3절 참고).
+import { getCollection } from 'astro:content';
+import RuLayout from '../../../layouts/RuLayout.astro';
+import ru from '../../../i18n/ru.json';
+import { withBase } from '../../../utils/site';
+
+const posts = (await getCollection('blogRu', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const fmt = new Intl.DateTimeFormat('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<RuLayout
+  title={ru.nav.blog}
+  description="Колонки о регулировании медицинского ИИ в России — регистрация медицинских изделий, требования к персональным данным, новое законодательство."
+  crumb={ru.nav.blog}
+  koPath="/blog/"
+>
+  <h1>{ru.nav.blog}</h1>
+  <p class="ru-lead">
+    Колонки о практических вопросах внедрения ИИ в больницах — с опорой на
+    проверенные источники о российском регулировании.
+  </p>
+
+  {
+    posts.length > 0 ? (
+      <ul class="ru-blog-list">
+        {posts.map((post) => (
+          <li>
+            <a class="ru-blog-title" href={withBase(`/ru/blog/${post.id}/`)}>
+              {post.data.title}
+            </a>
+            <p class="ru-blog-desc">{post.data.description}</p>
+            <span class="ru-blog-meta">
+              {post.data.category} · <time datetime={post.data.pubDate.toISOString()}>{fmt.format(post.data.pubDate)}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="ru-empty">{ru.ui.noItems}</p>
+    )
+  }
+</RuLayout>
+
+<style>
+  .ru-lead {
+    color: var(--ru-text-sub);
+  }
+  .ru-blog-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--ru-border);
+  }
+  .ru-blog-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ru-border);
+  }
+  .ru-blog-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ru-primary);
+    line-height: 1.6;
+  }
+  .ru-blog-desc {
+    margin-top: 6px;
+    font-size: 13.5px;
+    color: var(--ru-text-sub);
+    line-height: 1.75;
+  }
+  .ru-blog-meta {
+    display: block;
+    margin-top: 6px;
+    font-size: 12.5px;
+    color: var(--ru-text-sub);
+  }
+  .ru-empty {
+    margin-top: 20px;
+    color: var(--ru-text-sub);
+  }
+</style>

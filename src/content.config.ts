@@ -12,4 +12,17 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+// 러시아어판 블로그 (2026-08-13 신설). 한국어판 blog와 완전히 별개 컬렉션이다 —
+// ko↔ru 글은 번역이 아니라 독립 집필이므로 스키마는 같은 모양이어도 섞지 않는다.
+const blogRu = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-ru' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Обзор исследований', 'Инструменты ИИ', 'Колонка', 'Новости']),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, blogRu };

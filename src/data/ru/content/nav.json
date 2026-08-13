@@ -43,5 +43,10 @@
     "href": "/ru/news/",
     "key": "news",
     "enabled": true
+  },
+  {
+    "href": "/ru/blog/",
+    "key": "blog",
+    "enabled": true
   }
 ]
