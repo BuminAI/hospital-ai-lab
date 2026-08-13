@@ -1,11 +1,17 @@
 {
-  "updatedAt": "2026-08-13T14:01:39.022Z",
+  "updatedAt": "2026-08-13T22:20:51.288Z",
   "source": "Медвестник·Vademecum",
   "items": [
     {
       "title": "ИИ для анализа разговоров у постели пациента внедрит крупнейшая в мире сеть клиник",
       "link": "https://medvestnik.ru/content/news/ii-dlya-analiza-razgovorov-u-posteli-pacienta-vnedrit-krupneishaya-v-mire-set-klinik.html",
       "source": "Медвестник",
+      "pubDate": "2026-08-13T09:00:00.000Z"
+    },
+    {
+      "title": "Медицинский ИИ OpenEvidence оказался надежнее универсальных моделей в работе с источниками",
+      "link": "https://www.vademec.ru/news/2026/08/13/meditsinskiy-ii-openevidence-okazalsya-nadezhnee-universalnykh-modeley-v-rabote-s-istochnikami/",
+      "source": "Vademecum",
       "pubDate": "2026-08-13T09:00:00.000Z"
     },
     {
