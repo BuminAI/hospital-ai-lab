@@ -38,5 +38,10 @@
     "href": "/ru/videos/",
     "key": "videos",
     "enabled": true
+  },
+  {
+    "href": "/ru/news/",
+    "key": "news",
+    "enabled": true
   }
 ]
