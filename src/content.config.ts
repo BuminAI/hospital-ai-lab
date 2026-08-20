@@ -25,4 +25,18 @@ const blogRu = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu };
+// 일본어판 블로그 (2026-08-20 신설). 한국어판 blog와 완전히 별개 컬렉션이다 —
+// ko↔ja 글은 번역이 아니라 독립 집필이므로 스키마는 같은 모양이어도 섞지 않는다
+// (러시아어판 blogRu와 같은 이유).
+const blogJa = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-ja' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['論文レビュー', 'AIツール', 'コラム', 'お知らせ']),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa };

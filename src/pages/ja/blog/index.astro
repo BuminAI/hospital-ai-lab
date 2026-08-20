@@ -1,0 +1,110 @@
+---
+// ブログ — 일본어판 블로그 목록. ko↔ja 글은 번역이 아닌 독립 집필이라
+// 개별 글 hreflang은 걸지 않는다(러시아어판 blog/index.astro와 같은 이유).
+import { getCollection } from 'astro:content';
+import JaLayout from '../../../layouts/JaLayout.astro';
+import ja from '../../../i18n/ja.json';
+import { withBase } from '../../../utils/site';
+
+const posts = (await getCollection('blogJa', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const fmt = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// CollectionPage + ItemList — AI 답변 엔진이 "이 블로그에 어떤 글이 있는가"를
+// 순서대로 읽을 수 있게 한다(ru blog/index.astro와 같은 패턴).
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/ja/blog/')}`;
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: ja.nav.blog,
+  inLanguage: 'ja-JP',
+  isPartOf: { '@id': `${siteUrl}/#website-ja` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: post.data.title,
+      url: `${siteUrl}${withBase(`/ja/blog/${post.id}/`)}`,
+    })),
+  },
+};
+---
+
+<JaLayout
+  title={ja.nav.blog}
+  description="病院AIの導入・規制・データ活用について、日本の制度に基づいて書いたコラムです。"
+  crumb={ja.nav.blog}
+  koPath="/blog/"
+  ruPath="/ru/blog/"
+  schema={[collectionPage]}
+>
+  <h1>{ja.nav.blog}</h1>
+  <p class="ja-lead">
+    病院の現場で医療AIを検討する際に役立つ話題を、確認できる出典に基づいて書いています。
+  </p>
+
+  {
+    posts.length > 0 ? (
+      <ul class="ja-blog-list">
+        {posts.map((post) => (
+          <li>
+            <a class="ja-blog-title" href={withBase(`/ja/blog/${post.id}/`)}>
+              {post.data.title}
+            </a>
+            <p class="ja-blog-desc">{post.data.description}</p>
+            <span class="ja-blog-meta">
+              {post.data.category} · <time datetime={post.data.pubDate.toISOString()}>{fmt.format(post.data.pubDate)}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="ja-empty">{ja.ui.noItems}</p>
+    )
+  }
+</JaLayout>
+
+<style>
+  .ja-lead {
+    color: var(--ja-text-sub);
+  }
+  .ja-blog-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--ja-border);
+  }
+  .ja-blog-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ja-border);
+  }
+  .ja-blog-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ja-primary);
+    line-height: 1.6;
+  }
+  .ja-blog-desc {
+    margin-top: 6px;
+    font-size: 13.5px;
+    color: var(--ja-text-sub);
+    line-height: 1.75;
+  }
+  .ja-blog-meta {
+    display: block;
+    margin-top: 6px;
+    font-size: 12.5px;
+    color: var(--ja-text-sub);
+  }
+  .ja-empty {
+    margin-top: 20px;
+    color: var(--ja-text-sub);
+  }
+</style>
