@@ -18,7 +18,9 @@
       "Bash(ls *)",
       "Bash(date*)",
       "Write(src/content/blog/**)",
-      "Edit(src/content/blog/**)"
+      "Edit(src/content/blog/**)",
+      "Write(src/content/blog-ru/**)",
+      "Edit(src/content/blog-ru/**)"
     ]
   }
 }

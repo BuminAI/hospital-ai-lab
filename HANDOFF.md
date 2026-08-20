@@ -135,6 +135,13 @@ npm run build    # 배포본 생성(dist/)
 - GitHub cron은 예약을 자주 지연·누락시킴(실측: 3시간 간격 예약이 하루 2~3회만 실행, 최대 13시간 공백) → 그래서 예약을 촘촘히 걸고 "새 기사 있을 때만" 커밋하는 방식으로 설계됨 (2026-07-09 조정).
 - 두 워크플로 모두 `deploy.yml`과 배포 대기열을 공유하지 않도록(오너 직접 push 배포가 취소당하지 않게) 각자 별도 concurrency 그룹 사용 + 완료 후 `gh workflow run deploy.yml`로 배포를 위임함.
 
+### 4-1-1. `daily-update-digest` (⚠️ 로컬 — 2026-08-15 신설, 8/15 무인 정지 사고 이후 4-2를 흡수·확장)
+
+- 저장 위치: `C:\Users\a\.claude\scheduled-tasks\daily-update-digest\SKILL.md` (로컬 파일, git에 없음). 매일 KST 08:05경 실행.
+- 하는 일: ①한국어 블로그 확인·작성(4-2와 같은 방식, daily-blog-post와 중복 방지 확인 포함) ②**러시아어 블로그 확인·작성(2026-08-20 신설, 오너 지시)** — src/content/blog-ru/에 오늘 글이 없으면 152-FZ·Roszdravnadzor·GOST R 72484 등 아직 안 쓴 러시아 제도 주제나 src/data/ru/news.json 최신 기사 중에서 새로 조사해 쓴다. 사실 검증 통과 시에만 draft:false로 자동 발행(CLAUDE.md 2026-08-20 오너 지시로 예외를 러시아어판까지 확대). **일본어판 blogJa는 이 자동화 대상이 아니다** — draft:true+PR만. ③뉴스·지원사업·행사·영상 24시간 집계 ④Gmail 연동(cyhodr@gmail.com)으로 choyh1004@bumin.co.kr에 결과 이메일(2026-08-17부로 네이버 SMTP 대신 이걸 씀 — 네이버 인증 실패).
+- 무인 정지 방지: `.claude/settings.json`(git 커밋됨)에 Bash 명령·`Write/Edit(src/content/blog/**)`·`Write/Edit(src/content/blog-ru/**)`를 사전 허용해 뒀다. **blog-ja는 의도적으로 허용 목록에 넣지 않았다** — 이 작업이 일본어판을 건드리지 못하게 막는 안전장치다.
+- `daily-blog-post`(4-2)·`site-health-check`(4-3)이 예약 목록에서 안 보이는 시점이 있었다(2026-08-16 확인, 원인 미상 — 폴더는 남아 있음). `mcp__scheduled-tasks__list_scheduled_tasks`로 현재 등록된 작업을 항상 먼저 확인할 것.
+
 ### 4-2. 매일 블로그 자동 작성 (⚠️ 로컬 — 새 컴퓨터에서 반드시 재설정)
 
 - **이건 GitHub Actions가 아니라 Claude 앱의 예약 작업(scheduled task)**입니다. 매일 KST 22:00경 이 컴퓨터의 Claude 앱이 열려 있을 때 실행되어, 주제 선정 → 작성 → 출처 검증 → 발행까지 자동으로 합니다.
