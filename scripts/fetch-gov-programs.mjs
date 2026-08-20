@@ -4,9 +4,11 @@
 // src/data/gov-programs.json에 쌓는다. 본문을 옮기지 않고 원문으로
 // 링크만 건다(저작권·정확성 모두 원문이 기준).
 //
-// 수집원 (2026-07-20 기준, 각각 실제 접속해 구조 확인함)
+// 수집원 (2026-07-20 기준, 각각 실제 접속해 구조 확인함. NIPA는 2026-08-20 추가)
 //   1) 보건복지부 '공고' 게시판 — RSS 제공(가장 안정적)
 //   2) 한국보건산업진흥원(KHIDI) '사업공고' 게시판 — HTML 목록
+//   3) 정보통신산업진흥원(NIPA) '알림마당 > 사업공고' 게시판 — HTML 목록
+//      (ICT 전반 기관이라 대부분 비의료 공고 — MED_RE로 AI+의료 교집합만 남김)
 //
 // 넣지 않은 곳과 이유
 //   - 국민건강보험공단: 공개 게시판이 '입찰공고'(공단이 물품을 사는 공고)와
@@ -40,6 +42,15 @@ const MOHW_SOURCE = '보건복지부';
 const KHIDI_LIST = 'https://www.khidi.or.kr/board?menuId=MENU01108';
 const KHIDI_BASE = 'https://www.khidi.or.kr';
 const KHIDI_SOURCE = '한국보건산업진흥원';
+
+// ── 정보통신산업진흥원(NIPA) ─────────────────────────────
+// '알림마당 > 사업공고' 게시판(2026-08-20 오너 지시로 추가). NIPA는 보건
+// 전담 기관이 아니라 ICT 전반을 다루므로, 공고 대부분(수출·SW산업 등)은
+// MED_RE에 안 걸려 자동으로 걸러진다 — 그래서 skipMedCheck를 쓰지 않고
+// 기존 isRelevant() 그대로 통과시킨다(AI+의료 교집합만 남도록).
+const NIPA_LIST = 'https://www.nipa.kr/home/2-2';
+const NIPA_BASE = 'https://www.nipa.kr';
+const NIPA_SOURCE = '정보통신산업진흥원';
 
 // ── 대한병원협회 ─────────────────────────────────────
 // '협회광장 > 공지사항' 게시판 (2026-07-27 오너 지시로 추가).
@@ -248,12 +259,45 @@ async function fetchKha() {
   return rows;
 }
 
+// ── 정보통신산업진흥원 (HTML 목록) ──────────────────────
+// 표 한 행(<tr>)에 제목 링크(/home/2-2/{id})와 세 개의 class="bco" span이
+// 있다(신청기간·작성자·작성일자 순). 작성일자만 "YYYY-MM-DD" 단독 텍스트라
+// 그 패턴으로 구분한다(신청기간 span은 앞에 "신청기간 : " 텍스트가 더 있어
+// 안 걸림). 제목 앞에 HTML 주석(<!-- [사업화] -->)이 끼어 있어 stripTags로
+// 같이 제거한다.
+async function fetchNipa() {
+  const res = await fetchRetry(NIPA_LIST);
+  const html = await res.text();
+  const rows = [];
+  for (const part of html.split('<tr>').slice(1)) {
+    const idM = part.match(/href="(\/home\/2-2\/\d+)"/);
+    if (!idM) continue;
+    const afterLink = part.slice(part.indexOf(idM[0]) + idM[0].length);
+    const titleM = afterLink.match(/^[^<]*>([\s\S]*?)<\/a>/);
+    const dateM = part.match(/class="bco">\s*(\d{4}-\d{2}-\d{2})\s*<\/span>/);
+    if (!titleM || !dateM) continue;
+    const title = stripTags(titleM[1]);
+    if (!title) continue;
+    const d = new Date(`${dateM[1]}T00:00:00+09:00`);
+    if (Number.isNaN(d.getTime())) continue;
+    rows.push({
+      title,
+      link: NIPA_BASE + decode(idM[1]),
+      source: NIPA_SOURCE,
+      summary: '',
+      pubDate: d.toISOString(),
+    });
+  }
+  return rows;
+}
+
 // ── 수집 ──────────────────────────────────────────────
 const collected = [];
 let okSources = 0;
 for (const [name, fn] of [
   [MOHW_SOURCE, fetchMohw],
   [KHIDI_SOURCE, fetchKhidi],
+  [NIPA_SOURCE, fetchNipa],
   // 대한병원협회는 복지부 공고를 전달하는 경우가 많아 **맨 마지막**에 둔다.
   // 아래 dedup이 먼저 나온 것을 채택하므로, 같은 공고면 원문 기관이 남는다.
   [KHA_SOURCE, fetchKha],
@@ -319,5 +363,6 @@ await writeFile(
 const bySource = (s) => items.filter((i) => i.source === s).length;
 console.log(
   `수집 완료: 신규 판정 ${fresh.length}건 / 누적 ${items.length}건 ` +
-    `(보건복지부 ${bySource(MOHW_SOURCE)}건, 진흥원 ${bySource(KHIDI_SOURCE)}건, 병원협회 ${bySource(KHA_SOURCE)}건)`
+    `(보건복지부 ${bySource(MOHW_SOURCE)}건, 보건산업진흥원 ${bySource(KHIDI_SOURCE)}건, ` +
+    `정통산업진흥원 ${bySource(NIPA_SOURCE)}건, 병원협회 ${bySource(KHA_SOURCE)}건)`
 );
