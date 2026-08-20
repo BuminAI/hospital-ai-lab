@@ -1,7 +1,73 @@
 {
-  "updatedAt": "2026-08-20T07:56:30.150Z",
+  "updatedAt": "2026-08-20T08:56:14.977Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "인어스트리, KHF에서 AI 서비스 로봇·운영 플랫폼 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170298",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:41:59.000Z"
+    },
+    {
+      "title": "크립토랩, KHF 2026에서 병원 급여·심사 AI 'CLIC' 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170297",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:41:48.000Z"
+    },
+    {
+      "title": "파이헬스케어, KHF에서 안저 기반 의료 AI '닥터아이' 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170294",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:41:37.000Z"
+    },
+    {
+      "title": "티맥스티베로, KHF 2026에서 병원 데이터 인프라 전략 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170296",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:41:27.000Z"
+    },
+    {
+      "title": "에이블테라퓨틱스, KHF 2026에서 AI 인지평가 기기 '스픽' 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170291",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:40:57.000Z"
+    },
+    {
+      "title": "엠티에스컴퍼니, KHF에서 디지털 병리·돌봄 AI 기술 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170290",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:40:42.000Z"
+    },
+    {
+      "title": "아크릴, KHF 2026에서 의료 특화 '에이전틱 AI 플랫폼' 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170287",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:38:57.000Z"
+    },
+    {
+      "title": "아이픽셀, KHF에서 근골격계 재활 DTx 임상 성과 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170286",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:38:34.000Z"
+    },
+    {
+      "title": "오디엔, KHF 2026에서 당뇨병 디지털헬스 기술 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170285",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:38:14.000Z"
+    },
+    {
+      "title": "코어라인소프트, 공공의료 AI 정밀검진 체계 10개로 확대",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170284",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:37:55.000Z"
+    },
+    {
+      "title": "원스글로벌·건양대병원, KHF에서 소아 처방 AI 선보여",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170283",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:37:41.000Z"
+    },
     {
       "title": "헬스리안, KHF 2026서 AI 기반 12유도 심전계 공개",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170278",
@@ -81,12 +147,6 @@
       "pubDate": "2026-08-19T21:15:00.000Z"
     },
     {
-      "title": "판독문부터 병동 감시·로봇 배송까지 KHF로 본 병원 AX 현주소",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170259",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-08-19T20:30:00.000Z"
-    },
-    {
       "title": "\"보호에서 활용 개념 전환된 의료 데이터…규제 전환점\"",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170257",
       "source": "메디칼타임즈",
@@ -95,6 +155,12 @@
     {
       "title": "AI가 뒤바꾸는 임상 현장 \"먼 미래 아닌 당장 1년 뒤 미래\"",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170255",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-19T20:30:00.000Z"
+    },
+    {
+      "title": "판독문부터 병동 감시·로봇 배송까지 KHF로 본 병원 AX 현주소",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170259",
       "source": "메디칼타임즈",
       "pubDate": "2026-08-19T20:30:00.000Z"
     },
