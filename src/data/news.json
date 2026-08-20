@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-08-20T03:09:57.453Z",
+  "updatedAt": "2026-08-20T03:58:23.422Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "\"성공률 98% 자랑 아냐…한국형 ARPA-H, 실패해도 OK\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170265",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T03:20:02.000Z"
+    },
+    {
+      "title": "단일 솔루션 기댄 의료 AI 한계 \"워크플로우 극대화가 경쟁력\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170267",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T03:15:08.000Z"
+    },
     {
       "title": "코어라인소프트·옵텔럼, 폐결절 AI 진료 워크플로우 통합 협력",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170262",
@@ -33,14 +45,20 @@
       "pubDate": "2026-08-19T21:15:00.000Z"
     },
     {
-      "title": "AI가 뒤바꾸는 임상 현장 \"먼 미래 아닌 당장 1년 뒤 미래\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170255",
+      "title": "판독문부터 병동 감시·로봇 배송까지 KHF로 본 병원 AX 현주소",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170259",
       "source": "메디칼타임즈",
       "pubDate": "2026-08-19T20:30:00.000Z"
     },
     {
       "title": "\"보호에서 활용 개념 전환된 의료 데이터…규제 전환점\"",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170257",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-19T20:30:00.000Z"
+    },
+    {
+      "title": "AI가 뒤바꾸는 임상 현장 \"먼 미래 아닌 당장 1년 뒤 미래\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170255",
       "source": "메디칼타임즈",
       "pubDate": "2026-08-19T20:30:00.000Z"
     },
