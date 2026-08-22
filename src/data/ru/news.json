@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-08-22T11:49:40.695Z",
+  "updatedAt": "2026-08-22T19:48:46.031Z",
   "source": "Медвестник·Vademecum",
   "items": [
-    {
-      "title": "ИИ в медицине и этика бензопилы",
-      "link": "https://medvestnik.ru/content/articles/ii-v-medicine-i-etika-benzopily.html",
-      "source": "Медвестник",
-      "pubDate": "2026-08-21T09:00:00.000Z"
-    },
     {
       "title": "В России запущена новая профессиональная платформа для онкологов с ИИ-навигатором",
       "link": "https://www.vademec.ru/news/2026/08/21/v-rossii-zapushchena-novaya-professionalnaya-platforma-dlya-onkologov-s-ii-navigatorom/",
       "source": "Vademecum",
+      "pubDate": "2026-08-21T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ в медицине и этика бензопилы",
+      "link": "https://medvestnik.ru/content/articles/ii-v-medicine-i-etika-benzopily.html",
+      "source": "Медвестник",
       "pubDate": "2026-08-21T09:00:00.000Z"
     },
     {
@@ -39,15 +39,15 @@
       "pubDate": "2026-08-14T09:00:00.000Z"
     },
     {
-      "title": "ИИ для анализа разговоров у постели пациента внедрит крупнейшая в мире сеть клиник",
-      "link": "https://medvestnik.ru/content/news/ii-dlya-analiza-razgovorov-u-posteli-pacienta-vnedrit-krupneishaya-v-mire-set-klinik.html",
-      "source": "Медвестник",
-      "pubDate": "2026-08-13T09:00:00.000Z"
-    },
-    {
       "title": "Медицинский ИИ OpenEvidence оказался надежнее универсальных моделей в работе с источниками",
       "link": "https://www.vademec.ru/news/2026/08/13/meditsinskiy-ii-openevidence-okazalsya-nadezhnee-universalnykh-modeley-v-rabote-s-istochnikami/",
       "source": "Vademecum",
+      "pubDate": "2026-08-13T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ для анализа разговоров у постели пациента внедрит крупнейшая в мире сеть клиник",
+      "link": "https://medvestnik.ru/content/news/ii-dlya-analiza-razgovorov-u-posteli-pacienta-vnedrit-krupneishaya-v-mire-set-klinik.html",
+      "source": "Медвестник",
       "pubDate": "2026-08-13T09:00:00.000Z"
     },
     {
@@ -57,15 +57,15 @@
       "pubDate": "2026-08-12T09:00:00.000Z"
     },
     {
-      "title": "Личный бренд врача vs бренд клиники: кого запоминает и рекомендует ИИ",
-      "link": "https://medvestnik.ru/content/articles/lichnyi-brend-vracha-vs-brend-kliniki-kogo-zapominaet-i-rekomenduet-ii.html",
-      "source": "Медвестник",
-      "pubDate": "2026-08-11T09:00:00.000Z"
-    },
-    {
       "title": "Российские ИИ-решения для здравоохранения могут получить приоритет при госзакупках",
       "link": "https://www.vademec.ru/news/2026/08/11/rossiyskie-ii-resheniya-dlya-zdravookhraneniya-mogut-poluchit-prioritet-pri-goszakupkakh/",
       "source": "Vademecum",
+      "pubDate": "2026-08-11T09:00:00.000Z"
+    },
+    {
+      "title": "Личный бренд врача vs бренд клиники: кого запоминает и рекомендует ИИ",
+      "link": "https://medvestnik.ru/content/articles/lichnyi-brend-vracha-vs-brend-kliniki-kogo-zapominaet-i-rekomenduet-ii.html",
+      "source": "Медвестник",
       "pubDate": "2026-08-11T09:00:00.000Z"
     },
     {
