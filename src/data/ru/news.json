@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-26T16:02:36.591Z",
+  "updatedAt": "2026-08-26T21:00:31.760Z",
   "source": "Медвестник·Vademecum",
   "items": [
     {
@@ -12,6 +12,18 @@
       "title": "Каким медицинским источникам доверяет ИИ и почему сильная клиника может оставаться для него невидимой",
       "link": "https://medvestnik.ru/content/articles/kakim-medicinskim-istochnikam-doveryaet-ii-i-pochemu-silnaya-klinika-mojet-ostavatsya-dlya-nego-nevidimoi.html",
       "source": "Медвестник",
+      "pubDate": "2026-08-26T09:00:00.000Z"
+    },
+    {
+      "title": "Ученые предложили создать «команду» ИИ-агентов для проведения КИ",
+      "link": "https://www.vademec.ru/news/2026/08/26/uchenye-predlozhili-sozdat-komandu-ii-agentov-dlya-provedeniya-ki/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-26T09:00:00.000Z"
+    },
+    {
+      "title": "В России разработали ИИ для восстановления пропусков в записях ЭЭГ",
+      "link": "https://www.vademec.ru/news/2026/08/26/v-rossii-razrabotali-ii-dlya-vosstanovleniya-propuskov-v-zapisyakh-eeg/",
+      "source": "Vademecum",
       "pubDate": "2026-08-26T09:00:00.000Z"
     },
     {
