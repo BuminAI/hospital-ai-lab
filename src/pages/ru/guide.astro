@@ -7,16 +7,24 @@ import { withBase } from '../../utils/site';
 
 const p = guideRu;
 
+// Заголовки идут по порядку, поэтому размечаем страницу как HowTo
+// (2026-08-27, заменили ItemList). В разметку попадает только то, что
+// видно на странице.
+//
+// ⚠️ В качестве шагов берём только разделы с заголовком «Шаг N» — если
+//    через админку добавят раздел другого вида, он не попадёт в разметку.
+const stepSections = p.sections.filter((s) => /^Шаг\s*\d+/.test(s.heading));
 const schema = [
   {
-    '@type': 'ItemList',
+    '@type': 'HowTo',
     name: p.meta.pageTitle,
-    numberOfItems: p.sections.length,
-    itemListOrder: 'https://schema.org/ItemListOrderAscending',
-    itemListElement: p.sections.map((s, i) => ({
-      '@type': 'ListItem',
+    description: p.meta.description,
+    inLanguage: 'ru-RU',
+    step: stepSections.map((s, i) => ({
+      '@type': 'HowToStep',
       position: i + 1,
       name: s.heading,
+      text: s.body,
     })),
   },
 ];
@@ -27,6 +35,7 @@ const schema = [
   description={p.meta.description}
   crumb={ru.nav.guide}
   koPath="/guide/"
+  jaPath="/ja/guide/"
   schema={schema}
 >
   <h1>{p.meta.pageTitle}</h1>

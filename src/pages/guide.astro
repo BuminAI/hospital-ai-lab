@@ -2,12 +2,39 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../utils/site';
 import { guideHero, guideSteps, guideClosing } from '../data/guide';
+
+// HowTo — 이 페이지는 실제로 "1단계 → 5단계"의 순서 있는 절차이므로
+// HowTo가 사실과 맞는다(2026-08-27 추가). 화면에 보이는 <ol> 단계와
+// 같은 내용·같은 순서만 담는다 — 구글은 화면에 없는 내용의 마크업을
+// 금지하고, 이 사이트의 사실 검증 원칙과도 어긋나기 때문이다.
+// name/text는 데이터 파일에서 그대로 가져와 화면과 어긋날 여지를 없앤다.
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/guide/')}`;
+const howTo = {
+  '@type': 'HowTo',
+  '@id': `${pageUrl}#howto`,
+  name: guideHero.h1,
+  description: guideHero.intro,
+  url: pageUrl,
+  inLanguage: 'ko-KR',
+  totalTime: 'P1D',
+  step: guideSteps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.title,
+    text: `${s.lead}. ${s.body}`,
+    url: `${pageUrl}#step-${i + 1}`,
+  })),
+};
 ---
 
 <BaseLayout
   alternates={{ ja: '/ja/guide/', ru: '/ru/guide/' }}
   title="입문 가이드"
   description="책 대신 실전으로 AI를 익히는 다섯 단계. 유튜브 최신 영상 보기부터 따라 하기, 가르치기, 업무 적용, 전문가 교육까지 - 병원 행정·간호 종사자를 위한 입문 가이드입니다."
+  schema={[howTo]}
 >
   <div class="container">
     <header class="page-head">
@@ -18,8 +45,8 @@ import { guideHero, guideSteps, guideClosing } from '../data/guide';
 
     <ol class="steps">
       {
-        guideSteps.map((step) => (
-          <li class="step">
+        guideSteps.map((step, i) => (
+          <li class="step" id={`step-${i + 1}`}>
             <h2>{step.title}</h2>
             <p class="step-lead"><strong>결론: {step.lead}</strong></p>
             <p>{step.body}</p>

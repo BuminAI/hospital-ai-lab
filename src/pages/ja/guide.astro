@@ -7,18 +7,25 @@ import { withBase } from '../../utils/site';
 
 const p = guideJa;
 
-// 見出しが順を追ったステップになっているので ItemList で構造を伝える。
-// 画面に見えている見出しと順番をそのまま入れる（見えない情報は入れない）。
+// 見出しが順を追ったステップなので HowTo で構造を伝える（2026-08-27、
+// ItemList から変更）。画面に見えている見出しと順番をそのまま入れる。
+//
+// ⚠️ 見出しが「ステップN」で始まるものだけを手順として拾う。最後の
+//    まとめ節（「5つのステップは、一度では終わりません」）は手順では
+//    ないため、通し番号ではなく見出しの型で判定している。管理画面から
+//    節が増減しても、手順でないものが手順として送られることはない。
+const stepSections = p.sections.filter((s) => /^ステップ\s*\d+/.test(s.heading));
 const schema = [
   {
-    '@type': 'ItemList',
+    '@type': 'HowTo',
     name: p.meta.pageTitle,
-    numberOfItems: p.sections.length,
-    itemListOrder: 'https://schema.org/ItemListOrderAscending',
-    itemListElement: p.sections.map((s, i) => ({
-      '@type': 'ListItem',
+    description: p.meta.description,
+    inLanguage: 'ja-JP',
+    step: stepSections.map((s, i) => ({
+      '@type': 'HowToStep',
       position: i + 1,
       name: s.heading,
+      text: s.body,
     })),
   },
 ];

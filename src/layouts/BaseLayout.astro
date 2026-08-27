@@ -367,6 +367,20 @@ const breadcrumb =
               ))
             }
           </ul>
+          {/* 다른 언어판 — 2026-08-27 추가. 지금까지 ja·ru에서 한국어로
+              돌아오는 링크만 있고 반대 방향이 없어, 두 언어판이 hreflang과
+              사이트맵으로만 발견됐다. 실제 링크가 있어야 크롤러가 확실히
+              따라가고 사람도 찾을 수 있다. 각 언어판은 번역이 아니라
+              그 나라 제도로 새로 쓴 내용이므로 그렇게 밝혀 둔다. */}
+          <p class="footer-nav-title footer-lang-title">다른 언어판</p>
+          <ul>
+            <li>
+              <a href={withBase('/ja/')} hreflang="ja" lang="ja">日本語版</a>
+            </li>
+            <li>
+              <a href={withBase('/ru/')} hreflang="ru" lang="ru">Русская версия</a>
+            </li>
+          </ul>
         </nav>
       </div>
     </footer>
@@ -501,6 +515,11 @@ const breadcrumb =
     letter-spacing: 0.08em;
     color: var(--color-muted);
     text-transform: uppercase;
+  }
+
+  /* '다른 언어판'은 '둘러보기' 목록 바로 아래에 오므로 위쪽 간격을 준다 */
+  .footer-lang-title {
+    margin-top: 1.5rem;
   }
 
   .footer-nav ul {
