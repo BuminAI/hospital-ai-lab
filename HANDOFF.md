@@ -217,7 +217,8 @@ npm run build    # 배포본 생성(dist/)
 | DefinedTermSet + 용어 앵커 | `src/pages/glossary.astro`, `src/data/glossary.ts`의 `id` | **슬러그는 바꾸지 말 것**(외부 링크가 깨진다). `.term { scroll-margin-top }` 없으면 앵커가 헤더에 가림 |
 | ItemList | `src/pages/checklist.astro` | HowTo 아님(순서 있는 방법이 아니라 점검 항목) |
 | CollectionPage | `news`·`gov-support`·`events` | 자동 수집 목록임을 명시. 본문은 안 옮기고 링크만 |
-| 글별 OG 이미지 | `src/pages/og/[...route].ts` | 키는 `post.id`(Astro 5에 `slug` 없음), 폰트 지정 필수(한글), `await` 필수 |
+| 글별 OG 이미지 | `src/pages/og/[...route].ts` | 키는 `post.id`(Astro 5에 `slug` 없음), 폰트 지정 필수(한글), `await` 필수. **폰트 경로는 `src/assets/fonts/PretendardVariable.woff2`**(2026-08-27에 `public/`에서 옮김 — 아래 웹폰트 항목 참고) |
+| 웹폰트 (동적 서브셋) | `src/styles/pretendard-subset.css` + `public/fonts/pretendard-subset/` (92개 청크) | 2026-08-27 전환. 그전에는 통짜 `PretendardVariable.woff2`(2,010KB)를 **모든 한국어·러시아어 페이지에서 preload**해 받았다. 지금은 `unicode-range`로 쪼갠 청크를 브라우저가 필요한 것만 받는다(실측: 한국어 홈 410KB·한국어 글 433KB·러시아어 글 203KB). `font-family`·굵기 범위(45~920)가 그대로라 다른 CSS는 안 고쳤다. ⚠️ **preload를 되살리지 말 것** — 어느 청크가 필요한지는 브라우저가 정하므로 하나를 집어 미리 받을 수 없다. BaseLayout과 **RuLayout 두 곳**에 preload가 따로 있었고, RuLayout 것을 놓쳐 러시아어판만 통짜 파일을 계속 받던 적이 있다. ⚠️ 정적 서브셋(`woff2-subset`, 261KB)은 쓰지 않았다 — 실측 결과 `№`가 빠지고 굵기 5종이라 파일이 5개 필요해 이점이 없었다 |
 | llms.txt | `public/llms.txt` | AI 엔진용 사이트 안내 |
 | 분류별 아카이브 | `src/pages/blog/category/[slug].astro`·`index.astro`, `src/data/blog-categories.ts` | 2026-08-12 신설. **슬러그는 바꾸지 말 것**(외부 링크가 깨진다). `/blog/`의 필터 칩이 이 주소를 가리키는 링크이고, JS는 preventDefault로 화면 내 필터만 한다 — JS 없이도 분류별 페이지에 닿게 하려는 구조다 |
 | 페이지별 실제 수정일 | `src/utils/git-lastmod.mjs` | 2026-08-12 신설. 사이트맵 lastmod·일본어판 「更新日」·글의 dateModified가 전부 이걸 쓴다. `git log -1 -- <파일>`로 구한다 |
@@ -382,7 +383,8 @@ src/
 .claude/settings.json         # 무인 예약 세션용 도구 사전 허용 (git에 있음 — §4-2)
 supabase/                    # setup.sql(재실행 안전, 이거 하나만 유지) + SETUP-GUIDE.md
 scripts/                     # fetch-news.mjs·fetch-videos.mjs·fetch-gov-programs.mjs·fetch-events.mjs·gen-assets.mjs
-public/                      # favicon, og-default.png, fonts/(Pretendard 자체호스팅)
+public/                      # favicon, og-default.png, fonts/pretendard-subset/(동적 서브셋 92개 청크)
+src/assets/fonts/            # 통짜 Pretendard — OG 이미지 생성 전용(빌드 때만 읽힘, 배포 안 됨)
 ```
 
 > **예약 작업은 저장소 안이 아니라 `C:\Users\a\.claude\scheduled-tasks\`에 있다**

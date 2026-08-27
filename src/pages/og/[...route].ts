@@ -57,6 +57,10 @@ export const { getStaticPaths, GET } = await OGImageRoute({
       title: { size: 56, weight: 'Bold', color: [255, 255, 255], lineHeight: 1.3 },
       description: { size: 26, color: [190, 200, 215], lineHeight: 1.5 },
     },
-    fonts: ['./public/fonts/PretendardVariable.woff2'],
+    // 통짜 Pretendard 파일. 2026-08-27에 public/fonts/ 에서 src/assets/fonts/ 로
+    // 옮겼다 — 웹페이지는 이제 동적 서브셋(public/fonts/pretendard-subset/)만 쓰고
+    // 이 파일은 OG 이미지를 만들 때만 필요하다. public/ 에 두면 아무도 안 받는
+    // 2MB 파일이 배포본에 그대로 실려 나간다. 빌드 때만 읽히므로 배포에는 없다.
+    fonts: ['./src/assets/fonts/PretendardVariable.woff2'],
   }),
 });

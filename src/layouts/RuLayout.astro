@@ -166,13 +166,11 @@ const year = new Date().getFullYear();
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link
-      rel="preload"
-      href={withBase('/fonts/PretendardVariable.woff2')}
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    {/* 폰트 preload는 2026-08-27에 뺐다(BaseLayout과 같은 이유). 동적 서브셋으로
+        바꿔 폰트가 92개 청크로 쪼개졌고, 어느 청크가 필요한지는 브라우저가
+        페이지의 글자를 보고 정하므로 미리 하나를 집어 preload할 수 없다.
+        여기 남아 있던 preload 때문에 러시아어 페이지만 옛 통짜 파일(2,010KB)을
+        계속 받고 있었다 — 서브셋 전환 효과가 러시아어판에서만 사라진 상태였다. */}
 
     {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
     <link rel="alternate" hreflang="ko" href={koHref} />

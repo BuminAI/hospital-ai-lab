@@ -183,13 +183,10 @@ const breadcrumb =
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />
     <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
-    <link
-      rel="preload"
-      href={withBase('/fonts/PretendardVariable.woff2')}
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    {/* 폰트 preload는 2026-08-27에 뺐다. 동적 서브셋으로 바꾸면서 폰트가
+        92개 청크로 쪼개져, 어느 청크가 필요한지는 브라우저가 페이지의 글자를
+        보고 정한다 — 미리 하나를 집어 preload할 수가 없다. 청크 하나가
+        평균 31KB로 작고 font-display:swap이라 본문은 즉시 보인다. */}
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0e141d" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={canonical} />
