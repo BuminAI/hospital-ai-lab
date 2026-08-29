@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-08-28T06:15:46.113Z",
+  "updatedAt": "2026-08-29T09:19:44.414Z",
   "source": "Медвестник·Vademecum",
   "items": [
+    {
+      "title": "Tоп-5: главные события недели",
+      "link": "https://medvestnik.ru/content/news/top-5-glavnye-sobytiya-nedeli-206.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-29T09:00:00.000Z"
+    },
     {
       "title": "Аналитики прогнозируют четырехкратный рост рынка предиктивной медицины на базе ИИ",
       "link": "https://medvestnik.ru/content/news/analitiki-prognoziruut-chetyrehkratnyi-rost-rynka-prediktivnoi-mediciny-na-baze-ii.html",
@@ -199,12 +205,6 @@
       "link": "https://medvestnik.ru/content/news/vladimir-putin-podpisal-pervyi-zakon-ob-ii-v-rossii.html",
       "source": "Медвестник",
       "pubDate": "2026-07-27T09:00:00.000Z"
-    },
-    {
-      "title": "Tоп-5: главные события недели",
-      "link": "https://medvestnik.ru/content/news/top-5-glavnye-sobytiya-nedeli-199.html",
-      "source": "Медвестник",
-      "pubDate": "2026-07-11T09:00:00.000Z"
     },
     {
       "title": "Лидеры российского рынка частной медицины осознанно откладывают запуск диагностического ИИ",
