@@ -4,6 +4,22 @@ import ResearchIcon from '../components/ResearchIcon.astro';
 import { researchAreas } from '../data/research';
 import { withBase } from '../utils/site';
 
+// ProfilePage — AI 답변 엔진이 '누가 쓰는 사이트인가'를 판정하는 근거.
+// 일본어판(ja/about)에는 있는데 원본인 한국어판에만 빠져 있었다(2026-08-30).
+// Person 본체는 SchemaOrg가 전 페이지에 넣으므로 여기서는 @id로 참조만 한다.
+// 화면에 보이는 사실만 마크업한다(구글은 비가시 콘텐츠 마크업을 금지) — 아래
+// '연구소장 소개' 절이 그 근거 화면이다.
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const profilePage = {
+  '@type': 'ProfilePage',
+  '@id': `${siteUrl}${withBase('/about/')}#profile`,
+  url: `${siteUrl}${withBase('/about/')}`,
+  inLanguage: 'ko-KR',
+  mainEntity: { '@id': `${siteUrl}/#person` },
+};
+
 const timeline = [
   {
     label: '종합병원 근무 시작',
@@ -20,6 +36,7 @@ const timeline = [
   title="소개"
   description="종합병원 현장에서 17년간 쌓은 경험을 바탕으로 시작한 병원 AI 연구소를 소개합니다."
   alternates={{ ja: '/ja/about/', ru: '/ru/about/' }}
+  schema={[profilePage]}
 >
   <div class="container">
     <header class="page-head">
