@@ -2,9 +2,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../utils/site';
 import { guideHero, guideSteps, guideClosing } from '../data/guide';
+
+// 다섯 단계를 순서 있는 목록으로 알려 준다. 일본어판(ja/guide)에는 이미 있었는데
+// 원본인 한국어판에만 빠져 있었다(2026-08-29). 검색·AI가 '단계별 가이드'라는
+// 성격과 각 단계 제목을 그대로 읽어 갈 수 있게 한다.
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: guideHero.h1,
+    numberOfItems: guideSteps.length,
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    itemListElement: guideSteps.map((step, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: step.title,
+    })),
+  },
+];
 ---
 
 <BaseLayout
+  jaPath="/ja/guide/"
+  schema={schema}
   title="입문 가이드"
   description="책 대신 실전으로 AI를 익히는 다섯 단계. 유튜브 최신 영상 보기부터 따라 하기, 가르치기, 업무 적용, 전문가 교육까지 - 병원 행정·간호 종사자를 위한 입문 가이드입니다."
 >

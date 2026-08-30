@@ -8,9 +8,32 @@ const countOf = (no: number) => {
   const t = tips.find((x) => x.no === no);
   return t ? t.groups.reduce((sum, g) => sum + g.items.length, 0) : 0;
 };
+
+// 어떤 팁이 몇 개 들어 있는 목록인지 알려 준다. 일본어판(ja/tips)에는 이미 있었는데
+// 원본인 한국어판에만 빠져 있었다(2026-08-29). 카드마다 상세 페이지가 따로 있으므로
+// url까지 넣어 검색·AI가 개별 항목으로 접근할 수 있게 한다.
+// 절대 주소는 BaseLayout과 같은 방식으로 Astro.site에서 만든다.
+const siteRoot = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: '실무 팁',
+    numberOfItems: tips.length,
+    itemListElement: tips.map((tip, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: tip.fullTitle,
+      url: `${siteRoot}${withBase(`/tips/${tip.no}/`)}`,
+    })),
+  },
+];
 ---
 
 <BaseLayout
+  jaPath="/ja/tips/"
+  schema={schema}
   title="실무 팁"
   description="병원 기획·홍보·AI 업무에 바로 쓰는 실무 팁을 카드로 정리했습니다. 크롬 확장프로그램, 업무용 AI 도구, 엑셀 기능, 검색 연산자, 발표자료 제작까지 주제별로 모았습니다."
 >
