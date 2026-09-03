@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T01:22:33.647Z",
+  "updatedAt": "2026-09-03T06:24:14.754Z",
   "source": "Медвестник·Vademecum",
   "items": [
     {
@@ -33,18 +33,6 @@
       "pubDate": "2026-08-27T09:00:00.000Z"
     },
     {
-      "title": "Ученые предложили создать «команду» ИИ-агентов для проведения КИ",
-      "link": "https://www.vademec.ru/news/2026/08/26/uchenye-predlozhili-sozdat-komandu-ii-agentov-dlya-provedeniya-ki/",
-      "source": "Vademecum",
-      "pubDate": "2026-08-26T09:00:00.000Z"
-    },
-    {
-      "title": "В России разработали ИИ для восстановления пропусков в записях ЭЭГ",
-      "link": "https://www.vademec.ru/news/2026/08/26/v-rossii-razrabotali-ii-dlya-vosstanovleniya-propuskov-v-zapisyakh-eeg/",
-      "source": "Vademecum",
-      "pubDate": "2026-08-26T09:00:00.000Z"
-    },
-    {
       "title": "«Будь Здоров» сообщила о росте выручки в I полугодии на 23,2%",
       "link": "https://medvestnik.ru/content/news/bud-zdorov-soobshila-o-roste-vyruchki-i-polugodii-na-23-2.html",
       "source": "Медвестник",
@@ -57,16 +45,34 @@
       "pubDate": "2026-08-26T09:00:00.000Z"
     },
     {
-      "title": "Подведены итоги первой закупки по созданию центра развития ИИ в здравоохранении",
-      "link": "https://www.vademec.ru/news/2026/08/25/podvedeny-itogi-pervoy-zakupki-po-sozdaniyu-tsentra-razvitiya-ii-v-zdravookhranenii/",
+      "title": "Ученые предложили создать «команду» ИИ-агентов для проведения КИ",
+      "link": "https://www.vademec.ru/news/2026/08/26/uchenye-predlozhili-sozdat-komandu-ii-agentov-dlya-provedeniya-ki/",
       "source": "Vademecum",
-      "pubDate": "2026-08-25T09:00:00.000Z"
+      "pubDate": "2026-08-26T09:00:00.000Z"
+    },
+    {
+      "title": "В России разработали ИИ для восстановления пропусков в записях ЭЭГ",
+      "link": "https://www.vademec.ru/news/2026/08/26/v-rossii-razrabotali-ii-dlya-vosstanovleniya-propuskov-v-zapisyakh-eeg/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-26T09:00:00.000Z"
     },
     {
       "title": "ИИ-медустройства в США почти не тестируют по влиянию на исходы лечения",
       "link": "https://medvestnik.ru/content/news/ii-medustroistva-v-ssha-pochti-ne-testiruut-po-vliyaniu-na-ishody-lecheniya.html",
       "source": "Медвестник",
       "pubDate": "2026-08-25T09:00:00.000Z"
+    },
+    {
+      "title": "Подведены итоги первой закупки по созданию центра развития ИИ в здравоохранении",
+      "link": "https://www.vademec.ru/news/2026/08/25/podvedeny-itogi-pervoy-zakupki-po-sozdaniyu-tsentra-razvitiya-ii-v-zdravookhranenii/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-25T09:00:00.000Z"
+    },
+    {
+      "title": "В ЕГИСЗ заработал пилотный ИИ-консультант для участников системы",
+      "link": "https://medvestnik.ru/content/news/v-egisz-zarabotal-pilotnyi-ii-konsultant-dlya-uchastnikov-sistemy.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-24T09:00:00.000Z"
     },
     {
       "title": "СПК разработал проект трудовой функции медработников по использованию ИИ",
@@ -87,27 +93,21 @@
       "pubDate": "2026-08-24T09:00:00.000Z"
     },
     {
-      "title": "В ЕГИСЗ заработал пилотный ИИ-консультант для участников системы",
-      "link": "https://medvestnik.ru/content/news/v-egisz-zarabotal-pilotnyi-ii-konsultant-dlya-uchastnikov-sistemy.html",
-      "source": "Медвестник",
-      "pubDate": "2026-08-24T09:00:00.000Z"
-    },
-    {
       "title": "Исследование: отзывы пациентов учат ИИ предвзято оценивать врачей",
       "link": "https://www.vademec.ru/news/2026/08/23/issledovanie-otzyvy-patsientov-uchat-ii-predvzyato-otsenivat-vrachey/",
       "source": "Vademecum",
       "pubDate": "2026-08-23T09:00:00.000Z"
     },
     {
-      "title": "В России запущена новая профессиональная платформа для онкологов с ИИ-навигатором",
-      "link": "https://www.vademec.ru/news/2026/08/21/v-rossii-zapushchena-novaya-professionalnaya-platforma-dlya-onkologov-s-ii-navigatorom/",
-      "source": "Vademecum",
-      "pubDate": "2026-08-21T09:00:00.000Z"
-    },
-    {
       "title": "ИИ в медицине и этика бензопилы",
       "link": "https://medvestnik.ru/content/articles/ii-v-medicine-i-etika-benzopily.html",
       "source": "Медвестник",
+      "pubDate": "2026-08-21T09:00:00.000Z"
+    },
+    {
+      "title": "В России запущена новая профессиональная платформа для онкологов с ИИ-навигатором",
+      "link": "https://www.vademec.ru/news/2026/08/21/v-rossii-zapushchena-novaya-professionalnaya-platforma-dlya-onkologov-s-ii-navigatorom/",
+      "source": "Vademecum",
       "pubDate": "2026-08-21T09:00:00.000Z"
     },
     {
