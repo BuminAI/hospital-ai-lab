@@ -39,4 +39,18 @@ const blogJa = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa };
+// 인도네시아어판 블로그 (2026-09-06 신설). 다른 언어판과 완전히 별개
+// 컬렉션이다 — 번역이 아니라 인도네시아 제도를 조사해 쓰는 독립 집필이므로
+// 스키마가 같은 모양이어도 섞지 않는다(blogRu·blogJa와 같은 이유).
+const blogId = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-id' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Ulasan Riset', 'Alat AI', 'Kolom', 'Kabar']),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId };

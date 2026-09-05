@@ -18,5 +18,10 @@
     "href": "/id/faq/",
     "key": "faq",
     "enabled": true
+  },
+  {
+    "href": "/id/blog/",
+    "key": "blog",
+    "enabled": true
   }
 ]

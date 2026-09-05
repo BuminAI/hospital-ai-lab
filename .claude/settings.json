@@ -22,7 +22,9 @@
       "Write(src/content/blog-ru/**)",
       "Edit(src/content/blog-ru/**)",
       "Write(src/content/blog-ja/**)",
-      "Edit(src/content/blog-ja/**)"
+      "Edit(src/content/blog-ja/**)",
+      "Write(src/content/blog-id/**)",
+      "Edit(src/content/blog-id/**)"
     ]
   }
 }
