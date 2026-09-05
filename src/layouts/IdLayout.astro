@@ -1,18 +1,18 @@
 ---
-// 러시아어판 전용 레이아웃 (2026-08-12 신설)
+// 인도네시아어판 전용 레이아웃 (2026-09-05 신설, RuLayout 구조 복제)
 //
-// 한국어판 BaseLayout, 일본어판 JaLayout과 완전히 분리했다 — 언어판 하나를
-// 고치다 다른 언어판이 휘말리는 사고를 막기 위해서다(이 저장소의 기존 원칙,
-// JaLayout.astro 주석 참고).
+// 한국어판 BaseLayout, 일본어판 JaLayout, 러시아어판 RuLayout과 완전히
+// 분리했다 — 언어판 하나를 고치다 다른 언어판이 휘말리는 사고를 막기
+// 위해서다(이 저장소의 기존 원칙, JaLayout.astro 주석 참고).
 //
 // 구성은 일본어판(2컬럼 + パンくずリスト + 상시 사이드바)을 그대로 가져왔다.
 // 의료(YMYL) 콘텐츠에서 저자 신뢰 신호를 상시 노출하는 것은 언어와 무관하게
 // 유효한 설계라는 판단이다(사실 주장이 아니라 설계 판단 — 필요하면 나중에
 // 단순 1컬럼으로 바꿀 수 있다).
 import '../styles/global.css';
-import '../styles/ru-tokens.css';
-import ru from '../i18n/ru.json';
-import navConfig from '../data/ru/content/nav.json';
+import '../styles/id-tokens.css';
+import id from '../i18n/id.json';
+import navConfig from '../data/id/content/nav.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import {
   withBase,
@@ -32,17 +32,17 @@ interface Props {
   koPath?: string;
   /** 이 페이지의 일본어판 경로. 아직 일본어판이 없는 페이지는 넘기지 않는다. */
   jaPath?: string;
-  /** 이 페이지의 인도네시아어판 경로(2026-09-05 추가). */
-  idPath?: string;
+  /** 이 페이지의 러시아어판 경로. */
+  ruPath?: string;
   /** 갱신일 표기 */
   updated?: Date;
   /** 페이지 고유 JSON-LD 노드 */
   schema?: Record<string, unknown>[];
 }
 
-const { title, description, crumb, koPath = '/', jaPath, idPath, updated, schema = [] } = Astro.props;
+const { title, description, crumb, koPath = '/', jaPath, ruPath, updated, schema = [] } = Astro.props;
 
-const SITE_RU = 'Лаборатория ИИ для больниц';
+const SITE_ID = 'Hospital AI Lab';
 
 const siteRoot = Astro.site
   ? Astro.site.href.replace(/\/$/, '')
@@ -50,7 +50,7 @@ const siteRoot = Astro.site
 const currentPath = stripBase(Astro.url.pathname);
 const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
 const canonical = `${siteRoot}${withBase(canonicalPath)}`;
-const pageTitle = `${title} | ${SITE_RU}`;
+const pageTitle = `${title} | ${SITE_ID}`;
 
 // 갱신일: 페이지가 안 넘기면 이 경로의 실제 마지막 커밋일을 쓴다(빌드 시각이
 // 아님 — 뉴스 자동 수집으로 하루에도 여러 번 재빌드되는 사이트라, 안 그러면
@@ -60,55 +60,55 @@ const updatedAt = updated ?? lastModifiedForPath(Astro.url.pathname, BASE) ?? ne
 // hreflang — 짝이 서로를 가리켜야 유효하다. x-default는 한국어(원본).
 const koHref = `${siteRoot}${withBase(koPath)}`;
 const jaHref = jaPath ? `${siteRoot}${withBase(jaPath)}` : undefined;
-const idHref = idPath ? `${siteRoot}${withBase(idPath)}` : undefined;
+const ruHref = ruPath ? `${siteRoot}${withBase(ruPath)}` : undefined;
 
-// 메뉴 표시·비표시는 src/data/ru/content/nav.json에서 관리한다
+// 메뉴 표시·비표시는 src/data/id/content/nav.json에서 관리한다
 // (홈은 항상 표시 — 지우면 러시아어판 입구가 없어진다).
-const navLabels = ru.nav as Record<string, string>;
+const navLabels = id.nav as Record<string, string>;
 const nav = navConfig
-  .filter((item) => item.href === '/ru/' || item.enabled)
+  .filter((item) => item.href === '/id/' || item.enabled)
   .map((item) => ({
     href: item.href,
     label: navLabels[item.key] ?? item.key,
   }));
 
 const isActive = (href: string) =>
-  href === '/ru/' ? canonicalPath === '/ru/' : canonicalPath.startsWith(href);
+  href === '/id/' ? canonicalPath === '/id/' : canonicalPath.startsWith(href);
 
 // ── 구조화 데이터 ────────────────────────────────────────
 // 한국어·일본어판 SchemaOrg와 같은 @id를 쓴다 — 같은 조직·같은 사람이므로
 // 언어판이 달라도 엔티티는 하나여야 검색엔진이 혼동하지 않는다.
 // name에는 성명만 넣고, 다른 표기는 alternateName으로 분리한다(괄호까지
 // 이름으로 기계에 읽히지 않게 — ja판과 같은 이유).
-// 키릴 표기 "Чо Ёнхо"는 콘체비치 표기법 기준으로 오너가 2026-08-12 확인했다
-// (briefing.md에 없는 값을 임의로 만들지 않았다 — CLAUDE.md 절대 원칙).
+// 인도네시아어는 라틴 문자라 별도 음역이 필요 없다 — 로마자 표기를 그대로 쓰고
+// 한글 표기는 alternateName에 둔다(ja·ru판과 같은 원칙).
 const person = {
   '@type': 'Person',
   '@id': `${siteRoot}/#person`,
-  name: ru.profile.nameShort,
+  name: id.profile.nameShort,
   alternateName: ['조영호', 'Youngho Cho'],
-  jobTitle: ru.profile.role,
-  url: `${siteRoot}${withBase('/ru/about/')}`,
+  jobTitle: id.profile.role,
+  url: `${siteRoot}${withBase('/id/about/')}`,
   sameAs: [YOUTUBE_CHANNEL_URL],
 };
 const organization = {
   '@type': 'Organization',
   '@id': `${siteRoot}/#organization`,
-  name: SITE_RU,
+  name: SITE_ID,
   url: siteRoot,
   founder: { '@id': `${siteRoot}/#person` },
   email: CONTACT_EMAIL,
 };
 const website = {
   '@type': 'WebSite',
-  '@id': `${siteRoot}/#website-ru`,
-  url: `${siteRoot}${withBase('/ru/')}`,
-  name: SITE_RU,
-  inLanguage: 'ru-RU',
+  '@id': `${siteRoot}/#website-id`,
+  url: `${siteRoot}${withBase('/id/')}`,
+  name: SITE_ID,
+  inLanguage: 'id-ID',
   publisher: { '@id': `${siteRoot}/#organization` },
 };
 const crumbs = [
-  { name: ru.ui.breadcrumbHome, url: `${siteRoot}${withBase('/ru/')}` },
+  { name: id.ui.breadcrumbHome, url: `${siteRoot}${withBase('/id/')}` },
   ...(crumb ? [{ name: crumb, url: canonical }] : []),
 ];
 const breadcrumbLd =
@@ -135,8 +135,8 @@ const webPage = {
   url: canonical,
   name: title,
   description,
-  inLanguage: 'ru-RU',
-  isPartOf: { '@id': `${siteRoot}/#website-ru` },
+  inLanguage: 'id-ID',
+  isPartOf: { '@id': `${siteRoot}/#website-id` },
   dateModified: updatedAt.toISOString(),
   ...(crumb ? { breadcrumb: { '@id': `${canonical}#breadcrumb` } } : {}),
   about: { '@id': `${siteRoot}/#organization` },
@@ -155,14 +155,14 @@ const jsonLd = {
 // 전혀 달라지지 않는다.
 const jsonLdText = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
 
-const fmtRu = (d: Date) =>
-  new Intl.DateTimeFormat('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+const fmtId = (d: Date) =>
+  new Intl.DateTimeFormat('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
 
 const year = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang="ru" data-locale="ru">
+<html lang="id" data-locale="id">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -178,8 +178,8 @@ const year = new Date().getFullYear();
     {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
     <link rel="alternate" hreflang="ko" href={koHref} />
     {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
-    {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
-    <link rel="alternate" hreflang="ru" href={canonical} />
+    {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
+    <link rel="alternate" hreflang="id" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={koHref} />
 
     <script type="application/ld+json" is:inline set:html={jsonLdText} />
@@ -189,16 +189,16 @@ const year = new Date().getFullYear();
     <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={SITE_RU} />
+    <meta property="og:site_name" content={SITE_ID} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale" content="id_ID" />
     <meta property="og:locale:alternate" content="ko_KR" />
     <meta property="og:image" content={`${siteRoot}${withBase('/og-default.png')}`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={SITE_RU} />
+    <meta property="og:image:alt" content={SITE_ID} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
@@ -216,22 +216,22 @@ const year = new Date().getFullYear();
     }
   </head>
   <body>
-    <a class="skip-link" href="#ru-main">Перейти к содержимому</a>
+    <a class="skip-link" href="#id-main">Lompat ke konten utama</a>
 
-    <header class="ru-header">
-      <div class="ru-header-inner">
-        <a class="ru-brand" href={withBase('/ru/')}>
-          {SITE_RU}
-          <span class="ru-brand-sub">HOSPITAL AI LAB — практическая информация о медицинском ИИ</span>
+    <header class="id-header">
+      <div class="id-header-inner">
+        <a class="id-brand" href={withBase('/id/')}>
+          {SITE_ID}
+          <span class="id-brand-sub">HOSPITAL AI LAB — informasi praktis AI kesehatan</span>
         </a>
-        <div class="ru-langs">
-          <a class="ru-lang" href={withBase(koPath)} hreflang="ko">{ru.ui.langKo}</a>
-          {jaPath && <a class="ru-lang" href={withBase(jaPath)} hreflang="ja">{ru.ui.langJa}</a>}
+        <div class="id-langs">
+          <a class="id-lang" href={withBase(koPath)} hreflang="ko">{id.ui.langKo}</a>
+          {jaPath && <a class="id-lang" href={withBase(jaPath)} hreflang="ja">{id.ui.langJa}</a>}
         </div>
       </div>
     </header>
 
-    <nav class="ru-nav" aria-label="Главное меню">
+    <nav class="id-nav" aria-label="Menu utama">
       <ul>
         {
           nav.map((item) => (
@@ -245,73 +245,70 @@ const year = new Date().getFullYear();
       </ul>
     </nav>
 
-    <nav class="ru-breadcrumb" aria-label="Хлебные крошки">
+    <nav class="id-breadcrumb" aria-label="Remah roti">
       <ol>
-        <li><a href={withBase('/ru/')}>{ru.ui.breadcrumbHome}</a></li>
+        <li><a href={withBase('/id/')}>{id.ui.breadcrumbHome}</a></li>
         {crumb && <li aria-current="page">{crumb}</li>}
       </ol>
     </nav>
 
-    <div class="ru-shell">
-      <main id="ru-main">
-        <p class="ru-updated">
-          {ru.ui.updated}: <time datetime={updatedAt.toISOString()}>{fmtRu(updatedAt)}</time>
+    <div class="id-shell">
+      <main id="id-main">
+        <p class="id-updated">
+          {id.ui.updated}: <time datetime={updatedAt.toISOString()}>{fmtId(updatedAt)}</time>
         </p>
         <slot />
       </main>
 
-      <aside class="ru-side">
+      <aside class="id-side">
         {/* 운영자 신뢰 블록 — ja판과 같은 이유로 상시 노출한다 */}
         <section>
-          <h2>{ru.ui.sidebarProfileTitle}</h2>
-          <div class="ru-side-body">
+          <h2>{id.ui.sidebarProfileTitle}</h2>
+          <div class="id-side-body">
             <dl>
-              <dt>Имя</dt>
-              <dd>{ru.profile.name}</dd>
-              <dt>Должность</dt>
-              <dd>{ru.profile.role}</dd>
-              <dt>Опыт</dt>
-              <dd>{ru.profile.careerShort}</dd>
-              <dt>Образование</dt>
-              <dd>{ru.profile.educationShort}</dd>
+              <dt>Nama</dt>
+              <dd>{id.profile.name}</dd>
+              <dt>Jabatan</dt>
+              <dd>{id.profile.role}</dd>
+              <dt>Pengalaman</dt>
+              <dd>{id.profile.careerShort}</dd>
+              <dt>Pendidikan</dt>
+              <dd>{id.profile.educationShort}</dd>
             </dl>
             <p style="margin-top:10px">
-              <a class="ru-ext" href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
-                {ru.profile.youtube}
-                <span class="sr-only"> ({ru.ui.external})</span>
+              <a class="id-ext" href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+                {id.profile.youtube}
+                <span class="sr-only"> ({id.ui.external})</span>
               </a>
             </p>
             <p style="margin-top:6px">
-              <a href={withBase('/ru/about/')}>{ru.nav.about}</a>
+              <a href={withBase('/id/about/')}>{id.nav.about}</a>
             </p>
           </div>
         </section>
 
         <section>
-          <h2>{ru.ui.langKo}</h2>
-          <div class="ru-side-body">
-            <p>
-              Основная версия сайта — корейская. На ней больше материалов: колонки, словарь терминов,
-              чек-лист внедрения.
-            </p>
+          <h2>{id.ui.langKo}</h2>
+          <div class="id-side-body">
+            <p>{id.home.koNoticeBody}</p>
             <p style="margin-top:8px">
-              <a href={withBase('/')} hreflang="ko">{ru.ui.langKo}</a>
+              <a href={withBase('/')} hreflang="ko">{id.ui.langKo}</a>
             </p>
           </div>
         </section>
       </aside>
     </div>
 
-    <footer class="ru-footer">
-      <div class="ru-footer-inner">
+    <footer class="id-footer">
+      <div class="id-footer-inner">
         <ul>
-          <li><a href={withBase('/ru/about/')}>{ru.footer.about}</a></li>
-          <li><a href={withBase('/privacy/')}>{ru.footer.privacy}</a></li>
-          <li><a href={`mailto:${CONTACT_EMAIL}`}>{ru.footer.contact}</a></li>
-          <li><a href={withBase('/sitemap-index.xml')}>{ru.footer.sitemap}</a></li>
+          <li><a href={withBase('/id/about/')}>{id.footer.about}</a></li>
+          <li><a href={withBase('/privacy/')}>{id.footer.privacy}</a></li>
+          <li><a href={`mailto:${CONTACT_EMAIL}`}>{id.footer.contact}</a></li>
+          <li><a href={withBase('/sitemap-index.xml')}>{id.footer.sitemap}</a></li>
         </ul>
-        <p>{ru.ui.disclaimer}</p>
-        <p style="margin-top:10px">© {year} {SITE_RU}</p>
+        <p>{id.ui.disclaimer}</p>
+        <p style="margin-top:10px">© {year} {SITE_ID}</p>
       </div>
     </footer>
   </body>

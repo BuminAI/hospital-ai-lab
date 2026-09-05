@@ -52,7 +52,7 @@ export default defineConfig({
   //    하위에 새로 만든다.
   i18n: {
     defaultLocale: 'ko',
-    locales: ['ko', 'ja', 'ru'],
+    locales: ['ko', 'ja', 'ru', 'id'],
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: false,
@@ -79,7 +79,7 @@ export default defineConfig({
       // 다른 언어판으로 인식하게 한다(hreflang과 짝을 이룬다).
       i18n: {
         defaultLocale: 'ko',
-        locales: { ko: 'ko-KR', ja: 'ja-JP', ru: 'ru-RU' },
+        locales: { ko: 'ko-KR', ja: 'ja-JP', ru: 'ru-RU', id: 'id-ID' },
       },
       // 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외.
       // ai-apps는 비공개 처리(2026-07-21 오너 지시) — 메뉴·홈에서 내리고

@@ -26,7 +26,7 @@ interface Props {
    * 넘기면 hreflang 짝을 만들어 구글이 여러 언어판을 같은 페이지로 인식한다.
    * **모든 언어판이 서로를 가리켜야** 유효하다 — 한쪽만 있으면 구글이 무시한다.
    */
-  alternates?: Partial<Record<'ja' | 'ru', string>>;
+  alternates?: Partial<Record<'ja' | 'ru' | 'id', string>>;
   title?: string;
   description?: string;
   /** true면 검색엔진 색인에서 제외 (관리자 페이지 등) */
@@ -67,7 +67,7 @@ const {
 const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
 // 레거시 jaPath와 신규 alternates를 병합한다. alternates.ja가 명시되면 그것이
 // 우선하고, 없으면 jaPath가 대신 채운다 — 기존 호출부를 안 고쳐도 되게 하려고.
-const alternates: Partial<Record<'ja' | 'ru', string>> = {
+const alternates: Partial<Record<'ja' | 'ru' | 'id', string>> = {
   ...(jaPath ? { ja: jaPath } : {}),
   ...alternatesProp,
 };
@@ -212,6 +212,15 @@ const breadcrumb =
                 rel="alternate"
                 hreflang="ru"
                 href={`${siteRoot}${withBase(alternates.ru)}`}
+              />
+            )
+          }
+          {
+            alternates.id && (
+              <link
+                rel="alternate"
+                hreflang="id"
+                href={`${siteRoot}${withBase(alternates.id)}`}
               />
             )
           }

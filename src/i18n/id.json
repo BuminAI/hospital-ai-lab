@@ -1,0 +1,70 @@
+{
+  "_comment": "String antarmuka versi Indonesia (2026-09-05 Fase A: nav/footer/ui/profile/home/about). Isi situs ini BUKAN terjemahan dari versi Korea — materi ditulis ulang berdasarkan regulasi Indonesia yang sumbernya sudah diverifikasi (UU 27/2022 PDP, kebijakan Kemenkes, SATUSEHAT). Gaya bahasa: formal, sapaan 'Anda', hindari bahasa gaul. Istilah baku yang dipakai konsisten: 'kecerdasan artifisial (AI)' (mengikuti istilah Kemenkes, bukan 'kecerdasan buatan'), 'perangkat lunak sebagai alat kesehatan' untuk SaMD, 'rumah sakit' bukan 'RS' di kalimat utuh. Bagian glossary/faq/checklist/guide menyusul di fase berikutnya (lihat HANDOFF.md 5-4).",
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang Penulis",
+    "glossary": "Kamus Istilah",
+    "faq": "Pertanyaan Umum",
+    "checklist": "Daftar Periksa",
+    "guide": "Panduan Awal",
+    "tips": "Tips Praktis",
+    "videos": "Video",
+    "news": "Berita AI",
+    "blog": "Blog"
+  },
+  "footer": {
+    "about": "Tentang Penulis",
+    "privacy": "Kebijakan Privasi",
+    "contact": "Hubungi Kami",
+    "sitemap": "Peta Situs"
+  },
+  "ui": {
+    "updated": "Diperbarui",
+    "new": "Baru",
+    "external": "Terbuka di tab baru",
+    "breadcrumbHome": "Beranda",
+    "readMore": "Selengkapnya",
+    "viewAll": "Lihat semua",
+    "source": "Sumber",
+    "deadline": "Batas waktu",
+    "noItems": "Belum ada materi di bagian ini.",
+    "langKo": "Versi Korea (한국어)",
+    "langJa": "Versi Jepang (日本語)",
+    "sidebarProfileTitle": "Tentang Penulis",
+    "disclaimer": "Materi di situs ini bersifat informasi umum dan edukasi, serta tidak menggantikan konsultasi medis untuk pasien tertentu.",
+    "underConstruction": "Versi Indonesia masih dalam pengembangan. Bagian lain akan dibuka bertahap setelah sumbernya diverifikasi."
+  },
+  "profile": {
+    "name": "Youngho Cho (조영호)",
+    "role": "Kepala Hospital AI Lab (병원 AI 연구소)",
+    "career": "17 tahun bekerja di rumah sakit umum di Korea Selatan, 7 tahun di antaranya di bagian perencanaan strategis.",
+    "education": "Magister Statistika, Doktor Ekonomi.",
+    "careerShort": "17 tahun di rumah sakit (7 tahun perencanaan)",
+    "educationShort": "Magister Statistika, Doktor Ekonomi",
+    "youtube": "Kanal YouTube",
+    "nameShort": "Youngho Cho"
+  },
+  "home": {
+    "metaTitle": "Informasi Praktis AI untuk Rumah Sakit",
+    "metaDescription": "Informasi AI kesehatan untuk tenaga administrasi dan keperawatan rumah sakit di Indonesia, disusun berdasarkan regulasi yang berlaku.",
+    "heroEyebrow": "AI KESEHATAN — SUDUT PANDANG PRAKTIK RUMAH SAKIT",
+    "heroTitle": "AI kesehatan, dibaca dari meja kerja rumah sakit",
+    "heroLead": "Situs ini membahas kecerdasan artifisial (AI) di rumah sakit dari sudut pandang tenaga administrasi dan keperawatan — bukan dari sudut pandang klinis semata. Yang dibahas adalah hal yang benar-benar muncul dalam pekerjaan: menilai proposal vendor, memeriksa aspek data pribadi, dan menyiapkan alur kerja sebelum sebuah sistem dipakai.",
+    "notTranslationTitle": "Bukan terjemahan",
+    "notTranslationBody": "Isi versi Indonesia ditulis ulang mengikuti regulasi Indonesia — UU Pelindungan Data Pribadi, ketentuan pendaftaran alat kesehatan di Kementerian Kesehatan, dan platform SATUSEHAT. Ketentuan yang berlaku di Korea atau Jepang tidak otomatis berlaku di sini, jadi jangan memakai versi bahasa lain sebagai rujukan regulasi Indonesia.",
+    "sourceNoteTitle": "Cara kami menulis",
+    "sourceNoteBody": "Setiap pernyataan yang menyangkut regulasi atau angka disertai tautan sumber, dan tautan itu diperiksa langsung sebelum diterbitkan. Kalau sebuah pernyataan tidak bisa kami pastikan sumbernya, pernyataan itu tidak ditulis.",
+    "koNoticeTitle": "Versi Korea",
+    "koNoticeBody": "Situs induk berbahasa Korea memuat lebih banyak materi, termasuk blog harian, kumpulan berita, dan daftar program pemerintah. Regulasi yang dibahas di sana adalah regulasi Korea."
+  },
+  "about": {
+    "metaTitle": "Tentang Penulis",
+    "metaDescription": "Penulis situs Hospital AI Lab — 17 tahun bekerja di rumah sakit umum Korea Selatan, 7 tahun di perencanaan strategis.",
+    "pageTitle": "Tentang Penulis",
+    "lead": "Situs ini dikelola oleh satu orang yang bekerja di dalam rumah sakit, bukan oleh vendor teknologi.",
+    "careerHeading": "Latar belakang",
+    "whyHeading": "Kenapa versi Indonesia dibuat",
+    "whyBody": "Pertanyaan yang muncul saat rumah sakit mempertimbangkan AI hampir sama di mana pun: apakah alatnya sudah terdaftar, bagaimana data pasien diperlakukan, dan siapa yang bertanggung jawab kalau hasilnya keliru. Tetapi jawabannya bergantung pada regulasi masing-masing negara. Karena itu versi ini ditulis ulang dengan rujukan Indonesia, bukan diterjemahkan.",
+    "contactHeading": "Kontak"
+  }
+}

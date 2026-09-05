@@ -1,0 +1,373 @@
+/* ── 인도네시아어판 디자인 토큰 (2026-09-05 신설) ──────────────────
+   러시아어판(ru-tokens.css) 구조를 그대로 가져왔다 — 일본어판에서 시작해
+   러시아어판까지 검증된 2컬럼·브레드크럼·상시 사이드바 설계다. 의료(YMYL)
+   콘텐츠에서 저자 신뢰 신호를 상시 노출하는 것은 언어와 무관하게 유효하다.
+
+   ⚠️ 이 파일은 [data-locale='id'] 안에서만 적용된다. 다른 언어판
+      스타일에 영향을 주지 않도록 모든 선택자에 이 접두사를 붙일 것.
+      선택자는 반드시 [data-locale='id'] body — html에만 걸면 global.css의
+      body 규칙이 이겨서 조판이 적용되지 않는다(일본어판이 실제로 겪은 버그).
+
+   ⚠️ 폰트 대체 로직이 없다. 인도네시아어는 라틴 문자라 한국어판이 쓰는
+      Pretendard(동적 서브셋)가 그대로 적용된다. */
+
+[data-locale='id'] {
+  /* Color — ja·ru와 같은 신뢰 블루 계열이되, 청록 쪽으로 살짝 옮겨
+     언어판을 눈으로 구분할 수 있게 했다. 흰 배경 대비 7:1 이상이라
+     본문 링크색으로 써도 대비 기준(WCAG AA)을 넘는다. */
+  --id-base: #ffffff;
+  --id-surface: #f6f8fa;
+  --id-surface-2: #edf1f6;
+  --id-border: #dbe1e9;
+  --id-text: #1a1a1a;
+  --id-text-sub: #5a6270;
+  --id-primary: #0a5470;
+  --id-primary-dk: #073c52;
+  --id-accent: #b5480f;
+  --id-badge-new: #c62828;
+  --id-badge-info: #15619f;
+  --id-badge-gov: #17663d;
+
+  /* Layout */
+  --id-max: 1120px;
+  --id-sidebar: 300px;
+  --id-gap: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-locale='id'] {
+    --id-base: #0e141d;
+    --id-surface: #161f2b;
+    --id-surface-2: #1d2836;
+    --id-border: #2b3646;
+    --id-text: #e8edf4;
+    --id-text-sub: #a2aebd;
+    --id-primary: #6fc0d4;
+    --id-primary-dk: #9ad8e6;
+    --id-accent: #f0955a;
+    --id-badge-new: #ef6b6b;
+    --id-badge-info: #6fb0e0;
+    --id-badge-gov: #64c799;
+  }
+}
+
+/* ── 본문 조판 ─────────────────────────────────────────── */
+/* ⚠️ 반드시 `[data-locale='id'] body`로 지정할 것 — html에만 걸면
+   global.css의 body{font-family 등} 규칙이 이긴다(일본어판이 2026-07-31에
+   실제로 겪은 버그, HANDOFF.md 6절 참고). 폰트는 global.css가 이미 지정한
+   Pretendard를 그대로 쓰므로 여기서 font-family를 재정의하지 않는다. */
+[data-locale='id'] body {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--id-text);
+  background: var(--id-base);
+}
+
+[data-locale='id'] h1,
+[data-locale='id'] h2,
+[data-locale='id'] h3 {
+  color: var(--id-text);
+}
+
+[data-locale='id'] h1 {
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+[data-locale='id'] h2 {
+  font-size: 21px;
+  line-height: 1.4;
+  border-left: 5px solid var(--id-primary);
+  padding: 6px 0 6px 12px;
+  background: var(--id-surface);
+  margin: 32px 0 16px;
+}
+
+[data-locale='id'] h3 {
+  font-size: 17px;
+  border-bottom: 2px solid var(--id-border);
+  padding-bottom: 6px;
+  margin: 24px 0 12px;
+}
+
+[data-locale='id'] a {
+  color: var(--id-primary);
+}
+
+/* ── 2컬럼 셸 ──────────────────────────────────────────── */
+[data-locale='id'] .id-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--id-sidebar);
+  gap: var(--id-gap);
+  max-width: var(--id-max);
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+@media (max-width: 860px) {
+  [data-locale='id'] .id-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ── 헤더 ──────────────────────────────────────────────── */
+[data-locale='id'] .id-header {
+  background: var(--id-base);
+  border-bottom: 3px solid var(--id-primary);
+}
+
+[data-locale='id'] .id-header-inner {
+  max-width: var(--id-max);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+[data-locale='id'] .id-brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--id-primary);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+[data-locale='id'] .id-brand-sub {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--id-text-sub);
+  letter-spacing: 0.03em;
+}
+
+[data-locale='id'] .id-langs {
+  display: flex;
+  gap: 8px;
+}
+
+[data-locale='id'] .id-lang {
+  font-size: 12.5px;
+  color: var(--id-text-sub);
+  text-decoration: none;
+  border: 1px solid var(--id-border);
+  border-radius: 3px;
+  padding: 4px 10px;
+}
+
+[data-locale='id'] .id-lang:hover {
+  color: var(--id-primary);
+  border-color: var(--id-primary);
+}
+
+[data-locale='id'] .id-nav {
+  background: var(--id-surface);
+  border-bottom: 1px solid var(--id-border);
+}
+
+[data-locale='id'] .id-nav ul {
+  max-width: var(--id-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+[data-locale='id'] .id-nav a {
+  display: block;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  color: var(--id-text);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+[data-locale='id'] .id-nav a:hover,
+[data-locale='id'] .id-nav a[aria-current='page'] {
+  color: var(--id-primary);
+  border-bottom-color: var(--id-primary);
+  background: var(--id-base);
+}
+
+/* ── 브레드크럼 ────────────────────────────────────────── */
+[data-locale='id'] .id-breadcrumb {
+  max-width: var(--id-max);
+  margin: 0 auto;
+  padding: 10px 20px 0;
+  font-size: 12.5px;
+  color: var(--id-text-sub);
+}
+
+[data-locale='id'] .id-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+[data-locale='id'] .id-breadcrumb li + li::before {
+  content: '›';
+  margin-right: 6px;
+  color: var(--id-border);
+}
+
+/* ── 사이드바 ──────────────────────────────────────────── */
+[data-locale='id'] .id-side section {
+  border: 1px solid var(--id-border);
+  border-radius: 4px;
+  background: var(--id-base);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+[data-locale='id'] .id-side h2 {
+  font-size: 14px;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--id-primary);
+  color: #fff;
+  border: 0;
+  letter-spacing: 0.02em;
+}
+
+[data-locale='id'] .id-side .id-side-body {
+  padding: 14px;
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+[data-locale='id'] .id-side dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+}
+
+[data-locale='id'] .id-side dt {
+  color: var(--id-text-sub);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+[data-locale='id'] .id-side dd {
+  margin: 0;
+}
+
+/* ── 뱃지·메타 ─────────────────────────────────────────── */
+[data-locale='id'] .id-badge {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 1px 7px;
+  border-radius: 3px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+
+[data-locale='id'] .id-badge-new {
+  background: var(--id-badge-new);
+}
+[data-locale='id'] .id-badge-gov {
+  background: var(--id-badge-gov);
+}
+[data-locale='id'] .id-badge-info {
+  background: var(--id-badge-info);
+}
+
+[data-locale='id'] .id-updated {
+  font-size: 12.5px;
+  color: var(--id-text-sub);
+}
+
+/* ── 목록 ──────────────────────────────────────────────── */
+[data-locale='id'] .id-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--id-border);
+}
+
+[data-locale='id'] .id-list > li {
+  border-bottom: 1px solid var(--id-border);
+  padding: 13px 2px;
+}
+
+[data-locale='id'] .id-list .id-item-title {
+  color: var(--id-text);
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+[data-locale='id'] .id-list .id-item-title:hover {
+  color: var(--id-primary);
+  text-decoration: underline;
+}
+
+[data-locale='id'] .id-list .id-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  font-size: 12.5px;
+  color: var(--id-text-sub);
+}
+
+/* ── 주의 박스 ─────────────────────────────────────────── */
+[data-locale='id'] .id-caution {
+  border: 1px solid var(--id-border);
+  border-left: 5px solid var(--id-accent);
+  background: var(--id-surface);
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  margin: 16px 0;
+}
+
+[data-locale='id'] .id-note {
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--id-text-sub);
+  border-top: 1px solid var(--id-border);
+  margin-top: 32px;
+  padding-top: 16px;
+}
+
+/* ── 푸터 ──────────────────────────────────────────────── */
+[data-locale='id'] .id-footer {
+  border-top: 3px solid var(--id-primary);
+  background: var(--id-surface);
+  font-size: 13px;
+}
+
+[data-locale='id'] .id-footer-inner {
+  max-width: var(--id-max);
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+}
+
+[data-locale='id'] .id-footer ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+/* 외부 링크 아이콘 */
+[data-locale='id'] .id-ext::after {
+  content: '↗';
+  font-size: 0.85em;
+  margin-left: 3px;
+  color: var(--id-text-sub);
+}

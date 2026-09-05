@@ -1,0 +1,49 @@
+---
+// 인도네시아어판 홈 (Fase A — 2026-09-05 신설).
+// 아직 용어집·FAQ 등 참조 페이지가 없으므로 카드 그리드는 넣지 않았다.
+// 내용 없는 페이지로 링크를 걸면 방문자 신뢰도 떨어지고 검색엔진도
+// 빈약한 페이지로 취급한다(ja판이 처음에 3페이지만 낸 것과 같은 절제).
+import IdLayout from '../../layouts/IdLayout.astro';
+import id from '../../i18n/id.json';
+import { withBase } from '../../utils/site';
+---
+
+<IdLayout
+  title={id.home.metaTitle}
+  description={id.home.metaDescription}
+  koPath="/"
+  jaPath="/ja/"
+  ruPath="/ru/"
+>
+  <p class="id-updated" style="letter-spacing:.06em">{id.home.heroEyebrow}</p>
+  <h1>{id.home.heroTitle}</h1>
+  <p>{id.home.heroLead}</p>
+
+  <p style="margin-top:16px">
+    <a class="id-cta" href={withBase('/id/about/')}>{id.nav.about} →</a>
+  </p>
+
+  <h2>{id.home.notTranslationTitle}</h2>
+  <p>{id.home.notTranslationBody}</p>
+
+  <h2>{id.home.sourceNoteTitle}</h2>
+  <p>{id.home.sourceNoteBody}</p>
+
+  <div class="id-note">
+    <p><strong>{id.home.koNoticeTitle}</strong></p>
+    <p style="margin-top:6px">{id.home.koNoticeBody}</p>
+    <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{id.ui.langKo} →</a></p>
+  </div>
+
+  <p class="id-wip">{id.ui.underConstruction}</p>
+</IdLayout>
+
+<style>
+  .id-wip {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--id-border);
+    font-size: 13.5px;
+    color: var(--id-text-sub);
+  }
+</style>
