@@ -208,6 +208,16 @@ const year = new Date().getFullYear();
       )
     }
 
+    {/* 피드 자동발견 — 브라우저·리더가 이 페이지에서 구독 주소를 찾는다.
+        언어판마다 주소가 달라야 한다(한국어 피드와 같은 주소를 쓰면
+        수집기가 두 피드를 같은 것으로 보고 한쪽을 버린다). */}
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_ID}
+      href={withBase('/id/rss.xml')}
+    />
+
     <script type="application/ld+json" is:inline set:html={jsonLdText} />
 
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
@@ -332,6 +342,7 @@ const year = new Date().getFullYear();
           <li><a href={withBase('/privacy/')}>{id.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{id.footer.contact}</a></li>
           <li><a href={withBase('/sitemap-index.xml')}>{id.footer.sitemap}</a></li>
+          <li><a href={withBase('/id/rss.xml')}>{id.footer.rss}</a></li>
         </ul>
         <p>{id.ui.disclaimer}</p>
         <p style="margin-top:10px">© {year} {SITE_ID}</p>
