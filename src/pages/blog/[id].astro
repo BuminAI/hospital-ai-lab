@@ -82,7 +82,11 @@ const blogPosting = {
   author: { '@id': `${siteUrl}/#person` },
   publisher: { '@id': `${siteUrl}/#organization` },
   isPartOf: { '@id': `${siteUrl}/#website` },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+  // 레이아웃이 같은 URL에 대해 `<canonical>#webpage` WebPage 노드를 이미 내보낸다.
+  // 여기서 canonicalUrl(끝에 #webpage 없음)을 쓰면 같은 페이지를 가리키는
+  // WebPage 노드가 그래프에 둘 생겨 검색엔진이 별개 개체로 읽는다.
+  // 그 노드를 그대로 참조해 하나로 묶는다(2026-09-06 정리, 네 언어판 공통).
+  mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
 };
 ---
 

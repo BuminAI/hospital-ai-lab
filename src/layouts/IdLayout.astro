@@ -34,13 +34,29 @@ interface Props {
   jaPath?: string;
   /** 이 페이지의 러시아어판 경로. */
   ruPath?: string;
+  /**
+   * 번역 짝이 없는 독립 페이지(2026-09-06 추가). true면 hreflang을 아예 내지
+   * 않는다. 상단의 언어 전환 링크는 koPath로 그대로 동작한다.
+   * 자세한 배경은 RuLayout.astro의 같은 prop 주석 참고.
+   */
+  standalone?: boolean;
   /** 갱신일 표기 */
   updated?: Date;
   /** 페이지 고유 JSON-LD 노드 */
   schema?: Record<string, unknown>[];
 }
 
-const { title, description, crumb, koPath = '/', jaPath, ruPath, updated, schema = [] } = Astro.props;
+const {
+  title,
+  description,
+  crumb,
+  koPath = '/',
+  jaPath,
+  ruPath,
+  standalone = false,
+  updated,
+  schema = [],
+} = Astro.props;
 
 const SITE_ID = 'Hospital AI Lab';
 
@@ -50,7 +66,11 @@ const siteRoot = Astro.site
 const currentPath = stripBase(Astro.url.pathname);
 const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
 const canonical = `${siteRoot}${withBase(canonicalPath)}`;
-const pageTitle = `${title} | ${SITE_ID}`;
+// 제목 — 이미 긴 제목에는 사이트명 접미사를 붙이지 않는다(2026-09-06).
+// 기준과 배경은 RuLayout.astro의 같은 자리 주석 참고(라틴 문자라 예산 동일).
+const TITLE_BUDGET = 65;
+const withSuffix = `${title} | ${SITE_ID}`;
+const pageTitle = withSuffix.length <= TITLE_BUDGET ? withSuffix : title;
 
 // 갱신일: 페이지가 안 넘기면 이 경로의 실제 마지막 커밋일을 쓴다(빌드 시각이
 // 아님 — 뉴스 자동 수집으로 하루에도 여러 번 재빌드되는 사이트라, 안 그러면
@@ -176,11 +196,17 @@ const year = new Date().getFullYear();
         계속 받고 있었다 — 서브셋 전환 효과가 러시아어판에서만 사라진 상태였다. */}
 
     {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
-    <link rel="alternate" hreflang="ko" href={koHref} />
-    {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
-    {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
-    <link rel="alternate" hreflang="id" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={koHref} />
+    {
+      !standalone && (
+        <>
+          <link rel="alternate" hreflang="ko" href={koHref} />
+          {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
+          {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
+          <link rel="alternate" hreflang="id" href={canonical} />
+          <link rel="alternate" hreflang="x-default" href={koHref} />
+        </>
+      )
+    }
 
     <script type="application/ld+json" is:inline set:html={jsonLdText} />
 

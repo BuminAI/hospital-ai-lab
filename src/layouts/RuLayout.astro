@@ -34,13 +34,35 @@ interface Props {
   jaPath?: string;
   /** 이 페이지의 인도네시아어판 경로(2026-09-05 추가). */
   idPath?: string;
+  /**
+   * 번역 짝이 없는 독립 페이지(2026-09-06 추가). true면 hreflang을 아예 내지
+   * 않는다. 상단의 언어 전환 링크는 koPath로 그대로 동작한다.
+   *
+   * ⚠️ 왜 필요한가: 블로그 글은 언어판마다 주제가 다른 독립 집필이라 짝이
+   *    없는데, 언어 전환 링크를 한국어 블로그 목록으로 보내려고 koPath="/blog/"
+   *    를 넘기고 있었다. 그 값이 hreflang에도 그대로 쓰여서, 러시아어 글 12편이
+   *    전부 "이 글의 한국어판은 /blog/(목록)"이라고 잘못 선언하고 있었다.
+   *    /blog/는 되짚어 가리키지 않으므로 상호참조가 깨져 구글이 무시하고,
+   *    x-default까지 한국어 목록을 가리켰다(2026-09-06 발견·수정).
+   */
+  standalone?: boolean;
   /** 갱신일 표기 */
   updated?: Date;
   /** 페이지 고유 JSON-LD 노드 */
   schema?: Record<string, unknown>[];
 }
 
-const { title, description, crumb, koPath = '/', jaPath, idPath, updated, schema = [] } = Astro.props;
+const {
+  title,
+  description,
+  crumb,
+  koPath = '/',
+  jaPath,
+  idPath,
+  standalone = false,
+  updated,
+  schema = [],
+} = Astro.props;
 
 const SITE_RU = 'Лаборатория ИИ для больниц';
 
@@ -50,7 +72,15 @@ const siteRoot = Astro.site
 const currentPath = stripBase(Astro.url.pathname);
 const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
 const canonical = `${siteRoot}${withBase(canonicalPath)}`;
-const pageTitle = `${title} | ${SITE_RU}`;
+// 제목 — 이미 긴 제목에는 사이트명 접미사를 붙이지 않는다(2026-09-06).
+//
+// 구글은 검색결과 제목을 픽셀 폭(약 600px)으로 자른다. 키릴 문자는 65자
+// 안팎이 한계인데, 접미사 " | Лаборатория ИИ для больниц"만 29자여서
+// 러시아어 글 12편 중 10편이 75~104자로 나가 뒷부분이 잘리고 있었다.
+// 브랜드는 og:site_name과 Organization 스키마로 따로 전달되므로 손실 없다.
+const TITLE_BUDGET = 65;
+const withSuffix = `${title} | ${SITE_RU}`;
+const pageTitle = withSuffix.length <= TITLE_BUDGET ? withSuffix : title;
 
 // 갱신일: 페이지가 안 넘기면 이 경로의 실제 마지막 커밋일을 쓴다(빌드 시각이
 // 아님 — 뉴스 자동 수집으로 하루에도 여러 번 재빌드되는 사이트라, 안 그러면
@@ -175,12 +205,20 @@ const year = new Date().getFullYear();
         여기 남아 있던 preload 때문에 러시아어 페이지만 옛 통짜 파일(2,010KB)을
         계속 받고 있었다 — 서브셋 전환 효과가 러시아어판에서만 사라진 상태였다. */}
 
-    {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
-    <link rel="alternate" hreflang="ko" href={koHref} />
-    {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
-    {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
-    <link rel="alternate" hreflang="ru" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={koHref} />
+    {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다.
+        standalone(번역 짝 없는 글)이면 아예 내지 않는다 — 짝이 없는데 거는
+        alternate는 구글이 무시할 뿐 아니라 잘못된 대응을 선언하는 셈이다. */}
+    {
+      !standalone && (
+        <>
+          <link rel="alternate" hreflang="ko" href={koHref} />
+          {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
+          {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
+          <link rel="alternate" hreflang="ru" href={canonical} />
+          <link rel="alternate" hreflang="x-default" href={koHref} />
+        </>
+      )
+    }
 
     <script type="application/ld+json" is:inline set:html={jsonLdText} />
 

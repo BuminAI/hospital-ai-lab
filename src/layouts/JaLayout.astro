@@ -35,16 +35,37 @@ interface Props {
   ruPath?: string;
   /** 이 페이지의 인도네시아어판 경로(2026-09-05 추가). 없으면 안 넘기면 된다. */
   idPath?: string;
+  /**
+   * 번역 짝이 없는 독립 페이지(2026-09-06 추가). true면 hreflang을 아예 내지
+   * 않는다. 상단의 언어 전환 링크는 koPath로 그대로 동작한다.
+   * 자세한 배경은 RuLayout.astro의 같은 prop 주석 참고.
+   */
+  standalone?: boolean;
   /** 갱신일 표기 */
   updated?: Date;
   /** 페이지 고유 JSON-LD 노드 */
   schema?: Record<string, unknown>[];
 }
 
-const { title, description, crumb, koPath = '/', ruPath, idPath, updated, schema = [] } = Astro.props;
+const {
+  title,
+  description,
+  crumb,
+  koPath = '/',
+  ruPath,
+  idPath,
+  standalone = false,
+  updated,
+  schema = [],
+} = Astro.props;
 
 const SITE_JA = '病院AI研究所';
-const pageTitle = crumb ? `${title}｜${SITE_JA}` : `${title}｜${SITE_JA}`;
+// 제목 — 이미 긴 제목에는 사이트명 접미사를 붙이지 않는다(2026-09-06).
+// 한자·가나는 글자 폭이 넓어 40자 안팎이 한계다. 배경은 BaseLayout.astro 참고.
+// (전에는 crumb 유무로 삼항 분기를 했지만 양쪽 결과가 같아 의미가 없었다.)
+const TITLE_BUDGET = 40;
+const withSuffix = `${title}｜${SITE_JA}`;
+const pageTitle = withSuffix.length <= TITLE_BUDGET ? withSuffix : title;
 
 const siteRoot = Astro.site
   ? Astro.site.href.replace(/\/$/, '')
@@ -191,11 +212,17 @@ const year = new Date().getFullYear();
     <link rel="canonical" href={canonical} />
 
     {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
-    <link rel="alternate" hreflang="ko" href={koHref} />
-    <link rel="alternate" hreflang="ja" href={canonical} />
-    {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
-    {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
-    <link rel="alternate" hreflang="x-default" href={koHref} />
+    {
+      !standalone && (
+        <>
+          <link rel="alternate" hreflang="ko" href={koHref} />
+          <link rel="alternate" hreflang="ja" href={canonical} />
+          {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
+          {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
+          <link rel="alternate" hreflang="x-default" href={koHref} />
+        </>
+      )
+    }
 
     <script type="application/ld+json" is:inline set:html={jsonLdText} />
 

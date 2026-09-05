@@ -64,7 +64,16 @@ const {
   schema = [],
   ogImage: ogImagePath,
 } = Astro.props;
-const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
+// 제목 — 이미 긴 제목에는 사이트명 접미사를 붙이지 않는다(2026-09-06).
+//
+// 구글은 검색결과 제목을 글자 수가 아니라 픽셀 폭(약 600px)으로 자른다.
+// 한글·한자는 글자당 폭이 넓어 40자 안팎이 한계인데, 블로그 글 제목이
+// 47~55자라 접미사를 붙이면 "… · 병원 AI 연"처럼 접미사 쪽이 잘려 나갔다.
+// 브랜드는 안 보이고 제목 뒷부분만 손해였다. 접미사를 빼도 브랜드 정보는
+// og:site_name과 Organization 스키마로 따로 전달되므로 잃는 것이 없다.
+const TITLE_BUDGET = 40;
+const withSuffix = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
+const pageTitle = !title ? SITE_TITLE : withSuffix.length <= TITLE_BUDGET ? withSuffix : title;
 // 레거시 jaPath와 신규 alternates를 병합한다. alternates.ja가 명시되면 그것이
 // 우선하고, 없으면 jaPath가 대신 채운다 — 기존 호출부를 안 고쳐도 되게 하려고.
 const alternates: Partial<Record<'ja' | 'ru' | 'id', string>> = {
@@ -159,6 +168,29 @@ const breadcrumb =
         },
       ]
     : [];
+
+// WebPage — 페이지 하나하나를 사이트(#website)에 속한 개체로 명시한다.
+//
+// 2026-09-06 추가. 일본어·러시아어·인도네시아어판 레이아웃은 처음부터 이
+// 노드를 넣고 있었는데 한국어판에만 빠져 있었다(전 76페이지). 그래서 한국어
+// 페이지는 Person·Organization·WebSite만 있고 "이 URL이 무엇인가"를 말해 주는
+// 노드가 없었다. AI 검색엔진이 페이지의 언어와 사이트 소속을 추론이 아니라
+// 선언으로 읽게 하려고 다른 언어판과 같은 형태로 맞춘다.
+//
+// ⚠️ dateModified는 넣지 않는다. 다른 언어판은 화면에 갱신일을 표시하므로
+//    같은 값을 마크업하지만, 한국어판 BaseLayout에는 갱신일 표시가 없다.
+//    화면에 없는 사실을 기계에만 주장하지 않는다(이 저장소의 기존 원칙).
+const webPage = {
+  '@type': 'WebPage',
+  '@id': `${siteRoot}${canonicalPath}#webpage`,
+  url: `${siteRoot}${canonicalPath}`,
+  name: title ?? SITE_TITLE,
+  description,
+  inLanguage: 'ko-KR',
+  isPartOf: { '@id': `${siteRoot}/#website` },
+  ...(breadcrumb.length ? { breadcrumb: { '@id': breadcrumb[0]['@id'] } } : {}),
+  about: { '@id': `${siteRoot}/#organization` },
+};
 ---
 
 <!doctype html>
@@ -231,7 +263,7 @@ const breadcrumb =
 
     {/* 구조화 데이터(JSON-LD). 색인 제외 페이지에는 넣지 않는다 —
         검색·AI에 노출할 페이지가 아니므로 엔티티를 흘릴 이유가 없다. */}
-    {!noindex && <SchemaOrg extra={[...breadcrumb, ...schema]} />}
+    {!noindex && <SchemaOrg extra={[webPage, ...breadcrumb, ...schema]} />}
     <link
       rel="alternate"
       type="application/rss+xml"
