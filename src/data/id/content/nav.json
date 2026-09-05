@@ -8,5 +8,15 @@
     "href": "/id/about/",
     "key": "about",
     "enabled": true
+  },
+  {
+    "href": "/id/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/id/faq/",
+    "key": "faq",
+    "enabled": true
   }
 ]

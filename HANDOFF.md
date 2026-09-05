@@ -326,6 +326,38 @@ npm run build    # 배포본 생성(dist/)
 - 없음(Phase A~D 전부 완료). 다음은 콘텐츠 확장(용어·FAQ·글 추가)과 위 PR 머지.
 - **영상 신규 등록 도구**: admin-ru에는 아직 "한국어판에 새로 생긴 '직접 만든 영상' 자동 발견" 기능이 없다(ja의 jv-sync에 해당). 지금은 12개 전량 수동 입력했다. 13강이 생기면 개발자에게 요청하거나 admin-ja의 jv-sync 패턴을 이식할 것.
 
+## 5-4. 인도네시아어판 `/id/` (2026-09-05 신설, Fase B까지 완료)
+
+일본어·러시아어판과 마찬가지로 한국어판과 완전히 분리된 별도 언어판이다. **번역이 아니라 인도네시아 제도를 새로 조사해 쓴 콘텐츠**다.
+
+| 항목 | 위치 | 주의 |
+| --- | --- | --- |
+| i18n 라우팅 | `astro.config.mjs` | `locales`에 `'id'`, 사이트맵 `i18n.locales`에 `id: 'id-ID'` 추가 |
+| 레이아웃 | `src/layouts/IdLayout.astro` | RuLayout 구조 복제(2컬럼·브레드크럼·상시 사이드바). 다른 레이아웃과 **합치지 말 것** |
+| 디자인 토큰 | `src/styles/id-tokens.css` | 선택자는 반드시 `[data-locale='id'] body` — html에만 걸면 global.css가 이긴다(ja가 겪은 버그). 주조색 `#0a5470`(청록)으로 다른 언어판과 구분 |
+| 폰트 | 별도 처리 없음 | 인도네시아어는 라틴 문자라 Pretendard 동적 서브셋이 그대로 적용된다(ja처럼 시스템 폰트로 바꿀 필요 없음) |
+| 운영자 이름 | `src/i18n/id.json`의 `profile.name` | 라틴 문자권이라 **음역이 필요 없다** — `Youngho Cho (조영호)` 그대로. 한글은 JSON-LD `alternateName`에 둔다 |
+| 본문 콘텐츠 | `src/data/id/content/*.json` | `glossary.ts`·`faq.ts`는 JSON을 읽어 타입만 붙이는 얇은 로더. TS에 본문을 직접 쓰지 말 것 |
+| 메뉴 노출 | `src/data/id/content/nav.json` | 현재 4개(홈·소개·용어집·FAQ). 내용 없는 페이지는 메뉴에 걸지 않는다 |
+| hreflang | 4개 언어 상호참조 | `BaseLayout`의 `alternates`에 `id` 추가, `JaLayout`·`RuLayout`에 `idPath`, `IdLayout`에 `ruPath`. **홈·소개·용어집·FAQ 64개 관계를 빌드 산출물로 전수 검증**했다 |
+
+### 검증된 출처 (2026-09-05, 전부 WebFetch 실접속 확인)
+
+- **UU No. 27/2022 (Pelindungan Data Pribadi)** — 정식 명칭·공포일(2022-10-17)·Pasal 74의 2년 조정기간을 정부 법령정보(JDIH Komdigi) 원문으로 확인. `https://jdih.komdigi.go.id/produk_hukum/view/id/832/...`
+- **SATUSEHAT** — 공식 정의 문구를 `satusehat.kemkes.go.id`에서 직접 확인
+- **SATUSEHAT AI·AI 규제 방향** — 보건부 2026-06-08 발표 기사(`kemkes.go.id`)에서 인용문 확인
+- **Izin edar** — `regalkes.kemkes.go.id`가 보건부 공식 등록 포털임을 직접 확인
+
+### ⚠️ 확인 못 해서 일부러 안 쓴 것
+
+- **"소프트웨어가 alat kesehatan에 포함되어 등록 대상"** — 컨설팅 업체 글에만 나오고 Permenkes 원문으로 확인하지 못했다. `regalkes` 공식 포털에도 소프트웨어 포함 여부가 명시돼 있지 않았고, 공식 지침 PDF는 열어 보니 로고 파일이었다. **Permenkes 원문으로 확인되기 전에는 쓰지 말 것.**
+- Permenkes 62/2017의 Kelas A~D 구분, UU PDP 제재 비율(연매출 2%) — 같은 이유로 미기재.
+- `peraturan.bpk.go.id`는 WebFetch에 403을 준다. 법령 확인은 **JDIH Komdigi**를 쓸 것.
+
+### 아직 안 만든 것
+
+체크리스트·가이드·팁·영상·뉴스·블로그. 뉴스 자동 수집은 인도네시아 매체 구조를 아직 조사하지 않았다. 블로그를 만들면 `content.config.ts`에 `blogId` 컬렉션을 추가하고, 자동 발행 예외(CLAUDE.md)에 넣을지는 **오너 확인이 필요하다**(ja·ru는 별도 지시로 포함됐다).
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **Node가 PATH에 없을 수 있다**: `.claude/run-npm.cmd` 래퍼로 절대경로 실행(§2).

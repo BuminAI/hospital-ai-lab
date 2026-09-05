@@ -1,0 +1,50 @@
+[
+  {
+    "id": "mulai-dari-mana",
+    "question": "Rumah sakit kami baru mulai mempertimbangkan AI. Harus mulai dari mana?",
+    "answer": "Mulailah dari dua hal yang tidak bergantung pada produk mana pun: dasar hukum pemrosesan data pasien, dan status perizinan alat atau sistem yang ditawarkan. UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi diundangkan pada 17 Oktober 2022, dan Pasal 74 memberi waktu paling lama dua tahun untuk menyesuaikan cara memproses data pribadi. Untuk alat kesehatan, izin edarnya dapat ditelusuri melalui portal resmi Kementerian Kesehatan. Kedua hal ini bisa Anda periksa sebelum membicarakan fitur apa pun.",
+    "sources": [
+      "https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022",
+      "https://regalkes.kemkes.go.id/"
+    ]
+  },
+  {
+    "id": "aturan-ai-sudah-ada",
+    "question": "Apakah Indonesia sudah punya aturan khusus untuk AI di layanan kesehatan?",
+    "answer": "Sebagian masih dalam penyusunan. Pada 8 Juni 2026 Kementerian Kesehatan menyampaikan bahwa pemanfaatan AI kesehatan harus diiringi tata kelola yang ketat dan etika yang kuat, dan menyebut hal-hal yang sedang disiapkan: aturan untuk alat kesehatan berbasis AI, tata kelola data, prosedur persetujuan pasien sebelum data digunakan, serta penguatan kapasitas komite etik penelitian kesehatan. Karena itu, keputusan yang diambil sekarang sebaiknya dibuat agar mudah disesuaikan ketika aturan teknisnya terbit.",
+    "sources": [
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+    ]
+  },
+  {
+    "id": "data-pasien-untuk-vendor",
+    "question": "Vendor meminta data pasien untuk melatih atau menguji sistemnya. Apa yang perlu diperiksa?",
+    "answer": "Yang perlu dipastikan lebih dulu adalah dasar pemrosesan datanya menurut UU Pelindungan Data Pribadi, bukan seberapa canggih sistemnya. Mintalah penjelasan tertulis: data apa saja yang diminta, untuk keperluan apa, disimpan di mana dan berapa lama, serta atas dasar apa pemrosesan itu dilakukan. Masa penyesuaian dua tahun dalam Pasal 74 dihitung sejak undang-undang diundangkan pada 17 Oktober 2022, sehingga tenggat itu sudah lewat dan tidak lagi bisa dijadikan alasan menunda.",
+    "sources": [
+      "https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022"
+    ]
+  },
+  {
+    "id": "izin-edar-cek",
+    "question": "Bagaimana memastikan alat yang ditawarkan sudah punya izin edar?",
+    "answer": "Izin edar alat kesehatan diterbitkan Kementerian Kesehatan, dan pendaftarannya dilayani melalui portal resmi regalkes.kemkes.go.id yang juga menangani PKRT. Anda dapat memeriksa sendiri melalui portal tersebut, alih-alih hanya menerima keterangan lisan dari penyedia. Simpan hasil pemeriksaan itu dalam berkas pengadaan.",
+    "sources": ["https://regalkes.kemkes.go.id/"]
+  },
+  {
+    "id": "satusehat-apa",
+    "question": "Apa hubungan SATUSEHAT dengan rencana AI di rumah sakit?",
+    "answer": "Menurut situs resminya, SATUSEHAT adalah ekosistem digital kesehatan nasional untuk memudahkan masyarakat mengakses data kesehatan dan mengelola kesehatan pribadi secara mandiri, dan berada di bawah Kementerian Kesehatan. Dalam keterangan 8 Juni 2026, Kementerian Kesehatan menyebut pihaknya membentuk SATUSEHAT dan SATUSEHAT AI untuk menjaga agar data masyarakat Indonesia tidak disalahgunakan. Ketika proposal menyebut kata 'integrasi', mintalah penyedia menjelaskan secara konkret apa yang dimaksud.",
+    "sources": [
+      "https://satusehat.kemkes.go.id/",
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+    ]
+  },
+  {
+    "id": "penelitian-bersama-vendor",
+    "question": "Kami diajak vendor melakukan uji coba bersama. Apa yang sering terlewat?",
+    "answer": "Jalur telaah etik. Penguatan kapasitas komite etik penelitian kesehatan dalam menelaah penelitian yang menggunakan AI termasuk hal yang disebut Kementerian Kesehatan pada 8 Juni 2026. Menyiapkan telaah etik sejak tahap perencanaan jauh lebih mudah daripada mengurusnya setelah data terlanjur dikumpulkan.",
+    "sources": [
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+    ]
+  }
+]

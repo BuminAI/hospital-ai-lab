@@ -57,6 +57,21 @@
     "koNoticeTitle": "Versi Korea",
     "koNoticeBody": "Situs induk berbahasa Korea memuat lebih banyak materi, termasuk blog harian, kumpulan berita, dan daftar program pemerintah. Regulasi yang dibahas di sana adalah regulasi Korea."
   },
+  "glossary": {
+    "pageTitle": "Kamus Istilah AI Kesehatan",
+    "metaTitle": "Kamus Istilah AI Kesehatan",
+    "metaDescription": "Istilah yang muncul dalam proposal dan rapat soal AI kesehatan, dijelaskan dengan rujukan regulasi Indonesia.",
+    "pageLead": "Istilah yang sering muncul dalam proposal penyedia dan rapat internal, dijelaskan seperlunya untuk keperluan administrasi rumah sakit.",
+    "notice": "Setiap penjelasan disertai tautan sumber. Kalau ada yang tidak dapat kami pastikan sumbernya, istilah itu tidak dimasukkan.",
+    "caution": "Ketentuan dapat berubah. Untuk keputusan resmi, periksa kembali melalui tautan sumber di setiap istilah."
+  },
+  "faq": {
+    "pageTitle": "Pertanyaan Umum",
+    "metaTitle": "Pertanyaan Umum",
+    "metaDescription": "Pertanyaan yang sering muncul saat rumah sakit mempertimbangkan AI, dijawab dengan rujukan regulasi Indonesia.",
+    "pageLead": "Pertanyaan yang biasanya muncul lebih dulu di bagian administrasi dan keperawatan, bukan di ruang klinis.",
+    "notice": "Jawaban di sini bersifat informasi umum, bukan nasihat hukum. Untuk keputusan resmi, periksa tautan sumber dan konsultasikan dengan bagian hukum."
+  },
   "about": {
     "metaTitle": "Tentang Penulis",
     "metaDescription": "Penulis situs Hospital AI Lab — 17 tahun bekerja di rumah sakit umum Korea Selatan, 7 tahun di perencanaan strategis.",
