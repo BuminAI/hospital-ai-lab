@@ -55,11 +55,19 @@ function mvDateToIso(s) {
   return Number.isNaN(d.getTime()) ? null : d.toISOString();
 }
 
-// ── Vademecum: "11.08.2026" (DD.MM.YYYY) 형식을 ISO로 변환 ──
+// ── Vademecum: "11.08.2026" / "4.09.2026" 형식을 ISO로 변환 ──
+//
+// ⚠️ 2026-09-06 버그 수정: 예전 정규식이 `(\d{2})\.(\d{2})`로 **일·월을 두
+//    자리로 강제**해서, 하루가 한 자리인 날짜("4.09.2026")가 매치되지 않아
+//    그 기사가 조용히 버려졌다. 매달 1~9일 기사가 통째로 빠지고 있었고,
+//    수집 로그에는 오류가 남지 않아 한동안 드러나지 않았다(실측: 8/30 이후
+//    9월 기사가 하나도 안 들어옴). 자릿수를 1~2로 풀고 padStart로 보정한다.
 function vdDateToIso(s) {
-  const m = s.trim().match(/(\d{2})\.(\d{2})\.(\d{4})/);
+  const m = s.trim().match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
   if (!m) return null;
-  const d = new Date(`${m[3]}-${m[2]}-${m[1]}T12:00:00+03:00`);
+  const day = m[1].padStart(2, '0');
+  const mon = m[2].padStart(2, '0');
+  const d = new Date(`${m[3]}-${mon}-${day}T12:00:00+03:00`);
   return Number.isNaN(d.getTime()) ? null : d.toISOString();
 }
 
