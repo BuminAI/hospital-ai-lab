@@ -125,12 +125,19 @@ async function fetchDetik() {
 // 블록: class="tren__link" href="…"> … <div class="tren__date">DD/MM/YYYY, HH:MM WIB</div>
 // 제목은 이미지 alt 속성이 가장 안정적이다(제목 태그가 trenHL__title·tren__title로
 // 갈린다 — 2026-09-06 실측).
+// ⚠️ 자릿수를 1~2로 열어 둔다. 오늘 실측에서는 "05/09/2026"처럼 0을 채워
+//    보내지만, 한 자리("5/9/2026")로 바뀌면 매치가 안 돼 그 기사가 조용히
+//    버려진다 — 러시아어판 Vademecum 파서가 실제로 그렇게 매달 1~9일
+//    기사를 통째로 놓치고 있었다(2026-09-06 발견·수정). 같은 함정을
+//    되풀이하지 않으려고 처음부터 열어 두고 padStart로 보정한다.
 const kompasDateToIso = (s) => {
-  const m = s.match(/(\d{2})\/(\d{2})\/(\d{4}),\s*(\d{2}):(\d{2})/);
+  const m = s.match(/(\d{1,2})\/(\d{1,2})\/(\d{4}),\s*(\d{1,2}):(\d{2})/);
   if (!m) return null;
   const [, dd, mm, yyyy, hh, mi] = m;
   // WIB는 UTC+7. 오프셋을 명시해 서버 표준시와 무관하게 같은 값이 나오게 한다.
-  const d = new Date(`${yyyy}-${mm}-${dd}T${hh}:${mi}:00+07:00`);
+  const d = new Date(
+    `${yyyy}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}T${hh.padStart(2, '0')}:${mi}:00+07:00`
+  );
   return Number.isNaN(d.getTime()) ? null : d.toISOString();
 };
 
