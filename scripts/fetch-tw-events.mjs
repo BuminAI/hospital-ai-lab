@@ -12,14 +12,24 @@
 //   1) 中央社(cna.com.tw) 검색 — 행사 지향 검색어를 따로 둔다. 대만어판
 //      뉴스 수집기가 쓰는 것과 같은 JSON-LD ItemList 방식이라 안정적이고,
 //      기사 URL에 날짜가 박혀 있어 날짜도 정확하다.
-//   2) src/data/tw/news.json — 이미 누적된 뉴스에서 행사성 기사를 끌어온다.
+//   2) 衛生福利部(mohw.gov.tw) 最新消息 — 2026-09-06 수집원 확대로 추가.
+//      언론이 아니라 **주무 부처가 직접 내는 공지**라, 국가 차원 행사
+//      (설립 대회·정책 설명회)가 기사보다 먼저·정확하게 올라온다.
+//      목록에 제목·링크·날짜가 그대로 있어 본문을 안 읽어도 된다.
+//      ⚠️ 날짜가 민국력이다(115-09-05 = 2026-09-05). 서기 = 민국 + 1911.
+//      실측(2026-09-06): 8쪽 160건 중 행사+AI 둘 다 통과 2건(약 월 1건).
+//   3) src/data/tw/news.json — 이미 누적된 뉴스에서 행사성 기사를 끌어온다.
 //      매번 돌린다(1회성 시드가 아니다). 뉴스 수집기가 새 행사 기사를
 //      가져오면 여기에도 자동으로 반영되므로, 같은 기사를 두 번 긁지 않는다.
 //
-// ⚠️ 수확량이 적다는 것을 알고 만들었다(2026-09-06 실측: 누적 뉴스 95건 중
-//    행사성 11건). 대략 **주 1건** 수준을 예상한다. 조건을 넓히려면 EVENT_RE를
-//    손보면 되지만, '學會'처럼 단체 이름에 들어가는 말을 넣으면 오탐이 커진다
+// ⚠️ 수확량이 적다는 것을 알고 만들었다. 조건을 넓히려면 EVENT_RE를 손보면
+//    되지만, '學會'처럼 단체 이름에 들어가는 말을 넣으면 오탐이 커진다
 //    (한국어판이 '학회'를 일부러 뺀 것과 같은 이유).
+//    검색어를 넓힐 때는 **겹치는 만큼은 이득이 없다는 것**을 염두에 둘 것.
+//    2026-09-06 확대 실측: 기존 5개 검색어가 고유 34건, 새 검색어 10개를
+//    시험해 실제로 늘어난 것은 7건뿐이었다. 늘어난 4개만 남기고 나머지
+//    6개(電子病歷 研習·護理 智慧 研習·醫療科技 高峰會·智慧照護 說明會·
+//    醫療 AI 課程·醫院 數位轉型 研討會)는 0건이라 넣지 않았다.
 //
 // ⚠️ 지난 행사도 지우지 않는다. 한국어판과 같은 정책이다 — 무엇이 열렸는지
 //    보는 것 자체가 참고가 되고, 날짜로 정렬되므로 최신이 위에 온다.
@@ -34,7 +44,42 @@ const UA =
 
 const CNA_SOURCE = '中央社';
 // 행사 지향 검색어. 뉴스 수집기의 검색어와 겹치지 않게 행사 낱말을 넣는다.
-const CNA_QUERIES = ['智慧醫療 研討會', 'AI醫療 論壇', '醫療科技展', '智慧醫療 工作坊', 'AI 醫療 講座'];
+// 매번 쓰는 기본 검색어. 中央社는 대략 **90초에 7건**이 한도라(2026-09-06 실측)
+// 여기를 늘리면 뒤쪽 검색어가 통째로 429로 죽는다. 5개로 고정한다.
+const CNA_CORE_QUERIES = [
+  '智慧醫療 研討會',
+  'AI醫療 論壇',
+  '醫療科技展',
+  '智慧醫療 工作坊',
+  'AI 醫療 講座',
+];
+
+// 2026-09-06 확대분. 기본 검색어에 안 걸리던 기사를 물어온 것들만 남겼다
+// (시험한 10개 중 0건이던 6개는 넣지 않았다).
+// ⚠️ 한 번에 다 돌리면 한도에 걸린다. **회차마다 하나씩 돌려 쓴다.**
+//    이 목록은 대부분 지난 행사(기록)를 물어오는 쪽이라, 매번 전부 볼 이유가
+//    없다. 하루 3회 도는 워크플로 기준으로 이틀이면 네 개를 한 바퀴 돈다.
+const CNA_ROTATING_QUERIES = ['智慧醫療 年會', '數位醫療 論壇', '長照 科技 論壇', '生醫 AI 大會'];
+
+// 오늘이 며칠째인가로 고른다 — 실행마다 무작위로 고르면 어떤 검색어가
+// 언제 돌았는지 로그로 되짚을 수 없다.
+const daysSinceEpoch = Math.floor(Date.now() / 86400000);
+const rotatingQuery =
+  CNA_ROTATING_QUERIES[daysSinceEpoch % CNA_ROTATING_QUERIES.length];
+const CNA_QUERIES = [...CNA_CORE_QUERIES, rotatingQuery];
+
+// 검색어 사이 간격(ms). 6건을 이 간격으로 벌리면 90초 창 안에 5~6건이라
+// 한도(7건)에 여유가 있다. 같은 中央社를 쓰는 뉴스 수집기와 시간이
+// 겹칠 수 있다는 것까지 감안한 값이다.
+const CNA_GAP_MS = 15000;
+
+const MOHW_SOURCE = '衛生福利部';
+// 最新消息 목록. 1쪽은 lp-16-1.html, 2쪽부터 lp-16-1-<쪽>-20.html (한 쪽 20건).
+const MOHW_PAGES = 8;
+const mohwUrl = (p) =>
+  p === 1
+    ? 'https://www.mohw.gov.tw/lp-16-1.html'
+    : `https://www.mohw.gov.tw/lp-16-1-${p}-20.html`;
 
 // ── 판정 기준 ──────────────────────────────────────────
 // 행사 신호: 참석·신청할 수 있는 자리인가.
@@ -78,6 +123,8 @@ const normTitle = (t) =>
 const isEvent = (t) =>
   EVENT_RE.test(t) && AI_RE.test(t) && MED_RE.test(t) && !NOT_HOSPITAL_RE.test(t);
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 async function fetchRetry(url, tries = 3) {
   let last;
   for (let i = 0; i < tries; i++) {
@@ -92,10 +139,12 @@ async function fetchRetry(url, tries = 3) {
       });
       if (res.ok) return res;
       last = new Error(`HTTP ${res.status}`);
+      // 429(속도 제한)는 평소 백오프로는 안 풀린다. 더 길게 쉰다.
+      if (res.status === 429) await sleep(8000 * (i + 1));
     } catch (e) {
       last = new Error(`${e.message}${e.cause?.code ? ` (${e.cause.code})` : ''}`);
     }
-    if (i < tries - 1) await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
+    if (i < tries - 1) await sleep(1500 * (i + 1));
   }
   throw last;
 }
@@ -130,11 +179,41 @@ async function fetchCna(query) {
   return rows;
 }
 
+// ── 衛生福利部 最新消息 ────────────────────────────────
+// 목록 한 줄이 이 모양이다(공백 없이 붙어 있다):
+//   <a href="https://www.mohw.gov.tw/cp-16-87793-1.html" title="…"><p>제목</p><time>115-09-05</time></a>
+// title 속성과 <p> 안 제목이 같지만, 속성은 따옴표가 든 제목에서 깨질 수 있어
+// <p> 쪽을 쓴다.
+async function fetchMohw(page) {
+  const html = await (await fetchRetry(mohwUrl(page))).text();
+  const rows = [];
+  for (const m of html.matchAll(
+    /<a href="(https:\/\/www\.mohw\.gov\.tw\/cp-[\d-]+\.html)"[^>]*><p>([^<]{4,200})<\/p><time>(\d{3})-(\d{2})-(\d{2})<\/time>/g
+  )) {
+    const [, link, rawTitle, rocYear, mo, day] = m;
+    // 민국력 → 서기. 민국 1년이 1912년이므로 1911을 더한다.
+    const year = Number(rocYear) + 1911;
+    const date = new Date(`${year}-${mo}-${day}T12:00:00+08:00`);
+    if (Number.isNaN(date.getTime())) continue;
+    const title = stripTags(rawTitle);
+    if (!title) continue;
+    rows.push({ title, link, source: MOHW_SOURCE, pubDate: date.toISOString() });
+  }
+  return rows;
+}
+
 // ── 수집 ──────────────────────────────────────────────
 const collected = [];
 let okSources = 0;
 
-for (const query of CNA_QUERIES) {
+console.log(`中央社 검색어: 기본 ${CNA_CORE_QUERIES.length}개 + 이번 회차 «${rotatingQuery}»`);
+
+// ⚠️ 검색어 사이에 반드시 쉰다. 2026-09-06에 검색어를 5개에서 9개로 늘렸더니
+//    中央社가 마지막 두 개에 HTTP 429를 냈다. 실측한 한도는 90초에 7건이고,
+//    한 번 걸리면 90초가 지나야 풀린다(30초·60초에는 계속 429였다).
+//    쉬지 않으면 늘린 검색어가 매번 조용히 실패해서 늘린 보람이 없다.
+for (const [i, query] of CNA_QUERIES.entries()) {
+  if (i > 0) await sleep(CNA_GAP_MS);
   try {
     const rows = await fetchCna(query);
     const kept = rows.filter((r) => isEvent(r.title));
@@ -144,6 +223,28 @@ for (const query of CNA_QUERIES) {
   } catch (e) {
     console.error(`${CNA_SOURCE}/${query} 수집 실패 — ${e.message}`);
   }
+}
+
+// 衛生福利部 — 쪽마다 따로 잡는다. 한 쪽이 실패해도 나머지는 계속한다.
+let mohwRows = 0;
+let mohwKept = 0;
+let mohwOk = false;
+for (let p = 1; p <= MOHW_PAGES; p++) {
+  if (p > 1) await sleep(700);
+  try {
+    const rows = await fetchMohw(p);
+    const kept = rows.filter((r) => isEvent(r.title));
+    collected.push(...kept);
+    mohwRows += rows.length;
+    mohwKept += kept.length;
+    mohwOk = true;
+  } catch (e) {
+    console.error(`${MOHW_SOURCE} ${p}쪽 수집 실패 — ${e.message}`);
+  }
+}
+if (mohwOk) {
+  okSources++;
+  console.log(`${MOHW_SOURCE}: ${mohwRows}건 중 ${mohwKept}건 채택`);
 }
 
 // 이미 쌓인 뉴스에서 행사성 기사를 끌어온다. 실패해도 치명적이지 않다.
@@ -192,7 +293,7 @@ if (JSON.stringify(items) === JSON.stringify(existing)) {
 
 await writeFile(
   OUT,
-  JSON.stringify({ updatedAt: new Date().toISOString(), source: CNA_SOURCE, items }, null, 2) + '\n',
+  JSON.stringify({ updatedAt: new Date().toISOString(), source: `${CNA_SOURCE}·${MOHW_SOURCE}`, items }, null, 2) + '\n',
   'utf8'
 );
 console.log(`수집 완료: 누적 ${items.length}건`);

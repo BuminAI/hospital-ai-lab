@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-09-06T05:47:53.690Z",
-  "source": "中央社",
+  "updatedAt": "2026-09-06T14:16:27.616Z",
+  "source": "中央社·衛生福利部",
   "items": [
+    {
+      "title": "建立國家級數位醫療的基石 國家數位健康互通性與效能認證實驗室成立大會",
+      "link": "https://www.mohw.gov.tw/cp-16-87472-1.html",
+      "source": "衛生福利部",
+      "pubDate": "2026-08-18T04:00:00.000Z"
+    },
     {
       "title": "高齡健康產業博覽會 澎湖展遠距醫療與智慧篩檢",
       "link": "https://www.cna.com.tw/news/aloc/202608090177.aspx",
@@ -19,6 +25,12 @@
       "link": "https://www.cna.com.tw/news/ahel/202606300302.aspx",
       "source": "中央社",
       "pubDate": "2026-06-30T04:00:00.000Z"
+    },
+    {
+      "title": "臺灣論壇再登美國BIO主會場！衛福部資訊處李建璋處長演講：建構全國醫療資料網絡，臺灣搶進AI健康新賽道",
+      "link": "https://www.mohw.gov.tw/cp-16-87002-1.html",
+      "source": "衛生福利部",
+      "pubDate": "2026-06-25T04:00:00.000Z"
     },
     {
       "title": "台灣醫療展登場 黃志芳：看好智慧醫療與長照機器人",
@@ -231,6 +243,12 @@
       "pubDate": "2022-08-26T04:00:00.000Z"
     },
     {
+      "title": "台北比利時智慧醫療交流論壇 北醫秀質子治療能量",
+      "link": "https://www.cna.com.tw/news/ahel/202207280331.aspx",
+      "source": "中央社",
+      "pubDate": "2022-07-28T04:00:00.000Z"
+    },
+    {
       "title": "翁啟惠：2022醫療科技展 4面向啟動國際深度合作",
       "link": "https://www.cna.com.tw/news/afe/202204260083.aspx",
       "source": "中央社",
@@ -241,6 +259,12 @@
       "link": "https://www.cna.com.tw/news/afe/202204260085.aspx",
       "source": "中央社",
       "pubDate": "2022-04-26T04:00:00.000Z"
+    },
+    {
+      "title": "國研院長照結合AI論壇 智慧照護機器人討論度高",
+      "link": "https://www.cna.com.tw/news/ait/201906280202.aspx",
+      "source": "中央社",
+      "pubDate": "2019-06-28T04:00:00.000Z"
     }
   ]
 }

@@ -22,7 +22,7 @@ const items = events.items;
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteUrl}${withBase('/id/events/')}`;
 const DESC =
-  'Info pelatihan dan workshop dari PERSI seputar rekam medis elektronik, koding klaim, dan AI. Tanggal adalah tanggal pengumuman, bukan tanggal acara.';
+  'Info pelatihan dan workshop seputar rekam medis elektronik, koding klaim, dan AI — dari PERSI dan dari berita yang sudah terkumpul di situs ini. Tanggal adalah tanggal pengumuman, bukan tanggal acara.';
 
 const collectionPage = {
   '@type': 'CollectionPage',
@@ -57,9 +57,10 @@ const collectionPage = {
 >
   <h1>{idI18n.nav.events}</h1>
   <p class="id-lead">
-    Info pelatihan dan workshop dari PERSI (Perhimpunan Rumah Sakit Seluruh
-    Indonesia) yang berkaitan dengan rekam medis elektronik, koding klaim, dan
-    AI, dikumpulkan otomatis. Judul menautkan ke pengumuman aslinya.
+    Info pelatihan dan workshop yang berkaitan dengan rekam medis elektronik,
+    koding klaim, dan AI, dikumpulkan otomatis dari <strong>PERSI</strong>
+    (Perhimpunan Rumah Sakit Seluruh Indonesia) dan dari berita yang sudah
+    terkumpul di halaman berita situs ini. Judul menautkan ke sumber aslinya.
   </p>
 
   {/* 이 안내를 지우지 말 것 — 이 목록은 '행사 안내'가 아니라 '행사를 다룬

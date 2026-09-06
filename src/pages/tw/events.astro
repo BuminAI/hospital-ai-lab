@@ -22,7 +22,7 @@ const items = events.items;
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteUrl}${withBase('/tw/events/')}`;
 const DESC =
-  '臺灣醫療 AI 相關的研討會、論壇、工作坊與醫療科技展消息，從中央社的報導自動整理。日期是報導刊出日，不是活動日期；要參加請點進原文向主辦單位確認。';
+  '臺灣醫療 AI 相關的研討會、論壇、工作坊與醫療科技展消息，從中央社的報導與衛生福利部的公告自動整理。日期是刊出日，不是活動日期；要參加請點進原文向主辦單位確認。';
 
 const collectionPage = {
   '@type': 'CollectionPage',
@@ -57,16 +57,16 @@ const collectionPage = {
 >
   <h1>{twI18n.nav.events}</h1>
   <p class="tw-lead">
-    臺灣醫療 AI 相關的研討會、論壇、工作坊與醫療科技展消息，從中央社的報導自動
-    整理。點標題會連到原媒體的文章。
+    臺灣醫療 AI 相關的研討會、論壇、工作坊與醫療科技展消息，從<strong>中央社的報導</strong>
+    與<strong>衛生福利部的最新消息</strong>自動整理。點標題會連到原本的報導或公告。
   </p>
 
   {/* 이 안내를 지우지 말 것 — 이 목록은 '행사 안내'가 아니라 '행사를 다룬
       보도'다. 지난 행사가 그대로 남아 있고, 신청 기간·정원도 여기서는 알 수
       없다. 그 사실을 화면에서 밝히지 않으면 방문자를 오해하게 만든다. */}
   <p class="tw-caution">
-    <strong>這是報導的整理，不是活動公告。</strong>
-    下方的日期是<strong>報導刊出的日期</strong>，不是活動舉辦或報名的日期。
+    <strong>這是報導與公告的整理，不是活動報名頁。</strong>
+    下方的日期是<strong>報導或公告刊出的日期</strong>，不是活動舉辦或報名的日期。
     已經結束的活動也會留著——看過去辦過什麼，本身就有參考價值。
     要參加的話，請務必點進原文，並向主辦單位確認日期、名額與報名方式。
   </p>
