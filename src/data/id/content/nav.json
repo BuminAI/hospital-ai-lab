@@ -10,6 +10,26 @@
     "enabled": true
   },
   {
+    "href": "/id/blog/",
+    "key": "blog",
+    "enabled": true
+  },
+  {
+    "href": "/id/news/",
+    "key": "news",
+    "enabled": true
+  },
+  {
+    "href": "/id/gov-support/",
+    "key": "govSupport",
+    "enabled": true
+  },
+  {
+    "href": "/id/videos/",
+    "key": "videos",
+    "enabled": true
+  },
+  {
     "href": "/id/glossary/",
     "key": "glossary",
     "enabled": true
@@ -17,11 +37,6 @@
   {
     "href": "/id/faq/",
     "key": "faq",
-    "enabled": true
-  },
-  {
-    "href": "/id/blog/",
-    "key": "blog",
     "enabled": true
   }
 ]

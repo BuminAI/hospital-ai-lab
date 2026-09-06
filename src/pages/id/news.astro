@@ -1,0 +1,136 @@
+---
+// Berita AI — PERSI·ANTARA 자동 수집 목록 (ru/news.astro와 같은 패턴).
+//
+// hreflang을 걸지 않는다 — 자동 수집 목록은 언어판마다 완전히 다른 기사
+// 목록이라, 번역 관계가 아닌 페이지에 alternate를 걸면 검색엔진에 잘못된
+// 신호가 된다(ko news.astro·ru news.astro도 같은 원칙).
+import IdLayout from '../../layouts/IdLayout.astro';
+import idI18n from '../../i18n/id.json';
+import { withBase } from '../../utils/site';
+import news from '../../data/id/news.json';
+
+const fmt = new Intl.DateTimeFormat('id-ID', {
+  timeZone: 'Asia/Jakarta',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const items = news.items;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/id/news/')}`;
+const DESC =
+  'Berita tentang AI dan digitalisasi layanan kesehatan dari PERSI dan ANTARA, dikumpulkan secara otomatis.';
+
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: idI18n.nav.news,
+  description: DESC,
+  inLanguage: 'id-ID',
+  isPartOf: { '@id': `${siteUrl}/#website-id` },
+  dateModified: news.updatedAt,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.slice(0, 30).map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.title,
+      url: it.link,
+    })),
+  },
+};
+---
+
+<IdLayout
+  title={idI18n.nav.news}
+  description={DESC}
+  crumb={idI18n.nav.news}
+  koPath="/news/"
+  standalone
+  updated={new Date(news.updatedAt)}
+  schema={[collectionPage]}
+>
+  <h1>{idI18n.nav.news}</h1>
+  <p class="id-lead">
+    Berita dari PERSI (Perhimpunan Rumah Sakit Seluruh Indonesia) dan kantor berita
+    ANTARA yang menyinggung AI serta digitalisasi layanan kesehatan, dikumpulkan
+    otomatis beberapa kali sehari. Berita lama tidak dihapus.
+  </p>
+
+  {
+    items.length > 0 ? (
+      <ul class="id-news-list">
+        {items.map((item) => (
+          <li>
+            <a href={item.link} target="_blank" rel="noopener">
+              {item.title}
+              <span class="sr-only"> ({idI18n.ui.external})</span>
+            </a>
+            <span class="id-news-meta">
+              {item.source} ·{' '}
+              <time datetime={item.pubDate}>{fmt.format(new Date(item.pubDate))}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="id-empty">{idI18n.ui.noItems}</p>
+    )
+  }
+
+  <div class="id-note">
+    <p>
+      Daftar ini disusun otomatis dengan menyaring judul yang menyebut AI atau
+      digitalisasi layanan kesehatan. Ini bukan kurasi redaksi — situs ini tidak
+      menilai atau merekomendasikan materi tertentu. Judul menautkan langsung ke
+      artikel asli di situs penerbitnya.
+    </p>
+  </div>
+</IdLayout>
+
+<style>
+  .id-lead {
+    color: var(--id-text-sub);
+  }
+  .id-news-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--id-border);
+  }
+  .id-news-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--id-border);
+  }
+  .id-news-list a {
+    color: var(--id-text);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .id-news-list a:hover {
+    color: var(--id-primary);
+  }
+  .id-news-meta {
+    font-size: 13px;
+    color: var(--id-text-sub);
+  }
+  .id-empty {
+    margin-top: 20px;
+    color: var(--id-text-sub);
+  }
+  .id-note {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--id-border);
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--id-text-sub);
+  }
+</style>

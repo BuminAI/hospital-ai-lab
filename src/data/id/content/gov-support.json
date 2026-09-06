@@ -1,0 +1,49 @@
+{
+  "_comment": "인도네시아어판 정부 지원·제도 안내. ⚠️ 한국어판(/gov-support/)·일본어판(/ja/subsidies/)과 달리 이 페이지는 자동 수집이 아니라 사람이 확인해 적은 목록이다. 2026-09-06 조사에서 인도네시아에는 jGrants(일본)나 보건복지부 공고 목록(한국)처럼 기계로 읽을 수 있는 공고 소스를 찾지 못했다 — BRIN 공고 목록과 Komdigi는 자바스크립트로 그려져 원문 HTML에 내용이 없고, Kemenkes 공고 지면은 대부분 채용·조달 공고라 병원 지원사업과 성격이 다르며, LPDP는 이 환경에서 접속 자체가 되지 않았다. programs[]의 모든 서술은 url·sourceUrl에 실제 접속해 확인한 내용만 쓴다. 확인 못 한 것은 쓰지 않는다(CLAUDE.md 절대 원칙).",
+  "meta": {
+    "title": "Program Pemerintah",
+    "description": "Program pendanaan dan platform resmi pemerintah Indonesia yang berkaitan dengan rumah sakit, pendidikan tenaga kesehatan, dan digitalisasi layanan.",
+    "pageTitle": "Program Pemerintah",
+    "lead": "Program pendanaan dan platform resmi yang paling sering ditanyakan bagian administrasi rumah sakit. Setiap keterangan diambil dari halaman resmi programnya, dan tautannya menuju ke sana."
+  },
+  "notice": "Halaman ini disusun manual, bukan hasil pengumpulan otomatis. Karena itu isinya bisa tertinggal dari pengumuman terbaru — pastikan jadwal dan syarat terakhir langsung di situs resmi masing-masing program. Tanggal pemeriksaan terakhir tercantum di bawah setiap butir.",
+  "checkedAt": "2026-09-06",
+  "programs": [
+    {
+      "name": "RIIM Kompetisi (Riset dan Inovasi untuk Indonesia Maju)",
+      "org": "BRIN bersama LPDP",
+      "url": "https://pendanaan-risnov.brin.go.id/",
+      "body": "Skema pendanaan riset yang ditujukan bagi lembaga riset pemerintah maupun nonpemerintah. Pendanaannya bersifat multiyears dan dapat berjalan sampai tiga tahun tanpa mengajukan proposal baru setiap tahun, selama evaluasi periode sebelumnya dinilai baik. Ketua pengusul minimal berpendidikan magister. Pengajuan proposal sampai pengumuman hasil dilakukan lewat platform RISNOV. Pada 2026 pembukaan proposal dibagi menjadi dua batch.",
+      "audience": "Rumah sakit yang memiliki unit riset, atau staf yang menggarap riset bersama perguruan tinggi dan lembaga riset.",
+      "sourceUrl": "https://brin.go.id/news/128002/brin-lpdp-buka-riim-kompetisi-2026-ajak-periset-manfaatkan-dana-abadi-penelitian",
+      "sourceLabel": "Siaran BRIN, 8 Mei 2026"
+    },
+    {
+      "name": "SIBK — Sistem Informasi Beasiswa Kementerian Kesehatan",
+      "org": "Kementerian Kesehatan",
+      "url": "https://sibk.kemkes.go.id/",
+      "body": "Portal resmi Kementerian Kesehatan untuk program bantuan pendanaan pendidikan tenaga medis dan tenaga kesehatan. Pendaftaran, seleksi, dan administrasi beberapa kategori beasiswa dikelola di satu tempat.",
+      "audience": "Bagian SDM dan kepegawaian rumah sakit, serta tenaga kesehatan yang akan melanjutkan pendidikan.",
+      "sourceUrl": "https://sibk.kemkes.go.id/",
+      "sourceLabel": "Situs resmi SIBK"
+    },
+    {
+      "name": "Platform SATUSEHAT",
+      "org": "Kementerian Kesehatan",
+      "url": "https://satusehat.kemkes.go.id/platform",
+      "body": "Platform interoperabilitas data kesehatan nasional yang menghubungkan berbagai sistem informasi kesehatan melalui standardisasi dan integrasi rekam medis elektronik (RME). Pihak yang terhubung dibagi menjadi penyedia sistem RME dan fasilitas pelayanan kesehatan (fasyankes). Ini bukan program hibah, melainkan infrastruktur nasional tempat data rumah sakit dipertukarkan.",
+      "audience": "Bagian rekam medis, teknologi informasi, dan manajemen mutu rumah sakit.",
+      "sourceUrl": "https://satusehat.kemkes.go.id/platform",
+      "sourceLabel": "Situs resmi Platform SATUSEHAT"
+    },
+    {
+      "name": "Pengumuman resmi Kementerian Kesehatan",
+      "org": "Kementerian Kesehatan",
+      "url": "https://kemkes.go.id/id/pengumuman-all",
+      "body": "Halaman tempat Kementerian Kesehatan menerbitkan pengumuman resminya. Isinya sebagian besar rekrutmen dan pengadaan, bukan hibah untuk rumah sakit — tetapi pengumuman resmi biasanya muncul pertama kali di sini, jadi halaman ini layak diperiksa berkala.",
+      "audience": "Bagian administrasi dan perencanaan rumah sakit.",
+      "sourceUrl": "https://kemkes.go.id/id/pengumuman-all",
+      "sourceLabel": "Halaman pengumuman Kemenkes"
+    }
+  ]
+}

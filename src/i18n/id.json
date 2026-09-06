@@ -10,6 +10,7 @@
     "tips": "Tips Praktis",
     "videos": "Video",
     "news": "Berita AI",
+    "govSupport": "Program Pemerintah",
     "blog": "Blog"
   },
   "footer": {
@@ -51,6 +52,12 @@
     "heroEyebrow": "AI KESEHATAN — SUDUT PANDANG PRAKTIK RUMAH SAKIT",
     "heroTitle": "AI kesehatan, dibaca dari meja kerja rumah sakit",
     "heroLead": "Situs ini membahas kecerdasan artifisial (AI) di rumah sakit dari sudut pandang tenaga administrasi dan keperawatan — bukan dari sudut pandang klinis semata. Yang dibahas adalah hal yang benar-benar muncul dalam pekerjaan: menilai proposal vendor, memeriksa aspek data pribadi, dan menyiapkan alur kerja sebelum sebuah sistem dipakai.",
+    "glossaryDesc": "Istilah AI kesehatan yang muncul di proposal vendor dan rapat, dijelaskan dengan bahasa sehari-hari.",
+    "faqDesc": "Pertanyaan yang biasa muncul saat rumah sakit mulai mempertimbangkan AI.",
+    "newsDesc": "Berita AI dan digitalisasi layanan kesehatan dari PERSI dan ANTARA, dikumpulkan otomatis.",
+    "govSupportDesc": "Program pendanaan dan platform resmi pemerintah, dirangkum dari halaman resminya.",
+    "videosDesc": "Seri 12 video pengantar penerapan AI dalam pekerjaan rumah sakit.",
+    "blogDesc": "Kolom tentang regulasi dan praktik AI kesehatan di Indonesia.",
     "notTranslationTitle": "Bukan terjemahan",
     "notTranslationBody": "Isi versi Indonesia ditulis ulang mengikuti regulasi Indonesia — UU Pelindungan Data Pribadi, ketentuan pendaftaran alat kesehatan di Kementerian Kesehatan, dan platform SATUSEHAT. Ketentuan yang berlaku di Korea atau Jepang tidak otomatis berlaku di sini, jadi jangan memakai versi bahasa lain sebagai rujukan regulasi Indonesia.",
     "sourceNoteTitle": "Cara kami menulis",
