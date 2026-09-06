@@ -75,7 +75,29 @@
     "sourceNoteTitle": "Cara kami menulis",
     "sourceNoteBody": "Setiap pernyataan yang menyangkut regulasi atau angka disertai tautan sumber, dan tautan itu diperiksa langsung sebelum diterbitkan. Kalau sebuah pernyataan tidak bisa kami pastikan sumbernya, pernyataan itu tidak ditulis.",
     "koNoticeTitle": "Versi Korea",
-    "koNoticeBody": "Situs induk berbahasa Korea memuat lebih banyak materi, termasuk blog harian, kumpulan berita, dan daftar program pemerintah. Regulasi yang dibahas di sana adalah regulasi Korea."
+    "koNoticeBody": "Situs induk berbahasa Korea memuat lebih banyak materi, termasuk blog harian, kumpulan berita, dan daftar program pemerintah. Regulasi yang dibahas di sana adalah regulasi Korea.",
+    "homeNewsTitle": "Berita AI terbaru",
+    "homeNewsMore": "Lihat semua berita AI →",
+    "homeFaqTitle": "Pertanyaan umum tentang situs ini",
+    "homeFaqMore": "Lihat pertanyaan umum soal AI kesehatan →",
+    "homeFaq": [
+      {
+        "q": "Situs ini untuk siapa?",
+        "a": "Terutama untuk tenaga administrasi dan keperawatan rumah sakit — bagian rekam medis, perencanaan, IT, dan kepala ruang. Bukan situs khusus dokter. Keputusan pengadaan, pemeriksaan proposal vendor, dan anggaran adalah pekerjaan administrasi; menanggapi peringatan sistem dan perubahan alur kerja adalah pekerjaan perawat."
+      },
+      {
+        "q": "Dari mana informasinya?",
+        "a": "Berita AI dikumpulkan otomatis dari PERSI (Perhimpunan Rumah Sakit Seluruh Indonesia) dan ANTARA. Info pelatihan dan acara berasal dari PERSI, rilis berita Kemenkes, dan PORMIKI. Setiap keterangan soal aturan di kamus istilah, pertanyaan umum, dan daftar periksa disertai tautan ke sumber resminya."
+      },
+      {
+        "q": "Seberapa sering diperbarui?",
+        "a": "Berita diperiksa setiap 3 jam dan hanya diperbarui kalau memang ada yang baru. Tanggal pemeriksaan terakhir ditampilkan di bagian atas tiap halaman."
+      },
+      {
+        "q": "Apakah ini terjemahan versi Korea?",
+        "a": "Bukan. Versi Indonesia ditulis ulang berdasarkan aturan yang berlaku di Indonesia — kewajiban rekam medis elektronik, SATUSEHAT, izin edar alat kesehatan, dan pelindungan data pribadi. Isinya berbeda dari versi Korea."
+      }
+    ]
   },
   "glossary": {
     "pageTitle": "Kamus Istilah AI Kesehatan",

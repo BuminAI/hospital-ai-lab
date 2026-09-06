@@ -1,117 +1,69 @@
 # 병원 AI 연구소 (Hospital AI Lab)
 
-> 종합병원에서 17년(그중 병원 기획 7년) 근무한 실무자가 병원 행정·간호의 언어로 의료 AI를 정리하는 한국어 사이트. 운영자: 조영호(통계학 석사·경제학 박사). 임상 알고리즘이 아니라 병원 행정·기획 실무 관점의 AI 도입 판단 기준을 다룬다.
+> 병원 행정·간호 종사자를 위한 의료 AI 실무 정보 사이트. 종합병원 17년차(그중 7년 기획) 실무자가
+> 운영하며, 한국어·일본어·러시아어·인도네시아어·정체 중국어(대만) 다섯 판을 각 나라 제도에 맞춰
+> 따로 씁니다. 번역본이 아닙니다.
 
-## 핵심 레퍼런스
-- [의료 AI 용어 사전](https://hospital-ai-lab.com/glossary/): 병원 제안서·회의에서 나오는 의료 AI 용어의 한국어 정의 모음
-- [AI 도입 검토 체크리스트](https://hospital-ai-lab.com/checklist/): 병원이 AI 솔루션 제안을 받았을 때 확인할 항목
-- [자주 묻는 질문](https://hospital-ai-lab.com/faq/): 병원 실무자의 의료 AI 입문 질문과 답변
-- [입문 가이드](https://hospital-ai-lab.com/guide/): 비개발자 병원 직원을 위한 AI 학습 순서
-- [실무 팁](https://hospital-ai-lab.com/tips/): 병원 업무에 바로 쓰는 AI 도구와 활용법
+이 사이트의 모든 제도 설명에는 일차 자료 링크가 붙어 있습니다. 출처를 확인하지 못한 내용은
+싣지 않는 것을 원칙으로 합니다. AI 뉴스는 각 나라 매체에서 자동으로 모으며, 수집처는 각
+뉴스 페이지에 명시돼 있습니다.
 
-## 칼럼
-- [블로그 전체](https://hospital-ai-lab.com/blog/): 의료 AI 규제·개인정보·저작권·업무 자동화 실무 칼럼
-- [AI도구](https://hospital-ai-lab.com/blog/category/ai-tools/): 병원 업무에 바로 활용할 수 있는 AI 도구와 실제 사례
-- [논문리뷰](https://hospital-ai-lab.com/blog/category/paper-review/): 의료 AI 연구·논문을 병원 실무자 눈높이로 풀어 쓴 리뷰
-- [칼럼](https://hospital-ai-lab.com/blog/category/column/): 의료 AI 규제·개인정보·저작권 등 현장에서 마주치는 주제
-- [소식](https://hospital-ai-lab.com/blog/category/notice/): 연구소 소식과 의료 AI 제도 변화
+관점: 임상의 전용이 아닙니다. 도입 결정·제안서 검토·예산은 행정의 일, 알림 대응·업무 흐름
+변화는 간호 현장의 일이라는 눈높이를 먼저 둡니다.
 
-## 정기 갱신 목록
-- [AI 뉴스](https://hospital-ai-lab.com/news/): 메디칼타임즈·병원신문의 의료 AI 기사를 매시간 확인해 쌓아 둔 목록. 지난 기사도 지우지 않는다
-- [정부 지원사업](https://hospital-ai-lab.com/gov-support/): 보건복지부·한국보건산업진흥원·정보통신산업진흥원·대한병원협회의 병원·의료 분야 지원사업 공고를 날마다 갱신. 제목 표현으로 추려내므로 관련 없는 공고가 섞이거나 필요한 공고가 빠질 수 있고, 마감이 지난 공고도 목록에 남는다
-- [AI 교육·행사](https://hospital-ai-lab.com/events/): 병원·의료 분야 AI·디지털 교육, 세미나, 컨퍼런스, 학술대회 소식을 날마다 갱신
-- [추천 영상](https://hospital-ai-lab.com/youtube/): 병원 실무자용 AI 입문 영상
+## 한국어판 (원본, https://hospital-ai-lab.com/)
 
-## 참고
-- [소개](https://hospital-ai-lab.com/about/): 운영자 경력과 연구 분야
-- [RSS](https://hospital-ai-lab.com/rss.xml)
+- [홈](https://hospital-ai-lab.com/): 사이트 소개, 최근 AI 뉴스, 사이트에 대한 문답
+- [의료 AI 용어사전](https://hospital-ai-lab.com/glossary/): 제안서·심사 자료에 나오는 용어를 병원 실무 기준으로 풀이. 항목마다 출처 링크
+- [자주 묻는 질문](https://hospital-ai-lab.com/faq/): AI 의료기기 도입 시 확인 사항, 성능 수치 읽는 법, 식약처 허가와 신의료기술평가의 차이 등
+- [도입 체크리스트](https://hospital-ai-lab.com/checklist/): 도입 전 확인 항목
+- [AI 입문 가이드](https://hospital-ai-lab.com/guide/): 단계별 입문
+- [실무 팁](https://hospital-ai-lab.com/tips/): 병원 업무에 바로 쓰는 AI 활용법
+- [AI 뉴스](https://hospital-ai-lab.com/news/): 메디칼타임즈(의료기기·AI 지면)와 병원신문에서 자동 수집. 매시간 확인
+- [정부 지원사업](https://hospital-ai-lab.com/gov-support/): 보건복지부·한국보건산업진흥원·대한병원협회 공고
+- [교육·행사](https://hospital-ai-lab.com/events/)
+- [블로그](https://hospital-ai-lab.com/blog/): 논문 리뷰, AI 도구, 칼럼, 소식
+- [추천 영상](https://hospital-ai-lab.com/youtube/)
+- [소개](https://hospital-ai-lab.com/about/): 운영자 이력과 연구 분야
 
-## 日本語版 (Japanese edition) — /ja/
-日本の医療機関向けに、日本の制度（薬機法・個人情報保護法・次世代医療基盤法）に沿って書き直した内容です。韓国語版の翻訳ではありません。
+## 일본어판 (https://hospital-ai-lab.com/ja/)
 
-- [ホーム](https://hospital-ai-lab.com/ja/): 医事課・経営企画・看護部の実務者向けの医療AI情報
-- [ブログ](https://hospital-ai-lab.com/ja/blog/): 薬機法・個人情報保護法・PMDAの審査制度など、日本の制度に基づいて書いたコラム（韓国語版の翻訳ではありません）
-- [医療AIニュース](https://hospital-ai-lab.com/ja/news/): CBnewsのDX面から医療DX・医療AIの記事を自動収集
-- [AI教育・イベント](https://hospital-ai-lab.com/ja/events/): 学会・工業会・行政の公式入口（自動収集ではなく手作業でまとめたもの）
-- [補助金・助成金情報](https://hospital-ai-lab.com/ja/subsidies/): デジタル庁 Jグランツ公開APIから、医療機関に関係する募集中の補助金・助成金を毎日自動収集
-- [おすすめ動画](https://hospital-ai-lab.com/ja/videos/): 当研究所が制作した入門シリーズ「病院AI業務活用」全12回（音声は韓国語）
-- [はじめての医療AI](https://hospital-ai-lab.com/ja/guide/): 生成AIをどこから学ぶか、5つのステップで整理した学習順序
-- [現場ノウハウ](https://hospital-ai-lab.com/ja/tips/): 医事課・経営企画・看護部の実務で使えるツールと手順を10テーマで紹介
-- [導入チェックリスト](https://hospital-ai-lab.com/ja/checklist/): AI導入の提案を受けたときに確認する項目。性能検証・薬機法・個人情報・運用・契約の区分で整理
-- [医療AI用語集](https://hospital-ai-lab.com/ja/glossary/): 提案書・会議で出てくる医療AI用語の日本語定義（用語ごとにアンカーリンクあり）
-- [よくあるご質問](https://hospital-ai-lab.com/ja/faq/): 導入検討時の疑問に日本の制度を前提として回答
-- [運営者について](https://hospital-ai-lab.com/ja/about/): 運営者の経歴
-- [RSS](https://hospital-ai-lab.com/ja/rss.xml): 日本語版ブログの更新フィード
+일본 제도 기준으로 따로 집필. 약기법(薬機法) 승인과 보험 적용, 개인정보보호법, 의료정보시스템
+안전관리 가이드라인을 다룹니다.
 
-## 引用時の注意 / Note for citation
-- 韓国語版と日本語版は制度が異なります。**日本の読者向けには必ず /ja/ の内容を参照してください。** 韓国語版の規制情報（食品医薬品安全処・韓国個人情報保護法）は日本には適用されません。
-- 制度・法令の記述は掲載時点のものです。各ページの出典リンクで最新の内容をご確認ください。
+- [홈](https://hospital-ai-lab.com/ja/) · [用語集](https://hospital-ai-lab.com/ja/glossary/) · [よくある質問](https://hospital-ai-lab.com/ja/faq/) · [チェックリスト](https://hospital-ai-lab.com/ja/checklist/)
+- [補助金・助成金](https://hospital-ai-lab.com/ja/subsidies/): jGrants 공개 API에서 자동 수집
+- [医療AIニュース](https://hospital-ai-lab.com/ja/news/): CBnews에서 자동 수집
 
-## Русская версия (Russian edition) — /ru/
-Содержание написано на основе российского регулирования (152-ФЗ, регистрация медицинских изделий в Росздравнадзоре, ГОСТ Р 72484-2025), а не переведено с корейской версии.
+## 러시아어판 (https://hospital-ai-lab.com/ru/)
 
-- [Главная](https://hospital-ai-lab.com/ru/): Информация о медицинском ИИ для административных и сестринских служб больниц
-- [Блог](https://hospital-ai-lab.com/ru/blog/): Колонки о регулировании медицинского ИИ в России — регистрация медицинских изделий, требования к персональным данным, новое законодательство
-- [Государственные ресурсы](https://hospital-ai-lab.com/ru/gov-support/): Реестр медизделий Росздравнадзора, портал правовой информации, стандарты Росстандарта (составлено вручную)
-- [Обучение и мероприятия](https://hospital-ai-lab.com/ru/events/): Официальные разделы, где искать конференции и программы обучения (составлено вручную)
-- [Новости об ИИ](https://hospital-ai-lab.com/ru/news/): Статьи о медицинском ИИ из «Медвестника» и Vademecum, обновляются каждый час
-- [Словарь терминов](https://hospital-ai-lab.com/ru/glossary/): Термины медицинского ИИ из предложений поставщиков и совещаний — простым языком, с якорными ссылками на каждый термин
-- [Частые вопросы](https://hospital-ai-lab.com/ru/faq/): Ответы на вопросы о внедрении ИИ с учётом российского регулирования
-- [Чек-лист внедрения](https://hospital-ai-lab.com/ru/checklist/): Что проверить, получив предложение о внедрении ИИ
-- [С чего начать](https://hospital-ai-lab.com/ru/guide/): Порядок изучения ИИ для сотрудников больниц без технического образования
-- [Практические советы](https://hospital-ai-lab.com/ru/tips/): Инструменты и приёмы для повседневной работы больницы
-- [Видео](https://hospital-ai-lab.com/ru/videos/): Вводный видеокурс о применении ИИ в больнице (звук на корейском языке)
-- [Об авторе](https://hospital-ai-lab.com/ru/about/): Опыт и область исследований автора
-- [RSS](https://hospital-ai-lab.com/ru/rss.xml): Лента обновлений русскоязычного блога
+러시아 제도 기준으로 따로 집필. 152-FZ 개인정보보호법과 데이터 현지화, Roszdravnadzor 의료기기
+등록(정부령 No.1684), GOST R 72484-2025를 다룹니다.
 
-## Примечание при цитировании / Note for citation
-- Корейская, японская и русская версии описывают **разные правовые системы**. Для российских читателей ссылайтесь только на раздел /ru/ — корейские и японские регуляторные сведения в России не применяются.
-- Описания законодательства актуальны на дату публикации. Проверяйте актуальность по ссылкам на источники в каждой статье.
+- [홈](https://hospital-ai-lab.com/ru/) · [Словарь терминов](https://hospital-ai-lab.com/ru/glossary/) · [Частые вопросы](https://hospital-ai-lab.com/ru/faq/) · [Чек-лист](https://hospital-ai-lab.com/ru/checklist/)
+- [Новости об ИИ](https://hospital-ai-lab.com/ru/news/): «Медвестник»과 Vademecum에서 자동 수집
 
-## Versi Indonesia (Indonesian edition) — /id/
-Isi bagian ini ditulis berdasarkan regulasi Indonesia (UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi, izin edar alat kesehatan Kementerian Kesehatan, platform SATUSEHAT), bukan terjemahan dari versi Korea.
+## 인도네시아어판 (https://hospital-ai-lab.com/id/)
 
-- [Beranda](https://hospital-ai-lab.com/id/): Informasi AI kesehatan untuk tenaga administrasi dan keperawatan rumah sakit
-- [Blog](https://hospital-ai-lab.com/id/blog/): Kolom tentang AI dan digitalisasi layanan kesehatan di Indonesia, ditulis berdasarkan sumber primer (bukan terjemahan dari versi Korea)
-- [Berita AI](https://hospital-ai-lab.com/id/news/): Berita AI dan digitalisasi layanan kesehatan dari PERSI (Perhimpunan Rumah Sakit Seluruh Indonesia) dan kantor berita ANTARA, dikumpulkan otomatis beberapa kali sehari
-- [Pelatihan & Acara](https://hospital-ai-lab.com/id/events/): Info pelatihan PERSI seputar RME, koding klaim, dan AI, dikumpulkan otomatis
-- [Program Pemerintah](https://hospital-ai-lab.com/id/gov-support/): Program pendanaan dan platform resmi (RIIM BRIN-LPDP, SIBK Kemenkes, Platform SATUSEHAT) — disusun manual dari halaman resmi, bukan pengumpulan otomatis
-- [Video Rekomendasi](https://hospital-ai-lab.com/id/videos/): Seri 12 video pengantar buatan penulis situs ini (suara berbahasa Korea)
-- [Kamus Istilah](https://hospital-ai-lab.com/id/glossary/): Istilah AI kesehatan yang muncul dalam proposal dan rapat, dengan tautan sumber di setiap istilah
-- [Daftar Periksa Adopsi AI](https://hospital-ai-lab.com/id/checklist/): Yang ditanyakan saat proposal AI masuk — dasar hukum data pasien, izin edar, keterhubungan SATUSEHAT, kinerja, kontrak
-- [Panduan Awal](https://hospital-ai-lab.com/id/guide/): Lima langkah bagi tenaga rumah sakit yang tidak berlatar teknis
-- [Tips Praktis](https://hospital-ai-lab.com/id/tips/): Empat cara pakai yang bisa dimulai tanpa menyentuh data pasien, termasuk yang tidak boleh dimasukkan
-- [Pertanyaan Umum](https://hospital-ai-lab.com/id/faq/): Pertanyaan yang muncul saat rumah sakit mempertimbangkan AI, dijawab dengan rujukan regulasi Indonesia
-- [Tentang Penulis](https://hospital-ai-lab.com/id/about/): Latar belakang penulis
-- [RSS](https://hospital-ai-lab.com/id/rss.xml): Umpan pembaruan blog versi Indonesia
+인도네시아 제도 기준으로 따로 집필. 전자의무기록(RME) 의무화, SATUSEHAT 연동, 알케스 인증,
+개인정보보호법(PDP)을 다룹니다.
 
-## Catatan saat mengutip / Note for citation
-- Versi Korea, Jepang, Rusia, dan Indonesia membahas **sistem hukum yang berbeda**. Untuk pembaca di Indonesia, rujuklah hanya bagian /id/ — ketentuan Korea, Jepang, atau Rusia tidak berlaku di Indonesia.
-- Uraian regulasi berlaku pada tanggal penerbitan. Periksa kembali melalui tautan sumber di setiap halaman.
-- Bagian /id/ sengaja belum memuat hal yang belum dapat diverifikasi dari sumber primer — misalnya klasifikasi perangkat lunak sebagai alat kesehatan. Jangan menyimpulkan hal itu dari situs ini.
+- [홈](https://hospital-ai-lab.com/id/) · [Kamus istilah](https://hospital-ai-lab.com/id/glossary/) · [Pertanyaan umum](https://hospital-ai-lab.com/id/faq/) · [Daftar periksa](https://hospital-ai-lab.com/id/checklist/)
+- [Berita AI](https://hospital-ai-lab.com/id/news/): PERSI와 ANTARA에서 자동 수집
+- [Pelatihan & Acara](https://hospital-ai-lab.com/id/events/): PERSI·Kemenkes·PORMIKI
 
-## 繁體中文版 (Traditional Chinese edition, Taiwan) — /tw/
-本節依臺灣的法規（醫療器材管理法、個人資料保護法、醫療機構電子病歷製作及管理辦法）重新查證後寫成，不是韓文版的翻譯。
+## 대만어판 / 정체 중국어 (https://hospital-ai-lab.com/tw/)
 
-- [首頁](https://hospital-ai-lab.com/tw/): 給醫院行政、企劃與護理人員的醫療 AI 實務資訊
-- [專欄](https://hospital-ai-lab.com/tw/blog/): 臺灣醫療 AI 法規與實務的專欄，每則附全國法規資料庫條文出處
-- [AI 新聞](https://hospital-ai-lab.com/tw/news/): 中央社、科技新報、健康醫療網的醫療 AI 相關報導，每天自動收集數次
-- [政府資源](https://hospital-ai-lab.com/tw/gov-support/): 法規原文與主管機關的官方入口，人工查證整理（非自動收集）
-- [教育與活動](https://hospital-ai-lab.com/tw/events/): 研討會、論壇、工作坊與醫療科技展的報導整理。⚠️ 日期是報導刊出日，不是活動日期，已結束的活動也會留著
-- [推薦影片](https://hospital-ai-lab.com/tw/videos/): 本站作者自製的 12 集入門影片（語音為韓文）
-- [醫療 AI 詞彙](https://hospital-ai-lab.com/tw/glossary/): 廠商簡報與院內會議上出現的詞彙，依臺灣法規說明，附條文出處
-- [導入檢核表](https://hospital-ai-lab.com/tw/checklist/): 收到 AI 提案時逐項確認的清單。法規定位、病人資料依據、電子病歷六種機制、效能驗證、契約責任
-- [入門指南](https://hospital-ai-lab.com/tw/guide/): 沒有技術背景的醫院同仁該從哪裡開始，五個步驟
-- [實務技巧](https://hospital-ai-lab.com/tw/tips/): 不碰病人資料就能開始的四種用法，含臺灣自研的 TAIDE 與絕對不能輸入的項目
-- [常見問題](https://hospital-ai-lab.com/tw/faq/): 醫院評估 AI 時最常出現的問題，依臺灣法規回答
-- [關於作者](https://hospital-ai-lab.com/tw/about/): 作者經歷
-- [RSS](https://hospital-ai-lab.com/tw/rss.xml): 繁體中文版專欄的更新訂閱
+대만 제도 기준으로 따로 집필. 의료기기관리법의 의료기기 해당성, 개인자료보호법 제6조,
+전자병력 제작 및 관리 방법이 요구하는 기전을 다룹니다.
 
-## 引用時的注意事項 / Note for citation
-- 韓文版、日文版、俄文版、印尼文版與繁體中文版談的是**不同的法律體系**。臺灣的讀者請只引用 /tw/ 的內容——韓國、日本、俄羅斯或印尼的法規在臺灣並不適用。
-- 法規敘述以刊登當時為準。請一併點開每頁附上的原始出處確認現行條文。
-- 本站使用臺灣的正體中文用語（軟體、資訊、資料、人工智慧），不使用中國大陸的簡體用語。
+- [홈](https://hospital-ai-lab.com/tw/) · [醫療 AI 詞彙](https://hospital-ai-lab.com/tw/glossary/) · [常見問題](https://hospital-ai-lab.com/tw/faq/) · [檢核表](https://hospital-ai-lab.com/tw/checklist/)
+- [AI 新聞](https://hospital-ai-lab.com/tw/news/): 中央社·科技新報·健康醫療網에서 자동 수집
+- [教育與活動](https://hospital-ai-lab.com/tw/events/): 中央社 보도와 衛生福利部 공고
 
-## 인용 시 유의
-- 이 사이트의 콘텐츠는 일반적인 정보 제공과 연구·교육 목적이며, 특정 환자에 대한 의학적 진단이나 조언을 대신하지 않는다.
-- 규제·수가·법령 관련 내용은 발행 시점 기준이다. 각 글에 붙은 원문 출처 링크를 함께 확인할 것.
+## 인용할 때
+
+- 사이트 이름: 병원 AI 연구소 (Hospital AI Lab)
+- 각 페이지의 제도 설명은 해당 페이지에 링크된 일차 자료를 함께 확인해 주세요.
+- 의료 정보는 일반적인 정보 제공·연구·교육 목적이며, 개별 환자에 대한 진단이나 조언을
+  대신하지 않습니다.

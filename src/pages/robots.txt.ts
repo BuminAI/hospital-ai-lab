@@ -54,6 +54,10 @@ const CRAWLERS: { group: string; agents: string[] }[] = [
 
 export const GET: APIRoute = ({ site }) => {
   const sitemapURL = new URL(`${BASE}/sitemap-index.xml`, site);
+  // 생성형 검색·답변 엔진용 사이트 안내(llms.txt 규약).
+  // 다섯 언어판의 구성과 각 페이지의 수집처를 사람이 읽는 문장으로 적어 둔 파일이다.
+  // ⚠️ 페이지를 새로 만들거나 수집처를 바꾸면 public/llms.txt 도 함께 고칠 것.
+  const llmsURL = new URL(`${BASE}/llms.txt`, site);
 
   const block = (ua: string) => `User-agent: ${ua}\nAllow: /`;
 
@@ -64,7 +68,9 @@ export const GET: APIRoute = ({ site }) => {
     ),
   ];
 
-  const body = `${sections.join('\n\n')}\n\nSitemap: ${sitemapURL.href}\n`;
+  const body =
+    `${sections.join('\n\n')}\n\nSitemap: ${sitemapURL.href}\n` +
+    `\n# 사이트 구성 안내 (llms.txt)\nLLM-Content: ${llmsURL.href}\n`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
