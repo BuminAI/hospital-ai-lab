@@ -9,6 +9,14 @@
       일본어판(ja-tokens.css)이 같은 이유로 시스템 폰트로 갔다.
       대만·홍콩·마카오에서 쓰는 정체자는 PingFang TC / 微軟正黑體 계열이 표준이다.
       ⚠️ 간체자용 SC 폰트를 넣지 말 것 — 자형이 다르다.
+
+   ⚠️ 다른 언어판 토큰 파일을 복제할 때 **클래스 이름(.tw-*)까지 전부 바꿀 것.**
+      2026-09-06에 이 파일을 id-tokens.css에서 복제하면서 변수(--id- → --tw-)와
+      로케일([data-locale='id'] → 'tw')만 바꾸고 클래스(.id-shell·.id-nav 등)를
+      그대로 두었다. 레이아웃 마크업은 .tw-* 를 쓰는데 CSS는 .id-* 를 겨냥해
+      **대만어판 전 페이지가 스타일 없이 나왔다.** 토큰과 body 규칙은 맞아
+      있어서 폰트·색 변수만 확인하면 정상으로 보인다 — 반드시 화면을 눈으로
+      확인할 것.
 */
 
 [data-locale='tw'] {
@@ -99,7 +107,7 @@
 }
 
 /* ── 2컬럼 셸 ──────────────────────────────────────────── */
-[data-locale='tw'] .id-shell {
+[data-locale='tw'] .tw-shell {
   display: grid;
   grid-template-columns: minmax(0, 1fr) var(--tw-sidebar);
   gap: var(--tw-gap);
@@ -109,19 +117,19 @@
 }
 
 @media (max-width: 860px) {
-  [data-locale='tw'] .id-shell {
+  [data-locale='tw'] .tw-shell {
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
   }
 }
 
 /* ── 헤더 ──────────────────────────────────────────────── */
-[data-locale='tw'] .id-header {
+[data-locale='tw'] .tw-header {
   background: var(--tw-base);
   border-bottom: 3px solid var(--tw-primary);
 }
 
-[data-locale='tw'] .id-header-inner {
+[data-locale='tw'] .tw-header-inner {
   max-width: var(--tw-max);
   margin: 0 auto;
   padding: 14px 20px;
@@ -132,7 +140,7 @@
   flex-wrap: wrap;
 }
 
-[data-locale='tw'] .id-brand {
+[data-locale='tw'] .tw-brand {
   font-size: 18px;
   font-weight: 700;
   color: var(--tw-primary);
@@ -140,7 +148,7 @@
   letter-spacing: -0.01em;
 }
 
-[data-locale='tw'] .id-brand-sub {
+[data-locale='tw'] .tw-brand-sub {
   display: block;
   font-size: 11.5px;
   font-weight: 400;
@@ -148,12 +156,12 @@
   letter-spacing: 0.03em;
 }
 
-[data-locale='tw'] .id-langs {
+[data-locale='tw'] .tw-langs {
   display: flex;
   gap: 8px;
 }
 
-[data-locale='tw'] .id-lang {
+[data-locale='tw'] .tw-lang {
   font-size: 12.5px;
   color: var(--tw-text-sub);
   text-decoration: none;
@@ -162,17 +170,17 @@
   padding: 4px 10px;
 }
 
-[data-locale='tw'] .id-lang:hover {
+[data-locale='tw'] .tw-lang:hover {
   color: var(--tw-primary);
   border-color: var(--tw-primary);
 }
 
-[data-locale='tw'] .id-nav {
+[data-locale='tw'] .tw-nav {
   background: var(--tw-surface);
   border-bottom: 1px solid var(--tw-border);
 }
 
-[data-locale='tw'] .id-nav ul {
+[data-locale='tw'] .tw-nav ul {
   max-width: var(--tw-max);
   margin: 0 auto;
   padding: 0 20px;
@@ -182,7 +190,7 @@
   gap: 0;
 }
 
-[data-locale='tw'] .id-nav a {
+[data-locale='tw'] .tw-nav a {
   display: block;
   padding: 11px 14px;
   font-size: 13.5px;
@@ -191,15 +199,15 @@
   border-bottom: 3px solid transparent;
 }
 
-[data-locale='tw'] .id-nav a:hover,
-[data-locale='tw'] .id-nav a[aria-current='page'] {
+[data-locale='tw'] .tw-nav a:hover,
+[data-locale='tw'] .tw-nav a[aria-current='page'] {
   color: var(--tw-primary);
   border-bottom-color: var(--tw-primary);
   background: var(--tw-base);
 }
 
 /* ── 브레드크럼 ────────────────────────────────────────── */
-[data-locale='tw'] .id-breadcrumb {
+[data-locale='tw'] .tw-breadcrumb {
   max-width: var(--tw-max);
   margin: 0 auto;
   padding: 10px 20px 0;
@@ -207,7 +215,7 @@
   color: var(--tw-text-sub);
 }
 
-[data-locale='tw'] .id-breadcrumb ol {
+[data-locale='tw'] .tw-breadcrumb ol {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -216,14 +224,14 @@
   gap: 6px;
 }
 
-[data-locale='tw'] .id-breadcrumb li + li::before {
+[data-locale='tw'] .tw-breadcrumb li + li::before {
   content: '›';
   margin-right: 6px;
   color: var(--tw-border);
 }
 
 /* ── 사이드바 ──────────────────────────────────────────── */
-[data-locale='tw'] .id-side section {
+[data-locale='tw'] .tw-side section {
   border: 1px solid var(--tw-border);
   border-radius: 4px;
   background: var(--tw-base);
@@ -231,7 +239,7 @@
   overflow: hidden;
 }
 
-[data-locale='tw'] .id-side h2 {
+[data-locale='tw'] .tw-side h2 {
   font-size: 14px;
   margin: 0;
   padding: 10px 14px;
@@ -241,31 +249,31 @@
   letter-spacing: 0.02em;
 }
 
-[data-locale='tw'] .id-side .id-side-body {
+[data-locale='tw'] .tw-side .tw-side-body {
   padding: 14px;
   font-size: 13.5px;
   line-height: 1.8;
 }
 
-[data-locale='tw'] .id-side dl {
+[data-locale='tw'] .tw-side dl {
   margin: 0;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 4px 10px;
 }
 
-[data-locale='tw'] .id-side dt {
+[data-locale='tw'] .tw-side dt {
   color: var(--tw-text-sub);
   font-size: 12.5px;
   white-space: nowrap;
 }
 
-[data-locale='tw'] .id-side dd {
+[data-locale='tw'] .tw-side dd {
   margin: 0;
 }
 
 /* ── 뱃지·메타 ─────────────────────────────────────────── */
-[data-locale='tw'] .id-badge {
+[data-locale='tw'] .tw-badge {
   display: inline-block;
   font-size: 11px;
   line-height: 1.5;
@@ -276,46 +284,46 @@
   vertical-align: middle;
 }
 
-[data-locale='tw'] .id-badge-new {
+[data-locale='tw'] .tw-badge-new {
   background: var(--tw-badge-new);
 }
-[data-locale='tw'] .id-badge-gov {
+[data-locale='tw'] .tw-badge-gov {
   background: var(--tw-badge-gov);
 }
-[data-locale='tw'] .id-badge-info {
+[data-locale='tw'] .tw-badge-info {
   background: var(--tw-badge-info);
 }
 
-[data-locale='tw'] .id-updated {
+[data-locale='tw'] .tw-updated {
   font-size: 12.5px;
   color: var(--tw-text-sub);
 }
 
 /* ── 목록 ──────────────────────────────────────────────── */
-[data-locale='tw'] .id-list {
+[data-locale='tw'] .tw-list {
   list-style: none;
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--tw-border);
 }
 
-[data-locale='tw'] .id-list > li {
+[data-locale='tw'] .tw-list > li {
   border-bottom: 1px solid var(--tw-border);
   padding: 13px 2px;
 }
 
-[data-locale='tw'] .id-list .id-item-title {
+[data-locale='tw'] .tw-list .tw-item-title {
   color: var(--tw-text);
   text-decoration: none;
   line-height: 1.6;
 }
 
-[data-locale='tw'] .id-list .id-item-title:hover {
+[data-locale='tw'] .tw-list .tw-item-title:hover {
   color: var(--tw-primary);
   text-decoration: underline;
 }
 
-[data-locale='tw'] .id-list .id-item-meta {
+[data-locale='tw'] .tw-list .tw-item-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -326,7 +334,7 @@
 }
 
 /* ── 주의 박스 ─────────────────────────────────────────── */
-[data-locale='tw'] .id-caution {
+[data-locale='tw'] .tw-caution {
   border: 1px solid var(--tw-border);
   border-left: 5px solid var(--tw-accent);
   background: var(--tw-surface);
@@ -336,7 +344,7 @@
   margin: 16px 0;
 }
 
-[data-locale='tw'] .id-note {
+[data-locale='tw'] .tw-note {
   font-size: 12.5px;
   line-height: 1.8;
   color: var(--tw-text-sub);
@@ -346,19 +354,19 @@
 }
 
 /* ── 푸터 ──────────────────────────────────────────────── */
-[data-locale='tw'] .id-footer {
+[data-locale='tw'] .tw-footer {
   border-top: 3px solid var(--tw-primary);
   background: var(--tw-surface);
   font-size: 13px;
 }
 
-[data-locale='tw'] .id-footer-inner {
+[data-locale='tw'] .tw-footer-inner {
   max-width: var(--tw-max);
   margin: 0 auto;
   padding: 24px 20px 32px;
 }
 
-[data-locale='tw'] .id-footer ul {
+[data-locale='tw'] .tw-footer ul {
   list-style: none;
   margin: 0 0 14px;
   padding: 0;
@@ -368,7 +376,7 @@
 }
 
 /* 외부 링크 아이콘 */
-[data-locale='tw'] .id-ext::after {
+[data-locale='tw'] .tw-ext::after {
   content: '↗';
   font-size: 0.85em;
   margin-left: 3px;
