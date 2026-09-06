@@ -1,0 +1,114 @@
+---
+// Blog — 대만어판(정체자) 블로그 목록. 다른 언어판 글과는 번역 관계가 아니라
+// hreflang을 걸지 않는다(뉴스 목록과 같은 이유, HANDOFF.md 5-3절 참고).
+import { getCollection } from 'astro:content';
+import TwLayout from '../../../layouts/TwLayout.astro';
+import twI18n from '../../../i18n/tw.json';
+import { withBase } from '../../../utils/site';
+
+const posts = (await getCollection('blogTw', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const fmt = new Intl.DateTimeFormat('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// CollectionPage + ItemList — AI 답변 엔진이 "이 블로그에 어떤 글이 있는가"를
+// 순서대로 읽을 수 있게 한다(ko blog/category 페이지와 같은 패턴).
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/tw/blog/')}`;
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: twI18n.nav.blog,
+  inLanguage: 'zh-TW',
+  isPartOf: { '@id': `${siteUrl}/#website-tw` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: post.data.title,
+      url: `${siteUrl}${withBase(`/tw/blog/${post.id}/`)}`,
+    })),
+  },
+};
+---
+
+<TwLayout
+  title={twI18n.nav.blog}
+  description="臺灣醫療 AI 的法規與實務專欄。醫療器材認定、個人資料保護法第 6 條、電子病歷管理辦法要求的六種機制——每一則都附上全國法規資料庫的條文出處，可以自己查證。"
+  crumb={twI18n.nav.blog}
+  koPath="/blog/"
+  idPath="/id/blog/"
+  jaPath="/ja/blog/"
+  ruPath="/ru/blog/"
+  jaPath="/ja/blog/"
+  schema={[collectionPage]}
+>
+  <h1>{twI18n.nav.blog}</h1>
+  <p class="tw-lead">
+    Tulisan tentang hal-hal yang benar-benar muncul saat rumah sakit
+    醫院在評估 AI 時會碰到的問題，依臺灣現行法規整理，並附上可以自己查證的原文出處。
+  </p>
+
+  {
+    posts.length > 0 ? (
+      <ul class="tw-blog-list">
+        {posts.map((post) => (
+          <li>
+            <a class="tw-blog-title" href={withBase(`/tw/blog/${post.id}/`)}>
+              {post.data.title}
+            </a>
+            <p class="tw-blog-desc">{post.data.description}</p>
+            <span class="tw-blog-meta">
+              {post.data.category} · <time datetime={post.data.pubDate.toISOString()}>{fmt.format(post.data.pubDate)}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="tw-empty">{twI18n.ui.noItems}</p>
+    )
+  }
+</TwLayout>
+
+<style>
+  .tw-lead {
+    color: var(--tw-text-sub);
+  }
+  .tw-blog-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--tw-border);
+  }
+  .tw-blog-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--tw-border);
+  }
+  .tw-blog-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--tw-primary);
+    line-height: 1.6;
+  }
+  .tw-blog-desc {
+    margin-top: 6px;
+    font-size: 13.5px;
+    color: var(--tw-text-sub);
+    line-height: 1.75;
+  }
+  .tw-blog-meta {
+    display: block;
+    margin-top: 6px;
+    font-size: 12.5px;
+    color: var(--tw-text-sub);
+  }
+  .tw-empty {
+    margin-top: 20px;
+    color: var(--tw-text-sub);
+  }
+</style>

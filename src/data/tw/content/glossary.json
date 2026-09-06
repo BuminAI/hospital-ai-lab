@@ -1,0 +1,66 @@
+[
+  {
+    "id": "medical-device-software",
+    "term": "醫療器材軟體",
+    "category": "法規與許可",
+    "definition": "《醫療器材管理法》第 3 條在醫療器材的定義裡明白列入了「軟體」——條文寫的是「儀器、器械、用具、物質、軟體、體外診斷試劑及其相關物品」。一個 AI 工具算不算醫療器材，不會因為它只是軟體、沒有硬體就自動排除；判斷的關鍵在於用途有沒有落在同條所列的功能上（診斷、治療、緩解或直接預防疾病；調節或改善人體結構及機能；調節生育）。",
+    "whyMatters": "廠商說「這只是輔助工具，不是醫療器材」的時候，行政端要問的是這句話對應到條文的哪裡。軟體本身不構成排除理由。",
+    "sources": ["https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030106"]
+  },
+  {
+    "id": "medical-device-act",
+    "term": "醫療器材管理法",
+    "category": "法規與許可",
+    "definition": "民國 109 年（2020 年）1 月 15 日公布的醫療器材專法，中央主管機關是衛生福利部。在這部法之前，醫療器材是併在藥事法裡管理。規範範圍涵蓋製造、販賣、臨床試驗、廣告、監督與罰則。",
+    "whyMatters": "醫院評估 AI 產品時最常用到的是第 3 條的定義，以及後續的查驗登記與許可制度。看提案時先確認產品落在這部法的哪個位置。",
+    "sources": ["https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030106"]
+  },
+  {
+    "id": "mohw-tfda",
+    "term": "衛福部與食藥署",
+    "category": "法規與許可",
+    "definition": "衛生福利部（衛福部）是《醫療器材管理法》的中央主管機關，實際的醫療器材業務由所屬的食品藥物管理署（食藥署，TFDA）辦理，署內設有醫療器材業務專區。",
+    "whyMatters": "「已經通過認證」這句話要追問的是：哪一個機關、哪一種許可、許可範圍到哪裡。停在「有認證」是不夠的。",
+    "sources": ["https://www.fda.gov.tw/tc/siteListContent.aspx?sid=310&id=42528"]
+  },
+  {
+    "id": "pdpa-special-data",
+    "term": "特種個人資料",
+    "category": "病歷與資料管理",
+    "definition": "《個人資料保護法》第 6 條把「病歷、醫療、基因、性生活、健康檢查及犯罪前科」列為特別類別，條文寫的是「不得蒐集、處理或利用」——原則是禁止。要處理，必須落在同條列出的例外情形之一（例如法律明文規定、公務機關執行法定職務並有適當安全維護措施、當事人自行公開、為醫療衛生之統計或學術研究目的、當事人書面同意等）。",
+    "whyMatters": "把病歷資料交給 AI 廠商之前，第一個要能回答的問題是「我們依據的是哪一款例外」。這題不是資訊室一個部門能決定的。",
+    "sources": ["https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021"]
+  },
+  {
+    "id": "emr-regulation",
+    "term": "電子病歷管理辦法",
+    "category": "病歷與資料管理",
+    "definition": "全名《醫療機構電子病歷製作及管理辦法》，依《醫療法》第 69 條授權訂定，最近一次修正是民國 111 年（2022 年）7 月 18 日。第 3 條第 1 項要求醫療機構就電子病歷建立六種機制：標準作業機制、權限管控機制、緊急應變機制、系統安全機制、傳輸加密機制、安全事故處理機制。",
+    "whyMatters": "AI 工具只要會讀寫病歷資料，就落在這六項的管理範圍內。這是資訊室與醫務行政要一起確認的事，不是只有廠商的責任。",
+    "sources": ["https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020121"]
+  },
+  {
+    "id": "access-control",
+    "term": "權限管控機制",
+    "category": "病歷與資料管理",
+    "definition": "電子病歷管理辦法要求的六種機制之一，涵蓋「製作、存取、增刪、查閱、複製、傳輸及其他使用權限」的管控。",
+    "whyMatters": "導入 AI 後會多出幾個新問題：AI 服務用的是誰的權限？它讀得到的範圍和操作者本人看得到的範圍一樣嗎？紀錄留在誰名下？這幾題要在採購階段問，事後補很麻煩。",
+    "sources": ["https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020121"]
+  },
+  {
+    "id": "transmission-encryption",
+    "term": "傳輸加密機制",
+    "category": "病歷與資料管理",
+    "definition": "電子病歷管理辦法要求的六種機制之一。條文要求使用「國際標準組織通用之加密機制」。",
+    "whyMatters": "雲端型 AI 服務會把資料送出院外，這一項就直接相關。資料在哪個環節離開院內、走哪條路、用什麼方式加密，都要能說得出來。",
+    "sources": ["https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020121"]
+  },
+  {
+    "id": "security-incident",
+    "term": "安全事故處理機制",
+    "category": "病歷與資料管理",
+    "definition": "電子病歷管理辦法要求的六種機制之一，就侵入、洩漏、毀損等事故建立預防、通報與應變措施。",
+    "whyMatters": "導入 AI 後要一併更新的是：若事故發生在 AI 服務端，通報流程怎麼跑、誰對外說明、契約上責任怎麼分。寫進契約比事後處理容易得多。",
+    "sources": ["https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020121"]
+  }
+]

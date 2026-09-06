@@ -34,6 +34,8 @@ interface Props {
   jaPath?: string;
   /** 이 페이지의 러시아어판 경로. */
   ruPath?: string;
+  /** 이 페이지의 대만어판(정체자) 경로(2026-09-06 추가). */
+  twPath?: string;
   /**
    * 번역 짝이 없는 독립 페이지(2026-09-06 추가). true면 hreflang을 아예 내지
    * 않는다. 상단의 언어 전환 링크는 koPath로 그대로 동작한다.
@@ -53,6 +55,7 @@ const {
   koPath = '/',
   jaPath,
   ruPath,
+  twPath,
   standalone = false,
   updated,
   schema = [],
@@ -81,6 +84,7 @@ const updatedAt = updated ?? lastModifiedForPath(Astro.url.pathname, BASE) ?? ne
 const koHref = `${siteRoot}${withBase(koPath)}`;
 const jaHref = jaPath ? `${siteRoot}${withBase(jaPath)}` : undefined;
 const ruHref = ruPath ? `${siteRoot}${withBase(ruPath)}` : undefined;
+const twHref = twPath ? `${siteRoot}${withBase(twPath)}` : undefined;
 
 // 메뉴 표시·비표시는 src/data/id/content/nav.json에서 관리한다
 // (홈은 항상 표시 — 지우면 러시아어판 입구가 없어진다).
@@ -203,6 +207,7 @@ const year = new Date().getFullYear();
           {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
           {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
           <link rel="alternate" hreflang="id" href={canonical} />
+          {twHref && <link rel="alternate" hreflang="zh-TW" href={twHref} />}
           <link rel="alternate" hreflang="x-default" href={koHref} />
         </>
       )

@@ -1,0 +1,119 @@
+---
+// Словарь терминов — 러시아 제도를 새로 조사해 쓴 용어집(번역 아님)
+//
+// ⚠️ 제도 관련 항목(152-ФЗ, Постановление №1684 등)은 러시아 제도로
+//    새로 조사해 썼고, 출처를 실제 접속해 확인했다(src/data/tw/content/glossary.json).
+//    고칠 때도 같은 원칙을 지킬 것.
+import TwLayout from '../../layouts/TwLayout.astro';
+import tw from '../../i18n/tw.json';
+import { glossaryTermsTw, glossaryCategoriesTw } from '../../data/tw/glossary';
+import { withBase } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/tw/glossary/')}`;
+
+// DefinedTermSet — AI 답변 엔진이 용어 정의를 딥링크로 인용할 수 있게 한다
+const definedTermSet = {
+  '@type': 'DefinedTermSet',
+  '@id': `${pageUrl}#termset`,
+  url: pageUrl,
+  name: tw.glossary.pageTitle,
+  description: tw.glossary.metaDescription,
+  inLanguage: 'zh-TW',
+  isPartOf: { '@id': `${siteRoot}/#website-tw` },
+  hasDefinedTerm: glossaryTermsTw.map((t) => ({
+    '@type': 'DefinedTerm',
+    '@id': `${pageUrl}#${t.id}`,
+    url: `${pageUrl}#${t.id}`,
+    name: t.term,
+    description: t.definition,
+    termCode: t.id,
+    inDefinedTermSet: { '@id': `${pageUrl}#termset` },
+  })),
+};
+---
+
+<TwLayout
+  title={tw.glossary.pageTitle}
+  description={tw.glossary.metaDescription}
+  crumb={tw.nav.glossary}
+  koPath="/glossary/"
+  idPath="/id/glossary/"
+  jaPath="/ja/glossary/"
+  ruPath="/ru/glossary/"
+  schema={[definedTermSet]}
+>
+  <h1>{tw.glossary.pageTitle}</h1>
+  <p>{tw.glossary.pageLead}</p>
+
+  <p class="tw-caution">{tw.glossary.caution}</p>
+
+  <nav class="tw-index" aria-label="Указатель терминов">
+    <ul>
+      {glossaryTermsTw.map((t) => (
+        <li><a href={`#${t.id}`}>{t.term}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  {glossaryCategoriesTw.map((cat) => {
+    const terms = glossaryTermsTw.filter((t) => t.category === cat);
+    if (terms.length === 0) return null;
+    return (
+      <section>
+        <h2>{cat}</h2>
+        <dl class="tw-terms">
+          {terms.map((t) => (
+            <div class="tw-term" id={t.id}>
+              <dt>{t.term}</dt>
+              <dd>
+                <p>{t.definition}</p>
+                <p class="tw-why"><span>Практическое значение</span>{t.whyMatters}</p>
+                {t.sources.length > 0 && (
+                  <p class="tw-src">
+                    {tw.ui.source}:{' '}
+                    {t.sources.map((src, i) => (
+                      <>
+                        {i > 0 && ' / '}
+                        <a class="tw-ext" href={src} target="_blank" rel="noopener">
+                          {new URL(src).hostname.replace(/^www\./, '')}
+                          <span class="sr-only"> ({tw.ui.external})</span>
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    );
+  })}
+
+  <div class="tw-note"><p>{tw.glossary.notice}</p></div>
+</TwLayout>
+
+<style>
+  .tw-index {
+    border: 1px solid var(--tw-border);
+    background: var(--tw-surface);
+    padding: 12px 14px;
+    margin: 16px 0 8px;
+  }
+  .tw-index ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    font-size: 13.5px;
+  }
+  .tw-terms { margin: 0; }
+  .tw-term { scroll-margin-top: 4rem; padding: 14px 0; border-bottom: 1px solid var(--tw-border); }
+  .tw-term dt { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .tw-term dd { margin: 0; }
+  .tw-why { margin-top: 8px; font-size: 14px; color: var(--tw-text-sub); }
+  .tw-why span {
+    display: inline-block; margin-right: 8px; padding: 0 8px;
+    background: var(--tw-surface-2); border-radius: 3px; font-size: 12.5px;
+  }
+  .tw-src { margin-top: 6px; font-size: 12.5px; }
+</style>

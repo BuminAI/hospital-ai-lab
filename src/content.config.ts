@@ -53,4 +53,15 @@ const blogId = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa, blogId };
+const blogTw = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-tw' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['研究回顧', 'AI 工具', '專欄', '消息']),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId, blogTw };

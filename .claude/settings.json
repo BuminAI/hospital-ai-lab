@@ -24,7 +24,9 @@
       "Write(src/content/blog-ja/**)",
       "Edit(src/content/blog-ja/**)",
       "Write(src/content/blog-id/**)",
-      "Edit(src/content/blog-id/**)"
+      "Write(src/content/blog-tw/**)",
+      "Edit(src/content/blog-id/**)",
+      "Edit(src/content/blog-tw/**)"
     ]
   }
 }

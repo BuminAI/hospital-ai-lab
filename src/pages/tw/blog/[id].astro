@@ -1,0 +1,212 @@
+---
+import { execSync } from 'node:child_process';
+import { getCollection, render } from 'astro:content';
+import TwLayout from '../../../layouts/TwLayout.astro';
+import twI18n from '../../../i18n/tw.json';
+import { withBase } from '../../../utils/site';
+
+const fmt = new Intl.DateTimeFormat('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blogTw', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+// Baca juga(관련 글) — 한국어판 blog/[id].astro와 같은 방식.
+// 그전에는 러시아어판 글 하단이 목록으로 돌아가는 링크 하나뿐이라 글끼리
+// 이어지는 문맥 링크가 0건이었다. 같은 분류를 먼저 채우고 모자라면
+// 최신순으로 채운다. 새 콘텐츠를 만들지 않고 기존 데이터만 쓴다.
+const RELATED_COUNT = 3;
+const others = (await getCollection('blogTw', ({ data }) => !data.draft))
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const related = [
+  ...others.filter((p) => p.data.category === post.data.category),
+  ...others.filter((p) => p.data.category !== post.data.category),
+].slice(0, RELATED_COUNT);
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const canonicalUrl = `${siteUrl}${withBase(`/tw/blog/${post.id}/`)}`;
+
+// 수정일 — 이 글 파일의 마지막 git 커밋 시각(ko blog/[id].astro와 같은 방식).
+let dateModifiedIso = post.data.pubDate.toISOString();
+try {
+  const gitDate = execSync(
+    `git log -1 --format=%cI -- "src/content/blog-id/${post.id}.md"`
+  )
+    .toString()
+    .trim();
+  if (gitDate) dateModifiedIso = gitDate;
+} catch {
+  // 폴백: 위에서 이미 발행일로 초기화해 두었다.
+}
+
+// BlogPosting — author는 ko/ja와 같은 Person 엔티티를 @id로 참조한다
+// (같은 사람이므로 언어판마다 엔티티를 새로 만들지 않는다).
+const blogPosting = {
+  '@type': 'BlogPosting',
+  '@id': `${canonicalUrl}#article`,
+  headline: post.data.title,
+  description: post.data.description,
+  url: canonicalUrl,
+  inLanguage: 'zh-TW',
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: dateModifiedIso,
+  articleSection: post.data.category,
+  author: { '@id': `${siteUrl}/#person` },
+  publisher: { '@id': `${siteUrl}/#organization` },
+  isPartOf: { '@id': `${siteUrl}/#website-tw` },
+  // 레이아웃이 같은 URL에 대해 `<canonical>#webpage` WebPage 노드를 이미 내보낸다.
+  // 여기서 canonicalUrl(끝에 #webpage 없음)을 쓰면 같은 페이지를 가리키는
+  // WebPage 노드가 그래프에 둘 생겨 검색엔진이 별개 개체로 읽는다.
+  // 그 노드를 그대로 참조해 하나로 묶는다(2026-09-06 정리, 네 언어판 공통).
+  mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
+};
+
+// hreflang을 내지 않는 이유(standalone):
+//   언어판마다 주제가 다른 독립 집필이라 이 글에 대응하는 한국어판이 없다.
+//   koPath="/blog/"는 상단 언어 전환 링크를 한국어 블로그 목록으로 보내려는
+//   것일 뿐인데, 2026-09-06 이전에는 그 값이 hreflang에도 쓰여서 글마다
+//   "이 글의 한국어판은 /blog/(목록)"이라고 잘못 선언하고 있었다. /blog/는
+//   되짚어 가리키지 않아 상호참조가 깨졌고 x-default까지 한국어 목록을
+//   가리켰다. 짝이 생기면 그때 standalone을 빼고 koPath를 실제 짝으로 바꾼다.
+
+---
+
+<TwLayout
+  title={post.data.title}
+  description={post.data.description}
+  crumb={post.data.title}
+  koPath="/blog/"
+  standalone
+  updated={new Date(dateModifiedIso)}
+  schema={[blogPosting]}
+>
+  <div class="tw-post-meta">
+    <span class="tw-chip">{post.data.category}</span>
+    <time datetime={post.data.pubDate.toISOString()}>{fmt.format(post.data.pubDate)}</time>
+    {/* 저자 표시 — BlogPosting JSON-LD가 author를 선언하므로 화면에도
+        같은 사실이 보여야 한다(구글은 비가시 콘텐츠 마크업을 금지한다). */}
+    <span class="tw-byline">
+      <a href={withBase('/tw/about/')} rel="author">{twI18n.profile.nameShort}</a>
+    </span>
+  </div>
+  <h1>{post.data.title}</h1>
+  <p class="tw-lead">{post.data.description}</p>
+
+  <div class="tw-prose">
+    <Content />
+  </div>
+
+  {
+    related.length > 0 && (
+      <section class="tw-related" aria-labelledby="id-related-heading">
+        <h2 id="id-related-heading">Baca juga</h2>
+        <ul>
+          {related.map((p) => (
+            <li>
+              <a href={withBase(`/tw/blog/${p.id}/`)}>{p.data.title}</a>
+              <span class="tw-related-meta">
+                {p.data.category} ·{' '}
+                <time datetime={p.data.pubDate.toISOString()}>{fmt.format(p.data.pubDate)}</time>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <p class="tw-back"><a href={withBase('/tw/blog/')}>← {twI18n.nav.blog}</a></p>
+</TwLayout>
+
+<style>
+  .tw-post-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--tw-text-sub);
+    margin-bottom: 8px;
+  }
+  .tw-chip {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: var(--tw-primary);
+    color: #fff;
+  }
+  .tw-byline a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  .tw-lead {
+    color: var(--tw-text-sub);
+  }
+  .tw-prose {
+    margin-top: 20px;
+  }
+  .tw-prose :global(h2) {
+    font-size: 19px;
+    border-left: 4px solid var(--tw-primary);
+    padding-left: 10px;
+    background: var(--tw-surface);
+    margin: 28px 0 14px;
+  }
+  .tw-prose :global(p) {
+    line-height: 1.85;
+    margin: 0 0 14px;
+  }
+  .tw-prose :global(li) {
+    line-height: 1.8;
+  }
+  .tw-prose :global(em) {
+    color: var(--tw-text-sub);
+    font-size: 13.5px;
+  }
+  .tw-related {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--tw-border);
+  }
+  .tw-related h2 {
+    font-size: 15px;
+    color: var(--tw-text-sub);
+    margin-bottom: 12px;
+  }
+  .tw-related ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tw-related a {
+    display: block;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--tw-primary);
+    line-height: 1.6;
+  }
+  .tw-related-meta {
+    display: block;
+    margin-top: 3px;
+    font-size: 12.5px;
+    color: var(--tw-text-sub);
+  }
+  .tw-back {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--tw-border);
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,112 @@
+---
+// 대만어판(정체자) 홈 (Fase A — 2026-09-05 신설).
+//
+// 2026-09-06: 뉴스·정부 프로그램·추천 영상이 생기면서 카드 그리드를 넣었다.
+// 처음 만들 때는 참조 페이지가 없어 일부러 카드를 안 뒀다 — 내용 없는
+// 페이지로 링크를 걸면 방문자 신뢰도 떨어지고 검색엔진도 빈약한 페이지로
+// 취급하기 때문이다. 지금은 여섯 곳 다 실제 내용이 있어 입구를 연다.
+// ⚠️ 카드는 **내용이 있는 페이지만** 건다. 새 페이지를 만들 때 카드부터
+//    추가하지 말 것.
+import TwLayout from '../../layouts/TwLayout.astro';
+import tw from '../../i18n/tw.json';
+import { withBase } from '../../utils/site';
+---
+
+<TwLayout
+  title={tw.home.metaTitle}
+  description={tw.home.metaDescription}
+  koPath="/"
+  idPath="/id/"
+  jaPath="/ja/"
+  ruPath="/ru/"
+>
+  <p class="tw-updated" style="letter-spacing:.06em">{tw.home.heroEyebrow}</p>
+  <h1>{tw.home.heroTitle}</h1>
+  <p>{tw.home.heroLead}</p>
+
+  <p style="margin-top:16px">
+    <a class="tw-cta" href={withBase('/tw/about/')}>{tw.nav.about} →</a>
+  </p>
+
+  <div class="tw-cards">
+    <a class="tw-card" href={withBase('/tw/glossary/')}>
+      <span class="tw-card-t">{tw.nav.glossary}</span>
+      <span class="tw-card-d">{tw.home.glossaryDesc}</span>
+    </a>
+    <a class="tw-card" href={withBase('/tw/faq/')}>
+      <span class="tw-card-t">{tw.nav.faq}</span>
+      <span class="tw-card-d">{tw.home.faqDesc}</span>
+    </a>
+    <a class="tw-card" href={withBase('/tw/news/')}>
+      <span class="tw-card-t">{tw.nav.news}</span>
+      <span class="tw-card-d">{tw.home.newsDesc}</span>
+    </a>
+    <a class="tw-card" href={withBase('/tw/gov-support/')}>
+      <span class="tw-card-t">{tw.nav.govSupport}</span>
+      <span class="tw-card-d">{tw.home.govSupportDesc}</span>
+    </a>
+    <a class="tw-card" href={withBase('/tw/videos/')}>
+      <span class="tw-card-t">{tw.nav.videos}</span>
+      <span class="tw-card-d">{tw.home.videosDesc}</span>
+    </a>
+    <a class="tw-card" href={withBase('/tw/blog/')}>
+      <span class="tw-card-t">{tw.nav.blog}</span>
+      <span class="tw-card-d">{tw.home.blogDesc}</span>
+    </a>
+  </div>
+
+  <h2>{tw.home.notTranslationTitle}</h2>
+  <p>{tw.home.notTranslationBody}</p>
+
+  <h2>{tw.home.sourceNoteTitle}</h2>
+  <p>{tw.home.sourceNoteBody}</p>
+
+  <div class="tw-note">
+    <p><strong>{tw.home.koNoticeTitle}</strong></p>
+    <p style="margin-top:6px">{tw.home.koNoticeBody}</p>
+    <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{tw.ui.langKo} →</a></p>
+  </div>
+
+  <p class="tw-wip">{tw.ui.underConstruction}</p>
+</TwLayout>
+
+<style>
+  .tw-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 12px;
+    margin: 26px 0 8px;
+  }
+  .tw-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--tw-border);
+    background: var(--tw-base);
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--tw-text);
+  }
+  .tw-card:hover {
+    background: var(--tw-surface);
+    border-color: var(--tw-primary);
+  }
+  .tw-card-t {
+    font-weight: 700;
+    color: var(--tw-primary);
+    font-size: 15px;
+  }
+  .tw-card-d {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--tw-text-sub);
+  }
+
+  .tw-wip {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--tw-border);
+    font-size: 13.5px;
+    color: var(--tw-text-sub);
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+// 대만어판(정체자) 소개 (Fase A — 2026-09-05 신설).
+// 저자 사실은 briefing.md에 있는 것만 쓴다(CLAUDE.md 절대 원칙).
+// ja·ru판과 같은 범위 — 경력 17년(기획 7년), 통계학 석사·경제학 박사까지만.
+import TwLayout from '../../layouts/TwLayout.astro';
+import tw from '../../i18n/tw.json';
+import { withBase, CONTACT_EMAIL, YOUTUBE_CHANNEL_URL } from '../../utils/site';
+
+// ProfilePage — 화면에 보이는 사실만 마크업한다(구글은 비가시 콘텐츠
+// 마크업을 금지하고, 이 사이트의 사실 검증 원칙과도 어긋난다).
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const profilePage = {
+  '@type': 'ProfilePage',
+  '@id': `${siteUrl}${withBase('/tw/about/')}#profilepage`,
+  url: `${siteUrl}${withBase('/tw/about/')}`,
+  inLanguage: 'zh-TW',
+  mainEntity: { '@id': `${siteUrl}/#person` },
+  isPartOf: { '@id': `${siteUrl}/#website-tw` },
+};
+---
+
+<TwLayout
+  title={tw.about.metaTitle}
+  description={tw.about.metaDescription}
+  crumb={tw.nav.about}
+  koPath="/about/"
+  idPath="/id/about/"
+  jaPath="/ja/about/"
+  ruPath="/ru/about/"
+  schema={[profilePage]}
+>
+  <h1>{tw.about.pageTitle}</h1>
+  <p class="tw-lead">{tw.about.lead}</p>
+
+  <h2>{tw.about.careerHeading}</h2>
+  <dl class="tw-profile">
+    <dt>Nama</dt>
+    <dd>{tw.profile.name}</dd>
+    <dt>Jabatan</dt>
+    <dd>{tw.profile.role}</dd>
+    <dt>Pengalaman</dt>
+    <dd>{tw.profile.career}</dd>
+    <dt>Pendidikan</dt>
+    <dd>{tw.profile.education}</dd>
+  </dl>
+
+  <h2>{tw.about.whyHeading}</h2>
+  <p>{tw.about.whyBody}</p>
+
+  <h2>{tw.about.contactHeading}</h2>
+  <ul class="tw-contact">
+    <li><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
+    <li>
+      <a href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+        {tw.profile.youtube}
+        <span class="sr-only"> ({tw.ui.external})</span>
+      </a>
+    </li>
+  </ul>
+</TwLayout>
+
+<style>
+  .tw-lead {
+    color: var(--tw-text-sub);
+  }
+  .tw-profile {
+    margin: 16px 0 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px 18px;
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+  .tw-profile dt {
+    font-weight: 600;
+    color: var(--tw-text-sub);
+  }
+  .tw-profile dd {
+    margin: 0;
+  }
+  .tw-contact {
+    margin: 12px 0 0;
+    padding-left: 18px;
+    font-size: 14.5px;
+    line-height: 1.9;
+  }
+</style>

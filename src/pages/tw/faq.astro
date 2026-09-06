@@ -1,0 +1,80 @@
+---
+// Частые вопросы — 러시아 제도 기준으로 새로 쓴 FAQ
+import TwLayout from '../../layouts/TwLayout.astro';
+import tw from '../../i18n/tw.json';
+import { faqItemsTw } from '../../data/tw/faq';
+import { withBase } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/tw/faq/')}`;
+
+// FAQPage — AI 답변 엔진이 Q&A 쌍을 그대로 인용할 수 있게 한다.
+// 답변이 <details> 안에 실제로 렌더되므로 '숨겨진 콘텐츠 마크업'이 아니다.
+const faqPage = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'zh-TW',
+  isPartOf: { '@id': `${siteRoot}/#website-tw` },
+  mainEntity: faqItemsTw.map((it, i) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#q${i + 1}`,
+    name: it.question,
+    acceptedAnswer: { '@type': 'Answer', text: it.answer },
+  })),
+};
+---
+
+<TwLayout
+  title={tw.faq.pageTitle}
+  description={tw.faq.metaDescription}
+  crumb={tw.nav.faq}
+  koPath="/faq/"
+  idPath="/id/faq/"
+  jaPath="/ja/faq/"
+  ruPath="/ru/faq/"
+  schema={[faqPage]}
+>
+  <h1>{tw.faq.pageTitle}</h1>
+  <p>{tw.faq.pageLead}</p>
+
+  <div class="tw-faq">
+    {faqItemsTw.map((item) => (
+      <details class="tw-faq-item">
+        <summary>{item.question}</summary>
+        <div class="tw-faq-a">
+          <p>{item.answer}</p>
+          {item.sources.length > 0 && (
+            <p class="tw-src">
+              {tw.ui.source}:{' '}
+              {item.sources.map((src, i) => (
+                <>
+                  {i > 0 && ' / '}
+                  <a class="tw-ext" href={src} target="_blank" rel="noopener">
+                    {new URL(src).hostname.replace(/^www\./, '')}
+                    <span class="sr-only"> ({tw.ui.external})</span>
+                  </a>
+                </>
+              ))}
+            </p>
+          )}
+        </div>
+      </details>
+    ))}
+  </div>
+
+  <div class="tw-note"><p>{tw.faq.notice}</p></div>
+</TwLayout>
+
+<style>
+  .tw-faq { margin-top: 16px; border-top: 1px solid var(--tw-border); }
+  .tw-faq-item { border-bottom: 1px solid var(--tw-border); }
+  .tw-faq-item summary {
+    cursor: pointer; padding: 14px 4px; font-size: 15px; line-height: 1.7;
+    list-style-position: outside;
+  }
+  .tw-faq-item summary:hover { color: var(--tw-primary); }
+  .tw-faq-item[open] summary { color: var(--tw-primary); }
+  .tw-faq-a { padding: 0 4px 16px; }
+  .tw-src { margin-top: 8px; font-size: 12.5px; }
+</style>

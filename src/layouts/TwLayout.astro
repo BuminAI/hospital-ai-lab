@@ -1,0 +1,366 @@
+---
+// 대만어판(정체자) 전용 레이아웃 (2026-09-06 신설, IdLayout 구조 복제)
+//
+// ⚠️ 폰트는 tw-tokens.css에서 시스템 폰트로 지정한다. Pretendard는 한자
+//    자형을 충분히 담고 있지 않아 그대로 두면 글자마다 폰트가 갈린다
+//    (일본어판과 같은 이유).
+// ⚠️ html lang은 "zh-TW"다. "zh"나 "zh-Hans"가 아니다 — 간체자 검색결과와
+//    섞이면 안 된다.
+//
+// 한국어판 BaseLayout, 일본어판 JaLayout, 러시아어판 RuLayout과 완전히
+// 분리했다 — 언어판 하나를 고치다 다른 언어판이 휘말리는 사고를 막기
+// 위해서다(이 저장소의 기존 원칙, JaLayout.astro 주석 참고).
+//
+// 구성은 일본어판(2컬럼 + パンくずリスト + 상시 사이드바)을 그대로 가져왔다.
+// 의료(YMYL) 콘텐츠에서 저자 신뢰 신호를 상시 노출하는 것은 언어와 무관하게
+// 유효한 설계라는 판단이다(사실 주장이 아니라 설계 판단 — 필요하면 나중에
+// 단순 1컬럼으로 바꿀 수 있다).
+import '../styles/global.css';
+import '../styles/tw-tokens.css';
+import tw from '../i18n/tw.json';
+import navConfig from '../data/tw/content/nav.json';
+import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
+import {
+  withBase,
+  BASE,
+  stripBase,
+  CONTACT_EMAIL,
+  YOUTUBE_CHANNEL_URL,
+  GOATCOUNTER_CODE,
+} from '../utils/site';
+
+interface Props {
+  title: string;
+  description: string;
+  /** 브레드크럼 마지막 항목 이름. 홈이면 넘기지 않는다. */
+  crumb?: string;
+  /** 이 페이지의 한국어판 경로(hreflang·언어 전환용). 없으면 한국어 홈. */
+  koPath?: string;
+  /** 이 페이지의 일본어판 경로. 아직 일본어판이 없는 페이지는 넘기지 않는다. */
+  jaPath?: string;
+  /** 이 페이지의 러시아어판 경로. */
+  ruPath?: string;
+  /** 이 페이지의 인도네시아어판 경로. */
+  idPath?: string;
+  /**
+   * 번역 짝이 없는 독립 페이지(2026-09-06 추가). true면 hreflang을 아예 내지
+   * 않는다. 상단의 언어 전환 링크는 koPath로 그대로 동작한다.
+   * 자세한 배경은 RuLayout.astro의 같은 prop 주석 참고.
+   */
+  standalone?: boolean;
+  /** 갱신일 표기 */
+  updated?: Date;
+  /** 페이지 고유 JSON-LD 노드 */
+  schema?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  crumb,
+  koPath = '/',
+  jaPath,
+  ruPath,
+  idPath,
+  standalone = false,
+  updated,
+  schema = [],
+} = Astro.props;
+
+const SITE_TW = 'Hospital AI Lab';
+
+const siteRoot = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const currentPath = stripBase(Astro.url.pathname);
+const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+const canonical = `${siteRoot}${withBase(canonicalPath)}`;
+// 제목 — 이미 긴 제목에는 사이트명 접미사를 붙이지 않는다(2026-09-06).
+// ⚠️ 한자는 글자 폭이 넓어 예산이 40자다. IdLayout에서 복제할 때 라틴 문자
+//    기준인 65자가 딸려 왔는데, 그대로 두면 43자짜리 글 제목에 17자 접미사가
+//    붙어 검색결과에서 잘린다. 한국어·일본어판과 같은 40자로 맞춘다.
+const TITLE_BUDGET = 40;
+const withSuffix = `${title} | ${SITE_TW}`;
+const pageTitle = withSuffix.length <= TITLE_BUDGET ? withSuffix : title;
+
+// 갱신일: 페이지가 안 넘기면 이 경로의 실제 마지막 커밋일을 쓴다(빌드 시각이
+// 아님 — 뉴스 자동 수집으로 하루에도 여러 번 재빌드되는 사이트라, 안 그러면
+// 안 바뀐 페이지까지 매번 "오늘 갱신"으로 보인다. ja판과 같은 이유·같은 유틸).
+const updatedAt = updated ?? lastModifiedForPath(Astro.url.pathname, BASE) ?? new Date();
+
+// hreflang — 짝이 서로를 가리켜야 유효하다. x-default는 한국어(원본).
+const koHref = `${siteRoot}${withBase(koPath)}`;
+const jaHref = jaPath ? `${siteRoot}${withBase(jaPath)}` : undefined;
+const ruHref = ruPath ? `${siteRoot}${withBase(ruPath)}` : undefined;
+const idHref = idPath ? `${siteRoot}${withBase(idPath)}` : undefined;
+
+// 메뉴 표시·비표시는 src/data/tw/content/nav.json에서 관리한다
+// (홈은 항상 표시 — 지우면 대만어판 입구가 없어진다).
+const navLabels = tw.nav as Record<string, string>;
+const nav = navConfig
+  .filter((item) => item.href === '/tw/' || item.enabled)
+  .map((item) => ({
+    href: item.href,
+    label: navLabels[item.key] ?? item.key,
+  }));
+
+const isActive = (href: string) =>
+  href === '/tw/' ? canonicalPath === '/tw/' : canonicalPath.startsWith(href);
+
+// ── 구조화 데이터 ────────────────────────────────────────
+// 한국어·일본어판 SchemaOrg와 같은 @id를 쓴다 — 같은 조직·같은 사람이므로
+// 언어판이 달라도 엔티티는 하나여야 검색엔진이 혼동하지 않는다.
+// name에는 성명만 넣고, 다른 표기는 alternateName으로 분리한다(괄호까지
+// 이름으로 기계에 읽히지 않게 — ja판과 같은 이유).
+// 저자 이름은 로마자 표기를 그대로 쓴다. 한자 음역(曺永祜 등)은 briefing.md에
+// 근거가 없어 **만들지 않는다** — 일본어판의 曺永熩는 오너가 확정해 준 표기라
+// 쓸 수 있었지만, 대만식 표기는 확인받은 바가 없다(CLAUDE.md 절대 원칙).
+const person = {
+  '@type': 'Person',
+  '@id': `${siteRoot}/#person`,
+  name: tw.profile.nameShort,
+  alternateName: ['조영호', 'Youngho Cho'],
+  jobTitle: tw.profile.role,
+  url: `${siteRoot}${withBase('/tw/about/')}`,
+  sameAs: [YOUTUBE_CHANNEL_URL],
+};
+const organization = {
+  '@type': 'Organization',
+  '@id': `${siteRoot}/#organization`,
+  name: SITE_TW,
+  url: siteRoot,
+  founder: { '@id': `${siteRoot}/#person` },
+  email: CONTACT_EMAIL,
+};
+const website = {
+  '@type': 'WebSite',
+  '@id': `${siteRoot}/#website-tw`,
+  url: `${siteRoot}${withBase('/tw/')}`,
+  name: SITE_TW,
+  inLanguage: 'zh-TW',
+  publisher: { '@id': `${siteRoot}/#organization` },
+};
+const crumbs = [
+  { name: tw.ui.breadcrumbHome, url: `${siteRoot}${withBase('/tw/')}` },
+  ...(crumb ? [{ name: crumb, url: canonical }] : []),
+];
+const breadcrumbLd =
+  crumbs.length > 1
+    ? [
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${canonical}#breadcrumb`,
+          itemListElement: crumbs.map((c, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: c.name,
+            item: c.url,
+          })),
+        },
+      ]
+    : [];
+
+// WebPage — 화면에 보이는 갱신일과 같은 값을 기계도 읽을 수 있게 한다
+// (안 보이는 사실을 마크업하지 않는다는 원칙, ja판과 동일).
+const webPage = {
+  '@type': 'WebPage',
+  '@id': `${canonical}#webpage`,
+  url: canonical,
+  name: title,
+  description,
+  inLanguage: 'zh-TW',
+  isPartOf: { '@id': `${siteRoot}/#website-tw` },
+  dateModified: updatedAt.toISOString(),
+  ...(crumb ? { breadcrumb: { '@id': `${canonical}#breadcrumb` } } : {}),
+  about: { '@id': `${siteRoot}/#organization` },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [person, organization, website, webPage, ...breadcrumbLd, ...schema],
+};
+
+// ⚠️ 보안상 반드시 필요 — 절대 지우지 말 것.
+// <script type="application/ld+json"> 안의 내용은 브라우저가 "HTML 안의
+// 스크립트 요소"로 먼저 읽는다. 본문에 "</script>"라는 글자가 있으면
+// 거기서 스크립트 요소가 닫혀 버리고 뒤에 오는 글자가 살아있는 HTML로
+// 실행된다(저장형 XSS). "<"를 전부 이스케이프해도 구조화 데이터의 의미는
+// 전혀 달라지지 않는다.
+const jsonLdText = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
+
+const fmtTw = (d: Date) =>
+  new Intl.DateTimeFormat('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="zh-TW" data-locale="tw">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {/* 폰트 preload는 2026-08-27에 뺐다(BaseLayout과 같은 이유). 동적 서브셋으로
+        바꿔 폰트가 92개 청크로 쪼개졌고, 어느 청크가 필요한지는 브라우저가
+        페이지의 글자를 보고 정하므로 미리 하나를 집어 preload할 수 없다.
+        여기 남아 있던 preload 때문에 러시아어 페이지만 옛 통짜 파일(2,010KB)을
+        계속 받고 있었다 — 서브셋 전환 효과가 러시아어판에서만 사라진 상태였다. */}
+
+    {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
+    {
+      !standalone && (
+        <>
+          <link rel="alternate" hreflang="ko" href={koHref} />
+          {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
+          {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
+          {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
+          <link rel="alternate" hreflang="zh-TW" href={canonical} />
+          <link rel="alternate" hreflang="x-default" href={koHref} />
+        </>
+      )
+    }
+
+    {/* 피드 자동발견 — 브라우저·리더가 이 페이지에서 구독 주소를 찾는다.
+        언어판마다 주소가 달라야 한다(한국어 피드와 같은 주소를 쓰면
+        수집기가 두 피드를 같은 것으로 보고 한쪽을 버린다). */}
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_TW}
+      href={withBase('/id/rss.xml')}
+    />
+
+    <script type="application/ld+json" is:inline set:html={jsonLdText} />
+
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_TW} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <meta property="og:image" content={`${siteRoot}${withBase('/og-default.png')}`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE_TW} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteRoot}${withBase('/og-default.png')}`} />
+
+    {
+      GOATCOUNTER_CODE && (
+        <script
+          is:inline
+          async
+          data-goatcounter={`https://${GOATCOUNTER_CODE}.goatcounter.com/count`}
+          src="https://gc.zgo.at/count.js"
+        />
+      )
+    }
+  </head>
+  <body>
+    <a class="skip-link" href="#tw-main">跳到主要內容區塊</a>
+
+    <header class="tw-header">
+      <div class="tw-header-inner">
+        <a class="tw-brand" href={withBase('/tw/')}>
+          {SITE_TW}
+          <span class="tw-brand-sub">HOSPITAL AI LAB — informasi praktis AI kesehatan</span>
+        </a>
+        <div class="tw-langs">
+          <a class="tw-lang" href={withBase(koPath)} hreflang="ko">{tw.ui.langKo}</a>
+          {jaPath && <a class="tw-lang" href={withBase(jaPath)} hreflang="ja">{tw.ui.langJa}</a>}
+        </div>
+      </div>
+    </header>
+
+    <nav class="tw-nav" aria-label="Menu utama">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav class="tw-breadcrumb" aria-label="Remah roti">
+      <ol>
+        <li><a href={withBase('/tw/')}>{tw.ui.breadcrumbHome}</a></li>
+        {crumb && <li aria-current="page">{crumb}</li>}
+      </ol>
+    </nav>
+
+    <div class="tw-shell">
+      <main id="tw-main">
+        <p class="tw-updated">
+          {tw.ui.updated}: <time datetime={updatedAt.toISOString()}>{fmtTw(updatedAt)}</time>
+        </p>
+        <slot />
+      </main>
+
+      <aside class="tw-side">
+        {/* 운영자 신뢰 블록 — ja판과 같은 이유로 상시 노출한다 */}
+        <section>
+          <h2>{tw.ui.sidebarProfileTitle}</h2>
+          <div class="tw-side-body">
+            <dl>
+              <dt>姓名</dt>
+              <dd>{tw.profile.name}</dd>
+              <dt>職稱</dt>
+              <dd>{tw.profile.role}</dd>
+              <dt>經歷</dt>
+              <dd>{tw.profile.careerShort}</dd>
+              <dt>學歷</dt>
+              <dd>{tw.profile.educationShort}</dd>
+            </dl>
+            <p style="margin-top:10px">
+              <a class="tw-ext" href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+                {tw.profile.youtube}
+                <span class="sr-only"> ({tw.ui.external})</span>
+              </a>
+            </p>
+            <p style="margin-top:6px">
+              <a href={withBase('/tw/about/')}>{tw.nav.about}</a>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>{tw.ui.langKo}</h2>
+          <div class="tw-side-body">
+            <p>{tw.home.koNoticeBody}</p>
+            <p style="margin-top:8px">
+              <a href={withBase('/')} hreflang="ko">{tw.ui.langKo}</a>
+            </p>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="tw-footer">
+      <div class="tw-footer-inner">
+        <ul>
+          <li><a href={withBase('/tw/about/')}>{tw.footer.about}</a></li>
+          <li><a href={withBase('/privacy/')}>{tw.footer.privacy}</a></li>
+          <li><a href={`mailto:${CONTACT_EMAIL}`}>{tw.footer.contact}</a></li>
+          <li><a href={withBase('/sitemap-index.xml')}>{tw.footer.sitemap}</a></li>
+          <li><a href={withBase('/id/rss.xml')}>{tw.footer.rss}</a></li>
+        </ul>
+        <p>{tw.ui.disclaimer}</p>
+        <p style="margin-top:10px">© {year} {SITE_TW}</p>
+      </div>
+    </footer>
+  </body>
+</html>
