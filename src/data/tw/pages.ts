@@ -1,6 +1,9 @@
 // 대만어판(정체자) 콘텐츠 — 타입만 붙이는 얇은 로더 (2026-09-06 신설)
 //
 // ⚠️ 본문 데이터는 JSON에 있다. 편집할 파일:
+//      src/data/tw/content/guide.json
+//      src/data/tw/content/checklist.json
+//      src/data/tw/content/tips.json
 //      src/data/tw/content/videos.json
 //      src/data/tw/content/videos-meta.json
 //    이 파일은 JSON을 읽어 타입만 붙인다. 여기에 본문을 직접 쓰지 말 것.
@@ -11,9 +14,29 @@
 //
 // ⚠️ meta.title에 "| Hospital AI Lab"을 붙이지 말 것. TwLayout이 붙인다.
 
+import guideData from './content/guide.json';
+import checklistData from './content/checklist.json';
+import tipsData from './content/tips.json';
 import videosData from './content/videos.json';
 import videosMetaData from './content/videos-meta.json';
 import govSupportData from './content/gov-support.json';
+
+// ⚠️ sections[].items는 비어 있어도 반드시 []를 넣을 것. 키를 생략하면
+//    렌더링 시 s.items.length에서 빌드가 깨진다(ru판과 같은 함정).
+export interface TwSection {
+  heading: string;
+  body: string;
+  items: string[];
+}
+
+export interface TwContentPage {
+  meta: { title: string; description: string; pageTitle: string; lead: string };
+  sections: TwSection[];
+}
+
+export const guideTw: TwContentPage = guideData;
+export const checklistTw: TwContentPage = checklistData;
+export const tipsTw: TwContentPage = tipsData;
 
 export interface TwVideo {
   videoId: string;

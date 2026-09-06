@@ -1,0 +1,57 @@
+---
+import TwLayout from '../../layouts/TwLayout.astro';
+import TwSections from '../../components/TwSections.astro';
+import { tipsTw } from '../../data/tw/pages';
+import tw from '../../i18n/tw.json';
+
+const p = tipsTw;
+
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.meta.pageTitle,
+    numberOfItems: p.sections.length,
+    itemListElement: p.sections.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.heading,
+    })),
+  },
+];
+---
+
+<TwLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={tw.nav.tips}
+  koPath="/tips/"
+  ruPath="/ru/tips/"
+  jaPath="/ja/tips/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="tw-lead">{p.meta.lead}</p>
+
+  {/* 원내 규정 확인을 도구 소개보다 먼저 안내 */}
+  <p class="tw-caution">
+      在把這裡列的工具用到工作上之前，請先確認貴院的資訊安全規範是否允許。
+      不論用哪一種工具，「不把病人與員工的資料輸入外部服務」都是共同的前提。
+  </p>
+
+  <TwSections sections={p.sections} />
+</TwLayout>
+
+<style>
+  .tw-lead {
+    color: var(--tw-text-sub);
+  }
+  .tw-caution {
+    border: 1px solid var(--tw-border);
+    border-left: 4px solid var(--tw-accent);
+    background: var(--tw-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 26px;
+  }
+</style>

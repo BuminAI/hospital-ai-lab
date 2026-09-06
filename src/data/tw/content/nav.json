@@ -30,8 +30,23 @@
     "enabled": true
   },
   {
+    "href": "/tw/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/tw/guide/",
+    "key": "guide",
+    "enabled": true
+  },
+  {
     "href": "/tw/glossary/",
     "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/tw/checklist/",
+    "key": "checklist",
     "enabled": true
   },
   {

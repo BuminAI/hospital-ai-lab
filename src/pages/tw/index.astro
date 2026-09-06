@@ -53,6 +53,18 @@ import { withBase } from '../../utils/site';
       <span class="tw-card-t">{tw.nav.blog}</span>
       <span class="tw-card-d">{tw.home.blogDesc}</span>
     </a>
+    <a class="tw-card" href={withBase('/tw/checklist/')}>
+      <span class="tw-card-t">{tw.nav.checklist}</span>
+      <span class="tw-card-d">{tw.home.checklistDesc}</span>
+    </a>
+    <a class="tw-card" href={withBase('/tw/guide/')}>
+      <span class="tw-card-t">{tw.nav.guide}</span>
+      <span class="tw-card-d">{tw.home.guideDesc}</span>
+    </a>
+    <a class="tw-card" href={withBase('/tw/tips/')}>
+      <span class="tw-card-t">{tw.nav.tips}</span>
+      <span class="tw-card-d">{tw.home.tipsDesc}</span>
+    </a>
   </div>
 
   <h2>{tw.home.notTranslationTitle}</h2>
@@ -66,8 +78,6 @@ import { withBase } from '../../utils/site';
     <p style="margin-top:6px">{tw.home.koNoticeBody}</p>
     <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{tw.ui.langKo} →</a></p>
   </div>
-
-  <p class="tw-wip">{tw.ui.underConstruction}</p>
 </TwLayout>
 
 <style>
