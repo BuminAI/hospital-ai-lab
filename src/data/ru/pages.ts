@@ -64,3 +64,29 @@ export const videosMetaRu: RuVideosMeta = videosMetaData;
 export const videosRu: RuVideo[] = (videosData as RuVideo[]).filter(
   (v) => v.titleRu.trim() !== ''
 );
+
+// ── 다른 채널의 추천 영상 (2026-09-06 신설) ─────────────
+// ⚠️ 연구소장이 만든 영상이 아니다. **그 나라 언어로 된 의료 AI 영상**을
+//    유튜브에서 찾아 링크만 건 것이다(한국어판 /youtube/의 '다른 채널 추천
+//    영상'과 같은 성격). 한국어판 영상을 번역해 붙인 것이 아니다.
+//
+// ⚠️ 여기 싣는 영상은 **전부 유튜브 oEmbed로 제목·채널명을 실제 확인**한
+//    것만 쓴다(2026-09-06 확인). videoId를 눈대중으로 적지 말 것 — 오타 하나면
+//    전혀 다른 영상이 걸린다. 확인 방법:
+//      https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<ID>&format=json
+//
+// ⚠️ 화면에는 "선정했을 뿐 제휴·후원 관계가 없다"는 안내를 반드시 함께 낸다.
+//    영상 내용은 각 채널 제작자의 것이고 이 사이트가 검증한 주장이 아니다.
+import videosLocalData from './content/videos-local.json';
+
+export interface LocalVideoRu {
+  videoId: string;
+  /** 유튜브에 실제로 표시되는 제목. 임의로 고쳐 쓰지 말 것 */
+  title: string;
+  /** 채널명. 누가 만든 영상인지 화면에 밝힌다 */
+  channel: string;
+  /** 왜 이 영상을 골랐는지 한 줄. 영상이 주장하는 사실을 옮기지 않는다 */
+  note: string;
+}
+
+export const videosLocalRu: LocalVideoRu[] = videosLocalData;

@@ -5,7 +5,7 @@
 // 입문 시리즈)이고, 제목만 인도네시아어로 옮겼다. 음성이 한국어라는 사실은
 // 재생 전에 알린다 — 보고 나서 알게 하면 신뢰를 해친다.
 import IdLayout from '../../layouts/IdLayout.astro';
-import { videosId, videosMetaId } from '../../data/id/pages';
+import { videosId, videosMetaId, videosLocalId } from '../../data/id/pages';
 import idI18n from '../../i18n/id.json';
 import { YOUTUBE_CHANNEL_URL } from '../../utils/site';
 
@@ -23,6 +23,17 @@ const schema = [
       '@type': 'ListItem',
       position: i + 1,
       name: v.titleId,
+      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    })),
+  },
+  {
+    '@type': 'ItemList',
+    name: 'Video pilihan dari kanal lain',
+    numberOfItems: videosLocalId.length,
+    itemListElement: videosLocalId.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.title,
       url: `https://www.youtube.com/watch?v=${v.videoId}`,
     })),
   },
@@ -47,6 +58,7 @@ const schema = [
 
   <p class="id-count">Jumlah video: {videosId.length}</p>
 
+  <h2 class="id-vsec">Video buatan kami</h2>
   <ul class="id-videos">
     {
       videosId.map((v) => (
@@ -61,6 +73,39 @@ const schema = [
             />
             <div class="id-video-text">
               <span class="id-video-title">{v.titleId}</span>
+              {v.note && <span class="id-video-note">{v.note}</span>}
+              <span class="id-video-ext">
+                Tonton di YouTube<span class="sr-only"> ({idI18n.ui.external})</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+
+  <h2 class="id-vsec">Video pilihan dari kanal lain</h2>
+  <p class="id-lead">Video berbahasa Indonesia tentang AI dan digitalisasi layanan kesehatan. Video-video ini bukan buatan kami.</p>
+  {/* 제휴가 아니라는 안내를 반드시 함께 낸다 — 지우지 말 것.
+      영상 내용은 각 제작자의 것이고 이 사이트가 검증한 주장이 아니다. */}
+  <p class="id-notice">Semua video di bawah ini milik pembuatnya masing-masing. Dicantumkan di sini hanya berarti kami memilihnya — tidak ada hubungan kerja sama maupun sponsor. Isi video adalah pendapat pembuatnya dan tidak kami verifikasi.</p>
+
+  <ul class="id-videos">
+    {
+      videosLocalId.map((v) => (
+        <li>
+          <a href={`https://www.youtube.com/watch?v=${v.videoId}`} target="_blank" rel="noopener">
+            <img
+              src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              width="320"
+              height="180"
+            />
+            <div class="id-video-text">
+              <span class="id-video-title">{v.title}</span>
+              <span class="id-video-ch">{v.channel}</span>
               {v.note && <span class="id-video-note">{v.note}</span>}
               <span class="id-video-ext">
                 Tonton di YouTube<span class="sr-only"> ({idI18n.ui.external})</span>
@@ -162,5 +207,18 @@ const schema = [
       height: auto;
       aspect-ratio: 16 / 9;
     }
+  }
+  .id-vsec {
+    font-size: 16px;
+    margin: 30px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid var(--id-primary);
+  }
+  .id-vsec:first-of-type {
+    margin-top: 18px;
+  }
+  .id-video-ch {
+    font-size: 12.5px;
+    color: var(--id-text-sub);
   }
 </style>

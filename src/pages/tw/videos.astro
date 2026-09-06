@@ -5,7 +5,7 @@
 // 입문 시리즈)이고, 제목만 인도네시아어로 옮겼다. 음성이 한국어라는 사실은
 // 재생 전에 알린다 — 보고 나서 알게 하면 신뢰를 해친다.
 import TwLayout from '../../layouts/TwLayout.astro';
-import { videosTw, videosMetaTw } from '../../data/tw/pages';
+import { videosTw, videosMetaTw, videosLocalTw } from '../../data/tw/pages';
 import twI18n from '../../i18n/tw.json';
 import { YOUTUBE_CHANNEL_URL } from '../../utils/site';
 
@@ -23,6 +23,17 @@ const schema = [
       '@type': 'ListItem',
       position: i + 1,
       name: v.titleTw,
+      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    })),
+  },
+  {
+    '@type': 'ItemList',
+    name: '其他頻道的推薦影片',
+    numberOfItems: videosLocalTw.length,
+    itemListElement: videosLocalTw.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.title,
       url: `https://www.youtube.com/watch?v=${v.videoId}`,
     })),
   },
@@ -47,6 +58,7 @@ const schema = [
 
   <p class="tw-count">Jumlah video: {videosTw.length}</p>
 
+  <h2 class="tw-vsec">本站作者自製的影片</h2>
   <ul class="tw-videos">
     {
       videosTw.map((v) => (
@@ -64,6 +76,39 @@ const schema = [
               {v.note && <span class="tw-video-note">{v.note}</span>}
               <span class="tw-video-ext">
                 Tonton di YouTube<span class="sr-only"> ({twI18n.ui.external})</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+
+  <h2 class="tw-vsec">其他頻道的推薦影片</h2>
+  <p class="tw-lead">以繁體中文談醫療 AI 與智慧醫療的影片，這些不是本站作者製作的。</p>
+  {/* 제휴가 아니라는 안내를 반드시 함께 낸다 — 지우지 말 것.
+      영상 내용은 각 제작자의 것이고 이 사이트가 검증한 주장이 아니다. */}
+  <p class="tw-notice">以下影片都屬於各頻道的創作者。列在這裡只代表本站選了它，與對方沒有合作或贊助關係。影片中的說法是創作者的意見，本站沒有查證。</p>
+
+  <ul class="tw-videos">
+    {
+      videosLocalTw.map((v) => (
+        <li>
+          <a href={`https://www.youtube.com/watch?v=${v.videoId}`} target="_blank" rel="noopener">
+            <img
+              src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              width="320"
+              height="180"
+            />
+            <div class="tw-video-text">
+              <span class="tw-video-title">{v.title}</span>
+              <span class="tw-video-ch">{v.channel}</span>
+              {v.note && <span class="tw-video-note">{v.note}</span>}
+              <span class="tw-video-ext">
+                在 YouTube 觀看<span class="sr-only"> ({twI18n.ui.external})</span>
               </span>
             </div>
           </a>
@@ -162,5 +207,18 @@ const schema = [
       height: auto;
       aspect-ratio: 16 / 9;
     }
+  }
+  .tw-vsec {
+    font-size: 16px;
+    margin: 30px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid var(--tw-primary);
+  }
+  .tw-vsec:first-of-type {
+    margin-top: 18px;
+  }
+  .tw-video-ch {
+    font-size: 12.5px;
+    color: var(--tw-text-sub);
   }
 </style>

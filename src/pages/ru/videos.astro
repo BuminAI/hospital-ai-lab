@@ -1,6 +1,6 @@
 ---
 import RuLayout from '../../layouts/RuLayout.astro';
-import { videosRu, videosMetaRu } from '../../data/ru/pages';
+import { videosRu, videosMetaRu, videosLocalRu } from '../../data/ru/pages';
 import ru from '../../i18n/ru.json';
 import { YOUTUBE_CHANNEL_URL } from '../../utils/site';
 
@@ -18,6 +18,17 @@ const schema = [
       '@type': 'ListItem',
       position: i + 1,
       name: v.titleRu,
+      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    })),
+  },
+  {
+    '@type': 'ItemList',
+    name: 'Видео с других каналов',
+    numberOfItems: videosLocalRu.length,
+    itemListElement: videosLocalRu.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.title,
       url: `https://www.youtube.com/watch?v=${v.videoId}`,
     })),
   },
@@ -42,6 +53,7 @@ const schema = [
 
   <p class="ru-count">Всего видео: {videosRu.length}</p>
 
+  <h2 class="ru-vsec">Видео нашей лаборатории</h2>
   <ul class="ru-videos">
     {
       videosRu.map((v) => (
@@ -56,6 +68,39 @@ const schema = [
             />
             <div class="ru-video-text">
               <span class="ru-video-title">{v.titleRu}</span>
+              {v.note && <span class="ru-video-note">{v.note}</span>}
+              <span class="ru-video-ext">
+                Смотреть на YouTube<span class="sr-only"> ({ru.ui.external})</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+
+  <h2 class="ru-vsec">Видео с других каналов</h2>
+  <p class="ru-lead">Подборка русскоязычных видео о медицинском ИИ. Эти видео сняты не нами.</p>
+  {/* 제휴가 아니라는 안내를 반드시 함께 낸다 — 지우지 말 것.
+      영상 내용은 각 제작자의 것이고 이 사이트가 검증한 주장이 아니다. */}
+  <p class="ru-notice">Все перечисленные видео принадлежат их авторам. Включение в список означает только наш выбор — партнёрских или спонсорских отношений нет. Утверждения в видео принадлежат их авторам и не проверялись нами.</p>
+
+  <ul class="ru-videos">
+    {
+      videosLocalRu.map((v) => (
+        <li>
+          <a href={`https://www.youtube.com/watch?v=${v.videoId}`} target="_blank" rel="noopener">
+            <img
+              src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              width="320"
+              height="180"
+            />
+            <div class="ru-video-text">
+              <span class="ru-video-title">{v.title}</span>
+              <span class="ru-video-ch">{v.channel}</span>
               {v.note && <span class="ru-video-note">{v.note}</span>}
               <span class="ru-video-ext">
                 Смотреть на YouTube<span class="sr-only"> ({ru.ui.external})</span>
@@ -157,5 +202,18 @@ const schema = [
       height: auto;
       aspect-ratio: 16 / 9;
     }
+  }
+  .ru-vsec {
+    font-size: 16px;
+    margin: 30px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid var(--ru-primary);
+  }
+  .ru-vsec:first-of-type {
+    margin-top: 18px;
+  }
+  .ru-video-ch {
+    font-size: 12.5px;
+    color: var(--ru-text-sub);
   }
 </style>

@@ -1,6 +1,6 @@
 ---
 import JaLayout from '../../layouts/JaLayout.astro';
-import { videosJa, videosMetaJa } from '../../data/ja/pages';
+import { videosJa, videosMetaJa, videosLocalJa } from '../../data/ja/pages';
 import ja from '../../i18n/ja.json';
 import { withBase, YOUTUBE_CHANNEL_URL } from '../../utils/site';
 
@@ -20,6 +20,17 @@ const schema = [
       '@type': 'ListItem',
       position: i + 1,
       name: v.titleJa,
+      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    })),
+  },
+  {
+    '@type': 'ItemList',
+    name: '他チャンネルのおすすめ動画',
+    numberOfItems: videosLocalJa.length,
+    itemListElement: videosLocalJa.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.title,
       url: `https://www.youtube.com/watch?v=${v.videoId}`,
     })),
   },
@@ -44,6 +55,7 @@ const schema = [
 
   <p class="ja-count">全{videosJa.length}回</p>
 
+  <h2 class="ja-vsec">当研究所が制作した動画</h2>
   <ul class="ja-videos">
     {
       videosJa.map((v) => (
@@ -65,6 +77,39 @@ const schema = [
               <span class="ja-video-note">{v.note}</span>
               <span class="ja-video-ext">
                 YouTubeで見る<span class="sr-only">（{ja.ui.external}）</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+
+  <h2 class="ja-vsec">他チャンネルのおすすめ動画</h2>
+  <p class="ja-lead">日本語で医療AI・医療DXを扱っている動画を選びました。当研究所が作ったものではありません。</p>
+  {/* 제휴가 아니라는 안내를 반드시 함께 낸다 — 지우지 말 것.
+      영상 내용은 각 제작자의 것이고 이 사이트가 검증한 주장이 아니다. */}
+  <p class="ja-notice">ここに挙げた動画は各チャンネルの制作者によるものです。掲載は当研究所が選んだという意味にとどまり、提携や後援の関係はありません。内容は各制作者の見解であり、当研究所が検証した事実ではありません。</p>
+
+  <ul class="ja-videos">
+    {
+      videosLocalJa.map((v) => (
+        <li>
+          <a href={`https://www.youtube.com/watch?v=${v.videoId}`} target="_blank" rel="noopener">
+            <img
+              src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              width="320"
+              height="180"
+            />
+            <div class="ja-video-text">
+              <span class="ja-video-title">{v.title}</span>
+              <span class="ja-video-ch">{v.channel}</span>
+              {v.note && <span class="ja-video-note">{v.note}</span>}
+              <span class="ja-video-ext">
+                YouTubeで見る<span class="sr-only"> ({ja.ui.external})</span>
               </span>
             </div>
           </a>
@@ -160,5 +205,18 @@ const schema = [
       height: auto;
       aspect-ratio: 16 / 9;
     }
+  }
+  .ja-vsec {
+    font-size: 16px;
+    margin: 30px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid var(--ja-primary);
+  }
+  .ja-vsec:first-of-type {
+    margin-top: 18px;
+  }
+  .ja-video-ch {
+    font-size: 12.5px;
+    color: var(--ja-text-sub);
   }
 </style>
