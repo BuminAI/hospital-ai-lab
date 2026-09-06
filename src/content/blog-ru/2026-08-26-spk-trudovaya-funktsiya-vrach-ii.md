@@ -35,4 +35,4 @@ draft: false
 
 <br>
 
-*Источник: [Vademecum — СПК разработал проект трудовой функции медработников по использованию ИИ, 24.08.2026](https://www.vademec.ru/news/2026/08/24/spk-razrabotal-proekt-trudovoy-funktsii-medrabotnikov-po-ispolzovaniu-ii/)*
+*Источник: [Vademecum — СПК разработал проект трудовой функции медработников по использованию ИИ, 24.08.2026](https://www.vademec.ru/news/2026/08/24/spk-razrabotal-proekt-trudovoy-funktsii-medrabotnikov-po-ispolzovaniyu-ii/)*
