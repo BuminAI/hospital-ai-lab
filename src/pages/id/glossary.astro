@@ -48,7 +48,7 @@ const definedTermSet = {
 
   <p class="id-caution">{id.glossary.caution}</p>
 
-  <nav class="id-index" aria-label="Указатель терминов">
+  <nav class="id-index" aria-label="Indeks istilah">
     <ul>
       {glossaryTermsId.map((t) => (
         <li><a href={`#${t.id}`}>{t.term}</a></li>
@@ -68,7 +68,7 @@ const definedTermSet = {
               <dt>{t.term}</dt>
               <dd>
                 <p>{t.definition}</p>
-                <p class="id-why"><span>Практическое значение</span>{t.whyMatters}</p>
+                <p class="id-why"><span>Arti dalam praktik</span>{t.whyMatters}</p>
                 {t.sources.length > 0 && (
                   <p class="id-src">
                     {id.ui.source}:{' '}

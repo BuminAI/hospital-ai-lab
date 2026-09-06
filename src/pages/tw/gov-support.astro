@@ -63,7 +63,7 @@ const schema = [
           <p class="tw-org">{it.org}</p>
           <p class="tw-body">{it.body}</p>
           <p class="tw-audience">
-            <strong>Untuk siapa:</strong> {it.audience}
+            <strong>適用對象：</strong> {it.audience}
           </p>
           <p class="tw-src">
             {twI18n.ui.source}:{' '}
@@ -71,7 +71,7 @@ const schema = [
               {it.sourceLabel}
               <span class="sr-only"> ({twI18n.ui.external})</span>
             </a>{' '}
-            · diperiksa {p.checkedAt}
+            · 查證日期 {p.checkedAt}
           </p>
         </li>
       ))
@@ -80,10 +80,8 @@ const schema = [
 
   <div class="tw-note">
     <p>
-      Daftar ini tidak memuat seluruh program pemerintah. Yang dicantumkan hanya
-      program yang keterangannya dapat diperiksa langsung di halaman resminya.
-      Program yang tidak dapat dipastikan dari sumber resmi sengaja tidak
-      dimasukkan, agar tidak ada keterangan yang keliru di halaman ini.
+      本頁並未收錄所有政府方案。這裡只列出能在官方頁面直接查證說明內容的方案。
+      無法從官方來源確認的方案刻意不列入，以免本頁出現不正確的說明。
     </p>
   </div>
 </TwLayout>

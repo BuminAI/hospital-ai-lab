@@ -48,7 +48,7 @@ const definedTermSet = {
 
   <p class="tw-caution">{tw.glossary.caution}</p>
 
-  <nav class="tw-index" aria-label="Указатель терминов">
+  <nav class="tw-index" aria-label="詞彙索引">
     <ul>
       {glossaryTermsTw.map((t) => (
         <li><a href={`#${t.id}`}>{t.term}</a></li>
@@ -68,7 +68,7 @@ const definedTermSet = {
               <dt>{t.term}</dt>
               <dd>
                 <p>{t.definition}</p>
-                <p class="tw-why"><span>Практическое значение</span>{t.whyMatters}</p>
+                <p class="tw-why"><span>實務上的意義</span>{t.whyMatters}</p>
                 {t.sources.length > 0 && (
                   <p class="tw-src">
                     {tw.ui.source}:{' '}
