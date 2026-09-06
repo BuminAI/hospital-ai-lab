@@ -25,6 +25,11 @@
     "enabled": true
   },
   {
+    "href": "/ja/events/",
+    "key": "events",
+    "enabled": true
+  },
+  {
     "href": "/ja/videos/",
     "key": "videos",
     "enabled": true

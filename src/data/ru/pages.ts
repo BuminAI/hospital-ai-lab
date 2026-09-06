@@ -118,3 +118,28 @@ export interface RuGovSupport {
 }
 
 export const govSupportRu: RuGovSupport = govSupportData;
+
+// ── 교육·행사 안내 (2026-09-06 신설) ────────────────────
+// ⚠️ 자동 수집이 아니다. 사람이 1차 출처에 접속해 확인한 것만 적는다.
+//    사유는 content/events.json의 _comment 참고.
+import eventsData from './content/events.json';
+
+export interface EventEntryRu {
+  name: string;
+  org: string;
+  url: string;
+  body: string;
+  audience: string;
+  sourceUrl: string;
+  sourceLabel: string;
+}
+
+export interface EventsPageRu {
+  meta: { title: string; description: string; pageTitle: string; lead: string };
+  notice: string;
+  /** 마지막으로 전 항목을 실제 접속해 확인한 날 (YYYY-MM-DD) */
+  checkedAt: string;
+  items: EventEntryRu[];
+}
+
+export const eventsRu: EventsPageRu = eventsData;

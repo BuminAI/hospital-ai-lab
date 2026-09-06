@@ -25,6 +25,11 @@
     "enabled": true
   },
   {
+    "href": "/ru/events/",
+    "key": "events",
+    "enabled": true
+  },
+  {
     "href": "/ru/videos/",
     "key": "videos",
     "enabled": true

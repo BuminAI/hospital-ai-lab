@@ -31,6 +31,8 @@
 
 - [ホーム](https://hospital-ai-lab.com/ja/): 医事課・経営企画・看護部の実務者向けの医療AI情報
 - [ブログ](https://hospital-ai-lab.com/ja/blog/): 薬機法・個人情報保護法・PMDAの審査制度など、日本の制度に基づいて書いたコラム（韓国語版の翻訳ではありません）
+- [医療AIニュース](https://hospital-ai-lab.com/ja/news/): CBnewsのDX面から医療DX・医療AIの記事を自動収集
+- [AI教育・イベント](https://hospital-ai-lab.com/ja/events/): 学会・工業会・行政の公式入口（自動収集ではなく手作業でまとめたもの）
 - [補助金・助成金情報](https://hospital-ai-lab.com/ja/subsidies/): デジタル庁 Jグランツ公開APIから、医療機関に関係する募集中の補助金・助成金を毎日自動収集
 - [おすすめ動画](https://hospital-ai-lab.com/ja/videos/): 当研究所が制作した入門シリーズ「病院AI業務活用」全12回（音声は韓国語）
 - [はじめての医療AI](https://hospital-ai-lab.com/ja/guide/): 生成AIをどこから学ぶか、5つのステップで整理した学習順序
@@ -50,6 +52,8 @@
 
 - [Главная](https://hospital-ai-lab.com/ru/): Информация о медицинском ИИ для административных и сестринских служб больниц
 - [Блог](https://hospital-ai-lab.com/ru/blog/): Колонки о регулировании медицинского ИИ в России — регистрация медицинских изделий, требования к персональным данным, новое законодательство
+- [Государственные ресурсы](https://hospital-ai-lab.com/ru/gov-support/): Реестр медизделий Росздравнадзора, портал правовой информации, стандарты Росстандарта (составлено вручную)
+- [Обучение и мероприятия](https://hospital-ai-lab.com/ru/events/): Официальные разделы, где искать конференции и программы обучения (составлено вручную)
 - [Новости об ИИ](https://hospital-ai-lab.com/ru/news/): Статьи о медицинском ИИ из «Медвестника» и Vademecum, обновляются каждый час
 - [Словарь терминов](https://hospital-ai-lab.com/ru/glossary/): Термины медицинского ИИ из предложений поставщиков и совещаний — простым языком, с якорными ссылками на каждый термин
 - [Частые вопросы](https://hospital-ai-lab.com/ru/faq/): Ответы на вопросы о внедрении ИИ с учётом российского регулирования
@@ -70,6 +74,7 @@ Isi bagian ini ditulis berdasarkan regulasi Indonesia (UU No. 27 Tahun 2022 tent
 - [Beranda](https://hospital-ai-lab.com/id/): Informasi AI kesehatan untuk tenaga administrasi dan keperawatan rumah sakit
 - [Blog](https://hospital-ai-lab.com/id/blog/): Kolom tentang AI dan digitalisasi layanan kesehatan di Indonesia, ditulis berdasarkan sumber primer (bukan terjemahan dari versi Korea)
 - [Berita AI](https://hospital-ai-lab.com/id/news/): Berita AI dan digitalisasi layanan kesehatan dari PERSI (Perhimpunan Rumah Sakit Seluruh Indonesia) dan kantor berita ANTARA, dikumpulkan otomatis beberapa kali sehari
+- [Pelatihan & Acara](https://hospital-ai-lab.com/id/events/): Info pelatihan PERSI seputar RME, koding klaim, dan AI, dikumpulkan otomatis
 - [Program Pemerintah](https://hospital-ai-lab.com/id/gov-support/): Program pendanaan dan platform resmi (RIIM BRIN-LPDP, SIBK Kemenkes, Platform SATUSEHAT) — disusun manual dari halaman resmi, bukan pengumpulan otomatis
 - [Video Rekomendasi](https://hospital-ai-lab.com/id/videos/): Seri 12 video pengantar buatan penulis situs ini (suara berbahasa Korea)
 - [Kamus Istilah](https://hospital-ai-lab.com/id/glossary/): Istilah AI kesehatan yang muncul dalam proposal dan rapat, dengan tautan sumber di setiap istilah

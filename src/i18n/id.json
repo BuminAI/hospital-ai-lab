@@ -10,6 +10,7 @@
     "tips": "Tips Praktis",
     "videos": "Video",
     "news": "Berita AI",
+    "events": "Pelatihan & Acara",
     "govSupport": "Program Pemerintah",
     "blog": "Blog"
   },
@@ -55,6 +56,7 @@
     "glossaryDesc": "Istilah AI kesehatan yang muncul di proposal vendor dan rapat, dijelaskan dengan bahasa sehari-hari.",
     "faqDesc": "Pertanyaan yang biasa muncul saat rumah sakit mulai mempertimbangkan AI.",
     "newsDesc": "Berita AI dan digitalisasi layanan kesehatan dari PERSI dan ANTARA, dikumpulkan otomatis.",
+    "eventsDesc": "Info pelatihan PERSI soal RME, koding, dan AI.",
     "govSupportDesc": "Program pendanaan dan platform resmi pemerintah, dirangkum dari halaman resminya.",
     "videosDesc": "Seri 12 video pengantar penerapan AI dalam pekerjaan rumah sakit.",
     "blogDesc": "Kolom tentang regulasi dan praktik AI kesehatan di Indonesia.",

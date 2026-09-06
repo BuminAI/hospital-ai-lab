@@ -1,0 +1,146 @@
+---
+// Program Pemerintah — 인도네시아 정부 지원·제도 안내 (2026-09-06 신설)
+//
+// ⚠️ 한국어판 /gov-support/·일본어판 /ja/subsidies/와 달리 **자동 수집이
+//    아니다.** 인도네시아에는 jGrants(일본)나 보건복지부 공고 목록(한국)처럼
+//    기계로 읽을 수 있는 공고 소스를 찾지 못했다(사유는 gov-support.json의
+//    _comment에 적어 뒀다). 그래서 hreflang으로 한국어판과 짝지우지 않는다 —
+//    성격이 다른 페이지에 alternate를 걸면 잘못된 신호가 된다.
+//
+// ⚠️ 자동 수집이 아니라는 사실을 화면에서 숨기지 않는다. 방문자가 최신
+//    공고로 착각하면 신뢰를 해친다. notice와 확인일을 반드시 함께 노출한다.
+import JaLayout from '../../layouts/JaLayout.astro';
+import ja from '../../i18n/ja.json';
+import { eventsJa } from '../../data/ja/pages';
+import { withBase } from '../../utils/site';
+
+const p = eventsJa;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/ja/events/')}`;
+
+// ItemList로만 전달한다. 각 항목은 우리가 만든 공고가 아니라 정부 페이지로
+// 가는 안내이므로 GovernmentService 등으로 단정하지 않는다.
+const schema = [
+  {
+    '@type': 'ItemList',
+    '@id': `${pageUrl}#events`,
+    name: p.meta.pageTitle,
+    numberOfItems: p.items.length,
+    itemListElement: p.items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      url: it.url,
+    })),
+  },
+];
+---
+
+<JaLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={ja.nav.events}
+  koPath="/gov-support/"
+  standalone
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="ja-lead">{p.meta.lead}</p>
+
+  <p class="ja-notice">{p.notice}</p>
+
+  <ul class="ja-programs">
+    {
+      p.items.map((it) => (
+        <li>
+          <h2>
+            <a href={it.url} target="_blank" rel="noopener">
+              {it.name}
+              <span class="sr-only"> ({ja.ui.external})</span>
+            </a>
+          </h2>
+          <p class="ja-org">{it.org}</p>
+          <p class="ja-body">{it.body}</p>
+          <p class="ja-audience">
+            <strong>Untuk siapa:</strong> {it.audience}
+          </p>
+          <p class="ja-src">
+            {ja.ui.source}:{' '}
+            <a href={it.sourceUrl} target="_blank" rel="noopener">
+              {it.sourceLabel}
+              <span class="sr-only"> ({ja.ui.external})</span>
+            </a>{' '}
+            · {p.checkedAt}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="ja-note">
+    <p>
+      ここに挙げたのは公式の入口だけです。個々の開催情報までは載せていません — 日程・申込・費用は必ず各主催者のページでご確認ください。確認できなかったものは載せていません。
+    </p>
+  </div>
+</JaLayout>
+
+<style>
+  .ja-lead {
+    color: var(--ja-text-sub);
+  }
+  .ja-notice {
+    border: 1px solid var(--ja-border);
+    border-left: 4px solid var(--ja-primary);
+    background: var(--ja-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .ja-programs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--ja-border);
+  }
+  .ja-programs li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--ja-border);
+  }
+  .ja-programs h2 {
+    font-size: 16px;
+    margin: 0 0 4px;
+    line-height: 1.6;
+  }
+  .ja-programs h2 a {
+    color: var(--ja-primary);
+  }
+  .ja-org {
+    margin: 0 0 8px;
+    font-size: 13px;
+    color: var(--ja-text-sub);
+  }
+  .ja-body {
+    margin: 0 0 8px;
+    line-height: 1.9;
+  }
+  .ja-audience {
+    margin: 0 0 6px;
+    font-size: 13.5px;
+    line-height: 1.85;
+  }
+  .ja-src {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--ja-text-sub);
+  }
+  .ja-note {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--ja-border);
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--ja-text-sub);
+  }
+</style>

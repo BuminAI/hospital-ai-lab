@@ -1,0 +1,158 @@
+---
+// 教育與活動 — 中央社 검색 + 뉴스 누적분에서 행사성 기사만 추린 목록.
+// 한국어판 events.astro와 같은 성격이고, 인도네시아어판 news.astro와 같은 구조다.
+//
+// hreflang을 걸지 않는다 — 자동 수집 목록은 언어판마다 완전히 다른 목록이라
+// 번역 관계가 아니다. 짝이 아닌 페이지에 alternate를 걸면 잘못된 신호가 된다
+// (ko events.astro·tw news.astro도 같은 원칙).
+import IdLayout from '../../layouts/IdLayout.astro';
+import idI18n from '../../i18n/id.json';
+import { withBase } from '../../utils/site';
+import events from '../../data/id/events.json';
+
+const fmt = new Intl.DateTimeFormat('id-ID', {
+  timeZone: 'Asia/Jakarta',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const items = events.items;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/id/events/')}`;
+const DESC =
+  'Info pelatihan dan workshop dari PERSI seputar rekam medis elektronik, koding klaim, dan AI. Tanggal adalah tanggal pengumuman, bukan tanggal acara.';
+
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: idI18n.nav.events,
+  description: DESC,
+  inLanguage: 'id-ID',
+  isPartOf: { '@id': `${siteUrl}/#website-id` },
+  dateModified: events.updatedAt,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.slice(0, 30).map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.title,
+      url: it.link,
+    })),
+  },
+};
+---
+
+<IdLayout
+  title={idI18n.nav.events}
+  description={DESC}
+  crumb={idI18n.nav.events}
+  koPath="/events/"
+  standalone
+  updated={new Date(events.updatedAt)}
+  schema={[collectionPage]}
+>
+  <h1>{idI18n.nav.events}</h1>
+  <p class="id-lead">
+    Info pelatihan dan workshop dari PERSI (Perhimpunan Rumah Sakit Seluruh
+    Indonesia) yang berkaitan dengan rekam medis elektronik, koding klaim, dan
+    AI, dikumpulkan otomatis. Judul menautkan ke pengumuman aslinya.
+  </p>
+
+  {/* 이 안내를 지우지 말 것 — 이 목록은 '행사 안내'가 아니라 '행사를 다룬
+      보도'다. 지난 행사가 그대로 남아 있고, 신청 기간·정원도 여기서는 알 수
+      없다. 그 사실을 화면에서 밝히지 않으면 방문자를 오해하게 만든다. */}
+  <p class="id-caution">
+    <strong>Ini kumpulan pengumuman, bukan daftar pendaftaran.</strong>
+    Tanggal di bawah adalah <strong>tanggal pengumuman dimuat</strong>, bukan
+    tanggal acara maupun batas pendaftaran. Acara yang sudah lewat tetap
+    ditampilkan — melihat apa saja yang pernah diadakan juga berguna.
+    Kalau ingin ikut, buka pengumuman aslinya dan pastikan tanggal, kuota,
+    serta cara mendaftarnya langsung ke penyelenggara.
+  </p>
+
+  {
+    items.length > 0 ? (
+      <ul class="id-news-list">
+        {items.map((item) => (
+          <li>
+            <a href={item.link} target="_blank" rel="noopener">
+              {item.title}
+              <span class="sr-only"> ({idI18n.ui.external})</span>
+            </a>
+            <span class="id-news-meta">
+              {item.source} ·{' '}
+              <time datetime={item.pubDate}>{fmt.format(new Date(item.pubDate))}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="id-empty">{idI18n.ui.noItems}</p>
+    )
+  }
+
+  <div class="id-note">
+    <p>
+      Daftar ini disaring otomatis dari judul, bukan kurasi redaksi. Situs ini
+      tidak menilai atau merekomendasikan acara tertentu dan tidak memiliki
+      hubungan apa pun dengan penyelenggara. Tercantum atau tidaknya sebuah
+      acara bukan penilaian mutu.
+    </p>
+  </div>
+</IdLayout>
+
+<style>
+  .id-lead {
+    color: var(--id-text-sub);
+  }
+  .id-caution {
+    border: 1px solid var(--id-border);
+    border-left: 4px solid var(--id-primary);
+    background: var(--id-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin: 16px 0 4px;
+  }
+  .id-news-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--id-border);
+  }
+  .id-news-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--id-border);
+  }
+  .id-news-list a {
+    color: var(--id-text);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .id-news-list a:hover {
+    color: var(--id-primary);
+  }
+  .id-news-meta {
+    font-size: 13px;
+    color: var(--id-text-sub);
+  }
+  .id-empty {
+    margin-top: 20px;
+    color: var(--id-text-sub);
+  }
+  .id-note {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--id-border);
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--id-text-sub);
+  }
+</style>
