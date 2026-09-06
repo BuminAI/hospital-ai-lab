@@ -470,7 +470,22 @@ npm run build    # 배포본 생성(dist/)
 - **PERSI 일반 분류** `683 Berita Kanal PERSI`·`1 Berita Persi` — 행사가 아닌 기사가 대부분이라 **주제 + 행사 조건을 함께** 본다. 실측 683은 100건 중 6건, 1은 100건 중 2건.
 - **`src/data/id/news.json`** — 대만어판이 하던 방식인데 인도네시아어판에는 빠져 있었다. 뉴스라 반드시 행사 조건까지 본다.
 
-⚠️ **정부(Kemenkes)는 넣지 못했다.** `kemkes.go.id`·`satusehat.kemkes.go.id`·`sehatnegeriku.kemkes.go.id` 모두 2026-09-06에 확인했는데 본문이 브라우저에서 그려지는 구조라 fetch로는 목록이 비어 온다(`__NEXT_DATA__`도 JSON-LD도 없다). 대만어판이 衛生福利部를 넣을 수 있었던 것과 대조된다. 정적 HTML로 바뀌면 그때 넣는다. 그 밖에 `arssi.or.id`·`idionline.org`·`ihc.co.id`는 응답 자체가 없었다.
+#### 2026-09-07 재확대 — 7건 → 21건
+
+**Kemenkes를 넣지 못한다던 2026-09-06 기록은 틀렸다.** `/id/berita`가 404라서 빈 페이지를 받은 것을 클라이언트 렌더링으로 오인했다. 실제로는 **Yii 기반 서버 렌더링**이고, 브라우저로 홈에서 링크를 따라가 올바른 경로를 찾았다. 교훈: *"본문이 비어 온다"는 관찰만으로 SPA라고 단정하지 말 것. 경로부터 의심할 것.*
+
+- **Kemenkes 보도자료** — 평소에는 `https://www.kemkes.go.id/id/category/rilis-berita`(46KB, 최신 12건). 카드 구조는 `href="/id/<slug>" class="link"` → `<h4 class="text-20">제목</h4>` → `<time datetime="YYYY-MM-DD">`. ⚠️ **`?page=` 파라미터는 무시된다** — 어느 쪽수를 넣어도 같은 12건이 온다. 그래서 이력은 못 긁는다.
+  - **과거분 채우기**: `KEMKES_BACKFILL=1 node scripts/fetch-id-events.mjs` 로 돌리면 목록 대신 RSS(`/id/rss/article/rilis-berita`, 7,919건·**33MB**)를 읽는다. 33MB라 기본 25초 제한을 넘겨서 이 경로만 180초를 준다. **평소에는 절대 켜지 말 것.** 2026-09-07에 한 번 돌려 과거 행사 4건을 채웠다.
+  - 필터는 `TOPIC_RE` + **`GATHERING_RE`**(별도 정규식)다. `luncurkan`(출시)·`resmikan`(준공)을 일부러 뺐다 — 보건부 보도자료 대부분이 그 두 낱말이고, 넣으면 참석할 수 없는 제도 발표가 교육·행사 목록에 섞인다(실측: 넣으면 16건, 빼면 4건인데 뺀 4건이 전부 실제로 모이는 자리였다).
+- **PORMIKI**(의무기록·보건정보 전문가협회) — `https://www.pormiki.or.id/wp-json/wp/v2/posts`. 글이 13건뿐이지만 **전자의무기록·코딩 교육을 직접 주최하는 단체**라 이 사이트 독자와 정확히 겹친다.
+
+⚠️ **시험했다가 안 쓴 것**(다시 시험하느라 시간 쓰지 말 것):
+- **detik.com 검색** — 파싱은 잘 된다(`article.list-content__item`, `d-time` 유닉스 타임스탬프). 그런데 검색어 6개 55건에서 조건 통과 **0건**. 인도네시아 언론은 디지털 의료를 다루면서도 **표제에 행사 낱말을 거의 안 쓴다.** 대만 中央社가 통했던 방식이 여기서는 안 통한다.
+- **Eventbrite 인도네시아** — JSON-LD `Event`가 깔끔하게 나오는데(쪽당 17~19건) 웰니스 리트릿·일반 AI 창업 워크숍이라 병원 실무와 안 맞는다.
+- **Kemenkes 행사 캘린더**(`/id/agenda-kegiatan/all`) — fullcalendar 인데 내용이 '세계 간질의 날' 같은 **기념일**이라 교육·행사가 아니다.
+- **Kemenkes RSS 다른 피드** — `kegiatan-kemenkes`·`artikel-kesehatan`·`kinerja-kemenkes`는 2022~2023에서 멈춰 있다. 살아 있는 것은 `rilis-berita` 하나뿐.
+- kompas 검색(선택자 불안정)·tempo(403)·komdigi(403)·loket.com(Event 마크업 없음)·`arssi.or.id`·`perdalin.org`·`asklin.or.id`·`idionline.org`·`ihc.co.id`(응답 없음)·IAKMI(REST 미개방)·`lms.kemkes.go.id`(403)·`plataransehat.kemkes.go.id`(응답 없음)·`siakpel.kemkes.go.id`(3.6KB 껍데기).
+- **SNS(인스타그램·X·페이스북)** — 로그인이나 유료 API를 요구하고 자동 수집이 약관에 어긋난다. **우회하지 않는다.**
 
 ⚠️ 대만 쪽에서 시험했다가 안 쓴 수집처: **accupass(활동통)** — 서버 렌더링이라 파싱은 깔끔하게 되는데(`href="/event/<ID>"`, `alt="event-banner-<제목>"`, `EventCard_event-time`) **검색 정확도가 낮아** 여섯 개 검색어 전부 AI+의료 조건 통과 0건이었다. **medinfo.org.tw**(台灣醫學資訊學會) — Big5 인코딩에 목록이 스크립트로 그려져 `activity.php` 본문이 비어 온다. **nurse.org.tw** — ASP.NET `arg=` 인코딩 파라미터라 목록 페이지네이션을 안정적으로 못 짚는다.
 
