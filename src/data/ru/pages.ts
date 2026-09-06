@@ -22,6 +22,7 @@ import guideData from './content/guide.json';
 import checklistData from './content/checklist.json';
 import tipsData from './content/tips.json';
 import videosData from './content/videos.json';
+import govSupportData from './content/gov-support.json';
 import videosMetaData from './content/videos-meta.json';
 
 export interface RuSection {
@@ -90,3 +91,30 @@ export interface LocalVideoRu {
 }
 
 export const videosLocalRu: LocalVideoRu[] = videosLocalData;
+
+// ── 정부 자원 안내 ────────────────────────────────────
+// ⚠️ 한국어판·일본어판과 달리 자동 수집이 아니다. 사람이 1차 출처에 접속해
+//    확인한 것만 적는다. 사유는 gov-support.json의 _comment 참고.
+//    러시아도 대만과 마찬가지로 '보조금 공고'가 아니라 '판단 근거가 되는
+//    공식 창구'를 모으는 쪽으로 구성했다.
+export interface RuProgram {
+  name: string;
+  org: string;
+  /** 기관·서비스 공식 페이지 */
+  url: string;
+  body: string;
+  audience: string;
+  /** 본문 서술의 근거가 된 페이지 */
+  sourceUrl: string;
+  sourceLabel: string;
+}
+
+export interface RuGovSupport {
+  meta: { title: string; description: string; pageTitle: string; lead: string };
+  notice: string;
+  /** 마지막으로 전 항목을 실제 접속해 확인한 날 (YYYY-MM-DD) */
+  checkedAt: string;
+  programs: RuProgram[];
+}
+
+export const govSupportRu: RuGovSupport = govSupportData;

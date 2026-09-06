@@ -10,33 +10,8 @@
     "enabled": true
   },
   {
-    "href": "/ru/glossary/",
-    "key": "glossary",
-    "enabled": true
-  },
-  {
-    "href": "/ru/faq/",
-    "key": "faq",
-    "enabled": true
-  },
-  {
-    "href": "/ru/checklist/",
-    "key": "checklist",
-    "enabled": true
-  },
-  {
-    "href": "/ru/guide/",
-    "key": "guide",
-    "enabled": true
-  },
-  {
-    "href": "/ru/tips/",
-    "key": "tips",
-    "enabled": true
-  },
-  {
-    "href": "/ru/videos/",
-    "key": "videos",
+    "href": "/ru/blog/",
+    "key": "blog",
     "enabled": true
   },
   {
@@ -45,8 +20,38 @@
     "enabled": true
   },
   {
-    "href": "/ru/blog/",
-    "key": "blog",
+    "href": "/ru/gov-support/",
+    "key": "govSupport",
+    "enabled": true
+  },
+  {
+    "href": "/ru/videos/",
+    "key": "videos",
+    "enabled": true
+  },
+  {
+    "href": "/ru/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/ru/guide/",
+    "key": "guide",
+    "enabled": true
+  },
+  {
+    "href": "/ru/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/ru/checklist/",
+    "key": "checklist",
+    "enabled": true
+  },
+  {
+    "href": "/ru/faq/",
+    "key": "faq",
     "enabled": true
   }
 ]

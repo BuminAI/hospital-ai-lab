@@ -1,0 +1,149 @@
+---
+// Program Pemerintah — 인도네시아 정부 지원·제도 안내 (2026-09-06 신설)
+//
+// ⚠️ 한국어판 /gov-support/·일본어판 /ja/subsidies/와 달리 **자동 수집이
+//    아니다.** 인도네시아에는 jGrants(일본)나 보건복지부 공고 목록(한국)처럼
+//    기계로 읽을 수 있는 공고 소스를 찾지 못했다(사유는 gov-support.json의
+//    _comment에 적어 뒀다). 그래서 hreflang으로 한국어판과 짝지우지 않는다 —
+//    성격이 다른 페이지에 alternate를 걸면 잘못된 신호가 된다.
+//
+// ⚠️ 자동 수집이 아니라는 사실을 화면에서 숨기지 않는다. 방문자가 최신
+//    공고로 착각하면 신뢰를 해친다. notice와 확인일을 반드시 함께 노출한다.
+import RuLayout from '../../layouts/RuLayout.astro';
+import ru from '../../i18n/ru.json';
+import { govSupportRu } from '../../data/ru/pages';
+import { withBase } from '../../utils/site';
+
+const p = govSupportRu;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/ru/gov-support/')}`;
+
+// ItemList로만 전달한다. 각 항목은 우리가 만든 공고가 아니라 정부 페이지로
+// 가는 안내이므로 GovernmentService 등으로 단정하지 않는다.
+const schema = [
+  {
+    '@type': 'ItemList',
+    '@id': `${pageUrl}#programs`,
+    name: p.meta.pageTitle,
+    numberOfItems: p.programs.length,
+    itemListElement: p.programs.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      url: it.url,
+    })),
+  },
+];
+---
+
+<RuLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={ru.nav.govSupport}
+  koPath="/gov-support/"
+  standalone
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="ru-lead">{p.meta.lead}</p>
+
+  <p class="ru-notice">{p.notice}</p>
+
+  <ul class="ru-programs">
+    {
+      p.programs.map((it) => (
+        <li>
+          <h2>
+            <a href={it.url} target="_blank" rel="noopener">
+              {it.name}
+              <span class="sr-only"> ({ru.ui.external})</span>
+            </a>
+          </h2>
+          <p class="ru-org">{it.org}</p>
+          <p class="ru-body">{it.body}</p>
+          <p class="ru-audience">
+            <strong>Кому:</strong> {it.audience}
+          </p>
+          <p class="ru-src">
+            {ru.ui.source}:{' '}
+            <a href={it.sourceUrl} target="_blank" rel="noopener">
+              {it.sourceLabel}
+              <span class="sr-only"> ({ru.ui.external})</span>
+            </a>{' '}
+            · diperiksa {p.checkedAt}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="ru-note">
+    <p>
+      Здесь перечислены не все государственные ресурсы, а только те, содержание
+      которых можно проверить прямо на официальной странице. То, что не удалось
+      подтвердить по первоисточнику, на эту страницу намеренно не попало — чтобы
+      здесь не оказалось ни одного непроверенного утверждения.
+    </p>
+  </div>
+</RuLayout>
+
+<style>
+  .ru-lead {
+    color: var(--ru-text-sub);
+  }
+  .ru-notice {
+    border: 1px solid var(--ru-border);
+    border-left: 4px solid var(--ru-primary);
+    background: var(--ru-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .ru-programs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--ru-border);
+  }
+  .ru-programs li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--ru-border);
+  }
+  .ru-programs h2 {
+    font-size: 16px;
+    margin: 0 0 4px;
+    line-height: 1.6;
+  }
+  .ru-programs h2 a {
+    color: var(--ru-primary);
+  }
+  .ru-org {
+    margin: 0 0 8px;
+    font-size: 13px;
+    color: var(--ru-text-sub);
+  }
+  .ru-body {
+    margin: 0 0 8px;
+    line-height: 1.9;
+  }
+  .ru-audience {
+    margin: 0 0 6px;
+    font-size: 13.5px;
+    line-height: 1.85;
+  }
+  .ru-src {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--ru-text-sub);
+  }
+  .ru-note {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--ru-border);
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--ru-text-sub);
+  }
+</style>
