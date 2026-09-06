@@ -1,11 +1,11 @@
 ---
-import TwLayout from '../../layouts/TwLayout.astro';
-import TwSections from '../../components/TwSections.astro';
-import { checklistTw } from '../../data/tw/pages';
-import tw from '../../i18n/tw.json';
+import IdLayout from '../../layouts/IdLayout.astro';
+import IdSections from '../../components/IdSections.astro';
+import { checklistId } from '../../data/id/pages';
+import idI18n from '../../i18n/id.json';
 import { withBase } from '../../utils/site';
 
-const p = checklistTw;
+const p = checklistId;
 
 // 화면에 보이는 소제목·순서 그대로 ItemList로 알린다(보이지 않는 정보는 넣지 않는다).
 const schema = [
@@ -23,58 +23,58 @@ const schema = [
 ];
 ---
 
-<TwLayout
+<IdLayout
   title={p.meta.title}
   description={p.meta.description}
-  crumb={tw.nav.checklist}
+  crumb={idI18n.nav.checklist}
   koPath="/checklist/"
-  idPath="/id/checklist/"
   ruPath="/ru/checklist/"
+  twPath="/tw/checklist/"
   jaPath="/ja/checklist/"
   schema={schema}
 >
   <h1>{p.meta.pageTitle}</h1>
-  <p class="tw-lead">{p.meta.lead}</p>
+  <p class="id-lead">{p.meta.lead}</p>
 
-  <TwSections sections={p.sections} checkbox />
+  <IdSections sections={p.sections} checkbox />
 
-  <section class="tw-next">
-    <h2>延伸閱讀</h2>
+  <section class="id-next">
+    <h2>Bacaan lanjutan</h2>
     <ul>
       <li>
-        <a href={withBase('/tw/glossary/')}>{tw.nav.glossary}</a> —
-      這份檢核表用到的詞彙說明。
+        <a href={withBase('/id/glossary/')}>{idI18n.nav.glossary}</a> —
+      Penjelasan istilah yang dipakai di daftar periksa ini.
       </li>
       <li>
-        <a href={withBase('/tw/faq/')}>{tw.nav.faq}</a> —
-      醫院評估 AI 時最常出現的問題。
+        <a href={withBase('/id/faq/')}>{idI18n.nav.faq}</a> —
+      Pertanyaan yang paling sering muncul saat rumah sakit menilai AI.
       </li>
       <li>
-        <a href={withBase('/tw/guide/')}>{tw.nav.guide}</a> —
-      沒有技術背景時的學習順序。
+        <a href={withBase('/id/guide/')}>{idI18n.nav.guide}</a> —
+      Urutan belajar bagi yang tidak berlatar teknis.
       </li>
     </ul>
   </section>
-</TwLayout>
+</IdLayout>
 
 <style>
-  .tw-lead {
-    color: var(--tw-text-sub);
+  .id-lead {
+    color: var(--id-text-sub);
   }
-  .tw-next {
+  .id-next {
     margin-top: 36px;
-    border-top: 1px solid var(--tw-border);
+    border-top: 1px solid var(--id-border);
     padding-top: 20px;
   }
-  .tw-next h2 {
+  .id-next h2 {
     font-size: 15px;
-    color: var(--tw-text-sub);
+    color: var(--id-text-sub);
     margin-bottom: 10px;
     border: 0;
     padding: 0;
     background: none;
   }
-  .tw-next ul {
+  .id-next ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -82,7 +82,7 @@ const schema = [
     flex-direction: column;
     gap: 8px;
   }
-  .tw-next li {
+  .id-next li {
     font-size: 14px;
     line-height: 1.85;
   }

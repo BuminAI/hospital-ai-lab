@@ -1,25 +1,25 @@
 ---
-import TwLayout from '../../layouts/TwLayout.astro';
-import TwSections from '../../components/TwSections.astro';
-import { guideTw } from '../../data/tw/pages';
-import tw from '../../i18n/tw.json';
+import IdLayout from '../../layouts/IdLayout.astro';
+import IdSections from '../../components/IdSections.astro';
+import { guideId } from '../../data/id/pages';
+import idI18n from '../../i18n/id.json';
 import { withBase } from '../../utils/site';
 
-const p = guideTw;
+const p = guideId;
 
 // 소제목이 순서를 가지므로 HowTo로 표시한다. 화면에 보이는 것만 마크업한다.
 //
-// ⚠️ 단계 판정은 소제목이 「第N步」로 시작하는 것만 본다. 다른 형태의 절을
+// ⚠️ 단계 판정은 소제목이 「Langkah N」으로 시작하는 것만 본다. 다른 형태의 절을
 //    추가하면 마크업에서 조용히 빠지므로, 절을 늘릴 때 이 정규식도 볼 것.
 //    구글은 2023년에 HowTo 리치결과를 없앴다 — 이 마크업은 검색 장식이
 //    아니라 AI 답변 엔진용이다(ru·ja판과 같은 판단).
-const stepSections = p.sections.filter((s) => /^第.{1,3}步/.test(s.heading));
+const stepSections = p.sections.filter((s) => /^Langkah\s*\d+/.test(s.heading));
 const schema = [
   {
     '@type': 'HowTo',
     name: p.meta.pageTitle,
     description: p.meta.description,
-    inLanguage: 'zh-TW',
+    inLanguage: 'id-ID',
     step: stepSections.map((s, i) => ({
       '@type': 'HowToStep',
       position: i + 1,
@@ -30,54 +30,54 @@ const schema = [
 ];
 ---
 
-<TwLayout
+<IdLayout
   title={p.meta.title}
   description={p.meta.description}
-  crumb={tw.nav.guide}
+  crumb={idI18n.nav.guide}
   koPath="/guide/"
-  idPath="/id/guide/"
   ruPath="/ru/guide/"
+  twPath="/tw/guide/"
   jaPath="/ja/guide/"
   schema={schema}
 >
   <h1>{p.meta.pageTitle}</h1>
-  <p class="tw-lead">{p.meta.lead}</p>
+  <p class="id-lead">{p.meta.lead}</p>
 
-  <TwSections sections={p.sections} />
+  <IdSections sections={p.sections} />
 
-  <section class="tw-next">
-    <h2>延伸閱讀</h2>
+  <section class="id-next">
+    <h2>Bacaan lanjutan</h2>
     <ul>
       <li>
-        <a href={withBase('/tw/glossary/')}>{tw.nav.glossary}</a> —
-      提案書與院內會議上會出現的詞彙。
+        <a href={withBase('/id/glossary/')}>{idI18n.nav.glossary}</a> —
+      Istilah yang muncul di proposal dan rapat internal.
       </li>
       <li>
-        <a href={withBase('/tw/checklist/')}>{tw.nav.checklist}</a> —
-      拿到具體提案時逐項確認的清單。
+        <a href={withBase('/id/checklist/')}>{idI18n.nav.checklist}</a> —
+      Daftar untuk menelusuri proposal yang konkret.
       </li>
     </ul>
   </section>
-</TwLayout>
+</IdLayout>
 
 <style>
-  .tw-lead {
-    color: var(--tw-text-sub);
+  .id-lead {
+    color: var(--id-text-sub);
   }
-  .tw-next {
+  .id-next {
     margin-top: 36px;
-    border-top: 1px solid var(--tw-border);
+    border-top: 1px solid var(--id-border);
     padding-top: 20px;
   }
-  .tw-next h2 {
+  .id-next h2 {
     font-size: 15px;
-    color: var(--tw-text-sub);
+    color: var(--id-text-sub);
     margin-bottom: 10px;
     border: 0;
     padding: 0;
     background: none;
   }
-  .tw-next ul {
+  .id-next ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -85,7 +85,7 @@ const schema = [
     flex-direction: column;
     gap: 8px;
   }
-  .tw-next li {
+  .id-next li {
     font-size: 14px;
     line-height: 1.85;
   }

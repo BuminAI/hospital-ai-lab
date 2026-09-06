@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Tips Praktis",
+    "description": "Cara memakai AI yang bisa langsung dimulai tenaga administrasi dan keperawatan rumah sakit — draf surat, ringkasan notulen, penyederhanaan istilah, pengolahan tabel. Termasuk yang tidak boleh dimasukkan.",
+    "pageTitle": "Tips Praktis",
+    "lead": "Mulailah dari pekerjaan yang tidak menyentuh data pasien. Empat hal berikut yang paling sering terpakai di bagian administrasi dan keperawatan, lengkap dengan hal yang perlu diperhatikan."
+  },
+  "sections": [
+    {
+      "heading": "Sebelum mulai: ini yang tidak boleh dimasukkan",
+      "body": "Bagian ini ditaruh paling depan karena lebih penting daripada teknik apa pun. Data kesehatan pasien termasuk data pribadi yang bersifat spesifik menurut UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi. Layanan AI awan adalah pihak ketiga di luar rumah sakit, jadi sebelum menempelkan data ke sana rumah sakit harus punya dasar yang jelas — ini bukan keputusan perorangan. Kementerian Kesehatan juga menekankan bahwa pemanfaatan AI kesehatan harus disertai tata kelola ketat dan etika yang kuat.",
+      "items": [
+        "Nama pasien, nomor rekam medis, NIK, tanggal lahir, kontak — jangan dimasukkan.",
+        "Uraian yang bisa merangkai identitas seseorang (diagnosis langka, unit layanan, dan tanggal sekaligus) — juga jangan.",
+        "Dokumen internal, kontrak, dan data kepegawaian yang belum dipublikasikan — periksa dulu aturan internal.",
+        "Kalau ingin menyunting materi edukasi atau isi rekam medis, buang dulu bagian yang bisa mengidentifikasi orang; sisakan hanya struktur teksnya.",
+        "Kalau rumah sakit sudah punya aturan penggunaan AI generatif, aturan itu yang berlaku. Kalau belum, itulah yang pertama perlu dibuat."
+      ]
+    },
+    {
+      "heading": "Draf surat dinas, pengumuman, dan lembar edukasi",
+      "body": "Yang paling menyita waktu di administrasi biasanya bukan memikirkan isinya, melainkan menuangkannya ke dalam format yang benar. Pekerjaan seperti itu cocok diserahkan ke AI sebagai draf — Anda memberi poin-poinnya, AI memberi strukturnya, Anda yang merapikan. ChatGPT, Claude, Gemini, dan Microsoft Copilot semuanya dapat diakses dari Indonesia.",
+      "items": [
+        "Beri tiga hal: untuk siapa, apa yang ingin disampaikan, kira-kira sepanjang apa. Kalau hanya memberi topik, hasilnya akan kosong.",
+        "Tempelkan satu contoh dokumen internal yang sudah baik sebagai acuan format — hasilnya jauh lebih baik daripada instruksi apa pun.",
+        "Hasilnya wajib Anda baca ulang sebelum dikirim — bagian yang sebenarnya tidak pasti akan ditulis dengan nada sangat yakin.",
+        "Angka, tanggal, dan nomor peraturan selalu diperiksa sendiri. Di situlah kekeliruan paling sering terjadi."
+      ]
+    },
+    {
+      "heading": "Ringkasan notulen dan dokumen panjang",
+      "body": "Notulen rapat yang panjang, berkas akreditasi, dan presentasi vendor bisa diringkas lebih dulu sebelum dibaca. Yang perlu diwaspadai: bagian tengah dokumen paling mudah terlewat. Kalau dokumennya panjang, potong per bagian.",
+      "items": [
+        "Tanyakan dulu apa kesimpulan dokumen ini, baru apa saja tindak lanjutnya dan siapa penanggung jawabnya. Dua tahap lebih akurat daripada sekali tanya.",
+        "Dokumen panjang dipotong per bagian, jangan ditempel sekaligus.",
+        "Setelah ringkasan jadi, periksa dua tiga bagian penting untuk memastikan tidak ada yang hilang atau berubah makna.",
+        "Kalau notulen memuat data pribadi atau kepegawaian, lakukan de-identifikasi lebih dulu."
+      ]
+    },
+    {
+      "heading": "Penyederhanaan istilah dan pengolahan tabel",
+      "body": "Mengubah istilah medis yang sulit menjadi bahasa yang dipahami pasien adalah pekerjaan yang muncul di edukasi maupun administrasi. Untuk tabel, rumus tidak perlu dihafal — jelaskan apa yang ingin dilakukan, lalu minta rumusnya. Persamaan keduanya: yang diberikan adalah draf atau alat, benar atau tidaknya Anda yang memastikan.",
+      "items": [
+        "Sebutkan sasarannya dengan jelas (misalnya untuk keluarga tanpa latar belakang medis) — hasilnya jauh berbeda.",
+        "Hasil penyederhanaan wajib diperiksa rekan yang berkompeten — dalam proses menyederhanakan, isi bisa berubah atau hilang.",
+        "Minta rumus sekaligus penjelasan tentang apa yang dilakukan rumus itu, supaya bisa dinilai benar atau tidak.",
+        "Kalau menempelkan data tabel untuk dihitung, hasilnya wajib Anda verifikasi sendiri — angka keliru tanpa pesan kesalahan apa pun."
+      ]
+    }
+  ]
+}

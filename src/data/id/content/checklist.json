@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Daftar Periksa Adopsi AI",
+    "description": "Yang perlu ditanyakan rumah sakit saat menerima proposal AI — dasar hukum data pasien, status izin edar, keterhubungan SATUSEHAT, verifikasi kinerja, dan kontrak.",
+    "pageTitle": "Daftar Periksa Adopsi AI",
+    "lead": "Pakai daftar ini saat proposal masuk, satu per satu. Tiga bagian pertama menyangkut hal yang harus bisa dijawab lebih dulu; dua bagian terakhir adalah celah yang biasanya baru ketahuan belakangan."
+  },
+  "sections": [
+    {
+      "heading": "1. Dasar hukum pemrosesan data pasien",
+      "body": "UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi diundangkan pada 17 Oktober 2022, dan Pasal 74 memberi masa penyesuaian dua tahun sejak diundangkan. Data kesehatan pasien termasuk data pribadi yang bersifat spesifik, jadi pertanyaannya bukan apakah boleh, melainkan atas dasar apa.",
+      "items": [
+        "Data apa saja yang akan diproses? Buat daftarnya lebih dulu, jangan mulai dari fitur produk.",
+        "Apa dasar pemrosesannya, dan siapa di rumah sakit yang menetapkannya?",
+        "Bagaimana persetujuan pasien diperoleh dan dicatat? Kemenkes menekankan bahwa pemanfaatan AI kesehatan harus disertai tata kelola ketat dan etika yang kuat.",
+        "Apakah data keluar dari rumah sakit? Ke mana, disimpan berapa lama, dihapus bagaimana?",
+        "Bolehkah vendor memakai data itu untuk melatih modelnya? Kalau tidak diatur di kontrak, berarti tidak ada batasnya.",
+        "Simpan jawaban di atas dalam bentuk tertulis, lampirkan pada dokumen pengadaan."
+      ]
+    },
+    {
+      "heading": "2. Status perizinan alat atau sistemnya",
+      "body": "Izin edar alat kesehatan di Indonesia dikelola Kementerian Kesehatan melalui portal Regalkes. Kalau vendor menyebut produknya sudah berizin, nomor dan cakupannya harus bisa ditunjukkan dan dicek sendiri.",
+      "items": [
+        "Minta nomor izin edar secara tertulis, lalu cek sendiri di portal Regalkes.",
+        "Cakupan izinnya untuk penggunaan yang mana? Cocokkan dengan cara Anda akan memakainya.",
+        "Kalau vendor menyatakan produknya tidak perlu izin edar, minta alasannya secara tertulis — jangan berhenti pada penjelasan lisan.",
+        "⚠️ Situs ini belum memuat kesimpulan tentang apakah perangkat lunak termasuk alat kesehatan yang wajib berizin, karena hal itu belum dapat kami pastikan dari sumber primer. Untuk kasus Anda, tanyakan langsung ke Kementerian Kesehatan."
+      ]
+    },
+    {
+      "heading": "3. Keterhubungan dengan SATUSEHAT",
+      "body": "SATUSEHAT adalah platform penghubung berbagai sistem informasi kesehatan melalui standardisasi dan integrasi rekam medis elektronik (RME). Alat AI yang menyentuh data rekam medis pada akhirnya bersinggungan dengan ekosistem ini.",
+      "items": [
+        "Apakah alat ini membaca atau menulis data yang juga mengalir ke SATUSEHAT?",
+        "Kalau ya, siapa yang bertanggung jawab atas kualitas dan konsistensi datanya?",
+        "Apakah penyedia sistem RME yang Anda pakai sudah tahu tentang rencana ini? Perubahan di satu sisi bisa berpengaruh ke sisi lain.",
+        "Siapa yang memegang akun dan hak akses saat alat itu berjalan? Jejaknya tercatat atas nama siapa?"
+      ]
+    },
+    {
+      "heading": "4. Kinerja: angka itu diukur pada siapa",
+      "body": "Bagian ini bukan kewajiban regulasi, melainkan hal yang paling sering dilewati. Angka kinerja dari vendor umumnya berasal dari data uji mereka sendiri dan belum tentu mencerminkan pasien serta alur kerja di rumah sakit Anda.",
+      "items": [
+        "Akurasi itu diukur di mana, pada pasien seperti apa? Sumber datanya bisa disebutkan?",
+        "Pernah diuji di fasilitas kesehatan di Indonesia? Kalau belum, bagaimana kita memastikannya sendiri?",
+        "Kalau salah, salahnya ke arah mana — lebih banyak yang terlewat, atau lebih banyak yang keliru ditandai?",
+        "Setelah dipakai, siapa yang memeriksa apakah kinerjanya menurun, dan seberapa sering?",
+        "Kalau modelnya diperbarui, kita diberi tahu? Kinerjanya diuji ulang?"
+      ]
+    },
+    {
+      "heading": "5. Kontrak dan tanggung jawab",
+      "body": "Juga bukan kewajiban regulasi, tetapi semua jawaban dari tiga bagian pertama baru mengikat kalau masuk ke klausul kontrak.",
+      "items": [
+        "Ruang lingkup pemrosesan data, masa simpan, dan cara penghapusan tertulis di kontrak?",
+        "Boleh tidaknya data dipakai untuk melatih model — beserta batasannya.",
+        "Kalau layanan berhenti atau hasilnya keliru dan menimbulkan kerugian, tanggung jawabnya dibagi bagaimana?",
+        "Batas waktu pelaporan insiden keamanan dan siapa yang menjelaskan ke luar.",
+        "Saat kontrak berakhir: data diambil kembali, dimusnahkan, dan dikonfirmasi oleh siapa?"
+      ]
+    }
+  ]
+}

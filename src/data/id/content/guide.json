@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Panduan Awal",
+    "description": "Dari mana tenaga administrasi dan keperawatan rumah sakit mulai memahami AI kesehatan. Lima langkah, masing-masing menunjuk ke halaman yang bisa langsung dipakai.",
+    "pageTitle": "Mulai dari Mana",
+    "lead": "Panduan ini untuk rekan-rekan di rumah sakit yang tidak berlatar teknis. Tujuannya bukan bisa membuat AI, melainkan bisa membaca proposal dan mengajukan pertanyaan yang tepat. Satu sampai dua jam per pekan, lima langkah ini selesai dalam sebulan."
+  },
+  "sections": [
+    {
+      "heading": "Langkah 1. Kuasai beberapa istilah dulu",
+      "body": "Sebelum membaca proposal vendor, pahami dulu beberapa kata yang akan muncul berulang — data pribadi yang bersifat spesifik, izin edar, SATUSEHAT, rekam medis elektronik. Ini bukan istilah teknis, melainkan istilah regulasi, dan justru itu yang menentukan seluruh penilaian berikutnya. Kamus istilah di situs ini mencantumkan tautan sumber resmi pada setiap entri.",
+      "items": [
+        "Target: begitu melihat istilah itu, Anda tahu artinya dan dari mana asalnya.",
+        "Tidak perlu dikuasai: arsitektur model, cara pelatihan, bahasa pemrograman. Itu tidak memengaruhi keputusan Anda.",
+        "Waktu: satu sampai dua jam."
+      ]
+    },
+    {
+      "heading": "Langkah 2. Pisahkan fitur dari status hukum",
+      "body": "Isi presentasi vendor hampir selalu tentang fitur — bisa apa, secepat apa, seakurat apa. Yang harus dinilai rumah sakit adalah hal lain: atas dasar apa data pasien diproses, apa status perizinan alatnya, dan siapa yang bertanggung jawab. Dua hal ini sering tercampur dalam satu pembicaraan.",
+      "items": [
+        "Latihan: ambil satu proposal, pilah kalimatnya menjadi dua tumpukan — pernyataan fitur dan pernyataan regulasi.",
+        "Untuk tumpukan regulasi, setiap kalimat harus bisa ditunjuk sumbernya.",
+        "Yang tidak bisa ditunjuk sumbernya, itulah daftar pertanyaan untuk vendor."
+      ]
+    },
+    {
+      "heading": "Langkah 3. Jalankan proposal lewat daftar periksa",
+      "body": "Setelah dua langkah di atas, ambil daftar periksa di situs ini dan telusuri satu per satu. Tiga bagian pertama adalah hal yang harus bisa dijawab lebih dulu; dua bagian terakhir adalah celah yang biasanya baru ketahuan belakangan. Kali pertama akan lama, berikutnya jauh lebih cepat.",
+      "items": [
+        "Tulis jawaban setiap butir, lampirkan pada dokumen pengadaan.",
+        "Butir yang tidak terjawab adalah letak risikonya — jangan dilewati dulu.",
+        "Catatan ini berguna saat audit atau akreditasi, nilainya lebih besar daripada waktu yang dihemat sekarang."
+      ]
+    },
+    {
+      "heading": "Langkah 4. Coba sendiri sekali",
+      "body": "Membaca penjelasan sebanyak apa pun kalah oleh mencoba sekali. Mulailah dari pekerjaan yang tidak menyentuh data pasien — draf surat, ringkasan notulen, penyederhanaan istilah. Setelah memakainya, Anda punya rasa yang konkret tentang di mana alat itu keliru, dan rasa itu sangat berguna saat membaca proposal.",
+      "items": [
+        "Aturan pembuka: selalu mulai dari pekerjaan tanpa data pasien.",
+        "Yang penting bukan menyelesaikan pekerjaan, melainkan mengamati di mana jawabannya bagus dan di mana terdengar meyakinkan padahal keliru.",
+        "Catat setiap kekeliruan yang Anda temukan — itu bekal menilai proposal nanti."
+      ]
+    },
+    {
+      "heading": "Langkah 5. Lengkapi lewat video",
+      "body": "Penulis situs ini membuat 12 video pengantar, dari pengertian dasar AI sampai memangkas pekerjaan rutin di rumah sakit. Halaman video juga memuat pilihan video berbahasa Indonesia dari kanal lain. Suara seri 12 video itu berbahasa Korea, jadi nyalakan terjemahan otomatis subtitel YouTube.",
+      "items": [
+        "Bisa ditonton berurutan, bisa juga dipilih yang dibutuhkan saja.",
+        "Suara berbahasa Korea; kualitas terjemahan otomatis tidak selalu tepat.",
+        "Setelah menonton, kembali ke Langkah 3 dan jalankan lagi daftar periksanya — akan terlihat hal yang terlewat pada percobaan pertama."
+      ]
+    }
+  ]
+}

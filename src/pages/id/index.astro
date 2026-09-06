@@ -53,6 +53,18 @@ import { withBase } from '../../utils/site';
       <span class="id-card-t">{id.nav.blog}</span>
       <span class="id-card-d">{id.home.blogDesc}</span>
     </a>
+    <a class="id-card" href={withBase('/id/checklist/')}>
+      <span class="id-card-t">{id.nav.checklist}</span>
+      <span class="id-card-d">{id.home.checklistDesc}</span>
+    </a>
+    <a class="id-card" href={withBase('/id/guide/')}>
+      <span class="id-card-t">{id.nav.guide}</span>
+      <span class="id-card-d">{id.home.guideDesc}</span>
+    </a>
+    <a class="id-card" href={withBase('/id/tips/')}>
+      <span class="id-card-t">{id.nav.tips}</span>
+      <span class="id-card-d">{id.home.tipsDesc}</span>
+    </a>
   </div>
 
   <h2>{id.home.notTranslationTitle}</h2>
@@ -66,8 +78,6 @@ import { withBase } from '../../utils/site';
     <p style="margin-top:6px">{id.home.koNoticeBody}</p>
     <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{id.ui.langKo} →</a></p>
   </div>
-
-  <p class="id-wip">{id.ui.underConstruction}</p>
 </IdLayout>
 
 <style>
