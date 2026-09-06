@@ -331,7 +331,7 @@ npm run build    # 배포본 생성(dist/)
 - 없음(Phase A~D 전부 완료). 다음은 콘텐츠 확장(용어·FAQ·글 추가)과 위 PR 머지.
 - **영상 신규 등록 도구**: admin-ru에는 아직 "한국어판에 새로 생긴 '직접 만든 영상' 자동 발견" 기능이 없다(ja의 jv-sync에 해당). 지금은 12개 전량 수동 입력했다. 13강이 생기면 개발자에게 요청하거나 admin-ja의 jv-sync 패턴을 이식할 것.
 
-## 5-4. 인도네시아어판 `/id/` (2026-09-05 신설, Fase B까지 완료)
+## 5-4. 인도네시아어판 `/id/` (2026-09-05 신설, 2026-09-06 뉴스·정부 프로그램·영상 추가)
 
 일본어·러시아어판과 마찬가지로 한국어판과 완전히 분리된 별도 언어판이다. **번역이 아니라 인도네시아 제도를 새로 조사해 쓴 콘텐츠**다.
 
@@ -343,7 +343,10 @@ npm run build    # 배포본 생성(dist/)
 | 폰트 | 별도 처리 없음 | 인도네시아어는 라틴 문자라 Pretendard 동적 서브셋이 그대로 적용된다(ja처럼 시스템 폰트로 바꿀 필요 없음) |
 | 운영자 이름 | `src/i18n/id.json`의 `profile.name` | 라틴 문자권이라 **음역이 필요 없다** — `Youngho Cho (조영호)` 그대로. 한글은 JSON-LD `alternateName`에 둔다 |
 | 본문 콘텐츠 | `src/data/id/content/*.json` | `glossary.ts`·`faq.ts`는 JSON을 읽어 타입만 붙이는 얇은 로더. TS에 본문을 직접 쓰지 말 것 |
-| 메뉴 노출 | `src/data/id/content/nav.json` | 현재 4개(홈·소개·용어집·FAQ). 내용 없는 페이지는 메뉴에 걸지 않는다 |
+| 메뉴 노출 | `src/data/id/content/nav.json` | 현재 8개(홈·소개·블로그·뉴스·정부 프로그램·영상·용어집·FAQ), 한국어판 순서에 맞춤. **내용 없는 페이지는 메뉴에도 홈 카드에도 걸지 않는다** |
+| 뉴스 자동 수집 | `scripts/fetch-id-news.mjs` + `.github/workflows/update-id-news.yml` | 수집원은 **PERSI**(인도네시아병원협회 워드프레스 REST API — 한국어판 병원신문 자리)와 **ANTARA**(국영 통신사 태그 지면 5종). 3시간 간격. 아래 '수집원 교체' 참고 |
+| 정부 프로그램 | `src/data/id/content/gov-support.json` + `src/pages/id/gov-support.astro` | ⚠️ **자동 수집이 아니다.** 사람이 1차 출처에 접속해 확인한 것만 적는다. 확인일(`checkedAt`)을 화면에 그대로 노출한다 |
+| 추천 영상 | `src/data/id/content/videos.json`·`videos-meta.json` | ja·ru판과 같은 12편. `titleId`가 빈 항목은 자동으로 숨긴다(한국어 제목이 그대로 노출되는 것을 막기 위해) |
 | hreflang | 4개 언어 상호참조 | `BaseLayout`의 `alternates`에 `id` 추가, `JaLayout`·`RuLayout`에 `idPath`, `IdLayout`에 `ruPath`. **홈·소개·용어집·FAQ 64개 관계를 빌드 산출물로 전수 검증**했다 |
 
 ### 검증된 출처 (2026-09-05, 전부 WebFetch 실접속 확인)
@@ -359,9 +362,34 @@ npm run build    # 배포본 생성(dist/)
 - Permenkes 62/2017의 Kelas A~D 구분, UU PDP 제재 비율(연매출 2%) — 같은 이유로 미기재.
 - `peraturan.bpk.go.id`는 WebFetch에 403을 준다. 법령 확인은 **JDIH Komdigi**를 쓸 것.
 
+### 뉴스 수집원 교체 (2026-09-06) — 실측으로 갈아엎었다
+
+처음 만든 수집기는 **detikHealth·Kompas Health** 건강 지면을 긁었는데 **24시간 동안 한 건도 못 건졌다**(누적 0건). 두 매체는 일반 소비자 건강 기사가 대부분이라 병원 실무·의료 AI와 겹치는 기사가 사실상 나오지 않는다. 실측으로 확인하고 버렸다. 지금은 두 곳을 쓴다.
+
+- **PERSI**(`persi.or.id`) — 인도네시아병원협회. `wp-json/wp/v2/posts`로 날짜·제목·링크를 JSON으로 정확히 받는다(HTML 파싱보다 훨씬 안정적). 분류 1(Berita Persi)·683(Berita Kanal PERSI)만 읽는다. 682(Info Pelatihan)·338(Event)은 교육·행사라 뉴스에 섞지 않았다 — **나중에 `/id/events/`를 만들 때 이 두 분류를 쓰면 된다.**
+- **ANTARA**(`antaranews.com`) — 국영 통신사. `satusehat`·`kesehatan-digital`·`rekam-medis-elektronik`·`telemedisin`(보건 주제로 이미 좁혀진 지면)과 `kecerdasan-buatan`(일반 AI) 다섯 태그.
+
+**필터는 수집원 성격에 맞춰 나눈다.** PERSI는 협회 매체라 모든 기사가 병원 이야기이므로 **디지털·AI 조건만** 본다 — 의료 조건을 함께 걸면 「Rakernas PERSI 2026 … hingga Implementasi AI」처럼 제목에 '병원'이라는 낱말이 없는 기사가 통째로 떨어진다(실제로 그랬다). ANTARA의 보건 태그 4종도 같다. 일반 AI 지면(`kecerdasan-buatan`)에만 의료 조건을 더한다.
+
+⚠️ **ANTARA는 날짜를 세 가지로 쓴다**: 「2 September 2026」(절대) · 「Kemarin 08:05」(어제) · 「1 jam lalu」(상대). 하나만 처리하면 나머지 기사가 조용히 버려진다(6절의 러시아어판 사고와 같은 유형). 세 가지를 모두 처리하고 있으니 파서를 손댈 때 지울 것.
+
+결과: 0건 → 17건.
+
+### 정부 프로그램을 자동화하지 못한 이유 (2026-09-06 조사)
+
+인도네시아에는 jGrants(일본)나 보건복지부 공고 목록(한국)처럼 **기계로 읽을 수 있는 공고 소스를 찾지 못했다.**
+
+- `pendanaan-risnov.brin.go.id`·`brin.go.id/news`·`komdigi.go.id` — 자바스크립트로 그려져 원문 HTML에 내용이 없다. 브라우저로 열어 네트워크까지 확인했는데 **데이터 요청(XHR) 자체가 없었고**, BRIN 공고 화면은 본문이 사실상 비어 있었다.
+- `kemkes.go.id/id/pengumuman-all` — Nuxt 인라인 데이터에 공고가 들어 있어 파싱은 가능하지만, 내용이 대부분 **채용·조달 공고**라 병원 지원사업과 성격이 다르다.
+- `lpdp.kemenkeu.go.id` — 이 환경에서 연결 자체가 되지 않았다(`UND_ERR_CONNECT_TIMEOUT`).
+
+그래서 **사람이 확인해 적는 안내 페이지**로 만들었다. 자동 수집이 아니라는 사실과 확인일을 화면에 그대로 노출한다 — 최신 공고로 착각하게 두면 신뢰를 해친다. 나중에 자동화하려면 위 세 가지 중 하나가 풀려야 한다.
+
+**실은 것(전부 공식 페이지 실접속 확인, 2026-09-06)**: RIIM Kompetisi(BRIN·LPDP, 출처는 brin.go.id 2026-05-08 보도자료를 브라우저로 렌더링해 확인) · SIBK(Kemenkes 보건인력 교육 지원) · Platform SATUSEHAT · Kemenkes 공식 공고 지면. RIIM의 "보건이 우선 주제에 포함된다"는 서술은 **언론 기사에만 있고 1차 출처로 확인하지 못해 넣지 않았다.**
+
 ### 아직 안 만든 것
 
-체크리스트·가이드·팁·영상·뉴스·블로그. 뉴스 자동 수집은 인도네시아 매체 구조를 아직 조사하지 않았다. 블로그를 만들면 `content.config.ts`에 `blogId` 컬렉션을 추가하고, 자동 발행 예외(CLAUDE.md)에 넣을지는 **오너 확인이 필요하다**(ja·ru는 별도 지시로 포함됐다).
+체크리스트·가이드·팁(ja·ru판에는 있음), 그리고 교육·행사 페이지. 교육·행사는 PERSI의 `info-pelatihan`(101건)·`event`(39건) 분류를 그대로 쓰면 되므로 **수집원 조사는 이미 끝나 있다**(위 참고).
 
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
