@@ -21,10 +21,16 @@
   --id-border: #dbe1e9;
   --id-text: #1a1a1a;
   --id-text-sub: #5a6270;
-  --id-primary: #0a5470;
-  --id-primary-dk: #073c52;
-  --id-accent: #b5480f;
-  --id-badge-new: #c62828;
+  --id-primary: #a52831;
+  --id-primary-dk: #7d1e25;
+  /* 버튼 색은 별도 토큰으로 분리한다 — 다크모드에서 primary가 밝은
+     틴트로 바뀌는데 그 위에 흰 글자를 올리면 읽히지 않는다.
+     한국어판 global.css의 --btn-bg/--btn-fg와 같은 방식. */
+  --id-btn-bg: var(--id-primary);
+  --id-btn-bg-hover: var(--id-primary-dk);
+  --id-btn-fg: #ffffff;
+  --id-accent: #7d5200;
+  --id-badge-new: #0f6f5c;
   --id-badge-info: #15619f;
   --id-badge-gov: #17663d;
 
@@ -42,10 +48,13 @@
     --id-border: #2b3646;
     --id-text: #e8edf4;
     --id-text-sub: #a2aebd;
-    --id-primary: #6fc0d4;
-    --id-primary-dk: #9ad8e6;
-    --id-accent: #f0955a;
-    --id-badge-new: #ef6b6b;
+    --id-primary: #f0959c;
+    --id-primary-dk: #f7bcc0;
+    --id-btn-bg: #b8322c;
+    --id-btn-bg-hover: #d04039;
+    --id-btn-fg: #ffffff;
+    --id-accent: #f0b24d;
+    --id-badge-new: #17836c;
     --id-badge-info: #6fb0e0;
     --id-badge-gov: #64c799;
   }
@@ -232,8 +241,8 @@
   font-size: 14px;
   margin: 0;
   padding: 10px 14px;
-  background: var(--id-primary);
-  color: #fff;
+  background: var(--id-btn-bg);
+  color: var(--id-btn-fg);
   border: 0;
   letter-spacing: 0.02em;
 }

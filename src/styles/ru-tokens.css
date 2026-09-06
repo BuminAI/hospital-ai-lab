@@ -18,8 +18,14 @@
   --ru-border: #dbe1e9;
   --ru-text: #1a1a1a;
   --ru-text-sub: #5a6270;
-  --ru-primary: #0b458c;
-  --ru-primary-dk: #073266;
+  --ru-primary: #185c3e;
+  --ru-primary-dk: #114730;
+  /* 버튼 색은 별도 토큰으로 분리한다 — 다크모드에서 primary가 밝은
+     틴트로 바뀌는데 그 위에 흰 글자를 올리면 읽히지 않는다.
+     한국어판 global.css의 --btn-bg/--btn-fg와 같은 방식. */
+  --ru-btn-bg: var(--ru-primary);
+  --ru-btn-bg-hover: var(--ru-primary-dk);
+  --ru-btn-fg: #ffffff;
   --ru-accent: #b5480f;
   --ru-badge-new: #c62828;
   --ru-badge-info: #15619f;
@@ -39,10 +45,13 @@
     --ru-border: #2b3646;
     --ru-text: #e8edf4;
     --ru-text-sub: #a2aebd;
-    --ru-primary: #7fb0e8;
-    --ru-primary-dk: #a8cbf2;
+    --ru-primary: #6fd3a4;
+    --ru-primary-dk: #9ce7c5;
+    --ru-btn-bg: #176b49;
+    --ru-btn-bg-hover: #1f7a55;
+    --ru-btn-fg: #ffffff;
     --ru-accent: #f0955a;
-    --ru-badge-new: #ef6b6b;
+    --ru-badge-new: #c0392f;
     --ru-badge-info: #6fb0e0;
     --ru-badge-gov: #64c799;
   }
@@ -229,8 +238,8 @@
   font-size: 14px;
   margin: 0;
   padding: 10px 14px;
-  background: var(--ru-primary);
-  color: #fff;
+  background: var(--ru-btn-bg);
+  color: var(--ru-btn-fg);
   border: 0;
   letter-spacing: 0.02em;
 }

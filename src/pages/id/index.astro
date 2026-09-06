@@ -85,6 +85,19 @@ import { withBase } from '../../utils/site';
 </IdLayout>
 
 <style>
+  /* .id-cta 는 마크업에만 있고 스타일이 없어서 평범한 링크로 나왔다
+     (2026-09-06 색상 교체 중 발견). ja·ru 홈과 같은 버튼 모양으로 맞춘다. */
+  .id-cta {
+    display: inline-block;
+    background: var(--id-btn-bg);
+    color: var(--id-btn-fg);
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-size: 14.5px;
+  }
+  .id-cta:hover { background: var(--id-btn-bg-hover); }
+
   .id-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));

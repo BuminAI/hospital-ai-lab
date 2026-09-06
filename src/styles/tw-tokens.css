@@ -31,9 +31,15 @@
   --tw-text-sub: #5a6270;
   --tw-font: 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', '微軟正黑體',
     'Noto Sans TC', 'Source Han Sans TC', sans-serif;
-  --tw-primary: #7a2233;
-  --tw-primary-dk: #5d1927;
-  --tw-accent: #b5480f;
+  --tw-primary: #8e2a5c;
+  --tw-primary-dk: #6b2046;
+  /* 버튼 색은 별도 토큰으로 분리한다 — 다크모드에서 primary가 밝은
+     틴트로 바뀌는데 그 위에 흰 글자를 올리면 읽히지 않는다.
+     한국어판 global.css의 --btn-bg/--btn-fg와 같은 방식. */
+  --tw-btn-bg: var(--tw-primary);
+  --tw-btn-bg-hover: var(--tw-primary-dk);
+  --tw-btn-fg: #ffffff;
+  --tw-accent: #0b6b73;
   --tw-badge-new: #c62828;
   --tw-badge-info: #15619f;
   --tw-badge-gov: #17663d;
@@ -52,10 +58,13 @@
     --tw-border: #2b3646;
     --tw-text: #e8edf4;
     --tw-text-sub: #a2aebd;
-    --tw-primary: #e8909f;
-    --tw-primary-dk: #f2b6c1;
-    --tw-accent: #f0955a;
-    --tw-badge-new: #ef6b6b;
+    --tw-primary: #e79ac0;
+    --tw-primary-dk: #f2bed7;
+    --tw-btn-bg: #a63a72;
+    --tw-btn-bg-hover: #bf4a86;
+    --tw-btn-fg: #ffffff;
+    --tw-accent: #4fb3bd;
+    --tw-badge-new: #c0392f;
     --tw-badge-info: #6fb0e0;
     --tw-badge-gov: #64c799;
   }
@@ -243,8 +252,8 @@
   font-size: 14px;
   margin: 0;
   padding: 10px 14px;
-  background: var(--tw-primary);
-  color: #fff;
+  background: var(--tw-btn-bg);
+  color: var(--tw-btn-fg);
   border: 0;
   letter-spacing: 0.02em;
 }
