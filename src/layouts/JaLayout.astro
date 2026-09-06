@@ -382,6 +382,28 @@ const year = new Date().getFullYear();
           <li><a href={withBase('/sitemap-index.xml')}>{ja.footer.sitemap}</a></li>
           <li><a href={withBase('/ja/rss.xml')}>{ja.footer.rss}</a></li>
         </ul>
+        {/* 다른 언어판 — 2026-09-06 추가(오너 지시). 그전까지 각 판에서
+            한국어(와 일본어)로만 돌아갈 수 있어서, 다른 언어판은 hreflang과
+            사이트맵으로만 발견됐다. 실제 링크가 있어야 크롤러가 확실히
+            따라가고 사람도 찾을 수 있다.
+            ⚠️ 언어판을 새로 만들면 **다섯 레이아웃 전부**에 추가할 것
+               (BaseLayout·JaLayout·RuLayout·IdLayout·TwLayout).
+            각 언어판은 번역이 아니라 그 나라 제도로 새로 쓴 내용이다. */}
+        <p class="ja-footer-lang-title">{ja.editions.title}</p>
+        <ul>
+            <li>
+              <a href={withBase('/')} hreflang="ko" lang="ko">{ja.editions.ko}</a>
+            </li>
+            <li>
+              <a href={withBase('/ru/')} hreflang="ru" lang="ru">{ja.editions.ru}</a>
+            </li>
+            <li>
+              <a href={withBase('/id/')} hreflang="id" lang="id">{ja.editions.id}</a>
+            </li>
+            <li>
+              <a href={withBase('/tw/')} hreflang="zh-TW" lang="zh-TW">{ja.editions.tw}</a>
+            </li>
+        </ul>
         <p>{ja.ui.disclaimer}</p>
         <p style="margin-top:10px">© {year} 病院AI研究所（HOSPITAL AI LAB）</p>
       </div>
@@ -400,6 +422,11 @@ const year = new Date().getFullYear();
         color: var(--ja-primary);
         border-color: var(--ja-primary);
       }
-    </style>
+      .ja-footer-lang-title {
+    margin: 14px 0 6px;
+    font-weight: 700;
+    opacity: 0.85;
+  }
+</style>
   </body>
 </html>

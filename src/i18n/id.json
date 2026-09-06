@@ -21,6 +21,13 @@
     "sitemap": "Peta Situs",
     "rss": "Umpan RSS"
   },
+  "editions": {
+    "title": "Versi bahasa lain",
+    "ko": "Versi Korea （한국어）",
+    "ja": "Versi Jepang （日本語）",
+    "ru": "Versi Rusia （Русский）",
+    "tw": "Versi Tionghoa Tradisional （繁體中文）"
+  },
   "ui": {
     "updated": "Diperbarui",
     "new": "Baru",

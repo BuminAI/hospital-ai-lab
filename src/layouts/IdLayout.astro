@@ -349,6 +349,28 @@ const year = new Date().getFullYear();
           <li><a href={withBase('/sitemap-index.xml')}>{id.footer.sitemap}</a></li>
           <li><a href={withBase('/id/rss.xml')}>{id.footer.rss}</a></li>
         </ul>
+        {/* 다른 언어판 — 2026-09-06 추가(오너 지시). 그전까지 각 판에서
+            한국어(와 일본어)로만 돌아갈 수 있어서, 다른 언어판은 hreflang과
+            사이트맵으로만 발견됐다. 실제 링크가 있어야 크롤러가 확실히
+            따라가고 사람도 찾을 수 있다.
+            ⚠️ 언어판을 새로 만들면 **다섯 레이아웃 전부**에 추가할 것
+               (BaseLayout·JaLayout·RuLayout·IdLayout·TwLayout).
+            각 언어판은 번역이 아니라 그 나라 제도로 새로 쓴 내용이다. */}
+        <p class="id-footer-lang-title">{id.editions.title}</p>
+        <ul>
+            <li>
+              <a href={withBase('/')} hreflang="ko" lang="ko">{id.editions.ko}</a>
+            </li>
+            <li>
+              <a href={withBase('/ja/')} hreflang="ja" lang="ja">{id.editions.ja}</a>
+            </li>
+            <li>
+              <a href={withBase('/ru/')} hreflang="ru" lang="ru">{id.editions.ru}</a>
+            </li>
+            <li>
+              <a href={withBase('/tw/')} hreflang="zh-TW" lang="zh-TW">{id.editions.tw}</a>
+            </li>
+        </ul>
         <p>{id.ui.disclaimer}</p>
         <p style="margin-top:10px">© {year} {SITE_ID}</p>
       </div>
