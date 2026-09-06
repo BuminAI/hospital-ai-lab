@@ -25,7 +25,7 @@
 //    src/data/ja/subsidies.json           jGrants 자동 수집 결과
 //    src/data/recommended-videos.json     한국어판 영상(동기화 대조용)
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SUPABASE_URL, SUPABASE_ANON_KEY, ADMIN_EMAIL } from '../utils/site';
+import { SUPABASE_URL, SUPABASE_ANON_KEY, ADMIN_EMAIL, withBase } from '../utils/site';
 import { glossaryCategoriesJa } from '../data/ja/glossary';
 import navConfig from '../data/ja/content/nav.json';
 import ja from '../i18n/ja.json';
@@ -84,6 +84,16 @@ const navRows = navConfig.map((n) => ({
         안내는 모두 한국어이고, <strong>입력하는 내용만 일본어</strong>입니다.
         저장하면 사이트에 반영되기까지 2~3분 걸립니다.
       </p>
+          {/* 다른 관리 화면으로 바로 이동. 탭 바(admin-nav)에 넣지 않는 이유는
+          탭 바 링크가 이 페이지 안의 패널을 여는 용도라서, 다른 페이지 링크를
+          섞으면 탭 전환이 깨지기 때문이다(한국어판 관리자와 같은 처리).
+          ⚠️ 언어판을 새로 만들면 다섯 관리 화면 전부에 추가할 것. */}
+      <ul class="admin-editions">
+        <li><a href={withBase('/admin/')}>한국어판 관리자</a></li>
+        <li><a href={withBase('/admin-ru/')}>러시아어판 관리자</a></li>
+        <li><a href={withBase('/admin-id/')}>인도네시아어판 관리자</a></li>
+        <li><a href={withBase('/admin-tw/')}>대만어판 관리자</a></li>
+      </ul>
     </header>
 
     {
@@ -135,6 +145,7 @@ const navRows = navConfig.map((n) => ({
 
       <nav class="admin-nav" aria-label="일본어판 관리 메뉴">
         <a href="#jv-panel" data-tab="jv-panel">▶️ 추천 영상</a>
+        <a href="#jl-panel" data-tab="jl-panel">📺 다른 채널 영상</a>
         <a href="#jn-panel" data-tab="jn-panel">🧭 상단 메뉴 표시</a>
         <a href="#jg-panel" data-tab="jg-panel">📘 용어집</a>
         <a href="#jf-panel" data-tab="jf-panel">❓ 자주 묻는 질문</a>
@@ -225,6 +236,50 @@ const navRows = navConfig.map((n) => ({
           <button class="btn" id="jv-add">④ 추가</button>
         </div>
         <p class="hint save-status" id="jv-status"></p>
+      </section>
+
+      <section class="panel" id="jl-panel">
+        <div class="panel-head">
+          <h2>📺 다른 채널 추천 영상</h2>
+          <button class="btn ghost" id="jl-refresh">새로고침</button>
+        </div>
+        <p class="section-desc">
+          일본어판 <code>/ja/videos/</code> 아래쪽 「다른 채널」 구획에 나오는
+          영상입니다. 연구소장이 만든 영상이 아니라, 그 나라 언어로 된 의료 AI
+          영상을 골라 링크만 건 것입니다.
+        </p>
+        <p class="warn-box">
+          ⚠️ <strong>영상 번호(videoId)는 여기서 고칠 수 없습니다.</strong> 한 글자만
+          틀려도 전혀 다른 영상이 걸리는데 화면에서는 알아채기 어렵기 때문입니다.
+          영상을 바꾸거나 추가하려면 개발자에게 요청하세요 — 유튜브에서 제목·채널을
+          확인한 뒤 넣습니다.
+        </p>
+        <p class="warn-box">
+          ⚠️ 제목과 채널명은 <strong>유튜브에 실제로 표시되는 그대로</strong> 적습니다.
+          보기 좋게 고쳐 쓰면 그 영상이 아닌 것을 소개하는 셈이 됩니다.
+        </p>
+        <div id="jl-list" class="posts">불러오는 중…</div>
+
+        <div id="jl-editor" class="editor" hidden>
+          <h3>영상 정보 수정: <span id="jl-editor-name"></span></h3>
+          <label class="block">
+            제목 <span class="hint-inline">유튜브에 나오는 제목 그대로</span>
+            <input type="text" id="jl-edit-title" />
+          </label>
+          <label class="block">
+            채널명 <span class="hint-inline">유튜브에 나오는 채널명 그대로</span>
+            <input type="text" id="jl-edit-channel" />
+          </label>
+          <label class="block">
+            고른 이유 <span class="hint-inline">한 줄. 영상이 주장하는 사실을 옮겨 적지 마세요</span>
+            <textarea id="jl-edit-note" rows="3"></textarea>
+          </label>
+          <div class="row">
+            <button class="btn" id="jl-edit-save">저장</button>
+            <button class="btn ghost" id="jl-edit-cancel">닫기</button>
+          </div>
+          <p class="hint save-status" id="jl-edit-status"></p>
+        </div>
       </section>
 
       <!-- ── 2. 상단 메뉴 표시 ────────────────────────────── -->
@@ -697,6 +752,7 @@ const navRows = navConfig.map((n) => ({
 
   const P = {
     videos: 'src/data/ja/content/videos.json',
+    videosLocal: 'src/data/ja/content/videos-local.json',
     nav: 'src/data/ja/content/nav.json',
     glossary: 'src/data/ja/content/glossary.json',
     faq: 'src/data/ja/content/faq.json',
@@ -1351,6 +1407,108 @@ const navRows = navConfig.map((n) => ({
     await loadKoVideos();
     loadVideos();
   });
+
+  // ══ 다른 채널 추천 영상 (2026-09-06 신설) ═══════════════
+  // ⚠️ videoId는 이 화면에서 고칠 수 없게 했다. 한 글자만 틀려도 전혀 다른
+  //    영상이 걸리는데 화면에서는 알아채기 어렵기 때문이다. 영상 교체는
+  //    개발자가 유튜브 oEmbed로 제목·채널을 확인한 뒤 넣는다.
+  let jlVideos: any[] = [];
+  let jlEditVideoId = '';
+
+  async function loadJLocalVideos() {
+    const el = $('jl-list');
+    el.textContent = '불러오는 중…';
+    try {
+      const { data } = await loadJson(P.videosLocal);
+      if (!Array.isArray(data))
+        throw new Error('videos-local.json 이 목록(배열) 형태가 아닙니다.');
+      jlVideos = data;
+      el.innerHTML =
+        data
+          .map(
+            (v: any, i: number) => `
+        <div class="post-row">
+          <img class="thumb-sm" src="https://img.youtube.com/vi/${esc(v.videoId)}/default.jpg" alt="" />
+          <span class="post-title">
+            ${esc(v.title || '(제목 없음)')}
+            <span class="post-file">${esc(v.channel || '')}</span>
+          </span>
+          <span class="post-file">${esc(v.videoId)}</span>
+          <span class="post-actions">
+            <button class="btn ghost" data-jledit="${i}">수정</button>
+          </span>
+        </div>`
+          )
+          .join('') || '<p class="hint">등록된 영상이 없습니다.</p>';
+      el.querySelectorAll('[data-jledit]').forEach((b: any) =>
+        b.addEventListener('click', () => jlOpen(Number(b.dataset.jledit)))
+      );
+    } catch (e: any) {
+      el.textContent = e.message;
+    }
+  }
+
+  function jlOpen(i: number) {
+    const v = jlVideos[i];
+    jlEditVideoId = v.videoId;
+    $('jl-editor-name').textContent = v.videoId;
+    $('jl-edit-title').value = v.title || '';
+    $('jl-edit-channel').value = v.channel || '';
+    $('jl-edit-note').value = v.note || '';
+    ok('jl-edit-status', '');
+    $('jl-editor').hidden = false;
+    $('jl-editor').scrollIntoView({ block: 'center' });
+  }
+
+  $('jl-edit-cancel').addEventListener('click', () => {
+    $('jl-editor').hidden = true;
+    jlEditVideoId = '';
+  });
+
+  lock('jl-edit-save', async () => {
+    const title = $('jl-edit-title').value.trim();
+    const channel = $('jl-edit-channel').value.trim();
+    const note = $('jl-edit-note').value.trim();
+    const reqErr = req(title, '제목') || req(channel, '채널명');
+    if (reqErr) {
+      bad('jl-edit-status', reqErr);
+      return;
+    }
+    const textErr = checkTexts([
+      [title, '제목'],
+      [channel, '채널명'],
+      [note, '고른 이유'],
+    ]);
+    if (textErr) {
+      bad('jl-edit-status', textErr);
+      return;
+    }
+    try {
+      ok('jl-edit-status', '저장 중…');
+      const { sha, data } = await loadJson(P.videosLocal);
+      const idx = data.findIndex((x: any) => x.videoId === jlEditVideoId);
+      if (idx < 0) {
+        throw new Error("그 사이 영상 목록이 바뀌었습니다. '새로고침'을 눌러 다시 확인해 주세요.");
+      }
+      // videoId는 그대로 둔다 — 화면에서 바꿀 수 없는 값이다.
+      data[idx] = { ...data[idx], title, channel, note };
+      await saveJson(
+        P.videosLocal,
+        data,
+        sha,
+        `수정: 일본어판 추천 영상 정보 수정 - ${jlEditVideoId}`
+      );
+      ok('jl-edit-status', '저장했습니다.' + APPLIED);
+      $('jl-editor').hidden = true;
+      jlEditVideoId = '';
+      loadJLocalVideos();
+      setTimeout(loadRuns, 4000);
+    } catch (e: any) {
+      bad('jl-edit-status', e.message);
+    }
+  });
+
+  $('jl-refresh').addEventListener('click', loadJLocalVideos);
 
   // ══ 2. 공개 상태 (메뉴 노출) ═══════════════════════════
   let jnSha = '';
@@ -2361,6 +2519,7 @@ const navRows = navConfig.map((n) => ({
   async function loadAllPanels() {
     await loadKoVideos();
     loadVideos();
+    loadJLocalVideos();
     loadNav();
     loadGlossary();
     loadFaq();
@@ -2372,6 +2531,16 @@ const navRows = navConfig.map((n) => ({
 </script>
 
 <style is:global>
+  .admin-editions {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
   /* 이 페이지는 목록을 JS(innerHTML)로 그린다. Astro의 스타일 스코프는
      런타임에 넣은 요소에 안 붙어서 .btn.ghost 같은 규칙이 안 먹는다.
      그래서 한국어판 관리자와 마찬가지로 전역 스타일을 쓴다.

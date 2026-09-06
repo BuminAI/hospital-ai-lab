@@ -17,14 +17,21 @@ import {
         새 글 작성, 수정·삭제, 이미지 업로드, 추천 영상, AI 뉴스, 회원·강의노트를
         이 페이지에서 바로 처리합니다. 저장하면 1~2분 안에 사이트에 반영됩니다.
       </p>
-      <!-- 일본어판은 관리 화면이 따로 있다. 아래 탭 바(admin-nav)에 넣지 않는 이유는,
+      <!-- 다른 언어판은 관리 화면이 따로 있다. 아래 탭 바(admin-nav)에 넣지 않는 이유는,
            탭 바의 링크는 data-tab으로 이 페이지 안의 패널을 여는 용도라서
-           다른 페이지로 가는 링크를 섞으면 탭 전환이 깨지기 때문이다. -->
+           다른 페이지로 가는 링크를 섞으면 탭 전환이 깨지기 때문이다.
+           ⚠️ 언어판을 새로 만들면 여기에도 반드시 추가할 것 — 안 그러면
+              그 판의 관리 화면으로 들어갈 길이 없다. -->
       <p class="lead">
-        일본어판(<code>/ja/</code>) 내용은 <a href={withBase('/admin-ja/')}>일본어판 관리자</a>,
-        러시아어판(<code>/ru/</code>) 내용은 <a href={withBase('/admin-ru/')}>러시아어판 관리자</a>에서
-        따로 관리합니다. 로그인은 여기와 같은 계정을 씁니다.
+        다른 언어판은 각각의 관리 화면에서 따로 관리합니다. 로그인은 여기와 같은
+        계정을 씁니다.
       </p>
+      <ul class="admin-editions">
+        <li><a href={withBase('/admin-ja/')}>일본어판 관리자</a> <code>/ja/</code></li>
+        <li><a href={withBase('/admin-ru/')}>러시아어판 관리자</a> <code>/ru/</code></li>
+        <li><a href={withBase('/admin-id/')}>인도네시아어판 관리자</a> <code>/id/</code></li>
+        <li><a href={withBase('/admin-tw/')}>대만어판 관리자</a> <code>/tw/</code></li>
+      </ul>
     </header>
 
     {
@@ -1501,6 +1508,19 @@ import {
 </script>
 
 <style is:global>
+  .admin-editions {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  .admin-editions code {
+    opacity: 0.7;
+  }
+
   /* 이 페이지는 목록 항목 대부분을 JS(innerHTML)로 그린다. Astro의 스타일
      스코프(data-astro-cid-*)는 컴파일 시점 템플릿에만 붙고 런타임에 넣은
      요소에는 안 붙어서, 스코프가 걸린 채로는 .btn.ghost 같은 규칙이 그런
