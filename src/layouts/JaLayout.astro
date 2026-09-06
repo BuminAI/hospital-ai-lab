@@ -287,7 +287,11 @@ const year = new Date().getFullYear();
           病院AI研究所
           <span class="ja-brand-sub">HOSPITAL AI LAB — 医療AIの実務情報</span>
         </a>
-        <a class="ja-lang" href={withBase(koPath)} hreflang="ko">{ja.ui.langKo}</a>
+        {/* 상단 언어 전환 링크는 2026-09-06 오너 지시로 삭제했다 —
+           푸터의 '다른 언어판' 목록이 같은 역할을 더 넓게 한다.
+           koPath·jaPath prop 자체는 지우면 안 된다. <head>의
+           <link rel=alternate hreflang> 을 만드는 값이라 지우면
+           언어판 간 상호참조가 통째로 깨진다. */}
       </div>
     </header>
 
@@ -410,18 +414,6 @@ const year = new Date().getFullYear();
     </footer>
 
     <style>
-      .ja-lang {
-        font-size: 12.5px;
-        color: var(--ja-text-sub);
-        text-decoration: none;
-        border: 1px solid var(--ja-border);
-        border-radius: 3px;
-        padding: 4px 10px;
-      }
-      .ja-lang:hover {
-        color: var(--ja-primary);
-        border-color: var(--ja-primary);
-      }
       .ja-footer-lang-title {
     margin: 14px 0 6px;
     font-weight: 700;

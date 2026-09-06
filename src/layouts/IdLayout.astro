@@ -265,10 +265,11 @@ const year = new Date().getFullYear();
           {SITE_ID}
           <span class="id-brand-sub">HOSPITAL AI LAB — informasi praktis AI kesehatan</span>
         </a>
-        <div class="id-langs">
-          <a class="id-lang" href={withBase(koPath)} hreflang="ko">{id.ui.langKo}</a>
-          {jaPath && <a class="id-lang" href={withBase(jaPath)} hreflang="ja">{id.ui.langJa}</a>}
-        </div>
+        {/* 상단 언어 전환 링크는 2026-09-06 오너 지시로 삭제했다 —
+           푸터의 '다른 언어판' 목록이 같은 역할을 더 넓게 한다.
+           koPath·jaPath prop 자체는 지우면 안 된다. <head>의
+           <link rel=alternate hreflang> 을 만드는 값이라 지우면
+           언어판 간 상호참조가 통째로 깨진다. */}
       </div>
     </header>
 

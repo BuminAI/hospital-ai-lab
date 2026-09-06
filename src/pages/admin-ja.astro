@@ -2531,6 +2531,37 @@ const navRows = navConfig.map((n) => ({
 </script>
 
 <style is:global>
+  /* ── 일본어판 관리자 색 (藍色) ────────────────────────
+     이 화면은 한국어 BaseLayout을 쓴다(noindex 때문에 필수). 그래서 그냥
+     두면 다섯 관리 화면이 전부 한국어판 파란색으로 똑같이 보여서, 지금
+     어느 판을 고치고 있는지 화면만 봐서는 알 수 없다. 사이트 쪽 색을
+     그대로 들여와 한눈에 구분되게 한다.
+
+     규칙 하나만 지키면 된다 — 여기서는 **변수만 덮어쓴다.** 관리자
+     CSS 규칙 자체는 한국어판과 똑같이 두어야, 나중에 한국어 관리자를
+     고칠 때 다섯 화면이 같이 따라온다. 색을 바꾸려고 규칙을 복사해 오면
+     그 순간 이 화면만 뒤처진다. */
+  .admin-ja {
+    --color-primary: #1b3f70;
+    --color-primary-strong: #122c50;
+    --color-primary-soft: #eef2f8;
+    --color-primary-border: #c2cfe0;
+    --btn-bg: #1b3f70;
+    --btn-bg-hover: #122c50;
+  }
+  @media (prefers-color-scheme: dark) {
+    .admin-ja {
+      --color-primary: #8ab4e8;
+      --color-primary-strong: #b0cdf2;
+      --color-primary-soft: #16233c;
+      --color-primary-border: #2e4468;
+      /* 버튼은 primary와 따로 간다 — 다크모드 primary는 밝은 틴트라
+         그 위에 흰 글자를 올리면 안 읽힌다(사이트 쪽과 같은 처리). */
+      --btn-bg: #2c5c9e;
+      --btn-bg-hover: #3a70b8;
+    }
+  }
+
   .admin-editions {
     list-style: none;
     padding: 0;

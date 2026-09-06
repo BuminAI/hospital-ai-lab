@@ -165,25 +165,6 @@
   letter-spacing: 0.03em;
 }
 
-[data-locale='tw'] .tw-langs {
-  display: flex;
-  gap: 8px;
-}
-
-[data-locale='tw'] .tw-lang {
-  font-size: 12.5px;
-  color: var(--tw-text-sub);
-  text-decoration: none;
-  border: 1px solid var(--tw-border);
-  border-radius: 3px;
-  padding: 4px 10px;
-}
-
-[data-locale='tw'] .tw-lang:hover {
-  color: var(--tw-primary);
-  border-color: var(--tw-primary);
-}
-
 [data-locale='tw'] .tw-nav {
   background: var(--tw-surface);
   border-bottom: 1px solid var(--tw-border);

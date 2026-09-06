@@ -154,25 +154,6 @@
   letter-spacing: 0.03em;
 }
 
-[data-locale='id'] .id-langs {
-  display: flex;
-  gap: 8px;
-}
-
-[data-locale='id'] .id-lang {
-  font-size: 12.5px;
-  color: var(--id-text-sub);
-  text-decoration: none;
-  border: 1px solid var(--id-border);
-  border-radius: 3px;
-  padding: 4px 10px;
-}
-
-[data-locale='id'] .id-lang:hover {
-  color: var(--id-primary);
-  border-color: var(--id-primary);
-}
-
 [data-locale='id'] .id-nav {
   background: var(--id-surface);
   border-bottom: 1px solid var(--id-border);
