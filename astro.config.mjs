@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { lastModifiedForPath } from './src/utils/git-lastmod.mjs';
+import { localeSitemaps } from './src/utils/locale-sitemaps.mjs';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 배포 주소(site / base) 설정
@@ -40,6 +41,18 @@ function resolveSiteAndBase() {
 }
 
 const { site, base } = resolveSiteAndBase();
+
+// 사이트맵에서 뺄 페이지. 루트 사이트맵과 언어판별 사이트맵이 **같은 규칙**을
+// 써야 둘이 서로 다른 말을 하지 않는다.
+// 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외.
+// ai-apps는 비공개 처리(2026-07-21 오너 지시) — 메뉴·홈에서 내리고
+// 검색엔진에도 노출하지 않는다(페이지 자체는 직접 링크로 접근 가능).
+const sitemapFilter = (page) =>
+  !page.includes('/admin') &&
+  !page.includes('/signup') &&
+  !page.includes('/login') &&
+  !page.includes('/unsubscribe') &&
+  !page.includes('/ai-apps');
 
 
 export default defineConfig({
@@ -94,12 +107,18 @@ export default defineConfig({
       // 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외.
       // ai-apps는 비공개 처리(2026-07-21 오너 지시) — 메뉴·홈에서 내리고
       // 검색엔진에도 노출하지 않는다(페이지 자체는 직접 링크로 접근 가능).
-      filter: (page) =>
-        !page.includes('/admin') &&
-        !page.includes('/signup') &&
-        !page.includes('/login') &&
-        !page.includes('/unsubscribe') &&
-        !page.includes('/ai-apps'),
+      filter: sitemapFilter,
+    }),
+    // 언어판별 사이트맵(/ja/sitemap-index.xml 등)을 함께 낸다.
+    // 서치 콘솔에 URL 접두어 속성이 판별로 등록돼 있어서 필요하다 —
+    // 자세한 사유는 src/utils/locale-sitemaps.mjs 머리말 참고.
+    // ⚠️ 루트 사이트맵과 **같은** filter·lastmod 계산을 넘긴다.
+    //    서로 다른 규칙을 쓰면 두 사이트맵이 다른 말을 하게 된다.
+    localeSitemaps({
+      site,
+      base,
+      filter: sitemapFilter,
+      lastmodFor: lastModifiedForPath,
     }),
   ],
 });
