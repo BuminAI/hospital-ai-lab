@@ -13,8 +13,9 @@
 //
 // 수집원 (전부 RSS — 2026-09-10 실측)
 //   러시아어  Habr(AI 허브·ML 허브)·CNews·TAdviser·3DNews  → 채택 17.4건/일
-//   인도네시아어 CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·
-//              Liputan6·Uzone                           → 채택 3.6건/일
+//   인도네시아어 CNN Indonesia·detikINET·detikFinance·Katadata·Tempo·
+//              ANTARA·Liputan6(tekno·health)·Media Indonesia·
+//              Tech in Asia·Uzone                       → 채택 5건/일 안팎
 //   ⚠️ 응답이 없거나 RSS가 아니었던 곳(다시 시험하지 말 것):
 //      bisnis.com·kontan.co.id·kumparan.com·suara.com·medcom.id(item 0),
 //      tekno.kompas.com(404), republika 이노베이션(최신 글이 9년 전),
@@ -67,13 +68,25 @@ const CONFIG = {
     // 요구하면 3건으로 떨어진다. 소음 제외만 강하게 걸고 실무 신호는 요구하지 않는다.
     requirePro: false,
     feeds: [
+      // ⚠️ CNN Indonesia 는 **GitHub Actions 러너에서 HTTP 403** 이다(2026-09-10 확인).
+      //    로컬에서는 200 이라 데이터센터 IP 차단으로 보인다. 수집기는 한 곳이
+      //    실패해도 계속하므로 남겨 두지만, CI 로그에 실패가 찍히는 것은 정상이다.
+      //    이 손실(약 1.1건/일)을 메우려고 아래 매체들을 함께 넣었다.
       ['CNN Indonesia', 'https://www.cnnindonesia.com/teknologi/rss'],
       ['detikINET', 'https://inet.detik.com/rss'],
       ['Katadata', 'https://katadata.co.id/rss'],
+      ['Katadata', 'https://katadata.co.id/rss/digital'],
       ['Tempo', 'https://rss.tempo.co/tekno'],
       ['ANTARA', 'https://www.antaranews.com/rss/terkini.xml'],
       ['ANTARA', 'https://www.antaranews.com/rss/tekno.xml'],
       ['Liputan6', 'https://feed.liputan6.com/rss/tekno'],
+      // 보건 지면 — 의료 AI 기사가 실제로 나온다(BPJS Healthkathon,
+      // Fujifilm·Siloam 제휴 등). 이 사이트 주제와 가장 가까운 축이다.
+      ['Liputan6', 'https://feed.liputan6.com/rss/health'],
+      // 경제 지면 — 정부·기관의 AI 도입(국세청 탐지 시스템, 데이터센터 등).
+      ['detikFinance', 'https://finance.detik.com/rss'],
+      ['Media Indonesia', 'https://mediaindonesia.com/feed'],
+      ['Tech in Asia', 'https://id.techinasia.com/feed'],
       ['Uzone', 'https://uzone.id/feed'],
     ],
     ai: /(?<![A-Za-z])AI(?![A-Za-z])|kecerdasan\s+buatan|kecerdasan\s+artifisial|artificial\s+intelligence|machine\s+learning|pembelajaran\s+mesin|deep\s+learning|model\s+bahasa|generatif|chatbot|ChatGPT|Copilot|Gemini|OpenAI|Anthropic|\bLLM\b/i,
