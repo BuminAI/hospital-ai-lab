@@ -12,7 +12,8 @@
     "news": "Berita AI",
     "events": "Pelatihan & Acara",
     "govSupport": "Program Pemerintah",
-    "blog": "Blog"
+    "blog": "Blog",
+    "aiDigest": "Sorotan AI"
   },
   "footer": {
     "about": "Tentang Penulis",
@@ -97,7 +98,8 @@
         "q": "Apakah ini terjemahan versi Korea?",
         "a": "Bukan. Versi Indonesia ditulis ulang berdasarkan aturan yang berlaku di Indonesia — kewajiban rekam medis elektronik, SATUSEHAT, izin edar alat kesehatan, dan pelindungan data pribadi. Isinya berbeda dari versi Korea."
       }
-    ]
+    ],
+    "aiDigestDesc": "Berita AI dari media teknologi umum — regulasi, data, keamanan, penerapan."
   },
   "glossary": {
     "pageTitle": "Kamus Istilah AI Kesehatan",
@@ -123,5 +125,15 @@
     "whyHeading": "Kenapa versi Indonesia dibuat",
     "whyBody": "Pertanyaan yang muncul saat rumah sakit mempertimbangkan AI hampir sama di mana pun: apakah alatnya sudah terdaftar, bagaimana data pasien diperlakukan, dan siapa yang bertanggung jawab kalau hasilnya keliru. Tetapi jawabannya bergantung pada regulasi masing-masing negara. Karena itu versi ini ditulis ulang dengan rujukan Indonesia, bukan diterjemahkan.",
     "contactHeading": "Kontak"
+  },
+  "aiDigest": {
+    "pageTitle": "Sorotan AI: teknologi di luar layanan kesehatan",
+    "metaDescription": "Berita AI dari CNN Indonesia, detikINET, Katadata, Tempo, dan ANTARA: regulasi, data, keamanan, penerapan. Diperbarui beberapa kali sehari.",
+    "lead": "Kumpulan berita AI dari media teknologi umum — tidak terbatas pada layanan kesehatan. Regulasi, pengelolaan data, keamanan informasi, dan penerapan di organisasi. Judul menautkan ke halaman sumbernya.",
+    "notice": "Ini kumpulan judul dari RSS terbuka, bukan tulisan redaksi situs ini. Kami tidak menyalin isi artikel — hanya judul, tanggal, dan tautan ke sumbernya. Ketepatan dan kelengkapan tetap menjadi tanggung jawab media yang bersangkutan.",
+    "why": "Kenapa ini penting bagi administrasi rumah sakit",
+    "whyBody": "Aturan pelindungan data pribadi, pendekatan keamanan informasi, dan praktik penerapan AI di organisasi berubah lebih cepat daripada yang sempat ditulis media kesehatan. Banyak hal yang mula-mula dibahas di media teknologi umum, beberapa bulan kemudian sampai ke rumah sakit dalam bentuk persyaratan regulator atau butir dalam proposal vendor.",
+    "sourcesTitle": "Sumber",
+    "empty": "Belum ada materi."
   }
 }

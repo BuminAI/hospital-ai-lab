@@ -20,6 +20,11 @@
     "enabled": true
   },
   {
+    "href": "/id/ai-digest/",
+    "key": "aiDigest",
+    "enabled": true
+  },
+  {
     "href": "/id/gov-support/",
     "key": "govSupport",
     "enabled": true
