@@ -1,7 +1,139 @@
 {
-  "updatedAt": "2026-09-10T07:18:04.188Z",
+  "updatedAt": "2026-09-10T14:25:57.420Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Собрал мониторинг упоминаний бренда в ChatGPT: три способа сбора данных показали три разные картины",
+      "link": "https://habr.com/ru/articles/1080900/?utm_campaign=1080900&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T13:39:10.000Z"
+    },
+    {
+      "title": "[Перевод] ИИ для передачи дел: как найти знания, которые уходят из компании вместе с техлидом",
+      "link": "https://habr.com/ru/companies/otus/articles/1080722/?utm_campaign=1080722&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T13:07:25.000Z"
+    },
+    {
+      "title": "Кладбище пилотов: что отличает компании, у которых ИИ-агенты дошли до продуктива",
+      "link": "https://www.tadviser.ru/a/963192",
+      "source": "TAdviser",
+      "pubDate": "2026-09-10T12:07:49.000Z"
+    },
+    {
+      "title": "Пользователи «Битрикс24» смогут работать с сервисом через «Алису AI для бизнеса»",
+      "link": "https://www.cnews.ru/news/line/2026-09-10_polzovateli_bitriks24",
+      "source": "CNews",
+      "pubDate": "2026-09-10T12:03:00.000Z"
+    },
+    {
+      "title": "Visa, Mastercard и Ant создадут единый стандарт для ИИ-агентов, которые тратят деньги пользователей",
+      "link": "https://3dnews.ru/1148292/visa-mastercard-i-ant-sozdadut-ediniy-standart-dlya-iiagentov-kotorie-tratyat-dengi-polzovateley",
+      "source": "3DNews",
+      "pubDate": "2026-09-10T11:50:00.000Z"
+    },
+    {
+      "title": "«Т-Банк» открыл клиентам доступ к торговле на бирже с помощью внешних ИИ-агентов",
+      "link": "https://www.cnews.ru/news/line/2026-09-10_t-bank_otkryl_klientam",
+      "source": "CNews",
+      "pubDate": "2026-09-10T11:25:00.000Z"
+    },
+    {
+      "title": "«Сбер» представил GigaChat 3.5 Reasoning — первую российскую открытую ИИ-модель с режимом рассуждений",
+      "link": "https://3dnews.ru/1148286/sber-predstavil-gigachat-35-reasoning-pervuyu-rossiyskuyu-otkrituyu-iimodel-s-regimom-rassugdeniy",
+      "source": "3DNews",
+      "pubDate": "2026-09-10T11:08:00.000Z"
+    },
+    {
+      "title": "Anthropic открыла властям ЕС доступ к модели Mythos после трех месяцев ожидания",
+      "link": "https://3dnews.ru/1148285/anthropic-otkrila-vlastyam-es-dostup-k-modeli-mythos-posle-treh-mesyatsev-ogidaniya",
+      "source": "3DNews",
+      "pubDate": "2026-09-10T11:00:30.000Z"
+    },
+    {
+      "title": "От рисков к развитию: утечки данных в ИИ стали фактором для развития нового сегмента рынка ИБ",
+      "link": "https://www.cnews.ru/news/line/2026-09-10_ot_riskov_k_razvitiyu_utechki",
+      "source": "CNews",
+      "pubDate": "2026-09-10T10:49:00.000Z"
+    },
+    {
+      "title": "«Сбер» разработал новую нейросеть с режимом рассуждения",
+      "link": "https://www.cnews.ru/news/line/2026-09-10_sber_razrabotal_novuyu",
+      "source": "CNews",
+      "pubDate": "2026-09-10T10:47:00.000Z"
+    },
+    {
+      "title": "Когда разработчики ленятся писать документацию: описываем клиентский API силами нейросетей",
+      "link": "https://habr.com/ru/companies/hostkey/articles/1077728/?utm_campaign=1077728&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T10:42:42.000Z"
+    },
+    {
+      "title": "Gmonit представила новую функцию доступа ИИ-агентов к данным мониторинга через MCP",
+      "link": "https://www.cnews.ru/news/line/2026-09-10_gmonit_predstavila_novuyu_funktsiyu",
+      "source": "CNews",
+      "pubDate": "2026-09-10T10:10:00.000Z"
+    },
+    {
+      "title": "ATN Cyber Security Fest 2026: в Краснодаре обсудят, как меняется кибербезопасность в эпоху ИИ",
+      "link": "https://www.tadviser.ru/a/965548",
+      "source": "TAdviser",
+      "pubDate": "2026-09-10T09:54:36.000Z"
+    },
+    {
+      "title": "«Погибнет большинство людей»: новый эксперт OpenAI по безопасности предрёк катастрофу в случае выхода ИИ из-под контроля",
+      "link": "https://3dnews.ru/1148282/pogibnet-bolshinstvo-lyudey-noviy-ekspert-openai-po-bezopasnosti-predryok-katastrofu-v-sluchae-vihoda-ii-izpod-kontrolya",
+      "source": "3DNews",
+      "pubDate": "2026-09-10T09:50:00.000Z"
+    },
+    {
+      "title": "OpenAI потребовала ввести обязательные общенациональные нормы безопасности ИИ в США",
+      "link": "https://3dnews.ru/1148277/openai-potrebovala-vvesti-obyazatelnie-obshchenatsionalnie-normi-bezopasnosti-ii-v-ssha",
+      "source": "3DNews",
+      "pubDate": "2026-09-10T09:30:00.000Z"
+    },
+    {
+      "title": "Наш бенчмарк ИИ‑агентов: собачьи бега моделей LLM, в которых Алиса выигрывает",
+      "link": "https://habr.com/ru/articles/1080744/?utm_campaign=1080744&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T09:19:43.000Z"
+    },
+    {
+      "title": "Runtime‑контроль ИИ‑агентов: единица контроля не модель, а действие",
+      "link": "https://habr.com/ru/companies/infera_security/articles/1080536/?utm_campaign=1080536&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T09:01:12.000Z"
+    },
+    {
+      "title": "Китай отверг обвинения в злонамеренной дистилляции американских ИИ-моделей",
+      "link": "https://3dnews.ru/1148272/kitay-otverg-obvineniya-v-zlonamerennoy-distillyatsii-amerikanskih-iimodeley",
+      "source": "3DNews",
+      "pubDate": "2026-09-10T08:50:00.000Z"
+    },
+    {
+      "title": "Как AI‑агент видит страницу. Контракт наблюдения между браузером и моделью",
+      "link": "https://habr.com/ru/companies/otus/articles/1073506/?utm_campaign=1073506&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T08:15:07.000Z"
+    },
+    {
+      "title": "Расширили каталог ИИ-моделей и добавили aish в открытый репозиторий: обновления продуктов Selectel в августе",
+      "link": "https://habr.com/ru/companies/selectel/articles/1080634/?utm_campaign=1080634&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T08:00:06.000Z"
+    },
+    {
+      "title": "Группа ИT-компаний Lad представила Ai Control Center — платформу для безопасного запуска ИИ в корпоративном контуре",
+      "link": "https://www.cnews.ru/news/line/2026-09-10_gruppa_it-kompanij_lad_predstavila",
+      "source": "CNews",
+      "pubDate": "2026-09-10T07:57:00.000Z"
+    },
+    {
+      "title": "Зачем ИИ-агент, если есть дашборды? Отвечаем на вопросы по живым данным 1С",
+      "link": "https://habr.com/ru/companies/1forma/articles/1080638/?utm_campaign=1080638&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T07:34:03.000Z"
+    },
     {
       "title": "AI-агент в проде: песочница, RBAC и egress-контур вместо надежды на промпт",
       "link": "https://habr.com/ru/companies/vktech/articles/1068846/?utm_campaign=1068846&utm_source=habrahabr&utm_medium=rss",
