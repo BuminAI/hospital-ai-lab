@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-09-09T22:10:04.882Z",
+  "updatedAt": "2026-09-10T07:18:04.188Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "AI-агент в проде: песочница, RBAC и egress-контур вместо надежды на промпт",
+      "link": "https://habr.com/ru/companies/vktech/articles/1068846/?utm_campaign=1068846&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T07:01:59.000Z"
+    },
+    {
+      "title": "Вышедшие из-под контроля OpenAI ИИ-агенты использовали более 10 сайтов для несанкционированной переписки",
+      "link": "https://3dnews.ru/1148256/vishedshie-izpod-kontrolya-openai-iiagenti-ispolzovali-bolee-10-saytov-dlya-nesanktsionirovannoy-perepiski",
+      "source": "3DNews",
+      "pubDate": "2026-09-10T04:51:00.000Z"
+    },
     {
       "title": "Ссылку засчитали, компанию не рекомендовали: как проверить видимость бренда в ответах ИИ",
       "link": "https://habr.com/ru/articles/1080516/?utm_campaign=1080516&utm_source=habrahabr&utm_medium=rss",
