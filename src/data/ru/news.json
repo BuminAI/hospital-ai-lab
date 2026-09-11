@@ -1,11 +1,17 @@
 {
-  "updatedAt": "2026-09-10T16:38:07.745Z",
+  "updatedAt": "2026-09-11T01:23:53.103Z",
   "source": "Медвестник·Vademecum",
   "items": [
     {
       "title": "Ученые представили модель ИИ-компетенций для врачей",
       "link": "https://medvestnik.ru/content/news/uchenye-predstavili-model-ii-kompetencii-dlya-vrachei.html",
       "source": "Медвестник",
+      "pubDate": "2026-09-10T09:00:00.000Z"
+    },
+    {
+      "title": "В МГУ разработают ИИ для обработки и анализа микроскопических изображений",
+      "link": "https://www.vademec.ru/news/2026/09/10/v-mgu-razrabotayut-ii-dlya-obrabotki-i-analiza-mikroskopicheskikh-izobrazheniy/",
+      "source": "Vademecum",
       "pubDate": "2026-09-10T09:00:00.000Z"
     },
     {
