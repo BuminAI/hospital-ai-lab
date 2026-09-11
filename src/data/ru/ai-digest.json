@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-09-10T14:25:57.420Z",
+  "updatedAt": "2026-09-11T00:09:36.948Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Разработчик оставил Claude проводить исследование. Вернулся — и обнаружил, что ИИ запустил себе 16 виртуальных машин",
+      "link": "https://habr.com/ru/articles/1081006/?utm_campaign=1081006&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T17:55:04.000Z"
+    },
+    {
+      "title": "IBM и NASA выпустили ИИ-модель для изучения и освоения Луны",
+      "link": "https://3dnews.ru/1148307/ibm-i-nasa-vipustili-iimodel-dlya-izucheniya-i-osvoeniya-luni",
+      "source": "3DNews",
+      "pubDate": "2026-09-10T17:12:00.000Z"
+    },
+    {
+      "title": "Внедрение AI в продукт: 9 ошибок продуктового менеджера",
+      "link": "https://habr.com/ru/companies/otus/articles/1077556/?utm_campaign=1077556&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T17:10:42.000Z"
+    },
+    {
+      "title": "Правда ли, что медицинский ИИ точнее врачей? Наш фреймворк помогает это выяснить",
+      "link": "https://habr.com/ru/companies/airi/articles/1079898/?utm_campaign=1079898&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T15:01:36.000Z"
+    },
+    {
+      "title": "Параллельные AI-агенты: что проверил на практике и когда они действительно полезны",
+      "link": "https://habr.com/ru/articles/1080948/?utm_campaign=1080948&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-10T14:29:24.000Z"
+    },
+    {
+      "title": "Гранты разработчикам ИИ-решений в России теперь будут покрывать не 50%, а 80% стоимости проекта",
+      "link": "https://www.tadviser.ru/a/308225",
+      "source": "TAdviser",
+      "pubDate": "2026-09-10T14:24:19.000Z"
+    },
+    {
+      "title": "В «Группе Астра» подсчитали, сколько стоит внедрение доверенного ИИ в компании",
+      "link": "https://www.tadviser.ru/a/955978",
+      "source": "TAdviser",
+      "pubDate": "2026-09-10T14:19:43.000Z"
+    },
     {
       "title": "Собрал мониторинг упоминаний бренда в ChatGPT: три способа сбора данных показали три разные картины",
       "link": "https://habr.com/ru/articles/1080900/?utm_campaign=1080900&utm_source=habrahabr&utm_medium=rss",
