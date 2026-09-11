@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-09-11T00:09:36.948Z",
+  "updatedAt": "2026-09-11T07:16:50.531Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ уже умеет собирать микросервисы по одному промпту, но, как разработчик, я всё ещё нужен",
+      "link": "https://habr.com/ru/companies/alfa/articles/1080768/?utm_campaign=1080768&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T06:26:03.000Z"
+    },
+    {
+      "title": "Открываем претрейн Alice AI Search: как устроена модель быстрых ответов Алисы на Поиске",
+      "link": "https://habr.com/ru/companies/yandex/articles/1080654/?utm_campaign=1080654&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T06:05:13.000Z"
+    },
+    {
+      "title": "Многофункциональная система безопасности, «1С» и нейросети для горных работ. Как проходит цифровизация «Кузбассразрезугля»",
+      "link": "https://www.tadviser.ru/a/501041",
+      "source": "TAdviser",
+      "pubDate": "2026-09-11T06:00:00.000Z"
+    },
+    {
+      "title": "7 дней новостей ИИ (05.09.26…11.09.26): пока вы спали, вышло ещё три модели",
+      "link": "https://habr.com/ru/companies/gptunnel/articles/1081094/?utm_campaign=1081094&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T05:36:46.000Z"
+    },
+    {
+      "title": "Ищем lateral movement нейросетью, обученной на синтетических данных",
+      "link": "https://habr.com/ru/articles/1081092/?utm_campaign=1081092&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T05:34:18.000Z"
+    },
+    {
+      "title": "OpenAI готова замедлить гонку разработки ИИ, если конкуренты сделают то же самое",
+      "link": "https://3dnews.ru/1148324/openai-gotova-zamedlit-gonku-razrabotki-ii-esli-konkurenti-sdelayut-to-ge-samoe",
+      "source": "3DNews",
+      "pubDate": "2026-09-11T03:48:00.000Z"
+    },
     {
       "title": "Разработчик оставил Claude проводить исследование. Вернулся — и обнаружил, что ИИ запустил себе 16 виртуальных машин",
       "link": "https://habr.com/ru/articles/1081006/?utm_campaign=1081006&utm_source=habrahabr&utm_medium=rss",
