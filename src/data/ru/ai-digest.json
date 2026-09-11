@@ -1,7 +1,103 @@
 {
-  "updatedAt": "2026-09-11T07:16:50.531Z",
+  "updatedAt": "2026-09-11T14:25:30.882Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Ученые СПбГУ выяснили, какие психологические особенности человека способен воспроизводить ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-09-11_uchenye_spbgu_vyyasnilikakie",
+      "source": "CNews",
+      "pubDate": "2026-09-11T14:15:00.000Z"
+    },
+    {
+      "title": "Цукерберг хотел плоскую M**a, но ИИ всё изменил — пониженных сотрудников возвращают на руководящие должности",
+      "link": "https://3dnews.ru/1148359/tsukerberg-hotel-ploskuyu-meta-no-ii-vsyo-izmenil-ponigennih-sotrudnikov-vozvrashchayut-na-rukovodyashchie-dolgnosti",
+      "source": "3DNews",
+      "pubDate": "2026-09-11T13:44:00.000Z"
+    },
+    {
+      "title": "DLP для LLM: как обезличивать запросы и не ломать поиск по сотрудникам",
+      "link": "https://habr.com/ru/companies/agima/articles/1081356/?utm_campaign=1081356&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T13:38:47.000Z"
+    },
+    {
+      "title": "OpenAI научила ИИ говорить и слушать одновременно — полнодуплексная модель GPT-Live-1 доступна разработчикам",
+      "link": "https://3dnews.ru/1148357/openai-nauchila-ii-govorit-i-slushat-odnovremenno-polnodupleksnaya-model-gptlive1-dostupna-razrabotchikam",
+      "source": "3DNews",
+      "pubDate": "2026-09-11T13:06:00.000Z"
+    },
+    {
+      "title": "MCP без хаоса: как мы создали в корпоративном ландшафте централизованный шлюз для ИИ‑агентов",
+      "link": "https://habr.com/ru/companies/sberbank/articles/1080158/?utm_campaign=1080158&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T12:22:05.000Z"
+    },
+    {
+      "title": "Опрос VK Education: 81% преподавателей вузов прогнозируют изменение роли разработчика — от написания кода к управлению ИИ-агентами",
+      "link": "https://www.cnews.ru/news/line/2026-09-11_opros_vk_education_81_prepodavatelej",
+      "source": "CNews",
+      "pubDate": "2026-09-11T11:22:00.000Z"
+    },
+    {
+      "title": "Популярный сервис для написания программного кода с помощью ИИ Cursor перестал работать в России",
+      "link": "https://www.tadviser.ru/a/941876",
+      "source": "TAdviser",
+      "pubDate": "2026-09-11T10:56:22.000Z"
+    },
+    {
+      "title": "Промышленные компании на Ямале стали чаще использовать ИИ в онлайн-коммуникациях",
+      "link": "https://www.cnews.ru/news/line/2026-09-11_promyshlennye_kompanii_na",
+      "source": "CNews",
+      "pubDate": "2026-09-11T10:43:00.000Z"
+    },
+    {
+      "title": "Innostage обновила платформу ИИ-агентов для автоматизации SOC – Innostage TDIR 1.5.1",
+      "link": "https://www.cnews.ru/news/line/2026-09-11_innostage_obnovila_platformu",
+      "source": "CNews",
+      "pubDate": "2026-09-11T10:09:00.000Z"
+    },
+    {
+      "title": "[Перевод] Shadow AI в CI/CD: почему ИИ-агенты становятся угрозой",
+      "link": "https://habr.com/ru/companies/cloud_ru/articles/1081198/?utm_campaign=1081198&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T09:55:47.000Z"
+    },
+    {
+      "title": "С ИИ новички умнеют. Без ИИ — как повезет. Свежее исследование NBER",
+      "link": "https://habr.com/ru/articles/1081214/?utm_campaign=1081214&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T09:33:22.000Z"
+    },
+    {
+      "title": "Гонку ИИ пора притормозить, но это может быть незаконно — OpenAI попросила Конгресс разобраться",
+      "link": "https://3dnews.ru/1148342/gonku-ii-pora-pritormozit-no-eto-moget-bit-nezakonno-openai-poprosila-kongress-razobratsya",
+      "source": "3DNews",
+      "pubDate": "2026-09-11T09:09:00.000Z"
+    },
+    {
+      "title": "Создатели Claude: Из-за внедрения ИИ экономика вырастет, но зарплаты упадут. Дополнительный доход достанется хозяевам бизнеса",
+      "link": "https://www.cnews.ru/news/top/2026-09-11_anthropic_dohody_intellektualnyh",
+      "source": "CNews",
+      "pubDate": "2026-09-11T07:53:00.000Z"
+    },
+    {
+      "title": "Что делает разработчика ценным, когда код всё лучше пишут AI‑агенты",
+      "link": "https://habr.com/ru/articles/1081150/?utm_campaign=1081150&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T07:50:44.000Z"
+    },
+    {
+      "title": "Anthropic поймала DeepSeek и Moonshot на том, что они перенаправляют запросы клиентов в Claude вместо собственных моделей",
+      "link": "https://3dnews.ru/1148336/anthropic-poymala-deepseek-i-moonshot-na-tom-chto-oni-perenapravlyayut-zaprosi-klientov-v-claude-vmesto-sobstvennih-modeley",
+      "source": "3DNews",
+      "pubDate": "2026-09-11T07:50:00.000Z"
+    },
+    {
+      "title": "Агентские системы вместо отдельных операций: как меняется подход бизнеса к ИИ-автоматизации",
+      "link": "https://www.tadviser.ru/a/963822",
+      "source": "TAdviser",
+      "pubDate": "2026-09-11T07:37:04.000Z"
+    },
     {
       "title": "ИИ уже умеет собирать микросервисы по одному промпту, но, как разработчик, я всё ещё нужен",
       "link": "https://habr.com/ru/companies/alfa/articles/1080768/?utm_campaign=1080768&utm_source=habrahabr&utm_medium=rss",
