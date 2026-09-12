@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-09-11T14:25:30.882Z",
+  "updatedAt": "2026-09-12T00:17:40.375Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "AI меняет центр тяжести разработки",
+      "link": "https://habr.com/ru/articles/1081410/?utm_campaign=1081410&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-11T15:20:24.000Z"
+    },
+    {
+      "title": "Миллиарды на входе — миллиарды на выходе: ВТБ раскрыл годовые инвестиции во внедрение ИИ",
+      "link": "https://www.tadviser.ru/a/384088",
+      "source": "TAdviser",
+      "pubDate": "2026-09-11T15:08:06.000Z"
+    },
+    {
+      "title": "OpenAI ускорит научные исследования с помощью ИИ — первый «исследователь-стажёр» появится уже в сентябре",
+      "link": "https://3dnews.ru/1148364/openai-uskorit-nauchnie-issledovaniya-s-pomoshchyu-ii-perviy-issledovatelstagyor-poyavitsya-uge-v-sentyabre",
+      "source": "3DNews",
+      "pubDate": "2026-09-11T14:45:00.000Z"
+    },
+    {
+      "title": "Xiaomi выпустила ИИ-модель CocktailASR-1 для распознавания речи в шумных помещениях",
+      "link": "https://3dnews.ru/1148361/xiaomi-vipustila-iimodel-cocktailasr1-dlya-raspoznavaniya-rechi-v-shumnih-pomeshcheniyah",
+      "source": "3DNews",
+      "pubDate": "2026-09-11T14:43:00.000Z"
+    },
+    {
+      "title": "«Дочка» «Ростелекома» стала включать в договоры с ИТ-компаниями 30% неустойки за применение ИИ",
+      "link": "https://www.cnews.ru/news/top/2026-09-11_struktura_rostelekoma",
+      "source": "CNews",
+      "pubDate": "2026-09-11T14:27:00.000Z"
+    },
     {
       "title": "Ученые СПбГУ выяснили, какие психологические особенности человека способен воспроизводить ИИ",
       "link": "https://www.cnews.ru/news/line/2026-09-11_uchenye_spbgu_vyyasnilikakie",
