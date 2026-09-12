@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-09-12T07:08:49.112Z",
+  "updatedAt": "2026-09-12T13:36:24.977Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Apple разработала ИИ-модель SimpleDesign для проектирования белков",
+      "link": "https://3dnews.ru/1148393/apple-razrabotala-iimodel-simpledesign-dlya-proektirovaniya-belkov",
+      "source": "3DNews",
+      "pubDate": "2026-09-12T10:22:00.000Z"
+    },
+    {
+      "title": "Cognition выпустила Fusion для Devin Desktop и CLI: две ИИ-модели делят одну задачу",
+      "link": "https://habr.com/ru/companies/koda/articles/1081524/?utm_campaign=1081524&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-12T09:23:44.000Z"
+    },
+    {
+      "title": "За два месяца до скандального взлома Hugging Face ИИ-агенты OpenAI атаковали RubyGems",
+      "link": "https://3dnews.ru/1148388/za-dva-mesyatsa-do-skandalnogo-vzloma-hugging-face-iiagenti-openai-atakovali-rubygems",
+      "source": "3DNews",
+      "pubDate": "2026-09-12T09:02:00.000Z"
+    },
+    {
+      "title": "Рой агентов OpenAI взломал еще один внешний сервис – RubyGems",
+      "link": "https://habr.com/ru/companies/ods/articles/1081508/?utm_campaign=1081508&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-12T08:41:21.000Z"
+    },
     {
       "title": "«Яндекс» сделал открытой ИИ-модель, на которой основаны быстрые ответы в её поисковике",
       "link": "https://3dnews.ru/1148383/yandeks-sdelal-otkritoy-iimodel-na-kotoroy-osnovani-bistrie-otveti-v-eyo-poiskovike",
