@@ -30,8 +30,7 @@
 | `.claude/agents/`, `.claude/skills/`, `.claude/settings.json`(도구 사전 허용) | ✅ | git에 커밋됨 |
 | GitHub Actions 자동화(뉴스·영상 수집, 배포) | ✅ | GitHub 클라우드에서 실행, 컴퓨터와 무관 |
 | Supabase(회원·DB·Storage·GitHub 토큰 저장) | ✅ | 클라우드 서비스, 컴퓨터와 무관. 로그인만 다시 하면 됨 |
-| **예약 작업 2개(daily-blog-post, site-health-check)** | ❌ | Claude 앱의 로컬 예약 작업이라 **이 컴퓨터에서만** 실행됨. 새 컴퓨터에서 §4-2·4-3 참고해 다시 만들어야 함 |
-| **네이버 SMTP 자격 증명(`naver-smtp.xml`)** | ❌ **(복사해도 소용없음)** | Windows DPAPI로 암호화돼 **이 컴퓨터·이 Windows 계정에서만 복호화**된다. 새 컴퓨터에서 앱 비밀번호를 새로 발급받아 다시 만들어야 함(§4-3) |
+| **예약 작업(daily-update-digest 등 콘텐츠 작성)** | ❌ | Claude 앱의 로컬 예약 작업이라 **이 컴퓨터에서만** 실행됨. 새 컴퓨터에서 §4-1-1·4-2 참고해 다시 만들어야 함. (site-health-check는 2026-09-13부로 GitHub Actions로 이관돼 이 제약이 없음 — §4-1-2) |
 | **Claude의 프로젝트 기억(memory, 이 대화의 교훈들)** | ❌ | `C:\Users\a\.claude\projects\...\memory\`에 로컬 저장. 아래 §6에 핵심만 옮겨 적어 둠 |
 | **Claude Code 대화 기록** | ❌ | 로컬 저장. 새 컴퓨터에서는 새 세션으로 시작된다(이 문서를 보여주면 대부분 파악함) |
 | `gh` CLI 로그인, `.claude/run-npm.cmd`, `.claude/launch.json`, `.claude/settings.local.json` | ❌ | 컴퓨터별 로컬 설정(gitignore됨). §2 참고해 새로 만들 것 |
@@ -132,6 +131,7 @@ npm run build    # 배포본 생성(dist/)
 | `update-ru-news.yml` | 매시 :37 | **러시아어판** — Медвестник(АИ 태그 페이지)·Vademecum(/ai/ 섹션)에서 의료 AI 기사 크롤링 → `src/data/ru/news.json` (2026-08-13 신설). 두 매체 다 AI 전용 지면이라 한국어판 병원신문과 달리 제목 재필터링 불필요. |
 | `update-id-news.yml` | 4시간 간격(`47 */4 * * *`) | **인도네시아어판** — detikHealth·Kompas Health 건강 지면에서 AI·디지털 관련 기사만 걸러 `src/data/id/news.json`에 누적 (2026-09-06 신설). ⚠️ **수확량이 매우 적다** — 인도네시아 매체에는 러시아·한국 같은 의료 AI 전담 지면이 없다(실측: 건강 지면 38건 중 AI 0건, Katadata AI 태그 19건 중 의료 0건). 보건부 공식 채널은 목록이 AJAX·RSS가 빈 껍데기·sehatnegeriku 연결 불가라 못 쓴다. 공개 `/id/news/` 페이지는 아직 안 만들었다(빈 페이지 방지) — 예약 작업이 블로그 소재 후보로만 읽는다. |
 | `update-gov-programs.yml` | 매일 KST 09:07 + 예비 12:07/15:07 | 보건복지부·한국보건산업진흥원(KHIDI)·**정보통신산업진흥원(NIPA)**·**대한병원협회** 공고 크롤링 → `src/data/gov-programs.json`. 병원·의료 관련 지원사업만 담고 채용·입찰·시상·선정결과·지침개정은 제외 (2026-07-20 신설, 07-22 아침 9시로 조정, 07-27 대한병원협회 추가, 08-20 NIPA 추가). NIPA는 ICT 전반 기관이라 MED_RE 필터로 AI+의료 교집합만 남긴다(skipMedCheck 미적용). 병원협회는 복지부 공고를 회원 병원에 전달하는 글이 많아 **수집 순서 맨 뒤**에 두고, 제목 정규화(「」·[]·끝의 '안내/공고' 제거)로 원문과 중복되지 않게 한다. 병원협회 '협회공고' 게시판은 100% 자체 입찰공고라 쓰지 않는다. |
+| `site-health-check.yml` | 매주 월요일 KST 09:00 | **사이트 자가 점검**(2026-09-13 신설 — 원래 §4-1-2에 적힌 로컬 예약 작업이었다). 보고 전용, 어떤 파일도 커밋하지 않음. 자세한 내용은 §4-1-2. |
 
 - 수집 스크립트: `scripts/fetch-news.mjs`, `scripts/fetch-videos.mjs`
 - GitHub cron은 예약을 자주 지연·누락시킴(실측: 3시간 간격 예약이 하루 2~3회만 실행, 최대 13시간 공백) → 그래서 예약을 촘촘히 걸고 "새 기사 있을 때만" 커밋하는 방식으로 설계됨 (2026-07-09 조정).
@@ -144,6 +144,15 @@ npm run build    # 배포본 생성(dist/)
 - 무인 정지 방지: `.claude/settings.json`(git 커밋됨)에 Bash 명령·`Write/Edit(src/content/blog/**)`·`Write/Edit(src/content/blog-ru/**)`·`Write/Edit(src/content/blog-ja/**)`(2026-08-20 추가)를 사전 허용해 뒀다.
 - `daily-blog-post`(4-2)·`site-health-check`(4-3)이 예약 목록에서 안 보이는 시점이 있었다(2026-08-16 확인, 원인 미상 — 폴더는 남아 있음). `mcp__scheduled-tasks__list_scheduled_tasks`로 현재 등록된 작업을 항상 먼저 확인할 것.
 
+### 4-1-2. `site-health-check.yml` (GitHub Actions — 2026-09-13에 로컬 예약 작업에서 이관)
+
+- **이관 사유**: 원래 이 점검은 로컬 Claude 앱의 예약 작업(`site-health-check`, 매주 월요일 09:00 KST)이었다. 그런데 트리거 시각에 컴퓨터·앱이 꺼져 있으면 세션 자체가 생기지 않는다(승인 대기로 멈추는 것과는 다른 유형 — 시작조차 안 됨, `scheduled-task-full-day-miss` 메모리 참고). 실제로 2026-08-10 이후 약 5주간 한 번도 실행되지 않았는데, 실패 로그가 아예 안 남는 유형이라 아무도 몰랐다(오너가 "누락된 실행 체크해줘"라고 지시해서 그때 처음 발견함). 컴퓨터 전원과 무관하게 항상 도는 GitHub Actions cron으로 옮겨서 이 구조적 문제를 없앴다.
+- 스크립트: `scripts/site-health-check.mjs`. 워크플로: `.github/workflows/site-health-check.yml` (매주 월요일 00:00 UTC = 09:00 KST + `workflow_dispatch`로 수동 실행 가능).
+- 점검 항목은 원래 로컬 SKILL.md와 거의 같다 — 주요 페이지 접속(18개, 언어판 홈 포함), 자동화 신선도(뉴스는 한국어판만 — 나머지 언어판은 매체 자체 발행량이 적어 updatedAt이 며칠 안 바뀌는 게 정상이라 오탐이 남; 블로그는 5개 언어판 전부 48시간 기준), GitHub Actions 최근 24시간 실패, Supabase 3개 엔드포인트, 최신 글 출처 링크 생존(언어판별 최신 1편). 이관하면서 하나 추가함 — **최근 48시간 내 발행 글에 외부 출처 링크가 아예 없는지**(2026-09-12에 실제로 이 상태가 한 번 발생했고, 원래 항목은 "있는 링크가 죽었는지"만 봐서 "링크 자체가 없는 경우"는 못 잡았다).
+- **보고 전달**: Resend(새 글 이메일 알림과 같은 `RESEND_API_KEY` 시크릿을 재사용하도록 짜 뒀다 — 새 시크릿을 따로 만들 필요는 없다)로 `choyj80@naver.com`에 매주 이메일을 보내고, GitHub Actions 실행 요약(Summary 탭)에도 항상 남긴다. ⚠️ **다만 `RESEND_API_KEY`는 2026-09-13 기준 저장소에 아직 등록돼 있지 않다**(`gh secret list`로 확인함, §5의 "아직 한 번도 동작한 적 없음" 항목과 같은 상태) — 등록 전까지는 이메일 발송이 조용히 건너뛰어지고 Summary 탭 기록만 남는다. 문제가 있으면 스크립트가 exit code 1로 끝나 Actions 탭에 실패(빨간 X)로 표시되므로, 이메일 없이도 Actions 탭만 봐도 이상 여부는 알 수 있다. Resend를 등록하면(`supabase/SETUP-GUIDE.md` 4-1) 이 점검의 이메일과 새 글 알림 이메일이 동시에 켜진다.
+- ⚠️ 링크 생존 확인에서 HTTP 403/429가 뜨면 실제로 죽은 링크가 아니라 **GitHub Actions 러너 IP를 매체가 봇으로 차단**한 것일 수 있다(`update-ai-digest.yml`의 CNN Indonesia 403과 같은 패턴). 이 경우는 문장을 바로 고치지 말고 브라우저로 직접 열어 먼저 확인할 것 — 스크립트도 이 둘을 구분해서 보고한다.
+- 로컬 `site-health-check` 예약 작업과 네이버 SMTP 자가 점검 이메일 발송(`send-report.ps1`, `naver-smtp.xml`)은 이관 후 더 이상 쓰지 않는다. 새 컴퓨터로 옮길 때 이 항목을 다시 만들 필요가 없다.
+
 ### 4-2. 매일 블로그 자동 작성 (⚠️ 로컬 — 새 컴퓨터에서 반드시 재설정)
 
 - **이건 GitHub Actions가 아니라 Claude 앱의 예약 작업(scheduled task)**입니다. 매일 KST 22:00경 이 컴퓨터의 Claude 앱이 열려 있을 때 실행되어, 주제 선정 → 작성 → 출처 검증 → 발행까지 자동으로 합니다.
@@ -154,22 +163,6 @@ npm run build    # 배포본 생성(dist/)
 - 같은 날짜 글이 이미 있으면 중복 발행하지 않고 건너뛴다(작업 프롬프트에 명시).
 - **새 컴퓨터에서 이어가려면**: 새 Claude 세션에게 "매일 오후 10시에 병원 AI 연구소 블로그 글 1개를 주제 선정부터 작성·검증·발행까지 자동으로 수행하는 예약 작업을 다시 만들어줘. CLAUDE.md와 이 HANDOFF.md를 참고해서"라고 요청하면 된다. (schedule 스킬로 재생성. 도구 허용 목록은 저장소에 있어 자동으로 적용됨)
 - 앱이 꺼져 있으면 그 날은 건너뛰지 않고 다음에 앱을 열 때 실행됨(하루 밀릴 수 있음). 밤 10시에 컴퓨터와 Claude 앱이 켜져 있어야 정시에 발행된다.
-
-### 4-3. 매일 사이트 자가 점검 (⚠️ 로컬 — 새 컴퓨터에서 재설정 필요)
-
-- **매일 오전 9시경** 실행되는 Claude 예약 작업(`site-health-check`). **보고 전용**(수리 안 함, 오너 지시 2026-07-10) — 주요 페이지 접속, 뉴스·영상·블로그 자동화 신선도, GitHub Actions 실패, Supabase 서버 상태(마이그레이션 누락 감지 포함), 최근 글 출처 링크 생존을 점검하고 결과를 보고한다.
-- **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\a\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다.
-  - **네이버 SMTP는 일반 로그인 비밀번호로는 인증이 안 된다(2026-07-11 확인, `5.5.1 Authentication Required`).** 반드시 "앱 비밀번호"를 따로 발급해야 함: 네이버 계정 → 보안설정 → **2단계 인증** → **애플리케이션 비밀번호 관리** 화면에서 이름(아무 값이나) 입력 후 "생성하기" → 영문 대문자+숫자 12자리 발급. 이 값을 `naver-smtp.xml`에 저장해야 한다(2단계 인증 자체가 꺼져 있어도 이 화면은 그대로 쓸 수 있었음). 일반 비밀번호나 2단계 인증 OTP(6자리 숫자)는 여기 쓸 수 없다 — 반드시 이 화면에서 생성된 값이어야 한다.
-  - **`naver-smtp.xml` 재생성 방법(2026-07-16 실제로 이렇게 했음)**: 오너가 직접 PowerShell 창에서 아래 두 줄을 실행한다. 앱 비밀번호는 가려진 입력창에 직접 넣으므로 대화나 파일에 평문으로 남지 않는다. (Claude에게 앱 비밀번호를 불러주지 말 것 — 대화 기록에 평문으로 남는다. 실수로 노출했다면 네이버에서 그 항목을 삭제하고 새로 발급할 것.)
-
-    ```powershell
-    cd "$env:USERPROFILE\.claude\scheduled-tasks\site-health-check"
-    Get-Credential -UserName 'choyj80@naver.com' -Message '네이버 앱 비밀번호' | Export-Clixml naver-smtp.xml
-    ```
-
-  - **실행 정책 주의**: 이걸 만들어도 `.ps1` 실행이 Windows 기본 정책에 막혀 있으면 메일이 안 나간다(`PSSecurityException`). `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` 한 번이면 해결된다(보안 설정이라 오너가 직접). 시험: `.\send-report.ps1 -Subject '시험' -Body '시험'` → `발송 완료:`가 뜨면 정상.
-- 저장 위치: `C:\Users\a\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음). 같은 폴더에 `send-report.ps1`(자격 증명 없음 — `naver-smtp.xml`에서 읽음)도 있다.
-- 새 컴퓨터에서는 새 Claude 세션에게 "HANDOFF.md 4-3 참고해서 매일 아침 사이트 자가 점검(보고 전용) 예약 작업을 다시 만들어줘"라고 요청하면 된다.
 
 ### 4-4. 실무 팁 (수동 — 자동화 아님, 2026-07-16 신설)
 
@@ -190,8 +183,7 @@ npm run build    # 배포본 생성(dist/)
 | GoatCounter | 방문자 통계 | `src/utils/site.ts`의 `GOATCOUNTER_CODE = 'hospital-ai-lab'` |
 | 네이버/구글 | 검색 등록 | `src/utils/site.ts`의 `NAVER_SITE_VERIFICATION`·`GOOGLE_SITE_VERIFICATION` |
 | 유튜브 채널 | 영상 | `src/utils/site.ts`의 `YOUTUBE_CHANNEL_URL` (추천 영상 페이지·푸터에서 링크) |
-| Resend | 새 글 이메일 알림 | **아직 미설정**(§8). GitHub Secrets에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY` 필요 — `supabase/SETUP-GUIDE.md` 4-1 |
-| 네이버 메일 | 자가 점검 보고 발송 | 앱 비밀번호(§4-3). 이 컴퓨터의 `naver-smtp.xml`에만 있고 **이전 불가** |
+| Resend | 새 글 이메일 알림 + 사이트 자가 점검 보고(§4-1-2, 2026-09-13부터) | **아직 미설정**(§8). GitHub Secrets에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY` 필요 — `supabase/SETUP-GUIDE.md` 4-1. 등록 전까지 두 이메일 모두 조용히 건너뛴다 |
 
 ### Supabase 마이그레이션 (2026-07-11부터 — 파일 하나로 통합)
 
@@ -675,7 +667,8 @@ src/assets/fonts/            # 통짜 Pretendard — OG 이미지 생성 전용(
 - [x] ~~**네이버 SMTP 앱 비밀번호 재발급**~~ — 2026-07-16 완료. 새 앱 비밀번호로 `naver-smtp.xml` 재생성 + 실제 발송 확인.
 - [ ] (오너 확인 필요) **`cyhodr-dotcom` 계정의 정체**: 이사 때 이 컴퓨터에 이 GitHub 계정이 로그인돼 있어 push가 403으로 막혔다. gh는 BuminAI로 다시 로그인해 해결했지만, 이 계정이 오너의 다른 계정인지 제3자 것인지는 확인되지 않았다. 브라우저 쪽에도 남아 있을 수 있다.
 - [ ] **`setup.sql` 재실행**: 홈 화면 "이어지는 소식"에 강의노트가 뜨려면 비회원에게 제목·날짜만 공개하는 정책이 필요하다(본문은 계속 회원 전용). Supabase SQL Editor에 `setup.sql`을 다시 붙여넣고 Run 하면 적용된다. **안 해도 사이트는 정상**이고 블로그·AI 앱만 표시된다.
-- [ ] **새 글 이메일 알림(Resend)이 아직 한 번도 동작한 적 없음**: GitHub 저장소에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY`가 등록되지 않아 배포 때마다 조용히 건너뛴다(사이트 배포 자체는 정상). 켜려면 `supabase/SETUP-GUIDE.md` 4-1 참고.
+- [ ] **새 글 이메일 알림(Resend)이 아직 한 번도 동작한 적 없음**: GitHub 저장소에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY`가 등록되지 않아 배포 때마다 조용히 건너뛴다(사이트 배포 자체는 정상). 2026-09-13부로 `site-health-check.yml`(§4-1-2)의 주간 점검 보고 메일도 같은 시크릿을 쓰도록 만들어 놨으니, 등록하면 둘 다 한 번에 켜진다. 켜려면 `supabase/SETUP-GUIDE.md` 4-1 참고.
+- [x] ~~**site-health-check 로컬 예약 작업이 5주간 조용히 멈춰 있었음**~~ — 2026-09-13 GitHub Actions(`site-health-check.yml`)로 이관해 해결(§4-1-2). 네이버 SMTP(`send-report.ps1`·`naver-smtp.xml`)는 더 이상 쓰지 않음.
 - [ ] **검색엔진 사이트맵 제출**: 네이버 서치어드바이저·구글 서치 콘솔에서 소유확인 후 `sitemap-index.xml` 제출 여부 확인.
 - [ ] **관리자 비밀번호**: `whdudwns80*`로 변경 완료했는지 확인.
 - [ ] (선택) 개인정보 처리방침 보호책임자 실명 기재 여부 검토.
