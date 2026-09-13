@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-09-12T23:59:36.462Z",
+  "updatedAt": "2026-09-13T07:27:28.007Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "OpenAI не выйдет на IPO в этом году, поскольку считает момент неподходящим из-за ситуации с безопасностью ИИ",
+      "link": "https://3dnews.ru/1148406/openai-ne-viydet-na-ipo-v-etom-godu-poskolku-schitaet-moment-nepodhodyashchim-izza-situatsii-s-bezopasnostyu-ii",
+      "source": "3DNews",
+      "pubDate": "2026-09-13T03:33:00.000Z"
+    },
     {
       "title": "Скриншоты жгут токены, headless не залогинен: отдаём ИИ-агенту настоящий Chrome через accessibility-дерево",
       "link": "https://habr.com/ru/articles/1081628/?utm_campaign=1081628&utm_source=habrahabr&utm_medium=rss",
