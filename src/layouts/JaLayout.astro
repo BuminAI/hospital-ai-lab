@@ -19,6 +19,7 @@ import {
   CONTACT_EMAIL,
   YOUTUBE_CHANNEL_URL,
   GOATCOUNTER_CODE,
+  ADSENSE_CLIENT,
 } from '../utils/site';
 
 interface Props {
@@ -214,6 +215,15 @@ const year = new Date().getFullYear();
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {
+      ADSENSE_CLIENT && (
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossorigin="anonymous"
+        />
+      )
+    }
 
     {/* hreflang — 한국어판이 원본이므로 x-default는 한국어로 둔다 */}
     {

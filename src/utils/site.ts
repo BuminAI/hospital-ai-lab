@@ -49,6 +49,12 @@ export const PRIVACY_POLICY_VERSION = '2026-07-11';
 export const ADMIN_EMAIL = 'choyj80@naver.com';
 export const GOOGLE_SITE_VERIFICATION = '5zd4BPyIzNe4dZJnx59GxYhFTkVoNQmcRoIJ9YS_f4Q';
 
+// ── 구글 애드센스 (2026-09-13 신설) ──────────────────────────
+// 이 코드가 모든 페이지 <head>에 들어가면 그 자체로 애드센스 사이트
+// 소유 확인(코드 스니펫 방식)도 함께 해결된다. 광고 단위 배치는 이후
+// 애드센스가 "자동 광고"로 알아서 넣거나, 별도로 슬롯을 만들어야 한다.
+export const ADSENSE_CLIENT = 'ca-pub-5343478987026041';
+
 export const SITE_TITLE = '병원 AI 연구소';
 export const SITE_TAGLINE = '의료 현장의 문제를 AI로 풉니다.';
 

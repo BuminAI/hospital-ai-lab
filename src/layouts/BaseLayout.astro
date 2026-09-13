@@ -12,6 +12,7 @@ import {
   NAVER_SITE_VERIFICATION,
   GOOGLE_SITE_VERIFICATION,
   GOATCOUNTER_CODE,
+  ADSENSE_CLIENT,
 } from '../utils/site';
 
 interface Props {
@@ -210,6 +211,15 @@ const webPage = {
     {
       GOOGLE_SITE_VERIFICATION && (
         <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+      )
+    }
+    {
+      ADSENSE_CLIENT && (
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossorigin="anonymous"
+        />
       )
     }
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />

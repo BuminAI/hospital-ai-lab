@@ -21,6 +21,7 @@ import {
   CONTACT_EMAIL,
   YOUTUBE_CHANNEL_URL,
   GOATCOUNTER_CODE,
+  ADSENSE_CLIENT,
 } from '../utils/site';
 
 interface Props {
@@ -203,6 +204,15 @@ const year = new Date().getFullYear();
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {
+      ADSENSE_CLIENT && (
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossorigin="anonymous"
+        />
+      )
+    }
     {/* 폰트 preload는 2026-08-27에 뺐다(BaseLayout과 같은 이유). 동적 서브셋으로
         바꿔 폰트가 92개 청크로 쪼개졌고, 어느 청크가 필요한지는 브라우저가
         페이지의 글자를 보고 정하므로 미리 하나를 집어 preload할 수 없다.
