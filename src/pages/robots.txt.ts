@@ -48,6 +48,10 @@ const CRAWLERS: { group: string; agents: string[] }[] = [
       'Applebot-Extended', // Apple Intelligence 학습
       'Amazonbot',
       'meta-externalagent', // Meta AI
+      'CCBot', // Common Crawl — 여러 LLM의 학습 데이터 파이프라인이 이걸 경유한다
+      'Bytespider', // 바이트댄스(틱톡) AI
+      'cohere-ai', // Cohere
+      'Diffbot',
     ],
   },
 ];

@@ -124,6 +124,25 @@
     "careerHeading": "Latar belakang",
     "whyHeading": "Kenapa versi Indonesia dibuat",
     "whyBody": "Pertanyaan yang muncul saat rumah sakit mempertimbangkan AI hampir sama di mana pun: apakah alatnya sudah terdaftar, bagaimana data pasien diperlakukan, dan siapa yang bertanggung jawab kalau hasilnya keliru. Tetapi jawabannya bergantung pada regulasi masing-masing negara. Karena itu versi ini ditulis ulang dengan rujukan Indonesia, bukan diterjemahkan.",
+    "researchHeading": "Bidang Riset",
+    "researchAreas": [
+      {
+        "title": "Analisis Data Operasional Rumah Sakit dan AI",
+        "body": "Berdasarkan pengalaman di bidang perencanaan rumah sakit, kami meneliti cara mengekstrak sinyal yang dibutuhkan untuk pengambilan keputusan dari data klinis dan administratif. Kami juga membahas risiko alat AI yang diterapkan tanpa bukti yang memadai."
+      },
+      {
+        "title": "Edukasi AI untuk Rumah Sakit",
+        "body": "Bagi staf administrasi dan keperawatan rumah sakit tanpa latar belakang coding, kami menyampaikan pengetahuan dasar untuk menilai penerapan AI melalui catatan kuliah dan video. Fokusnya bukan pada keterampilan teknis, melainkan kemampuan membaca proposal vendor dan mengajukan pertanyaan yang tepat."
+      },
+      {
+        "title": "Kolaborasi Riset AI",
+        "body": "Kami mencari kolaborasi dengan praktisi administrasi dan keperawatan di lapangan rumah sakit, serta peneliti dari berbagai bidang, untuk memperluas riset AI medis. Kami ingin menciptakan pertanyaan baru di titik pertemuan antara kesadaran masalah di lapangan dan riset."
+      },
+      {
+        "title": "Cara Memanfaatkan AI untuk Perencana Rumah Sakit",
+        "body": "Bukan ilmu data klinis, melainkan alat dan cara pemanfaatan AI yang bisa langsung digunakan oleh staf perencanaan dan administrasi rumah sakit dalam pekerjaan sehari-hari."
+      }
+    ],
     "contactHeading": "Kontak"
   },
   "aiDigest": {

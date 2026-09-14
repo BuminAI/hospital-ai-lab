@@ -239,7 +239,7 @@ const year = new Date().getFullYear();
       rel="alternate"
       type="application/rss+xml"
       title={SITE_TW}
-      href={withBase('/id/rss.xml')}
+      href={withBase('/tw/rss.xml')}
     />
 
     <script type="application/ld+json" is:inline set:html={jsonLdText} />
@@ -367,7 +367,7 @@ const year = new Date().getFullYear();
           <li><a href={withBase('/privacy/')}>{tw.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{tw.footer.contact}</a></li>
           <li><a href={withBase('/sitemap-index.xml')}>{tw.footer.sitemap}</a></li>
-          <li><a href={withBase('/id/rss.xml')}>{tw.footer.rss}</a></li>
+          <li><a href={withBase('/tw/rss.xml')}>{tw.footer.rss}</a></li>
         </ul>
         {/* 다른 언어판 — 2026-09-06 추가(오너 지시). 그전까지 각 판에서
             한국어(와 일본어)로만 돌아갈 수 있어서, 다른 언어판은 hreflang과

@@ -47,6 +47,18 @@ const profilePage = {
   <h2>{tw.about.whyHeading}</h2>
   <p>{tw.about.whyBody}</p>
 
+  <h2>{tw.about.researchHeading}</h2>
+  <ul class="tw-research">
+    {
+      tw.about.researchAreas.map((area) => (
+        <li>
+          <h3>{area.title}</h3>
+          <p>{area.body}</p>
+        </li>
+      ))
+    }
+  </ul>
+
   <h2>{tw.about.contactHeading}</h2>
   <ul class="tw-contact">
     <li><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
@@ -83,5 +95,27 @@ const profilePage = {
     padding-left: 18px;
     font-size: 14.5px;
     line-height: 1.9;
+  }
+  .tw-research {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .tw-research li {
+    border-left: 3px solid var(--tw-primary);
+    padding-left: 14px;
+  }
+  .tw-research h3 {
+    font-size: 15.5px;
+    margin: 0 0 4px;
+  }
+  .tw-research p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--tw-text-sub);
+    line-height: 1.75;
   }
 </style>
