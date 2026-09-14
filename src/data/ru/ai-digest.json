@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-09-14T00:11:02.842Z",
+  "updatedAt": "2026-09-14T07:53:21.077Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Бесплатный API для LLM: тестирую 6 сервисов, модели и реальные лимиты",
+      "link": "https://habr.com/ru/articles/1081820/?utm_campaign=1081820&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-14T07:30:32.000Z"
+    },
+    {
+      "title": "ИИ-агенты в обучении персонала: как ретейлерам ускорить адаптацию",
+      "link": "https://habr.com/ru/companies/teamly/articles/1081230/?utm_campaign=1081230&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-14T07:23:27.000Z"
+    },
+    {
+      "title": "Игра не стоит свеч: уволенных из-за нейросетей работников придется взять обратно и поднять им зарплату",
+      "link": "https://www.cnews.ru/news/top/2026-09-11_igra_ne_stoit_svech_uvolennyh",
+      "source": "CNews",
+      "pubDate": "2026-09-14T07:17:00.000Z"
+    },
     {
       "title": "Reasoning Lock: ИИ‑агент в проде тратит токены и молчит — живой разбор бага",
       "link": "https://habr.com/ru/articles/1081780/?utm_campaign=1081780&utm_source=habrahabr&utm_medium=rss",
