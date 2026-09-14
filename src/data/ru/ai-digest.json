@@ -1,7 +1,73 @@
 {
-  "updatedAt": "2026-09-14T07:53:21.077Z",
+  "updatedAt": "2026-09-14T16:22:05.859Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Microsoft поставила человека выше ИИ — она отказала моделям в правах, сознании и свободе, а заодно пообещала не создавать сверхразум",
+      "link": "https://3dnews.ru/1148453/microsoft-postavila-cheloveka-vishe-ii-ona-otkazala-modelyam-v-pravah-soznanii-i-svobode-a-zaodno-poobeshchala-ne-sozdavat-sverhrazum",
+      "source": "3DNews",
+      "pubDate": "2026-09-14T15:18:00.000Z"
+    },
+    {
+      "title": "ИИ, виртуальная реальность и развитие ПО. Правительство РФ утвердило стратегию развития креативной экономики до 2036 года",
+      "link": "https://www.tadviser.ru/a/849710",
+      "source": "TAdviser",
+      "pubDate": "2026-09-14T14:18:19.000Z"
+    },
+    {
+      "title": "Минэнерго РФ предложило строить центры обработки данных для ИИ в Сибири",
+      "link": "https://www.tadviser.ru/a/852823",
+      "source": "TAdviser",
+      "pubDate": "2026-09-14T14:13:31.000Z"
+    },
+    {
+      "title": "Промышленность готова доверить ИИ больше: каждое пятое предприятие планирует расширить применение технологии в кибербезопасности",
+      "link": "https://www.cnews.ru/news/line/2026-09-14_promyshlennost_gotova_doverit",
+      "source": "CNews",
+      "pubDate": "2026-09-14T13:56:00.000Z"
+    },
+    {
+      "title": "От поисковой строки к ИИ-агенту: зачем мы открыли Туту через MCP и что увидели на хакатоне",
+      "link": "https://habr.com/ru/companies/tuturu/articles/1081246/?utm_campaign=1081246&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-14T13:46:43.000Z"
+    },
+    {
+      "title": "Как ИИ добивает психологическую безопасность в бизнесе",
+      "link": "https://habr.com/ru/companies/smartvalues/articles/1081140/?utm_campaign=1081140&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-14T13:35:39.000Z"
+    },
+    {
+      "title": "«Солар»: с помощью ИИ хакеры установили рекорд по количеству атак на российские компании",
+      "link": "https://www.cnews.ru/news/line/2026-09-14_solar_s_pomoshchyu_ii_hakery",
+      "source": "CNews",
+      "pubDate": "2026-09-14T12:27:00.000Z"
+    },
+    {
+      "title": "Агентство финансовых решений «РеФи» внедрило ИИ-агентов",
+      "link": "https://www.cnews.ru/news/line/2026-09-14_agentstvo_finansovyh_reshenij",
+      "source": "CNews",
+      "pubDate": "2026-09-14T11:46:00.000Z"
+    },
+    {
+      "title": "«Фарадей» и «Элемент 5 Нефтегаз» заключили партнерство и внедряют ИИ на предприятиях ТЭК",
+      "link": "https://www.cnews.ru/news/line/2026-09-14_faradej_i_element_5_neftegaz",
+      "source": "CNews",
+      "pubDate": "2026-09-14T11:37:00.000Z"
+    },
+    {
+      "title": "Китай тоже боится неконтролируемого ИИ — Пекин назвал дипфейки и «умных троллей» угрозой безопасности страны",
+      "link": "https://3dnews.ru/1148440/kitay-toge-boitsya-nekontroliruemogo-ii-pekin-nazval-dipfeyki-i-umnih-trolley-ugrozoy-bezopasnosti-strani",
+      "source": "3DNews",
+      "pubDate": "2026-09-14T09:02:00.000Z"
+    },
+    {
+      "title": "Не трогая веса модели: как мы построили исследовательского агента Алисы AI и в разы сократили потребление GPU",
+      "link": "https://habr.com/ru/companies/yandex/articles/1079290/?utm_campaign=1079290&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-14T08:01:22.000Z"
+    },
     {
       "title": "Бесплатный API для LLM: тестирую 6 сервисов, модели и реальные лимиты",
       "link": "https://habr.com/ru/articles/1081820/?utm_campaign=1081820&utm_source=habrahabr&utm_medium=rss",
@@ -19,6 +85,12 @@
       "link": "https://www.cnews.ru/news/top/2026-09-11_igra_ne_stoit_svech_uvolennyh",
       "source": "CNews",
       "pubDate": "2026-09-14T07:17:00.000Z"
+    },
+    {
+      "title": "Конференция CNews «Интеллектуальный документооборот: ИИ, КЭДО и архивы в новой реальности» состоится 15 октября 2026 года",
+      "link": "https://www.cnews.ru/news/top/2026-09-14_konferentsiya_cnews_intellektualnyj",
+      "source": "CNews",
+      "pubDate": "2026-09-14T07:10:00.000Z"
     },
     {
       "title": "Reasoning Lock: ИИ‑агент в проде тратит токены и молчит — живой разбор бага",
