@@ -1,7 +1,103 @@
 {
-  "updatedAt": "2026-09-15T07:43:38.809Z",
+  "updatedAt": "2026-09-15T15:00:06.637Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ‑фабрика: переход к автономной разработке",
+      "link": "https://habr.com/ru/articles/1082598/?utm_campaign=1082598&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-15T14:10:40.000Z"
+    },
+    {
+      "title": "Почему ИИ-агент сжигает токены: как я снизил стоимость сессии с 48 до 8 рублей",
+      "link": "https://habr.com/ru/articles/1082576/?utm_campaign=1082576&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-15T13:37:40.000Z"
+    },
+    {
+      "title": "Как устроен RAG для юридических документов и почему одной LLM оказалось недостаточно",
+      "link": "https://habr.com/ru/articles/1082572/?utm_campaign=1082572&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-15T13:29:07.000Z"
+    },
+    {
+      "title": "Через три года готовить судебные акты в российских судах будет ИИ. Верховный суд утвердил концепцию внедрения новых технологий",
+      "link": "https://www.cnews.ru/news/top/2026-09-15_cherez_tri_goda_gotovit_sudebnye",
+      "source": "CNews",
+      "pubDate": "2026-09-15T13:29:00.000Z"
+    },
+    {
+      "title": "Билайн запустил бесплатный мультиязычный ИИ-сервис beeGPT для всех клиентов",
+      "link": "https://www.cnews.ru/news/line/2026-09-15_bilajn_zapustil_besplatnyj",
+      "source": "CNews",
+      "pubDate": "2026-09-15T12:56:00.000Z"
+    },
+    {
+      "title": "Chatballs — open source ИИ-платформа первой линии поддержки",
+      "link": "https://habr.com/ru/articles/1082538/?utm_campaign=1082538&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-15T12:45:05.000Z"
+    },
+    {
+      "title": "ChatGPT не открывает страницу в 93% быстрых ответов: что видит модель и что чинить на сайте",
+      "link": "https://habr.com/ru/articles/1082232/?utm_campaign=1082232&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-15T12:44:51.000Z"
+    },
+    {
+      "title": "ИИ-агенты стали регистрироваться в соцсетях и засыпать администраторов платформ спамом",
+      "link": "https://3dnews.ru/1148511/iiagenti-stali-registrirovatsya-v-sotssetyah-i-zasipat-administratorov-platform-spamom",
+      "source": "3DNews",
+      "pubDate": "2026-09-15T12:31:00.000Z"
+    },
+    {
+      "title": "30 проектов, ИИ-агенты в закупках и машинное обучение. Как \"Сибур\" разрабатывает и внедряет ИИ",
+      "link": "https://www.tadviser.ru/a/326854",
+      "source": "TAdviser",
+      "pubDate": "2026-09-15T12:18:30.000Z"
+    },
+    {
+      "title": "Orion soft усилил управление GPU в платформе Nova AI",
+      "link": "https://www.cnews.ru/news/line/2026-09-15_orion_soft_usilil_upravlenie",
+      "source": "CNews",
+      "pubDate": "2026-09-15T11:16:00.000Z"
+    },
+    {
+      "title": "«Солар»: хакеры атаковали российские компании под видом DeepSeeek, ChatGPT и Perplexity",
+      "link": "https://www.cnews.ru/news/line/2026-09-15_solar_hakery_atakovali",
+      "source": "CNews",
+      "pubDate": "2026-09-15T10:42:00.000Z"
+    },
+    {
+      "title": "МТС разработала новую приставку Fog Play с ИИ-помощником",
+      "link": "https://www.cnews.ru/news/line/2026-09-15_mts_razrabotala_novuyu_pristavku",
+      "source": "CNews",
+      "pubDate": "2026-09-15T10:03:00.000Z"
+    },
+    {
+      "title": "Полгода экспериментов с ИИ: RAG, AI-ревью, автотесты, агенты и автообработка счетов",
+      "link": "https://habr.com/ru/companies/cynteka/articles/1082412/?utm_campaign=1082412&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-15T09:48:13.000Z"
+    },
+    {
+      "title": "«Алиса AI» получила режим «Эксперт» и теперь сама выбирает ИИ-модель для решения задачи пользователя",
+      "link": "https://3dnews.ru/1148496/alisa-ai-poluchila-regim-ekspert-i-teper-sama-vibiraet-iimodel-dlya-resheniya-zadachi-polzovatelya",
+      "source": "3DNews",
+      "pubDate": "2026-09-15T09:15:00.000Z"
+    },
+    {
+      "title": "Napoleon внедрил ИИ-агентов GigaCowork в рекрутмент «Ресурс|Увелка» и сократил время найма на 44%",
+      "link": "https://www.cnews.ru/news/line/2026-09-15_napoleon_vnedril_ii-agentov_gigacowork",
+      "source": "CNews",
+      "pubDate": "2026-09-15T08:08:00.000Z"
+    },
+    {
+      "title": "Хакеры атакуют российские компании под прикрытием ChatGPT, DeepSeek и Claude",
+      "link": "https://www.cnews.ru/news/top/2026-09-15_chatgptdeepseek_i_claude_stali_prikrytiem",
+      "source": "CNews",
+      "pubDate": "2026-09-15T08:02:00.000Z"
+    },
     {
       "title": "ТОП-100 MCP-серверов: лучшие инструменты для ИИ, агентов и автоматизации (3.1 млн звезд на GitHub)",
       "link": "https://habr.com/ru/articles/1082314/?utm_campaign=1082314&utm_source=habrahabr&utm_medium=rss",
@@ -25,12 +121,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-15_it_one_razrabotala_frejmvork",
       "source": "CNews",
       "pubDate": "2026-09-15T07:06:00.000Z"
-    },
-    {
-      "title": "Chatballs — open source ИИ-платформа первой линии поддержки",
-      "link": "https://habr.com/ru/articles/1082300/?utm_campaign=1082300&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T07:04:12.000Z"
     },
     {
       "title": "Архитектура важнее модели: как меняется обработка документов в эпоху ИИ",
