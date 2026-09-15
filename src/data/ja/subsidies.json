@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T04:25:12.801Z",
+  "updatedAt": "2026-09-15T13:27:22.964Z",
   "items": [
     {
       "id": "a0W5h00000UcWryEAF",
@@ -14,6 +14,18 @@
       "endDate": "2026-09-15T14:45:00.000Z"
     },
     {
+      "id": "a0WJ200000CDWQzMAP",
+      "title": "令和５年度病院勤務者勤務環境改善事業・救急医療体制強化事業【仕入控除税額報告】",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDWQzMAP",
+      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "10/10（資産形成経費は9/10）",
+      "area": "東京都",
+      "startDate": "2025-10-29T00:00:00.000Z",
+      "endDate": "2026-09-30T14:59:00.000Z"
+    },
+    {
       "id": "a0WJ200000CDY6tMAH",
       "title": "令和8年度医療機関におけるＡＩ技術活用促進事業（単年度型）",
       "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDY6tMAH",
@@ -24,6 +36,42 @@
       "area": "東京都",
       "startDate": "2026-04-14T15:00:00.000Z",
       "endDate": "2026-09-30T14:59:00.000Z"
+    },
+    {
+      "id": "a0WJ200000CDW2EMAX",
+      "title": "×令和６年度地域医療勤務環境改善体制整備特別事業【仕入控除税額報告】",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDW2EMAX",
+      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "10/10（資産形成経費は9/10）",
+      "area": "東京都",
+      "startDate": "2025-10-29T00:00:00.000Z",
+      "endDate": "2026-10-02T14:59:00.000Z"
+    },
+    {
+      "id": "a0WfQ000003I9xZUAS",
+      "title": "令和６年度地域医療勤務環境改善体制整備特別事業【仕入控除税額報告】",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000003I9xZUAS",
+      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "10/10（資産形成経費は9/10）",
+      "area": "東京都",
+      "startDate": "2025-10-29T00:00:00.000Z",
+      "endDate": "2026-10-02T14:59:00.000Z"
+    },
+    {
+      "id": "a0WfQ000003IBL3UAO",
+      "title": "令和６年度 勤務環境改善医師派遣等推進事業【仕入控除税額報告】",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000003IBL3UAO",
+      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "10/10（資産形成経費は9/10）",
+      "area": "東京都",
+      "startDate": "2025-10-29T00:00:00.000Z",
+      "endDate": "2026-10-02T14:59:00.000Z"
     },
     {
       "id": "a0WJ200000CDUheMAH",
