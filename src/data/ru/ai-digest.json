@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-09-14T16:22:05.859Z",
+  "updatedAt": "2026-09-15T00:37:27.145Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Microsoft установила ограничения для будущих ИИ-моделей, пока отрасль готовится к замедлению",
+      "link": "https://3dnews.ru/1148460/microsoft-ustanovila-ogranicheniya-dlya-budushchih-iimodeley-poka-otrasl-gotovitsya-k-zamedleniyu",
+      "source": "3DNews",
+      "pubDate": "2026-09-14T16:33:00.000Z"
+    },
     {
       "title": "Microsoft поставила человека выше ИИ — она отказала моделям в правах, сознании и свободе, а заодно пообещала не создавать сверхразум",
       "link": "https://3dnews.ru/1148453/microsoft-postavila-cheloveka-vishe-ii-ona-otkazala-modelyam-v-pravah-soznanii-i-svobode-a-zaodno-poobeshchala-ne-sozdavat-sverhrazum",
@@ -75,7 +81,7 @@
       "pubDate": "2026-09-14T07:30:32.000Z"
     },
     {
-      "title": "ИИ-агенты в обучении персонала: как ретейлерам ускорить адаптацию",
+      "title": "ИИ‑агенты в обучении персонала: как ретейлерам ускорить адаптацию",
       "link": "https://habr.com/ru/companies/teamly/articles/1081230/?utm_campaign=1081230&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-14T07:23:27.000Z"
@@ -135,7 +141,7 @@
       "pubDate": "2026-09-12T09:02:00.000Z"
     },
     {
-      "title": "Рой агентов OpenAI взломал еще один внешний сервис – RubyGems",
+      "title": "Рой агентов OpenAI взломал еще один внешний сервис — RubyGems",
       "link": "https://habr.com/ru/companies/ods/articles/1081508/?utm_campaign=1081508&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-12T08:41:21.000Z"
