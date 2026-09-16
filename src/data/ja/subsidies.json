@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T04:41:24.108Z",
+  "updatedAt": "2026-09-16T13:26:13.871Z",
   "items": [
     {
       "id": "a0WJ200000CDWQzMAP",
@@ -24,6 +24,18 @@
       "area": "東京都",
       "startDate": "2026-04-14T15:00:00.000Z",
       "endDate": "2026-09-30T14:59:00.000Z"
+    },
+    {
+      "id": "a0WJ200000CDVu7MAH",
+      "title": "令和７年度勤務環境改善体制医師派遣等推進事業",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDVu7MAH",
+      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
+      "catchPhrase": "医師派遣事業",
+      "maxLimit": 0,
+      "rate": "10/10（資産形成経費は9/10）",
+      "area": "東京都",
+      "startDate": "2025-10-29T00:00:00.000Z",
+      "endDate": "2026-10-02T14:59:00.000Z"
     },
     {
       "id": "a0WJ200000CDW2EMAX",
