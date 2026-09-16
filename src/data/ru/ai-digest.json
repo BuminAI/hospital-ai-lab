@@ -1,7 +1,61 @@
 {
-  "updatedAt": "2026-09-16T07:40:39.746Z",
+  "updatedAt": "2026-09-16T14:58:14.175Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-агенты смогут доносить друг на друга — для них открыли конфиденциальные «горячие линии»",
+      "link": "https://3dnews.ru/1148581/iiagenti-smogut-donosit-drug-na-druga-dlya-nih-otkrili-konfidentsialnie-goryachie-linii",
+      "source": "3DNews",
+      "pubDate": "2026-09-16T13:28:00.000Z"
+    },
+    {
+      "title": "ЕС запретит детям до 15 лет соцсети и ИИ-ботов без присмотра родителей — платформам грозят штрафы до 6 % оборота",
+      "link": "https://3dnews.ru/1148578/es-zapretit-detyam-do-15-let-sotsseti-i-iibotov-bez-prismotra-roditeley-platformam-grozyat-shtrafi-do-6-oborota",
+      "source": "3DNews",
+      "pubDate": "2026-09-16T13:13:00.000Z"
+    },
+    {
+      "title": "TypeSafe AI представила сверхбыструю ИИ-модель Jev не для людей — и она умеет играть в Doom",
+      "link": "https://3dnews.ru/1148573/typesafe-ai-predstavila-sverhbistruyu-iimodel-jev-ne-dlya-lyudey-i-ona-umeet-igrat-v-doom",
+      "source": "3DNews",
+      "pubDate": "2026-09-16T11:14:00.000Z"
+    },
+    {
+      "title": "«Диасофт» добавил ИИ-функции и интеграцию с «1С» в «Каталог метаданных»",
+      "link": "https://www.cnews.ru/news/line/2026-09-16_diasoft_dobavil_ii-funktsii",
+      "source": "CNews",
+      "pubDate": "2026-09-16T10:45:00.000Z"
+    },
+    {
+      "title": "Вадим Яценко, «Тантор Лабс»: Enterprise-нагрузки и ИИ-агенты требуют изменения PostgreSQL на уровне архитектуры",
+      "link": "https://www.tadviser.ru/a/966097",
+      "source": "TAdviser",
+      "pubDate": "2026-09-16T10:28:34.000Z"
+    },
+    {
+      "title": "Исследование hh.ru и Level Group: женщины активнее мужчин используют ИИ на работе",
+      "link": "https://www.cnews.ru/news/line/2026-09-16_issledovanie_hhru_i_level_group",
+      "source": "CNews",
+      "pubDate": "2026-09-16T10:19:00.000Z"
+    },
+    {
+      "title": "Магистранты ИТМО создали для IT Imperial прототип ИИ-сервиса, который может сократить ручную разметку видео на 80%",
+      "link": "https://www.cnews.ru/news/line/2026-09-16_magistranty_itmo_sozdali",
+      "source": "CNews",
+      "pubDate": "2026-09-16T10:05:00.000Z"
+    },
+    {
+      "title": "Artezio разработала решение для защиты российского бизнеса от атак ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-09-16_artezio_razrabotala_reshenie",
+      "source": "CNews",
+      "pubDate": "2026-09-16T09:37:00.000Z"
+    },
+    {
+      "title": "Google представила ИИ-модели Gemini 3.8 Live и Live Extended Thinking",
+      "link": "https://3dnews.ru/1148557/google-predstavila-iimodeli-gemini-38-live-i-live-extended-thinking",
+      "source": "3DNews",
+      "pubDate": "2026-09-16T08:04:20.000Z"
+    },
     {
       "title": "ChatGPT Business для команды из России в 2026 году: тарифы, оплата для юридического лица, документы",
       "link": "https://habr.com/ru/articles/1082784/?utm_campaign=1082784&utm_source=habrahabr&utm_medium=rss",
