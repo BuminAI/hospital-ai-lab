@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-09-15T15:00:06.637Z",
+  "updatedAt": "2026-09-16T00:18:46.630Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Вайб‑кодинг до первой катастрофы: Изолируем ИИ‑агентов",
+      "link": "https://habr.com/ru/articles/1082718/?utm_campaign=1082718&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-15T21:58:05.000Z"
+    },
+    {
+      "title": "Одиннадцать релизов за сутки: как мы чинили память ИИ-агента и что из этого вышло",
+      "link": "https://habr.com/ru/articles/1082720/?utm_campaign=1082720&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-15T21:43:16.000Z"
+    },
     {
       "title": "ИИ‑фабрика: переход к автономной разработке",
       "link": "https://habr.com/ru/articles/1082598/?utm_campaign=1082598&utm_source=habrahabr&utm_medium=rss",
