@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T12:47:16.274Z",
+  "updatedAt": "2026-09-17T10:20:45.949Z",
   "source": "Медвестник·Vademecum",
   "items": [
     {
@@ -7,6 +7,24 @@
       "link": "https://medvestnik.ru/content/news/moskva-vyplatila-razrabotchikam-ii-dlya-analiza-medicinskih-snimkov-v-iule-97-mln-rublei.html",
       "source": "Медвестник",
       "pubDate": "2026-09-16T09:00:00.000Z"
+    },
+    {
+      "title": "Московская область заключила контракты на создание 12 ИИ-платформ для медицинских проектов",
+      "link": "https://www.vademec.ru/news/2026/09/16/podmoskove-zakupit-12-ii-platform-dlya-tsifrovykh-proektov-za-704-2-mln-rubley/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-16T09:00:00.000Z"
+    },
+    {
+      "title": "СамГМУ разработал ИИ-комплекс для прогнозирования заболеваний по прослушиванию сердца и легких",
+      "link": "https://www.vademec.ru/news/2026/09/16/samgmu-razrabotal-ii-kompleks-dlya-prognozirovaniya-zabolevaniy-po-proslushivaniyu-serdtsa-i-legkikh/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-16T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ-модели превосходят существующие биомаркеры при определении выживаемости при НМРЛ",
+      "link": "https://www.vademec.ru/news/2026/09/15/ii-modeli-prevoskhodyat-sushchestvuyushchie-biomarkery-pri-opredelenii-vyzhivaemosti-pri-nmrl/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-15T09:00:00.000Z"
     },
     {
       "title": "Рынок виртуальных медицинских ИИ-ассистентов к 2031 году может вырасти до $12,3 млрд",
