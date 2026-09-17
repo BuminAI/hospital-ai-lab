@@ -1,7 +1,127 @@
 {
-  "updatedAt": "2026-09-17T07:38:42.366Z",
+  "updatedAt": "2026-09-17T14:59:40.785Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Более 85 % игр от японских разработчиков создаются с использованием генеративного ИИ — за год доля выросла на 34 %",
+      "link": "https://3dnews.ru/1148658/bolee-85-igr-ot-yaponskih-razrabotchikov-sozdayutsya-pri-pomoshchi-generativnogo-ii-za-god-dolya-virosla-na-34-",
+      "source": "3DNews",
+      "pubDate": "2026-09-17T14:55:00.000Z"
+    },
+    {
+      "title": "[Перевод] Попросил ИИ-агента писать код осторожнее — а он стал исправлять меньше багов",
+      "link": "https://habr.com/ru/companies/otus/articles/1083366/?utm_campaign=1083366&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-17T14:51:04.000Z"
+    },
+    {
+      "title": "От ИИ-ассистентов до рекомендаций: «Авито» принял участие в разработке «Урок ИИ» от «Сколково»",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_ot_ii-assistentov_do_rekomendatsij",
+      "source": "CNews",
+      "pubDate": "2026-09-17T14:18:00.000Z"
+    },
+    {
+      "title": "Вероника Ярмак, «RWB Исследования» — о том, как 17 ИИ-агентов изменили работу исследователей и окупили проект за 4 месяца",
+      "link": "https://www.tadviser.ru/a/967055",
+      "source": "TAdviser",
+      "pubDate": "2026-09-17T13:50:49.000Z"
+    },
+    {
+      "title": "[Перевод] Ваша платформа Kubernetes готова к контейнерам. Готова ли она к ИИ?",
+      "link": "https://habr.com/ru/companies/vktech/articles/1083400/?utm_campaign=1083400&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-17T12:22:32.000Z"
+    },
+    {
+      "title": "«Апри» и Napoleon IT запустили ИИ-агента на платформе GigaCowork для строительной документации",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_apri_i_napoleon_it_zapustili",
+      "source": "CNews",
+      "pubDate": "2026-09-17T11:57:00.000Z"
+    },
+    {
+      "title": "Американские компании в огромном количестве собирают данные российских брокеров для обучения ИИ",
+      "link": "https://www.cnews.ru/news/top/2026-09-17_amerikanskie_kompanii_v",
+      "source": "CNews",
+      "pubDate": "2026-09-17T10:57:00.000Z"
+    },
+    {
+      "title": "Я перестал пользоваться самыми умными ИИ‑моделями. Программировать стало быстрее и дешевле",
+      "link": "https://habr.com/ru/articles/1083368/?utm_campaign=1083368&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-17T10:48:44.000Z"
+    },
+    {
+      "title": "«Грубейшее проявление неуважения»: Российские суды начали штрафовать участников дел за «глюки» ИИ в документах",
+      "link": "https://www.tadviser.ru/a/783464",
+      "source": "TAdviser",
+      "pubDate": "2026-09-17T10:19:07.000Z"
+    },
+    {
+      "title": "ИИ-агенты научились менять сами себя без участия человека — и это настораживает",
+      "link": "https://3dnews.ru/1148628/iiagenti-nauchilis-menyat-sami-sebya-bez-uchastiya-cheloveka-i-eto-nastoragivaet",
+      "source": "3DNews",
+      "pubDate": "2026-09-17T09:56:00.000Z"
+    },
+    {
+      "title": "Ученые НИУ ВШЭ: пользующиеся ИИ сотрудники зарабатывают на 41% больше",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_uchenye_niu_vshe_polzuyushchiesya",
+      "source": "CNews",
+      "pubDate": "2026-09-17T09:44:00.000Z"
+    },
+    {
+      "title": "«Группа Астра» вывела на рынок AMAIA — агентный ИИ-слой платформы «Астра Мониторинг»",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_gruppa_astra_vyvela_na",
+      "source": "CNews",
+      "pubDate": "2026-09-17T09:40:00.000Z"
+    },
+    {
+      "title": "«Синимекс:ИИ-агент. Расширение для 1С:Предприятие 8» включили в реестр российского ПО",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_sinimeksii-agentrasshirenie",
+      "source": "CNews",
+      "pubDate": "2026-09-17T09:26:00.000Z"
+    },
+    {
+      "title": "Maintex fabricaONE.AI помогает компании ЕВРАЗ оптимизировать крупные ремонты",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_maintex_fabricaoneai_pomogaet_kompanii",
+      "source": "CNews",
+      "pubDate": "2026-09-17T09:22:00.000Z"
+    },
+    {
+      "title": "R-Vision разработал ИИ-инструмент для переноса правил корреляции",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_r-vision_razrabotal_ii-instrument",
+      "source": "CNews",
+      "pubDate": "2026-09-17T09:14:00.000Z"
+    },
+    {
+      "title": "Железо для ИИ: почему стандартный сервер не справится и как мы проектировали аппаратный стек ПАК",
+      "link": "https://habr.com/ru/companies/rubytech/articles/1083276/?utm_campaign=1083276&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-17T08:49:58.000Z"
+    },
+    {
+      "title": "Anthropic признала, что ИИ-компании не способны сами себя контролировать — без правительства не обойтись",
+      "link": "https://3dnews.ru/1148625/anthropic-priznala-chto-iikompanii-ne-sposobni-sami-sebya-kontrolirovat-bez-pravitelstva-ne-oboytis",
+      "source": "3DNews",
+      "pubDate": "2026-09-17T08:29:00.000Z"
+    },
+    {
+      "title": "Структура «Роснефтегаза» внедряет ИИ-платформу «Фарадей» для ускорения ИТ-проектов холдинга в сфере импортозамещения",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_struktura_rosneftegaza",
+      "source": "CNews",
+      "pubDate": "2026-09-17T08:20:00.000Z"
+    },
+    {
+      "title": "Первое в России NTA-решение, усиленное генеративным ИИ: понимает контекст бизнеса, убирает рутину и ускоряет реагирование SOC",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_pervoe_v_rossii_nta-reshenie",
+      "source": "CNews",
+      "pubDate": "2026-09-17T08:05:00.000Z"
+    },
+    {
+      "title": "MWS AI выпустила песочницу и конструктор интерфейсов для ИИ-агентов",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_mws_ai_vypustila_pesochnitsu",
+      "source": "CNews",
+      "pubDate": "2026-09-17T07:48:00.000Z"
+    },
     {
       "title": "ИИ частично ускорил разработку. А что насчёт всего остального?",
       "link": "https://habr.com/ru/articles/1083238/?utm_campaign=1083238&utm_source=habrahabr&utm_medium=rss",
@@ -21,7 +141,7 @@
       "pubDate": "2026-09-17T07:01:00.000Z"
     },
     {
-      "title": "Я писал ИИ-агента с помощью ИИ-агента: полгода, 1600 коммитов и ноль рейтинга",
+      "title": "Я писал ИИ‑агента с помощью ИИ‑агента: полгода, 1600 коммитов и ноль рейтинга",
       "link": "https://habr.com/ru/articles/1083206/?utm_campaign=1083206&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-17T06:33:11.000Z"
