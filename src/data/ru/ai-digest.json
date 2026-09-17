@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-09-17T00:30:58.991Z",
+  "updatedAt": "2026-09-17T07:38:42.366Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ частично ускорил разработку. А что насчёт всего остального?",
+      "link": "https://habr.com/ru/articles/1083238/?utm_campaign=1083238&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-17T07:32:26.000Z"
+    },
+    {
+      "title": "Сколько стоит месяц с AI-агентом: API против подписок",
+      "link": "https://habr.com/ru/articles/1083220/?utm_campaign=1083220&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-17T07:08:13.000Z"
+    },
+    {
+      "title": "Учёные создали ИИ-модель для умных часов и фитнес-браслетов, которая превзошла аналоги по точности",
+      "link": "https://www.cnews.ru/news/line/2026-09-17_uchenye_sozdali_ii-model",
+      "source": "CNews",
+      "pubDate": "2026-09-17T07:01:00.000Z"
+    },
+    {
+      "title": "Я писал ИИ-агента с помощью ИИ-агента: полгода, 1600 коммитов и ноль рейтинга",
+      "link": "https://habr.com/ru/articles/1083206/?utm_campaign=1083206&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-17T06:33:11.000Z"
+    },
+    {
+      "title": "Заявления руководства OpenAI и Anthropic о необходимости замедления развития ИИ посеяли смуту внутри компаний",
+      "link": "https://3dnews.ru/1148607/zayavleniya-rukovodstva-openai-i-anthropic-o-neobhodimosti-zamedleniya-razvitiya-ii-poseyali-smutu-vnutri-kompaniy",
+      "source": "3DNews",
+      "pubDate": "2026-09-17T04:16:00.000Z"
+    },
     {
       "title": "ИИ-агенты получили ключи от умного дома — Google Home открылся для Claude, ChatGPT и других ИИ",
       "link": "https://3dnews.ru/1148603/iiagenti-poluchili-klyuchi-ot-umnogo-doma-google-home-otkrilsya-dlya-claude-chatgpt-i-drugih-ii",

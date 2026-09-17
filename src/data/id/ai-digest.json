@@ -1,7 +1,103 @@
 {
-  "updatedAt": "2026-09-17T00:31:27.576Z",
+  "updatedAt": "2026-09-17T07:39:10.184Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Sam Altman-Elon Musk Bisa Akur Juga, Kompak Khawatirkan AI",
+      "link": "https://uzone.id/sam-altman-elon-musk-bisa-akur-juga-kompak-khawatirkan-ai",
+      "source": "Uzone",
+      "pubDate": "2026-09-17T10:20:00.000Z"
+    },
+    {
+      "title": "Ransomware Berbasis AI Melonjak, BSSN Catat 5,5 Miliar Serangan di RI",
+      "link": "https://inet.detik.com/security/d-8666883/ransomware-berbasis-ai-melonjak-bssn-catat-5-5-miliar-serangan-di-ri",
+      "source": "detikINET",
+      "pubDate": "2026-09-17T07:20:31.000Z"
+    },
+    {
+      "title": "Sea dan OpenAI buka hackathon AI bagi pengembang lokal",
+      "link": "https://www.antaranews.com/berita/5745367/sea-dan-openai-buka-hackathon-ai-bagi-pengembang-lokal",
+      "source": "ANTARA",
+      "pubDate": "2026-09-17T07:16:47.000Z"
+    },
+    {
+      "title": "Jejak air di balik kecerdasan buatan",
+      "link": "https://www.antaranews.com/berita/5745363/jejak-air-di-balik-kecerdasan-buatan",
+      "source": "ANTARA",
+      "pubDate": "2026-09-17T07:15:35.000Z"
+    },
+    {
+      "title": "Sekjen PBB serukan upaya global guna tetapkan batas pengaman untuk AI",
+      "link": "https://www.antaranews.com/berita/5745329/sekjen-pbb-serukan-upaya-global-guna-tetapkan-batas-pengaman-untuk-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-09-17T06:59:23.000Z"
+    },
+    {
+      "title": "Ancaman Nyata AI bukan Kiamat Robot, Melainkan Penyalahgunaan Manusia",
+      "link": "https://mediaindonesia.com/teknologi/934400/ancaman-nyata-ai-bukan-kiamat-robot-melainkan-penyalahgunaan-manusia",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-17T06:59:00.000Z"
+    },
+    {
+      "title": "Sea x OpenAI Hackathon Indonesia Buka Pendaftaran",
+      "link": "https://katadata.co.id/digital/teknologi/6aab8b570f0df/sea-x-openai-hackathon-indonesia-buka-pendaftaran",
+      "source": "Katadata",
+      "pubDate": "2026-09-17T06:45:00.000Z"
+    },
+    {
+      "title": "Microsoft Beri Pelatihan AI untuk 2,4 Juta SDM Indonesia, Guru hingga PNS",
+      "link": "https://katadata.co.id/digital/teknologi/6aab8911c8c70/microsoft-beri-pelatihan-ai-untuk-2-4-juta-sdm-indonesia-guru-hingga-pns",
+      "source": "Katadata",
+      "pubDate": "2026-09-17T06:30:00.000Z"
+    },
+    {
+      "title": "Deretan AI Tercanggih yang Bisa Jadi Hacker",
+      "link": "https://inet.detik.com/security/d-8666715/deretan-ai-tercanggih-yang-bisa-jadi-hacker",
+      "source": "detikINET",
+      "pubDate": "2026-09-17T06:15:50.000Z"
+    },
+    {
+      "title": "OpenAI ChatGPT Ungkap 6 Perilaku Aneh AI: Tutupi Kesalahan hingga Bocorkan File",
+      "link": "https://katadata.co.id/digital/teknologi/6aab858671b93/openai-chatgpt-ungkap-6-perilaku-aneh-ai-tutupi-kesalahan-hingga-bocorkan-file",
+      "source": "Katadata",
+      "pubDate": "2026-09-17T06:15:00.000Z"
+    },
+    {
+      "title": "Bos Anthropic Minta Ada 'Tombol Mati' untuk AI Berbahaya",
+      "link": "https://www.liputan6.com/tekno/read/8291980/bos-anthropic-minta-ada-tombol-mati-untuk-ai-berbahaya",
+      "source": "Liputan6",
+      "pubDate": "2026-09-17T05:00:58.000Z"
+    },
+    {
+      "title": "Mark Zuckerberg Tolak 'Rem' AI",
+      "link": "https://inet.detik.com/cyberlife/d-8666337/mark-zuckerberg-tolak-rem-ai",
+      "source": "detikINET",
+      "pubDate": "2026-09-17T02:45:24.000Z"
+    },
+    {
+      "title": "Trump Ajak Bos ChatGPT, Nvidia, Instagram Makan Malam Bersama Xi Jinping",
+      "link": "https://katadata.co.id/digital/teknologi/6aab4e5f7292f/trump-ajak-bos-chatgpt-nvidia-instagram-makan-malam-bersama-xi-jinping",
+      "source": "Katadata",
+      "pubDate": "2026-09-17T02:20:00.000Z"
+    },
+    {
+      "title": "OpenAI Ungkap 6 Kelakuan Aneh AI, Ada yang Diam-diam Tutupi Kesalahan",
+      "link": "https://inet.detik.com/cyberlife/d-8666300/openai-ungkap-6-kelakuan-aneh-ai-ada-yang-diam-diam-tutupi-kesalahan",
+      "source": "detikINET",
+      "pubDate": "2026-09-17T01:45:48.000Z"
+    },
+    {
+      "title": "Tak Cuma Perintah Suara, Gemini Live bakal Bisa Input Teks",
+      "link": "https://www.liputan6.com/tekno/read/8292621/tak-cuma-perintah-suara-gemini-live-bakal-bisa-input-teks",
+      "source": "Liputan6",
+      "pubDate": "2026-09-17T01:00:47.000Z"
+    },
+    {
+      "title": "Bos Nvidia Bantah Kiamat AI 2030: Kita Tidak Akan Mati",
+      "link": "https://inet.detik.com/cyberlife/d-8666257/bos-nvidia-bantah-kiamat-ai-2030-kita-tidak-akan-mati",
+      "source": "detikINET",
+      "pubDate": "2026-09-17T00:45:44.000Z"
+    },
     {
       "title": "Ilmuwan Peringatkan AI Bisa Musnahkan Manusia Sebelum 2030",
       "link": "https://inet.detik.com/science/d-8665886/ilmuwan-peringatkan-ai-bisa-musnahkan-manusia-sebelum-2030",
