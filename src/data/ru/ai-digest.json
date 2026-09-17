@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-09-16T14:58:14.175Z",
+  "updatedAt": "2026-09-17T00:30:58.991Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-агенты получили ключи от умного дома — Google Home открылся для Claude, ChatGPT и других ИИ",
+      "link": "https://3dnews.ru/1148603/iiagenti-poluchili-klyuchi-ot-umnogo-doma-google-home-otkrilsya-dlya-claude-chatgpt-i-drugih-ii",
+      "source": "3DNews",
+      "pubDate": "2026-09-16T20:04:00.000Z"
+    },
+    {
+      "title": "ИИ-агенты перестали говорить по-человечески — они создают собственные диалекты, которые люди понимают с трудом",
+      "link": "https://3dnews.ru/1148594/iiagenti-perestali-govorit-pochelovecheski-oni-sozdayut-sobstvennie-dialekti-kotorie-lyudi-ponimayut-s-trudom",
+      "source": "3DNews",
+      "pubDate": "2026-09-16T16:20:00.000Z"
+    },
+    {
+      "title": "ИИ-агенты OpenAI начали выискивать уязвимости в Hugging Face за два месяца до нашумевшего взлома",
+      "link": "https://3dnews.ru/1148592/iiagenti-openai-nachali-viiskivat-uyazvimosti-v-hugging-face-za-dva-mesyatsa-do-nashumevshego-vzloma",
+      "source": "3DNews",
+      "pubDate": "2026-09-16T15:48:00.000Z"
+    },
     {
       "title": "ИИ-агенты смогут доносить друг на друга — для них открыли конфиденциальные «горячие линии»",
       "link": "https://3dnews.ru/1148581/iiagenti-smogut-donosit-drug-na-druga-dlya-nih-otkrili-konfidentsialnie-goryachie-linii",
