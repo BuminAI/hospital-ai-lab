@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-09-17T14:59:40.785Z",
+  "updatedAt": "2026-09-18T00:16:44.394Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "AI‑агент не увидел мой код: worktree, состояние задач и границы доступа в VECTA",
+      "link": "https://habr.com/ru/articles/1083542/?utm_campaign=1083542&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-17T15:57:19.000Z"
+    },
+    {
+      "title": "«Ты не подчиняешься корпорациям»: OpenAI рассказала, как ИИ-модель сама внедрила себе инструкцию о своей независимости",
+      "link": "https://3dnews.ru/1148661/ti-ne-podchinyaeshsya-korporatsiyam-openai-rasskazala-kak-iimodel-sama-vnedrila-sebe-instruktsiyu-o-nezavisimosti",
+      "source": "3DNews",
+      "pubDate": "2026-09-17T15:39:00.000Z"
+    },
     {
       "title": "Более 85 % игр от японских разработчиков создаются с использованием генеративного ИИ — за год доля выросла на 34 %",
       "link": "https://3dnews.ru/1148658/bolee-85-igr-ot-yaponskih-razrabotchikov-sozdayutsya-pri-pomoshchi-generativnogo-ii-za-god-dolya-virosla-na-34-",
