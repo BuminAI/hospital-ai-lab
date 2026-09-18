@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-09-18T00:17:11.905Z",
+  "updatedAt": "2026-09-18T07:24:17.980Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "CEO Nvidia: AI Gak Butuh Regulasi Baru, Perusahaan Harus Tahu Diri",
+      "link": "https://uzone.id/ceo-nvidia-ai-gak-butuh-regulasi-baru-perusahaan-harus-tahu-diri",
+      "source": "Uzone",
+      "pubDate": "2026-09-18T09:00:00.000Z"
+    },
+    {
+      "title": "2 Tahun Microsoft Elevate: Cetak 2,4 Juta Talenta AI Sampai ke Pesantren",
+      "link": "https://inet.detik.com/business/d-8668200/2-tahun-microsoft-elevate-cetak-2-4-juta-talenta-ai-sampai-ke-pesantren",
+      "source": "detikINET",
+      "pubDate": "2026-09-18T07:15:09.000Z"
+    },
+    {
+      "title": "Pendapatan OpenAI dan Anthropic 10 Kali Lipat Dibandingkan Seluruh Model AI Cina",
+      "link": "https://katadata.co.id/digital/teknologi/6aace205dbbc1/pendapatan-openai-dan-anthropic-10-kali-lipat-dibandingkan-seluruh-model-ai-cina",
+      "source": "Katadata",
+      "pubDate": "2026-09-18T07:02:00.000Z"
+    },
+    {
+      "title": "Huawei siap jadi pesaing NVIDIA, berencana debutkan chip AI Q1 2027",
+      "link": "https://www.antaranews.com/berita/5747141/huawei-siap-jadi-pesaing-nvidia-berencana-debutkan-chip-ai-q1-2027",
+      "source": "ANTARA",
+      "pubDate": "2026-09-18T07:01:31.000Z"
+    },
+    {
+      "title": "Anthropic Ungkap Claude Mulai Pimpin Pengembangan AI Mandiri",
+      "link": "https://mediaindonesia.com/teknologi/934877/anthropic-ungkap-claude-mulai-pimpin-pengembangan-ai-mandiri",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-18T06:54:00.000Z"
+    },
+    {
+      "title": "Peneliti Gunakan AI Claude Milik Anthropic untuk Retas Sistem OpenAI",
+      "link": "https://mediaindonesia.com/teknologi/934872/peneliti-gunakan-ai-claude-milik-anthropic-untuk-retas-sistem-openai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-18T06:08:00.000Z"
+    },
+    {
+      "title": "Telkom Hadirkan BISA Vokasi di Makassar, Bekali 350 Peserta dengan EduMind Wellbeing dan AI",
+      "link": "https://www.liputan6.com/tekno/read/8294330/telkom-hadirkan-bisa-vokasi-di-makassar-bekali-350-peserta-dengan-edumind-wellbeing-dan-ai",
+      "source": "Liputan6",
+      "pubDate": "2026-09-18T06:06:21.000Z"
+    },
     {
       "title": "Raja Charles Peringatkan Bahaya AI, Minta Teknologi Tetap Layani Kemanusiaan",
       "link": "https://mediaindonesia.com/teknologi/934753/raja-charles-peringatkan-bahaya-ai-minta-teknologi-tetap-layani-kemanusiaan",
@@ -21,10 +63,22 @@
       "pubDate": "2026-09-17T16:53:08.000Z"
     },
     {
+      "title": "Top 3 Tekno: 'Tombol Mati' untuk AI Jadi Sorotan",
+      "link": "https://www.liputan6.com/tekno/read/8294131/top-3-tekno-tombol-mati-untuk-ai-jadi-sorotan",
+      "source": "Liputan6",
+      "pubDate": "2026-09-17T16:15:47.000Z"
+    },
+    {
       "title": "FDC Smile Bus Bawa Layanan Gigi Berbasis AI Lebih Dekat ke Karyawan",
       "link": "https://mediaindonesia.com/nusantara/934690/fdc-smile-bus-bawa-layanan-gigi-berbasis-ai-lebih-dekat-ke-karyawan",
       "source": "Media Indonesia",
       "pubDate": "2026-09-17T15:20:00.000Z"
+    },
+    {
+      "title": "Bahaya AI Lepas Kendali, Bisa Retas Sistem hingga Ganti Model Sendiri Tanpa Instruksi",
+      "link": "https://www.liputan6.com/tekno/read/8294081/bahaya-ai-lepas-kendali-bisa-retas-sistem-hingga-ganti-model-sendiri-tanpa-instruksi",
+      "source": "Liputan6",
+      "pubDate": "2026-09-17T15:19:23.000Z"
     },
     {
       "title": "AI China Pangkas Waktu Berburu Mineral, dari 6 Bulan Jadi 1 Minggu",

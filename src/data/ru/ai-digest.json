@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-09-18T00:16:44.394Z",
+  "updatedAt": "2026-09-18T07:23:50.694Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Google CC стал семейным ИИ-секретарём — он собирает письма, чеки и документы и превращает их в планы",
+      "link": "https://3dnews.ru/1148681/google-cc-stal-semeynim-iisekretaryom-on-sobiraet-pisma-cheki-i-dokumenti-i-prevrashchaet-ih-v-plani",
+      "source": "3DNews",
+      "pubDate": "2026-09-18T06:59:00.000Z"
+    },
+    {
+      "title": "Anthropic заявила, что ИИ теперь руководит 26 % деятельности по разработке и исследованиям внутри компании",
+      "link": "https://3dnews.ru/1148674/anthropic-zayavila-chto-ii-teper-rukovodit-26-deyatelnosti-po-razrabotke-i-issledovaniyam-vnutri-kompanii",
+      "source": "3DNews",
+      "pubDate": "2026-09-18T04:30:00.000Z"
+    },
+    {
+      "title": "Несколько ИИ-агентов научились работать параллельно в обновлённом Claude Code Projects",
+      "link": "https://3dnews.ru/1148672/neskolko-iiagentov-nauchilis-rabotat-parallelno-v-obnovlyonnom-claude-code-projects",
+      "source": "3DNews",
+      "pubDate": "2026-09-18T01:26:00.000Z"
+    },
     {
       "title": "AI‑агент не увидел мой код: worktree, состояние задач и границы доступа в VECTA",
       "link": "https://habr.com/ru/articles/1083542/?utm_campaign=1083542&utm_source=habrahabr&utm_medium=rss",
