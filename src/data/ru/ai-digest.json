@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-09-18T07:23:50.694Z",
+  "updatedAt": "2026-09-18T14:31:16.457Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "«Рольфтех» с помощью ИИ и экспертов структурировал 238 тысяч сервисных операций «Рольф»",
+      "link": "https://www.cnews.ru/news/line/2026-09-18_rolfteh_s_pomoshchyu_ii_i",
+      "source": "CNews",
+      "pubDate": "2026-09-18T14:19:00.000Z"
+    },
+    {
+      "title": "Внедрение «водяных знаков» может сделать поведение ИИ-моделей непредсказуемым",
+      "link": "https://3dnews.ru/1148713/vnedrenie-vodyanih-znakov-moget-sdelat-povedenie-iimodeley-nepredskazuemim",
+      "source": "3DNews",
+      "pubDate": "2026-09-18T13:54:00.000Z"
+    },
+    {
+      "title": "На Форуме ProcessTech представили новый подход к внедрению корпоративного ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-09-18_na_forume_processtech_predstavili",
+      "source": "CNews",
+      "pubDate": "2026-09-18T13:00:00.000Z"
+    },
+    {
+      "title": "Как мы научили ИИ-модель понимать документы и теперь оформляем новых сотрудников в 2 раза быстрее",
+      "link": "https://habr.com/ru/companies/sminex_developer/articles/1083860/?utm_campaign=1083860&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-18T12:08:45.000Z"
+    },
+    {
+      "title": "474 712 строк за 35 лет: как мы с LLM и 21 экспертом приводим в порядок справочник автосервиса",
+      "link": "https://habr.com/ru/companies/rolf_autotech/articles/1083810/?utm_campaign=1083810&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-18T10:44:06.000Z"
+    },
+    {
+      "title": "У всех ИИ-агентов для программирования нашлась опасная уязвимость — вредоносный код запускается без участия пользователя",
+      "link": "https://3dnews.ru/1148700/u-vseh-iiagentov-dlya-programmirovaniya-nashlas-opasnaya-uyazvimost-vredonosniy-kod-zapuskaetsya-bez-uchastiya-polzovatelya",
+      "source": "3DNews",
+      "pubDate": "2026-09-18T10:41:00.000Z"
+    },
+    {
+      "title": "Утверждена концепция внедрения ИИ в российские суды. Он поможет анализировать обстоятельства дела и назначать наказание",
+      "link": "https://www.tadviser.ru/a/783464",
+      "source": "TAdviser",
+      "pubDate": "2026-09-18T10:07:53.000Z"
+    },
+    {
+      "title": "Дизайн интерьера нейросетью: 4 сервиса для ремонта по фото комнаты",
+      "link": "https://habr.com/ru/companies/bothub/articles/1083726/?utm_campaign=1083726&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-18T09:04:15.000Z"
+    },
+    {
+      "title": "Системы OpenAI взломали при помощи ИИ-моделей Anthropic",
+      "link": "https://3dnews.ru/1148693/sistemi-openai-vzlomali-pri-pomoshchi-iimodeley-anthropic",
+      "source": "3DNews",
+      "pubDate": "2026-09-18T08:49:00.000Z"
+    },
+    {
+      "title": "Опальный китайский ИИ получил доступ к данным Уолл-стрит",
+      "link": "https://www.cnews.ru/news/top/2026-09-18_kitajskomu_ii-startapunahodyashchemusya",
+      "source": "CNews",
+      "pubDate": "2026-09-18T08:02:00.000Z"
+    },
     {
       "title": "Google CC стал семейным ИИ-секретарём — он собирает письма, чеки и документы и превращает их в планы",
       "link": "https://3dnews.ru/1148681/google-cc-stal-semeynim-iisekretaryom-on-sobiraet-pisma-cheki-i-dokumenti-i-prevrashchaet-ih-v-plani",
@@ -79,12 +139,6 @@
       "link": "https://habr.com/ru/articles/1083368/?utm_campaign=1083368&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-17T10:48:44.000Z"
-    },
-    {
-      "title": "«Грубейшее проявление неуважения»: Российские суды начали штрафовать участников дел за «глюки» ИИ в документах",
-      "link": "https://www.tadviser.ru/a/783464",
-      "source": "TAdviser",
-      "pubDate": "2026-09-17T10:19:07.000Z"
     },
     {
       "title": "ИИ-агенты научились менять сами себя без участия человека — и это настораживает",
