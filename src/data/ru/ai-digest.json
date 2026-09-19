@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-09-19T07:19:37.045Z",
+  "updatedAt": "2026-09-19T13:55:26.214Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Completion не доказывает качество результата AI-агента",
+      "link": "https://habr.com/ru/articles/1084146/?utm_campaign=1084146&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-19T13:16:00.000Z"
+    },
+    {
+      "title": "Персональный ИИ-агент Muse от M**a возглавил рейтинг App Store всего через неделю после релиза",
+      "link": "https://3dnews.ru/1148751/personalniy-iiagent-muse-ot-meta-vozglavil-reyting-app-store-vsego-cherez-nedelyu-posle-reliza",
+      "source": "3DNews",
+      "pubDate": "2026-09-19T11:11:00.000Z"
+    },
+    {
+      "title": "ИИ-модель Google Gemini перепутала тест с реальностью и случайно взломала три компании",
+      "link": "https://3dnews.ru/1148750/iimodel-google-gemini-pereputala-test-s-realnostyu-i-sluchayno-vzlomala-tri-kompanii",
+      "source": "3DNews",
+      "pubDate": "2026-09-19T11:09:00.000Z"
+    },
+    {
+      "title": "Европейские разработчики ИИ выступили против призывов США замедлить темп",
+      "link": "https://3dnews.ru/1148744/evropeyskie-razrabotchiki-ii-vistupili-protiv-prizivov-ssha-zamedlit-tempi-razrabotki",
+      "source": "3DNews",
+      "pubDate": "2026-09-19T07:43:00.000Z"
+    },
     {
       "title": "Anthropic до IPO собирается выпустить ИИ-модель, которая станет ответом на OpenAI GPT-6 Astra",
       "link": "https://3dnews.ru/1148738/anthropic-do-ipo-sobiraetsya-vipustit-iimodel-kotoraya-stanet-otvetom-na-openai-gpt6-astra",
