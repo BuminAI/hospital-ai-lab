@@ -1,12 +1,36 @@
 {
-  "updatedAt": "2026-09-18T14:31:16.457Z",
+  "updatedAt": "2026-09-19T00:19:54.774Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Более 100 экспертов предупредили: независимая проверка безопасности ИИ сейчас почти невозможна",
+      "link": "https://3dnews.ru/1148730/bolee-100-ekspertov-predupredili-nezavisimaya-proverka-bezopasnosti-ii-seychas-pochti-nevozmogna",
+      "source": "3DNews",
+      "pubDate": "2026-09-18T19:39:00.000Z"
+    },
+    {
+      "title": "«Воровство беспрецедентных масштабов»: OpenAI и Microsoft признали, что ИИ построен на краже данных и неумолимо разрушает интернет",
+      "link": "https://3dnews.ru/1148728/vorovstvo-bespretsedentnih-masshtabov-openai-i-microsoft-priznali-chto-ii-postroen-na-krage-dannih-i-neumolimo-razrushaet-internet",
+      "source": "3DNews",
+      "pubDate": "2026-09-18T17:25:00.000Z"
+    },
+    {
+      "title": "Как австралийца судят за утечку судебных документов из-за нейросети",
+      "link": "https://habr.com/ru/companies/infowatch/articles/1083954/?utm_campaign=1083954&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-18T14:32:05.000Z"
+    },
     {
       "title": "«Рольфтех» с помощью ИИ и экспертов структурировал 238 тысяч сервисных операций «Рольф»",
       "link": "https://www.cnews.ru/news/line/2026-09-18_rolfteh_s_pomoshchyu_ii_i",
       "source": "CNews",
       "pubDate": "2026-09-18T14:19:00.000Z"
+    },
+    {
+      "title": "«Билайн» подключит ИИ к выявлению и обработке инцидентов экономической безопасности",
+      "link": "https://www.tadviser.ru/a/967410",
+      "source": "TAdviser",
+      "pubDate": "2026-09-18T14:01:00.000Z"
     },
     {
       "title": "Внедрение «водяных знаков» может сделать поведение ИИ-моделей непредсказуемым",
