@@ -3,6 +3,8 @@
 import RuLayout from '../../layouts/RuLayout.astro';
 import ru from '../../i18n/ru.json';
 import { withBase } from '../../utils/site';
+import HomeSeries from '../../components/HomeSeries.astro';
+import { getResolvedSeries } from '../../utils/series';
 import newsData from '../../data/ru/news.json';
 
 // ── AEO/GEO — 홈에서 바로 답이 되는 블록 (2026-09-07) ──────────
@@ -35,6 +37,11 @@ const homeFaqLd = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+// 연재 시리즈 진입로(2026-09-20) — 글이 많은 순서대로 최대 3개.
+const homeSeries = (await getResolvedSeries('ru'))
+  .slice()
+  .sort((a, b) => b.posts.length - a.posts.length)
+  .slice(0, 3);
 ---
 
 <RuLayout
@@ -77,6 +84,8 @@ const homeFaqLd = {
       <span class="ru-card-d">{ru.home.checklistDesc}</span>
     </a>
   </div>
+
+  <HomeSeries loc="ru" list={homeSeries} />
 
   {/* 최신 뉴스 — 홈에 실제 내용이 있어야 검색·답변 엔진이 인용할 거리가 생긴다.
       한국어판 홈이 이미 쓰는 방식이고, 다른 판에는 빠져 있었다(2026-09-07 추가). */}

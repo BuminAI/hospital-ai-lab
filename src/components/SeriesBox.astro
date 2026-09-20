@@ -1,9 +1,11 @@
 ---
-import { withBase } from '../utils/site';
+import { growth } from '../i18n/growth';
+import { postHref, seriesHref, tokenStyle, type Loc } from '../utils/locale';
 import type { ResolvedSeries, Post } from '../utils/series';
 
 // 글 하단의 "이 글이 속한 연재" 상자 — 시리즈 안에서 이전·다음 글로 이어 준다.
 // 글이 여러 시리즈에 속하면 최대 2개까지만 보여 준다(글 하단이 길어지지 않게).
+// 다섯 언어판 공용 — 문구는 src/i18n/growth.ts, 색은 tokenStyle()이 언어판 토큰에 이어 준다.
 interface Item {
   series: ResolvedSeries;
   index: number;
@@ -12,19 +14,21 @@ interface Item {
 }
 interface Props {
   items: Item[];
+  loc?: Loc;
 }
-const { items } = Astro.props;
+const { items, loc = 'ko' } = Astro.props;
+const t = growth[loc].box;
 const shown = items.slice(0, 2);
 ---
 
 {
   shown.length > 0 && (
-    <section class="series-box" aria-labelledby="series-box-title">
-      <h2 id="series-box-title">이 글이 속한 연재</h2>
+    <section class="gx-box" style={tokenStyle(loc)} aria-labelledby="gx-box-title">
+      <h2 id="gx-box-title">{t.heading}</h2>
       {shown.map(({ series, index, prev, next }) => (
         <div class="one">
           <p class="head">
-            <a class="name" href={withBase(`/series/${series.slug}/`)}>
+            <a class="name" href={seriesHref(loc, series.slug)}>
               {series.title}
             </a>
             <span class="pos">
@@ -33,16 +37,16 @@ const shown = items.slice(0, 2);
           </p>
           <div class="nav">
             {prev ? (
-              <a href={withBase(`/blog/${prev.id}/`)} rel="prev">
-                <span class="dir">← 이전 글</span>
+              <a href={postHref(loc, prev.id)} rel="prev">
+                <span class="dir">{t.prev}</span>
                 <span class="ttl">{prev.data.title}</span>
               </a>
             ) : (
               <span class="empty" />
             )}
             {next ? (
-              <a href={withBase(`/blog/${next.id}/`)} rel="next" class="right">
-                <span class="dir">다음 글 →</span>
+              <a href={postHref(loc, next.id)} rel="next" class="right">
+                <span class="dir">{t.next}</span>
                 <span class="ttl">{next.data.title}</span>
               </a>
             ) : (
@@ -52,28 +56,33 @@ const shown = items.slice(0, 2);
         </div>
       ))}
       <p class="all">
-        <a href={withBase('/series/')}>연재 시리즈 전체 보기</a>
+        <a href={seriesHref(loc)}>{t.all}</a>
       </p>
     </section>
   )
 }
 
 <style>
-  .series-box {
+  .gx-box {
     margin-top: 2.5rem;
     padding: 1.1rem 1.25rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background: var(--color-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius);
+    background: var(--c-surface);
+    color: var(--c-text);
   }
-  .series-box h2 {
+  .gx-box h2 {
     margin: 0 0 0.75rem;
+    padding: 0;
+    border: 0;
+    background: none;
     font-size: 1rem;
+    color: var(--c-heading);
   }
   .one + .one {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--c-border);
   }
   .head {
     display: flex;
@@ -87,7 +96,7 @@ const shown = items.slice(0, 2);
   }
   .pos {
     font-size: 0.82rem;
-    color: var(--color-muted);
+    color: var(--c-muted);
   }
   .nav {
     display: grid;
@@ -99,21 +108,22 @@ const shown = items.slice(0, 2);
     flex-direction: column;
     gap: 0.2rem;
     padding: 0.6rem 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background: var(--color-bg);
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius);
+    background: var(--c-bg);
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--c-text);
+    font-weight: 400;
   }
   .nav a:hover {
-    border-color: var(--color-primary);
+    border-color: var(--c-primary);
   }
   .nav .right {
     text-align: right;
   }
   .dir {
     font-size: 0.75rem;
-    color: var(--color-muted);
+    color: var(--c-muted);
   }
   .ttl {
     font-size: 0.9rem;
@@ -132,7 +142,7 @@ const shown = items.slice(0, 2);
     }
   }
   @media print {
-    .series-box {
+    .gx-box {
       display: none;
     }
   }

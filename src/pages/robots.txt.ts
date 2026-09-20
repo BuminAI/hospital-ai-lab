@@ -39,7 +39,9 @@ const CRAWLERS: { group: string; agents: string[] }[] = [
       'GPTBot', // OpenAI 수집
       'OAI-SearchBot', // ChatGPT 검색 색인
       'ChatGPT-User', // 사용자가 ChatGPT에서 링크를 열 때
-      'ClaudeBot', // Anthropic 수집
+      'ClaudeBot', // Anthropic 수집(학습)
+      'Claude-SearchBot', // Anthropic 검색 결과 품질 개선 — Claude 검색·답변 노출에 직접 관여(2026-09-20 추가, Anthropic 공식 문서 확인)
+      'Claude-User', // 사용자가 Claude에게 질문할 때 실시간 조회(2026-09-20 추가)
       'Claude-Web',
       'anthropic-ai',
       'PerplexityBot', // Perplexity 색인

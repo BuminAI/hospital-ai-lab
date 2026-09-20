@@ -12,6 +12,7 @@
 import '../styles/global.css';
 import '../styles/id-tokens.css';
 import id from '../i18n/id.json';
+import { growth } from '../i18n/growth';
 import navConfig from '../data/id/content/nav.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import {
@@ -355,6 +356,7 @@ const year = new Date().getFullYear();
       <div class="id-footer-inner">
         <ul>
           <li><a href={withBase('/id/about/')}>{id.footer.about}</a></li>
+          <li><a href={withBase('/id/series/')}>{growth.id.seriesName}</a></li>
           <li><a href={withBase('/privacy/')}>{id.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{id.footer.contact}</a></li>
           <li><a href={withBase('/sitemap-index.xml')}>{id.footer.sitemap}</a></li>

@@ -84,3 +84,21 @@ jobs:
             git pull --rebase origin main
             git push
           fi
+
+  # 배포가 끝난 뒤 최근 바뀐 주소를 IndexNow(Bing·Naver·Yandex 등 참여)에 알린다(2026-09-20).
+  # 실패해도 사이트 배포에는 영향이 없다 — 이미 위 deploy에서 끝났다.
+  # 키 파일은 public/<키>.txt(공개 파일)이고, 스크립트가 제출 전에 그 파일이 열리는지 확인한다.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: IndexNow 제출
+        run: node scripts/indexnow.mjs || echo "IndexNow 제출 건너뜀(다음 배포에서 다시 대상이 됨)"

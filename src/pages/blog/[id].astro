@@ -6,6 +6,7 @@ import PostCard from '../../components/PostCard.astro';
 import SeriesBox from '../../components/SeriesBox.astro';
 import SubscribeCta from '../../components/SubscribeCta.astro';
 import { withBase, formatDate } from '../../utils/site';
+import { citationsOf } from '../../utils/citations';
 import { getResolvedSeries, seriesOfPost } from '../../utils/series';
 
 export async function getStaticPaths() {
@@ -74,6 +75,7 @@ try {
 // Person·Organization·WebSite 본문은 SchemaOrg 컴포넌트가 전 페이지에 넣으므로
 // 여기서는 `@id`로 참조만 하고, 이 노드는 BaseLayout의 schema prop으로 넘겨
 // 같은 @graph에 합쳐진다(script 태그를 따로 만들지 않는다).
+const citations = citationsOf(post.body);
 const blogPosting = {
   '@type': 'BlogPosting',
   '@id': `${canonicalUrl}#article`,
@@ -93,6 +95,8 @@ const blogPosting = {
   // WebPage 노드가 그래프에 둘 생겨 검색엔진이 별개 개체로 읽는다.
   // 그 노드를 그대로 참조해 하나로 묶는다(2026-09-06 정리, 네 언어판 공통).
   mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
+  // 본문에 링크로 걸린 외부 출처(화면에 보이는 것만). 없으면 필드를 내지 않는다.
+  ...(citations.length > 0 ? { citation: citations } : {}),
 };
 ---
 

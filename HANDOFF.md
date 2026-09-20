@@ -168,8 +168,17 @@ npm run build    # 배포본 생성(dist/)
 
 - **벤치마킹 근거**: SimilarWeb 공개 추정치로 국내외 의료 매체를 비교하고(코메디닷컴·AI타임스·데일리메디·의학신문·메디칼타임즈·Becker's·Healthcare IT News·The Medical Futurist·병원신문), 구조를 직접 열어 본 곳(Medical Futurist·메디게이트뉴스·애프터닥)에서 뉴스레터·연재 시리즈·실무 체크리스트 세 장치를 가져왔다. 방문자 격차의 상당 부분은 도메인 신뢰도·외부 링크라 이 세 장치만으로 메워지지 않는다(네이버 수집 1페이지 문제가 더 큼).
 - **연재 시리즈** — `src/data/series.ts`에 7개(입문·제안서 검토·개인정보·AI 도구 활용·과신 금지·예측 사례·제도 소식). **새 글을 쓰지 않고 기존 글을 읽는 순서로 묶기만 했다.** 글 ID가 틀리면 빌드가 멈춘다(`src/utils/series.ts`). 새 글을 시리즈에 넣으려면 ① data 파일 `postIds`에 추가하거나 ② 글 frontmatter에 `series: <slug>`(선택 필드, 그 시리즈 끝에 발행일 순 합류). ⚠️ **자동 발행 글은 ②를 안 적으면 어떤 시리즈에도 안 들어간다** — daily-update-digest 지침(SKILL.md)에 반영하면 자동 합류된다(아직 안 함). 화면: `/series/`, `/series/<slug>/`, 글 하단 이전·다음 상자(`SeriesBox`), 홈 "주제별로 이어 읽기", 푸터.
-- **실무 점검표** — `/checklist/`(기존 29항목)를 체크·진행률·인쇄가 되는 형태로 바꾸고(`InteractiveChecklist`), 섹션마다 관련 글을 연결했다. 새 점검표 2개(`/checklist/dept-ai-rules/`, `/checklist/ai-draft-input/`)는 `src/data/checklists.ts`. **기존 글의 내용만 옮겼고**, 근거인 개인정보보호위원회 가이드(korea.kr)와 행정안전부 보도자료(mois.go.kr)는 항목별로 원문과 대조했다. 체크 상태는 브라우저 localStorage에만 저장(서버 전송 없음). 한국어판 전용(다른 언어판 checklist는 그대로).
+- **언어판 확장(2026-09-20)** — 일본어·러시아어·인도네시아어·대만어판에도 `/{loc}/series/`가 있다. 정의는 `src/data/series-locales.ts`(언어판마다 3개 이상 글이 모이는 주제만 — 시리즈가 3편 미만이면 빌드가 멈춘다). 문구는 `src/i18n/growth.ts` 한 파일에 다섯 언어를 모았고, 색은 `src/utils/locale.ts`의 `tokenStyle()`이 각 언어판 디자인 토큰(`--ja-*` 등)에 이어 준다(컴포넌트는 `--c-*`만 쓴다 — 예전에 한국어판 변수를 복제해 다른 언어판이 스타일 없이 나온 사고를 막으려는 구조). 목록 허브(`/series/`)는 hreflang으로 서로 잇고, 시리즈 상세·글은 독립 편집이라 `standalone`(hreflang 없음). ⚠️ **한국어판 밖에는 회원가입·메일이 없어 구독 안내는 RSS만 안내한다.**
+- **실무 점검표** — `/checklist/`(기존 29항목)를 체크·진행률·인쇄가 되는 형태로 바꾸고(`InteractiveChecklist`), 섹션마다 관련 글을 연결했다. 새 점검표 2개(`/checklist/dept-ai-rules/`, `/checklist/ai-draft-input/`)는 `src/data/checklists.ts`. **기존 글의 내용만 옮겼고**, 근거인 개인정보보호위원회 가이드(korea.kr)와 행정안전부 보도자료(mois.go.kr)는 항목별로 원문과 대조했다. 체크 상태는 브라우저 localStorage에만 저장(서버 전송 없음). **2026-09-20 같은 날 나머지 네 언어판(ja·ru·id·tw)의 `/checklist/`도 같은 `InteractiveChecklist`로 바꿨다**(섹션별 관련 글은 `src/data/checklist-related.ts`, 섹션 **순서**를 키로 씀 — 섹션을 추가·삭제하면 번호도 맞출 것). 새 실무 점검표 2개는 한국어판 전용이다(근거가 한국 규제기관 자료라 다른 나라 판에 옮기면 사실이 달라진다).
 - **구독 안내(`SubscribeCta`)** — 글·시리즈·점검표 하단. ⚠️ **새 글 알림 메일은 아직 한 번도 발송된 적이 없다**(`RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY` 미등록, §8). 그래서 `src/utils/site.ts`의 `EMAIL_NEWSLETTER_LIVE = false`인 동안은 메일을 약속하지 않고 RSS·회원가입만 안내한다. 메일 발송을 켜고 실제 발송을 확인한 **뒤에** true로 바꾸면 문구가 "새 글 알림 신청"으로 바뀐다.
+
+### 4-3-2. 검수 스크립트·IndexNow·AI 크롤러 (2026-09-20)
+
+- **`scripts/audit-site.mjs`** — 빌드 후 `node scripts/audit-site.mjs`. `dist/`의 전 페이지(5개 언어판)를 정규식으로 훑어 canonical·hreflang 상호참조·OG·JSON-LD 파싱·title/description 길이(CJK는 폭 2)·내부 링크·외국어 문자 섞임·면책 문구·글의 출처 링크·과장 표현을 검사한다(오류 0이 목표). `--json`으로 원자료 출력. 의존성 없음.
+- **IndexNow** — `scripts/indexnow.mjs`가 배포 뒤(`deploy.yml`의 `indexnow` 잡) 사이트맵에서 최근 48시간 안에 바뀐 주소를 `api.indexnow.org`에 제출한다. Bing·**Naver**·Yandex·Seznam·Yep·Amazon이 참여(https://www.indexnow.org/faq 에서 확인). 키 파일은 `public/<키>.txt`(공개 파일, 비밀 아님). **구글은 참여하지 않는다.** 실패해도 배포에는 영향이 없다. 네이버 서치어드바이저의 '웹페이지 수집 요청'을 대신하지는 않는다 — 여전히 새 글을 직접 요청해야 빠르다.
+- **robots.txt** — Anthropic 공식 문서(support.claude.com)에 나온 세 크롤러 `ClaudeBot`(학습)·`Claude-SearchBot`(검색 품질)·`Claude-User`(사용자 질문 시 실시간 조회)를 모두 명시 허용했다. Gemini는 별도 검색 크롤러 없이 Googlebot 색인을 쓰고 `Google-Extended`는 학습 동의 표시일 뿐이다.
+- **BlogPosting `citation`** — 글 본문에 실제로 걸린 외부 출처 링크만 `src/utils/citations.ts`가 JSON-LD로 옮긴다(화면에 안 보이는 링크는 넣지 않음).
+- ⚠️ **llms.txt의 효과는 아직 입증되지 않았다**(주요 검색·AI 사업자가 이 파일을 읽는다고 공식 확인한 바 없음). 비용이 거의 없어 유지할 뿐이다.
 
 ### 4-4. 실무 팁 (수동 — 자동화 아님, 2026-07-16 신설)
 

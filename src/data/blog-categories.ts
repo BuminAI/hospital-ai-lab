@@ -29,7 +29,7 @@ export const BLOG_CATEGORIES: BlogCategory[] = [
   {
     label: '소식',
     slug: 'notice',
-    description: '병원 AI 연구소의 소식과 의료 AI 관련 제도 변화를 전합니다.',
+    description: '병원 AI 연구소의 소식과 의료 AI 관련 제도 변화를 전합니다. 병원 행정·간호 실무자가 알아둘 만한 변화를 모았습니다.',
   },
 ];
 

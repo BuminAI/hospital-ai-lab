@@ -10,6 +10,7 @@
 import '../styles/global.css';
 import '../styles/ja-tokens.css';
 import ja from '../i18n/ja.json';
+import { growth } from '../i18n/growth';
 import navConfig from '../data/ja/content/nav.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import {
@@ -391,6 +392,7 @@ const year = new Date().getFullYear();
       <div class="ja-footer-inner">
         <ul>
           <li><a href={withBase('/ja/about/')}>{ja.footer.about}</a></li>
+          <li><a href={withBase('/ja/series/')}>{growth.ja.seriesName}</a></li>
           <li><a href={withBase('/privacy/')}>{ja.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{ja.footer.contact}</a></li>
           <li><a href={withBase('/sitemap-index.xml')}>{ja.footer.sitemap}</a></li>

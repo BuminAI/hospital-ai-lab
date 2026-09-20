@@ -20,3 +20,4 @@ Thumbs.db
 .claude/launch.json
 .claude/run-npm.cmd
 .claude/settings.local.json
+.audit/

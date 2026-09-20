@@ -1,47 +1,67 @@
 ---
-// 체크하며 쓰는 점검표 (2026-09-20 신설).
+import { growth } from '../i18n/growth';
+import { tokenStyle, type Loc } from '../utils/locale';
+
+// 체크하며 쓰는 점검표 (2026-09-20 신설). 다섯 언어판 공용 — 문구는 src/i18n/growth.ts,
+// 색은 tokenStyle()이 언어판 토큰에 이어 준다.
 // 항목 체크 상태는 **이 기기의 브라우저(localStorage)에만** 저장된다 — 서버로 보내지 않는다.
 // 저장소를 못 쓰는 환경(사생활 보호 모드 등)에서도 체크·인쇄는 그대로 된다.
+interface Section {
+  title: string;
+  /** 섹션 첫머리 설명(선택) */
+  body?: string;
+  items: string[];
+  /** true면 체크박스 없이 일반 목록으로 그린다(공식 자료 목록처럼 '확인'할 대상이 아닌 항목) */
+  plain?: boolean;
+}
 interface Props {
   /** localStorage 키에 쓰는 점검표 식별자 */
   id: string;
-  sections: { title: string; items: string[] }[];
+  sections: Section[];
+  loc?: Loc;
   /** 섹션 아래에 붙일 관련 글(선택) — 섹션 제목을 키로 한다 */
   related?: Record<string, { href: string; title: string }[]>;
 }
-const { id, sections, related = {} } = Astro.props;
-const total = sections.reduce((n, s) => n + s.items.length, 0);
+const { id, sections, related = {}, loc = 'ko' } = Astro.props;
+const t = growth[loc].checklist;
+const total = sections.reduce((n, s) => n + (s.plain ? 0 : s.items.length), 0);
+const SLOT = '{n}';
 ---
 
-<div class="ick" data-checklist={id} data-total={total}>
-  <div class="ick-bar no-print" role="group" aria-label="점검표 진행 상황">
+<div class="ick" style={tokenStyle(loc)} data-checklist={id} data-loc={loc} data-total={total}>
+  <div class="ick-bar no-print" role="group">
     <p class="ick-count" aria-live="polite">
-      <strong data-done>0</strong> / {total} 항목 확인
+      <span data-count-text data-tpl={t.progress(SLOT, total)}>{t.progress('0', total)}</span>
     </p>
     <div class="ick-progress" aria-hidden="true"><span data-fill></span></div>
     <div class="ick-actions">
-      <button type="button" class="btn ghost" data-reset>처음부터 다시</button>
-      <button type="button" class="btn" data-print>인쇄 · PDF 저장</button>
+      <button type="button" class="ick-btn ghost" data-reset>{t.reset}</button>
+      <button type="button" class="ick-btn" data-print>{t.print}</button>
     </div>
   </div>
 
   {
-    sections.map((section) => (
-      <section class="ick-section">
+    sections.map((section, i) => (
+      <section class="ick-section" id={`s${i + 1}`}>
         <h2>{section.title}</h2>
-        <ul class="ick-list">
-          {section.items.map((item) => (
-            <li>
-              <label>
-                <input type="checkbox" data-item />
-                <span>{item}</span>
-              </label>
-            </li>
-          ))}
+        {section.body && <p class="ick-body">{section.body}</p>}
+        <ul class={section.plain ? 'ick-plain' : 'ick-list'}>
+          {section.items.map((item) =>
+            section.plain ? (
+              <li>{item}</li>
+            ) : (
+              <li>
+                <label>
+                  <input type="checkbox" data-item />
+                  <span>{item}</span>
+                </label>
+              </li>
+            )
+          )}
         </ul>
         {related[section.title] && related[section.title].length > 0 && (
           <p class="ick-related no-print">
-            <span class="lbl">함께 읽을 글</span>
+            <span class="lbl">{t.related}</span>
             {related[section.title].map((r) => (
               <a href={r.href}>{r.title}</a>
             ))}
@@ -58,7 +78,8 @@ const total = sections.reduce((n, s) => n + s.items.length, 0);
     if (!root) return;
     const key = 'checklist:' + root.dataset.checklist;
     const boxes = [...root.querySelectorAll('[data-item]')];
-    const doneEl = root.querySelector('[data-done]');
+    const countEl = root.querySelector('[data-count-text]');
+    const tpl = countEl.dataset.tpl;
     const fill = root.querySelector('[data-fill]');
 
     // 항목 문구로 키를 만든다 — 점검표 항목을 고치거나 순서를 바꿔도 다른 항목의 체크가
@@ -79,7 +100,7 @@ const total = sections.reduce((n, s) => n + s.items.length, 0);
 
     const render = () => {
       const n = boxes.filter((b) => b.checked).length;
-      doneEl.textContent = String(n);
+      countEl.textContent = tpl.split('{n}').join(String(n));
       fill.style.width = boxes.length ? (n / boxes.length) * 100 + '%' : '0%';
     };
     const persist = () => {
@@ -119,9 +140,9 @@ const total = sections.reduce((n, s) => n + s.items.length, 0);
     gap: 1rem;
     margin: 1.25rem 0 0.5rem;
     padding: 0.75rem 1rem;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius);
   }
   .ick-count {
     margin: 0;
@@ -131,14 +152,14 @@ const total = sections.reduce((n, s) => n + s.items.length, 0);
   .ick-progress {
     height: 8px;
     border-radius: 999px;
-    background: var(--color-surface-2);
+    background: var(--c-surface2);
     overflow: hidden;
   }
   .ick-progress span {
     display: block;
     height: 100%;
     width: 0;
-    background: var(--color-live);
+    background: var(--c-primary);
     transition: width 0.2s ease;
   }
   .ick-actions {
@@ -147,21 +168,52 @@ const total = sections.reduce((n, s) => n + s.items.length, 0);
   }
   .ick-section {
     margin-top: 1.75rem;
+    scroll-margin-top: 1rem;
   }
   .ick-section h2 {
     font-size: 1.2rem;
     margin: 0 0 0.75rem;
+    color: var(--c-heading);
+  }
+  .ick-body {
+    margin: 0 0 0.75rem;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--c-muted);
+  }
+  .ick-plain {
+    margin: 0;
+    padding-left: 1.2rem;
+    line-height: 1.75;
+    font-size: 0.92rem;
+    word-break: break-word;
+  }
+  .ick-btn {
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--c-btn-bg);
+    border-radius: var(--c-radius);
+    background: var(--c-btn-bg);
+    color: var(--c-btn-fg);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .ick-btn.ghost {
+    background: transparent;
+    color: var(--c-primary);
+    border-color: var(--c-primary);
   }
   .ick-list {
     list-style: none;
     margin: 0;
     padding: 0;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius);
     overflow: hidden;
   }
   .ick-list li + li {
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--c-border);
   }
   .ick-list label {
     display: flex;
@@ -172,19 +224,19 @@ const total = sections.reduce((n, s) => n + s.items.length, 0);
     cursor: pointer;
   }
   .ick-list label:hover {
-    background: var(--color-surface);
+    background: var(--c-surface);
   }
   .ick-list input {
     margin-top: 0.3rem;
     width: 1.1rem;
     height: 1.1rem;
     flex-shrink: 0;
-    accent-color: var(--color-primary);
+    accent-color: var(--c-primary);
   }
   .ick-list input:checked + span {
-    color: var(--color-muted);
+    color: var(--c-muted);
     text-decoration: line-through;
-    text-decoration-color: var(--color-border-strong);
+    text-decoration-color: var(--c-border);
   }
   .ick-related {
     display: flex;
@@ -194,7 +246,7 @@ const total = sections.reduce((n, s) => n + s.items.length, 0);
     font-size: 0.88rem;
   }
   .ick-related .lbl {
-    color: var(--color-muted);
+    color: var(--c-muted);
   }
   @media (max-width: 40rem) {
     .ick-bar {
@@ -209,6 +261,14 @@ const total = sections.reduce((n, s) => n + s.items.length, 0);
   @media print {
     .site-header,
     .site-footer,
+    .ja-header,
+    .ja-footer,
+    .ru-header,
+    .ru-footer,
+    .id-header,
+    .id-footer,
+    .tw-header,
+    .tw-footer,
     .skip-link,
     .no-print {
       display: none !important;

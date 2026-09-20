@@ -1,0 +1,86 @@
+---
+import { growth } from '../i18n/growth';
+import { seriesHref, tokenStyle, type Loc } from '../utils/locale';
+import type { ResolvedSeries } from '../utils/series';
+
+// 언어판 홈의 '주제별로 이어 읽기' 진입로 (2026-09-20). 한국어판 홈은 자체 마크업을 쓴다.
+interface Props {
+  loc: Loc;
+  list: ResolvedSeries[];
+}
+const { loc, list } = Astro.props;
+const t = growth[loc];
+---
+
+<section class="gx-home" style={tokenStyle(loc)} aria-labelledby="gx-home-title">
+  <div class="head">
+    <h2 id="gx-home-title">{t.home.title}</h2>
+    <a href={seriesHref(loc)}>{t.home.more}</a>
+  </div>
+  <ul>
+    {
+      list.map((s) => (
+        <li>
+          <a href={seriesHref(loc, s.slug)}>
+            <span class="ttl">{s.title}</span>
+            <span class="n">{t.hub.count(s.posts.length)}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .gx-home {
+    margin-top: 2rem;
+    color: var(--c-text);
+  }
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .head h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--c-heading);
+  }
+  .head a {
+    font-size: 0.88rem;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 0.75rem;
+  }
+  li a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    height: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius);
+    background: var(--c-surface);
+    text-decoration: none;
+    color: var(--c-text);
+  }
+  li a:hover {
+    border-color: var(--c-primary);
+  }
+  .ttl {
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--c-primary);
+  }
+  .n {
+    font-size: 0.82rem;
+    color: var(--c-muted);
+  }
+</style>

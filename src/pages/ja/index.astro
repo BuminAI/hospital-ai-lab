@@ -4,6 +4,8 @@ import JaLayout from '../../layouts/JaLayout.astro';
 import ja from '../../i18n/ja.json';
 import subsidies from '../../data/ja/subsidies.json';
 import { withBase } from '../../utils/site';
+import HomeSeries from '../../components/HomeSeries.astro';
+import { getResolvedSeries } from '../../utils/series';
 import newsData from '../../data/ja/news.json';
 
 // 홈에는 마감 임박 순 5건만. 일본 사용자는 정보가 화면에 미리 보이는 것을
@@ -47,6 +49,11 @@ const homeFaqLd = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+// 연재 시리즈 진입로(2026-09-20) — 글이 많은 순서대로 최대 3개.
+const homeSeries = (await getResolvedSeries('ja'))
+  .slice()
+  .sort((a, b) => b.posts.length - a.posts.length)
+  .slice(0, 3);
 ---
 
 <JaLayout
@@ -113,6 +120,8 @@ const homeFaqLd = {
       <span class="ja-card-d">{ja.home.faqDesc}</span>
     </a>
   </div>
+
+  <HomeSeries loc="ja" list={homeSeries} />
 
   {/* 최신 뉴스 — 홈에 실제 내용이 있어야 검색·답변 엔진이 인용할 거리가 생긴다.
       한국어판 홈이 이미 쓰는 방식이고, 다른 판에는 빠져 있었다(2026-09-07 추가). */}

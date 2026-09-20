@@ -26,6 +26,8 @@ const blogRu = defineCollection({
     pubDate: z.coerce.date(),
     category: z.enum(['Обзор исследований', 'Инструменты ИИ', 'Колонка', 'Новости']),
     draft: z.boolean().default(false),
+    // 연재 시리즈 슬러그(src/data/series-locales.ts). 선택 항목 — 한국어판 blog와 같은 장치.
+    series: z.string().optional(),
   }),
 });
 
@@ -40,6 +42,8 @@ const blogJa = defineCollection({
     pubDate: z.coerce.date(),
     category: z.enum(['論文レビュー', 'AIツール', 'コラム', 'お知らせ']),
     draft: z.boolean().default(false),
+    // 연재 시리즈 슬러그(src/data/series-locales.ts). 선택 항목 — 한국어판 blog와 같은 장치.
+    series: z.string().optional(),
   }),
 });
 
@@ -54,6 +58,8 @@ const blogId = defineCollection({
     pubDate: z.coerce.date(),
     category: z.enum(['Ulasan Riset', 'Alat AI', 'Kolom', 'Kabar']),
     draft: z.boolean().default(false),
+    // 연재 시리즈 슬러그(src/data/series-locales.ts). 선택 항목 — 한국어판 blog와 같은 장치.
+    series: z.string().optional(),
   }),
 });
 
@@ -65,6 +71,8 @@ const blogTw = defineCollection({
     pubDate: z.coerce.date(),
     category: z.enum(['研究回顧', 'AI 工具', '專欄', '消息']),
     draft: z.boolean().default(false),
+    // 연재 시리즈 슬러그(src/data/series-locales.ts). 선택 항목 — 한국어판 blog와 같은 장치.
+    series: z.string().optional(),
   }),
 });
 

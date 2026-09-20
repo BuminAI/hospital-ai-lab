@@ -12,6 +12,7 @@
 import '../styles/global.css';
 import '../styles/ru-tokens.css';
 import ru from '../i18n/ru.json';
+import { growth } from '../i18n/growth';
 import navConfig from '../data/ru/content/nav.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import {
@@ -370,6 +371,7 @@ const year = new Date().getFullYear();
       <div class="ru-footer-inner">
         <ul>
           <li><a href={withBase('/ru/about/')}>{ru.footer.about}</a></li>
+          <li><a href={withBase('/ru/series/')}>{growth.ru.seriesName}</a></li>
           <li><a href={withBase('/privacy/')}>{ru.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{ru.footer.contact}</a></li>
           <li><a href={withBase('/sitemap-index.xml')}>{ru.footer.sitemap}</a></li>

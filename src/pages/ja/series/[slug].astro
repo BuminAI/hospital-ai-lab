@@ -1,0 +1,28 @@
+---
+import JaLayout from '../../../layouts/JaLayout.astro';
+import SeriesDetailView from '../../../components/SeriesDetailView.astro';
+import { getResolvedSeries } from '../../../utils/series';
+import { seriesDetailDescription, seriesDetailSchema } from '../../../utils/series-schema';
+import { growth } from '../../../i18n/growth';
+
+export async function getStaticPaths() {
+  const list = await getResolvedSeries('ja');
+  return list.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+
+const { s } = Astro.props;
+
+// standalone: 시리즈 구성은 언어판마다 다른 독립 편집이라 다른 언어판에 짝이 없다.
+// koPath는 상단 언어 전환 링크를 한국어 연재 목록으로 보낼 뿐 hreflang에는 쓰이지 않는다.
+---
+
+<JaLayout
+  title={s.title}
+  description={seriesDetailDescription('ja', s)}
+  crumb={s.title}
+  koPath="/series/"
+  standalone
+  schema={[seriesDetailSchema('ja', s, Astro.site)]}
+>
+  <SeriesDetailView loc="ja" s={s} />
+</JaLayout>

@@ -1,11 +1,35 @@
 ---
 import IdLayout from '../../layouts/IdLayout.astro';
-import IdSections from '../../components/IdSections.astro';
+import InteractiveChecklist from '../../components/InteractiveChecklist.astro';
+import SubscribeCta from '../../components/SubscribeCta.astro';
+import { getCollection } from 'astro:content';
+import { checklistRelated } from '../../data/checklist-related';
+import { COLLECTION, postHref } from '../../utils/locale';
 import { checklistId } from '../../data/id/pages';
 import idI18n from '../../i18n/id.json';
 import { withBase } from '../../utils/site';
 
 const p = checklistId;
+
+// 점검표를 체크해 가며 쓰는 형태로 그린다(2026-09-20). 체크 상태는 이 기기의 브라우저에만 저장된다.
+const sections = p.sections.map((s, i) => ({
+  title: s.heading,
+  body: s.body,
+  items: s.items,
+  plain: false,
+}));
+const posts = await getCollection(COLLECTION.id, ({ data }) => !data.draft);
+const titleOf = new Map(posts.map((x) => [x.id, x.data.title]));
+const relatedByTitle: Record<string, { href: string; title: string }[]> = {};
+for (const [idx, ids] of Object.entries(checklistRelated.id)) {
+  const sec = sections[Number(idx)];
+  if (!sec) throw new Error('[checklist:id] 관련 글의 섹션 번호 ' + idx + '가 없습니다.');
+  relatedByTitle[sec.title] = ids.map((id) => {
+    const title = titleOf.get(id);
+    if (!title) throw new Error('[checklist:id] 관련 글 ID ' + id + '가 없습니다.');
+    return { href: postHref('id', id), title };
+  });
+}
 
 // 화면에 보이는 소제목·순서 그대로 ItemList로 알린다(보이지 않는 정보는 넣지 않는다).
 const schema = [
@@ -36,7 +60,9 @@ const schema = [
   <h1>{p.meta.pageTitle}</h1>
   <p class="id-lead">{p.meta.lead}</p>
 
-  <IdSections sections={p.sections} checkbox />
+  <InteractiveChecklist id="ai-adoption-id" loc="id" sections={sections} related={relatedByTitle} />
+
+  <SubscribeCta loc="id" />
 
   <section class="id-next">
     <h2>Bacaan lanjutan</h2>
