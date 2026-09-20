@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SubscribeCta from '../../components/SubscribeCta.astro';
+import { withBase, formatDate } from '../../utils/site';
+import { getResolvedSeries } from '../../utils/series';
+
+// 연재 시리즈 목록 (2026-09-20 신설).
+// 이미 발행한 글을 주제별로 읽는 순서대로 묶었다. 새 글을 쓰지 않고 기존 글을
+// 잇기만 한다(src/data/series.ts).
+const list = await getResolvedSeries();
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/series/')}`;
+const description =
+  '병원 행정·간호 실무자를 위한 의료 AI 글을 주제별 연재로 묶었습니다. AI 제안서 검토, 환자정보와 AI, 업무 도구 활용, 제도 소식을 읽는 순서대로 볼 수 있습니다.';
+
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: '연재 시리즈',
+  description,
+  inLanguage: 'ko-KR',
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: list.length,
+    itemListElement: list.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.title,
+      url: `${siteUrl}${withBase(`/series/${s.slug}/`)}`,
+    })),
+  },
+};
+---
+
+<BaseLayout title="연재 시리즈" description={description} schema={[collectionPage]}>
+  <div class="container">
+    <header class="page-head">
+      <h1>연재 시리즈</h1>
+      <p class="lead">
+        한 편씩 읽어도 되지만, 주제별로 이어 읽으면 판단 기준이 더 분명해집니다. 병원 행정·간호
+        실무자가 자주 마주치는 질문을 시리즈로 묶었습니다. 각 시리즈는 권장 읽기 순서대로
+        정렬돼 있습니다.
+      </p>
+    </header>
+
+    <div class="series-grid">
+      {
+        list.map((s) => (
+          <article class="card">
+            <h2>
+              <a href={withBase(`/series/${s.slug}/`)}>{s.title}</a>
+            </h2>
+            <p class="desc">{s.description}</p>
+            <p class="meta">
+              글 {s.posts.length}편 · 최근 <time datetime={s.latest.toISOString()}>{formatDate(s.latest)}</time>
+            </p>
+            <div class="row">
+              <a class="btn" href={withBase(`/blog/${s.posts[0].id}/`)}>첫 글부터 읽기</a>
+              <a class="btn ghost" href={withBase(`/series/${s.slug}/`)}>목록 보기</a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <SubscribeCta context="연재의 새 글" />
+  </div>
+</BaseLayout>
+
+<style>
+  .series-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.25rem 1.35rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+  }
+  .card h2 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+  .card h2 a {
+    text-decoration: none;
+    color: var(--color-heading);
+  }
+  .card h2 a:hover {
+    color: var(--color-primary);
+  }
+  .desc {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+    flex: 1;
+  }
+  .meta {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--color-muted);
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  @media (max-width: 48rem) {
+    .series-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

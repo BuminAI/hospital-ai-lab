@@ -2,9 +2,49 @@
 import { withBase } from '../utils/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideRelated from '../components/GuideRelated.astro';
+import InteractiveChecklist from '../components/InteractiveChecklist.astro';
+import SubscribeCta from '../components/SubscribeCta.astro';
+import { getCollection } from 'astro:content';
 import { checklistIntro, checklistSections } from '../data/checklist';
+import { practicalChecklists } from '../data/checklists';
 
 const [introLead, introNotice] = checklistIntro.split('\n\n');
+
+// 섹션별 '함께 읽을 글' (2026-09-20). 점검 항목의 배경을 설명한 기존 글로 이어 준다.
+// 새 글을 쓰지 않고 이미 발행된 글만 연결한다. 없는 글 ID는 빌드를 멈춘다.
+const RELATED_IDS: Record<string, string[]> = {
+  '성능·검증': [
+    '2026-08-09-reading-ai-performance-numbers',
+    '2026-07-09-sepsis-ai-external-validation',
+    '2026-09-10-five-phase-evaluation-framework-medical-ai',
+  ],
+  '규제·인증': [
+    '2026-07-07-digital-medical-products-act',
+    '2026-07-19-ai-approval-vs-reimbursement',
+    '2026-08-27-ai-medical-device-change-management-plan',
+  ],
+  '개인정보·보안': [
+    '2026-07-08-sharing-data-with-ai-vendors',
+    '2026-08-21-pseudonymized-data-processing-suspension',
+    '2026-09-13-privacy-act-amendment-september-2026',
+  ],
+  '업무흐름·운영': [
+    '2026-07-23-automation-bias-overtrust',
+    '2026-07-09-alarm-fatigue-ai-alerts',
+    '2026-07-25-ai-performance-drift-after-deployment',
+  ],
+  '계약·비용': ['2026-08-20-ai-compare-vendor-proposals', '2026-07-19-ai-approval-vs-reimbursement'],
+};
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const titleOf = new Map(posts.map((p) => [p.id, p.data.title]));
+const related: Record<string, { href: string; title: string }[]> = {};
+for (const [section, ids] of Object.entries(RELATED_IDS)) {
+  related[section] = ids.map((id) => {
+    const title = titleOf.get(id);
+    if (!title) throw new Error(`[checklist] '${section}'의 관련 글 ID '${id}'가 없습니다.`);
+    return { href: withBase(`/blog/${id}/`), title };
+  });
+}
 
 // ItemList 구조화 데이터.
 // HowTo를 쓰지 않는 이유: 이건 순서대로 따라 하는 '방법'이 아니라 검토할 항목의
@@ -48,18 +88,25 @@ const itemList = {
       {introNotice && <p class="notice">{introNotice}</p>}
     </header>
 
-    {
-      checklistSections.map((section) => (
-        <section class="section">
-          <h2>{section.title}</h2>
-          <ul class="checklist">
-            {section.items.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        </section>
-      ))
-    }
+    <div class="ick-wrap">
+      <InteractiveChecklist id="ai-adoption" sections={checklistSections} related={related} />
+    </div>
+
+    <section class="more">
+      <h2>더 쓰기 좋은 실무 점검표</h2>
+      <ul class="more-list">
+        {
+          practicalChecklists.map((c) => (
+            <li>
+              <a href={withBase(`/checklist/${c.slug}/`)}>{c.title}</a>
+              <span>{c.description}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <SubscribeCta />
 
     <GuideRelated current="checklist" />
   </div>
@@ -73,41 +120,45 @@ const itemList = {
     color: var(--color-muted);
   }
 
-  .section {
-    margin-top: 2.75rem;
+  .ick-wrap {
     max-width: var(--prose-width);
   }
 
-  .section:first-of-type {
-    margin-top: 2.5rem;
+  .more {
+    margin-top: 3rem;
+    max-width: var(--prose-width);
   }
 
-  .section h2 {
-    font-size: 1.3rem;
+  .more h2 {
+    font-size: 1.2rem;
+    margin: 0 0 0.75rem;
   }
 
-  .checklist {
-    margin: 1.25rem 0 0;
-    padding: 0;
+  .more-list {
     list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  .checklist li {
-    position: relative;
-    padding: 0.7rem 0 0.7rem 1.6rem;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-text);
-  }
-
-  .checklist li:first-child {
+  .more-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.85rem 0;
     border-top: 1px solid var(--color-border);
   }
 
-  .checklist li::before {
-    content: '▢';
-    position: absolute;
-    left: 0;
-    top: 0.7rem;
-    color: var(--color-primary);
+  .more-list li:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .more-list a {
+    font-weight: 600;
+  }
+
+  .more-list span {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.65;
   }
 </style>

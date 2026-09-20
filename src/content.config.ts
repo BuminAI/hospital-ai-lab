@@ -9,6 +9,10 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     category: z.enum(['논문리뷰', 'AI도구', '칼럼', '소식']),
     draft: z.boolean().default(false),
+    // 연재 시리즈 슬러그(src/data/series.ts의 slug). 선택 항목이라 없어도 된다.
+    // 지정하면 그 시리즈 끝에 발행일 순으로 자동 합류한다 — 새 글을 시리즈에
+    // 넣을 때 data 파일을 고치지 않아도 되게 하려는 장치다.
+    series: z.string().optional(),
   }),
 });
 

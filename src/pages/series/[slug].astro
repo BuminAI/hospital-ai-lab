@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SubscribeCta from '../../components/SubscribeCta.astro';
+import { withBase, formatDate } from '../../utils/site';
+import { getResolvedSeries } from '../../utils/series';
+
+export async function getStaticPaths() {
+  const list = await getResolvedSeries();
+  return list.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+
+const { s } = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase(`/series/${s.slug}/`)}`;
+const description = `${s.description} 글 ${s.posts.length}편을 읽는 순서대로 모았습니다.`;
+
+// 화면에 보이는 목록만 마크업한다. 항목은 우리 사이트의 글이라 url을 그대로 싣는다.
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: s.title,
+  description,
+  inLanguage: 'ko-KR',
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: s.posts.length,
+    itemListElement: s.posts.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.data.title,
+      url: `${siteUrl}${withBase(`/blog/${p.id}/`)}`,
+    })),
+  },
+};
+---
+
+<BaseLayout title={s.title} description={description} schema={[collectionPage]}>
+  <div class="container">
+    <header class="page-head">
+      <p class="crumb"><a href={withBase('/series/')}>← 연재 시리즈</a></p>
+      <h1>{s.title}</h1>
+      <p class="lead">{s.description}</p>
+      <p class="count">글 {s.posts.length}편 · 아래 순서대로 읽으시길 권합니다.</p>
+    </header>
+
+    {
+      s.checklist && (
+        <p class="check">
+          이어서 쓰기 좋은 점검표:
+          <a href={withBase(s.checklist.href)}>{s.checklist.label}</a>
+        </p>
+      )
+    }
+
+    <ol class="posts">
+      {
+        s.posts.map((p) => (
+          <li>
+            <a class="ttl" href={withBase(`/blog/${p.id}/`)}>{p.data.title}</a>
+            <p class="desc">{p.data.description}</p>
+            <p class="meta">
+              <span class="chip">{p.data.category}</span>
+              <time datetime={p.data.pubDate.toISOString()}>{formatDate(p.data.pubDate)}</time>
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <SubscribeCta context="이 연재의 새 글" />
+  </div>
+</BaseLayout>
+
+<style>
+  .crumb {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  .count {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+  .check {
+    margin: 1rem 0 0;
+    padding: 0.75rem 1rem;
+    background: var(--color-primary-soft);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 0.92rem;
+  }
+  .check a {
+    margin-left: 0.4rem;
+    font-weight: 600;
+  }
+  .posts {
+    list-style: none;
+    counter-reset: n;
+    margin: 1.5rem 0 0;
+    padding: 0;
+  }
+  .posts li {
+    counter-increment: n;
+    position: relative;
+    padding: 1rem 0 1rem 3rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .posts li:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .posts li::before {
+    content: counter(n);
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ttl {
+    font-size: 1.02rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-heading);
+    line-height: 1.5;
+  }
+  .ttl:hover {
+    color: var(--color-primary);
+  }
+  .desc {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+  }
+  .meta {
+    margin: 0.5rem 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--color-muted);
+  }
+</style>

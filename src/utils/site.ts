@@ -66,3 +66,11 @@ export const CONTACT_EMAIL = 'choyj80@naver.com';
 export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
 export const DISCLAIMER =
   '본 사이트의 콘텐츠는 일반적인 정보 제공과 연구·교육 목적이며, 특정 환자에 대한 의학적 진단이나 조언을 대신하지 않습니다.';
+
+// ── 새 글 알림 메일 발송 상태 (2026-09-20) ───────────────────
+// 글 하단·연재·점검표 구독 안내(SubscribeCta)가 "메일로 받기"를 내세울지 정한다.
+// ⚠️ RESEND_API_KEY·SUPABASE_SERVICE_ROLE_KEY가 GitHub Secrets에 등록되고 도메인
+//    인증까지 끝나 실제로 메일이 나가는 걸 확인한 **뒤에만** true로 바꿀 것.
+//    false인 지금은 발송이 한 번도 된 적 없으므로 메일 알림을 약속하지 않고
+//    RSS·회원가입(강의노트)만 안내한다. (HANDOFF §8 참고)
+export const EMAIL_NEWSLETTER_LIVE = false;

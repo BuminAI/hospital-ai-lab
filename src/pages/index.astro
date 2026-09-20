@@ -14,6 +14,7 @@ import news from '../data/news.json';
 import videos from '../data/recommended-videos.json';
 import govPrograms from '../data/gov-programs.json';
 import events from '../data/events.json';
+import { getResolvedSeries } from '../utils/series';
 
 // 마지막 업데이트일 = 마지막 커밋 날짜(빌드 시 자동 계산, 수동 갱신 불필요).
 // git 정보를 못 구하는 예외적 빌드 환경 대비 폴백만 둔다.
@@ -167,6 +168,11 @@ const homeFaqLd = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+// 연재 시리즈 진입로(2026-09-20) — 글이 가장 많은 순서대로 4개만 보인다.
+const homeSeries = (await getResolvedSeries())
+  .slice()
+  .sort((a, b) => b.posts.length - a.posts.length)
+  .slice(0, 4);
 ---
 
 <BaseLayout
@@ -247,6 +253,26 @@ const homeFaqLd = {
           <h3>자주 묻는 질문</h3>
           <p>입문자가 실제로 궁금해하는 질문에 답합니다.</p>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 연재 시리즈: 이미 쓴 글을 주제별 읽는 순서로 묶었다(2026-09-20) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>주제별로 이어 읽기</h2>
+        <a class="more" href={withBase('/series/')}>연재 시리즈 전체 보기 →</a>
+      </div>
+      <div class="grid-3">
+        {
+          homeSeries.slice(0, 3).map((s) => (
+            <a class="card guide-card" href={withBase(`/series/${s.slug}/`)}>
+              <h3>{s.title}</h3>
+              <p>글 {s.posts.length}편 · {s.description.split('. ')[0].replace(/\.$/, '')}.</p>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>

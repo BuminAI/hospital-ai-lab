@@ -3,7 +3,10 @@ import { execSync } from 'node:child_process';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import SeriesBox from '../../components/SeriesBox.astro';
+import SubscribeCta from '../../components/SubscribeCta.astro';
 import { withBase, formatDate } from '../../utils/site';
+import { getResolvedSeries, seriesOfPost } from '../../utils/series';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -31,6 +34,9 @@ const related = [
   ...sameCategory,
   ...others.filter((p) => p.data.category !== post.data.category),
 ].slice(0, RELATED_COUNT);
+
+// 이 글이 속한 연재(2026-09-20) — 이전·다음 글로 이어 주는 상자에 쓴다.
+const seriesItems = seriesOfPost(await getResolvedSeries(), post.id);
 
 const canonicalUrl = Astro.site
   ? new URL(withBase(`/blog/${post.id}/`), Astro.site).href
@@ -125,6 +131,9 @@ const blogPosting = {
         <a href={withBase('/blog/')}>← 블로그 목록으로</a>
       </footer>
     </article>
+
+    <SeriesBox items={seriesItems} />
+    <SubscribeCta />
 
     {
       related.length > 0 && (

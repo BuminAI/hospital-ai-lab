@@ -1,0 +1,139 @@
+---
+import { withBase } from '../utils/site';
+import type { ResolvedSeries, Post } from '../utils/series';
+
+// 글 하단의 "이 글이 속한 연재" 상자 — 시리즈 안에서 이전·다음 글로 이어 준다.
+// 글이 여러 시리즈에 속하면 최대 2개까지만 보여 준다(글 하단이 길어지지 않게).
+interface Item {
+  series: ResolvedSeries;
+  index: number;
+  prev: Post | null;
+  next: Post | null;
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+const shown = items.slice(0, 2);
+---
+
+{
+  shown.length > 0 && (
+    <section class="series-box" aria-labelledby="series-box-title">
+      <h2 id="series-box-title">이 글이 속한 연재</h2>
+      {shown.map(({ series, index, prev, next }) => (
+        <div class="one">
+          <p class="head">
+            <a class="name" href={withBase(`/series/${series.slug}/`)}>
+              {series.title}
+            </a>
+            <span class="pos">
+              {index + 1} / {series.posts.length}
+            </span>
+          </p>
+          <div class="nav">
+            {prev ? (
+              <a href={withBase(`/blog/${prev.id}/`)} rel="prev">
+                <span class="dir">← 이전 글</span>
+                <span class="ttl">{prev.data.title}</span>
+              </a>
+            ) : (
+              <span class="empty" />
+            )}
+            {next ? (
+              <a href={withBase(`/blog/${next.id}/`)} rel="next" class="right">
+                <span class="dir">다음 글 →</span>
+                <span class="ttl">{next.data.title}</span>
+              </a>
+            ) : (
+              <span class="empty" />
+            )}
+          </div>
+        </div>
+      ))}
+      <p class="all">
+        <a href={withBase('/series/')}>연재 시리즈 전체 보기</a>
+      </p>
+    </section>
+  )
+}
+
+<style>
+  .series-box {
+    margin-top: 2.5rem;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+  }
+  .series-box h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+  }
+  .one + .one {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 0 0 0.6rem;
+  }
+  .name {
+    font-weight: 600;
+  }
+  .pos {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+  }
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .nav a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  .nav a:hover {
+    border-color: var(--color-primary);
+  }
+  .nav .right {
+    text-align: right;
+  }
+  .dir {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+  .ttl {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .all {
+    margin: 0.9rem 0 0;
+    font-size: 0.88rem;
+  }
+  @media (max-width: 40rem) {
+    .nav {
+      grid-template-columns: 1fr;
+    }
+    .nav .right {
+      text-align: left;
+    }
+  }
+  @media print {
+    .series-box {
+      display: none;
+    }
+  }
+</style>
