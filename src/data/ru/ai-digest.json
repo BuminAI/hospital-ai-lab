@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-09-20T00:08:42.993Z",
+  "updatedAt": "2026-09-21T07:57:10.893Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Битва века: 20 лет опыта против двух лет и мощного LLM. Кто быстрее сделает production-ready сервис?",
+      "link": "https://habr.com/ru/articles/1084536/?utm_campaign=1084536&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-21T07:52:16.000Z"
+    },
+    {
+      "title": "Онлайн-предприниматели могут принимать платежи через ИИ-агентов с «ЮKassa»",
+      "link": "https://www.cnews.ru/news/line/2026-09-21_onlajn-predprinimateli_mogut",
+      "source": "CNews",
+      "pubDate": "2026-09-21T07:21:00.000Z"
+    },
+    {
+      "title": "«Яндекс» выложил в опенсорс свою новую ИИ-модель, обученную с нуля",
+      "link": "https://www.cnews.ru/news/line/2026-09-21_yandeks_vylozhil_v_opensors",
+      "source": "CNews",
+      "pubDate": "2026-09-21T06:47:00.000Z"
+    },
+    {
+      "title": "Как ускорить ИИ-агента с RAG в проде и не слить бюджет: кэшируем ответы на примере ИИ-консультанта",
+      "link": "https://habr.com/ru/articles/1084428/?utm_campaign=1084428&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-21T06:09:04.000Z"
+    },
+    {
+      "title": "Резидент «Сколково» FIS внедрил в low-code разработку ИИ-генерацию SQL на естественном языке с учетом контекста приложения",
+      "link": "https://www.cnews.ru/news/line/2026-09-21_rezident_skolkovo_fis_vnedril",
+      "source": "CNews",
+      "pubDate": "2026-09-21T05:14:00.000Z"
+    },
     {
       "title": "Как попасть в ответы Perplexity AI и почему эта ИИ‑модель берёт не весь текст с цитируемых страниц",
       "link": "https://habr.com/ru/articles/1084140/?utm_campaign=1084140&utm_source=habrahabr&utm_medium=rss",
