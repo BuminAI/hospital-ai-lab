@@ -1,9 +1,45 @@
 {
-  "updatedAt": "2026-09-21T07:57:10.893Z",
+  "updatedAt": "2026-09-21T16:28:32.734Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
     {
-      "title": "Битва века: 20 лет опыта против двух лет и мощного LLM. Кто быстрее сделает production-ready сервис?",
+      "title": "Почему ваша LLM тупеет на больших документах и как ее починить",
+      "link": "https://habr.com/ru/companies/otus/articles/1079804/?utm_campaign=1079804&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-21T14:16:50.000Z"
+    },
+    {
+      "title": "Захватывающая история внедрения ИИ в умирающей не-IT-компании",
+      "link": "https://habr.com/ru/articles/1084758/?utm_campaign=1084758&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-21T14:09:09.000Z"
+    },
+    {
+      "title": "Российские промышленные компании уходят от внешних ИИ-сервисов и вкладываются в собственные GPU и закрытые контуры",
+      "link": "https://www.tadviser.ru/a/559204",
+      "source": "TAdviser",
+      "pubDate": "2026-09-21T13:30:15.000Z"
+    },
+    {
+      "title": "«Яндекс» выпустил открытую ИИ-модель Alice AI Foundation LLM, которая обходит более крупные нейросети",
+      "link": "https://3dnews.ru/1148800/yandeks-vipustil-otkrituyu-iimodel-alice-ai-foundation-llm-kotoraya-obhodit-bolee-krupnie-neyroseti",
+      "source": "3DNews",
+      "pubDate": "2026-09-21T11:56:00.000Z"
+    },
+    {
+      "title": "«Яндекс» с нуля разработал языковую модель Alice AI Foundation с 80 млрд параметров и выложил ее в открытый доступ",
+      "link": "https://www.tadviser.ru/a/912692",
+      "source": "TAdviser",
+      "pubDate": "2026-09-21T10:29:54.000Z"
+    },
+    {
+      "title": "«Сбер2В» запустила нового ИИ-агента для продаж",
+      "link": "https://www.cnews.ru/news/line/2026-09-21_sber2v_zapustila_novogo",
+      "source": "CNews",
+      "pubDate": "2026-09-21T08:18:00.000Z"
+    },
+    {
+      "title": "Битва века: 20 лет опыта против двух лет и мощного LLM. Кто быстрее сделает production‑ready сервис?",
       "link": "https://habr.com/ru/articles/1084536/?utm_campaign=1084536&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-21T07:52:16.000Z"
