@@ -1,7 +1,55 @@
 {
-  "updatedAt": "2026-09-21T16:28:32.734Z",
+  "updatedAt": "2026-09-22T07:42:12.790Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Почему ИИ для программирования выбирает одни и те же библиотеки: я просканировал 30 сайтов документации",
+      "link": "https://habr.com/ru/articles/1084456/?utm_campaign=1084456&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T07:25:11.000Z"
+    },
+    {
+      "title": "ИИ-агент как цифровой сотрудник: где возникают риски и как их ограничить",
+      "link": "https://habr.com/ru/companies/lanit/articles/1082982/?utm_campaign=1082982&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T07:01:42.000Z"
+    },
+    {
+      "title": "Yandex B2B Tech интегрировала ИИ-агентов в Telegram и «Макс»",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_yandex_b2b_tech_integrirovala_ii-agentov",
+      "source": "CNews",
+      "pubDate": "2026-09-22T06:48:00.000Z"
+    },
+    {
+      "title": "Миграции от ИИ агента: почему я бы не пускал их в прод без отдельного firewall",
+      "link": "https://habr.com/ru/articles/1084968/?utm_campaign=1084968&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T06:44:25.000Z"
+    },
+    {
+      "title": "SpaceXAI представила ИИ-модель Grok 4.7 — почти вдвое быстрее Grok 4.6 и дешевле конкурентов",
+      "link": "https://3dnews.ru/1148834/spacexai-predstavila-iimodel-grok-47-pochti-vdvoe-bistree-grok-46-i-deshevle-konkurentov",
+      "source": "3DNews",
+      "pubDate": "2026-09-22T06:34:00.000Z"
+    },
+    {
+      "title": "ИИ – это трактор без водителя: почему 98% разработки с LLM решает экосистема",
+      "link": "https://habr.com/ru/companies/diasoft_company/articles/1084892/?utm_campaign=1084892&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T06:00:53.000Z"
+    },
+    {
+      "title": "Тень стратега: как AI-агент становится продолжением человека, а не его заменой",
+      "link": "https://habr.com/ru/articles/1084950/?utm_campaign=1084950&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T05:36:51.000Z"
+    },
+    {
+      "title": "OpenAI призвала к созданию международных стандартов, регулирующих безопасность ИИ",
+      "link": "https://3dnews.ru/1148831/openai-prizvala-k-sozdaniyu-megdunarodnih-standartov-reguliruyushchih-bezopasnost-ii",
+      "source": "3DNews",
+      "pubDate": "2026-09-22T05:22:00.000Z"
+    },
     {
       "title": "Почему ваша LLM тупеет на больших документах и как ее починить",
       "link": "https://habr.com/ru/companies/otus/articles/1079804/?utm_campaign=1079804&utm_source=habrahabr&utm_medium=rss",
