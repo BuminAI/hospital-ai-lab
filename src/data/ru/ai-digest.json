@@ -1,7 +1,103 @@
 {
-  "updatedAt": "2026-09-22T07:42:12.790Z",
+  "updatedAt": "2026-09-22T14:52:15.958Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "red_mad_robot запустила корпоративный сервис доступа к нейросетям",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_red_mad_robot_zapustila_korporativnyj",
+      "source": "CNews",
+      "pubDate": "2026-09-22T14:15:00.000Z"
+    },
+    {
+      "title": "Расходы российских нефтегазовых компаний на ИИ за год выросли до 2,7 млрд рублей. Как они используют его",
+      "link": "https://www.tadviser.ru/a/493622",
+      "source": "TAdviser",
+      "pubDate": "2026-09-22T12:58:48.000Z"
+    },
+    {
+      "title": "Xiaomi представила флагманскую ИИ-модель MiMo-V2.6 Pro и быструю MiMo-V2.6-Flash",
+      "link": "https://3dnews.ru/1148861/xiaomi-predstavila-flagmanskuyu-iimodel-mimov26-pro-i-bistruyu-mimov26flash",
+      "source": "3DNews",
+      "pubDate": "2026-09-22T12:44:00.000Z"
+    },
+    {
+      "title": "Внешняя обработка в 1С без конфигуратора: от задачи словами до .epf с ИИ-агентом",
+      "link": "https://habr.com/ru/articles/1085182/?utm_campaign=1085182&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T12:20:32.000Z"
+    },
+    {
+      "title": "ИИ-ассистент «Контур.Фокуса» теперь отвечает о компаниях в чате",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_ii-assistent_konturfokusa",
+      "source": "CNews",
+      "pubDate": "2026-09-22T12:09:00.000Z"
+    },
+    {
+      "title": "Названы профессии, работники которых больше всего боятся увольнений из-за появления ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_nazvany_professiirabotniki",
+      "source": "CNews",
+      "pubDate": "2026-09-22T12:06:00.000Z"
+    },
+    {
+      "title": "AI Gateway как единая точка входа к LLM: как дать сотрудникам ИИ и не потерять контроль",
+      "link": "https://habr.com/ru/articles/1085166/?utm_campaign=1085166&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T11:59:37.000Z"
+    },
+    {
+      "title": "В НИТУ МИСИС разработан математический метод проверки надежности ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_v_nitu_misis_razrabotan_matematicheskij",
+      "source": "CNews",
+      "pubDate": "2026-09-22T11:35:00.000Z"
+    },
+    {
+      "title": "Исследование: ИИ способен испытывать «боль» и готов причинить вред людям, чтобы избавиться от неё",
+      "link": "https://3dnews.ru/1148855/issledovanie-ii-sposoben-ispitivatbol-i-gotov-prichinit-vred-lyudyam-chtobi-izbavitsya-ot-neyo",
+      "source": "3DNews",
+      "pubDate": "2026-09-22T11:32:00.000Z"
+    },
+    {
+      "title": "ИИ-агент M**a Muse стал популярнее ChatGPT, Claude и Grok в американском App Store — всего за две недели",
+      "link": "https://3dnews.ru/1148854/iiagent-meta-muse-stal-populyarnee-chatgpt-claude-i-grok-v-amerikanskom-app-store-vsego-za-dve-nedeli",
+      "source": "3DNews",
+      "pubDate": "2026-09-22T11:31:00.000Z"
+    },
+    {
+      "title": "ИИ-гонка выжигает специалистов по безопасности — они массово жалуются на истощение и увольняются",
+      "link": "https://3dnews.ru/1148852/iigonka-vigigaet-spetsialistov-po-bezopasnosti-oni-massovo-galuyutsya-na-istoshchenie-i-uvolnyayutsya",
+      "source": "3DNews",
+      "pubDate": "2026-09-22T10:59:00.000Z"
+    },
+    {
+      "title": "ИТ-холдинг «Т1» и Финансовый университет запустили программу подготовки специалистов по ИИ и машинному обучению",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_it-holding_t1_i_finansovyj",
+      "source": "CNews",
+      "pubDate": "2026-09-22T10:54:00.000Z"
+    },
+    {
+      "title": "Как мы обучили детектор джейлбрейков для русскоязычных AI-агентов",
+      "link": "https://habr.com/ru/companies/just_ai/articles/1084804/?utm_campaign=1084804&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T10:01:01.000Z"
+    },
+    {
+      "title": "«Открытая мобильная платформа» запустила MCP-сервер для ИИ-агентов",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_otkrytaya_mobilnaya_platforma",
+      "source": "CNews",
+      "pubDate": "2026-09-22T09:46:00.000Z"
+    },
+    {
+      "title": "AI забыл про энергетику? Парадокс исследования рынка ИИ в РФ",
+      "link": "https://habr.com/ru/companies/psm_unlim/articles/1083150/?utm_campaign=1083150&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T09:00:09.000Z"
+    },
+    {
+      "title": "Мошенники с ИИ сбегают из .ru в доменные зоны .com и .cfd: отчет Solar AURA об инфраструктурных изменениях фишинга в 2026 году",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_moshenniki_s_ii_sbegayut_iz",
+      "source": "CNews",
+      "pubDate": "2026-09-22T08:07:00.000Z"
+    },
     {
       "title": "Почему ИИ для программирования выбирает одни и те же библиотеки: я просканировал 30 сайтов документации",
       "link": "https://habr.com/ru/articles/1084456/?utm_campaign=1084456&utm_source=habrahabr&utm_medium=rss",
@@ -1705,66 +1801,6 @@
       "link": "https://3dnews.ru/1147385/meta-gotovit-novuyu-iimodel-watermelon-i-universalnogo-iiagenta-hatch",
       "source": "3DNews",
       "pubDate": "2026-08-25T07:00:00.000Z"
-    },
-    {
-      "title": "В преддверии IPO Anthropic столкнулась со слабым спросом на самую дорогую модель Fable 5",
-      "link": "https://3dnews.ru/1147329/v-preddverii-ipo-anthropic-stolknulas-so-slabim-sprosom-na-samuyu-doroguyu-model-fable-5",
-      "source": "3DNews",
-      "pubDate": "2026-08-24T04:43:00.000Z"
-    },
-    {
-      "title": "Выходцы из Google DeepMind создали ИИ-агента Faraday, который превзошёл Anthropic и OpenAI в научных задачах",
-      "link": "https://3dnews.ru/1147302/vihodtsi-iz-google-deepmind-sozdali-iiagenta-faraday-kotoriy-prevzoshyol-anthropic-i-openai-v-nauchnih-zadachah",
-      "source": "3DNews",
-      "pubDate": "2026-08-23T03:04:00.000Z"
-    },
-    {
-      "title": "Claude улучшил результаты в три раза благодаря оболочке: Nvidia показала новый путь развития ИИ-агентов",
-      "link": "https://3dnews.ru/1147286/claude-uluchshil-rezultati-v-tri-raza-blagodarya-obolochke-nvidia-pokazala-noviy-put-razvitiya-iiagentov",
-      "source": "3DNews",
-      "pubDate": "2026-08-22T11:43:00.000Z"
-    },
-    {
-      "title": "DeepSeek представила экспериментальную мультимодальную ИИ-модель — она не уступает Claude Opus 4.8",
-      "link": "https://3dnews.ru/1147280/deepseek-predstavila-eksperimentalnuyu-multimodalnuyu-iimodel-ona-ne-ustupaet-claude-opus-48",
-      "source": "3DNews",
-      "pubDate": "2026-08-22T06:49:00.000Z"
-    },
-    {
-      "title": "OpenAI решила снизить расценки на доступ к GPT-5.6 Sol для разработчиков на ближайшие три месяца",
-      "link": "https://3dnews.ru/1147274/openai-reshila-snizit-rastsenki-na-dostup-k-gpt56-sol-dlya-razrabotchikov-na-bligayshie-tri-mesyatsa",
-      "source": "3DNews",
-      "pubDate": "2026-08-22T04:43:00.000Z"
-    },
-    {
-      "title": "В «Сбере» разработают полнодуплексный голосовой ИИ — он сможет одновременно говорить и слушать",
-      "link": "https://3dnews.ru/1147244/v-sbere-razrabotayut-polnodupleksniy-golosovoy-ii-on-umeet-odnovremenno-govorit-i-slushat",
-      "source": "3DNews",
-      "pubDate": "2026-08-21T11:56:00.000Z"
-    },
-    {
-      "title": "ИИ-агент подсунул разработчику ПО вредоносный пакет — и тот чуть было не встроил его в проект",
-      "link": "https://3dnews.ru/1147163/iiagent-podsunul-razrabotchiku-po-vredonosniy-paket-i-tot-chut-bilo-ne-vstroil-ego-v-proekt",
-      "source": "3DNews",
-      "pubDate": "2026-08-20T14:07:00.000Z"
-    },
-    {
-      "title": "Представлено семейство ИИ-моделей Ornith-1.5, которые обучили сами себя — младшая запускается даже на смартфонах",
-      "link": "https://3dnews.ru/1147148/predstavleno-semeystvo-iimodeley-ornith15-kotorie-obuchili-sami-sebya-mladshaya-zapuskaetsya-dage-na-smartfonah",
-      "source": "3DNews",
-      "pubDate": "2026-08-20T10:19:00.000Z"
-    },
-    {
-      "title": "Учёные доказали: ИИ-картинки зачастую нельзя связать с конкретными изображениями из обучающих данных",
-      "link": "https://3dnews.ru/1147140/uchyonie-dokazali-iikartinki-zachastuyu-nelzya-svyazat-s-konkretnimi-izobrageniyami-iz-obuchayushchih-dannih",
-      "source": "3DNews",
-      "pubDate": "2026-08-20T09:56:00.000Z"
-    },
-    {
-      "title": "Новая система безопасности OpenAI поможет выявлять угрозы, скрывающиеся за цепочкой безобидных запросов",
-      "link": "https://3dnews.ru/1147120/novaya-sistema-bezopasnosti-openai-pomoget-viyavlyat-ugrozi-skrivayushchiesya-za-tsepochkoy-bezobidnih-zaprosov",
-      "source": "3DNews",
-      "pubDate": "2026-08-20T02:58:00.000Z"
     }
   ]
 }
