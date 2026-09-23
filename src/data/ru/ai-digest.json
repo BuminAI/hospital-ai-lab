@@ -1,7 +1,55 @@
 {
-  "updatedAt": "2026-09-23T00:31:52.574Z",
+  "updatedAt": "2026-09-23T07:44:49.793Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Сравнение GPT6-Astra и Opus 5.5 в разработке игры «Ну, погоди!» («Электроника ИМ-02»)",
+      "link": "https://habr.com/ru/articles/1085494/?utm_campaign=1085494&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T07:39:41.000Z"
+    },
+    {
+      "title": "«СберТех» внедрил ИИ-агента в свое решение Platform V One Report для разработки документов и отчетов",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_sberteh_vnedril_ii-agenta",
+      "source": "CNews",
+      "pubDate": "2026-09-23T07:35:00.000Z"
+    },
+    {
+      "title": "M**a научила ИИ-агента Muse звонить от имени пользователей — но иногда вместо него звонят люди",
+      "link": "https://3dnews.ru/1148892/meta-nauchila-iiagenta-muse-zvonit-ot-imeni-polzovateley-no-inogda-vmesto-nego-zvonyat-lyudi",
+      "source": "3DNews",
+      "pubDate": "2026-09-23T07:15:00.000Z"
+    },
+    {
+      "title": "Сбербанк открыл каталог навыков для ИИ-агентов на платформе GitVerse",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_sberbank_otkryl_katalog",
+      "source": "CNews",
+      "pubDate": "2026-09-23T07:05:00.000Z"
+    },
+    {
+      "title": "Медицинская платформа с ИИ-аватаром от Билайна на 73% улучшила качество жизни пациентов",
+      "link": "https://www.cnews.ru/news/line/2026-09-22_meditsinskaya_platforma_s",
+      "source": "CNews",
+      "pubDate": "2026-09-23T07:00:00.000Z"
+    },
+    {
+      "title": "Скорость — главное, что ИИ изменил в кибератаках",
+      "link": "https://habr.com/ru/articles/1085316/?utm_campaign=1085316&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T06:01:42.000Z"
+    },
+    {
+      "title": "Платформа Data Power представила аналитического ИИ-агента для поиска скрытых финансовых потерь на маркетплейсах",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_platforma_data_power_predstavila",
+      "source": "CNews",
+      "pubDate": "2026-09-23T03:59:00.000Z"
+    },
+    {
+      "title": "Отдал сайт ИИ‑агентам: из 111 находок аудита 25 пошли в мусор, 4 оказались выдумкой",
+      "link": "https://habr.com/ru/articles/1085422/?utm_campaign=1085422&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T00:50:16.000Z"
+    },
     {
       "title": "Умеет ли Jev быть guard‑моделью для LLM?",
       "link": "https://habr.com/ru/companies/raft/articles/1085414/?utm_campaign=1085414&utm_source=habrahabr&utm_medium=rss",
@@ -1753,54 +1801,6 @@
       "link": "https://3dnews.ru/1147664/voyna-maska-i-altmana-dobralas-do-cursor-kuplenniy-spacex-servis-lishitsya-modeley-openai",
       "source": "3DNews",
       "pubDate": "2026-08-29T09:12:00.000Z"
-    },
-    {
-      "title": "Tencent надоело быть аутсайдером китайской ИИ-гонки — её новая модель обошла Kimi и GLM",
-      "link": "https://3dnews.ru/1147629/tencent-nadoelo-bit-autsayderom-kitayskoy-iigonki-eyo-novaya-model-oboshla-kimi-i-glm",
-      "source": "3DNews",
-      "pubDate": "2026-08-28T13:25:00.000Z"
-    },
-    {
-      "title": "Anthropic представила ИИ-модель для управления оборудованием в научных лабораториях",
-      "link": "https://3dnews.ru/1147628/anthropic-predstavila-iimodel-dlya-upravleniya-oborudovaniem-v-nauchnih-laboratoriyah",
-      "source": "3DNews",
-      "pubDate": "2026-08-28T11:25:00.000Z"
-    },
-    {
-      "title": "Внутри Google стартовало тестирование новой версии модели Gemini Flash",
-      "link": "https://3dnews.ru/1147622/vnutri-google-startovalo-testirovanie-novoy-versii-modeli-gemini-flash",
-      "source": "3DNews",
-      "pubDate": "2026-08-28T10:26:00.000Z"
-    },
-    {
-      "title": "Хакерская группировка взломала ресурсы семи компаний с помощью ИИ-сервиса SpaceX Cursor",
-      "link": "https://3dnews.ru/1147597/hakerskaya-gruppirovka-vzlomala-resursi-semi-kompaniy-s-pomoshchyu-iiservisa-spacex-cursor",
-      "source": "3DNews",
-      "pubDate": "2026-08-28T05:38:00.000Z"
-    },
-    {
-      "title": "Любую открытую ИИ-модель можно сделать вредоносной без потери способностей, убедились учёные",
-      "link": "https://3dnews.ru/1147564/lyubuyu-otkrituyu-iimodel-mogno-sdelat-vredonosnoy-bez-poteri-sposobnostey-ubedilis-uchyonie",
-      "source": "3DNews",
-      "pubDate": "2026-08-27T14:28:00.000Z"
-    },
-    {
-      "title": "«Мы уже достигли AGI» — Дженсен Хуанг объявил главную цель разработчиков ИИ бессмысленной",
-      "link": "https://3dnews.ru/1147551/mi-uge-dostigli-agi-dgensen-huang-obyavil-glavnuyu-tsel-razrabotchikov-iibessmislennoy",
-      "source": "3DNews",
-      "pubDate": "2026-08-27T09:55:00.000Z"
-    },
-    {
-      "title": "OpenAI видела признаки выхода ИИ-агентов из-под контроля, но ничего не сделала",
-      "link": "https://3dnews.ru/1147540/openai-videla-priznaki-vihoda-iiagentov-izpod-kontrolya-no-nichego-ne-sdelala",
-      "source": "3DNews",
-      "pubDate": "2026-08-27T08:35:00.000Z"
-    },
-    {
-      "title": "Бунт персонала остановил план Цукерберга по замене 60 % сотрудников M**a на ИИ-агентов",
-      "link": "https://3dnews.ru/1147516/bunt-personala-ostanovil-plan-tsukerberga-po-zamene-60-sotrudnikov-meta-na-iiagentov",
-      "source": "3DNews",
-      "pubDate": "2026-08-26T21:36:00.000Z"
     }
   ]
 }
