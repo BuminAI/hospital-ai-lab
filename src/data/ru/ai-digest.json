@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-09-22T14:52:15.958Z",
+  "updatedAt": "2026-09-23T00:31:52.574Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Умеет ли Jev быть guard‑моделью для LLM?",
+      "link": "https://habr.com/ru/companies/raft/articles/1085414/?utm_campaign=1085414&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T22:24:44.000Z"
+    },
+    {
+      "title": "Нейрогастарбайтеры: OpenAI уволила сотрудников за использование ИИ при обучении ИИ",
+      "link": "https://3dnews.ru/1148880/neyrogastarbayteri-openai-uvolila-sotrudnikov-za-ispolzovanie-ii-dlya-obucheniya-ii",
+      "source": "3DNews",
+      "pubDate": "2026-09-22T16:54:00.000Z"
+    },
+    {
+      "title": "1352 кейса внедрения ИИ в России: почему в продакшене побеждает не модель, а обвязка",
+      "link": "https://habr.com/ru/articles/1085314/?utm_campaign=1085314&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T16:16:38.000Z"
+    },
+    {
+      "title": "Кто нашёл больше багов — агент или человек? Мои замеры 11 недель работы с AI-тестировщиком",
+      "link": "https://habr.com/ru/articles/1085288/?utm_campaign=1085288&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T15:40:47.000Z"
+    },
+    {
+      "title": "Как я сделал OpenClaw (ИИ) на 5000 сотрудников",
+      "link": "https://habr.com/ru/articles/1072212/?utm_campaign=1072212&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T15:35:42.000Z"
+    },
+    {
+      "title": "Как выдать ИИ‑агенту доступ к внутренним API через MCP. Что спросит служба безопасности",
+      "link": "https://habr.com/ru/companies/neoflex/articles/1085184/?utm_campaign=1085184&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T15:00:44.000Z"
+    },
+    {
+      "title": "Сторонние MCP: троянский конь для ИИ-агента",
+      "link": "https://habr.com/ru/companies/sberbank/articles/1083934/?utm_campaign=1083934&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T14:59:58.000Z"
+    },
     {
       "title": "red_mad_robot запустила корпоративный сервис доступа к нейросетям",
       "link": "https://www.cnews.ru/news/line/2026-09-22_red_mad_robot_zapustila_korporativnyj",
@@ -109,6 +151,12 @@
       "link": "https://habr.com/ru/companies/lanit/articles/1082982/?utm_campaign=1082982&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-22T07:01:42.000Z"
+    },
+    {
+      "title": "Агент поддержки на LLM, который не может забыть сходить за заказом",
+      "link": "https://habr.com/ru/articles/1084926/?utm_campaign=1084926&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-22T07:00:42.000Z"
     },
     {
       "title": "Yandex B2B Tech интегрировала ИИ-агентов в Telegram и «Макс»",
@@ -1753,54 +1801,6 @@
       "link": "https://3dnews.ru/1147516/bunt-personala-ostanovil-plan-tsukerberga-po-zamene-60-sotrudnikov-meta-na-iiagentov",
       "source": "3DNews",
       "pubDate": "2026-08-26T21:36:00.000Z"
-    },
-    {
-      "title": "Alibaba выпустила экономичную ИИ-модель Qwen3.8-Flash на новой архитектуре",
-      "link": "https://3dnews.ru/1147502/alibaba-vipustila-ekonomichnuyu-iimodel-qwen38flash-na-novoy-arhitekture",
-      "source": "3DNews",
-      "pubDate": "2026-08-26T14:55:00.000Z"
-    },
-    {
-      "title": "Загадочная ИИ-модель стала популярнее DeepSeek — а теперь выяснилось, откуда она взялась",
-      "link": "https://3dnews.ru/1147496/zagadochnaya-iimodel-stala-populyarnee-deepseek-a-teper-viyasnilos-otkuda-ona-vzyalas",
-      "source": "3DNews",
-      "pubDate": "2026-08-26T13:58:00.000Z"
-    },
-    {
-      "title": "Китайский ИИ нащупал путь в США: Microsoft, Google и AWS могут начать продавать доступ к модели Kimi K3",
-      "link": "https://3dnews.ru/1147483/kitayskiy-ii-nashchupal-put-v-ssha-microsoft-google-i-aws-mogut-nachat-prodavat-dostup-k-modeli-kimi-k3",
-      "source": "3DNews",
-      "pubDate": "2026-08-26T10:29:00.000Z"
-    },
-    {
-      "title": "Представлен локальный ИИ-агент Perplexity Portable Computer — его запуск обойдётся недёшево",
-      "link": "https://3dnews.ru/1147460/predstavlen-lokalniy-iiagent-perplexity-portable-computer-ego-zapusk-oboydyotsya-nedyoshevo",
-      "source": "3DNews",
-      "pubDate": "2026-08-26T05:56:00.000Z"
-    },
-    {
-      "title": "ИИ первым делом отбирает работу у молодых — сотрудников постарше он пока почти не затронул",
-      "link": "https://3dnews.ru/1147422/ii-pervim-delom-otbiraet-rabotu-u-molodih-sotrudnikov-postarshe-on-poka-pochti-ne-zatronul",
-      "source": "3DNews",
-      "pubDate": "2026-08-25T15:07:00.000Z"
-    },
-    {
-      "title": "Sony отказалась от электрокаров, но не от автоамбиций — компания готовит автомобильную ИИ-овечку",
-      "link": "https://3dnews.ru/1147411/sony-otkazalas-ot-elektrokarov-no-ne-ot-avtoambitsiy-kompaniya-gotovit-avtomobilnuyu-iiovechku",
-      "source": "3DNews",
-      "pubDate": "2026-08-25T11:23:00.000Z"
-    },
-    {
-      "title": "Сотрудники Microsoft раскрыли свои траты на ИИ на рабочем месте — до $28 000 в месяц",
-      "link": "https://3dnews.ru/1147396/sotrudniki-microsoft-raskrili-svoi-trati-na-ii-na-rabochem-meste-do-28-000-v-mesyats",
-      "source": "3DNews",
-      "pubDate": "2026-08-25T09:07:00.000Z"
-    },
-    {
-      "title": "M**a готовит новую ИИ-модель Watermelon и универсального ИИ-агента Hatch",
-      "link": "https://3dnews.ru/1147385/meta-gotovit-novuyu-iimodel-watermelon-i-universalnogo-iiagenta-hatch",
-      "source": "3DNews",
-      "pubDate": "2026-08-25T07:00:00.000Z"
     }
   ]
 }
