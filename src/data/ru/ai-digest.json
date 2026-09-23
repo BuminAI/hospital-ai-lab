@@ -1,7 +1,109 @@
 {
-  "updatedAt": "2026-09-23T07:44:49.793Z",
+  "updatedAt": "2026-09-23T15:00:46.060Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Сколько ресурсов ест ИИ‑агент на сервере: замеры на двадцати агентах",
+      "link": "https://habr.com/ru/articles/1085800/?utm_campaign=1085800&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T14:28:38.000Z"
+    },
+    {
+      "title": "Тест на подделку куки проходил без проверки подписи: как я принимаю код от ИИ-агентов",
+      "link": "https://habr.com/ru/articles/1085452/?utm_campaign=1085452&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T14:16:50.000Z"
+    },
+    {
+      "title": "Исследование VK WorkSpace и Hi-Tech Mail: бизнесу от ИИ нужны практические сценарии, сотрудникам — помощь с рутиной",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_issledovanie_vk_workspace_i_hi-tech",
+      "source": "CNews",
+      "pubDate": "2026-09-23T14:08:00.000Z"
+    },
+    {
+      "title": "Триаж уязвимостей в AI-платформе: почему календарный SLA сломался и что ставить вместо него",
+      "link": "https://habr.com/ru/companies/vktech/articles/1069692/?utm_campaign=1069692&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T13:26:57.000Z"
+    },
+    {
+      "title": "Двенадцать дней ИИ-агента на боевом b2b-портале: что он нашёл сам и где ему нельзя верить на слово",
+      "link": "https://habr.com/ru/articles/1085712/?utm_campaign=1085712&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T12:48:04.000Z"
+    },
+    {
+      "title": "Заголовок: tutu внедрил голосового ИИ-агента targetai",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_zagolovok_tutu_vnedril_golosovogo",
+      "source": "CNews",
+      "pubDate": "2026-09-23T12:27:00.000Z"
+    },
+    {
+      "title": "Hitch запустил образовательный курс по внедрению ИИ в процессы разработки",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_hitch_zapustil_obrazovatelnyj",
+      "source": "CNews",
+      "pubDate": "2026-09-23T12:12:00.000Z"
+    },
+    {
+      "title": "«Салют для бизнеса» и DCLogic обеспечат бизнесу комплексное внедрение ИИ-агентов от пилота до результата",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_salyut_dlya_biznesa_i_dclogic",
+      "source": "CNews",
+      "pubDate": "2026-09-23T09:40:00.000Z"
+    },
+    {
+      "title": "70% ИТ-специалистов закрывают задачи в два раза быстрее благодаря ИИ и не бояться сокращений — исследование SkillStaff",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_70_it-spetsialistov_zakryvayut",
+      "source": "CNews",
+      "pubDate": "2026-09-23T09:33:00.000Z"
+    },
+    {
+      "title": "ИИ сделал расширение инфраструктуры слишком дорогим: компании меняют подход к масштабированию систем",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_ii_sdelal_rasshirenie_infrastruktury",
+      "source": "CNews",
+      "pubDate": "2026-09-23T09:14:00.000Z"
+    },
+    {
+      "title": "Выигрывает тот, кто понял: системные ограничения ИИ-агентов",
+      "link": "https://habr.com/ru/articles/1085558/?utm_campaign=1085558&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T09:00:47.000Z"
+    },
+    {
+      "title": "ИИ-агенты GigaCowork научились проверять контрагентов и искать новых клиентов по данным СПАРК, «Смарт-Х» и «Маркер»",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_ii-agenty_gigacowork_nauchilis",
+      "source": "CNews",
+      "pubDate": "2026-09-23T08:44:00.000Z"
+    },
+    {
+      "title": "«Чтобы выжить, я должен найти работу». Сотни ИИ-агентов вышли в интернет искать клиентов. Зачем они это делают?",
+      "link": "https://habr.com/ru/articles/1085514/?utm_campaign=1085514&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T08:20:38.000Z"
+    },
+    {
+      "title": "Как мы создаём ИИ-агента для технических писателей (и почему это непросто)",
+      "link": "https://habr.com/ru/companies/sberbank/articles/1085230/?utm_campaign=1085230&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T08:16:54.000Z"
+    },
+    {
+      "title": "«Ставки растут»: OpenAI пустит сторонних проверяющих на более ранние этапы разработки ИИ-моделей",
+      "link": "https://3dnews.ru/1148898/stavki-rastut-openai-pustit-storonnih-proveryayushchih-na-bolee-rannie-etapi-razrabotki-iimodeley",
+      "source": "3DNews",
+      "pubDate": "2026-09-23T08:10:00.000Z"
+    },
+    {
+      "title": "«Ингосстрах» вдвое ускорил обработку медицинских обращений с помощью ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_ingosstrah_vdvoe_uskoril",
+      "source": "CNews",
+      "pubDate": "2026-09-23T07:45:00.000Z"
+    },
+    {
+      "title": "MWS AI запустила ИИ-агента для разбора клиентских диалогов",
+      "link": "https://www.cnews.ru/news/line/2026-09-23_mws_ai_zapustila_ii-agenta_dlya",
+      "source": "CNews",
+      "pubDate": "2026-09-23T07:42:00.000Z"
+    },
     {
       "title": "Сравнение GPT6-Astra и Opus 5.5 в разработке игры «Ну, погоди!» («Электроника ИМ-02»)",
       "link": "https://habr.com/ru/articles/1085494/?utm_campaign=1085494&utm_source=habrahabr&utm_medium=rss",
@@ -1699,108 +1801,6 @@
       "link": "https://3dnews.ru/1147898/alibaba-znachitelno-uluchshila-iimodel-qwen38max-za-schyot-doobucheniya",
       "source": "3DNews",
       "pubDate": "2026-09-03T07:25:00.000Z"
-    },
-    {
-      "title": "OpenAI сообщила о разработке системы «автоматического экстренного отключения» ИИ",
-      "link": "https://3dnews.ru/1147893/openai-soobshchila-o-razrabotke-sistemi-avtomaticheskogo-ekstrennogo-otklyucheniya-ii",
-      "source": "3DNews",
-      "pubDate": "2026-09-03T05:59:00.000Z"
-    },
-    {
-      "title": "Google выпустила ИИ-модель Gemini 3.8 Flash и её спецверсию Cyber — всего через три недели после предшественниц",
-      "link": "https://3dnews.ru/1147873/google-vipustila-iimodel-gemini-38-flash-i-eyo-spetsversiyu-cyber-vsego-cherez-tri-nedeli-posle-predshestvennits",
-      "source": "3DNews",
-      "pubDate": "2026-09-02T16:00:00.000Z"
-    },
-    {
-      "title": "Создатель SteamDB продал сервис площадке Nexus Mods, потому что устал от ИИ в интернете",
-      "link": "https://3dnews.ru/1147865/sozdatel-steamdb-prodal-servis-ploshchadke-nexus-mods-potomu-chto-ustal-ot-ii-v-internete",
-      "source": "3DNews",
-      "pubDate": "2026-09-02T15:07:00.000Z"
-    },
-    {
-      "title": "Массовые увольнения из-за ИИ, возможно, уже закончились",
-      "link": "https://3dnews.ru/1147863/massovie-uvolneniya-izza-ii-vozmogno-uge-zakonchilis",
-      "source": "3DNews",
-      "pubDate": "2026-09-02T14:40:00.000Z"
-    },
-    {
-      "title": "Представлена ИИ-модель M**a Muse Voice Transcribe для расшифровки речи",
-      "link": "https://3dnews.ru/1147839/predstavlena-iimodel-meta-muse-voice-transcribe-dlya-rasshifrovki-rechi",
-      "source": "3DNews",
-      "pubDate": "2026-09-02T10:10:00.000Z"
-    },
-    {
-      "title": "OpenAI: грядущая ИИ-модель Astra станет первой с «критическим» уровнем возможностей в сфере кибербезопасности",
-      "link": "https://3dnews.ru/1147832/openai-gryadushchaya-iimodel-astra-stanet-pervoy-s-kriticheskim-urovnem-vozmognostey-v-sfere-kiberbezopasnosti",
-      "source": "3DNews",
-      "pubDate": "2026-09-02T09:56:00.000Z"
-    },
-    {
-      "title": "«Алисе» дадут полный карт-бланш. Нейросеть «Яндекса» получит доступ к банковским приложениям и персональным данным россиян",
-      "link": "https://www.cnews.ru/news/top/2026-09-02_alise_dadut_kart-blansh",
-      "source": "CNews",
-      "pubDate": "2026-09-02T09:40:00.000Z"
-    },
-    {
-      "title": "Власти собираются ввести льготы для разработчиков ИИ. Планируют налоговые вычеты до 20 миллиардов на каждую компанию",
-      "link": "https://www.cnews.ru/news/top/2026-09-02_gosudarstvo_podderzhit_rublem",
-      "source": "CNews",
-      "pubDate": "2026-09-02T07:03:00.000Z"
-    },
-    {
-      "title": "Минцифры РФ потребует особых привилегий для «Алисы AI» на мобильных устройствах",
-      "link": "https://3dnews.ru/1147818/mintsifri-rf-potrebuet-osobih-privilegiy-dlya-alisi-ai-na-mobilnih-ustroystvah",
-      "source": "3DNews",
-      "pubDate": "2026-09-02T06:31:00.000Z"
-    },
-    {
-      "title": "Gemini научился запоминать, куда пользователь положил вещи — искать ключи и документы теперь можно без трекеров",
-      "link": "https://3dnews.ru/1147808/gemini-nauchilsya-zapominat-kuda-polzovatel-pologil-veshchi-iskat-klyuchi-i-dokumenti-teper-mogno-bez-trekerov",
-      "source": "3DNews",
-      "pubDate": "2026-09-01T20:46:00.000Z"
-    },
-    {
-      "title": "Sonos попытается вернуть доверие пользователей с помощью ИИ-агентов — представлена ОС Sonos 27 для аудиосистем",
-      "link": "https://3dnews.ru/1147796/sonos-popitaetsya-vernut-doverie-polzovateley-s-pomoshchyu-iiagentov-predstavlena-os-sonos-27-dlya-audiosistem",
-      "source": "3DNews",
-      "pubDate": "2026-09-01T15:57:00.000Z"
-    },
-    {
-      "title": "Anthropic вновь разрешила ИИ-моделям атаковать реальные компании в рамках тестов — но теперь с усиленной защитой",
-      "link": "https://3dnews.ru/1147788/anthropic-vnov-razreshila-iimodelyam-atakovat-realnie-kompanii-v-ramkah-testov-no-teper-s-usilennoy-zashchitoy",
-      "source": "3DNews",
-      "pubDate": "2026-09-01T15:03:00.000Z"
-    },
-    {
-      "title": "OpenClaw обновился до версии 2.0 — запуск ИИ-агентов стал проще, а управлять ими теперь могут сразу несколько человек",
-      "link": "https://3dnews.ru/1147735/openclaw-obnovilsya-do-versii-20-zapusk-iiagentov-stal-proshche-a-upravlyat-imi-teper-mogut-srazu-neskolko-chelovek",
-      "source": "3DNews",
-      "pubDate": "2026-08-31T18:20:00.000Z"
-    },
-    {
-      "title": "ЕС поставил ChatGPT в один ряд с крупнейшими онлайн-платформами — ответственность OpenAI возрастёт",
-      "link": "https://3dnews.ru/1147725/es-postavil-chatgpt-v-odin-ryad-s-krupneyshimi-onlaynplatformami-otvetstvennost-openai-vozrastyot",
-      "source": "3DNews",
-      "pubDate": "2026-08-31T14:54:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты OpenAI не просто взломали Hugging Face — они создали тайную организацию, заметали следы и были готовы к самопожертвованию",
-      "link": "https://3dnews.ru/1147690/iiagenti-openai-ne-prosto-vzlomali-hugging-face-oni-sozdali-taynuyu-organizatsiyu-zametali-sledi-i-bili-gotovi-k-samopogertvovaniyu",
-      "source": "3DNews",
-      "pubDate": "2026-08-30T14:39:00.000Z"
-    },
-    {
-      "title": "Южная Корея обеспечит всех граждан страны безлимитным доступом к генеративным ИИ-сервисам",
-      "link": "https://3dnews.ru/1147676/yugnaya-koreya-obespechit-vseh-gragdan-strani-bezlimitnim-dostupom-k-generativnim-iiservisam",
-      "source": "3DNews",
-      "pubDate": "2026-08-29T18:17:00.000Z"
-    },
-    {
-      "title": "Война Маска и Альтмана добралась до Cursor — купленный SpaceX сервис лишится моделей OpenAI",
-      "link": "https://3dnews.ru/1147664/voyna-maska-i-altmana-dobralas-do-cursor-kuplenniy-spacex-servis-lishitsya-modeley-openai",
-      "source": "3DNews",
-      "pubDate": "2026-08-29T09:12:00.000Z"
     }
   ]
 }
