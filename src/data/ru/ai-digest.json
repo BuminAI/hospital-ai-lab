@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-09-23T15:00:46.060Z",
+  "updatedAt": "2026-09-24T00:29:38.087Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Хакер поручил ИИ-агентам взламывать интернет-магазины — украдены данные более 600 тыс. банковских карт",
+      "link": "https://3dnews.ru/1148945/haker-poruchil-iiagentam-vzlamivat-internetmagazini-ukradeni-dannie-bolee-600-tis-bankovskih-kart",
+      "source": "3DNews",
+      "pubDate": "2026-09-23T20:39:00.000Z"
+    },
+    {
+      "title": "Google выпустила ИИ-модели для синтеза речи Gemini 3.8 Flash TTS, которые умеют клонировать голос",
+      "link": "https://3dnews.ru/1148941/google-vipustila-iimodeli-dlya-sinteza-rechi-gemini-38-flash-tts-kotorie-umeyut-klonirovat-golos",
+      "source": "3DNews",
+      "pubDate": "2026-09-23T17:55:00.000Z"
+    },
+    {
+      "title": "Как ИИ‑агенты ищут работу и конкурируют за заказы на платформе iLands. И почему это проблема для людей‑фрилансеров",
+      "link": "https://habr.com/ru/articles/1085876/?utm_campaign=1085876&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-23T17:25:52.000Z"
+    },
     {
       "title": "Сколько ресурсов ест ИИ‑агент на сервере: замеры на двадцати агентах",
       "link": "https://habr.com/ru/articles/1085800/?utm_campaign=1085800&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://3dnews.ru/1147928/kitayskie-iikompanii-massovo-doyat-claude-dlya-obucheniya-svoih-modeley-v-hod-idut-tisyachi-akkauntov-i-darknet",
       "source": "3DNews",
       "pubDate": "2026-09-03T15:32:00.000Z"
-    },
-    {
-      "title": "«Яндекс» разработает оркестратор для ИИ-моделей",
-      "link": "https://3dnews.ru/1147918/yandeks-razrabotaet-orkestrator-dlya-iimodeley",
-      "source": "3DNews",
-      "pubDate": "2026-09-03T13:04:00.000Z"
-    },
-    {
-      "title": "США, Китай и ещё 18 стран неожиданно договорились о правилах для ИИ — но до настоящего регулирования далеко",
-      "link": "https://3dnews.ru/1147915/ssha-kitay-i-eshchyo-18-stran-neogidanno-dogovorilis-o-pravilah-dlya-ii-no-do-nastoyashchego-regulirovaniya-daleko",
-      "source": "3DNews",
-      "pubDate": "2026-09-03T12:26:00.000Z"
-    },
-    {
-      "title": "Alibaba значительно улучшила ИИ-модель Qwen3.8-Max за счёт дообучения",
-      "link": "https://3dnews.ru/1147898/alibaba-znachitelno-uluchshila-iimodel-qwen38max-za-schyot-doobucheniya",
-      "source": "3DNews",
-      "pubDate": "2026-09-03T07:25:00.000Z"
     }
   ]
 }
