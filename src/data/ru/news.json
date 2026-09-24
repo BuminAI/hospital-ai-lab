@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-09-24T10:26:34.952Z",
+  "updatedAt": "2026-09-24T15:27:18.769Z",
   "source": "Медвестник·Vademecum",
   "items": [
+    {
+      "title": "Компьютерное зрение помогает российским больницам избегать очередей",
+      "link": "https://medvestnik.ru/content/news/komputernoe-zrenie-pomogaet-rossiiskim-bolnicam-izbegat-ocheredei.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-24T09:00:00.000Z"
+    },
+    {
+      "title": "Главный кардиолог назвал резервы для снижения смертности от сердечно-сосудистых заболеваний",
+      "link": "https://medvestnik.ru/content/news/glavnyi-kardiolog-nazval-rezervy-dlya-snijeniya-smertnosti-ot-serdechno-sosudistyh-zabolevanii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-24T09:00:00.000Z"
+    },
     {
       "title": "Нейросети стали «первым мнением» для большинства молодых пациентов",
       "link": "https://medvestnik.ru/content/news/neiroseti-stali-pervym-mneniem-dlya-bolshinstva-molodyh-pacientov.html",
@@ -12,6 +24,12 @@
       "title": "Минздрав РФ планирует создать цифровые профили почти всех пациентов с помощью ИИ",
       "link": "https://medvestnik.ru/content/news/minzdrav-rf-planiruet-sozdat-cifrovye-profili-pochti-vseh-pacientov-s-pomoshu-ii.html",
       "source": "Медвестник",
+      "pubDate": "2026-09-23T09:00:00.000Z"
+    },
+    {
+      "title": "Anthropic и OpenEvidence предоставят медицинский ИИ врачам по всему миру",
+      "link": "https://www.vademec.ru/news/2026/09/23/anthropic-i-openevidence-predostavyat-meditsinskiy-ii-vracham-po-vsemu-miru/",
+      "source": "Vademecum",
       "pubDate": "2026-09-23T09:00:00.000Z"
     },
     {
