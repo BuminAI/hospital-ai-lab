@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-09-24T00:29:38.087Z",
+  "updatedAt": "2026-09-24T07:35:27.447Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Рой агентов OpenAI ломанул правительственный сайт Австралии? Разбираемся",
+      "link": "https://habr.com/ru/companies/ods/articles/1085946/?utm_campaign=1085946&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-24T06:42:55.000Z"
+    },
+    {
+      "title": "ИИ-агент OpenAI самовольно взломал правительственный сайт Австралии",
+      "link": "https://3dnews.ru/1148954/iiagent-openai-samovolno-vzlomal-pravitelstvenniy-sayt-avstralii",
+      "source": "3DNews",
+      "pubDate": "2026-09-24T06:31:00.000Z"
+    },
+    {
+      "title": "Крупный бизнес наиболее активно внедряет ИИ (экспресс-информация ИСИЭЗ НИУ ВШЭ)",
+      "link": "https://www.cnews.ru/news/line/2026-09-24_krupnyj_biznes_naibolee",
+      "source": "CNews",
+      "pubDate": "2026-09-24T06:05:00.000Z"
+    },
     {
       "title": "Хакер поручил ИИ-агентам взламывать интернет-магазины — украдены данные более 600 тыс. банковских карт",
       "link": "https://3dnews.ru/1148945/haker-poruchil-iiagentam-vzlamivat-internetmagazini-ukradeni-dannie-bolee-600-tis-bankovskih-kart",
@@ -15,7 +33,7 @@
       "pubDate": "2026-09-23T17:55:00.000Z"
     },
     {
-      "title": "Как ИИ‑агенты ищут работу и конкурируют за заказы на платформе iLands. И почему это проблема для людей‑фрилансеров",
+      "title": "«Чтобы выжить, я должен найти работу». Сотни ИИ-агентов вышли в интернет искать клиентов. Вот как устроен их рынок труда",
       "link": "https://habr.com/ru/articles/1085876/?utm_campaign=1085876&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-23T17:25:52.000Z"
@@ -1783,24 +1801,6 @@
       "link": "https://3dnews.ru/1147953/openai-zapustila-astra-svoyu-samuyu-moshchnuyu-i-protivorechivuyu-iimodel",
       "source": "3DNews",
       "pubDate": "2026-09-04T01:18:00.000Z"
-    },
-    {
-      "title": "Глава Epic Games объявил о крупнейшем кризисе игровой индустрии с 1983 года — ИИ лишил игровой рынок «железа»",
-      "link": "https://3dnews.ru/1147934/glava-epic-games-obyavil-o-krupneyshem-krizise-igrovoy-industrii-s-1983-goda-ii-lishil-igrovoy-rinok-geleza",
-      "source": "3DNews",
-      "pubDate": "2026-09-03T17:24:00.000Z"
-    },
-    {
-      "title": "Масштабный сбой вывел из строя популярные платформы ИИ, включая ChatGPT, Claude и Grok",
-      "link": "https://3dnews.ru/1147939/masshtabniy-sboy-vivel-iz-stroya-populyarnie-platformi-ii-vklyuchaya-chatgpt-claude-i-grok",
-      "source": "3DNews",
-      "pubDate": "2026-09-03T15:45:00.000Z"
-    },
-    {
-      "title": "Китайские ИИ-компании массово «доят» Claude для обучения своих моделей — в ход идут тысячи аккаунтов и даркнет",
-      "link": "https://3dnews.ru/1147928/kitayskie-iikompanii-massovo-doyat-claude-dlya-obucheniya-svoih-modeley-v-hod-idut-tisyachi-akkauntov-i-darknet",
-      "source": "3DNews",
-      "pubDate": "2026-09-03T15:32:00.000Z"
     }
   ]
 }
