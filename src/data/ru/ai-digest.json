@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-09-24T15:04:51.806Z",
+  "updatedAt": "2026-09-25T07:46:55.158Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Grok 4.7, GPT-6 Astra, Claude и китайские модели, кто эффективнее?",
+      "link": "https://habr.com/ru/articles/1086496/?utm_campaign=1086496&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-25T07:17:04.000Z"
+    },
+    {
+      "title": "С обновлением Gemini 3.8 Live у ИИ-моделей Google появилось лицо",
+      "link": "https://3dnews.ru/1149018/s-obnovleniem-gemini-38-live-u-iimodeley-google-poyavilos-litso",
+      "source": "3DNews",
+      "pubDate": "2026-09-25T05:15:00.000Z"
+    },
     {
       "title": "«Яндекс» сделал огромную инвестицию в ИТ-решение для борьбы с опасными проявлениями ИИ",
       "link": "https://www.cnews.ru/news/top/2026-09-24_yandeks_vlozhil_milliardy",
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-08_eme_vypustila_sistemu_upravleniya",
       "source": "CNews",
       "pubDate": "2026-09-08T15:27:00.000Z"
-    },
-    {
-      "title": "Исследование «Почта Mail» и «Наука Mail»: 70% россиян уверены, что профессию программиста не заменит ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-08_issledovanie_pochta_mail",
-      "source": "CNews",
-      "pubDate": "2026-09-08T13:42:00.000Z"
-    },
-    {
-      "title": "Представлена «Алиса AI» для бизнеса",
-      "link": "https://3dnews.ru/1148143/predstavlena-alisa-ai-dlya-biznesa",
-      "source": "3DNews",
-      "pubDate": "2026-09-08T12:34:00.000Z"
     }
   ]
 }
