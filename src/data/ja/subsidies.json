@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T03:07:11.056Z",
+  "updatedAt": "2026-09-25T13:38:41.505Z",
   "items": [
     {
       "id": "a0WJ200000CDWQzMAP",
@@ -132,6 +132,18 @@
       "area": "東京都",
       "startDate": "2026-04-14T15:00:00.000Z",
       "endDate": "2026-11-30T14:59:00.000Z"
+    },
+    {
+      "id": "a0WJ200000CDVm7MAH",
+      "title": "令和７年度病院勤務者勤務環境改善事業・救急医療体制強化事業",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDVm7MAH",
+      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "1/2（施設・設備整備事業は2/3）",
+      "area": "東京都",
+      "startDate": "2025-10-29T00:00:00.000Z",
+      "endDate": "2026-12-31T14:59:00.000Z"
     },
     {
       "id": "a0WJ200000CDap3MAD",
