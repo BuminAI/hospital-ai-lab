@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-09-25T15:15:23.008Z",
+  "updatedAt": "2026-09-26T00:37:17.709Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Способ, как можно скачать сгенерированные ИИ 3D модели без подписки или оплаты",
+      "link": "https://habr.com/ru/articles/1086860/?utm_campaign=1086860&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-25T23:25:59.000Z"
+    },
+    {
+      "title": "ИИ-модели Astra и Opus расшифровали два сообщения «Энигмы», над которыми люди бились десятилетиями",
+      "link": "https://3dnews.ru/1149076/iimodeli-astra-i-opus-rasshifrovali-dva-soobshcheniya-enigmi-nad-kotorimi-lyudi-bilis-desyatiletiyami",
+      "source": "3DNews",
+      "pubDate": "2026-09-25T21:06:00.000Z"
+    },
+    {
+      "title": "Amazon запретила ИИ-агенту M**a Muse совершать покупки и сделает то же с аналогами от Google и OpenAI",
+      "link": "https://3dnews.ru/1149068/amazon-zapretila-iiagentu-meta-muse-sovershat-pokupki-i-sdelaet-to-ge-s-analogami-ot-google-i-openai",
+      "source": "3DNews",
+      "pubDate": "2026-09-25T16:21:00.000Z"
+    },
+    {
+      "title": "M**a нашла слабое место OpenAI — ИИ-агент Muse стремительно набирает популярность",
+      "link": "https://3dnews.ru/1149065/meta-nashla-slaboe-mesto-openai-iiagent-muse-stremitelno-nabiraet-populyarnost",
+      "source": "3DNews",
+      "pubDate": "2026-09-25T16:20:00.000Z"
+    },
+    {
+      "title": "Бесплатные AI-агенты для программирования в 2026 году: что действительно можно использовать бесплатно",
+      "link": "https://habr.com/ru/articles/1086812/?utm_campaign=1086812&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-25T16:19:07.000Z"
+    },
+    {
+      "title": "ИИ-ботнет с функциями червя захватывает Docker-хосты. Признак атаки — неожиданная активность Telegram",
+      "link": "https://www.cnews.ru/news/top/2026-09-25_ii-botnet_s_funktsiyami_chervya",
+      "source": "CNews",
+      "pubDate": "2026-09-25T15:30:00.000Z"
+    },
     {
       "title": "Microsoft перезапустила Copilot как суперприложение с чатом, агентами и вайб-кодингом — ИИ должен повторить успех Office",
       "link": "https://3dnews.ru/1149061/microsoft-perezapustila-copilot-kak-superprilogenie-s-chatom-agentami-i-vaybkodingom-ii-dolgen-povtorit-uspeh-office",
@@ -1765,42 +1801,6 @@
       "link": "https://habr.com/ru/articles/1080212/?utm_campaign=1080212&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-09T13:38:47.000Z"
-    },
-    {
-      "title": "ИИ-агент Meta получил доступ к почте, покупкам и платежам. В тестах он обошел запрет и открыл чужие фото",
-      "link": "https://habr.com/ru/articles/1080384/?utm_campaign=1080384&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-09T13:27:48.000Z"
-    },
-    {
-      "title": "Как подружить расширение Claude Code для VSCode с моделями и подпиской OpenAI",
-      "link": "https://habr.com/ru/articles/1080366/?utm_campaign=1080366&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-09T13:13:46.000Z"
-    },
-    {
-      "title": "ИИ-агенты все помнят. И это плохо",
-      "link": "https://habr.com/ru/companies/selectel/articles/1076786/?utm_campaign=1076786&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-09T12:00:40.000Z"
-    },
-    {
-      "title": "Программист ИИ Claude бежал из бизнеса из-за «угрозы человечеству»",
-      "link": "https://www.cnews.ru/news/top/2026-09-09_programmist_claude_pokinul",
-      "source": "CNews",
-      "pubDate": "2026-09-09T11:56:00.000Z"
-    },
-    {
-      "title": "Bell Integrator fabricaONE.AI реализовала проект по анализу и оптимизации чат-бота для крупной сети медицинских клиник",
-      "link": "https://www.cnews.ru/news/line/2026-09-09_bell_integrator_fabricaoneai_realizovala",
-      "source": "CNews",
-      "pubDate": "2026-09-09T11:20:00.000Z"
-    },
-    {
-      "title": "«МТС Линк»: летом нижегородский бизнес сделал ставку на онлайн‑встречи и ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-09_mts_link_letom_nizhegorodskij",
-      "source": "CNews",
-      "pubDate": "2026-09-09T10:59:00.000Z"
     }
   ]
 }
