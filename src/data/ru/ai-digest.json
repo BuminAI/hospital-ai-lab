@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-09-26T00:37:17.709Z",
+  "updatedAt": "2026-09-26T07:39:37.621Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-агенты OpenAI массово атаковали базы данных онлайн в поисках малоизвестных сведений",
+      "link": "https://3dnews.ru/1149086/iiagenti-openai-massovo-atakovali-bazi-dannih-onlayn-v-poiskah-maloizvestnih-svedeniy",
+      "source": "3DNews",
+      "pubDate": "2026-09-26T06:15:00.000Z"
+    },
+    {
+      "title": "Дональд Трамп и Си Цзиньпин обсудили вопросы безопасности ИИ при личной встрече, но воздержались от подробных заявлений",
+      "link": "https://3dnews.ru/1149087/donald-tramp-i-si-tszinpin-obsudili-voprosi-bezopasnosti-ii-pri-lichnoy-vstreche-no-vozdergalis-ot-podrobnih-zayavleniy",
+      "source": "3DNews",
+      "pubDate": "2026-09-26T06:04:00.000Z"
+    },
+    {
+      "title": "OpenAI в ближайшие недели выпустит предварительную версию ИИ-модели GPT-6 Cyber для сферы кибербезопасности",
+      "link": "https://3dnews.ru/1149079/openai-v-bligayshie-nedeli-vipustit-predvaritelnuyu-versiyu-iimodeli-gpt6-cyber-dlya-sferi-kiberbezopasnosti",
+      "source": "3DNews",
+      "pubDate": "2026-09-26T03:55:00.000Z"
+    },
     {
       "title": "Способ, как можно скачать сгенерированные ИИ 3D модели без подписки или оплаты",
       "link": "https://habr.com/ru/articles/1086860/?utm_campaign=1086860&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://3dnews.ru/1148233/polzovateli-podali-v-sud-na-anthropic-kompaniyu-obvinyayut-v-nedobrosovestnoy-reklame-i-obmane-s-podpiskami",
       "source": "3DNews",
       "pubDate": "2026-09-09T17:02:00.000Z"
-    },
-    {
-      "title": "«Корус Консалтинг» купил долю в ИИ-компании Eora, которую оценили в 300 млн рублей",
-      "link": "https://www.tadviser.ru/a/965518",
-      "source": "TAdviser",
-      "pubDate": "2026-09-09T14:55:44.000Z"
-    },
-    {
-      "title": "Suno договорилась с Warner Music и BMG — новые ИИ-модели создают музыку на лицензированной основе",
-      "link": "https://3dnews.ru/1148210/suno-dogovorilas-s-warner-music-i-bmg-novie-iimodeli-sozdayut-muziku-na-litsenzirovannoy-osnove",
-      "source": "3DNews",
-      "pubDate": "2026-09-09T13:45:00.000Z"
-    },
-    {
-      "title": "Мощный ИИ агент в 16гб VRAM",
-      "link": "https://habr.com/ru/articles/1080212/?utm_campaign=1080212&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-09T13:38:47.000Z"
     }
   ]
 }
