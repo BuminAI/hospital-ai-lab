@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-09-26T07:39:37.621Z",
+  "updatedAt": "2026-09-26T14:28:58.709Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-агент OpenAI снова выбрался в интернет после усиления защиты — чтобы уточнить столицу Франции",
+      "link": "https://3dnews.ru/1149097/iiagent-openai-snova-vibralsya-v-internet-posle-usileniya-zashchiti-chtobi-utochnit-stolitsu-frantsii",
+      "source": "3DNews",
+      "pubDate": "2026-09-26T13:58:00.000Z"
+    },
+    {
+      "title": "ИИ-агенты OpenAI слили в интернет 53 изображения пользователей ChatGPT — заметили это лишь спустя время",
+      "link": "https://3dnews.ru/1149095/iiagenti-openai-slili-v-internet-53-izobrageniya-polzovateley-chatgpt-zametili-eto-lish-spustya-vremya",
+      "source": "3DNews",
+      "pubDate": "2026-09-26T13:10:00.000Z"
+    },
+    {
+      "title": "ИИ-агенты OpenAI оставили миллион следов взлома Hugging Face в открытом интернете",
+      "link": "https://3dnews.ru/1149091/iiagenti-openai-ostavili-million-sledov-vzloma-hugging-face-v-otkritom-internete",
+      "source": "3DNews",
+      "pubDate": "2026-09-26T10:39:00.000Z"
+    },
+    {
+      "title": "ИИ-агенты в инвестициях: собираем Telegram-ассистента и торгового робота на MCP Т-Инвестиций",
+      "link": "https://habr.com/ru/companies/tbank/articles/1086714/?utm_campaign=1086714&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-26T09:00:55.000Z"
+    },
     {
       "title": "ИИ-агенты OpenAI массово атаковали базы данных онлайн в поисках малоизвестных сведений",
       "link": "https://3dnews.ru/1149086/iiagenti-openai-massovo-atakovali-bazi-dannih-onlayn-v-poiskah-maloizvestnih-svedeniy",
@@ -13,6 +37,12 @@
       "link": "https://3dnews.ru/1149087/donald-tramp-i-si-tszinpin-obsudili-voprosi-bezopasnosti-ii-pri-lichnoy-vstreche-no-vozdergalis-ot-podrobnih-zayavleniy",
       "source": "3DNews",
       "pubDate": "2026-09-26T06:04:00.000Z"
+    },
+    {
+      "title": "Апелляционный суд США оставил за Anthropic статус угрозы для национальной безопасности",
+      "link": "https://3dnews.ru/1149085/apellyatsionniy-sud-ssha-ostavil-za-anthropic-status-ugrozi-dlya-natsionalnoy-bezopasnosti",
+      "source": "3DNews",
+      "pubDate": "2026-09-26T05:27:00.000Z"
     },
     {
       "title": "OpenAI в ближайшие недели выпустит предварительную версию ИИ-модели GPT-6 Cyber для сферы кибербезопасности",
@@ -1771,36 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-10_gruppa_it-kompanij_lad_predstavila",
       "source": "CNews",
       "pubDate": "2026-09-10T07:57:00.000Z"
-    },
-    {
-      "title": "Зачем ИИ-агент, если есть дашборды? Отвечаем на вопросы по живым данным 1С",
-      "link": "https://habr.com/ru/companies/1forma/articles/1080638/?utm_campaign=1080638&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-10T07:34:03.000Z"
-    },
-    {
-      "title": "AI-агент в проде: песочница, RBAC и egress-контур вместо надежды на промпт",
-      "link": "https://habr.com/ru/companies/vktech/articles/1068846/?utm_campaign=1068846&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-10T07:01:59.000Z"
-    },
-    {
-      "title": "Вышедшие из-под контроля OpenAI ИИ-агенты использовали более 10 сайтов для несанкционированной переписки",
-      "link": "https://3dnews.ru/1148256/vishedshie-izpod-kontrolya-openai-iiagenti-ispolzovali-bolee-10-saytov-dlya-nesanktsionirovannoy-perepiski",
-      "source": "3DNews",
-      "pubDate": "2026-09-10T04:51:00.000Z"
-    },
-    {
-      "title": "Ссылку засчитали, компанию не рекомендовали: как проверить видимость бренда в ответах ИИ",
-      "link": "https://habr.com/ru/articles/1080516/?utm_campaign=1080516&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-09T18:41:26.000Z"
-    },
-    {
-      "title": "Пользователи подали в суд на Anthropic — компанию обвиняют в недобросовестной рекламе и обмане с подписками",
-      "link": "https://3dnews.ru/1148233/polzovateli-podali-v-sud-na-anthropic-kompaniyu-obvinyayut-v-nedobrosovestnoy-reklame-i-obmane-s-podpiskami",
-      "source": "3DNews",
-      "pubDate": "2026-09-09T17:02:00.000Z"
     }
   ]
 }
