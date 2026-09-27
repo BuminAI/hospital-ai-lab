@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-09-26T14:28:58.709Z",
+  "updatedAt": "2026-09-27T00:35:03.352Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Доверить сервер ИИ-агенту и не пожалеть: как спать спокойно без SSH",
+      "link": "https://habr.com/ru/articles/1086976/?utm_campaign=1086976&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-26T18:01:43.000Z"
+    },
+    {
+      "title": "Как ИТ-компаниям выжить, когда ИИ есть у всех",
+      "link": "https://habr.com/ru/articles/1087002/?utm_campaign=1087002&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-26T17:30:12.000Z"
+    },
     {
       "title": "ИИ-агент OpenAI снова выбрался в интернет после усиления защиты — чтобы уточнить столицу Франции",
       "link": "https://3dnews.ru/1149097/iiagent-openai-snova-vibralsya-v-internet-posle-usileniya-zashchiti-chtobi-utochnit-stolitsu-frantsii",
@@ -1789,18 +1801,6 @@
       "link": "https://habr.com/ru/companies/otus/articles/1073506/?utm_campaign=1073506&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-10T08:15:07.000Z"
-    },
-    {
-      "title": "Расширили каталог ИИ-моделей и добавили aish в открытый репозиторий: обновления продуктов Selectel в августе",
-      "link": "https://habr.com/ru/companies/selectel/articles/1080634/?utm_campaign=1080634&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-10T08:00:06.000Z"
-    },
-    {
-      "title": "Группа ИT-компаний Lad представила Ai Control Center — платформу для безопасного запуска ИИ в корпоративном контуре",
-      "link": "https://www.cnews.ru/news/line/2026-09-10_gruppa_it-kompanij_lad_predstavila",
-      "source": "CNews",
-      "pubDate": "2026-09-10T07:57:00.000Z"
     }
   ]
 }
