@@ -1,4 +1,4 @@
-// 글별 OG 이미지 자동 생성 (/og/<글 id>.png)
+// 글별 OG 이미지 자동 생성 (/og/<글 id>.png, 언어판은 /og/<접두어>/<글 id>.png)
 //
 // 카톡·슬랙·X에 글을 공유할 때 뜨는 미리보기 이미지를 글마다 따로 만든다.
 // 예전에는 전 페이지가 public/og-default.png 하나를 썼다. (2026-07-27 오너 승인으로 도입)
@@ -24,17 +24,32 @@
 // (4) 로고는 public/logo.png가 아니다
 //     그 파일은 이 저장소에 없다. 없는 경로를 주면 ENOENT 예외로 **빌드가 죽는다**.
 //     실재하는 apple-touch-icon.png를 쓴다.
+//
+// ⚠️ (6) 2026-09-27 — 러시아어·인도네시아어판만 추가하고, 일본어·대만어판은 추가하지 않는다.
+//     Pretendard는 한글·라틴·키릴은 지원하지만 한자(칸지·정체자)는 대부분 지원하지 않는다.
+//     실제로 ja/tw 글 제목으로 렌더링해 보니 한자 부분이 전부 두부(□)로 나왔다(RU·ID는
+//     정상). 그래서 ja/tw는 지금 이 파일에 넣지 않고 기존처럼 /og-default.png를 그대로
+//     쓴다 — 본문에 사용자에게 보고했듯, 별도의 CJK 폰트 자산(예: Noto Sans JP/TC)을
+//     구해 넣기 전까지는 건드리지 않는다(레포에 폰트 파일을 새로 추가하는 일이라 오너
+//     확인 없이 진행하지 않는 편이 안전하다). 나중에 폰트를 추가하면 아래에 ja/tw를
+//     같은 방식으로 이어 붙이면 된다.
 import { OGImageRoute } from 'astro-og-canvas';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog', ({ data }) => !data.draft);
+const ruPosts = await getCollection('blogRu', ({ data }) => !data.draft);
+const idPosts = await getCollection('blogId', ({ data }) => !data.draft);
 
-const pages = Object.fromEntries(
-  posts.map((post) => [
-    post.id,
-    { title: post.data.title, description: post.data.description },
-  ])
-);
+const entry = (post: { id: string; data: { title: string; description: string } }) => [
+  post.id,
+  { title: post.data.title, description: post.data.description },
+] as const;
+
+const pages = Object.fromEntries([
+  ...posts.map(entry),
+  ...ruPosts.map((post) => [`ru/${post.id}`, { title: post.data.title, description: post.data.description }] as const),
+  ...idPosts.map((post) => [`id/${post.id}`, { title: post.data.title, description: post.data.description }] as const),
+]);
 
 // ⚠️ (5) `OGImageRoute`는 async 함수라 **await가 필수**다.
 //     지시서 예제에는 await가 없는데, 그러면 Promise를 구조분해해 getStaticPaths가

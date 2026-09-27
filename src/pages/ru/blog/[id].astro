@@ -41,6 +41,10 @@ const seriesItems = seriesOfPost(await getResolvedSeries('ru'), post.id);
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const canonicalUrl = `${siteUrl}${withBase(`/ru/blog/${post.id}/`)}`;
 
+// 글별 OG 이미지(2026-09-27 추가) — src/pages/og/[...route].ts가 만든다.
+const ogImagePath = `/og/ru/${post.id}.png`;
+const ogImageUrl = Astro.site ? new URL(withBase(ogImagePath), Astro.site).href : withBase(ogImagePath);
+
 // 수정일 — 이 글 파일의 마지막 git 커밋 시각(ko blog/[id].astro와 같은 방식).
 let dateModifiedIso = post.data.pubDate.toISOString();
 try {
@@ -67,6 +71,7 @@ const blogPosting = {
   datePublished: post.data.pubDate.toISOString(),
   dateModified: dateModifiedIso,
   articleSection: post.data.category,
+  image: ogImageUrl,
   author: { '@id': `${siteUrl}/#person` },
   publisher: { '@id': `${siteUrl}/#organization` },
   isPartOf: { '@id': `${siteUrl}/#website-ru` },
@@ -96,6 +101,10 @@ const blogPosting = {
   koPath="/blog/"
   standalone
   updated={new Date(dateModifiedIso)}
+  ogType="article"
+  pubDate={post.data.pubDate}
+  category={post.data.category}
+  ogImage={ogImagePath}
   schema={[blogPosting]}
 >
   <div class="ru-post-meta">

@@ -42,6 +42,11 @@ const seriesItems = seriesOfPost(await getResolvedSeries('ja'), post.id);
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const canonicalUrl = `${siteUrl}${withBase(`/ja/blog/${post.id}/`)}`;
 
+// OG画像 — 日本語版は専用の記事別画像をまだ持たない(Pretendardフォントが漢字を
+// カバーしないため。2026-09-27の検証で確認、src/pages/og/[...route].tsの注記参照)。
+// 共通画像(/og-default.png)はJaLayoutが自動で使うので、ここでは指定しない。
+const ogImageUrl = `${siteUrl}${withBase('/og-default.png')}`;
+
 // 更新日 — 이 글 파일의 마지막 git 커밋 시각(ko/ru blog/[id].astro와 같은 방식).
 let dateModifiedIso = post.data.pubDate.toISOString();
 try {
@@ -68,6 +73,7 @@ const blogPosting = {
   datePublished: post.data.pubDate.toISOString(),
   dateModified: dateModifiedIso,
   articleSection: post.data.category,
+  image: ogImageUrl,
   author: { '@id': `${siteUrl}/#person` },
   publisher: { '@id': `${siteUrl}/#organization` },
   isPartOf: { '@id': `${siteUrl}/#website-ja` },
@@ -97,6 +103,9 @@ const blogPosting = {
   koPath="/blog/"
   standalone
   updated={new Date(dateModifiedIso)}
+  ogType="article"
+  pubDate={post.data.pubDate}
+  category={post.data.category}
   schema={[blogPosting]}
 >
   <div class="ja-post-meta">

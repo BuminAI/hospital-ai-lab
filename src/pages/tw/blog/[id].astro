@@ -41,6 +41,11 @@ const seriesItems = seriesOfPost(await getResolvedSeries('tw'), post.id);
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const canonicalUrl = `${siteUrl}${withBase(`/tw/blog/${post.id}/`)}`;
 
+// OG 圖片 — 繁體中文版尚未有專屬的逐篇圖片(Pretendard 字型不涵蓋漢字，
+// 2026-09-27 測試確認，詳見 src/pages/og/[...route].ts 的說明)。
+// TwLayout 會自動使用共用圖片(/og-default.png)，這裡不另外指定。
+const ogImageUrl = `${siteUrl}${withBase('/og-default.png')}`;
+
 // 수정일 — 이 글 파일의 마지막 git 커밋 시각(ko blog/[id].astro와 같은 방식).
 let dateModifiedIso = post.data.pubDate.toISOString();
 try {
@@ -67,6 +72,7 @@ const blogPosting = {
   datePublished: post.data.pubDate.toISOString(),
   dateModified: dateModifiedIso,
   articleSection: post.data.category,
+  image: ogImageUrl,
   author: { '@id': `${siteUrl}/#person` },
   publisher: { '@id': `${siteUrl}/#organization` },
   isPartOf: { '@id': `${siteUrl}/#website-tw` },
@@ -96,6 +102,9 @@ const blogPosting = {
   koPath="/blog/"
   standalone
   updated={new Date(dateModifiedIso)}
+  ogType="article"
+  pubDate={post.data.pubDate}
+  category={post.data.category}
   schema={[blogPosting]}
 >
   <div class="tw-post-meta">

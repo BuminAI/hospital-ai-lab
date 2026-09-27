@@ -38,6 +38,8 @@ interface Props {
   pubDate?: Date;
   /** article일 때 분류(카테고리) */
   category?: string;
+  /** article일 때 수정일(og:article:modified_time·2026-09-27 추가). 없으면 안 낸다. */
+  dateModified?: Date;
   /**
    * 소셜 공유 이미지 경로(사이트 루트 기준, 예: '/og/2026-07-05-foo.png').
    * 넘기지 않으면 사이트 공통 이미지(/og-default.png)를 쓴다.
@@ -62,6 +64,7 @@ const {
   ogType = 'website',
   pubDate,
   category,
+  dateModified,
   schema = [],
   ogImage: ogImagePath,
 } = Astro.props;
@@ -205,6 +208,19 @@ const webPage = {
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {
+      /* 검색결과 스니펫·이미지 크기를 제한하지 않는다(2026-09-27). 구글 기본값은
+         스니펫·이미지 미리보기를 줄여서 보여줄 수 있는데, 이 지시자를 주면 구글이
+         임의로 줄이지 않는다(https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag). */
+    }
+    {
+      !noindex && (
+        <meta
+          name="robots"
+          content="max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+      )
+    }
+    {
       NAVER_SITE_VERIFICATION && (
         <meta name="naver-site-verification" content={NAVER_SITE_VERIFICATION} />
       )
@@ -307,6 +323,11 @@ const webPage = {
     {
       ogType === 'article' && pubDate && (
         <meta property="article:published_time" content={pubDate.toISOString()} />
+      )
+    }
+    {
+      ogType === 'article' && dateModified && (
+        <meta property="article:modified_time" content={dateModified.toISOString()} />
       )
     }
     {ogType === 'article' && category && <meta property="article:section" content={category} />}
