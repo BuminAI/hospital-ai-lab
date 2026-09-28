@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-09-27T15:09:14.180Z",
+  "updatedAt": "2026-09-28T00:44:23.114Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Глаз стрекозы: практическая технология исследования с ИИ",
+      "link": "https://habr.com/ru/articles/1087250/?utm_campaign=1087250&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-27T20:56:26.000Z"
+    },
+    {
+      "title": "ИИ уже сам планирует кибератаки — OpenAI, Anthropic и Google наняли стартап для поиска «злого» поведения моделей",
+      "link": "https://3dnews.ru/1149116/ii-uge-sam-planiruet-kiberataki-openai-anthropic-i-google-nanyali-startap-dlya-poiska-zlogo-povedeniya-modeley",
+      "source": "3DNews",
+      "pubDate": "2026-09-27T17:48:00.000Z"
+    },
     {
       "title": "OpenAI приостановила обучение ИИ-моделей — расследуются десятки тысяч инцидентов с выходом ИИ из-под контроля",
       "link": "https://3dnews.ru/1149115/openai-priostanovila-obuchenie-iimodeley-rassleduyutsya-desyatki-tisyach-intsidentov-s-vihodom-ii-izpod-kontrolya",
@@ -1789,18 +1801,6 @@
       "link": "https://3dnews.ru/1148277/openai-potrebovala-vvesti-obyazatelnie-obshchenatsionalnie-normi-bezopasnosti-ii-v-ssha",
       "source": "3DNews",
       "pubDate": "2026-09-10T09:30:00.000Z"
-    },
-    {
-      "title": "Наш бенчмарк ИИ‑агентов: собачьи бега моделей LLM, в которых Алиса выигрывает",
-      "link": "https://habr.com/ru/articles/1080744/?utm_campaign=1080744&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-10T09:19:43.000Z"
-    },
-    {
-      "title": "Runtime‑контроль ИИ‑агентов: единица контроля не модель, а действие",
-      "link": "https://habr.com/ru/companies/infera_security/articles/1080536/?utm_campaign=1080536&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-10T09:01:12.000Z"
     }
   ]
 }
