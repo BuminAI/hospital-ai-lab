@@ -1,12 +1,24 @@
 {
-  "updatedAt": "2026-09-27T17:19:17.956Z",
+  "updatedAt": "2026-09-28T05:56:17.528Z",
   "source": "科技新報·中央社·健康醫療網",
   "items": [
+    {
+      "title": "AI 從電子病歷挖出膀胱癌警訊，部分訊號最早確診前五年就出現",
+      "link": "https://technews.tw/2026/09/28/ai-detects-hidden-bladder-cancer-warning-signs-up-to-5-years-before-diagnosis/",
+      "source": "科技新報",
+      "pubDate": "2026-09-28T05:00:30.000Z"
+    },
     {
       "title": "中國首座「AI 眼科門診」實測，直擊醫療 AI 落地的三大痛點",
       "link": "https://technews.tw/2026/09/27/china-test-ai-eye-clinic/",
       "source": "科技新報",
       "pubDate": "2026-09-27T07:00:52.000Z"
+    },
+    {
+      "title": "壓力不只影響情緒！醫揭腦健康警訊 AI腦波提供輔助",
+      "link": "https://www.healthnews.com.tw/article/69821",
+      "source": "健康醫療網",
+      "pubDate": "2026-09-24T01:00:00.000Z"
     },
     {
       "title": "縮短研發陣痛、提早揪出病灶，AI 助攻癌症醫療的三大關鍵",
