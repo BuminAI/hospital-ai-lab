@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-09-28T00:44:23.114Z",
+  "updatedAt": "2026-09-28T08:41:04.008Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "В России разработан инструмент, позволяющий квантовым компьютерам обучать нейросети в 300 раз быстрее обычных систем",
+      "link": "https://www.tadviser.ru/a/106978",
+      "source": "TAdviser",
+      "pubDate": "2026-09-28T08:37:47.000Z"
+    },
+    {
+      "title": "«Сбер2B» запустил ИИ-агента для закупок",
+      "link": "https://www.cnews.ru/news/line/2026-09-28_sber2b_zapustil_ii-agenta",
+      "source": "CNews",
+      "pubDate": "2026-09-28T08:27:00.000Z"
+    },
+    {
+      "title": "ИИ-агенты GigaCowork будут работать с данными глобального финансового рынка Cbonds",
+      "link": "https://www.cnews.ru/news/line/2026-09-28_ii-agenty_gigacowork_budut_rabotat",
+      "source": "CNews",
+      "pubDate": "2026-09-28T08:19:00.000Z"
+    },
+    {
+      "title": "coMind запустил ИИ-переход в компании «ФК Гранд Капитал»",
+      "link": "https://www.cnews.ru/news/line/2026-09-28_comind_zapustil_ii-perehod_v",
+      "source": "CNews",
+      "pubDate": "2026-09-28T07:40:00.000Z"
+    },
+    {
+      "title": "Как мы с вами будем платить больше налогов, а также битва за регулирование AI: главное за неделю",
+      "link": "https://habr.com/ru/articles/1086938/?utm_campaign=1086938&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-28T04:52:25.000Z"
+    },
+    {
+      "title": "Агенты OpenAI предпринимали попытки атаки на один из сайтов ООН на протяжении нескольких месяцев",
+      "link": "https://3dnews.ru/1149121/agenti-openai-predprinimali-popitki-ataki-na-odin-iz-saytov-oon-na-protyagenii-neskolkih-mesyatsev",
+      "source": "3DNews",
+      "pubDate": "2026-09-28T04:06:00.000Z"
+    },
     {
       "title": "Глаз стрекозы: практическая технология исследования с ИИ",
       "link": "https://habr.com/ru/articles/1087250/?utm_campaign=1087250&utm_source=habrahabr&utm_medium=rss",
@@ -1765,42 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-10_ot_riskov_k_razvitiyu_utechki",
       "source": "CNews",
       "pubDate": "2026-09-10T10:49:00.000Z"
-    },
-    {
-      "title": "«Сбер» разработал новую нейросеть с режимом рассуждения",
-      "link": "https://www.cnews.ru/news/line/2026-09-10_sber_razrabotal_novuyu",
-      "source": "CNews",
-      "pubDate": "2026-09-10T10:47:00.000Z"
-    },
-    {
-      "title": "Когда разработчики ленятся писать документацию: описываем клиентский API силами нейросетей",
-      "link": "https://habr.com/ru/companies/hostkey/articles/1077728/?utm_campaign=1077728&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-10T10:42:42.000Z"
-    },
-    {
-      "title": "Gmonit представила новую функцию доступа ИИ-агентов к данным мониторинга через MCP",
-      "link": "https://www.cnews.ru/news/line/2026-09-10_gmonit_predstavila_novuyu_funktsiyu",
-      "source": "CNews",
-      "pubDate": "2026-09-10T10:10:00.000Z"
-    },
-    {
-      "title": "ATN Cyber Security Fest 2026: в Краснодаре обсудят, как меняется кибербезопасность в эпоху ИИ",
-      "link": "https://www.tadviser.ru/a/965548",
-      "source": "TAdviser",
-      "pubDate": "2026-09-10T09:54:36.000Z"
-    },
-    {
-      "title": "«Погибнет большинство людей»: новый эксперт OpenAI по безопасности предрёк катастрофу в случае выхода ИИ из-под контроля",
-      "link": "https://3dnews.ru/1148282/pogibnet-bolshinstvo-lyudey-noviy-ekspert-openai-po-bezopasnosti-predryok-katastrofu-v-sluchae-vihoda-ii-izpod-kontrolya",
-      "source": "3DNews",
-      "pubDate": "2026-09-10T09:50:00.000Z"
-    },
-    {
-      "title": "OpenAI потребовала ввести обязательные общенациональные нормы безопасности ИИ в США",
-      "link": "https://3dnews.ru/1148277/openai-potrebovala-vvesti-obyazatelnie-obshchenatsionalnie-normi-bezopasnosti-ii-v-ssha",
-      "source": "3DNews",
-      "pubDate": "2026-09-10T09:30:00.000Z"
     }
   ]
 }

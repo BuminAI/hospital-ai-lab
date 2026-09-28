@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-09-28T00:44:51.313Z",
+  "updatedAt": "2026-09-28T08:41:39.404Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Penggunaan AI Cina Melonjak, DeepSeek hingga Alibaba Makin Dilirik",
+      "link": "https://katadata.co.id/digital/teknologi/6aba27e58ebab/penggunaan-ai-cina-melonjak-deepseek-hingga-alibaba-makin-dilirik",
+      "source": "Katadata",
+      "pubDate": "2026-09-28T08:40:00.000Z"
+    },
+    {
+      "title": "Iklan OpenAI Meluas ke RI, Pengguna ChatGPT Berbayar Ikut Kena?",
+      "link": "https://uzone.id/iklan-openai-meluas-ke-ri-pengguna-chatgpt-berbayar-ikut-kena",
+      "source": "Uzone",
+      "pubDate": "2026-09-28T08:07:56.000Z"
+    },
+    {
+      "title": "Perusahaan AI Hadapi Puluhan Ribu Insiden Keamanan Berpotensi Kriminal",
+      "link": "https://mediaindonesia.com/teknologi/938352/perusahaan-ai-hadapi-puluhan-ribu-insiden-keamanan-berpotensi-kriminal",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-28T08:00:00.000Z"
+    },
+    {
+      "title": "Tergeser AI, Lulusan Jurusan Bergengsi Kini Kesulitan Cari Kerja",
+      "link": "https://inet.detik.com/cyberlife/d-8682537/tergeser-ai-lulusan-jurusan-bergengsi-kini-kesulitan-cari-kerja",
+      "source": "detikINET",
+      "pubDate": "2026-09-28T07:15:29.000Z"
+    },
     {
       "title": "Setelah Australia, Agen OpenAI Bobol Website Pemerintah AS",
       "link": "https://inet.detik.com/cyberlife/d-8681962/setelah-australia-agen-openai-bobol-website-pemerintah-as",
@@ -43,6 +67,18 @@
       "link": "https://uzone.id/microsoft-pelan-pelan-tinggalkan-branding-copilot-pc",
       "source": "Uzone",
       "pubDate": "2026-09-27T06:30:00.000Z"
+    },
+    {
+      "title": "Lebih dari 230 Juta HP Murah bakal Hilang di Pasar Akibat AI",
+      "link": "https://www.liputan6.com/tekno/read/8300233/lebih-dari-230-juta-hp-murah-bakal-hilang-di-pasar-akibat-ai",
+      "source": "Liputan6",
+      "pubDate": "2026-09-27T04:59:32.000Z"
+    },
+    {
+      "title": "AI Claude Patahkan Masalah Matematika yang Jadi Misteri Selama 87 Tahun",
+      "link": "https://www.liputan6.com/tekno/read/8300331/ai-claude-patahkan-masalah-matematika-yang-jadi-misteri-selama-87-tahun",
+      "source": "Liputan6",
+      "pubDate": "2026-09-27T02:52:50.000Z"
     },
     {
       "title": "Ini Daftar AI dan Kegunaannya untuk Bantu Belajar Lebih Efektif",
@@ -1765,42 +1801,6 @@
       "link": "https://katadata.co.id/digital/teknologi/6aa3d251dc6b3/ai-bikin-kebutuhan-listrik-korea-selatan-melonjak-setara-20-reaktor-nuklir",
       "source": "Katadata",
       "pubDate": "2026-09-11T10:05:00.000Z"
-    },
-    {
-      "title": "Anthropic Tindak Tegas Ilmuwan yang Gunakan Claude untuk Riset Senjata Biologis",
-      "link": "https://www.liputan6.com/tekno/read/8289590/anthropic-tindak-tegas-ilmuwan-yang-gunakan-claude-untuk-riset-senjata-biologis",
-      "source": "Liputan6",
-      "pubDate": "2026-09-11T08:06:37.000Z"
-    },
-    {
-      "title": "AI Superintelligence Diprediksi Bisa Bunuh Manusia pada 2030",
-      "link": "https://uzone.id/ai-superintelligence-diprediksi-bisa-bunuh-manusia-pada-2030",
-      "source": "Uzone",
-      "pubDate": "2026-09-11T08:00:00.000Z"
-    },
-    {
-      "title": "Foto Wajah Kini Bisa Dipakai untuk Cek Kehidupan hingga Pekerjaan Orang Pakai AI",
-      "link": "https://katadata.co.id/digital/teknologi/6aa3afb8a432f/foto-wajah-kini-bisa-dipakai-untuk-cek-kehidupan-hingga-pekerjaan-orang-pakai-ai",
-      "source": "Katadata",
-      "pubDate": "2026-09-11T07:37:00.000Z"
-    },
-    {
-      "title": "AS Tuduh DeepSeek dan Alibaba Asal Cina Tiru Teknologi Google dan ChatGPT",
-      "link": "https://katadata.co.id/digital/teknologi/6aa39b7ced7be/as-tuduh-deepseek-dan-alibaba-asal-cina-tiru-teknologi-google-dan-chatgpt",
-      "source": "Katadata",
-      "pubDate": "2026-09-11T06:11:00.000Z"
-    },
-    {
-      "title": "Rahasia Ikan Medaka Bertahan di Suhu Dingin Terungkap Lewat Bantuan AI",
-      "link": "https://mediaindonesia.com/humaniora/932201/rahasia-ikan-medaka-bertahan-di-suhu-dingin-terungkap-lewat-bantuan-ai",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-11T05:15:00.000Z"
-    },
-    {
-      "title": "Apple Watch Series 12 dan Ultra 4 Diperkuat Chip S11 Berteknologi AI, Berapa Harganya?",
-      "link": "https://www.liputan6.com/tekno/read/8289082/apple-watch-series-12-dan-ultra-4-diperkuat-chip-s11-berteknologi-ai-berapa-harganya",
-      "source": "Liputan6",
-      "pubDate": "2026-09-11T05:06:41.000Z"
     }
   ]
 }
