@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-09-28T18:09:47.510Z",
+  "updatedAt": "2026-09-29T08:28:32.384Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Guardrails для ИИ-агента на Go: от инструкций к автоматическим проверкам",
+      "link": "https://habr.com/ru/articles/1087322/?utm_campaign=1087322&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T08:25:30.000Z"
+    },
+    {
+      "title": "Globus подтвердил эффективность ИИ-платформы «Контекст» отраслевыми пилотами",
+      "link": "https://www.cnews.ru/news/line/2026-09-29_globus_podtverdil_effektivnost",
+      "source": "CNews",
+      "pubDate": "2026-09-29T08:02:00.000Z"
+    },
+    {
+      "title": "От чата c LLM к полноценному AI-агенту: пошаговая настройка OpenCode",
+      "link": "https://habr.com/ru/companies/selectel/articles/1087524/?utm_campaign=1087524&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T08:00:41.000Z"
+    },
+    {
+      "title": "OkoCRM запустила MCP-сервер для работы с ИИ-агентами",
+      "link": "https://www.cnews.ru/news/line/2026-09-29_okocrm_zapustila_mcp-server_dlya",
+      "source": "CNews",
+      "pubDate": "2026-09-29T07:58:00.000Z"
+    },
+    {
+      "title": "Кто отвечает за ИИ-агента: юридический контур цифрового сотрудника",
+      "link": "https://habr.com/ru/companies/lanit/articles/1087494/?utm_campaign=1087494&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T07:01:36.000Z"
+    },
+    {
+      "title": "OpenAI отменила выпуск ИИ-модели GPT-6.1 Astra из соображений безопасности",
+      "link": "https://3dnews.ru/1149182/openai-otmenila-vipusk-iimodeli-gpt61-astra-iz-soobrageniy-bezopasnosti",
+      "source": "3DNews",
+      "pubDate": "2026-09-29T07:00:00.000Z"
+    },
     {
       "title": "Образование vs ИИ",
       "link": "https://habr.com/ru/articles/1087682/?utm_campaign=1087682&utm_source=habrahabr&utm_medium=rss",
@@ -1765,42 +1801,6 @@
       "link": "https://habr.com/ru/companies/yandex/articles/1080654/?utm_campaign=1080654&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-11T06:05:13.000Z"
-    },
-    {
-      "title": "Многофункциональная система безопасности, «1С» и нейросети для горных работ. Как проходит цифровизация «Кузбассразрезугля»",
-      "link": "https://www.tadviser.ru/a/501041",
-      "source": "TAdviser",
-      "pubDate": "2026-09-11T06:00:00.000Z"
-    },
-    {
-      "title": "7 дней новостей ИИ (05.09.26…11.09.26): пока вы спали, вышло ещё три модели",
-      "link": "https://habr.com/ru/companies/gptunnel/articles/1081094/?utm_campaign=1081094&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T05:36:46.000Z"
-    },
-    {
-      "title": "Ищем lateral movement нейросетью, обученной на синтетических данных",
-      "link": "https://habr.com/ru/articles/1081092/?utm_campaign=1081092&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T05:34:18.000Z"
-    },
-    {
-      "title": "OpenAI готова замедлить гонку разработки ИИ, если конкуренты сделают то же самое",
-      "link": "https://3dnews.ru/1148324/openai-gotova-zamedlit-gonku-razrabotki-ii-esli-konkurenti-sdelayut-to-ge-samoe",
-      "source": "3DNews",
-      "pubDate": "2026-09-11T03:48:00.000Z"
-    },
-    {
-      "title": "Разработчик оставил Claude проводить исследование. Вернулся — и обнаружил, что ИИ запустил себе 16 виртуальных машин",
-      "link": "https://habr.com/ru/articles/1081006/?utm_campaign=1081006&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-10T17:55:04.000Z"
-    },
-    {
-      "title": "IBM и NASA выпустили ИИ-модель для изучения и освоения Луны",
-      "link": "https://3dnews.ru/1148307/ibm-i-nasa-vipustili-iimodel-dlya-izucheniya-i-osvoeniya-luni",
-      "source": "3DNews",
-      "pubDate": "2026-09-10T17:12:00.000Z"
     }
   ]
 }
