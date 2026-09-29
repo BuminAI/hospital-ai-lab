@@ -1,7 +1,85 @@
 {
-  "updatedAt": "2026-09-29T08:29:01.226Z",
+  "updatedAt": "2026-09-29T16:31:17.184Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "IOC luncurkan kerangka kerja AI terpercaya",
+      "link": "https://www.antaranews.com/berita/5764009/ioc-luncurkan-kerangka-kerja-ai-terpercaya",
+      "source": "ANTARA",
+      "pubDate": "2026-09-29T15:18:37.000Z"
+    },
+    {
+      "title": "AI Sebagai Pisau Bermata Dua: Memberi Risiko dan Peluang Bagi Lapangan Pekerjaan",
+      "link": "https://mediaindonesia.com/teknologi/938906/ai-sebagai-pisau-bermata-dua-memberi-risiko-dan-peluang-bagi-lapangan-pekerjaan",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-29T15:10:00.000Z"
+    },
+    {
+      "title": "OpenAI Batalkan Rilis GPT-6.1 Astra karena Bohongi Pengguna",
+      "link": "https://mediaindonesia.com/internasional/938910/openai-batalkan-rilis-gpt-61-astra-karena-bohongi-pengguna",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-29T14:15:00.000Z"
+    },
+    {
+      "title": "AMD Rogoh Rp 147 Triliun untuk AI yang Bisa Ciptakan Dunia 3D",
+      "link": "https://inet.detik.com/business/d-8684886/amd-rogoh-rp-147-triliun-untuk-ai-yang-bisa-ciptakan-dunia-3d",
+      "source": "detikINET",
+      "pubDate": "2026-09-29T13:15:41.000Z"
+    },
+    {
+      "title": "Galaxy S26 FE Punya AI Lebih Baru, Apa Bedanya dengan S25 FE?",
+      "link": "https://inet.detik.com/consumer/d-8684995/galaxy-s26-fe-punya-ai-lebih-baru-apa-bedanya-dengan-s25-fe",
+      "source": "detikINET",
+      "pubDate": "2026-09-29T13:03:46.000Z"
+    },
+    {
+      "title": "10 Cara AI Bekerja di Smartphone dan Laptop tanpa Disadari",
+      "link": "https://mediaindonesia.com/teknologi/938875/10-cara-ai-bekerja-di-smartphone-dan-laptop-tanpa-disadari",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-29T12:58:00.000Z"
+    },
+    {
+      "title": "Beginilah Cara AI Musnahkan Manusia dan tidak akan Disadari",
+      "link": "https://mediaindonesia.com/internasional/938878/beginilah-cara-ai-musnahkan-manusia-dan-tidak-akan-disadari",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-29T12:55:00.000Z"
+    },
+    {
+      "title": "Paus Leo Sindir Trump dan Bos Nvidia Karena Remehkan Ancaman AI",
+      "link": "https://inet.detik.com/cyberlife/d-8684687/paus-leo-sindir-trump-dan-bos-nvidia-karena-remehkan-ancaman-ai",
+      "source": "detikINET",
+      "pubDate": "2026-09-29T12:30:55.000Z"
+    },
+    {
+      "title": "Sonnet 5.5 Rilis, Anthropic Perkuat Keamanan AI dengan Perlindungan Baru",
+      "link": "https://www.liputan6.com/tekno/read/8301731/sonnet-55-rilis-anthropic-perkuat-keamanan-ai-dengan-perlindungan-baru",
+      "source": "Liputan6",
+      "pubDate": "2026-09-29T11:00:37.000Z"
+    },
+    {
+      "title": "Plaud Pasarkan Perangkat Transkripsi Berbasis AI, Bisa Bahasa Sunda dan Jawa",
+      "link": "https://katadata.co.id/digital/teknologi/6abb98a961d58/plaud-pasarkan-perangkat-transkripsi-berbasis-ai-bisa-bahasa-sunda-dan-jawa",
+      "source": "Katadata",
+      "pubDate": "2026-09-29T10:54:00.000Z"
+    },
+    {
+      "title": "Bos OpenAI dan Elon Musk Ketakutan, Zuckerberg Santai Kembangkan AI",
+      "link": "https://inet.detik.com/cyberlife/d-8684358/bos-openai-dan-elon-musk-ketakutan-zuckerberg-santai-kembangkan-ai",
+      "source": "detikINET",
+      "pubDate": "2026-09-29T10:20:45.000Z"
+    },
+    {
+      "title": "Berulah Lagi, Puluhan Foto User ChatGPT Bocor akibat Ulah Agen OpenAI",
+      "link": "https://uzone.id/berulah-lagi-puluhan-foto-user-chatgpt-bocor-akibat-ulah-agen-openai",
+      "source": "Uzone",
+      "pubDate": "2026-09-29T09:30:00.000Z"
+    },
+    {
+      "title": "Nvidia Luncurkan Platform Keamanan untuk Kendalikan Agen AI",
+      "link": "https://katadata.co.id/digital/teknologi/6abb821549f9b/nvidia-luncurkan-platform-keamanan-untuk-kendalikan-agen-ai",
+      "source": "Katadata",
+      "pubDate": "2026-09-29T09:17:00.000Z"
+    },
     {
       "title": "Komisaris KAI: Kemampuan manusia makin penting di era perkembangan AI",
       "link": "https://www.antaranews.com/berita/5762999/komisaris-kai-kemampuan-manusia-makin-penting-di-era-perkembangan-ai",
@@ -1723,84 +1801,6 @@
       "link": "https://katadata.co.id/digital/teknologi/6aa784977c187/bos-ai-kompak-minta-teknologi-direm-saham-cip-di-asia-langsung-anjlok",
       "source": "Katadata",
       "pubDate": "2026-09-14T05:22:00.000Z"
-    },
-    {
-      "title": "AI Mulai Menggerus Upah Pekerja, Fresh Graduate Paling Rentan",
-      "link": "https://katadata.co.id/digital/teknologi/6aa7755fe489d/ai-mulai-menggerus-upah-pekerja-fresh-graduate-paling-rentan",
-      "source": "Katadata",
-      "pubDate": "2026-09-14T04:17:00.000Z"
-    },
-    {
-      "title": "NASA dan IBM Rilis Model AI Terbuka untuk Petakan Rahasia Bulan",
-      "link": "https://mediaindonesia.com/teknologi/933062/nasa-dan-ibm-rilis-model-ai-terbuka-untuk-petakan-rahasia-bulan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-14T04:13:00.000Z"
-    },
-    {
-      "title": "Cina Ajak Indonesia dan Negara BRICS Bangun Kekuatan AI, Tak Hanya Jadi Pasar",
-      "link": "https://katadata.co.id/digital/teknologi/6aa7734824a48/cina-ajak-indonesia-dan-negara-brics-bangun-kekuatan-ai-tak-hanya-jadi-pasar",
-      "source": "Katadata",
-      "pubDate": "2026-09-14T04:08:00.000Z"
-    },
-    {
-      "title": "Trump Tolak Kekhawatiran AI, Tak Mau AS Kalah dari China",
-      "link": "https://inet.detik.com/cyberlife/d-8661624/trump-tolak-kekhawatiran-ai-tak-mau-as-kalah-dari-china",
-      "source": "detikINET",
-      "pubDate": "2026-09-14T03:15:44.000Z"
-    },
-    {
-      "title": "Mengapa Ilmuwan Anthropic dan OpenAI Takut pada Ciptaan Mereka?",
-      "link": "https://inet.detik.com/cyberlife/d-8661369/mengapa-ilmuwan-anthropic-dan-openai-takut-pada-ciptaan-mereka",
-      "source": "detikINET",
-      "pubDate": "2026-09-13T22:45:45.000Z"
-    },
-    {
-      "title": "AI tidak Selalu Benar, ini Alasan Mahasiswa Perlu Memeriksa Kembali Jawabannya",
-      "link": "https://mediaindonesia.com/teknologi/933001/ai-tidak-selalu-benar-ini-alasan-mahasiswa-perlu-memeriksa-kembali-jawabannya",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-13T15:05:00.000Z"
-    },
-    {
-      "title": "Kemenkeu Siapkan Sistem AI Khusus buat Lacak Kebocoran Pajak",
-      "link": "https://uzone.id/kemenkeu-siapkan-sistem-ai-khusus-buat-lacak-kebocoran-pajak",
-      "source": "Uzone",
-      "pubDate": "2026-09-13T14:00:00.000Z"
-    },
-    {
-      "title": "AI Bisa Bunuh Manusia? Peneliti Mulai Ketakutan",
-      "link": "https://www.liputan6.com/tekno/read/8290277/ai-bisa-bunuh-manusia-peneliti-mulai-ketakutan",
-      "source": "Liputan6",
-      "pubDate": "2026-09-13T11:13:04.000Z"
-    },
-    {
-      "title": "Peneliti perkenalkan agen AI ganda untuk penelitian material",
-      "link": "https://www.antaranews.com/berita/5738647/peneliti-perkenalkan-agen-ai-ganda-untuk-penelitian-material",
-      "source": "ANTARA",
-      "pubDate": "2026-09-13T07:13:26.000Z"
-    },
-    {
-      "title": "Band Muse Kehilangan Username Instagram dan X, Direbut AI Meta",
-      "link": "https://inet.detik.com/cyberlife/d-8660809/band-muse-kehilangan-username-instagram-dan-x-direbut-ai-meta",
-      "source": "detikINET",
-      "pubDate": "2026-09-13T06:36:26.000Z"
-    },
-    {
-      "title": "Bos Anthropic Usulkan Pengembangan AI Direm",
-      "link": "https://inet.detik.com/cyberlife/d-8660487/bos-anthropic-usulkan-pengembangan-ai-direm",
-      "source": "detikINET",
-      "pubDate": "2026-09-13T02:31:02.000Z"
-    },
-    {
-      "title": "Pakar Cemas AI Musnahkan Manusia, Trump Tidak Takut",
-      "link": "https://inet.detik.com/cyberlife/d-8660355/pakar-cemas-ai-musnahkan-manusia-trump-tidak-takut",
-      "source": "detikINET",
-      "pubDate": "2026-09-12T23:30:02.000Z"
-    },
-    {
-      "title": "15 Layanan AI Terpopuler di Dunia: ChatGPT Masih yang Paling Digemari",
-      "link": "https://uzone.id/15-layanan-ai-terpopuler-di-dunia-chatgpt-masih-yang-paling-digemari",
-      "source": "Uzone",
-      "pubDate": "2026-09-12T18:00:00.000Z"
     }
   ]
 }

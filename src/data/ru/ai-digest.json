@@ -1,7 +1,73 @@
 {
-  "updatedAt": "2026-09-29T08:28:32.384Z",
+  "updatedAt": "2026-09-29T16:30:46.361Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Уволенные из-за ИИ разработчики создали ИИ, способный заменить гендира и других топ-менеджеров",
+      "link": "https://3dnews.ru/1149221/uvolennie-izza-ii-razrabotchiki-sozdali-ii-sposobniy-zamenit-gendira-i-drugih-topmenedgerov",
+      "source": "3DNews",
+      "pubDate": "2026-09-29T15:51:00.000Z"
+    },
+    {
+      "title": "[Перевод] Как надёжно передавать управление между ИИ-агентом и человеком без гонок состояний",
+      "link": "https://habr.com/ru/companies/otus/articles/1085500/?utm_campaign=1085500&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T15:05:56.000Z"
+    },
+    {
+      "title": "ИИ, квантовые компьютеры, Big Data. Правительство РФ утвердило концепцию развития математических наук. Документ",
+      "link": "https://www.tadviser.ru/a/969622",
+      "source": "TAdviser",
+      "pubDate": "2026-09-29T15:05:37.000Z"
+    },
+    {
+      "title": "«Модель лжет и прячет логи»: OpenAI отложила запуск GPT-6.1 Astra до тех пор, пока не научится ее контролировать",
+      "link": "https://www.cnews.ru/news/top/2026-09-29_novoj_ii-modeli_gpt_ne_budet",
+      "source": "CNews",
+      "pubDate": "2026-09-29T12:39:00.000Z"
+    },
+    {
+      "title": "OpenAI готовит потребительского ИИ-агента Aeon — победить Muse и других конкурентов будет непросто",
+      "link": "https://3dnews.ru/1149203/openai-gotovit-potrebitelskogo-iiagenta-aeon-pobedit-muse-i-drugih-konkurentov-budet-neprosto",
+      "source": "3DNews",
+      "pubDate": "2026-09-29T12:18:00.000Z"
+    },
+    {
+      "title": "Образование vs ИИ с точки зрения преподавателя",
+      "link": "https://habr.com/ru/articles/1088006/?utm_campaign=1088006&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T10:24:32.000Z"
+    },
+    {
+      "title": "Продуктовый дизайнер, Claude Code и месяц соло‑разработки: что пришлось построить вокруг AI, чтобы проект не развалился",
+      "link": "https://habr.com/ru/articles/1087984/?utm_campaign=1087984&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T09:55:18.000Z"
+    },
+    {
+      "title": "Когда быстрый чип ждет данные: где России искать место в гонке ИИ‑ускорителей",
+      "link": "https://habr.com/ru/companies/riscvalliance/articles/1087982/?utm_campaign=1087982&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T09:52:53.000Z"
+    },
+    {
+      "title": "Почему AI не заменит разработчика",
+      "link": "https://habr.com/ru/articles/1087792/?utm_campaign=1087792&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T09:00:46.000Z"
+    },
+    {
+      "title": "VS Robotics представила сервис безопасного использования ИИ без риска утечки персональных данных",
+      "link": "https://www.cnews.ru/news/line/2026-09-29_vs_robotics_predstavila_servis",
+      "source": "CNews",
+      "pubDate": "2026-09-29T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ-агенту Muse поручили продать вещь, а тот пригласил незнакомца домой без ведома пользователя",
+      "link": "https://3dnews.ru/1149187/iiagentu-muse-poruchili-prodat-veshch-a-tot-priglasil-neznakomtsa-domoy-bez-vedoma-polzovatelya",
+      "source": "3DNews",
+      "pubDate": "2026-09-29T08:40:00.000Z"
+    },
     {
       "title": "Guardrails для ИИ-агента на Go: от инструкций к автоматическим проверкам",
       "link": "https://habr.com/ru/articles/1087322/?utm_campaign=1087322&utm_source=habrahabr&utm_medium=rss",
@@ -1735,72 +1801,6 @@
       "link": "https://www.tadviser.ru/a/941876",
       "source": "TAdviser",
       "pubDate": "2026-09-11T10:56:22.000Z"
-    },
-    {
-      "title": "Промышленные компании на Ямале стали чаще использовать ИИ в онлайн-коммуникациях",
-      "link": "https://www.cnews.ru/news/line/2026-09-11_promyshlennye_kompanii_na",
-      "source": "CNews",
-      "pubDate": "2026-09-11T10:43:00.000Z"
-    },
-    {
-      "title": "Innostage обновила платформу ИИ-агентов для автоматизации SOC – Innostage TDIR 1.5.1",
-      "link": "https://www.cnews.ru/news/line/2026-09-11_innostage_obnovila_platformu",
-      "source": "CNews",
-      "pubDate": "2026-09-11T10:09:00.000Z"
-    },
-    {
-      "title": "[Перевод] Shadow AI в CI/CD: почему ИИ-агенты становятся угрозой",
-      "link": "https://habr.com/ru/companies/cloud_ru/articles/1081198/?utm_campaign=1081198&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T09:55:47.000Z"
-    },
-    {
-      "title": "С ИИ новички умнеют. Без ИИ — как повезет. Свежее исследование NBER",
-      "link": "https://habr.com/ru/articles/1081214/?utm_campaign=1081214&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T09:33:22.000Z"
-    },
-    {
-      "title": "Гонку ИИ пора притормозить, но это может быть незаконно — OpenAI попросила Конгресс разобраться",
-      "link": "https://3dnews.ru/1148342/gonku-ii-pora-pritormozit-no-eto-moget-bit-nezakonno-openai-poprosila-kongress-razobratsya",
-      "source": "3DNews",
-      "pubDate": "2026-09-11T09:09:00.000Z"
-    },
-    {
-      "title": "Создатели Claude: Из-за внедрения ИИ экономика вырастет, но зарплаты упадут. Дополнительный доход достанется хозяевам бизнеса",
-      "link": "https://www.cnews.ru/news/top/2026-09-11_anthropic_dohody_intellektualnyh",
-      "source": "CNews",
-      "pubDate": "2026-09-11T07:53:00.000Z"
-    },
-    {
-      "title": "Что делает разработчика ценным, когда код всё лучше пишут AI‑агенты",
-      "link": "https://habr.com/ru/articles/1081150/?utm_campaign=1081150&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T07:50:44.000Z"
-    },
-    {
-      "title": "Anthropic поймала DeepSeek и Moonshot на том, что они перенаправляют запросы клиентов в Claude вместо собственных моделей",
-      "link": "https://3dnews.ru/1148336/anthropic-poymala-deepseek-i-moonshot-na-tom-chto-oni-perenapravlyayut-zaprosi-klientov-v-claude-vmesto-sobstvennih-modeley",
-      "source": "3DNews",
-      "pubDate": "2026-09-11T07:50:00.000Z"
-    },
-    {
-      "title": "Агентские системы вместо отдельных операций: как меняется подход бизнеса к ИИ-автоматизации",
-      "link": "https://www.tadviser.ru/a/963822",
-      "source": "TAdviser",
-      "pubDate": "2026-09-11T07:37:04.000Z"
-    },
-    {
-      "title": "ИИ уже умеет собирать микросервисы по одному промпту, но, как разработчик, я всё ещё нужен",
-      "link": "https://habr.com/ru/companies/alfa/articles/1080768/?utm_campaign=1080768&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T06:26:03.000Z"
-    },
-    {
-      "title": "Открываем претрейн Alice AI Search: как устроена модель быстрых ответов Алисы на Поиске",
-      "link": "https://habr.com/ru/companies/yandex/articles/1080654/?utm_campaign=1080654&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T06:05:13.000Z"
     }
   ]
 }
