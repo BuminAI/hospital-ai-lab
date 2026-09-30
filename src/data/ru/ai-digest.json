@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-09-30T01:17:38.322Z",
+  "updatedAt": "2026-09-30T08:32:34.667Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "5 проблем при внедрении ИИ в бизнесе: на что обратить внимание?",
+      "link": "https://habr.com/ru/companies/speshu_ai/articles/1088408/?utm_campaign=1088408&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-30T08:11:13.000Z"
+    },
+    {
+      "title": "TeamStorm добавил поддержку ИИ-агентов",
+      "link": "https://www.cnews.ru/news/line/2026-09-30_teamstorm_dobavil_podderzhku_ii-agentov",
+      "source": "CNews",
+      "pubDate": "2026-09-30T07:25:00.000Z"
+    },
+    {
+      "title": "Bell Integrator fabricaONE.AI приняла участие в проекте по расширению клиентских сервисов для юридических лиц в цифровом канале дистанционного обслуживания банка",
+      "link": "https://www.cnews.ru/news/line/2026-09-30_bell_integrator_fabricaoneai_prinyala",
+      "source": "CNews",
+      "pubDate": "2026-09-30T07:13:00.000Z"
+    },
+    {
+      "title": "Биллинговая платформа «айФлекс» обеспечивает прием платежей в новом ИИ-сервисе FinamX",
+      "link": "https://www.cnews.ru/news/line/2026-09-30_billingovaya_platforma_ajfleks",
+      "source": "CNews",
+      "pubDate": "2026-09-30T06:47:00.000Z"
+    },
+    {
+      "title": "Ученые НИУ ВШЭ — Санкт-Петербург нашли способ ускорения нейросетей при помощи микролазеров",
+      "link": "https://www.cnews.ru/news/line/2026-09-30_uchenye_niu_vshe_sankt-peterburg",
+      "source": "CNews",
+      "pubDate": "2026-09-30T06:02:00.000Z"
+    },
+    {
+      "title": "OpenAI своими новыми функциями бросила вызов традиционной модели магазинов приложений",
+      "link": "https://3dnews.ru/1149248/openai-s-novimi-funktsiyami-brosila-vizov-traditsionnoy-modeli-magazinov-prilogeniy",
+      "source": "3DNews",
+      "pubDate": "2026-09-30T06:00:00.000Z"
+    },
+    {
+      "title": "«Платформа Третье Мнение» привлечет 150 млн руб. на развитие медицинского ИИ через СберИнвестиции",
+      "link": "https://www.cnews.ru/news/line/2026-09-30_platforma_trete_mnenie",
+      "source": "CNews",
+      "pubDate": "2026-09-30T04:37:00.000Z"
+    },
     {
       "title": "OpenAI отвязала Codex от компьютера разработчика — ИИ получил постоянные облачные рабочие пространства",
       "link": "https://3dnews.ru/1149235/openai-otvyazala-codex-ot-kompyutera-razrabotchika-ii-poluchil-postoyannie-oblachnie-rabochie-prostranstva",
@@ -1759,48 +1801,6 @@
       "link": "https://habr.com/ru/articles/1081410/?utm_campaign=1081410&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-11T15:20:24.000Z"
-    },
-    {
-      "title": "Миллиарды на входе — миллиарды на выходе: ВТБ раскрыл годовые инвестиции во внедрение ИИ",
-      "link": "https://www.tadviser.ru/a/384088",
-      "source": "TAdviser",
-      "pubDate": "2026-09-11T15:08:06.000Z"
-    },
-    {
-      "title": "OpenAI ускорит научные исследования с помощью ИИ — первый «исследователь-стажёр» появится уже в сентябре",
-      "link": "https://3dnews.ru/1148364/openai-uskorit-nauchnie-issledovaniya-s-pomoshchyu-ii-perviy-issledovatelstagyor-poyavitsya-uge-v-sentyabre",
-      "source": "3DNews",
-      "pubDate": "2026-09-11T14:45:00.000Z"
-    },
-    {
-      "title": "Xiaomi выпустила ИИ-модель CocktailASR-1 для распознавания речи в шумных помещениях",
-      "link": "https://3dnews.ru/1148361/xiaomi-vipustila-iimodel-cocktailasr1-dlya-raspoznavaniya-rechi-v-shumnih-pomeshcheniyah",
-      "source": "3DNews",
-      "pubDate": "2026-09-11T14:43:00.000Z"
-    },
-    {
-      "title": "«Дочка» «Ростелекома» стала включать в договоры с ИТ-компаниями 30% неустойки за применение ИИ",
-      "link": "https://www.cnews.ru/news/top/2026-09-11_struktura_rostelekoma",
-      "source": "CNews",
-      "pubDate": "2026-09-11T14:27:00.000Z"
-    },
-    {
-      "title": "Ученые СПбГУ выяснили, какие психологические особенности человека способен воспроизводить ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-11_uchenye_spbgu_vyyasnilikakie",
-      "source": "CNews",
-      "pubDate": "2026-09-11T14:15:00.000Z"
-    },
-    {
-      "title": "Цукерберг хотел плоскую M**a, но ИИ всё изменил — пониженных сотрудников возвращают на руководящие должности",
-      "link": "https://3dnews.ru/1148359/tsukerberg-hotel-ploskuyu-meta-no-ii-vsyo-izmenil-ponigennih-sotrudnikov-vozvrashchayut-na-rukovodyashchie-dolgnosti",
-      "source": "3DNews",
-      "pubDate": "2026-09-11T13:44:00.000Z"
-    },
-    {
-      "title": "DLP для LLM: как обезличивать запросы и не ломать поиск по сотрудникам",
-      "link": "https://habr.com/ru/companies/agima/articles/1081356/?utm_campaign=1081356&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T13:38:47.000Z"
     }
   ]
 }

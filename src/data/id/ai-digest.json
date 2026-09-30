@@ -1,7 +1,85 @@
 {
-  "updatedAt": "2026-09-30T01:18:32.070Z",
+  "updatedAt": "2026-09-30T08:33:01.971Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Orang tua jadi tempat cerita yang aman agar anak tidak lari ke AI",
+      "link": "https://www.antaranews.com/berita/5764687/orang-tua-jadi-tempat-cerita-yang-aman-agar-anak-tidak-lari-ke-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-09-30T08:30:18.000Z"
+    },
+    {
+      "title": "Sepekan usai Diresmikan, Proyek Pusat Data AI Jatiluhur Disetop Sementara",
+      "link": "https://mediaindonesia.com/jabar/berita/939124/sepekan-usai-diresmikan-proyek-pusat-data-ai-jatiluhur-disetop-sementara",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-30T07:42:00.000Z"
+    },
+    {
+      "title": "AI dan Pusat Data Berisiko Perparah Krisis Iklim, Jadi Bahasan Utama di COP31",
+      "link": "https://katadata.co.id/ekonomi-hijau/investasi-hijau/6abcba93ee6e5/ai-dan-pusat-data-berisiko-perparah-krisis-iklim-jadi-bahasan-utama-di-cop31",
+      "source": "Katadata",
+      "pubDate": "2026-09-30T07:30:00.000Z"
+    },
+    {
+      "title": "5 Cara Membuat Wallpaper iPhone Unik dengan AI di iOS 27",
+      "link": "https://mediaindonesia.com/teknologi/939031/5-cara-membuat-wallpaper-iphone-unik-dengan-ai-di-ios-27",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-30T07:30:00.000Z"
+    },
+    {
+      "title": "OpenAI Tunda Peluncuran GPT-6.1 Astra, Terkuak Alasannya",
+      "link": "https://www.liputan6.com/tekno/read/8301701/openai-tunda-peluncuran-gpt-61-astra-terkuak-alasannya",
+      "source": "Liputan6",
+      "pubDate": "2026-09-30T07:12:04.000Z"
+    },
+    {
+      "title": "Silicon Valley Bikin Kampus AI, Kuliah 2 Tahun dan Tanpa Gelar",
+      "link": "https://inet.detik.com/cyberlife/d-8685906/silicon-valley-bikin-kampus-ai-kuliah-2-tahun-dan-tanpa-gelar",
+      "source": "detikINET",
+      "pubDate": "2026-09-30T06:56:51.000Z"
+    },
+    {
+      "title": "Cuma 1 Menit! Begini Cara Cegah ChatGPT hingga Gemini Pakai Data Kamu untuk Latih AI",
+      "link": "https://www.liputan6.com/tekno/read/8302242/cuma-1-menit-begini-cara-cegah-chatgpt-hingga-gemini-pakai-data-kamu-untuk-latih-ai",
+      "source": "Liputan6",
+      "pubDate": "2026-09-30T05:00:55.000Z"
+    },
+    {
+      "title": "Startup AI Termahal di Dunia Pilih Berkantor di Singapura",
+      "link": "https://inet.detik.com/business/d-8685363/startup-ai-termahal-di-dunia-pilih-berkantor-di-singapura",
+      "source": "detikINET",
+      "pubDate": "2026-09-30T04:45:47.000Z"
+    },
+    {
+      "title": "Wamendiktisaintek Stella Christie Tekankan Berpikir Kritis Hadapi AI di FEKDI x IFSE 2026",
+      "link": "https://mediaindonesia.com/humaniora/939070/wamendiktisaintek-stella-christie-tekankan-berpikir-kritis-hadapi-ai-di-fekdi-x-ifse-2026",
+      "source": "Media Indonesia",
+      "pubDate": "2026-09-30T03:54:00.000Z"
+    },
+    {
+      "title": "Deretan Orang Terkuat di Jagat AI Kumpul Bareng Trump, Ini Hasilnya",
+      "link": "https://inet.detik.com/cyberlife/d-8685424/deretan-orang-terkuat-di-jagat-ai-kumpul-bareng-trump-ini-hasilnya",
+      "source": "detikINET",
+      "pubDate": "2026-09-30T03:15:53.000Z"
+    },
+    {
+      "title": "AI Meta Muse Dilaporkan Bocorkan Alamat Rumah YouTuber",
+      "link": "https://inet.detik.com/cyberlife/d-8685359/ai-meta-muse-dilaporkan-bocorkan-alamat-rumah-youtuber",
+      "source": "detikINET",
+      "pubDate": "2026-09-30T02:45:57.000Z"
+    },
+    {
+      "title": "McKinsey Sebut AI Bisa Paksa 11 Juta Pekerja AS Berganti Profesi",
+      "link": "https://katadata.co.id/digital/teknologi/6abc66ed5aa61/mckinsey-sebut-ai-bisa-paksa-11-juta-pekerja-as-berganti-profesi",
+      "source": "Katadata",
+      "pubDate": "2026-09-30T01:33:00.000Z"
+    },
+    {
+      "title": "Riset Ungkap AI Bikin Kemampuan Siswa Menurun, CEO Nvidia Sebut Tidak Masalah",
+      "link": "https://katadata.co.id/digital/teknologi/6abc63ab1ff97/riset-ungkap-ai-bikin-kemampuan-siswa-menurun-ceo-nvidia-sebut-tidak-masalah",
+      "source": "Katadata",
+      "pubDate": "2026-09-30T01:04:00.000Z"
+    },
     {
       "title": "Riset Sebut AI Bikin Kemampuan Siswa Menurun, CEO Nvidia Menilai Tidak Masalah",
       "link": "https://katadata.co.id/digital/teknologi/6abc6049b7958/riset-sebut-ai-bikin-kemampuan-siswa-menurun-ceo-nvidia-menilai-tidak-masalah",
@@ -1723,84 +1801,6 @@
       "link": "https://katadata.co.id/finansial/bursa/6aa87f3941822/wall-street-lesu-saham-ai-rontok-hingga-7-usai-sorotan-keamanan-investasi",
       "source": "Katadata",
       "pubDate": "2026-09-14T23:11:00.000Z"
-    },
-    {
-      "title": "Teknologi Wireless Mulai Satukan Meeting, AI, AR hingga Drone",
-      "link": "https://mediaindonesia.com/teknologi/933411/teknologi-wireless-mulai-satukan-meeting-ai-ar-hingga-drone",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-14T22:20:00.000Z"
-    },
-    {
-      "title": "China dorong inisiatif AI \"open source\" dalam BRICS",
-      "link": "https://www.antaranews.com/berita/5741084/china-dorong-inisiatif-ai-open-source-dalam-brics",
-      "source": "ANTARA",
-      "pubDate": "2026-09-14T20:32:23.000Z"
-    },
-    {
-      "title": "1.400 UMKM Dibekali Strategi Digital dan Teknologi AI",
-      "link": "https://mediaindonesia.com/ekonomi/933362/1400-umkm-dibekali-strategi-digital-dan-teknologi-ai",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-14T15:01:00.000Z"
-    },
-    {
-      "title": "Tingkatkan Kesiapan AI Dukung Kapasitas Layanan Kesehatan",
-      "link": "https://mediaindonesia.com/humaniora/933352/tingkatkan-kesiapan-ai-dukung-kapasitas-layanan-kesehatan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-14T14:35:00.000Z"
-    },
-    {
-      "title": "iOS 27 Dirilis Nanti Malam, Bawa Siri AI dan Banyak Fitur Baru",
-      "link": "https://uzone.id/ios-27-dirilis-nanti-malam-bawa-siri-ai-dan-banyak-fitur-baru",
-      "source": "Uzone",
-      "pubDate": "2026-09-14T14:02:04.000Z"
-    },
-    {
-      "title": "AI Analisis Gerak Mulai Diperkenalkan untuk Sektor Olahraga dan Kesehatan",
-      "link": "https://mediaindonesia.com/teknologi/933330/ai-analisis-gerak-mulai-diperkenalkan-untuk-sektor-olahraga-dan-kesehatan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-14T13:07:00.000Z"
-    },
-    {
-      "title": "Sam Altman Peringatkan Bahaya AI: Kemajuan Pesat Dapat Berakhir Buruk",
-      "link": "https://mediaindonesia.com/teknologi/933306/sam-altman-peringatkan-bahaya-ai-kemajuan-pesat-dapat-berakhir-buruk",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-14T12:33:00.000Z"
-    },
-    {
-      "title": "Cara membedakan foto dan video AI dari konten asli",
-      "link": "https://www.antaranews.com/berita/5740583/cara-membedakan-foto-dan-video-ai-dari-konten-asli",
-      "source": "ANTARA",
-      "pubDate": "2026-09-14T12:28:41.000Z"
-    },
-    {
-      "title": "Jangan asal kirim foto ke AI, ini risiko privasinya",
-      "link": "https://www.antaranews.com/berita/5740436/jangan-asal-kirim-foto-ke-ai-ini-risiko-privasinya",
-      "source": "ANTARA",
-      "pubDate": "2026-09-14T11:56:23.000Z"
-    },
-    {
-      "title": "Fitur Meta AI yang Baru Dirilis: Kirim Email hingga Checkout Belanjaan",
-      "link": "https://uzone.id/fitur-meta-ai-yang-baru-dirilis-kirim-email-hingga-checkout-belanjaan",
-      "source": "Uzone",
-      "pubDate": "2026-09-14T10:30:00.000Z"
-    },
-    {
-      "title": "Telkom, XLSmart dan Indosat Berebut Bisnis Kabel Laut di Era AI",
-      "link": "https://katadata.co.id/digital/teknologi/6aa7ca376ab8a/telkom-xlsmart-dan-indosat-berebut-bisnis-kabel-laut-di-era-ai",
-      "source": "Katadata",
-      "pubDate": "2026-09-14T10:19:00.000Z"
-    },
-    {
-      "title": "Sepakat dengan Eks Karyawan, Bos Anthropic Akui AI Ancam Umat Manusia",
-      "link": "https://uzone.id/sepakat-dengan-eks-karyawan-bos-anthropic-akui-ai-ancam-umat-manusia",
-      "source": "Uzone",
-      "pubDate": "2026-09-14T09:14:55.000Z"
-    },
-    {
-      "title": "CapCut Gelar AI Content Fest 2026, Dorong Kreator Eksplorasi AI",
-      "link": "https://katadata.co.id/digital/teknologi/6aa7b38300b88/capcut-gelar-ai-content-fest-2026-dorong-kreator-eksplorasi-ai",
-      "source": "Katadata",
-      "pubDate": "2026-09-14T08:48:00.000Z"
     }
   ]
 }
