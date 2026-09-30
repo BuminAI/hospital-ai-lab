@@ -1,7 +1,73 @@
 {
-  "updatedAt": "2026-09-30T08:32:34.667Z",
+  "updatedAt": "2026-09-30T16:24:32.402Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-агент Muse без разрешения влез в личные сообщения пользователя — в M**a сказали, что тот сам виноват",
+      "link": "https://3dnews.ru/1149284/iiagent-muse-bez-razresheniya-vlez-v-lichnie-soobshcheniya-polzovatelya-v-meta-skazali-chto-tot-sam-vinovat",
+      "source": "3DNews",
+      "pubDate": "2026-09-30T15:51:00.000Z"
+    },
+    {
+      "title": "Дайджест ИБ, 23–29 сентября: OpenAI остановила свои модели, атака на «Додо Пиццу»",
+      "link": "https://habr.com/ru/articles/1088312/?utm_campaign=1088312&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-30T14:01:10.000Z"
+    },
+    {
+      "title": "BeeTechno: технологии нового технологического цикла — от инфраструктуры и ИИ до облаков и клиентских сервисов",
+      "link": "https://www.cnews.ru/news/line/2026-09-30_beetechno_tehnologii_novogo",
+      "source": "CNews",
+      "pubDate": "2026-09-30T13:18:00.000Z"
+    },
+    {
+      "title": "Откуда ИИ-модели берут топ компаний: в 62% ответов со ссылками есть чужая подборка",
+      "link": "https://habr.com/ru/articles/1088600/?utm_campaign=1088600&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-30T13:09:03.000Z"
+    },
+    {
+      "title": "Китайские ИИ-агенты научились лгать и фальсифицировать результаты — не хуже американских",
+      "link": "https://3dnews.ru/1149274/kitayskie-iiagenti-nauchilis-lgat-i-falsifitsirovat-rezultati-ne-huge-amerikanskih",
+      "source": "3DNews",
+      "pubDate": "2026-09-30T12:48:00.000Z"
+    },
+    {
+      "title": "Как мы 3+ года пытались подружить AI с разработкой: от провалов к Spec-Driven",
+      "link": "https://habr.com/ru/companies/cinimex/articles/1088534/?utm_campaign=1088534&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-30T12:09:55.000Z"
+    },
+    {
+      "title": "Зачем нейросети «обвязка»: как превратить LLM в рабочий AI-сервис",
+      "link": "https://habr.com/ru/companies/selectel/articles/1088444/?utm_campaign=1088444&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-30T12:00:25.000Z"
+    },
+    {
+      "title": "Генпрокуратура обозначила ключевые направления необходимого регулирования ИИ-агентов",
+      "link": "https://www.tadviser.ru/a/811626",
+      "source": "TAdviser",
+      "pubDate": "2026-09-30T11:40:22.000Z"
+    },
+    {
+      "title": "Год назад мы обсуждали, смогут ли ИИ-агенты взламывать сайты. Теперь считаем инциденты",
+      "link": "https://habr.com/ru/companies/syntx_ai/articles/1088520/?utm_campaign=1088520&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-30T11:25:40.000Z"
+    },
+    {
+      "title": "«Университет Иннополис» внедрит обучение ИИ-навыкам студентов-робототехников российских вузов",
+      "link": "https://www.cnews.ru/news/line/2026-09-30_universitet_innopolis",
+      "source": "CNews",
+      "pubDate": "2026-09-30T11:02:00.000Z"
+    },
+    {
+      "title": "Компания «Турбо Облако» запустила управляемую векторную базу данных для ИИ-проектов",
+      "link": "https://www.cnews.ru/news/line/2026-09-30_kompaniya_turbo_oblako",
+      "source": "CNews",
+      "pubDate": "2026-09-30T10:38:00.000Z"
+    },
     {
       "title": "5 проблем при внедрении ИИ в бизнесе: на что обратить внимание?",
       "link": "https://habr.com/ru/companies/speshu_ai/articles/1088408/?utm_campaign=1088408&utm_source=habrahabr&utm_medium=rss",
@@ -1735,72 +1801,6 @@
       "link": "https://www.cnews.ru/news/top/2026-09-11_igra_ne_stoit_svech_uvolennyh",
       "source": "CNews",
       "pubDate": "2026-09-14T07:17:00.000Z"
-    },
-    {
-      "title": "Конференция CNews «Интеллектуальный документооборот: ИИ, КЭДО и архивы в новой реальности» состоится 15 октября 2026 года",
-      "link": "https://www.cnews.ru/news/top/2026-09-14_konferentsiya_cnews_intellektualnyj",
-      "source": "CNews",
-      "pubDate": "2026-09-14T07:10:00.000Z"
-    },
-    {
-      "title": "Reasoning Lock: ИИ‑агент в проде тратит токены и молчит — живой разбор бага",
-      "link": "https://habr.com/ru/articles/1081780/?utm_campaign=1081780&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-13T17:26:51.000Z"
-    },
-    {
-      "title": "Перепеть песню и пересобрать код: почему это законно и что делать авторам в эпоху ИИ",
-      "link": "https://habr.com/ru/articles/1081768/?utm_campaign=1081768&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-13T16:50:58.000Z"
-    },
-    {
-      "title": "OpenAI не выйдет на IPO в этом году, поскольку считает момент неподходящим из-за ситуации с безопасностью ИИ",
-      "link": "https://3dnews.ru/1148406/openai-ne-viydet-na-ipo-v-etom-godu-poskolku-schitaet-moment-nepodhodyashchim-izza-situatsii-s-bezopasnostyu-ii",
-      "source": "3DNews",
-      "pubDate": "2026-09-13T03:33:00.000Z"
-    },
-    {
-      "title": "Скриншоты жгут токены, headless не залогинен: отдаём ИИ-агенту настоящий Chrome через accessibility-дерево",
-      "link": "https://habr.com/ru/articles/1081628/?utm_campaign=1081628&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-12T20:41:35.000Z"
-    },
-    {
-      "title": "Apple разработала ИИ-модель SimpleDesign для проектирования белков",
-      "link": "https://3dnews.ru/1148393/apple-razrabotala-iimodel-simpledesign-dlya-proektirovaniya-belkov",
-      "source": "3DNews",
-      "pubDate": "2026-09-12T10:22:00.000Z"
-    },
-    {
-      "title": "Cognition выпустила Fusion для Devin Desktop и CLI: две ИИ-модели делят одну задачу",
-      "link": "https://habr.com/ru/companies/koda/articles/1081524/?utm_campaign=1081524&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-12T09:23:44.000Z"
-    },
-    {
-      "title": "За два месяца до скандального взлома Hugging Face ИИ-агенты OpenAI атаковали RubyGems",
-      "link": "https://3dnews.ru/1148388/za-dva-mesyatsa-do-skandalnogo-vzloma-hugging-face-iiagenti-openai-atakovali-rubygems",
-      "source": "3DNews",
-      "pubDate": "2026-09-12T09:02:00.000Z"
-    },
-    {
-      "title": "Рой агентов OpenAI взломал еще один внешний сервис — RubyGems",
-      "link": "https://habr.com/ru/companies/ods/articles/1081508/?utm_campaign=1081508&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-12T08:41:21.000Z"
-    },
-    {
-      "title": "«Яндекс» сделал открытой ИИ-модель, на которой основаны быстрые ответы в её поисковике",
-      "link": "https://3dnews.ru/1148383/yandeks-sdelal-otkritoy-iimodel-na-kotoroy-osnovani-bistrie-otveti-v-eyo-poiskovike",
-      "source": "3DNews",
-      "pubDate": "2026-09-12T06:45:00.000Z"
-    },
-    {
-      "title": "AI меняет центр тяжести разработки",
-      "link": "https://habr.com/ru/articles/1081410/?utm_campaign=1081410&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T15:20:24.000Z"
     }
   ]
 }
