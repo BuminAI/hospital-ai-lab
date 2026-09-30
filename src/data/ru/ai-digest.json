@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-09-29T16:30:46.361Z",
+  "updatedAt": "2026-09-30T01:17:38.322Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "OpenAI отвязала Codex от компьютера разработчика — ИИ получил постоянные облачные рабочие пространства",
+      "link": "https://3dnews.ru/1149235/openai-otvyazala-codex-ot-kompyutera-razrabotchika-ii-poluchil-postoyannie-oblachnie-rabochie-prostranstva",
+      "source": "3DNews",
+      "pubDate": "2026-09-29T20:45:00.000Z"
+    },
+    {
+      "title": "Какие ИИ агенты выжили в симуляции мира в кризисе? Спойлер: самые примитивные",
+      "link": "https://habr.com/ru/articles/1088314/?utm_campaign=1088314&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T20:16:30.000Z"
+    },
+    {
+      "title": "OpenAI представила Dots — ИИ-агентов с собственными компьютерами, которые могут работать круглосуточно без пользователя",
+      "link": "https://3dnews.ru/1149233/openai-predstavila-dots-iiagentov-s-sobstvennimi-kompyuterami-kotorie-mogut-rabotat-kruglosutochno-bez-polzovatelya",
+      "source": "3DNews",
+      "pubDate": "2026-09-29T18:41:00.000Z"
+    },
+    {
+      "title": "Агента нельзя засудить: почему последняя миля ИИ — это человек",
+      "link": "https://habr.com/ru/articles/1088290/?utm_campaign=1088290&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-09-29T17:56:45.000Z"
+    },
     {
       "title": "Уволенные из-за ИИ разработчики создали ИИ, способный заменить гендира и других топ-менеджеров",
       "link": "https://3dnews.ru/1149221/uvolennie-izza-ii-razrabotchiki-sozdali-ii-sposobniy-zamenit-gendira-i-drugih-topmenedgerov",
@@ -1777,30 +1801,6 @@
       "link": "https://habr.com/ru/companies/agima/articles/1081356/?utm_campaign=1081356&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-11T13:38:47.000Z"
-    },
-    {
-      "title": "OpenAI научила ИИ говорить и слушать одновременно — полнодуплексная модель GPT-Live-1 доступна разработчикам",
-      "link": "https://3dnews.ru/1148357/openai-nauchila-ii-govorit-i-slushat-odnovremenno-polnodupleksnaya-model-gptlive1-dostupna-razrabotchikam",
-      "source": "3DNews",
-      "pubDate": "2026-09-11T13:06:00.000Z"
-    },
-    {
-      "title": "MCP без хаоса: как мы создали в корпоративном ландшафте централизованный шлюз для ИИ‑агентов",
-      "link": "https://habr.com/ru/companies/sberbank/articles/1080158/?utm_campaign=1080158&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-11T12:22:05.000Z"
-    },
-    {
-      "title": "Опрос VK Education: 81% преподавателей вузов прогнозируют изменение роли разработчика — от написания кода к управлению ИИ-агентами",
-      "link": "https://www.cnews.ru/news/line/2026-09-11_opros_vk_education_81_prepodavatelej",
-      "source": "CNews",
-      "pubDate": "2026-09-11T11:22:00.000Z"
-    },
-    {
-      "title": "Популярный сервис для написания программного кода с помощью ИИ Cursor перестал работать в России",
-      "link": "https://www.tadviser.ru/a/941876",
-      "source": "TAdviser",
-      "pubDate": "2026-09-11T10:56:22.000Z"
     }
   ]
 }
