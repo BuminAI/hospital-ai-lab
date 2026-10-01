@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-10-01T08:54:50.959Z",
+  "updatedAt": "2026-10-01T17:01:38.295Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ агенты. Что это простыми словами и в чем отличие от обычного ИИ",
+      "link": "https://habr.com/ru/companies/timeweb/articles/1085484/?utm_campaign=1085484&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-01T15:05:00.000Z"
+    },
+    {
+      "title": "ssh‑commander: SSH‑панель с AI‑агентом для своих VPS",
+      "link": "https://habr.com/ru/articles/1089196/?utm_campaign=1089196&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-01T13:26:01.000Z"
+    },
+    {
+      "title": "Главгосэкспертиза запустила опытную эксплуатацию ИИ-ассистента для анализа проектной документации",
+      "link": "https://www.cnews.ru/news/line/2026-10-01_glavgosekspertiza_zapustila",
+      "source": "CNews",
+      "pubDate": "2026-10-01T13:17:00.000Z"
+    },
+    {
+      "title": "От ИИ-разработки до контроля кассового чека: пять решений для 1С из сентябрьской подборки",
+      "link": "https://habr.com/ru/companies/infostart/articles/1089114/?utm_campaign=1089114&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-01T12:14:36.000Z"
+    },
+    {
+      "title": "Я всем помогал, а в отчёте пусто. Как ИИ-агенты вспомнили за меня полгода работы",
+      "link": "https://habr.com/ru/articles/1089084/?utm_campaign=1089084&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-01T12:09:40.000Z"
+    },
+    {
+      "title": "«Ленаэропроект» ускорил поиск дефектов взлетно-посадочных полос с помощью ИИ-сервиса Cloud X",
+      "link": "https://www.cnews.ru/news/line/2026-10-01_lenaeroproekt_uskoril",
+      "source": "CNews",
+      "pubDate": "2026-10-01T10:59:00.000Z"
+    },
+    {
+      "title": "Неизвестные ИИ-агенты атаковали сайт правительства Канады",
+      "link": "https://3dnews.ru/1149322/neizvestnie-iiagenti-atakovali-sayt-pravitelstva-kanadi",
+      "source": "3DNews",
+      "pubDate": "2026-10-01T10:18:00.000Z"
+    },
+    {
+      "title": "Утвержден состав Комитета Госдумы по цифровому развитию и ИИ. Список",
+      "link": "https://www.tadviser.ru/a/968876",
+      "source": "TAdviser",
+      "pubDate": "2026-10-01T10:00:07.000Z"
+    },
+    {
+      "title": "«Яндекс» представил рекомендательную генеративную ИИ-модель Sona — она уже поселилась в колонках с «Алисой»",
+      "link": "https://3dnews.ru/1149315/yandeks-predstavil-rekomendatelnuyu-generativnuyu-iimodel-sona-ona-uge-poselilas-v-kolonkah-salisoy",
+      "source": "3DNews",
+      "pubDate": "2026-10-01T09:16:00.000Z"
+    },
+    {
+      "title": "AI-системный аналитик: Mindbox научили агента исследовать задачу прежде чем писать код",
+      "link": "https://habr.com/ru/companies/mindbox/articles/1085648/?utm_campaign=1085648&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-01T09:00:34.000Z"
+    },
     {
       "title": "«Яндекс» представил Sona — ИИ-модель, способную заменить десятки алгоритмов рекомендаций",
       "link": "https://www.cnews.ru/news/line/2026-10-01_yandeks_predstavil_sona_",
@@ -1741,66 +1801,6 @@
       "link": "https://habr.com/ru/companies/otus/articles/1077972/?utm_campaign=1077972&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-15T07:06:04.000Z"
-    },
-    {
-      "title": "IT_One разработала фреймворк для внедрения ИИ в процессы разработки ПО",
-      "link": "https://www.cnews.ru/news/line/2026-09-15_it_one_razrabotala_frejmvork",
-      "source": "CNews",
-      "pubDate": "2026-09-15T07:06:00.000Z"
-    },
-    {
-      "title": "Архитектура важнее модели: как меняется обработка документов в эпоху ИИ",
-      "link": "https://habr.com/ru/companies/megafon/articles/1081898/?utm_campaign=1081898&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T07:01:15.000Z"
-    },
-    {
-      "title": "Минцифры займется развитием и регулированием ИИ-моделей в России",
-      "link": "https://www.tadviser.ru/a/23787",
-      "source": "TAdviser",
-      "pubDate": "2026-09-15T06:35:06.000Z"
-    },
-    {
-      "title": "HeadHunter сделал каталог данных Arenadata Catalog рабочим инструментом для аналитиков и ИИ-агентов",
-      "link": "https://www.cnews.ru/news/line/2026-09-15_headhunter_sdelal_katalog_dannyh",
-      "source": "CNews",
-      "pubDate": "2026-09-15T05:10:00.000Z"
-    },
-    {
-      "title": "Microsoft установила ограничения для будущих ИИ-моделей, пока отрасль готовится к замедлению",
-      "link": "https://3dnews.ru/1148460/microsoft-ustanovila-ogranicheniya-dlya-budushchih-iimodeley-poka-otrasl-gotovitsya-k-zamedleniyu",
-      "source": "3DNews",
-      "pubDate": "2026-09-14T16:33:00.000Z"
-    },
-    {
-      "title": "Microsoft поставила человека выше ИИ — она отказала моделям в правах, сознании и свободе, а заодно пообещала не создавать сверхразум",
-      "link": "https://3dnews.ru/1148453/microsoft-postavila-cheloveka-vishe-ii-ona-otkazala-modelyam-v-pravah-soznanii-i-svobode-a-zaodno-poobeshchala-ne-sozdavat-sverhrazum",
-      "source": "3DNews",
-      "pubDate": "2026-09-14T15:18:00.000Z"
-    },
-    {
-      "title": "ИИ, виртуальная реальность и развитие ПО. Правительство РФ утвердило стратегию развития креативной экономики до 2036 года",
-      "link": "https://www.tadviser.ru/a/849710",
-      "source": "TAdviser",
-      "pubDate": "2026-09-14T14:18:19.000Z"
-    },
-    {
-      "title": "Минэнерго РФ предложило строить центры обработки данных для ИИ в Сибири",
-      "link": "https://www.tadviser.ru/a/852823",
-      "source": "TAdviser",
-      "pubDate": "2026-09-14T14:13:31.000Z"
-    },
-    {
-      "title": "Промышленность готова доверить ИИ больше: каждое пятое предприятие планирует расширить применение технологии в кибербезопасности",
-      "link": "https://www.cnews.ru/news/line/2026-09-14_promyshlennost_gotova_doverit",
-      "source": "CNews",
-      "pubDate": "2026-09-14T13:56:00.000Z"
-    },
-    {
-      "title": "От поисковой строки к ИИ-агенту: зачем мы открыли Туту через MCP и что увидели на хакатоне",
-      "link": "https://habr.com/ru/companies/tuturu/articles/1081246/?utm_campaign=1081246&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-14T13:46:43.000Z"
     }
   ]
 }

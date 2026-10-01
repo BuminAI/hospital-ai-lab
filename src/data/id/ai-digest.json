@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-10-01T08:55:25.534Z",
+  "updatedAt": "2026-10-01T17:02:10.005Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Data 25.000 nasabah Bank Shinhan bocor akibat diretas AI",
+      "link": "https://www.antaranews.com/berita/5767572/data-25000-nasabah-bank-shinhan-bocor-akibat-diretas-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-10-01T16:31:53.000Z"
+    },
+    {
+      "title": "Google Perkenalkan Gemini 4 Argon, AI Baru untuk Pekerjaan Kompleks",
+      "link": "https://mediaindonesia.com/teknologi/939789/google-perkenalkan-gemini-4-argon-ai-baru-untuk-pekerjaan-kompleks",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-01T15:50:00.000Z"
+    },
+    {
+      "title": "Dampak Negatif AI di Sekolah: Nilai Siswa Anjlok dan Ketergantungan Emosional",
+      "link": "https://mediaindonesia.com/humaniora/939761/dampak-negatif-ai-di-sekolah-nilai-siswa-anjlok-dan-ketergantungan-emosional",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-01T14:33:00.000Z"
+    },
+    {
+      "title": "Acara OpenAI Mendadak Diserbu Pendemo, Ini Tuntutannya",
+      "link": "https://inet.detik.com/cyberlife/d-8688049/acara-openai-mendadak-diserbu-pendemo-ini-tuntutannya",
+      "source": "detikINET",
+      "pubDate": "2026-10-01T12:30:08.000Z"
+    },
+    {
+      "title": "China Dituding Curi Model AI, Bos Nvidia: Itu Namanya Persaingan",
+      "link": "https://inet.detik.com/cyberlife/d-8687939/china-dituding-curi-model-ai-bos-nvidia-itu-namanya-persaingan",
+      "source": "detikINET",
+      "pubDate": "2026-10-01T11:30:44.000Z"
+    },
+    {
+      "title": "Kekhawatiran Kawanan AI Bisa Rebut Internet, Ini Kata Pakar",
+      "link": "https://inet.detik.com/cyberlife/d-8687861/kekhawatiran-kawanan-ai-bisa-rebut-internet-ini-kata-pakar",
+      "source": "detikINET",
+      "pubDate": "2026-10-01T09:15:42.000Z"
+    },
     {
       "title": "AI makin sering dipakai untuk cari informasi kesehatan, apakah valid?",
       "link": "https://www.antaranews.com/berita/5766527/ai-makin-sering-dipakai-untuk-cari-informasi-kesehatan-apakah-valid",
@@ -1765,42 +1801,6 @@
       "link": "https://www.liputan6.com/tekno/read/8291980/bos-anthropic-minta-ada-tombol-mati-untuk-ai-berbahaya",
       "source": "Liputan6",
       "pubDate": "2026-09-17T05:00:58.000Z"
-    },
-    {
-      "title": "Mark Zuckerberg Tolak 'Rem' AI",
-      "link": "https://inet.detik.com/cyberlife/d-8666337/mark-zuckerberg-tolak-rem-ai",
-      "source": "detikINET",
-      "pubDate": "2026-09-17T02:45:24.000Z"
-    },
-    {
-      "title": "Trump Ajak Bos ChatGPT, Nvidia, Instagram Makan Malam Bersama Xi Jinping",
-      "link": "https://katadata.co.id/digital/teknologi/6aab4e5f7292f/trump-ajak-bos-chatgpt-nvidia-instagram-makan-malam-bersama-xi-jinping",
-      "source": "Katadata",
-      "pubDate": "2026-09-17T02:20:00.000Z"
-    },
-    {
-      "title": "OpenAI Ungkap 6 Kelakuan Aneh AI, Ada yang Diam-diam Tutupi Kesalahan",
-      "link": "https://inet.detik.com/cyberlife/d-8666300/openai-ungkap-6-kelakuan-aneh-ai-ada-yang-diam-diam-tutupi-kesalahan",
-      "source": "detikINET",
-      "pubDate": "2026-09-17T01:45:48.000Z"
-    },
-    {
-      "title": "Tak Cuma Perintah Suara, Gemini Live bakal Bisa Input Teks",
-      "link": "https://www.liputan6.com/tekno/read/8292621/tak-cuma-perintah-suara-gemini-live-bakal-bisa-input-teks",
-      "source": "Liputan6",
-      "pubDate": "2026-09-17T01:00:47.000Z"
-    },
-    {
-      "title": "Bos Nvidia Bantah Kiamat AI 2030: Kita Tidak Akan Mati",
-      "link": "https://inet.detik.com/cyberlife/d-8666257/bos-nvidia-bantah-kiamat-ai-2030-kita-tidak-akan-mati",
-      "source": "detikINET",
-      "pubDate": "2026-09-17T00:45:44.000Z"
-    },
-    {
-      "title": "Ilmuwan Peringatkan AI Bisa Musnahkan Manusia Sebelum 2030",
-      "link": "https://inet.detik.com/science/d-8665886/ilmuwan-peringatkan-ai-bisa-musnahkan-manusia-sebelum-2030",
-      "source": "detikINET",
-      "pubDate": "2026-09-16T22:45:03.000Z"
     }
   ]
 }
