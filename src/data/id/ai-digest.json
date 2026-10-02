@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-01T17:02:10.005Z",
+  "updatedAt": "2026-10-02T01:41:58.857Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Regulator AS investigasi Anthropic dan OpenAI terkait praktik keamanan AI",
+      "link": "https://www.antaranews.com/berita/5767735/regulator-as-investigasi-anthropic-dan-openai-terkait-praktik-keamanan-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-10-01T23:19:08.000Z"
+    },
     {
       "title": "Data 25.000 nasabah Bank Shinhan bocor akibat diretas AI",
       "link": "https://www.antaranews.com/berita/5767572/data-25000-nasabah-bank-shinhan-bocor-akibat-diretas-ai",
@@ -1795,12 +1801,6 @@
       "link": "https://katadata.co.id/digital/teknologi/6aab858671b93/openai-chatgpt-ungkap-6-perilaku-aneh-ai-tutupi-kesalahan-hingga-bocorkan-file",
       "source": "Katadata",
       "pubDate": "2026-09-17T06:15:00.000Z"
-    },
-    {
-      "title": "Bos Anthropic Minta Ada 'Tombol Mati' untuk AI Berbahaya",
-      "link": "https://www.liputan6.com/tekno/read/8291980/bos-anthropic-minta-ada-tombol-mati-untuk-ai-berbahaya",
-      "source": "Liputan6",
-      "pubDate": "2026-09-17T05:00:58.000Z"
     }
   ]
 }
