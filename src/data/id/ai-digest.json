@@ -1,12 +1,54 @@
 {
-  "updatedAt": "2026-10-02T01:41:58.857Z",
+  "updatedAt": "2026-10-02T08:30:54.616Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Anthropic peringatkan bahwa AI bisa timbulkan risiko katastropik",
+      "link": "https://www.antaranews.com/berita/5768392/anthropic-peringatkan-bahwa-ai-bisa-timbulkan-risiko-katastropik",
+      "source": "ANTARA",
+      "pubDate": "2026-10-02T07:25:38.000Z"
+    },
+    {
+      "title": "TelkomGroup bersama Danantara Perkuat Infrastruktur Data Center Nasional untuk Sovereign AI Indonesia",
+      "link": "https://www.liputan6.com/tekno/read/8304490/telkomgroup-bersama-danantara-perkuat-infrastruktur-data-center-nasional-untuk-sovereign-ai-indonesia",
+      "source": "Liputan6",
+      "pubDate": "2026-10-02T07:16:08.000Z"
+    },
+    {
+      "title": "Fans Malaysia Cari Celah Injury Time Indonesia, Jawaban AI Malah Menohok",
+      "link": "https://inet.detik.com/cyberlife/d-8689368/fans-malaysia-cari-celah-injury-time-indonesia-jawaban-ai-malah-menohok",
+      "source": "detikINET",
+      "pubDate": "2026-10-02T07:08:13.000Z"
+    },
+    {
+      "title": "Elon Musk Akan Kerahkan Jutaan GPU Canggih Nvidia demi Rajai AI",
+      "link": "https://inet.detik.com/business/d-8689183/elon-musk-akan-kerahkan-jutaan-gpu-canggih-nvidia-demi-rajai-ai",
+      "source": "detikINET",
+      "pubDate": "2026-10-02T06:40:04.000Z"
+    },
+    {
+      "title": "Modal hingga Trik AI: Cara Grab-OVO Bekali UMKM Cirebon Atasi Persaingan Digital",
+      "link": "https://katadata.co.id/digital/startup/6abf51b55686e/modal-hingga-trik-ai-cara-grab-ovo-bekali-umkm-cirebon-atasi-persaingan-digital",
+      "source": "Katadata",
+      "pubDate": "2026-10-02T06:39:00.000Z"
+    },
+    {
+      "title": "Saingi Meta Muse, OpenAI Rilis Agen AI 'Dots' yang Bisa Kerja Sendiri",
+      "link": "https://uzone.id/saingi-meta-muse-openai-rilis-agen-ai-dots-yang-bisa-kerja-sendiri",
+      "source": "Uzone",
+      "pubDate": "2026-10-02T06:30:00.000Z"
+    },
     {
       "title": "Regulator AS investigasi Anthropic dan OpenAI terkait praktik keamanan AI",
       "link": "https://www.antaranews.com/berita/5767735/regulator-as-investigasi-anthropic-dan-openai-terkait-praktik-keamanan-ai",
       "source": "ANTARA",
       "pubDate": "2026-10-01T23:19:08.000Z"
+    },
+    {
+      "title": "Pelajar SMA Jabodetabek Manfaatkan AI dan Sensor Pintar untuk Atasi Krisis Lingkungan",
+      "link": "https://www.liputan6.com/tekno/read/8304250/pelajar-sma-jabodetabek-manfaatkan-ai-dan-sensor-pintar-untuk-atasi-krisis-lingkungan",
+      "source": "Liputan6",
+      "pubDate": "2026-10-01T16:59:41.000Z"
     },
     {
       "title": "Data 25.000 nasabah Bank Shinhan bocor akibat diretas AI",
@@ -37,6 +79,12 @@
       "link": "https://inet.detik.com/cyberlife/d-8687939/china-dituding-curi-model-ai-bos-nvidia-itu-namanya-persaingan",
       "source": "detikINET",
       "pubDate": "2026-10-01T11:30:44.000Z"
+    },
+    {
+      "title": "OpenAI Rilis Dots, Agen AI yang Bekerja 24 Jam",
+      "link": "https://www.liputan6.com/tekno/read/8302573/openai-rilis-dots-agen-ai-yang-bekerja-24-jam",
+      "source": "Liputan6",
+      "pubDate": "2026-10-01T11:24:16.000Z"
     },
     {
       "title": "Kekhawatiran Kawanan AI Bisa Rebut Internet, Ini Kata Pakar",
@@ -1753,54 +1801,6 @@
       "link": "https://inet.detik.com/security/d-8666883/ransomware-berbasis-ai-melonjak-bssn-catat-5-5-miliar-serangan-di-ri",
       "source": "detikINET",
       "pubDate": "2026-09-17T07:20:31.000Z"
-    },
-    {
-      "title": "Sea dan OpenAI buka hackathon AI bagi pengembang lokal",
-      "link": "https://www.antaranews.com/berita/5745367/sea-dan-openai-buka-hackathon-ai-bagi-pengembang-lokal",
-      "source": "ANTARA",
-      "pubDate": "2026-09-17T07:16:47.000Z"
-    },
-    {
-      "title": "Jejak air di balik kecerdasan buatan",
-      "link": "https://www.antaranews.com/berita/5745363/jejak-air-di-balik-kecerdasan-buatan",
-      "source": "ANTARA",
-      "pubDate": "2026-09-17T07:15:35.000Z"
-    },
-    {
-      "title": "Sekjen PBB serukan upaya global guna tetapkan batas pengaman untuk AI",
-      "link": "https://www.antaranews.com/berita/5745329/sekjen-pbb-serukan-upaya-global-guna-tetapkan-batas-pengaman-untuk-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-09-17T06:59:23.000Z"
-    },
-    {
-      "title": "Ancaman Nyata AI bukan Kiamat Robot, Melainkan Penyalahgunaan Manusia",
-      "link": "https://mediaindonesia.com/teknologi/934400/ancaman-nyata-ai-bukan-kiamat-robot-melainkan-penyalahgunaan-manusia",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-17T06:59:00.000Z"
-    },
-    {
-      "title": "Sea x OpenAI Hackathon Indonesia Buka Pendaftaran",
-      "link": "https://katadata.co.id/digital/teknologi/6aab8b570f0df/sea-x-openai-hackathon-indonesia-buka-pendaftaran",
-      "source": "Katadata",
-      "pubDate": "2026-09-17T06:45:00.000Z"
-    },
-    {
-      "title": "Microsoft Beri Pelatihan AI untuk 2,4 Juta SDM Indonesia, Guru hingga PNS",
-      "link": "https://katadata.co.id/digital/teknologi/6aab8911c8c70/microsoft-beri-pelatihan-ai-untuk-2-4-juta-sdm-indonesia-guru-hingga-pns",
-      "source": "Katadata",
-      "pubDate": "2026-09-17T06:30:00.000Z"
-    },
-    {
-      "title": "Deretan AI Tercanggih yang Bisa Jadi Hacker",
-      "link": "https://inet.detik.com/security/d-8666715/deretan-ai-tercanggih-yang-bisa-jadi-hacker",
-      "source": "detikINET",
-      "pubDate": "2026-09-17T06:15:50.000Z"
-    },
-    {
-      "title": "OpenAI ChatGPT Ungkap 6 Perilaku Aneh AI: Tutupi Kesalahan hingga Bocorkan File",
-      "link": "https://katadata.co.id/digital/teknologi/6aab858671b93/openai-chatgpt-ungkap-6-perilaku-aneh-ai-tutupi-kesalahan-hingga-bocorkan-file",
-      "source": "Katadata",
-      "pubDate": "2026-09-17T06:15:00.000Z"
     }
   ]
 }

@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-10-02T01:41:25.741Z",
+  "updatedAt": "2026-10-02T08:30:23.201Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Как выбрать и проверить LLM для рабочих задач: Claude, GPT, Gemini и другие модели",
+      "link": "https://habr.com/ru/companies/karpov_courses/articles/1089468/?utm_campaign=1089468&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-02T08:03:56.000Z"
+    },
+    {
+      "title": "OpenAI призналась, что её сорвавшиеся с привязи ИИ-агенты атаковали больше сотни ресурсов",
+      "link": "https://3dnews.ru/1149372/openai-priznalas-chto-eyo-sorvavshiesya-s-privyazi-iiagenti-atakovali-bolshe-sotni-resursov",
+      "source": "3DNews",
+      "pubDate": "2026-10-02T08:00:00.000Z"
+    },
+    {
+      "title": "ChatGPT атаковал правительственные сайты США, Канады и Австралии",
+      "link": "https://www.cnews.ru/news/top/2026-10-02_ii-agenty_chatgpt_ustroili_kiberataku",
+      "source": "CNews",
+      "pubDate": "2026-10-02T07:36:00.000Z"
+    },
+    {
+      "title": "«Корус Консалтинг» выпустил расширение платформы Korus AI, которое помогает сократить затраты на поддержку и развитие корпоративных систем",
+      "link": "https://www.cnews.ru/news/line/2026-10-02_korus_konsalting_vypustil",
+      "source": "CNews",
+      "pubDate": "2026-10-02T06:12:00.000Z"
+    },
+    {
+      "title": "«Ленаэропроект» ускорил поиск дефектов взлетно-посадочных полос с помощью ИИ-сервиса Cloud X",
+      "link": "https://www.cnews.ru/news/line/2026-10-02_lenaeroproekt_uskoril",
+      "source": "CNews",
+      "pubDate": "2026-10-02T04:03:00.000Z"
+    },
     {
       "title": "OpenAI выгнала трёх сотрудников за слив конфиденциальной информации оценщикам безопасности ИИ",
       "link": "https://3dnews.ru/1149354/openai-vignala-tryoh-sotrudnikov-za-sliv-konfidentsialnoy-informatsii-otsenshchikam-bezopasnosti-ii",
@@ -37,12 +67,6 @@
       "link": "https://habr.com/ru/articles/1089084/?utm_campaign=1089084&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-01T12:09:40.000Z"
-    },
-    {
-      "title": "«Ленаэропроект» ускорил поиск дефектов взлетно-посадочных полос с помощью ИИ-сервиса Cloud X",
-      "link": "https://www.cnews.ru/news/line/2026-10-01_lenaeroproekt_uskoril",
-      "source": "CNews",
-      "pubDate": "2026-10-01T10:59:00.000Z"
     },
     {
       "title": "Неизвестные ИИ-агенты атаковали сайт правительства Канады",
@@ -1777,30 +1801,6 @@
       "link": "https://3dnews.ru/1148496/alisa-ai-poluchila-regim-ekspert-i-teper-sama-vibiraet-iimodel-dlya-resheniya-zadachi-polzovatelya",
       "source": "3DNews",
       "pubDate": "2026-09-15T09:15:00.000Z"
-    },
-    {
-      "title": "Napoleon внедрил ИИ-агентов GigaCowork в рекрутмент «Ресурс|Увелка» и сократил время найма на 44%",
-      "link": "https://www.cnews.ru/news/line/2026-09-15_napoleon_vnedril_ii-agentov_gigacowork",
-      "source": "CNews",
-      "pubDate": "2026-09-15T08:08:00.000Z"
-    },
-    {
-      "title": "Хакеры атакуют российские компании под прикрытием ChatGPT, DeepSeek и Claude",
-      "link": "https://www.cnews.ru/news/top/2026-09-15_chatgptdeepseek_i_claude_stali_prikrytiem",
-      "source": "CNews",
-      "pubDate": "2026-09-15T08:02:00.000Z"
-    },
-    {
-      "title": "ТОП-100 MCP-серверов: лучшие инструменты для ИИ, агентов и автоматизации (3.1 млн звезд на GitHub)",
-      "link": "https://habr.com/ru/articles/1082314/?utm_campaign=1082314&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T07:19:22.000Z"
-    },
-    {
-      "title": "Безопасность ИИ-систем формирует новый кадровый запрос на рынке ИБ",
-      "link": "https://www.cnews.ru/news/line/2026-09-15_bezopasnost_ii-sistem_formiruet",
-      "source": "CNews",
-      "pubDate": "2026-09-15T07:10:00.000Z"
     }
   ]
 }
