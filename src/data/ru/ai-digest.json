@@ -1,7 +1,79 @@
 {
-  "updatedAt": "2026-10-02T08:30:23.201Z",
+  "updatedAt": "2026-10-02T16:16:05.395Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Gemini 4 победила в бенчмарках. Почему это всё меньше говорит о качестве модели",
+      "link": "https://habr.com/ru/articles/1089782/?utm_campaign=1089782&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-02T16:05:34.000Z"
+    },
+    {
+      "title": "Американский суд впервые признал незаконным обучение ИИ на чужих материалах",
+      "link": "https://3dnews.ru/1149402/amerikanskiy-sud-vpervie-priznal-nezakonnim-obuchenie-ii-na-chugih-materialah",
+      "source": "3DNews",
+      "pubDate": "2026-10-02T15:15:00.000Z"
+    },
+    {
+      "title": "Claude забанил: AI-сервисы с подпиской, работающие из России",
+      "link": "https://habr.com/ru/articles/1089656/?utm_campaign=1089656&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-02T12:28:05.000Z"
+    },
+    {
+      "title": "Правительство РФ определило 170 показателей внедрения ИИ на 2027–2030 гг.",
+      "link": "https://www.tadviser.ru/a/811626",
+      "source": "TAdviser",
+      "pubDate": "2026-10-02T12:28:00.000Z"
+    },
+    {
+      "title": "Как пользоваться LMArena (arena.ai): как читать рейтинг и выбрать лучшую модель под свою задачу",
+      "link": "https://habr.com/ru/companies/bothub/articles/1089622/?utm_campaign=1089622&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-02T11:24:42.000Z"
+    },
+    {
+      "title": "ИИ-боты лишают человечество плюрализма мнений, показало исследование",
+      "link": "https://3dnews.ru/1149385/iiboti-lishayut-chelovechestvo-plyuralizma-mneniy-pokazalo-issledovanie",
+      "source": "3DNews",
+      "pubDate": "2026-10-02T11:17:00.000Z"
+    },
+    {
+      "title": "Доклад о внедрении ИИ, похожий на правду",
+      "link": "https://habr.com/ru/articles/1089602/?utm_campaign=1089602&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-02T10:53:39.000Z"
+    },
+    {
+      "title": "FAIRouter. Мы научили ИИ выбирать лучшую LLM модель для каждой задачи",
+      "link": "https://habr.com/ru/articles/1086786/?utm_campaign=1086786&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-02T10:50:07.000Z"
+    },
+    {
+      "title": "Зачем Авито нужна своя Inference-платформа для ML/LLM-сервисов: PaaS vs отдельное решение",
+      "link": "https://habr.com/ru/companies/avito/articles/1089128/?utm_campaign=1089128&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-02T10:13:09.000Z"
+    },
+    {
+      "title": "Исследование Weeek: треть сотрудников сталкивается с требованием использовать ИИ, даже если он им не нужен",
+      "link": "https://www.cnews.ru/news/line/2026-10-02_issledovanie_weeek_tret_sotrudnikov",
+      "source": "CNews",
+      "pubDate": "2026-10-02T09:58:00.000Z"
+    },
+    {
+      "title": "В споре о правах на ИИ-персонажа Роспатент встал на сторону итальянской компании",
+      "link": "https://www.cnews.ru/news/top/2026-10-02_v_odnom_iz_pervyh_v_rossii",
+      "source": "CNews",
+      "pubDate": "2026-10-02T09:35:00.000Z"
+    },
+    {
+      "title": "Первый иск за «сбежавших» ИИ-агентов: кто отвечает, если агент сам взломал чужую систему",
+      "link": "https://habr.com/ru/articles/1089530/?utm_campaign=1089530&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-02T09:24:41.000Z"
+    },
     {
       "title": "Как выбрать и проверить LLM для рабочих задач: Claude, GPT, Gemini и другие модели",
       "link": "https://habr.com/ru/companies/karpov_courses/articles/1089468/?utm_campaign=1089468&utm_source=habrahabr&utm_medium=rss",
@@ -187,12 +259,6 @@
       "link": "https://habr.com/ru/companies/selectel/articles/1088444/?utm_campaign=1088444&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-30T12:00:25.000Z"
-    },
-    {
-      "title": "Генпрокуратура обозначила ключевые направления необходимого регулирования ИИ-агентов",
-      "link": "https://www.tadviser.ru/a/811626",
-      "source": "TAdviser",
-      "pubDate": "2026-09-30T11:40:22.000Z"
     },
     {
       "title": "Год назад мы обсуждали, смогут ли ИИ-агенты взламывать сайты. Теперь считаем инциденты",
@@ -1735,72 +1801,6 @@
       "link": "https://habr.com/ru/articles/1082572/?utm_campaign=1082572&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-15T13:29:07.000Z"
-    },
-    {
-      "title": "Через три года готовить судебные акты в российских судах будет ИИ. Верховный суд утвердил концепцию внедрения новых технологий",
-      "link": "https://www.cnews.ru/news/top/2026-09-15_cherez_tri_goda_gotovit_sudebnye",
-      "source": "CNews",
-      "pubDate": "2026-09-15T13:29:00.000Z"
-    },
-    {
-      "title": "Билайн запустил бесплатный мультиязычный ИИ-сервис beeGPT для всех клиентов",
-      "link": "https://www.cnews.ru/news/line/2026-09-15_bilajn_zapustil_besplatnyj",
-      "source": "CNews",
-      "pubDate": "2026-09-15T12:56:00.000Z"
-    },
-    {
-      "title": "Chatballs — open source ИИ-платформа первой линии поддержки",
-      "link": "https://habr.com/ru/articles/1082538/?utm_campaign=1082538&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T12:45:05.000Z"
-    },
-    {
-      "title": "ChatGPT не открывает страницу в 93% быстрых ответов: что видит модель и что чинить на сайте",
-      "link": "https://habr.com/ru/articles/1082232/?utm_campaign=1082232&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T12:44:51.000Z"
-    },
-    {
-      "title": "ИИ-агенты стали регистрироваться в соцсетях и засыпать администраторов платформ спамом",
-      "link": "https://3dnews.ru/1148511/iiagenti-stali-registrirovatsya-v-sotssetyah-i-zasipat-administratorov-platform-spamom",
-      "source": "3DNews",
-      "pubDate": "2026-09-15T12:31:00.000Z"
-    },
-    {
-      "title": "30 проектов, ИИ-агенты в закупках и машинное обучение. Как \"Сибур\" разрабатывает и внедряет ИИ",
-      "link": "https://www.tadviser.ru/a/326854",
-      "source": "TAdviser",
-      "pubDate": "2026-09-15T12:18:30.000Z"
-    },
-    {
-      "title": "Orion soft усилил управление GPU в платформе Nova AI",
-      "link": "https://www.cnews.ru/news/line/2026-09-15_orion_soft_usilil_upravlenie",
-      "source": "CNews",
-      "pubDate": "2026-09-15T11:16:00.000Z"
-    },
-    {
-      "title": "«Солар»: хакеры атаковали российские компании под видом DeepSeeek, ChatGPT и Perplexity",
-      "link": "https://www.cnews.ru/news/line/2026-09-15_solar_hakery_atakovali",
-      "source": "CNews",
-      "pubDate": "2026-09-15T10:42:00.000Z"
-    },
-    {
-      "title": "МТС разработала новую приставку Fog Play с ИИ-помощником",
-      "link": "https://www.cnews.ru/news/line/2026-09-15_mts_razrabotala_novuyu_pristavku",
-      "source": "CNews",
-      "pubDate": "2026-09-15T10:03:00.000Z"
-    },
-    {
-      "title": "Полгода экспериментов с ИИ: RAG, AI-ревью, автотесты, агенты и автообработка счетов",
-      "link": "https://habr.com/ru/companies/cynteka/articles/1082412/?utm_campaign=1082412&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T09:48:13.000Z"
-    },
-    {
-      "title": "«Алиса AI» получила режим «Эксперт» и теперь сама выбирает ИИ-модель для решения задачи пользователя",
-      "link": "https://3dnews.ru/1148496/alisa-ai-poluchila-regim-ekspert-i-teper-sama-vibiraet-iimodel-dlya-resheniya-zadachi-polzovatelya",
-      "source": "3DNews",
-      "pubDate": "2026-09-15T09:15:00.000Z"
     }
   ]
 }
