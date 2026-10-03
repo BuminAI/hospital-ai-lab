@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-10-03T01:11:31.951Z",
+  "updatedAt": "2026-10-03T08:04:45.009Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Gemini 4 хороша в тестах, но буксует в работе — пожаловались сотрудники Google",
+      "link": "https://3dnews.ru/1149426/gemini-4-horosha-v-testah-no-buksuet-v-rabote-pogalovalis-sotrudniki-google",
+      "source": "3DNews",
+      "pubDate": "2026-10-03T07:19:00.000Z"
+    },
+    {
+      "title": "Apple ужесточит контроль над «полным доступом к диску» в macOS из-за рисков, связанных с ИИ-агентами",
+      "link": "https://3dnews.ru/1149415/apple-ugestochit-kontrol-nad-polnim-dostupom-k-disku-v-macos-izza-riskov-svyazannih-s-iiagentami",
+      "source": "3DNews",
+      "pubDate": "2026-10-03T04:43:00.000Z"
+    },
+    {
+      "title": "Уязвимость в приложении ChatGPT для macOS позволяла хакерам получить доступ к конфиденциальным данным",
+      "link": "https://3dnews.ru/1149414/uyazvimost-v-prilogenii-chatgpt-dlya-macos-pozvolyala-hakeram-poluchit-dostup-k-konfidentsialnim-dannim",
+      "source": "3DNews",
+      "pubDate": "2026-10-03T02:33:00.000Z"
+    },
     {
       "title": "Gemini 4 победила в бенчмарках. Почему это всё меньше говорит о качестве модели",
       "link": "https://habr.com/ru/articles/1089782/?utm_campaign=1089782&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://habr.com/ru/articles/1082720/?utm_campaign=1082720&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-15T21:43:16.000Z"
-    },
-    {
-      "title": "ИИ‑фабрика: переход к автономной разработке",
-      "link": "https://habr.com/ru/articles/1082598/?utm_campaign=1082598&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T14:10:40.000Z"
-    },
-    {
-      "title": "Почему ИИ-агент сжигает токены: как я снизил стоимость сессии с 48 до 8 рублей",
-      "link": "https://habr.com/ru/articles/1082576/?utm_campaign=1082576&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T13:37:40.000Z"
-    },
-    {
-      "title": "Как устроен RAG для юридических документов и почему одной LLM оказалось недостаточно",
-      "link": "https://habr.com/ru/articles/1082572/?utm_campaign=1082572&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T13:29:07.000Z"
     }
   ]
 }
