@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-03T08:05:42.368Z",
+  "updatedAt": "2026-10-03T14:44:11.139Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Risiko Baru Agentic AI: Kebocoran Data Chatbot",
+      "link": "https://inet.detik.com/security/d-8691176/risiko-baru-agentic-ai-kebocoran-data-chatbot",
+      "source": "detikINET",
+      "pubDate": "2026-10-03T14:15:31.000Z"
+    },
+    {
+      "title": "Apple perketat kontrol Full Disk Access di macOS karena risiko agen AI",
+      "link": "https://www.antaranews.com/berita/5770105/apple-perketat-kontrol-full-disk-access-di-macos-karena-risiko-agen-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-10-03T13:21:41.000Z"
+    },
+    {
+      "title": "Google luncurkan satelit berisi cip AI, uji kemampuan di luar angkasa",
+      "link": "https://www.antaranews.com/berita/5770038/google-luncurkan-satelit-berisi-cip-ai-uji-kemampuan-di-luar-angkasa",
+      "source": "ANTARA",
+      "pubDate": "2026-10-03T11:56:14.000Z"
+    },
+    {
+      "title": "Google Rilis Gemini 4 Argon, Diklaim Jadi Model AI Paling Canggih",
+      "link": "https://uzone.id/google-rilis-gemini-4-argon-diklaim-jadi-model-ai-paling-canggih",
+      "source": "Uzone",
+      "pubDate": "2026-10-03T09:00:00.000Z"
+    },
     {
       "title": "Paus Leo XIV Soroti Urgensi Pembedaan Seni Manusia dan Karya AI",
       "link": "https://mediaindonesia.com/internasional/940183/paus-leo-xiv-soroti-urgensi-pembedaan-seni-manusia-dan-karya-ai",
@@ -1777,30 +1801,6 @@
       "link": "https://katadata.co.id/digital/teknologi/6aace205dbbc1/pendapatan-openai-dan-anthropic-10-kali-lipat-dibandingkan-seluruh-model-ai-cina",
       "source": "Katadata",
       "pubDate": "2026-09-18T07:02:00.000Z"
-    },
-    {
-      "title": "Huawei siap jadi pesaing NVIDIA, berencana debutkan chip AI Q1 2027",
-      "link": "https://www.antaranews.com/berita/5747141/huawei-siap-jadi-pesaing-nvidia-berencana-debutkan-chip-ai-q1-2027",
-      "source": "ANTARA",
-      "pubDate": "2026-09-18T07:01:31.000Z"
-    },
-    {
-      "title": "Anthropic Ungkap Claude Mulai Pimpin Pengembangan AI Mandiri",
-      "link": "https://mediaindonesia.com/teknologi/934877/anthropic-ungkap-claude-mulai-pimpin-pengembangan-ai-mandiri",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-18T06:54:00.000Z"
-    },
-    {
-      "title": "Peneliti Gunakan AI Claude Milik Anthropic untuk Retas Sistem OpenAI",
-      "link": "https://mediaindonesia.com/teknologi/934872/peneliti-gunakan-ai-claude-milik-anthropic-untuk-retas-sistem-openai",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-18T06:08:00.000Z"
-    },
-    {
-      "title": "Telkom Hadirkan BISA Vokasi di Makassar, Bekali 350 Peserta dengan EduMind Wellbeing dan AI",
-      "link": "https://www.liputan6.com/tekno/read/8294330/telkom-hadirkan-bisa-vokasi-di-makassar-bekali-350-peserta-dengan-edumind-wellbeing-dan-ai",
-      "source": "Liputan6",
-      "pubDate": "2026-09-18T06:06:21.000Z"
     }
   ]
 }

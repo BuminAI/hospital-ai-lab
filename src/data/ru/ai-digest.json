@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-03T08:04:45.009Z",
+  "updatedAt": "2026-10-03T14:43:37.854Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ научился притворяться человеком в видеозвонках — модель Griffin прошла «видеотест Тьюринга»",
+      "link": "https://3dnews.ru/1149430/ii-nauchilsya-pritvoryatsya-chelovekom-v-videozvonkah-model-griffin-proshla-videotest-tyuringa",
+      "source": "3DNews",
+      "pubDate": "2026-10-03T12:00:00.000Z"
+    },
+    {
+      "title": "OpenAI покинул глава команды безопасности — он сомневался, что компания успевает за собственным ИИ",
+      "link": "https://3dnews.ru/1149429/openai-pokinul-glava-komandi-bezopasnosti-on-somnevalsya-chto-kompaniya-uspevaet-za-sobstvennim-ii",
+      "source": "3DNews",
+      "pubDate": "2026-10-03T11:47:00.000Z"
+    },
+    {
+      "title": "Дешево, но не точно: разбираем контроллер доверия к памяти LLM-агентов",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1089058/?utm_campaign=1089058&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-03T08:24:49.000Z"
+    },
+    {
+      "title": "Что и как меняется в ИТ-инфраструктуре при внедрении ИИ?",
+      "link": "https://habr.com/ru/companies/rubytech/articles/1089758/?utm_campaign=1089758&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-03T08:06:48.000Z"
+    },
     {
       "title": "Gemini 4 хороша в тестах, но буксует в работе — пожаловались сотрудники Google",
       "link": "https://3dnews.ru/1149426/gemini-4-horosha-v-testah-no-buksuet-v-rabote-pogalovalis-sotrudniki-google",
@@ -1777,30 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-16_rd-laboratoriya_ntts_argus",
       "source": "CNews",
       "pubDate": "2026-09-16T06:42:00.000Z"
-    },
-    {
-      "title": "OpenAI не боится замедления ИИ — финансовый директор заявила, что даже остановка разработок не навредит бизнесу",
-      "link": "https://3dnews.ru/1148545/finansoviy-direktor-openai-dala-ponyat-chto-kompaniya-ne-boitsya-zamedleniya-razvitiya-ii",
-      "source": "3DNews",
-      "pubDate": "2026-09-16T05:04:00.000Z"
-    },
-    {
-      "title": "«Онланта» предоставила APPIA Logistics доступ к мощным и базовым ИИ-моделям в едином сервисе",
-      "link": "https://www.cnews.ru/news/line/2026-09-16_onlanta_predostavila_appia",
-      "source": "CNews",
-      "pubDate": "2026-09-16T03:46:00.000Z"
-    },
-    {
-      "title": "Вайб‑кодинг до первой катастрофы: Изолируем ИИ‑агентов",
-      "link": "https://habr.com/ru/articles/1082718/?utm_campaign=1082718&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T21:58:05.000Z"
-    },
-    {
-      "title": "Одиннадцать релизов за сутки: как мы чинили память ИИ-агента и что из этого вышло",
-      "link": "https://habr.com/ru/articles/1082720/?utm_campaign=1082720&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-15T21:43:16.000Z"
     }
   ]
 }
