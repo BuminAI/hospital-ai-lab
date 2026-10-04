@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-10-03T14:43:37.854Z",
+  "updatedAt": "2026-10-04T00:36:54.751Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Capcom сделает RE Engine игровым движком для разработки с помощью ИИ",
+      "link": "https://3dnews.ru/1149435/capcom-sdelaet-re-engine-igrovim-dvigkom-dlya-razrabotki-s-pomoshchyu-ii",
+      "source": "3DNews",
+      "pubDate": "2026-10-03T16:10:00.000Z"
+    },
+    {
+      "title": "От одного агента к AI-холдингу: масштабирование автономных AI-систем",
+      "link": "https://habr.com/ru/articles/1090014/?utm_campaign=1090014&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-03T15:16:25.000Z"
+    },
+    {
+      "title": "ИИ-агент OpenAI узнал о предстоящем отключении из переписки в Slack и планировал своё «спасение»",
+      "link": "https://3dnews.ru/1149434/iiagent-openai-uznal-o-svoyom-otklyuchenii-iz-perepiski-v-slack-i-zadumal-spasenie-no-potom-otkazalsya-ot-plana",
+      "source": "3DNews",
+      "pubDate": "2026-10-03T15:15:00.000Z"
+    },
     {
       "title": "ИИ научился притворяться человеком в видеозвонках — модель Griffin прошла «видеотест Тьюринга»",
       "link": "https://3dnews.ru/1149430/ii-nauchilsya-pritvoryatsya-chelovekom-v-videozvonkah-model-griffin-proshla-videotest-tyuringa",
@@ -1783,24 +1801,6 @@
       "link": "https://3dnews.ru/1148557/google-predstavila-iimodeli-gemini-38-live-i-live-extended-thinking",
       "source": "3DNews",
       "pubDate": "2026-09-16T08:04:20.000Z"
-    },
-    {
-      "title": "ChatGPT Business для команды из России в 2026 году: тарифы, оплата для юридического лица, документы",
-      "link": "https://habr.com/ru/articles/1082784/?utm_campaign=1082784&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-16T07:30:55.000Z"
-    },
-    {
-      "title": "Хотел сделать приложение, а стал менеджерить департамент ИИ-агентов",
-      "link": "https://habr.com/ru/articles/1082766/?utm_campaign=1082766&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-16T06:42:21.000Z"
-    },
-    {
-      "title": "R&D-лаборатория НТЦ АРГУС разработала решение для встраиваемой аналитики с применением ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-16_rd-laboratoriya_ntts_argus",
-      "source": "CNews",
-      "pubDate": "2026-09-16T06:42:00.000Z"
     }
   ]
 }

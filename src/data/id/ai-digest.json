@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-03T14:44:11.139Z",
+  "updatedAt": "2026-10-04T00:37:27.564Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Google Kembangkan SAFE untuk Deteksi Konten Spam Buatan AI",
+      "link": "https://mediaindonesia.com/teknologi/940315/google-kembangkan-safe-untuk-deteksi-konten-spam-buatan-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-03T15:10:00.000Z"
+    },
     {
       "title": "Risiko Baru Agentic AI: Kebocoran Data Chatbot",
       "link": "https://inet.detik.com/security/d-8691176/risiko-baru-agentic-ai-kebocoran-data-chatbot",
@@ -1795,12 +1801,6 @@
       "link": "https://inet.detik.com/business/d-8668200/2-tahun-microsoft-elevate-cetak-2-4-juta-talenta-ai-sampai-ke-pesantren",
       "source": "detikINET",
       "pubDate": "2026-09-18T07:15:09.000Z"
-    },
-    {
-      "title": "Pendapatan OpenAI dan Anthropic 10 Kali Lipat Dibandingkan Seluruh Model AI Cina",
-      "link": "https://katadata.co.id/digital/teknologi/6aace205dbbc1/pendapatan-openai-dan-anthropic-10-kali-lipat-dibandingkan-seluruh-model-ai-cina",
-      "source": "Katadata",
-      "pubDate": "2026-09-18T07:02:00.000Z"
     }
   ]
 }
