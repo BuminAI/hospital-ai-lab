@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-04T00:36:54.751Z",
+  "updatedAt": "2026-10-04T15:21:26.418Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Google лишит бесплатных пользователей Gemini продвинутых моделей — зато Deep Think придёт в подписку за $20",
+      "link": "https://3dnews.ru/1149452/google-lishit-besplatnih-polzovateley-gemini-prodvinutih-modeley-zato-deep-think-pridyot-v-podpisku-za-20",
+      "source": "3DNews",
+      "pubDate": "2026-10-04T12:10:00.000Z"
+    },
+    {
+      "title": "Как я собрала на n8n SEO-агента для трех сайтов: данные, правила и немного нейросети",
+      "link": "https://habr.com/ru/articles/1090116/?utm_campaign=1090116&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-04T09:44:40.000Z"
+    },
     {
       "title": "Capcom сделает RE Engine игровым движком для разработки с помощью ИИ",
       "link": "https://3dnews.ru/1149435/capcom-sdelaet-re-engine-igrovim-dvigkom-dlya-razrabotki-s-pomoshchyu-ii",
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-16_magistranty_itmo_sozdali",
       "source": "CNews",
       "pubDate": "2026-09-16T10:05:00.000Z"
-    },
-    {
-      "title": "Artezio разработала решение для защиты российского бизнеса от атак ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-16_artezio_razrabotala_reshenie",
-      "source": "CNews",
-      "pubDate": "2026-09-16T09:37:00.000Z"
-    },
-    {
-      "title": "Google представила ИИ-модели Gemini 3.8 Live и Live Extended Thinking",
-      "link": "https://3dnews.ru/1148557/google-predstavila-iimodeli-gemini-38-live-i-live-extended-thinking",
-      "source": "3DNews",
-      "pubDate": "2026-09-16T08:04:20.000Z"
     }
   ]
 }
