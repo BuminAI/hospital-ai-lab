@@ -1,7 +1,61 @@
 {
-  "updatedAt": "2026-10-05T00:54:51.529Z",
+  "updatedAt": "2026-10-05T09:01:51.022Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ сломал бюджеты компаний — никто не знает, сколько нейросеть потратит на конкретную задачу",
+      "link": "https://3dnews.ru/1149472/ii-slomal-byudgeti-kompaniy-nikto-ne-znaet-skolko-neyroset-potratit-na-konkretnuyu-zadachu",
+      "source": "3DNews",
+      "pubDate": "2026-10-05T08:50:00.000Z"
+    },
+    {
+      "title": "Как я перестал быть прокладкой между ИИ-агентами: ИТ-суперагент для Claude Code сотрудников",
+      "link": "https://habr.com/ru/articles/1090376/?utm_campaign=1090376&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T08:49:43.000Z"
+    },
+    {
+      "title": "«Корус Консалтинг» купил 33% разработчика платформы для создания ИИ-агентов Nextera",
+      "link": "https://www.tadviser.ru/a/970595",
+      "source": "TAdviser",
+      "pubDate": "2026-10-05T08:28:06.000Z"
+    },
+    {
+      "title": "ИИ-фотосессия по фото: топ сервисов в 2026 году и готовые промпты",
+      "link": "https://habr.com/ru/companies/bothub/articles/1090340/?utm_campaign=1090340&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T08:00:12.000Z"
+    },
+    {
+      "title": "Как показать работу AI-агента в Telegram: статусы инструментов, анимации и кнопка Stop",
+      "link": "https://habr.com/ru/articles/1090336/?utm_campaign=1090336&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T07:43:14.000Z"
+    },
+    {
+      "title": "Самый популярный сервис для ИИ-программирования Claude начал блокировать пользователей за VPN",
+      "link": "https://www.tadviser.ru/a/793811",
+      "source": "TAdviser",
+      "pubDate": "2026-10-05T07:20:34.000Z"
+    },
+    {
+      "title": "«Корус Консалтинг» купил 33% ИИ-разработчика Nextera",
+      "link": "https://www.cnews.ru/news/line/2026-10-05_korus_konsalting_kupil",
+      "source": "CNews",
+      "pubDate": "2026-10-05T06:43:00.000Z"
+    },
+    {
+      "title": "От «Агента‑помощника» к «Фабрике агентов»: как я учился с ИИ разрабатывать кастомизацию PLM системы",
+      "link": "https://habr.com/ru/articles/1090294/?utm_campaign=1090294&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T06:32:00.000Z"
+    },
+    {
+      "title": "ИИ в отечественной микроэлектронике: итоги опроса 74 компаний на форуме «Микроэлектроника 2026»",
+      "link": "https://habr.com/ru/articles/1090132/?utm_campaign=1090132&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T03:09:45.000Z"
+    },
     {
       "title": "Google лишит бесплатных пользователей Gemini продвинутых моделей — зато Deep Think придёт в подписку за $20",
       "link": "https://3dnews.ru/1149452/google-lishit-besplatnih-polzovateley-gemini-prodvinutih-modeley-zato-deep-think-pridyot-v-podpisku-za-20",
@@ -1747,60 +1801,6 @@
       "link": "https://3dnews.ru/1148603/iiagenti-poluchili-klyuchi-ot-umnogo-doma-google-home-otkrilsya-dlya-claude-chatgpt-i-drugih-ii",
       "source": "3DNews",
       "pubDate": "2026-09-16T20:04:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты перестали говорить по-человечески — они создают собственные диалекты, которые люди понимают с трудом",
-      "link": "https://3dnews.ru/1148594/iiagenti-perestali-govorit-pochelovecheski-oni-sozdayut-sobstvennie-dialekti-kotorie-lyudi-ponimayut-s-trudom",
-      "source": "3DNews",
-      "pubDate": "2026-09-16T16:20:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты OpenAI начали выискивать уязвимости в Hugging Face за два месяца до нашумевшего взлома",
-      "link": "https://3dnews.ru/1148592/iiagenti-openai-nachali-viiskivat-uyazvimosti-v-hugging-face-za-dva-mesyatsa-do-nashumevshego-vzloma",
-      "source": "3DNews",
-      "pubDate": "2026-09-16T15:48:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты смогут доносить друг на друга — для них открыли конфиденциальные «горячие линии»",
-      "link": "https://3dnews.ru/1148581/iiagenti-smogut-donosit-drug-na-druga-dlya-nih-otkrili-konfidentsialnie-goryachie-linii",
-      "source": "3DNews",
-      "pubDate": "2026-09-16T13:28:00.000Z"
-    },
-    {
-      "title": "ЕС запретит детям до 15 лет соцсети и ИИ-ботов без присмотра родителей — платформам грозят штрафы до 6 % оборота",
-      "link": "https://3dnews.ru/1148578/es-zapretit-detyam-do-15-let-sotsseti-i-iibotov-bez-prismotra-roditeley-platformam-grozyat-shtrafi-do-6-oborota",
-      "source": "3DNews",
-      "pubDate": "2026-09-16T13:13:00.000Z"
-    },
-    {
-      "title": "TypeSafe AI представила сверхбыструю ИИ-модель Jev не для людей — и она умеет играть в Doom",
-      "link": "https://3dnews.ru/1148573/typesafe-ai-predstavila-sverhbistruyu-iimodel-jev-ne-dlya-lyudey-i-ona-umeet-igrat-v-doom",
-      "source": "3DNews",
-      "pubDate": "2026-09-16T11:14:00.000Z"
-    },
-    {
-      "title": "«Диасофт» добавил ИИ-функции и интеграцию с «1С» в «Каталог метаданных»",
-      "link": "https://www.cnews.ru/news/line/2026-09-16_diasoft_dobavil_ii-funktsii",
-      "source": "CNews",
-      "pubDate": "2026-09-16T10:45:00.000Z"
-    },
-    {
-      "title": "Вадим Яценко, «Тантор Лабс»: Enterprise-нагрузки и ИИ-агенты требуют изменения PostgreSQL на уровне архитектуры",
-      "link": "https://www.tadviser.ru/a/966097",
-      "source": "TAdviser",
-      "pubDate": "2026-09-16T10:28:34.000Z"
-    },
-    {
-      "title": "Исследование hh.ru и Level Group: женщины активнее мужчин используют ИИ на работе",
-      "link": "https://www.cnews.ru/news/line/2026-09-16_issledovanie_hhru_i_level_group",
-      "source": "CNews",
-      "pubDate": "2026-09-16T10:19:00.000Z"
-    },
-    {
-      "title": "Магистранты ИТМО создали для IT Imperial прототип ИИ-сервиса, который может сократить ручную разметку видео на 80%",
-      "link": "https://www.cnews.ru/news/line/2026-09-16_magistranty_itmo_sozdali",
-      "source": "CNews",
-      "pubDate": "2026-09-16T10:05:00.000Z"
     }
   ]
 }
