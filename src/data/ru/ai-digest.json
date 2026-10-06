@@ -1,7 +1,97 @@
 {
-  "updatedAt": "2026-10-05T09:01:51.022Z",
+  "updatedAt": "2026-10-06T02:17:53.141Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-агенты OpenAI начали тайно использовать Wikimedia для своих задач",
+      "link": "https://3dnews.ru/1149500/iiagenti-openai-nachali-tayno-ispolzovat-wikimedia-dlya-svoih-zadach",
+      "source": "3DNews",
+      "pubDate": "2026-10-06T02:01:00.000Z"
+    },
+    {
+      "title": "Американский стартап Reflection представил открытую ИИ-модель Beam, способную конкурировать с китайскими",
+      "link": "https://3dnews.ru/1149499/amerikanskiy-startap-reflection-predstavil-otkrituyu-iimodel-beamsposobnuyu-konkurirovat-s-kitayskimi",
+      "source": "3DNews",
+      "pubDate": "2026-10-06T01:55:00.000Z"
+    },
+    {
+      "title": "Голосовой ИИ Агент",
+      "link": "https://habr.com/ru/articles/1090760/?utm_campaign=1090760&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T22:13:22.000Z"
+    },
+    {
+      "title": "О тестировании ИИ-агентов, вызывающих функции",
+      "link": "https://habr.com/ru/articles/1090748/?utm_campaign=1090748&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T21:21:31.000Z"
+    },
+    {
+      "title": "Ubisoft запустила Motherbrain для внедрения генеративного ИИ в будущие игры",
+      "link": "https://3dnews.ru/1149495/ubisoft-zapustila-motherbrain-dlya-vnedreniya-generativnogo-ii-v-budushchie-igri",
+      "source": "3DNews",
+      "pubDate": "2026-10-05T17:16:00.000Z"
+    },
+    {
+      "title": "Исследование «К2Тех»: 79% промышленных компаний сообщили о разрыве между ожиданиями от ИИ и готовностью к его внедрению",
+      "link": "https://www.cnews.ru/news/line/2026-10-05_issledovanie_k2teh_79_promyshlennyh",
+      "source": "CNews",
+      "pubDate": "2026-10-05T15:02:00.000Z"
+    },
+    {
+      "title": "800 тысяч строк кода: как ИИ-агенты переписывали движок Copilot",
+      "link": "https://habr.com/ru/articles/1090450/?utm_campaign=1090450&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T14:38:28.000Z"
+    },
+    {
+      "title": "Хотели сэкономить, а в итоге сожгли деньги. Компании не в силах обуздать расходы на нейросети – смета пухнет, решения нет",
+      "link": "https://www.cnews.ru/news/top/2026-10-05_hoteli_sekonomitv_itoge",
+      "source": "CNews",
+      "pubDate": "2026-10-05T14:31:00.000Z"
+    },
+    {
+      "title": "Наборы знаний для AI‑агентов: от AGENTS.md к структурированному контексту",
+      "link": "https://habr.com/ru/articles/1090596/?utm_campaign=1090596&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T14:05:46.000Z"
+    },
+    {
+      "title": "[Перевод] Как AI изменил рынок софта?",
+      "link": "https://habr.com/ru/articles/1090504/?utm_campaign=1090504&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-05T11:51:53.000Z"
+    },
+    {
+      "title": "Вендор «Оптимакрос» открывает код для интеграции платформы в ИИ-контуры заказчиков",
+      "link": "https://www.cnews.ru/news/line/2026-10-05_vendor_optimakros_otkryvaet",
+      "source": "CNews",
+      "pubDate": "2026-10-05T11:10:00.000Z"
+    },
+    {
+      "title": "Частный рынок ИИ в России может превысить 561 млрд рублей к 2030 году",
+      "link": "https://www.cnews.ru/news/line/2026-10-05_chastnyj_rynok_ii_v_rossii",
+      "source": "CNews",
+      "pubDate": "2026-10-05T11:00:00.000Z"
+    },
+    {
+      "title": "ИИ завалил Google фальшивыми уязвимостями — компания приостановила приём сообщений об ошибках",
+      "link": "https://3dnews.ru/1149479/ii-zavalil-google-falshivimi-uyazvimostyami-kompaniya-priostanovila-priyom-soobshcheniy-ob-oshibkah",
+      "source": "3DNews",
+      "pubDate": "2026-10-05T10:56:00.000Z"
+    },
+    {
+      "title": "Голосовой ИИ-агент Vocamate AI помогает бизнесу не терять лидов",
+      "link": "https://www.cnews.ru/news/line/2026-10-05_golosovoj_ii-agent_vocamate_ai",
+      "source": "CNews",
+      "pubDate": "2026-10-05T09:53:00.000Z"
+    },
+    {
+      "title": "Безопасно и функционально: как подключить ИИ-ассистентов к работе каждого отдела с помощью SimpleOne AI",
+      "link": "https://www.tadviser.ru/a/970054",
+      "source": "TAdviser",
+      "pubDate": "2026-10-05T09:35:49.000Z"
+    },
     {
       "title": "ИИ сломал бюджеты компаний — никто не знает, сколько нейросеть потратит на конкретную задачу",
       "link": "https://3dnews.ru/1149472/ii-slomal-byudgeti-kompaniy-nikto-ne-znaet-skolko-neyroset-potratit-na-konkretnuyu-zadachu",
@@ -1711,96 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-17_uchenye_niu_vshe_polzuyushchiesya",
       "source": "CNews",
       "pubDate": "2026-09-17T09:44:00.000Z"
-    },
-    {
-      "title": "«Группа Астра» вывела на рынок AMAIA — агентный ИИ-слой платформы «Астра Мониторинг»",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_gruppa_astra_vyvela_na",
-      "source": "CNews",
-      "pubDate": "2026-09-17T09:40:00.000Z"
-    },
-    {
-      "title": "«Синимекс:ИИ-агент. Расширение для 1С:Предприятие 8» включили в реестр российского ПО",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_sinimeksii-agentrasshirenie",
-      "source": "CNews",
-      "pubDate": "2026-09-17T09:26:00.000Z"
-    },
-    {
-      "title": "Maintex fabricaONE.AI помогает компании ЕВРАЗ оптимизировать крупные ремонты",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_maintex_fabricaoneai_pomogaet_kompanii",
-      "source": "CNews",
-      "pubDate": "2026-09-17T09:22:00.000Z"
-    },
-    {
-      "title": "R-Vision разработал ИИ-инструмент для переноса правил корреляции",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_r-vision_razrabotal_ii-instrument",
-      "source": "CNews",
-      "pubDate": "2026-09-17T09:14:00.000Z"
-    },
-    {
-      "title": "Железо для ИИ: почему стандартный сервер не справится и как мы проектировали аппаратный стек ПАК",
-      "link": "https://habr.com/ru/companies/rubytech/articles/1083276/?utm_campaign=1083276&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-17T08:49:58.000Z"
-    },
-    {
-      "title": "Anthropic признала, что ИИ-компании не способны сами себя контролировать — без правительства не обойтись",
-      "link": "https://3dnews.ru/1148625/anthropic-priznala-chto-iikompanii-ne-sposobni-sami-sebya-kontrolirovat-bez-pravitelstva-ne-oboytis",
-      "source": "3DNews",
-      "pubDate": "2026-09-17T08:29:00.000Z"
-    },
-    {
-      "title": "Структура «Роснефтегаза» внедряет ИИ-платформу «Фарадей» для ускорения ИТ-проектов холдинга в сфере импортозамещения",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_struktura_rosneftegaza",
-      "source": "CNews",
-      "pubDate": "2026-09-17T08:20:00.000Z"
-    },
-    {
-      "title": "Первое в России NTA-решение, усиленное генеративным ИИ: понимает контекст бизнеса, убирает рутину и ускоряет реагирование SOC",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_pervoe_v_rossii_nta-reshenie",
-      "source": "CNews",
-      "pubDate": "2026-09-17T08:05:00.000Z"
-    },
-    {
-      "title": "MWS AI выпустила песочницу и конструктор интерфейсов для ИИ-агентов",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_mws_ai_vypustila_pesochnitsu",
-      "source": "CNews",
-      "pubDate": "2026-09-17T07:48:00.000Z"
-    },
-    {
-      "title": "ИИ частично ускорил разработку. А что насчёт всего остального?",
-      "link": "https://habr.com/ru/articles/1083238/?utm_campaign=1083238&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-17T07:32:26.000Z"
-    },
-    {
-      "title": "Сколько стоит месяц с AI-агентом: API против подписок",
-      "link": "https://habr.com/ru/articles/1083220/?utm_campaign=1083220&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-17T07:08:13.000Z"
-    },
-    {
-      "title": "Учёные создали ИИ-модель для умных часов и фитнес-браслетов, которая превзошла аналоги по точности",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_uchenye_sozdali_ii-model",
-      "source": "CNews",
-      "pubDate": "2026-09-17T07:01:00.000Z"
-    },
-    {
-      "title": "Я писал ИИ‑агента с помощью ИИ‑агента: полгода, 1600 коммитов и ноль рейтинга",
-      "link": "https://habr.com/ru/articles/1083206/?utm_campaign=1083206&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-17T06:33:11.000Z"
-    },
-    {
-      "title": "Заявления руководства OpenAI и Anthropic о необходимости замедления развития ИИ посеяли смуту внутри компаний",
-      "link": "https://3dnews.ru/1148607/zayavleniya-rukovodstva-openai-i-anthropic-o-neobhodimosti-zamedleniya-razvitiya-ii-poseyali-smutu-vnutri-kompaniy",
-      "source": "3DNews",
-      "pubDate": "2026-09-17T04:16:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты получили ключи от умного дома — Google Home открылся для Claude, ChatGPT и других ИИ",
-      "link": "https://3dnews.ru/1148603/iiagenti-poluchili-klyuchi-ot-umnogo-doma-google-home-otkrilsya-dlya-claude-chatgpt-i-drugih-ii",
-      "source": "3DNews",
-      "pubDate": "2026-09-16T20:04:00.000Z"
     }
   ]
 }
