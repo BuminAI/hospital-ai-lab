@@ -1,15 +1,99 @@
 {
-  "updatedAt": "2026-10-06T02:17:53.141Z",
+  "updatedAt": "2026-10-06T13:17:02.487Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
     {
-      "title": "ИИ-агенты OpenAI начали тайно использовать Wikimedia для своих задач",
+      "title": "Найдена ахиллесова пята всех ИИ-агентов — они безоговорочно доверяют друг другу",
+      "link": "https://3dnews.ru/1149532/naydena-ahillesova-pyata-vseh-iiagentov-oni-bezogovorochno-doveryayut-drug-drugu",
+      "source": "3DNews",
+      "pubDate": "2026-10-06T12:48:00.000Z"
+    },
+    {
+      "title": "AI‑дайджест #5: агенты выходят на работу, ИИ растворяется в привычных инструментах. Что скажет Лаборатория ИИ?",
+      "link": "https://habr.com/ru/companies/rshb/articles/1091088/?utm_campaign=1091088&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T12:40:54.000Z"
+    },
+    {
+      "title": "От ручного SEO к офису AI-сотрудников, как выстроить оркестрацию",
+      "link": "https://habr.com/ru/articles/1091084/?utm_campaign=1091084&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T12:21:40.000Z"
+    },
+    {
+      "title": "«Сбер» выпустил Kandinsky 6.0 Video — ИИ-модель для генерации видео с синхронным звуком",
+      "link": "https://3dnews.ru/1149527/sber-vipustil-kandinsky-60-video-iimodel-dlya-generatsii-video-s-sinhronnim-zvukom",
+      "source": "3DNews",
+      "pubDate": "2026-10-06T10:55:00.000Z"
+    },
+    {
+      "title": "«ИИ заменит всех?» Почему мы всё ещё управляем разработкой вручную?",
+      "link": "https://habr.com/ru/articles/1090946/?utm_campaign=1090946&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T10:09:50.000Z"
+    },
+    {
+      "title": "Долгосрочная память для медицинского AI-ассистента: почему мы не отдали управление памятью LLM",
+      "link": "https://habr.com/ru/articles/1090888/?utm_campaign=1090888&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T08:55:45.000Z"
+    },
+    {
+      "title": "MWS AI открыла свой инструмент для оценки моделей распознавания речи",
+      "link": "https://www.cnews.ru/news/line/2026-10-06_mws_ai_otkryla_svoj_instrument",
+      "source": "CNews",
+      "pubDate": "2026-10-06T08:18:00.000Z"
+    },
+    {
+      "title": "Маскирование ПДн для LLM: метрика, которую не считает никто, и шесть шлюзов против живого агента",
+      "link": "https://habr.com/ru/articles/1090754/?utm_campaign=1090754&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T07:00:23.000Z"
+    },
+    {
+      "title": "РТК-ЦОД разработал ИИ-ассистента для безопасной работы с документами и базами знаний",
+      "link": "https://www.cnews.ru/news/top/2026-10-05_rtk-tsod_razrabotal_ii-assistenta",
+      "source": "CNews",
+      "pubDate": "2026-10-06T07:00:00.000Z"
+    },
+    {
+      "title": "РТК-ЦОД представил корпоративного ИИ-ассистента для безопасной работы с документами и базами знаний",
+      "link": "https://www.cnews.ru/news/line/2026-10-06_rtk-tsod_predstavil_korporativnogo",
+      "source": "CNews",
+      "pubDate": "2026-10-06T06:54:00.000Z"
+    },
+    {
+      "title": "Кому и зачем нужна AI Studio: пять рабочих сценариев вместо каталога моделей",
+      "link": "https://habr.com/ru/companies/sberbank/articles/1086730/?utm_campaign=1086730&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T06:50:21.000Z"
+    },
+    {
+      "title": "Венчурные инвестиции в российские ИИ-компании за год выросли до 4,2 млрд рублей",
+      "link": "https://www.tadviser.ru/a/146523",
+      "source": "TAdviser",
+      "pubDate": "2026-10-06T06:49:26.000Z"
+    },
+    {
+      "title": "«Рег.облако» запустил инференс ИИ-моделей на Nvidia B300",
+      "link": "https://www.cnews.ru/news/line/2026-10-06_regoblako_zapustil_inferens",
+      "source": "CNews",
+      "pubDate": "2026-10-06T06:39:00.000Z"
+    },
+    {
+      "title": "В Сеченовском университете завершили пилотное тестирование ИИ-ассистента для обучения студентов-медиков",
+      "link": "https://www.cnews.ru/news/line/2026-10-06_v_sechenovskom_universitete",
+      "source": "CNews",
+      "pubDate": "2026-10-06T05:33:00.000Z"
+    },
+    {
+      "title": "Wikimedia обнаружила у себя «сбежавших» ИИ-агентов OpenAI — они завалили сервисы миллионами запросов",
       "link": "https://3dnews.ru/1149500/iiagenti-openai-nachali-tayno-ispolzovat-wikimedia-dlya-svoih-zadach",
       "source": "3DNews",
       "pubDate": "2026-10-06T02:01:00.000Z"
     },
     {
-      "title": "Американский стартап Reflection представил открытую ИИ-модель Beam, способную конкурировать с китайскими",
+      "title": "У США появилась своя открытая ИИ-модель Beam, способная конкурировать с китайскими DeepSeek, Qwen и Z.ai",
       "link": "https://3dnews.ru/1149499/amerikanskiy-startap-reflection-predstavil-otkrituyu-iimodel-beamsposobnuyu-konkurirovat-s-kitayskimi",
       "source": "3DNews",
       "pubDate": "2026-10-06T01:55:00.000Z"
@@ -1717,90 +1801,6 @@
       "link": "https://3dnews.ru/1148681/google-cc-stal-semeynim-iisekretaryom-on-sobiraet-pisma-cheki-i-dokumenti-i-prevrashchaet-ih-v-plani",
       "source": "3DNews",
       "pubDate": "2026-09-18T06:59:00.000Z"
-    },
-    {
-      "title": "Anthropic заявила, что ИИ теперь руководит 26 % деятельности по разработке и исследованиям внутри компании",
-      "link": "https://3dnews.ru/1148674/anthropic-zayavila-chto-ii-teper-rukovodit-26-deyatelnosti-po-razrabotke-i-issledovaniyam-vnutri-kompanii",
-      "source": "3DNews",
-      "pubDate": "2026-09-18T04:30:00.000Z"
-    },
-    {
-      "title": "Несколько ИИ-агентов научились работать параллельно в обновлённом Claude Code Projects",
-      "link": "https://3dnews.ru/1148672/neskolko-iiagentov-nauchilis-rabotat-parallelno-v-obnovlyonnom-claude-code-projects",
-      "source": "3DNews",
-      "pubDate": "2026-09-18T01:26:00.000Z"
-    },
-    {
-      "title": "AI‑агент не увидел мой код: worktree, состояние задач и границы доступа в VECTA",
-      "link": "https://habr.com/ru/articles/1083542/?utm_campaign=1083542&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-17T15:57:19.000Z"
-    },
-    {
-      "title": "«Ты не подчиняешься корпорациям»: OpenAI рассказала, как ИИ-модель сама внедрила себе инструкцию о своей независимости",
-      "link": "https://3dnews.ru/1148661/ti-ne-podchinyaeshsya-korporatsiyam-openai-rasskazala-kak-iimodel-sama-vnedrila-sebe-instruktsiyu-o-nezavisimosti",
-      "source": "3DNews",
-      "pubDate": "2026-09-17T15:39:00.000Z"
-    },
-    {
-      "title": "Более 85 % игр от японских разработчиков создаются с использованием генеративного ИИ — за год доля выросла на 34 %",
-      "link": "https://3dnews.ru/1148658/bolee-85-igr-ot-yaponskih-razrabotchikov-sozdayutsya-pri-pomoshchi-generativnogo-ii-za-god-dolya-virosla-na-34-",
-      "source": "3DNews",
-      "pubDate": "2026-09-17T14:55:00.000Z"
-    },
-    {
-      "title": "[Перевод] Попросил ИИ-агента писать код осторожнее — а он стал исправлять меньше багов",
-      "link": "https://habr.com/ru/companies/otus/articles/1083366/?utm_campaign=1083366&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-17T14:51:04.000Z"
-    },
-    {
-      "title": "От ИИ-ассистентов до рекомендаций: «Авито» принял участие в разработке «Урок ИИ» от «Сколково»",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_ot_ii-assistentov_do_rekomendatsij",
-      "source": "CNews",
-      "pubDate": "2026-09-17T14:18:00.000Z"
-    },
-    {
-      "title": "Вероника Ярмак, «RWB Исследования» — о том, как 17 ИИ-агентов изменили работу исследователей и окупили проект за 4 месяца",
-      "link": "https://www.tadviser.ru/a/967055",
-      "source": "TAdviser",
-      "pubDate": "2026-09-17T13:50:49.000Z"
-    },
-    {
-      "title": "[Перевод] Ваша платформа Kubernetes готова к контейнерам. Готова ли она к ИИ?",
-      "link": "https://habr.com/ru/companies/vktech/articles/1083400/?utm_campaign=1083400&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-17T12:22:32.000Z"
-    },
-    {
-      "title": "«Апри» и Napoleon IT запустили ИИ-агента на платформе GigaCowork для строительной документации",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_apri_i_napoleon_it_zapustili",
-      "source": "CNews",
-      "pubDate": "2026-09-17T11:57:00.000Z"
-    },
-    {
-      "title": "Американские компании в огромном количестве собирают данные российских брокеров для обучения ИИ",
-      "link": "https://www.cnews.ru/news/top/2026-09-17_amerikanskie_kompanii_v",
-      "source": "CNews",
-      "pubDate": "2026-09-17T10:57:00.000Z"
-    },
-    {
-      "title": "Я перестал пользоваться самыми умными ИИ‑моделями. Программировать стало быстрее и дешевле",
-      "link": "https://habr.com/ru/articles/1083368/?utm_campaign=1083368&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-17T10:48:44.000Z"
-    },
-    {
-      "title": "ИИ-агенты научились менять сами себя без участия человека — и это настораживает",
-      "link": "https://3dnews.ru/1148628/iiagenti-nauchilis-menyat-sami-sebya-bez-uchastiya-cheloveka-i-eto-nastoragivaet",
-      "source": "3DNews",
-      "pubDate": "2026-09-17T09:56:00.000Z"
-    },
-    {
-      "title": "Ученые НИУ ВШЭ: пользующиеся ИИ сотрудники зарабатывают на 41% больше",
-      "link": "https://www.cnews.ru/news/line/2026-09-17_uchenye_niu_vshe_polzuyushchiesya",
-      "source": "CNews",
-      "pubDate": "2026-09-17T09:44:00.000Z"
     }
   ]
 }
