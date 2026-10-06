@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-10-06T13:17:02.487Z",
+  "updatedAt": "2026-10-06T19:31:55.339Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Запустил собственный PII-фильтр перед облачными моделями и отказался от идеи селф-хостед LLM",
+      "link": "https://habr.com/ru/articles/1091236/?utm_campaign=1091236&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T16:40:09.000Z"
+    },
+    {
+      "title": "НПФ «Будущее» масштабирует ИИ-технологии для автоматизации документооборота",
+      "link": "https://www.cnews.ru/news/line/2026-10-06_npf_budushchee_masshtabiruet",
+      "source": "CNews",
+      "pubDate": "2026-10-06T15:44:00.000Z"
+    },
+    {
+      "title": "Безопасный разум суверенной индустрии: «Группа Астра» впервые представляет экосистему доверенного ИИ на форуме «Цифровые решения — 2026»",
+      "link": "https://www.cnews.ru/news/line/2026-10-06_bezopasnyj_razum_suverennoj",
+      "source": "CNews",
+      "pubDate": "2026-10-06T15:28:00.000Z"
+    },
+    {
+      "title": "«Ростелеком» ищет полноценного российского «убийцу» JetBrains, в котором ИИ-агенты будут работать без интернета",
+      "link": "https://www.cnews.ru/news/top/2026-10-06_rostelekom_ishchet_polnotsennogo",
+      "source": "CNews",
+      "pubDate": "2026-10-06T15:13:00.000Z"
+    },
+    {
+      "title": "«Лаборатория Касперского» выпустила руководство по безопасности ИИ-агентов через призму кибериммунитета",
+      "link": "https://www.cnews.ru/news/line/2026-10-06_laboratoriya_kasperskogo",
+      "source": "CNews",
+      "pubDate": "2026-10-06T14:59:00.000Z"
+    },
+    {
+      "title": "Флагманский европейский ИИ — Mistral представила модель Large 4 Le Chonk",
+      "link": "https://3dnews.ru/1149540/flagmanskiy-evropeyskiy-ii-mistral-predstavila-model-large-4le-chonk",
+      "source": "3DNews",
+      "pubDate": "2026-10-06T14:34:00.000Z"
+    },
+    {
+      "title": "Данные пошли по кругу: ChatGPT стал одной из главных целей ботов для сбора данных",
+      "link": "https://3dnews.ru/1149538/dannie-poshli-po-krugu-chatgpt-stal-odnoy-iz-glavnih-tseley-botov-dlya-sbora-dannih",
+      "source": "3DNews",
+      "pubDate": "2026-10-06T14:06:00.000Z"
+    },
+    {
+      "title": "Как я перестал верить нейросети и полюбил контрольные разряды: Zero-Trust для распознавания юридических документов",
+      "link": "https://habr.com/ru/articles/1091144/?utm_campaign=1091144&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T13:56:22.000Z"
+    },
+    {
+      "title": "Михаил Мишустин: Регионы смогут пользоваться ИИ-сервисами из «Гостеха»",
+      "link": "https://www.cnews.ru/news/top/2026-10-06_mihail_mishustin_regiony",
+      "source": "CNews",
+      "pubDate": "2026-10-06T13:20:00.000Z"
+    },
+    {
+      "title": "как OpenAI, Anthropic, Google и xAI борются за модели, облака и разработчиков",
+      "link": "https://habr.com/ru/articles/1091122/?utm_campaign=1091122&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-06T13:17:18.000Z"
+    },
     {
       "title": "Найдена ахиллесова пята всех ИИ-агентов — они безоговорочно доверяют друг другу",
       "link": "https://3dnews.ru/1149532/naydena-ahillesova-pyata-vseh-iiagentov-oni-bezogovorochno-doveryayut-drug-drugu",
@@ -1741,66 +1801,6 @@
       "link": "https://www.tadviser.ru/a/967410",
       "source": "TAdviser",
       "pubDate": "2026-09-18T14:01:00.000Z"
-    },
-    {
-      "title": "Внедрение «водяных знаков» может сделать поведение ИИ-моделей непредсказуемым",
-      "link": "https://3dnews.ru/1148713/vnedrenie-vodyanih-znakov-moget-sdelat-povedenie-iimodeley-nepredskazuemim",
-      "source": "3DNews",
-      "pubDate": "2026-09-18T13:54:00.000Z"
-    },
-    {
-      "title": "На Форуме ProcessTech представили новый подход к внедрению корпоративного ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-18_na_forume_processtech_predstavili",
-      "source": "CNews",
-      "pubDate": "2026-09-18T13:00:00.000Z"
-    },
-    {
-      "title": "Как мы научили ИИ-модель понимать документы и теперь оформляем новых сотрудников в 2 раза быстрее",
-      "link": "https://habr.com/ru/companies/sminex_developer/articles/1083860/?utm_campaign=1083860&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-18T12:08:45.000Z"
-    },
-    {
-      "title": "474 712 строк за 35 лет: как мы с LLM и 21 экспертом приводим в порядок справочник автосервиса",
-      "link": "https://habr.com/ru/companies/rolf_autotech/articles/1083810/?utm_campaign=1083810&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-18T10:44:06.000Z"
-    },
-    {
-      "title": "У всех ИИ-агентов для программирования нашлась опасная уязвимость — вредоносный код запускается без участия пользователя",
-      "link": "https://3dnews.ru/1148700/u-vseh-iiagentov-dlya-programmirovaniya-nashlas-opasnaya-uyazvimost-vredonosniy-kod-zapuskaetsya-bez-uchastiya-polzovatelya",
-      "source": "3DNews",
-      "pubDate": "2026-09-18T10:41:00.000Z"
-    },
-    {
-      "title": "Утверждена концепция внедрения ИИ в российские суды. Он поможет анализировать обстоятельства дела и назначать наказание",
-      "link": "https://www.tadviser.ru/a/783464",
-      "source": "TAdviser",
-      "pubDate": "2026-09-18T10:07:53.000Z"
-    },
-    {
-      "title": "Дизайн интерьера нейросетью: 4 сервиса для ремонта по фото комнаты",
-      "link": "https://habr.com/ru/companies/bothub/articles/1083726/?utm_campaign=1083726&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-18T09:04:15.000Z"
-    },
-    {
-      "title": "Системы OpenAI взломали при помощи ИИ-моделей Anthropic",
-      "link": "https://3dnews.ru/1148693/sistemi-openai-vzlomali-pri-pomoshchi-iimodeley-anthropic",
-      "source": "3DNews",
-      "pubDate": "2026-09-18T08:49:00.000Z"
-    },
-    {
-      "title": "Опальный китайский ИИ получил доступ к данным Уолл-стрит",
-      "link": "https://www.cnews.ru/news/top/2026-09-18_kitajskomu_ii-startapunahodyashchemusya",
-      "source": "CNews",
-      "pubDate": "2026-09-18T08:02:00.000Z"
-    },
-    {
-      "title": "Google CC стал семейным ИИ-секретарём — он собирает письма, чеки и документы и превращает их в планы",
-      "link": "https://3dnews.ru/1148681/google-cc-stal-semeynim-iisekretaryom-on-sobiraet-pisma-cheki-i-dokumenti-i-prevrashchaet-ih-v-plani",
-      "source": "3DNews",
-      "pubDate": "2026-09-18T06:59:00.000Z"
     }
   ]
 }
