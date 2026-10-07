@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-06T19:31:55.339Z",
+  "updatedAt": "2026-10-07T08:37:45.881Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "«МегаФон»: личного ИИ-агента сотрудника нельзя распространять на всю компанию",
+      "link": "https://www.cnews.ru/news/line/2026-10-07_megafon_lichnogo_ii-agenta",
+      "source": "CNews",
+      "pubDate": "2026-10-07T07:50:00.000Z"
+    },
+    {
+      "title": "ИБ-стартап Sentra представил ИИ-хакера для проверки защищенности бизнеса глазами атакующего",
+      "link": "https://www.cnews.ru/news/line/2026-10-07_ib-startap_sentra_predstavil",
+      "source": "CNews",
+      "pubDate": "2026-10-07T07:28:00.000Z"
+    },
+    {
+      "title": "Как россияне пользуются сервисами с ИИ? (экспресс-информация ИСИЭЗ НИУ ВШЭ)",
+      "link": "https://www.cnews.ru/news/line/2026-10-07_kak_rossiyane_polzuyutsya",
+      "source": "CNews",
+      "pubDate": "2026-10-07T06:55:00.000Z"
+    },
+    {
+      "title": "74% опрошенных россиян уже использовали встроенные ИИ-функции браузера — исследование Smart Ranking",
+      "link": "https://www.cnews.ru/news/line/2026-10-07_74_oproshennyh_rossiyan_uzhe",
+      "source": "CNews",
+      "pubDate": "2026-10-07T03:54:00.000Z"
+    },
     {
       "title": "Запустил собственный PII-фильтр перед облачными моделями и отказался от идеи селф-хостед LLM",
       "link": "https://habr.com/ru/articles/1091236/?utm_campaign=1091236&utm_source=habrahabr&utm_medium=rss",
@@ -118,9 +142,9 @@
     },
     {
       "title": "РТК-ЦОД представил корпоративного ИИ-ассистента для безопасной работы с документами и базами знаний",
-      "link": "https://www.cnews.ru/news/line/2026-10-06_rtk-tsod_predstavil_korporativnogo",
-      "source": "CNews",
-      "pubDate": "2026-10-06T06:54:00.000Z"
+      "link": "https://www.tadviser.ru/a/970653",
+      "source": "TAdviser",
+      "pubDate": "2026-10-06T06:57:52.000Z"
     },
     {
       "title": "Кому и зачем нужна AI Studio: пять рабочих сценариев вместо каталога моделей",
@@ -1777,30 +1801,6 @@
       "link": "https://3dnews.ru/1148730/bolee-100-ekspertov-predupredili-nezavisimaya-proverka-bezopasnosti-ii-seychas-pochti-nevozmogna",
       "source": "3DNews",
       "pubDate": "2026-09-18T19:39:00.000Z"
-    },
-    {
-      "title": "«Воровство беспрецедентных масштабов»: OpenAI и Microsoft признали, что ИИ построен на краже данных и неумолимо разрушает интернет",
-      "link": "https://3dnews.ru/1148728/vorovstvo-bespretsedentnih-masshtabov-openai-i-microsoft-priznali-chto-ii-postroen-na-krage-dannih-i-neumolimo-razrushaet-internet",
-      "source": "3DNews",
-      "pubDate": "2026-09-18T17:25:00.000Z"
-    },
-    {
-      "title": "Как австралийца судят за утечку судебных документов из-за нейросети",
-      "link": "https://habr.com/ru/companies/infowatch/articles/1083954/?utm_campaign=1083954&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-18T14:32:05.000Z"
-    },
-    {
-      "title": "«Рольфтех» с помощью ИИ и экспертов структурировал 238 тысяч сервисных операций «Рольф»",
-      "link": "https://www.cnews.ru/news/line/2026-09-18_rolfteh_s_pomoshchyu_ii_i",
-      "source": "CNews",
-      "pubDate": "2026-09-18T14:19:00.000Z"
-    },
-    {
-      "title": "«Билайн» подключит ИИ к выявлению и обработке инцидентов экономической безопасности",
-      "link": "https://www.tadviser.ru/a/967410",
-      "source": "TAdviser",
-      "pubDate": "2026-09-18T14:01:00.000Z"
     }
   ]
 }
