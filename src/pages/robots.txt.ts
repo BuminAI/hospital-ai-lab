@@ -39,7 +39,9 @@ const CRAWLERS: { group: string; agents: string[] }[] = [
       'GPTBot', // OpenAI 수집
       'OAI-SearchBot', // ChatGPT 검색 색인
       'ChatGPT-User', // 사용자가 ChatGPT에서 링크를 열 때
-      'ClaudeBot', // Anthropic 수집
+      'ClaudeBot', // Anthropic 수집(학습)
+      'Claude-SearchBot', // Anthropic 검색 결과 품질 개선 — Claude 검색·답변 노출에 직접 관여(2026-09-20 추가, Anthropic 공식 문서 확인)
+      'Claude-User', // 사용자가 Claude에게 질문할 때 실시간 조회(2026-09-20 추가)
       'Claude-Web',
       'anthropic-ai',
       'PerplexityBot', // Perplexity 색인
@@ -48,12 +50,20 @@ const CRAWLERS: { group: string; agents: string[] }[] = [
       'Applebot-Extended', // Apple Intelligence 학습
       'Amazonbot',
       'meta-externalagent', // Meta AI
+      'CCBot', // Common Crawl — 여러 LLM의 학습 데이터 파이프라인이 이걸 경유한다
+      'Bytespider', // 바이트댄스(틱톡) AI
+      'cohere-ai', // Cohere
+      'Diffbot',
     ],
   },
 ];
 
 export const GET: APIRoute = ({ site }) => {
   const sitemapURL = new URL(`${BASE}/sitemap-index.xml`, site);
+  // 생성형 검색·답변 엔진용 사이트 안내(llms.txt 규약).
+  // 다섯 언어판의 구성과 각 페이지의 수집처를 사람이 읽는 문장으로 적어 둔 파일이다.
+  // ⚠️ 페이지를 새로 만들거나 수집처를 바꾸면 public/llms.txt 도 함께 고칠 것.
+  const llmsURL = new URL(`${BASE}/llms.txt`, site);
 
   const block = (ua: string) => `User-agent: ${ua}\nAllow: /`;
 
@@ -64,7 +74,9 @@ export const GET: APIRoute = ({ site }) => {
     ),
   ];
 
-  const body = `${sections.join('\n\n')}\n\nSitemap: ${sitemapURL.href}\n`;
+  const body =
+    `${sections.join('\n\n')}\n\nSitemap: ${sitemapURL.href}\n` +
+    `\n# 사이트 구성 안내 (llms.txt)\nLLM-Content: ${llmsURL.href}\n`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },

@@ -1,0 +1,67 @@
+[
+  {
+    "href": "/id/",
+    "key": "home",
+    "enabled": true
+  },
+  {
+    "href": "/id/about/",
+    "key": "about",
+    "enabled": true
+  },
+  {
+    "href": "/id/blog/",
+    "key": "blog",
+    "enabled": true
+  },
+  {
+    "href": "/id/news/",
+    "key": "news",
+    "enabled": true
+  },
+  {
+    "href": "/id/ai-digest/",
+    "key": "aiDigest",
+    "enabled": true
+  },
+  {
+    "href": "/id/gov-support/",
+    "key": "govSupport",
+    "enabled": true
+  },
+  {
+    "href": "/id/events/",
+    "key": "events",
+    "enabled": true
+  },
+  {
+    "href": "/id/videos/",
+    "key": "videos",
+    "enabled": true
+  },
+  {
+    "href": "/id/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/id/guide/",
+    "key": "guide",
+    "enabled": true
+  },
+  {
+    "href": "/id/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/id/checklist/",
+    "key": "checklist",
+    "enabled": true
+  },
+  {
+    "href": "/id/faq/",
+    "key": "faq",
+    "enabled": true
+  }
+]

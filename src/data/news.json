@@ -1,7 +1,1549 @@
 {
-  "updatedAt": "2026-08-12T08:39:29.949Z",
+  "updatedAt": "2026-10-07T14:31:10.284Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "건보공단, AI 활용 해킹 대비 긴급 비상대책회의",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=251064",
+      "source": "병원신문",
+      "pubDate": "2026-10-07T10:51:00.000Z"
+    },
+    {
+      "title": "[강원대병원] AI 기반 암관리 통합 네트워크 구축 착수",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=251057",
+      "source": "병원신문",
+      "pubDate": "2026-10-07T09:31:00.000Z"
+    },
+    {
+      "title": "동국대학교일산병원, AI TFT 출범",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=251033",
+      "source": "병원신문",
+      "pubDate": "2026-10-07T04:08:00.000Z"
+    },
+    {
+      "title": "턱관절장애 디지털치료제, 구강행동 변화 이끌려면?",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=251016",
+      "source": "병원신문",
+      "pubDate": "2026-10-07T00:27:00.000Z"
+    },
+    {
+      "title": "난치성 간암, AI 진단 및 치료법 첫 제시",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=251004",
+      "source": "병원신문",
+      "pubDate": "2026-10-06T07:56:00.000Z"
+    },
+    {
+      "title": "명지병원, 미국 라보로 AI와 손잡고 ‘피지컬 AI’ 도입",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250999",
+      "source": "병원신문",
+      "pubDate": "2026-10-06T07:48:00.000Z"
+    },
+    {
+      "title": "의료정보학회, AI 시대 의료정보산업 해법은 상생",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250996",
+      "source": "병원신문",
+      "pubDate": "2026-10-06T07:44:00.000Z"
+    },
+    {
+      "title": "뇌출혈 판독 AI도 '고영향' 해당 안 돼…관리 사각지대 우려",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171028",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-06T01:57:12.000Z"
+    },
+    {
+      "title": "에어팟으로 씹기 횟수 잰다…식습관 관리 앱 '오도독' 출시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171024",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-06T01:46:45.000Z"
+    },
+    {
+      "title": "코어라인 폐결절 진단 AI, 日 방사선학회 인증 획득",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171021",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-06T01:32:22.000Z"
+    },
+    {
+      "title": "낯선 흉부 CT 용어들 \"인터넷 검색보다 진단명 확인 먼저\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171020",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-06T01:05:17.000Z"
+    },
+    {
+      "title": "해외 폐암검진 'AI 인프라'로…한국형 모델 과제는",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170949",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-05T20:30:00.000Z"
+    },
+    {
+      "title": "[한림대의료원] 카카오헬스케어와 디지털 헬스케어 맞손",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250943",
+      "source": "병원신문",
+      "pubDate": "2026-10-02T21:09:00.000Z"
+    },
+    {
+      "title": "보건의료 AI 생태계 구축 첫걸음…한국형 데이터·보안이 관건",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171006",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-02T20:30:00.000Z"
+    },
+    {
+      "title": "[대구보훈병원] 인공지능 의료기술 실증 성과공유회",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250929",
+      "source": "병원신문",
+      "pubDate": "2026-10-02T11:31:00.000Z"
+    },
+    {
+      "title": "“AI로 뇌졸중 잡는다”…한양대, CHAIN 프로젝트 착수",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250925",
+      "source": "병원신문",
+      "pubDate": "2026-10-02T10:52:00.000Z"
+    },
+    {
+      "title": "서울아산병원 임상시험센터, ‘AI 의료영상 바이오마커 심포지엄’ 성료",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250915",
+      "source": "병원신문",
+      "pubDate": "2026-10-02T04:50:00.000Z"
+    },
+    {
+      "title": "가톨릭의대 인문사회의학과, AI 시대 ‘의학, 다시 인간을 묻다’",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250907",
+      "source": "병원신문",
+      "pubDate": "2026-10-02T04:35:00.000Z"
+    },
+    {
+      "title": "의료 AI의 핵심 진료기록 데이터 소유권은 누구?",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250905",
+      "source": "병원신문",
+      "pubDate": "2026-10-02T04:33:00.000Z"
+    },
+    {
+      "title": "‘의료 AI 신뢰 확보 및 도입 방안’ 국제 패널토론 참여",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250896",
+      "source": "병원신문",
+      "pubDate": "2026-10-02T02:07:00.000Z"
+    },
+    {
+      "title": "KMI한국의학연구소, ‘의료 AI 보건의료인 직무교육’ 심화 과정 성료",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250888",
+      "source": "병원신문",
+      "pubDate": "2026-10-02T01:56:00.000Z"
+    },
+    {
+      "title": "지역사회 통합돌봄 DX, 분산형 임상시험으로 근거 쌓아야",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170986",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-01T13:00:38.000Z"
+    },
+    {
+      "title": "가톨릭의대 연구팀, 급성신손상 예측 AI 기술 특허 등록",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250864",
+      "source": "병원신문",
+      "pubDate": "2026-10-01T11:57:00.000Z"
+    },
+    {
+      "title": "의료 AI 실증 생태계, 병원과 기업 소통한다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250851",
+      "source": "병원신문",
+      "pubDate": "2026-10-01T07:25:00.000Z"
+    },
+    {
+      "title": "국가건강정보포털 건강정보에 AI 도입",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250822",
+      "source": "병원신문",
+      "pubDate": "2026-10-01T03:00:00.000Z"
+    },
+    {
+      "title": "씨어스 심방세동 발생 가능성 분석 AI 특허 등록 완료",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170932",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-30T02:44:34.000Z"
+    },
+    {
+      "title": "국제성모병원, 인도네시아와 국제환자·디지털 헬스케어 협력 강화",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250768",
+      "source": "병원신문",
+      "pubDate": "2026-09-29T14:27:00.000Z"
+    },
+    {
+      "title": "AI 품은 ‘온코소프트’…ASTRO 2026 글로벌 의료진 ‘홀리다’",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250750",
+      "source": "병원신문",
+      "pubDate": "2026-09-29T06:21:00.000Z"
+    },
+    {
+      "title": "엔젤로보틱스, 피지컬 AI 연구개발용 웨어러블 로봇 ‘phai-x1’ 공개",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250739",
+      "source": "병원신문",
+      "pubDate": "2026-09-29T02:41:00.000Z"
+    },
+    {
+      "title": "뉴로핏, 개인 맞춤형 tDCS 솔루션 국내 의료기관 10곳 공급",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170915",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-29T01:35:32.000Z"
+    },
+    {
+      "title": "이지케어텍, 공공병원 정보 AI 클라우드 과제 주관기관 선정",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170916",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-29T01:35:23.000Z"
+    },
+    {
+      "title": "로엔서지컬 '자메닉스' 임상진료 4개월 만에 수술 200례",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170914",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-29T01:16:49.000Z"
+    },
+    {
+      "title": "산·학·연·병 손잡은 '시스템 보건의료 AI 포럼' 출범",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170911",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-29T00:33:45.000Z"
+    },
+    {
+      "title": "지역완결형 AI 암 관리·암 특화 의료데이터 연구 추진",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250709",
+      "source": "병원신문",
+      "pubDate": "2026-09-28T08:01:00.000Z"
+    },
+    {
+      "title": "AI, 다학제진료 등 암 치료의 현재와 미래 조망",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250691",
+      "source": "병원신문",
+      "pubDate": "2026-09-28T06:48:00.000Z"
+    },
+    {
+      "title": "뷰노 딥카스, 중국 시장 진출…하이난·장쑤성 투트랙 공략",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170888",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-28T01:29:28.000Z"
+    },
+    {
+      "title": "학회 추계학술대회서 ‘AI 활용 통증 진료 전략’ 발표",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250658",
+      "source": "병원신문",
+      "pubDate": "2026-09-28T00:00:00.000Z"
+    },
+    {
+      "title": "국가 폐암검진 7년…드러난 사각지대 인공지능이 메울까",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170871",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-27T20:30:00.000Z"
+    },
+    {
+      "title": "\"15년 헬스케어 노하우… AI·지역사회 잇는 플랫폼으로\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170831",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-27T20:30:00.000Z"
+    },
+    {
+      "title": "\"전성기 안 왔다\" 창립 30년 인바디, 1조 기업 될까",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170849",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-27T20:20:00.000Z"
+    },
+    {
+      "title": "안전하다'는 의료 AI, 증거를 대라(하)",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170880",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-27T20:00:00.000Z"
+    },
+    {
+      "title": "중앙대광명병원-오믈렛, 의료 AI 기반 병원 운영 최적화 협력",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250600",
+      "source": "병원신문",
+      "pubDate": "2026-09-22T06:37:00.000Z"
+    },
+    {
+      "title": "쓰리빌리언 유전진단 역량 확장…한국형 ARPA-H 합류",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170842",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-22T03:04:41.000Z"
+    },
+    {
+      "title": "동내 종합병원들 최첨단 장비 경쟁 러시...\"우리병원 오세요\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170837",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-22T02:27:29.000Z"
+    },
+    {
+      "title": "부산백병원, 국책연구 3건 선정…AI·첨단기술로 ‘맞춤형 치료’ 개발",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250532",
+      "source": "병원신문",
+      "pubDate": "2026-09-21T23:02:00.000Z"
+    },
+    {
+      "title": "국책사업 성장기회 잡은 아크릴...앞으로 과제는 '유료 수익화'",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170824",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-21T20:30:00.000Z"
+    },
+    {
+      "title": "계명대 동산의료원-서울대병원, 의료AI 협력 본격화",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250510",
+      "source": "병원신문",
+      "pubDate": "2026-09-21T05:33:00.000Z"
+    },
+    {
+      "title": "심전도로 좌심실 이완기능장애 탐지 AI 개발",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250467",
+      "source": "병원신문",
+      "pubDate": "2026-09-20T23:27:00.000Z"
+    },
+    {
+      "title": "인바디 다음 승부처는 '체성분'...데이터 분석 관리 서비스",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170800",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-20T20:30:00.000Z"
+    },
+    {
+      "title": "'안전하다'는 의료 AI, 증거를 대라(상)",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170806",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-20T20:10:00.000Z"
+    },
+    {
+      "title": "[한림대춘천성심병원] AI 뇌졸중 응급의료체계 구축",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250452",
+      "source": "병원신문",
+      "pubDate": "2026-09-19T18:44:00.000Z"
+    },
+    {
+      "title": "전남대병원, ‘AI 대전환 원년’ 선포",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250440",
+      "source": "병원신문",
+      "pubDate": "2026-09-18T06:41:00.000Z"
+    },
+    {
+      "title": "여의도성모병원, 숭실대와 의료 빅데이터·AI 공동 연구 추진",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250434",
+      "source": "병원신문",
+      "pubDate": "2026-09-18T06:13:00.000Z"
+    },
+    {
+      "title": "CMC 기초의학사업추진단, AI 기반 미래의학 혁신 제시",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250424",
+      "source": "병원신문",
+      "pubDate": "2026-09-18T05:30:00.000Z"
+    },
+    {
+      "title": "루닛, 美 타임 '세계 최고 헬스테크 기업' 선정 \"AI 진단 경쟁력 입증\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170777",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-17T23:57:14.000Z"
+    },
+    {
+      "title": "수술실 넘어 내시경실까지…대장내시경도 로봇 시대 개막",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170776",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-17T20:30:00.000Z"
+    },
+    {
+      "title": "한국 의료기기, 호주에서 길을 찾다…'테스트베드' 급부상",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170753",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-16T20:30:00.000Z"
+    },
+    {
+      "title": "심평원 직원 AI 활용 업무혁신 역량 경진대회 열려",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250350",
+      "source": "병원신문",
+      "pubDate": "2026-09-16T10:27:00.000Z"
+    },
+    {
+      "title": "검사 기록 일부 없이도 사망 위험 예측…멀티모달 AI 관심",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170744",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-16T03:03:20.000Z"
+    },
+    {
+      "title": "생성형 의료 AI 확산…딥노이드, 영상의학센터에 M4CXR 공급",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170746",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-16T01:21:33.000Z"
+    },
+    {
+      "title": "순풍에 돛 단 GC메디아이…'의사랑 AI' 3주만에 1천건 돌파",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170717",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-15T02:51:22.000Z"
+    },
+    {
+      "title": "노을, SK 사회성과인센티브서 34억 원 성과 창출 인정",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170723",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-15T02:35:43.000Z"
+    },
+    {
+      "title": "이노피아테크, IBC 2026서 TV 기반 AI 헬스케어 솔루션 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170722",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-15T02:28:39.000Z"
+    },
+    {
+      "title": "코어라인, WCLC서 폐암검진 비전 제시…'경로 관리' 조준",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170719",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-15T02:19:46.000Z"
+    },
+    {
+      "title": "AI '실증' 넘어 심사·재정관리로 학계 \"폐쇄형 안 돼\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170710",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-14T20:30:00.000Z"
+    },
+    {
+      "title": "AI·스마트 헬스케어를 만나다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250189",
+      "source": "병원신문",
+      "pubDate": "2026-09-14T10:56:00.000Z"
+    },
+    {
+      "title": "코어라인 '에이뷰', 日 PMDA 승인…현지 공략 가속",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170703",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-14T06:20:58.000Z"
+    },
+    {
+      "title": "아크릴, 우즈벡 국제컨퍼런스서 '풀스택 헬스케어 AX' 제시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170698",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-14T02:30:28.000Z"
+    },
+    {
+      "title": "씨어스, 중동 학술대회 잇따라 참가…현지 심혈관 시장 공략",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170695",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-14T02:12:21.000Z"
+    },
+    {
+      "title": "딥노이드·서울대병원 공동연구, KCR 2026 최우수 초록상 수상",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170694",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-14T02:03:29.000Z"
+    },
+    {
+      "title": "생성형 AI와 치료 결정 비교…다학제 중요성 확인",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250160",
+      "source": "병원신문",
+      "pubDate": "2026-09-14T01:42:00.000Z"
+    },
+    {
+      "title": "루닛, KCR 2026서 체험형 AI 부스로 국내외 고객 접점 확대",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170687",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-14T01:01:06.000Z"
+    },
+    {
+      "title": "폐암검진 확대에 커지는 AI 역할론 \"운영 효율화가 핵심\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170681",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-14T00:54:07.000Z"
+    },
+    {
+      "title": "\"동네 병·의원을 스마트 호흡센터로…진료의 상식을 깨다\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170658",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-13T20:30:00.000Z"
+    },
+    {
+      "title": "\"피지컬 AI 핵심은 사람…대체 아닌 도움주는 로봇 만들어야\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170678",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-13T20:20:00.000Z"
+    },
+    {
+      "title": "[강남베드로병원] 임직원 대상 AI 경진대회 성과 ‘현장 적용’",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250123",
+      "source": "병원신문",
+      "pubDate": "2026-09-12T02:24:00.000Z"
+    },
+    {
+      "title": "“AI로 심리 파악해 소통”…심평원 경기남부본부 ‘심피셜’",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250102",
+      "source": "병원신문",
+      "pubDate": "2026-09-11T08:46:00.000Z"
+    },
+    {
+      "title": "씨어스, KRX 헬스케어 지수 편입 \"의료 AI 기업 중 유일\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170672",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-11T08:04:22.000Z"
+    },
+    {
+      "title": "한림대 인공지능융합학과, IDWeek 2026 ‘국제 연구자상’ 수상",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250091",
+      "source": "병원신문",
+      "pubDate": "2026-09-11T06:51:00.000Z"
+    },
+    {
+      "title": "루닛, '10x 지노믹스'와 정밀의료 바이오마커 발굴 협력",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170664",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-11T02:32:18.000Z"
+    },
+    {
+      "title": "비대면 진료+약 배송 신음하는 약국들…AI 솔루션 활로될까",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170651",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-10T20:30:00.000Z"
+    },
+    {
+      "title": "[강원대병원] 인공지능 암 치유센터 본격 출범",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250052",
+      "source": "병원신문",
+      "pubDate": "2026-09-10T11:38:00.000Z"
+    },
+    {
+      "title": "AI 기본의료, 지역에서 어떻게 작동시키나?",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250037",
+      "source": "병원신문",
+      "pubDate": "2026-09-10T09:52:00.000Z"
+    },
+    {
+      "title": "로킷헬스, 中 하이난 러청 진출…AI 피부재생 수술 본격화",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170640",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-10T02:09:36.000Z"
+    },
+    {
+      "title": "보라매병원, ‘헬스케어 AI 융합 연구 심포지엄’ 성료",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=250014",
+      "source": "병원신문",
+      "pubDate": "2026-09-09T23:07:00.000Z"
+    },
+    {
+      "title": "GE헬스케어 겨냥한 삼성메디슨…산부인과 초음파 AI 경쟁",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170633",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-09T20:30:00.000Z"
+    },
+    {
+      "title": "외국인 환자 200만 시대...토종 플랫폼 중국 시장 뚫을까",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170603",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-09T20:30:00.000Z"
+    },
+    {
+      "title": "비트컴퓨터, AWS와 ‘한국 의료 특화 LLM’ 개발 추진",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249992",
+      "source": "병원신문",
+      "pubDate": "2026-09-09T09:44:00.000Z"
+    },
+    {
+      "title": "코어라인, 독일 폐암검진 기관 기반 확대…수주 95건",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170628",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-09T08:38:18.000Z"
+    },
+    {
+      "title": "차움, LG CNS·차헬스케어와 ‘AI 건강검진센터’ 구축",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249987",
+      "source": "병원신문",
+      "pubDate": "2026-09-09T02:15:00.000Z"
+    },
+    {
+      "title": "씨어스, 싱가포르서 NDR 개최…글로벌 투자 유치 속도",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170612",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-09T01:41:11.000Z"
+    },
+    {
+      "title": "깜깜이 의료 AI 이제 그만…어떤 모델 썼는지 공개 의무화",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170601",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-08T20:30:00.000Z"
+    },
+    {
+      "title": "[국립암센터] AI 활용 및 개인정보보호 균형 발전 모색",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249959",
+      "source": "병원신문",
+      "pubDate": "2026-09-08T19:59:00.000Z"
+    },
+    {
+      "title": "‘제1회 AI 혁신 리더스 포럼’ 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249932",
+      "source": "병원신문",
+      "pubDate": "2026-09-08T08:24:00.000Z"
+    },
+    {
+      "title": "어반데이터랩, 라이카 바이오와 디지털병리·AI 협력 MOU 체결",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170590",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-08T02:00:26.000Z"
+    },
+    {
+      "title": "원광대병원, ‘AI 시대 공공보건의료의 미래’ 공동 심포지엄 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249886",
+      "source": "병원신문",
+      "pubDate": "2026-09-07T09:20:00.000Z"
+    },
+    {
+      "title": "에스지헬스케어-멕아이씨에스 'ICU MRI 솔루션' 공동 개발",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170569",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-07T03:40:41.000Z"
+    },
+    {
+      "title": "판독 전문의 번아웃 조명하는 영상의학회 …\"AI 시대 해법은?\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170558",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-07T02:53:50.000Z"
+    },
+    {
+      "title": "씨어스, '모비케어' 미국 이어 캐나다서 허가…북미 공략 탄력",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170564",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-07T02:37:20.000Z"
+    },
+    {
+      "title": "딥노이드, 전북대병원에 'M4CXR' 공급…상종 상용화 가속",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170563",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-07T02:35:51.000Z"
+    },
+    {
+      "title": "\"랜섬웨어 공포 끝…병원 맞춤형 보안의 새 기준 제시\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170551",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-06T20:30:00.000Z"
+    },
+    {
+      "title": "전북대병원, ‘초지능 호흡기 인공지능 센터’ 개소",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249774",
+      "source": "병원신문",
+      "pubDate": "2026-09-04T03:44:00.000Z"
+    },
+    {
+      "title": "딥노이드 연구, KCR 2026서 채택…흉부·뇌 임상 유효성 입증",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170538",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-04T02:13:17.000Z"
+    },
+    {
+      "title": "반지의 제왕 스카이랩스 상장 첫날 고공행진…글로벌 포부",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170536",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-04T01:21:07.000Z"
+    },
+    {
+      "title": "\"제도 따라가기도 벅차\" 의료 AI 기업들 성토 쏟아낸 이유는?",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170532",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-03T20:30:00.000Z"
+    },
+    {
+      "title": "판 커지는 디지털 병리 시장…스캐너 플랫폼 경쟁 본격화",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170530",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-03T20:30:00.000Z"
+    },
+    {
+      "title": "\"단순 학습 반복하는 의료 AI 한계…원인 배우는 접근 필요\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170520",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-03T02:52:55.000Z"
+    },
+    {
+      "title": "로킷헬스, 하버드 공동연구 성과…ASN 2026서 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170522",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-03T02:21:25.000Z"
+    },
+    {
+      "title": "심평원 인공지능 심사…의료 AI '삭감 방어 시장' 열리나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170507",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-02T20:30:00.000Z"
+    },
+    {
+      "title": "보건의료 인공지능 모델 개발 경진대회 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249670",
+      "source": "병원신문",
+      "pubDate": "2026-09-02T03:02:00.000Z"
+    },
+    {
+      "title": "신약개발 난제 해결 AI 인재 발굴한다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249669",
+      "source": "병원신문",
+      "pubDate": "2026-09-02T02:58:00.000Z"
+    },
+    {
+      "title": "로킷헬스, 싱가포르 진피 재생 패치 특허…아세안 정조준",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170496",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-02T02:43:48.000Z"
+    },
+    {
+      "title": "보건복지인재원, 바이오헬스 경영진에 AI 전환 교육",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170494",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-02T02:33:45.000Z"
+    },
+    {
+      "title": "온코크로스·앱티스 공간단백체 기반 신약 공동개발 맞손",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170493",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-02T02:20:54.000Z"
+    },
+    {
+      "title": "메디웨일, 유럽서 AI 심혈관 평가 닥터눈 연구 발표",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170491",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-02T02:13:21.000Z"
+    },
+    {
+      "title": "심평원, AI 판독 진료비 심사 연계…효율성 대폭 향상",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249662",
+      "source": "병원신문",
+      "pubDate": "2026-09-02T01:50:00.000Z"
+    },
+    {
+      "title": "진화하는 미국 의료 영상AI 시장…국내 기업 기회 맞나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170481",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-01T20:30:00.000Z"
+    },
+    {
+      "title": "AI 기반 진료 및 연구역량 고도화 전략 모색",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249641",
+      "source": "병원신문",
+      "pubDate": "2026-09-01T09:50:00.000Z"
+    },
+    {
+      "title": "단국대병원, AI 기반 차세대 디지털 PET-CT 도입",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249637",
+      "source": "병원신문",
+      "pubDate": "2026-09-01T09:36:00.000Z"
+    },
+    {
+      "title": "[은성의료재단] ‘AI 증강병원’ 구축…스마트화 박차",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249629",
+      "source": "병원신문",
+      "pubDate": "2026-09-01T08:28:00.000Z"
+    },
+    {
+      "title": "호주 폐암검진 1년 만에 10만 명…코어라인 점유율 40% 추산",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170483",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-01T08:15:47.000Z"
+    },
+    {
+      "title": "고려대학교 구로병원, AI 활용 넘어 ‘직접 개발’로",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249608",
+      "source": "병원신문",
+      "pubDate": "2026-09-01T05:05:00.000Z"
+    },
+    {
+      "title": "분당서울대병원 OnKoTECT 컨소시엄, 췌장암·폐암 AI로 잡는다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249605",
+      "source": "병원신문",
+      "pubDate": "2026-09-01T04:58:00.000Z"
+    },
+    {
+      "title": "석션 추가된 신장결석 수술 로봇 자메닉스 \"단독 수술 가능\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170468",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-09-01T02:56:22.000Z"
+    },
+    {
+      "title": "‘AI 기반 심장나이’ 국제 검증 결과 공개",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249602",
+      "source": "병원신문",
+      "pubDate": "2026-09-01T02:47:00.000Z"
+    },
+    {
+      "title": "용인세브란스, AI 에이전트 플랫폼 ‘Y-Aid’ 오픈",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249594",
+      "source": "병원신문",
+      "pubDate": "2026-08-31T23:50:00.000Z"
+    },
+    {
+      "title": "‘제24회 한독포럼’ 독일에서 개막…경제안보·의료AI 논의",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249589",
+      "source": "병원신문",
+      "pubDate": "2026-08-31T13:11:00.000Z"
+    },
+    {
+      "title": "제약바이오협회, 차세대 AI ‘K-폴드’ 세미나 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249572",
+      "source": "병원신문",
+      "pubDate": "2026-08-31T10:04:00.000Z"
+    },
+    {
+      "title": "굿닥, SKT 컨소시엄 참여…병원 정보·비대면진료 '올인원'",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170456",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-31T02:23:19.000Z"
+    },
+    {
+      "title": "딥노이드, 화순전남대병원에 'M4CXR' 공급…상종 확산 가속",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170450",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-31T01:52:48.000Z"
+    },
+    {
+      "title": "C-arm부터 맘모그래피까지…디알텍 'AI'로 글로벌 시장 조준",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170430",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-30T20:30:00.000Z"
+    },
+    {
+      "title": "\"미용 의료, 경쟁 넘어 '안전한 교육' 생태계 구축해야\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170429",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-30T20:30:00.000Z"
+    },
+    {
+      "title": "전북대병원, ‘의료 AI 연구역량 강화’ 세미나 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249519",
+      "source": "병원신문",
+      "pubDate": "2026-08-30T14:26:00.000Z"
+    },
+    {
+      "title": "서울대병원, 망막 사진으로 치매 선별·예측하는 AI 모델 개발",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249501",
+      "source": "병원신문",
+      "pubDate": "2026-08-30T06:39:00.000Z"
+    },
+    {
+      "title": "‘AI가 그릴 의료 미래 그린 심평원’…국제 심포지엄 성료",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249498",
+      "source": "병원신문",
+      "pubDate": "2026-08-29T20:20:00.000Z"
+    },
+    {
+      "title": "로봇이 촬영하고 AI가 판독…초음파 '무인 검사' 시대 오나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170433",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-28T20:30:00.000Z"
+    },
+    {
+      "title": "망막 사진 하나로 치매 진단…국산 인공지능 모델 나왔다",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170420",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-28T03:03:06.000Z"
+    },
+    {
+      "title": "부민병원그룹, ‘예산 절감형’ 자체 AI 교육 모델 구축",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249471",
+      "source": "병원신문",
+      "pubDate": "2026-08-28T00:34:00.000Z"
+    },
+    {
+      "title": "뉴로핏, 美 엘리베이트 클리닉에 AI 뇌 영상 분석 솔루션 공급",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170404",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-27T02:56:07.000Z"
+    },
+    {
+      "title": "씨어스, 두바이 IFM 2026 참가…220억 규모 UAE 사업화 속도",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170406",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-27T02:55:17.000Z"
+    },
+    {
+      "title": "혈액 검사만으로 대장암 조기 진단…국산 DNA AI 관심 집중",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170401",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-27T02:55:01.000Z"
+    },
+    {
+      "title": "EMR 월 구독제 탈피한 GC메디아이…과연 새 사업 모델은?",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170392",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-26T20:20:00.000Z"
+    },
+    {
+      "title": "목소리로 치매 선별하는 스픽…유예 트랙 타고 비급여 노리나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170387",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-26T20:20:00.000Z"
+    },
+    {
+      "title": "루닛, 국가과제 AI 모델 활용 첫 해커톤 개최…70여 명 집결",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170386",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-26T07:06:44.000Z"
+    },
+    {
+      "title": "EMR 넘어 인공지능 노리는 GC메디아이…통합 솔루션 제시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170383",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-26T04:00:00.000Z"
+    },
+    {
+      "title": "AI 시대 정신건강 전문가를 꿈꾸다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249363",
+      "source": "병원신문",
+      "pubDate": "2026-08-26T03:30:00.000Z"
+    },
+    {
+      "title": "제이엘케이, 일본 유통망 5곳까지 늘려…사업화 '속도'",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170384",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-26T02:46:58.000Z"
+    },
+    {
+      "title": "어반데이터랩-라이카 바이오시스템즈, 디지털병리·AI 협력 MOU 체결",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249347",
+      "source": "병원신문",
+      "pubDate": "2026-08-25T23:30:00.000Z"
+    },
+    {
+      "title": "눈물 한 방울로 안구질환 진단 AI 플랫폼 개발 나서",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249316",
+      "source": "병원신문",
+      "pubDate": "2026-08-25T02:26:00.000Z"
+    },
+    {
+      "title": "AI가 척추 MRI에서 '암 전이 골절' 찾아낸다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249291",
+      "source": "병원신문",
+      "pubDate": "2026-08-24T23:25:00.000Z"
+    },
+    {
+      "title": "공공의료 자리잡은 코어라인소프트…민간 병원 시선 돌리나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170359",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-24T20:30:00.000Z"
+    },
+    {
+      "title": "[강남베드로병원] AI 뇌동맥류 위험도 분석 프로그램 도입",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249287",
+      "source": "병원신문",
+      "pubDate": "2026-08-24T08:36:00.000Z"
+    },
+    {
+      "title": "충남대병원, AI 기반 음성인식 수술기록 시스템 본격 운영",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249275",
+      "source": "병원신문",
+      "pubDate": "2026-08-24T05:48:00.000Z"
+    },
+    {
+      "title": "조윈, AI 스마트링 기반 예방 헬스케어 생태계 구축 나선다",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170350",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-24T02:56:05.000Z"
+    },
+    {
+      "title": "딥노이드, 생성형 AI 'M4CXR' 첫 공급…실수요 시장 진입",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170345",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-24T02:55:26.000Z"
+    },
+    {
+      "title": "영상의학과 전문의 시험 AI에게 맡겼더니…\"오류 예상 상회\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170344",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-24T02:55:11.000Z"
+    },
+    {
+      "title": "AI 활용 의학 교육자료도 오류 존재…전문가 최종 감수 필요",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249258",
+      "source": "병원신문",
+      "pubDate": "2026-08-24T01:00:00.000Z"
+    },
+    {
+      "title": "[KHF 2026]디지털병리와 AI 전략과 정책",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249254",
+      "source": "병원신문",
+      "pubDate": "2026-08-24T00:38:00.000Z"
+    },
+    {
+      "title": "국산 의료기술 실증 넘어 '실무'로…300여건 미팅 성사 '도입' 초읽기",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170330",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-23T20:30:00.000Z"
+    },
+    {
+      "title": "\"뇌졸중 AI 진단 성능은 기본…병원 워크플로우까지 바꿨다\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170328",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-23T20:10:00.000Z"
+    },
+    {
+      "title": "에이비스, KHF 2026에서 병리 AI '콴티 IHC' 선보인다",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170325",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-21T03:09:35.000Z"
+    },
+    {
+      "title": "프로메디우스, 대웅제약과 KHF 참가…'오스테오 시그널' 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170322",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-21T02:51:47.000Z"
+    },
+    {
+      "title": "마크헬츠, KHF 2026에서 'AI Robot Dr.MAAV' 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170321",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-21T02:51:38.000Z"
+    },
+    {
+      "title": "엑소시스템즈, KHF 혁신상 받은 신경근육 평가 기술 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170318",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-21T02:51:20.000Z"
+    },
+    {
+      "title": "뉴로티엑스, KHF에서 AI 맞춤형 '뉴로케어 플랫폼' 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170315",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-21T01:40:38.000Z"
+    },
+    {
+      "title": "누비랩, KHF에서 임상영양 솔루션 'Nutri-Guard AI' 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170314",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-21T01:40:30.000Z"
+    },
+    {
+      "title": "에이트스튜디오, KHF 2026에서 AI 보행 분석 '메디스텝' 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170312",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-21T01:40:13.000Z"
+    },
+    {
+      "title": "웰룬, KHF에서 수면무호흡 선별기기 'wellune-M1' 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170307",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-21T01:39:42.000Z"
+    },
+    {
+      "title": "[KHF 2026] 의료 AI 승부처, 모델 ‘종류’보다 ‘운영 체계’에 달렸다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249222",
+      "source": "병원신문",
+      "pubDate": "2026-08-21T00:09:00.000Z"
+    },
+    {
+      "title": "진단·치료부터 돌봄까지…KHF 달군 디지털헬스케어 특별관",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170301",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T20:30:00.000Z"
+    },
+    {
+      "title": "\"아이디어만 내세요, 판 깔아드립니다\"…성모병원 혁신 실험",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170295",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T20:30:00.000Z"
+    },
+    {
+      "title": "아크릴, KHF 2026서 의료 AI 풀스택 전격 공개",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249214",
+      "source": "병원신문",
+      "pubDate": "2026-08-20T10:58:00.000Z"
+    },
+    {
+      "title": "인어스트리, KHF에서 AI 서비스 로봇·운영 플랫폼 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170298",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:41:59.000Z"
+    },
+    {
+      "title": "크립토랩, KHF 2026에서 병원 급여·심사 AI 'CLIC' 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170297",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:41:48.000Z"
+    },
+    {
+      "title": "파이헬스케어, KHF에서 안저 기반 의료 AI '닥터아이' 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170294",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:41:37.000Z"
+    },
+    {
+      "title": "티맥스티베로, KHF 2026에서 병원 데이터 인프라 전략 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170296",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:41:27.000Z"
+    },
+    {
+      "title": "에이블테라퓨틱스, KHF 2026에서 AI 인지평가 기기 '스픽' 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170291",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:40:57.000Z"
+    },
+    {
+      "title": "엠티에스컴퍼니, KHF에서 디지털 병리·돌봄 AI 기술 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170290",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:40:42.000Z"
+    },
+    {
+      "title": "아크릴, KHF 2026에서 의료 특화 '에이전틱 AI 플랫폼' 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170287",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:38:57.000Z"
+    },
+    {
+      "title": "아이픽셀, KHF에서 근골격계 재활 DTx 임상 성과 소개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170286",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:38:34.000Z"
+    },
+    {
+      "title": "오디엔, KHF 2026에서 당뇨병 디지털헬스 기술 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170285",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:38:14.000Z"
+    },
+    {
+      "title": "코어라인소프트, 공공의료 AI 정밀검진 체계 10개로 확대",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170284",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:37:55.000Z"
+    },
+    {
+      "title": "원스글로벌·건양대병원, KHF에서 소아 처방 AI 선보여",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170283",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:37:41.000Z"
+    },
+    {
+      "title": "뉴베이스, KHF 2026에서 AI·VR 의료교육 솔루션 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170282",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:34:15.000Z"
+    },
+    {
+      "title": "오믈렛, KHF 2026에서 AI 간호 근무표 솔루션 시연",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170280",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:33:36.000Z"
+    },
+    {
+      "title": "정부 이동형 의료 SW플랫폼 연구성과 KHF 2026에서 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170279",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T08:33:22.000Z"
+    },
+    {
+      "title": "헬스리안, KHF 2026에서 AI 기반 12유도 심전계 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170278",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T07:33:44.000Z"
+    },
+    {
+      "title": "헬스리안, KHF 2026서 AI 기반 12유도 심전계 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170278",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T07:33:44.000Z"
+    },
+    {
+      "title": "시야인사이트, KHF에서 암환자 건강관리 플랫폼 기술 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170277",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T07:31:14.000Z"
+    },
+    {
+      "title": "시야인사이트, KHF 2026서 암환자 건강관리 플랫폼 기술 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170277",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T07:31:14.000Z"
+    },
+    {
+      "title": "연세대 미래캠퍼스, KHF 2026에서 강원 공동관 운영",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170276",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T07:29:30.000Z"
+    },
+    {
+      "title": "연세대 미래캠퍼스, KHF 2026서 강원 공동관 운영",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170276",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T07:29:30.000Z"
+    },
+    {
+      "title": "슈파스, 국산 디지털 병리 판독 플랫폼 이니스코프 전시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170272",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T07:17:39.000Z"
+    },
+    {
+      "title": "아크, KHF 2026에서 AI 실명·만성질환 플랫폼 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170271",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T07:17:30.000Z"
+    },
+    {
+      "title": "쌓여있는 진료정보 활용 해결사...아크릴 KHF서 풀스택 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170268",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T05:07:54.000Z"
+    },
+    {
+      "title": "\"성공률 98% 자랑 아냐…한국형 ARPA-H, 실패해도 OK\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170265",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T03:20:02.000Z"
+    },
+    {
+      "title": "단일 솔루션 기댄 의료 AI 한계 \"워크플로우 극대화가 경쟁력\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170267",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T03:15:08.000Z"
+    },
+    {
+      "title": "코어라인소프트·옵텔럼, 폐결절 AI 진료 워크플로우 통합 협력",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170262",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-20T00:52:34.000Z"
+    },
+    {
+      "title": "NMC 비뇨의학과, 첨단 AI 신장결석 수술로봇 본격 시행",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249192",
+      "source": "병원신문",
+      "pubDate": "2026-08-20T00:42:00.000Z"
+    },
+    {
+      "title": "먹고 나서 2초만 ‘아~’ 하면, AI가 흡인(사레) 위험군 찾아내",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249186",
+      "source": "병원신문",
+      "pubDate": "2026-08-20T00:27:00.000Z"
+    },
+    {
+      "title": "가천대 길병원, 의료 AI 기반 의대교수 창업 심포지엄 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249166",
+      "source": "병원신문",
+      "pubDate": "2026-08-19T23:31:00.000Z"
+    },
+    {
+      "title": "[강남베드로병원] AI 보행 평가 ‘뉴로게이트’ 도입",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249163",
+      "source": "병원신문",
+      "pubDate": "2026-08-19T21:15:00.000Z"
+    },
+    {
+      "title": "판독문부터 병동 감시·로봇 배송까지 KHF로 본 병원 AX 현주소",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170259",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-19T20:30:00.000Z"
+    },
+    {
+      "title": "\"보호에서 활용 개념 전환된 의료 데이터…규제 전환점\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170257",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-19T20:30:00.000Z"
+    },
+    {
+      "title": "AI가 뒤바꾸는 임상 현장 \"먼 미래 아닌 당장 1년 뒤 미래\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170255",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-19T20:30:00.000Z"
+    },
+    {
+      "title": "“AI 혁신 아이디어 모여라”…국립암센터, 공모전 발표심사",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249155",
+      "source": "병원신문",
+      "pubDate": "2026-08-19T15:13:00.000Z"
+    },
+    {
+      "title": "[KHF 2026] 교육에서 현장으로…의료AI 연구평가 방법 소개",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249147",
+      "source": "병원신문",
+      "pubDate": "2026-08-19T12:01:00.000Z"
+    },
+    {
+      "title": "[KHF 2026] 교육이 만든 현장 변화…의료AI 실무 적용 사례",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249143",
+      "source": "병원신문",
+      "pubDate": "2026-08-19T11:34:00.000Z"
+    },
+    {
+      "title": "[KHF 2026] AI 헬스케어 산업 변화…병원 적용 전략",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249141",
+      "source": "병원신문",
+      "pubDate": "2026-08-19T10:28:00.000Z"
+    },
+    {
+      "title": "[KHF 2026] 국가 AX전환과 AI기반의료 전략",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249139",
+      "source": "병원신문",
+      "pubDate": "2026-08-19T09:29:00.000Z"
+    },
+    {
+      "title": "역대급 규모 KHF 2026 개막…'AX·로보틱스' 병원 혁신 조명",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170251",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-19T03:15:49.000Z"
+    },
+    {
+      "title": "\"폭발적 성장 시작된 디지털 병리 산업…퀀텀 점프 기점\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170249",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-19T02:49:14.000Z"
+    },
+    {
+      "title": "입는 로봇부터 AI 내시경·차세대 PET까지…의료기기 미래는?",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170250",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-19T02:47:07.000Z"
+    },
+    {
+      "title": "400여개 헬스케어 기업 모인 KHF 2026…눈 여겨볼 회사는?",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170241",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-18T20:30:00.000Z"
+    },
+    {
+      "title": "'진료·연구도 AI 시대'…의료계, 적정 사용 기준 마련 속도",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170239",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-18T20:30:00.000Z"
+    },
+    {
+      "title": "CT서 놓치기 쉬운 골전이 찾는 AI 개발",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249094",
+      "source": "병원신문",
+      "pubDate": "2026-08-18T09:07:00.000Z"
+    },
+    {
+      "title": "노을, 캐나다 의료기기 인허가 획득…북미 시장 진입 가시화",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170232",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-18T03:04:24.000Z"
+    },
+    {
+      "title": "뉴로핏·네오마크, AI 기반 기업 뇌 건강검진 서비스 확대 맞손",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170226",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-18T03:03:55.000Z"
+    },
+    {
+      "title": "보건복지인재원, KHF서 병원 현장 맞춤형 의료 AI 전략 제시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170234",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-18T02:44:13.000Z"
+    },
+    {
+      "title": "제이엘케이, 일본 아펙스 인터내셔널 니가타와 대리점 계약",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170224",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-18T02:21:20.000Z"
+    },
+    {
+      "title": "로킷헬스케어, 상반기 매출 163억 원…전년 대비 68% 성장",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170223",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-18T01:46:48.000Z"
+    },
+    {
+      "title": "코어라인소프트, 상반기 최대 매출 달성…해외 사업 성장이 견인",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170222",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-18T01:41:35.000Z"
+    },
+    {
+      "title": "국시 앞둔 의대생, 이 ‘AI’로 실기시험 준비",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249061",
+      "source": "병원신문",
+      "pubDate": "2026-08-18T00:51:00.000Z"
+    },
+    {
+      "title": "보라매병원, ‘헬스케어 AI 융합 연구 심포지엄’ 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249038",
+      "source": "병원신문",
+      "pubDate": "2026-08-17T22:50:00.000Z"
+    },
+    {
+      "title": "'내시경만으로는 한계' 시술+소모품 분야 확장하는 올림푸스",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170211",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-17T20:20:00.000Z"
+    },
+    {
+      "title": "[대구보훈병원] AI 스마트병원 도약 실증사업 설명회 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249034",
+      "source": "병원신문",
+      "pubDate": "2026-08-15T06:12:00.000Z"
+    },
+    {
+      "title": "갑상선암 환자 골다공증 5년 예측 AI 모델 개발돼",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249025",
+      "source": "병원신문",
+      "pubDate": "2026-08-14T23:53:00.000Z"
+    },
+    {
+      "title": "충남대병원, 중부권 AI거점센터 추진",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=249017",
+      "source": "병원신문",
+      "pubDate": "2026-08-14T12:01:00.000Z"
+    },
+    {
+      "title": "네오폰스, AI 퇴행성 뇌질환 분석 플랫폼 '마인드플러스' 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170210",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T10:09:19.000Z"
+    },
+    {
+      "title": "연명의료결정, AI·보건의료 데이터 등 해법 찾는다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248994",
+      "source": "병원신문",
+      "pubDate": "2026-08-14T09:00:00.000Z"
+    },
+    {
+      "title": "아크릴, 닥터앤서 3.0 아토피 AI 예후관리 서비스 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170203",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T07:53:09.000Z"
+    },
+    {
+      "title": "대구디지털혁신진흥원, 국제 박람회서 글로벌 판로 개척 나선다",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170202",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T07:49:23.000Z"
+    },
+    {
+      "title": "중부권 AI 거점센터 추진 업무협약 체결",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248997",
+      "source": "병원신문",
+      "pubDate": "2026-08-14T07:38:00.000Z"
+    },
+    {
+      "title": "와이디코퍼레이션, AI 시대 병원 마케팅 맞춤형 전략 제시",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170197",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T06:55:03.000Z"
+    },
+    {
+      "title": "마크노바, AI 시니어 홈케어 '노바케어 B2B'…실버타운 정조준",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170196",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T06:30:19.000Z"
+    },
+    {
+      "title": "크림봇, 의료현장 특화 AI 서비스로봇 솔루션 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170195",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T06:15:10.000Z"
+    },
+    {
+      "title": "모션랩스, KHF 2026서 환자관리·검진센터 AI 자동화 솔루션 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170194",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T06:09:58.000Z"
+    },
+    {
+      "title": "메디라인파트너스, 기업 위한 AI·디지털 헬스케어 세미나 개최",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170192",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T05:55:22.000Z"
+    },
+    {
+      "title": "CT가 놓쳤던 골전이 영상...인공지능 돌려보니 탐지력 향상",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170178",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T03:10:46.000Z"
+    },
+    {
+      "title": "‘AI 디지털 제어 자동 주사 시스템’ 개발 업무협약 체결",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248992",
+      "source": "병원신문",
+      "pubDate": "2026-08-14T02:10:00.000Z"
+    },
+    {
+      "title": "제이엘케이, 과기정통부 '우수연구개발 혁신제품' 지정서 수여",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170181",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-14T01:24:25.000Z"
+    },
+    {
+      "title": "AI가 유전성 망막질환 원인 찾아준다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248988",
+      "source": "병원신문",
+      "pubDate": "2026-08-14T00:42:00.000Z"
+    },
+    {
+      "title": "애보트-구글 두 공룡의 악수…CGM 시장 허들 더 높아지나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170175",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T20:30:00.000Z"
+    },
+    {
+      "title": "문턱 높은 의료 사업화 \"임상·기술 만나는 생태계로 조성해야\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170169",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T09:07:06.000Z"
+    },
+    {
+      "title": "쓰리빌리언, 상반기 매출 72억원 달성…전년 대비 56% 성장",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170173",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T08:33:31.000Z"
+    },
+    {
+      "title": "AI 기반 스마트병동 구축 위한 5자 간 업무협약 체결",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248972",
+      "source": "병원신문",
+      "pubDate": "2026-08-13T06:18:00.000Z"
+    },
+    {
+      "title": "씨어스 '씽크' 병원 도입 러시…4연속 분기 흑자 쾌거",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170167",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T05:59:22.000Z"
+    },
+    {
+      "title": "바이언스, 임상·비임상 아우르는 AI 병리 솔루션 '패스뷰' 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170163",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T02:36:52.000Z"
+    },
+    {
+      "title": "퍼슬리, 다병원 종단기록 분석 서비스 '퍼슬리 리서치' 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170162",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T02:18:02.000Z"
+    },
+    {
+      "title": "워크원오원, VSRNM 2026서 근골격계 AI 솔루션 'GMSM' 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170152",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T02:15:44.000Z"
+    },
+    {
+      "title": "의료 AI 시대 대비 의료데이터 표준화 나서",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248962",
+      "source": "병원신문",
+      "pubDate": "2026-08-13T02:12:00.000Z"
+    },
+    {
+      "title": "디지털병리협회, AX 컨퍼런스·특별관으로 의료 AI 생태계 조망",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170158",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T02:05:08.000Z"
+    },
+    {
+      "title": "마이허브, KHF 2026서 의료 AI 올인원 패키지 '마이레이' 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170155",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-13T02:01:38.000Z"
+    },
+    {
+      "title": "자폐스펙트럼장애 뇌영상 AI의 생물학적 의미 검증 새 평가법 제시",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=248950",
+      "source": "병원신문",
+      "pubDate": "2026-08-12T23:54:00.000Z"
+    },
+    {
+      "title": "의료기기 허가 비용 또 올리는 FDA…K-메드텍 부담 가중",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170146",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-12T20:30:00.000Z"
+    },
+    {
+      "title": "씨디테라, 타액 바이오마커 기반 뇌 건강 관리 플랫폼 선",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170144",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-12T08:59:13.000Z"
+    },
+    {
+      "title": "에프알티로보틱스병원 노동자 보조 웨어러블 로봇 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170141",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-12T08:43:17.000Z"
+    },
     {
       "title": "엔젤스태프, 스마트 환자이송·간병 관리 솔루션 공개",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170140",
@@ -31,6 +1573,12 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170122",
       "source": "메디칼타임즈",
       "pubDate": "2026-08-12T01:11:44.000Z"
+    },
+    {
+      "title": "디지털 유방촬영 허가 허들 낮춘 FDA…국내 기업들 기회 맞나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1170119",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-08-11T20:30:00.000Z"
     },
     {
       "title": "EMR AI 전환 방점 찍은 이지케어텍 '메디칼 OS 시대 열겠다\"",

@@ -1,0 +1,125 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InteractiveChecklist from '../../components/InteractiveChecklist.astro';
+import SubscribeCta from '../../components/SubscribeCta.astro';
+import { withBase } from '../../utils/site';
+import { practicalChecklists } from '../../data/checklists';
+
+// 실무 점검표 상세 (2026-09-20 신설). 항목·근거는 src/data/checklists.ts.
+export function getStaticPaths() {
+  return practicalChecklists.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+
+const { c } = Astro.props;
+
+// 근거가 된 글 — 없는 ID는 빌드를 멈춘다(오타로 링크가 조용히 사라지지 않게).
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const byId = new Map(posts.map((p) => [p.id, p]));
+const basedOn = c.basedOnPosts.map((id) => {
+  const post = byId.get(id);
+  if (!post) throw new Error(`[checklist] '${c.slug}'의 근거 글 ID '${id}'가 없습니다.`);
+  return post;
+});
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase(`/checklist/${c.slug}/`)}`;
+const allItems = c.sections.flatMap((s) => s.items.map((text) => ({ section: s.title, text })));
+
+// ItemList — 화면에 보이는 항목만 마크업한다. HowTo는 쓰지 않는다(순서대로 따라 하는
+// 방법이 아니라 점검 항목의 모음이고, 구글은 HowTo 리치 결과를 사실상 내렸다).
+const itemList = {
+  '@type': 'ItemList',
+  '@id': `${pageUrl}#checklist`,
+  url: pageUrl,
+  name: c.title,
+  description: c.description,
+  inLanguage: 'ko-KR',
+  numberOfItems: allItems.length,
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  itemListElement: allItems.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `[${it.section}] ${it.text}`,
+  })),
+};
+---
+
+<BaseLayout title={c.title} description={c.description} schema={[itemList]}>
+  <div class="container">
+    <header class="page-head">
+      <p class="crumb no-print"><a href={withBase('/checklist/')}>← AI 도입 체크리스트</a></p>
+      <h1>{c.title}</h1>
+      <p class="lead">{c.intro}</p>
+    </header>
+
+    <div class="wrap">
+      <InteractiveChecklist id={c.slug} sections={c.sections} />
+
+      <section class="basis">
+        <h2>이 점검표의 근거</h2>
+        <p>
+          새로 만든 기준이 아니라 아래 글과 공공기관 자료의 내용을 확인하기 좋게 정리한
+          것입니다. 부서 사정에 맞게 고쳐 쓰세요.
+        </p>
+        <ul>
+          {
+            basedOn.map((p) => (
+              <li>
+                <a href={withBase(`/blog/${p.id}/`)}>{p.data.title}</a>
+              </li>
+            ))
+          }
+          {
+            c.sources.map((s) => (
+              <li>
+                <a href={s.url} target="_blank" rel="noopener">
+                  {s.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="note">
+          일반적인 정보 제공용이며 특정 기관의 법률 자문이나 규정 해석을 대신하지 않습니다.
+          병원의 지침이 있으면 그 지침이 우선합니다.
+        </p>
+      </section>
+    </div>
+
+    <SubscribeCta />
+  </div>
+</BaseLayout>
+
+<style>
+  .crumb {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  .wrap {
+    max-width: var(--prose-width);
+  }
+  .basis {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .basis h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.6rem;
+  }
+  .basis p {
+    margin: 0 0 0.6rem;
+    font-size: 0.92rem;
+    color: var(--color-muted);
+  }
+  .basis ul {
+    margin: 0 0 0.8rem;
+    padding-left: 1.1rem;
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+  .basis .note {
+    font-size: 0.85rem;
+  }
+</style>

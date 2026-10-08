@@ -1,0 +1,78 @@
+[
+  {
+    "id": "uu-pdp",
+    "term": "UU Pelindungan Data Pribadi (UU PDP)",
+    "category": "Regulasi dan Perizinan",
+    "definition": "Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi. Undang-undang ini diundangkan di Jakarta pada 17 Oktober 2022.",
+    "whyMatters": "Pasal 74 UU PDP mewajibkan pengendali data pribadi, prosesor data pribadi, dan pihak lain yang terkait dengan pemrosesan data pribadi untuk menyesuaikan diri dengan ketentuan undang-undang ini paling lama 2 (dua) tahun sejak diundangkan. Karena diundangkan pada 17 Oktober 2022, batas penyesuaian itu jatuh pada 17 Oktober 2024. Rumah sakit memproses data pasien setiap hari, jadi ketentuan ini melekat pada pekerjaan sehari-hari, bukan hanya urusan bagian hukum.",
+    "sources": [
+      "https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022"
+    ]
+  },
+  {
+    "id": "masa-penyesuaian-pdp",
+    "term": "Masa penyesuaian UU PDP (Pasal 74)",
+    "category": "Regulasi dan Perizinan",
+    "definition": "Ketentuan peralihan dalam Pasal 74 UU PDP yang memberi waktu paling lama 2 (dua) tahun sejak undang-undang diundangkan untuk menyesuaikan cara memproses data pribadi.",
+    "whyMatters": "Kalau rumah sakit hendak menyerahkan data pasien kepada vendor AI, pertanyaan pertama bukan soal teknologinya, melainkan apakah pemrosesan itu sudah sesuai dengan UU PDP. Masa penyesuaian sudah lewat, sehingga alasan 'masih menyesuaikan' tidak lagi bisa dipakai. Mintalah vendor menjelaskan dasar pemrosesan datanya secara tertulis.",
+    "sources": [
+      "https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022"
+    ]
+  },
+  {
+    "id": "izin-edar-alkes",
+    "term": "Izin edar alat kesehatan",
+    "category": "Regulasi dan Perizinan",
+    "definition": "Izin yang diterbitkan Kementerian Kesehatan agar alat kesehatan boleh diedarkan di Indonesia. Pendaftarannya dilayani melalui portal resmi Kementerian Kesehatan, regalkes.kemkes.go.id, yang juga menangani PKRT (Perbekalan Kesehatan Rumah Tangga).",
+    "whyMatters": "Saat menerima penawaran alat atau sistem baru, rumah sakit dapat menanyakan status izin edarnya dan memeriksa sendiri melalui portal resmi tersebut, alih-alih hanya mengandalkan penjelasan lisan penyedia.",
+    "sources": ["https://regalkes.kemkes.go.id/"]
+  },
+  {
+    "id": "satusehat",
+    "term": "SATUSEHAT",
+    "category": "Data dan Platform Nasional",
+    "definition": "Menurut situs resminya, SATUSEHAT adalah ekosistem digital kesehatan nasional untuk memudahkan masyarakat mengakses data kesehatan dan mengelola kesehatan pribadi secara mandiri. Platform ini berada di bawah Kementerian Kesehatan Republik Indonesia.",
+    "whyMatters": "Pembicaraan tentang data kesehatan di Indonesia hampir selalu bersinggungan dengan SATUSEHAT. Saat menilai proposal yang menyebut integrasi data, ada baiknya memastikan lebih dulu apa yang sebenarnya dimaksud penyedia dengan 'terhubung', karena istilah itu sering dipakai longgar.",
+    "sources": ["https://satusehat.kemkes.go.id/"]
+  },
+  {
+    "id": "satusehat-ai",
+    "term": "SATUSEHAT AI",
+    "category": "Data dan Platform Nasional",
+    "definition": "Dalam keterangan Kementerian Kesehatan pada 8 Juni 2026, disebutkan bahwa Kementerian Kesehatan membentuk SATUSEHAT dan SATUSEHAT AI untuk menjaga agar data masyarakat Indonesia tidak disalahgunakan.",
+    "whyMatters": "Ini menunjukkan arah kebijakan: pemerintah menempatkan tata kelola data sebagai bagian dari pemanfaatan AI, bukan urusan terpisah. Rumah sakit yang menyiapkan kebijakan internal AI sebaiknya menyelaraskan istilah dan alurnya dengan arah tersebut.",
+    "sources": [
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+    ]
+  },
+  {
+    "id": "arah-regulasi-ai-kesehatan",
+    "term": "Arah regulasi AI kesehatan di Indonesia",
+    "category": "Regulasi dan Perizinan",
+    "definition": "Pada 8 Juni 2026 Kementerian Kesehatan menyampaikan bahwa pemanfaatan AI kesehatan harus diiringi tata kelola yang ketat dan etika yang kuat. Hal-hal yang disebut sedang disiapkan mencakup aturan untuk alat kesehatan berbasis AI, tata kelola data, prosedur persetujuan pasien sebelum data digunakan, serta penguatan kapasitas komite etik penelitian kesehatan.",
+    "whyMatters": "Artinya sebagian aturan teknis masih dalam penyusunan. Untuk rumah sakit, ini berarti keputusan hari ini sebaiknya dibuat agar tidak sulit disesuaikan nanti — misalnya dengan menyimpan catatan dasar pemrosesan data dan riwayat persetujuan pasien sejak awal.",
+    "sources": [
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+    ]
+  },
+  {
+    "id": "persetujuan-pasien",
+    "term": "Persetujuan pasien atas penggunaan data",
+    "category": "Data dan Platform Nasional",
+    "definition": "Prosedur meminta persetujuan pasien sebelum datanya digunakan. Dalam keterangan Kementerian Kesehatan pada 8 Juni 2026, persetujuan pasien sebelum data digunakan disebut sebagai salah satu hal yang disiapkan bersama tata kelola data dan aturan alat kesehatan berbasis AI.",
+    "whyMatters": "Pertanyaan yang muncul di lapangan biasanya sederhana: data yang sudah ada di rekam medis boleh dipakai untuk melatih atau menguji sistem AI atau tidak. Jawabannya bergantung pada dasar pemrosesan dan persetujuan yang dipegang rumah sakit, jadi dokumentasinya perlu rapi sejak awal.",
+    "sources": [
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+    ]
+  },
+  {
+    "id": "komite-etik-penelitian",
+    "term": "Komite etik penelitian kesehatan",
+    "category": "Regulasi dan Perizinan",
+    "definition": "Komite yang menelaah aspek etik penelitian kesehatan. Penguatan kapasitas komite etik penelitian kesehatan dalam menelaah penelitian yang menggunakan AI termasuk hal yang disebut Kementerian Kesehatan pada 8 Juni 2026.",
+    "whyMatters": "Kalau rumah sakit ikut serta dalam uji coba atau penelitian bersama vendor AI, jalur telaah etik perlu dipastikan sejak perencanaan — bukan setelah data terlanjur dikumpulkan.",
+    "sources": [
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+    ]
+  }
+]

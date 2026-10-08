@@ -1,0 +1,402 @@
+{
+  "updatedAt": "2026-10-08T02:13:33.802Z",
+  "source": "Медвестник·Vademecum",
+  "items": [
+    {
+      "title": "Американский регулятор одобрил систему анализа состава тела по результатам МРТ",
+      "link": "https://www.vademec.ru/news/2026/10/06/amerikanskiy-regulyator-odobril-sistemu-analiza-sostava-tela-po-rezultatam-mrt/",
+      "source": "Vademecum",
+      "pubDate": "2026-10-06T09:00:00.000Z"
+    },
+    {
+      "title": "Ученые разработали систему для отбора и сортировки научных статей об ИИ в онкологии",
+      "link": "https://www.vademec.ru/news/2026/10/06/uchenye-razrabotali-sistemu-dlya-otbora-i-sortirovki-nauchnykh-statey-ob-ii-v-onkologii/",
+      "source": "Vademecum",
+      "pubDate": "2026-10-06T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ-алгоритм сделал мРНК-вакцины устойчивыми к высоким температурам",
+      "link": "https://www.vademec.ru/news/2026/10/02/ii-algoritm-sdelal-mrnk-vaktsiny-ustoychivymi-k-vysokim-temperaturam/",
+      "source": "Vademecum",
+      "pubDate": "2026-10-02T09:00:00.000Z"
+    },
+    {
+      "title": "Молодые люди, задающие ИИ вопросы о здоровье, чаще показывают признаки тревоги и депрессии",
+      "link": "https://www.vademec.ru/news/2026/10/01/molodye-lyudi-zadayushchie-ii-voprosy-o-zdorove-chashche-pokazyvayut-priznaki-trevogi-i-depressii/",
+      "source": "Vademecum",
+      "pubDate": "2026-10-01T09:00:00.000Z"
+    },
+    {
+      "title": "Мировому рынку радиологических услуг прогнозируют рост в 1,5 раза к 2034 году",
+      "link": "https://medvestnik.ru/content/news/mirovomu-rynku-radiologicheskih-uslug-prognoziruut-rost-v-1-5-raza-k-2034-godu.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-30T09:00:00.000Z"
+    },
+    {
+      "title": "Исследование: использование СППВР в поликлиниках может сокращать затраты на 18 млн рублей в год",
+      "link": "https://www.vademec.ru/news/2026/09/29/issledovanie-ispolzovanie-sppvr-v-poliklinikakh-mozhet-sokrashchat-zatraty-na-18-mln-rubley-v-god/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-29T09:00:00.000Z"
+    },
+    {
+      "title": "Почти трети врачей использовать ИИ мешают сомнения в точности алгоритмов",
+      "link": "https://medvestnik.ru/content/news/pochti-treti-vrachei-ispolzovat-ii-meshaut-somneniya-v-tochnosti-algoritmov.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-28T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ-агент OpenAI взломал портал медицинской статистики Австралии",
+      "link": "https://www.vademec.ru/news/2026/09/24/ii-agent-openai-vzlomal-portal-meditsinskoy-statistiki-avstralii/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-24T09:00:00.000Z"
+    },
+    {
+      "title": "Компьютерное зрение помогает российским больницам избегать очередей",
+      "link": "https://medvestnik.ru/content/news/komputernoe-zrenie-pomogaet-rossiiskim-bolnicam-izbegat-ocheredei.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-24T09:00:00.000Z"
+    },
+    {
+      "title": "Главный кардиолог назвал резервы для снижения смертности от сердечно-сосудистых заболеваний",
+      "link": "https://medvestnik.ru/content/news/glavnyi-kardiolog-nazval-rezervy-dlya-snijeniya-smertnosti-ot-serdechno-sosudistyh-zabolevanii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-24T09:00:00.000Z"
+    },
+    {
+      "title": "Нейросети стали «первым мнением» для большинства молодых пациентов",
+      "link": "https://medvestnik.ru/content/news/neiroseti-stali-pervym-mneniem-dlya-bolshinstva-molodyh-pacientov.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-24T09:00:00.000Z"
+    },
+    {
+      "title": "Anthropic и OpenEvidence предоставят медицинский ИИ врачам по всему миру",
+      "link": "https://www.vademec.ru/news/2026/09/23/anthropic-i-openevidence-predostavyat-meditsinskiy-ii-vracham-po-vsemu-miru/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-23T09:00:00.000Z"
+    },
+    {
+      "title": "Минздрав РФ планирует создать цифровые профили почти всех пациентов с помощью ИИ",
+      "link": "https://medvestnik.ru/content/news/minzdrav-rf-planiruet-sozdat-cifrovye-profili-pochti-vseh-pacientov-s-pomoshu-ii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-23T09:00:00.000Z"
+    },
+    {
+      "title": "В Сеченовском университете создали цифровой атлас для обучения студентов-медиков",
+      "link": "https://www.vademec.ru/news/2026/09/22/v-sechenovskom-universitete-sozdali-tsifrovoy-atlas-dlya-obucheniya-studentov-medikov/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-22T09:00:00.000Z"
+    },
+    {
+      "title": "Москва выплатила разработчикам ИИ для анализа медицинских снимков в июле 97 млн рублей",
+      "link": "https://medvestnik.ru/content/news/moskva-vyplatila-razrabotchikam-ii-dlya-analiza-medicinskih-snimkov-v-iule-97-mln-rublei.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-16T09:00:00.000Z"
+    },
+    {
+      "title": "Московская область заключила контракты на создание 12 ИИ-платформ для медицинских проектов",
+      "link": "https://www.vademec.ru/news/2026/09/16/podmoskove-zakupit-12-ii-platform-dlya-tsifrovykh-proektov-za-704-2-mln-rubley/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-16T09:00:00.000Z"
+    },
+    {
+      "title": "СамГМУ разработал ИИ-комплекс для прогнозирования заболеваний по прослушиванию сердца и легких",
+      "link": "https://www.vademec.ru/news/2026/09/16/samgmu-razrabotal-ii-kompleks-dlya-prognozirovaniya-zabolevaniy-po-proslushivaniyu-serdtsa-i-legkikh/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-16T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ-модели превосходят существующие биомаркеры при определении выживаемости при НМРЛ",
+      "link": "https://www.vademec.ru/news/2026/09/15/ii-modeli-prevoskhodyat-sushchestvuyushchie-biomarkery-pri-opredelenii-vyzhivaemosti-pri-nmrl/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-15T09:00:00.000Z"
+    },
+    {
+      "title": "Рынок виртуальных медицинских ИИ-ассистентов к 2031 году может вырасти до $12,3 млрд",
+      "link": "https://www.vademec.ru/news/2026/09/13/rynok-virtualnykh-meditsinskikh-ii-assistentov-k-2031-godu-mozhet-vyrasti-do-12-3-mlrd/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-13T09:00:00.000Z"
+    },
+    {
+      "title": "OpenEvidence запускает четыре медицинские ИИ-модели для клиницистов",
+      "link": "https://www.vademec.ru/news/2026/09/11/openevidence-zapuskaet-chetyre-meditsinskie-ii-modeli-dlya-klinitsistov/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-11T09:00:00.000Z"
+    },
+    {
+      "title": "Ученые представили модель ИИ-компетенций для врачей",
+      "link": "https://medvestnik.ru/content/news/uchenye-predstavili-model-ii-kompetencii-dlya-vrachei.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-10T09:00:00.000Z"
+    },
+    {
+      "title": "В МГУ разработают ИИ для обработки и анализа микроскопических изображений",
+      "link": "https://www.vademec.ru/news/2026/09/10/v-mgu-razrabotayut-ii-dlya-obrabotki-i-analiza-mikroskopicheskikh-izobrazheniy/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-10T09:00:00.000Z"
+    },
+    {
+      "title": "Разговоры пациентов с участковыми врачами в Москве будет расшифровывать ИИ-помощник",
+      "link": "https://medvestnik.ru/content/news/razgovory-pacientov-s-uchastkovymi-vrachami-v-moskve-budet-rasshifrovyvat-ii-pomoshnik.html",
+      "source": "Медвестник",
+      "pubDate": "2026-09-09T09:00:00.000Z"
+    },
+    {
+      "title": "Появились конфеты для сна на основе пептида, открытого с помощью ИИ",
+      "link": "https://www.vademec.ru/news/2026/09/07/poyavilis-konfety-dlya-sna-na-osnove-peptida-otkrytogo-s-pomoshchyu-ii/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-07T09:00:00.000Z"
+    },
+    {
+      "title": "Созданный с помощью ИИ препарат показал признаки замедления старения",
+      "link": "https://www.vademec.ru/news/2026/09/07/sozdannyy-s-pomoshchyu-ii-preparat-pokazal-priznaki-zamedleniya-stareniya/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-07T09:00:00.000Z"
+    },
+    {
+      "title": "Ученые предложили пятиэтапную систему проверки медицинского ИИ перед внедрением в клиническую практику",
+      "link": "https://www.vademec.ru/news/2026/09/04/uchenye-predlozhili-pyatietapnuyu-sistemu-proverki-meditsinskogo-ii-pered-vnedreniem-v-klinicheskuyu/",
+      "source": "Vademecum",
+      "pubDate": "2026-09-04T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ в кардиологии: выявление ССЗ по маммограммам стало возможным",
+      "link": "https://medvestnik.ru/content/articles/ii-v-kardiologii-vyyavlenie-ssz-po-mammogrammam-stalo-vozmojnym.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-30T09:00:00.000Z"
+    },
+    {
+      "title": "Tоп-5: главные события недели",
+      "link": "https://medvestnik.ru/content/news/top-5-glavnye-sobytiya-nedeli-206.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-29T09:00:00.000Z"
+    },
+    {
+      "title": "Аналитики прогнозируют четырехкратный рост рынка предиктивной медицины на базе ИИ",
+      "link": "https://medvestnik.ru/content/news/analitiki-prognoziruut-chetyrehkratnyi-rost-rynka-prediktivnoi-mediciny-na-baze-ii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-28T09:00:00.000Z"
+    },
+    {
+      "title": "Искусственный интеллект выявил гипертензию и диабет по 5-секундному видео лица",
+      "link": "https://medvestnik.ru/content/news/iskusstvennyi-intellekt-vyyavil-gipertenziu-i-diabet-po-5-sekundnomu-video-lica.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-27T09:00:00.000Z"
+    },
+    {
+      "title": "Разработан проект трудовой функции медработников по использованию ИИ",
+      "link": "https://medvestnik.ru/content/news/razrabotan-proekt-trudovoi-funkcii-medrabotnikov-po-ispolzovaniu-ii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-27T09:00:00.000Z"
+    },
+    {
+      "title": "«Будь Здоров» сообщила о росте выручки в I полугодии на 23,2%",
+      "link": "https://medvestnik.ru/content/news/bud-zdorov-soobshila-o-roste-vyruchki-i-polugodii-na-23-2.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-26T09:00:00.000Z"
+    },
+    {
+      "title": "Каким медицинским источникам доверяет ИИ и почему сильная клиника может оставаться для него невидимой",
+      "link": "https://medvestnik.ru/content/articles/kakim-medicinskim-istochnikam-doveryaet-ii-i-pochemu-silnaya-klinika-mojet-ostavatsya-dlya-nego-nevidimoi.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-26T09:00:00.000Z"
+    },
+    {
+      "title": "Ученые предложили создать «команду» ИИ-агентов для проведения КИ",
+      "link": "https://www.vademec.ru/news/2026/08/26/uchenye-predlozhili-sozdat-komandu-ii-agentov-dlya-provedeniya-ki/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-26T09:00:00.000Z"
+    },
+    {
+      "title": "В России разработали ИИ для восстановления пропусков в записях ЭЭГ",
+      "link": "https://www.vademec.ru/news/2026/08/26/v-rossii-razrabotali-ii-dlya-vosstanovleniya-propuskov-v-zapisyakh-eeg/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-26T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ-медустройства в США почти не тестируют по влиянию на исходы лечения",
+      "link": "https://medvestnik.ru/content/news/ii-medustroistva-v-ssha-pochti-ne-testiruut-po-vliyaniu-na-ishody-lecheniya.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-25T09:00:00.000Z"
+    },
+    {
+      "title": "Подведены итоги первой закупки по созданию центра развития ИИ в здравоохранении",
+      "link": "https://www.vademec.ru/news/2026/08/25/podvedeny-itogi-pervoy-zakupki-po-sozdaniyu-tsentra-razvitiya-ii-v-zdravookhranenii/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-25T09:00:00.000Z"
+    },
+    {
+      "title": "В ЕГИСЗ заработал пилотный ИИ-консультант для участников системы",
+      "link": "https://medvestnik.ru/content/news/v-egisz-zarabotal-pilotnyi-ii-konsultant-dlya-uchastnikov-sistemy.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-24T09:00:00.000Z"
+    },
+    {
+      "title": "СПК разработал проект трудовой функции медработников по использованию ИИ",
+      "link": "https://www.vademec.ru/news/2026/08/24/spk-razrabotal-proekt-trudovoy-funktsii-medrabotnikov-po-ispolzovaniyu-ii/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-24T09:00:00.000Z"
+    },
+    {
+      "title": "Одобренные в ЕС ИИ-системы для радиологии ждут допуска в США в среднем 17,5 месяца",
+      "link": "https://www.vademec.ru/news/2026/08/24/odobrennye-v-es-ii-sistemy-dlya-radiologii-zhdut-dopuska-v-ssha-v-srednem-17-5-mesyatsa/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-24T09:00:00.000Z"
+    },
+    {
+      "title": "НИИОЗММ разработает систему оценки медтехнологий на основе данных реальной практики",
+      "link": "https://www.vademec.ru/news/2026/08/24/niiozmm-razrabotaet-sistemu-otsenki-medtekhnologiy-na-osnove-dannykh-realnoy-praktiki/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-24T09:00:00.000Z"
+    },
+    {
+      "title": "Исследование: отзывы пациентов учат ИИ предвзято оценивать врачей",
+      "link": "https://www.vademec.ru/news/2026/08/23/issledovanie-otzyvy-patsientov-uchat-ii-predvzyato-otsenivat-vrachey/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-23T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ в медицине и этика бензопилы",
+      "link": "https://medvestnik.ru/content/articles/ii-v-medicine-i-etika-benzopily.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-21T09:00:00.000Z"
+    },
+    {
+      "title": "В России запущена новая профессиональная платформа для онкологов с ИИ-навигатором",
+      "link": "https://www.vademec.ru/news/2026/08/21/v-rossii-zapushchena-novaya-professionalnaya-platforma-dlya-onkologov-s-ii-navigatorom/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-21T09:00:00.000Z"
+    },
+    {
+      "title": "Исследование: очное обучение сбалансированному питанию оказалось в 3,5 раза эффективнее подготовки с помощью ChatGPT",
+      "link": "https://www.vademec.ru/news/2026/08/19/issledovanie-ochnoe-obuchenie-sbalansirovannomu-pitaniyu-okazalos-v-3-5-raza-effektivnee-podgotovki-/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-19T09:00:00.000Z"
+    },
+    {
+      "title": "В «Сириусе» создадут ИИ для выявления психологических угроз для студентов",
+      "link": "https://www.vademec.ru/news/2026/08/19/v-siriuse-sozdadut-ii-dlya-vyyavleniya-psikhologicheskikh-ugroz-dlya-studentov/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-19T09:00:00.000Z"
+    },
+    {
+      "title": "Московская область закупит суперкомпьютеры для ускорения работы медицинских ИИ",
+      "link": "https://www.vademec.ru/news/2026/08/18/moskovskaya-oblast-zakupit-superkompyutery-dlya-uskoreniya-raboty-meditsinskikh-ii/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "title": "Новые требования к главным врачам появятся в ближайшее время",
+      "link": "https://medvestnik.ru/content/articles/novye-trebovaniya-k-glavnym-vracham-poyavyatsya-v-blijaishee-vremya.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-14T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ для анализа разговоров у постели пациента внедрит крупнейшая в мире сеть клиник",
+      "link": "https://medvestnik.ru/content/news/ii-dlya-analiza-razgovorov-u-posteli-pacienta-vnedrit-krupneishaya-v-mire-set-klinik.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-13T09:00:00.000Z"
+    },
+    {
+      "title": "Медицинский ИИ OpenEvidence оказался надежнее универсальных моделей в работе с источниками",
+      "link": "https://www.vademec.ru/news/2026/08/13/meditsinskiy-ii-openevidence-okazalsya-nadezhnee-universalnykh-modeley-v-rabote-s-istochnikami/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-13T09:00:00.000Z"
+    },
+    {
+      "title": "Телемедицина с ИИ и мобильные медбригады вошли в демографический план ДФО",
+      "link": "https://www.vademec.ru/news/2026/08/12/telemeditsina-s-ii-i-mobilnye-medbrigady-voshli-v-demograficheskiy-plan-dfo/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-12T09:00:00.000Z"
+    },
+    {
+      "title": "Личный бренд врача vs бренд клиники: кого запоминает и рекомендует ИИ",
+      "link": "https://medvestnik.ru/content/articles/lichnyi-brend-vracha-vs-brend-kliniki-kogo-zapominaet-i-rekomenduet-ii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-11T09:00:00.000Z"
+    },
+    {
+      "title": "Российские ИИ-решения для здравоохранения могут получить приоритет при госзакупках",
+      "link": "https://www.vademec.ru/news/2026/08/11/rossiyskie-ii-resheniya-dlya-zdravookhraneniya-mogut-poluchit-prioritet-pri-goszakupkakh/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-11T09:00:00.000Z"
+    },
+    {
+      "title": "Аналитики: язык обращения к ИИ может влиять на качество медицинских ответов",
+      "link": "https://www.vademec.ru/news/2026/08/10/analitiki-yazyk-obrashcheniya-k-ii-mozhet-vliyat-na-kachestvo-meditsinskikh-otvetov/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-10T09:00:00.000Z"
+    },
+    {
+      "title": "Ученые: ИИ-приложения для подсчета калорий занижают энергетическую ценность блюд более чем на 30%",
+      "link": "https://www.vademec.ru/news/2026/08/10/uchenye-ii-prilozheniya-dlya-podscheta-kaloriy-zanizhayut-energeticheskuyu-tsennost-blyud-bolee-chem/",
+      "source": "Vademecum",
+      "pubDate": "2026-08-10T09:00:00.000Z"
+    },
+    {
+      "title": "Эксперты предсказали технологический прорыв в носимых устройствах с ИИ в 2026 году",
+      "link": "https://medvestnik.ru/content/news/eksperty-predskazali-tehnologicheskii-proryv-v-nosimyh-ustroistvah-s-ii-v-2026-godu.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-04T09:00:00.000Z"
+    },
+    {
+      "title": "Рынку виртуальной преабилитации прогнозируют почти трехкратный рост к 2034 году",
+      "link": "https://medvestnik.ru/content/news/rynku-virtualnoi-preabilitacii-prognoziruut-pochti-trehkratnyi-rost-k-2034-godu.html",
+      "source": "Медвестник",
+      "pubDate": "2026-08-04T09:00:00.000Z"
+    },
+    {
+      "title": "Число кибератак на медорганизации в США может побить рекорд в 2026 году",
+      "link": "https://medvestnik.ru/content/news/chislo-kiberatak-na-medorganizacii-v-ssha-mojet-pobit-rekord-v-2026-godu.html",
+      "source": "Медвестник",
+      "pubDate": "2026-07-29T09:00:00.000Z"
+    },
+    {
+      "title": "Кто в ответе за ИИ: главный вопрос в регулировании остается нерешенным",
+      "link": "https://medvestnik.ru/content/articles/kto-v-otvete-za-ii-glavnyi-vopros-v-regulirovanii-ostaetsya-nereshennym.html",
+      "source": "Медвестник",
+      "pubDate": "2026-07-28T09:00:00.000Z"
+    },
+    {
+      "title": "OpenAI расширила доступ к сервису ChatGPT Health",
+      "link": "https://medvestnik.ru/content/news/openai-rasshirila-dostup-k-servisu-chatgpt-health.html",
+      "source": "Медвестник",
+      "pubDate": "2026-07-28T09:00:00.000Z"
+    },
+    {
+      "title": "Владимир Путин подписал первый закон об ИИ в России",
+      "link": "https://medvestnik.ru/content/news/vladimir-putin-podpisal-pervyi-zakon-ob-ii-v-rossii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-07-27T09:00:00.000Z"
+    },
+    {
+      "title": "Лидеры российского рынка частной медицины осознанно откладывают запуск диагностического ИИ",
+      "link": "https://medvestnik.ru/content/news/lidery-rossiiskogo-rynka-chastnoi-mediciny-osoznanno-otkladyvaut-zapusk-diagnosticheskogo-ii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-07-10T09:00:00.000Z"
+    },
+    {
+      "title": "Потери от неэффективной диспансеризации могут достигать 20 млрд рублей в год",
+      "link": "https://medvestnik.ru/content/news/poteri-ot-neeffektivnoi-dispanserizacii-mogut-dostigat-20-mlrd-rublei-v-god.html",
+      "source": "Медвестник",
+      "pubDate": "2026-07-03T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ диагностирует опухоли головного мозга за несколько минут вместо недель",
+      "link": "https://medvestnik.ru/content/articles/ii-diagnostiruet-opuholi-golovnogo-mozga-za-neskolko-minut-vmesto-nedel.html",
+      "source": "Медвестник",
+      "pubDate": "2026-06-30T09:00:00.000Z"
+    },
+    {
+      "title": "FDA одобрило ИИ-сервис для сопровождения пациентов вне приема",
+      "link": "https://medvestnik.ru/content/news/fda-odobrilo-ii-servis-dlya-soprovojdeniya-pacientov-vne-priema.html",
+      "source": "Медвестник",
+      "pubDate": "2026-06-29T09:00:00.000Z"
+    },
+    {
+      "title": "В Москве запустили ИИ‑ассистента для неврологов",
+      "link": "https://medvestnik.ru/content/news/v-moskve-zapustili-ii-assistenta-dlya-nevrologov.html",
+      "source": "Медвестник",
+      "pubDate": "2026-06-25T09:00:00.000Z"
+    }
+  ]
+}

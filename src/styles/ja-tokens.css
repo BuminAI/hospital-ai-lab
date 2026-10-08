@@ -19,8 +19,14 @@
   --ja-border: #dde2e8;
   --ja-text: #1a1a1a;
   --ja-text-sub: #5a6270;
-  --ja-primary: #0b3b8c;
-  --ja-primary-dk: #072a66;
+  --ja-primary: #1b3f70;
+  --ja-primary-dk: #122c50;
+  /* 버튼 색은 별도 토큰으로 분리한다 — 다크모드에서 primary가 밝은
+     틴트로 바뀌는데 그 위에 흰 글자를 올리면 읽히지 않는다.
+     한국어판 global.css의 --btn-bg/--btn-fg와 같은 방식. */
+  --ja-btn-bg: var(--ja-primary);
+  --ja-btn-bg-hover: var(--ja-primary-dk);
+  --ja-btn-fg: #ffffff;
   --ja-accent: #c85410; /* CTA — 원안 #E86A17은 흰 배경 대비 3.0:1이라 본문용으로 부족해 어둡게 조정 */
   --ja-badge-new: #c62828;
   --ja-badge-info: #15619f;
@@ -46,10 +52,13 @@
     --ja-border: #2b3646;
     --ja-text: #e8edf4;
     --ja-text-sub: #a2aebd;
-    --ja-primary: #7fb0e8;
-    --ja-primary-dk: #a8cbf2;
+    --ja-primary: #8ab4e8;
+    --ja-primary-dk: #b0cdf2;
+    --ja-btn-bg: #2c5c9e;
+    --ja-btn-bg-hover: #3a70b8;
+    --ja-btn-fg: #ffffff;
     --ja-accent: #f0955a;
-    --ja-badge-new: #ef6b6b;
+    --ja-badge-new: #c0392f;
     --ja-badge-info: #6fb0e0;
     --ja-badge-gov: #64c799;
   }
@@ -229,8 +238,8 @@
   font-size: 14px;
   margin: 0;
   padding: 10px 14px;
-  background: var(--ja-primary);
-  color: #fff;
+  background: var(--ja-btn-bg);
+  color: var(--ja-btn-fg);
   border: 0;
   letter-spacing: 0.04em;
 }

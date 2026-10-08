@@ -1,0 +1,122 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { withBase } from '../../../utils/site';
+import { BLOG_CATEGORIES } from '../../../data/blog-categories';
+
+// 분류별 아카이브 페이지 (2026-08-12 SEO/AEO 보강).
+//
+// 왜 만들었나: 이전에는 /blog/ 한 페이지 안에서 자바스크립트로만 분류를
+// 걸러 보여줬다(hidden 토글). 그러면 "AI도구" 같은 분류 자체를 가리키는
+// 색인 가능한 주소가 없어, 검색·AI 엔진이 분류별 결과를 따로 인식하지
+// 못했다. 이 페이지는 분류마다 고유 URL·제목·설명을 갖는 정적 페이지라
+// 그 문제를 보완한다. 기존 /blog/ 필터 UI는 그대로 두고, 필터 버튼의
+// href가 이 페이지를 가리키게만 했다(blog/index.astro 참고).
+export async function getStaticPaths() {
+  return BLOG_CATEGORIES.map((c) => ({
+    params: { slug: c.slug },
+    props: { category: c },
+  }));
+}
+
+const { category } = Astro.props;
+const posts = (
+  await getCollection('blog', ({ data }) => !data.draft && data.category === category.label)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// CollectionPage + ItemList — AI 답변 엔진이 "이 분류에 어떤 글이 있는가"를
+// 순서대로 읽을 수 있게 한다. 글 상세는 각 글의 BlogPosting에 있으므로
+// 여기서는 위치·제목·주소만 담는다.
+const siteUrl = Astro.site
+  ? Astro.site.href.replace(/\/$/, '')
+  : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase(`/blog/category/${category.slug}/`)}`;
+
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: `${category.label} 글 모음`,
+  description: category.description,
+  inLanguage: 'ko-KR',
+  isPartOf: { '@id': `${siteUrl}/#website` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: post.data.title,
+      url: `${siteUrl}${withBase(`/blog/${post.id}/`)}`,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title={`${category.label} 글 모음`}
+  description={category.description}
+  schema={[collectionPage]}
+>
+  <div class="container">
+    <header class="page-head">
+      <p class="crumb-note"><a href={withBase('/blog/')}>블로그</a></p>
+      <h1>{category.label}</h1>
+      <p class="lead">{category.description}</p>
+    </header>
+
+    {
+      posts.length > 0 ? (
+        <div class="post-list">
+          {posts.map((post) => <PostCard post={post} headingLevel="h2" />)}
+        </div>
+      ) : (
+        <p class="empty">이 분류의 글이 아직 없습니다.</p>
+      )
+    }
+
+    <p class="back-link">
+      <a href={withBase('/blog/')}>← 블로그 전체 보기</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .crumb-note {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+
+  .crumb-note a {
+    color: var(--color-muted);
+  }
+
+  .post-list {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .empty {
+    margin-top: 1.5rem;
+    color: var(--color-muted);
+  }
+
+  .back-link {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .back-link a {
+    font-weight: 600;
+  }
+
+  @media (max-width: 52rem) {
+    .post-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

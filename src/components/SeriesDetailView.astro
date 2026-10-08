@@ -1,0 +1,150 @@
+---
+import { growth } from '../i18n/growth';
+import { dateFormatter, postHref, seriesHref, tokenStyle, type Loc } from '../utils/locale';
+import type { ResolvedSeries } from '../utils/series';
+import SubscribeCta from './SubscribeCta.astro';
+
+// 연재 시리즈 한 편의 본문 (다섯 언어판 공용, 2026-09-20).
+interface Props {
+  loc: Loc;
+  s: ResolvedSeries;
+}
+const { loc, s } = Astro.props;
+const t = growth[loc];
+const fmt = dateFormatter(loc);
+---
+
+<div class="gx-page" style={tokenStyle(loc)}>
+  <header class={loc === 'ko' ? 'page-head' : 'gx-head'}>
+    <p class="crumb"><a href={seriesHref(loc)}>{t.detail.back}</a></p>
+    <h1>{s.title}</h1>
+    <p class={loc === 'ko' ? 'lead' : 'gx-lead'}>{s.description}</p>
+    <p class="count">{t.detail.order(s.posts.length)}</p>
+  </header>
+
+  {
+    s.checklist && (
+      <p class="check">
+        {t.detail.relatedChecklist}
+        <a href={s.checklist.href}>{s.checklist.label}</a>
+      </p>
+    )
+  }
+
+  <ol class="posts">
+    {
+      s.posts.map((p) => (
+        <li>
+          <a class="ttl" href={postHref(loc, p.id)}>
+            {p.data.title}
+          </a>
+          <p class="desc">{p.data.description}</p>
+          <p class="meta">
+            <span class="chip">{p.data.category}</span>
+            <time datetime={p.data.pubDate.toISOString()}>{fmt.format(p.data.pubDate)}</time>
+          </p>
+        </li>
+      ))
+    }
+  </ol>
+
+  <SubscribeCta loc={loc} />
+</div>
+
+<style>
+  .gx-page {
+    color: var(--c-text);
+  }
+  .gx-lead {
+    color: var(--c-muted);
+    line-height: 1.85;
+    margin: 0.5rem 0 0;
+  }
+  .crumb {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  .count {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: var(--c-muted);
+  }
+  .check {
+    margin: 1rem 0 0;
+    padding: 0.75rem 1rem;
+    background: var(--c-soft);
+    border-left: 3px solid var(--c-primary);
+    border-radius: 0 var(--c-radius) var(--c-radius) 0;
+    font-size: 0.92rem;
+  }
+  .check a {
+    margin-left: 0.4rem;
+    font-weight: 600;
+  }
+  .posts {
+    list-style: none;
+    counter-reset: n;
+    margin: 1.5rem 0 0;
+    padding: 0;
+  }
+  .posts li {
+    counter-increment: n;
+    position: relative;
+    padding: 1rem 0 1rem 3rem;
+    border-top: 1px solid var(--c-border);
+  }
+  .posts li:last-child {
+    border-bottom: 1px solid var(--c-border);
+  }
+  .posts li::before {
+    content: counter(n);
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--c-soft);
+    color: var(--c-primary);
+    border: 1px solid var(--c-ring);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ttl {
+    font-size: 1.02rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--c-heading);
+    line-height: 1.5;
+  }
+  .ttl:hover {
+    color: var(--c-primary);
+  }
+  .desc {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    color: var(--c-muted);
+    line-height: 1.65;
+  }
+  .meta {
+    margin: 0.5rem 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--c-muted);
+  }
+  .chip {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--c-ring);
+    background: var(--c-soft);
+    color: var(--c-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,40 @@
+name: Site Health Check
+
+# 병원 AI 연구소 주간 상태 점검 (2026-09-13 신설, 로컬 예약 작업에서 이관).
+#
+# ⚠️ 원래는 로컬 PC의 Claude Code 예약 작업이었다. 트리거 시각(매주 월요일
+#    09:00 KST)에 컴퓨터·앱이 꺼져 있으면 세션 자체가 생기지 않는 구조적
+#    한계 때문에 2026-08-10 이후 약 5주간 조용히 멈춰 있었다(아무 실패
+#    로그도 안 남는 유형이라 아무도 몰랐다). 컴퓨터 전원과 무관하게 도는
+#    GitHub Actions cron으로 옮겨서 이 문제를 근본적으로 없앤다.
+# ⚠️ 이 워크플로는 보고 전용이다 — 저장소에 어떤 커밋도 하지 않는다
+#    (scripts/site-health-check.mjs의 "절대 규칙" 참고).
+# ⚠️ 점검 스크립트는 문제를 찾으면 exit code 1로 끝난다. 의도적인 동작이다
+#    — Actions 탭에 빨간 X로 남아서, 이메일 발송(Resend)이 어떤 이유로든
+#    실패해도 GitHub 자체 알림이 이중 안전망 역할을 하게 하려는 것이다.
+
+on:
+  schedule:
+    # 매주 월요일 00:00 UTC = 09:00 KST
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 상태 점검 실행
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: node scripts/site-health-check.mjs

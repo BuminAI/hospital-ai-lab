@@ -1,0 +1,135 @@
+---
+// Berita AI — PERSI·ANTARA 자동 수집 목록 (ru/news.astro와 같은 패턴).
+//
+// hreflang을 걸지 않는다 — 자동 수집 목록은 언어판마다 완전히 다른 기사
+// 목록이라, 번역 관계가 아닌 페이지에 alternate를 걸면 검색엔진에 잘못된
+// 신호가 된다(ko news.astro·ru news.astro도 같은 원칙).
+import JaLayout from '../../layouts/JaLayout.astro';
+import ja from '../../i18n/ja.json';
+import { withBase } from '../../utils/site';
+import news from '../../data/ja/news.json';
+
+const fmt = new Intl.DateTimeFormat('ja-JP', {
+  timeZone: 'Asia/Tokyo',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const items = news.items;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/ja/news/')}`;
+const DESC =
+  'CBnewsのDX面から、医療DXと医療AIに関する記事を自動で集めています。1日数回更新し、過去の記事も残します。見出しから元記事に移動します。';
+
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: ja.nav.news,
+  description: DESC,
+  inLanguage: 'ja-JP',
+  isPartOf: { '@id': `${siteUrl}/#website-ja` },
+  dateModified: news.updatedAt,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.slice(0, 30).map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.title,
+      url: it.link,
+    })),
+  },
+};
+---
+
+<JaLayout
+  title={ja.nav.news}
+  description={DESC}
+  crumb={ja.nav.news}
+  koPath="/news/"
+  standalone
+  updated={new Date(news.updatedAt)}
+  schema={[collectionPage]}
+>
+  <h1>{ja.nav.news}</h1>
+  <p class="ja-lead">
+    病院経営・医療行政の専門メディアCBnewsの「DX」面から、医療DX・医療AIに
+    関する記事を自動で集めています。1日数回更新し、過去の記事も残します。
+    見出しを押すと元記事に移動します。
+  </p>
+
+  {
+    items.length > 0 ? (
+      <ul class="ja-news-list">
+        {items.map((item) => (
+          <li>
+            <a href={item.link} target="_blank" rel="noopener">
+              {item.title}
+              <span class="sr-only"> ({ja.ui.external})</span>
+            </a>
+            <span class="ja-news-meta">
+              {item.source} ·{' '}
+              <time datetime={item.pubDate}>{fmt.format(new Date(item.pubDate))}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="ja-empty">{ja.ui.noItems}</p>
+    )
+  }
+
+  <div class="ja-note">
+    <p>
+      この一覧は自動で集めたものです。当研究所が個々の記事を評価したり推薦
+      したりしているわけではありません。記事の内容は各媒体のものです。
+      なお、「PR」表示のある広告記事は除いています。
+    </p>
+  </div>
+</JaLayout>
+
+<style>
+  .ja-lead {
+    color: var(--ja-text-sub);
+  }
+  .ja-news-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--ja-border);
+  }
+  .ja-news-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ja-border);
+  }
+  .ja-news-list a {
+    color: var(--ja-text);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .ja-news-list a:hover {
+    color: var(--ja-primary);
+  }
+  .ja-news-meta {
+    font-size: 13px;
+    color: var(--ja-text-sub);
+  }
+  .ja-empty {
+    margin-top: 20px;
+    color: var(--ja-text-sub);
+  }
+  .ja-note {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--ja-border);
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--ja-text-sub);
+  }
+</style>

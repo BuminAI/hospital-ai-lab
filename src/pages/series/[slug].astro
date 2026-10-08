@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SeriesDetailView from '../../components/SeriesDetailView.astro';
+import { getResolvedSeries } from '../../utils/series';
+import { seriesDetailDescription, seriesDetailSchema } from '../../utils/series-schema';
+
+export async function getStaticPaths() {
+  const list = await getResolvedSeries('ko');
+  return list.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+
+const { s } = Astro.props;
+---
+
+<BaseLayout
+  title={s.title}
+  description={seriesDetailDescription('ko', s)}
+  schema={[seriesDetailSchema('ko', s, Astro.site)]}
+>
+  <div class="container">
+    <SeriesDetailView loc="ko" s={s} />
+  </div>
+</BaseLayout>

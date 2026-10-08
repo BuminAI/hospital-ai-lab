@@ -3,7 +3,7 @@
 다른 컴퓨터 · 다른 Claude 세션에서 이 프로젝트를 이어서 작업할 때 읽는 문서입니다.
 (사이트 운영 규칙은 [CLAUDE.md](CLAUDE.md), 사실의 원천은 [briefing.md](briefing.md), 회원 기능 개통은 [supabase/SETUP-GUIDE.md](supabase/SETUP-GUIDE.md) 참조)
 
-**마지막 갱신: 2026-08-12.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
+**마지막 갱신: 2026-08-13.** 이 날짜 이후 코드가 바뀌었다면 이 문서보다 실제 코드가 우선입니다.
 
 > **2026-07-16 이사 완료.** 새 컴퓨터(Windows 계정 `choyj`, 저장소 `D:\hospital-ai-lab`)로 옮겼다.
 > 클론 · 의존성 · 빌드(39페이지 성공) · 예약 작업 2개 재생성까지 끝났고, 옛 컴퓨터의 예약 작업은 삭제했다.
@@ -30,8 +30,7 @@
 | `.claude/agents/`, `.claude/skills/`, `.claude/settings.json`(도구 사전 허용) | ✅ | git에 커밋됨 |
 | GitHub Actions 자동화(뉴스·영상 수집, 배포) | ✅ | GitHub 클라우드에서 실행, 컴퓨터와 무관 |
 | Supabase(회원·DB·Storage·GitHub 토큰 저장) | ✅ | 클라우드 서비스, 컴퓨터와 무관. 로그인만 다시 하면 됨 |
-| **예약 작업 2개(daily-blog-post, site-health-check)** | ❌ | Claude 앱의 로컬 예약 작업이라 **이 컴퓨터에서만** 실행됨. 새 컴퓨터에서 §4-2·4-3 참고해 다시 만들어야 함 |
-| **네이버 SMTP 자격 증명(`naver-smtp.xml`)** | ❌ **(복사해도 소용없음)** | Windows DPAPI로 암호화돼 **이 컴퓨터·이 Windows 계정에서만 복호화**된다. 새 컴퓨터에서 앱 비밀번호를 새로 발급받아 다시 만들어야 함(§4-3) |
+| **예약 작업(daily-update-digest 등 콘텐츠 작성)** | ❌ | Claude 앱의 로컬 예약 작업이라 **이 컴퓨터에서만** 실행됨. 새 컴퓨터에서 §4-1-1·4-2 참고해 다시 만들어야 함. (site-health-check는 2026-09-13부로 GitHub Actions로 이관돼 이 제약이 없음 — §4-1-2) |
 | **Claude의 프로젝트 기억(memory, 이 대화의 교훈들)** | ❌ | `C:\Users\a\.claude\projects\...\memory\`에 로컬 저장. 아래 §6에 핵심만 옮겨 적어 둠 |
 | **Claude Code 대화 기록** | ❌ | 로컬 저장. 새 컴퓨터에서는 새 세션으로 시작된다(이 문서를 보여주면 대부분 파악함) |
 | `gh` CLI 로그인, `.claude/run-npm.cmd`, `.claude/launch.json`, `.claude/settings.local.json` | ❌ | 컴퓨터별 로컬 설정(gitignore됨). §2 참고해 새로 만들 것 |
@@ -126,13 +125,33 @@ npm run build    # 배포본 생성(dist/)
 | `deploy.yml` | main push 시 | Astro 빌드 → GitHub Pages 배포 |
 | `update-news.yml` | 1시간 간격(`17 * * * *`) | **메디칼타임즈 '의료기기·AI' 지면 + 병원신문 전체 기사** 크롤링 → `src/data/news.json`에 신규 기사만 누적. 변경 없으면 커밋·배포 생략 |
 | `update-videos.yml` | **매일** KST 09:07 + 예비 12:07/15:07/18:07/21:07 | 유튜브에서 클로드·병원·의료 AI 영상 최대 3개 신규 추가 → `src/data/recommended-videos.json`. 기존 항목(수동·자동·직접 제작 전부)은 절대 안 지움. 하루 1회 제한: 최근 24시간 내 auto 추가 있으면 건너뜀. 수동 즉시 갱신은 `gh workflow run update-videos.yml -f force=true` |
-| `update-events.yml` | 매일 KST 09:37 + 예비 13:37/17:37 | 메디칼타임즈(의료기기·AI·학술 지면)·병원신문·대한병원협회·한국보건산업진흥원에서 **병원·의료 AI 교육·세미나·컨퍼런스·학술대회** 소식 크롤링 → `src/data/events.json` (2026-07-27 신설). 제목에 행사 표현 + AI·디지털 표현이 함께 있어야 채택하고 수상·인사·MOU는 제외. ⚠️ **수확량이 적다(실측 주 1건 안팎)** — 국내에 병원 AI 행사 자체가 아직 적다. 넓히려면 `AI_RE`를 손볼 것. 최초 1회는 `news.json` 누적분에서 시드를 끌어왔다. |
+| `update-events.yml` | 매일 KST 09:37 + 예비 13:37/17:37 | 메디칼타임즈(의료기기·AI·학술 지면)·병원신문·대한병원협회·한국보건산업진흥원에서 **병원·의료 AI 교육·세미나·컨퍼런스·학술대회** 소식 크롤링 → `src/data/events.json` (2026-07-27 신설). 제목에 행사 표현 + AI·디지털 표현이 함께 있어야 채택하고 수상·인사·MOU는 제외. ⚠️ **수확량이 원래도 적다(실측 주 1건 안팎)** — 국내에 병원 AI 행사 자체가 아직 적다. 2026-08-20: 8/15~8/20 5일간 완전히 멈춘 걸 조사해 보니 '전시회'가 아닌 '전시'(동사형)·행사명 'KHF'를 EVENT_RE가 못 잡던 게 원인이라 두 패턴을 추가했다(누적 8→18건). 더 넓히려면 `AI_RE`/`EVENT_RE`를 손볼 것. 최초 1회는 `news.json` 누적분에서 시드를 끌어왔다. |
+| `update-ai-digest.yml` | 하루 5회 KST 07:11/11:11/15:11/19:11/23:11 | **러시아어판·인도네시아어판 — AI 일반 동향** (2026-09-10 신설, 오너 지시). 의료에 한정하지 않은 AI 기사를 RSS 로 수집 → `src/data/{ru,id}/ai-digest.json`, 화면은 `/ru/ai-digest/`·`/id/ai-digest/`. 두 판은 의료 매체만으로는 하루 1~2건뿐이라 새 글이 드물었다(실측 ru 1.6 id 1.1, 한국어판 5.0). 수집 후 **ru 8.1건/일·id 5건 안팎**. ⚠️ 기존 `news.json`(의료 AI 전용)과 **섞지 않는다** — 섞으면 의료 뉴스 페이지의 주제가 흐려진다. ⚠️ CNN Indonesia 는 **러너에서 403**(로컬은 200, 데이터센터 IP 차단으로 보임) — 실패해도 나머지는 계속되고, 그 손실을 메우려 detikFinance·Media Indonesia·Tech in Asia·Liputan6 보건 지면을 함께 넣었다. |
 | `update-jgrants.yml` | 매일 JST 09:07 + 예비 13:07/17:07 | **일본어판** — jGrants(디지털청) 공개 API에서 의료기관 관련 **모집 중** 보조금 수집 → `src/data/ja/subsidies.json` (2026-07-31 신설). 인증 불필요. |
-| `update-gov-programs.yml` | 매일 KST 09:07 + 예비 12:07/15:07 | 보건복지부·한국보건산업진흥원·**대한병원협회** 공고 크롤링 → `src/data/gov-programs.json`. 병원·의료 관련 지원사업만 담고 채용·입찰·시상·선정결과·지침개정은 제외 (2026-07-20 신설, 07-22 아침 9시로 조정, 07-27 대한병원협회 추가). 병원협회는 복지부 공고를 회원 병원에 전달하는 글이 많아 **수집 순서 맨 뒤**에 두고, 제목 정규화(「」·[]·끝의 '안내/공고' 제거)로 원문과 중복되지 않게 한다. 병원협회 '협회공고' 게시판은 100% 자체 입찰공고라 쓰지 않는다. |
+| `update-ru-news.yml` | 매시 :37 | **러시아어판** — Медвестник(АИ 태그 페이지)·Vademecum(/ai/ 섹션)에서 의료 AI 기사 크롤링 → `src/data/ru/news.json` (2026-08-13 신설). 두 매체 다 AI 전용 지면이라 한국어판 병원신문과 달리 제목 재필터링 불필요. |
+| `update-id-news.yml` | 4시간 간격(`47 */4 * * *`) | **인도네시아어판** — detikHealth·Kompas Health 건강 지면에서 AI·디지털 관련 기사만 걸러 `src/data/id/news.json`에 누적 (2026-09-06 신설). ⚠️ **수확량이 매우 적다** — 인도네시아 매체에는 러시아·한국 같은 의료 AI 전담 지면이 없다(실측: 건강 지면 38건 중 AI 0건, Katadata AI 태그 19건 중 의료 0건). 보건부 공식 채널은 목록이 AJAX·RSS가 빈 껍데기·sehatnegeriku 연결 불가라 못 쓴다. 공개 `/id/news/` 페이지는 아직 안 만들었다(빈 페이지 방지) — 예약 작업이 블로그 소재 후보로만 읽는다. |
+| `update-gov-programs.yml` | 매일 KST 09:07 + 예비 12:07/15:07 | 보건복지부·한국보건산업진흥원(KHIDI)·**정보통신산업진흥원(NIPA)**·**대한병원협회** 공고 크롤링 → `src/data/gov-programs.json`. 병원·의료 관련 지원사업만 담고 채용·입찰·시상·선정결과·지침개정은 제외 (2026-07-20 신설, 07-22 아침 9시로 조정, 07-27 대한병원협회 추가, 08-20 NIPA 추가). NIPA는 ICT 전반 기관이라 MED_RE 필터로 AI+의료 교집합만 남긴다(skipMedCheck 미적용). 병원협회는 복지부 공고를 회원 병원에 전달하는 글이 많아 **수집 순서 맨 뒤**에 두고, 제목 정규화(「」·[]·끝의 '안내/공고' 제거)로 원문과 중복되지 않게 한다. 병원협회 '협회공고' 게시판은 100% 자체 입찰공고라 쓰지 않는다. |
+| `site-health-check.yml` | 매주 월요일 KST 09:00 | **사이트 자가 점검**(2026-09-13 신설 — 원래 §4-1-2에 적힌 로컬 예약 작업이었다). 보고 전용, 어떤 파일도 커밋하지 않음. 자세한 내용은 §4-1-2. |
 
 - 수집 스크립트: `scripts/fetch-news.mjs`, `scripts/fetch-videos.mjs`
 - GitHub cron은 예약을 자주 지연·누락시킴(실측: 3시간 간격 예약이 하루 2~3회만 실행, 최대 13시간 공백) → 그래서 예약을 촘촘히 걸고 "새 기사 있을 때만" 커밋하는 방식으로 설계됨 (2026-07-09 조정).
 - 두 워크플로 모두 `deploy.yml`과 배포 대기열을 공유하지 않도록(오너 직접 push 배포가 취소당하지 않게) 각자 별도 concurrency 그룹 사용 + 완료 후 `gh workflow run deploy.yml`로 배포를 위임함.
+
+### 4-1-1. `daily-update-digest` (⚠️ 로컬 — 2026-08-15 신설, 8/15 무인 정지 사고 이후 4-2를 흡수·확장)
+
+- 저장 위치: `C:\Users\a\.claude\scheduled-tasks\daily-update-digest\SKILL.md` (로컬 파일, git에 없음). 매일 KST 08:05경 실행.
+- 하는 일: ①한국어 블로그 확인·작성(4-2와 같은 방식, daily-blog-post와 중복 방지 확인 포함) ②**러시아어 블로그 확인·작성(2026-08-20 신설, 오너 지시)** — src/content/blog-ru/에 오늘 글이 없으면 152-FZ·Roszdravnadzor·GOST R 72484 등 아직 안 쓴 러시아 제도 주제나 src/data/ru/news.json 최신 기사 중에서 새로 조사해 쓴다 ③**일본어 블로그 확인·작성(2026-08-20 신설, 같은 날 오너 지시로 자동 발행까지 확대)** — src/content/blog-ja/에 오늘 글이 없으면 個人情報保護法·3省2庁ガイドライン·PMDA 관련 세부 제도나 src/data/ja/subsidies.json의 최근 공모 중에서 새로 조사해 쓴다. 이미 있는 용어집 항목은 재설명하지 않고 링크로 연결. 세 언어판 모두 사실 검증 통과 시에만 draft:false로 자동 발행(CLAUDE.md 2026-08-20 오너 지시로 예외를 러시아어판·일본어판까지 확대) ④뉴스·지원사업·행사·영상 24시간 집계 ⑤Gmail 연동(cyhodr@gmail.com)으로 choyh1004@bumin.co.kr에 결과 이메일(2026-08-17부로 네이버 SMTP 대신 이걸 씀 — 네이버 인증 실패).
+- 무인 정지 방지: `.claude/settings.json`(git 커밋됨)에 Bash 명령·`Write/Edit(src/content/blog/**)`·`Write/Edit(src/content/blog-ru/**)`·`Write/Edit(src/content/blog-ja/**)`(2026-08-20 추가)를 사전 허용해 뒀다.
+- `daily-blog-post`(4-2)·`site-health-check`(4-3)이 예약 목록에서 안 보이는 시점이 있었다(2026-08-16 확인, 원인 미상 — 폴더는 남아 있음). `mcp__scheduled-tasks__list_scheduled_tasks`로 현재 등록된 작업을 항상 먼저 확인할 것.
+
+### 4-1-2. `site-health-check.yml` (GitHub Actions — 2026-09-13에 로컬 예약 작업에서 이관)
+
+- **이관 사유**: 원래 이 점검은 로컬 Claude 앱의 예약 작업(`site-health-check`, 매주 월요일 09:00 KST)이었다. 그런데 트리거 시각에 컴퓨터·앱이 꺼져 있으면 세션 자체가 생기지 않는다(승인 대기로 멈추는 것과는 다른 유형 — 시작조차 안 됨, `scheduled-task-full-day-miss` 메모리 참고). 실제로 2026-08-10 이후 약 5주간 한 번도 실행되지 않았는데, 실패 로그가 아예 안 남는 유형이라 아무도 몰랐다(오너가 "누락된 실행 체크해줘"라고 지시해서 그때 처음 발견함). 컴퓨터 전원과 무관하게 항상 도는 GitHub Actions cron으로 옮겨서 이 구조적 문제를 없앴다.
+- 스크립트: `scripts/site-health-check.mjs`. 워크플로: `.github/workflows/site-health-check.yml` (매주 월요일 00:00 UTC = 09:00 KST + `workflow_dispatch`로 수동 실행 가능).
+- 점검 항목은 원래 로컬 SKILL.md와 거의 같다 — 주요 페이지 접속(18개, 언어판 홈 포함), 자동화 신선도(뉴스는 한국어판만 — 나머지 언어판은 매체 자체 발행량이 적어 updatedAt이 며칠 안 바뀌는 게 정상이라 오탐이 남; 블로그는 5개 언어판 전부 48시간 기준), GitHub Actions 최근 24시간 실패, Supabase 3개 엔드포인트, 최신 글 출처 링크 생존(언어판별 최신 1편). 이관하면서 하나 추가함 — **최근 48시간 내 발행 글에 외부 출처 링크가 아예 없는지**(2026-09-12에 실제로 이 상태가 한 번 발생했고, 원래 항목은 "있는 링크가 죽었는지"만 봐서 "링크 자체가 없는 경우"는 못 잡았다).
+- **보고 전달**: Resend(새 글 이메일 알림과 같은 `RESEND_API_KEY` 시크릿을 재사용하도록 짜 뒀다 — 새 시크릿을 따로 만들 필요는 없다)로 `choyj80@naver.com`에 매주 이메일을 보내고, GitHub Actions 실행 요약(Summary 탭)에도 항상 남긴다. ⚠️ **다만 `RESEND_API_KEY`는 2026-09-13 기준 저장소에 아직 등록돼 있지 않다**(`gh secret list`로 확인함, §5의 "아직 한 번도 동작한 적 없음" 항목과 같은 상태) — 등록 전까지는 이메일 발송이 조용히 건너뛰어지고 Summary 탭 기록만 남는다. 문제가 있으면 스크립트가 exit code 1로 끝나 Actions 탭에 실패(빨간 X)로 표시되므로, 이메일 없이도 Actions 탭만 봐도 이상 여부는 알 수 있다. Resend를 등록하면(`supabase/SETUP-GUIDE.md` 4-1) 이 점검의 이메일과 새 글 알림 이메일이 동시에 켜진다.
+- ⚠️ 링크 생존 확인에서 HTTP 403/429가 뜨면 실제로 죽은 링크가 아니라 **GitHub Actions 러너 IP를 매체가 봇으로 차단**한 것일 수 있다(`update-ai-digest.yml`의 CNN Indonesia 403과 같은 패턴). 이 경우는 문장을 바로 고치지 말고 브라우저로 직접 열어 먼저 확인할 것 — 스크립트도 이 둘을 구분해서 보고한다.
+- 로컬 `site-health-check` 예약 작업과 네이버 SMTP 자가 점검 이메일 발송(`send-report.ps1`, `naver-smtp.xml`)은 이관 후 더 이상 쓰지 않는다. 새 컴퓨터로 옮길 때 이 항목을 다시 만들 필요가 없다.
 
 ### 4-2. 매일 블로그 자동 작성 (⚠️ 로컬 — 새 컴퓨터에서 반드시 재설정)
 
@@ -145,21 +164,21 @@ npm run build    # 배포본 생성(dist/)
 - **새 컴퓨터에서 이어가려면**: 새 Claude 세션에게 "매일 오후 10시에 병원 AI 연구소 블로그 글 1개를 주제 선정부터 작성·검증·발행까지 자동으로 수행하는 예약 작업을 다시 만들어줘. CLAUDE.md와 이 HANDOFF.md를 참고해서"라고 요청하면 된다. (schedule 스킬로 재생성. 도구 허용 목록은 저장소에 있어 자동으로 적용됨)
 - 앱이 꺼져 있으면 그 날은 건너뛰지 않고 다음에 앱을 열 때 실행됨(하루 밀릴 수 있음). 밤 10시에 컴퓨터와 Claude 앱이 켜져 있어야 정시에 발행된다.
 
-### 4-3. 매일 사이트 자가 점검 (⚠️ 로컬 — 새 컴퓨터에서 재설정 필요)
+### 4-3. 연재 시리즈·실무 점검표·구독 안내 (2026-09-20 신설, 오너 지시 — 벤치마킹 사이트 도입)
 
-- **매일 오전 9시경** 실행되는 Claude 예약 작업(`site-health-check`). **보고 전용**(수리 안 함, 오너 지시 2026-07-10) — 주요 페이지 접속, 뉴스·영상·블로그 자동화 신선도, GitHub Actions 실패, Supabase 서버 상태(마이그레이션 누락 감지 포함), 최근 글 출처 링크 생존을 점검하고 결과를 보고한다.
-- **보고 전달(오너 지시 2026-07-10)**: 이메일(choyj80@naver.com, 네이버 SMTP 자기 발송) + 앱 알림. 발송 스크립트와 자격 증명은 `C:\Users\a\.claude\scheduled-tasks\site-health-check\` 폴더의 `send-report.ps1` / `naver-smtp.xml`(Windows DPAPI 암호화, 이 컴퓨터·이 Windows 계정 전용). 새 컴퓨터에서는 자격 증명을 다시 만들어야 이메일이 나간다.
-  - **네이버 SMTP는 일반 로그인 비밀번호로는 인증이 안 된다(2026-07-11 확인, `5.5.1 Authentication Required`).** 반드시 "앱 비밀번호"를 따로 발급해야 함: 네이버 계정 → 보안설정 → **2단계 인증** → **애플리케이션 비밀번호 관리** 화면에서 이름(아무 값이나) 입력 후 "생성하기" → 영문 대문자+숫자 12자리 발급. 이 값을 `naver-smtp.xml`에 저장해야 한다(2단계 인증 자체가 꺼져 있어도 이 화면은 그대로 쓸 수 있었음). 일반 비밀번호나 2단계 인증 OTP(6자리 숫자)는 여기 쓸 수 없다 — 반드시 이 화면에서 생성된 값이어야 한다.
-  - **`naver-smtp.xml` 재생성 방법(2026-07-16 실제로 이렇게 했음)**: 오너가 직접 PowerShell 창에서 아래 두 줄을 실행한다. 앱 비밀번호는 가려진 입력창에 직접 넣으므로 대화나 파일에 평문으로 남지 않는다. (Claude에게 앱 비밀번호를 불러주지 말 것 — 대화 기록에 평문으로 남는다. 실수로 노출했다면 네이버에서 그 항목을 삭제하고 새로 발급할 것.)
+- **벤치마킹 근거**: SimilarWeb 공개 추정치로 국내외 의료 매체를 비교하고(코메디닷컴·AI타임스·데일리메디·의학신문·메디칼타임즈·Becker's·Healthcare IT News·The Medical Futurist·병원신문), 구조를 직접 열어 본 곳(Medical Futurist·메디게이트뉴스·애프터닥)에서 뉴스레터·연재 시리즈·실무 체크리스트 세 장치를 가져왔다. 방문자 격차의 상당 부분은 도메인 신뢰도·외부 링크라 이 세 장치만으로 메워지지 않는다(네이버 수집 1페이지 문제가 더 큼).
+- **연재 시리즈** — `src/data/series.ts`에 7개(입문·제안서 검토·개인정보·AI 도구 활용·과신 금지·예측 사례·제도 소식). **새 글을 쓰지 않고 기존 글을 읽는 순서로 묶기만 했다.** 글 ID가 틀리면 빌드가 멈춘다(`src/utils/series.ts`). 새 글을 시리즈에 넣으려면 ① data 파일 `postIds`에 추가하거나 ② 글 frontmatter에 `series: <slug>`(선택 필드, 그 시리즈 끝에 발행일 순 합류). ⚠️ **자동 발행 글은 ②를 안 적으면 어떤 시리즈에도 안 들어간다** — daily-update-digest 지침(SKILL.md)에 반영하면 자동 합류된다(아직 안 함). 화면: `/series/`, `/series/<slug>/`, 글 하단 이전·다음 상자(`SeriesBox`), 홈 "주제별로 이어 읽기", 푸터.
+- **언어판 확장(2026-09-20)** — 일본어·러시아어·인도네시아어·대만어판에도 `/{loc}/series/`가 있다. 정의는 `src/data/series-locales.ts`(언어판마다 3개 이상 글이 모이는 주제만 — 시리즈가 3편 미만이면 빌드가 멈춘다). 문구는 `src/i18n/growth.ts` 한 파일에 다섯 언어를 모았고, 색은 `src/utils/locale.ts`의 `tokenStyle()`이 각 언어판 디자인 토큰(`--ja-*` 등)에 이어 준다(컴포넌트는 `--c-*`만 쓴다 — 예전에 한국어판 변수를 복제해 다른 언어판이 스타일 없이 나온 사고를 막으려는 구조). 목록 허브(`/series/`)는 hreflang으로 서로 잇고, 시리즈 상세·글은 독립 편집이라 `standalone`(hreflang 없음). ⚠️ **한국어판 밖에는 회원가입·메일이 없어 구독 안내는 RSS만 안내한다.**
+- **실무 점검표** — `/checklist/`(기존 29항목)를 체크·진행률·인쇄가 되는 형태로 바꾸고(`InteractiveChecklist`), 섹션마다 관련 글을 연결했다. 새 점검표 2개(`/checklist/dept-ai-rules/`, `/checklist/ai-draft-input/`)는 `src/data/checklists.ts`. **기존 글의 내용만 옮겼고**, 근거인 개인정보보호위원회 가이드(korea.kr)와 행정안전부 보도자료(mois.go.kr)는 항목별로 원문과 대조했다. 체크 상태는 브라우저 localStorage에만 저장(서버 전송 없음). **2026-09-20 같은 날 나머지 네 언어판(ja·ru·id·tw)의 `/checklist/`도 같은 `InteractiveChecklist`로 바꿨다**(섹션별 관련 글은 `src/data/checklist-related.ts`, 섹션 **순서**를 키로 씀 — 섹션을 추가·삭제하면 번호도 맞출 것). 새 실무 점검표 2개는 한국어판 전용이다(근거가 한국 규제기관 자료라 다른 나라 판에 옮기면 사실이 달라진다).
+- **구독 안내(`SubscribeCta`)** — 글·시리즈·점검표 하단. ⚠️ **새 글 알림 메일은 아직 한 번도 발송된 적이 없다**(`RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY` 미등록, §8). 그래서 `src/utils/site.ts`의 `EMAIL_NEWSLETTER_LIVE = false`인 동안은 메일을 약속하지 않고 RSS·회원가입만 안내한다. 메일 발송을 켜고 실제 발송을 확인한 **뒤에** true로 바꾸면 문구가 "새 글 알림 신청"으로 바뀐다.
 
-    ```powershell
-    cd "$env:USERPROFILE\.claude\scheduled-tasks\site-health-check"
-    Get-Credential -UserName 'choyj80@naver.com' -Message '네이버 앱 비밀번호' | Export-Clixml naver-smtp.xml
-    ```
+### 4-3-2. 검수 스크립트·IndexNow·AI 크롤러 (2026-09-20)
 
-  - **실행 정책 주의**: 이걸 만들어도 `.ps1` 실행이 Windows 기본 정책에 막혀 있으면 메일이 안 나간다(`PSSecurityException`). `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` 한 번이면 해결된다(보안 설정이라 오너가 직접). 시험: `.\send-report.ps1 -Subject '시험' -Body '시험'` → `발송 완료:`가 뜨면 정상.
-- 저장 위치: `C:\Users\a\.claude\scheduled-tasks\site-health-check\SKILL.md` (로컬 파일 — git에 없음). 같은 폴더에 `send-report.ps1`(자격 증명 없음 — `naver-smtp.xml`에서 읽음)도 있다.
-- 새 컴퓨터에서는 새 Claude 세션에게 "HANDOFF.md 4-3 참고해서 매일 아침 사이트 자가 점검(보고 전용) 예약 작업을 다시 만들어줘"라고 요청하면 된다.
+- **`scripts/audit-site.mjs`** — 빌드 후 `node scripts/audit-site.mjs`. `dist/`의 전 페이지(5개 언어판)를 정규식으로 훑어 canonical·hreflang 상호참조·OG·JSON-LD 파싱·title/description 길이(CJK는 폭 2)·내부 링크·외국어 문자 섞임·면책 문구·글의 출처 링크·과장 표현을 검사한다(오류 0이 목표). `--json`으로 원자료 출력. 의존성 없음.
+- **IndexNow** — `scripts/indexnow.mjs`가 배포 뒤(`deploy.yml`의 `indexnow` 잡) 사이트맵에서 최근 48시간 안에 바뀐 주소를 `api.indexnow.org`에 제출한다. Bing·**Naver**·Yandex·Seznam·Yep·Amazon이 참여(https://www.indexnow.org/faq 에서 확인). 키 파일은 `public/<키>.txt`(공개 파일, 비밀 아님). **구글은 참여하지 않는다.** 실패해도 배포에는 영향이 없다. 네이버 서치어드바이저의 '웹페이지 수집 요청'을 대신하지는 않는다 — 여전히 새 글을 직접 요청해야 빠르다.
+- **robots.txt** — Anthropic 공식 문서(support.claude.com)에 나온 세 크롤러 `ClaudeBot`(학습)·`Claude-SearchBot`(검색 품질)·`Claude-User`(사용자 질문 시 실시간 조회)를 모두 명시 허용했다. Gemini는 별도 검색 크롤러 없이 Googlebot 색인을 쓰고 `Google-Extended`는 학습 동의 표시일 뿐이다.
+- **BlogPosting `citation`** — 글 본문에 실제로 걸린 외부 출처 링크만 `src/utils/citations.ts`가 JSON-LD로 옮긴다(화면에 안 보이는 링크는 넣지 않음).
+- ⚠️ **llms.txt의 효과는 아직 입증되지 않았다**(주요 검색·AI 사업자가 이 파일을 읽는다고 공식 확인한 바 없음). 비용이 거의 없어 유지할 뿐이다.
 
 ### 4-4. 실무 팁 (수동 — 자동화 아님, 2026-07-16 신설)
 
@@ -180,8 +199,7 @@ npm run build    # 배포본 생성(dist/)
 | GoatCounter | 방문자 통계 | `src/utils/site.ts`의 `GOATCOUNTER_CODE = 'hospital-ai-lab'` |
 | 네이버/구글 | 검색 등록 | `src/utils/site.ts`의 `NAVER_SITE_VERIFICATION`·`GOOGLE_SITE_VERIFICATION` |
 | 유튜브 채널 | 영상 | `src/utils/site.ts`의 `YOUTUBE_CHANNEL_URL` (추천 영상 페이지·푸터에서 링크) |
-| Resend | 새 글 이메일 알림 | **아직 미설정**(§8). GitHub Secrets에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY` 필요 — `supabase/SETUP-GUIDE.md` 4-1 |
-| 네이버 메일 | 자가 점검 보고 발송 | 앱 비밀번호(§4-3). 이 컴퓨터의 `naver-smtp.xml`에만 있고 **이전 불가** |
+| Resend | 새 글 이메일 알림 + 사이트 자가 점검 보고(§4-1-2, 2026-09-13부터) | **아직 미설정**(§8). GitHub Secrets에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY` 필요 — `supabase/SETUP-GUIDE.md` 4-1. 등록 전까지 두 이메일 모두 조용히 건너뛴다 |
 
 ### Supabase 마이그레이션 (2026-07-11부터 — 파일 하나로 통합)
 
@@ -209,13 +227,41 @@ npm run build    # 배포본 생성(dist/)
 | DefinedTermSet + 용어 앵커 | `src/pages/glossary.astro`, `src/data/glossary.ts`의 `id` | **슬러그는 바꾸지 말 것**(외부 링크가 깨진다). `.term { scroll-margin-top }` 없으면 앵커가 헤더에 가림 |
 | ItemList | `src/pages/checklist.astro` | HowTo 아님(순서 있는 방법이 아니라 점검 항목) |
 | CollectionPage | `news`·`gov-support`·`events` | 자동 수집 목록임을 명시. 본문은 안 옮기고 링크만 |
-| 글별 OG 이미지 | `src/pages/og/[...route].ts` | 키는 `post.id`(Astro 5에 `slug` 없음), 폰트 지정 필수(한글), `await` 필수 |
+| 글별 OG 이미지 | `src/pages/og/[...route].ts` | 키는 `post.id`(Astro 5에 `slug` 없음), 폰트 지정 필수(한글), `await` 필수. **폰트 경로는 `src/assets/fonts/PretendardVariable.woff2`**(2026-08-27에 `public/`에서 옮김 — 아래 웹폰트 항목 참고). 2026-09-27에 러시아어·인도네시아어판도 추가(`/og/ru/<id>.png`·`/og/id/<id>.png`, 키에 언어 접두어). **일본어·대만어판은 추가하지 않았다** — Pretendard는 한글·라틴·키릴은 지원하지만 한자를 지원하지 않는다. 실제로 ja/tw 제목으로 렌더링해 보니 한자가 전부 두부(□)로 나왔다(RU·ID는 정상 확인). ja/tw에 붙이려면 Noto Sans JP/TC 같은 CJK 폰트를 새로 구해 넣어야 하고, 레포에 폰트 자산을 추가하는 일이라 오너 확인 없이 진행하지 않았다. 그때까지 ja/tw 글은 `/og-default.png`를 그대로 쓴다 |
+| article OG 태그 (og:type=article, article:published_time/modified_time/section) | 5개 언어판 레이아웃 전부(`*Layout.astro`) | 2026-09-27 통일 — 그전에는 한국어판(`BaseLayout`)에만 있고 ja/ru/id/tw는 `og:type`이 항상 `website`로 고정돼 있었다(글 상세 페이지에서도). `pubDate`·`category`·(ko는 `dateModified`도) prop을 넘기면 자동으로 붙는다 |
+| robots 메타(스니펫 크기) | 5개 언어판 레이아웃 전부 | 2026-09-27 추가. `max-image-preview:large, max-snippet:-1, max-video-preview:-1` — 구글이 검색결과 스니펫·이미지를 임의로 축소하지 않게 한다. noindex 페이지에는 안 붙인다(BaseLayout만 noindex 개념이 있음) |
+| 웹폰트 (동적 서브셋) | `src/styles/pretendard-subset.css` + `public/fonts/pretendard-subset/` (92개 청크) | 2026-08-27 전환. 그전에는 통짜 `PretendardVariable.woff2`(2,010KB)를 **모든 한국어·러시아어 페이지에서 preload**해 받았다. 지금은 `unicode-range`로 쪼갠 청크를 브라우저가 필요한 것만 받는다(실측: 한국어 홈 410KB·한국어 글 433KB·러시아어 글 203KB). `font-family`·굵기 범위(45~920)가 그대로라 다른 CSS는 안 고쳤다. ⚠️ **preload를 되살리지 말 것** — 어느 청크가 필요한지는 브라우저가 정하므로 하나를 집어 미리 받을 수 없다. BaseLayout과 **RuLayout 두 곳**에 preload가 따로 있었고, RuLayout 것을 놓쳐 러시아어판만 통짜 파일을 계속 받던 적이 있다. ⚠️ 정적 서브셋(`woff2-subset`, 261KB)은 쓰지 않았다 — 실측 결과 `№`가 빠지고 굵기 5종이라 파일이 5개 필요해 이점이 없었다 |
 | llms.txt | `public/llms.txt` | AI 엔진용 사이트 안내 |
+| 분류별 아카이브 | `src/pages/blog/category/[slug].astro`·`index.astro`, `src/data/blog-categories.ts` | 2026-08-12 신설. **슬러그는 바꾸지 말 것**(외부 링크가 깨진다). `/blog/`의 필터 칩이 이 주소를 가리키는 링크이고, JS는 preventDefault로 화면 내 필터만 한다 — JS 없이도 분류별 페이지에 닿게 하려는 구조다 |
+| 페이지별 실제 수정일 | `src/utils/git-lastmod.mjs` | 2026-08-12 신설. 사이트맵 lastmod·일본어판 「更新日」·글의 dateModified가 전부 이걸 쓴다. `git log -1 -- <파일>`로 구한다 |
 | RSS 검증 항목 | `src/pages/rss.xml.js` | `atom:link rel=self`·`lastBuildDate`. lastBuildDate는 **최신 글 발행일**(빌드 시각 쓰면 매 배포마다 바뀜) |
+| 언어별 RSS 피드 | `src/pages/{ja,ru,id}/rss.xml.js` + `public/{ja,ru,id}/rss-styles.xsl` | 2026-09-06 신설. 채널 `link`와 `atom:link rel=self`가 **반드시 각 언어 경로**를 가리켜야 한다 — 한국어 피드와 같은 주소를 쓰면 수집기가 두 피드를 같은 것으로 보고 한쪽을 버린다. XSL도 언어별로 따로 둔다(한국어 것을 재사용하면 러시아어 피드에 한국어 안내가 뜬다) |
 | 관련글 모듈 | `src/pages/blog/[id].astro` | 같은 분류 우선 3편. 이게 없으면 글 절반이 문맥 인바운드 링크 0건이 된다 |
+| 제목 길이 예산 | 네 레이아웃의 `TITLE_BUDGET` | 2026-09-06 신설. 제목이 이미 길면 사이트명 접미사를 붙이지 않는다(한국어·일본어 40자, 러시아어·인도네시아어 65자). 구글은 제목을 글자 수가 아니라 픽셀 폭(약 600px)으로 자르는데, 러시아어는 접미사만 29자여서 글 제목이 75~104자로 나가 뒷부분이 잘리고 있었다. 브랜드는 `og:site_name`과 Organization 스키마로 따로 전달되므로 잃는 정보는 없다 |
+| hreflang 짝 없는 페이지 | 세 레이아웃의 `standalone` prop | 2026-09-06 신설. 블로그 글처럼 번역 짝이 없는 페이지는 hreflang을 **아예 내지 않는다**. 짝 없는 alternate는 무시당하는 데서 끝나지 않고 틀린 대응을 선언하는 것이다. 배경은 6절 첫 항목 |
+| WebPage 노드 | 네 레이아웃 공통 | 2026-09-06에 한국어판에도 추가(그전까지 한국어판 76페이지에만 없었다). `BlogPosting.mainEntityOfPage`는 이 노드의 `@id`(`<canonical>#webpage`)를 참조해야 한다 — 다른 값을 쓰면 같은 URL에 WebPage가 둘 생긴다. ⚠️ 한국어판만 `dateModified`를 안 넣는다(화면에 갱신일 표시가 없어서 — 비가시 마크업 금지) |
 
 **남은 것 (오너가 직접 해야 함)**: 구글 서치콘솔·네이버 서치어드바이저·Bing 웹마스터에
 사이트맵(`sitemap-index.xml`)과 RSS 제출. 소유확인 메타 태그는 이미 둘 다 들어가 있다.
+
+### 2026-08-12 보강 — 여기서 배운 것 두 가지 (되돌리지 말 것)
+
+- **빌드 시각을 수정일로 쓰면 안 된다.** 예전에는 사이트맵 lastmod와 일본어판
+  「更新日」이 모두 빌드 시각이었다. 이 사이트는 뉴스 자동 수집으로 하루에도
+  수십 번 배포되므로, 몇 달째 그대로인 페이지까지 매번 "오늘 수정됨"이 됐다.
+  검색엔진은 lastmod가 실제와 어긋나는 사이트의 값을 아예 무시해 버리고,
+  일본어판은 **화면에 보이는 날짜가 사실과 달라 사실 검증 원칙에도 어긋났다.**
+  지금은 `src/utils/git-lastmod.mjs`가 파일별 마지막 커밋 시각을 구한다.
+- **⚠️ 그래서 `deploy.yml`의 체크아웃에 `fetch-depth: 0`이 반드시 필요하다.**
+  기본값인 얕은 클론(depth=1)은 커밋이 하나뿐이라 모든 파일이 같은 날짜로
+  나온다 — 로컬에서는 멀쩡한데 배포본만 전 페이지가 빌드 시각으로 돌아간다
+  (2026-08-12에 실제로 이 증상을 겪고 원인을 찾았다). 이 옵션을 지우면 위
+  기능이 통째로 무력화되므로 절대 지우지 말 것.
+- **hreflang은 양쪽이 서로를 가리켜야 한다** — 이 문서에 원래 적혀 있던
+  주의사항인데, 실제로는 한국어판 9개 중 6개(`checklist`·`faq`·`glossary`·
+  `guide`·`tips`·`youtube`)에 `jaPath`가 빠져 한쪽만 걸린 상태였다.
+  2026-08-12에 전부 채워 9쌍 모두 양방향이 됐다. **일본어 페이지를 새로
+  만들면 대응하는 한국어 페이지의 `jaPath`도 반드시 같이 넣을 것.**
 
 ## 5-2. 일본어판 `/ja/` (2026-07-31 신설)
 
@@ -253,7 +299,315 @@ npm run build    # 배포본 생성(dist/)
   connpass는 **개인 자격으로만** 신청 가능하고(법인 불가) 승인에 수일 걸린다. 오너가 직접 신청해야 한다.
 - A계층 번역(用語集·FAQ·導入チェックリスト 등): 홈·소개·補助金 3페이지만 먼저 공개했다.
 
+## 5-3. 러시아어판 `/ru/` (2026-08-13 신설, Phase B까지 완료)
+
+일본어판과 마찬가지로 한국어판과 완전히 분리된 별도 언어판이다. **번역이 아니라 러시아
+제도를 새로 조사해 쓴 콘텐츠**다. 계획 원본: `C:\Users\a\.claude\plans\mighty-booping-kernighan.md`.
+
+| 장치 | 위치 | 주의 |
+| --- | --- | --- |
+| i18n 라우팅 | `astro.config.mjs` | `locales: ['ko','ja','ru']`. `prefixDefaultLocale:false` 절대 변경 금지 |
+| 레이아웃 | `src/layouts/RuLayout.astro` | ja판과 동일한 2컬럼+브레드크럼+상시 사이드바 구조 재사용(설계 판단, 사실 아님). `koPath`뿐 아니라 `jaPath?`도 받아 3자 hreflang 지원 |
+| hreflang 3자 상호참조 | `BaseLayout.astro`(`alternates` prop, `jaPath`는 레거시 호환용으로 유지)·`JaLayout.astro`(`ruPath` prop 추가) | ko/ja/ru 6쌍(ko→ja,ko→ru,ja→ko,ja→ru,ru→ko,ru→ja)이 전부 서로를 가리켜야 유효. 페이지를 새로 만들 때마다 6쌍 체크리스트로 확인할 것 |
+| 디자인 토큰 | `src/styles/ru-tokens.css` | 선택자는 `[data-locale='ru'] body`(html에만 걸면 global.css에 짐, ja가 실제로 겪은 버그). **폰트 재정의 없음** — Pretendard가 키릴을 이미 지원해 ja처럼 시스템 폰트로 전환할 필요가 없었다(실측 확인) |
+| 운영자 이름 키릴 표기 | `Чо Ёнхо` | 콘체비치 표기법 기준, 2026-08-13 오너가 직접 확인·확정(ja의 曺永熩 확인 절차와 동일 원칙 — briefing.md에 없는 값을 임의로 만들지 않음) |
+| 본문 콘텐츠 | `src/data/ru/content/*.json` + 얇은 로더(`pages.ts`·`glossary.ts`·`faq.ts`) | 관리자가 브라우저에서 편집 |
+| 러시아어판 관리자 | `/admin-ru/` (`src/pages/admin-ru.astro`) | 한국어판과 **같은 계정**으로 로그인. 화면은 한국어, 편집 대상만 러시아어. 한국어판 `/admin/`에서 링크 |
+| 메뉴 노출 | `src/data/ru/content/nav.json` | RuLayout이 `enabled`인 것만 표시(홈은 항상 표시) |
+
+### Phase B 콘텐츠의 사실 근거 (전부 WebFetch로 직접 접속해 재확인한 것만 사용)
+
+- **152-ФЗ 개인정보보호법**: 데이터 현지화 의무, 민감·생체정보 및 자동화된 결정에는 서면 동의 필요, Roskomnadzor 집행(반복 위반 시 법인 6만~30만 루블 벌금). 출처: securiti.ai
+- **Roszdravnadzor 의료기기(AI/SaMD) 등록**: 정부령 №1684(2024-11-30). 등록 기간 — 임상시험 필요 시 최대 50영업일, 불필요 시 31영업일, 국내 제품 1차 심사 25영업일, 저위험 제품 5영업일. 2026-06 기준 AI 탑재 의료기기 57건 등록(국내 SW 레지스트리 41건·미포함 11건·해외 5건, Roszdravnadzor 청장 발표). 출처: roszdravnadzor.gov.ru, tatar-inform.ru
+- **AI 규제법(2026-09-01 시행, 일부 2027-03-01)**: 대규모 기초 AI모델 규제. **최종안에서 의료 등 분야별 규제는 연기됨**(21개 조항→13개로 축소) — 법은 통과됐지만 병원 대상 구체적 의무는 아직 없다는 점이 핵심. 출처: gxpnews.net
+- **ГОСТ Р 72484-2025**: 의료 AI 공통 용어·분류 표준. 출처: healthcaremea.com
+- **뺀 것**: FSTEC/187-FZ 핵심정보기반시설 규제, "건강 보전을 위한 신기술" 국가 프로젝트(2조 루블), ФОМС의 AI 진단 지출 수치 — 전부 재확인 시도했으나 원 출처를 확인하지 못했거나(FSTEC) 소스 신뢰도가 의심되어(국가 프로젝트 건, thedefensenews.com이라는 출처 자체가 의심스러움) 게재하지 않았다. 근거를 다시 찾으면 추가할 것.
+
+### Phase C 완료 (2026-08-13)
+
+- **실무 팁**: `/ru/tips/` 4개 항목. 한국어판 10개 번역이 아니라 **러시아 자체 서비스(GigaChat·YandexGPT)** 로 새로 조사했다 — 152-ФЗ 데이터 현지화 요건상 러시아 기업 서비스가 더 적합하다는 판단. 공식 링크(giga.chat, ya.ru/ai/gpt) 실접속 확인. 환자 데이터 입력 금지 주의사항 포함.
+- **추천 영상**: `/ru/videos/` — 연구소장이 만든 12강 시리즈(한국어 음성)에 러시아어 제목만 추가(ja판과 동일 패턴). `src/data/ru/content/videos.json`.
+- **뉴스 자동 수집**: `/ru/news/`, `scripts/fetch-ru-news.mjs`, `.github/workflows/update-ru-news.yml`(매시 :37, `update-ru-news` 그룹으로 다른 워크플로와 분리). Медвестник(medvestnik.ru, "искусственный интеллект" 태그 페이지)·Vademecum(vademec.ru/ai/, 전용 섹션) 두 곳 다 raw HTML을 curl로 직접 확인한 뒤(WebFetch 요약만으로는 정규식 파싱 가능 여부를 알 수 없었다) 정규식 파싱기를 작성했다. 로컬 실행에서 실제 기사 17건(Медвестник 13·Vademecum 4) 수집 확인. 두 매체 모두 AI 전용 지면이 있어 병원신문처럼 전체 목록을 제목으로 다시 거를 필요가 없었다.
+- **지원사업(補助金 대응) 자동화**: 일본 jGrants 같은 공개 API형 소스를 러시아에서 찾지 못했다. **2026-08-13 오너 지시로 완전히 포기** — 후속 조사도 하지 않는다. `/ru/subsidies/` 같은 페이지는 만들지 않는다.
+
+### Phase D 완료 (2026-08-13, PR 대기 중)
+
+- `src/content.config.ts`에 `blogRu` 컬렉션 신설(`src/content/blog-ru/`, 기존 `blog`와 완전히 별개). `src/pages/ru/blog/{index,[id]}.astro` 신설. hreflang은 안 건다(뉴스와 같은 이유 — ko↔ru 글은 번역이 아니라 독립 집필).
+- 검증된 사실 3건(152-ФЗ 데이터 현지화, Roszdravnadzor 의료기기 등록, AI 규제법의 의료 분야 유예)으로 글 3편 작성. **한국어판과 달리 러시아어판은 자동 발행 예외를 적용하지 않는다** — `draft: true`로 커밋해 브랜치 `post/2026-08-13-ru-blog-phase-d`에 PR을 올렸다. 오너 머지 후 각 글의 `draft`를 `false`로 바꿔야 실제로 발행된다.
+- ⚠️ 검증 중 실제 버그 발견: `blog/[id].astro`에 한국어판 공용 `formatDate`(ko-KR 로케일 고정)를 그대로 가져다 써서 날짜가 "2026년 8월 13일"처럼 한국어로 나왔다. 임시로 글 하나를 `draft:false`로 바꿔 브라우저로 직접 확인하다 발견 — 러시아어판 페이지에서 한국어판 유틸을 가져다 쓸 때는 로케일이 박혀 있는 함수가 없는지 꼭 확인할 것. `ru-RU` 로케일의 자체 `Intl.DateTimeFormat`으로 고쳤다.
+- `nav.json`에 `blog` 추가(오너 확인 없이 진행 — 메뉴 없이 두면 고아 페이지가 된다는 판단, 계획서에는 "오너 결정 필요"로 남겨뒀던 항목).
+
+### 아직 안 만든 것
+
+- 없음(Phase A~D 전부 완료). 다음은 콘텐츠 확장(용어·FAQ·글 추가)과 위 PR 머지.
+- **영상 신규 등록 도구**: admin-ru에는 아직 "한국어판에 새로 생긴 '직접 만든 영상' 자동 발견" 기능이 없다(ja의 jv-sync에 해당). 지금은 12개 전량 수동 입력했다. 13강이 생기면 개발자에게 요청하거나 admin-ja의 jv-sync 패턴을 이식할 것.
+
+## 5-4. 인도네시아어판 `/id/` (2026-09-05 신설, 2026-09-06 뉴스·정부 프로그램·영상 추가)
+
+일본어·러시아어판과 마찬가지로 한국어판과 완전히 분리된 별도 언어판이다. **번역이 아니라 인도네시아 제도를 새로 조사해 쓴 콘텐츠**다.
+
+| 항목 | 위치 | 주의 |
+| --- | --- | --- |
+| i18n 라우팅 | `astro.config.mjs` | `locales`에 `'id'`, 사이트맵 `i18n.locales`에 `id: 'id-ID'` 추가 |
+| 레이아웃 | `src/layouts/IdLayout.astro` | RuLayout 구조 복제(2컬럼·브레드크럼·상시 사이드바). 다른 레이아웃과 **합치지 말 것** |
+| 디자인 토큰 | `src/styles/id-tokens.css` | 선택자는 반드시 `[data-locale='id'] body` — html에만 걸면 global.css가 이긴다(ja가 겪은 버그). 주조색 `#0a5470`(청록)으로 다른 언어판과 구분 |
+| 폰트 | 별도 처리 없음 | 인도네시아어는 라틴 문자라 Pretendard 동적 서브셋이 그대로 적용된다(ja처럼 시스템 폰트로 바꿀 필요 없음) |
+| 운영자 이름 | `src/i18n/id.json`의 `profile.name` | 라틴 문자권이라 **음역이 필요 없다** — `Youngho Cho (조영호)` 그대로. 한글은 JSON-LD `alternateName`에 둔다 |
+| 본문 콘텐츠 | `src/data/id/content/*.json` | `glossary.ts`·`faq.ts`는 JSON을 읽어 타입만 붙이는 얇은 로더. TS에 본문을 직접 쓰지 말 것 |
+| 메뉴 노출 | `src/data/id/content/nav.json` | 현재 8개(홈·소개·블로그·뉴스·정부 프로그램·영상·용어집·FAQ), 한국어판 순서에 맞춤. **내용 없는 페이지는 메뉴에도 홈 카드에도 걸지 않는다** |
+| 뉴스 자동 수집 | `scripts/fetch-id-news.mjs` + `.github/workflows/update-id-news.yml` | 수집원은 **PERSI**(인도네시아병원협회 워드프레스 REST API — 한국어판 병원신문 자리)와 **ANTARA**(국영 통신사 태그 지면 5종). 3시간 간격. 아래 '수집원 교체' 참고 |
+| 정부 프로그램 | `src/data/id/content/gov-support.json` + `src/pages/id/gov-support.astro` | ⚠️ **자동 수집이 아니다.** 사람이 1차 출처에 접속해 확인한 것만 적는다. 확인일(`checkedAt`)을 화면에 그대로 노출한다 |
+| 추천 영상 | `src/data/id/content/videos.json`·`videos-meta.json` | ja·ru판과 같은 12편. `titleId`가 빈 항목은 자동으로 숨긴다(한국어 제목이 그대로 노출되는 것을 막기 위해) |
+| hreflang | 4개 언어 상호참조 | `BaseLayout`의 `alternates`에 `id` 추가, `JaLayout`·`RuLayout`에 `idPath`, `IdLayout`에 `ruPath`. **홈·소개·용어집·FAQ 64개 관계를 빌드 산출물로 전수 검증**했다 |
+
+### 검증된 출처 (2026-09-05, 전부 WebFetch 실접속 확인)
+
+- **UU No. 27/2022 (Pelindungan Data Pribadi)** — 정식 명칭·공포일(2022-10-17)·Pasal 74의 2년 조정기간을 정부 법령정보(JDIH Komdigi) 원문으로 확인. `https://jdih.komdigi.go.id/produk_hukum/view/id/832/...`
+- **SATUSEHAT** — 공식 정의 문구를 `satusehat.kemkes.go.id`에서 직접 확인
+- **SATUSEHAT AI·AI 규제 방향** — 보건부 2026-06-08 발표 기사(`kemkes.go.id`)에서 인용문 확인
+- **Izin edar** — `regalkes.kemkes.go.id`가 보건부 공식 등록 포털임을 직접 확인
+
+### ⚠️ 확인 못 해서 일부러 안 쓴 것
+
+- **"소프트웨어가 alat kesehatan에 포함되어 등록 대상"** — 컨설팅 업체 글에만 나오고 Permenkes 원문으로 확인하지 못했다. `regalkes` 공식 포털에도 소프트웨어 포함 여부가 명시돼 있지 않았고, 공식 지침 PDF는 열어 보니 로고 파일이었다. **Permenkes 원문으로 확인되기 전에는 쓰지 말 것.**
+- Permenkes 62/2017의 Kelas A~D 구분, UU PDP 제재 비율(연매출 2%) — 같은 이유로 미기재.
+- `peraturan.bpk.go.id`는 WebFetch에 403을 준다. 법령 확인은 **JDIH Komdigi**를 쓸 것.
+
+### 뉴스 수집원 교체 (2026-09-06) — 실측으로 갈아엎었다
+
+처음 만든 수집기는 **detikHealth·Kompas Health** 건강 지면을 긁었는데 **24시간 동안 한 건도 못 건졌다**(누적 0건). 두 매체는 일반 소비자 건강 기사가 대부분이라 병원 실무·의료 AI와 겹치는 기사가 사실상 나오지 않는다. 실측으로 확인하고 버렸다. 지금은 두 곳을 쓴다.
+
+- **PERSI**(`persi.or.id`) — 인도네시아병원협회. `wp-json/wp/v2/posts`로 날짜·제목·링크를 JSON으로 정확히 받는다(HTML 파싱보다 훨씬 안정적). 분류 1(Berita Persi)·683(Berita Kanal PERSI)만 읽는다. 682(Info Pelatihan)·338(Event)은 교육·행사라 뉴스에 섞지 않았다 — **나중에 `/id/events/`를 만들 때 이 두 분류를 쓰면 된다.**
+- **ANTARA**(`antaranews.com`) — 국영 통신사. `satusehat`·`kesehatan-digital`·`rekam-medis-elektronik`·`telemedisin`(보건 주제로 이미 좁혀진 지면)과 `kecerdasan-buatan`(일반 AI) 다섯 태그.
+
+**필터는 수집원 성격에 맞춰 나눈다.** PERSI는 협회 매체라 모든 기사가 병원 이야기이므로 **디지털·AI 조건만** 본다 — 의료 조건을 함께 걸면 「Rakernas PERSI 2026 … hingga Implementasi AI」처럼 제목에 '병원'이라는 낱말이 없는 기사가 통째로 떨어진다(실제로 그랬다). ANTARA의 보건 태그 4종도 같다. 일반 AI 지면(`kecerdasan-buatan`)에만 의료 조건을 더한다.
+
+⚠️ **ANTARA는 날짜를 세 가지로 쓴다**: 「2 September 2026」(절대) · 「Kemarin 08:05」(어제) · 「1 jam lalu」(상대). 하나만 처리하면 나머지 기사가 조용히 버려진다(6절의 러시아어판 사고와 같은 유형). 세 가지를 모두 처리하고 있으니 파서를 손댈 때 지울 것.
+
+결과: 0건 → 17건.
+
+### 정부 프로그램을 자동화하지 못한 이유 (2026-09-06 조사)
+
+인도네시아에는 jGrants(일본)나 보건복지부 공고 목록(한국)처럼 **기계로 읽을 수 있는 공고 소스를 찾지 못했다.**
+
+- `pendanaan-risnov.brin.go.id`·`brin.go.id/news`·`komdigi.go.id` — 자바스크립트로 그려져 원문 HTML에 내용이 없다. 브라우저로 열어 네트워크까지 확인했는데 **데이터 요청(XHR) 자체가 없었고**, BRIN 공고 화면은 본문이 사실상 비어 있었다.
+- `kemkes.go.id/id/pengumuman-all` — Nuxt 인라인 데이터에 공고가 들어 있어 파싱은 가능하지만, 내용이 대부분 **채용·조달 공고**라 병원 지원사업과 성격이 다르다.
+- `lpdp.kemenkeu.go.id` — 이 환경에서 연결 자체가 되지 않았다(`UND_ERR_CONNECT_TIMEOUT`).
+
+그래서 **사람이 확인해 적는 안내 페이지**로 만들었다. 자동 수집이 아니라는 사실과 확인일을 화면에 그대로 노출한다 — 최신 공고로 착각하게 두면 신뢰를 해친다. 나중에 자동화하려면 위 세 가지 중 하나가 풀려야 한다.
+
+**실은 것(전부 공식 페이지 실접속 확인, 2026-09-06)**: RIIM Kompetisi(BRIN·LPDP, 출처는 brin.go.id 2026-05-08 보도자료를 브라우저로 렌더링해 확인) · SIBK(Kemenkes 보건인력 교육 지원) · Platform SATUSEHAT · Kemenkes 공식 공고 지면. RIIM의 "보건이 우선 주제에 포함된다"는 서술은 **언론 기사에만 있고 1차 출처로 확인하지 못해 넣지 않았다.**
+
+### 아직 안 만든 것
+
+체크리스트·가이드·팁(ja·ru판에는 있음), 그리고 교육·행사 페이지. 교육·행사는 PERSI의 `info-pelatihan`(101건)·`event`(39건) 분류를 그대로 쓰면 되므로 **수집원 조사는 이미 끝나 있다**(위 참고).
+
+## 5-5. 대만어판 `/tw/` (2026-09-06 신설)
+
+정체자(zh-TW). 한국어판과 완전히 분리된 별도 언어판이고 **번역이 아니라 대만 제도를 새로 조사해 쓴 콘텐츠**다. 인도네시아어판과 같은 구성(홈·소개·전문·뉴스·정부자원·영상·용어집·FAQ)으로 시작했다.
+
+| 항목 | 위치 | 주의 |
+| --- | --- | --- |
+| URL·언어 코드 | 경로는 `/tw/`, 언어 코드는 `zh-TW` | ⚠️ **`zh`나 `zh-Hans`로 쓰지 말 것** — 간체자권 결과와 섞인다. `astro.config.mjs`의 sitemap i18n에도 `tw: 'zh-TW'`로 넣었고, hreflang도 `zh-TW`다 |
+| 레이아웃 | `src/layouts/TwLayout.astro` | IdLayout 복제. 다른 레이아웃과 **합치지 말 것** |
+| 디자인 토큰 | `src/styles/tw-tokens.css` | 선택자는 `[data-locale='tw'] body`. 주조색 `#7a2233`(짙은 자주)으로 다른 언어판과 구분 |
+| 폰트 | `--tw-font`(시스템 폰트) | ⚠️ **Pretendard를 쓰지 말 것.** 한자 자형을 충분히 담고 있지 않아 글자마다 폰트가 갈린다(일본어판과 같은 이유). `PingFang TC` → `微軟正黑體` → `Noto Sans TC` 순. ⚠️ 간체자용 SC 폰트를 넣지 말 것 — 자형이 다르다 |
+| 제목 길이 예산 | `TwLayout.astro`의 `TITLE_BUDGET` | **40자**. IdLayout에서 복제할 때 라틴 문자 기준 65자가 딸려 왔는데, 한자는 글자 폭이 넓어 그대로 두면 잘린다. 한국어·일본어판과 같은 값으로 맞췄다 |
+| 표기 원칙 | `src/i18n/tw.json`의 `_comment` | 대만 표기를 쓴다: 軟體·資訊·資料·人工智慧·演算法·品質. **중국 大陸 표기(软件·人工智能)를 섞지 말 것** |
+| 저자 이름 | `profile.name` | 로마자 표기를 그대로 쓴다. **한자 음역을 만들지 않았다** — 일본어판의 曺永熩는 오너가 확정해 준 표기지만 대만식 표기는 확인받은 바가 없다 |
+| 뉴스 자동 수집 | `scripts/fetch-tw-news.mjs` + `.github/workflows/update-tw-news.yml` | 3시간 간격. 수집원은 아래 참고 |
+| 정부 자원 | `src/data/tw/content/gov-support.json` | ⚠️ 자동 수집이 아니다. 아래 참고 |
+| 블로그 자동 발행 | **아직 예외에 없음** | ja·ru·id는 오너의 별도 지시로 CLAUDE.md 자동 발행 예외에 들어갔다. **blogTw는 오너 확인 전까지 draft: true + PR** |
+
+### 뉴스 수집원 (2026-09-06 실측으로 고름)
+
+- **中央社(cna.com.tw)** — 국영 통신사. ⚠️ **지면 목록이 아니라 검색 페이지를 쓴다.** 처음에 `/list/ahel.aspx`(生活)와 `ait`(科技)를 읽었더니 최신 20건만 나와 **의료 AI 교집합이 0건**이었다. 검색(`/search/hysearchws.aspx?q=...`)으로 바꾸니 한 번에 100건씩, 과거 기사까지 나온다. 검색어는 `AI醫療`·`智慧醫療`·`電子病歷`·`遠距醫療`·`AI 醫院` 다섯 개. 결과가 **JSON-LD ItemList**로 나와 HTML 정규식보다 안정적이고, 기사 URL(`/news/ahel/202609060012.aspx`)에 날짜가 박혀 있어 날짜도 정확하다.
+- **科技新報(technews.tw)** — 워드프레스 REST API 공개. 'AI 人工智慧' 분류(id 19819)를 읽는다. ⚠️ 하루 25건쯤 쏟아지는 일반 기술 지면이라 **반드시 의료 조건으로 다시 걸러야 한다**(실측: 100건 중 의료 5건, 그나마 반려동물 급식기·전동칫솔이 섞였다). 그래서 `NOT_HOSPITAL_RE`로 소비자 가전·반려동물을 명시적으로 뺀다.
+- **健康醫療網(healthnews.com.tw)** — 의료 전문 매체. 분류가 질환별이라 AI 전용 지면이 없어 목록에서 제목으로 거른다. 목록에 날짜가 없어 **걸린 기사만** 본문의 `article:published_time`을 읽는다(전부 열지 않는다).
+
+결과: 첫 수집 95건.
+
+### 쓰지 못한 수집원 (되살아나면 넣을 것)
+
+- **環球生技(gbimonthly.com)** — `智慧醫療` 태그 지면이 있어 가장 잘 맞았지만 태그 페이지가 계속 **HTTP 500**을 준다.
+- **衛福部(mohw.gov.tw) 보도자료** — 목록 페이지가 최신 글을 노출하지 않는다(2016년 날짜만 잡힌다).
+- **智慧醫療器材資訊暨媒合平台(aimd.fda.gov.tw)** — 식약서의 AI 의료기기 공식 플랫폼. 이 환경에서 **접속 자체가 안 된다.** 확인 못 했으므로 용어집·정부자원에 **일부러 인용하지 않았다.**
+
+### 검증된 출처 (2026-09-06, 전부 원문 접속 확인)
+
+- **《醫療器材管理法》제3조** — 의료기기 정의에 **「軟體」가 명시**돼 있다(민국 109년 1월 15일 공포). 인도네시아어판에서 확인하지 못했던 바로 그 지점이 대만에서는 조문에 있다. `law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030106`
+- **《個人資料保護法》제6조** — 병력·의료·유전·성생활·건강검사·범죄전과를 특종개인자료로 두고 **원칙 금지 + 6가지 예외**(민국 114년 11월 11일 개정). `pcode=I0050021`
+- **《醫療機構電子病歷製作及管理辦法》제3조** — 醫療法 제69조 위임, 민국 111년 7월 18일 개정. 전자의무기록에 **여섯 가지 기제**(標準作業·權限管控·緊急應變·系統安全·傳輸加密·安全事故處理) 요구. `pcode=L0020121`
+- **食藥署 醫療器材業務專區** — 의료기기 업무 주관 부서 확인. `fda.gov.tw/tc/siteListContent.aspx?sid=310&id=42528`
+
+### 정부 자원을 자동화하지 못한 이유
+
+대만에도 jGrants(일본) 같은 공모 공고 API를 찾지 못했다. 다만 인도네시아와 다른 점이 있다 — **법령 원문 포털(전국법규자료고)이 매우 잘 정비돼 있어 조문을 그대로 확인할 수 있다.** 그래서 `/tw/gov-support/`는 '보조금 공고 목록'이 아니라 **'판단 근거가 되는 공식 창구' 모음**으로 구성했다. 자동 수집이 아니라는 사실과 확인일을 화면에 그대로 노출한다.
+
+### 2026-09-06 추가분 (오너 지시)
+
+체크리스트·입문 가이드·실무 팁을 넣어 **ja·ru판과 같은 구성이 됐다**(페이지 14개). 전문(블로그)도 3편으로 늘렸다.
+
+- `checklist`·`guide`·`tips`의 데이터는 `src/data/tw/content/*.json`, 렌더러는 `src/components/TwSections.astro`(RuSections 복제). 스키마는 `{meta, sections:[{heading, body, items[]}]}`로 ja·ru판과 같다. ⚠️ `items`는 비어 있어도 `[]`를 넣을 것 — 키를 생략하면 빌드가 깨진다.
+- **가이드의 HowTo 마크업은 소제목이 「第N步」로 시작하는 절만 단계로 잡는다.** 절을 늘릴 때 `src/pages/tw/guide.astro`의 정규식도 함께 볼 것(ru판이 「Шаг N」으로 같은 방식).
+- 체크리스트 1~3절은 조문에 근거한다(醫療器材管理法 §3 / 個資法 §6 / 電子病歷辦法 §3). 4~5절은 법규 요구가 아니라 실무 항목이라 **본문에 그렇게 밝혀 두었다** — 법규 요구인 것처럼 읽히면 안 된다.
+- 팁의 도구 링크는 전부 실제 접속 확인(2026-09-06): TAIDE(taide.tw, 국과회 추진·국가실험연구원 실행), ChatGPT·Gemini·Claude·Microsoft Copilot. ⚠️ ChatGPT·Claude는 curl에 403을 주므로 **브라우저로 확인**해야 한다(6절의 교훈과 같은 함정).
+- 홈 카드가 9개가 되면서 `ui.underConstruction` 문구를 화면에서 뺐다(문자열 자체는 남겨 뒀다).
+
+### 교육·행사 (2026-09-06 추가)
+
+`/tw/events/` — `scripts/fetch-tw-events.mjs` + `.github/workflows/update-tw-events.yml`(하루 3회). 첫 수집 40건 → 수집처 확대 후 44건(2026-09-06).
+
+한국어판 `fetch-events.mjs`와 같은 사고방식이다 — 뉴스형 수집원에 **행사 조건을 겹쳐** 거른다. 수집원은 세 가지:
+- **中央社 검색** — 행사 지향 검색어. JSON-LD ItemList 방식(뉴스 수집기와 같다).
+- **衛生福利部 最新消息**(2026-09-06 추가) — `https://www.mohw.gov.tw/lp-16-1.html`, 2쪽부터 `lp-16-1-<쪽>-20.html`. 8쪽(160건)을 본다. 언론이 아니라 **주무 부처가 직접 내는 공지**라 국가 차원 행사가 기사보다 먼저·정확하게 올라온다. ⚠️ **날짜가 민국력이다**(`115-09-05` = 2026-09-05). 서기 = 민국 + 1911. 실측 수확 약 월 1건.
+- **`src/data/tw/news.json`** — 이미 누적된 뉴스에서 행사성 기사를 끌어온다. 한국어판은 1회성 시드지만 **여기서는 매번 돌린다** — 뉴스 수집기가 새 행사 기사를 가져오면 자동으로 반영되므로 같은 기사를 두 번 긁지 않는다.
+
+⚠️ **中央社에는 속도 제한이 있다 — 대략 90초에 7건**(2026-09-06 실측). 한 번 걸리면 90초가 지나야 풀린다(30초·60초에는 계속 429였다). 그래서 검색어를 5개에서 9개로 늘렸더니 뒤의 두 개가 매번 429로 죽었다. 지금은 **기본 5개 + 회전 1개** 구조다 — 확대분 4개(`智慧醫療 年會`·`數位醫療 論壇`·`長照 科技 論壇`·`生醫 AI 大會`)를 날짜로 하나씩 골라 쓰고, 검색어 사이에 15초를 쉰다. 실행에 약 87초 걸린다. **검색어를 더 늘리려면 회전 목록에 넣을 것** — 기본 목록을 늘리면 429가 난다. 뉴스 수집기(`update-tw-news.yml`, 53분)와 시각이 30분 떨어져 있는 것도 이 때문이니 cron을 옮길 때 확인할 것.
+
+⚠️ 확대 때 시험했다가 **0건이라 넣지 않은 검색어**: `電子病歷 研習`·`護理 智慧 研習`·`醫療科技 高峰會`·`智慧照護 說明會`·`醫療 AI 課程`·`醫院 數位轉型 研討會`. 다시 시험하느라 시간 쓰지 말 것.
+
+⚠️ `EVENT_RE`에 넣지 않은 것: **`學會`**(台灣醫學會 같은 단체 이름에 걸려 오탐이 커진다 — 한국어판이 '학회'를 뺀 것과 같은 이유), **`展` 단독**(`展示`·`發展`에 걸린다. `醫療科技展`·`博覽會`·`展覽`처럼 낱말 전체로 본다).
+
+⚠️ **이 목록은 '행사 안내'가 아니라 '행사를 다룬 보도·공고'다.** 날짜는 게재일이지 개최일·신청 마감일이 아니고, 지난 행사도 남는다. 화면 상단의 `.tw-caution` 안내가 그것을 밝힌다 — **지우지 말 것.** 방문자가 신청 가능한 목록으로 오해하면 안 된다.
+
+⚠️ **수집처를 늘리거나 줄이면 화면 문구도 함께 고칠 것.** `src/pages/tw/events.astro`의 `DESC`·`.tw-lead`·`.tw-caution` 세 곳이 수집처를 이름으로 말한다(CLAUDE.md의 뉴스 수집처 문구 규칙과 같은 원칙). 인도네시아어판은 `src/pages/id/events.astro`의 `DESC`·`.id-lead`.
+
+### AI 일반 동향 수집기 (2026-09-10 신설 — 러시아어·인도네시아어판)
+
+**왜 만들었나.** 두 판의 유입이 적었고 원인은 새 글이 드물어서였다. 수집원이 의료 매체뿐이라 하루 1~2건이었고, 블로그도 러시아어는 2026-09-05 이후 멈췄고 인도네시아어는 전체 1편이었다. 일일 루틴에 *검증된 주제가 없으면 건너뛴다*는 규칙이 있는데 주제 후보를 **그 나라 의료 제도로만** 한정해 둬서 고갈된 것이다(메모리 `ru-blog-topic-drought`).
+
+- 수집기 `scripts/fetch-ai-digest.mjs <ru|id>` — **전부 RSS**라 파서가 잘 안 깨진다.
+- 필터 3단: **AI 신호 → 소음 제외 → 실무 신호**. 소음 제외가 핵심이다. 없으면 「80년대 사진 편집 프롬프트」·「AI가 아닌 개구리 사진」 같은 소비자 흥미 기사가 병원 실무자용 사이트에 실린다. 사이트 주제성이 흐려지면 검색 신뢰도와 답변 엔진 인용 가능성이 함께 떨어진다.
+- **인도네시아어는 `requirePro: false`** — 기사량 자체가 적어(325건 중 AI 25건) 실무 신호까지 요구하면 3건으로 떨어졌다. 소음 제외만 강하게 건다.
+- ⚠️ **`stripTags` 는 CDATA 를 먼저 벗긴 뒤 태그를 지운다. 순서를 바꾸지 말 것.** `<[^>]+>` 가 `<![CDATA[제목]]>` 전체를 태그로 보고 지워서 제목이 빈 문자열이 된다. 2026-09-10에 이 순서 때문에 Habr·TAdviser 가 0건으로 나왔는데, 두 곳만 제목을 CDATA 로 감싸서 **나머지 매체는 멀쩡해 보였다.**
+- ⚠️ 시험했다가 못 쓴 곳(다시 시험하지 말 것): `bisnis.com`·`kontan.co.id`·`kumparan.com`·`suara.com`·`medcom.id`(item 0), `tekno.kompas.com`·`investor.id`·`jawapos.com`(404), `infokomputer.grid.id`(410), `teknologi.bisnis.com`(403), `ria.ru/science`(404), `ict.moscow`(응답 없음), Republika 이노베이션(최신 글이 9년 전).
+- 화면은 **단순 링크 모음이 되지 않게** 이 사이트만의 문단(「왜 병원 행정에 필요한가」)을 함께 싣는다. 그 문단을 지우면 스크랩 페이지가 되어 검색·답변 엔진이 인용할 거리가 없어진다.
+- hreflang 은 걸지 않는다(`standalone`). 언어판마다 기사가 완전히 달라 번역 관계가 아니다.
+- 일일 루틴(로컬 예약 작업 `daily-update-digest`)의 러시아어 1-1단계·인도네시아어 1-3단계 주제 후보에 이 데이터를 넣었다. **수집된 제목은 주제 힌트일 뿐이고 사실은 원문·1차 자료로 직접 확인**하며, **병원 행정 눈높이로 각을 잡는다**는 조건을 함께 적었다.
+
+### 인도네시아어판 교육·행사 수집처 (2026-09-06 확대)
+
+`/id/events/` — `scripts/fetch-id-events.mjs`. 첫 수집 7건 → 확대 후 16건.
+
+- **PERSI 행사 분류** `682 Info Pelatihan`·`338 Event News` — 분류 자체가 교육·행사라 **주제만 맞으면** 채택한다.
+- **PERSI 일반 분류** `683 Berita Kanal PERSI`·`1 Berita Persi` — 행사가 아닌 기사가 대부분이라 **주제 + 행사 조건을 함께** 본다. 실측 683은 100건 중 6건, 1은 100건 중 2건.
+- **`src/data/id/news.json`** — 대만어판이 하던 방식인데 인도네시아어판에는 빠져 있었다. 뉴스라 반드시 행사 조건까지 본다.
+
+#### 2026-09-07 재확대 — 7건 → 21건
+
+**Kemenkes를 넣지 못한다던 2026-09-06 기록은 틀렸다.** `/id/berita`가 404라서 빈 페이지를 받은 것을 클라이언트 렌더링으로 오인했다. 실제로는 **Yii 기반 서버 렌더링**이고, 브라우저로 홈에서 링크를 따라가 올바른 경로를 찾았다. 교훈: *"본문이 비어 온다"는 관찰만으로 SPA라고 단정하지 말 것. 경로부터 의심할 것.*
+
+- **Kemenkes 보도자료** — 평소에는 `https://www.kemkes.go.id/id/category/rilis-berita`(46KB, 최신 12건). 카드 구조는 `href="/id/<slug>" class="link"` → `<h4 class="text-20">제목</h4>` → `<time datetime="YYYY-MM-DD">`. ⚠️ **`?page=` 파라미터는 무시된다** — 어느 쪽수를 넣어도 같은 12건이 온다. 그래서 이력은 못 긁는다.
+  - **과거분 채우기**: `KEMKES_BACKFILL=1 node scripts/fetch-id-events.mjs` 로 돌리면 목록 대신 RSS(`/id/rss/article/rilis-berita`, 7,919건·**33MB**)를 읽는다. 33MB라 기본 25초 제한을 넘겨서 이 경로만 180초를 준다. **평소에는 절대 켜지 말 것.** 2026-09-07에 한 번 돌려 과거 행사 4건을 채웠다.
+  - 필터는 `TOPIC_RE` + **`GATHERING_RE`**(별도 정규식)다. `luncurkan`(출시)·`resmikan`(준공)을 일부러 뺐다 — 보건부 보도자료 대부분이 그 두 낱말이고, 넣으면 참석할 수 없는 제도 발표가 교육·행사 목록에 섞인다(실측: 넣으면 16건, 빼면 4건인데 뺀 4건이 전부 실제로 모이는 자리였다).
+- **PORMIKI**(의무기록·보건정보 전문가협회) — `https://www.pormiki.or.id/wp-json/wp/v2/posts`. 글이 13건뿐이지만 **전자의무기록·코딩 교육을 직접 주최하는 단체**라 이 사이트 독자와 정확히 겹친다.
+
+⚠️ **시험했다가 안 쓴 것**(다시 시험하느라 시간 쓰지 말 것):
+- **detik.com 검색** — 파싱은 잘 된다(`article.list-content__item`, `d-time` 유닉스 타임스탬프). 그런데 검색어 6개 55건에서 조건 통과 **0건**. 인도네시아 언론은 디지털 의료를 다루면서도 **표제에 행사 낱말을 거의 안 쓴다.** 대만 中央社가 통했던 방식이 여기서는 안 통한다.
+- **Eventbrite 인도네시아** — JSON-LD `Event`가 깔끔하게 나오는데(쪽당 17~19건) 웰니스 리트릿·일반 AI 창업 워크숍이라 병원 실무와 안 맞는다.
+- **Kemenkes 행사 캘린더**(`/id/agenda-kegiatan/all`) — fullcalendar 인데 내용이 '세계 간질의 날' 같은 **기념일**이라 교육·행사가 아니다.
+- **Kemenkes RSS 다른 피드** — `kegiatan-kemenkes`·`artikel-kesehatan`·`kinerja-kemenkes`는 2022~2023에서 멈춰 있다. 살아 있는 것은 `rilis-berita` 하나뿐.
+- kompas 검색(선택자 불안정)·tempo(403)·komdigi(403)·loket.com(Event 마크업 없음)·`arssi.or.id`·`perdalin.org`·`asklin.or.id`·`idionline.org`·`ihc.co.id`(응답 없음)·IAKMI(REST 미개방)·`lms.kemkes.go.id`(403)·`plataransehat.kemkes.go.id`(응답 없음)·`siakpel.kemkes.go.id`(3.6KB 껍데기).
+- **SNS(인스타그램·X·페이스북)** — 로그인이나 유료 API를 요구하고 자동 수집이 약관에 어긋난다. **우회하지 않는다.**
+
+⚠️ 대만 쪽에서 시험했다가 안 쓴 수집처: **accupass(활동통)** — 서버 렌더링이라 파싱은 깔끔하게 되는데(`href="/event/<ID>"`, `alt="event-banner-<제목>"`, `EventCard_event-time`) **검색 정확도가 낮아** 여섯 개 검색어 전부 AI+의료 조건 통과 0건이었다. **medinfo.org.tw**(台灣醫學資訊學會) — Big5 인코딩에 목록이 스크립트로 그려져 `activity.php` 본문이 비어 온다. **nurse.org.tw** — ASP.NET `arg=` 인코딩 파라미터라 목록 페이지네이션을 안정적으로 못 짚는다.
+
+### 아직 안 만든 것
+
+**blogTw는 여전히 자동 발행 예외에 없다**(CLAUDE.md 참고) — 오너 확인 대기 중.
+
+## 5-6. 언어판 분야 맞추기 (2026-09-06 완료)
+
+오너 지시로 **ja·ru·id·tw 네 판을 한국어판과 같은 12개 분야**로 맞췄다.
+홈·소개·블로그·뉴스·정부지원·교육행사·영상·실무팁·입문가이드·용어집·체크리스트·FAQ.
+(강의노트는 한국어 회원 전용이라 제외. 일본어판은 補助金・助成金이 정부지원 자리다.)
+
+| 분야 | ja | ru | id | tw |
+| --- | --- | --- | --- | --- |
+| 뉴스 | CBnews DX면(자동) | Медвестник·Vademecum(자동) | PERSI·ANTARA(자동) | 中央社·科技新報·健康醫療網(자동) |
+| 정부지원 | jGrants(자동) | **수동** 법령·기관 창구 | **수동** | **수동** |
+| 교육·행사 | **수동** 학회·행정 창구 | **수동** | PERSI 교육분류(자동) | 中央社 검색(자동) |
+| 영상 | 자체 12편 + **현지 6편** | 〃 | 〃 | 〃 |
+| 팁·가이드·체크리스트 | 기존 | 기존 | 신규 | 신규 |
+
+### 추천 영상 — 그 나라 언어 영상 6편씩 (2026-09-06)
+
+그전까지 네 판 모두 연구소장의 12편(음성 한국어)뿐이었다. 한국어판에는 '다른 채널 추천 영상' 구획이 따로 있는데 다른 판에는 없었다. 네 판에 6편씩 붙였다.
+
+⚠️ **videoId는 반드시 oEmbed로 검증한다.** 오타 하나면 전혀 다른 영상이 걸린다. 절차는 후보 수집(유튜브 검색 페이지 파싱) → oEmbed로 제목·채널 확인 → 사람이 선별이다. 검증 방법:
+`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<ID>&format=json`
+데이터는 `src/data/<lang>/content/videos-local.json`, 로더 주석에 같은 내용을 적어 뒀다.
+
+⚠️ 화면에 **「선정했을 뿐 제휴·후원 관계가 없고, 영상의 주장은 제작자의 것이며 이 사이트가 검증한 사실이 아니다」**라는 안내를 반드시 함께 낸다. 지우지 말 것.
+
+⚠️ 카자흐스탄 채널(Almaty TV·24kz)은 러시아어지만 러시아 제도가 아니라 뺐다. 언어가 같다고 제도가 같지 않다.
+
+### 자동 수집이 안 돼서 수동으로 만든 페이지 (사유를 남겨 둠)
+
+되살아나면 자동화할 수 있으므로 사유를 적어 둔다.
+
+- **ja 교육·행사** — CBnews의 DX·경영·정책 지면 90여 건 중 행사성 AI 기사 0건. 時事メディカル·Yahoo 검색은 서버 렌더가 아니다.
+- **ru 교육·행사** — 누적 뉴스 41건 중 행사성 0건. `vademec.ru/events/`는 자사 주최 학회 4개뿐이다.
+- **ru 정부지원** — jGrants 같은 공모 API 없음. `ffoms.gov.ru`·`egisz.rosminzdrav.ru`·`gost.ru`는 이 환경에서 접속 자체가 안 된다.
+- **ja 뉴스는 반대로 풀렸다** — 후생노동성 RSS 재배포 금지로 오래 보류돼 있었는데, CBnews의 「DX」 지면(`/news/category/dx`)이 병원 행정용 医療DX 전담 지면이라 그대로 쓸 수 있었다. ⚠️ 같은 매체의 `/mgt/hospital-dx/`에는 「PR」 광고 기사가 섞이므로 제목에 PR이 붙은 것은 반드시 뺀다.
+
+### id 교육·행사의 필터를 좁게 잡은 이유
+
+PERSI 교육은 대부분 감염관리(IPCN)·환자안전·CSSD·재무처럼 디지털과 무관한 일반 병원 교육이다. `data`·`teknologi`·`informasi` 같은 흔한 낱말을 넣으면 100건 중 44건이 통과하는데 실제로 맞는 것은 일부뿐이었다. 그래서 **주제를 특정하는 말**(RME·iDRG·INA-CBG·SATUSEHAT·AI·HTA)만 본다. 실측 100건 중 12건 통과.
+
+### 언어판 간 링크 (2026-09-06, 오너 지시)
+
+다섯 판이 **서로를 전부 링크**한다. 각 레이아웃 푸터의 「다른 언어판」 목록이다.
+
+⚠️ **언어판을 새로 만들면 다섯 레이아웃 전부에 추가해야 한다** — `BaseLayout`(한국어), `JaLayout`, `RuLayout`, `IdLayout`, `TwLayout`. 하나라도 빠뜨리면 그 판에서 새 언어판으로 가는 링크가 없어진다(인도네시아어판이 실제로 하루 동안 그랬다). i18n의 `editions` 블록에 언어명을 **그 판의 언어로** 넣고 원어를 괄호로 함께 둔다.
+
+### 대만어판 블로그 자동 발행 (2026-09-06, 오너 지시)
+
+`blogTw`가 CLAUDE.md의 자동 발행 예외에 들어갔다. 이제 다섯 컬렉션 전부(`blog`·`blogRu`·`blogJa`·`blogId`·`blogTw`)가 대상이다. 로컬 예약 작업 SKILL.md에 **1-4단계(대만어판)**를 넣었고, 제목 길이 규칙에 대만어 45자(한자는 글자 폭이 넓다)를 추가했다.
+
+### ⚠️ 레이아웃을 복제할 때 화면 문구까지 확인할 것
+
+TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 그대로**(`HOSPITAL AI LAB — informasi praktis AI kesehatan`) 남아 대만어판 신설 이후 계속 그 상태였다. i18n을 거치지 않고 레이아웃에 직접 박힌 문자열이라 `tw.*` 치환에도 걸리지 않았다. 복제 후에는 **빌드 산출물의 화면 텍스트를 눈으로 훑어** 다른 언어가 섞이지 않았는지 확인할 것 — `dist/<lang>/index.html`에서 태그를 걷어내고 앞부분을 읽으면 금방 보인다.
+
+### 관리자 대시보드 (2026-09-06 기준 다섯 개)
+
+| 화면 | 다루는 것 |
+| --- | --- |
+| `/admin/` | 한국어판(블로그·뉴스·영상·강의노트·회원·통계) |
+| `/admin-ja/` | 일본어판 콘텐츠 + 보조금 |
+| `/admin-ru/` | 러시아어판 콘텐츠 |
+| `/admin-id/` | 인도네시아어판 콘텐츠 **(2026-09-06 신설)** |
+| `/admin-tw/` | 대만어판 콘텐츠 **(2026-09-06 신설)** |
+
+전부 같은 Supabase 계정으로 로그인하고, 저장은 브라우저에서 GitHub Contents API를 직접 호출한다(base64 커밋 + sha 낙관적 잠금). 전부 `BaseLayout + noindex`이고 사이트맵에서도 빠진다.
+
+**다섯 화면이 서로 링크한다.** 탭 바(`admin-nav`)가 아니라 머리말 아래 `.admin-editions` 목록에 넣었다 — 탭 링크는 `data-tab`으로 그 페이지 안의 패널을 여는 용도라, 다른 페이지 링크를 섞으면 탭 전환이 깨진다.
+
+⚠️ **언어판을 새로 만들면 다섯 관리 화면 전부에 링크를 추가할 것.** 한국어판 관리자에 인도네시아·대만판 링크가 빠져 있어 두 화면으로 들어갈 길이 없던 적이 있다.
+
+### 「다른 채널 추천 영상」 관리 (ja·ru·id·tw)
+
+`videos-local.json`을 관리 화면에서 고칠 수 있다. 다만 **`videoId`는 일부러 편집 불가로 두었다** — 한 글자만 틀려도 전혀 다른 영상이 걸리는데 화면에서는 알아채기 어렵다. 영상 교체는 개발자가 유튜브 oEmbed로 제목·채널을 확인한 뒤 넣는다. 화면에도 그렇게 안내해 두었다.
+
+⚠️ 제목·채널명은 **유튜브에 실제로 표시되는 그대로** 적는다. 보기 좋게 고쳐 쓰면 그 영상이 아닌 것을 소개하는 셈이 된다.
+
+### 아직 관리 화면에서 못 고치는 것
+
+`gov-support.json`(id·tw·ru)과 curated `events.json`(ja·ru)은 아직 패널이 없다. `{meta, notice, checkedAt, items}` 형태라 기존 「본문 페이지」 패널(`{meta, sections}`)로는 다룰 수 없다. 지금은 파일을 직접 고쳐야 한다 — 필요해지면 전용 패널을 만들 것.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
+
+- **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.
+  - **왜 늦게 잡았나**: 토큰과 `[data-locale='tw'] body` 규칙은 제대로 바뀌어 있어서 **폰트·본문색·페이지 자체 `<style>`로 넣은 `.tw-card`는 정상**이었다. 확인한 것이 하필 그 세 가지였고, 스크린샷이 이상한 것을 보고도 "로딩 중"으로 넘겼다.
+  - **자동 검사로는 안 잡힌다**: hreflang·내부링크·JSON-LD·제목 길이 검사는 전부 통과한다. CSS가 실제로 걸리는지는 **화면을 눈으로 보거나 `getComputedStyle`로 구조 요소(nav·header·shell)를 찍어 봐야** 한다.
+  - **점검법**: `dist/_astro/*.css`에서 `[data-locale=<lang>] .<다른언어>-` 를 찾으면 바로 나온다. 언어판별 컴파일 선택자 수(현재 네 판 모두 24개)를 비교하는 것도 빠르다.
+
+- **XML 주석 안에 연속 하이픈(`--`)을 넣지 말 것 (2026-09-06).** 일본어 RSS 스타일시트 주석에 CSS 변수명을 `--ja-font`로 적었더니 XSL 전체가 파싱 실패해 브라우저에서 **백지**가 됐다. 피드 XML 자체는 정상이라 **빌드도 통과하고 링크 검사도 통과한다** — 브라우저로 실제 열어 보고서야 드러났다. 정적 검사로는 안 잡히는 종류라, `public/`에 넣는 XML/XSL은 손댈 때마다 XML 파서로 검증하고(`xml.dom.minidom.parseString`) 브라우저로 한 번 열어 볼 것.
+
+- **레이아웃 prop이 화면 링크와 검색엔진 선언을 겸하면 조용히 틀린 신호가 나간다 (2026-09-06).** 일본어·러시아어·인도네시아어 블로그 글 23편이 전부 `hreflang="ko" -> /blog/`(한국어 목록)와 `x-default -> /blog/`를 내보내고 있었다. 언어판마다 주제가 다른 독립 집필이라 짝이 되는 한국어 글이 없는데, 상단 언어 전환 링크를 목록으로 보내려고 넘긴 `koPath="/blog/"`가 hreflang에도 그대로 쓰였기 때문이다. `/blog/`는 되짚어 가리키지 않아 상호참조가 깨졌고, 인도네시아어 글은 x-default까지 한국어 목록을 가리켰다. **빌드도 성공하고 화면도 멀쩡해서 드러나지 않았다.** 세 레이아웃에 `standalone` prop을 추가해 짝 없는 페이지는 hreflang을 아예 안 내도록 고쳤다. 탐지법 둘: (a) **HTML의 hreflang과 사이트맵의 `xhtml:link`가 어긋나면 둘 중 하나가 틀린 것** — `@astrojs/sitemap`은 경로가 맞는 페이지끼리만 묶으므로 이 글들엔 alternate를 안 붙이고 있었다. (b) 검수는 소스가 아니라 **`dist/**/*.html`을 파싱해 상호참조를 양방향으로** 확인한다.
+
+- **수집기 날짜 정규식에 `\d{2}`를 쓰지 말 것 (2026-09-06).** `fetch-ru-news.mjs`의 Vademecum 파서가 일·월을 두 자리로 강제해, 그 매체가 한 자리로 쓰는 날짜(`4.09.2026`)를 못 읽고 **매달 1~9일 기사를 통째로 버리고** 있었다. 건너뛸 뿐 오류를 안 남겨 워크플로는 계속 `success`였고, "8/30 이후 새 기사가 없다"를 이상하게 여겨 소스 페이지를 직접 열어 보고서야 찾았다. 러시아어판 블로그가 9/1~9/4 빈 것과도 연결된다. **날짜는 `(\d{1,2})`로 열고 `padStart`로 보정**하고, 새 수집기는 한 자리 날짜로 단위 검증할 것. 점검: `grep -n 'd{2}' scripts/fetch-*.mjs`.
 
 - **Node가 PATH에 없을 수 있다**: `.claude/run-npm.cmd` 래퍼로 절대경로 실행(§2).
 - **PowerShell 5.1 큰따옴표 버그**: git commit 메시지에 큰따옴표를 넣으면 인자가 깨져 커밋이 실패한다. 커밋 메시지에 큰따옴표를 쓰지 말 것(작은따옴표나 낫표 「」 사용).
@@ -310,7 +664,8 @@ src/
 .claude/settings.json         # 무인 예약 세션용 도구 사전 허용 (git에 있음 — §4-2)
 supabase/                    # setup.sql(재실행 안전, 이거 하나만 유지) + SETUP-GUIDE.md
 scripts/                     # fetch-news.mjs·fetch-videos.mjs·fetch-gov-programs.mjs·fetch-events.mjs·gen-assets.mjs
-public/                      # favicon, og-default.png, fonts/(Pretendard 자체호스팅)
+public/                      # favicon, og-default.png, fonts/pretendard-subset/(동적 서브셋 92개 청크)
+src/assets/fonts/            # 통짜 Pretendard — OG 이미지 생성 전용(빌드 때만 읽힘, 배포 안 됨)
 ```
 
 > **예약 작업은 저장소 안이 아니라 `C:\Users\a\.claude\scheduled-tasks\`에 있다**
@@ -330,13 +685,16 @@ public/                      # favicon, og-default.png, fonts/(Pretendard 자체
 - [x] ~~**네이버 SMTP 앱 비밀번호 재발급**~~ — 2026-07-16 완료. 새 앱 비밀번호로 `naver-smtp.xml` 재생성 + 실제 발송 확인.
 - [ ] (오너 확인 필요) **`cyhodr-dotcom` 계정의 정체**: 이사 때 이 컴퓨터에 이 GitHub 계정이 로그인돼 있어 push가 403으로 막혔다. gh는 BuminAI로 다시 로그인해 해결했지만, 이 계정이 오너의 다른 계정인지 제3자 것인지는 확인되지 않았다. 브라우저 쪽에도 남아 있을 수 있다.
 - [ ] **`setup.sql` 재실행**: 홈 화면 "이어지는 소식"에 강의노트가 뜨려면 비회원에게 제목·날짜만 공개하는 정책이 필요하다(본문은 계속 회원 전용). Supabase SQL Editor에 `setup.sql`을 다시 붙여넣고 Run 하면 적용된다. **안 해도 사이트는 정상**이고 블로그·AI 앱만 표시된다.
-- [ ] **새 글 이메일 알림(Resend)이 아직 한 번도 동작한 적 없음**: GitHub 저장소에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY`가 등록되지 않아 배포 때마다 조용히 건너뛴다(사이트 배포 자체는 정상). 켜려면 `supabase/SETUP-GUIDE.md` 4-1 참고.
+- [ ] **새 글 이메일 알림(Resend)이 아직 한 번도 동작한 적 없음**: GitHub 저장소에 `RESEND_API_KEY`·`SUPABASE_SERVICE_ROLE_KEY`가 등록되지 않아 배포 때마다 조용히 건너뛴다(사이트 배포 자체는 정상). 2026-09-13부로 `site-health-check.yml`(§4-1-2)의 주간 점검 보고 메일도 같은 시크릿을 쓰도록 만들어 놨으니, 등록하면 둘 다 한 번에 켜진다. 켜려면 `supabase/SETUP-GUIDE.md` 4-1 참고.
+- [x] ~~**site-health-check 로컬 예약 작업이 5주간 조용히 멈춰 있었음**~~ — 2026-09-13 GitHub Actions(`site-health-check.yml`)로 이관해 해결(§4-1-2). 네이버 SMTP(`send-report.ps1`·`naver-smtp.xml`)는 더 이상 쓰지 않음.
 - [ ] **검색엔진 사이트맵 제출**: 네이버 서치어드바이저·구글 서치 콘솔에서 소유확인 후 `sitemap-index.xml` 제출 여부 확인.
 - [ ] **관리자 비밀번호**: `whdudwns80*`로 변경 완료했는지 확인.
 - [ ] (선택) 개인정보 처리방침 보호책임자 실명 기재 여부 검토.
 - [ ] (오너 결정 대기) **소개 페이지 약력 타임라인**: 항목이 2개뿐이라 오히려 빈약해 보인다는 진단. "경력 17년(기획 7년)" 한 줄로 대체할지 결정 필요.
 - [x] ~~(오너 결정 대기) **상단 메뉴 추가 축소**~~ — 2026-07-20 오너 결정: **10개로 유지**(축소하지 않음). §7-1 참조.
-- [ ] (오너 확인 필요) **정부 지원사업에 시·도 자치단체 추가**: 현재 보건복지부·한국보건산업진흥원만 수집한다. 자치단체 17곳은 사이트 구조가 제각각이라 개별 파서가 필요하고, 중앙·지방을 한 번에 주는 **기업마당/공공데이터포털 오픈API는 오너 명의 회원가입 후 인증키 발급**이 필요하다(키는 GitHub Secrets에 넣어야 함). 발급해 주면 붙일 수 있다.
+- [ ] (오너 확인 필요) **정부 지원사업에 시·도 자치단체 추가**: 현재 보건복지부·한국보건산업진흥원·정보통신산업진흥원(NIPA, 2026-08-20 추가)·대한병원협회를 수집한다. 자치단체 17곳은 사이트 구조가 제각각이라 개별 파서가 필요하고, 중앙·지방을 한 번에 주는 **기업마당/공공데이터포털 오픈API는 오너 명의 회원가입 후 인증키 발급**이 필요하다(키는 GitHub Secrets에 넣어야 함). 발급해 주면 붙일 수 있다.
+- [ ] (후속 조사 필요) **러시아어판 지원사업 자동화**: jGrants급 공개 API를 못 찾았다. 러시아 연방/지역 보조금 포털에 병원 대상 공개 신청형 프로그램이 있는지 별도 조사 필요(§5-3 참조).
+- [ ] (오너 확인 필요) **러시아어판 메뉴 개수 정책**: 한국어판은 10개 상한이 오너 결정 사항이다(§7-1). 러시아어판도 같은 상한을 적용할지 확인 필요 — 현재는 6개(홈·소개·용어집·FAQ·체크리스트·가이드).
 
 ## 9. 반드시 지키는 원칙
 

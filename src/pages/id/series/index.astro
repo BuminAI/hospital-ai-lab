@@ -1,0 +1,21 @@
+---
+import IdLayout from '../../../layouts/IdLayout.astro';
+import SeriesIndexView from '../../../components/SeriesIndexView.astro';
+import { getResolvedSeries } from '../../../utils/series';
+import { seriesIndexDescription, seriesIndexSchema } from '../../../utils/series-schema';
+import { growth } from '../../../i18n/growth';
+
+// 연재 시리즈 목록 (2026-09-20 신설) — 한국어판 /series/ 와 같은 공용 컴포넌트.
+// 목록 허브는 다섯 언어판이 같은 역할이라 hreflang으로 서로 잇는다(글 하나하나는 독립 집필이라 잇지 않는다).
+const list = await getResolvedSeries('id');
+---
+
+<IdLayout
+  title={growth.id.hub.title}
+  description={seriesIndexDescription('id')}
+  crumb={growth.id.seriesName}
+  koPath="/series/" jaPath="/ja/series/" ruPath="/ru/series/" twPath="/tw/series/"
+  schema={[seriesIndexSchema('id', list, Astro.site)]}
+>
+  <SeriesIndexView loc="id" list={list} />
+</IdLayout>

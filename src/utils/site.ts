@@ -44,10 +44,17 @@ export const SUPABASE_ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFhc2piYmtlZ2pxaWxycXlsdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNDQwMzgsImV4cCI6MjA5ODcyMDAzOH0.s9KhnZjvcIaPxOdiT0yFwcR2VeAXzJMqdLZn0TiQvdg';
 // 개인정보 처리방침 버전 (방침 개정 시 날짜 갱신 — 동의 기록에 함께 저장됨)
 // 2026-07-11: 휴대폰번호의 이용 목적에 "서비스 관련 중요 안내·알림 전달" 추가
-export const PRIVACY_POLICY_VERSION = '2026-07-11';
+// 2026-09-13: 구글 애드센스 도입에 따라 "쿠키와 광고" 절 신설
+export const PRIVACY_POLICY_VERSION = '2026-09-13';
 // 관리자(오너) 이메일 — supabase/setup.sql의 is_admin()과 일치해야 한다
 export const ADMIN_EMAIL = 'choyj80@naver.com';
 export const GOOGLE_SITE_VERIFICATION = '5zd4BPyIzNe4dZJnx59GxYhFTkVoNQmcRoIJ9YS_f4Q';
+
+// ── 구글 애드센스 (2026-09-13 신설) ──────────────────────────
+// 이 코드가 모든 페이지 <head>에 들어가면 그 자체로 애드센스 사이트
+// 소유 확인(코드 스니펫 방식)도 함께 해결된다. 광고 단위 배치는 이후
+// 애드센스가 "자동 광고"로 알아서 넣거나, 별도로 슬롯을 만들어야 한다.
+export const ADSENSE_CLIENT = 'ca-pub-5343478987026041';
 
 export const SITE_TITLE = '병원 AI 연구소';
 export const SITE_TAGLINE = '의료 현장의 문제를 AI로 풉니다.';
@@ -59,3 +66,11 @@ export const CONTACT_EMAIL = 'choyj80@naver.com';
 export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
 export const DISCLAIMER =
   '본 사이트의 콘텐츠는 일반적인 정보 제공과 연구·교육 목적이며, 특정 환자에 대한 의학적 진단이나 조언을 대신하지 않습니다.';
+
+// ── 새 글 알림 메일 발송 상태 (2026-09-20) ───────────────────
+// 글 하단·연재·점검표 구독 안내(SubscribeCta)가 "메일로 받기"를 내세울지 정한다.
+// ⚠️ RESEND_API_KEY·SUPABASE_SERVICE_ROLE_KEY가 GitHub Secrets에 등록되고 도메인
+//    인증까지 끝나 실제로 메일이 나가는 걸 확인한 **뒤에만** true로 바꿀 것.
+//    false인 지금은 발송이 한 번도 된 적 없으므로 메일 알림을 약속하지 않고
+//    RSS·회원가입(강의노트)만 안내한다. (HANDOFF §8 참고)
+export const EMAIL_NEWSLETTER_LIVE = false;

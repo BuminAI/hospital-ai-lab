@@ -1,0 +1,54 @@
+name: Update AI Digest
+
+# 러시아어판·인도네시아어판의 AI 일반 동향 수집 (2026-09-10 신설).
+# 두 판은 의료 매체만으로는 하루 1~2건밖에 안 들어와 새 글이 드물었다.
+# 자세한 사유와 수집원은 scripts/fetch-ai-digest.mjs 머리말 참고.
+#
+# ⚠️ concurrency 그룹을 다른 워크플로와 겹치지 않게 둔다. pages·update-news 등과
+#    같은 그룹을 쓰면 오너의 수동 배포가 취소되는 사고가 난다.
+# ⚠️ 분(minute)을 다른 수집기와 겹치지 않게 잡았다. 같은 매체를 쓰는 수집기끼리
+#    몰리면 속도 제한에 걸린다(대만어판에서 실제로 429를 겪었다).
+
+on:
+  schedule:
+    # KST 기준 07:11 / 11:11 / 15:11 / 19:11 / 23:11 (하루 5회)
+    - cron: '11 22,2,6,10,14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-ai-digest
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 러시아어판 수집
+        run: node scripts/fetch-ai-digest.mjs ru || echo "러시아어 수집 건너뜀(기존 목록 유지)"
+
+      - name: 인도네시아어판 수집
+        run: node scripts/fetch-ai-digest.mjs id || echo "인도네시아어 수집 건너뜀(기존 목록 유지)"
+
+      - name: 변경 있을 때만 커밋
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/ru/ai-digest.json src/data/id/ai-digest.json
+          if git diff --cached --quiet; then
+            echo "새 기사 없음 — 커밋·배포 생략"
+          else
+            git commit -m "유지보수: AI 일반 동향 자동 업데이트"
+            git pull --rebase origin main
+            git push
+          fi

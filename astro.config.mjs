@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { lastModifiedForPath } from './src/utils/git-lastmod.mjs';
+import { localeSitemaps } from './src/utils/locale-sitemaps.mjs';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 배포 주소(site / base) 설정
@@ -40,16 +42,30 @@ function resolveSiteAndBase() {
 
 const { site, base } = resolveSiteAndBase();
 
+// 사이트맵에서 뺄 페이지. 루트 사이트맵과 언어판별 사이트맵이 **같은 규칙**을
+// 써야 둘이 서로 다른 말을 하지 않는다.
+// 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외.
+// ai-apps는 비공개 처리(2026-07-21 오너 지시) — 메뉴·홈에서 내리고
+// 검색엔진에도 노출하지 않는다(페이지 자체는 직접 링크로 접근 가능).
+const sitemapFilter = (page) =>
+  !page.includes('/admin') &&
+  !page.includes('/signup') &&
+  !page.includes('/login') &&
+  !page.includes('/unsubscribe') &&
+  !page.includes('/ai-apps');
+
+
 export default defineConfig({
   site,
   base,
-  // ── 다국어 (2026-07-31 일본어판 추가) ──────────────────
+  // ── 다국어 (2026-07-31 일본어판, 2026-08-12 러시아어판 추가) ──
   // ⚠️ prefixDefaultLocale: false 가 핵심이다. 이게 true면 기존 한국어 URL이
   //    전부 /ko/ 아래로 밀려나 지금까지 쌓은 검색 자산이 통째로 날아간다.
-  //    한국어는 루트(/about/)에 그대로 두고, 일본어만 /ja/ 하위에 새로 만든다.
+  //    한국어는 루트(/about/)에 그대로 두고, 일본어는 /ja/, 러시아어는 /ru/,
+  //    인도네시아어는 /id/, 대만어(정체자)는 /tw/ 하위에 새로 만든다.
   i18n: {
     defaultLocale: 'ko',
-    locales: ['ko', 'ja'],
+    locales: ['ko', 'ja', 'ru', 'id', 'tw'],
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: false,
@@ -57,25 +73,52 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      // lastmod를 넣어 크롤러에 갱신 신호를 준다. 이 사이트는 뉴스가 매시,
-      // 정부 지원사업·추천 영상이 매일 자동 갱신되므로 재크롤 유도가 실질적으로 중요하다.
-      // (빌드 시각 기준이라 페이지별 정밀 수정일은 아니지만, 없는 것보다 낫다.)
-      lastmod: new Date(),
-      // 사이트맵에 언어 대응 관계를 넣어 구글이 ko/ja를 같은 페이지의
-      // 다른 언어판으로 인식하게 한다(hreflang과 짝을 이룬다).
-      i18n: {
-        defaultLocale: 'ko',
-        locales: { ko: 'ko-KR', ja: 'ja-JP' },
+      // 페이지별 실제 수정일을 넣는다(src/utils/git-lastmod.mjs 참고).
+      // 빌드 시각을 쓰면 뉴스 수집 배포마다 전 페이지가 "방금 수정됨"이 되어
+      // 검색엔진이 lastmod 자체를 무시하게 된다.
+      // 되짚을 원본 파일을 못 찾은 URL은 lastmod 없이 내보낸다 — 거짓 날짜보다 낫다.
+      serialize(item) {
+        let lastmod;
+        try {
+          lastmod = lastModifiedForPath(new URL(item.url).pathname, base);
+        } catch {
+          lastmod = undefined;
+        }
+        if (lastmod) item.lastmod = lastmod.toISOString();
+        else delete item.lastmod;
+        return item;
       },
+      // ⚠️ i18n 옵션을 일부러 쓰지 않는다 (2026-09-06 제거).
+      //
+      // 이 옵션은 **경로가 대응되면 무조건 번역본으로 간주해** 사이트맵에
+      // hreflang을 넣는다. 그런데 이 사이트에는 경로만 같고 내용은 전혀 다른
+      // 페이지가 있다 — /events/(한국: 메디칼타임즈·병원신문)와
+      // /tw/events/(대만: 中央社·衛生福利部)는 같은 글의 번역본이 아니라
+      // 각 나라에서 따로 수집한 다른 목록이다. 뉴스·정부자원도 마찬가지다.
+      // 그래서 레이아웃에 standalone prop을 두어 그런 페이지는 HTML에서
+      // hreflang을 안 내보내게 했는데, 사이트맵은 그것을 모르고 계속
+      // "서로의 번역본"이라고 선언하고 있었다(빌드 산출물 대조로 60건 확인).
+      //
+      // 사이트맵과 HTML이 서로 다른 말을 하면 구글은 둘 다 신뢰하지 않는다.
+      // hreflang은 셋 중 하나(HTML link·사이트맵·HTTP 헤더)만 있으면 되고,
+      // 이 사이트는 각 레이아웃이 페이지 사정을 알고 정확하게 내보내므로
+      // **HTML 쪽만 남긴다.** 사이트맵에서 hreflang을 되살리려면 standalone
+      // 페이지를 제외할 방법부터 만들어야 한다.
       // 관리자·가입·로그인 페이지는 검색엔진 사이트맵에서 제외.
       // ai-apps는 비공개 처리(2026-07-21 오너 지시) — 메뉴·홈에서 내리고
       // 검색엔진에도 노출하지 않는다(페이지 자체는 직접 링크로 접근 가능).
-      filter: (page) =>
-        !page.includes('/admin') &&
-        !page.includes('/signup') &&
-        !page.includes('/login') &&
-        !page.includes('/unsubscribe') &&
-        !page.includes('/ai-apps'),
+      filter: sitemapFilter,
+    }),
+    // 언어판별 사이트맵(/ja/sitemap-index.xml 등)을 함께 낸다.
+    // 서치 콘솔에 URL 접두어 속성이 판별로 등록돼 있어서 필요하다 —
+    // 자세한 사유는 src/utils/locale-sitemaps.mjs 머리말 참고.
+    // ⚠️ 루트 사이트맵과 **같은** filter·lastmod 계산을 넘긴다.
+    //    서로 다른 규칙을 쓰면 두 사이트맵이 다른 말을 하게 된다.
+    localeSitemaps({
+      site,
+      base,
+      filter: sitemapFilter,
+      lastmodFor: lastModifiedForPath,
     }),
   ],
 });

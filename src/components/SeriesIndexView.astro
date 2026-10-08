@@ -1,0 +1,130 @@
+---
+import { growth } from '../i18n/growth';
+import { dateFormatter, postHref, seriesHref, tokenStyle, type Loc } from '../utils/locale';
+import type { ResolvedSeries } from '../utils/series';
+import SubscribeCta from './SubscribeCta.astro';
+
+// 연재 시리즈 목록의 본문 (다섯 언어판 공용, 2026-09-20).
+// 레이아웃(헤더·푸터·hreflang)은 각 언어판 페이지가 감싼다.
+interface Props {
+  loc: Loc;
+  list: ResolvedSeries[];
+}
+const { loc, list } = Astro.props;
+const t = growth[loc];
+const fmt = dateFormatter(loc);
+---
+
+<div class="gx-page" style={tokenStyle(loc)}>
+  <header class={loc === 'ko' ? 'page-head' : 'gx-head'}>
+    <h1>{t.hub.title}</h1>
+    <p class={loc === 'ko' ? 'lead' : 'gx-lead'}>{t.hub.lead}</p>
+  </header>
+
+  <div class="gx-grid">
+    {
+      list.map((s) => (
+        <article class="gx-card">
+          <h2>
+            <a href={seriesHref(loc, s.slug)}>{s.title}</a>
+          </h2>
+          <p class="desc">{s.description}</p>
+          <p class="meta">
+            {t.hub.count(s.posts.length)} · {t.hub.latest}{' '}
+            <time datetime={s.latest.toISOString()}>{fmt.format(s.latest)}</time>
+          </p>
+          <div class="row">
+            <a class="gx-btn" href={postHref(loc, s.posts[0].id)}>
+              {t.hub.firstPost}
+            </a>
+            <a class="gx-btn ghost" href={seriesHref(loc, s.slug)}>
+              {t.hub.viewList}
+            </a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <SubscribeCta loc={loc} />
+</div>
+
+<style>
+  .gx-page {
+    color: var(--c-text);
+  }
+  .gx-lead {
+    color: var(--c-muted);
+    line-height: 1.85;
+    margin: 0.5rem 0 0;
+  }
+  .gx-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .gx-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.25rem 1.35rem;
+    border: 1px solid var(--c-border);
+    border-radius: var(--c-radius);
+    background: var(--c-surface);
+  }
+  .gx-card h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+  .gx-card h2 a {
+    text-decoration: none;
+    color: var(--c-heading);
+  }
+  .gx-card h2 a:hover {
+    color: var(--c-primary);
+  }
+  .desc {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--c-muted);
+    flex: 1;
+  }
+  .meta {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--c-muted);
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .gx-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--c-btn-bg);
+    border-radius: var(--c-radius);
+    background: var(--c-btn-bg);
+    color: var(--c-btn-fg);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .gx-btn.ghost {
+    background: transparent;
+    color: var(--c-primary);
+    border-color: var(--c-primary);
+  }
+  @media (max-width: 48rem) {
+    .gx-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

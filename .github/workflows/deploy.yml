@@ -22,6 +22,14 @@ jobs:
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
+        with:
+          # ⚠️ fetch-depth: 0 (전체 이력)이 반드시 필요하다.
+          # 사이트맵의 lastmod와 일본어판 「更新日」, 글의 dateModified는
+          # `git log -1 -- <파일>`로 파일별 마지막 수정일을 구한다
+          # (src/utils/git-lastmod.mjs). 기본값인 얕은 클론(depth=1)에서는
+          # 커밋이 하나뿐이라 모든 파일이 그 커밋 날짜로 나와, 결국 전 페이지가
+          # "빌드 시각에 수정됨"이 된다 — 고치려던 문제가 그대로 재현된다.
+          fetch-depth: 0
       # withastro/action이 Node 설치 → npm install → astro build → 업로드까지 처리.
       # astro.config.mjs가 GITHUB_REPOSITORY 환경 변수를 읽어
       # site(https://아이디.github.io)와 base(/저장소명)를 자동으로 맞춘다.
@@ -76,3 +84,21 @@ jobs:
             git pull --rebase origin main
             git push
           fi
+
+  # 배포가 끝난 뒤 최근 바뀐 주소를 IndexNow(Bing·Naver·Yandex 등 참여)에 알린다(2026-09-20).
+  # 실패해도 사이트 배포에는 영향이 없다 — 이미 위 deploy에서 끝났다.
+  # 키 파일은 public/<키>.txt(공개 파일)이고, 스크립트가 제출 전에 그 파일이 열리는지 확인한다.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: IndexNow 제출
+        run: node scripts/indexnow.mjs || echo "IndexNow 제출 건너뜀(다음 배포에서 다시 대상이 됨)"

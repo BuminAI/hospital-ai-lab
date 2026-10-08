@@ -1,0 +1,61 @@
+name: Update RU News
+
+on:
+  schedule:
+    # 1시간 간격(UTC 기준, 매시 :37). 정각 근처(:00·:17)는 다른 워크플로와
+    # 예약이 몰려 지연이 심하므로 비켜 둔다(update-news.yml과 같은 이유).
+    # 스크립트가 "새 기사 있을 때만" 파일을 바꾸므로 자주 돌아도 불필요한
+    # 커밋·배포는 없다.
+    - cron: '37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # 커밋·푸시
+  actions: write # deploy.yml 수동 트리거(gh workflow run)
+
+# 자기 자신의 중복 실행만 직렬화한다. deploy.yml의 'pages' 그룹이나
+# update-news.yml/update-jgrants.yml의 그룹과도 공유하지 않는다 — 자주 도는
+# 이 워크플로가 다른 그룹에 끼면 오너의 수동 배포 대기를 취소해 버릴 수 있다
+# (update-news.yml과 같은 이유, HANDOFF.md 5-3절 참고).
+concurrency:
+  group: update-ru-news
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 수집 실패(사이트 장애 등)는 오류로 남기지 않는다 — 파일이 안 바뀌므로
+      # 아래 커밋 단계가 '변경 없음'으로 안전하게 끝난다.
+      - name: 러시아어판 뉴스 수집 (신규 기사 누적)
+        run: node scripts/fetch-ru-news.mjs || echo "수집 건너뜀(기존 목록 유지)"
+
+      - name: ru/news.json 커밋 (변경 있을 때만)
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/ru/news.json
+          if git diff --cached --quiet; then
+            echo "새 기사 없음 — 커밋·배포 생략"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "유지보수: 러시아어판 AI 뉴스 자동 업데이트"
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 배포 트리거 (deploy.yml)
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml

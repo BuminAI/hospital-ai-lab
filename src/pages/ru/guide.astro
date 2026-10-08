@@ -1,0 +1,92 @@
+---
+import RuLayout from '../../layouts/RuLayout.astro';
+import RuSections from '../../components/RuSections.astro';
+import { guideRu } from '../../data/ru/pages';
+import ru from '../../i18n/ru.json';
+import { withBase } from '../../utils/site';
+
+const p = guideRu;
+
+// Заголовки идут по порядку, поэтому размечаем страницу как HowTo
+// (2026-08-27, заменили ItemList). В разметку попадает только то, что
+// видно на странице.
+//
+// ⚠️ В качестве шагов берём только разделы с заголовком «Шаг N» — если
+//    через админку добавят раздел другого вида, он не попадёт в разметку.
+const stepSections = p.sections.filter((s) => /^Шаг\s*\d+/.test(s.heading));
+const schema = [
+  {
+    '@type': 'HowTo',
+    name: p.meta.pageTitle,
+    description: p.meta.description,
+    inLanguage: 'ru-RU',
+    step: stepSections.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.heading,
+      text: s.body,
+    })),
+  },
+];
+---
+
+<RuLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={ru.nav.guide}
+  koPath="/guide/"
+  idPath="/id/guide/"
+  twPath="/tw/guide/"
+  jaPath="/ja/guide/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="ru-lead">{p.meta.lead}</p>
+
+  <RuSections sections={p.sections} />
+
+  <section class="ru-next">
+    <h2>Смотрите также</h2>
+    <ul>
+      <li>
+        <a href={withBase('/ru/glossary/')}>{ru.nav.glossary}</a> —
+        термины, встречающиеся в предложениях и на совещаниях.
+      </li>
+      <li>
+        <a href={withBase('/ru/checklist/')}>{ru.nav.checklist}</a> —
+        вопросы для проверки конкретного предложения о внедрении.
+      </li>
+    </ul>
+  </section>
+</RuLayout>
+
+<style>
+  .ru-lead {
+    color: var(--ru-text-sub);
+  }
+  .ru-next {
+    margin-top: 36px;
+    border-top: 1px solid var(--ru-border);
+    padding-top: 20px;
+  }
+  .ru-next h2 {
+    font-size: 15px;
+    color: var(--ru-text-sub);
+    margin-bottom: 10px;
+    border: 0;
+    padding: 0;
+    background: none;
+  }
+  .ru-next ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ru-next li {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+</style>

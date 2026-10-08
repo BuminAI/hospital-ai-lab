@@ -36,7 +36,7 @@ const collectionPage = {
   '@id': `${pageUrl}#collection`,
   url: pageUrl,
   name: '정부 지원사업',
-  description: '보건복지부·한국보건산업진흥원·대한병원협회의 병원·의료 분야 지원사업 공고 목록.',
+  description: '보건복지부·한국보건산업진흥원·정보통신산업진흥원·대한병원협회의 병원·의료 분야 지원사업 공고 목록.',
   inLanguage: 'ko-KR',
   isPartOf: { '@id': `${siteUrl}/#website` },
   dateModified: programs.updatedAt,
@@ -55,7 +55,7 @@ const collectionPage = {
 
 <BaseLayout
   title="정부 지원사업"
-  description="보건복지부·한국보건산업진흥원·대한병원협회에 올라온 병원·의료 분야 지원사업 공고를 날마다 새로 확인해 원문 링크로 안내합니다."
+  description="보건복지부·한국보건산업진흥원·정보통신산업진흥원·대한병원협회에 올라온 병원·의료 분야 지원사업 공고를 날마다 새로 확인해 원문 링크로 안내합니다."
   schema={[collectionPage]}
   jaPath="/ja/subsidies/"
 >
@@ -116,9 +116,10 @@ const collectionPage = {
       </p>
       <p>
         현재 <strong>보건복지부</strong>, <strong>한국보건산업진흥원</strong>,
-        <strong>대한병원협회</strong> 세 곳의 공고를 가져옵니다. 같은 공고가 여러 기관에
-        올라온 경우 원문 기관의 것을 싣습니다. 시·도 자치단체 공고는 아직 포함되어
-        있지 않습니다.
+        <strong>정보통신산업진흥원</strong>, <strong>대한병원협회</strong> 네 곳의 공고를
+        가져옵니다. 정보통신산업진흥원은 ICT 전반을 다루는 기관이라, 그중 병원·의료와
+        관련된 공고만 걸러 담습니다. 같은 공고가 여러 기관에 올라온 경우 원문 기관의
+        것을 싣습니다. 시·도 자치단체 공고는 아직 포함되어 있지 않습니다.
       </p>
     </section>
   </div>

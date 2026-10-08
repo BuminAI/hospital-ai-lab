@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SeriesIndexView from '../../components/SeriesIndexView.astro';
+import { getResolvedSeries } from '../../utils/series';
+import { seriesIndexDescription, seriesIndexSchema } from '../../utils/series-schema';
+import { growth } from '../../i18n/growth';
+
+// 연재 시리즈 목록 (2026-09-20 신설, 같은 날 다섯 언어판 공용 컴포넌트로 옮김).
+// 이미 발행한 글을 주제별로 읽는 순서대로 묶었다. 새 글을 쓰지 않고 기존 글을
+// 잇기만 한다(src/data/series.ts).
+const list = await getResolvedSeries('ko');
+---
+
+<BaseLayout
+  alternates={{ ja: '/ja/series/', ru: '/ru/series/', tw: '/tw/series/', id: '/id/series/' }}
+  title={growth.ko.hub.title}
+  description={seriesIndexDescription('ko')}
+  schema={[seriesIndexSchema('ko', list, Astro.site)]}
+>
+  <div class="container">
+    <SeriesIndexView loc="ko" list={list} />
+  </div>
+</BaseLayout>
