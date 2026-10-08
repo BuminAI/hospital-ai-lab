@@ -1,7 +1,109 @@
 {
-  "updatedAt": "2026-10-08T08:56:30.282Z",
+  "updatedAt": "2026-10-08T17:24:13.405Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Google представила ИИ-сотрудника — Gemini agent сможет самостоятельно выполнять задачи от начала до конца",
+      "link": "https://3dnews.ru/1149662/google-predstavila-iisotrudnika-gemini-agent-smoget-samostoyatelno-vipolnyat-zadachi-ot-nachala-do-kontsa",
+      "source": "3DNews",
+      "pubDate": "2026-10-08T15:24:00.000Z"
+    },
+    {
+      "title": "Группа Arenadata развивает дата-платформу в направлении интеграции с ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_gruppa_arenadata_razvivaet_data-platformu",
+      "source": "CNews",
+      "pubDate": "2026-10-08T14:54:00.000Z"
+    },
+    {
+      "title": "К брокерскому счету в «СберИнвестициях» можно будет подключить внешних ИИ-агентов",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_k_brokerskomu_schetu_v_sberinvestitsiyah",
+      "source": "CNews",
+      "pubDate": "2026-10-08T14:48:00.000Z"
+    },
+    {
+      "title": "«МегаФон»: бизнесу необязательно перестраивать всю ИТ-архитектуру ради ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_megafon_biznesu_neobyazatelno",
+      "source": "CNews",
+      "pubDate": "2026-10-08T14:33:00.000Z"
+    },
+    {
+      "title": "Новосибирская область и «Руссофт» объединяются для развития российско-индийского сотрудничества в сфере ИИ и кибербезопасности",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_novosibirskaya_oblast_i",
+      "source": "CNews",
+      "pubDate": "2026-10-08T14:28:00.000Z"
+    },
+    {
+      "title": "[Перевод] Где сломался AI-агент? Как отлаживать многоэтапные воркфлоу по шагам",
+      "link": "https://habr.com/ru/companies/otus/articles/1091962/?utm_campaign=1091962&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-08T14:18:34.000Z"
+    },
+    {
+      "title": "Российский рынок облачных сервисов для ИИ за год вырос на 62% и достиг 65,5 млрд рублей",
+      "link": "https://www.tadviser.ru/a/109894",
+      "source": "TAdviser",
+      "pubDate": "2026-10-08T13:00:00.000Z"
+    },
+    {
+      "title": "Российский рынок облачных сервисов для ИИ достиг 65,5 млрд руб. в 2025 году",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_rossijskij_rynok_oblachnyh",
+      "source": "CNews",
+      "pubDate": "2026-10-08T11:44:00.000Z"
+    },
+    {
+      "title": "С начала 2026 г. инвестиционными ИИ-сервисами воспользовались 1,5 млн человек",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_s_nachala_2026_ginvestitsionnymi",
+      "source": "CNews",
+      "pubDate": "2026-10-08T11:41:00.000Z"
+    },
+    {
+      "title": "«Рамблер» запустил единого ИИ-помощника с полноценной мультиагентной системой «под капотом»",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_rambler_zapustil_edinogo",
+      "source": "CNews",
+      "pubDate": "2026-10-08T11:02:00.000Z"
+    },
+    {
+      "title": "[Перевод] Как мы создали и внедрили AI-разработчика: опыт EXANTE",
+      "link": "https://habr.com/ru/articles/1091956/?utm_campaign=1091956&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-08T10:49:06.000Z"
+    },
+    {
+      "title": "ГК «Черкизово» создала ИИ-платформу для обучения и адаптации сотрудников из Индии, Шри‑Ланки, Нигерии и Египта",
+      "link": "https://www.tadviser.ru/a/971353",
+      "source": "TAdviser",
+      "pubDate": "2026-10-08T10:42:31.000Z"
+    },
+    {
+      "title": "«СберУниверситет» запустил инструмент оценки ИИ-зрелости финансовой функции компании",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_sberuniversitet_zapustil",
+      "source": "CNews",
+      "pubDate": "2026-10-08T10:00:00.000Z"
+    },
+    {
+      "title": "«СберЛизинг» обработал более 36 тыс. заявок с помощью ИИ-модели",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_sberlizing_obrabotal_bolee",
+      "source": "CNews",
+      "pubDate": "2026-10-08T09:48:00.000Z"
+    },
+    {
+      "title": "В Selectel представили единую ИИ-платформу с новыми сервисами для инференса",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_v_selectel_predstavili_edinuyu",
+      "source": "CNews",
+      "pubDate": "2026-10-08T09:32:00.000Z"
+    },
+    {
+      "title": "МТС и Magnit Tech стали индустриальными партнерами ФКН НИУ ВШЭ в рамках проекта «Топ-ИИ» Минцифры",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_mts_i_magnit_tech_stali_industrialnymi",
+      "source": "CNews",
+      "pubDate": "2026-10-08T09:09:00.000Z"
+    },
+    {
+      "title": "ИИ-инструмент Positive Technologies помог найти опасную уязвимость в промышленной платформе FUXA",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_ii-instrument_positive_technologies",
+      "source": "CNews",
+      "pubDate": "2026-10-08T08:54:00.000Z"
+    },
     {
       "title": "«ОТП Банк» создал мини-курс для адаптации новых сотрудников с помощью нейросетей",
       "link": "https://www.cnews.ru/news/line/2026-10-08_otp_bank_sozdal_mini-kurs",
@@ -1699,108 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-22_red_mad_robot_zapustila_korporativnyj",
       "source": "CNews",
       "pubDate": "2026-09-22T14:15:00.000Z"
-    },
-    {
-      "title": "Расходы российских нефтегазовых компаний на ИИ за год выросли до 2,7 млрд рублей. Как они используют его",
-      "link": "https://www.tadviser.ru/a/493622",
-      "source": "TAdviser",
-      "pubDate": "2026-09-22T12:58:48.000Z"
-    },
-    {
-      "title": "Xiaomi представила флагманскую ИИ-модель MiMo-V2.6 Pro и быструю MiMo-V2.6-Flash",
-      "link": "https://3dnews.ru/1148861/xiaomi-predstavila-flagmanskuyu-iimodel-mimov26-pro-i-bistruyu-mimov26flash",
-      "source": "3DNews",
-      "pubDate": "2026-09-22T12:44:00.000Z"
-    },
-    {
-      "title": "Внешняя обработка в 1С без конфигуратора: от задачи словами до .epf с ИИ-агентом",
-      "link": "https://habr.com/ru/articles/1085182/?utm_campaign=1085182&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T12:20:32.000Z"
-    },
-    {
-      "title": "ИИ-ассистент «Контур.Фокуса» теперь отвечает о компаниях в чате",
-      "link": "https://www.cnews.ru/news/line/2026-09-22_ii-assistent_konturfokusa",
-      "source": "CNews",
-      "pubDate": "2026-09-22T12:09:00.000Z"
-    },
-    {
-      "title": "Названы профессии, работники которых больше всего боятся увольнений из-за появления ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-22_nazvany_professiirabotniki",
-      "source": "CNews",
-      "pubDate": "2026-09-22T12:06:00.000Z"
-    },
-    {
-      "title": "AI Gateway как единая точка входа к LLM: как дать сотрудникам ИИ и не потерять контроль",
-      "link": "https://habr.com/ru/articles/1085166/?utm_campaign=1085166&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T11:59:37.000Z"
-    },
-    {
-      "title": "В НИТУ МИСИС разработан математический метод проверки надежности ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-22_v_nitu_misis_razrabotan_matematicheskij",
-      "source": "CNews",
-      "pubDate": "2026-09-22T11:35:00.000Z"
-    },
-    {
-      "title": "Исследование: ИИ способен испытывать «боль» и готов причинить вред людям, чтобы избавиться от неё",
-      "link": "https://3dnews.ru/1148855/issledovanie-ii-sposoben-ispitivatbol-i-gotov-prichinit-vred-lyudyam-chtobi-izbavitsya-ot-neyo",
-      "source": "3DNews",
-      "pubDate": "2026-09-22T11:32:00.000Z"
-    },
-    {
-      "title": "ИИ-агент M**a Muse стал популярнее ChatGPT, Claude и Grok в американском App Store — всего за две недели",
-      "link": "https://3dnews.ru/1148854/iiagent-meta-muse-stal-populyarnee-chatgpt-claude-i-grok-v-amerikanskom-app-store-vsego-za-dve-nedeli",
-      "source": "3DNews",
-      "pubDate": "2026-09-22T11:31:00.000Z"
-    },
-    {
-      "title": "ИИ-гонка выжигает специалистов по безопасности — они массово жалуются на истощение и увольняются",
-      "link": "https://3dnews.ru/1148852/iigonka-vigigaet-spetsialistov-po-bezopasnosti-oni-massovo-galuyutsya-na-istoshchenie-i-uvolnyayutsya",
-      "source": "3DNews",
-      "pubDate": "2026-09-22T10:59:00.000Z"
-    },
-    {
-      "title": "ИТ-холдинг «Т1» и Финансовый университет запустили программу подготовки специалистов по ИИ и машинному обучению",
-      "link": "https://www.cnews.ru/news/line/2026-09-22_it-holding_t1_i_finansovyj",
-      "source": "CNews",
-      "pubDate": "2026-09-22T10:54:00.000Z"
-    },
-    {
-      "title": "Как мы обучили детектор джейлбрейков для русскоязычных AI-агентов",
-      "link": "https://habr.com/ru/companies/just_ai/articles/1084804/?utm_campaign=1084804&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T10:01:01.000Z"
-    },
-    {
-      "title": "«Открытая мобильная платформа» запустила MCP-сервер для ИИ-агентов",
-      "link": "https://www.cnews.ru/news/line/2026-09-22_otkrytaya_mobilnaya_platforma",
-      "source": "CNews",
-      "pubDate": "2026-09-22T09:46:00.000Z"
-    },
-    {
-      "title": "AI забыл про энергетику? Парадокс исследования рынка ИИ в РФ",
-      "link": "https://habr.com/ru/companies/psm_unlim/articles/1083150/?utm_campaign=1083150&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T09:00:09.000Z"
-    },
-    {
-      "title": "Мошенники с ИИ сбегают из .ru в доменные зоны .com и .cfd: отчет Solar AURA об инфраструктурных изменениях фишинга в 2026 году",
-      "link": "https://www.cnews.ru/news/line/2026-09-22_moshenniki_s_ii_sbegayut_iz",
-      "source": "CNews",
-      "pubDate": "2026-09-22T08:07:00.000Z"
-    },
-    {
-      "title": "Почему ИИ для программирования выбирает одни и те же библиотеки: я просканировал 30 сайтов документации",
-      "link": "https://habr.com/ru/articles/1084456/?utm_campaign=1084456&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T07:25:11.000Z"
-    },
-    {
-      "title": "ИИ-агент как цифровой сотрудник: где возникают риски и как их ограничить",
-      "link": "https://habr.com/ru/companies/lanit/articles/1082982/?utm_campaign=1082982&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T07:01:42.000Z"
     }
   ]
 }
