@@ -1,7 +1,55 @@
 {
-  "updatedAt": "2026-10-08T01:54:54.442Z",
+  "updatedAt": "2026-10-08T08:56:30.282Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "«ОТП Банк» создал мини-курс для адаптации новых сотрудников с помощью нейросетей",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_otp_bank_sozdal_mini-kurs",
+      "source": "CNews",
+      "pubDate": "2026-10-08T08:08:00.000Z"
+    },
+    {
+      "title": "ИИ и модель нулевого доверия не создают единую защиту без интеграции ИТ-систем",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_ii_i_model_nulevogo_doveriya",
+      "source": "CNews",
+      "pubDate": "2026-10-08T08:02:00.000Z"
+    },
+    {
+      "title": "Guardrails для LLM: как устроена защита языковых моделей",
+      "link": "https://habr.com/ru/companies/selectel/articles/1091140/?utm_campaign=1091140&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-08T08:00:27.000Z"
+    },
+    {
+      "title": "«Диасофт» представил российскую экосистему ИИ-разработки для крупных корпораций",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_diasoft_predstavil_rossijskuyu",
+      "source": "CNews",
+      "pubDate": "2026-10-08T07:34:00.000Z"
+    },
+    {
+      "title": "В России ИИ-агенты уперлись в процессы: компании начинают трансформацию регламентов",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_v_rossii_ii-agenty_uperlis",
+      "source": "CNews",
+      "pubDate": "2026-10-08T07:29:00.000Z"
+    },
+    {
+      "title": "Microsoft радикально обновит Windows — систему заселят ИИ-агентами, которые будут работать рядом с пользователем",
+      "link": "https://3dnews.ru/1149629/microsoft-radikalno-obnovit-windows-sistemu-zaselyat-iiagentami-kotorie-budut-rabotat-ryadom-s-polzovatelem",
+      "source": "3DNews",
+      "pubDate": "2026-10-08T07:28:00.000Z"
+    },
+    {
+      "title": "«Колди» подписала соглашение о тестировании ИИ-системы для анализа строительной документации",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_koldi_podpisala_soglashenie",
+      "source": "CNews",
+      "pubDate": "2026-10-08T06:47:00.000Z"
+    },
+    {
+      "title": "Крупный российский бизнес в 2026 г. может потребить 912,5 трлн ИИ-токенов",
+      "link": "https://www.cnews.ru/news/line/2026-10-08_krupnyj_rossijskij_biznes",
+      "source": "CNews",
+      "pubDate": "2026-10-08T06:12:00.000Z"
+    },
     {
       "title": "А что, если ИИ-слоп не ошибка, а бизнес-модель?",
       "link": "https://habr.com/ru/articles/1091306/?utm_campaign=1091306&utm_source=habrahabr&utm_medium=rss",
@@ -1753,54 +1801,6 @@
       "link": "https://habr.com/ru/companies/lanit/articles/1082982/?utm_campaign=1082982&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-22T07:01:42.000Z"
-    },
-    {
-      "title": "Агент поддержки на LLM, который не может забыть сходить за заказом",
-      "link": "https://habr.com/ru/articles/1084926/?utm_campaign=1084926&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T07:00:42.000Z"
-    },
-    {
-      "title": "Yandex B2B Tech интегрировала ИИ-агентов в Telegram и «Макс»",
-      "link": "https://www.cnews.ru/news/line/2026-09-22_yandex_b2b_tech_integrirovala_ii-agentov",
-      "source": "CNews",
-      "pubDate": "2026-09-22T06:48:00.000Z"
-    },
-    {
-      "title": "Миграции от ИИ агента: почему я бы не пускал их в прод без отдельного firewall",
-      "link": "https://habr.com/ru/articles/1084968/?utm_campaign=1084968&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T06:44:25.000Z"
-    },
-    {
-      "title": "SpaceXAI представила ИИ-модель Grok 4.7 — почти вдвое быстрее Grok 4.6 и дешевле конкурентов",
-      "link": "https://3dnews.ru/1148834/spacexai-predstavila-iimodel-grok-47-pochti-vdvoe-bistree-grok-46-i-deshevle-konkurentov",
-      "source": "3DNews",
-      "pubDate": "2026-09-22T06:34:00.000Z"
-    },
-    {
-      "title": "ИИ – это трактор без водителя: почему 98% разработки с LLM решает экосистема",
-      "link": "https://habr.com/ru/companies/diasoft_company/articles/1084892/?utm_campaign=1084892&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T06:00:53.000Z"
-    },
-    {
-      "title": "Тень стратега: как AI-агент становится продолжением человека, а не его заменой",
-      "link": "https://habr.com/ru/articles/1084950/?utm_campaign=1084950&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T05:36:51.000Z"
-    },
-    {
-      "title": "OpenAI призвала к созданию международных стандартов, регулирующих безопасность ИИ",
-      "link": "https://3dnews.ru/1148831/openai-prizvala-k-sozdaniyu-megdunarodnih-standartov-reguliruyushchih-bezopasnost-ii",
-      "source": "3DNews",
-      "pubDate": "2026-09-22T05:22:00.000Z"
-    },
-    {
-      "title": "Почему ваша LLM тупеет на больших документах и как ее починить",
-      "link": "https://habr.com/ru/companies/otus/articles/1079804/?utm_campaign=1079804&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-21T14:16:50.000Z"
     }
   ]
 }
