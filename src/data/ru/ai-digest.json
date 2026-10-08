@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-07T17:25:20.556Z",
+  "updatedAt": "2026-10-08T01:54:54.442Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "А что, если ИИ-слоп не ошибка, а бизнес-модель?",
+      "link": "https://habr.com/ru/articles/1091306/?utm_campaign=1091306&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-07T17:30:29.000Z"
+    },
     {
       "title": "«Не соответствует обещаниям»: версия ChatGPT для подростков провалила проверку безопасности",
       "link": "https://3dnews.ru/1149599/ne-sootvetstvuet-obeshchaniyam-versiya-chatgpt-dlya-podrostkov-provalila-proverku-bezopasnosti",
@@ -1795,12 +1801,6 @@
       "link": "https://habr.com/ru/companies/otus/articles/1079804/?utm_campaign=1079804&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-21T14:16:50.000Z"
-    },
-    {
-      "title": "Захватывающая история внедрения ИИ в умирающей не-IT-компании",
-      "link": "https://habr.com/ru/articles/1084758/?utm_campaign=1084758&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-21T14:09:09.000Z"
     }
   ]
 }

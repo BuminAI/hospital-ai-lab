@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-07T17:25:53.379Z",
+  "updatedAt": "2026-10-08T01:55:26.798Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "GPT-6 Resmi Meluncur, ChatGPT Makin Cepat dan Interaktif",
+      "link": "https://inet.detik.com/cyberlife/d-8697336/gpt-6-resmi-meluncur-chatgpt-makin-cepat-dan-interaktif",
+      "source": "detikINET",
+      "pubDate": "2026-10-08T01:45:37.000Z"
+    },
+    {
+      "title": "Profesor NUS Ungkap Kemampuan yang Wajib Dimiliki Siswa di Era AI",
+      "link": "https://katadata.co.id/digital/teknologi/6ac6f23e1b277/profesor-nus-ungkap-kemampuan-yang-wajib-dimiliki-siswa-di-era-ai",
+      "source": "Katadata",
+      "pubDate": "2026-10-08T01:30:00.000Z"
+    },
+    {
+      "title": "Ekspansi Pusat Data AI Mengubah Lanskap Wilayah Amerika Serikat",
+      "link": "https://mediaindonesia.com/teknologi/941925/ekspansi-pusat-data-ai-mengubah-lanskap-wilayah-amerika-serikat",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-07T23:00:00.000Z"
+    },
+    {
+      "title": "Pakar NUS: Perlu strategi tepat hadapi dampak AI pada angkatan kerja",
+      "link": "https://www.antaranews.com/berita/5776126/pakar-nus-perlu-strategi-tepat-hadapi-dampak-ai-pada-angkatan-kerja",
+      "source": "ANTARA",
+      "pubDate": "2026-10-07T22:57:49.000Z"
+    },
     {
       "title": "Pengisi Suara Kento Nanami di Jujustu Kaisen Gugat TikTok Terkait Kloning Suara AI",
       "link": "https://mediaindonesia.com/hiburan/941888/pengisi-suara-kento-nanami-di-jujustu-kaisen-gugat-tiktok-terkait-kloning-suara-ai",
@@ -55,6 +79,12 @@
       "link": "https://katadata.co.id/finansial/korporasi/6ac63e3c4eef4/danantara-tugaskan-pt-len-buat-chip-ai-untuk-mobil-nasional",
       "source": "Katadata",
       "pubDate": "2026-10-07T12:42:00.000Z"
+    },
+    {
+      "title": "YouTube Wajibkan Kreator Transparan soal Konten AI",
+      "link": "https://www.liputan6.com/tekno/read/8308164/youtube-wajibkan-kreator-transparan-soal-konten-ai",
+      "source": "Liputan6",
+      "pubDate": "2026-10-07T11:44:58.000Z"
     },
     {
       "title": "Pencarian Bergeser ke AI, Ini 6 Pakar AI Visibility-GEO yang Perlu Dikenal",
@@ -1771,36 +1801,6 @@
       "link": "https://inet.detik.com/cyberlife/d-8674084/cegah-penyalahgunaan-ai-capcut-siapkan-watermark-gaib-dan-standar-c2pa",
       "source": "detikINET",
       "pubDate": "2026-09-22T13:10:57.000Z"
-    },
-    {
-      "title": "Integrasi AI dalam Arsitektur, Tetap Butuh Kreativitas dan Sentuhan Manusia",
-      "link": "https://mediaindonesia.com/teknologi/936348/integrasi-ai-dalam-arsitektur-tetap-butuh-kreativitas-dan-sentuhan-manusia",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-22T12:46:00.000Z"
-    },
-    {
-      "title": "AI Perlu Jadi Bagian Pertimbangan dalam Penyusunan Kebijakan",
-      "link": "https://mediaindonesia.com/politik-dan-hukum/936336/ai-perlu-jadi-bagian-pertimbangan-dalam-penyusunan-kebijakan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-22T12:35:00.000Z"
-    },
-    {
-      "title": "Ada OriginOS 7, Perangkat Vivo Makin Ramah AI dan Terhubung ke Apple",
-      "link": "https://inet.detik.com/consumer/d-8673857/ada-originos-7-perangkat-vivo-makin-ramah-ai-dan-terhubung-ke-apple",
-      "source": "detikINET",
-      "pubDate": "2026-09-22T07:10:38.000Z"
-    },
-    {
-      "title": "AS dan Cina Bahas Mekanisme Baru untuk Pantau Risiko AI",
-      "link": "https://katadata.co.id/digital/teknologi/6ab21d743dee2/as-dan-cina-bahas-mekanisme-baru-untuk-pantau-risiko-ai",
-      "source": "Katadata",
-      "pubDate": "2026-09-22T06:17:00.000Z"
-    },
-    {
-      "title": "Inovasi AI Klinis Alodokter Lolos Uji Stanford, Teruji Aman 98,8 Persen",
-      "link": "https://www.liputan6.com/tekno/read/8296658/inovasi-ai-klinis-alodokter-lolos-uji-stanford-teruji-aman-988-persen",
-      "source": "Liputan6",
-      "pubDate": "2026-09-22T06:00:38.000Z"
     }
   ]
 }
