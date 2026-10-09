@@ -1,9 +1,57 @@
 {
-  "updatedAt": "2026-10-09T02:08:29.204Z",
+  "updatedAt": "2026-10-09T09:06:18.117Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
     {
-      "title": "Anthropic запустила бесплатный сервис сканирования уязвимостей для ПО с открытым исходным кодом",
+      "title": "Selectel планирует увеличить инвестиции в экосистему продуктов для ИИ-проектов до 25 млрд руб. до 2031 года",
+      "link": "https://www.cnews.ru/news/line/2026-10-09_selectel_planiruet_uvelichit",
+      "source": "CNews",
+      "pubDate": "2026-10-09T08:32:00.000Z"
+    },
+    {
+      "title": "Почему ИИ‑агенты уязвимы к prompt injection и как защитить их на уровне архитектуры",
+      "link": "https://habr.com/ru/companies/otus/articles/1088194/?utm_campaign=1088194&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-09T08:05:50.000Z"
+    },
+    {
+      "title": "Карликовые модели: зачем компании обучают крошечную LLM под одну узкую задачу",
+      "link": "https://habr.com/ru/companies/speshu_ai/articles/1092304/?utm_campaign=1092304&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-09T07:47:55.000Z"
+    },
+    {
+      "title": "ИИ в техподдержке для разработчиков: от чат-ботов к агентам, которые чинят билды",
+      "link": "https://habr.com/ru/articles/1092290/?utm_campaign=1092290&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-09T07:23:31.000Z"
+    },
+    {
+      "title": "Как мы проверяем, какие данные остаются в тексте после маскировки перед LLM",
+      "link": "https://habr.com/ru/articles/1090732/?utm_campaign=1090732&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-09T07:18:42.000Z"
+    },
+    {
+      "title": "MWS AI проверила способности нейросетей выявлять поддельные документы",
+      "link": "https://www.cnews.ru/news/line/2026-10-09_mws_ai_proverila_sposobnosti",
+      "source": "CNews",
+      "pubDate": "2026-10-09T07:15:00.000Z"
+    },
+    {
+      "title": "«СберСтрахование жизни» запустит ИИ-аватара инвестиционного советника в рамках инвестиционных инструментов",
+      "link": "https://www.cnews.ru/news/line/2026-10-09_sberstrahovanie_zhizni",
+      "source": "CNews",
+      "pubDate": "2026-10-09T06:03:00.000Z"
+    },
+    {
+      "title": "«Брусника» масштабирует систему ИИ-видеоаналитики QMonitoring на все строительные объекты компании",
+      "link": "https://www.cnews.ru/news/line/2026-10-09_brusnika_masshtabiruet",
+      "source": "CNews",
+      "pubDate": "2026-10-09T03:55:00.000Z"
+    },
+    {
+      "title": "Anthropic запустила бесплатный сервис для поиска дыр в ПО с открытым исходным кодом",
       "link": "https://3dnews.ru/1149679/anthropic-zapustila-besplatniy-servis-skanirovaniya-uyazvimostey-dlya-po-s-otkritim-ishodnim-kodom",
       "source": "3DNews",
       "pubDate": "2026-10-09T01:27:00.000Z"
@@ -1753,54 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-23_platforma_data_power_predstavila",
       "source": "CNews",
       "pubDate": "2026-09-23T03:59:00.000Z"
-    },
-    {
-      "title": "Отдал сайт ИИ‑агентам: из 111 находок аудита 25 пошли в мусор, 4 оказались выдумкой",
-      "link": "https://habr.com/ru/articles/1085422/?utm_campaign=1085422&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-23T00:50:16.000Z"
-    },
-    {
-      "title": "Умеет ли Jev быть guard‑моделью для LLM?",
-      "link": "https://habr.com/ru/companies/raft/articles/1085414/?utm_campaign=1085414&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T22:24:44.000Z"
-    },
-    {
-      "title": "Нейрогастарбайтеры: OpenAI уволила сотрудников за использование ИИ при обучении ИИ",
-      "link": "https://3dnews.ru/1148880/neyrogastarbayteri-openai-uvolila-sotrudnikov-za-ispolzovanie-ii-dlya-obucheniya-ii",
-      "source": "3DNews",
-      "pubDate": "2026-09-22T16:54:00.000Z"
-    },
-    {
-      "title": "1352 кейса внедрения ИИ в России: почему в продакшене побеждает не модель, а обвязка",
-      "link": "https://habr.com/ru/articles/1085314/?utm_campaign=1085314&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T16:16:38.000Z"
-    },
-    {
-      "title": "Кто нашёл больше багов — агент или человек? Мои замеры 11 недель работы с AI-тестировщиком",
-      "link": "https://habr.com/ru/articles/1085288/?utm_campaign=1085288&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T15:40:47.000Z"
-    },
-    {
-      "title": "Как я сделал OpenClaw (ИИ) на 5000 сотрудников",
-      "link": "https://habr.com/ru/articles/1072212/?utm_campaign=1072212&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T15:35:42.000Z"
-    },
-    {
-      "title": "Как выдать ИИ‑агенту доступ к внутренним API через MCP. Что спросит служба безопасности",
-      "link": "https://habr.com/ru/companies/neoflex/articles/1085184/?utm_campaign=1085184&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T15:00:44.000Z"
-    },
-    {
-      "title": "Сторонние MCP: троянский конь для ИИ-агента",
-      "link": "https://habr.com/ru/companies/sberbank/articles/1083934/?utm_campaign=1083934&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-22T14:59:58.000Z"
     }
   ]
 }
