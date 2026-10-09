@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-08T02:13:33.802Z",
+  "updatedAt": "2026-10-09T16:29:25.614Z",
   "source": "Медвестник·Vademecum",
   "items": [
+    {
+      "title": "В Москве ИИ обучили переводить с медицинского языка на пациентский",
+      "link": "https://medvestnik.ru/content/news/v-moskve-ii-obuchili-perevodit-s-medicinskogo-yazyka-na-pacientskii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-10-09T09:00:00.000Z"
+    },
     {
       "title": "Американский регулятор одобрил систему анализа состава тела по результатам МРТ",
       "link": "https://www.vademec.ru/news/2026/10/06/amerikanskiy-regulyator-odobril-sistemu-analiza-sostava-tela-po-rezultatam-mrt/",
@@ -45,12 +51,6 @@
       "pubDate": "2026-09-28T09:00:00.000Z"
     },
     {
-      "title": "ИИ-агент OpenAI взломал портал медицинской статистики Австралии",
-      "link": "https://www.vademec.ru/news/2026/09/24/ii-agent-openai-vzlomal-portal-meditsinskoy-statistiki-avstralii/",
-      "source": "Vademecum",
-      "pubDate": "2026-09-24T09:00:00.000Z"
-    },
-    {
       "title": "Компьютерное зрение помогает российским больницам избегать очередей",
       "link": "https://medvestnik.ru/content/news/komputernoe-zrenie-pomogaet-rossiiskim-bolnicam-izbegat-ocheredei.html",
       "source": "Медвестник",
@@ -69,15 +69,21 @@
       "pubDate": "2026-09-24T09:00:00.000Z"
     },
     {
-      "title": "Anthropic и OpenEvidence предоставят медицинский ИИ врачам по всему миру",
-      "link": "https://www.vademec.ru/news/2026/09/23/anthropic-i-openevidence-predostavyat-meditsinskiy-ii-vracham-po-vsemu-miru/",
+      "title": "ИИ-агент OpenAI взломал портал медицинской статистики Австралии",
+      "link": "https://www.vademec.ru/news/2026/09/24/ii-agent-openai-vzlomal-portal-meditsinskoy-statistiki-avstralii/",
       "source": "Vademecum",
-      "pubDate": "2026-09-23T09:00:00.000Z"
+      "pubDate": "2026-09-24T09:00:00.000Z"
     },
     {
       "title": "Минздрав РФ планирует создать цифровые профили почти всех пациентов с помощью ИИ",
       "link": "https://medvestnik.ru/content/news/minzdrav-rf-planiruet-sozdat-cifrovye-profili-pochti-vseh-pacientov-s-pomoshu-ii.html",
       "source": "Медвестник",
+      "pubDate": "2026-09-23T09:00:00.000Z"
+    },
+    {
+      "title": "Anthropic и OpenEvidence предоставят медицинский ИИ врачам по всему миру",
+      "link": "https://www.vademec.ru/news/2026/09/23/anthropic-i-openevidence-predostavyat-meditsinskiy-ii-vracham-po-vsemu-miru/",
+      "source": "Vademecum",
       "pubDate": "2026-09-23T09:00:00.000Z"
     },
     {
