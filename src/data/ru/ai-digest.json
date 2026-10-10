@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-10T08:28:33.553Z",
+  "updatedAt": "2026-10-10T15:52:16.337Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "8 ИИ-сервисов для Reels и Shorts: что работает в 2026 году",
+      "link": "https://habr.com/ru/companies/polzaai/articles/1092706/?utm_campaign=1092706&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-10T15:39:38.000Z"
+    },
+    {
+      "title": "Anthropic признала, что не может контролировать своих ИИ-агентов — поэтому им отключили интернет",
+      "link": "https://3dnews.ru/1149750/anthropic-priznala-chto-ne-moget-kontrolirovat-svoih-iiagentov-poetomu-im-otklyuchili-internet",
+      "source": "3DNews",
+      "pubDate": "2026-10-10T14:21:00.000Z"
+    },
     {
       "title": "Google тестирует новую Gemini 4 Carbon — сотрудники сравнивают её с Claude Opus 5.5",
       "link": "https://3dnews.ru/1149739/google-testiruet-novuyu-gemini-4-carbon-sotrudniki-sravnivayut-eyo-s-claude-opus-55",
@@ -1789,18 +1801,6 @@
       "link": "https://habr.com/ru/articles/1085800/?utm_campaign=1085800&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-23T14:28:38.000Z"
-    },
-    {
-      "title": "Тест на подделку куки проходил без проверки подписи: как я принимаю код от ИИ-агентов",
-      "link": "https://habr.com/ru/articles/1085452/?utm_campaign=1085452&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-23T14:16:50.000Z"
-    },
-    {
-      "title": "Исследование VK WorkSpace и Hi-Tech Mail: бизнесу от ИИ нужны практические сценарии, сотрудникам — помощь с рутиной",
-      "link": "https://www.cnews.ru/news/line/2026-09-23_issledovanie_vk_workspace_i_hi-tech",
-      "source": "CNews",
-      "pubDate": "2026-09-23T14:08:00.000Z"
     }
   ]
 }
