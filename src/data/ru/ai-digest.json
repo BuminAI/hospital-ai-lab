@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-10T01:45:13.947Z",
+  "updatedAt": "2026-10-10T08:28:33.553Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Google тестирует новую Gemini 4 Carbon — сотрудники сравнивают её с Claude Opus 5.5",
+      "link": "https://3dnews.ru/1149739/google-testiruet-novuyu-gemini-4-carbon-sotrudniki-sravnivayut-eyo-s-claude-opus-55",
+      "source": "3DNews",
+      "pubDate": "2026-10-10T07:56:00.000Z"
+    },
+    {
+      "title": "Белый дом отныне будет требовать от разработчиков ИИ обязательного предоставления отчётов об инцидентах с моделями",
+      "link": "https://3dnews.ru/1149731/beliy-dom-otnine-budet-trebovat-ot-razrabotchikov-ii-obyazatelnogo-predostavleniya-otchyotov-ob-intsidentah-s-modelyami",
+      "source": "3DNews",
+      "pubDate": "2026-10-10T04:52:00.000Z"
+    },
     {
       "title": "OpenAI уволила трёх исследователей безопасности ИИ — они опасаются, что компания заставит сотрудников молчать о рисках",
       "link": "https://3dnews.ru/1149720/openai-uvolila-tryoh-issledovateley-bezopasnosti-ii-oni-zayavili-chto-kompaniya-zastavit-sotrudnikov-molchat-o-riskah",
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-23_issledovanie_vk_workspace_i_hi-tech",
       "source": "CNews",
       "pubDate": "2026-09-23T14:08:00.000Z"
-    },
-    {
-      "title": "Триаж уязвимостей в AI-платформе: почему календарный SLA сломался и что ставить вместо него",
-      "link": "https://habr.com/ru/companies/vktech/articles/1069692/?utm_campaign=1069692&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-23T13:26:57.000Z"
-    },
-    {
-      "title": "Двенадцать дней ИИ-агента на боевом b2b-портале: что он нашёл сам и где ему нельзя верить на слово",
-      "link": "https://habr.com/ru/articles/1085712/?utm_campaign=1085712&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-23T12:48:04.000Z"
     }
   ]
 }
