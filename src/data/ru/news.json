@@ -1,11 +1,17 @@
 {
-  "updatedAt": "2026-10-09T16:29:25.614Z",
+  "updatedAt": "2026-10-10T07:41:15.748Z",
   "source": "Медвестник·Vademecum",
   "items": [
     {
       "title": "В Москве ИИ обучили переводить с медицинского языка на пациентский",
       "link": "https://medvestnik.ru/content/news/v-moskve-ii-obuchili-perevodit-s-medicinskogo-yazyka-na-pacientskii.html",
       "source": "Медвестник",
+      "pubDate": "2026-10-09T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ выявляет риск ДЦП у младенцев по видео движений",
+      "link": "https://www.vademec.ru/news/2026/10/09/ii-vyyavlyaet-risk-dtsp-u-mladentsev-po-video-dvizheniy/",
+      "source": "Vademecum",
       "pubDate": "2026-10-09T09:00:00.000Z"
     },
     {
