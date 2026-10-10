@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-09T16:59:31.208Z",
+  "updatedAt": "2026-10-10T01:45:13.947Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "OpenAI уволила трёх исследователей безопасности ИИ — они опасаются, что компания заставит сотрудников молчать о рисках",
+      "link": "https://3dnews.ru/1149720/openai-uvolila-tryoh-issledovateley-bezopasnosti-ii-oni-zayavili-chto-kompaniya-zastavit-sotrudnikov-molchat-o-riskah",
+      "source": "3DNews",
+      "pubDate": "2026-10-09T17:57:00.000Z"
+    },
+    {
+      "title": "Китайские ИИ-компании скрывают, насколько опасны их модели — публичных тестов почти нет",
+      "link": "https://3dnews.ru/1149719/kitayskie-iikompanii-skrivayut-naskolko-opasni-ih-modeli-publichnih-testov-pochti-net",
+      "source": "3DNews",
+      "pubDate": "2026-10-09T17:47:00.000Z"
+    },
     {
       "title": "Обучаем LLM по клику: платформа распределённого обучения на HGX",
       "link": "https://habr.com/ru/companies/open-aot/articles/1092420/?utm_campaign=1092420&utm_source=habrahabr&utm_medium=rss",
@@ -1789,18 +1801,6 @@
       "link": "https://habr.com/ru/articles/1085712/?utm_campaign=1085712&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-23T12:48:04.000Z"
-    },
-    {
-      "title": "Заголовок: tutu внедрил голосового ИИ-агента targetai",
-      "link": "https://www.cnews.ru/news/line/2026-09-23_zagolovok_tutu_vnedril_golosovogo",
-      "source": "CNews",
-      "pubDate": "2026-09-23T12:27:00.000Z"
-    },
-    {
-      "title": "Hitch запустил образовательный курс по внедрению ИИ в процессы разработки",
-      "link": "https://www.cnews.ru/news/line/2026-09-23_hitch_zapustil_obrazovatelnyj",
-      "source": "CNews",
-      "pubDate": "2026-09-23T12:12:00.000Z"
     }
   ]
 }
