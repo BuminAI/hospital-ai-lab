@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-11T16:19:21.752Z",
+  "updatedAt": "2026-10-12T01:19:27.142Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Микросервисы(async single-threaded) в эмбеддед. OpenBMC и рефакторинг «кошмара на С++» с помощью ИИ",
+      "link": "https://habr.com/ru/articles/1092774/?utm_campaign=1092774&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-12T01:05:03.000Z"
+    },
     {
       "title": "Я потратила $9 000 на ИИ-агентов и в итоге сделала Crossweft — проверку того, что они ломают между файлами",
       "link": "https://habr.com/ru/articles/1092980/?utm_campaign=1092980&utm_source=habrahabr&utm_medium=rss",
@@ -1795,12 +1801,6 @@
       "link": "https://3dnews.ru/1148954/iiagent-openai-samovolno-vzlomal-pravitelstvenniy-sayt-avstralii",
       "source": "3DNews",
       "pubDate": "2026-09-24T06:31:00.000Z"
-    },
-    {
-      "title": "Крупный бизнес наиболее активно внедряет ИИ (экспресс-информация ИСИЭЗ НИУ ВШЭ)",
-      "link": "https://www.cnews.ru/news/line/2026-09-24_krupnyj_biznes_naibolee",
-      "source": "CNews",
-      "pubDate": "2026-09-24T06:05:00.000Z"
     }
   ]
 }
