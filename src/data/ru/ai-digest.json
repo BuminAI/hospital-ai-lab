@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-12T01:19:27.142Z",
+  "updatedAt": "2026-10-12T09:10:42.227Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Бюджет вместо совести, или способ социального влияния на непослушных ИИ-агентов",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1092118/?utm_campaign=1092118&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-12T08:53:24.000Z"
+    },
+    {
+      "title": "Российских ИИ-агентов для кода уже 18, и слово «российский» у них значит три разные вещи",
+      "link": "https://habr.com/ru/articles/1093176/?utm_campaign=1093176&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-12T08:33:44.000Z"
+    },
+    {
+      "title": "Разработчик полностью воссоздал софт Adobe с помощью ИИ",
+      "link": "https://habr.com/ru/companies/studyai/articles/1093166/?utm_campaign=1093166&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-12T08:19:49.000Z"
+    },
+    {
+      "title": "Российский бизнес пока не готов доверить продажи ИИ: решения о деньгах компании оставляют за человеком",
+      "link": "https://www.cnews.ru/news/line/2026-10-12_rossijskij_biznes_poka_ne",
+      "source": "CNews",
+      "pubDate": "2026-10-12T07:21:00.000Z"
+    },
+    {
+      "title": "85% ИБ-директоров Казахстана обеспокоены тем, как сотрудники используют ИИ. Российскому бизнесу указали на риск утечек через публичные нейросети",
+      "link": "https://www.cnews.ru/news/line/2026-10-12_85_ib-direktorov_kazahstana",
+      "source": "CNews",
+      "pubDate": "2026-10-12T07:19:00.000Z"
+    },
+    {
+      "title": "«ИТ-Экспертиза» выпустила новую версию «Когнитума» с инструментами контроля расходов на ИИ и развитием бизнес-сценариев",
+      "link": "https://www.cnews.ru/news/line/2026-10-12_it-ekspertiza_vypustila",
+      "source": "CNews",
+      "pubDate": "2026-10-12T06:37:00.000Z"
+    },
+    {
+      "title": "Как экономить токены AI‑агентов при работе с кодовой базой: 5 универсальных паттернов",
+      "link": "https://habr.com/ru/articles/1093078/?utm_campaign=1093078&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-12T05:50:19.000Z"
+    },
     {
       "title": "Микросервисы(async single-threaded) в эмбеддед. OpenBMC и рефакторинг «кошмара на С++» с помощью ИИ",
       "link": "https://habr.com/ru/articles/1092774/?utm_campaign=1092774&utm_source=habrahabr&utm_medium=rss",
@@ -1759,48 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-09-24_ii_v_setevoj_kiberbezopasnosti",
       "source": "CNews",
       "pubDate": "2026-09-24T09:16:00.000Z"
-    },
-    {
-      "title": "OpenIDE и OpenIDE Pro 2026.2: ИИ-агенты прямо в IDE и новые возможности для работы с базами данных",
-      "link": "https://www.cnews.ru/news/line/2026-09-24_openide_i_openide_pro_20262_ii-agenty",
-      "source": "CNews",
-      "pubDate": "2026-09-24T08:46:00.000Z"
-    },
-    {
-      "title": "Yandex B2B Tech запускает автономных ИИ-агентов для разработки",
-      "link": "https://www.cnews.ru/news/line/2026-09-24_yandex_b2b_tech_zapuskaet_avtonomnyh",
-      "source": "CNews",
-      "pubDate": "2026-09-24T08:21:00.000Z"
-    },
-    {
-      "title": "Yandex B2B Tech запустила «Алису AI Про» для бизнеса",
-      "link": "https://www.cnews.ru/news/line/2026-09-24_yandex_b2b_tech_zapustila_alisu",
-      "source": "CNews",
-      "pubDate": "2026-09-24T08:11:00.000Z"
-    },
-    {
-      "title": "M**a делает ИИ-агента Muse мощнее — скоро с ним можно будет общаться по видеосвязи",
-      "link": "https://3dnews.ru/1148963/meta-delaet-iiagenta-muse-moshchnee-skoro-s-nim-mogno-budet-obshchatsya-po-videosvyazi",
-      "source": "3DNews",
-      "pubDate": "2026-09-24T07:53:00.000Z"
-    },
-    {
-      "title": "«Сигналтек» разработал полностью российскую линейку оборудования для промышленного ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-09-24_signaltek_razrabotal_polnostyu",
-      "source": "CNews",
-      "pubDate": "2026-09-24T07:45:00.000Z"
-    },
-    {
-      "title": "Рой агентов OpenAI ломанул правительственный сайт Австралии? Разбираемся",
-      "link": "https://habr.com/ru/companies/ods/articles/1085946/?utm_campaign=1085946&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-24T06:42:55.000Z"
-    },
-    {
-      "title": "ИИ-агент OpenAI самовольно взломал правительственный сайт Австралии",
-      "link": "https://3dnews.ru/1148954/iiagent-openai-samovolno-vzlomal-pravitelstvenniy-sayt-avstralii",
-      "source": "3DNews",
-      "pubDate": "2026-09-24T06:31:00.000Z"
     }
   ]
 }

@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-10-12T01:19:58.820Z",
+  "updatedAt": "2026-10-12T09:11:14.113Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Indonesia-Cina Kerja Sama Bidang AI dan Ekonomi Digital di KEK Kura-Kura Bali",
+      "link": "https://katadata.co.id/digital/teknologi/6acca3744ba3c/indonesia-cina-kerja-sama-bidang-ai-dan-ekonomi-digital-di-kek-kura-kura-bali",
+      "source": "Katadata",
+      "pubDate": "2026-10-12T09:08:00.000Z"
+    },
+    {
+      "title": "Video AI Makin Realistis, CEO TikTok Ungkap Penonton Masih Pilih Konten Autentik",
+      "link": "https://katadata.co.id/digital/teknologi/6acc9c43f080e/video-ai-makin-realistis-ceo-tiktok-ungkap-penonton-masih-pilih-konten-autentik",
+      "source": "Katadata",
+      "pubDate": "2026-10-12T08:37:00.000Z"
+    },
+    {
+      "title": "CEO TikTok Ungkap Keterampilan yang Wajib Dimiliki Pekerja di Era AI",
+      "link": "https://katadata.co.id/digital/teknologi/6acc98e352580/ceo-tiktok-ungkap-keterampilan-yang-wajib-dimiliki-pekerja-di-era-ai",
+      "source": "Katadata",
+      "pubDate": "2026-10-12T08:22:00.000Z"
+    },
+    {
+      "title": "Siapkan UMKM Dagang Digital, Kemendag Dorong Pemanfaatan AI",
+      "link": "https://mediaindonesia.com/ekonomi/943317/siapkan-umkm-dagang-digital-kemendag-dorong-pemanfaatan-ai-",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-12T07:28:00.000Z"
+    },
+    {
+      "title": "AI dan Data Center Makin Haus Bandwidth, JLM Perkuat Kabel Laut RI-Singapura",
+      "link": "https://inet.detik.com/telecommunication/d-8703154/ai-dan-data-center-makin-haus-bandwidth-jlm-perkuat-kabel-laut-ri-singapura",
+      "source": "detikINET",
+      "pubDate": "2026-10-12T06:35:59.000Z"
+    },
+    {
+      "title": "Dari Cip hingga Data Center, Ini Modal Asia untuk Memimpin AI",
+      "link": "https://katadata.co.id/digital/teknologi/6acc8c800a7e0/dari-cip-hingga-data-center-ini-modal-asia-untuk-memimpin-ai",
+      "source": "Katadata",
+      "pubDate": "2026-10-12T06:01:00.000Z"
+    },
+    {
+      "title": "Fenomena Mahasiswa Gen Z Pakar AI Raup Duit Triliunan",
+      "link": "https://inet.detik.com/cyberlife/d-8702852/fenomena-mahasiswa-gen-z-pakar-ai-raup-duit-triliunan",
+      "source": "detikINET",
+      "pubDate": "2026-10-12T05:15:28.000Z"
+    },
+    {
+      "title": "CEO DBS Ungkap Kekhawatiran AI Perlebar Kesenjangan antara Si Kaya dan Si Miskin",
+      "link": "https://katadata.co.id/digital/teknologi/6acc651af03ff/ceo-dbs-ungkap-kekhawatiran-ai-perlebar-kesenjangan-antara-si-kaya-dan-si-miskin",
+      "source": "Katadata",
+      "pubDate": "2026-10-12T04:43:00.000Z"
+    },
+    {
+      "title": "CEO Microsoft Sebut AI Perlu \"Rem Darurat” yang Dikendalikan Manusia",
+      "link": "https://katadata.co.id/digital/teknologi/6acc5c5a1a057/ceo-microsoft-sebut-ai-perlu-rem-darurat-yang-dikendalikan-manusia",
+      "source": "Katadata",
+      "pubDate": "2026-10-12T04:04:00.000Z"
+    },
+    {
+      "title": "Semua Orang Kini Wajib Pakai AI? Ini Kata Bos Indosat",
+      "link": "https://inet.detik.com/business/d-8702724/semua-orang-kini-wajib-pakai-ai-ini-kata-bos-indosat",
+      "source": "detikINET",
+      "pubDate": "2026-10-12T02:45:04.000Z"
+    },
     {
       "title": "Presiden Microsoft Sebut Susu dan Mesin Cuci Lebih Teratur Dibanding AI",
       "link": "https://mediaindonesia.com/teknologi/943208/presiden-microsoft-sebut-susu-dan-mesin-cuci-lebih-teratur-dibanding-ai",
@@ -61,6 +121,12 @@
       "link": "https://mediaindonesia.com/teknologi/943005/google-buka-akses-synthid-detector-alat-gratis-untuk-mengecek-konten-buatan-ai",
       "source": "Media Indonesia",
       "pubDate": "2026-10-11T04:52:00.000Z"
+    },
+    {
+      "title": "Gak Cuma Jatiluhur, Ini Daftar Data Center AI yang Dibangun di Indonesia",
+      "link": "https://uzone.id/gak-cuma-jatiluhur-ini-daftar-data-center-yang-dibangun-di-indonesia",
+      "source": "Uzone",
+      "pubDate": "2026-10-11T04:12:13.000Z"
     },
     {
       "title": "Perlindungan Karya Jurnalistik di Era AI: ASEAN Forum Rumuskan Solusi Hak Cipta",
@@ -1735,72 +1801,6 @@
       "link": "https://www.liputan6.com/tekno/read/8300163/atasi-kelangkaan-tim-ahli-sistem-keamanan-ai-ini-bisa-tangkis-serangan-siber-dalam-6-menit",
       "source": "Liputan6",
       "pubDate": "2026-09-26T10:00:36.000Z"
-    },
-    {
-      "title": "Google Vids Kini Bisa Dipakai Gratis, Fitur AI Dukung Bahasa Indonesia",
-      "link": "https://mediaindonesia.com/teknologi/937868/google-vids-kini-bisa-dipakai-gratis-fitur-ai-dukung-bahasa-indonesia",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-26T06:32:00.000Z"
-    },
-    {
-      "title": "Raksasa AI Ekspansi Besar-besaran di Singapura, Sewa Kantor Meroket",
-      "link": "https://inet.detik.com/business/d-8679997/raksasa-ai-ekspansi-besar-besaran-di-singapura-sewa-kantor-meroket",
-      "source": "detikINET",
-      "pubDate": "2026-09-26T04:36:43.000Z"
-    },
-    {
-      "title": "BPJS Kesehatan Dorong Pemanfaatan AI untuk Transformasi Layanan JKN",
-      "link": "https://mediaindonesia.com/kesehatan/937827/bpjs-kesehatan-dorong-pemanfaatan-ai-untuk-transformasi-layanan-jkn",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-26T03:12:00.000Z"
-    },
-    {
-      "title": "Agen OpenAI Lepas Kendali, Foto Pengguna ChatGPT Bocor di Internet",
-      "link": "https://inet.detik.com/cyberlife/d-8679875/agen-openai-lepas-kendali-foto-pengguna-chatgpt-bocor-di-internet",
-      "source": "detikINET",
-      "pubDate": "2026-09-26T03:02:06.000Z"
-    },
-    {
-      "title": "Kunjungan Paus Leo XIV ke Prancis: Peringatan Bahaya AI dan Misi Kebangkitan Spiritual",
-      "link": "https://mediaindonesia.com/internasional/937804/kunjungan-paus-leo-xiv-ke-prancis-peringatan-bahaya-ai-dan-misi-kebangkitan-spiritual",
-      "source": "Media Indonesia",
-      "pubDate": "2026-09-26T01:37:00.000Z"
-    },
-    {
-      "title": "Microsoft Pensiunkan Brand Copilot+ PC untuk Laptop Windows",
-      "link": "https://inet.detik.com/consumer/d-8679732/microsoft-pensiunkan-brand-copilot-pc-untuk-laptop-windows",
-      "source": "detikINET",
-      "pubDate": "2026-09-26T00:15:47.000Z"
-    },
-    {
-      "title": "Google Siap Uji Coba Pusat Data AI di Luar Angkasa",
-      "link": "https://inet.detik.com/cyberlife/d-8679691/google-siap-uji-coba-pusat-data-ai-di-luar-angkasa",
-      "source": "detikINET",
-      "pubDate": "2026-09-25T23:30:15.000Z"
-    },
-    {
-      "title": "Indo Premier Luncurkan IPOT X, Cari Saham Cukup Ngobrol dengan AI",
-      "link": "https://inet.detik.com/business/d-8679415/indo-premier-luncurkan-ipot-x-cari-saham-cukup-ngobrol-dengan-ai",
-      "source": "detikINET",
-      "pubDate": "2026-09-25T15:28:36.000Z"
-    },
-    {
-      "title": "Ketua DEN dorong penguatan talenta keamanan siber RI hadapi era AI",
-      "link": "https://www.antaranews.com/berita/5759021/ketua-den-dorong-penguatan-talenta-keamanan-siber-ri-hadapi-era-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-09-25T15:06:25.000Z"
-    },
-    {
-      "title": "Cara Atur Personalisasi ChatGPT, Gemini, dan Claude Agar Respons Lebih Pas",
-      "link": "https://www.liputan6.com/tekno/read/8299512/cara-atur-personalisasi-chatgpt-gemini-dan-claude-agar-respons-lebih-pas",
-      "source": "Liputan6",
-      "pubDate": "2026-09-25T11:00:34.000Z"
-    },
-    {
-      "title": "Fungsi Muse Charm AI Buatan Meta yang Mirip Tamagotchi, Kapan Bisa Dibeli?",
-      "link": "https://katadata.co.id/digital/teknologi/6ab64f1893456/fungsi-muse-charm-ai-buatan-meta-yang-mirip-tamagotchi-kapan-bisa-dibeli",
-      "source": "Katadata",
-      "pubDate": "2026-09-25T10:38:00.000Z"
     }
   ]
 }
