@@ -1,0 +1,44 @@
+name: Scheduled Publish
+
+# 예약 발행 글(pubDate가 미래 시각인 글)이 정한 시각을 넘기면 사이트를 다시 배포해 공개한다.
+# 글 파일은 이미 main에 있고, src/content.config.ts가 '시각이 지나기 전에는' 그 글을
+# 빌드에서 빼 두기 때문에, 시각이 지난 뒤의 배포가 곧 공개다.
+#
+# 뉴스 수집 같은 다른 자동 배포가 먼저 돌면 그 배포가 글을 같이 공개하기도 한다 —
+# 그래서 이 워크플로는 "라이브 주소가 아직 404인가"를 직접 보고 필요할 때만 배포를 깨운다.
+on:
+  schedule:
+    # 30분 간격(:07, :37). 정각·30분은 예약이 몰려 지연이 심해 비켜 둔다.
+    # GitHub cron은 지연·누락이 잦으므로 공개 시각은 '정확히 그 분'이 아니라 '그 이후 첫 확인 때'다.
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write # deploy.yml 수동 트리거(gh workflow run)
+
+concurrency:
+  group: scheduled-publish
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 공개 시각이 지났는데 아직 안 뜬 글 확인
+        id: due
+        run: node scripts/publish-due.mjs
+
+      - name: 배포 트리거 (deploy.yml)
+        if: steps.due.outputs.due == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml

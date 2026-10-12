@@ -111,6 +111,8 @@ async function loadPublishedPosts(dir) {
     if (!fm || fm.draft === true || !fm.pubDate) continue;
     const pubDate = new Date(fm.pubDate);
     if (isNaN(pubDate)) continue;
+    // 예약 발행(공개 시각이 아직 안 된 글)은 사이트에 없으므로 '발행된 글'로 세지 않는다.
+    if (pubDate.getTime() > Date.now()) continue;
     posts.push({ file, path: `${dir}/${file}`, title: fm.title, pubDate, body: raw.slice(raw.indexOf('---', 3) + 3) });
   }
   posts.sort((a, b) => b.pubDate - a.pubDate);

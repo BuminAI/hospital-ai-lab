@@ -216,3 +216,13 @@ export const growth: Record<Loc, GrowthStrings> = {
     home: { title: '依主題連續閱讀', more: '查看所有系列 →' },
   },
 };
+
+// 운영자 메모(frontmatter ownerNote) 상자의 제목 — 오너가 직접 쓴 글에만 붙는다.
+// 자동 작성 세션이 채우는 칸이 아니다(src/content.config.ts의 주석 참고).
+export const ownerNoteLabel: Record<Loc, string> = {
+  ko: '운영자 메모',
+  ja: '運営者メモ',
+  ru: 'Заметка автора сайта',
+  id: 'Catatan pengelola',
+  tw: '站長筆記',
+};

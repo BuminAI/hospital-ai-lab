@@ -55,6 +55,8 @@ async function loadPublishedPosts() {
     const raw = await readFile(new URL(file, BLOG_DIR), 'utf8');
     const fm = parseFrontmatter(raw);
     if (!fm || fm.draft === true) continue;
+    // 예약 발행 글은 공개 시각이 지난 뒤에야 알림 대상이 된다(아직 사이트에 없는 글을 알리지 않는다).
+    if (fm.pubDate && new Date(fm.pubDate).getTime() > Date.now()) continue;
     posts.push({ slug: file.replace(/\.md$/, ''), title: fm.title, description: fm.description || '' });
   }
   return posts;
