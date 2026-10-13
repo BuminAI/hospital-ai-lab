@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-12T19:48:14.590Z",
+  "updatedAt": "2026-10-13T03:02:56.955Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Может ли ИИ размножаться? Anthropic проверила, что для этого уже умеют модели",
+      "link": "https://habr.com/ru/articles/1093568/?utm_campaign=1093568&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-12T21:26:34.000Z"
+    },
     {
       "title": "M**a выпустила конкурентов GPT-6 Astra и Claude Fable — мощнейшие ИИ-модели Muse Wonder и Wonder Full",
       "link": "https://3dnews.ru/1149812/meta-vipustila-konkurentov-gpt6-astra-i-claude-fable-moshchneyshie-iimodeli-muse-wonder-i-wonder-full",
@@ -43,6 +49,12 @@
       "link": "https://habr.com/ru/articles/1093050/?utm_campaign=1093050&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-12T11:51:26.000Z"
+    },
+    {
+      "title": "ИИ написал код, модель нашла сигнал. Почему на бирже это не принесло денег?",
+      "link": "https://habr.com/ru/articles/1093064/?utm_campaign=1093064&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-12T10:54:53.000Z"
     },
     {
       "title": "Российские исследователи представили новый метод работы нейросетей с большими данными",
@@ -1789,18 +1801,6 @@
       "link": "https://3dnews.ru/1149018/s-obnovleniem-gemini-38-live-u-iimodeley-google-poyavilos-litso",
       "source": "3DNews",
       "pubDate": "2026-09-25T05:15:00.000Z"
-    },
-    {
-      "title": "«Яндекс» сделал огромную инвестицию в ИТ-решение для борьбы с опасными проявлениями ИИ",
-      "link": "https://www.cnews.ru/news/top/2026-09-24_yandeks_vlozhil_milliardy",
-      "source": "CNews",
-      "pubDate": "2026-09-24T14:21:00.000Z"
-    },
-    {
-      "title": "Помните исследование про «ИИ замедляет на 19%»? Его повторили — и оно сломалось",
-      "link": "https://habr.com/ru/companies/domclick/articles/1085232/?utm_campaign=1085232&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-24T13:16:06.000Z"
     }
   ]
 }
