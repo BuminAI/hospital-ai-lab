@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-13T14:09:22.829Z",
+  "updatedAt": "2026-10-13T20:16:04.990Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Google добавила флагманскую ИИ-модель Gemini 4 Argon в подписку за $20 — но с ограничениями",
+      "link": "https://3dnews.ru/1149878/google-dobavila-flagmanskuyu-iimodel-gemini-4-argon-v-podpisku-za-20-no-s-ogranicheniyami",
+      "source": "3DNews",
+      "pubDate": "2026-10-13T19:59:00.000Z"
+    },
+    {
+      "title": "Вышла Gemini 4 Argon: разбираем бенчмарки и карточку модели",
+      "link": "https://habr.com/ru/articles/1094026/?utm_campaign=1094026&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-13T18:18:54.000Z"
+    },
+    {
+      "title": "Китайский ИИ-агент от Alibaba научился спорить с поддержкой, возвращать деньги и бронировать услуги",
+      "link": "https://3dnews.ru/1149858/kitayskiy-iiagent-ot-alibaba-nauchilsya-sporit-s-poddergkoy-vozvrashchat-dengi-i-bronirovat-uslugi",
+      "source": "3DNews",
+      "pubDate": "2026-10-13T14:16:00.000Z"
+    },
+    {
+      "title": "Зачем ИИ-агентам свои языки и можно ли их прочитать",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1092372/?utm_campaign=1092372&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-13T14:10:03.000Z"
+    },
     {
       "title": "[Перевод] 600 миллиардов токенов спустя: как мы управляли ИИ-агентами при декомпиляции шутера",
       "link": "https://habr.com/ru/companies/cloud4y/articles/1093912/?utm_campaign=1093912&utm_source=habrahabr&utm_medium=rss",
@@ -93,7 +117,7 @@
       "pubDate": "2026-10-13T08:56:00.000Z"
     },
     {
-      "title": "Хронология инцидентов с ИИ-агентами: два разных класса и чек-лист изоляции для своего агента",
+      "title": "Хронология инцидентов с ИИ‑агентами: два разных класса и чек‑лист изоляции для своего агента",
       "link": "https://habr.com/ru/companies/syntx_ai/articles/1093670/?utm_campaign=1093670&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-13T08:54:41.000Z"
@@ -111,7 +135,7 @@
       "pubDate": "2026-10-13T08:17:16.000Z"
     },
     {
-      "title": "200 OK, а клиент видит пустой чат: второй баг тишины в ИИ-агенте на n8n",
+      "title": "200 OK, а клиент видит пустой чат: второй баг тишины в ИИ‑агенте на n8n",
       "link": "https://habr.com/ru/articles/1092216/?utm_campaign=1092216&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-13T07:45:34.000Z"
@@ -1777,30 +1801,6 @@
       "link": "https://3dnews.ru/1149085/apellyatsionniy-sud-ssha-ostavil-za-anthropic-status-ugrozi-dlya-natsionalnoy-bezopasnosti",
       "source": "3DNews",
       "pubDate": "2026-09-26T05:27:00.000Z"
-    },
-    {
-      "title": "OpenAI в ближайшие недели выпустит предварительную версию ИИ-модели GPT-6 Cyber для сферы кибербезопасности",
-      "link": "https://3dnews.ru/1149079/openai-v-bligayshie-nedeli-vipustit-predvaritelnuyu-versiyu-iimodeli-gpt6-cyber-dlya-sferi-kiberbezopasnosti",
-      "source": "3DNews",
-      "pubDate": "2026-09-26T03:55:00.000Z"
-    },
-    {
-      "title": "Способ, как можно скачать сгенерированные ИИ 3D модели без подписки или оплаты",
-      "link": "https://habr.com/ru/articles/1086860/?utm_campaign=1086860&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-25T23:25:59.000Z"
-    },
-    {
-      "title": "ИИ-модели Astra и Opus расшифровали два сообщения «Энигмы», над которыми люди бились десятилетиями",
-      "link": "https://3dnews.ru/1149076/iimodeli-astra-i-opus-rasshifrovali-dva-soobshcheniya-enigmi-nad-kotorimi-lyudi-bilis-desyatiletiyami",
-      "source": "3DNews",
-      "pubDate": "2026-09-25T21:06:00.000Z"
-    },
-    {
-      "title": "Amazon запретила ИИ-агенту M**a Muse совершать покупки и сделает то же с аналогами от Google и OpenAI",
-      "link": "https://3dnews.ru/1149068/amazon-zapretila-iiagentu-meta-muse-sovershat-pokupki-i-sdelaet-to-ge-s-analogami-ot-google-i-openai",
-      "source": "3DNews",
-      "pubDate": "2026-09-25T16:21:00.000Z"
     }
   ]
 }
