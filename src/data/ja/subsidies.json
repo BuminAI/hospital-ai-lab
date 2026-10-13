@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T15:23:11.515Z",
+  "updatedAt": "2026-10-13T06:40:41.124Z",
   "items": [
     {
       "id": "a0WJ200000CDUheMAH",
@@ -170,6 +170,18 @@
       "endDate": "2027-05-31T14:59:00.000Z"
     },
     {
+      "id": "a0WfQ000003l6UrUAI",
+      "title": "令和８年度 医療分野における業務効率化・職場環境改善支援事業",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000003l6UrUAI",
+      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "4/5",
+      "area": "東京都",
+      "startDate": "2026-10-08T00:00:00.000Z",
+      "endDate": "2027-05-31T14:59:00.000Z"
+    },
+    {
       "id": "a0WJ200000CDaTOMA1",
       "title": "【令和8年度】地域医療確保に係る緊急・臨時支援事業支援金及び急性期医療臨時支援事業支援金",
       "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDaTOMA1",
@@ -192,6 +204,18 @@
       "area": "東京都",
       "startDate": "2026-07-05T23:00:00.000Z",
       "endDate": "2027-05-31T15:00:00.000Z"
+    },
+    {
+      "id": "a0WfQ000003n4bqUAA",
+      "title": "令和８年度臨床研修費等補助金（歯科医師）",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000003n4bqUAA",
+      "usePurpose": "人材育成を行いたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "",
+      "area": "東京都",
+      "startDate": "2026-10-08T15:00:00.000Z",
+      "endDate": "2027-07-31T14:59:00.000Z"
     },
     {
       "id": "a0WJ200000CDXK4MAP",
