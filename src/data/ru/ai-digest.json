@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-13T20:16:04.990Z",
+  "updatedAt": "2026-10-14T01:12:58.151Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ‑агенты. Часть 1: Первые шаги",
+      "link": "https://habr.com/ru/articles/1094062/?utm_campaign=1094062&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-13T20:37:12.000Z"
+    },
     {
       "title": "Google добавила флагманскую ИИ-модель Gemini 4 Argon в подписку за $20 — но с ограничениями",
       "link": "https://3dnews.ru/1149878/google-dobavila-flagmanskuyu-iimodel-gemini-4-argon-v-podpisku-za-20-no-s-ogranicheniyami",
@@ -1795,12 +1801,6 @@
       "link": "https://3dnews.ru/1149087/donald-tramp-i-si-tszinpin-obsudili-voprosi-bezopasnosti-ii-pri-lichnoy-vstreche-no-vozdergalis-ot-podrobnih-zayavleniy",
       "source": "3DNews",
       "pubDate": "2026-09-26T06:04:00.000Z"
-    },
-    {
-      "title": "Апелляционный суд США оставил за Anthropic статус угрозы для национальной безопасности",
-      "link": "https://3dnews.ru/1149085/apellyatsionniy-sud-ssha-ostavil-za-anthropic-status-ugrozi-dlya-natsionalnoy-bezopasnosti",
-      "source": "3DNews",
-      "pubDate": "2026-09-26T05:27:00.000Z"
     }
   ]
 }
