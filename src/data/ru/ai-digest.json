@@ -1,7 +1,115 @@
 {
-  "updatedAt": "2026-10-14T07:36:42.091Z",
+  "updatedAt": "2026-10-14T15:07:19.569Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "AI уже делает инженеров хуже? Как агентная разработка выращивает технологический зоопарк",
+      "link": "https://habr.com/ru/articles/1094430/?utm_campaign=1094430&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T15:02:37.000Z"
+    },
+    {
+      "title": "ИИ-агенты научились собирать пациентам готовую корзину лабораторных анализов",
+      "link": "https://www.cnews.ru/news/line/2026-10-14_ii-agenty_nauchilis_sobirat",
+      "source": "CNews",
+      "pubDate": "2026-10-14T14:42:00.000Z"
+    },
+    {
+      "title": "Gemini 4 Argon: 10 вирусных примеров народного творчества в новой модели Google",
+      "link": "https://habr.com/ru/companies/syntx_ai/articles/1094364/?utm_campaign=1094364&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T14:30:15.000Z"
+    },
+    {
+      "title": "ИИ-платформа для страховой отрасли Jarvis AI включена в реестр российского ПО",
+      "link": "https://www.cnews.ru/news/line/2026-10-14_ii-platforma_dlya_strahovoj",
+      "source": "CNews",
+      "pubDate": "2026-10-14T13:03:00.000Z"
+    },
+    {
+      "title": "Команда ИИ-агентов в Claude Code для сбора цитат аудитории: разведка, сбор и проверка каждой ссылки",
+      "link": "https://habr.com/ru/articles/1094336/?utm_campaign=1094336&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T12:00:42.000Z"
+    },
+    {
+      "title": "Набор сервисов для работы с данными и расширение ИИ-платформы: что нового в Selectel в сентябре",
+      "link": "https://habr.com/ru/companies/selectel/articles/1093970/?utm_campaign=1093970&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T12:00:25.000Z"
+    },
+    {
+      "title": "Регрессионное тестирование промптов: ИИ-модель в роли читателя пропустила три из четырёх текстов, которые я правил",
+      "link": "https://habr.com/ru/articles/1094096/?utm_campaign=1094096&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T11:45:55.000Z"
+    },
+    {
+      "title": "НЦК ИСУ: ИИ поможет снизить себестоимость разработки в 10 раз к 2030 году",
+      "link": "https://www.cnews.ru/news/line/2026-10-14_ntsk_isu_ii_pomozhet_snizit",
+      "source": "CNews",
+      "pubDate": "2026-10-14T10:25:00.000Z"
+    },
+    {
+      "title": "«СпрутМонитор» внедряет собственный ИИ-движок: семантический DLP без внешних сервисов",
+      "link": "https://www.cnews.ru/news/line/2026-10-14_sprutmonitor_vnedryaet",
+      "source": "CNews",
+      "pubDate": "2026-10-14T10:24:00.000Z"
+    },
+    {
+      "title": "ИИ-агент получил власть над компьютером: что делать разработчику. Разбор ошибок автоматизации: sandbox escape",
+      "link": "https://habr.com/ru/companies/speshu_ai/articles/1094252/?utm_campaign=1094252&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T09:31:34.000Z"
+    },
+    {
+      "title": "Личный ИИ-ассистент без платной подписки: как устроить прототип и посчитать пользу для бизнеса",
+      "link": "https://habr.com/ru/articles/1094234/?utm_campaign=1094234&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T09:19:38.000Z"
+    },
+    {
+      "title": "Сначала пилот, потом стратегия: как крупный бизнес внедряет LLM",
+      "link": "https://habr.com/ru/companies/contentai/articles/1094200/?utm_campaign=1094200&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T09:16:15.000Z"
+    },
+    {
+      "title": "Как построить систему безопасности для AI-платформы в эпоху новых вызовов и угроз",
+      "link": "https://habr.com/ru/articles/1094226/?utm_campaign=1094226&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T08:48:58.000Z"
+    },
+    {
+      "title": "Как ИИ-агенты за три недели собрали архив моей семьи — и что из этого выросло",
+      "link": "https://habr.com/ru/articles/1094212/?utm_campaign=1094212&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T08:38:57.000Z"
+    },
+    {
+      "title": "От продаж до документооборота: число резюме с ИИ-навыками выросло почти вдвое — «Авито Работа»",
+      "link": "https://www.cnews.ru/news/line/2026-10-14_ot_prodazh_do_dokumentooborota",
+      "source": "CNews",
+      "pubDate": "2026-10-14T08:18:00.000Z"
+    },
+    {
+      "title": "Bell Integrator fabricaONE.AI разработала ИИ-решение для автоматизации тестирования АБС «ЦФТ-Банк»",
+      "link": "https://www.cnews.ru/news/line/2026-10-14_bell_integrator_fabricaoneai_razrabotala",
+      "source": "CNews",
+      "pubDate": "2026-10-14T07:59:00.000Z"
+    },
+    {
+      "title": "Inference Platform и Foundation Model Hub: новые ИИ-сервисы «Турбо Облака»",
+      "link": "https://www.tadviser.ru/a/970063",
+      "source": "TAdviser",
+      "pubDate": "2026-10-14T07:34:45.000Z"
+    },
+    {
+      "title": "«Ростелеком» создаст систему контроля коммуникаций для 1,5 тыс. ИИ-приложений, которые используются в компании",
+      "link": "https://www.tadviser.ru/a/972508",
+      "source": "TAdviser",
+      "pubDate": "2026-10-14T07:34:14.000Z"
+    },
     {
       "title": "Надсмотрщик для ИИ-агентов: 63 пул-реквеста к самому себе за сутки",
       "link": "https://habr.com/ru/articles/1094148/?utm_campaign=1094148&utm_source=habrahabr&utm_medium=rss",
@@ -15,7 +123,7 @@
       "pubDate": "2026-10-14T07:02:18.000Z"
     },
     {
-      "title": "Как работает российская экосистема ИИ‑разработки для крупных корпораций Digital Q: подробный разбор",
+      "title": "Как работает российская экосистема ИИ‑разработки для корпораций Digital Q: подробный разбор",
       "link": "https://habr.com/ru/companies/diasoft_company/articles/1094130/?utm_campaign=1094130&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-14T06:28:48.000Z"
@@ -1693,114 +1801,6 @@
       "link": "https://habr.com/ru/companies/ideco/articles/1087496/?utm_campaign=1087496&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-28T10:14:47.000Z"
-    },
-    {
-      "title": "Orion soft усилила возможности StarGuard AI 1.2 для анализа безопасности больших языковых моделей и корпоративных файлов",
-      "link": "https://www.cnews.ru/news/line/2026-09-28_orion_soft_usilila_vozmozhnosti",
-      "source": "CNews",
-      "pubDate": "2026-09-28T10:06:00.000Z"
-    },
-    {
-      "title": "Пользователями стали доступны новые экспериментальные ИИ-сервисы Сбербанка для работы и повседневных дел",
-      "link": "https://www.cnews.ru/news/line/2026-09-28_polzovatelyami_stali_dostupny",
-      "source": "CNews",
-      "pubDate": "2026-09-28T09:15:00.000Z"
-    },
-    {
-      "title": "«Мы больше не можем это взломать»: как Anthropic похоронила промпт‑инъекции, но забыла про особенности AI‑агентов",
-      "link": "https://habr.com/ru/companies/raft/articles/1087448/?utm_campaign=1087448&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-28T09:09:56.000Z"
-    },
-    {
-      "title": "Selectel представил управляемый сервис PGVector для работы с векторными данными в ИИ-решениях",
-      "link": "https://www.cnews.ru/news/line/2026-09-28_selectel_predstavil_upravlyaemyj",
-      "source": "CNews",
-      "pubDate": "2026-09-28T08:51:00.000Z"
-    },
-    {
-      "title": "Россия создаст «мозг» для нефтегазовой отрасли — единую платформу с десятками ИИ-агентов",
-      "link": "https://www.cnews.ru/news/top/2026-09-28_rossiya_sozdaet_mozg_dlya",
-      "source": "CNews",
-      "pubDate": "2026-09-28T08:45:00.000Z"
-    },
-    {
-      "title": "В России разработан инструмент, позволяющий квантовым компьютерам обучать нейросети в 300 раз быстрее обычных систем",
-      "link": "https://www.tadviser.ru/a/106978",
-      "source": "TAdviser",
-      "pubDate": "2026-09-28T08:37:47.000Z"
-    },
-    {
-      "title": "«Сбер2B» запустил ИИ-агента для закупок",
-      "link": "https://www.cnews.ru/news/line/2026-09-28_sber2b_zapustil_ii-agenta",
-      "source": "CNews",
-      "pubDate": "2026-09-28T08:27:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты GigaCowork будут работать с данными глобального финансового рынка Cbonds",
-      "link": "https://www.cnews.ru/news/line/2026-09-28_ii-agenty_gigacowork_budut_rabotat",
-      "source": "CNews",
-      "pubDate": "2026-09-28T08:19:00.000Z"
-    },
-    {
-      "title": "coMind запустил ИИ-переход в компании «ФК Гранд Капитал»",
-      "link": "https://www.cnews.ru/news/line/2026-09-28_comind_zapustil_ii-perehod_v",
-      "source": "CNews",
-      "pubDate": "2026-09-28T07:40:00.000Z"
-    },
-    {
-      "title": "Как мы с вами будем платить больше налогов, а также битва за регулирование AI: главное за неделю",
-      "link": "https://habr.com/ru/articles/1086938/?utm_campaign=1086938&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-28T04:52:25.000Z"
-    },
-    {
-      "title": "Агенты OpenAI предпринимали попытки атаки на один из сайтов ООН на протяжении нескольких месяцев",
-      "link": "https://3dnews.ru/1149121/agenti-openai-predprinimali-popitki-ataki-na-odin-iz-saytov-oon-na-protyagenii-neskolkih-mesyatsev",
-      "source": "3DNews",
-      "pubDate": "2026-09-28T04:06:00.000Z"
-    },
-    {
-      "title": "Глаз стрекозы: практическая технология исследования с ИИ",
-      "link": "https://habr.com/ru/articles/1087250/?utm_campaign=1087250&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-27T20:56:26.000Z"
-    },
-    {
-      "title": "ИИ уже сам планирует кибератаки — OpenAI, Anthropic и Google наняли стартап для поиска «злого» поведения моделей",
-      "link": "https://3dnews.ru/1149116/ii-uge-sam-planiruet-kiberataki-openai-anthropic-i-google-nanyali-startap-dlya-poiska-zlogo-povedeniya-modeley",
-      "source": "3DNews",
-      "pubDate": "2026-09-27T17:48:00.000Z"
-    },
-    {
-      "title": "OpenAI приостановила обучение ИИ-моделей — расследуются десятки тысяч инцидентов с выходом ИИ из-под контроля",
-      "link": "https://3dnews.ru/1149115/openai-priostanovila-obuchenie-iimodeley-rassleduyutsya-desyatki-tisyach-intsidentov-s-vihodom-ii-izpod-kontrolya",
-      "source": "3DNews",
-      "pubDate": "2026-09-27T13:21:00.000Z"
-    },
-    {
-      "title": "Поколение отклонённых: как ИИ-скрининг резюме выталкивает молодёжь в киберпреступность",
-      "link": "https://habr.com/ru/articles/1087120/?utm_campaign=1087120&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-27T11:41:40.000Z"
-    },
-    {
-      "title": "Доверить сервер ИИ-агенту и не пожалеть: как спать спокойно без SSH",
-      "link": "https://habr.com/ru/articles/1086976/?utm_campaign=1086976&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-26T18:01:43.000Z"
-    },
-    {
-      "title": "Как ИТ-компаниям выжить, когда ИИ есть у всех",
-      "link": "https://habr.com/ru/articles/1087002/?utm_campaign=1087002&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-26T17:30:12.000Z"
-    },
-    {
-      "title": "ИИ-агент OpenAI снова выбрался в интернет после усиления защиты — чтобы уточнить столицу Франции",
-      "link": "https://3dnews.ru/1149097/iiagent-openai-snova-vibralsya-v-internet-posle-usileniya-zashchiti-chtobi-utochnit-stolitsu-frantsii",
-      "source": "3DNews",
-      "pubDate": "2026-09-26T13:58:00.000Z"
     }
   ]
 }
