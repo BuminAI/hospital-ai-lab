@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-10-14T01:12:58.151Z",
+  "updatedAt": "2026-10-14T07:36:42.091Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Надсмотрщик для ИИ-агентов: 63 пул-реквеста к самому себе за сутки",
+      "link": "https://habr.com/ru/articles/1094148/?utm_campaign=1094148&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T07:12:25.000Z"
+    },
+    {
+      "title": "Я попробовал заменить разработчиков ИИ-агентами",
+      "link": "https://habr.com/ru/companies/koda/articles/1094060/?utm_campaign=1094060&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T07:02:18.000Z"
+    },
+    {
+      "title": "Как работает российская экосистема ИИ‑разработки для крупных корпораций Digital Q: подробный разбор",
+      "link": "https://habr.com/ru/companies/diasoft_company/articles/1094130/?utm_campaign=1094130&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-14T06:28:48.000Z"
+    },
+    {
+      "title": "Microsoft в ответ на всплеск ИИ-модов и портов сформировала команду Xbox Labs для исследования новых технологий создания игр",
+      "link": "https://3dnews.ru/1149885/microsoft-v-otvet-na-vsplesk-iimodov-i-portov-sformirovala-komandu-xbox-labs-dlya-issledovaniya-novih-tehnologiy-sozdaniya-igr",
+      "source": "3DNews",
+      "pubDate": "2026-10-14T05:27:55.000Z"
+    },
+    {
+      "title": "Security Vision на SOC Forum: кибероперации на скорости ИИ – без потери контроля",
+      "link": "https://www.cnews.ru/news/line/2026-10-14_security_vision_na_soc_forum_kiberoperatsii",
+      "source": "CNews",
+      "pubDate": "2026-10-14T04:09:00.000Z"
+    },
     {
       "title": "ИИ‑агенты. Часть 1: Первые шаги",
       "link": "https://habr.com/ru/articles/1094062/?utm_campaign=1094062&utm_source=habrahabr&utm_medium=rss",
@@ -1771,36 +1801,6 @@
       "link": "https://3dnews.ru/1149097/iiagent-openai-snova-vibralsya-v-internet-posle-usileniya-zashchiti-chtobi-utochnit-stolitsu-frantsii",
       "source": "3DNews",
       "pubDate": "2026-09-26T13:58:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты OpenAI слили в интернет 53 изображения пользователей ChatGPT — заметили это лишь спустя время",
-      "link": "https://3dnews.ru/1149095/iiagenti-openai-slili-v-internet-53-izobrageniya-polzovateley-chatgpt-zametili-eto-lish-spustya-vremya",
-      "source": "3DNews",
-      "pubDate": "2026-09-26T13:10:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты OpenAI оставили миллион следов взлома Hugging Face в открытом интернете",
-      "link": "https://3dnews.ru/1149091/iiagenti-openai-ostavili-million-sledov-vzloma-hugging-face-v-otkritom-internete",
-      "source": "3DNews",
-      "pubDate": "2026-09-26T10:39:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты в инвестициях: собираем Telegram-ассистента и торгового робота на MCP Т-Инвестиций",
-      "link": "https://habr.com/ru/companies/tbank/articles/1086714/?utm_campaign=1086714&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-26T09:00:55.000Z"
-    },
-    {
-      "title": "ИИ-агенты OpenAI массово атаковали базы данных онлайн в поисках малоизвестных сведений",
-      "link": "https://3dnews.ru/1149086/iiagenti-openai-massovo-atakovali-bazi-dannih-onlayn-v-poiskah-maloizvestnih-svedeniy",
-      "source": "3DNews",
-      "pubDate": "2026-09-26T06:15:00.000Z"
-    },
-    {
-      "title": "Дональд Трамп и Си Цзиньпин обсудили вопросы безопасности ИИ при личной встрече, но воздержались от подробных заявлений",
-      "link": "https://3dnews.ru/1149087/donald-tramp-i-si-tszinpin-obsudili-voprosi-bezopasnosti-ii-pri-lichnoy-vstreche-no-vozdergalis-ot-podrobnih-zayavleniy",
-      "source": "3DNews",
-      "pubDate": "2026-09-26T06:04:00.000Z"
     }
   ]
 }
