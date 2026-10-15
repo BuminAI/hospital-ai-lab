@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-14T15:07:19.569Z",
+  "updatedAt": "2026-10-15T00:31:08.130Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Первые атаки ИИ-агентов — лишь «предупредительные выстрелы», предупредил бывший глава Google DeepMind",
+      "link": "https://3dnews.ru/1149933/ataki-iiagentov-lish-predupreditelnie-vistreli-predupredil-bivshiy-glava-google-deepmind",
+      "source": "3DNews",
+      "pubDate": "2026-10-14T16:40:00.000Z"
+    },
     {
       "title": "AI уже делает инженеров хуже? Как агентная разработка выращивает технологический зоопарк",
       "link": "https://habr.com/ru/articles/1094430/?utm_campaign=1094430&utm_source=habrahabr&utm_medium=rss",
@@ -33,13 +39,13 @@
       "pubDate": "2026-10-14T12:00:42.000Z"
     },
     {
-      "title": "Набор сервисов для работы с данными и расширение ИИ-платформы: что нового в Selectel в сентябре",
+      "title": "Набор сервисов для работы с данными и расширение ИИ‑платформы: что нового в Selectel в сентябре",
       "link": "https://habr.com/ru/companies/selectel/articles/1093970/?utm_campaign=1093970&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-14T12:00:25.000Z"
     },
     {
-      "title": "Регрессионное тестирование промптов: ИИ-модель в роли читателя пропустила три из четырёх текстов, которые я правил",
+      "title": "Регрессионное тестирование промптов: ИИ‑модель в роли читателя пропустила три из четырёх текстов, которые я правил",
       "link": "https://habr.com/ru/articles/1094096/?utm_campaign=1094096&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-14T11:45:55.000Z"
@@ -1795,12 +1801,6 @@
       "link": "https://3dnews.ru/1149137/gendirov-openai-i-anthropic-vizvali-na-dopros-v-senat-avstralii-po-delu-o-vzlome-pravitelstvennogo-sayta-iiagentom",
       "source": "3DNews",
       "pubDate": "2026-09-28T10:21:00.000Z"
-    },
-    {
-      "title": "DNS как выход из закрытого контура: что показал инцидент с агентом OpenAI",
-      "link": "https://habr.com/ru/companies/ideco/articles/1087496/?utm_campaign=1087496&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-28T10:14:47.000Z"
     }
   ]
 }
