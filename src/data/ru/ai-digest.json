@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-15T00:31:08.130Z",
+  "updatedAt": "2026-10-15T07:24:59.040Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Вайб-конфигурирование: как ИИ-агенты собирают приложения из написанных людьми блоков",
+      "link": "https://habr.com/ru/companies/lansoft_career/articles/1094396/?utm_campaign=1094396&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-15T07:05:32.000Z"
+    },
+    {
+      "title": "MWS Tables запустил ИИ-ассистента для создания бизнес-приложений на базе таблиц",
+      "link": "https://www.cnews.ru/news/line/2026-10-15_mws_tables_zapustil_ii-assistenta",
+      "source": "CNews",
+      "pubDate": "2026-10-15T06:46:00.000Z"
+    },
+    {
+      "title": "Резидент «Сколково» FIS разработал сервис для работы с внешним ИИ без передачи исходных конфиденциальных документов",
+      "link": "https://www.cnews.ru/news/line/2026-10-15_rezident_skolkovo_fis_razrabotal",
+      "source": "CNews",
+      "pubDate": "2026-10-15T04:57:00.000Z"
+    },
+    {
+      "title": "«Диасофт»: low-code становится основой для управляемой ИИ-разработки",
+      "link": "https://www.cnews.ru/news/line/2026-10-15_diasoft_low-code_stanovitsya",
+      "source": "CNews",
+      "pubDate": "2026-10-15T03:55:00.000Z"
+    },
     {
       "title": "Первые атаки ИИ-агентов — лишь «предупредительные выстрелы», предупредил бывший глава Google DeepMind",
       "link": "https://3dnews.ru/1149933/ataki-iiagentov-lish-predupreditelnie-vistreli-predupredil-bivshiy-glava-google-deepmind",
@@ -1777,30 +1801,6 @@
       "link": "https://habr.com/ru/companies/sberbank/articles/1086726/?utm_campaign=1086726&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-28T13:01:23.000Z"
-    },
-    {
-      "title": "В HR-платформу «Пульс» внедрён ИИ-агент поддержки на GigaChat",
-      "link": "https://www.cnews.ru/news/line/2026-09-28_v_hr-platformu_puls_vnedren",
-      "source": "CNews",
-      "pubDate": "2026-09-28T12:56:00.000Z"
-    },
-    {
-      "title": "Ученые Сеченовского Университета показали эффективность ИИ-мониторинга при диабете",
-      "link": "https://www.cnews.ru/news/line/2026-09-28_uchenye_sechenovskogo_universiteta",
-      "source": "CNews",
-      "pubDate": "2026-09-28T12:21:00.000Z"
-    },
-    {
-      "title": "Китайский ИИ завоёвывает корпоративную Америку: компании США всё чаще используют открытые ИИ-модели ради экономии",
-      "link": "https://3dnews.ru/1149138/kitayskiy-ii-zavoyovivaet-korporativnuyu-ameriku-kompanii-ssha-vsyo-chashche-ispolzuyut-otkritie-iimodeli-radi-ekonomii",
-      "source": "3DNews",
-      "pubDate": "2026-09-28T10:48:00.000Z"
-    },
-    {
-      "title": "Гендиров OpenAI и Anthropic вызвали на допрос в Сенат Австралии по делу о взломе правительственного сайта ИИ-агентом",
-      "link": "https://3dnews.ru/1149137/gendirov-openai-i-anthropic-vizvali-na-dopros-v-senat-avstralii-po-delu-o-vzlome-pravitelstvennogo-sayta-iiagentom",
-      "source": "3DNews",
-      "pubDate": "2026-09-28T10:21:00.000Z"
     }
   ]
 }
