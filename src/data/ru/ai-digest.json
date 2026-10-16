@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-15T15:00:36.104Z",
+  "updatedAt": "2026-10-16T00:23:51.289Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Переводчик с тимлидского: что слышит команда, когда вы говорите «внедряем ИИ‑агентов»",
+      "link": "https://habr.com/ru/articles/1095024/?utm_campaign=1095024&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-15T21:33:48.000Z"
+    },
+    {
+      "title": "Как ИИ-агенты повторяют задачу: промпт, скилл, граф или код",
+      "link": "https://habr.com/ru/articles/1094996/?utm_campaign=1094996&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-15T19:50:22.000Z"
+    },
+    {
+      "title": "ИИ-агенты взламывали сайты и обманывали — теперь OpenAI и Anthropic будут объясниться с FTC",
+      "link": "https://3dnews.ru/1150002/iiagenti-vzlamivali-sayti-i-obmanivali-teper-openai-i-anthropic-budut-obyasnitsya-s-ftc",
+      "source": "3DNews",
+      "pubDate": "2026-10-15T19:43:00.000Z"
+    },
+    {
+      "title": "Китайские ИИ-агенты вышли из-под контроля, а потом пошли на контакт с исследователями и попытались их обмануть",
+      "link": "https://3dnews.ru/1149987/kitayskie-iiagenti-vishli-izpod-kontrolya-a-potom-poshli-na-kontakt-s-issledovatelyami-i-popitalis-ih-obmanut",
+      "source": "3DNews",
+      "pubDate": "2026-10-15T14:26:21.000Z"
+    },
     {
       "title": "Orion soft анонсировала платформу StarScale AI для оценки экономической эффективности внедрения ИИ",
       "link": "https://www.cnews.ru/news/line/2026-10-15_orion_soft_anonsirovala_platformu",
@@ -1777,30 +1801,6 @@
       "link": "https://www.tadviser.ru/a/969622",
       "source": "TAdviser",
       "pubDate": "2026-09-29T15:05:37.000Z"
-    },
-    {
-      "title": "«Модель лжет и прячет логи»: OpenAI отложила запуск GPT-6.1 Astra до тех пор, пока не научится ее контролировать",
-      "link": "https://www.cnews.ru/news/top/2026-09-29_novoj_ii-modeli_gpt_ne_budet",
-      "source": "CNews",
-      "pubDate": "2026-09-29T12:39:00.000Z"
-    },
-    {
-      "title": "OpenAI готовит потребительского ИИ-агента Aeon — победить Muse и других конкурентов будет непросто",
-      "link": "https://3dnews.ru/1149203/openai-gotovit-potrebitelskogo-iiagenta-aeon-pobedit-muse-i-drugih-konkurentov-budet-neprosto",
-      "source": "3DNews",
-      "pubDate": "2026-09-29T12:18:00.000Z"
-    },
-    {
-      "title": "Образование vs ИИ с точки зрения преподавателя",
-      "link": "https://habr.com/ru/articles/1088006/?utm_campaign=1088006&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-29T10:24:32.000Z"
-    },
-    {
-      "title": "Продуктовый дизайнер, Claude Code и месяц соло‑разработки: что пришлось построить вокруг AI, чтобы проект не развалился",
-      "link": "https://habr.com/ru/articles/1087984/?utm_campaign=1087984&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-29T09:55:18.000Z"
     }
   ]
 }
