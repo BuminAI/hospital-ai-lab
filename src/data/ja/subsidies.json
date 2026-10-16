@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T06:40:41.124Z",
+  "updatedAt": "2026-10-16T13:11:38.485Z",
   "items": [
     {
       "id": "a0WJ200000CDUheMAH",
@@ -96,6 +96,18 @@
       "area": "東京都",
       "startDate": "2025-10-29T00:00:00.000Z",
       "endDate": "2026-12-31T14:59:00.000Z"
+    },
+    {
+      "id": "a0WfQ000003Bf7lUAC",
+      "title": "令和８年度介護・障害福祉サービス等事業所における育業・介護休業等両立支援事業費補助金",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000003Bf7lUAC",
+      "usePurpose": "雇用・職場環境を改善したい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "",
+      "area": "東京都",
+      "startDate": "2026-10-16T05:00:00.000Z",
+      "endDate": "2027-02-15T14:59:00.000Z"
     },
     {
       "id": "a0WJ200000CDap3MAD",
