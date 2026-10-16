@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-10-16T00:23:51.289Z",
+  "updatedAt": "2026-10-16T07:07:54.973Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Выручка за сентябрь: как AI‑агент получает три разных ответа",
+      "link": "https://habr.com/ru/companies/otus/articles/1088874/?utm_campaign=1088874&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-16T06:10:25.000Z"
+    },
+    {
+      "title": "ИИ-модель Сбербанка помогла выявить почти вдвое больше злокачественных образований при диспансеризации",
+      "link": "https://www.cnews.ru/news/line/2026-10-16_ii-model_sberbanka_pomogla",
+      "source": "CNews",
+      "pubDate": "2026-10-16T05:05:00.000Z"
+    },
+    {
+      "title": "ИИ-модель Nvidia Nemotron 3.5 Super VL с пост-обучением превзошла Claude Opus 5 и GPT-6.1 Sol в специализированных задачах",
+      "link": "https://3dnews.ru/1150010/iimodel-nvidia-nemotron-35-super-vl-s-postobucheniem-prevzoshla-claude-opus-5-i-gpt61-sol-v-spetsializirovannih-zadachah",
+      "source": "3DNews",
+      "pubDate": "2026-10-16T01:46:00.000Z"
+    },
     {
       "title": "Переводчик с тимлидского: что слышит команда, когда вы говорите «внедряем ИИ‑агентов»",
       "link": "https://habr.com/ru/articles/1095024/?utm_campaign=1095024&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://habr.com/ru/articles/1088290/?utm_campaign=1088290&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-09-29T17:56:45.000Z"
-    },
-    {
-      "title": "Уволенные из-за ИИ разработчики создали ИИ, способный заменить гендира и других топ-менеджеров",
-      "link": "https://3dnews.ru/1149221/uvolennie-izza-ii-razrabotchiki-sozdali-ii-sposobniy-zamenit-gendira-i-drugih-topmenedgerov",
-      "source": "3DNews",
-      "pubDate": "2026-09-29T15:51:00.000Z"
-    },
-    {
-      "title": "[Перевод] Как надёжно передавать управление между ИИ-агентом и человеком без гонок состояний",
-      "link": "https://habr.com/ru/companies/otus/articles/1085500/?utm_campaign=1085500&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-29T15:05:56.000Z"
-    },
-    {
-      "title": "ИИ, квантовые компьютеры, Big Data. Правительство РФ утвердило концепцию развития математических наук. Документ",
-      "link": "https://www.tadviser.ru/a/969622",
-      "source": "TAdviser",
-      "pubDate": "2026-09-29T15:05:37.000Z"
     }
   ]
 }
