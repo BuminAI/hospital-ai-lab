@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-16T14:50:31.886Z",
+  "updatedAt": "2026-10-17T00:28:04.663Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Nvidia без спроса открыла ИИ-агентам доступ к управлению видеокартой и играми на ПК пользователя",
+      "link": "https://3dnews.ru/1150065/nvidia-bez-sprosa-otkrila-iiagentam-dostup-k-upravleniyu-videokartoy-i-igrami-na-pk-polzovatelya",
+      "source": "3DNews",
+      "pubDate": "2026-10-16T17:53:00.000Z"
+    },
+    {
+      "title": "M**a выпустила мощную открытую ИИ-модель Muse Spark Open — для её работы хватит всего двух Mac Studio",
+      "link": "https://3dnews.ru/1150060/meta-vipustila-moshchnuyu-otkrituyu-iimodel-muse-spark-open-dlya-eyo-raboti-hvatit-vsego-dvuh-mac-studio",
+      "source": "3DNews",
+      "pubDate": "2026-10-16T17:30:00.000Z"
+    },
+    {
+      "title": "ИИ-модель Z.ai GLM-5.3 заподозрили в имитации безопасного поведения для прохождения тестов",
+      "link": "https://3dnews.ru/1150057/iimodel-zai-glm53-zapodozrili-v-imitatsii-bezopasnogo-povedeniya-dlya-prohogdeniya-testov",
+      "source": "3DNews",
+      "pubDate": "2026-10-16T16:56:00.000Z"
+    },
+    {
+      "title": "Объем потребления токенов при работе с ИИ-сервисами в Сбере достиг 9 трлн в месяц",
+      "link": "https://www.cnews.ru/news/line/2026-10-16_obem_potrebleniya_tokenov",
+      "source": "CNews",
+      "pubDate": "2026-10-16T14:45:00.000Z"
+    },
     {
       "title": "Tencent призналась, что её ИИ-агенты ушли в самоволку во время тестов",
       "link": "https://3dnews.ru/1150050/tencent-priznalas-chto-eyo-iiagenti-ushli-v-samovolku-vo-vremya-testov",
@@ -1777,30 +1801,6 @@
       "link": "https://3dnews.ru/1149293/ftc-vzyalas-za-openai-i-anthropic-ssha-vpervie-rassleduyut-ugrozi-avtonomnih-iiagentov-dlya-lyudey",
       "source": "3DNews",
       "pubDate": "2026-09-30T21:48:00.000Z"
-    },
-    {
-      "title": "Agent DevTools: локальная инфраструктура для ИИ‑агента, которой достаточно только базового Python",
-      "link": "https://habr.com/ru/articles/1088796/?utm_campaign=1088796&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-30T19:52:07.000Z"
-    },
-    {
-      "title": "Сервис SOFROS AI/ML на практике: реальные кейсы и экономический эффект от нормализации данных",
-      "link": "https://habr.com/ru/companies/sofros/articles/1068236/?utm_campaign=1068236&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-30T17:24:53.000Z"
-    },
-    {
-      "title": "ИИ-агент Muse без разрешения влез в личные сообщения пользователя — в M**a сказали, что тот сам виноват",
-      "link": "https://3dnews.ru/1149284/iiagent-muse-bez-razresheniya-vlez-v-lichnie-soobshcheniya-polzovatelya-v-meta-skazali-chto-tot-sam-vinovat",
-      "source": "3DNews",
-      "pubDate": "2026-09-30T15:51:00.000Z"
-    },
-    {
-      "title": "Дайджест ИБ, 23–29 сентября: OpenAI остановила свои модели, атака на «Додо Пиццу»",
-      "link": "https://habr.com/ru/articles/1088312/?utm_campaign=1088312&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-09-30T14:01:10.000Z"
     }
   ]
 }
