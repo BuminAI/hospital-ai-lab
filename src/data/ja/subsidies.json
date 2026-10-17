@@ -1,30 +1,6 @@
 {
-  "updatedAt": "2026-10-16T13:11:38.485Z",
+  "updatedAt": "2026-10-17T04:13:04.856Z",
   "items": [
-    {
-      "id": "a0WJ200000CDUheMAH",
-      "title": "令和８年度訪問系介護サービス事業所に対する防犯機器等導入支援補助金",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDUheMAH",
-      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
-      "catchPhrase": "",
-      "maxLimit": 100000,
-      "rate": "1/2",
-      "area": "東京都",
-      "startDate": "2026-08-30T15:00:00.000Z",
-      "endDate": "2026-10-16T14:59:00.000Z"
-    },
-    {
-      "id": "a0WJ200000CDUhfMAH",
-      "title": "令和８年度訪問介護員等補助者同行支援補助金",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDUhfMAH",
-      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
-      "catchPhrase": "",
-      "maxLimit": 0,
-      "rate": "3/4",
-      "area": "東京都",
-      "startDate": "2026-08-30T15:00:00.000Z",
-      "endDate": "2026-10-16T14:59:00.000Z"
-    },
     {
       "id": "a0WJ200000CDVu7MAH",
       "title": "令和７年度勤務環境改善体制医師派遣等推進事業",
