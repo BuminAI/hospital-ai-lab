@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-17T06:55:51.876Z",
+  "updatedAt": "2026-10-17T17:09:12.986Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Ни зарплат, ни отпусков, ни больничных. Зато есть User Story и Merge Request: как AI-агенты работают у меня в Jira",
+      "link": "https://habr.com/ru/articles/1095690/?utm_campaign=1095690&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-17T16:36:51.000Z"
+    },
     {
       "title": "Anthropic предложила американским законодателям собственный законопроект о регулировании отрасли ИИ",
       "link": "https://3dnews.ru/1150074/anthropic-predlogila-amerikanskim-zakonodatelyam-sobstvenniy-zakonoproekt-o-regulirovanii-otrasli-ii",
@@ -1795,12 +1801,6 @@
       "link": "https://habr.com/ru/articles/1088910/?utm_campaign=1088910&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-01T06:55:59.000Z"
-    },
-    {
-      "title": "НИУ ВШЭ разработает стандарт обучения по созданию и применению ИИ-агентов",
-      "link": "https://www.cnews.ru/news/line/2026-10-01_niu_vshe_razrabotaet_standart",
-      "source": "CNews",
-      "pubDate": "2026-10-01T06:02:00.000Z"
     }
   ]
 }
