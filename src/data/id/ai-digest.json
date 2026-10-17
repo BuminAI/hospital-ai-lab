@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-17T06:56:24.768Z",
+  "updatedAt": "2026-10-17T13:43:08.433Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "OpenAI telah memperbarui ekstensi ChatGPT untuk Chrome",
+      "link": "https://www.antaranews.com/berita/5793669/openai-telah-memperbarui-ekstensi-chatgpt-untuk-chrome",
+      "source": "ANTARA",
+      "pubDate": "2026-10-17T13:11:33.000Z"
+    },
+    {
+      "title": "Zoom Soroti Peran Manusia di Era AI, Pengawasan Tetap Jadi Kunci",
+      "link": "https://mediaindonesia.com/teknologi/945637/zoom-soroti-peran-manusia-di-era-ai-pengawasan-tetap-jadi-kunci",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-17T12:20:00.000Z"
+    },
+    {
+      "title": "Zoom Kembangkan AI Berbasis Percakapan, Bisa Pahami Konteks dan Banyak Bahasa",
+      "link": "https://mediaindonesia.com/teknologi/945617/zoom-kembangkan-ai-berbasis-percakapan-bisa-pahami-konteks-dan-banyak-bahasa",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-17T11:45:00.000Z"
+    },
+    {
+      "title": "Perhumas Tekankan Kejujuran dan Etika Komunikasi di Era AI",
+      "link": "https://mediaindonesia.com/nusantara/945596/perhumas-tekankan-kejujuran-dan-etika-komunikasi-di-era-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-17T10:06:00.000Z"
+    },
+    {
+      "title": "Korea Utara Uji Torpedo Berbasis AI untuk Deteksi Sasaran",
+      "link": "https://mediaindonesia.com/internasional/945565/korea-utara-uji-torpedo-berbasis-ai-untuk-deteksi-sasaran",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-17T09:02:00.000Z"
+    },
+    {
+      "title": "Google Kerahkan Gemini untuk Deteksi SMS Penipuan di Android",
+      "link": "https://inet.detik.com/security/d-8711032/google-kerahkan-gemini-untuk-deteksi-sms-penipuan-di-android",
+      "source": "detikINET",
+      "pubDate": "2026-10-17T08:15:35.000Z"
+    },
+    {
+      "title": "ASUS ExpertBook Ultra Hadirkan Generative AI Tanpa Bergantung Cloud",
+      "link": "https://inet.detik.com/consumer/d-8711401/asus-expertbook-ultra-hadirkan-generative-ai-tanpa-bergantung-cloud",
+      "source": "detikINET",
+      "pubDate": "2026-10-17T07:08:26.000Z"
+    },
     {
       "title": "Tips Aman Bikin CV Pakai AI",
       "link": "https://inet.detik.com/security/d-8711090/tips-aman-bikin-cv-pakai-ai",
@@ -1759,48 +1801,6 @@
       "link": "https://mediaindonesia.com/humaniora/939761/dampak-negatif-ai-di-sekolah-nilai-siswa-anjlok-dan-ketergantungan-emosional",
       "source": "Media Indonesia",
       "pubDate": "2026-10-01T14:33:00.000Z"
-    },
-    {
-      "title": "Acara OpenAI Mendadak Diserbu Pendemo, Ini Tuntutannya",
-      "link": "https://inet.detik.com/cyberlife/d-8688049/acara-openai-mendadak-diserbu-pendemo-ini-tuntutannya",
-      "source": "detikINET",
-      "pubDate": "2026-10-01T12:30:08.000Z"
-    },
-    {
-      "title": "China Dituding Curi Model AI, Bos Nvidia: Itu Namanya Persaingan",
-      "link": "https://inet.detik.com/cyberlife/d-8687939/china-dituding-curi-model-ai-bos-nvidia-itu-namanya-persaingan",
-      "source": "detikINET",
-      "pubDate": "2026-10-01T11:30:44.000Z"
-    },
-    {
-      "title": "OpenAI Rilis Dots, Agen AI yang Bekerja 24 Jam",
-      "link": "https://www.liputan6.com/tekno/read/8302573/openai-rilis-dots-agen-ai-yang-bekerja-24-jam",
-      "source": "Liputan6",
-      "pubDate": "2026-10-01T11:24:16.000Z"
-    },
-    {
-      "title": "Kekhawatiran Kawanan AI Bisa Rebut Internet, Ini Kata Pakar",
-      "link": "https://inet.detik.com/cyberlife/d-8687861/kekhawatiran-kawanan-ai-bisa-rebut-internet-ini-kata-pakar",
-      "source": "detikINET",
-      "pubDate": "2026-10-01T09:15:42.000Z"
-    },
-    {
-      "title": "AI makin sering dipakai untuk cari informasi kesehatan, apakah valid?",
-      "link": "https://www.antaranews.com/berita/5766527/ai-makin-sering-dipakai-untuk-cari-informasi-kesehatan-apakah-valid",
-      "source": "ANTARA",
-      "pubDate": "2026-10-01T08:43:15.000Z"
-    },
-    {
-      "title": "InfraNexia Siapkan Autonomous Network untuk Era AI",
-      "link": "https://uzone.id/infranexia-siapkan-autonomous-network-untuk-era-ai",
-      "source": "Uzone",
-      "pubDate": "2026-10-01T08:30:00.000Z"
-    },
-    {
-      "title": "Induk Google Perkenalkan Gemini 4 Argon, Diklaim Saingi GPT-6 Astra dan Grok 4.7",
-      "link": "https://katadata.co.id/digital/teknologi/6abe16be62bba/induk-google-perkenalkan-gemini-4-argon-diklaim-saingi-gpt-6-astra-dan-grok-47",
-      "source": "Katadata",
-      "pubDate": "2026-10-01T08:15:00.000Z"
     }
   ]
 }
