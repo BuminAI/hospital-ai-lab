@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-10-18T07:13:04.165Z",
+  "updatedAt": "2026-10-18T14:00:16.743Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Синтетическая эмпатия: как RAG, системные промпты и TTS инженерят привязанность к LLM-агентам",
+      "link": "https://habr.com/ru/articles/1095852/?utm_campaign=1095852&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-18T13:26:25.000Z"
+    },
+    {
+      "title": "DeepSeek обновила ИИ-модель V4.1-Flash — она стала быстрее и эффективнее",
+      "link": "https://3dnews.ru/1150101/deepseek-obnovila-iimodel-v41flash-ona-stala-bistree-i-effektivnee",
+      "source": "3DNews",
+      "pubDate": "2026-10-18T10:31:47.000Z"
+    },
+    {
+      "title": "ИИ не ускоряет разработчиков. Он увеличивает разрыв между ними",
+      "link": "https://habr.com/ru/articles/1095794/?utm_campaign=1095794&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-18T10:20:10.000Z"
+    },
     {
       "title": "Я пустил ИИ-агента на рабочий кластер 1С. Он нашёл 119 ГБ srvinfo, бэкап-призрак и не нашёл тормозов",
       "link": "https://habr.com/ru/articles/1095764/?utm_campaign=1095764&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://3dnews.ru/1149315/yandeks-predstavil-rekomendatelnuyu-generativnuyu-iimodel-sona-ona-uge-poselilas-v-kolonkah-salisoy",
       "source": "3DNews",
       "pubDate": "2026-10-01T09:16:00.000Z"
-    },
-    {
-      "title": "AI-системный аналитик: Mindbox научили агента исследовать задачу прежде чем писать код",
-      "link": "https://habr.com/ru/companies/mindbox/articles/1085648/?utm_campaign=1085648&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-01T09:00:34.000Z"
-    },
-    {
-      "title": "«Яндекс» представил Sona — ИИ-модель, способную заменить десятки алгоритмов рекомендаций",
-      "link": "https://www.cnews.ru/news/line/2026-10-01_yandeks_predstavil_sona_",
-      "source": "CNews",
-      "pubDate": "2026-10-01T07:20:00.000Z"
-    },
-    {
-      "title": "65 бесплатных уроков октября: от LLM и Kubernetes до микросервисов, Kafka и безопасности",
-      "link": "https://habr.com/ru/companies/otus/articles/1088240/?utm_campaign=1088240&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-01T07:08:21.000Z"
     }
   ]
 }
