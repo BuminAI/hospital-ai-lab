@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T14:00:16.743Z",
+  "updatedAt": "2026-10-18T17:22:04.901Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
     {
@@ -31,6 +31,12 @@
       "link": "https://habr.com/ru/articles/1095690/?utm_campaign=1095690&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-17T16:36:51.000Z"
+    },
+    {
+      "title": "ИИ-агенту разрешили не больше 100 единиц. Три корректных ALLOW дали итог 120",
+      "link": "https://habr.com/ru/articles/1095622/?utm_campaign=1095622&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-17T16:06:26.000Z"
     },
     {
       "title": "Anthropic предложила американским законодателям собственный законопроект о регулировании отрасли ИИ",
@@ -1795,12 +1801,6 @@
       "link": "https://www.tadviser.ru/a/968876",
       "source": "TAdviser",
       "pubDate": "2026-10-01T10:00:07.000Z"
-    },
-    {
-      "title": "«Яндекс» представил рекомендательную генеративную ИИ-модель Sona — она уже поселилась в колонках с «Алисой»",
-      "link": "https://3dnews.ru/1149315/yandeks-predstavil-rekomendatelnuyu-generativnuyu-iimodel-sona-ona-uge-poselilas-v-kolonkah-salisoy",
-      "source": "3DNews",
-      "pubDate": "2026-10-01T09:16:00.000Z"
     }
   ]
 }
