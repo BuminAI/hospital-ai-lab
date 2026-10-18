@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-18T00:01:39.700Z",
+  "updatedAt": "2026-10-18T07:13:04.165Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Я пустил ИИ-агента на рабочий кластер 1С. Он нашёл 119 ГБ srvinfo, бэкап-призрак и не нашёл тормозов",
+      "link": "https://habr.com/ru/articles/1095764/?utm_campaign=1095764&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-18T06:53:55.000Z"
+    },
     {
       "title": "Ни зарплат, ни отпусков, ни больничных. Зато есть User Story и Merge Request: как AI‑агенты работают у меня в Jira",
       "link": "https://habr.com/ru/articles/1095690/?utm_campaign=1095690&utm_source=habrahabr&utm_medium=rss",
@@ -1795,12 +1801,6 @@
       "link": "https://habr.com/ru/companies/otus/articles/1088240/?utm_campaign=1088240&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-01T07:08:21.000Z"
-    },
-    {
-      "title": "ИИ объясняет, приложение считает: почему я убрал языковую модель из кнопки, которая раскладывает деньги",
-      "link": "https://habr.com/ru/articles/1088910/?utm_campaign=1088910&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-01T06:55:59.000Z"
     }
   ]
 }
