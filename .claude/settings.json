@@ -26,9 +26,7 @@
       "Write(src/content/blog-id/**)",
       "Write(src/content/blog-tw/**)",
       "Edit(src/content/blog-id/**)",
-      "Edit(src/content/blog-tw/**)",
-      "Bash(./.claude/run-node.cmd scripts/pick-publish-time.mjs*)",
-      "Bash(./.claude/run-node.cmd scripts/post-quality-check.mjs*)"
+      "Edit(src/content/blog-tw/**)"
     ]
   }
 }

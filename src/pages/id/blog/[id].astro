@@ -6,7 +6,6 @@ import idI18n from '../../../i18n/id.json';
 import { withBase } from '../../../utils/site';
 import { citationsOf } from '../../../utils/citations';
 import SeriesBox from '../../../components/SeriesBox.astro';
-import OwnerNote from '../../../components/OwnerNote.astro';
 import SubscribeCta from '../../../components/SubscribeCta.astro';
 import { getResolvedSeries, seriesOfPost } from '../../../utils/series';
 
@@ -54,8 +53,7 @@ try {
   )
     .toString()
     .trim();
-  // 예약 발행 글은 커밋이 공개 시각보다 먼저라 수정일이 발행일보다 앞서 버린다 — 발행일 이후일 때만 쓴다.
-  if (gitDate && new Date(gitDate) > post.data.pubDate) dateModifiedIso = gitDate;
+  if (gitDate) dateModifiedIso = gitDate;
 } catch {
   // 폴백: 위에서 이미 발행일로 초기화해 두었다.
 }
@@ -144,7 +142,6 @@ const blogPosting = {
     )
   }
 
-  <OwnerNote note={post.data.ownerNote} loc="id" />
   <SeriesBox items={seriesItems} loc="id" />
   <SubscribeCta loc="id" />
 

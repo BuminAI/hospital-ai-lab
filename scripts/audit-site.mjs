@@ -279,38 +279,8 @@ for (const info of pages.values()) {
   if (info.textLen < 900) add('warn', locale, url, 'post-thin', `본문 글자 수 ${info.textLen} (얇은 글)`);
 }
 
-// ── 예약 발행 누출 검사 (2026-10-13) ────────────────
-// 공개 시각이 아직 안 된 글(pubDate가 미래)이 산출물에 있으면 오류다.
-// src/content.config.ts의 로더가 거르지만, 그 규칙이 깨져도 조용히 새 나가지 않게 이중으로 본다.
-{
-  const dirs = [
-    ['src/content/blog', ''],
-    ['src/content/blog-ja', '/ja'],
-    ['src/content/blog-ru', '/ru'],
-    ['src/content/blog-id', '/id'],
-    ['src/content/blog-tw', '/tw'],
-  ];
-  const nowMs = Date.now();
-  for (const [dir, prefix] of dirs) {
-    if (!existsSync(dir)) continue;
-    for (const f of (await readdir(dir)).filter((n) => n.endsWith('.md'))) {
-      const head = (await readFile(path.join(dir, f), 'utf8')).replace(/\r\n/g, '\n').split('\n---')[0];
-      const m = /^pubDate:\s*["']?([^"'\n]+)["']?\s*$/m.exec(head);
-      if (!m) continue;
-      const t = new Date(m[1].trim()).getTime();
-      if (!Number.isFinite(t) || t <= nowMs) continue;
-      const id = f.replace(/\.md$/, '');
-      const url = `${prefix}/blog/${id}/`;
-      const ogFile = path.join(DIST, 'og', prefix.replace('/', ''), `${id}.png`);
-      if (pages.has(url) || existsSync(ogFile)) {
-        add('error', prefix ? prefix.slice(1) : 'ko', url, 'scheduled-leak', `공개 예정(${m[1].trim()})인 글이 산출물에 이미 있음`);
-      }
-    }
-  }
-}
-
 // ── 언어판 간 획일성 ────────────────────────────────
-const logical =(u, loc) => (loc === 'ko' ? u : u.replace(new RegExp(`^/${loc}`), '')) || '/';
+const logical = (u, loc) => (loc === 'ko' ? u : u.replace(new RegExp(`^/${loc}`), '')) || '/';
 const inventory = {};
 for (const loc of LOCALES) inventory[loc] = new Set();
 for (const info of pages.values()) {
