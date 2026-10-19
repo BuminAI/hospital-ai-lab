@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-19T07:45:39.998Z",
+  "updatedAt": "2026-10-19T16:59:37.309Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Intel Luncurkan GPU D-Series Memori 480 GB untuk Inferensi AI",
+      "link": "https://mediaindonesia.com/teknologi/946216/intel-luncurkan-gpu-d-series-memori-480-gb-untuk-inferensi-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-19T14:10:00.000Z"
+    },
+    {
+      "title": "BenQ Board CP05 Resmi Diperkenalkan di Indonesia, Bawa Teknologi AI NPU 10 TOPS",
+      "link": "https://mediaindonesia.com/teknologi/946192/benq-board-cp05-resmi-diperkenalkan-di-indonesia-bawa-teknologi-ai-npu-10-tops",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-19T13:19:00.000Z"
+    },
+    {
+      "title": "Empat Hasil Rapat MBG: Ubah Insentif hingga Awasi Dapur SPPG dengan AI",
+      "link": "https://katadata.co.id/berita/nasional/6ad5fd9e53c18/empat-hasil-rapat-mbg-ubah-insentif-hingga-awasi-dapur-sppg-dengan-ai",
+      "source": "Katadata",
+      "pubDate": "2026-10-19T11:23:00.000Z"
+    },
+    {
+      "title": "BGN Pasang Mata di Dapur MBG, CCTV Ditarik ke Pusat dan Dipantau AI",
+      "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8714410/bgn-pasang-mata-di-dapur-mbg-cctv-ditarik-ke-pusat-dan-dipantau-ai",
+      "source": "detikFinance",
+      "pubDate": "2026-10-19T11:17:02.000Z"
+    },
+    {
+      "title": "Penggunaan AI untuk Pembelajaran Meningkat, Mahasiswa Diajak Eksplorasi Teknologi",
+      "link": "https://mediaindonesia.com/teknologi/946146/penggunaan-ai-untuk-pembelajaran-meningkat-mahasiswa-diajak-eksplorasi-teknologi",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-19T11:06:00.000Z"
+    },
+    {
+      "title": "Asisten AI Bisa Kena Tipu Email Phishing, Bukan Cuma Manusia!",
+      "link": "https://www.liputan6.com/tekno/read/8316423/asisten-ai-bisa-kena-tipu-email-phishing-bukan-cuma-manusia",
+      "source": "Liputan6",
+      "pubDate": "2026-10-19T10:16:55.000Z"
+    },
+    {
+      "title": "AI Ubah Industri Kehumasan, Telkom Tekankan Trust dan Akuntabilitas Tetap Kunci",
+      "link": "https://katadata.co.id/digital/teknologi/6ad5df770cb5e/ai-ubah-industri-kehumasan-telkom-tekankan-trust-dan-akuntabilitas-tetap-kunci",
+      "source": "Katadata",
+      "pubDate": "2026-10-19T09:11:00.000Z"
+    },
     {
       "title": "Pusat Data AI di Dasar Laut, Solusi Cerdas atau Masalah Baru?",
       "link": "https://www.liputan6.com/tekno/read/8315070/pusat-data-ai-di-dasar-laut-solusi-cerdas-atau-masalah-baru",
@@ -1759,48 +1801,6 @@
       "link": "https://mediaindonesia.com/internasional/940183/paus-leo-xiv-soroti-urgensi-pembedaan-seni-manusia-dan-karya-ai",
       "source": "Media Indonesia",
       "pubDate": "2026-10-03T07:20:00.000Z"
-    },
-    {
-      "title": "Robot hiburan Jepang kian beragam, tawarkan kenyamanan berkat AI",
-      "link": "https://www.antaranews.com/berita/5769810/robot-hiburan-jepang-kian-beragam-tawarkan-kenyamanan-berkat-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-10-03T07:10:54.000Z"
-    },
-    {
-      "title": "Paus Leo XIV desak pembedaan seni karya manusia dan kreasi AI",
-      "link": "https://www.antaranews.com/berita/5769796/paus-leo-xiv-desak-pembedaan-seni-karya-manusia-dan-kreasi-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-10-03T06:59:24.000Z"
-    },
-    {
-      "title": "Ancaman Siber Seluler 2025 Meningkat, Kaspersky Tekankan Keamanan Berbasis AI",
-      "link": "https://mediaindonesia.com/teknologi/940158/ancaman-siber-seluler-2025-meningkat-kaspersky-tekankan-keamanan-berbasis-ai",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-03T03:29:00.000Z"
-    },
-    {
-      "title": "Mahasiswa DO Bangun Startup AI Rp 179 Triliun Sampai Disenggol Meta",
-      "link": "https://inet.detik.com/business/d-8690368/mahasiswa-do-bangun-startup-ai-rp-179-triliun-sampai-disenggol-meta",
-      "source": "detikINET",
-      "pubDate": "2026-10-03T03:15:41.000Z"
-    },
-    {
-      "title": "Adopsi AI Fintech Indonesia Capai 84 Persen, Waspada Ancaman Deepfake",
-      "link": "https://mediaindonesia.com/teknologi/940153/adopsi-ai-fintech-indonesia-capai-84-persen-waspada-ancaman-deepfake",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-03T03:06:00.000Z"
-    },
-    {
-      "title": "Google Gemini 4 Argon Diluncurkan, Siap Tantang GPT-6 Astra",
-      "link": "https://inet.detik.com/cyberlife/d-8690243/google-gemini-4-argon-diluncurkan-siap-tantang-gpt-6-astra",
-      "source": "detikINET",
-      "pubDate": "2026-10-02T23:30:14.000Z"
-    },
-    {
-      "title": "Dugaan Penggunaan AI Guncang Kontes Fotografi Ilmiah Bergengsi",
-      "link": "https://inet.detik.com/fotostop-news/d-8690106/dugaan-penggunaan-ai-guncang-kontes-fotografi-ilmiah-bergengsi",
-      "source": "detikINET",
-      "pubDate": "2026-10-02T15:33:05.000Z"
     }
   ]
 }
