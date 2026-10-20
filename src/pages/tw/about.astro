@@ -47,6 +47,20 @@ const profilePage = {
   <h2>{tw.about.whyHeading}</h2>
   <p>{tw.about.whyBody}</p>
 
+  {/* 寫作與查核原則 (2026-10-21) — Organization.publishingPrinciples 指向 #principles。
+      只寫實際遵守的事項（CLAUDE.md 的事實查核規則改寫給讀者看）。 */}
+  <h2 id="principles">{tw.about.principlesHeading}</h2>
+  <p>{tw.about.principlesLead}</p>
+  <ul class="tw-principles">
+    {
+      tw.about.principlesItems.map((item) => (
+        <li>
+          <strong>{item.title}</strong>{item.body}
+        </li>
+      ))
+    }
+  </ul>
+
   <h2>{tw.about.researchHeading}</h2>
   <ul class="tw-research">
     {
@@ -89,6 +103,14 @@ const profilePage = {
   }
   .tw-profile dd {
     margin: 0;
+  }
+  .tw-principles {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.85;
   }
   .tw-contact {
     margin: 12px 0 0;

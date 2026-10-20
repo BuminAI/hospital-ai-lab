@@ -83,7 +83,13 @@ const organization = {
   founder: { '@id': `${siteUrl}/#person` },
   email: CONTACT_EMAIL,
   areaServed: { '@type': 'Country', name: '대한민국' },
-  ...organizationShared({ siteRoot: siteUrl, name: SITE_TITLE, logoPath: withBase('/logo-512.png') }),
+  ...organizationShared({
+    siteRoot: siteUrl,
+    name: SITE_TITLE,
+    logoPath: withBase('/logo-512.png'),
+    // 화면에 있는 '글을 쓰고 검증하는 원칙' 블록(/about/#principles)을 가리킨다.
+    principlesUrl: `${siteUrl}${withBase('/about/')}#principles`,
+  }),
 };
 
 const website = {

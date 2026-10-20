@@ -124,6 +124,30 @@
     "careerHeading": "Latar belakang",
     "whyHeading": "Kenapa versi Indonesia dibuat",
     "whyBody": "Pertanyaan yang muncul saat rumah sakit mempertimbangkan AI hampir sama di mana pun: apakah alatnya sudah terdaftar, bagaimana data pasien diperlakukan, dan siapa yang bertanggung jawab kalau hasilnya keliru. Tetapi jawabannya bergantung pada regulasi masing-masing negara. Karena itu versi ini ditulis ulang dengan rujukan Indonesia, bukan diterjemahkan.",
+    "principlesHeading": "Prinsip penulisan dan verifikasi",
+    "principlesLead": "Tulisan di situs ini disusun agar staf administrasi dan keperawatan rumah sakit dapat menelusuri sendiri dasarnya. Berikut prinsip yang dipegang.",
+    "principlesItems": [
+      {
+        "title": "Fakta disertai sumber.",
+        "body": "Kalimat tentang regulasi, angka, dan contoh kasus diberi tautan ke sumber seperti dokumen resmi kementerian, jurnal ilmiah, atau pemberitaan."
+      },
+      {
+        "title": "Sumber dibuka sebelum tulisan terbit.",
+        "body": "Diperiksa apakah tautannya masih aktif dan benar-benar mendukung isi tulisan."
+      },
+      {
+        "title": "Yang tidak dapat diverifikasi tidak dimuat.",
+        "body": "Kalimat tanpa dasar dihapus, dan informasi medis yang belum meyakinkan tidak ditulis."
+      },
+      {
+        "title": "Hanya informasi umum.",
+        "body": "Tidak ada saran diagnosis atau pengobatan untuk pasien tertentu, dan tidak ada promosi rumah sakit atau produk tertentu. Setiap tulisan ditutup dengan pernyataan penafian."
+      },
+      {
+        "title": "Kesalahan diperbaiki dan tanggal pembaruan dicatat.",
+        "body": "Jika setelah terbit ditemukan kesalahan atau sumber yang terlewat, tulisan diperbaiki dan tanggalnya ditampilkan pada keterangan Diperbarui. Jika Anda menemukan kekeliruan, kabari kami melalui kontak di bagian bawah halaman."
+      }
+    ],
     "researchHeading": "Bidang Riset",
     "researchAreas": [
       {

@@ -55,6 +55,20 @@ const profilePage = {
   <h2>{ja.about.methodTitle}</h2>
   <p>{ja.about.method}</p>
 
+  {/* 記事を書く・確かめるときの原則 (2026-10-21) — Organization.publishingPrinciples が #principles を指す。
+      実際に守っていることだけを書く(CLAUDE.md の事実検証ルールを読者向けに移したもの)。 */}
+  <h2 id="principles">{ja.about.principlesTitle}</h2>
+  <p>{ja.about.principlesLead}</p>
+  <ul class="ja-principles">
+    {
+      ja.about.principles.map((item) => (
+        <li>
+          <strong>{item.title}</strong> {item.body}
+        </li>
+      ))
+    }
+  </ul>
+
   <h2>{ja.about.researchTitle}</h2>
   <ul class="ja-research">
     {
@@ -92,6 +106,14 @@ const profilePage = {
     width: 6.5em;
     white-space: nowrap;
     font-weight: 600;
+  }
+  .ja-principles {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.85;
   }
   .ja-research {
     list-style: none;

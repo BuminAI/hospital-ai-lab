@@ -55,6 +55,20 @@ const profilePage = {
   <h2>{ru.about.methodTitle}</h2>
   <p>{ru.about.method}</p>
 
+  {/* Принципы (2026-10-21) — Organization.publishingPrinciples ссылается на #principles.
+      Пишем только то, что действительно соблюдается (правила проверки фактов из CLAUDE.md). */}
+  <h2 id="principles">{ru.about.principlesTitle}</h2>
+  <p>{ru.about.principlesLead}</p>
+  <ul class="ru-principles">
+    {
+      ru.about.principles.map((item) => (
+        <li>
+          <strong>{item.title}</strong> {item.body}
+        </li>
+      ))
+    }
+  </ul>
+
   <h2>{ru.about.researchTitle}</h2>
   <ul class="ru-research">
     {
@@ -92,6 +106,14 @@ const profilePage = {
     width: 8em;
     white-space: nowrap;
     font-weight: 600;
+  }
+  .ru-principles {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.8;
   }
   .ru-research {
     list-style: none;

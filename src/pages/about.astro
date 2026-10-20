@@ -100,6 +100,42 @@ const timeline = [
       </p>
     </section>
 
+    {/*
+      글을 쓰고 검증하는 원칙 (2026-10-21 신설) — Organization.publishingPrinciples(SchemaOrg)가
+      이 블록(#principles)을 가리킨다. 문장은 CLAUDE.md의 사실 검증·의료 콘텐츠 규칙을 독자용으로
+      옮긴 것이다. ⚠️ 규칙이 바뀌면 이 블록도 함께 고칠 것 — 실제로 지키는 것만 적는다.
+    */}
+    <section class="section" id="principles">
+      <h2>글을 쓰고 검증하는 원칙</h2>
+      <p>
+        이 사이트의 글은 병원 행정·간호 실무자가 근거를 따라가며 읽을 수 있도록 아래 원칙으로
+        씁니다.
+      </p>
+      <ul class="principles">
+        <li>
+          <strong>사실에는 출처를 답니다.</strong> 제도·수치·사례를 말하는 문장에는 정부 부처 원문,
+          논문, 언론 기사 같은 출처 링크를 붙입니다.
+        </li>
+        <li>
+          <strong>발행 전에 출처를 직접 열어 봅니다.</strong> 링크가 살아 있는지, 글에서 말한 내용을
+          실제로 뒷받침하는지 확인합니다.
+        </li>
+        <li>
+          <strong>확인하지 못한 내용은 싣지 않습니다.</strong> 근거를 찾지 못한 문장은 빼고, 확신이
+          서지 않는 의학 정보는 쓰지 않습니다.
+        </li>
+        <li>
+          <strong>일반 정보만 다룹니다.</strong> 특정 환자에 대한 진단·치료 조언을 하지 않고, 특정
+          병원이나 제품을 홍보하지 않습니다. 모든 글 하단에 면책 문구를 둡니다.
+        </li>
+        <li>
+          <strong>오류는 고치고 수정일을 남깁니다.</strong> 발행한 뒤 오류나 빠진 출처를 알게 되면
+          글을 고치고, 고친 날짜를 글 머리에 표시합니다. 잘못된 내용을 발견하셨다면
+          <a href={withBase('/contact/')}>문의 페이지</a>로 알려 주세요.
+        </li>
+      </ul>
+    </section>
+
     <section class="section" id="research">
       <h2>연구 분야</h2>
       <div class="areas">
@@ -169,6 +205,14 @@ const timeline = [
 
   .section p {
     color: var(--color-text);
+  }
+
+  .principles {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.75rem;
+    line-height: 1.7;
   }
 
   .honest-note {

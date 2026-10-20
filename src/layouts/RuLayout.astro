@@ -156,7 +156,12 @@ const organization = {
   founder: { '@id': `${siteRoot}/#person` },
   email: CONTACT_EMAIL,
   // 로고·sameAs·다른 이름·사용 언어는 다섯 언어판이 같은 값을 쓴다(src/utils/entity.ts).
-  ...organizationShared({ siteRoot, name: SITE_RU, logoPath: withBase('/logo-512.png') }),
+  ...organizationShared({
+    siteRoot,
+    name: SITE_RU,
+    logoPath: withBase('/logo-512.png'),
+    principlesUrl: `${siteRoot}${withBase('/ru/about/')}#principles`,
+  }),
 };
 const website = {
   '@type': 'WebSite',
