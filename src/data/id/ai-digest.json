@@ -1,7 +1,73 @@
 {
-  "updatedAt": "2026-10-20T07:32:34.140Z",
+  "updatedAt": "2026-10-20T15:04:41.385Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Bantu Perluas Akses Pembiayaan UMKM lewat Teknologi AI",
+      "link": "https://mediaindonesia.com/ekonomi/946713/bantu-perluas-akses-pembiayaan-umkm-lewat-teknologi-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-20T14:49:00.000Z"
+    },
+    {
+      "title": "Kemkomdigi upayakan pembangunan pusat data AI hingga ke timur",
+      "link": "https://www.antaranews.com/berita/5800293/kemkomdigi-upayakan-pembangunan-pusat-data-ai-hingga-ke-timur",
+      "source": "ANTARA",
+      "pubDate": "2026-10-20T14:33:44.000Z"
+    },
+    {
+      "title": "Pakar Internasional Dorong Pemanfaatan AI dan Data Lokal untuk Lindungi Anak Usia Dini dari Krisis Iklim dan Ketimpangan Pendidikan",
+      "link": "https://mediaindonesia.com/humaniora/946676/-pakar-internasional-dorong-pemanfaatan-ai-dan-data-lokal-untuk-lindungi-anak-usia-dini-dari-krisis-iklim-dan-ketimpangan-pendid",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-20T13:36:00.000Z"
+    },
+    {
+      "title": "Meta dan Kemendag Dorong UMKM Go Global Lewat Teknologi AI",
+      "link": "https://mediaindonesia.com/ekonomi/946663/meta-dan-kemendag-dorong-umkm-go-global-lewat-teknologi-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-20T13:18:00.000Z"
+    },
+    {
+      "title": "AI dan Ancaman Siber Jadi Tantangan Baru bagi Bisnis di Indonesia",
+      "link": "https://katadata.co.id/digital/teknologi/6ad76765edf19/ai-dan-ancaman-siber-jadi-tantangan-baru-bagi-bisnis-di-indonesia",
+      "source": "Katadata",
+      "pubDate": "2026-10-20T13:06:00.000Z"
+    },
+    {
+      "title": "Harga Tembus 113 Juta! Ini Wujud Laptop AI ASUS ProArt P14 dan P16",
+      "link": "https://inet.detik.com/fotoinet/d-8715772/harga-tembus-113-juta-ini-wujud-laptop-ai-asus-proart-p14-dan-p16",
+      "source": "detikINET",
+      "pubDate": "2026-10-20T11:15:40.000Z"
+    },
+    {
+      "title": "GoTo Rilis Model LLM 27B, Paham Bahasa Indonesia hingga Daerah",
+      "link": "https://inet.detik.com/cyberlife/d-8716074/goto-rilis-model-llm-27b-paham-bahasa-indonesia-hingga-daerah",
+      "source": "detikINET",
+      "pubDate": "2026-10-20T11:01:48.000Z"
+    },
+    {
+      "title": "GoTo Rilis Model Bahasa AI Gratis, dari Bahasa Indonesia hingga Batak",
+      "link": "https://uzone.id/goto-rilis-model-bahasa-ai-gratis-dari-bahasa-indonesia-hingga-batak",
+      "source": "Uzone",
+      "pubDate": "2026-10-20T10:46:45.000Z"
+    },
+    {
+      "title": "Bos ITSEC Wanti-wanti Serangan Siber Makin Cepat Berkat AI, 27% Terjadi di RI",
+      "link": "https://katadata.co.id/digital/teknologi/6ad73530e99f3/bos-itsec-wanti-wanti-serangan-siber-makin-cepat-berkat-ai-27-terjadi-di-ri",
+      "source": "Katadata",
+      "pubDate": "2026-10-20T09:32:00.000Z"
+    },
+    {
+      "title": "Microsoft: Hati-Hati, Agen AI Bisa Jadi Ancaman Internal Perusahaan",
+      "link": "https://www.liputan6.com/tekno/read/8316880/microsoft-hati-hati-agen-ai-bisa-jadi-ancaman-internal-perusahaan",
+      "source": "Liputan6",
+      "pubDate": "2026-10-20T09:08:26.000Z"
+    },
+    {
+      "title": "AS Blokir AI China DeepSeek dari Sistem Pemerintah",
+      "link": "https://www.liputan6.com/tekno/read/8317219/as-blokir-ai-china-deepseek-dari-sistem-pemerintah",
+      "source": "Liputan6",
+      "pubDate": "2026-10-20T07:53:49.000Z"
+    },
     {
       "title": "Indonesia Siapkan Aturan Etika AI dan Peta Jalan Nasional",
       "link": "https://www.liputan6.com/tekno/read/8317168/indonesia-siapkan-aturan-etika-ai-dan-peta-jalan-nasional",
@@ -1735,72 +1801,6 @@
       "link": "https://katadata.co.id/digital/teknologi/6ac31fb9b554f/trump-meluncurkan-satgas-kecerdasan-super-untuk-mengawasi-kebijakan-ai",
       "source": "Katadata",
       "pubDate": "2026-10-05T03:55:00.000Z"
-    },
-    {
-      "title": "Google Bekukan Bug Bounty Gara-gara Kebanjiran Laporan Buatan AI",
-      "link": "https://inet.detik.com/cyberlife/d-8692426/google-bekukan-bug-bounty-gara-gara-kebanjiran-laporan-buatan-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-05T03:45:13.000Z"
-    },
-    {
-      "title": "WhatsApp Uji Restricted Chat untuk Cegah AI Sadap Isi Pesan, Ini Cara Kerjanya",
-      "link": "https://www.liputan6.com/tekno/read/8305849/whatsapp-uji-restricted-chat-untuk-cegah-ai-sadap-isi-pesan-ini-cara-kerjanya",
-      "source": "Liputan6",
-      "pubDate": "2026-10-05T03:11:35.000Z"
-    },
-    {
-      "title": "Meta Muse Tembus 5 Juta Download dalam 3 Minggu, Kalahkan ChatGPT",
-      "link": "https://inet.detik.com/cyberlife/d-8692423/meta-muse-tembus-5-juta-download-dalam-3-minggu-kalahkan-chatgpt",
-      "source": "detikINET",
-      "pubDate": "2026-10-05T01:45:35.000Z"
-    },
-    {
-      "title": "Babat Hutan, Proyek Data Center AI Google Dikecam",
-      "link": "https://inet.detik.com/cyberlife/d-8692406/babat-hutan-proyek-data-center-ai-google-dikecam",
-      "source": "detikINET",
-      "pubDate": "2026-10-05T01:15:44.000Z"
-    },
-    {
-      "title": "Petinggi Keamanan OpenAI Mundur, Sebut Budaya Perusahaan Rusak",
-      "link": "https://mediaindonesia.com/teknologi/940650/petinggi-keamanan-openai-mundur-sebut-budaya-perusahaan-rusak",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-05T00:00:00.000Z"
-    },
-    {
-      "title": "UID-Tsinghua kembangkan konsep kota berbasis AI dan Tri Hita Karana",
-      "link": "https://www.antaranews.com/berita/5770874/uid-tsinghua-kembangkan-konsep-kota-berbasis-ai-dan-tri-hita-karana",
-      "source": "ANTARA",
-      "pubDate": "2026-10-04T12:44:01.000Z"
-    },
-    {
-      "title": "Judi Online dan AI Jadi Ancaman Baru Kebocoran Data dari Dalam",
-      "link": "https://inet.detik.com/security/d-8691970/judi-online-dan-ai-jadi-ancaman-baru-kebocoran-data-dari-dalam",
-      "source": "detikINET",
-      "pubDate": "2026-10-04T10:31:05.000Z"
-    },
-    {
-      "title": "AI Makin Marak di Indonesia, Tapi 83% Perusahaan Masih Terganjal Silo Data",
-      "link": "https://inet.detik.com/business/d-8691949/ai-makin-marak-di-indonesia-tapi-83-perusahaan-masih-terganjal-silo-data",
-      "source": "detikINET",
-      "pubDate": "2026-10-04T09:55:19.000Z"
-    },
-    {
-      "title": "KDM Setop Proyek Pusat Data AI di Jatiluhur, Bisa Bikin Investor Kabur?",
-      "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8691802/kdm-setop-proyek-pusat-data-ai-di-jatiluhur-bisa-bikin-investor-kabur",
-      "source": "detikFinance",
-      "pubDate": "2026-10-04T09:00:38.000Z"
-    },
-    {
-      "title": "Google kembangkan Gemini dengan fitur Maps untuk Andorid dan iOS",
-      "link": "https://www.antaranews.com/berita/5770602/google-kembangkan-gemini-dengan-fitur-maps-untuk-andorid-dan-ios",
-      "source": "ANTARA",
-      "pubDate": "2026-10-04T07:59:21.000Z"
-    },
-    {
-      "title": "Peringatan Interpol: AI Tingkatkan Skala dan Kecepatan Kejahatan Siber",
-      "link": "https://inet.detik.com/security/d-8691719/peringatan-interpol-ai-tingkatkan-skala-dan-kecepatan-kejahatan-siber",
-      "source": "detikINET",
-      "pubDate": "2026-10-04T07:32:41.000Z"
     }
   ]
 }
