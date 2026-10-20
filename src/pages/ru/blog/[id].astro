@@ -8,6 +8,7 @@ import { citationsOf } from '../../../utils/citations';
 import SeriesBox from '../../../components/SeriesBox.astro';
 import SubscribeCta from '../../../components/SubscribeCta.astro';
 import { getResolvedSeries, seriesOfPost } from '../../../utils/series';
+import { pickRelated } from '../../../utils/related';
 
 const fmt = new Intl.DateTimeFormat('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -30,10 +31,8 @@ const RELATED_COUNT = 3;
 const others = (await getCollection('blogRu', ({ data }) => !data.draft))
   .filter((p) => p.id !== post.id)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const related = [
-  ...others.filter((p) => p.data.category === post.data.category),
-  ...others.filter((p) => p.data.category !== post.data.category),
-].slice(0, RELATED_COUNT);
+// 2026-10-21: 같은 분류 최신순에서 주제가 가까운 순으로 바꿨다(src/utils/related.ts).
+const related = pickRelated(post, others, RELATED_COUNT);
 
 // 연재 시리즈(2026-09-20) — 이 글이 속한 시리즈가 있으면 글 하단에서 이전·다음 글로 잇는다.
 const seriesItems = seriesOfPost(await getResolvedSeries('ru'), post.id);

@@ -7,6 +7,7 @@ import SeriesBox from '../../components/SeriesBox.astro';
 import SubscribeCta from '../../components/SubscribeCta.astro';
 import { withBase, formatDate } from '../../utils/site';
 import { citationsOf } from '../../utils/citations';
+import { pickRelated } from '../../utils/related';
 import { getResolvedSeries, seriesOfPost } from '../../utils/series';
 
 export async function getStaticPaths() {
@@ -30,11 +31,9 @@ const RELATED_COUNT = 3;
 const others = (await getCollection('blog', ({ data }) => !data.draft))
   .filter((p) => p.id !== post.id)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const sameCategory = others.filter((p) => p.data.category === post.data.category);
-const related = [
-  ...sameCategory,
-  ...others.filter((p) => p.data.category !== post.data.category),
-].slice(0, RELATED_COUNT);
+// 2026-10-21: '같은 분류의 최신 3편'에서 '주제가 가까운 3편'으로 바꿨다(src/utils/related.ts).
+// 분류 하나가 전체의 70%라 예전 방식은 거의 모든 글이 같은 최신 3편으로 연결됐다.
+const related = pickRelated(post, others, RELATED_COUNT);
 
 // 이 글이 속한 연재(2026-09-20) — 이전·다음 글로 이어 주는 상자에 쓴다.
 const seriesItems = seriesOfPost(await getResolvedSeries(), post.id);
