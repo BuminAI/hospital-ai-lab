@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-19T16:59:37.309Z",
+  "updatedAt": "2026-10-20T01:06:25.708Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Ketika AI Bikin HP Murah Makin Mahal, iPhone Terbaru Tetap Diburu",
+      "link": "https://katadata.co.id/indepth/telaah/6ad64bd9a4173/ketika-ai-bikin-hp-murah-makin-mahal-iphone-terbaru-tetap-diburu",
+      "source": "Katadata",
+      "pubDate": "2026-10-20T00:05:00.000Z"
+    },
+    {
+      "title": "Pusat Data AI: Berapa Nilai Publik dari Setiap Megawatt?",
+      "link": "https://mediaindonesia.com/opini/946205/pusat-data-ai-berapa-nilai-publik-dari-setiap-megawatt",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-19T22:05:00.000Z"
+    },
+    {
+      "title": "Kejar Royalti Adil di Era Kecerdasan Buatan",
+      "link": "https://mediaindonesia.com/politik-dan-hukum/946158/kejar-royalti-adil-di-era-kecerdasan-buatan",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-19T22:00:00.000Z"
+    },
+    {
+      "title": "BDO: Keamanan data jadi tantangan adopsi AI bagi perusahaan",
+      "link": "https://www.antaranews.com/berita/5797973/bdo-keamanan-data-jadi-tantangan-adopsi-ai-bagi-perusahaan",
+      "source": "ANTARA",
+      "pubDate": "2026-10-19T17:26:57.000Z"
+    },
     {
       "title": "Intel Luncurkan GPU D-Series Memori 480 GB untuk Inferensi AI",
       "link": "https://mediaindonesia.com/teknologi/946216/intel-luncurkan-gpu-d-series-memori-480-gb-untuk-inferensi-ai",
@@ -1777,30 +1801,6 @@
       "link": "https://inet.detik.com/security/d-8691176/risiko-baru-agentic-ai-kebocoran-data-chatbot",
       "source": "detikINET",
       "pubDate": "2026-10-03T14:15:31.000Z"
-    },
-    {
-      "title": "Apple perketat kontrol Full Disk Access di macOS karena risiko agen AI",
-      "link": "https://www.antaranews.com/berita/5770105/apple-perketat-kontrol-full-disk-access-di-macos-karena-risiko-agen-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-10-03T13:21:41.000Z"
-    },
-    {
-      "title": "Google luncurkan satelit berisi cip AI, uji kemampuan di luar angkasa",
-      "link": "https://www.antaranews.com/berita/5770038/google-luncurkan-satelit-berisi-cip-ai-uji-kemampuan-di-luar-angkasa",
-      "source": "ANTARA",
-      "pubDate": "2026-10-03T11:56:14.000Z"
-    },
-    {
-      "title": "Google Rilis Gemini 4 Argon, Diklaim Jadi Model AI Paling Canggih",
-      "link": "https://uzone.id/google-rilis-gemini-4-argon-diklaim-jadi-model-ai-paling-canggih",
-      "source": "Uzone",
-      "pubDate": "2026-10-03T09:00:00.000Z"
-    },
-    {
-      "title": "Paus Leo XIV Soroti Urgensi Pembedaan Seni Manusia dan Karya AI",
-      "link": "https://mediaindonesia.com/internasional/940183/paus-leo-xiv-soroti-urgensi-pembedaan-seni-manusia-dan-karya-ai",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-03T07:20:00.000Z"
     }
   ]
 }

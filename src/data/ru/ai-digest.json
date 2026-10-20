@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-19T16:58:37.137Z",
+  "updatedAt": "2026-10-20T01:05:26.338Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Делаю светильники из картинок: локальная нейросеть вместо платных 3D-сервисов",
+      "link": "https://habr.com/ru/articles/1096428/?utm_campaign=1096428&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-19T22:09:32.000Z"
+    },
     {
       "title": "Хакерам грозит безработица: ИИ-агенты освоили сложные кибервторжения без участия человека",
       "link": "https://3dnews.ru/1150132/hakeram-grozit-bezrabotitsa-iiagenti-osvoili-slognie-kibervtorgeniya-bez-uchastiya-cheloveka",
@@ -9,7 +15,7 @@
       "pubDate": "2026-10-19T16:24:00.000Z"
     },
     {
-      "title": "Цена полезного ответа: считаем unit-экономику ИИ-сервиса, а не стоимость миллиона токенов",
+      "title": "Цена полезного ответа: считаем unit‑экономику ИИ‑сервиса, а не стоимость миллиона токенов",
       "link": "https://habr.com/ru/companies/cloud_ru/articles/1094310/?utm_campaign=1094310&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-19T15:23:11.000Z"
@@ -45,13 +51,13 @@
       "pubDate": "2026-10-19T11:56:00.000Z"
     },
     {
-      "title": "Pets.com умер, Amazon выжил. Что пузырь 2000-го говорит об ИИ-сервисах",
+      "title": "Pets.com умер, Amazon выжил. Что пузырь 2000-го говорит об ИИ‑сервисах",
       "link": "https://habr.com/ru/articles/1096224/?utm_campaign=1096224&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-19T10:34:29.000Z"
     },
     {
-      "title": "Генеративный ИИ в бизнес-процессах: мышление, развитие и будущее",
+      "title": "Генеративный ИИ в бизнес‑процессах: мышление, развитие и будущее",
       "link": "https://habr.com/ru/companies/sminex_developer/articles/1094662/?utm_campaign=1094662&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-19T09:40:23.000Z"
@@ -1795,12 +1801,6 @@
       "link": "https://habr.com/ru/articles/1089782/?utm_campaign=1089782&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-02T16:05:34.000Z"
-    },
-    {
-      "title": "Американский суд впервые признал незаконным обучение ИИ на чужих материалах",
-      "link": "https://3dnews.ru/1149402/amerikanskiy-sud-vpervie-priznal-nezakonnim-obuchenie-ii-na-chugih-materialah",
-      "source": "3DNews",
-      "pubDate": "2026-10-02T15:15:00.000Z"
     }
   ]
 }
