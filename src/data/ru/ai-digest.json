@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-10-20T01:05:26.338Z",
+  "updatedAt": "2026-10-20T07:31:36.468Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "F6 и RuStore предупредили о новых киберугрозах для пользователей с использованием ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-10-20_f6_i_rustore_predupredili_o_novyh",
+      "source": "CNews",
+      "pubDate": "2026-10-20T07:03:00.000Z"
+    },
+    {
+      "title": "CorpSoft24 вложит более 1 млрд руб. в новое ИИ-направление бизнеса",
+      "link": "https://www.cnews.ru/news/line/2026-10-20_corpsoft24_vlozhit_bolee_1_mlrd",
+      "source": "CNews",
+      "pubDate": "2026-10-20T06:18:00.000Z"
+    },
+    {
+      "title": "Без опечаток и рутины: нейросеть помогает оформлять документы в МФЦ Подмосковья",
+      "link": "https://www.cnews.ru/news/line/2026-10-20_bez_opechatok_i_rutiny_nejroset",
+      "source": "CNews",
+      "pubDate": "2026-10-20T06:12:00.000Z"
+    },
+    {
+      "title": "К программной платформе «Каппа», разработанной в НГУ для управления данными ИИ, смогут присоединиться другие вузы",
+      "link": "https://www.cnews.ru/news/line/2026-10-20_k_programmnoj_platforme",
+      "source": "CNews",
+      "pubDate": "2026-10-20T04:06:00.000Z"
+    },
+    {
+      "title": "«ПланФикс» запустил ИИ-конфигуратор для внедрения системы за три минуты",
+      "link": "https://www.cnews.ru/news/line/2026-10-20_planfiks_zapustil_ii-konfigurator",
+      "source": "CNews",
+      "pubDate": "2026-10-20T03:58:00.000Z"
+    },
+    {
+      "title": "Молодые ученые Сеченовского университета создали ИИ-помощника для женщин, проходящих ЭКО",
+      "link": "https://www.cnews.ru/news/line/2026-10-20_molodye_uchenye_sechenovskogo",
+      "source": "CNews",
+      "pubDate": "2026-10-20T03:44:00.000Z"
+    },
     {
       "title": "Делаю светильники из картинок: локальная нейросеть вместо платных 3D-сервисов",
       "link": "https://habr.com/ru/articles/1096428/?utm_campaign=1096428&utm_source=habrahabr&utm_medium=rss",
@@ -1765,42 +1801,6 @@
       "link": "https://3dnews.ru/1149429/openai-pokinul-glava-komandi-bezopasnosti-on-somnevalsya-chto-kompaniya-uspevaet-za-sobstvennim-ii",
       "source": "3DNews",
       "pubDate": "2026-10-03T11:47:00.000Z"
-    },
-    {
-      "title": "Дешево, но не точно: разбираем контроллер доверия к памяти LLM-агентов",
-      "link": "https://habr.com/ru/companies/ru_mts/articles/1089058/?utm_campaign=1089058&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-03T08:24:49.000Z"
-    },
-    {
-      "title": "Что и как меняется в ИТ-инфраструктуре при внедрении ИИ?",
-      "link": "https://habr.com/ru/companies/rubytech/articles/1089758/?utm_campaign=1089758&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-03T08:06:48.000Z"
-    },
-    {
-      "title": "Gemini 4 хороша в тестах, но буксует в работе — пожаловались сотрудники Google",
-      "link": "https://3dnews.ru/1149426/gemini-4-horosha-v-testah-no-buksuet-v-rabote-pogalovalis-sotrudniki-google",
-      "source": "3DNews",
-      "pubDate": "2026-10-03T07:19:00.000Z"
-    },
-    {
-      "title": "Apple ужесточит контроль над «полным доступом к диску» в macOS из-за рисков, связанных с ИИ-агентами",
-      "link": "https://3dnews.ru/1149415/apple-ugestochit-kontrol-nad-polnim-dostupom-k-disku-v-macos-izza-riskov-svyazannih-s-iiagentami",
-      "source": "3DNews",
-      "pubDate": "2026-10-03T04:43:00.000Z"
-    },
-    {
-      "title": "Уязвимость в приложении ChatGPT для macOS позволяла хакерам получить доступ к конфиденциальным данным",
-      "link": "https://3dnews.ru/1149414/uyazvimost-v-prilogenii-chatgpt-dlya-macos-pozvolyala-hakeram-poluchit-dostup-k-konfidentsialnim-dannim",
-      "source": "3DNews",
-      "pubDate": "2026-10-03T02:33:00.000Z"
-    },
-    {
-      "title": "Gemini 4 победила в бенчмарках. Почему это всё меньше говорит о качестве модели",
-      "link": "https://habr.com/ru/articles/1089782/?utm_campaign=1089782&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-02T16:05:34.000Z"
     }
   ]
 }
