@@ -21,6 +21,7 @@ import tw from '../i18n/tw.json';
 import { growth } from '../i18n/growth';
 import navConfig from '../data/tw/content/nav.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
+import { organizationShared } from '../utils/entity';
 import {
   withBase,
   BASE,
@@ -143,6 +144,8 @@ const organization = {
   url: siteRoot,
   founder: { '@id': `${siteRoot}/#person` },
   email: CONTACT_EMAIL,
+  // 로고·sameAs·다른 이름·사용 언어는 다섯 언어판이 같은 값을 쓴다(src/utils/entity.ts).
+  ...organizationShared({ siteRoot, name: SITE_TW, logoPath: withBase('/logo-512.png') }),
 };
 const website = {
   '@type': 'WebSite',

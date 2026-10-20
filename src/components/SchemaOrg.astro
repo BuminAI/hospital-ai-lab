@@ -19,6 +19,7 @@
 //     '의료관광 마케팅'·'병원 경영분석'도 있었지만 briefing.md에 근거가 없어 넣지 않았다.
 //   - SAS 수상 이력은 오너 지시로 계속 비공개다. 절대 추가하지 말 것.
 import { SITE_TITLE, CONTACT_EMAIL, YOUTUBE_CHANNEL_URL, withBase } from '../utils/site';
+import { organizationShared } from '../utils/entity';
 
 interface Props {
   /** 이 페이지에만 해당하는 추가 스키마 노드들 (BlogPosting, FAQPage, DefinedTermSet 등) */
@@ -30,7 +31,6 @@ const { extra = [] } = Astro.props;
 const siteUrl = Astro.site
   ? Astro.site.href.replace(/\/$/, '')
   : 'https://hospital-ai-lab.com';
-const logoUrl = `${siteUrl}${withBase('/og-default.png')}`;
 
 // 전 페이지에서 `@id`로 참조하는 고정 식별자.
 // 다른 페이지에서 참조할 때는 아래 세 문자열을 그대로 쓴다
@@ -73,17 +73,17 @@ const person = {
   sameAs: [YOUTUBE_CHANNEL_URL],
 };
 
+// 로고·sameAs·다른 이름·사용 언어는 다섯 언어판이 같은 값을 쓴다(src/utils/entity.ts).
+// 2026-10-21: 로고를 1200x630 소셜 공유 이미지에서 512x512 정사각 로고로 바꿨다(구글 조직 로고 기준).
 const organization = {
   '@type': 'Organization',
   '@id': `${siteUrl}/#organization`,
   name: SITE_TITLE,
-  alternateName: 'Hospital AI Lab',
   url: siteUrl,
-  logo: { '@type': 'ImageObject', url: logoUrl },
   founder: { '@id': `${siteUrl}/#person` },
   email: CONTACT_EMAIL,
-  sameAs: [YOUTUBE_CHANNEL_URL],
   areaServed: { '@type': 'Country', name: '대한민국' },
+  ...organizationShared({ siteRoot: siteUrl, name: SITE_TITLE, logoPath: withBase('/logo-512.png') }),
 };
 
 const website = {
@@ -91,6 +91,7 @@ const website = {
   '@id': `${siteUrl}/#website`,
   url: siteUrl,
   name: SITE_TITLE,
+  alternateName: 'Hospital AI Lab',
   inLanguage: 'ko-KR',
   publisher: { '@id': `${siteUrl}/#organization` },
 };

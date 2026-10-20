@@ -69,6 +69,21 @@ try {
   // 폴백: 위에서 이미 발행일로 초기화해 두었다.
 }
 
+// 화면에 보이는 수정일 — 아래 BlogPosting의 dateModified와 같은 값이다(2026-10-21).
+// 구글은 구조화 데이터의 날짜가 화면의 날짜와 같기를 요구하고, 일본어·러시아어·인도네시아어·
+// 대만어판 글은 이미 갱신일을 화면에 보인다. 한국어판만 기계에게만 수정일을 말하고 있었다.
+// 발행일과 같은 날이면 내지 않는다. 한국 날짜 기준으로 비교·표기한다 — 빌드 서버는 UTC라
+// 한국 시간 자정 전후의 커밋이 하루 어긋날 수 있다.
+const kstDay = (d: Date) => new Date(d.getTime() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+const modifiedAt = new Date(dateModifiedIso);
+const showModified = kstDay(modifiedAt) > kstDay(post.data.pubDate);
+const modifiedLabel = new Intl.DateTimeFormat('ko-KR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'Asia/Seoul',
+}).format(modifiedAt);
+
 // BlogPosting 구조화 데이터.
 // 2026-07-27 변경: author를 Organization에서 **저자 Person 엔티티 참조**로 바꿨다.
 // 검색엔진·AI가 "누가 쓴 글인가"로 신뢰도를 판정하기 때문이다(오너 지시, SEO/GEO 작업).
@@ -118,6 +133,13 @@ const blogPosting = {
           <time datetime={post.data.pubDate.toISOString()}>
             {formatDate(post.data.pubDate)}
           </time>
+          {
+            showModified && (
+              <span class="modified">
+                최종 수정 <time datetime={dateModifiedIso}>{modifiedLabel}</time>
+              </span>
+            )
+          }
           {/* 저자 표시 — BlogPosting JSON-LD가 author를 선언하므로 화면에도
               같은 사실이 보여야 한다(구글은 비가시 콘텐츠 마크업을 금지한다). */}
           <span class="byline">
@@ -190,7 +212,8 @@ const blogPosting = {
   .meta {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
     font-size: 0.9rem;
     color: var(--color-muted);
   }
