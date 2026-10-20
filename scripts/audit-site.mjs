@@ -291,7 +291,10 @@ for (const info of pages.values()) {
 }
 const core = ['/', '/about/', '/blog/', '/news/', '/faq/', '/glossary/', '/checklist/', '/guide/', '/tips/', '/events/', '/videos/'];
 const uniformity = {};
-for (const loc of LOCALES) uniformity[loc] = core.filter((c) => !inventory[loc].has(c));
+// 한국어판의 영상 페이지는 /youtube/ 이고 다른 언어판은 /videos/ 다 — 이름만 다른 같은 페이지라 빠진 것으로 세지 않는다.
+const equivalent = { ko: { '/videos/': '/youtube/' } };
+for (const loc of LOCALES)
+  uniformity[loc] = core.filter((c) => !inventory[loc].has(c) && !inventory[loc].has(equivalent[loc]?.[c]));
 
 // ── 결과 ────────────────────────────────────────────
 const bySev = (s) => issues.filter((i) => i.sev === s);
