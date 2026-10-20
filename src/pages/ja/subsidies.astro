@@ -4,9 +4,18 @@
 import JaLayout from '../../layouts/JaLayout.astro';
 import ja from '../../i18n/ja.json';
 import subsidies from '../../data/ja/subsidies.json';
+import subsidyNotes from '../../data/ja/subsidy-notes.json';
 import { withBase } from '../../utils/site';
 
 const items = subsidies.items;
+
+// 수기 주석(subsidy-notes.json): 자동 수집 데이터만으로는 오해할 수 있는 공모에 붙인다.
+// 예) jGrants의 게재 기간이 사전 계획 제출·대상 병원 선정 뒤의 교부 신청 단계를 가리키는 경우.
+type SubsidyNote = { text: string; sourceLabel: string; sourceUrl: string; checkedOn: string };
+const noteOf = (id: string): SubsidyNote | null => {
+  const n = (subsidyNotes as Record<string, unknown>)[id];
+  return n && typeof n === 'object' ? (n as SubsidyNote) : null;
+};
 const updated = new Date(subsidies.updatedAt);
 
 const siteRoot = Astro.site
@@ -117,6 +126,23 @@ const collectionPage = {
               {item.usePurpose && (
                 <span class="ja-item-meta">
                   {ja.subsidies.labelPurpose}：{item.usePurpose}
+                </span>
+              )}
+              {noteOf(item.id) && (
+                <span class="ja-item-meta">
+                  <span>
+                    ※ {noteOf(item.id)!.text}（
+                    <a
+                      class="ja-ext"
+                      href={noteOf(item.id)!.sourceUrl}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      {noteOf(item.id)!.sourceLabel}
+                      <span class="sr-only">（{ja.ui.external}）</span>
+                    </a>
+                    、{noteOf(item.id)!.checkedOn}確認）
+                  </span>
                 </span>
               )}
             </li>

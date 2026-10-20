@@ -1,0 +1,9 @@
+{
+  "_comment": "일본어판 /ja/subsidies/ 목록(jGrants 자동 수집)에 붙이는 수기 주석. 사람이 공식 페이지로 직접 확인한 사실만 쓴다. 키는 jGrants 공모 ID이고, 봇이 subsidies.json을 덮어써도 이 파일은 유지된다. 주석을 더할 때는 sourceUrl을 열어 문장마다 근거를 확인하고 checkedOn을 갱신한다.",
+  "a0WfQ000003l6UrUAI": {
+    "text": "東京都の案内によると、この事業は、業務効率化計画の提出（受付期間は2026年6月4日〜7月3日、期限厳守）と、厚生労働大臣による対象病院の選定が前提で、選定後に交付申請を受け付ける予定とされています。選定されていない病院は申請できない可能性があるため、必ず東京都の公式ページでご確認ください。",
+    "sourceLabel": "東京都保健医療局の事業ページ",
+    "sourceUrl": "https://www.hokeniryo.metro.tokyo.lg.jp/iryo/jigyo/gyoumukouritsuka",
+    "checkedOn": "2026年10月21日"
+  }
+}
