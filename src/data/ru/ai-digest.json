@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-10-21T00:37:03.906Z",
+  "updatedAt": "2026-10-21T07:37:17.896Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "VPG LaserONE разработала ИИ-ассистент хирурга в урологии Urolase Vision System",
+      "link": "https://www.cnews.ru/news/line/2026-10-21_vpg_laserone_razrabotala_ii-assistent",
+      "source": "CNews",
+      "pubDate": "2026-10-21T07:07:00.000Z"
+    },
+    {
+      "title": "Корпоративный ИИ в России: почему бизнес делает ставку на агентные платформы",
+      "link": "https://www.tadviser.ru/a/973019",
+      "source": "TAdviser",
+      "pubDate": "2026-10-21T06:20:25.000Z"
+    },
+    {
+      "title": "«Лаборатория Касперского» обнаружила новую кампанию кибершпионажа Lazarus — с использованием ИИ и постквантового шифрования",
+      "link": "https://www.cnews.ru/news/line/2026-10-21_laboratoriya_kasperskogo",
+      "source": "CNews",
+      "pubDate": "2026-10-21T03:44:00.000Z"
+    },
     {
       "title": "Поселил ИИ‑агента в чёлку макбука: он слушает мой день и раздаёт задачи сессиям Claude Code",
       "link": "https://habr.com/ru/articles/1097006/?utm_campaign=1097006&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-05_issledovanie_k2teh_79_promyshlennyh",
       "source": "CNews",
       "pubDate": "2026-10-05T15:02:00.000Z"
-    },
-    {
-      "title": "800 тысяч строк кода: как ИИ-агенты переписывали движок Copilot",
-      "link": "https://habr.com/ru/articles/1090450/?utm_campaign=1090450&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-05T14:38:28.000Z"
-    },
-    {
-      "title": "Хотели сэкономить, а в итоге сожгли деньги. Компании не в силах обуздать расходы на нейросети – смета пухнет, решения нет",
-      "link": "https://www.cnews.ru/news/top/2026-10-05_hoteli_sekonomitv_itoge",
-      "source": "CNews",
-      "pubDate": "2026-10-05T14:31:00.000Z"
-    },
-    {
-      "title": "Наборы знаний для AI‑агентов: от AGENTS.md к структурированному контексту",
-      "link": "https://habr.com/ru/articles/1090596/?utm_campaign=1090596&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-05T14:05:46.000Z"
     }
   ]
 }

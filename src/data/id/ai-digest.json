@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-21T00:37:37.186Z",
+  "updatedAt": "2026-10-21T07:37:53.363Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "NVIDIA dan ITB dorong mahasiswa kembangkan talenta AI",
+      "link": "https://www.antaranews.com/berita/5801613/nvidia-dan-itb-dorong-mahasiswa-kembangkan-talenta-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-10-21T07:29:55.000Z"
+    },
+    {
+      "title": "Pakai AI, Microsoft Tambal Seribu Celah Keamanan Windows dalam Sebulan",
+      "link": "https://inet.detik.com/security/d-8716956/pakai-ai-microsoft-tambal-seribu-celah-keamanan-windows-dalam-sebulan",
+      "source": "detikINET",
+      "pubDate": "2026-10-21T05:45:36.000Z"
+    },
+    {
+      "title": "Lebih Tipis dan Ringan, ASUS ProArt P14 dan P16 Bisa Rendering 3D hingga Geber AI Lokal",
+      "link": "https://www.liputan6.com/tekno/read/8317559/lebih-tipis-dan-ringan-asus-proart-p14-dan-p16-bisa-rendering-3d-hingga-geber-ai-lokal",
+      "source": "Liputan6",
+      "pubDate": "2026-10-21T05:21:34.000Z"
+    },
+    {
+      "title": "Nyobain Asus ProArt P14 dan P16: AI Tetap Jalan Tanpa WiFi",
+      "link": "https://uzone.id/nyobain-asus-proart-p14-dan-p16-ai-tetap-jalan-tanpa-wifi",
+      "source": "Uzone",
+      "pubDate": "2026-10-21T05:00:00.000Z"
+    },
+    {
+      "title": "Kaji Merger SpaceX - Tesla, Elon Musk Bidik Sinergi AI, Cip, Robotika",
+      "link": "https://katadata.co.id/digital/teknologi/6ad82d3c0b660/kaji-merger-spacex-tesla-elon-musk-bidik-sinergi-ai-cip-robotika",
+      "source": "Katadata",
+      "pubDate": "2026-10-21T03:10:00.000Z"
+    },
+    {
+      "title": "TrendAI dan NVIDIA Perkuat Keamanan Agen AI Otonom Berbasis Threat Intelligence",
+      "link": "https://www.liputan6.com/tekno/read/8317590/trendai-dan-nvidia-perkuat-keamanan-agen-ai-otonom-berbasis-threat-intelligence",
+      "source": "Liputan6",
+      "pubDate": "2026-10-21T02:13:45.000Z"
+    },
+    {
+      "title": "Komdigi Siapkan Peta Jalan Data Center AI, Soroti Pasokan Listrik dan Air",
+      "link": "https://katadata.co.id/digital/teknologi/6ad816d9022ce/komdigi-siapkan-peta-jalan-data-center-ai-soroti-pasokan-listrik-dan-air",
+      "source": "Katadata",
+      "pubDate": "2026-10-21T01:35:00.000Z"
+    },
     {
       "title": "Wall Street Mayoritas Menguat, Dow Jones Melaju di Tengah Tekanan Saham AI",
       "link": "https://katadata.co.id/finansial/bursa/6ad7f8aa48296/wall-street-mayoritas-menguat-dow-jones-melaju-di-tengah-tekanan-saham-ai",
@@ -1759,48 +1801,6 @@
       "link": "https://mediaindonesia.com/teknologi/941016/skenario-terminator-seberapa-realistis-kiamat-ai-bagi-kemanusiaan",
       "source": "Media Indonesia",
       "pubDate": "2026-10-05T23:35:00.000Z"
-    },
-    {
-      "title": "Google Uji Data Center AI di Luar Angkasa, Satelit Suncatcher Resmi Mengorbit",
-      "link": "https://www.liputan6.com/tekno/read/8305930/google-uji-data-center-ai-di-luar-angkasa-satelit-suncatcher-resmi-mengorbit",
-      "source": "Liputan6",
-      "pubDate": "2026-10-05T11:02:30.000Z"
-    },
-    {
-      "title": "ChatGPT-Gemini Prediksi Indonesia Juara FIFA ASEAN Cup 2026, Skor 2-1",
-      "link": "https://inet.detik.com/cyberlife/d-8693253/chatgpt-gemini-prediksi-indonesia-juara-fifa-asean-cup-2026-skor-2-1",
-      "source": "detikINET",
-      "pubDate": "2026-10-05T09:15:37.000Z"
-    },
-    {
-      "title": "Pemprov Jabar Siapkan Tim Ahli untuk Kaji Amdal Proyek Pusat Data AI BDX",
-      "link": "https://mediaindonesia.com/jabar/berita/940787/pemprov-jabar-siapkan-tim-ahli-untuk-kaji-amdal-proyek-pusat-data-ai-bdx",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-05T08:14:00.000Z"
-    },
-    {
-      "title": "Thailand Pakai AI untuk Jaga Kualitas Durian Terbaik, Indonesia Kapan?",
-      "link": "https://inet.detik.com/science/d-8693060/thailand-pakai-ai-untuk-jaga-kualitas-durian-terbaik-indonesia-kapan",
-      "source": "detikINET",
-      "pubDate": "2026-10-05T07:49:17.000Z"
-    },
-    {
-      "title": "6.000 Anak Muda RI Belajar Coding, Bersiap Kuasai AI dan IoT",
-      "link": "https://inet.detik.com/cyberlife/d-8692746/6-000-anak-muda-ri-belajar-coding-bersiap-kuasai-ai-dan-iot",
-      "source": "detikINET",
-      "pubDate": "2026-10-05T06:45:20.000Z"
-    },
-    {
-      "title": "Takut Sistem Disusupi Agen AI, Apple Batasi Fitur Full Disk Access di Mac",
-      "link": "https://inet.detik.com/consumer/d-8692721/takut-sistem-disusupi-agen-ai-apple-batasi-fitur-full-disk-access-di-mac",
-      "source": "detikINET",
-      "pubDate": "2026-10-05T05:45:18.000Z"
-    },
-    {
-      "title": "Terlalu Canggih, Donald Trump Ganti Nama AI Jadi Super Intelligence",
-      "link": "https://uzone.id/terlalu-canggih-donald-trump-ganti-nama-ai-jadi-super-intelligence",
-      "source": "Uzone",
-      "pubDate": "2026-10-05T05:00:00.000Z"
     }
   ]
 }
