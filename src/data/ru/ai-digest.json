@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-20T15:04:10.536Z",
+  "updatedAt": "2026-10-21T00:37:03.906Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Поселил ИИ‑агента в чёлку макбука: он слушает мой день и раздаёт задачи сессиям Claude Code",
+      "link": "https://habr.com/ru/articles/1097006/?utm_campaign=1097006&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-20T22:18:32.000Z"
+    },
+    {
+      "title": "Тысячи приватных переписок и документов утекли из ИИ-агента M**a Muse — функцию временно отключили",
+      "link": "https://3dnews.ru/1150195/tisyachi-privatnih-perepisok-i-dokumentov-utekli-iz-iiagenta-meta-muse-funktsiyu-vremenno-otklyuchili",
+      "source": "3DNews",
+      "pubDate": "2026-10-20T18:10:00.000Z"
+    },
+    {
+      "title": "Я устал читать простыни текста от ИИ‑агентов. Поэтому заставил их рисовать",
+      "link": "https://habr.com/ru/articles/1096958/?utm_campaign=1096958&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-20T17:38:35.000Z"
+    },
+    {
+      "title": "Amazon заблокировал ИИ‑агента Meta Muse",
+      "link": "https://habr.com/ru/articles/1096924/?utm_campaign=1096924&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-20T16:20:42.000Z"
+    },
+    {
+      "title": "Большая чистка: Spotify удалил из рекомендаций 50 млн треков, созданных с помощью ИИ",
+      "link": "https://3dnews.ru/1150187/bolshaya-chistka-spotify-udalil-iz-rekomendatsiy-50-mln-trekov-sozdannih-s-pomoshchyu-ii",
+      "source": "3DNews",
+      "pubDate": "2026-10-20T15:39:00.000Z"
+    },
+    {
+      "title": "AI‑Less Habr — Чистим Хабр от ИИ (теперь ML моделью)",
+      "link": "https://habr.com/ru/articles/1096882/?utm_campaign=1096882&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-20T15:28:10.000Z"
+    },
+    {
+      "title": "Anthropic использовала подход «Яндекса» для исследования безопасности ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-10-20_anthropic_ispolzovala_podhod",
+      "source": "CNews",
+      "pubDate": "2026-10-20T14:58:00.000Z"
+    },
     {
       "title": "Beget запустил ИИ-шлюз в облаке для подключения языковых моделей к продуктам и бизнес-процессам",
       "link": "https://www.cnews.ru/news/line/2026-10-20_beget_zapustil_ii-shlyuz_v_oblake",
@@ -15,7 +57,7 @@
       "pubDate": "2026-10-20T13:43:54.000Z"
     },
     {
-      "title": "Мои AI-агенты принесли компании около 350 тысяч рублей за два месяца. А я считаю их архитектуру неудачной",
+      "title": "Мои AI‑агенты принесли компании около 350 тысяч рублей за два месяца. А я считаю их архитектуру неудачной",
       "link": "https://habr.com/ru/articles/1096818/?utm_campaign=1096818&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-20T13:40:51.000Z"
@@ -27,13 +69,13 @@
       "pubDate": "2026-10-20T12:51:15.000Z"
     },
     {
-      "title": "GraphQL для ИИ-агента: как мы превращаем GraphQL операции в MCP-инструменты",
+      "title": "GraphQL для ИИ‑агента: как мы превращаем GraphQL операции в MCP‑инструменты",
       "link": "https://habr.com/ru/companies/sberbank/articles/1096456/?utm_campaign=1096456&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-20T11:58:01.000Z"
     },
     {
-      "title": "AI-агент для закрытого контура: расширение VS Code под корпоративную LLM",
+      "title": "AI‑агент для закрытого контура: расширение VS Code под корпоративную LLM",
       "link": "https://habr.com/ru/articles/1096732/?utm_campaign=1096732&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-20T11:53:33.000Z"
@@ -69,7 +111,7 @@
       "pubDate": "2026-10-20T09:01:02.000Z"
     },
     {
-      "title": "Один час в мире без AI-агентов: от токенов до MCP",
+      "title": "Один час в мире без AI‑агентов: от токенов до MCP",
       "link": "https://habr.com/ru/companies/ozontech/articles/1094882/?utm_campaign=1094882&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-20T09:00:12.000Z"
@@ -129,7 +171,7 @@
       "pubDate": "2026-10-20T03:44:00.000Z"
     },
     {
-      "title": "Делаю светильники из картинок: локальная нейросеть вместо платных 3D-сервисов",
+      "title": "Делаю светильники из картинок: локальная нейросеть вместо платных 3 D‑сервисов",
       "link": "https://habr.com/ru/articles/1096428/?utm_campaign=1096428&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-19T22:09:32.000Z"
@@ -1759,48 +1801,6 @@
       "link": "https://habr.com/ru/articles/1090596/?utm_campaign=1090596&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-05T14:05:46.000Z"
-    },
-    {
-      "title": "[Перевод] Как AI изменил рынок софта?",
-      "link": "https://habr.com/ru/articles/1090504/?utm_campaign=1090504&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-05T11:51:53.000Z"
-    },
-    {
-      "title": "Вендор «Оптимакрос» открывает код для интеграции платформы в ИИ-контуры заказчиков",
-      "link": "https://www.cnews.ru/news/line/2026-10-05_vendor_optimakros_otkryvaet",
-      "source": "CNews",
-      "pubDate": "2026-10-05T11:10:00.000Z"
-    },
-    {
-      "title": "Частный рынок ИИ в России может превысить 561 млрд рублей к 2030 году",
-      "link": "https://www.cnews.ru/news/line/2026-10-05_chastnyj_rynok_ii_v_rossii",
-      "source": "CNews",
-      "pubDate": "2026-10-05T11:00:00.000Z"
-    },
-    {
-      "title": "ИИ завалил Google фальшивыми уязвимостями — компания приостановила приём сообщений об ошибках",
-      "link": "https://3dnews.ru/1149479/ii-zavalil-google-falshivimi-uyazvimostyami-kompaniya-priostanovila-priyom-soobshcheniy-ob-oshibkah",
-      "source": "3DNews",
-      "pubDate": "2026-10-05T10:56:00.000Z"
-    },
-    {
-      "title": "Голосовой ИИ-агент Vocamate AI помогает бизнесу не терять лидов",
-      "link": "https://www.cnews.ru/news/line/2026-10-05_golosovoj_ii-agent_vocamate_ai",
-      "source": "CNews",
-      "pubDate": "2026-10-05T09:53:00.000Z"
-    },
-    {
-      "title": "Безопасно и функционально: как подключить ИИ-ассистентов к работе каждого отдела с помощью SimpleOne AI",
-      "link": "https://www.tadviser.ru/a/970054",
-      "source": "TAdviser",
-      "pubDate": "2026-10-05T09:35:49.000Z"
-    },
-    {
-      "title": "ИИ сломал бюджеты компаний — никто не знает, сколько нейросеть потратит на конкретную задачу",
-      "link": "https://3dnews.ru/1149472/ii-slomal-byudgeti-kompaniy-nikto-ne-znaet-skolko-neyroset-potratit-na-konkretnuyu-zadachu",
-      "source": "3DNews",
-      "pubDate": "2026-10-05T08:50:00.000Z"
     }
   ]
 }
