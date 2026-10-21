@@ -40,6 +40,16 @@
             "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/allow-webfetch.cjs"]
           }
         ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:\\Program Files\\nodejs\\node.exe",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/allow-content-write.cjs"]
+          }
+        ]
       }
     ]
   }
