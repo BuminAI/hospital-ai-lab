@@ -1,7 +1,73 @@
 {
-  "updatedAt": "2026-10-21T07:37:17.896Z",
+  "updatedAt": "2026-10-21T15:13:44.031Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Безопасность ИИ-агента: больше контроля или специальная среда?",
+      "link": "https://habr.com/ru/articles/1097322/?utm_campaign=1097322&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-21T12:29:56.000Z"
+    },
+    {
+      "title": "Владимир Дрюков, Innostage: ИИ меняет скорость и плотность кибератак, но пока не правила игры",
+      "link": "https://www.tadviser.ru/a/973463",
+      "source": "TAdviser",
+      "pubDate": "2026-10-21T10:48:13.000Z"
+    },
+    {
+      "title": "ИИ-агенты OpenAI дважды за октябрь обошли систему, которая должна контролировать их поведение",
+      "link": "https://3dnews.ru/1150228/iiagenti-openai-dvagdi-za-oktyabr-oboshli-sistemu-kotoraya-dolgna-kontrolirovat-ih-povedenie",
+      "source": "3DNews",
+      "pubDate": "2026-10-21T10:27:00.000Z"
+    },
+    {
+      "title": "SIEM на двух ядрах для 150 хостов и 9B-модель на триаже: как устроен самописный AI SOC",
+      "link": "https://habr.com/ru/articles/1097200/?utm_campaign=1097200&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-21T10:11:59.000Z"
+    },
+    {
+      "title": "Как ИИ-агенты помогают на производстве",
+      "link": "https://habr.com/ru/articles/1097180/?utm_campaign=1097180&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-21T09:57:48.000Z"
+    },
+    {
+      "title": "Почти треть российских компаний тестируют промышленных роботов с применением ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-10-21_pochti_tret_rossijskih_kompanij",
+      "source": "CNews",
+      "pubDate": "2026-10-21T09:50:00.000Z"
+    },
+    {
+      "title": "Между Сциллой и Харибдой: как и зачем мы ограничиваем ИИ-агентов",
+      "link": "https://habr.com/ru/companies/cloud_ru/articles/1096336/?utm_campaign=1096336&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-21T08:44:47.000Z"
+    },
+    {
+      "title": "Как я перестал относиться к ИИ как к человеку: опыт соло-разработки двух пет-проектов",
+      "link": "https://habr.com/ru/companies/alfa/articles/1096666/?utm_campaign=1096666&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-21T08:42:32.000Z"
+    },
+    {
+      "title": "ГК Swordfish Security привлекла инвестиции для развития направлений защиты ИИ-систем и безопасной разработки ПО",
+      "link": "https://www.cnews.ru/news/line/2026-10-21_gk_swordfish_security_privlekla_investitsii",
+      "source": "CNews",
+      "pubDate": "2026-10-21T08:42:00.000Z"
+    },
+    {
+      "title": "ИИ, который пишет не последовательно, а параллельно: диффузионная модель Mercury 3 в 6–8 раз быстрее GPT-6 Luna",
+      "link": "https://3dnews.ru/1150216/ii-kotoriy-pishet-ne-posledovatelno-a-parallelno-diffuzionnaya-model-mercury-3-v-68-raz-bistree-gpt6-luna",
+      "source": "3DNews",
+      "pubDate": "2026-10-21T08:41:00.000Z"
+    },
+    {
+      "title": "Amazon и Google облегчили побег от Nvidia: запускать модели под PyTorch на ИИ-чипах Trainium и TPU стало проще",
+      "link": "https://3dnews.ru/1150215/amazon-i-google-uprostili-pobeg-ot-nvidia-zapuskat-modeli-pod-pytorch-na-iichipah-trainium-i-tpu-stalo-proshche",
+      "source": "3DNews",
+      "pubDate": "2026-10-21T08:39:00.000Z"
+    },
     {
       "title": "VPG LaserONE разработала ИИ-ассистент хирурга в урологии Urolase Vision System",
       "link": "https://www.cnews.ru/news/line/2026-10-21_vpg_laserone_razrabotala_ii-assistent",
@@ -1735,72 +1801,6 @@
       "link": "https://3dnews.ru/1149462/rtktsod-predstavil-korporativnogo-iiassistenta-dlya-bezopasnoy-raboti-s-dokumentami-i-bazami-znaniy",
       "source": "3DNews",
       "pubDate": "2026-10-06T07:00:00.000Z"
-    },
-    {
-      "title": "РТК-ЦОД разработал ИИ-ассистента для безопасной работы с документами и базами знаний",
-      "link": "https://www.cnews.ru/news/top/2026-10-05_rtk-tsod_razrabotal_ii-assistenta",
-      "source": "CNews",
-      "pubDate": "2026-10-06T07:00:00.000Z"
-    },
-    {
-      "title": "Кому и зачем нужна AI Studio: пять рабочих сценариев вместо каталога моделей",
-      "link": "https://habr.com/ru/companies/sberbank/articles/1086730/?utm_campaign=1086730&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-06T06:50:21.000Z"
-    },
-    {
-      "title": "Венчурные инвестиции в российские ИИ-компании за год выросли до 4,2 млрд рублей",
-      "link": "https://www.tadviser.ru/a/146523",
-      "source": "TAdviser",
-      "pubDate": "2026-10-06T06:49:26.000Z"
-    },
-    {
-      "title": "«Рег.облако» запустил инференс ИИ-моделей на Nvidia B300",
-      "link": "https://www.cnews.ru/news/line/2026-10-06_regoblako_zapustil_inferens",
-      "source": "CNews",
-      "pubDate": "2026-10-06T06:39:00.000Z"
-    },
-    {
-      "title": "В Сеченовском университете завершили пилотное тестирование ИИ-ассистента для обучения студентов-медиков",
-      "link": "https://www.cnews.ru/news/line/2026-10-06_v_sechenovskom_universitete",
-      "source": "CNews",
-      "pubDate": "2026-10-06T05:33:00.000Z"
-    },
-    {
-      "title": "Wikimedia обнаружила у себя «сбежавших» ИИ-агентов OpenAI — они завалили сервисы миллионами запросов",
-      "link": "https://3dnews.ru/1149500/iiagenti-openai-nachali-tayno-ispolzovat-wikimedia-dlya-svoih-zadach",
-      "source": "3DNews",
-      "pubDate": "2026-10-06T02:01:00.000Z"
-    },
-    {
-      "title": "У США появилась своя открытая ИИ-модель Beam, способная конкурировать с китайскими DeepSeek, Qwen и Z.ai",
-      "link": "https://3dnews.ru/1149499/amerikanskiy-startap-reflection-predstavil-otkrituyu-iimodel-beamsposobnuyu-konkurirovat-s-kitayskimi",
-      "source": "3DNews",
-      "pubDate": "2026-10-06T01:55:00.000Z"
-    },
-    {
-      "title": "Голосовой ИИ Агент",
-      "link": "https://habr.com/ru/articles/1090760/?utm_campaign=1090760&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-05T22:13:22.000Z"
-    },
-    {
-      "title": "О тестировании ИИ-агентов, вызывающих функции",
-      "link": "https://habr.com/ru/articles/1090748/?utm_campaign=1090748&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-05T21:21:31.000Z"
-    },
-    {
-      "title": "Ubisoft запустила Motherbrain для внедрения генеративного ИИ в будущие игры",
-      "link": "https://3dnews.ru/1149495/ubisoft-zapustila-motherbrain-dlya-vnedreniya-generativnogo-ii-v-budushchie-igri",
-      "source": "3DNews",
-      "pubDate": "2026-10-05T17:16:00.000Z"
-    },
-    {
-      "title": "Исследование «К2Тех»: 79% промышленных компаний сообщили о разрыве между ожиданиями от ИИ и готовностью к его внедрению",
-      "link": "https://www.cnews.ru/news/line/2026-10-05_issledovanie_k2teh_79_promyshlennyh",
-      "source": "CNews",
-      "pubDate": "2026-10-05T15:02:00.000Z"
     }
   ]
 }

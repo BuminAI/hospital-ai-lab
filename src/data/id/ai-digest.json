@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-21T07:37:53.363Z",
+  "updatedAt": "2026-10-21T15:14:16.318Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Ancaman Kebocoran Data, 40% Perusahaan di Indonesia Ragu Pakai Agen AI",
+      "link": "https://inet.detik.com/security/d-8717939/ancaman-kebocoran-data-40-perusahaan-di-indonesia-ragu-pakai-agen-ai",
+      "source": "detikINET",
+      "pubDate": "2026-10-21T14:47:59.000Z"
+    },
+    {
+      "title": "Heboh Chatbot Meta AI Gak Bisa Dimention di Threads, Kena Bungkam?",
+      "link": "https://uzone.id/heboh-chatbot-meta-ai-gak-bisa-dimention-di-threads-kena-bungkam",
+      "source": "Uzone",
+      "pubDate": "2026-10-21T13:10:00.000Z"
+    },
+    {
+      "title": "AMI: Museum Harus jadi Rujukan Sejarah yang Tepercaya di Era AI",
+      "link": "https://mediaindonesia.com/humaniora/947124/ami-museum-harus-jadi-rujukan-sejarah-yang-tepercaya-di-era-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-21T12:24:00.000Z"
+    },
+    {
+      "title": "Bos LG CNS Ungkap Tantangan AI Indonesia, GPU hingga SDM",
+      "link": "https://inet.detik.com/business/d-8717408/bos-lg-cns-ungkap-tantangan-ai-indonesia-gpu-hingga-sdm",
+      "source": "detikINET",
+      "pubDate": "2026-10-21T10:30:16.000Z"
+    },
+    {
+      "title": "ChatGPT Punya Kunci PIN untuk Sembunyikan Obrolan Sensitif",
+      "link": "https://www.liputan6.com/tekno/read/8317823/chatgpt-punya-kunci-pin-untuk-sembunyikan-obrolan-sensitif",
+      "source": "Liputan6",
+      "pubDate": "2026-10-21T10:12:46.000Z"
+    },
+    {
+      "title": "Hati-Hati Belanja Online! AI Kini Dipakai Buat Toko Palsu dan Kuras Uang Konsumen",
+      "link": "https://www.liputan6.com/tekno/read/8316153/hati-hati-belanja-online-ai-kini-dipakai-buat-toko-palsu-dan-kuras-uang-konsumen",
+      "source": "Liputan6",
+      "pubDate": "2026-10-21T09:13:17.000Z"
+    },
+    {
+      "title": "Deepfake Makin Sulit Dibedakan, Komdigi Kaji Aturan Label Konten AI",
+      "link": "https://inet.detik.com/law-and-policy/d-8716887/deepfake-makin-sulit-dibedakan-komdigi-kaji-aturan-label-konten-ai",
+      "source": "detikINET",
+      "pubDate": "2026-10-21T08:15:54.000Z"
+    },
     {
       "title": "NVIDIA dan ITB dorong mahasiswa kembangkan talenta AI",
       "link": "https://www.antaranews.com/berita/5801613/nvidia-dan-itb-dorong-mahasiswa-kembangkan-talenta-ai",
@@ -1759,48 +1801,6 @@
       "link": "https://katadata.co.id/digital/teknologi/6ac492315141a/dpr-sahkan-uu-satu-data-indonesia-atur-ai-hingga-hacker-bisa-dipenjara-15-tahun",
       "source": "Katadata",
       "pubDate": "2026-10-06T06:16:00.000Z"
-    },
-    {
-      "title": "Agen AI Terus Bikin Ulah, OpenAI Kirim Peringatan ke 100 Perusahaan",
-      "link": "https://uzone.id/agen-ai-terus-bikin-ulah-openai-kirim-peringatan-ke-100-perusahaan",
-      "source": "Uzone",
-      "pubDate": "2026-10-06T05:20:00.000Z"
-    },
-    {
-      "title": "Hacker China Diduga Nyamar Jadi Pejabat AS dan Karyawan Anthropic",
-      "link": "https://inet.detik.com/security/d-8694269/hacker-china-diduga-nyamar-jadi-pejabat-as-dan-karyawan-anthropic",
-      "source": "detikINET",
-      "pubDate": "2026-10-06T03:15:21.000Z"
-    },
-    {
-      "title": "Teknologi Kesehatan Berbasis AI Dipamerkan, Mulai Kursi Dokter Gigi, Analisis Foto Retina, Hingga Bedah Sendi Lutut",
-      "link": "https://mediaindonesia.com/humaniora/941065/teknologi-kesehatan-berbasis-ai-dipamerkan-mulai-kursi-dokter-gigi-analisis-foto-retina-hingga-bedah-sendi-lutut",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-06T02:05:00.000Z"
-    },
-    {
-      "title": "Alarm Bahaya AI Menggema hingga PBB, tetapi Perlombaan AS – Cina Jalan Terus",
-      "link": "https://katadata.co.id/indepth/telaah/6ac3a2deaa4ae/alarm-bahaya-ai-menggema-hingga-pbb-tetapi-perlombaan-as-cina-jalan-terus",
-      "source": "Katadata",
-      "pubDate": "2026-10-06T02:00:00.000Z"
-    },
-    {
-      "title": "Pembuat Kebijakan di Indonesia Perlu Memperkuat Peran Guru dalam Penyusunan Kebijakan AI di Sekolah",
-      "link": "https://mediaindonesia.com/humaniora/941048/pembuat-kebijakan-di-indonesia-perlu-memperkuat-peran-guru-dalam-penyusunan-kebijakan-ai-di-sekolah",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-06T01:16:00.000Z"
-    },
-    {
-      "title": "Generative Engine Optimization, SEO Baru di Era AI",
-      "link": "https://katadata.co.id/digital/teknologi/6ac43f5e507cc/generative-engine-optimization-seo-baru-di-era-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-06T00:22:00.000Z"
-    },
-    {
-      "title": "Skenario Terminator: Seberapa Realistis Kiamat AI bagi Kemanusiaan?",
-      "link": "https://mediaindonesia.com/teknologi/941016/skenario-terminator-seberapa-realistis-kiamat-ai-bagi-kemanusiaan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-05T23:35:00.000Z"
     }
   ]
 }
