@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-21T15:14:16.318Z",
+  "updatedAt": "2026-10-22T00:41:28.211Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Lima Hal Penting tentang DeepSeek, Startup AI Tiongkok Guncang Dunia",
+      "link": "https://mediaindonesia.com/teknologi/947283/lima-hal-penting-tentang-deepseek-startup-ai-tiongkok-guncang-dunia",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-22T00:12:00.000Z"
+    },
+    {
+      "title": "Bos Nvidia Beri Peringatan Keras agar Industri Jerman Pakai AI",
+      "link": "https://mediaindonesia.com/teknologi/947272/bos-nvidia-beri-peringatan-keras-agar-industri-jerman-pakai-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-21T23:32:00.000Z"
+    },
+    {
+      "title": "Vultr dan AMD Perluas Kerja Sama Global Dengan Infrastruktur AI Baru Di India",
+      "link": "https://www.antaranews.com/berita/5803525/vultr-dan-amd-perluas-kerja-sama-global-dengan-infrastruktur-ai-baru-di-india",
+      "source": "ANTARA",
+      "pubDate": "2026-10-21T23:18:42.000Z"
+    },
+    {
+      "title": "Celah Keamanan PHP Ditemukan AI, Pemerintah dan Situs Global Lakukan Pemadaman",
+      "link": "https://mediaindonesia.com/teknologi/947268/celah-keamanan-php-ditemukan-ai-pemerintah-dan-situs-global-lakukan-pemadaman",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-21T23:16:00.000Z"
+    },
+    {
+      "title": "Kolaborasi Indonesia-Singapura perkuat ekosistem AI lewat Project Nusa",
+      "link": "https://www.antaranews.com/video/5803453/kolaborasi-indonesia-singapura-perkuat-ekosistem-ai-lewat-project-nusa",
+      "source": "ANTARA",
+      "pubDate": "2026-10-21T19:49:46.000Z"
+    },
+    {
+      "title": "Teknologi Biomedis Buka Peluang Baru dalam Perawatan Estetika Regeneratif",
+      "link": "https://mediaindonesia.com/jelita/947243/teknologi-biomedis-buka-peluang-baru-dalam-perawatan-estetika-regeneratif",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-21T16:48:00.000Z"
+    },
+    {
+      "title": "Forum Etika Global Rumuskan Tata Kelola AI yang Bertanggung Jawab",
+      "link": "https://mediaindonesia.com/nusantara/947202/forum-etika-global-rumuskan-tata-kelola-ai-yang-bertanggung-jawab",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-21T15:07:00.000Z"
+    },
     {
       "title": "Ancaman Kebocoran Data, 40% Perusahaan di Indonesia Ragu Pakai Agen AI",
       "link": "https://inet.detik.com/security/d-8717939/ancaman-kebocoran-data-40-perusahaan-di-indonesia-ragu-pakai-agen-ai",
@@ -1759,48 +1801,6 @@
       "link": "https://www.antaranews.com/berita/5774001/tiktok-luncurkan-asisten-belanja-berbasis-ai-dan-fitur-bayar-instan",
       "source": "ANTARA",
       "pubDate": "2026-10-06T12:57:30.000Z"
-    },
-    {
-      "title": "AI Bisa Temukan Sistem Bintang yang Sembunyikan Planet Mirip Bumi",
-      "link": "https://inet.detik.com/science/d-8695403/ai-bisa-temukan-sistem-bintang-yang-sembunyikan-planet-mirip-bumi",
-      "source": "detikINET",
-      "pubDate": "2026-10-06T11:50:52.000Z"
-    },
-    {
-      "title": "Airlangga Sebut KEK Digital Bintan Sold Out, RI Bidik Peluang Industri AI",
-      "link": "https://katadata.co.id/finansial/makro/6ac4cb272acfb/airlangga-sebut-kek-digital-bintan-sold-out-ri-bidik-peluang-industri-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-06T10:19:00.000Z"
-    },
-    {
-      "title": "Curhat di AI Claude Mau Tembak Kantor Polisi, Wanita Ini Langsung Ditangkap",
-      "link": "https://inet.detik.com/cyberlife/d-8694730/curhat-di-ai-claude-mau-tembak-kantor-polisi-wanita-ini-langsung-ditangkap",
-      "source": "detikINET",
-      "pubDate": "2026-10-06T09:45:48.000Z"
-    },
-    {
-      "title": "Nvidia Digugat Gara-gara Kesepakatan Rp 358,4 Triliun dengan Raksasa Cip AI Groq",
-      "link": "https://katadata.co.id/digital/teknologi/6ac4c00a8e261/nvidia-digugat-gara-gara-kesepakatan-rp-358-4-triliun-dengan-raksasa-cip-ai-groq",
-      "source": "Katadata",
-      "pubDate": "2026-10-06T09:31:00.000Z"
-    },
-    {
-      "title": "Agen AI Mulai Mengancam Keamanan Siber di Era Otomasi",
-      "link": "https://www.liputan6.com/tekno/read/8307108/agen-ai-mulai-mengancam-keamanan-siber-di-era-otomasi",
-      "source": "Liputan6",
-      "pubDate": "2026-10-06T08:09:43.000Z"
-    },
-    {
-      "title": "Anthropic Claude Bidik IPO Rp 1.792 Triliun, Uji Minat Investor saat Gejolak AI",
-      "link": "https://katadata.co.id/digital/teknologi/6ac4a563b073e/anthropic-claude-bidik-ipo-rp-1792-triliun-uji-minat-investor-saat-gejolak-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-06T07:38:00.000Z"
-    },
-    {
-      "title": "DPR Sahkan UU Satu Data Indonesia: Atur AI hingga Hacker Bisa Dipenjara 15 Tahun",
-      "link": "https://katadata.co.id/digital/teknologi/6ac492315141a/dpr-sahkan-uu-satu-data-indonesia-atur-ai-hingga-hacker-bisa-dipenjara-15-tahun",
-      "source": "Katadata",
-      "pubDate": "2026-10-06T06:16:00.000Z"
     }
   ]
 }

@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-10-21T15:13:44.031Z",
+  "updatedAt": "2026-10-22T00:40:55.301Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
     {
-      "title": "Безопасность ИИ-агента: больше контроля или специальная среда?",
+      "title": "AMD и Intel объединились, чтобы упростить запуск ИИ-моделей на процессорах x86",
+      "link": "https://3dnews.ru/1150249/amd-i-intel-obedinilischtobi-uprostit-zapusk-iimodeley-na-protsessorah-x86",
+      "source": "3DNews",
+      "pubDate": "2026-10-21T16:39:00.000Z"
+    },
+    {
+      "title": "Где заканчивается самостоятельность ИИ-агента? Я дала ему банковскую карту, телефон, браузер и 200+ MCP: итоги теста",
+      "link": "https://habr.com/ru/articles/1097430/?utm_campaign=1097430&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-21T15:27:10.000Z"
+    },
+    {
+      "title": "Безопасность ИИ‑агента: больше контроля или специальная среда?",
       "link": "https://habr.com/ru/articles/1097322/?utm_campaign=1097322&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-21T12:29:56.000Z"
@@ -21,13 +33,13 @@
       "pubDate": "2026-10-21T10:27:00.000Z"
     },
     {
-      "title": "SIEM на двух ядрах для 150 хостов и 9B-модель на триаже: как устроен самописный AI SOC",
+      "title": "SIEM на двух ядрах для 150 хостов и 9 B‑модель на триаже: как устроен самописный AI SOC",
       "link": "https://habr.com/ru/articles/1097200/?utm_campaign=1097200&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-21T10:11:59.000Z"
     },
     {
-      "title": "Как ИИ-агенты помогают на производстве",
+      "title": "Как ИИ‑агенты помогают на производстве",
       "link": "https://habr.com/ru/articles/1097180/?utm_campaign=1097180&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-21T09:57:48.000Z"
@@ -39,7 +51,7 @@
       "pubDate": "2026-10-21T09:50:00.000Z"
     },
     {
-      "title": "Между Сциллой и Харибдой: как и зачем мы ограничиваем ИИ-агентов",
+      "title": "Между Сциллой и Харибдой: как и зачем мы ограничиваем ИИ‑агентов",
       "link": "https://habr.com/ru/companies/cloud_ru/articles/1096336/?utm_campaign=1096336&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-21T08:44:47.000Z"
@@ -99,7 +111,7 @@
       "pubDate": "2026-10-20T18:10:00.000Z"
     },
     {
-      "title": "Я устал читать простыни текста от ИИ‑агентов. Поэтому заставил их рисовать",
+      "title": "Я устал читать простыни текста от ИИ‑агентов. Поэтому заставил их рисовать блок схемы и скетчи форм",
       "link": "https://habr.com/ru/articles/1096958/?utm_campaign=1096958&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-20T17:38:35.000Z"
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-06_mws_ai_otkryla_svoj_instrument",
       "source": "CNews",
       "pubDate": "2026-10-06T08:18:00.000Z"
-    },
-    {
-      "title": "Маскирование ПДн для LLM: метрика, которую не считает никто, и шесть шлюзов против живого агента",
-      "link": "https://habr.com/ru/articles/1090754/?utm_campaign=1090754&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-06T07:00:23.000Z"
-    },
-    {
-      "title": "РТК-ЦОД представил корпоративного ИИ-ассистента для безопасной работы с документами и базами знаний",
-      "link": "https://3dnews.ru/1149462/rtktsod-predstavil-korporativnogo-iiassistenta-dlya-bezopasnoy-raboti-s-dokumentami-i-bazami-znaniy",
-      "source": "3DNews",
-      "pubDate": "2026-10-06T07:00:00.000Z"
     }
   ]
 }
