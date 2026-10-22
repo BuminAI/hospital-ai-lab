@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-10-22T00:40:55.301Z",
+  "updatedAt": "2026-10-22T07:33:20.815Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Запускаем локальные альтернативы ChatGPT и Claude: пять открытых ИИ-моделей для GPU 8–32 ГБ",
+      "link": "https://habr.com/ru/companies/mclouds/articles/1094338/?utm_campaign=1094338&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-22T07:24:32.000Z"
+    },
+    {
+      "title": "Anthropic представила конкурента M**a Muse — автономного ИИ-агента Claude Duet",
+      "link": "https://3dnews.ru/1150274/anthropic-predstavila-konkurenta-meta-muse-avtonomnogo-iiagenta-claude-duet",
+      "source": "3DNews",
+      "pubDate": "2026-10-22T07:07:00.000Z"
+    },
+    {
+      "title": "От чата до агентов: 6 курсов по ИИ от Google, Anthropic и OpenAI",
+      "link": "https://habr.com/ru/companies/svoi_ru/articles/1096464/?utm_campaign=1096464&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-22T07:00:48.000Z"
+    },
+    {
+      "title": "«Руконтекст» запускает ИИ-помощника «Контекстум»: работа по стандартам вузов, издательств и ГОСТ",
+      "link": "https://www.cnews.ru/news/line/2026-10-22_rukontekst_zapuskaet_ii-pomoshchnika",
+      "source": "CNews",
+      "pubDate": "2026-10-22T06:17:00.000Z"
+    },
+    {
+      "title": "Eltex разработал высокопроизводительный коммутатор MES5600-24 для ЦОД и ИИ-инфраструктуры",
+      "link": "https://www.cnews.ru/news/line/2026-10-22_eltex_razrabotal_vysokoproizvoditelnyj",
+      "source": "CNews",
+      "pubDate": "2026-10-22T05:55:00.000Z"
+    },
+    {
+      "title": "Я тебя породил: представлена рекурсивная модель ИИ, которая обучает себя сама",
+      "link": "https://3dnews.ru/1150267/ya-tebya-porodil-predstavlena-rekursivnaya-model-ii-kotoraya-obuchaet-sebya-sama",
+      "source": "3DNews",
+      "pubDate": "2026-10-22T05:46:00.000Z"
+    },
     {
       "title": "AMD и Intel объединились, чтобы упростить запуск ИИ-моделей на процессорах x86",
       "link": "https://3dnews.ru/1150249/amd-i-intel-obedinilischtobi-uprostit-zapusk-iimodeley-na-protsessorah-x86",
@@ -1765,42 +1801,6 @@
       "link": "https://3dnews.ru/1149532/naydena-ahillesova-pyata-vseh-iiagentov-oni-bezogovorochno-doveryayut-drug-drugu",
       "source": "3DNews",
       "pubDate": "2026-10-06T12:48:00.000Z"
-    },
-    {
-      "title": "AI‑дайджест #5: агенты выходят на работу, ИИ растворяется в привычных инструментах. Что скажет Лаборатория ИИ?",
-      "link": "https://habr.com/ru/companies/rshb/articles/1091088/?utm_campaign=1091088&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-06T12:40:54.000Z"
-    },
-    {
-      "title": "От ручного SEO к офису AI-сотрудников, как выстроить оркестрацию",
-      "link": "https://habr.com/ru/articles/1091084/?utm_campaign=1091084&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-06T12:21:40.000Z"
-    },
-    {
-      "title": "«Сбер» выпустил Kandinsky 6.0 Video — ИИ-модель для генерации видео с синхронным звуком",
-      "link": "https://3dnews.ru/1149527/sber-vipustil-kandinsky-60-video-iimodel-dlya-generatsii-video-s-sinhronnim-zvukom",
-      "source": "3DNews",
-      "pubDate": "2026-10-06T10:55:00.000Z"
-    },
-    {
-      "title": "«ИИ заменит всех?» Почему мы всё ещё управляем разработкой вручную?",
-      "link": "https://habr.com/ru/articles/1090946/?utm_campaign=1090946&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-06T10:09:50.000Z"
-    },
-    {
-      "title": "Долгосрочная память для медицинского AI-ассистента: почему мы не отдали управление памятью LLM",
-      "link": "https://habr.com/ru/articles/1090888/?utm_campaign=1090888&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-06T08:55:45.000Z"
-    },
-    {
-      "title": "MWS AI открыла свой инструмент для оценки моделей распознавания речи",
-      "link": "https://www.cnews.ru/news/line/2026-10-06_mws_ai_otkryla_svoj_instrument",
-      "source": "CNews",
-      "pubDate": "2026-10-06T08:18:00.000Z"
     }
   ]
 }
