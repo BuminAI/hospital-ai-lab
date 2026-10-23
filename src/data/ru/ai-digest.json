@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-10-22T15:15:50.082Z",
+  "updatedAt": "2026-10-23T00:39:22.386Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "OpsDeck за три недели: ИИ‑агент, который сам ходит на хосты, и ещё восемь релизов",
+      "link": "https://habr.com/ru/articles/1098148/?utm_campaign=1098148&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-22T22:01:46.000Z"
+    },
+    {
+      "title": "Microsoft заявила, что её ИИ диагностирует заболевания намного лучше живых врачей",
+      "link": "https://3dnews.ru/1150318/microsoft-zayavila-chto-eyo-ii-diagnostiruet-zabolevaniya-namnogo-luchshe-givih-vrachey",
+      "source": "3DNews",
+      "pubDate": "2026-10-22T21:02:00.000Z"
+    },
+    {
+      "title": "Экспериментальный браузер Arc закрылся — разработчики зазывают пользователей в ИИ-браузер Dia",
+      "link": "https://3dnews.ru/1150314/eksperimentalniy-brauzer-arc-zakrilsya-razrabotchiki-zazivayut-polzovateley-v-iibrauzer-dia",
+      "source": "3DNews",
+      "pubDate": "2026-10-22T21:01:00.000Z"
+    },
+    {
+      "title": "Как мы научили ИИ‑агента не выдумывать цифры в отчётах",
+      "link": "https://habr.com/ru/articles/1098124/?utm_campaign=1098124&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-22T19:35:45.000Z"
+    },
+    {
+      "title": "Тестирование ИИ‑агента реального действия на выполнение неназванных условий: прогоны на DeepSeek",
+      "link": "https://habr.com/ru/articles/1098088/?utm_campaign=1098088&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-22T18:17:55.000Z"
+    },
+    {
+      "title": "ИИ поставил кибератаки на конвейер: CrowdStrike рассказала, как хакеры делегируют взлом автономным агентам",
+      "link": "https://3dnews.ru/1150306/ii-postavil-kiberataki-na-konveyer-crowdstrike-rasskazala-kak-hakeri-delegiruyut-vzlom-avtonomnim-agentam",
+      "source": "3DNews",
+      "pubDate": "2026-10-22T16:06:00.000Z"
+    },
     {
       "title": "Как я заставил ИИ-агентов собирать себе harness под конкретную задачу",
       "link": "https://habr.com/ru/articles/1098004/?utm_campaign=1098004&utm_source=habrahabr&utm_medium=rss",
@@ -9,7 +45,7 @@
       "pubDate": "2026-10-22T14:10:02.000Z"
     },
     {
-      "title": "Чёлка MacBook как пульт для ИИ-агентов: Claude Code, Codex, Cursor и Copilot в одном месте",
+      "title": "Чёлка MacBook как пульт для ИИ‑агентов: Claude Code, Codex, Cursor и Copilot в одном месте",
       "link": "https://habr.com/ru/articles/1097994/?utm_campaign=1097994&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-22T14:02:46.000Z"
@@ -57,7 +93,7 @@
       "pubDate": "2026-10-22T09:11:14.000Z"
     },
     {
-      "title": "Опыт QA-автоматизатора: как я подключил нейросеть к wiki, базам данных и тест-менеджменту",
+      "title": "Опыт QA‑автоматизатора: как я подключил нейросеть к wiki, базам данных и тест‑менеджменту",
       "link": "https://habr.com/ru/companies/X5Tech/articles/1096342/?utm_campaign=1096342&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-22T09:09:01.000Z"
@@ -1765,42 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-07_rostelekom_predstavil",
       "source": "CNews",
       "pubDate": "2026-10-07T10:23:00.000Z"
-    },
-    {
-      "title": "Дмитрий Григоренко: Из-за внедрения ИИ эффективность работы аппарата Правительства показала двузначный рост",
-      "link": "https://www.cnews.ru/news/top/2026-10-07_dmitrij_grigorenko_zayavil",
-      "source": "CNews",
-      "pubDate": "2026-10-07T10:06:00.000Z"
-    },
-    {
-      "title": "Российские ученые разработали и внедрили новое ИИ-решение для врачей",
-      "link": "https://www.cnews.ru/news/line/2026-10-07_rossijskie_uchenye_razrabotali",
-      "source": "CNews",
-      "pubDate": "2026-10-07T09:59:00.000Z"
-    },
-    {
-      "title": "«Биорг» и Калуга выстроили ИИ-модель защиты архивных фондов и масштабируют ее на другие регионы",
-      "link": "https://www.cnews.ru/news/line/2026-10-07_biorg_i_kaluga_vystroili",
-      "source": "CNews",
-      "pubDate": "2026-10-07T09:15:00.000Z"
-    },
-    {
-      "title": "Московский Политех запускает пилот конструкторского бюро, где работают команды ИИ-агентов",
-      "link": "https://www.cnews.ru/news/line/2026-10-07_moskovskij_politeh_zapuskaet",
-      "source": "CNews",
-      "pubDate": "2026-10-07T08:38:00.000Z"
-    },
-    {
-      "title": "«МегаФон»: личного ИИ-агента сотрудника нельзя распространять на всю компанию",
-      "link": "https://www.cnews.ru/news/line/2026-10-07_megafon_lichnogo_ii-agenta",
-      "source": "CNews",
-      "pubDate": "2026-10-07T07:50:00.000Z"
-    },
-    {
-      "title": "ИБ-стартап Sentra представил ИИ-хакера для проверки защищенности бизнеса глазами атакующего",
-      "link": "https://www.cnews.ru/news/line/2026-10-07_ib-startap_sentra_predstavil",
-      "source": "CNews",
-      "pubDate": "2026-10-07T07:28:00.000Z"
     }
   ]
 }
