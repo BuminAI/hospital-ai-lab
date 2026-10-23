@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-23T00:39:22.386Z",
+  "updatedAt": "2026-10-23T07:30:10.459Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "1Password откроет ИИ-агентам доступ к аккаунтам пользователя, не показав ни одного пароля",
+      "link": "https://3dnews.ru/1150326/1password-otkroet-iiagentam-dostup-k-akkauntam-polzovatelya-ne-pokazav-ni-odnogo-parolya",
+      "source": "3DNews",
+      "pubDate": "2026-10-23T07:15:00.000Z"
+    },
+    {
+      "title": "Positive Education объединил практики безопасной работы с ИИ-агентами в новой программе обучения",
+      "link": "https://www.cnews.ru/news/line/2026-10-23_positive_education_obedinil_praktiki",
+      "source": "CNews",
+      "pubDate": "2026-10-23T04:20:00.000Z"
+    },
     {
       "title": "OpsDeck за три недели: ИИ‑агент, который сам ходит на хосты, и ещё восемь релизов",
       "link": "https://habr.com/ru/articles/1098148/?utm_campaign=1098148&utm_source=habrahabr&utm_medium=rss",
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-07_k2teh_zapustil_ii-agenta",
       "source": "CNews",
       "pubDate": "2026-10-07T11:10:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты в России: как перейти от экспериментов к измеримой отдаче для бизнеса. Обзор TAdviser",
-      "link": "https://www.tadviser.ru/a/970316",
-      "source": "TAdviser",
-      "pubDate": "2026-10-07T11:05:39.000Z"
-    },
-    {
-      "title": "«Ростелеком» представил регионам готовые к внедрению ИИ-решения для задач госуправления",
-      "link": "https://www.cnews.ru/news/line/2026-10-07_rostelekom_predstavil",
-      "source": "CNews",
-      "pubDate": "2026-10-07T10:23:00.000Z"
     }
   ]
 }

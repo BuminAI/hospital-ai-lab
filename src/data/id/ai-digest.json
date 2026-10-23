@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-23T00:39:54.619Z",
+  "updatedAt": "2026-10-23T07:31:07.591Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "IMF soroti pertumbuhan didorong AI di Timur Tengah dan Asia Tengah",
+      "link": "https://www.antaranews.com/berita/5807099/imf-soroti-pertumbuhan-didorong-ai-di-timur-tengah-dan-asia-tengah",
+      "source": "ANTARA",
+      "pubDate": "2026-10-23T07:17:05.000Z"
+    },
+    {
+      "title": "Google Suntikkan AI Gemini ke Chrome, Makin Jago Endus Situs Penipuan",
+      "link": "https://www.liputan6.com/tekno/read/8318676/google-suntikkan-ai-gemini-ke-chrome-makin-jago-endus-situs-penipuan",
+      "source": "Liputan6",
+      "pubDate": "2026-10-23T07:08:27.000Z"
+    },
+    {
+      "title": "Claude AI Temukan 493 Celah Keamanan Open Source dan Bug Berusia 21 Tahun",
+      "link": "https://mediaindonesia.com/teknologi/947850/claude-ai-temukan-493-celah-keamanan-open-source-dan-bug-berusia-21-tahun",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-23T06:42:00.000Z"
+    },
+    {
+      "title": "AI Korea Ini Bisa Bantu Guru, LG CNS Ingin Bawa ke Indonesia",
+      "link": "https://inet.detik.com/business/d-8720155/ai-korea-ini-bisa-bantu-guru-lg-cns-ingin-bawa-ke-indonesia",
+      "source": "detikINET",
+      "pubDate": "2026-10-23T04:00:03.000Z"
+    },
+    {
+      "title": "Komdigi Yakin AI Talent Factory Bisa Atasi Skill Mismatch Mahasiswa dan Industri",
+      "link": "https://katadata.co.id/digital/teknologi/6adacc72cd496/komdigi-yakin-ai-talent-factory-bisa-atasi-skill-mismatch-mahasiswa-dan-industri",
+      "source": "Katadata",
+      "pubDate": "2026-10-23T02:54:00.000Z"
+    },
+    {
+      "title": "Pemerintah Incar AI Jadi Mesin Ekonomi RI, Potensi Rp 7.221 Triliun",
+      "link": "https://katadata.co.id/berita/industri/6adab2306ee50/pemerintah-incar-ai-jadi-mesin-ekonomi-ri-potensi-rp-7221-triliun",
+      "source": "Katadata",
+      "pubDate": "2026-10-23T01:02:00.000Z"
+    },
+    {
+      "title": "AI Makan Korban, Bank Raksasa Ini Mau PHK 5.000 Karyawan",
+      "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8719992/ai-makan-korban-bank-raksasa-ini-mau-phk-5-000-karyawan",
+      "source": "detikFinance",
+      "pubDate": "2026-10-23T00:40:44.000Z"
+    },
     {
       "title": "Wall Street Lesu Imbas Kekhawatiran Capex Saham AI hingga Lonjakan Harga Minyak",
       "link": "https://katadata.co.id/finansial/bursa/6adaa2936cfc6/wall-street-lesu-imbas-kekhawatiran-capex-saham-ai-hingga-lonjakan-harga-minyak",
@@ -1759,48 +1801,6 @@
       "link": "https://www.antaranews.com/video/5776018/ri-ikut-andil-susun-aturan-global-tentang-perlindungan-anak-di-era-ai",
       "source": "ANTARA",
       "pubDate": "2026-10-07T16:08:19.000Z"
-    },
-    {
-      "title": "Menkomdigi respon gagasan perlambatan pengembangan AI global",
-      "link": "https://www.antaranews.com/berita/5776028/menkomdigi-respon-gagasan-perlambatan-pengembangan-ai-global",
-      "source": "ANTARA",
-      "pubDate": "2026-10-07T16:04:39.000Z"
-    },
-    {
-      "title": "Indonesia berperan aktif di kancah global lindungi anak di era AI",
-      "link": "https://www.antaranews.com/berita/5776013/indonesia-berperan-aktif-di-kancah-global-lindungi-anak-di-era-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-10-07T15:47:34.000Z"
-    },
-    {
-      "title": "AS Bentuk Satuan Tugas untuk Atur Perkembangan AI",
-      "link": "https://mediaindonesia.com/internasional/941879/as-bentuk-satuan-tugas-untuk-atur-perkembangan-ai",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-07T15:40:00.000Z"
-    },
-    {
-      "title": "AS bentuk satuan tugas untuk atur dan mitigasi potensi risiko AI",
-      "link": "https://www.antaranews.com/berita/5775985/as-bentuk-satuan-tugas-untuk-atur-dan-mitigasi-potensi-risiko-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-10-07T15:20:41.000Z"
-    },
-    {
-      "title": "4 Rekomendasi HP Kamera Terbaik 2026 dengan Fitur AI Canggih",
-      "link": "https://mediaindonesia.com/teknologi/941813/4-rekomendasi-hp-kamera-terbaik-2026-dengan-fitur-ai-canggih",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-07T13:11:00.000Z"
-    },
-    {
-      "title": "Indonesia Bahas soal Saran Perlambatan AI-Gabung Koalisi Global",
-      "link": "https://inet.detik.com/law-and-policy/d-8696996/indonesia-bahas-soal-saran-perlambatan-ai-gabung-koalisi-global",
-      "source": "detikINET",
-      "pubDate": "2026-10-07T12:42:51.000Z"
-    },
-    {
-      "title": "Danantara Tugaskan PT LEN Buat Chip AI untuk Mobil Nasional",
-      "link": "https://katadata.co.id/finansial/korporasi/6ac63e3c4eef4/danantara-tugaskan-pt-len-buat-chip-ai-untuk-mobil-nasional",
-      "source": "Katadata",
-      "pubDate": "2026-10-07T12:42:00.000Z"
     }
   ]
 }
