@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-20T12:17:28.830Z",
+  "updatedAt": "2026-10-23T05:26:15.705Z",
   "source": "科技新報·中央社·健康醫療網",
   "items": [
+    {
+      "title": "微軟 AI 診斷系統登《科學》期刊，疑難病例準確率逾醫師兩倍",
+      "link": "https://technews.tw/2026/10/23/microsoft-says-its-new-ai-is-more-than-twice-as-good-at-diagnosing-diseases-as-doctors/",
+      "source": "科技新報",
+      "pubDate": "2026-10-23T02:50:48.000Z"
+    },
+    {
+      "title": "AI 設計噬菌體首度用於人體，Radical Numerics 跨出臨床應用新里程",
+      "link": "https://technews.tw/2026/10/23/human-receives-ai-designed-virus-for-the-first-time/",
+      "source": "科技新報",
+      "pubDate": "2026-10-23T02:20:11.000Z"
+    },
     {
       "title": "美醫院以 4 千萬張臉部照片訓練 AI，單張照片可估生理年齡並預測癌症病患存活率",
       "link": "https://technews.tw/2026/10/20/new-ai-tool-can-predict-cancer-survival-by-a-single-patient-selfie-study-suggests/",
