@@ -161,6 +161,8 @@ const navRows = navConfig.map((n) => ({
         <a href={withBase('/admin-ru/')}>러시아어판</a>
         <a href={withBase('/admin-id/')}>인도네시아어판</a>
         <a href={withBase('/admin-tw/')}>대만어판</a>
+        <div class="side-group">사이트</div>
+        <a href={withBase('/ja/')} target="_blank" rel="noopener">🌐 사이트 보기</a>
       </nav>
 
       <!-- ── 1. 추천 영상 ─────────────────────────────────── -->
@@ -2985,6 +2987,10 @@ const navRows = navConfig.map((n) => ({
   /* 사이드바형 관리 화면(2026-10-24): 기존 탭 바(.admin-nav)를 왼쪽 세로 메뉴로 바꾼다.
      패널 전환 스크립트(data-tab)는 그대로이고, 모양만 바뀐다. 모바일은 예전처럼 가로 한 줄. */
   .container:has(> #admin-dashboard) { max-width: 88rem; }
+  /* 관리자 전용 화면(admin-only-chrome): 공용 사이트 헤더·메뉴·경로·푸터를 숨긴다(대시보드와 같은 모양) */
+  body:has(#admin-dashboard) :is(.skip-link, .site-header, .site-footer, .ja-header, .ja-nav, .ja-breadcrumb, .ja-footer, .ru-header, .ru-nav, .ru-breadcrumb, .ru-footer, .id-header, .id-nav, .id-breadcrumb, .id-footer, .tw-header, .tw-nav, .tw-breadcrumb, .tw-footer) { display: none !important; }
+  body:has(#admin-dashboard) { background: #f0f0f1; }
+  .container:has(> #admin-dashboard) { padding-top: 1rem; }
   #admin-dashboard:not([hidden]) {
     display: grid;
     grid-template-columns: 15rem minmax(0, 1fr);
