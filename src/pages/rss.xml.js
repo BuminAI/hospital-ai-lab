@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
 import { getCollection, render } from 'astro:content';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
-import { BASE, SITE_TITLE, SITE_TAGLINE } from '../utils/site';
+import { BASE, SITE_TITLE, SITE_TAGLINE, CONTACT_EMAIL } from '../utils/site';
 
 export async function GET(context) {
   const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
@@ -29,6 +29,8 @@ export async function GET(context) {
         description: post.data.description,
         pubDate: post.data.pubDate,
         categories: [post.data.category],
+        // RSS 2.0 author는 "이메일 (이름)" 형식 — 네이버 RSS 권장 항목(2026-10-24).
+        author: `${CONTACT_EMAIL} (조영호)`,
         // base(하위 경로)까지 포함해야 GitHub Pages 임시 주소에서도 링크가 살아 있다.
         link: `${BASE}/blog/${post.id}/`,
         content,

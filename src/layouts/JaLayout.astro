@@ -299,6 +299,12 @@ const year = new Date().getFullYear();
     }
     {ogType === 'article' && <meta property="article:modified_time" content={updatedAt.toISOString()} />}
     {ogType === 'article' && category && <meta property="article:section" content={category} />}
+    {ogType === 'article' && (
+      <>
+        <meta name="author" content={person.name} />
+        <meta property="article:author" content={person.name} />
+      </>
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />

@@ -333,6 +333,12 @@ const webPage = {
       )
     }
     {ogType === 'article' && category && <meta property="article:section" content={category} />}
+    {ogType === 'article' && (
+      <>
+        <meta name="author" content={'조영호'} />
+        <meta property="article:author" content={'조영호'} />
+      </>
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
