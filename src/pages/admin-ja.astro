@@ -153,6 +153,14 @@ const navRows = navConfig.map((n) => ({
         <a href="#jp-panel" data-tab="jp-panel">📄 본문 페이지</a>
         <a href="#js-panel" data-tab="js-panel">🔄 자동 수집·반영 상태</a>
         <a href="#jt-panel" data-tab="jt-panel">🔑 GitHub 연동</a>
+        <div class="side-group">관리자 홈</div>
+        <a href={withBase('/admin/')}>🏠 관리자 대시보드</a>
+        <div class="side-group">언어판 관리</div>
+        <a href={withBase('/admin-ko/')}>한국어판</a>
+        <a class="cur" aria-current="page" href={withBase('/admin-ja/')}>일본어판</a>
+        <a href={withBase('/admin-ru/')}>러시아어판</a>
+        <a href={withBase('/admin-id/')}>인도네시아어판</a>
+        <a href={withBase('/admin-tw/')}>대만어판</a>
       </nav>
 
       <!-- ── 1. 추천 영상 ─────────────────────────────────── -->
@@ -2970,5 +2978,68 @@ const navRows = navConfig.map((n) => ({
     .admin-ja .form-grid {
       grid-template-columns: 1fr;
     }
+  }
+</style>
+
+<style is:global>
+  /* 사이드바형 관리 화면(2026-10-24): 기존 탭 바(.admin-nav)를 왼쪽 세로 메뉴로 바꾼다.
+     패널 전환 스크립트(data-tab)는 그대로이고, 모양만 바뀐다. 모바일은 예전처럼 가로 한 줄. */
+  .container:has(> #admin-dashboard) { max-width: 88rem; }
+  #admin-dashboard:not([hidden]) {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 0;
+    align-items: start;
+  }
+  #admin-dashboard > * { grid-column: 2; min-width: 0; }
+  #admin-dashboard > .admin-nav {
+    grid-column: 1;
+    grid-row: 1 / span 200;
+    position: sticky;
+    top: var(--site-header-h, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0 0;
+    background: #1d2327;
+    border: 0;
+    border-radius: 8px;
+    max-height: calc(100vh - var(--site-header-h, 4.5rem) - 1rem);
+    overflow-y: auto;
+  }
+  #admin-dashboard .admin-nav a {
+    border: 0;
+    border-radius: 0;
+    background: none;
+    color: #c3c4c7;
+    font-weight: 500;
+    padding: 0.55rem 1rem;
+    white-space: normal;
+  }
+  #admin-dashboard .admin-nav a:hover { background: #2c3338; color: #fff; border: 0; }
+  #admin-dashboard .admin-nav a.active { background: #2271b1; color: #fff; border: 0; }
+  #admin-dashboard .admin-nav a.cur { color: #fff; font-weight: 700; box-shadow: inset 3px 0 0 #2271b1; }
+  #admin-dashboard .admin-nav .side-group {
+    padding: 0.9rem 1rem 0.25rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: #8c8f94;
+  }
+  .admin-topbar { margin-top: 0.5rem; }
+  @media (max-width: 56rem) {
+    #admin-dashboard:not([hidden]) { display: block; }
+    #admin-dashboard > .admin-nav {
+      position: sticky;
+      flex-direction: row;
+      overflow-x: auto;
+      max-height: none;
+      border-radius: 0;
+      z-index: 10;
+    }
+    #admin-dashboard .admin-nav a { white-space: nowrap; }
+    #admin-dashboard .admin-nav .side-group { display: none; }
   }
 </style>
