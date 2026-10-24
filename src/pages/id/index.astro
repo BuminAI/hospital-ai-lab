@@ -60,13 +60,32 @@ const homeSeries = (await getResolvedSeries('id'))
   ruPath="/ru/"
   schema={[homeFaqLd]}
 >
-  <p class="id-updated" style="letter-spacing:.06em">{id.home.heroEyebrow}</p>
-  <h1>{id.home.heroTitle}</h1>
-  <p>{id.home.heroLead}</p>
-
-  <p style="margin-top:16px">
-    <a class="id-cta" href={withBase('/id/about/')}>{id.nav.about} →</a>
-  </p>
+  {/* 한국적인 디자인(2026-10-24 오너 요청): 오방색(청·적·황·흑)·단청 띠·태극 문양·한지 바탕·보자기 조각 띠.
+      장식은 모두 CSS/인라인 SVG이며 읽는 데 필요한 정보는 아니라 aria-hidden 처리했다. */}
+  <section class="kr-hero">
+    <div class="kr-dancheong" aria-hidden="true"></div>
+    <div class="kr-hero-body">
+      <div class="kr-hero-text">
+        <p class="kr-eyebrow">{id.home.heroEyebrow}</p>
+        <h1>{id.home.heroTitle}</h1>
+        <p class="kr-hangul" lang="ko">병원 AI 연구소</p>
+        <p>{id.home.heroLead}</p>
+        <p style="margin-top:16px">
+          <a class="id-cta" href={withBase('/id/about/')}>{id.nav.about} →</a>
+        </p>
+      </div>
+      <svg class="kr-taegeuk" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="1.5"/>
+        <g transform="rotate(-90 50 50)">
+        <path d="M50 10a40 40 0 0 1 0 80a20 20 0 0 1 0-40a20 20 0 0 0 0-40z" fill="#c8102e"/>
+        <path d="M50 90a40 40 0 0 1 0-80a20 20 0 0 1 0 40a20 20 0 0 0 0 40z" fill="#1e4ea1"/>
+        <circle cx="50" cy="30" r="6" fill="#1e4ea1"/>
+        <circle cx="50" cy="70" r="6" fill="#c8102e"/>
+        </g>
+      </svg>
+    </div>
+    <div class="kr-bojagi" aria-hidden="true"></div>
+  </section>
 
   <div class="id-cards">
     <a class="id-card" href={withBase('/id/ai-digest/')}>
@@ -173,6 +192,94 @@ const homeSeries = (await getResolvedSeries('id'))
 </IdLayout>
 
 <style>
+  /* ── 한국적 디자인 토큰: 오방색에서 가져온 네 색 + 한지 바탕 ── */
+  .kr-hero {
+    --kr-blue: #1e4ea1; --kr-red: #c8102e; --kr-yellow: #e0a100; --kr-ink: #1a1a1a;
+    --kr-hanji: #faf6ee; --kr-hanji-line: #e6dcc6;
+    position: relative;
+    margin: 0 0 8px;
+    border: 1px solid var(--kr-hanji-line);
+    border-radius: 6px;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(30, 78, 161, .07), transparent 38%),
+      radial-gradient(circle at 6% 96%, rgba(200, 16, 46, .06), transparent 36%),
+      var(--kr-hanji);
+    overflow: hidden;
+  }
+  /* 단청 띠: 청·적·황·흑이 번갈아 이어지는 얇은 줄무늬 */
+  .kr-dancheong {
+    height: 10px;
+    background: repeating-linear-gradient(90deg,
+      var(--kr-blue) 0 28px, #fff 28px 32px, var(--kr-red) 32px 60px, #fff 60px 64px,
+      var(--kr-yellow) 64px 92px, #fff 92px 96px, var(--kr-ink) 96px 124px, #fff 124px 128px);
+  }
+  .kr-hero-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: center;
+    padding: 26px 28px 22px;
+  }
+  .kr-hero-text { min-width: 0; }
+  .kr-eyebrow {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    color: var(--kr-red);
+  }
+  .kr-hero h1 { margin: 0 0 4px; color: var(--kr-ink); }
+  .kr-hangul {
+    margin: 0 0 14px;
+    font-size: 14px;
+    letter-spacing: .3em;
+    color: var(--kr-blue);
+    font-weight: 600;
+  }
+  .kr-hero .kr-hero-text p:not(.kr-eyebrow):not(.kr-hangul) { color: #2b2b2b; }
+  .kr-taegeuk {
+    width: clamp(84px, 14vw, 132px);
+    height: auto;
+    color: var(--kr-ink);
+    animation: kr-spin 40s linear infinite;
+  }
+  @keyframes kr-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .kr-taegeuk { animation: none; } }
+  /* 보자기 조각 띠: 네모 조각이 이어 붙은 모양 */
+  .kr-bojagi {
+    height: 12px;
+    background:
+      linear-gradient(90deg, rgba(30,78,161,.85) 0 25%, rgba(224,161,0,.85) 25% 50%, rgba(200,16,46,.85) 50% 75%, rgba(26,26,26,.8) 75% 100%);
+    background-size: 160px 100%;
+    opacity: .85;
+    border-top: 2px solid #fff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.4);
+    mask-image: repeating-linear-gradient(90deg, #000 0 34px, transparent 34px 38px);
+    -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 34px, transparent 34px 38px);
+  }
+  @media (max-width: 560px) {
+    .kr-hero-body { grid-template-columns: minmax(0, 1fr); padding: 20px 18px 16px; }
+    .kr-taegeuk { width: 72px; justify-self: end; margin-top: -8px; }
+  }
+
+  /* 카드: 위쪽 띠를 오방색 순서로 돌려 쓴다 */
+  .id-cards .id-card { border-top: 3px solid var(--card-accent, #1e4ea1); }
+  .id-card:nth-child(4n+1) { --card-accent: #1e4ea1; }
+  .id-card:nth-child(4n+2) { --card-accent: #c8102e; }
+  .id-card:nth-child(4n+3) { --card-accent: #e0a100; }
+  .id-card:nth-child(4n+4) { --card-accent: #3a3a3a; }
+
+  @media (prefers-color-scheme: dark) {
+    .kr-hero {
+      --kr-hanji: #1a1814; --kr-hanji-line: #3a342a; --kr-ink: #f1ece0; --kr-blue: #7fa6ec; --kr-red: #f0707f; --kr-yellow: #f0be3a;
+    }
+    .kr-dancheong { background: repeating-linear-gradient(90deg,
+      #2f63c4 0 28px, #1a1814 28px 32px, #c8102e 32px 60px, #1a1814 60px 64px,
+      #e0a100 64px 92px, #1a1814 92px 96px, #d9d3c4 96px 124px, #1a1814 124px 128px); }
+    .kr-hero .kr-hero-text p:not(.kr-eyebrow):not(.kr-hangul) { color: #d6d0c2; }
+    .kr-bojagi { border-top-color: #1a1814; }
+  }
+
   /* .id-cta 는 마크업에만 있고 스타일이 없어서 평범한 링크로 나왔다
      (2026-09-06 색상 교체 중 발견). ja·ru 홈과 같은 버튼 모양으로 맞춘다. */
   .id-cta {
