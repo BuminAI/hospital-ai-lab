@@ -74,3 +74,12 @@ export const DISCLAIMER =
 //    false인 지금은 발송이 한 번도 된 적 없으므로 메일 알림을 약속하지 않고
 //    RSS·회원가입(강의노트)만 안내한다. (HANDOFF §8 참고)
 export const EMAIL_NEWSLETTER_LIVE = false;
+
+// ── 콘텐츠 보안 정책(CSP, 2026-10-24) ─────────────────────────────
+// GitHub Pages는 응답 헤더를 못 바꿔서 <meta http-equiv>로 넣는다(frame-ancestors는 메타로 불가).
+// 허용 출처는 사이트가 실제로 쓰는 곳뿐이다: 광고(AdSense)·방문자 통계(GoatCounter)·회원/저장소(Supabase)·
+// 관리자 GitHub API·관리자 페이지의 supabase-js(jsDelivr)·유튜브 임베드. 'unsafe-inline'은 Astro 인라인 스크립트 때문에
+// 남겨 두었다 — 그래도 임의의 외부 스크립트 로드·외부로 데이터 전송·객체/베이스 주소 바꿔치기는 막힌다.
+// ⚠️ 새 외부 서비스를 쓰면 여기에 출처를 더하지 않으면 브라우저가 차단한다.
+export const CSP =
+  "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.adtrafficquality.google https://www.googletagservices.com https://adservice.google.com https://partner.googleadservices.com https://gc.zgo.at https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.github.com https://*.goatcounter.com https://gc.zgo.at https://cdn.jsdelivr.net https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.adtrafficquality.google; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://*.google.com https://*.doubleclick.net https://*.googlesyndication.com; object-src 'none'; base-uri 'self'; form-action 'self' https://*.supabase.co";

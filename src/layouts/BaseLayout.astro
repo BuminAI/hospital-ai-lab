@@ -13,6 +13,7 @@ import {
   GOOGLE_SITE_VERIFICATION,
   GOATCOUNTER_CODE,
   ADSENSE_CLIENT,
+  CSP,
 } from '../utils/site';
 
 interface Props {
@@ -204,6 +205,8 @@ const webPage = {
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content={CSP} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>

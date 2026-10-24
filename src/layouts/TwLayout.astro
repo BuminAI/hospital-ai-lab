@@ -30,6 +30,7 @@ import {
   YOUTUBE_CHANNEL_URL,
   GOATCOUNTER_CODE,
   ADSENSE_CLIENT,
+  CSP,
 } from '../utils/site';
 
 interface Props {
@@ -218,6 +219,8 @@ const year = new Date().getFullYear();
 <html lang="zh-TW" data-locale="tw">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content={CSP} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
