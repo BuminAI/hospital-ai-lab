@@ -147,6 +147,8 @@ npm run build    # 배포본 생성(dist/)
   - **검증 결과**: 훅과 지침을 넣은 뒤 같은 날 실행한 정기 작업이 15분 만에 승인 창 없이 끝났다(멈춘 이전 실행이 남긴 미커밋 러시아어 초안을 이어받아 러·일·인니·대만어 4편을 빌드·커밋·푸시). 한국어판은 이전 실행의 초안을 출처 대조 후 직접 발행했다.
   - **SKILL.md 지침**: Bash 즉석 명령 금지와 대체법(제목·설명 길이는 Grep 정규식으로, 데이터는 Read로), 멈춘 실행이 남긴 미커밋 초안 이어받기. 재실행 전에 작업 디렉터리의 `git status`로 미커밋 초안을 확인할 것.
   - **진단**: 앱 로그 `C:\Users\a\AppData\Local\Claude\Logs\main.log`의 `Not auto-approving`·`Emitted tool permission request` 줄과, `~/.claude/projects/D--hospital-aI-lab/<CLI세션ID>.jsonl`의 마지막 `tool_use`(결과 없음) 확인. `list_task_runs`가 `running`이면 `stop_session`으로 끊는다.
+  - **실전 검증**: 2026-10-22 08:03 정규 실행이 사람 없이 승인 창 0회로 5개 언어 글을 모두 올렸다. 그 뒤 10-23·10-24 아침 실행은 계정 사용량 한도(`You've hit your monthly spend limit`)로 시작 직후 `failed`였다 — 승인 문제가 아니라 한도 문제라 한도가 풀린 뒤 `run_scheduled_task`로 그날 몫을 다시 돌렸다(그날 글은 실제 발행일 날짜로 나간다, 소급 날짜 금지).
+  - **조기 종료 방지(2026-10-24)**: 한 실행이 3분 만에 한국어판 1편만 올리고 "시간이 부족하다"며 나머지 네 판을 건너뛴 적이 있다(상태는 `succeeded`). SKILL.md에 "시간 제한 없음·5개 언어판 모두 시도·건너뛰는 건 1차 출처가 정말 없을 때만"을 넣었다. `succeeded`여도 그날 5개 언어 글이 다 나갔는지 커밋 목록으로 확인할 것.
   - **남은 구조적 위험**: Bash 즉석 명령은 훅으로 열 수 없다(임의 코드 실행). 근본 해결은 앱에서 이 작업의 권한 모드를 '자동'으로 바꾸는 것인데 `update_scheduled_task`에는 옵션이 없어 오너가 UI에서 해야 한다.
 - `daily-blog-post`(4-2)·`site-health-check`(4-3)이 예약 목록에서 안 보이는 시점이 있었다(2026-08-16 확인, 원인 미상 — 폴더는 남아 있음). `mcp__scheduled-tasks__list_scheduled_tasks`로 현재 등록된 작업을 항상 먼저 확인할 것.
 
