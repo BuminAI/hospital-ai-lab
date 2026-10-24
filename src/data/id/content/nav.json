@@ -63,5 +63,10 @@
     "href": "/id/faq/",
     "key": "faq",
     "enabled": true
+  },
+  {
+    "href": "/id/ai-judge/",
+    "key": "aiJudge",
+    "enabled": true
   }
 ]

@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI 程式評審室</title>
+<meta name="description" content="免費工具：上傳自己開發的 AI 業務程式檔案，系統會自動分析安全性、完整度、易用性、文件與可重複使用性，並由進步、中道、保守三位評審依公開規則以 100 分為滿分評分，給出 S、A、B、C 等級。">
+<meta name="theme-color" content="#0e141d">
+<link rel="canonical" href="https://hospital-ai-lab.com/tw/ai-judge/">
+<link rel="alternate" hreflang="ko" href="https://hospital-ai-lab.com/ai-judge/">
+<link rel="alternate" hreflang="ja" href="https://hospital-ai-lab.com/ja/ai-judge/">
+<link rel="alternate" hreflang="ru" href="https://hospital-ai-lab.com/ru/ai-judge/">
+<link rel="alternate" hreflang="id" href="https://hospital-ai-lab.com/id/ai-judge/">
+<link rel="alternate" hreflang="zh-TW" href="https://hospital-ai-lab.com/tw/ai-judge/">
+<link rel="alternate" hreflang="x-default" href="https://hospital-ai-lab.com/ai-judge/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="醫院 AI 研究所">
+<meta property="og:title" content="AI 程式評審室｜醫院 AI 研究所">
+<meta property="og:description" content="免費工具：上傳自己開發的 AI 業務程式檔案，系統會自動分析安全性、完整度、易用性、文件與可重複使用性，並由進步、中道、保守三位評審依公開規則以 100 分為滿分評分，給出 S、A、B、C 等級。">
+<meta property="og:url" content="https://hospital-ai-lab.com/tw/ai-judge/">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://hospital-ai-lab.com/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="醫院 AI 研究所">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 程式評審室｜醫院 AI 研究所">
+<meta name="twitter:description" content="免費工具：上傳自己開發的 AI 業務程式檔案，系統會自動分析安全性、完整度、易用性、文件與可重複使用性，並由進步、中道、保守三位評審依公開規則以 100 分為滿分評分，給出 S、A、B、C 等級。">
+<meta name="twitter:image" content="https://hospital-ai-lab.com/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://hospital-ai-lab.com/tw/ai-judge/#webpage","url":"https://hospital-ai-lab.com/tw/ai-judge/","name":"AI 程式評審室","description":"免費工具：上傳自己開發的 AI 業務程式檔案，系統會自動分析安全性、完整度、易用性、文件與可重複使用性，並由進步、中道、保守三位評審依公開規則以 100 分為滿分評分，給出 S、A、B、C 等級。","inLanguage":"zh-TW","isPartOf":{"@id":"https://hospital-ai-lab.com/#website-tw"},"breadcrumb":{"@id":"https://hospital-ai-lab.com/tw/ai-judge/#breadcrumb"},"about":{"@id":"https://hospital-ai-lab.com/#organization"}},{"@type":"BreadcrumbList","@id":"https://hospital-ai-lab.com/tw/ai-judge/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://hospital-ai-lab.com/tw/"},{"@type":"ListItem","position":2,"name":"AI 程式評審","item":"https://hospital-ai-lab.com/tw/ai-judge/"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
+<style>
+/* Layout: upload + short questions, result in a popup, report and public rubric below */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --ink:#0e141d; --muted:#566173; --line:#d8dde6; --soft:#e9edf3;
+  --accent:#0e141d; --accent-ink:#ffffff; --focus:#2f5fd0;
+  --prog:#b9471f; --mid:#0f6e64; --cons:#2a4f9a;
+  --gS:#9a6400; --gS-bg:#fbf0d6; --gA:#17694a; --gA-bg:#dff1e7; --gB:#2a4f9a; --gB-bg:#e2e9f7; --gC:#5f6673; --gC-bg:#e9ebef;
+  --warn:#9a3a12; --warn-bg:#fbe8de; --ok:#17694a; --ok-bg:#dff1e7;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e141d; --surface:#151d29; --ink:#e6ebf2; --muted:#9aa6b8; --line:#2a3546; --soft:#1c2634;
+  --accent:#e6ebf2; --accent-ink:#0e141d; --focus:#7fa2ff;
+  --prog:#f0936c; --mid:#5cc7b8; --cons:#8fb0f2;
+  --gS:#f1c35c; --gS-bg:#382d14; --gA:#74d2a4; --gA-bg:#163327; --gB:#9fbaf0; --gB-bg:#1b2944; --gC:#a9b0bc; --gC-bg:#242b36;
+  --warn:#f3a27c; --warn-bg:#3a2219; --ok:#74d2a4; --ok-bg:#163327; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e141d; --surface:#151d29; --ink:#e6ebf2; --muted:#9aa6b8; --line:#2a3546; --soft:#1c2634;
+  --accent:#e6ebf2; --accent-ink:#0e141d; --focus:#7fa2ff;
+  --prog:#f0936c; --mid:#5cc7b8; --cons:#8fb0f2;
+  --gS:#f1c35c; --gS-bg:#382d14; --gA:#74d2a4; --gA-bg:#163327; --gB:#9fbaf0; --gB-bg:#1b2944; --gC:#a9b0bc; --gC-bg:#242b36;
+  --warn:#f3a27c; --warn-bg:#3a2219; --ok:#74d2a4; --ok-bg:#163327; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}
+a{color:inherit}
+code,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+code{font-size:.9em;background:var(--soft);border-radius:4px;padding:0 4px;word-break:break-all}
+h1,h2,h3{margin:0;text-wrap:balance}
+.topbar{border-bottom:1px solid var(--line);background:var(--surface)}
+.topbar .in{max-width:1200px;margin:0 auto;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px}
+.topbar a{text-decoration:none;color:var(--muted)} .topbar a:hover{color:var(--ink)}
+.wrap{max-width:1200px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+header.hero{display:grid;gap:6px;border-bottom:2px solid var(--ink);padding-bottom:18px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted)}
+h1{font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.015em}
+.lede{color:var(--muted);max-width:72ch;margin:0}
+.pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pill{font-size:12.5px;background:var(--soft);border-radius:999px;padding:3px 10px;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:920px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:16px;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+h2{font-size:18px;font-weight:700}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;font-size:13.5px;font-weight:600;border-radius:6px;padding:7px 14px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.example-note{font-size:13px;color:var(--warn);background:var(--warn-bg);border-radius:6px;padding:7px 10px;margin:0}
+
+.field{display:grid;gap:5px;min-width:0}
+.field>label,.q-title{font-size:14px;font-weight:600}
+input[type=text],input[type=number]{width:100%;font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.row2,.row3{grid-template-columns:1fr}}
+.hint{font-size:12.5px;color:var(--muted);font-weight:400}
+
+.drop{border:2px dashed var(--line);border-radius:10px;padding:20px;display:grid;gap:8px;justify-items:center;text-align:center;background:var(--bg);transition:border-color .15s}
+.drop.over{border-color:var(--focus)}
+.drop b{font-size:15px}
+.files{display:grid;gap:6px}
+.file{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:7px;padding:7px 10px;font-size:13.5px}
+.file .ty{font-family:var(--mono);font-size:11.5px;font-weight:600;border-radius:4px;padding:1px 6px;background:var(--soft);color:var(--muted);text-transform:uppercase}
+.file .nm{overflow-wrap:anywhere}
+.file button{padding:2px 8px;font-size:12px}
+
+.area{border-top:1px solid var(--line);padding-top:16px;display:grid;gap:14px}
+.area-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.area-head h3{font-size:15.5px}
+.area-head .pts{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.q{display:grid;gap:6px;border:0;padding:0;margin:0;min-width:0}
+.q legend{padding:0;margin-bottom:6px}
+.opts{display:grid;gap:6px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:7px;padding:8px 10px;cursor:pointer;font-size:14px;background:var(--bg)}
+.opt input{margin:3px 0 0;accent-color:var(--ink)}
+.opt:has(input:checked){border-color:var(--ink);background:var(--soft)}
+.opts.inline{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+.calc{font-size:13px;color:var(--muted);background:var(--soft);border-radius:6px;padding:7px 10px}
+.auto{font-size:13px;color:var(--muted);background:var(--soft);border-radius:6px;padding:8px 10px}
+
+/* result */
+dialog.resdlg{width:min(860px,calc(100vw - 24px));max-height:calc(100vh - 24px);padding:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:inherit;overflow:auto}
+dialog.resdlg::backdrop{background:rgba(0,0,0,.5)}
+dialog.resdlg .in{padding:18px 20px 22px}
+.submitbar{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.submitbar .go{font-weight:700;font-size:15px;border-radius:8px;padding:11px 18px;cursor:pointer;background:var(--accent);color:var(--accent-ink);border:0}
+.submitbar .go:disabled{opacity:.5;cursor:not-allowed}
+@media (max-width:920px){.result{position:static}}
+#result{display:grid;gap:12px}
+.verdict{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;border-radius:10px;padding:16px;background:var(--soft)}
+.badge{width:76px;height:76px;border-radius:10px;display:grid;place-items:center;font-size:38px;font-weight:700;font-family:var(--mono);background:var(--g-bg);color:var(--g)}
+.g-S{--g:var(--gS);--g-bg:var(--gS-bg)} .g-A{--g:var(--gA);--g-bg:var(--gA-bg)} .g-B{--g:var(--gB);--g-bg:var(--gB-bg)} .g-C{--g:var(--gC);--g-bg:var(--gC-bg)} .g-H{--g:var(--warn);--g-bg:var(--warn-bg)}
+.verdict .big{font-size:22px;font-weight:700;line-height:1.3}
+.verdict .sub{font-size:13px;color:var(--muted)}
+.judges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.judge{border:1px solid var(--line);border-top:4px solid var(--jc);border-radius:8px;padding:10px;display:grid;gap:2px;min-width:0}
+.judge .n{font-size:13px;font-weight:700;color:var(--jc)}
+.judge .s{font-size:26px;font-weight:600;line-height:1.15}
+.judge .g{font-size:12.5px;color:var(--muted)}
+.j-prog{--jc:var(--prog)} .j-mid{--jc:var(--mid)} .j-cons{--jc:var(--cons)}
+.flags{display:grid;gap:6px}
+.flag{font-size:13px;border-radius:6px;padding:7px 10px;background:var(--warn-bg);color:var(--warn)}
+.flag.ok{background:var(--ok-bg);color:var(--ok)}
+.flag.info{background:var(--soft);color:var(--muted)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+tr:last-child td{border-bottom:0}
+thead th{background:var(--soft);font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap}
+.c{text-align:center}
+.src{font-size:11px;font-weight:600;border-radius:3px;padding:0 5px;margin-left:4px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.lv{display:inline-block;min-width:40px;text-align:center;font-weight:600;border-radius:4px;padding:0 6px;font-size:12.5px}
+.lv0{background:var(--ok-bg);color:var(--ok)} .lv1{background:var(--gB-bg);color:var(--gB)} .lv2{background:var(--gS-bg);color:var(--gS)} .lv3{background:var(--warn-bg);color:var(--warn)}
+tr.gap td{background:color-mix(in srgb,var(--warn-bg) 60%,transparent)}
+details{border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+details summary{cursor:pointer;font-weight:600;font-size:14px}
+.why{display:grid;gap:8px;margin-top:10px;font-size:13.5px}
+.why div{display:grid;gap:1px}
+.why .adj{color:var(--jc)}
+.status{font-size:12.5px;color:var(--muted);margin:0}
+
+/* report */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.metric{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:2px}
+.metric .k{font-size:12.5px;color:var(--muted)}
+.metric .v{font-size:20px;font-weight:600}
+.find{display:grid;gap:8px}
+.fgroup{border:1px solid var(--line);border-left:4px solid var(--fc);border-radius:8px;padding:10px 12px;display:grid;gap:4px;font-size:13.5px}
+.fgroup h3{font-size:14px;color:var(--fc)}
+.fgroup ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.f-bad{--fc:var(--warn)} .f-ok{--fc:var(--ok)} .f-info{--fc:var(--muted)}
+
+/* rubric */
+.pay{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.pay{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pay-card{border-radius:8px;padding:12px;background:var(--g-bg);color:var(--g);display:grid;gap:4px}
+.pay-card .gg{font-family:var(--mono);font-size:24px;font-weight:700}
+.pay-card .rng{font-size:12.5px}
+.pay-card label{font-size:12px}
+.pay-card input{padding:5px 8px;font-size:13.5px;background:var(--surface)}
+.rubric td:first-child{white-space:nowrap;font-weight:600}
+.rubric .pt{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.rules{grid-template-columns:minmax(0,1fr)}}
+.rule{border:1px solid var(--line);border-top:4px solid var(--jc);border-radius:8px;padding:12px 14px;font-size:13.5px}
+.rule h3{color:var(--jc);font-size:15px;margin-bottom:4px}
+.rule ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px}
+.steps{margin:0;padding-left:20px;display:grid;gap:4px;font-size:14px}
+footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.sandbox{position:absolute;left:-9999px;top:0;width:800px;height:600px;border:0}
+
+.mbar{display:none}
+.mbar button{font:inherit;font-weight:600;border:0;background:none;color:var(--accent);cursor:pointer}
+@media (max-width:920px){
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:12px;align-items:center;justify-content:space-between;background:var(--surface);border-top:1px solid var(--line);padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:14px}
+  .mbar b{font-family:var(--mono)}
+  body{padding-bottom:64px}
+}
+@media print{body>*:not(dialog){display:none!important}dialog.resdlg{position:static;display:block;width:auto;max-height:none;border:0;overflow:visible}dialog.resdlg .btns{display:none}dialog.resdlg::backdrop{display:none}body{background:#fff}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="topbar" aria-label="網站"><div class="in"><a href="/tw/">← 回首頁</a><span class="hint">AI 程式評審室 · 免費工具</span></div></nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">AI PROGRAM REVIEW</div>
+    <h1>AI 程式評審室</h1>
+    <p class="lede">上傳自己開發的 AI 業務程式檔案，系統會自動分析並執行程式碼，為安全性、完整度、易用性、文件與可重複使用性評分。只會詢問三項光看程式碼無法得知的使用情形。立場不同的三位評審依公開規則各自以 100 分為滿分評分，再依平均分數給出 S、A、B、C 等級。</p>
+    <div class="pill-row"><span class="pill">100 分中有 60 分由檔案分析評分</span><span class="pill">不呼叫 AI · 相同檔案得到相同分數</span><span class="pill" id="privacyPill">分析在這個瀏覽器內進行</span></div>
+  </header>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="formTitle">
+      <div class="panel-head"><h2 id="formTitle">提交</h2>
+        <div class="btns"><button type="button" id="exampleBtn">載入範例</button><button type="button" id="resetBtn">全部清除</button></div></div>
+      <p class="example-note" id="exampleNote">目前載入的是範例程式「特休天數計算器」的兩個檔案與答案。請先按「全部清除」，再上傳要評審的程式。</p>
+      <form id="form" novalidate>
+        <div class="row2">
+          <div class="field"><label for="name">程式名稱</label><input type="text" id="name" autocomplete="off"></div>
+          <div class="field"><label for="author">提交者 · 單位</label><input type="text" id="author" autocomplete="off"></div>
+        </div>
+
+        <div class="area">
+          <div class="area-head"><h3>1. 程式檔案</h3><span class="pts">自動評分：完整度 · 易用性 · 文件 · 推廣性 · 安全性</span></div>
+          <div class="drop" id="drop">
+            <b>請將檔案或 ZIP 拖曳到這裡</b>
+            <span class="hint">HTML · JS · Apps Script(.gs) · Python · 筆記本(.ipynb) · 提示詞(.txt .md) · 說明文件(README) · ZIP</span>
+            <label class="primary" style="display:inline-block"><input type="file" id="fileInput" multiple accept=".html,.htm,.js,.mjs,.ts,.gs,.py,.ipynb,.txt,.md,.json,.csv,.zip" hidden><span style="display:inline-block;font-weight:600;font-size:13.5px;border-radius:6px;padding:7px 14px;cursor:pointer;background:var(--accent);color:var(--accent-ink)">選擇檔案</span></label>
+            <span class="hint">一併上傳說明文件（README.md 等），會計入文件分數。每個檔案上限 2MB，最多 200 個。</span>
+          </div>
+          <div class="files" id="fileList"></div>
+          <p class="status" id="analyzeStatus" aria-live="polite"></p>
+        </div>
+        <div id="questions"></div>
+        <div class="submitbar">
+          <button type="button" class="go" id="showBtn" disabled>查看評審結果</button>
+          <p class="status" id="readyNote" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
+
+  </div>
+
+  <section class="panel" aria-labelledby="repTitle">
+    <div class="panel-head"><h2 id="repTitle">自動分析報告</h2><span class="hint">在上傳檔案中找到的依據 · 附行號</span></div>
+    <div id="report"><p class="status">上傳檔案後，分析結果會顯示在這裡。</p></div>
+  </section>
+
+  <section class="panel" id="rubricSec" aria-labelledby="rubTitle">
+    <div class="panel-head"><h2 id="rubTitle">評分表與評審規則</h2><span class="hint">所有標準全部公開</span></div>
+    <ol class="steps">
+      <li>先確認必要條件。若在檔案中發現疑似 API 金鑰、密碼或個人資料的內容，會暫緩評定。若發現呼叫外部 AI，必須確認沒有傳送敏感資訊。</li>
+      <li>6 個領域各自判定等第（高 · 中高 · 中 · 低），再把各等第的固定分數加總，滿分為 100 分。功能完整度、使用便利性、文件與可重複使用性、推廣性（60 分）由檔案分析評分，現場適用性與成效（40 分）則依據回答評分。</li>
+      <li>三位評審看的是同一份分析結果，但會依下方公開的立場規則，以不同方式套用部分標準。</li>
+      <li>以三個分數的平均（取到小數第一位）決定等級。評審之間的差距在 15 分以上時，請承辦人員親自確認後再定案。</li>
+    </ol>
+    <div class="pay" id="payCards"></div>
+    <p class="status">獎勵金額因機構而異，請自行輸入。輸入的內容只會儲存在這個瀏覽器中。</p>
+    <div class="tbl"><table class="rubric" id="rubric"></table></div>
+    <div class="tbl"><table id="howTable"></table></div>
+    <div class="rules" id="rules"></div>
+    <p class="status">自動分析是依字串規則判斷，可能會有漏掉或誤判的情形。請把結果當作輔助評審承辦人員判斷的依據。</p>
+  </section>
+
+  <footer><span>AI 程式評審室 · 評分規則可自由參考與運用。</span><a href="/tw/">回首頁</a></footer>
+</div>
+
+<dialog class="resdlg" id="resDialog" aria-labelledby="resTitle"><div class="in">
+  <div class="panel-head"><h2 id="resTitle">評審結果</h2>
+    <div class="btns"><button type="button" id="copyBtn">複製結果</button><button type="button" id="printBtn">儲存為 PDF</button><button type="button" id="closeBtn">關閉</button></div></div>
+  <p class="hint">這份結果只會在上傳者的瀏覽器中產生，不會以 PDF 傳給營運者。按下「儲存為 PDF」會開啟列印視窗，請將目的地（印表機）選為「另存為 PDF」。</p>
+  <div id="result" aria-live="polite"></div>
+  <p class="status" id="status"></p>
+</div></dialog>
+<div class="mbar" aria-hidden="true"><span id="mbarText">–</span><button type="button" id="mbarBtn">查看結果</button></div>
+
+<!-- example program (for the load-example button) -->
+<template id="exHtml"><!doctype html>
+<html lang="zh-TW">
+<head><meta charset="utf-8"><title>特休天數計算器</title></head>
+<body>
+  <h2>特休天數計算器</h2>
+  <p>選擇開始日與結束日，就會計算扣除週末與國定假日後的特休使用天數。</p>
+  <label for="start">開始日</label>
+  <input type="date" id="start" required>
+  <label for="end">結束日</label>
+  <input type="date" id="end" required>
+  <label for="holidays">國定假日（以逗號分隔）</label>
+  <input type="text" id="holidays" placeholder="例：2026-10-03, 2026-10-09">
+  <button id="calcBtn">開始計算</button>
+  <p id="out"></p>
+  <script>
+    // 設定：結果檔案的儲存位置
+    const SAVE_DIR = "C:\\Users\\hong\\Desktop\\特休";
+    // 確認是否為週末（六、日）
+    function isWeekend(d) { return d.getDay() === 0 || d.getDay() === 6; }
+    // 把國定假日字串轉成日期清單
+    function parseHolidays(text) {
+      if (!text.trim()) return [];
+      return text.split(",").map(s => s.trim()).filter(s => s.length > 0);
+    }
+    // 計算兩個日期之間的工作天數
+    function countDays(start, end, holidays) {
+      let n = 0;
+      for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+        const key = d.toISOString().slice(0, 10);
+        if (!isWeekend(d) && !holidays.includes(key)) n++;
+      }
+      return n;
+    }
+    document.getElementById("calcBtn").addEventListener("click", () => {
+      const out = document.getElementById("out");
+      try {
+        const s = document.getElementById("start").value;
+        const e = document.getElementById("end").value;
+        if (!s || !e) { out.textContent = "請同時選擇開始日與結束日。"; return; }
+        const start = new Date(s), end = new Date(e);
+        if (isNaN(start) || isNaN(end)) { out.textContent = "日期格式不正確。"; return; }
+        if (start > end) { out.textContent = "結束日早於開始日。"; return; }
+        const days = countDays(start, end, parseHolidays(document.getElementById("holidays").value));
+        out.textContent = "特休使用天數：" + days + " 天";
+      } catch (err) {
+        out.textContent = "計算時發生問題，請確認輸入的內容。";
+      }
+    });
+    // TODO: 新增半天假（0.5 天）的計算
+  </script>
+</body>
+</html></template>
+<script type="text/plain" id="exReadme"># 特休天數計算器
+
+## 使用方式
+1. 用 Chrome 開啟 index.html 檔案。
+2. 選擇開始日與結束日，若有國定假日，請用逗號分隔填入。
+3. 按下「開始計算」，就會顯示扣除週末與國定假日後的天數。
+
+## 修改方式
+- 想改變週末的認定標準，請修改 isWeekend 函式。
+</script>
+
+<script>
+/* ================= Submission settings =================
+   'supabase': files of consenting visitors are stored privately (ZIP) and downloaded from the admin dashboard
+   (needs supabase/setup.sql). Review results are never stored. Empty string turns sending off.
+   This file is generated: edit scripts/ai-judge/template.html and lang/*.py, then run build.py. */
+const SUBMIT_URL = 'supabase';
+
+/* ================= Strings (per language) ================= */
+const T={"loc":"zh-TW","cur":"","levels":["高","中高","中","低"],"gl":["90 分以上","75～89.9 分","60～74.9 分","未滿 60 分 · 補強後再提交"],"src_ans":"回答","src_file":"檔案","area":[{"n":"現場適用性","d":["問題具體，且每週至少有多人實際使用一次","大致符合，但缺少一項","有要解決的問題，但使用受到限制","問題不明確，或幾乎沒有人使用"]},{"n":"功能完整度","d":["通過執行與語法檢查，錯誤處理與輸入驗證充足","大致符合，但缺少一項","可以執行，但錯誤處理或驗證不足","執行時有錯誤，或沒有防護程式碼"]},{"n":"成效","d":["以實測數值計算，每月節省 10 小時以上","每月節省 3～10 小時，或超過 10 小時但為估計值","每月節省不到 3 小時","沒有節省的依據"]},{"n":"使用便利性","d":["有操作畫面，提示文字與繁體中文錯誤訊息充足","大致符合，但缺少一項","缺少執行方式或提示說明","除了開發者本人以外很難使用"]},{"n":"文件與可重複使用性","d":["有含使用方式與修改方式的說明文件，註解也足夠","說明文件與註解其中一項不足","沒有說明文件，只有少量註解","幾乎沒有文件與註解"]},{"n":"推廣性","d":["沒有寫死個人路徑、專屬 ID 等內容，可直接使用","寫死的內容有 1～2 處，稍加修改即可使用","寫死的內容有 3～5 處","寫死的內容很多，只能在開發者的環境運作"]}],"q_freq":"實際上多常被使用？","q_freq_o":["每天","每週至少一次","每月至少一次","尚未開始使用"],"q_users":"有幾個人在使用？","q_users_o":["10 人以上","3～9 人","1～2 人"],"q_ai":"您是否沒有把個人資料、客戶資料等敏感資訊傳送給外部 AI 服務（ChatGPT、Gemini、Claude 等）？","q_ai_o":["沒有傳送","有傳送","不清楚"],"j":[{"n":"進步","f":"進步派評審","m":"重視新的嘗試與可能性","r":["無法自動執行檢查的檔案（例如 Python）視為通過","未完成標記（TODO）不扣分","有操作介面（UI）時，使用便利性加分","估計的節省時間也與實測值一樣採計","即使尚未開始使用，也把使用頻率視為每月一次","若是過去沒有的新做法，推廣性提高一個等第","疑似個人資料的內容只標示為「需確認」"]},{"n":"中道","f":"中道派評審","m":"依標準原樣套用分析結果","r":["原樣套用下方的評分方式表","無法執行檢查的檔案只採計一半","TODO、FIXME 達 3 個以上，完整度扣分","估計的節省時間降低一個等第","以前後數量確認過的品質改善，成效提高一個等第"]},{"n":"保守","f":"保守派評審","m":"重視驗證與穩定性","r":["未能執行檢查時，完整度不給「高」","錯誤處理 2 處以上才採計，4 處以上才給滿分","註解比例標準從嚴採用（20% / 8%）","沒有說明文件時，使用便利性最高為「中」，推廣性最高為「中高」","範圍過廣的問題定義給 0 分","估計的節省時間降低一個等第，品質改善加分僅限實測"]}],"ex_name":"特休天數計算器","ex_author":"人資組 王小明（範例）","st":{"ok":"符合","fail":"不符合","unk":"需確認"},"s2_title":"2. 使用情形","s2_pts":"回答 · 只要選擇即可","time_q":"時間減少了多少？","time_hint":"（不清楚的話請留空 · 成效會以最低等第評分）","lbl_before":"導入前（分鐘/次）","lbl_after":"導入後（分鐘/次）","lbl_times":"每月使用次數（所有使用者合計）","calc_none":"每月節省時間：–","s3_title":"3. 必要確認","s3_pts":"符合才能確定等級","auto_default":"上傳檔案後，會自動檢查 API 金鑰與密碼、個人資料，以及是否呼叫外部 AI。","s4_title":"4. 提交同意","s4_pts":"必填","consent_lines":["接受評審時，您上傳的檔案會傳送給本網站的營運者並加以保存。","· 傳送項目：程式名稱、提交者與單位、上傳的檔案、等級與平均分數（評審結果的 PDF 不會傳送）","· 目的：確認評審紀錄與改善評審標準","· 若有疑似 API 金鑰或密碼的內容，就不會傳送。請刪除後重新上傳。","· 保存期間：自提交日起 1 個月後刪除。若想在此之前刪除，請透過<a href=\"mailto:choyj80@naver.com\">聯絡我們<\/a>提出。","· 不同意的話，就無法查看評審結果。"],"consent_label":"我已確認上述內容，並同意將上傳的檔案傳送給營運者。","th_area":"領域","max_pts":"最高 {n} 分","pts_fmt":"{n} 分","how_head":["檔案評分項目","評估內容","分數（中道標準）"],"how_rows":[["執行與語法檢查","HTML 會在隔離的視窗中實際開啟以抓出指令碼錯誤，JS 與 Apps Script 則檢查語法","通過 2 · 無法檢查 1 · 有錯誤 0"],["錯誤處理","try/catch、except、.catch()、onerror 等處理錯誤的程式碼數量","3 處以上，或佔函式 30% 以上為 2 · 1 處以上為 1"],["輸入驗證","檢查空值、數字格式、必填欄位的程式碼（isNaN、trim、required、if not 等）","3 處以上為 2 · 1 處以上為 1"],["未完成標記","TODO、FIXME、XXX 註解","3 個以上則 −1"],["操作畫面","有輸入欄與按鈕的 HTML 畫面、Apps Script 選單、Python 的 input、GUI 等","有畫面 2 · 簡單輸入方式 1"],["提示文字","label、placeholder、標題、說明，以及說明文件中的使用方式","5 個以上為 2 · 1 個以上為 1"],["繁體中文提示訊息","alert、錯誤訊息、結果文字等所使用的繁體中文提示","3 個以上為 2 · 1 個以上為 1"],["說明文件","README、說明文件的檔案，以及其中的「使用方式」「修改、設定方式」項目","兩者皆有 3 · 有一項 2 · 只有檔案 1"],["註解比例","程式碼行數中註解行所佔的比例","15% 以上為 2 · 5% 以上為 1"],["寫死的內容","個人電腦路徑、試算表與資料夾的專屬 ID、個人電子郵件、內部 IP、http 網址","0 處為高 · 1～2 處為中高 · 3～5 處為中 · 6 處以上為低"],["僅提交提示詞","角色與目標、輸入格式、輸出格式、範例、限制條件等 5 項要素","5 項為高 · 4 項為中高 · 2～3 項為中 · 更少為低"]],"pay_label":"獎勵（金額）","rx":{"readme_base":"^(readme|說明|使用說明|使用方式|手冊|指南|manual|guide)","msg_chars":"\\u4E00-\\u9FFF\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|在這裡|請輸入|金鑰|dummy|test","readme_usage":"使用方式|使用方法|使用說明|如何使用|執行方式|開始使用|how to use|usage|quick ?start","readme_modify":"修改|設定|變更|自訂|安裝|configur|setup|install|環境","prompt":["角色|你是|您是|目標|目的|you are|your role|goal|task","輸入|資料|內容如下|以下|\\{[^}]{1,30}\\}|\\[[^\\]]{1,30}\\]|input","輸出|格式|表格|條列|清單|json|format|output|字以內|句話","範例|例如|舉例|example|e\\.g\\.","不要|禁止|排除|務必|只能|僅限|注意|規則|限制|constraint|do not|must"]},"hard_t":["個人電腦路徑","試算表或資料夾的專屬 ID","Google 文件網址","內部 IP 與本機位址","未加密的 http 網址"],"pel":["角色與目標","輸入格式","輸出格式","範例","限制條件"],"async_err":"未處理的非同步錯誤：","zip_fail":"無法載入開啟 ZIP 的工具。請先解壓縮，再上傳檔案。","read_fail":"無法讀取「{name}」檔案。","skipped":"已排除 {n} 個無法分析的檔案（圖片、Excel、超過 2MB 等）。","k_doc":"說明文件","k_prompt":"提示詞","k_data":"資料","lines_fmt":"{n} 行","rm_aria":"移除 {name}","rm":"移除","running":"正在隔離的視窗中執行「{name}」…","analyzing":"分析中…","analyzed":"已分析 {n} 個檔案、{l} 行。","adj":{"broad":"範圍過廣的問題定義給 0 分","notyet":"尚未開始使用，但視為每月一次","est_ok":"估計值也與實測值一樣採計","est_down":"因為是估計值，降低一個等第","q_measured":"品質改善加分僅限實測","q_up":"已以數量確認品質改善，提高一個等第","nodoc_mid":"沒有說明文件，最高為「中」","untested_ok":"無法自動執行檢查的檔案也視為通過","todo_free":"不因 TODO 扣分","untested_cap":"有未能執行檢查的檔案，因此以「中高」取代「高」","ui_bonus":"有操作畫面，加 1 分","com_strict":"套用註解比例標準 20% / 8%","novel":"因是新做法，提高一個等第","nodoc_up":"沒有說明文件，最高為「中高」"},"w":{"fit":"問題定義 {p} + 使用頻率 {f} + 使用人數 {u} = {s}/6","no_hours":"沒有時間數值","hours":"每月節省 {h} 小時","prompt":"提示詞 5 項要素中有 {n} 項：{list}","prompt_io":"輸入格式、範例 {n}/2","complete":"執行與語法 {run} + 錯誤處理 {eh}（{hn} 處）+ 輸入驗證 {va}（{v} 處）{todo} = {s}/6","todo_part":" − TODO 1","ease":"操作畫面 {ui} + 提示文字 {gd}（{g} 個）+ 繁體中文提示 {ms}（{m} 個）= {s}/6","docs":"說明文件 {rd} + 註解 {cm}{x} = {s}/5","docs_prompt":"（提示詞）","hard":"寫死的內容 {n} 處"},"none":"無","req":["沒有洩漏 API 金鑰或密碼","沒有疑似個人資料的內容","未將敏感資訊傳給外部 AI"],"judge_g":"判定為 {g} 級","calc":"每月節省時間：約 {h} 小時  ( ({b} − {a}) 分鐘 × {t} 次 ÷ 60 )","calc_fill":"每月節省時間：三個欄位都填寫後才會計算","auto_secret":"發現 {n} 處疑似 API 金鑰或密碼的內容","auto_pii":"發現 {n} 處疑似個人資料的內容","auto_ai":"發現 {n} 處呼叫外部 AI → 請務必回答下方第一題","auto_ai_none":"沒有呼叫外部 AI","auto_prefix":"自動檢查：","b_analyzing":"正在分析檔案。","b_nofile":"請上傳程式檔案。100 分中有 60 分由檔案分析評分。","b_nocode":"沒有可分析的程式碼或提示詞檔案。請上傳 HTML、JS、Apps Script、Python 檔案，或提示詞（.txt/.md）。","b_missing":"還有 {n} 題尚未回答。全部回答後就會立刻評分。","b_consent":"勾選第 4 項的提交同意後，就會顯示評審結果。","ready":"評分完成。請用下方按鈕查看結果。","f_fail":"因必要條件不符而暫緩評定：{items}。請在自動分析報告中確認位置，修正後再重新上傳。","f_unk":"因需要確認而暫緩評定：{items}","f_spread":"評審之間的分數差距為 {n} 分。請承辦人員親自確認以顏色標示的領域後再定案。","f_prompt":"提交的只有提示詞而沒有程式碼，因此功能完整度與使用便利性依提示詞標準評分。","f_ok":"必要條件全部符合，評審之間的分數差距為 {n} 分。","hold":"暫緩","grade_fmt":"{g} 級","sub_fmt":"平均 <b class=\"num\">{avg}<\/b> 分 · {x}","sub_hold":"確認必要條件後再定案","th_avg":"平均","th_total":"合計","why_sum":"{full}的判斷依據 · {t} 分","why_area":"{name} — {lv}（{pt} 分）","mbar_hold":"暫緩 · 平均 <b>{avg}<\/b> 分","mbar_g":"<b>{g}<\/b> 級 · 平均 <b>{avg}<\/b> 分","sub_secret":"因為有疑似 API 金鑰或密碼的內容，所以沒有傳送給營運者。請刪除後重新上傳。","sub_ing":"正在提交給營運者…","sub_noname":"（未命名）","sub_ok":"已提交給營運者（{time}）。結果只能在這個畫面查看。","sub_big":"檔案太大（壓縮後超過 5MB），無法傳送給營運者。您仍可照常查看評審結果。","sub_fail":"無法提交給營運者。您仍可照常查看評審結果。","run_err":"{n} 個錯誤","run_ok":"通過","run_na":"無法檢查","rt_title":"[AI 程式評審結果]","rt_name":"程式名稱：{v}","rt_none":"（未填寫）","rt_author":"提交者：{v}","rt_files":"提交檔案：{v}","rt_result":"結果：{r} / 平均 {avg} 分","rt_hold":"暫緩（需確認必要條件）","rt_reward":" / 獎勵 {pay}","rt_judge":"- {full}：{t} 分（{areas}）","rt_spread":"- 評審之間的分數差距 {n} 分：需承辦人員確認","rt_fail":"- 不符合：{v}","rt_unk":"- 需確認：{v}","rt_ans":"- 回答：使用頻率 {freq}，使用人數 {users}，處理時間 {time}","rt_time":"{b} 分鐘→{a} 分鐘 × 每月 {t} 次","rt_auto":"- 自動分析：執行 {run}，錯誤處理 {h} 處，輸入驗證 {v} 處，寫死的內容 {hc} 處，說明文件 {doc}","yes":"有","no":"無","pill_submit":"同意後，上傳的檔案會傳給營運者 · 結果 PDF 僅限本人","more":"另有 {n} 處","line_fmt":"第 {n} 行","rep_empty":"上傳檔案後，分析結果會顯示在這裡。","cnt":"{n} 個","spots":"{n} 處","m":["已分析檔案","總行數","執行與語法檢查","錯誤處理","輸入驗證","註解比例","畫面元件","繁體中文提示","寫死的內容"],"g_sec":"安全性 · 個人資料","need_check":"{n} 處需要確認","no_issue":"沒有問題","t_key":"API 金鑰或密碼","t_rrn":"韓國住民登錄號碼格式","t_phone":"手機號碼（韓國格式）","remove_it":"請從程式碼中刪除，改由設定檔或使用者輸入取得","sec_none":"沒有找到 API 金鑰、密碼、住民登錄號碼或手機號碼格式的內容。","emails":"電子郵件地址 {n} 處（僅供參考）","g_ai":"呼叫外部 AI","ai_warn":"這個程式會把資料傳給外部 AI。請確認沒有傳送敏感資訊。","ai_none":"沒有找到會把資料傳給外部 AI 服務的程式碼。","g_run":"執行與語法檢查","run_html":"已在隔離的視窗中開啟 {n} 個 HTML，確認沒有指令碼錯誤。","run_js":"已檢查 {n} 個 JS、Apps Script 檔案的語法。","run_py":"Python 與模組檔案無法在瀏覽器中執行，因此未檢查。","g_hard":"寫死的內容","hard_warn":"若要讓其他人使用，請把這些值移到程式碼最上方的設定區，或改成輸入值。","hard_none":"沒有找到個人路徑、專屬 ID 等綁定特定環境的內容。","g_todo":"未完成標記","g_prompt":"提示詞 5 項要素 — {n} 項","prompt_has":"有：{has} · 無：{lack}","g_doc":"說明文件","doc_has":"使用方式 {u} · 修改、設定方式 {m}","doc_none":"一併上傳 README.md，或檔名以「說明」開頭的檔案，會計入文件分數。","copied":"已複製結果。","copy_fail":"無法複製。請直接選取結果表格後複製。"};
+const F=(s,o)=>String(s).replace(/\{(\w+)\}/g,(_,k)=>o[k]);
+
+/* ================= Criteria ================= */
+const LEVELS=T.levels;
+const GRADES=[{g:'S',min:90,label:T.gl[0]},{g:'A',min:75,label:T.gl[1]},{g:'B',min:60,label:T.gl[2]},{g:'C',min:0,label:T.gl[3]}];
+const DEFAULT_PAY={S:'100000',A:'70000',B:'40000',C:'0'};
+const SB_URL='https://qasjbbkegjqilrqylvdb.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFhc2piYmtlZ2pxaWxycXlsdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNDQwMzgsImV4cCI6MjA5ODcyMDAzOH0.s9KhnZjvcIaPxOdiT0yFwcR2VeAXzJMqdLZn0TiQvdg';
+/* Neutral defaults for items the screen does not ask: concrete problem, estimated time evidence, no quality gain, not a new approach, human check present */
+const DEFAULTS={problem:0,evidence:1,quality:2,novel:1,human:0};
+const AREAS=[
+ {k:'fit',name:T.area[0].n,src:T.src_ans,pts:[20,15,10,5],d:T.area[0].d},
+ {k:'complete',name:T.area[1].n,src:T.src_file,pts:[25,18,11,5],d:T.area[1].d},
+ {k:'effect',name:T.area[2].n,src:T.src_ans,pts:[20,15,10,5],d:T.area[2].d},
+ {k:'ease',name:T.area[3].n,src:T.src_file,pts:[15,11,7,3],d:T.area[3].d},
+ {k:'docs',name:T.area[4].n,src:T.src_file,pts:[10,7,4,2],d:T.area[4].d},
+ {k:'spread',name:T.area[5].n,src:T.src_file,pts:[10,7,4,2],d:T.area[5].d},
+];
+const Q=[
+ {area:'fit',id:'freq',t:T.q_freq,o:T.q_freq_o,inline:true},
+ {area:'fit',id:'users',t:T.q_users,o:T.q_users_o,inline:true},
+];
+const REQ_Q=[
+ {id:'aiSafe',t:T.q_ai,o:T.q_ai_o},
+];
+const JUDGES=[
+ {k:'prog',name:T.j[0].n,full:T.j[0].f,cls:'j-prog',motto:T.j[0].m,rules:T.j[0].r},
+ {k:'mid',name:T.j[1].n,full:T.j[1].f,cls:'j-mid',motto:T.j[1].m,rules:T.j[1].r},
+ {k:'cons',name:T.j[2].n,full:T.j[2].f,cls:'j-cons',motto:T.j[2].m,rules:T.j[2].r},
+];
+const EX_ANS={name:T.ex_name,author:T.ex_author,freq:1,users:1,before:'20',after:'2',times:'40',aiSafe:0};
+
+/* ================= Utils ================= */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clamp=n=>Math.max(0,Math.min(3,n));
+const map6=s=>s>=6?0:s>=4?1:s>=2?2:3;
+const won=v=>{const n=Number(v);return v===''||isNaN(n)?'':n.toLocaleString(T.loc)+T.cur};
+const gradeOf=s=>GRADES.find(g=>s>=g.min);
+const mask=s=>{s=String(s);return s.length<=8?s.slice(0,2)+'•••':s.slice(0,4)+'•••'+s.slice(-2)};
+const STX=T.st; // status labels: ok / fail / unk
+
+/* ================= Questionnaire ================= */
+function radios(id,opts,inline){return `<div class="opts${inline?' inline':''}">${opts.map((o,i)=>`<label class="opt"><input type="radio" name="${id}" id="${id}-${i}" value="${i}"><span>${esc(o)}</span></label>`).join('')}</div>`}
+const qHtml=[];
+qHtml.push(`<div class="area"><div class="area-head"><h3>${T.s2_title}</h3><span class="pts">${T.s2_pts}</span></div>`);
+Q.forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,q.inline)}</fieldset>`));
+qHtml.push(`<div class="q"><span class="q-title">${T.time_q} <span class="hint">${T.time_hint}</span></span>
+  <div class="row3"><div class="field"><label for="before" class="hint">${T.lbl_before}</label><input type="number" id="before" min="0" inputmode="numeric"></div>
+  <div class="field"><label for="after" class="hint">${T.lbl_after}</label><input type="number" id="after" min="0" inputmode="numeric"></div>
+  <div class="field"><label for="times" class="hint">${T.lbl_times}</label><input type="number" id="times" min="0" inputmode="numeric"></div></div>
+  <div class="calc" id="calc">${T.calc_none}</div></div></div>`);
+qHtml.push(`<div class="area"><div class="area-head"><h3>${T.s3_title}</h3><span class="pts">${T.s3_pts}</span></div>
+  <div class="auto" id="autoReq">${T.auto_default}</div>`);
+REQ_Q.forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,true)}</fieldset>`));
+qHtml.push('</div>');
+if(SUBMIT_URL){
+  qHtml.push(`<div class="area"><div class="area-head"><h3>${T.s4_title}</h3><span class="pts">${T.s4_pts}</span></div>
+    <div class="auto">${T.consent_lines.join('<br>\n    ')}</div>
+    <label class="opt"><input type="checkbox" id="consent"><span>${T.consent_label}</span></label>
+    <input type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px"></div>`);
+}
+$('questions').innerHTML=qHtml.join('');
+
+/* ================= Rubric and rules ================= */
+$('rubric').innerHTML=`<thead><tr><th>${T.th_area}</th>${LEVELS.map(l=>`<th>${l}</th>`).join('')}</tr></thead><tbody>${AREAS.map(a=>`<tr><td>${a.name} <span class="src">${a.src}</span><br><span class="pt">${F(T.max_pts,{n:a.pts[0]})}</span></td>${a.d.map((d,i)=>`<td><span class="pt">${F(T.pts_fmt,{n:a.pts[i]})}</span><br>${d}</td>`).join('')}</tr>`).join('')}</tbody>`;
+$('howTable').innerHTML=`<thead><tr>${T.how_head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>
+${T.how_rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('\n')}
+</tbody>`;
+$('rules').innerHTML=JUDGES.map(j=>`<div class="rule ${j.cls}"><h3>${j.full}</h3><span class="hint">${j.motto}</span><ul>${j.rules.map(r=>`<li>${r}</li>`).join('')}</ul></div>`).join('');
+let PAY={...DEFAULT_PAY};
+try{const s=JSON.parse(localStorage.getItem('aiJudgePay')||'null');if(s)PAY={...PAY,...s}}catch{}
+$('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">${T.pay_label}</label><input type="number" id="pay-${g.g}" min="0" step="1000" value="${esc(PAY[g.g])}"></div>`).join('');
+GRADES.forEach(g=>$('pay-'+g.g).addEventListener('input',e=>{PAY[g.g]=e.target.value;try{localStorage.setItem('aiJudgePay',JSON.stringify(PAY))}catch{}update()}));
+
+/* ================= Files ================= */
+let FILES=[];      // {name, ext, kind, text}
+let M=null;        // analysis result
+let analyzing=false;
+const TEXT_EXT=['html','htm','js','mjs','ts','gs','py','ipynb','txt','md','json','csv'];
+const README_BASE=new RegExp(T.rx.readme_base);
+function kindOf(name){
+  const ext=(name.split('.').pop()||'').toLowerCase(), base=name.split('/').pop().toLowerCase();
+  if(['html','htm'].includes(ext))return 'html';
+  if(['js','mjs','ts','gs'].includes(ext))return 'js';
+  if(ext==='py'||ext==='ipynb')return 'py';
+  if(README_BASE.test(base))return 'doc';
+  if(ext==='md'||ext==='txt')return 'prompt';
+  return 'data';
+}
+async function addFiles(list){
+  const st=$('analyzeStatus');let skipped=0;
+  for(const f of list){
+    if(FILES.length>=200){skipped++;continue}
+    const ext=(f.name.split('.').pop()||'').toLowerCase();
+    try{
+      if(ext==='zip'){
+        if(!window.JSZip){st.textContent=T.zip_fail;continue}
+        const zip=await JSZip.loadAsync(f);
+        for(const [path,entry] of Object.entries(zip.files)){
+          if(entry.dir||/(^|\/)(node_modules|\.git|__MACOSX|venv|\.venv)\//.test(path))continue;
+          const e2=(path.split('.').pop()||'').toLowerCase();
+          if(!TEXT_EXT.includes(e2)){skipped++;continue}
+          const txt=await entry.async('string');
+          if(txt.length>2e6){skipped++;continue}
+          if(FILES.length<200)FILES.push(mkFile(path,txt));else skipped++;
+        }
+      }else if(TEXT_EXT.includes(ext)){
+        if(f.size>2e6){skipped++;continue}
+        FILES.push(mkFile(f.name,await f.text()));
+      }else skipped++;
+    }catch(e){st.textContent=F(T.read_fail,{name:f.name})}
+  }
+  if(skipped)st.textContent=F(T.skipped,{n:skipped});
+  hideExample();renderFiles();await runAnalysis();
+}
+function mkFile(name,text){
+  let k=kindOf(name),ext=(name.split('.').pop()||'').toLowerCase();
+  if(ext==='ipynb'){try{const nb=JSON.parse(text);text=(nb.cells||[]).map(c=>[].concat(c.source||[]).join('')+'\n').join('\n')}catch{}}
+  return {name,ext,kind:k,text};
+}
+const KIND_LABEL={html:'HTML',js:'JS',py:'PY',doc:T.k_doc,prompt:T.k_prompt,data:T.k_data};
+function renderFiles(){
+  $('fileList').innerHTML=FILES.map((f,i)=>`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('');
+}
+$('fileList').addEventListener('click',async e=>{const i=e.target.dataset?.rm;if(i==null)return;FILES.splice(Number(i),1);hideExample();renderFiles();await runAnalysis()});
+$('fileInput').addEventListener('change',e=>{addFiles([...e.target.files]);e.target.value=''});
+const drop=$('drop');
+['dragenter','dragover'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.add('over')}));
+['dragleave','drop'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.remove('over')}));
+drop.addEventListener('drop',e=>addFiles([...e.dataTransfer.files]));
+
+/* ================= Analysis ================= */
+// Messages written for people in the page language: a quoted string that has Hangul, the page script, or (for languages without their own script) common words
+const MSG_PRE='(?:alert|confirm|throw\\s+new\\s+\\w*Error|raise\\s+\\w+|print|showToast|toast|textContent\\s*=|innerText\\s*=|msgBox|Browser\\.msgBox|setTitle|console\\.(?:warn|error))\\s*\\(?\\s*[^\\n]{0,20}?["\'`][^"\'`\\n]*';
+const MSG_SUF='[^"\'`\\n]*["\'`]';
+const MSG_RE=new RegExp(MSG_PRE+'(?:['+T.rx.msg_chars+']'+(T.rx.msg_words?'|\\b(?:'+T.rx.msg_words+')\\b':'')+')'+MSG_SUF,T.rx.msg_flags);
+const RX={
+  secret:[
+    /\bsk-(?:ant-|proj-)?[A-Za-z0-9_-]{20,}/g, /\bAIza[0-9A-Za-z_-]{35}\b/g, /\bgh[pousr]_[A-Za-z0-9]{30,}\b/g,
+    /\bxox[abpr]-[A-Za-z0-9-]{10,}/g, /\bAKIA[0-9A-Z]{16}\b/g,
+    /(?:api[_-]?key|apikey|secret|password|passwd|pwd|access[_-]?token|client[_-]?secret)\s*[:=]\s*["'`]([^"'`\s]{8,})["'`]/gi,
+  ],
+  placeholder:new RegExp(T.rx.placeholder,'i'),
+  rrn:/\b\d{6}-?[1-4]\d{6}\b/g,
+  phone:/\b01[016789]-?\d{3,4}-?\d{4}\b/g,
+  email:/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g,
+  ai:/api\.openai\.com|api\.anthropic\.com|generativelanguage\.googleapis\.com|aiplatform\.googleapis\.com|clovastudio|hyperclova|api\.perplexity|api\.mistral|api\.groq|openai\.azure\.com|\bOpenAI\(|\bAnthropic\(|google\.generativeai|GoogleGenerativeAI/gi,
+  hard:[
+    {re:/["'`][A-Za-z]:\\\\?[^"'`\n]{2,}["'`]/g,t:T.hard_t[0]},
+    {re:/["'`](?:\/Users\/|\/home\/)[^"'`\n]+["'`]/g,t:T.hard_t[0]},
+    {re:/(?:openById|getFileById|getFolderById|openByUrl|spreadsheetId|folderId|fileId|sheetId|SHEET_ID|FOLDER_ID)[^\n]{0,20}?["'`]([A-Za-z0-9_-]{25,})["'`]/g,t:T.hard_t[1]},
+    {re:/docs\.google\.com\/(?:spreadsheets|document|presentation)\/d\/[A-Za-z0-9_-]{25,}/g,t:T.hard_t[2]},
+    {re:/\b(?:192\.168|10\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01]))\.\d{1,3}\.\d{1,3}\b|localhost:\d+/g,t:T.hard_t[3]},
+    {re:/["'`]http:\/\/(?!localhost)[^"'`\s]+["'`]/g,t:T.hard_t[4]},
+  ],
+  handler:/\btry\s*\{|\bcatch\s*\(|\.catch\(|^\s*try\s*:|^\s*except\b|\bonerror\b|addEventListener\(\s*["']error|\bon_error\b/gm,
+  valid:/\bisNaN\(|Number\.isFinite|Number\.isNaN|\.trim\(\)|\brequired\b|\btypeof\b|if\s*\(\s*!\s*[\w.$]+\s*\)|\.length\s*===?\s*0|\bpattern=|\bvalidate\w*|\bisinstance\(|if\s+not\s+\w+|len\([^)]*\)\s*==\s*0|\.isdigit\(|\.strip\(\)|checkValidity|\bmin=|\bmax=/g,
+  todo:/\b(?:TODO|FIXME|XXX|HACK)\b/g,
+  fnJs:/\bfunction\b|=>|^\s*(?:async\s+)?[A-Za-z_$][\w$]*\s*\([^)]*\)\s*\{/gm,
+  fnPy:/^\s*(?:async\s+)?def\s+\w+/gm,
+  uiHtml:/<(?:input|select|textarea|button)\b/gi,
+  uiSimple:/\bonOpen\b|createMenu|HtmlService|SpreadsheetApp\.getUi|\binput\(|argparse|tkinter|streamlit|gradio|PySimpleGUI|readline|process\.argv|ipywidgets/g,
+  guide:/<label\b|\bplaceholder=|\btitle=|<h[1-3]\b|aria-label=|\bhelp=|setHelpText|\bhint\b/gi,
+  msg:MSG_RE,
+  rdUsage:new RegExp(T.rx.readme_usage,'i'),
+  rdModify:new RegExp(T.rx.readme_modify,'i'),
+};
+// prompt elements: 0 role/goal, 1 input, 2 output, 3 example, 4 constraint
+const PROMPT_EL=T.rx.prompt.map((s,i)=>({id:i,k:T.pel[i],re:new RegExp(s,'i')}));
+function lineOf(text,idx){let n=1;for(let i=0;i<idx&&i<text.length;i++)if(text.charCodeAt(i)===10)n++;return n}
+function findAll(f,re,cb){re.lastIndex=0;let m,c=0;while((m=re.exec(f.text))&&c<300){cb(m,lineOf(f.text,m.index));c++;if(m[0]==='')re.lastIndex++}}
+function commentLines(f){
+  const lines=f.text.split('\n');let code=0,com=0,inBlock=false,inHtml=false;
+  for(const raw of lines){const l=raw.trim();if(!l)continue;code++;
+    if(f.kind==='py'){if(l.startsWith('#')||/^("""|''')/.test(l))com++;continue}
+    if(inBlock){com++;if(l.includes('*/'))inBlock=false;continue}
+    if(inHtml){com++;if(l.includes('-->'))inHtml=false;continue}
+    if(l.startsWith('//')){com++;continue}
+    if(l.startsWith('/*')){com++;if(!l.includes('*/'))inBlock=true;continue}
+    if(l.startsWith('<!--')){com++;if(!l.includes('-->'))inHtml=true;continue}
+    if(/\s\/\/\s/.test(l)||/#\s/.test(l)&&f.kind==='py')com+=0.5;
+  }
+  return {code,com};
+}
+function runHtml(f){
+  return new Promise(res=>{
+    const id='r'+Math.random().toString(36).slice(2);const errors=[];
+    const fr=document.createElement('iframe');fr.className='sandbox';fr.setAttribute('sandbox','allow-scripts');fr.setAttribute('aria-hidden','true');fr.tabIndex=-1;
+    const inj=`<script>(function(){var P=function(m){try{parent.postMessage(Object.assign({aj:'${id}'},m),'*')}catch(e){}};window.addEventListener('error',function(e){if(e&&e.message)P({t:'err',msg:e.message,line:e.lineno})});window.addEventListener('unhandledrejection',function(e){P({t:'err',msg:${JSON.stringify(T.async_err)}+(e.reason&&e.reason.message||e.reason)})});window.addEventListener('load',function(){setTimeout(function(){P({t:'done'})},700)});})();<\/script>`;
+    let html=f.text;
+    html=/<head[^>]*>/i.test(html)?html.replace(/<head[^>]*>/i,m=>m+inj):inj+html;
+    let done=false;
+    const finish=()=>{if(done)return;done=true;window.removeEventListener('message',onMsg);fr.remove();res(errors)};
+    const onMsg=e=>{const d=e.data;if(!d||d.aj!==id)return;if(d.t==='err')errors.push(d);if(d.t==='done')finish()};
+    window.addEventListener('message',onMsg);
+    fr.srcdoc=html;document.body.appendChild(fr);
+    setTimeout(finish,4000);
+  });
+}
+function syntaxJs(f){
+  if(/^\s*(import|export)\b/m.test(f.text)||f.ext==='ts')return null; // modules and TS are not checked
+  try{new Function(f.text);return []}catch(e){return [{msg:e.message}]}
+}
+async function analyze(){
+  const code=FILES.filter(f=>['html','js','py'].includes(f.kind));
+  const prompts=FILES.filter(f=>f.kind==='prompt');
+  const docs=FILES.filter(f=>f.kind==='doc');
+  const all=FILES;
+  const R={kind:code.length?'code':prompts.length?'prompt':'none',files:all.length,codeFiles:code.length,
+    lines:0,comment:0,codeLines:0,fns:0,handlers:[],valids:0,todos:[],uiHtml:0,uiSimple:0,guide:0,koMsgs:[],
+    hard:[],secrets:[],rrn:[],phones:[],emails:[],ai:[],run:{tested:0,errors:[]},syntax:{tested:0,skipped:0,errors:[]},
+    readme:{exists:docs.length>0,usage:false,modify:false,names:docs.map(d=>d.name)},promptEl:[]};
+  for(const f of all){
+    R.lines+=f.text.split('\n').length;
+    // security
+    for(const re of RX.secret)findAll(f,re,(m,ln)=>{const v=m[1]||m[0];if(RX.placeholder.test(v))return;R.secrets.push({file:f.name,line:ln,v:mask(v)})});
+    findAll(f,RX.rrn,(m,ln)=>R.rrn.push({file:f.name,line:ln,v:mask(m[0])}));
+    if(f.kind!=='doc'){findAll(f,RX.phone,(m,ln)=>R.phones.push({file:f.name,line:ln,v:mask(m[0])}));
+      findAll(f,RX.email,(m,ln)=>{if(!/example|test|domain|sample|noreply/i.test(m[0]))R.emails.push({file:f.name,line:ln,v:mask(m[0])})})}
+    findAll(f,RX.ai,(m,ln)=>R.ai.push({file:f.name,line:ln,v:m[0]}));
+  }
+  for(const d of docs){
+    if(RX.rdUsage.test(d.text))R.readme.usage=true;
+    if(RX.rdModify.test(d.text))R.readme.modify=true;
+  }
+  for(const f of code){
+    const c=commentLines(f);R.codeLines+=c.code;R.comment+=c.com;
+    findAll(f,f.kind==='py'?RX.fnPy:RX.fnJs,()=>R.fns++);
+    findAll(f,RX.handler,(m,ln)=>R.handlers.push({file:f.name,line:ln}));
+    findAll(f,RX.valid,()=>R.valids++);
+    findAll(f,RX.todo,(m,ln)=>R.todos.push({file:f.name,line:ln,v:m[0]}));
+    if(f.kind==='html')findAll(f,RX.uiHtml,()=>R.uiHtml++);
+    findAll(f,RX.uiSimple,()=>R.uiSimple++);
+    if(f.kind==='html')findAll(f,RX.guide,()=>R.guide++);
+    findAll(f,RX.msg,(m,ln)=>R.koMsgs.push({file:f.name,line:ln}));
+    for(const h of RX.hard)findAll(f,h.re,(m,ln)=>R.hard.push({file:f.name,line:ln,t:h.t,v:mask(m[1]||m[0].replace(/["'`]/g,''))}));
+  }
+  // run / syntax check
+  for(const f of code.filter(f=>f.kind==='html').slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
+  for(const f of code.filter(f=>f.kind==='js')){const r=syntaxJs(f);if(r===null){R.syntax.skipped++;continue}R.syntax.tested++;r.forEach(e=>R.syntax.errors.push({file:f.name,msg:e.msg}))}
+  R.testable=R.run.tested+R.syntax.tested>0;
+  R.untestedPy=code.some(f=>f.kind==='py')||R.syntax.skipped>0;
+  R.execErrors=R.run.errors.length+R.syntax.errors.length;
+  // prompts
+  if(prompts.length){const t=prompts.map(p=>p.text).join('\n');R.promptEl=PROMPT_EL.filter(e=>e.re.test(t)).map(e=>e.id)}
+  // de-duplicate
+  const uniq=(arr,key)=>{const s=new Set();return arr.filter(x=>{const k=key(x);if(s.has(k))return false;s.add(k);return true})};
+  R.hard=uniq(R.hard,x=>x.file+x.line+x.t);R.secrets=uniq(R.secrets,x=>x.file+x.line);R.ai=uniq(R.ai,x=>x.file+x.line);
+  R.commentRatio=R.codeLines?R.comment/R.codeLines:0;
+  return R;
+}
+async function runAnalysis(){
+  if(!FILES.length){M=null;$('analyzeStatus').textContent='';renderReport();update();return}
+  analyzing=true;update();
+  $('analyzeStatus').textContent=T.analyzing;
+  M=await analyze();
+  analyzing=false;
+  $('analyzeStatus').textContent=F(T.analyzed,{n:M.files,l:M.lines.toLocaleString()});
+  renderReport();update();
+}
+
+/* ================= Scoring ================= */
+function hours(a){if(a.before==null||a.after==null||a.times==null)return 0;return Math.max(0,a.before-a.after)*a.times/60}
+const elNames=ids=>ids.map(i=>T.pel[i]).join(', ');
+function judge(a,M,k){
+  const P=k==='prog',C=k==='cons';const L={},W={},ADJ={};
+  // fit (answers)
+  { let p=[2,1,0][a.problem],f=[2,2,1,0][a.freq],u=[2,1,0][a.users];const adj=[];
+    if(C&&a.problem===1){p=0;adj.push(T.adj.broad)}
+    if(P&&a.freq===3){f=1;adj.push(T.adj.notyet)}
+    L.fit=map6(p+f+u);W.fit=F(T.w.fit,{p,f,u,s:p+f+u});ADJ.fit=adj }
+  // effect (answers)
+  { const h=hours(a);let lv=h>=10?0:h>=3?1:h>0?2:3;const adj=[];
+    if(a.evidence===2)lv=3;
+    else if(a.evidence===1){if(P)adj.push(T.adj.est_ok);else{lv=clamp(lv+1);adj.push(T.adj.est_down)}}
+    if(a.quality===0&&a.evidence!==2){if(C&&a.evidence!==0)adj.push(T.adj.q_measured);else{lv=clamp(lv-1);adj.push(T.adj.q_up)}}
+    L.effect=lv;W.effect=a.evidence===2?T.w.no_hours:F(T.w.hours,{h:h.toFixed(1)});ADJ.effect=adj }
+  if(M.kind==='prompt'){
+    const n=M.promptEl.length,adj=[];
+    L.complete=n>=5?0:n>=4?1:n>=2?2:3;W.complete=F(T.w.prompt,{n,list:elNames(M.promptEl)||T.none});ADJ.complete=adj;
+    const hasIO=[1,3].filter(x=>M.promptEl.includes(x)).length;
+    L.ease=hasIO===2?0:hasIO===1?1:2;if(C&&!M.readme.exists&&L.ease<2){L.ease=2}
+    W.ease=F(T.w.prompt_io,{n:hasIO});ADJ.ease=C&&!M.readme.exists?[T.adj.nodoc_mid]:[];
+  }else{
+    // completeness (files)
+    { let run, adj=[];
+      if(M.execErrors>0)run=0; else if(M.testable&&!M.untestedPy)run=2; else if(M.testable)run=P?2:1; else run=P?2:1;
+      if(!M.testable&&P)adj.push(T.adj.untested_ok);
+      const hn=M.handlers.length,ratio=hn/Math.max(1,M.fns);
+      let eh=C?(hn>=4?2:hn>=2?1:0):((hn>=3||ratio>=0.3)?2:hn>=1?1:0);
+      const va=M.valids>=3?2:M.valids>=1?1:0;
+      let todo=M.todos.length>=3&&!P?-1:0;if(M.todos.length>=3&&P)adj.push(T.adj.todo_free);
+      const s=Math.max(0,run+eh+va+todo);let lv=map6(s);
+      if(C&&(!M.testable||M.untestedPy)&&lv===0){lv=1;adj.push(T.adj.untested_cap)}
+      L.complete=lv;W.complete=F(T.w.complete,{run,eh,hn,va,v:M.valids,todo:todo?T.w.todo_part:'',s});ADJ.complete=adj }
+    // ease of use (files)
+    { const ui=M.uiHtml>0?2:M.uiSimple>0?1:0;
+      const gd=M.guide>=5?2:(M.guide>=1||M.readme.usage)?1:0;
+      const ms=M.koMsgs.length>=3?2:M.koMsgs.length>=1?1:0;
+      let s=ui+gd+ms;const adj=[];
+      if(P&&ui===2&&s<6){s+=1;adj.push(T.adj.ui_bonus)}
+      let lv=map6(s);
+      if(C&&!M.readme.exists&&lv<2){lv=2;adj.push(T.adj.nodoc_mid)}
+      L.ease=lv;W.ease=F(T.w.ease,{ui,gd,g:M.guide,ms,m:M.koMsgs.length,s:ui+gd+ms});ADJ.ease=adj }
+  }
+  // docs (files)
+  { const rd=M.readme.exists?(M.readme.usage&&M.readme.modify?3:(M.readme.usage||M.readme.modify)?2:1):0;
+    const r=M.commentRatio;let cm;
+    if(M.kind==='prompt')cm=1; else cm=C?(r>=.2?2:r>=.08?1:0):(r>=.15?2:r>=.05?1:0);
+    const s=rd+cm;L.docs=s>=5?0:s>=3?1:s===2?2:3;
+    W.docs=F(T.w.docs,{rd,cm,x:M.kind==='prompt'?T.w.docs_prompt:`(${Math.round(r*100)}%)`,s});ADJ.docs=C&&M.kind!=='prompt'?[T.adj.com_strict]:[] }
+  // spread (files)
+  { const n=M.hard.length;let lv=n===0?0:n<=2?1:n<=5?2:3;const adj=[];
+    if(P&&a.novel===0&&lv>0){lv--;adj.push(T.adj.novel)}
+    if(C&&!M.readme.exists&&lv<1){lv=1;adj.push(T.adj.nodoc_up)}
+    L.spread=lv;W.spread=F(T.w.hard,{n});ADJ.spread=adj }
+  // required checks (codes: ok / fail / unk)
+  const req=[];
+  req.push({t:T.req[0],st:M.secrets.length?'fail':'ok'});
+  const pii=M.rrn.length+M.phones.length;
+  req.push({t:T.req[1],st:pii?(P?'unk':'fail'):'ok'});
+  req.push({t:T.req[2],st:a.aiSafe===0?'ok':a.aiSafe===1?'fail':(M.ai.length?'unk':'ok')});
+  const total=AREAS.reduce((s,ar)=>s+ar.pts[L[ar.k]],0);
+  return {L,W,ADJ,total,req};
+}
+
+/* ================= Result ================= */
+const ANS_IDS=[...Q.filter(q=>q.id).map(q=>q.id),...REQ_Q.map(q=>q.id)];
+function read(){const a={...DEFAULTS,name:$('name').value.trim(),author:$('author').value.trim()};
+  for(const id of ANS_IDS){const c=document.querySelector(`input[name="${id}"]:checked`);a[id]=c?Number(c.value):null}
+  for(const id of ['before','after','times']){const v=$(id).value;a[id]=v===''?null:Math.max(0,Number(v))}
+  return a}
+function write(d){$('name').value=d.name||'';$('author').value=d.author||'';
+  for(const id of ANS_IDS)document.querySelectorAll(`input[name="${id}"]`).forEach(i=>i.checked=(d[id]!=null&&Number(i.value)===d[id]));
+  for(const id of ['before','after','times'])$(id).value=d[id]??''}
+let LAST=null,READY=false;
+function openResult(){const d=$('resDialog');if(d.open)return;if(d.showModal)d.showModal();else d.setAttribute('open','')}
+function judgeCards(R){return `<div class="judges">${JUDGES.map(j=>{const t=R?R[j.k].total:null;return `<div class="judge ${j.cls}"><span class="n">${j.full}</span><span class="s num">${t==null?'–':t}</span><span class="g">${t==null?j.motto:F(T.judge_g,{g:gradeOf(t).g})}</span></div>`}).join('')}</div>`}
+function update(){
+  const a=read();
+  $('calc').textContent=(a.before!=null&&a.after!=null&&a.times!=null)?F(T.calc,{h:hours(a).toFixed(1),b:a.before,a:a.after,t:a.times}):T.calc_fill;
+  // automatic required-check summary
+  if(M){const parts=[];
+    parts.push(M.secrets.length?F(T.auto_secret,{n:M.secrets.length}):T.req[0]);
+    const pii=M.rrn.length+M.phones.length;parts.push(pii?F(T.auto_pii,{n:pii}):T.req[1]);
+    parts.push(M.ai.length?F(T.auto_ai,{n:M.ai.length}):T.auto_ai_none);
+    $('autoReq').textContent=T.auto_prefix+parts.join(' · ');}
+  else $('autoReq').textContent=T.auto_default;
+  const missingQ=Q.filter(q=>q.id&&a[q.id]==null).length+REQ_Q.filter(q=>a[q.id]==null).length;
+  const needConsent=SUBMIT_URL&&!exampleShown&&!$('consent')?.checked;
+  const block=analyzing?T.b_analyzing:!M?T.b_nofile:M.kind==='none'?T.b_nocode:missingQ?F(T.b_missing,{n:missingQ}):needConsent?T.b_consent:'';
+  if(block){LAST=null;$('result').innerHTML=`<p class="flag info">${block}</p>`+judgeCards(null);$('mbarText').textContent=block.split(/[.。]/)[0];$('copyBtn').disabled=true;$('printBtn').disabled=true;$('showBtn').disabled=true;$('readyNote').textContent=block;READY=false;return}
+  $('copyBtn').disabled=false;$('printBtn').disabled=false;$('showBtn').disabled=false;$('readyNote').textContent=T.ready;
+  const R={};JUDGES.forEach(j=>R[j.k]=judge(a,M,j.k));
+  const totals=JUDGES.map(j=>R[j.k].total);
+  const avg=Math.round(totals.reduce((x,y)=>x+y,0)/3*10)/10;
+  const spread=Math.max(...totals)-Math.min(...totals);
+  const reqs=R.mid.req.map((r,i)=>({t:r.t,v:JUDGES.map(j=>R[j.k].req[i].st)}));
+  const fail=reqs.filter(r=>r.v.includes('fail')),unk=reqs.filter(r=>!r.v.includes('fail')&&r.v.includes('unk'));
+  const hold=fail.length>0||unk.length>0;
+  const g=gradeOf(avg),pay=won(PAY[g.g]);
+  const flags=[];
+  if(fail.length)flags.push(`<div class="flag">${F(T.f_fail,{items:fail.map(r=>r.t).join(' / ')})}</div>`);
+  if(unk.length)flags.push(`<div class="flag">${F(T.f_unk,{items:unk.map(r=>r.t).join(' / ')})}</div>`);
+  if(spread>=15)flags.push(`<div class="flag">${F(T.f_spread,{n:spread})}</div>`);
+  if(M.kind==='prompt')flags.push(`<div class="flag info">${T.f_prompt}</div>`);
+  if(!hold&&spread<15)flags.push(`<div class="flag ok">${F(T.f_ok,{n:spread})}</div>`);
+  const rows=AREAS.map(ar=>{const idx=JUDGES.map(j=>R[j.k].L[ar.k]);const gap=Math.max(...idx)-Math.min(...idx)>=2;
+    const m=Math.round(idx.reduce((s,i)=>s+ar.pts[i],0)/3*10)/10;
+    return `<tr class="${gap?'gap':''}"><td>${ar.name}<span class="src">${ar.src}</span></td>${idx.map(i=>`<td class="c"><span class="lv lv${i}">${LEVELS[i]}</span> <span class="num hint">${ar.pts[i]}</span></td>`).join('')}<td class="c num">${m}</td></tr>`}).join('');
+  const reqRows=reqs.map(r=>`<tr><td>${r.t}</td>${r.v.map(v=>`<td class="c ${v==='ok'?'':'hint'}">${STX[v]}</td>`).join('')}<td></td></tr>`).join('');
+  $('result').innerHTML=`
+    <div class="verdict"><div class="badge g-${hold?'H':g.g}">${hold?'!':g.g}</div>
+      <div><div class="big">${hold?T.hold:F(T.grade_fmt,{g:g.g})}${!hold&&pay&&Number(PAY[g.g])>0?' · '+pay:''}</div>
+      <div class="sub">${F(T.sub_fmt,{avg,x:hold?T.sub_hold:g.label})}</div></div></div>
+    ${judgeCards(R)}
+    <div class="flags">${flags.join('')}</div>
+    <div class="tbl"><table><thead><tr><th>${T.th_area}</th>${JUDGES.map(j=>`<th class="c">${j.name}</th>`).join('')}<th class="c">${T.th_avg}</th></tr></thead>
+      <tbody>${rows}<tr><td><b>${T.th_total}</b></td>${totals.map(t=>`<td class="c num"><b>${t}</b></td>`).join('')}<td class="c num"><b>${avg}</b></td></tr>${reqRows}</tbody></table></div>
+    ${JUDGES.map(j=>`<details class="${j.cls}"><summary>${F(T.why_sum,{full:j.full,t:R[j.k].total})}</summary><div class="why">${AREAS.map(ar=>`<div><b>${F(T.why_area,{name:ar.name,lv:LEVELS[R[j.k].L[ar.k]],pt:ar.pts[R[j.k].L[ar.k]]})}</b><span class="hint">${esc(R[j.k].W[ar.k])}</span>${R[j.k].ADJ[ar.k].map(x=>`<span class="adj">↳ ${esc(x)}</span>`).join('')}</div>`).join('')}</div></details>`).join('')}`;
+  $('mbarText').innerHTML=hold?F(T.mbar_hold,{avg}):F(T.mbar_g,{g:g.g,avg});
+  LAST={a,R,totals,avg,spread,g,hold,pay,fail,unk};
+  scheduleSubmit();
+  if(!READY){READY=true;if(!exampleShown)openResult()}
+}
+
+/* ================= Submit to the operator ================= */
+let sentSig=null,submitTimer=null,sending=false;
+const fileSig=()=>FILES.map(f=>f.name+':'+f.text.length).join('|')+'#'+$('name').value.trim();
+function scheduleSubmit(){
+  if(!SUBMIT_URL||exampleShown||!LAST||!$('consent')?.checked)return;
+  if(M&&M.secrets.length){$('status').textContent=T.sub_secret;return}
+  if(fileSig()===sentSig)return;
+  clearTimeout(submitTimer);
+  submitTimer=setTimeout(submit,2500); // wait for the answers to settle, then send once
+}
+async function submit(){
+  if(sending||!LAST)return;const sig=fileSig();if(sig===sentSig)return;
+  if($('hp')?.value)return; // honeypot: bots are ignored silently
+  sending=true;$('status').textContent=T.sub_ing;
+  try{
+    const zip=new JSZip();
+    FILES.forEach(f=>zip.file(f.name.replace(/^\/+/,''),f.text));
+    const blob=await zip.generateAsync({type:'blob',compression:'DEFLATE'});
+    if(blob.size>5e6)throw new Error('big');
+    const path=`submissions/${Date.now()}-${Math.random().toString(36).slice(2,10)}.zip`;
+    const H={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
+    const up=await fetch(`${SB_URL}/storage/v1/object/ai-judge-submissions/${path}`,{method:'POST',headers:{...H,'Content-Type':'application/zip'},body:blob});
+    if(!up.ok)throw new Error('upload');
+    // The admin dashboard is Korean: the stored grade text stays Korean in every language edition.
+    const row=await fetch(`${SB_URL}/rest/v1/ai_judge_submissions`,{method:'POST',headers:{...H,'Content-Type':'application/json',Prefer:'return=minimal'},
+      body:JSON.stringify({program_name:(LAST.a.name||T.sub_noname).slice(0,200),submitter:(LAST.a.author||'').slice(0,200),grade:LAST.hold?'\uBCF4\uB958':LAST.g.g+'\uB4F1\uAE09',avg_score:LAST.avg,file_count:FILES.length,file_size:blob.size,storage_path:path})});
+    if(!row.ok)throw new Error('row');
+    sentSig=sig;
+    $('status').textContent=F(T.sub_ok,{time:new Date().toLocaleTimeString(T.loc,{hour:'2-digit',minute:'2-digit'})});
+  }catch(e){
+    $('status').textContent=e.message==='big'?T.sub_big:T.sub_fail;
+  }finally{sending=false}
+}
+function resultText(){
+  if(!LAST)return '';const {a,R,totals,avg,spread,g,hold,pay,fail,unk}=LAST;
+  const run=M?(M.testable?(M.execErrors?F(T.run_err,{n:M.execErrors}):T.run_ok):T.run_na):'';
+  return [T.rt_title,F(T.rt_name,{v:a.name||T.rt_none}),F(T.rt_author,{v:a.author||T.rt_none}),F(T.rt_files,{v:FILES.map(f=>f.name).join(', ')}),
+    F(T.rt_result,{r:hold?T.rt_hold:F(T.grade_fmt,{g:g.g})+(pay&&Number(PAY[g.g])>0?F(T.rt_reward,{pay}):''),avg}),
+    ...JUDGES.map((j,i)=>F(T.rt_judge,{full:j.full,t:totals[i],areas:AREAS.map(ar=>ar.name+' '+LEVELS[R[j.k].L[ar.k]]).join(', ')})),
+    spread>=15?F(T.rt_spread,{n:spread}):'',
+    ...fail.map(r=>F(T.rt_fail,{v:r.t})),...unk.map(r=>F(T.rt_unk,{v:r.t})),
+    F(T.rt_ans,{freq:Q[0].o[a.freq],users:Q[1].o[a.users],time:a.before==null?T.rt_none:F(T.rt_time,{b:a.before,a:a.after,t:a.times})}),
+    M?F(T.rt_auto,{run,h:M.handlers.length,v:M.valids,hc:M.hard.length,doc:M.readme.exists?T.yes:T.no}):''].filter(Boolean).join('\n');
+}
+if(SUBMIT_URL)$('privacyPill').textContent=T.pill_submit;
+
+/* ================= Report ================= */
+function list(items,fmt,max=6){if(!items.length)return '';const more=items.length>max?`<li class="hint">${F(T.more,{n:items.length-max})}</li>`:'';return `<ul>${items.slice(0,max).map(x=>`<li>${fmt(x)}</li>`).join('')}${more}</ul>`}
+const at=x=>`<code>${esc(x.file)}</code>${x.line?' '+F(T.line_fmt,{n:x.line}):''}`;
+function renderReport(){
+  if(!M){$('report').innerHTML=`<p class="status">${T.rep_empty}</p>`;return}
+  const pct=Math.round(M.commentRatio*100);
+  const runLabel=M.testable?(M.execErrors?F(T.run_err,{n:M.execErrors}):T.run_ok):T.run_na;
+  const metrics=[
+    [T.m[0],F(T.cnt,{n:M.files})],[T.m[1],M.lines.toLocaleString()],
+    [T.m[2],runLabel],
+    [T.m[3],F(T.spots,{n:M.handlers.length})],[T.m[4],F(T.spots,{n:M.valids})],[T.m[5],M.kind==='code'?pct+'%':'–'],
+    [T.m[6],F(T.cnt,{n:M.uiHtml})],[T.m[7],F(T.cnt,{n:M.koMsgs.length})],[T.m[8],F(T.spots,{n:M.hard.length})],
+  ];
+  const G=[];
+  const sec=M.secrets.length+M.rrn.length+M.phones.length;
+  G.push(`<div class="fgroup ${sec?'f-bad':'f-ok'}"><h3>${T.g_sec} ${sec?'— '+F(T.need_check,{n:sec}):'— '+T.no_issue}</h3>
+    ${sec?list([...M.secrets.map(x=>({...x,t:T.t_key})),...M.rrn.map(x=>({...x,t:T.t_rrn})),...M.phones.map(x=>({...x,t:T.t_phone}))],x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code> — ${T.remove_it}`):`<span class="hint">${T.sec_none}</span>`}
+    ${M.emails.length?`<span class="hint">${F(T.emails,{n:M.emails.length})}</span>`:''}</div>`);
+  G.push(`<div class="fgroup ${M.ai.length?'f-info':'f-ok'}"><h3>${T.g_ai} — ${M.ai.length?F(T.spots,{n:M.ai.length}):T.none}</h3>${M.ai.length?list(M.ai,x=>`${at(x)} · <code>${esc(x.v)}</code>`)+`<span class="hint">${T.ai_warn}</span>`:`<span class="hint">${T.ai_none}</span>`}</div>`);
+  if(M.kind==='code'){
+    const ex=[...M.run.errors,...M.syntax.errors];
+    G.push(`<div class="fgroup ${ex.length?'f-bad':M.testable?'f-ok':'f-info'}"><h3>${T.g_run} — ${ex.length?F(T.run_err,{n:ex.length}):M.testable?T.run_ok:T.run_na}</h3>
+      ${ex.length?list(ex,x=>`${at(x)} · ${esc(x.msg)}`):`<span class="hint">${M.run.tested?F(T.run_html,{n:M.run.tested})+' ':''}${M.syntax.tested?F(T.run_js,{n:M.syntax.tested})+' ':''}${M.untestedPy?T.run_py:''}</span>`}</div>`);
+    G.push(`<div class="fgroup ${M.hard.length?'f-bad':'f-ok'}"><h3>${T.g_hard} — ${M.hard.length?F(T.spots,{n:M.hard.length}):T.none}</h3>${M.hard.length?list(M.hard,x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code>`)+`<span class="hint">${T.hard_warn}</span>`:`<span class="hint">${T.hard_none}</span>`}</div>`);
+    if(M.todos.length)G.push(`<div class="fgroup f-info"><h3>${T.g_todo} — ${F(T.spots,{n:M.todos.length})}</h3>${list(M.todos,x=>`${at(x)} · ${x.v}`)}</div>`);
+  }
+  if(M.kind==='prompt')G.push(`<div class="fgroup f-info"><h3>${F(T.g_prompt,{n:M.promptEl.length})}</h3><span class="hint">${F(T.prompt_has,{has:elNames(M.promptEl)||T.none,lack:elNames(PROMPT_EL.map(e=>e.id).filter(i=>!M.promptEl.includes(i)))||T.none})}</span></div>`);
+  G.push(`<div class="fgroup ${M.readme.exists?'f-ok':'f-bad'}"><h3>${T.g_doc} — ${M.readme.exists?M.readme.names.map(esc).join(', '):T.none}</h3><span class="hint">${M.readme.exists?F(T.doc_has,{u:M.readme.usage?T.yes:T.no,m:M.readme.modify?T.yes:T.no}):T.doc_none}</span></div>`);
+  $('report').innerHTML=`<div class="metrics">${metrics.map(([k,v])=>`<div class="metric"><span class="k">${k}</span><span class="v num">${v}</span></div>`).join('')}</div><div class="find">${G.join('')}</div>`;
+}
+
+/* ================= Events ================= */
+let exampleShown=false;
+function hideExample(){if(exampleShown){exampleShown=false;$('exampleNote').hidden=true}}
+$('form').addEventListener('input',e=>{if(e.target.type!=='file')hideExample();update()});
+$('form').addEventListener('change',update);
+$('form').addEventListener('submit',e=>e.preventDefault());
+async function loadExample(){
+  FILES=[mkFile('index.html',$('exHtml').innerHTML.trim()),mkFile('README.md',$('exReadme').textContent.trim())];
+  write(EX_ANS);exampleShown=true;$('exampleNote').hidden=false;renderFiles();await runAnalysis();
+}
+$('exampleBtn').onclick=loadExample;
+$('resetBtn').onclick=async()=>{FILES=[];write({});hideExample();$('analyzeStatus').textContent='';renderFiles();await runAnalysis();$('name').focus()};
+$('printBtn').onclick=()=>window.print();
+$('showBtn').onclick=openResult;$('mbarBtn').onclick=openResult;$('closeBtn').onclick=()=>$('resDialog').close();
+$('copyBtn').onclick=async()=>{
+  if(!LAST)return;const t=resultText();
+  try{await navigator.clipboard.writeText(t);$('status').textContent=T.copied}catch{$('status').textContent=T.copy_fail}
+};
+loadExample();
+</script>
+</body>
+</html>

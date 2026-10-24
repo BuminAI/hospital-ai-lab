@@ -14,7 +14,8 @@
     "news": "医療AIニュース",
     "events": "AI教育・イベント",
     "columns": "コラム",
-    "notes": "講義ノート"
+    "notes": "講義ノート",
+    "aiJudge": "AIプログラム審査"
   },
   "footer": {
     "about": "運営者について",

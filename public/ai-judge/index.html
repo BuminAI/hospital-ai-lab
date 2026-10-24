@@ -7,6 +7,12 @@
 <meta name="description" content="직접 만든 AI 업무 프로그램 파일을 올리면 보안·완성도·사용성·문서화·재사용성을 자동 분석하고, 진보·중도·보수 3명의 심사위원 규칙으로 100점 만점 채점해 S·A·B·C 등급을 매기는 무료 도구.">
 <meta name="theme-color" content="#0e141d">
 <link rel="canonical" href="https://hospital-ai-lab.com/ai-judge/">
+<link rel="alternate" hreflang="ko" href="https://hospital-ai-lab.com/ai-judge/">
+<link rel="alternate" hreflang="ja" href="https://hospital-ai-lab.com/ja/ai-judge/">
+<link rel="alternate" hreflang="ru" href="https://hospital-ai-lab.com/ru/ai-judge/">
+<link rel="alternate" hreflang="id" href="https://hospital-ai-lab.com/id/ai-judge/">
+<link rel="alternate" hreflang="zh-TW" href="https://hospital-ai-lab.com/tw/ai-judge/">
+<link rel="alternate" hreflang="x-default" href="https://hospital-ai-lab.com/ai-judge/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -28,10 +34,10 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://hospital-ai-lab.com/ai-judge/#webpage","url":"https://hospital-ai-lab.com/ai-judge/","name":"AI 프로그램 심사실","description":"직접 만든 AI 업무 프로그램 파일을 올리면 보안·완성도·사용성·문서화·재사용성을 자동 분석하고, 진보·중도·보수 3명의 심사위원 규칙으로 100점 만점 채점해 S·A·B·C 등급을 매기는 무료 도구.","inLanguage":"ko-KR","isPartOf":{"@id":"https://hospital-ai-lab.com/#website"},"breadcrumb":{"@id":"https://hospital-ai-lab.com/ai-judge/#breadcrumb"},"about":{"@id":"https://hospital-ai-lab.com/#organization"}},{"@type":"BreadcrumbList","@id":"https://hospital-ai-lab.com/ai-judge/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://hospital-ai-lab.com/"},{"@type":"ListItem","position":2,"name":"AI 프로그램 심사","item":"https://hospital-ai-lab.com/ai-judge/"}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
 <style>
-/* Layout: 파일 업로드 + 짧은 질문(왼쪽) ↔ 실시간 판정(오른쪽 고정), 아래에 자동 분석 리포트와 공개 채점 규칙 */
+/* Layout: upload + short questions, result in a popup, report and public rubric below */
 :root{
   --bg:#f3f5f8; --surface:#ffffff; --ink:#0e141d; --muted:#566173; --line:#d8dde6; --soft:#e9edf3;
   --accent:#0e141d; --accent-ink:#ffffff; --focus:#2f5fd0;
@@ -275,7 +281,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 </div></dialog>
 <div class="mbar" aria-hidden="true"><span id="mbarText">–</span><button type="button" id="mbarBtn">결과 보기</button></div>
 
-<!-- 예시 프로그램 (예시 불러오기용) -->
+<!-- example program (for the load-example button) -->
 <template id="exHtml"><!doctype html>
 <html lang="ko">
 <head><meta charset="utf-8"><title>연차 사용일수 계산기</title></head>
@@ -340,109 +346,101 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 </script>
 
 <script>
-/* ================= 제출 받기 설정 =================
-   'supabase'면 동의한 방문자의 파일이 비공개 저장소(ZIP)에 쌓이고, 관리자 대시보드 'AI 심사 제출' 탭에서
-   내려받습니다(supabase/setup.sql 실행 필요). 심사 결과는 저장하지 않습니다. 비워 두면 전송 기능이 꺼집니다. */
-const SUBMIT_URL = 'supabase'; // 'supabase' = 관리자 저장소로 제출(동의 필요). 끄려면 ''
+/* ================= Submission settings =================
+   'supabase': files of consenting visitors are stored privately (ZIP) and downloaded from the admin dashboard
+   (needs supabase/setup.sql). Review results are never stored. Empty string turns sending off.
+   This file is generated: edit scripts/ai-judge/template.html and lang/*.py, then run build.py. */
+const SUBMIT_URL = 'supabase';
 
-/* ================= 기준 ================= */
-const LEVELS=['상','중상','중','하'];
-const GRADES=[{g:'S',min:90,label:'90점 이상'},{g:'A',min:75,label:'75~89.9점'},{g:'B',min:60,label:'60~74.9점'},{g:'C',min:0,label:'60점 미만 · 보완 후 재제출'}];
+/* ================= Strings (per language) ================= */
+const T={"loc":"ko-KR","cur":"원","levels":["상","중상","중","하"],"gl":["90점 이상","75~89.9점","60~74.9점","60점 미만 · 보완 후 재제출"],"src_ans":"답변","src_file":"파일","area":[{"n":"현업 적합성","d":["문제가 구체적이고, 주 1회 이상 여러 명이 실제로 씀","대부분 충족, 한 가지가 부족함","문제는 있으나 사용이 제한적임","문제가 불분명하거나 쓰는 사람이 거의 없음"]},{"n":"기능 완성도","d":["실행·구문 검사 통과, 오류 처리와 입력 검증이 충분함","대부분 충족, 한 가지가 부족함","실행은 되나 오류 처리나 검증이 부족함","실행 오류가 있거나 방어 코드가 없음"]},{"n":"효과성","d":["직접 잰 값으로 월 10시간 이상 절감","월 3~10시간 절감, 또는 10시간 이상이지만 추정치","월 3시간 미만 절감","절감 근거 없음"]},{"n":"사용 편의성","d":["화면이 있고, 안내 문구와 한국어 오류 안내가 충분함","대부분 충족, 한 가지가 부족함","실행 방법이나 안내가 부족함","만든 사람 외에는 쓰기 어려움"]},{"n":"문서화·재사용성","d":["사용법·수정법이 있는 설명서 + 주석 충분","설명서나 주석 중 한쪽이 부족함","설명서 없이 주석만 조금 있음","문서와 주석이 거의 없음"]},{"n":"확산 가능성","d":["개인 경로·고유 ID 등 하드코딩이 없어 그대로 사용 가능","하드코딩 1~2곳, 조금 고치면 사용 가능","하드코딩 3~5곳","하드코딩이 많아 만든 사람 환경에서만 작동"]}],"q_freq":"실제로 얼마나 자주 쓰이나요?","q_freq_o":["매일","주 1회 이상","월 1회 이상","아직 쓰기 전"],"q_users":"쓰는 사람은 몇 명인가요?","q_users_o":["10명 이상","3~9명","1~2명"],"q_ai":"외부 AI 서비스(ChatGPT·Gemini·Claude 등)에 개인정보·고객정보 같은 민감한 정보를 보내지 않나요?","q_ai_o":["보내지 않는다","보낸다","모름"],"j":[{"n":"진보","f":"진보 심사위원","m":"새로운 시도와 가능성을 봅니다","r":["자동 실행 검사를 할 수 없는 파일(Python 등)은 통과로 인정","미완성 표시(TODO)는 감점하지 않음","화면(UI)이 있으면 사용 편의성 가산","추정한 시간 절감도 실측과 같이 인정","아직 쓰기 전이어도 사용 빈도를 월 1회 수준으로 인정","기존에 없던 새로운 방식이면 확산 가능성 한 단계 위","개인정보로 보이는 값은 '확인 필요'로만 표시"]},{"n":"중도","f":"중도 심사위원","m":"분석 결과를 기준 그대로 적용합니다","r":["아래 채점 방법 표를 그대로 적용","실행 검사를 할 수 없는 파일은 절반만 인정","TODO·FIXME가 3개 이상이면 완성도 감점","추정한 시간 절감은 한 단계 아래","전후를 세어 확인한 품질 개선은 효과성 한 단계 위"]},{"n":"보수","f":"보수 심사위원","m":"검증과 안정성을 봅니다","r":["실행 검사를 하지 못했으면 완성도 '상'을 주지 않음","오류 처리는 2곳 이상부터 인정, 4곳 이상이어야 만점","주석 비율 기준을 높게 적용(20% / 8%)","설명서가 없으면 사용 편의성 최고 '중', 확산 가능성 최고 '중상'","범위가 넓은 문제 정의는 0점","추정한 시간 절감은 한 단계 아래, 품질 개선 가산은 실측일 때만"]}],"ex_name":"연차 사용일수 계산기","ex_author":"인사팀 홍길동 (예시)","st":{"ok":"충족","fail":"미충족","unk":"확인 필요"},"s2_title":"2. 사용 현황","s2_pts":"답변 · 선택만 하면 됩니다","time_q":"시간이 얼마나 줄었나요?","time_hint":"(모르면 비워 두세요 · 효과성이 가장 낮게 채점됩니다)","lbl_before":"도입 전 (분/회)","lbl_after":"도입 후 (분/회)","lbl_times":"한 달 사용 횟수 (전체 사용자 합)","calc_none":"월 절감 시간: –","s3_title":"3. 필수 확인","s3_pts":"충족해야 등급 확정","auto_default":"파일을 올리면 API 키·비밀번호, 개인정보, 외부 AI 호출 여부를 자동으로 검사합니다.","s4_title":"4. 제출 동의","s4_pts":"필수","consent_lines":["심사를 받으면 올린 파일이 이 사이트 운영자에게 전달되어 보관됩니다.","· 보내는 항목: 프로그램명, 제출자·소속, 올린 파일, 등급과 평균 점수 (심사 결과 PDF는 보내지 않습니다)","· 목적: 심사 기록 확인과 심사 기준 개선","· API 키·비밀번호로 보이는 값이 있으면 전송하지 않습니다. 지운 뒤 다시 올리세요.","· 보관 기간: 제출일로부터 1개월 후 삭제합니다. 그 전에 삭제를 원하면 <a href=\"/contact/\">문의 페이지<\/a>로 요청하세요.","· 동의하지 않으면 심사 결과를 볼 수 없습니다."],"consent_label":"위 내용을 확인했고, 올린 파일을 운영자에게 보내는 데 동의합니다.","th_area":"영역","max_pts":"최대 {n}점","pts_fmt":"{n}점","how_head":["파일 채점 항목","무엇을 보는가","점수 (중도 기준)"],"how_rows":[["실행·구문 검사","HTML은 격리된 창에서 실제로 열어 스크립트 오류를 잡고, JS·Apps Script는 구문을 검사","통과 2 · 검사 불가 1 · 오류 0"],["오류 처리","try/catch, except, .catch(), onerror 등 오류를 처리하는 코드 수","3곳 이상 또는 함수 대비 30% 이상 2 · 1곳 이상 1"],["입력 검증","빈 값·숫자 형식·필수 입력 확인 코드(isNaN, trim, required, if not 등)","3곳 이상 2 · 1곳 이상 1"],["미완성 표시","TODO, FIXME, XXX 주석","3개 이상이면 −1"],["화면","입력칸·버튼이 있는 HTML 화면, Apps Script 메뉴, Python input·GUI 등","화면 2 · 간단한 입력 방식 1"],["안내 문구","label, placeholder, 제목, 도움말과 설명서의 사용법","5개 이상 2 · 1개 이상 1"],["한국어 안내 메시지","alert, 오류 메시지, 결과 문구 등에 쓰인 한국어 안내","3개 이상 2 · 1개 이상 1"],["설명서","README·설명서 파일과 그 안의 '사용 방법', '수정·설정 방법' 항목","둘 다 3 · 하나 2 · 파일만 1"],["주석 비율","코드 줄 중 주석 줄의 비율","15% 이상 2 · 5% 이상 1"],["하드코딩","개인 PC 경로, 시트·폴더 고유 ID, 개인 이메일, 내부 IP, http 주소","0곳 상 · 1~2곳 중상 · 3~5곳 중 · 6곳 이상 하"],["프롬프트만 제출","역할·목표, 입력 형식, 출력 형식, 예시, 제약 조건 5요소","5개 상 · 4개 중상 · 2~3개 중 · 그 이하 하"]],"pay_label":"보상 (원)","rx":{"readme_base":"^(readme|설명|사용법|매뉴얼|manual|guide|가이드)","msg_chars":"\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|여기에|입력|키를|dummy|test","readme_usage":"사용\\s?방법|사용법|이용\\s?방법|how to use|usage|실행\\s?방법|시작하기|quick ?start","readme_modify":"수정|설정|변경|커스터마이|설치|configur|setup|install|환경","prompt":["역할|당신은|너는|목표|목적|you are|your role|goal|task","입력|자료|데이터|다음 내용|\\{[^}]{1,30}\\}|\\[[^\\]]{1,30}\\]|input","출력|형식|형태|표로|목록|json|format|output|글자 이내|문장으로","예시|예를 들|example|e\\.g\\.|보기:","하지 마|금지|제외|반드시|만 사용|주의|규칙|constraint|do not|must"]},"hard_t":["개인 PC 경로","시트·폴더 고유 ID","구글 문서 주소","내부 IP·로컬 주소","암호화되지 않은 http 주소"],"pel":["역할·목표","입력 형식","출력 형식","예시","제약 조건"],"async_err":"처리되지 않은 비동기 오류: ","zip_fail":"ZIP을 열 수 있는 도구를 불러오지 못했습니다. 파일을 압축 풀어 올려 주세요.","read_fail":"'{name}' 파일을 읽지 못했습니다.","skipped":"분석할 수 없는 파일 {n}개(이미지·엑셀·2MB 초과 등)는 제외했습니다.","k_doc":"설명서","k_prompt":"프롬프트","k_data":"데이터","lines_fmt":"{n}줄","rm_aria":"{name} 빼기","rm":"빼기","running":"'{name}'을 격리된 창에서 실행해 보는 중…","analyzing":"분석 중…","analyzed":"파일 {n}개 · {l}줄을 분석했습니다.","adj":{"broad":"범위가 넓은 문제 정의는 0점","notyet":"아직 쓰기 전이지만 월 1회 수준으로 인정","est_ok":"추정치도 실측과 같이 인정","est_down":"추정치라 한 단계 아래","q_measured":"품질 개선 가산은 실측일 때만","q_up":"품질 개선을 세어 확인해 한 단계 위","nodoc_mid":"설명서가 없어 최고 '중'","untested_ok":"자동 실행 검사를 못 한 파일도 통과로 인정","todo_free":"TODO 감점 없음","untested_cap":"실행 검사를 못 한 파일이 있어 '상' 대신 '중상'","ui_bonus":"화면이 있어 1점 가산","com_strict":"주석 기준 20% / 8% 적용","novel":"새로운 방식이라 한 단계 위","nodoc_up":"설명서가 없어 최고 '중상'"},"w":{"fit":"문제 정의 {p} + 사용 빈도 {f} + 사용 인원 {u} = {s}/6","no_hours":"시간 수치가 없음","hours":"월 {h}시간 절감","prompt":"프롬프트 5요소 중 {n}개: {list}","prompt_io":"입력 형식·예시 {n}/2","complete":"실행·구문 {run} + 오류 처리 {eh}({hn}곳) + 입력 검증 {va}({v}곳){todo} = {s}/6","todo_part":" − TODO 1","ease":"화면 {ui} + 안내 문구 {gd}({g}개) + 한국어 안내 {ms}({m}개) = {s}/6","docs":"설명서 {rd} + 주석 {cm}{x} = {s}/5","docs_prompt":"(프롬프트)","hard":"하드코딩 {n}곳"},"none":"없음","req":["API 키·비밀번호 노출 없음","개인정보로 보이는 값 없음","외부 AI에 민감정보 미전송"],"judge_g":"{g}등급 판정","calc":"월 절감 시간: 약 {h}시간  ( ({b} − {a})분 × {t}회 ÷ 60 )","calc_fill":"월 절감 시간: 세 칸을 모두 채우면 계산됩니다","auto_secret":"API 키·비밀번호로 보이는 값 {n}곳 발견","auto_pii":"개인정보로 보이는 값 {n}곳 발견","auto_ai":"외부 AI 호출 {n}곳 발견 → 아래 첫 질문에 반드시 답하세요","auto_ai_none":"외부 AI 호출 없음","auto_prefix":"자동 검사: ","b_analyzing":"파일을 분석하는 중입니다.","b_nofile":"프로그램 파일을 올려 주세요. 100점 중 60점이 파일 분석으로 채점됩니다.","b_nocode":"분석할 코드나 프롬프트 파일이 없습니다. HTML·JS·Apps Script·Python 파일이나 프롬프트(.txt/.md)를 올려 주세요.","b_missing":"아직 답하지 않은 질문이 {n}개 있습니다. 모두 답하면 바로 채점됩니다.","b_consent":"4번 제출 동의에 체크하면 심사 결과가 나옵니다.","ready":"채점이 끝났습니다. 아래 버튼으로 결과를 확인하세요.","f_fail":"필수요건 미충족으로 보류합니다: {items}. 자동 분석 리포트에서 위치를 확인하고 고친 뒤 다시 올리세요.","f_unk":"확인이 필요해 보류합니다: {items}","f_spread":"심사위원 간 점수 차가 {n}점입니다. 색으로 표시된 영역을 담당자가 직접 확인한 뒤 확정하세요.","f_prompt":"코드 없이 프롬프트만 제출되어 기능 완성도와 사용 편의성을 프롬프트 기준으로 채점했습니다.","f_ok":"필수요건을 모두 충족했고, 심사위원 간 점수 차는 {n}점입니다.","hold":"보류","grade_fmt":"{g}등급","sub_fmt":"평균 <b class=\"num\">{avg}<\/b>점 · {x}","sub_hold":"필수요건 확인 후 확정","th_avg":"평균","th_total":"합계","why_sum":"{full}의 판단 근거 · {t}점","why_area":"{name} — {lv} ({pt}점)","mbar_hold":"보류 · 평균 <b>{avg}<\/b>점","mbar_g":"<b>{g}<\/b>등급 · 평균 <b>{avg}<\/b>점","sub_secret":"API 키·비밀번호로 보이는 값이 있어 운영자에게 전송하지 않았습니다. 지운 뒤 다시 올리세요.","sub_ing":"운영자에게 제출하는 중…","sub_noname":"(이름 없음)","sub_ok":"운영자에게 제출했습니다 ({time}). 결과는 이 화면에서만 볼 수 있습니다.","sub_big":"파일 용량이 커서(압축 후 5MB 초과) 운영자에게 전송하지 못했습니다. 심사 결과는 그대로 볼 수 있습니다.","sub_fail":"운영자에게 제출하지 못했습니다. 심사 결과는 그대로 볼 수 있습니다.","run_err":"오류 {n}건","run_ok":"통과","run_na":"검사 불가","rt_title":"[AI 프로그램 심사 결과]","rt_name":"프로그램명: {v}","rt_none":"(미입력)","rt_author":"제출자: {v}","rt_files":"제출 파일: {v}","rt_result":"결과: {r} / 평균 {avg}점","rt_hold":"보류 (필수요건 확인 필요)","rt_reward":" / 보상 {pay}","rt_judge":"- {full}: {t}점 ({areas})","rt_spread":"- 심사위원 간 점수 차 {n}점: 담당자 확인 필요","rt_fail":"- 미충족: {v}","rt_unk":"- 확인 필요: {v}","rt_ans":"- 답변: 사용 빈도 {freq}, 사용 인원 {users}, 처리 시간 {time}","rt_time":"{b}분→{a}분 × 월 {t}회","rt_auto":"- 자동 분석: 실행 {run}, 오류 처리 {h}곳, 입력 검증 {v}곳, 하드코딩 {hc}곳, 설명서 {doc}","yes":"있음","no":"없음","pill_submit":"동의하면 올린 파일이 운영자에게 전달됨 · 결과 PDF는 본인만","more":"외 {n}곳","line_fmt":"{n}행","rep_empty":"파일을 올리면 분석 결과가 여기에 나옵니다.","cnt":"{n}개","spots":"{n}곳","m":["분석한 파일","전체 줄 수","실행·구문 검사","오류 처리","입력 검증","주석 비율","화면 요소","한국어 안내","하드코딩"],"g_sec":"보안 · 개인정보","need_check":"{n}곳 확인 필요","no_issue":"문제 없음","t_key":"API 키·비밀번호","t_rrn":"주민등록번호 형식","t_phone":"휴대전화 번호","remove_it":"코드에서 지우고 설정 파일이나 입력으로 받도록 바꾸세요","sec_none":"API 키·비밀번호, 주민등록번호·휴대전화 형식의 값을 찾지 못했습니다.","emails":"이메일 주소 {n}곳 (참고)","g_ai":"외부 AI 호출","ai_warn":"이 프로그램은 외부 AI로 데이터를 보냅니다. 민감정보를 보내지 않는지 확인하세요.","ai_none":"외부 AI 서비스로 데이터를 보내는 코드를 찾지 못했습니다.","g_run":"실행·구문 검사","run_html":"HTML {n}개를 격리된 창에서 열어 스크립트 오류가 없는지 확인했습니다.","run_js":"JS·Apps Script {n}개의 구문을 검사했습니다.","run_py":"Python·모듈 파일은 브라우저에서 실행할 수 없어 검사하지 않았습니다.","g_hard":"하드코딩","hard_warn":"다른 사람이 쓰려면 이 값을 코드 맨 위 설정 영역이나 입력값으로 빼세요.","hard_none":"개인 경로·고유 ID 등 특정 환경에 묶인 값을 찾지 못했습니다.","g_todo":"미완성 표시","g_prompt":"프롬프트 5요소 — {n}개","prompt_has":"있음: {has} · 없음: {lack}","g_doc":"설명서","doc_has":"사용 방법 {u} · 수정·설정 방법 {m}","doc_none":"README.md나 '설명서'로 시작하는 파일을 함께 올리면 문서화 점수에 반영됩니다.","copied":"결과를 복사했습니다.","copy_fail":"복사하지 못했습니다. 결과 표를 직접 선택해 복사하세요."};
+const F=(s,o)=>String(s).replace(/\{(\w+)\}/g,(_,k)=>o[k]);
+
+/* ================= Criteria ================= */
+const LEVELS=T.levels;
+const GRADES=[{g:'S',min:90,label:T.gl[0]},{g:'A',min:75,label:T.gl[1]},{g:'B',min:60,label:T.gl[2]},{g:'C',min:0,label:T.gl[3]}];
 const DEFAULT_PAY={S:'100000',A:'70000',B:'40000',C:'0'};
 const SB_URL='https://qasjbbkegjqilrqylvdb.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFhc2piYmtlZ2pxaWxycXlsdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNDQwMzgsImV4cCI6MjA5ODcyMDAzOH0.s9KhnZjvcIaPxOdiT0yFwcR2VeAXzJMqdLZn0TiQvdg';
-/* 화면에서 묻지 않는 항목의 기본값(중립) — 문제 정의는 구체적, 시간 근거는 추정, 품질 개선 없음, 새로운 방식 아님, 사람 확인 있음 */
+/* Neutral defaults for items the screen does not ask: concrete problem, estimated time evidence, no quality gain, not a new approach, human check present */
 const DEFAULTS={problem:0,evidence:1,quality:2,novel:1,human:0};
 const AREAS=[
- {k:'fit',name:'현업 적합성',src:'답변',pts:[20,15,10,5],d:['문제가 구체적이고, 주 1회 이상 여러 명이 실제로 씀','대부분 충족, 한 가지가 부족함','문제는 있으나 사용이 제한적임','문제가 불분명하거나 쓰는 사람이 거의 없음']},
- {k:'complete',name:'기능 완성도',src:'파일',pts:[25,18,11,5],d:['실행·구문 검사 통과, 오류 처리와 입력 검증이 충분함','대부분 충족, 한 가지가 부족함','실행은 되나 오류 처리나 검증이 부족함','실행 오류가 있거나 방어 코드가 없음']},
- {k:'effect',name:'효과성',src:'답변',pts:[20,15,10,5],d:['직접 잰 값으로 월 10시간 이상 절감','월 3~10시간 절감, 또는 10시간 이상이지만 추정치','월 3시간 미만 절감','절감 근거 없음']},
- {k:'ease',name:'사용 편의성',src:'파일',pts:[15,11,7,3],d:['화면이 있고, 안내 문구와 한국어 오류 안내가 충분함','대부분 충족, 한 가지가 부족함','실행 방법이나 안내가 부족함','만든 사람 외에는 쓰기 어려움']},
- {k:'docs',name:'문서화·재사용성',src:'파일',pts:[10,7,4,2],d:['사용법·수정법이 있는 설명서 + 주석 충분','설명서나 주석 중 한쪽이 부족함','설명서 없이 주석만 조금 있음','문서와 주석이 거의 없음']},
- {k:'spread',name:'확산 가능성',src:'파일',pts:[10,7,4,2],d:['개인 경로·고유 ID 등 하드코딩이 없어 그대로 사용 가능','하드코딩 1~2곳, 조금 고치면 사용 가능','하드코딩 3~5곳','하드코딩이 많아 만든 사람 환경에서만 작동']},
+ {k:'fit',name:T.area[0].n,src:T.src_ans,pts:[20,15,10,5],d:T.area[0].d},
+ {k:'complete',name:T.area[1].n,src:T.src_file,pts:[25,18,11,5],d:T.area[1].d},
+ {k:'effect',name:T.area[2].n,src:T.src_ans,pts:[20,15,10,5],d:T.area[2].d},
+ {k:'ease',name:T.area[3].n,src:T.src_file,pts:[15,11,7,3],d:T.area[3].d},
+ {k:'docs',name:T.area[4].n,src:T.src_file,pts:[10,7,4,2],d:T.area[4].d},
+ {k:'spread',name:T.area[5].n,src:T.src_file,pts:[10,7,4,2],d:T.area[5].d},
 ];
 const Q=[
- {area:'fit',id:'freq',t:'실제로 얼마나 자주 쓰이나요?',o:['매일','주 1회 이상','월 1회 이상','아직 쓰기 전'],inline:true},
- {area:'fit',id:'users',t:'쓰는 사람은 몇 명인가요?',o:['10명 이상','3~9명','1~2명'],inline:true},
+ {area:'fit',id:'freq',t:T.q_freq,o:T.q_freq_o,inline:true},
+ {area:'fit',id:'users',t:T.q_users,o:T.q_users_o,inline:true},
 ];
 const REQ_Q=[
- {id:'aiSafe',t:'외부 AI 서비스(ChatGPT·Gemini·Claude 등)에 개인정보·고객정보 같은 민감한 정보를 보내지 않나요?',o:['보내지 않는다','보낸다','모름']},
+ {id:'aiSafe',t:T.q_ai,o:T.q_ai_o},
 ];
 const JUDGES=[
- {k:'prog',name:'진보',full:'진보 심사위원',cls:'j-prog',motto:'새로운 시도와 가능성을 봅니다',rules:['자동 실행 검사를 할 수 없는 파일(Python 등)은 통과로 인정','미완성 표시(TODO)는 감점하지 않음','화면(UI)이 있으면 사용 편의성 가산','추정한 시간 절감도 실측과 같이 인정','아직 쓰기 전이어도 사용 빈도를 월 1회 수준으로 인정','기존에 없던 새로운 방식이면 확산 가능성 한 단계 위','개인정보로 보이는 값은 \'확인 필요\'로만 표시']},
- {k:'mid',name:'중도',full:'중도 심사위원',cls:'j-mid',motto:'분석 결과를 기준 그대로 적용합니다',rules:['아래 채점 방법 표를 그대로 적용','실행 검사를 할 수 없는 파일은 절반만 인정','TODO·FIXME가 3개 이상이면 완성도 감점','추정한 시간 절감은 한 단계 아래','전후를 세어 확인한 품질 개선은 효과성 한 단계 위']},
- {k:'cons',name:'보수',full:'보수 심사위원',cls:'j-cons',motto:'검증과 안정성을 봅니다',rules:['실행 검사를 하지 못했으면 완성도 \'상\'을 주지 않음','오류 처리는 2곳 이상부터 인정, 4곳 이상이어야 만점','주석 비율 기준을 높게 적용(20% / 8%)','설명서가 없으면 사용 편의성 최고 \'중\', 확산 가능성 최고 \'중상\'','범위가 넓은 문제 정의는 0점','추정한 시간 절감은 한 단계 아래, 품질 개선 가산은 실측일 때만']},
+ {k:'prog',name:T.j[0].n,full:T.j[0].f,cls:'j-prog',motto:T.j[0].m,rules:T.j[0].r},
+ {k:'mid',name:T.j[1].n,full:T.j[1].f,cls:'j-mid',motto:T.j[1].m,rules:T.j[1].r},
+ {k:'cons',name:T.j[2].n,full:T.j[2].f,cls:'j-cons',motto:T.j[2].m,rules:T.j[2].r},
 ];
-const EX_ANS={name:'연차 사용일수 계산기',author:'인사팀 홍길동 (예시)',freq:1,users:1,before:'20',after:'2',times:'40',aiSafe:0};
+const EX_ANS={name:T.ex_name,author:T.ex_author,freq:1,users:1,before:'20',after:'2',times:'40',aiSafe:0};
 
-/* ================= 유틸 ================= */
+/* ================= Utils ================= */
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const clamp=n=>Math.max(0,Math.min(3,n));
 const map6=s=>s>=6?0:s>=4?1:s>=2?2:3;
-const won=v=>{const n=Number(v);return v===''||isNaN(n)?'':n.toLocaleString('ko-KR')+'원'};
+const won=v=>{const n=Number(v);return v===''||isNaN(n)?'':n.toLocaleString(T.loc)+T.cur};
 const gradeOf=s=>GRADES.find(g=>s>=g.min);
 const mask=s=>{s=String(s);return s.length<=8?s.slice(0,2)+'•••':s.slice(0,4)+'•••'+s.slice(-2)};
+const STX=T.st; // status labels: ok / fail / unk
 
-/* ================= 질문지 ================= */
+/* ================= Questionnaire ================= */
 function radios(id,opts,inline){return `<div class="opts${inline?' inline':''}">${opts.map((o,i)=>`<label class="opt"><input type="radio" name="${id}" id="${id}-${i}" value="${i}"><span>${esc(o)}</span></label>`).join('')}</div>`}
 const qHtml=[];
-qHtml.push(`<div class="area"><div class="area-head"><h3>2. 사용 현황</h3><span class="pts">답변 · 선택만 하면 됩니다</span></div>`);
+qHtml.push(`<div class="area"><div class="area-head"><h3>${T.s2_title}</h3><span class="pts">${T.s2_pts}</span></div>`);
 Q.forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,q.inline)}</fieldset>`));
-qHtml.push(`<div class="q"><span class="q-title">시간이 얼마나 줄었나요? <span class="hint">(모르면 비워 두세요 · 효과성이 가장 낮게 채점됩니다)</span></span>
-  <div class="row3"><div class="field"><label for="before" class="hint">도입 전 (분/회)</label><input type="number" id="before" min="0" inputmode="numeric"></div>
-  <div class="field"><label for="after" class="hint">도입 후 (분/회)</label><input type="number" id="after" min="0" inputmode="numeric"></div>
-  <div class="field"><label for="times" class="hint">한 달 사용 횟수 (전체 사용자 합)</label><input type="number" id="times" min="0" inputmode="numeric"></div></div>
-  <div class="calc" id="calc">월 절감 시간: –</div></div></div>`);
-qHtml.push(`<div class="area"><div class="area-head"><h3>3. 필수 확인</h3><span class="pts">충족해야 등급 확정</span></div>
-  <div class="auto" id="autoReq">파일을 올리면 API 키·비밀번호, 개인정보, 외부 AI 호출 여부를 자동으로 검사합니다.</div>`);
+qHtml.push(`<div class="q"><span class="q-title">${T.time_q} <span class="hint">${T.time_hint}</span></span>
+  <div class="row3"><div class="field"><label for="before" class="hint">${T.lbl_before}</label><input type="number" id="before" min="0" inputmode="numeric"></div>
+  <div class="field"><label for="after" class="hint">${T.lbl_after}</label><input type="number" id="after" min="0" inputmode="numeric"></div>
+  <div class="field"><label for="times" class="hint">${T.lbl_times}</label><input type="number" id="times" min="0" inputmode="numeric"></div></div>
+  <div class="calc" id="calc">${T.calc_none}</div></div></div>`);
+qHtml.push(`<div class="area"><div class="area-head"><h3>${T.s3_title}</h3><span class="pts">${T.s3_pts}</span></div>
+  <div class="auto" id="autoReq">${T.auto_default}</div>`);
 REQ_Q.forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,true)}</fieldset>`));
 qHtml.push('</div>');
 if(SUBMIT_URL){
-  qHtml.push(`<div class="area"><div class="area-head"><h3>4. 제출 동의</h3><span class="pts">필수</span></div>
-    <div class="auto">심사를 받으면 올린 파일이 이 사이트 운영자에게 전달되어 보관됩니다.<br>
-    · 보내는 항목: 프로그램명, 제출자·소속, 올린 파일, 등급과 평균 점수 (심사 결과 PDF는 보내지 않습니다)<br>
-    · 목적: 심사 기록 확인과 심사 기준 개선<br>
-    · API 키·비밀번호로 보이는 값이 있으면 전송하지 않습니다. 지운 뒤 다시 올리세요.<br>
-    · 보관 기간: 제출일로부터 1개월 후 삭제합니다. 그 전에 삭제를 원하면 <a href="/contact/">문의 페이지</a>로 요청하세요.<br>
-    · 동의하지 않으면 심사 결과를 볼 수 없습니다.</div>
-    <label class="opt"><input type="checkbox" id="consent"><span>위 내용을 확인했고, 올린 파일을 운영자에게 보내는 데 동의합니다.</span></label>
+  qHtml.push(`<div class="area"><div class="area-head"><h3>${T.s4_title}</h3><span class="pts">${T.s4_pts}</span></div>
+    <div class="auto">${T.consent_lines.join('<br>\n    ')}</div>
+    <label class="opt"><input type="checkbox" id="consent"><span>${T.consent_label}</span></label>
     <input type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px"></div>`);
 }
 $('questions').innerHTML=qHtml.join('');
 
-/* ================= 점수표·규칙 ================= */
-$('rubric').innerHTML=`<thead><tr><th>영역</th>${LEVELS.map(l=>`<th>${l}</th>`).join('')}</tr></thead><tbody>${AREAS.map(a=>`<tr><td>${a.name} <span class="src">${a.src}</span><br><span class="pt">최대 ${a.pts[0]}점</span></td>${a.d.map((d,i)=>`<td><span class="pt">${a.pts[i]}점</span><br>${d}</td>`).join('')}</tr>`).join('')}</tbody>`;
-$('howTable').innerHTML=`<thead><tr><th>파일 채점 항목</th><th>무엇을 보는가</th><th>점수 (중도 기준)</th></tr></thead><tbody>
-<tr><td>실행·구문 검사</td><td>HTML은 격리된 창에서 실제로 열어 스크립트 오류를 잡고, JS·Apps Script는 구문을 검사</td><td>통과 2 · 검사 불가 1 · 오류 0</td></tr>
-<tr><td>오류 처리</td><td>try/catch, except, .catch(), onerror 등 오류를 처리하는 코드 수</td><td>3곳 이상 또는 함수 대비 30% 이상 2 · 1곳 이상 1</td></tr>
-<tr><td>입력 검증</td><td>빈 값·숫자 형식·필수 입력 확인 코드(isNaN, trim, required, if not 등)</td><td>3곳 이상 2 · 1곳 이상 1</td></tr>
-<tr><td>미완성 표시</td><td>TODO, FIXME, XXX 주석</td><td>3개 이상이면 −1</td></tr>
-<tr><td>화면</td><td>입력칸·버튼이 있는 HTML 화면, Apps Script 메뉴, Python input·GUI 등</td><td>화면 2 · 간단한 입력 방식 1</td></tr>
-<tr><td>안내 문구</td><td>label, placeholder, 제목, 도움말과 설명서의 사용법</td><td>5개 이상 2 · 1개 이상 1</td></tr>
-<tr><td>한국어 안내 메시지</td><td>alert, 오류 메시지, 결과 문구 등에 쓰인 한국어 안내</td><td>3개 이상 2 · 1개 이상 1</td></tr>
-<tr><td>설명서</td><td>README·설명서 파일과 그 안의 '사용 방법', '수정·설정 방법' 항목</td><td>둘 다 3 · 하나 2 · 파일만 1</td></tr>
-<tr><td>주석 비율</td><td>코드 줄 중 주석 줄의 비율</td><td>15% 이상 2 · 5% 이상 1</td></tr>
-<tr><td>하드코딩</td><td>개인 PC 경로, 시트·폴더 고유 ID, 개인 이메일, 내부 IP, http 주소</td><td>0곳 상 · 1~2곳 중상 · 3~5곳 중 · 6곳 이상 하</td></tr>
-<tr><td>프롬프트만 제출</td><td>역할·목표, 입력 형식, 출력 형식, 예시, 제약 조건 5요소</td><td>5개 상 · 4개 중상 · 2~3개 중 · 그 이하 하</td></tr>
+/* ================= Rubric and rules ================= */
+$('rubric').innerHTML=`<thead><tr><th>${T.th_area}</th>${LEVELS.map(l=>`<th>${l}</th>`).join('')}</tr></thead><tbody>${AREAS.map(a=>`<tr><td>${a.name} <span class="src">${a.src}</span><br><span class="pt">${F(T.max_pts,{n:a.pts[0]})}</span></td>${a.d.map((d,i)=>`<td><span class="pt">${F(T.pts_fmt,{n:a.pts[i]})}</span><br>${d}</td>`).join('')}</tr>`).join('')}</tbody>`;
+$('howTable').innerHTML=`<thead><tr>${T.how_head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>
+${T.how_rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('\n')}
 </tbody>`;
 $('rules').innerHTML=JUDGES.map(j=>`<div class="rule ${j.cls}"><h3>${j.full}</h3><span class="hint">${j.motto}</span><ul>${j.rules.map(r=>`<li>${r}</li>`).join('')}</ul></div>`).join('');
 let PAY={...DEFAULT_PAY};
 try{const s=JSON.parse(localStorage.getItem('aiJudgePay')||'null');if(s)PAY={...PAY,...s}}catch{}
-$('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">보상 (원)</label><input type="number" id="pay-${g.g}" min="0" step="1000" value="${esc(PAY[g.g])}"></div>`).join('');
+$('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">${T.pay_label}</label><input type="number" id="pay-${g.g}" min="0" step="1000" value="${esc(PAY[g.g])}"></div>`).join('');
 GRADES.forEach(g=>$('pay-'+g.g).addEventListener('input',e=>{PAY[g.g]=e.target.value;try{localStorage.setItem('aiJudgePay',JSON.stringify(PAY))}catch{}update()}));
 
-/* ================= 파일 ================= */
+/* ================= Files ================= */
 let FILES=[];      // {name, ext, kind, text}
-let M=null;        // 분석 결과
+let M=null;        // analysis result
 let analyzing=false;
 const TEXT_EXT=['html','htm','js','mjs','ts','gs','py','ipynb','txt','md','json','csv'];
+const README_BASE=new RegExp(T.rx.readme_base);
 function kindOf(name){
   const ext=(name.split('.').pop()||'').toLowerCase(), base=name.split('/').pop().toLowerCase();
   if(['html','htm'].includes(ext))return 'html';
   if(['js','mjs','ts','gs'].includes(ext))return 'js';
   if(ext==='py'||ext==='ipynb')return 'py';
-  if(/^(readme|설명|사용법|매뉴얼|manual|guide|가이드)/.test(base))return 'doc';
+  if(README_BASE.test(base))return 'doc';
   if(ext==='md'||ext==='txt')return 'prompt';
   return 'data';
 }
@@ -453,7 +451,7 @@ async function addFiles(list){
     const ext=(f.name.split('.').pop()||'').toLowerCase();
     try{
       if(ext==='zip'){
-        if(!window.JSZip){st.textContent='ZIP을 열 수 있는 도구를 불러오지 못했습니다. 파일을 압축 풀어 올려 주세요.';continue}
+        if(!window.JSZip){st.textContent=T.zip_fail;continue}
         const zip=await JSZip.loadAsync(f);
         for(const [path,entry] of Object.entries(zip.files)){
           if(entry.dir||/(^|\/)(node_modules|\.git|__MACOSX|venv|\.venv)\//.test(path))continue;
@@ -467,9 +465,9 @@ async function addFiles(list){
         if(f.size>2e6){skipped++;continue}
         FILES.push(mkFile(f.name,await f.text()));
       }else skipped++;
-    }catch(e){st.textContent=`'${f.name}' 파일을 읽지 못했습니다.`}
+    }catch(e){st.textContent=F(T.read_fail,{name:f.name})}
   }
-  if(skipped)st.textContent=`분석할 수 없는 파일 ${skipped}개(이미지·엑셀·2MB 초과 등)는 제외했습니다.`;
+  if(skipped)st.textContent=F(T.skipped,{n:skipped});
   hideExample();renderFiles();await runAnalysis();
 }
 function mkFile(name,text){
@@ -477,9 +475,9 @@ function mkFile(name,text){
   if(ext==='ipynb'){try{const nb=JSON.parse(text);text=(nb.cells||[]).map(c=>[].concat(c.source||[]).join('')+'\n').join('\n')}catch{}}
   return {name,ext,kind:k,text};
 }
-const KIND_LABEL={html:'HTML',js:'JS',py:'PY',doc:'설명서',prompt:'프롬프트',data:'데이터'};
+const KIND_LABEL={html:'HTML',js:'JS',py:'PY',doc:T.k_doc,prompt:T.k_prompt,data:T.k_data};
 function renderFiles(){
-  $('fileList').innerHTML=FILES.map((f,i)=>`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${f.text.split('\n').length}줄</span></span><button type="button" data-rm="${i}" aria-label="${esc(f.name)} 빼기">빼기</button></div>`).join('');
+  $('fileList').innerHTML=FILES.map((f,i)=>`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('');
 }
 $('fileList').addEventListener('click',async e=>{const i=e.target.dataset?.rm;if(i==null)return;FILES.splice(Number(i),1);hideExample();renderFiles();await runAnalysis()});
 $('fileInput').addEventListener('change',e=>{addFiles([...e.target.files]);e.target.value=''});
@@ -488,25 +486,29 @@ const drop=$('drop');
 ['dragleave','drop'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.remove('over')}));
 drop.addEventListener('drop',e=>addFiles([...e.dataTransfer.files]));
 
-/* ================= 분석 ================= */
+/* ================= Analysis ================= */
+// Messages written for people in the page language: a quoted string that has Hangul, the page script, or (for languages without their own script) common words
+const MSG_PRE='(?:alert|confirm|throw\\s+new\\s+\\w*Error|raise\\s+\\w+|print|showToast|toast|textContent\\s*=|innerText\\s*=|msgBox|Browser\\.msgBox|setTitle|console\\.(?:warn|error))\\s*\\(?\\s*[^\\n]{0,20}?["\'`][^"\'`\\n]*';
+const MSG_SUF='[^"\'`\\n]*["\'`]';
+const MSG_RE=new RegExp(MSG_PRE+'(?:['+T.rx.msg_chars+']'+(T.rx.msg_words?'|\\b(?:'+T.rx.msg_words+')\\b':'')+')'+MSG_SUF,T.rx.msg_flags);
 const RX={
   secret:[
     /\bsk-(?:ant-|proj-)?[A-Za-z0-9_-]{20,}/g, /\bAIza[0-9A-Za-z_-]{35}\b/g, /\bgh[pousr]_[A-Za-z0-9]{30,}\b/g,
     /\bxox[abpr]-[A-Za-z0-9-]{10,}/g, /\bAKIA[0-9A-Z]{16}\b/g,
     /(?:api[_-]?key|apikey|secret|password|passwd|pwd|access[_-]?token|client[_-]?secret)\s*[:=]\s*["'`]([^"'`\s]{8,})["'`]/gi,
   ],
-  placeholder:/your|xxxx|\*\*\*|<.+>|example|sample|placeholder|여기에|입력|키를|dummy|test/i,
+  placeholder:new RegExp(T.rx.placeholder,'i'),
   rrn:/\b\d{6}-?[1-4]\d{6}\b/g,
   phone:/\b01[016789]-?\d{3,4}-?\d{4}\b/g,
   email:/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g,
   ai:/api\.openai\.com|api\.anthropic\.com|generativelanguage\.googleapis\.com|aiplatform\.googleapis\.com|clovastudio|hyperclova|api\.perplexity|api\.mistral|api\.groq|openai\.azure\.com|\bOpenAI\(|\bAnthropic\(|google\.generativeai|GoogleGenerativeAI/gi,
   hard:[
-    {re:/["'`][A-Za-z]:\\\\?[^"'`\n]{2,}["'`]/g,t:'개인 PC 경로'},
-    {re:/["'`](?:\/Users\/|\/home\/)[^"'`\n]+["'`]/g,t:'개인 PC 경로'},
-    {re:/(?:openById|getFileById|getFolderById|openByUrl|spreadsheetId|folderId|fileId|sheetId|SHEET_ID|FOLDER_ID)[^\n]{0,20}?["'`]([A-Za-z0-9_-]{25,})["'`]/g,t:'시트·폴더 고유 ID'},
-    {re:/docs\.google\.com\/(?:spreadsheets|document|presentation)\/d\/[A-Za-z0-9_-]{25,}/g,t:'구글 문서 주소'},
-    {re:/\b(?:192\.168|10\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01]))\.\d{1,3}\.\d{1,3}\b|localhost:\d+/g,t:'내부 IP·로컬 주소'},
-    {re:/["'`]http:\/\/(?!localhost)[^"'`\s]+["'`]/g,t:'암호화되지 않은 http 주소'},
+    {re:/["'`][A-Za-z]:\\\\?[^"'`\n]{2,}["'`]/g,t:T.hard_t[0]},
+    {re:/["'`](?:\/Users\/|\/home\/)[^"'`\n]+["'`]/g,t:T.hard_t[0]},
+    {re:/(?:openById|getFileById|getFolderById|openByUrl|spreadsheetId|folderId|fileId|sheetId|SHEET_ID|FOLDER_ID)[^\n]{0,20}?["'`]([A-Za-z0-9_-]{25,})["'`]/g,t:T.hard_t[1]},
+    {re:/docs\.google\.com\/(?:spreadsheets|document|presentation)\/d\/[A-Za-z0-9_-]{25,}/g,t:T.hard_t[2]},
+    {re:/\b(?:192\.168|10\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01]))\.\d{1,3}\.\d{1,3}\b|localhost:\d+/g,t:T.hard_t[3]},
+    {re:/["'`]http:\/\/(?!localhost)[^"'`\s]+["'`]/g,t:T.hard_t[4]},
   ],
   handler:/\btry\s*\{|\bcatch\s*\(|\.catch\(|^\s*try\s*:|^\s*except\b|\bonerror\b|addEventListener\(\s*["']error|\bon_error\b/gm,
   valid:/\bisNaN\(|Number\.isFinite|Number\.isNaN|\.trim\(\)|\brequired\b|\btypeof\b|if\s*\(\s*!\s*[\w.$]+\s*\)|\.length\s*===?\s*0|\bpattern=|\bvalidate\w*|\bisinstance\(|if\s+not\s+\w+|len\([^)]*\)\s*==\s*0|\.isdigit\(|\.strip\(\)|checkValidity|\bmin=|\bmax=/g,
@@ -516,15 +518,12 @@ const RX={
   uiHtml:/<(?:input|select|textarea|button)\b/gi,
   uiSimple:/\bonOpen\b|createMenu|HtmlService|SpreadsheetApp\.getUi|\binput\(|argparse|tkinter|streamlit|gradio|PySimpleGUI|readline|process\.argv|ipywidgets/g,
   guide:/<label\b|\bplaceholder=|\btitle=|<h[1-3]\b|aria-label=|\bhelp=|setHelpText|\bhint\b/gi,
-  koMsg:/(?:alert|confirm|throw\s+new\s+\w*Error|raise\s+\w+|print|showToast|toast|textContent\s*=|innerText\s*=|msgBox|Browser\.msgBox|setTitle|console\.(?:warn|error))\s*\(?\s*[^\n]{0,20}?["'`][^"'`\n]*[가-힣][^"'`\n]*["'`]/g,
+  msg:MSG_RE,
+  rdUsage:new RegExp(T.rx.readme_usage,'i'),
+  rdModify:new RegExp(T.rx.readme_modify,'i'),
 };
-const PROMPT_EL=[
-  {k:'역할·목표',re:/역할|당신은|너는|목표|목적|you are|your role|goal|task/i},
-  {k:'입력 형식',re:/입력|자료|데이터|다음 내용|\{[^}]{1,30}\}|\[[^\]]{1,30}\]|input/i},
-  {k:'출력 형식',re:/출력|형식|형태|표로|목록|json|format|output|글자 이내|문장으로/i},
-  {k:'예시',re:/예시|예를 들|example|e\.g\.|보기:/i},
-  {k:'제약 조건',re:/하지 마|금지|제외|반드시|만 사용|주의|규칙|constraint|do not|must/i},
-];
+// prompt elements: 0 role/goal, 1 input, 2 output, 3 example, 4 constraint
+const PROMPT_EL=T.rx.prompt.map((s,i)=>({id:i,k:T.pel[i],re:new RegExp(s,'i')}));
 function lineOf(text,idx){let n=1;for(let i=0;i<idx&&i<text.length;i++)if(text.charCodeAt(i)===10)n++;return n}
 function findAll(f,re,cb){re.lastIndex=0;let m,c=0;while((m=re.exec(f.text))&&c<300){cb(m,lineOf(f.text,m.index));c++;if(m[0]==='')re.lastIndex++}}
 function commentLines(f){
@@ -544,7 +543,7 @@ function runHtml(f){
   return new Promise(res=>{
     const id='r'+Math.random().toString(36).slice(2);const errors=[];
     const fr=document.createElement('iframe');fr.className='sandbox';fr.setAttribute('sandbox','allow-scripts');fr.setAttribute('aria-hidden','true');fr.tabIndex=-1;
-    const inj=`<script>(function(){var P=function(m){try{parent.postMessage(Object.assign({aj:'${id}'},m),'*')}catch(e){}};window.addEventListener('error',function(e){if(e&&e.message)P({t:'err',msg:e.message,line:e.lineno})});window.addEventListener('unhandledrejection',function(e){P({t:'err',msg:'처리되지 않은 비동기 오류: '+(e.reason&&e.reason.message||e.reason)})});window.addEventListener('load',function(){setTimeout(function(){P({t:'done'})},700)});})();<\/script>`;
+    const inj=`<script>(function(){var P=function(m){try{parent.postMessage(Object.assign({aj:'${id}'},m),'*')}catch(e){}};window.addEventListener('error',function(e){if(e&&e.message)P({t:'err',msg:e.message,line:e.lineno})});window.addEventListener('unhandledrejection',function(e){P({t:'err',msg:${JSON.stringify(T.async_err)}+(e.reason&&e.reason.message||e.reason)})});window.addEventListener('load',function(){setTimeout(function(){P({t:'done'})},700)});})();<\/script>`;
     let html=f.text;
     html=/<head[^>]*>/i.test(html)?html.replace(/<head[^>]*>/i,m=>m+inj):inj+html;
     let done=false;
@@ -556,7 +555,7 @@ function runHtml(f){
   });
 }
 function syntaxJs(f){
-  if(/^\s*(import|export)\b/m.test(f.text)||f.ext==='ts')return null; // 모듈·TS는 검사 생략
+  if(/^\s*(import|export)\b/m.test(f.text)||f.ext==='ts')return null; // modules and TS are not checked
   try{new Function(f.text);return []}catch(e){return [{msg:e.message}]}
 }
 async function analyze(){
@@ -570,7 +569,7 @@ async function analyze(){
     readme:{exists:docs.length>0,usage:false,modify:false,names:docs.map(d=>d.name)},promptEl:[]};
   for(const f of all){
     R.lines+=f.text.split('\n').length;
-    // 보안
+    // security
     for(const re of RX.secret)findAll(f,re,(m,ln)=>{const v=m[1]||m[0];if(RX.placeholder.test(v))return;R.secrets.push({file:f.name,line:ln,v:mask(v)})});
     findAll(f,RX.rrn,(m,ln)=>R.rrn.push({file:f.name,line:ln,v:mask(m[0])}));
     if(f.kind!=='doc'){findAll(f,RX.phone,(m,ln)=>R.phones.push({file:f.name,line:ln,v:mask(m[0])}));
@@ -578,8 +577,8 @@ async function analyze(){
     findAll(f,RX.ai,(m,ln)=>R.ai.push({file:f.name,line:ln,v:m[0]}));
   }
   for(const d of docs){
-    if(/사용\s?방법|사용법|이용\s?방법|how to use|usage|실행\s?방법|시작하기|quick ?start/i.test(d.text))R.readme.usage=true;
-    if(/수정|설정|변경|커스터마이|설치|configur|setup|install|환경/i.test(d.text))R.readme.modify=true;
+    if(RX.rdUsage.test(d.text))R.readme.usage=true;
+    if(RX.rdModify.test(d.text))R.readme.modify=true;
   }
   for(const f of code){
     const c=commentLines(f);R.codeLines+=c.code;R.comment+=c.com;
@@ -590,18 +589,18 @@ async function analyze(){
     if(f.kind==='html')findAll(f,RX.uiHtml,()=>R.uiHtml++);
     findAll(f,RX.uiSimple,()=>R.uiSimple++);
     if(f.kind==='html')findAll(f,RX.guide,()=>R.guide++);
-    findAll(f,RX.koMsg,(m,ln)=>R.koMsgs.push({file:f.name,line:ln}));
+    findAll(f,RX.msg,(m,ln)=>R.koMsgs.push({file:f.name,line:ln}));
     for(const h of RX.hard)findAll(f,h.re,(m,ln)=>R.hard.push({file:f.name,line:ln,t:h.t,v:mask(m[1]||m[0].replace(/["'`]/g,''))}));
   }
-  // 실행·구문 검사
-  for(const f of code.filter(f=>f.kind==='html').slice(0,5)){$('analyzeStatus').textContent=`'${f.name}'을 격리된 창에서 실행해 보는 중…`;const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
+  // run / syntax check
+  for(const f of code.filter(f=>f.kind==='html').slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
   for(const f of code.filter(f=>f.kind==='js')){const r=syntaxJs(f);if(r===null){R.syntax.skipped++;continue}R.syntax.tested++;r.forEach(e=>R.syntax.errors.push({file:f.name,msg:e.msg}))}
   R.testable=R.run.tested+R.syntax.tested>0;
   R.untestedPy=code.some(f=>f.kind==='py')||R.syntax.skipped>0;
   R.execErrors=R.run.errors.length+R.syntax.errors.length;
-  // 프롬프트
-  if(prompts.length){const t=prompts.map(p=>p.text).join('\n');R.promptEl=PROMPT_EL.filter(e=>e.re.test(t)).map(e=>e.k)}
-  // 중복 제거
+  // prompts
+  if(prompts.length){const t=prompts.map(p=>p.text).join('\n');R.promptEl=PROMPT_EL.filter(e=>e.re.test(t)).map(e=>e.id)}
+  // de-duplicate
   const uniq=(arr,key)=>{const s=new Set();return arr.filter(x=>{const k=key(x);if(s.has(k))return false;s.add(k);return true})};
   R.hard=uniq(R.hard,x=>x.file+x.line+x.t);R.secrets=uniq(R.secrets,x=>x.file+x.line);R.ai=uniq(R.ai,x=>x.file+x.line);
   R.commentRatio=R.codeLines?R.comment/R.codeLines:0;
@@ -610,78 +609,79 @@ async function analyze(){
 async function runAnalysis(){
   if(!FILES.length){M=null;$('analyzeStatus').textContent='';renderReport();update();return}
   analyzing=true;update();
-  $('analyzeStatus').textContent='분석 중…';
+  $('analyzeStatus').textContent=T.analyzing;
   M=await analyze();
   analyzing=false;
-  $('analyzeStatus').textContent=`파일 ${M.files}개 · ${M.lines.toLocaleString()}줄을 분석했습니다.`;
+  $('analyzeStatus').textContent=F(T.analyzed,{n:M.files,l:M.lines.toLocaleString()});
   renderReport();update();
 }
 
-/* ================= 채점 ================= */
+/* ================= Scoring ================= */
 function hours(a){if(a.before==null||a.after==null||a.times==null)return 0;return Math.max(0,a.before-a.after)*a.times/60}
+const elNames=ids=>ids.map(i=>T.pel[i]).join(', ');
 function judge(a,M,k){
   const P=k==='prog',C=k==='cons';const L={},W={},ADJ={};
-  // 현업 적합성 (답변)
+  // fit (answers)
   { let p=[2,1,0][a.problem],f=[2,2,1,0][a.freq],u=[2,1,0][a.users];const adj=[];
-    if(C&&a.problem===1){p=0;adj.push('범위가 넓은 문제 정의는 0점')}
-    if(P&&a.freq===3){f=1;adj.push('아직 쓰기 전이지만 월 1회 수준으로 인정')}
-    L.fit=map6(p+f+u);W.fit=`문제 정의 ${p} + 사용 빈도 ${f} + 사용 인원 ${u} = ${p+f+u}/6`;ADJ.fit=adj }
-  // 효과성 (답변)
+    if(C&&a.problem===1){p=0;adj.push(T.adj.broad)}
+    if(P&&a.freq===3){f=1;adj.push(T.adj.notyet)}
+    L.fit=map6(p+f+u);W.fit=F(T.w.fit,{p,f,u,s:p+f+u});ADJ.fit=adj }
+  // effect (answers)
   { const h=hours(a);let lv=h>=10?0:h>=3?1:h>0?2:3;const adj=[];
     if(a.evidence===2)lv=3;
-    else if(a.evidence===1){if(P)adj.push('추정치도 실측과 같이 인정');else{lv=clamp(lv+1);adj.push('추정치라 한 단계 아래')}}
-    if(a.quality===0&&a.evidence!==2){if(C&&a.evidence!==0)adj.push('품질 개선 가산은 실측일 때만');else{lv=clamp(lv-1);adj.push('품질 개선을 세어 확인해 한 단계 위')}}
-    L.effect=lv;W.effect=a.evidence===2?'시간 수치가 없음':`월 ${h.toFixed(1)}시간 절감`;ADJ.effect=adj }
+    else if(a.evidence===1){if(P)adj.push(T.adj.est_ok);else{lv=clamp(lv+1);adj.push(T.adj.est_down)}}
+    if(a.quality===0&&a.evidence!==2){if(C&&a.evidence!==0)adj.push(T.adj.q_measured);else{lv=clamp(lv-1);adj.push(T.adj.q_up)}}
+    L.effect=lv;W.effect=a.evidence===2?T.w.no_hours:F(T.w.hours,{h:h.toFixed(1)});ADJ.effect=adj }
   if(M.kind==='prompt'){
     const n=M.promptEl.length,adj=[];
-    L.complete=n>=5?0:n>=4?1:n>=2?2:3;W.complete=`프롬프트 5요소 중 ${n}개: ${M.promptEl.join(', ')||'없음'}`;ADJ.complete=adj;
-    const hasIO=['입력 형식','예시'].filter(x=>M.promptEl.includes(x)).length;
+    L.complete=n>=5?0:n>=4?1:n>=2?2:3;W.complete=F(T.w.prompt,{n,list:elNames(M.promptEl)||T.none});ADJ.complete=adj;
+    const hasIO=[1,3].filter(x=>M.promptEl.includes(x)).length;
     L.ease=hasIO===2?0:hasIO===1?1:2;if(C&&!M.readme.exists&&L.ease<2){L.ease=2}
-    W.ease=`입력 형식·예시 ${hasIO}/2`;ADJ.ease=C&&!M.readme.exists?['설명서가 없어 최고 \'중\'']:[];
+    W.ease=F(T.w.prompt_io,{n:hasIO});ADJ.ease=C&&!M.readme.exists?[T.adj.nodoc_mid]:[];
   }else{
-    // 기능 완성도 (파일)
+    // completeness (files)
     { let run, adj=[];
       if(M.execErrors>0)run=0; else if(M.testable&&!M.untestedPy)run=2; else if(M.testable)run=P?2:1; else run=P?2:1;
-      if(!M.testable&&P)adj.push('자동 실행 검사를 못 한 파일도 통과로 인정');
+      if(!M.testable&&P)adj.push(T.adj.untested_ok);
       const hn=M.handlers.length,ratio=hn/Math.max(1,M.fns);
       let eh=C?(hn>=4?2:hn>=2?1:0):((hn>=3||ratio>=0.3)?2:hn>=1?1:0);
       const va=M.valids>=3?2:M.valids>=1?1:0;
-      let todo=M.todos.length>=3&&!P?-1:0;if(M.todos.length>=3&&P)adj.push('TODO 감점 없음');
+      let todo=M.todos.length>=3&&!P?-1:0;if(M.todos.length>=3&&P)adj.push(T.adj.todo_free);
       const s=Math.max(0,run+eh+va+todo);let lv=map6(s);
-      if(C&&(!M.testable||M.untestedPy)&&lv===0){lv=1;adj.push('실행 검사를 못 한 파일이 있어 \'상\' 대신 \'중상\'')}
-      L.complete=lv;W.complete=`실행·구문 ${run} + 오류 처리 ${eh}(${hn}곳) + 입력 검증 ${va}(${M.valids}곳)${todo?` − TODO 1`:''} = ${s}/6`;ADJ.complete=adj }
-    // 사용 편의성 (파일)
+      if(C&&(!M.testable||M.untestedPy)&&lv===0){lv=1;adj.push(T.adj.untested_cap)}
+      L.complete=lv;W.complete=F(T.w.complete,{run,eh,hn,va,v:M.valids,todo:todo?T.w.todo_part:'',s});ADJ.complete=adj }
+    // ease of use (files)
     { const ui=M.uiHtml>0?2:M.uiSimple>0?1:0;
       const gd=M.guide>=5?2:(M.guide>=1||M.readme.usage)?1:0;
       const ms=M.koMsgs.length>=3?2:M.koMsgs.length>=1?1:0;
       let s=ui+gd+ms;const adj=[];
-      if(P&&ui===2&&s<6){s+=1;adj.push('화면이 있어 1점 가산')}
+      if(P&&ui===2&&s<6){s+=1;adj.push(T.adj.ui_bonus)}
       let lv=map6(s);
-      if(C&&!M.readme.exists&&lv<2){lv=2;adj.push('설명서가 없어 최고 \'중\'')}
-      L.ease=lv;W.ease=`화면 ${ui} + 안내 문구 ${gd}(${M.guide}개) + 한국어 안내 ${ms}(${M.koMsgs.length}개) = ${ui+gd+ms}/6`;ADJ.ease=adj }
+      if(C&&!M.readme.exists&&lv<2){lv=2;adj.push(T.adj.nodoc_mid)}
+      L.ease=lv;W.ease=F(T.w.ease,{ui,gd,g:M.guide,ms,m:M.koMsgs.length,s:ui+gd+ms});ADJ.ease=adj }
   }
-  // 문서화 (파일)
+  // docs (files)
   { const rd=M.readme.exists?(M.readme.usage&&M.readme.modify?3:(M.readme.usage||M.readme.modify)?2:1):0;
     const r=M.commentRatio;let cm;
     if(M.kind==='prompt')cm=1; else cm=C?(r>=.2?2:r>=.08?1:0):(r>=.15?2:r>=.05?1:0);
     const s=rd+cm;L.docs=s>=5?0:s>=3?1:s===2?2:3;
-    W.docs=`설명서 ${rd} + 주석 ${cm}${M.kind==='prompt'?'(프롬프트)':`(${Math.round(r*100)}%)`} = ${s}/5`;ADJ.docs=C&&M.kind!=='prompt'?['주석 기준 20% / 8% 적용']:[] }
-  // 확산 가능성 (파일)
+    W.docs=F(T.w.docs,{rd,cm,x:M.kind==='prompt'?T.w.docs_prompt:`(${Math.round(r*100)}%)`,s});ADJ.docs=C&&M.kind!=='prompt'?[T.adj.com_strict]:[] }
+  // spread (files)
   { const n=M.hard.length;let lv=n===0?0:n<=2?1:n<=5?2:3;const adj=[];
-    if(P&&a.novel===0&&lv>0){lv--;adj.push('새로운 방식이라 한 단계 위')}
-    if(C&&!M.readme.exists&&lv<1){lv=1;adj.push('설명서가 없어 최고 \'중상\'')}
-    L.spread=lv;W.spread=`하드코딩 ${n}곳`;ADJ.spread=adj }
-  // 필수요건
+    if(P&&a.novel===0&&lv>0){lv--;adj.push(T.adj.novel)}
+    if(C&&!M.readme.exists&&lv<1){lv=1;adj.push(T.adj.nodoc_up)}
+    L.spread=lv;W.spread=F(T.w.hard,{n});ADJ.spread=adj }
+  // required checks (codes: ok / fail / unk)
   const req=[];
-  req.push({t:'API 키·비밀번호 노출 없음',st:M.secrets.length?'미충족':'충족'});
+  req.push({t:T.req[0],st:M.secrets.length?'fail':'ok'});
   const pii=M.rrn.length+M.phones.length;
-  req.push({t:'개인정보로 보이는 값 없음',st:pii?(P?'확인 필요':'미충족'):'충족'});
-  req.push({t:'외부 AI에 민감정보 미전송',st:a.aiSafe===0?'충족':a.aiSafe===1?'미충족':(M.ai.length?'확인 필요':'충족')});
+  req.push({t:T.req[1],st:pii?(P?'unk':'fail'):'ok'});
+  req.push({t:T.req[2],st:a.aiSafe===0?'ok':a.aiSafe===1?'fail':(M.ai.length?'unk':'ok')});
   const total=AREAS.reduce((s,ar)=>s+ar.pts[L[ar.k]],0);
   return {L,W,ADJ,total,req};
 }
 
-/* ================= 결과 ================= */
+/* ================= Result ================= */
 const ANS_IDS=[...Q.filter(q=>q.id).map(q=>q.id),...REQ_Q.map(q=>q.id)];
 function read(){const a={...DEFAULTS,name:$('name').value.trim(),author:$('author').value.trim()};
   for(const id of ANS_IDS){const c=document.querySelector(`input[name="${id}"]:checked`);a[id]=c?Number(c.value):null}
@@ -692,69 +692,69 @@ function write(d){$('name').value=d.name||'';$('author').value=d.author||'';
   for(const id of ['before','after','times'])$(id).value=d[id]??''}
 let LAST=null,READY=false;
 function openResult(){const d=$('resDialog');if(d.open)return;if(d.showModal)d.showModal();else d.setAttribute('open','')}
-function judgeCards(R){return `<div class="judges">${JUDGES.map(j=>{const t=R?R[j.k].total:null;return `<div class="judge ${j.cls}"><span class="n">${j.full}</span><span class="s num">${t==null?'–':t}</span><span class="g">${t==null?j.motto:gradeOf(t).g+'등급 판정'}</span></div>`}).join('')}</div>`}
+function judgeCards(R){return `<div class="judges">${JUDGES.map(j=>{const t=R?R[j.k].total:null;return `<div class="judge ${j.cls}"><span class="n">${j.full}</span><span class="s num">${t==null?'–':t}</span><span class="g">${t==null?j.motto:F(T.judge_g,{g:gradeOf(t).g})}</span></div>`}).join('')}</div>`}
 function update(){
   const a=read();
-  $('calc').textContent=(a.before!=null&&a.after!=null&&a.times!=null)?`월 절감 시간: 약 ${hours(a).toFixed(1)}시간  ( (${a.before} − ${a.after})분 × ${a.times}회 ÷ 60 )`:'월 절감 시간: 세 칸을 모두 채우면 계산됩니다';
-  // 자동 필수 검사 요약
+  $('calc').textContent=(a.before!=null&&a.after!=null&&a.times!=null)?F(T.calc,{h:hours(a).toFixed(1),b:a.before,a:a.after,t:a.times}):T.calc_fill;
+  // automatic required-check summary
   if(M){const parts=[];
-    parts.push(M.secrets.length?`API 키·비밀번호로 보이는 값 ${M.secrets.length}곳 발견`:'API 키·비밀번호 노출 없음');
-    const pii=M.rrn.length+M.phones.length;parts.push(pii?`개인정보로 보이는 값 ${pii}곳 발견`:'개인정보로 보이는 값 없음');
-    parts.push(M.ai.length?`외부 AI 호출 ${M.ai.length}곳 발견 → 아래 첫 질문에 반드시 답하세요`:'외부 AI 호출 없음');
-    $('autoReq').textContent='자동 검사: '+parts.join(' · ');}
-  else $('autoReq').textContent='파일을 올리면 API 키·비밀번호, 개인정보, 외부 AI 호출 여부를 자동으로 검사합니다.';
+    parts.push(M.secrets.length?F(T.auto_secret,{n:M.secrets.length}):T.req[0]);
+    const pii=M.rrn.length+M.phones.length;parts.push(pii?F(T.auto_pii,{n:pii}):T.req[1]);
+    parts.push(M.ai.length?F(T.auto_ai,{n:M.ai.length}):T.auto_ai_none);
+    $('autoReq').textContent=T.auto_prefix+parts.join(' · ');}
+  else $('autoReq').textContent=T.auto_default;
   const missingQ=Q.filter(q=>q.id&&a[q.id]==null).length+REQ_Q.filter(q=>a[q.id]==null).length;
   const needConsent=SUBMIT_URL&&!exampleShown&&!$('consent')?.checked;
-  const block=analyzing?'파일을 분석하는 중입니다.':!M?'프로그램 파일을 올려 주세요. 100점 중 60점이 파일 분석으로 채점됩니다.':M.kind==='none'?'분석할 코드나 프롬프트 파일이 없습니다. HTML·JS·Apps Script·Python 파일이나 프롬프트(.txt/.md)를 올려 주세요.':missingQ?`아직 답하지 않은 질문이 ${missingQ}개 있습니다. 모두 답하면 바로 채점됩니다.`:needConsent?'4번 제출 동의에 체크하면 심사 결과가 나옵니다.':'';
-  if(block){LAST=null;$('result').innerHTML=`<p class="flag info">${block}</p>`+judgeCards(null);$('mbarText').textContent=block.split('.')[0];$('copyBtn').disabled=true;$('printBtn').disabled=true;$('showBtn').disabled=true;$('readyNote').textContent=block;READY=false;return}
-  $('copyBtn').disabled=false;$('printBtn').disabled=false;$('showBtn').disabled=false;$('readyNote').textContent='채점이 끝났습니다. 아래 버튼으로 결과를 확인하세요.';
+  const block=analyzing?T.b_analyzing:!M?T.b_nofile:M.kind==='none'?T.b_nocode:missingQ?F(T.b_missing,{n:missingQ}):needConsent?T.b_consent:'';
+  if(block){LAST=null;$('result').innerHTML=`<p class="flag info">${block}</p>`+judgeCards(null);$('mbarText').textContent=block.split(/[.。]/)[0];$('copyBtn').disabled=true;$('printBtn').disabled=true;$('showBtn').disabled=true;$('readyNote').textContent=block;READY=false;return}
+  $('copyBtn').disabled=false;$('printBtn').disabled=false;$('showBtn').disabled=false;$('readyNote').textContent=T.ready;
   const R={};JUDGES.forEach(j=>R[j.k]=judge(a,M,j.k));
   const totals=JUDGES.map(j=>R[j.k].total);
   const avg=Math.round(totals.reduce((x,y)=>x+y,0)/3*10)/10;
   const spread=Math.max(...totals)-Math.min(...totals);
   const reqs=R.mid.req.map((r,i)=>({t:r.t,v:JUDGES.map(j=>R[j.k].req[i].st)}));
-  const fail=reqs.filter(r=>r.v.includes('미충족')),unk=reqs.filter(r=>!r.v.includes('미충족')&&r.v.includes('확인 필요'));
+  const fail=reqs.filter(r=>r.v.includes('fail')),unk=reqs.filter(r=>!r.v.includes('fail')&&r.v.includes('unk'));
   const hold=fail.length>0||unk.length>0;
   const g=gradeOf(avg),pay=won(PAY[g.g]);
   const flags=[];
-  if(fail.length)flags.push(`<div class="flag">필수요건 미충족으로 보류합니다: ${fail.map(r=>r.t).join(' / ')}. 자동 분석 리포트에서 위치를 확인하고 고친 뒤 다시 올리세요.</div>`);
-  if(unk.length)flags.push(`<div class="flag">확인이 필요해 보류합니다: ${unk.map(r=>r.t).join(' / ')}</div>`);
-  if(spread>=15)flags.push(`<div class="flag">심사위원 간 점수 차가 ${spread}점입니다. 색으로 표시된 영역을 담당자가 직접 확인한 뒤 확정하세요.</div>`);
-  if(M.kind==='prompt')flags.push(`<div class="flag info">코드 없이 프롬프트만 제출되어 기능 완성도와 사용 편의성을 프롬프트 기준으로 채점했습니다.</div>`);
-  if(!hold&&spread<15)flags.push(`<div class="flag ok">필수요건을 모두 충족했고, 심사위원 간 점수 차는 ${spread}점입니다.</div>`);
+  if(fail.length)flags.push(`<div class="flag">${F(T.f_fail,{items:fail.map(r=>r.t).join(' / ')})}</div>`);
+  if(unk.length)flags.push(`<div class="flag">${F(T.f_unk,{items:unk.map(r=>r.t).join(' / ')})}</div>`);
+  if(spread>=15)flags.push(`<div class="flag">${F(T.f_spread,{n:spread})}</div>`);
+  if(M.kind==='prompt')flags.push(`<div class="flag info">${T.f_prompt}</div>`);
+  if(!hold&&spread<15)flags.push(`<div class="flag ok">${F(T.f_ok,{n:spread})}</div>`);
   const rows=AREAS.map(ar=>{const idx=JUDGES.map(j=>R[j.k].L[ar.k]);const gap=Math.max(...idx)-Math.min(...idx)>=2;
     const m=Math.round(idx.reduce((s,i)=>s+ar.pts[i],0)/3*10)/10;
     return `<tr class="${gap?'gap':''}"><td>${ar.name}<span class="src">${ar.src}</span></td>${idx.map(i=>`<td class="c"><span class="lv lv${i}">${LEVELS[i]}</span> <span class="num hint">${ar.pts[i]}</span></td>`).join('')}<td class="c num">${m}</td></tr>`}).join('');
-  const reqRows=reqs.map(r=>`<tr><td>${r.t}</td>${r.v.map(v=>`<td class="c ${v==='충족'?'':'hint'}">${v}</td>`).join('')}<td></td></tr>`).join('');
+  const reqRows=reqs.map(r=>`<tr><td>${r.t}</td>${r.v.map(v=>`<td class="c ${v==='ok'?'':'hint'}">${STX[v]}</td>`).join('')}<td></td></tr>`).join('');
   $('result').innerHTML=`
     <div class="verdict"><div class="badge g-${hold?'H':g.g}">${hold?'!':g.g}</div>
-      <div><div class="big">${hold?'보류':g.g+'등급'}${!hold&&pay&&Number(PAY[g.g])>0?' · '+pay:''}</div>
-      <div class="sub">평균 <b class="num">${avg}</b>점 · ${hold?'필수요건 확인 후 확정':g.label}</div></div></div>
+      <div><div class="big">${hold?T.hold:F(T.grade_fmt,{g:g.g})}${!hold&&pay&&Number(PAY[g.g])>0?' · '+pay:''}</div>
+      <div class="sub">${F(T.sub_fmt,{avg,x:hold?T.sub_hold:g.label})}</div></div></div>
     ${judgeCards(R)}
     <div class="flags">${flags.join('')}</div>
-    <div class="tbl"><table><thead><tr><th>영역</th>${JUDGES.map(j=>`<th class="c">${j.name}</th>`).join('')}<th class="c">평균</th></tr></thead>
-      <tbody>${rows}<tr><td><b>합계</b></td>${totals.map(t=>`<td class="c num"><b>${t}</b></td>`).join('')}<td class="c num"><b>${avg}</b></td></tr>${reqRows}</tbody></table></div>
-    ${JUDGES.map(j=>`<details class="${j.cls}"><summary>${j.full}의 판단 근거 · ${R[j.k].total}점</summary><div class="why">${AREAS.map(ar=>`<div><b>${ar.name} — ${LEVELS[R[j.k].L[ar.k]]} (${ar.pts[R[j.k].L[ar.k]]}점)</b><span class="hint">${esc(R[j.k].W[ar.k])}</span>${R[j.k].ADJ[ar.k].map(x=>`<span class="adj">↳ ${esc(x)}</span>`).join('')}</div>`).join('')}</div></details>`).join('')}`;
-  $('mbarText').innerHTML=hold?`보류 · 평균 <b>${avg}</b>점`:`<b>${g.g}</b>등급 · 평균 <b>${avg}</b>점`;
+    <div class="tbl"><table><thead><tr><th>${T.th_area}</th>${JUDGES.map(j=>`<th class="c">${j.name}</th>`).join('')}<th class="c">${T.th_avg}</th></tr></thead>
+      <tbody>${rows}<tr><td><b>${T.th_total}</b></td>${totals.map(t=>`<td class="c num"><b>${t}</b></td>`).join('')}<td class="c num"><b>${avg}</b></td></tr>${reqRows}</tbody></table></div>
+    ${JUDGES.map(j=>`<details class="${j.cls}"><summary>${F(T.why_sum,{full:j.full,t:R[j.k].total})}</summary><div class="why">${AREAS.map(ar=>`<div><b>${F(T.why_area,{name:ar.name,lv:LEVELS[R[j.k].L[ar.k]],pt:ar.pts[R[j.k].L[ar.k]]})}</b><span class="hint">${esc(R[j.k].W[ar.k])}</span>${R[j.k].ADJ[ar.k].map(x=>`<span class="adj">↳ ${esc(x)}</span>`).join('')}</div>`).join('')}</div></details>`).join('')}`;
+  $('mbarText').innerHTML=hold?F(T.mbar_hold,{avg}):F(T.mbar_g,{g:g.g,avg});
   LAST={a,R,totals,avg,spread,g,hold,pay,fail,unk};
   scheduleSubmit();
   if(!READY){READY=true;if(!exampleShown)openResult()}
 }
 
-/* ================= 운영자에게 제출 ================= */
+/* ================= Submit to the operator ================= */
 let sentSig=null,submitTimer=null,sending=false;
 const fileSig=()=>FILES.map(f=>f.name+':'+f.text.length).join('|')+'#'+$('name').value.trim();
 function scheduleSubmit(){
   if(!SUBMIT_URL||exampleShown||!LAST||!$('consent')?.checked)return;
-  if(M&&M.secrets.length){$('status').textContent='API 키·비밀번호로 보이는 값이 있어 운영자에게 전송하지 않았습니다. 지운 뒤 다시 올리세요.';return}
+  if(M&&M.secrets.length){$('status').textContent=T.sub_secret;return}
   if(fileSig()===sentSig)return;
   clearTimeout(submitTimer);
-  submitTimer=setTimeout(submit,2500); // 답변 수정이 끝날 때까지 잠시 기다렸다가 한 번만 보냄
+  submitTimer=setTimeout(submit,2500); // wait for the answers to settle, then send once
 }
 async function submit(){
   if(sending||!LAST)return;const sig=fileSig();if(sig===sentSig)return;
-  if($('hp')?.value)return; // 자동 입력 프로그램은 조용히 무시
-  sending=true;$('status').textContent='운영자에게 제출하는 중…';
+  if($('hp')?.value)return; // honeypot: bots are ignored silently
+  sending=true;$('status').textContent=T.sub_ing;
   try{
     const zip=new JSZip();
     FILES.forEach(f=>zip.file(f.name.replace(/^\/+/,''),f.text));
@@ -764,58 +764,61 @@ async function submit(){
     const H={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
     const up=await fetch(`${SB_URL}/storage/v1/object/ai-judge-submissions/${path}`,{method:'POST',headers:{...H,'Content-Type':'application/zip'},body:blob});
     if(!up.ok)throw new Error('upload');
+    // The admin dashboard is Korean: the stored grade text stays Korean in every language edition.
     const row=await fetch(`${SB_URL}/rest/v1/ai_judge_submissions`,{method:'POST',headers:{...H,'Content-Type':'application/json',Prefer:'return=minimal'},
-      body:JSON.stringify({program_name:(LAST.a.name||'(이름 없음)').slice(0,200),submitter:(LAST.a.author||'').slice(0,200),grade:LAST.hold?'보류':LAST.g.g+'등급',avg_score:LAST.avg,file_count:FILES.length,file_size:blob.size,storage_path:path})});
+      body:JSON.stringify({program_name:(LAST.a.name||T.sub_noname).slice(0,200),submitter:(LAST.a.author||'').slice(0,200),grade:LAST.hold?'\uBCF4\uB958':LAST.g.g+'\uB4F1\uAE09',avg_score:LAST.avg,file_count:FILES.length,file_size:blob.size,storage_path:path})});
     if(!row.ok)throw new Error('row');
     sentSig=sig;
-    $('status').textContent=`운영자에게 제출했습니다 (${new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})}). 결과는 이 화면에서만 볼 수 있습니다.`;
+    $('status').textContent=F(T.sub_ok,{time:new Date().toLocaleTimeString(T.loc,{hour:'2-digit',minute:'2-digit'})});
   }catch(e){
-    $('status').textContent=e.message==='big'?'파일 용량이 커서(압축 후 5MB 초과) 운영자에게 전송하지 못했습니다. 심사 결과는 그대로 볼 수 있습니다.':'운영자에게 제출하지 못했습니다. 심사 결과는 그대로 볼 수 있습니다.';
+    $('status').textContent=e.message==='big'?T.sub_big:T.sub_fail;
   }finally{sending=false}
 }
 function resultText(){
   if(!LAST)return '';const {a,R,totals,avg,spread,g,hold,pay,fail,unk}=LAST;
-  return ['[AI 프로그램 심사 결과]',`프로그램명: ${a.name||'(미입력)'}`,`제출자: ${a.author||'(미입력)'}`,`제출 파일: ${FILES.map(f=>f.name).join(', ')}`,
-    `결과: ${hold?'보류 (필수요건 확인 필요)':g.g+'등급'+(pay&&Number(PAY[g.g])>0?' / 보상 '+pay:'')} / 평균 ${avg}점`,
-    ...JUDGES.map((j,i)=>`- ${j.full}: ${totals[i]}점 (${AREAS.map(ar=>ar.name+' '+LEVELS[R[j.k].L[ar.k]]).join(', ')})`),
-    spread>=15?`- 심사위원 간 점수 차 ${spread}점: 담당자 확인 필요`:'',
-    ...fail.map(r=>`- 미충족: ${r.t}`),...unk.map(r=>`- 확인 필요: ${r.t}`),
-    `- 답변: 사용 빈도 ${Q[0].o[a.freq]}, 사용 인원 ${Q[1].o[a.users]}, 처리 시간 ${a.before==null?'미입력':a.before+'분→'+a.after+'분 × 월 '+a.times+'회'}`,
-    M?`- 자동 분석: 실행 ${M.testable?(M.execErrors?'오류 '+M.execErrors+'건':'통과'):'검사 불가'}, 오류 처리 ${M.handlers.length}곳, 입력 검증 ${M.valids}곳, 하드코딩 ${M.hard.length}곳, 설명서 ${M.readme.exists?'있음':'없음'}`:''].filter(Boolean).join('\n');
+  const run=M?(M.testable?(M.execErrors?F(T.run_err,{n:M.execErrors}):T.run_ok):T.run_na):'';
+  return [T.rt_title,F(T.rt_name,{v:a.name||T.rt_none}),F(T.rt_author,{v:a.author||T.rt_none}),F(T.rt_files,{v:FILES.map(f=>f.name).join(', ')}),
+    F(T.rt_result,{r:hold?T.rt_hold:F(T.grade_fmt,{g:g.g})+(pay&&Number(PAY[g.g])>0?F(T.rt_reward,{pay}):''),avg}),
+    ...JUDGES.map((j,i)=>F(T.rt_judge,{full:j.full,t:totals[i],areas:AREAS.map(ar=>ar.name+' '+LEVELS[R[j.k].L[ar.k]]).join(', ')})),
+    spread>=15?F(T.rt_spread,{n:spread}):'',
+    ...fail.map(r=>F(T.rt_fail,{v:r.t})),...unk.map(r=>F(T.rt_unk,{v:r.t})),
+    F(T.rt_ans,{freq:Q[0].o[a.freq],users:Q[1].o[a.users],time:a.before==null?T.rt_none:F(T.rt_time,{b:a.before,a:a.after,t:a.times})}),
+    M?F(T.rt_auto,{run,h:M.handlers.length,v:M.valids,hc:M.hard.length,doc:M.readme.exists?T.yes:T.no}):''].filter(Boolean).join('\n');
 }
-if(SUBMIT_URL)$('privacyPill').textContent='동의하면 올린 파일이 운영자에게 전달됨 · 결과 PDF는 본인만';
+if(SUBMIT_URL)$('privacyPill').textContent=T.pill_submit;
 
-/* ================= 리포트 ================= */
-function list(items,fmt,max=6){if(!items.length)return '';const more=items.length>max?`<li class="hint">외 ${items.length-max}곳</li>`:'';return `<ul>${items.slice(0,max).map(x=>`<li>${fmt(x)}</li>`).join('')}${more}</ul>`}
-const at=x=>`<code>${esc(x.file)}</code>${x.line?` ${x.line}행`:''}`;
+/* ================= Report ================= */
+function list(items,fmt,max=6){if(!items.length)return '';const more=items.length>max?`<li class="hint">${F(T.more,{n:items.length-max})}</li>`:'';return `<ul>${items.slice(0,max).map(x=>`<li>${fmt(x)}</li>`).join('')}${more}</ul>`}
+const at=x=>`<code>${esc(x.file)}</code>${x.line?' '+F(T.line_fmt,{n:x.line}):''}`;
 function renderReport(){
-  if(!M){$('report').innerHTML='<p class="status">파일을 올리면 분석 결과가 여기에 나옵니다.</p>';return}
+  if(!M){$('report').innerHTML=`<p class="status">${T.rep_empty}</p>`;return}
   const pct=Math.round(M.commentRatio*100);
+  const runLabel=M.testable?(M.execErrors?F(T.run_err,{n:M.execErrors}):T.run_ok):T.run_na;
   const metrics=[
-    ['분석한 파일',M.files+'개'],['전체 줄 수',M.lines.toLocaleString()],
-    ['실행·구문 검사',M.testable?(M.execErrors?`오류 ${M.execErrors}건`:'통과'):'검사 불가'],
-    ['오류 처리',M.handlers.length+'곳'],['입력 검증',M.valids+'곳'],['주석 비율',M.kind==='code'?pct+'%':'–'],
-    ['화면 요소',M.uiHtml+'개'],['한국어 안내',M.koMsgs.length+'개'],['하드코딩',M.hard.length+'곳'],
+    [T.m[0],F(T.cnt,{n:M.files})],[T.m[1],M.lines.toLocaleString()],
+    [T.m[2],runLabel],
+    [T.m[3],F(T.spots,{n:M.handlers.length})],[T.m[4],F(T.spots,{n:M.valids})],[T.m[5],M.kind==='code'?pct+'%':'–'],
+    [T.m[6],F(T.cnt,{n:M.uiHtml})],[T.m[7],F(T.cnt,{n:M.koMsgs.length})],[T.m[8],F(T.spots,{n:M.hard.length})],
   ];
   const G=[];
   const sec=M.secrets.length+M.rrn.length+M.phones.length;
-  G.push(`<div class="fgroup ${sec?'f-bad':'f-ok'}"><h3>보안 · 개인정보 ${sec?`— ${sec}곳 확인 필요`:'— 문제 없음'}</h3>
-    ${sec?list([...M.secrets.map(x=>({...x,t:'API 키·비밀번호'})),...M.rrn.map(x=>({...x,t:'주민등록번호 형식'})),...M.phones.map(x=>({...x,t:'휴대전화 번호'}))],x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code> — 코드에서 지우고 설정 파일이나 입력으로 받도록 바꾸세요`):'<span class="hint">API 키·비밀번호, 주민등록번호·휴대전화 형식의 값을 찾지 못했습니다.</span>'}
-    ${M.emails.length?`<span class="hint">이메일 주소 ${M.emails.length}곳 (참고)</span>`:''}</div>`);
-  G.push(`<div class="fgroup ${M.ai.length?'f-info':'f-ok'}"><h3>외부 AI 호출 — ${M.ai.length?M.ai.length+'곳':'없음'}</h3>${M.ai.length?list(M.ai,x=>`${at(x)} · <code>${esc(x.v)}</code>`)+'<span class="hint">이 프로그램은 외부 AI로 데이터를 보냅니다. 민감정보를 보내지 않는지 확인하세요.</span>':'<span class="hint">외부 AI 서비스로 데이터를 보내는 코드를 찾지 못했습니다.</span>'}</div>`);
+  G.push(`<div class="fgroup ${sec?'f-bad':'f-ok'}"><h3>${T.g_sec} ${sec?'— '+F(T.need_check,{n:sec}):'— '+T.no_issue}</h3>
+    ${sec?list([...M.secrets.map(x=>({...x,t:T.t_key})),...M.rrn.map(x=>({...x,t:T.t_rrn})),...M.phones.map(x=>({...x,t:T.t_phone}))],x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code> — ${T.remove_it}`):`<span class="hint">${T.sec_none}</span>`}
+    ${M.emails.length?`<span class="hint">${F(T.emails,{n:M.emails.length})}</span>`:''}</div>`);
+  G.push(`<div class="fgroup ${M.ai.length?'f-info':'f-ok'}"><h3>${T.g_ai} — ${M.ai.length?F(T.spots,{n:M.ai.length}):T.none}</h3>${M.ai.length?list(M.ai,x=>`${at(x)} · <code>${esc(x.v)}</code>`)+`<span class="hint">${T.ai_warn}</span>`:`<span class="hint">${T.ai_none}</span>`}</div>`);
   if(M.kind==='code'){
     const ex=[...M.run.errors,...M.syntax.errors];
-    G.push(`<div class="fgroup ${ex.length?'f-bad':M.testable?'f-ok':'f-info'}"><h3>실행·구문 검사 — ${ex.length?`오류 ${ex.length}건`:M.testable?'통과':'검사 불가'}</h3>
-      ${ex.length?list(ex,x=>`${at(x)} · ${esc(x.msg)}`):`<span class="hint">${M.run.tested?`HTML ${M.run.tested}개를 격리된 창에서 열어 스크립트 오류가 없는지 확인했습니다. `:''}${M.syntax.tested?`JS·Apps Script ${M.syntax.tested}개의 구문을 검사했습니다. `:''}${M.untestedPy?'Python·모듈 파일은 브라우저에서 실행할 수 없어 검사하지 않았습니다.':''}</span>`}</div>`);
-    G.push(`<div class="fgroup ${M.hard.length?'f-bad':'f-ok'}"><h3>하드코딩 — ${M.hard.length?M.hard.length+'곳':'없음'}</h3>${M.hard.length?list(M.hard,x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code>`)+'<span class="hint">다른 사람이 쓰려면 이 값을 코드 맨 위 설정 영역이나 입력값으로 빼세요.</span>':'<span class="hint">개인 경로·고유 ID 등 특정 환경에 묶인 값을 찾지 못했습니다.</span>'}</div>`);
-    if(M.todos.length)G.push(`<div class="fgroup f-info"><h3>미완성 표시 — ${M.todos.length}곳</h3>${list(M.todos,x=>`${at(x)} · ${x.v}`)}</div>`);
+    G.push(`<div class="fgroup ${ex.length?'f-bad':M.testable?'f-ok':'f-info'}"><h3>${T.g_run} — ${ex.length?F(T.run_err,{n:ex.length}):M.testable?T.run_ok:T.run_na}</h3>
+      ${ex.length?list(ex,x=>`${at(x)} · ${esc(x.msg)}`):`<span class="hint">${M.run.tested?F(T.run_html,{n:M.run.tested})+' ':''}${M.syntax.tested?F(T.run_js,{n:M.syntax.tested})+' ':''}${M.untestedPy?T.run_py:''}</span>`}</div>`);
+    G.push(`<div class="fgroup ${M.hard.length?'f-bad':'f-ok'}"><h3>${T.g_hard} — ${M.hard.length?F(T.spots,{n:M.hard.length}):T.none}</h3>${M.hard.length?list(M.hard,x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code>`)+`<span class="hint">${T.hard_warn}</span>`:`<span class="hint">${T.hard_none}</span>`}</div>`);
+    if(M.todos.length)G.push(`<div class="fgroup f-info"><h3>${T.g_todo} — ${F(T.spots,{n:M.todos.length})}</h3>${list(M.todos,x=>`${at(x)} · ${x.v}`)}</div>`);
   }
-  if(M.kind==='prompt')G.push(`<div class="fgroup f-info"><h3>프롬프트 5요소 — ${M.promptEl.length}개</h3><span class="hint">있음: ${M.promptEl.join(', ')||'없음'} · 없음: ${PROMPT_EL.map(e=>e.k).filter(k=>!M.promptEl.includes(k)).join(', ')||'없음'}</span></div>`);
-  G.push(`<div class="fgroup ${M.readme.exists?'f-ok':'f-bad'}"><h3>설명서 — ${M.readme.exists?M.readme.names.map(esc).join(', '):'없음'}</h3><span class="hint">${M.readme.exists?`사용 방법 ${M.readme.usage?'있음':'없음'} · 수정·설정 방법 ${M.readme.modify?'있음':'없음'}`:'README.md나 \'설명서\'로 시작하는 파일을 함께 올리면 문서화 점수에 반영됩니다.'}</span></div>`);
+  if(M.kind==='prompt')G.push(`<div class="fgroup f-info"><h3>${F(T.g_prompt,{n:M.promptEl.length})}</h3><span class="hint">${F(T.prompt_has,{has:elNames(M.promptEl)||T.none,lack:elNames(PROMPT_EL.map(e=>e.id).filter(i=>!M.promptEl.includes(i)))||T.none})}</span></div>`);
+  G.push(`<div class="fgroup ${M.readme.exists?'f-ok':'f-bad'}"><h3>${T.g_doc} — ${M.readme.exists?M.readme.names.map(esc).join(', '):T.none}</h3><span class="hint">${M.readme.exists?F(T.doc_has,{u:M.readme.usage?T.yes:T.no,m:M.readme.modify?T.yes:T.no}):T.doc_none}</span></div>`);
   $('report').innerHTML=`<div class="metrics">${metrics.map(([k,v])=>`<div class="metric"><span class="k">${k}</span><span class="v num">${v}</span></div>`).join('')}</div><div class="find">${G.join('')}</div>`;
 }
 
-/* ================= 이벤트 ================= */
+/* ================= Events ================= */
 let exampleShown=false;
 function hideExample(){if(exampleShown){exampleShown=false;$('exampleNote').hidden=true}}
 $('form').addEventListener('input',e=>{if(e.target.type!=='file')hideExample();update()});
@@ -831,7 +834,7 @@ $('printBtn').onclick=()=>window.print();
 $('showBtn').onclick=openResult;$('mbarBtn').onclick=openResult;$('closeBtn').onclick=()=>$('resDialog').close();
 $('copyBtn').onclick=async()=>{
   if(!LAST)return;const t=resultText();
-  try{await navigator.clipboard.writeText(t);$('status').textContent='결과를 복사했습니다.'}catch{$('status').textContent='복사하지 못했습니다. 결과 표를 직접 선택해 복사하세요.'}
+  try{await navigator.clipboard.writeText(t);$('status').textContent=T.copied}catch{$('status').textContent=T.copy_fail}
 };
 loadExample();
 </script>
