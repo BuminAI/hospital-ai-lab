@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-10-24T00:40:35.198Z",
+  "updatedAt": "2026-10-24T07:16:33.979Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "OpenAI возобновила обучение ИИ-моделей, но пока не пускает их в интернет",
+      "link": "https://3dnews.ru/1150384/openai-vozobnovila-obuchenie-iimodeley-no-poka-ne-puskaet-ih-v-internet",
+      "source": "3DNews",
+      "pubDate": "2026-10-24T06:03:00.000Z"
+    },
+    {
+      "title": "Эволюция личных ИИ‑агентов: от суммаризации до автономной организации",
+      "link": "https://habr.com/ru/articles/1098802/?utm_campaign=1098802&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-24T03:18:31.000Z"
+    },
+    {
+      "title": "DeepSeek и MiniMax получили право разворачивать свои ИИ-модели за пределами Китая",
+      "link": "https://3dnews.ru/1150377/deepseek-i-minimax-poluchili-pravo-razvorachivat-svoi-iimodeli-za-predelami-kitaya",
+      "source": "3DNews",
+      "pubDate": "2026-10-24T02:16:00.000Z"
+    },
     {
       "title": "Как внедрить ИИ в бизнес: 5 уровней ИИтизации процессов и AI‑Native‑подход",
       "link": "https://habr.com/ru/articles/1098154/?utm_campaign=1098154&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://habr.com/ru/companies/selectel/articles/1091140/?utm_campaign=1091140&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-08T08:00:27.000Z"
-    },
-    {
-      "title": "«Диасофт» представил российскую экосистему ИИ-разработки для крупных корпораций",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_diasoft_predstavil_rossijskuyu",
-      "source": "CNews",
-      "pubDate": "2026-10-08T07:34:00.000Z"
-    },
-    {
-      "title": "В России ИИ-агенты уперлись в процессы: компании начинают трансформацию регламентов",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_v_rossii_ii-agenty_uperlis",
-      "source": "CNews",
-      "pubDate": "2026-10-08T07:29:00.000Z"
-    },
-    {
-      "title": "Microsoft радикально обновит Windows — систему заселят ИИ-агентами, которые будут работать рядом с пользователем",
-      "link": "https://3dnews.ru/1149629/microsoft-radikalno-obnovit-windows-sistemu-zaselyat-iiagentami-kotorie-budut-rabotat-ryadom-s-polzovatelem",
-      "source": "3DNews",
-      "pubDate": "2026-10-08T07:28:00.000Z"
     }
   ]
 }
