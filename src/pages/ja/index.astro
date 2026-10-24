@@ -1,6 +1,7 @@
 ---
 // 일본어판 홈
 import JaLayout from '../../layouts/JaLayout.astro';
+import KrHero from '../../components/KrHero.astro';
 import ja from '../../i18n/ja.json';
 import subsidies from '../../data/ja/subsidies.json';
 import { withBase } from '../../utils/site';
@@ -66,14 +67,14 @@ const homeSeries = (await getResolvedSeries('ja'))
   updated={updated}
   schema={[homeFaqLd]}
 >
-  <p class="ja-updated" style="letter-spacing:.08em">{ja.home.heroEyebrow}</p>
-  <h1>{ja.home.heroTitle}<br />{ja.home.heroTitle2}</h1>
-  <p>{ja.home.heroLead}</p>
-
-  <p style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-    <a class="ja-cta" href={withBase('/ja/subsidies/')}>{ja.home.ctaSubsidies}</a>
-    <a class="ja-cta ja-cta-ghost" href={withBase('/ja/about/')}>{ja.home.ctaAbout}</a>
-  </p>
+  <KrHero eyebrow={ja.home.heroEyebrow}>
+    <h1 slot="title">{ja.home.heroTitle}<br />{ja.home.heroTitle2}</h1>
+    <p>{ja.home.heroLead}</p>
+    <p style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="ja-cta" href={withBase('/ja/subsidies/')}>{ja.home.ctaSubsidies}</a>
+      <a class="ja-cta ja-cta-ghost" href={withBase('/ja/about/')}>{ja.home.ctaAbout}</a>
+    </p>
+  </KrHero>
 
   <h2>{ja.home.subsidiesTitle}</h2>
   <p>{ja.home.subsidiesDesc}</p>

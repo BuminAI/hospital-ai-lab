@@ -8,6 +8,7 @@
 // ⚠️ 카드는 **내용이 있는 페이지만** 건다. 새 페이지를 만들 때 카드부터
 //    추가하지 말 것.
 import TwLayout from '../../layouts/TwLayout.astro';
+import KrHero from '../../components/KrHero.astro';
 import tw from '../../i18n/tw.json';
 import { withBase } from '../../utils/site';
 import HomeSeries from '../../components/HomeSeries.astro';
@@ -60,13 +61,13 @@ const homeSeries = (await getResolvedSeries('tw'))
   ruPath="/ru/"
   schema={[homeFaqLd]}
 >
-  <p class="tw-updated" style="letter-spacing:.06em">{tw.home.heroEyebrow}</p>
-  <h1>{tw.home.heroTitle}</h1>
-  <p>{tw.home.heroLead}</p>
-
-  <p style="margin-top:16px">
-    <a class="tw-cta" href={withBase('/tw/about/')}>{tw.nav.about} →</a>
-  </p>
+  <KrHero eyebrow={tw.home.heroEyebrow}>
+    <h1 slot="title">{tw.home.heroTitle}</h1>
+    <p>{tw.home.heroLead}</p>
+    <p style="margin-top:16px">
+      <a class="tw-cta" href={withBase('/tw/about/')}>{tw.nav.about} →</a>
+    </p>
+  </KrHero>
 
   <div class="tw-cards">
     <a class="tw-card" href={withBase('/tw/glossary/')}>
