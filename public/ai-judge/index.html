@@ -73,7 +73,7 @@ h1{font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.015em}
 .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .pill{font-size:12.5px;background:var(--soft);border-radius:999px;padding:3px 10px;color:var(--muted)}
 
-.grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;align-items:start}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
 @media (max-width:920px){.grid{grid-template-columns:minmax(0,1fr)}}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:16px;min-width:0}
 .panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
@@ -117,7 +117,12 @@ input[type=text],input[type=number]{width:100%;font:inherit;font-size:14px;color
 .auto{font-size:13px;color:var(--muted);background:var(--soft);border-radius:6px;padding:8px 10px}
 
 /* result */
-.result{position:sticky;top:16px}
+dialog.resdlg{width:min(860px,calc(100vw - 24px));max-height:calc(100vh - 24px);padding:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:inherit;overflow:auto}
+dialog.resdlg::backdrop{background:rgba(0,0,0,.5)}
+dialog.resdlg .in{padding:18px 20px 22px}
+.submitbar{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.submitbar .go{font-weight:700;font-size:15px;border-radius:8px;padding:11px 18px;cursor:pointer;background:var(--accent);color:var(--accent-ink);border:0}
+.submitbar .go:disabled{opacity:.5;cursor:not-allowed}
 @media (max-width:920px){.result{position:static}}
 #result{display:grid;gap:12px}
 .verdict{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;border-radius:10px;padding:16px;background:var(--soft)}
@@ -183,12 +188,13 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 .sandbox{position:absolute;left:-9999px;top:0;width:800px;height:600px;border:0}
 
 .mbar{display:none}
+.mbar button{font:inherit;font-weight:600;border:0;background:none;color:var(--accent);cursor:pointer}
 @media (max-width:920px){
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:12px;align-items:center;justify-content:space-between;background:var(--surface);border-top:1px solid var(--line);padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:14px}
   .mbar b{font-family:var(--mono)}
   body{padding-bottom:64px}
 }
-@media print{.topbar,.mbar,.btns,footer,#rubricSec,.drop{display:none}.grid{grid-template-columns:1fr}.result{position:static}body{background:#fff}}
+@media print{body>*:not(dialog){display:none!important}dialog.resdlg{position:static;display:block;width:auto;max-height:none;border:0;overflow:visible}dialog.resdlg .btns{display:none}dialog.resdlg::backdrop{display:none}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -199,7 +205,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   <header class="hero">
     <div class="eyebrow">AI PROGRAM REVIEW</div>
     <h1>AI 프로그램 심사실</h1>
-    <p class="lede">직접 만든 AI 업무 프로그램 파일을 올리면, 코드를 자동으로 분석하고 실행해 보안·완성도·사용성·문서화·재사용성을 채점합니다. 업무 효과처럼 코드만으로 알 수 없는 부분만 짧게 묻습니다. 성향이 다른 심사위원 3명이 공개된 규칙대로 각자 100점 만점으로 채점하고, 평균으로 S·A·B·C 등급을 매깁니다.</p>
+    <p class="lede">직접 만든 AI 업무 프로그램 파일을 올리면, 코드를 자동으로 분석하고 실행해 보안·완성도·사용성·문서화·재사용성을 채점합니다. 코드만으로 알 수 없는 사용 현황 3가지만 묻습니다. 성향이 다른 심사위원 3명이 공개된 규칙대로 각자 100점 만점으로 채점하고, 평균으로 S·A·B·C 등급을 매깁니다.</p>
     <div class="pill-row"><span class="pill">100점 중 60점은 파일 분석으로 채점</span><span class="pill">AI 호출 없음 · 같은 파일이면 같은 점수</span><span class="pill" id="privacyPill">분석은 이 브라우저 안에서 진행</span></div>
   </header>
 
@@ -226,15 +232,14 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
           <p class="status" id="analyzeStatus" aria-live="polite"></p>
         </div>
         <div id="questions"></div>
+        <div class="submitbar">
+          <button type="button" class="go" id="showBtn" disabled>심사 결과 보기</button>
+          <p class="status" id="readyNote" aria-live="polite"></p>
+        </div>
       </form>
     </section>
 
-    <aside class="panel result" aria-labelledby="resTitle" aria-live="polite">
-      <div class="panel-head"><h2 id="resTitle">심사 결과</h2>
-        <div class="btns"><button type="button" id="copyBtn">결과 복사</button><button type="button" id="printBtn">인쇄</button></div></div>
-      <div id="result"></div>
-      <p class="status" id="status"></p>
-    </aside>
+
   </div>
 
   <section class="panel" aria-labelledby="repTitle">
@@ -261,7 +266,14 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   <footer><span>AI 프로그램 심사실 · 채점 규칙은 자유롭게 참고·활용할 수 있습니다.</span><a href="/">홈으로</a></footer>
 </div>
 
-<div class="mbar" aria-hidden="true"><span id="mbarText">–</span><a href="#resTitle">결과 보기 ↑</a></div>
+<dialog class="resdlg" id="resDialog" aria-labelledby="resTitle"><div class="in">
+  <div class="panel-head"><h2 id="resTitle">심사 결과</h2>
+    <div class="btns"><button type="button" id="copyBtn">결과 복사</button><button type="button" id="printBtn">PDF로 저장</button><button type="button" id="closeBtn">닫기</button></div></div>
+  <p class="hint">이 결과는 올린 분의 브라우저에서만 만들어지며, 운영자에게 PDF로 전달되지 않습니다. 'PDF로 저장'을 누르면 인쇄 창이 열립니다. 대상(프린터)을 'PDF로 저장'으로 고르세요.</p>
+  <div id="result" aria-live="polite"></div>
+  <p class="status" id="status"></p>
+</div></dialog>
+<div class="mbar" aria-hidden="true"><span id="mbarText">–</span><button type="button" id="mbarBtn">결과 보기</button></div>
 
 <!-- 예시 프로그램 (예시 불러오기용) -->
 <template id="exHtml"><!doctype html>
@@ -329,14 +341,18 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 
 <script>
 /* ================= 제출 받기 설정 =================
-   Google Apps Script 웹 앱 주소를 넣으면, 심사가 끝난 파일과 결과가
-   운영자 메일과 구글 드라이브로 전송됩니다. 비워 두면 전송 기능이 꺼집니다. */
-const SUBMIT_URL = '';
+   'supabase'면 동의한 방문자의 파일이 비공개 저장소(ZIP)에 쌓이고, 관리자 대시보드 'AI 심사 제출' 탭에서
+   내려받습니다(supabase/setup.sql 실행 필요). 심사 결과는 저장하지 않습니다. 비워 두면 전송 기능이 꺼집니다. */
+const SUBMIT_URL = 'supabase'; // 'supabase' = 관리자 저장소로 제출(동의 필요). 끄려면 ''
 
 /* ================= 기준 ================= */
 const LEVELS=['상','중상','중','하'];
 const GRADES=[{g:'S',min:90,label:'90점 이상'},{g:'A',min:75,label:'75~89.9점'},{g:'B',min:60,label:'60~74.9점'},{g:'C',min:0,label:'60점 미만 · 보완 후 재제출'}];
 const DEFAULT_PAY={S:'100000',A:'70000',B:'40000',C:'0'};
+const SB_URL='https://qasjbbkegjqilrqylvdb.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFhc2piYmtlZ2pxaWxycXlsdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNDQwMzgsImV4cCI6MjA5ODcyMDAzOH0.s9KhnZjvcIaPxOdiT0yFwcR2VeAXzJMqdLZn0TiQvdg';
+/* 화면에서 묻지 않는 항목의 기본값(중립) — 문제 정의는 구체적, 시간 근거는 추정, 품질 개선 없음, 새로운 방식 아님, 사람 확인 있음 */
+const DEFAULTS={problem:0,evidence:1,quality:2,novel:1,human:0};
 const AREAS=[
  {k:'fit',name:'현업 적합성',src:'답변',pts:[20,15,10,5],d:['문제가 구체적이고, 주 1회 이상 여러 명이 실제로 씀','대부분 충족, 한 가지가 부족함','문제는 있으나 사용이 제한적임','문제가 불분명하거나 쓰는 사람이 거의 없음']},
  {k:'complete',name:'기능 완성도',src:'파일',pts:[25,18,11,5],d:['실행·구문 검사 통과, 오류 처리와 입력 검증이 충분함','대부분 충족, 한 가지가 부족함','실행은 되나 오류 처리나 검증이 부족함','실행 오류가 있거나 방어 코드가 없음']},
@@ -346,24 +362,18 @@ const AREAS=[
  {k:'spread',name:'확산 가능성',src:'파일',pts:[10,7,4,2],d:['개인 경로·고유 ID 등 하드코딩이 없어 그대로 사용 가능','하드코딩 1~2곳, 조금 고치면 사용 가능','하드코딩 3~5곳','하드코딩이 많아 만든 사람 환경에서만 작동']},
 ];
 const Q=[
- {area:'fit',id:'problem',t:'해결하려는 문제가 얼마나 구체적인가요?',o:['어떤 업무의 어떤 불편을 줄이는지 구체적으로 정해져 있다','관련 업무는 있지만 범위가 넓다','아직 분명하지 않다']},
  {area:'fit',id:'freq',t:'실제로 얼마나 자주 쓰이나요?',o:['매일','주 1회 이상','월 1회 이상','아직 쓰기 전'],inline:true},
  {area:'fit',id:'users',t:'쓰는 사람은 몇 명인가요?',o:['10명 이상','3~9명','1~2명'],inline:true},
- {area:'effect',type:'time'},
- {area:'effect',id:'evidence',t:'위 시간은 어떻게 얻은 값인가요?',o:['직접 재 본 값','대략 추정한 값','수치가 없다'],inline:true},
- {area:'effect',id:'quality',t:'오류 감소나 품질 개선이 있나요?',o:['전후를 세어 확인했다','좋아졌다고 느낀다','해당 없음 · 모름'],inline:true},
- {area:'spread',id:'novel',t:'어떤 성격의 시도인가요?',o:['기존에 없던 새로운 방식','기존 방식을 개선','단순 반복 작업 자동화'],inline:true},
 ];
 const REQ_Q=[
  {id:'aiSafe',t:'외부 AI 서비스(ChatGPT·Gemini·Claude 등)에 개인정보·고객정보 같은 민감한 정보를 보내지 않나요?',o:['보내지 않는다','보낸다','모름']},
- {id:'human',t:'중요한 결정에 쓰이는 결과는 사람이 최종 확인하나요?',o:['예 (또는 해당 없음)','아니오','모름']},
 ];
 const JUDGES=[
  {k:'prog',name:'진보',full:'진보 심사위원',cls:'j-prog',motto:'새로운 시도와 가능성을 봅니다',rules:['자동 실행 검사를 할 수 없는 파일(Python 등)은 통과로 인정','미완성 표시(TODO)는 감점하지 않음','화면(UI)이 있으면 사용 편의성 가산','추정한 시간 절감도 실측과 같이 인정','아직 쓰기 전이어도 사용 빈도를 월 1회 수준으로 인정','기존에 없던 새로운 방식이면 확산 가능성 한 단계 위','개인정보로 보이는 값은 \'확인 필요\'로만 표시']},
  {k:'mid',name:'중도',full:'중도 심사위원',cls:'j-mid',motto:'분석 결과를 기준 그대로 적용합니다',rules:['아래 채점 방법 표를 그대로 적용','실행 검사를 할 수 없는 파일은 절반만 인정','TODO·FIXME가 3개 이상이면 완성도 감점','추정한 시간 절감은 한 단계 아래','전후를 세어 확인한 품질 개선은 효과성 한 단계 위']},
  {k:'cons',name:'보수',full:'보수 심사위원',cls:'j-cons',motto:'검증과 안정성을 봅니다',rules:['실행 검사를 하지 못했으면 완성도 \'상\'을 주지 않음','오류 처리는 2곳 이상부터 인정, 4곳 이상이어야 만점','주석 비율 기준을 높게 적용(20% / 8%)','설명서가 없으면 사용 편의성 최고 \'중\', 확산 가능성 최고 \'중상\'','범위가 넓은 문제 정의는 0점','추정한 시간 절감은 한 단계 아래, 품질 개선 가산은 실측일 때만']},
 ];
-const EX_ANS={name:'연차 사용일수 계산기',author:'인사팀 홍길동 (예시)',problem:0,freq:1,users:1,before:'20',after:'2',times:'40',evidence:1,quality:1,novel:2,aiSafe:0,human:0};
+const EX_ANS={name:'연차 사용일수 계산기',author:'인사팀 홍길동 (예시)',freq:1,users:1,before:'20',after:'2',times:'40',aiSafe:0};
 
 /* ================= 유틸 ================= */
 const $=id=>document.getElementById(id);
@@ -377,29 +387,26 @@ const mask=s=>{s=String(s);return s.length<=8?s.slice(0,2)+'•••':s.slice(0
 /* ================= 질문지 ================= */
 function radios(id,opts,inline){return `<div class="opts${inline?' inline':''}">${opts.map((o,i)=>`<label class="opt"><input type="radio" name="${id}" id="${id}-${i}" value="${i}"><span>${esc(o)}</span></label>`).join('')}</div>`}
 const qHtml=[];
-qHtml.push(`<div class="area"><div class="area-head"><h3>2. 현업 적합성</h3><span class="pts">최대 20점 · 답변</span></div>`);
-Q.filter(q=>q.area==='fit').forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,q.inline)}</fieldset>`));
-qHtml.push(`</div><div class="area"><div class="area-head"><h3>3. 효과성</h3><span class="pts">최대 20점 · 답변</span></div>
-  <div class="q"><span class="q-title">한 번 처리하는 데 걸리는 시간과 한 달 사용 횟수</span>
+qHtml.push(`<div class="area"><div class="area-head"><h3>2. 사용 현황</h3><span class="pts">답변 · 선택만 하면 됩니다</span></div>`);
+Q.forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,q.inline)}</fieldset>`));
+qHtml.push(`<div class="q"><span class="q-title">시간이 얼마나 줄었나요? <span class="hint">(모르면 비워 두세요 · 효과성이 가장 낮게 채점됩니다)</span></span>
   <div class="row3"><div class="field"><label for="before" class="hint">도입 전 (분/회)</label><input type="number" id="before" min="0" inputmode="numeric"></div>
   <div class="field"><label for="after" class="hint">도입 후 (분/회)</label><input type="number" id="after" min="0" inputmode="numeric"></div>
   <div class="field"><label for="times" class="hint">한 달 사용 횟수 (전체 사용자 합)</label><input type="number" id="times" min="0" inputmode="numeric"></div></div>
-  <div class="calc" id="calc">월 절감 시간: –</div></div>`);
-Q.filter(q=>q.area==='effect'&&q.id).forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,q.inline)}</fieldset>`));
-qHtml.push(`</div><div class="area"><div class="area-head"><h3>4. 시도의 성격</h3><span class="pts">진보 심사위원 확산 가능성 가산에만 사용</span></div>`);
-Q.filter(q=>q.area==='spread').forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,q.inline)}</fieldset>`));
-qHtml.push(`</div><div class="area"><div class="area-head"><h3>5. 필수 확인</h3><span class="pts">충족해야 등급 확정</span></div>
+  <div class="calc" id="calc">월 절감 시간: –</div></div></div>`);
+qHtml.push(`<div class="area"><div class="area-head"><h3>3. 필수 확인</h3><span class="pts">충족해야 등급 확정</span></div>
   <div class="auto" id="autoReq">파일을 올리면 API 키·비밀번호, 개인정보, 외부 AI 호출 여부를 자동으로 검사합니다.</div>`);
 REQ_Q.forEach(q=>qHtml.push(`<fieldset class="q"><legend class="q-title">${esc(q.t)}</legend>${radios(q.id,q.o,true)}</fieldset>`));
 qHtml.push('</div>');
 if(SUBMIT_URL){
-  qHtml.push(`<div class="area"><div class="area-head"><h3>6. 제출 동의</h3><span class="pts">필수</span></div>
-    <div class="auto">심사가 끝나면 아래 내용이 이 사이트 운영자에게 전송되어 보관됩니다.<br>
-    · 보내는 항목: 프로그램명, 제출자·소속, 올린 파일(텍스트), 심사 결과<br>
+  qHtml.push(`<div class="area"><div class="area-head"><h3>4. 제출 동의</h3><span class="pts">필수</span></div>
+    <div class="auto">심사를 받으면 올린 파일이 이 사이트 운영자에게 전달되어 보관됩니다.<br>
+    · 보내는 항목: 프로그램명, 제출자·소속, 올린 파일, 등급과 평균 점수 (심사 결과 PDF는 보내지 않습니다)<br>
     · 목적: 심사 기록 확인과 심사 기준 개선<br>
     · API 키·비밀번호로 보이는 값이 있으면 전송하지 않습니다. 지운 뒤 다시 올리세요.<br>
+    · 삭제를 원하면 <a href="/contact/">문의 페이지</a>로 요청하세요.<br>
     · 동의하지 않으면 심사 결과를 볼 수 없습니다.</div>
-    <label class="opt"><input type="checkbox" id="consent"><span>위 내용을 확인했고, 파일과 심사 결과를 운영자에게 보내는 데 동의합니다.</span></label>
+    <label class="opt"><input type="checkbox" id="consent"><span>위 내용을 확인했고, 올린 파일을 운영자에게 보내는 데 동의합니다.</span></label>
     <input type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px"></div>`);
 }
 $('questions').innerHTML=qHtml.join('');
@@ -670,21 +677,21 @@ function judge(a,M,k){
   const pii=M.rrn.length+M.phones.length;
   req.push({t:'개인정보로 보이는 값 없음',st:pii?(P?'확인 필요':'미충족'):'충족'});
   req.push({t:'외부 AI에 민감정보 미전송',st:a.aiSafe===0?'충족':a.aiSafe===1?'미충족':(M.ai.length?'확인 필요':'충족')});
-  req.push({t:'사람의 최종 확인',st:a.human===0?'충족':a.human===1?'미충족':'확인 필요'});
   const total=AREAS.reduce((s,ar)=>s+ar.pts[L[ar.k]],0);
   return {L,W,ADJ,total,req};
 }
 
 /* ================= 결과 ================= */
 const ANS_IDS=[...Q.filter(q=>q.id).map(q=>q.id),...REQ_Q.map(q=>q.id)];
-function read(){const a={name:$('name').value.trim(),author:$('author').value.trim()};
+function read(){const a={...DEFAULTS,name:$('name').value.trim(),author:$('author').value.trim()};
   for(const id of ANS_IDS){const c=document.querySelector(`input[name="${id}"]:checked`);a[id]=c?Number(c.value):null}
   for(const id of ['before','after','times']){const v=$(id).value;a[id]=v===''?null:Math.max(0,Number(v))}
   return a}
 function write(d){$('name').value=d.name||'';$('author').value=d.author||'';
   for(const id of ANS_IDS)document.querySelectorAll(`input[name="${id}"]`).forEach(i=>i.checked=(d[id]!=null&&Number(i.value)===d[id]));
   for(const id of ['before','after','times'])$(id).value=d[id]??''}
-let LAST=null;
+let LAST=null,READY=false;
+function openResult(){const d=$('resDialog');if(d.open)return;if(d.showModal)d.showModal();else d.setAttribute('open','')}
 function judgeCards(R){return `<div class="judges">${JUDGES.map(j=>{const t=R?R[j.k].total:null;return `<div class="judge ${j.cls}"><span class="n">${j.full}</span><span class="s num">${t==null?'–':t}</span><span class="g">${t==null?j.motto:gradeOf(t).g+'등급 판정'}</span></div>`}).join('')}</div>`}
 function update(){
   const a=read();
@@ -698,9 +705,9 @@ function update(){
   else $('autoReq').textContent='파일을 올리면 API 키·비밀번호, 개인정보, 외부 AI 호출 여부를 자동으로 검사합니다.';
   const missingQ=Q.filter(q=>q.id&&a[q.id]==null).length+REQ_Q.filter(q=>a[q.id]==null).length;
   const needConsent=SUBMIT_URL&&!exampleShown&&!$('consent')?.checked;
-  const block=analyzing?'파일을 분석하는 중입니다.':!M?'프로그램 파일을 올려 주세요. 100점 중 60점이 파일 분석으로 채점됩니다.':M.kind==='none'?'분석할 코드나 프롬프트 파일이 없습니다. HTML·JS·Apps Script·Python 파일이나 프롬프트(.txt/.md)를 올려 주세요.':missingQ?`아직 답하지 않은 질문이 ${missingQ}개 있습니다. 모두 답하면 바로 채점됩니다.`:needConsent?'6번 제출 동의에 체크하면 심사 결과가 나옵니다.':'';
-  if(block){LAST=null;$('result').innerHTML=`<p class="flag info">${block}</p>`+judgeCards(null);$('mbarText').textContent=block.split('.')[0];$('copyBtn').disabled=true;$('printBtn').disabled=true;return}
-  $('copyBtn').disabled=false;$('printBtn').disabled=false;
+  const block=analyzing?'파일을 분석하는 중입니다.':!M?'프로그램 파일을 올려 주세요. 100점 중 60점이 파일 분석으로 채점됩니다.':M.kind==='none'?'분석할 코드나 프롬프트 파일이 없습니다. HTML·JS·Apps Script·Python 파일이나 프롬프트(.txt/.md)를 올려 주세요.':missingQ?`아직 답하지 않은 질문이 ${missingQ}개 있습니다. 모두 답하면 바로 채점됩니다.`:needConsent?'4번 제출 동의에 체크하면 심사 결과가 나옵니다.':'';
+  if(block){LAST=null;$('result').innerHTML=`<p class="flag info">${block}</p>`+judgeCards(null);$('mbarText').textContent=block.split('.')[0];$('copyBtn').disabled=true;$('printBtn').disabled=true;$('showBtn').disabled=true;$('readyNote').textContent=block;READY=false;return}
+  $('copyBtn').disabled=false;$('printBtn').disabled=false;$('showBtn').disabled=false;$('readyNote').textContent='채점이 끝났습니다. 아래 버튼으로 결과를 확인하세요.';
   const R={};JUDGES.forEach(j=>R[j.k]=judge(a,M,j.k));
   const totals=JUDGES.map(j=>R[j.k].total);
   const avg=Math.round(totals.reduce((x,y)=>x+y,0)/3*10)/10;
@@ -731,6 +738,7 @@ function update(){
   $('mbarText').innerHTML=hold?`보류 · 평균 <b>${avg}</b>점`:`<b>${g.g}</b>등급 · 평균 <b>${avg}</b>점`;
   LAST={a,R,totals,avg,spread,g,hold,pay,fail,unk};
   scheduleSubmit();
+  if(!READY){READY=true;if(!exampleShown)openResult()}
 }
 
 /* ================= 운영자에게 제출 ================= */
@@ -745,20 +753,24 @@ function scheduleSubmit(){
 }
 async function submit(){
   if(sending||!LAST)return;const sig=fileSig();if(sig===sentSig)return;
-  const total=FILES.reduce((s,f)=>s+f.text.length,0);
-  if(total>4e6){$('status').textContent='파일 용량이 커서(4MB 초과) 운영자에게 전송하지 못했습니다.';return}
+  if($('hp')?.value)return; // 자동 입력 프로그램은 조용히 무시
   sending=true;$('status').textContent='운영자에게 제출하는 중…';
-  const payload={hp:$('hp')?.value||'',name:LAST.a.name,author:LAST.a.author,
-    grade:LAST.hold?'보류':LAST.g.g+'등급',avg:LAST.avg,result:resultText(),
-    files:FILES.map(f=>({name:f.name,content:f.text}))};
   try{
-    const res=await fetch(SUBMIT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
-    let ok=res.ok;try{const j=await res.json();ok=!!j.ok}catch{}
-    if(!ok)throw new Error('rejected');
+    const zip=new JSZip();
+    FILES.forEach(f=>zip.file(f.name.replace(/^\/+/,''),f.text));
+    const blob=await zip.generateAsync({type:'blob',compression:'DEFLATE'});
+    if(blob.size>5e6)throw new Error('big');
+    const path=`submissions/${Date.now()}-${Math.random().toString(36).slice(2,10)}.zip`;
+    const H={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
+    const up=await fetch(`${SB_URL}/storage/v1/object/ai-judge-submissions/${path}`,{method:'POST',headers:{...H,'Content-Type':'application/zip'},body:blob});
+    if(!up.ok)throw new Error('upload');
+    const row=await fetch(`${SB_URL}/rest/v1/ai_judge_submissions`,{method:'POST',headers:{...H,'Content-Type':'application/json',Prefer:'return=minimal'},
+      body:JSON.stringify({program_name:(LAST.a.name||'(이름 없음)').slice(0,200),submitter:(LAST.a.author||'').slice(0,200),grade:LAST.hold?'보류':LAST.g.g+'등급',avg_score:LAST.avg,file_count:FILES.length,file_size:blob.size,storage_path:path})});
+    if(!row.ok)throw new Error('row');
     sentSig=sig;
-    $('status').textContent=`운영자에게 제출했습니다 (${new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})}).`;
+    $('status').textContent=`운영자에게 제출했습니다 (${new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})}). 결과는 이 화면에서만 볼 수 있습니다.`;
   }catch(e){
-    $('status').textContent='운영자에게 제출하지 못했습니다. 잠시 후 답변을 하나 바꾸면 다시 시도합니다.';
+    $('status').textContent=e.message==='big'?'파일 용량이 커서(압축 후 5MB 초과) 운영자에게 전송하지 못했습니다. 심사 결과는 그대로 볼 수 있습니다.':'운영자에게 제출하지 못했습니다. 심사 결과는 그대로 볼 수 있습니다.';
   }finally{sending=false}
 }
 function resultText(){
@@ -768,10 +780,10 @@ function resultText(){
     ...JUDGES.map((j,i)=>`- ${j.full}: ${totals[i]}점 (${AREAS.map(ar=>ar.name+' '+LEVELS[R[j.k].L[ar.k]]).join(', ')})`),
     spread>=15?`- 심사위원 간 점수 차 ${spread}점: 담당자 확인 필요`:'',
     ...fail.map(r=>`- 미충족: ${r.t}`),...unk.map(r=>`- 확인 필요: ${r.t}`),
-    `- 답변: 사용 빈도 ${Q[1].o[a.freq]}, 사용 인원 ${Q[2].o[a.users]}, 처리 시간 ${a.before}분→${a.after}분 × 월 ${a.times}회, 시간 근거 ${Q[4].o[a.evidence]}`,
+    `- 답변: 사용 빈도 ${Q[0].o[a.freq]}, 사용 인원 ${Q[1].o[a.users]}, 처리 시간 ${a.before==null?'미입력':a.before+'분→'+a.after+'분 × 월 '+a.times+'회'}`,
     M?`- 자동 분석: 실행 ${M.testable?(M.execErrors?'오류 '+M.execErrors+'건':'통과'):'검사 불가'}, 오류 처리 ${M.handlers.length}곳, 입력 검증 ${M.valids}곳, 하드코딩 ${M.hard.length}곳, 설명서 ${M.readme.exists?'있음':'없음'}`:''].filter(Boolean).join('\n');
 }
-if(SUBMIT_URL)$('privacyPill').textContent='심사한 파일은 동의 후 운영자에게 제출됨';
+if(SUBMIT_URL)$('privacyPill').textContent='동의하면 올린 파일이 운영자에게 전달됨 · 결과 PDF는 본인만';
 
 /* ================= 리포트 ================= */
 function list(items,fmt,max=6){if(!items.length)return '';const more=items.length>max?`<li class="hint">외 ${items.length-max}곳</li>`:'';return `<ul>${items.slice(0,max).map(x=>`<li>${fmt(x)}</li>`).join('')}${more}</ul>`}
@@ -816,6 +828,7 @@ async function loadExample(){
 $('exampleBtn').onclick=loadExample;
 $('resetBtn').onclick=async()=>{FILES=[];write({});hideExample();$('analyzeStatus').textContent='';renderFiles();await runAnalysis();$('name').focus()};
 $('printBtn').onclick=()=>window.print();
+$('showBtn').onclick=openResult;$('mbarBtn').onclick=openResult;$('closeBtn').onclick=()=>$('resDialog').close();
 $('copyBtn').onclick=async()=>{
   if(!LAST)return;const t=resultText();
   try{await navigator.clipboard.writeText(t);$('status').textContent='결과를 복사했습니다.'}catch{$('status').textContent='복사하지 못했습니다. 결과 표를 직접 선택해 복사하세요.'}

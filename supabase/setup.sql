@@ -336,3 +336,45 @@ create policy "ai_app_images_insert_admin" on storage.objects
 drop policy if exists "ai_app_images_delete_admin" on storage.objects;
 create policy "ai_app_images_delete_admin" on storage.objects
   for delete using (bucket_id = 'ai-app-images' and public.is_admin());
+
+-- ═══ AI 프로그램 심사실 제출 파일 (2026-10-24) ═══
+-- /ai-judge/ 에서 방문자가 '제출 동의'를 하고 심사를 받으면, 올린 파일을 ZIP 하나로 묶어
+-- 이 비공개 버킷에 저장하고 한 줄짜리 기록을 아래 표에 남긴다. 방문자(비로그인)는 **넣기만** 가능하고,
+-- 목록 조회·다운로드·삭제는 관리자만 가능하다. 심사 결과(PDF)는 저장하지 않는다 — 올린 사람 브라우저에서만 만든다.
+insert into storage.buckets (id, name, public, allowed_mime_types, file_size_limit)
+values ('ai-judge-submissions', 'ai-judge-submissions', false, array['application/zip'], 5242880)
+on conflict (id) do update set public = false,
+  allowed_mime_types = array['application/zip'], file_size_limit = 5242880;
+
+create table if not exists public.ai_judge_submissions (
+  id bigint generated always as identity primary key,
+  created_at timestamptz not null default now(),
+  program_name text not null check (char_length(program_name) <= 200),
+  submitter text not null default '' check (char_length(submitter) <= 200),
+  grade text not null default '' check (char_length(grade) <= 20),
+  avg_score numeric,
+  file_count int not null default 0 check (file_count between 0 and 200),
+  file_size bigint not null default 0 check (file_size between 0 and 5242880),
+  storage_path text not null check (storage_path like 'submissions/%.zip' and char_length(storage_path) <= 200)
+);
+alter table public.ai_judge_submissions enable row level security;
+
+drop policy if exists "judge_sub_insert_anyone" on public.ai_judge_submissions;
+create policy "judge_sub_insert_anyone" on public.ai_judge_submissions
+  for insert with check (true);
+drop policy if exists "judge_sub_select_admin" on public.ai_judge_submissions;
+create policy "judge_sub_select_admin" on public.ai_judge_submissions
+  for select using (public.is_admin());
+drop policy if exists "judge_sub_delete_admin" on public.ai_judge_submissions;
+create policy "judge_sub_delete_admin" on public.ai_judge_submissions
+  for delete using (public.is_admin());
+
+drop policy if exists "judge_storage_insert_anyone" on storage.objects;
+create policy "judge_storage_insert_anyone" on storage.objects
+  for insert with check (bucket_id = 'ai-judge-submissions' and name like 'submissions/%.zip');
+drop policy if exists "judge_storage_select_admin" on storage.objects;
+create policy "judge_storage_select_admin" on storage.objects
+  for select using (bucket_id = 'ai-judge-submissions' and public.is_admin());
+drop policy if exists "judge_storage_delete_admin" on storage.objects;
+create policy "judge_storage_delete_admin" on storage.objects
+  for delete using (bucket_id = 'ai-judge-submissions' and public.is_admin());

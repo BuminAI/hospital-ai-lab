@@ -69,6 +69,7 @@ import {
         <a href="#video-panel" data-tab="video-panel">▶️ 추천 영상</a>
         <a href="#notes-panel" data-tab="notes-panel">📚 강의노트</a>
         <a href="#ai-apps-admin" data-tab="ai-apps-admin">📦 AI로 만든 앱</a>
+        <a href="#judge-panel" data-tab="judge-panel">🧪 AI 심사 제출</a>
         <a href="#member-panel" data-tab="member-panel">👥 회원</a>
         <a href="#deploy-panel" data-tab="deploy-panel">🚀 사이트 반영 상태</a>
         <a href="#stats-panel" data-tab="stats-panel">📊 방문자 통계</a>
@@ -267,6 +268,18 @@ import {
       </div>
       <p class="hint" id="app-status"></p>
       <div id="admin-apps-list" class="posts"></div>
+    </section>
+
+    <section class="panel" id="judge-panel">
+      <h2>🧪 AI 심사 제출</h2>
+      <p class="section-desc">
+        /ai-judge/ (AI 프로그램 심사실)에서 방문자가 동의하고 올린 파일 모음입니다. 방문자가 올린 파일을
+        ZIP 하나로 내려받을 수 있고, 처리가 끝나면 삭제하세요. 심사 결과 PDF는 올린 사람만 자기 화면에서 만들 수
+        있어 여기에는 저장되지 않으며, 등급과 평균 점수만 기록됩니다. ⚠️ 내려받은 파일은 열기 전에 바이러스 검사를
+        하세요(프로그램 파일이므로 실행하지 마세요).
+      </p>
+      <p class="hint" id="judge-status"></p>
+      <div id="judge-list" class="posts"></div>
     </section>
 
     <!-- 추천 강의 영상 관리 -->
@@ -498,6 +511,7 @@ import {
         loadMembers();
         loadAdminNotes();
         loadAdminApps();
+        loadJudgeSubmissions();
         window.dispatchEvent(new CustomEvent('admin-ready'));
       }
     }
@@ -606,6 +620,44 @@ import {
       if (n < 1024) return n + 'B';
       if (n < 1024 * 1024) return (n / 1024).toFixed(0) + 'KB';
       return (n / 1024 / 1024).toFixed(1) + 'MB';
+    }
+
+    // AI 심사실 제출 목록 (2026-10-24) — 비공개 버킷이라 내려받기는 관리자 로그인 상태에서 만든
+    // 임시 주소(60초 유효)로만 가능하다.
+    async function loadJudgeSubmissions() {
+      const el = $('judge-list');
+      const { data, error } = await sb
+        .from('ai_judge_submissions')
+        .select('id, created_at, program_name, submitter, grade, avg_score, file_count, file_size, storage_path')
+        .order('created_at', { ascending: false })
+        .limit(200);
+      if (error) { el.textContent = dbSetupHint(error); return; }
+      const kb = (n) => (n >= 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(n / 1024)) + 'KB');
+      el.innerHTML = data.map((r) => `<div class="post-row">
+          <span class="post-title">${escHtml(r.program_name)}
+            <span class="hint"> · ${escHtml(r.submitter || '제출자 미입력')} · ${escHtml(r.grade || '-')}${r.avg_score != null ? ' ' + r.avg_score + '점' : ''} · 파일 ${r.file_count}개 · ${kb(r.file_size)}</span>
+          </span>
+          <span class="post-file">${fmtD(r.created_at)}</span>
+          <span class="post-actions">
+            <button class="btn ghost" data-jdl="${r.id}">다운로드</button>
+            <button class="btn ghost danger" data-jdel="${r.id}">삭제</button>
+          </span></div>`).join('') || '<p class="hint">아직 제출된 파일이 없습니다.</p>';
+      el.querySelectorAll('[data-jdl]').forEach((b) => b.addEventListener('click', async () => {
+        const row = data.find((x) => String(x.id) === b.dataset.jdl);
+        const { data: signed, error: e1 } = await sb.storage.from('ai-judge-submissions')
+          .createSignedUrl(row.storage_path, 60, { download: (row.program_name || 'submission').replace(/[\/:*?"<>|]/g, '_') + '.zip' });
+        if (e1) { alert(e1.message); return; }
+        window.location.href = signed.signedUrl;
+      }));
+      el.querySelectorAll('[data-jdel]').forEach((b) => b.addEventListener('click', async () => {
+        const row = data.find((x) => String(x.id) === b.dataset.jdel);
+        if (!confirm(`"${row.program_name}" 제출 파일을 삭제할까요? 되돌릴 수 없습니다.`)) return;
+        const { error: e2 } = await sb.storage.from('ai-judge-submissions').remove([row.storage_path]);
+        if (e2) { alert(e2.message); return; }
+        const { error: e3 } = await sb.from('ai_judge_submissions').delete().eq('id', row.id);
+        if (e3) { alert(e3.message); return; }
+        loadJudgeSubmissions();
+      }));
     }
 
     async function loadAdminApps() {
