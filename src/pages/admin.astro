@@ -274,11 +274,12 @@ import {
       <h2>🧪 AI 심사 제출</h2>
       <p class="section-desc">
         /ai-judge/ (AI 프로그램 심사실)에서 방문자가 동의하고 올린 파일 모음입니다. 방문자가 올린 파일을
-        ZIP 하나로 내려받을 수 있고, 처리가 끝나면 삭제하세요. 심사 결과 PDF는 올린 사람만 자기 화면에서 만들 수
+        ZIP 하나로 내려받을 수 있습니다. 보관 기간은 제출일로부터 1개월이며(개인정보 처리방침·제출 동의 문구에 안내됨), 기간이 지난 건은 아래에 '만료'로 표시되고 한 번에 삭제할 수 있습니다. 심사 결과 PDF는 올린 사람만 자기 화면에서 만들 수
         있어 여기에는 저장되지 않으며, 등급과 평균 점수만 기록됩니다. ⚠️ 내려받은 파일은 열기 전에 바이러스 검사를
         하세요(프로그램 파일이므로 실행하지 마세요).
       </p>
       <p class="hint" id="judge-status"></p>
+      <button class="btn ghost danger" id="judge-purge" hidden>만료된 제출 한꺼번에 삭제</button>
       <div id="judge-list" class="posts"></div>
     </section>
 
@@ -632,10 +633,22 @@ import {
         .order('created_at', { ascending: false })
         .limit(200);
       if (error) { el.textContent = dbSetupHint(error); return; }
+      const expired = (r) => Date.now() - new Date(r.created_at).getTime() > 30 * 86400000;
+      const old = data.filter(expired);
+      $('judge-purge').hidden = !old.length;
+      $('judge-status').textContent = old.length ? `보관 1개월이 지난 제출이 ${old.length}건 있습니다. 삭제해 주세요.` : '';
+      $('judge-purge').onclick = async () => {
+        if (!confirm(`보관 기간(1개월)이 지난 ${old.length}건을 삭제할까요? 되돌릴 수 없습니다.`)) return;
+        const { error: e0 } = await sb.storage.from('ai-judge-submissions').remove(old.map((r) => r.storage_path));
+        if (e0) { alert(e0.message); return; }
+        const { error: e9 } = await sb.from('ai_judge_submissions').delete().in('id', old.map((r) => r.id));
+        if (e9) { alert(e9.message); return; }
+        loadJudgeSubmissions();
+      };
       const kb = (n) => (n >= 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(n / 1024)) + 'KB');
       el.innerHTML = data.map((r) => `<div class="post-row">
           <span class="post-title">${escHtml(r.program_name)}
-            <span class="hint"> · ${escHtml(r.submitter || '제출자 미입력')} · ${escHtml(r.grade || '-')}${r.avg_score != null ? ' ' + r.avg_score + '점' : ''} · 파일 ${r.file_count}개 · ${kb(r.file_size)}</span>
+            <span class="hint"> · ${expired(r) ? '⚠️ 만료 · ' : ''}${escHtml(r.submitter || '제출자 미입력')} · ${escHtml(r.grade || '-')}${r.avg_score != null ? ' ' + r.avg_score + '점' : ''} · 파일 ${r.file_count}개 · ${kb(r.file_size)}</span>
           </span>
           <span class="post-file">${fmtD(r.created_at)}</span>
           <span class="post-actions">
