@@ -86,7 +86,8 @@ const navRows = navConfig.map((n) => ({
           섞으면 탭 전환이 깨지기 때문이다(한국어판 관리자와 같은 처리).
           ⚠️ 언어판을 새로 만들면 다섯 관리 화면 전부에 추가할 것. */}
       <ul class="admin-editions">
-        <li><a href={withBase('/admin/')}>한국어판 관리자</a></li>
+        <li><a href={withBase('/admin/')}>← 관리자 대시보드(전체 언어판)</a></li>
+        <li><a href={withBase('/admin-ko/')}>한국어판 관리자</a></li>
         <li><a href={withBase('/admin-ja/')}>일본어판 관리자</a></li>
         <li><a href={withBase('/admin-ru/')}>러시아어판 관리자</a></li>
         <li><a href={withBase('/admin-id/')}>인도네시아어판 관리자</a></li>
