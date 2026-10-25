@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-25T00:20:00.333Z",
+  "updatedAt": "2026-10-25T07:34:31.266Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-агент — сотрудник без права на последний клик. Как мы организовали разработку на ELMA 365 с ИИ-агентами",
+      "link": "https://habr.com/ru/articles/1099004/?utm_campaign=1099004&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-25T06:35:12.000Z"
+    },
     {
       "title": "[Перевод] Я запустил 100 ИИ‑агентов, чтобы они меня взломали. Пять раз у них получилось",
       "link": "https://habr.com/ru/companies/otus/articles/1097872/?utm_campaign=1097872&utm_source=habrahabr&utm_medium=rss",
@@ -1795,12 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-08_v_selectel_predstavili_edinuyu",
       "source": "CNews",
       "pubDate": "2026-10-08T09:32:00.000Z"
-    },
-    {
-      "title": "МТС и Magnit Tech стали индустриальными партнерами ФКН НИУ ВШЭ в рамках проекта «Топ-ИИ» Минцифры",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_mts_i_magnit_tech_stali_industrialnymi",
-      "source": "CNews",
-      "pubDate": "2026-10-08T09:09:00.000Z"
     }
   ]
 }
