@@ -1,0 +1,54 @@
+---
+// 언어판별 홈 히어로(2026-10-25, 오너 요청: 한국적 디자인을 거두고 나라마다 그 나라 사람들이 좋아하는 디자인으로).
+//   ja 和 — 와시 바탕·남색(藍)·주홍(朱), 청해파(青海波) 띠, 도장(印) 모양 엠블럼
+//   ru 겔 — 흰 바탕·코발트 블루(겔 도자기 풍), 꽃무늬 점 띠, 꽃 모양 엠블럼
+//   id 바틱 — 따뜻한 크림 바탕·테라코타·소간 갈색, 카웅(kawung) 무늬 띠, 카웅 엠블럼
+//   tw 옛 꽃타일(花磚) — 청록·붉은색·크림, 타일 띠, 타일 엠블럼
+// 장식은 CSS·인라인 SVG뿐이고 읽는 데 필요한 정보가 아니라 aria-hidden이다. 색·무늬 정의는 styles/locale-theme.css.
+// ⚠️ 한국어판 홈에는 쓰지 않는다.
+const { locale, eyebrow = '' } = Astro.props;
+const petals = [0, 45, 90, 135, 180, 225, 270, 315];
+const kawung = [0, 90, 180, 270];
+---
+
+<section class="lh-hero" data-theme={locale}>
+  <div class="lh-band" aria-hidden="true"></div>
+  <div class="lh-body">
+    <div class="lh-text">
+      {eyebrow && <p class="lh-eyebrow">{eyebrow}</p>}
+      <slot name="title" />
+      <slot />
+    </div>
+    {locale === 'ja' && (
+      <svg class="lh-emblem" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <rect x="10" y="10" width="80" height="80" rx="10" fill="#c8402f" />
+        <rect x="18" y="18" width="64" height="64" rx="6" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="2" />
+        <text x="50" y="67" text-anchor="middle" font-size="50" font-weight="700" fill="#fff" font-family="'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif">医</text>
+      </svg>
+    )}
+    {locale === 'ru' && (
+      <svg class="lh-emblem" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        {petals.map((a) => <ellipse cx="50" cy="26" rx="9" ry="20" fill="#1b4fa8" fill-opacity=".88" transform={`rotate(${a} 50 50)`} />)}
+        <circle cx="50" cy="50" r="15" fill="#fff" />
+        <circle cx="50" cy="50" r="9" fill="#1b4fa8" />
+      </svg>
+    )}
+    {locale === 'id' && (
+      <svg class="lh-emblem" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        {kawung.map((a) => <ellipse cx="50" cy="27" rx="13" ry="22" fill="#9a3324" fill-opacity=".9" stroke="#e0b252" stroke-width="2" transform={`rotate(${a} 50 50)`} />)}
+        <circle cx="50" cy="50" r="7" fill="#e0b252" />
+      </svg>
+    )}
+    {locale === 'tw' && (
+      <svg class="lh-emblem" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <rect x="8" y="8" width="84" height="84" rx="6" fill="#f3e9d2" stroke="#0f766e" stroke-width="5" />
+        <polygon points="50,18 82,50 50,82 18,50" fill="#0f766e" />
+        <polygon points="50,32 68,50 50,68 32,50" fill="#f3e9d2" />
+        <circle cx="50" cy="50" r="9" fill="#b3262d" />
+        <circle cx="19" cy="19" r="4" fill="#b3262d" /><circle cx="81" cy="19" r="4" fill="#b3262d" />
+        <circle cx="19" cy="81" r="4" fill="#b3262d" /><circle cx="81" cy="81" r="4" fill="#b3262d" />
+      </svg>
+    )}
+  </div>
+  <div class="lh-band lh-band-end" aria-hidden="true"></div>
+</section>

@@ -8,7 +8,7 @@
 // ⚠️ 카드는 **내용이 있는 페이지만** 건다. 새 페이지를 만들 때 카드부터
 //    추가하지 말 것.
 import IdLayout from '../../layouts/IdLayout.astro';
-import KrHero from '../../components/KrHero.astro';
+import LocaleHero from '../../components/LocaleHero.astro';
 import id from '../../i18n/id.json';
 import { withBase } from '../../utils/site';
 import HomeSeries from '../../components/HomeSeries.astro';
@@ -61,13 +61,13 @@ const homeSeries = (await getResolvedSeries('id'))
   ruPath="/ru/"
   schema={[homeFaqLd]}
 >
-  <KrHero eyebrow={id.home.heroEyebrow}>
+  <LocaleHero locale="id" eyebrow={id.home.heroEyebrow}>
     <h1 slot="title">{id.home.heroTitle}</h1>
     <p>{id.home.heroLead}</p>
     <p style="margin-top:16px">
       <a class="id-cta" href={withBase('/id/about/')}>{id.nav.about} →</a>
     </p>
-  </KrHero>
+  </LocaleHero>
 
   <div class="id-cards">
     <a class="id-card" href={withBase('/id/ai-digest/')}>

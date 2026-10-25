@@ -1,0 +1,133 @@
+/* 언어판별 사이트 테마(2026-10-25). 일본어·러시아어·인도네시아어·대만어판 레이아웃이 각자의 토큰 CSS 다음에 불러온다.
+   한국어판에는 쓰지 않는다. 홈 히어로 모양은 components/LocaleHero.astro, 여기서는 모든 페이지의 색·바탕·헤더·푸터·제목·카드를 맡는다.
+     ja 和   — 와시 바탕, 남색(藍) + 주홍(朱), 청해파(青海波) 띠
+     ru 겔   — 차가운 흰 바탕, 코발트 블루(겔 도자기 풍), 꽃무늬 점 띠
+     id 바틱 — 따뜻한 크림 바탕, 테라코타·소간 갈색, 카웅(kawung) 무늬 띠
+     tw 꽃타일 — 청록 + 붉은색, 크림 바탕, 옛 꽃타일(花磚) 띠
+   ⚠️ 선택자 앞의 html[data-locale]은 각 언어 토큰 CSS보다 우선하게 하려는 것이다. */
+
+/* ── 언어별 변수 ───────────────────────────────────────── */
+html[data-locale='ja'] {
+  --lt-1: #1f3a5f; --lt-2: #c8402f; --lt-3: #b08d3c; --lt-line: #e2ddd0;
+  --lt-hero-bg: #fbfaf6; --lt-ink: #1a1a1a;
+  --lt-band: radial-gradient(circle at 50% 100%, transparent 0 34%, #1f3a5f 35% 38%, transparent 39% 52%, #1f3a5f 53% 56%, transparent 57% 70%, #1f3a5f 71% 74%, transparent 75%) 0 0 / 28px 14px;
+  --lt-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='6' y='6' width='88' height='88' rx='14' fill='%23c8402f'/%3E%3Crect x='24' y='24' width='52' height='52' rx='8' fill='none' stroke='%23fff' stroke-width='6'/%3E%3C/svg%3E");
+}
+html[data-locale='ru'] {
+  --lt-1: #1b4fa8; --lt-2: #4a7bd0; --lt-3: #0e2f6e; --lt-line: #d9e2f2;
+  --lt-hero-bg: #f8fafe; --lt-ink: #14213d;
+  --lt-band: radial-gradient(circle at 50% 50%, #1b4fa8 0 2.6px, transparent 3px) 0 0 / 14px 14px, radial-gradient(circle at 50% 50%, #7fa1dc 0 1.8px, transparent 2.2px) 7px 7px / 14px 14px;
+  --lt-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%231b4fa8'%3E%3Cellipse cx='50' cy='26' rx='11' ry='22'/%3E%3Cellipse cx='50' cy='26' rx='11' ry='22' transform='rotate(90 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='11' ry='22' transform='rotate(180 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='11' ry='22' transform='rotate(270 50 50)'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='12' fill='%23fff'/%3E%3C/svg%3E");
+}
+html[data-locale='id'] {
+  --lt-1: #9a3324; --lt-2: #8a5a2b; --lt-3: #1f4e5f; --lt-line: #e8dcc2;
+  --lt-hero-bg: #fdf8ef; --lt-ink: #2a1d12;
+  --lt-band: radial-gradient(circle at 50% 0, transparent 0 5px, #8a5a2b 5.5px 7px, transparent 7.5px) 0 0 / 16px 16px, radial-gradient(circle at 50% 100%, transparent 0 5px, #8a5a2b 5.5px 7px, transparent 7.5px) 0 0 / 16px 16px, radial-gradient(circle, #d9a441 0 1.6px, transparent 2px) 8px 8px / 16px 16px;
+  --lt-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%239a3324' stroke='%23e0b252' stroke-width='4'%3E%3Cellipse cx='50' cy='27' rx='13' ry='22'/%3E%3Cellipse cx='50' cy='27' rx='13' ry='22' transform='rotate(90 50 50)'/%3E%3Cellipse cx='50' cy='27' rx='13' ry='22' transform='rotate(180 50 50)'/%3E%3Cellipse cx='50' cy='27' rx='13' ry='22' transform='rotate(270 50 50)'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='8' fill='%23e0b252'/%3E%3C/svg%3E");
+}
+html[data-locale='tw'] {
+  --lt-1: #0f766e; --lt-2: #b3262d; --lt-3: #d49a1f; --lt-line: #dbe6e0;
+  --lt-hero-bg: #fbfaf5; --lt-ink: #14302d;
+  --lt-band: conic-gradient(from 45deg at 50% 50%, #0f766e 0 25%, #f3e9d2 0 50%, #b3262d 0 75%, #f3e9d2 0) 0 0 / 16px 16px;
+  --lt-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='6' y='6' width='88' height='88' rx='10' fill='%230f766e'/%3E%3Cpolygon points='50,22 78,50 50,78 22,50' fill='%23f3e9d2'/%3E%3Ccircle cx='50' cy='50' r='11' fill='%23b3262d'/%3E%3C/svg%3E");
+}
+
+/* ── 밝은 화면: 바탕·강조색(다크 모드 토큰은 그대로 둔다) ─── */
+@media not (prefers-color-scheme: dark) {
+  html[data-locale='ja'] { --ja-base: #fdfcf9; --ja-surface: #f6f3ea; --ja-surface-2: #eee9db; --ja-border: #e2ddd0; --ja-primary: #1f3a5f; --ja-primary-dk: #152a47; }
+  html[data-locale='ru'] { --ru-base: #fcfdff; --ru-surface: #f1f5fc; --ru-surface-2: #e6edf9; --ru-border: #d9e2f2; --ru-primary: #1b4fa8; --ru-primary-dk: #123a80; }
+  html[data-locale='id'] { --id-base: #fffcf5; --id-surface: #f8efdd; --id-surface-2: #f1e4c9; --id-border: #e8dcc2; --id-primary: #9a3324; --id-primary-dk: #732416; }
+  html[data-locale='tw'] { --tw-base: #fcfcf8; --tw-surface: #f1f6f3; --tw-surface-2: #e4eee9; --tw-border: #dbe6e0; --tw-primary: #0f766e; --tw-primary-dk: #0b5a54; }
+}
+
+/* ── 헤더: 아래 무늬 띠 + 브랜드 앞 작은 마크 ─────────────── */
+html[data-locale] :is(.ja-header, .ru-header, .id-header, .tw-header) {
+  position: relative;
+  border-bottom: 0;
+  padding-bottom: 14px;
+}
+html[data-locale] :is(.ja-header, .ru-header, .id-header, .tw-header)::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 14px;
+  background: var(--lt-band);
+  border-top: 1px solid var(--lt-line);
+}
+html[data-locale] :is(.ja-brand, .ru-brand, .id-brand, .tw-brand)::before {
+  content: '';
+  display: inline-block;
+  width: 1.15em; height: 1.15em;
+  margin-right: .45em;
+  vertical-align: -0.2em;
+  background: var(--lt-mark) center / contain no-repeat;
+}
+
+/* ── 본문 제목(h2): 왼쪽 막대 두 색 ──────────────────────── */
+html[data-locale] :is(.ja-main, .ru-main, .id-main, .tw-main, main) h2 {
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-image: linear-gradient(var(--lt-1) 0 50%, var(--lt-2) 50% 100%) 1;
+}
+
+/* ── 푸터 위 띠 ─────────────────────────────────────────── */
+html[data-locale] :is(.ja-footer, .ru-footer, .id-footer, .tw-footer) {
+  position: relative;
+  border-top: 0;
+  padding-top: calc(1.5rem + 14px);
+}
+html[data-locale] :is(.ja-footer, .ru-footer, .id-footer, .tw-footer)::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 14px;
+  background: var(--lt-band);
+  border-bottom: 1px solid var(--lt-line);
+}
+
+/* ── 카드: 위쪽 선 색을 언어 팔레트 순서로 ───────────────── */
+html[data-locale] :is([class$='-cards']) > a[class] {
+  border-top: 3px solid var(--card-accent, var(--lt-1));
+  border-left-width: 1px;
+}
+html[data-locale] :is([class$='-cards']) > a[class]:nth-child(3n+1) { --card-accent: var(--lt-1); }
+html[data-locale] :is([class$='-cards']) > a[class]:nth-child(3n+2) { --card-accent: var(--lt-2); }
+html[data-locale] :is([class$='-cards']) > a[class]:nth-child(3n+3) { --card-accent: var(--lt-3); }
+
+/* ── 홈 히어로(LocaleHero) ───────────────────────────────── */
+.lh-hero {
+  position: relative;
+  margin: 0 0 8px;
+  border: 1px solid var(--lt-line);
+  border-radius: 6px;
+  background: var(--lt-hero-bg);
+  overflow: hidden;
+}
+.lh-band { height: 14px; background: var(--lt-band); }
+.lh-band-end { border-top: 1px solid var(--lt-line); }
+.lh-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: 26px 28px 22px;
+}
+.lh-text { min-width: 0; }
+.lh-eyebrow { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--lt-1); }
+.lh-hero h1 { margin: 0 0 12px; color: var(--lt-ink); }
+.lh-hero .lh-text p:not(.lh-eyebrow) { color: color-mix(in srgb, var(--lt-ink) 88%, #fff); }
+.lh-emblem { width: clamp(84px, 14vw, 128px); height: auto; opacity: .95; }
+@media (max-width: 560px) {
+  .lh-body { grid-template-columns: minmax(0, 1fr); padding: 20px 18px 16px; }
+  .lh-emblem { width: 72px; justify-self: end; margin-top: -8px; }
+}
+
+/* ── 다크 모드 ───────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  html[data-locale] { --lt-hero-bg: #141b26; --lt-ink: #eef1f6; --lt-line: #2b3646; }
+  html[data-locale='ja'] { --lt-1: #8fb0e0; --lt-2: #e0705f; }
+  html[data-locale='ru'] { --lt-1: #7fa6ec; --lt-2: #5b86d6; --lt-3: #a9c0f0; }
+  html[data-locale='id'] { --lt-1: #e58b78; --lt-2: #d1a06a; --lt-3: #6fb3c8; }
+  html[data-locale='tw'] { --lt-1: #4fc0b4; --lt-2: #e0707a; --lt-3: #e5b64f; }
+  .lh-hero .lh-text p:not(.lh-eyebrow) { color: #d6dbe5; }
+}

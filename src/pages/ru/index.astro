@@ -1,7 +1,7 @@
 ---
 // 러시아어판 홈 (Phase B — 실제 콘텐츠로 교체)
 import RuLayout from '../../layouts/RuLayout.astro';
-import KrHero from '../../components/KrHero.astro';
+import LocaleHero from '../../components/LocaleHero.astro';
 import ru from '../../i18n/ru.json';
 import { withBase } from '../../utils/site';
 import HomeSeries from '../../components/HomeSeries.astro';
@@ -54,13 +54,13 @@ const homeSeries = (await getResolvedSeries('ru'))
   idPath="/id/"
   schema={[homeFaqLd]}
 >
-  <KrHero eyebrow={ru.home.heroEyebrow}>
+  <LocaleHero locale="ru" eyebrow={ru.home.heroEyebrow}>
     <h1 slot="title">{ru.home.heroTitle}<br />{ru.home.heroTitle2}</h1>
     <p>{ru.home.heroLead}</p>
     <p style="margin-top:16px">
       <a class="ru-cta" href={withBase('/ru/about/')}>{ru.home.ctaAbout}</a>
     </p>
-  </KrHero>
+  </LocaleHero>
 
   <h2>{ru.home.resourcesTitle}</h2>
   <div class="ru-cards">
