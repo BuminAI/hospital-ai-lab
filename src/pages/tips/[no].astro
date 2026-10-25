@@ -15,7 +15,7 @@ const prev = tips.find((t) => t.no === tip.no - 1);
 const next = tips.find((t) => t.no === tip.no + 1);
 ---
 
-<BaseLayout title={tip.title} description={`${tip.hook} — ${tip.fullTitle}. 병원 기획·홍보·AI 업무에 바로 쓰는 실무 팁 ${total}가지를 정리했습니다.`}>
+<BaseLayout title={tip.title} description={tip.story ? `${tip.hook}. 병원 행정·간호 업무에서 AI를 쓸 때 바로 따라 할 수 있는 한 가지 팁.` : `${tip.hook} — ${tip.fullTitle}. 병원 기획·홍보·AI 업무에 바로 쓰는 실무 팁 ${total}가지를 정리했습니다.`}>
   <div class="container">
     <p class="back"><a href={withBase('/tips/')}>← 실무 팁 목록</a></p>
 
@@ -23,8 +23,33 @@ const next = tips.find((t) => t.no === tip.no + 1);
       <p class="tip-no">TIP {String(tip.no).padStart(2, '0')}</p>
       <h1>{tip.fullTitle}</h1>
       <p class="tip-hook">{tip.hook}</p>
-      <p class="tip-count">{total}가지</p>
+      {!tip.story && <p class="tip-count">{total}가지</p>}
     </header>
+
+    {
+      tip.story && (
+        <article class="tip-story">
+          {tip.story.map((sec) => (
+            <section>
+              <h2>{sec.heading}</h2>
+              {sec.paragraphs.map((para) => <p>{para}</p>)}
+              {sec.copy && <p class="tip-copy">{sec.copy}</p>}
+            </section>
+          ))}
+          {tip.sources && (
+            <aside class="tip-sources">
+              <h2>출처</h2>
+              <ul>
+                {tip.sources.map((src) => (
+                  <li><a href={src.url} target="_blank" rel="noopener">{src.label}<span class="sr-only"> (새 탭으로 열림)</span></a></li>
+                ))}
+              </ul>
+              {tip.checked && <p class="tip-checked">출처 확인일: {tip.checked}</p>}
+            </aside>
+          )}
+        </article>
+      )
+    }
 
     {
       tip.groups.map((group) => (
@@ -57,7 +82,7 @@ const next = tips.find((t) => t.no === tip.no + 1);
       ))
     }
 
-    <nav class="tip-nav" aria-label="다른 실무 팁">
+    <nav class="tip-nav" aria-label="다른 실무 팁" hidden={!prev && !next}>
       {
         prev ? (
           <a class="tip-nav-link prev" href={withBase(`/tips/${prev.no}/`)}>
@@ -81,6 +106,23 @@ const next = tips.find((t) => t.no === tip.no + 1);
 </BaseLayout>
 
 <style>
+  .tip-story { max-width: var(--prose-width); margin-top: 1.5rem; }
+  .tip-story section { margin-top: 2rem; }
+  .tip-story h2 { font-size: 1.25rem; margin-bottom: 0.6rem; }
+  .tip-story p { line-height: 1.9; margin-top: 0.7rem; }
+  .tip-copy {
+    padding: 1rem 1.15rem;
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    font-weight: 600;
+    line-height: 1.8;
+    user-select: all;
+  }
+  .tip-sources { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-border); font-size: var(--text-sm); }
+  .tip-sources h2 { font-size: 1rem; }
+  .tip-sources ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+  .tip-checked { margin-top: 0.6rem; color: var(--color-muted); }
   .back {
     padding-top: 2rem;
     font-size: var(--text-sm);

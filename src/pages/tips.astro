@@ -35,14 +35,14 @@ const itemList = {
   alternates={{ ja: '/ja/tips/', ru: '/ru/tips/', tw: '/tw/tips/', id: '/id/tips/' }}
   schema={[itemList]}
   title="병원 업무에 바로 쓰는 AI 활용 팁"
-  description="병원 기획·홍보·AI 업무에 바로 쓰는 실무 팁을 카드로 정리했습니다. 크롬 확장프로그램, 업무용 AI 도구, 엑셀 기능, 검색 연산자, 발표자료 제작까지 주제별로 모았습니다."
+  description="병원 행정·간호 현장에서 AI를 쓸 때 바로 따라 할 수 있는 실무 팁을 한 번에 하나씩 올립니다. 짧고 단순하며 출처를 밝힙니다."
 >
   <div class="container">
     <header class="page-head">
       <h1>실무 팁</h1>
       <p class="lead">
-        병원 기획·홍보·AI 업무에 바로 쓰는 도구와 방법을 주제별로 모았습니다.
-        카드를 누르면 항목이 펼쳐집니다.
+        병원 행정·간호 현장에서 AI를 쓸 때 바로 따라 할 수 있는 팁을 한 번에 하나씩
+        올립니다. 단순하고 효과가 분명한 것만 고릅니다.
       </p>
       <p class="notice">
         웹 자료를 모아 정리했고, 외국어 자료는 한글로 옮겼습니다. 가격·기능은
@@ -64,7 +64,7 @@ const itemList = {
               <span class="tip-title">{tip.title}</span>
               <span class="tip-hook">{tip.hook}</span>
               <span class="tip-foot">
-                <span class="tip-count">{countOf(tip.no)}가지</span>
+                <span class="tip-count">{tip.story ? '1분 팁' : `${countOf(tip.no)}가지`}</span>
                 <span class="tip-more">펼쳐 보기 →</span>
               </span>
             </a>

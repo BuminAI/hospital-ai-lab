@@ -19,6 +19,15 @@ export interface TipGroup {
   items: TipItem[];
 }
 
+/** 한 가지 팁을 이야기처럼 풀어 쓰는 단락(목록형 groups 대신 쓴다). */
+export interface TipStory {
+  heading: string;
+  /** 문단들 */
+  paragraphs: string[];
+  /** 그대로 복사해 쓰는 문장(있으면 상자로 보인다) */
+  copy?: string;
+}
+
 export interface Tip {
   /** 주소가 되는 번호 (/tips/1/) */
   no: number;
@@ -28,642 +37,59 @@ export interface Tip {
   hook: string;
   /** 상세 페이지 제목 (원문 제목 그대로) */
   fullTitle: string;
+  /** 목록형 항목. story가 있으면 쓰지 않는다(빈 배열) */
   groups: TipGroup[];
+  /** 이야기형 본문(2026-10-25 이후 새 팁은 이 형식으로 한 번에 하나씩 올린다) */
+  story?: TipStory[];
+  /** 근거 출처 — 사실 주장마다 달아 둔다 */
+  sources?: TipLink[];
+  /** 출처를 마지막으로 확인한 날 */
+  checked?: string;
 }
 
 export const tips: Tip[] = [
   {
     no: 1,
-    title: '크롬 확장프로그램 10선',
-    hook: '브라우저에서 반복되는 일, 이걸로 줄입니다',
-    fullTitle: '꼭 설치해야 할 크롬 확장프로그램 10선',
-    groups: [
+    title: 'AI에게 "모른다"고 말할 허락을 주세요',
+    hook: '문장 하나로 그럴듯한 거짓 답을 줄입니다',
+    fullTitle: 'AI가 아는 척하지 못하게 하는 한 문장',
+    groups: [],
+    story: [
       {
-        items: [
-          {
-            name: 'uBlock Origin',
-            desc: '광고·추적 차단. 오히려 페이지 로딩 속도가 빨라집니다.',
-            links: [
-              { label: 'uBlock Origin', url: 'https://ublockorigin.com' },
-            ],
-          },
-          {
-            name: 'Grammarly',
-            desc: '영문 이메일·자료 작성 시 문법과 표현을 실시간 교정합니다.',
-            links: [
-              { label: 'Grammarly', url: 'https://www.grammarly.com' },
-            ],
-          },
-          {
-            name: 'Bitwarden',
-            desc: '비밀번호를 안전하게 저장하고 자동 입력합니다.',
-            links: [
-              { label: 'Bitwarden', url: 'https://bitwarden.com' },
-            ],
-          },
-          {
-            name: 'GoFullPage',
-            desc: '웹페이지 전체를 한 장으로 스크린샷 캡처합니다.',
-            links: [
-              { label: 'GoFullPage', url: 'https://gofullpage.com' },
-            ],
-          },
-          {
-            name: 'Loom',
-            desc: '화면 녹화와 설명 영상 제작. 직원 교육 자료에 적합합니다.',
-            links: [
-              { label: 'Loom', url: 'https://www.loom.com' },
-            ],
-          },
-          {
-            name: 'Scribe',
-            desc: '화면에서 수행한 작업을 자동으로 단계별 매뉴얼(캡처 포함)로 변환합니다.',
-            links: [
-              { label: 'Scribe', url: 'https://scribe.com' },
-            ],
-          },
-          {
-            name: 'Notion Web Clipper',
-            desc: '웹 자료·기사를 노션에 바로 저장해 리서치 DB를 만듭니다.',
-            links: [
-              { label: 'Notion Web Clipper', url: 'https://www.notion.com/web-clipper' },
-            ],
-          },
-          {
-            name: 'OneTab',
-            desc: '열려 있는 탭을 목록 하나로 정리해 메모리를 절약합니다.',
-            links: [
-              { label: 'OneTab', url: 'https://www.one-tab.com' },
-            ],
-          },
-          {
-            name: 'Todoist',
-            desc: '웹페이지를 할 일로 바로 추가하고 태스크를 관리합니다.',
-            links: [
-              { label: 'Todoist', url: 'https://www.todoist.com' },
-            ],
-          },
-          {
-            name: 'ColorZilla',
-            desc: '웹사이트 색상 코드(HEX)를 추출합니다. 홍보물·디자인 작업에 유용합니다.',
-            links: [
-              { label: 'ColorZilla', url: 'https://www.colorzilla.com' },
-            ],
-          },
+        heading: 'AI는 왜 없는 내용도 있다고 말할까요',
+        paragraphs: [
+          '제안서 PDF를 올리고 "보안 인증은 뭐가 있어?"라고 물었는데, 제안서에 없는 인증 이름이 그럴듯하게 나온 적이 있다면 이 팁이 필요합니다.',
+          'AI가 이렇게 아는 척하는 데는 이유가 있습니다. 한 연구팀은 지금의 AI가 학습과 평가를 거치면서 "모르겠다"고 답하는 것보다 찍어서라도 답하는 쪽이 유리해지는 구조에 놓여 있다고 설명합니다. 시험에서 비워 두면 0점이고 찍으면 맞을 수도 있는 것과 같습니다.',
+        ],
+      },
+      {
+        heading: '해법은 한 문장입니다',
+        paragraphs: [
+          '질문 끝에 "모르면 모른다고 말해도 된다"는 허락을 적어 주면 됩니다. Anthropic(Claude를 만든 회사)의 공식 안내서는 이렇게 AI에게 불확실함을 인정해도 된다고 분명히 알려 주는 것이 잘못된 정보를 크게 줄여 준다고 소개합니다.',
+          '아래 문장을 질문 맨 끝에 그대로 붙여 넣으세요.',
+        ],
+        copy: '문서에 없는 내용은 추측하지 말고 "문서에서 확인되지 않음"이라고 써 주세요.',
+      },
+      {
+        heading: '문서가 길 때는 한 가지만 더',
+        paragraphs: [
+          '긴 문서를 맡길 때는 결론을 바로 달라고 하지 말고, 먼저 근거가 되는 문장을 원문 그대로 뽑게 하세요. 같은 안내서가 긴 문서에서 권하는 방법입니다. 뽑아 둔 문장만으로 분석하게 하면 문서에 없는 말을 끼워 넣기 어려워지고, 나중에 원문과 맞는지 눈으로 확인하기도 쉽습니다.',
+          '제안서를 검토할 때는 이렇게 두 단계로 시키면 됩니다.',
+        ],
+        copy: '1) 아래 제안서에서 성능 수치와 개인정보 보호에 관한 문장을 원문 그대로 뽑아 번호를 붙여 주세요. 없으면 "해당 문장 없음"이라고 써 주세요. 2) 뽑은 문장만 근거로 도입 전에 확인할 점 세 가지를 정리해 주세요.',
+      },
+      {
+        heading: '꼭 알아 둘 점',
+        paragraphs: [
+          '이 방법은 거짓 답을 줄여 줄 뿐 없애 주지는 못합니다. 안내서도 중요한 판단에는 반드시 직접 확인하라고 적고 있습니다. 예산이 걸린 숫자나 계약 조건은 AI가 뽑아 준 문장이 원문에 실제로 있는지 한 번 찾아보세요.',
+          '환자 이름이나 진료 기록처럼 개인을 알아볼 수 있는 정보는 AI 서비스에 넣지 마세요. 병원의 정보보호 지침을 먼저 확인하는 것이 순서입니다.',
         ],
       },
     ],
-  },
-  {
-    no: 2,
-    title: '업무용 AI 도구 10선',
-    hook: '잡무는 AI에게, 판단은 사람이',
-    fullTitle: '업무용 AI 도구 10선',
-    groups: [
-      {
-        items: [
-          {
-            name: 'ChatGPT',
-            desc: '초안 작성, 기획, 아이디어 브레인스토밍의 범용 도구.',
-            links: [
-              { label: 'ChatGPT', url: 'https://chatgpt.com' },
-            ],
-          },
-          {
-            name: 'Claude',
-            desc: '긴 문서 분석과 심층 글쓰기, 자체 업무 도구 제작에 강합니다.',
-            links: [
-              { label: 'Claude', url: 'https://claude.ai' },
-            ],
-          },
-          {
-            name: 'Perplexity',
-            desc: '출처를 함께 제시하는 리서치·자료 조사에 최적.',
-            links: [
-              { label: 'Perplexity', url: 'https://www.perplexity.ai' },
-            ],
-          },
-          {
-            name: 'NotebookLM',
-            desc: '업로드한 문서 기반으로 요약·질의응답을 수행합니다.',
-            links: [
-              { label: 'NotebookLM', url: 'https://notebooklm.google.com' },
-            ],
-          },
-          {
-            name: 'Notion AI',
-            desc: '워크스페이스 안에서 초안·요약·정리를 담당합니다.',
-            links: [
-              { label: 'Notion AI', url: 'https://www.notion.com/product/ai' },
-            ],
-          },
-          {
-            name: 'Gemini',
-            desc: '지메일·문서·드라이브에 통합된 구글 AI.',
-            links: [
-              { label: 'Gemini', url: 'https://gemini.google.com' },
-            ],
-          },
-          {
-            name: 'Otter · Fathom',
-            desc: '회의 내용을 자동으로 기록하고 요약합니다.',
-            links: [
-              { label: 'Otter', url: 'https://otter.ai' },
-              { label: 'Fathom', url: 'https://fathom.ai' },
-            ],
-          },
-          {
-            name: 'Canva · Microsoft Designer',
-            desc: 'AI 기반으로 디자인 초안을 만듭니다.',
-            links: [
-              { label: 'Canva', url: 'https://www.canva.com' },
-              { label: 'Microsoft Designer', url: 'https://designer.microsoft.com' },
-            ],
-          },
-          {
-            name: 'HeyGen',
-            desc: '기존 영상을 다국어로 번역(음성·립싱크 유지). 의료관광 콘텐츠에 유용.',
-            links: [
-              { label: 'HeyGen', url: 'https://www.heygen.com' },
-            ],
-          },
-          {
-            name: 'Zapier',
-            desc: '여러 앱과 AI를 연결하는 자동화 컨트롤 센터.',
-            links: [
-              { label: 'Zapier', url: 'https://zapier.com' },
-            ],
-          },
-        ],
-      },
+    sources: [
+      { label: 'Anthropic, 환각 줄이기 안내서(공식 문서)', url: 'https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations' },
+      { label: 'Kalai 외, 「Why Language Models Hallucinate」(arXiv, 2025-09)', url: 'https://arxiv.org/abs/2509.04664' },
     ],
-  },
-  {
-    no: 3,
-    title: 'AI에게 제대로 시키는 법',
-    hook: '같은 질문도 이렇게 하면 결과가 다릅니다',
-    fullTitle: 'ChatGPT · 클로드 프롬프트 작성 핵심 팁',
-    groups: [
-      {
-        items: [
-          {
-            name: '최신 모델 사용',
-            desc: '최신 버전일수록 지시 이행력이 좋고 오류(할루시네이션)가 적습니다.',
-          },
-          {
-            name: '구체적으로 지시',
-            desc: '“마케팅 글 써줘” 대신 대상·목적·분량·톤을 명시합니다.',
-          },
-          {
-            name: '역할 부여',
-            desc: '“당신은 병원 기획 전문가입니다”처럼 페르소나를 지정합니다.',
-          },
-          {
-            name: '단계별 사고 요청',
-            desc: '“단계별로 근거를 제시하라”(Chain-of-Thought). 복잡한 분석·의사결정에 효과적입니다.',
-          },
-          {
-            name: '예시 제공',
-            desc: '원하는 결과물의 샘플을 하나 보여주면 품질이 크게 올라갑니다.',
-          },
-          {
-            name: '출력 형식 지정',
-            desc: '표, 메모, 불릿, JSON 등 형식을 지시합니다.',
-          },
-          {
-            name: '대화로 다듬기',
-            desc: '한 번에 끝내지 말고 “도입부를 더 간결하게”처럼 반복 수정합니다.',
-          },
-          {
-            name: '프롬프트 라이브러리',
-            desc: '잘 작동한 프롬프트는 개인 자료로 저장해 재사용합니다.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    no: 4,
-    title: '엑셀 실무 필수 기능',
-    hook: '야근을 줄여주는 함수와 기능',
-    fullTitle: '엑셀 실무 필수 기능·함수',
-    groups: [
-      {
-        items: [
-          {
-            name: 'XLOOKUP / VLOOKUP',
-            desc: '다른 표에서 원하는 값을 찾아옵니다.',
-          },
-          {
-            name: '표 변환 (Ctrl+T)',
-            desc: '자동 서식·필터·요약행이 적용됩니다.',
-          },
-          {
-            name: '데이터 유효성 검사',
-            desc: '드롭다운 목록으로 입력 오류를 방지합니다.',
-          },
-          {
-            name: '중복 제거 · COUNTIF',
-            desc: '중복 데이터를 확인·제거합니다.',
-          },
-          {
-            name: '피벗테이블',
-            desc: '대량 데이터를 빠르게 요약·집계합니다.',
-          },
-          {
-            name: '동적 배열 함수',
-            desc: 'FILTER·SORT·UNIQUE로 피벗 없이 자동 집계합니다.',
-          },
-          {
-            name: 'Power Query',
-            desc: 'CSV·외부 데이터를 불러오고 병합(Merge)·추가(Append)합니다.',
-          },
-          {
-            name: '언피벗(Unpivot)',
-            desc: '월별 열(Wide) 데이터를 분석용 세로형(Tall)으로 변환합니다.',
-          },
-          {
-            name: '조건부 서식',
-            desc: '특정 조건의 값을 시각적으로 강조합니다.',
-          },
-          {
-            name: '키보드 단축키',
-            desc: '마우스 대신 단축키로 작업 속도를 높입니다.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    no: 5,
-    title: '구글·지메일 검색 꿀팁',
-    hook: '찾던 메일을 몇 초 만에',
-    fullTitle: '구글 · 지메일 검색 연산자 꿀팁',
-    groups: [
-      {
-        label: '지메일(Gmail) 검색',
-        items: [
-          {
-            name: 'from: / to:',
-            desc: '보낸사람 / 받는사람으로 검색',
-          },
-          {
-            name: 'subject:',
-            desc: '제목에 특정 단어가 포함된 메일',
-          },
-          {
-            name: 'has:attachment',
-            desc: '첨부파일이 있는 메일만',
-          },
-          {
-            name: 'filename:',
-            desc: '특정 파일명·확장자 (예: filename:pdf)',
-          },
-          {
-            name: 'has:document / spreadsheet / presentation',
-            desc: '구글 문서·시트·슬라이드 첨부',
-          },
-          {
-            name: 'before: / after:',
-            desc: '날짜 범위 (예: after:2026/01/01)',
-          },
-          {
-            name: 'is:unread / is:starred / is:important',
-            desc: '읽지 않음·별표·중요 메일',
-          },
-          {
-            name: '“정확한 문구”',
-            desc: '큰따옴표로 정확히 일치하는 구문 검색',
-          },
-        ],
-      },
-      {
-        label: '실전 조합 · 자동화',
-        items: [
-          {
-            name: '조합 예시',
-            desc: 'from:홍길동 has:attachment after:2026/06/01',
-          },
-          {
-            name: '필터 만들기',
-            desc: '검색 후 ‘필터 만들기’로 라벨·보관 등 자동 분류 규칙 생성',
-          },
-          {
-            name: '구글 웹검색',
-            desc: 'site:, filetype:, “ ” 연산자도 동일하게 활용 가능',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    no: 6,
-    title: '노션 생산성 팁',
-    hook: '단순하게 시작해서 쓰면서 완성하기',
-    fullTitle: '노션(Notion) 생산성 팁',
-    groups: [
-      {
-        items: [
-          {
-            name: '블록(/) 명령어부터',
-            desc: '노션의 모든 요소는 블록입니다. 슬래시 메뉴를 먼저 익히면 속도가 빨라집니다.',
-          },
-          {
-            name: '데이터베이스가 핵심',
-            desc: '단순 메모앱으로만 쓰면 진짜 잠재력을 놓칩니다.',
-          },
-          {
-            name: '하나의 DB, 여러 뷰',
-            desc: '용도별로 DB를 따로 만들지 말고 같은 DB를 여러 뷰로 표시합니다.',
-          },
-          {
-            name: '꼭 필요한 것만 노출',
-            desc: '클러터를 줄일수록 사용 경험이 좋아집니다.',
-          },
-          {
-            name: '검증된 템플릿 활용',
-            desc: '매번 새로 만들지 말고 잘 만든 템플릿을 가져와 응용합니다.',
-          },
-          {
-            name: '캘린더·앱 연동',
-            desc: '마감·회의·중요 일정을 캘린더와 연결합니다.',
-          },
-          {
-            name: '자동화 연결',
-            desc: 'Zapier·IFTTT로 앱 간 작업을 자동화합니다.',
-          },
-          {
-            name: '단축키 치트시트',
-            desc: '자주 쓰는 단축키를 정리해 둡니다.',
-          },
-          {
-            name: 'Notion AI 활용',
-            desc: '초안·요약·정리에 사용. 단, 무료 플랜은 월 사용량 제한이 있습니다.',
-            links: [
-              { label: 'Notion AI 활용', url: 'https://www.notion.com/product/ai' },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    no: 7,
-    title: '무료 디자인 도구',
-    hook: '디자이너 없이 만드는 홍보물',
-    fullTitle: '무료 디자인 · 이미지 도구',
-    groups: [
-      {
-        items: [
-          {
-            name: 'Canva',
-            desc: '템플릿·드래그앤드롭. 비전문가용 종합 1위입니다.',
-            links: [
-              { label: 'Canva', url: 'https://www.canva.com' },
-            ],
-          },
-          {
-            name: 'Microsoft Designer',
-            desc: '무료 AI 이미지 생성이 강점입니다.',
-            links: [
-              { label: 'Microsoft Designer', url: 'https://designer.microsoft.com' },
-            ],
-          },
-          {
-            name: 'Adobe Express',
-            desc: 'Adobe 생태계 연동, 방대한 스톡 자산.',
-            links: [
-              { label: 'Adobe Express', url: 'https://www.adobe.com/express/' },
-            ],
-          },
-          {
-            name: 'Figma',
-            desc: '전문 디자인·실시간 협업(무료 플랜도 넉넉).',
-            links: [
-              { label: 'Figma', url: 'https://www.figma.com' },
-            ],
-          },
-          {
-            name: 'Piktochart · Visme',
-            desc: '인포그래픽·리포트·대시보드 제작에 특화.',
-            links: [
-              { label: 'Piktochart', url: 'https://piktochart.com' },
-              { label: 'Visme', url: 'https://www.visme.co' },
-            ],
-          },
-          {
-            name: 'GIMP · Photopea',
-            desc: '무료 포토샵 대체. Photopea는 설치 없이 브라우저에서 사용.',
-            links: [
-              { label: 'GIMP', url: 'https://www.gimp.org' },
-              { label: 'Photopea', url: 'https://www.photopea.com' },
-            ],
-          },
-          {
-            name: 'VistaCreate',
-            desc: '애니메이션·영상 콘텐츠 제작.',
-            links: [
-              { label: 'VistaCreate', url: 'https://create.vista.com' },
-            ],
-          },
-          {
-            name: 'Unsplash · Pexels',
-            desc: '무료 고화질 사진(대부분 상업적 이용·출처 표기 불필요).',
-            links: [
-              { label: 'Unsplash', url: 'https://unsplash.com' },
-              { label: 'Pexels', url: 'https://www.pexels.com' },
-            ],
-          },
-          {
-            name: '실전 팁',
-            desc: '사진은 주제가 아니라 감정 키워드로 검색(“confident team”). 색은 2~3색 + 중립색으로 제한.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    no: 8,
-    title: '발표자료 제작 팁',
-    hook: '슬라이드만 봐도 이해되게',
-    fullTitle: '발표자료(PPT) 제작 팁',
-    groups: [
-      {
-        items: [
-          {
-            name: '한 슬라이드 = 하나의 메시지',
-            desc: '여러 내용을 한 장에 욱여넣지 않습니다.',
-          },
-          {
-            name: '텍스트 최소화',
-            desc: '한 줄 5~6단어, 슬라이드당 3~4개 불릿.',
-          },
-          {
-            name: '폰트 22pt 이상',
-            desc: '제목용·본문용 2종 폰트로 통일합니다.',
-          },
-          {
-            name: '2~3색 팔레트',
-            desc: '중립색을 더하고 명암 대비를 확보(색맹 고려해 색+아이콘 병행).',
-          },
-          {
-            name: '그리드·정렬·여백',
-            desc: '정렬로 일관성을 주고 여백(네거티브 스페이스)을 활용합니다.',
-          },
-          {
-            name: '애니메이션은 절제',
-            desc: '정보를 단계별로 드러낼 때만. 화면 전환은 Fade로 통일.',
-          },
-          {
-            name: '표·차트는 엑셀에서 복사',
-            desc: '붙여넣은 뒤 가독성을 확인합니다.',
-          },
-          {
-            name: '발표자 노트에 대본',
-            desc: '슬라이드는 요약만 담고 상세 설명은 말로 합니다.',
-          },
-          {
-            name: '불릿 대신 아이콘',
-            desc: '아이콘 + 짧은 라벨(3단어 이내)로 시각화하면 이해가 빠릅니다.',
-          },
-          {
-            name: '발표 전 점검',
-            desc: 'F7 맞춤법 검사 + 실제 환경 리허설 + PDF 백업 준비.',
-          },
-          {
-            name: '2026 트렌드',
-            desc: '라이트·따뜻한 톤, 큰 볼드 타이포, 벤토 그리드 레이아웃이 대세.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    no: 9,
-    title: '업무 자동화 도구',
-    hook: '코드 없이 반복 작업을 넘기기',
-    fullTitle: '업무 자동화 도구 (노코드)',
-    groups: [
-      {
-        items: [
-          {
-            name: 'Zapier',
-            desc: '9,000개 이상 앱 연동, 비개발자 최적. 가장 쉬움(트리거 → 액션 구조).',
-            links: [
-              { label: 'Zapier', url: 'https://zapier.com' },
-            ],
-          },
-          {
-            name: 'Make (구 Integromat)',
-            desc: '시각적 캔버스. 분기·데이터 변환에 강하고 Zapier보다 저렴.',
-            links: [
-              { label: 'Make (구 Integromat)', url: 'https://www.make.com' },
-            ],
-          },
-          {
-            name: 'n8n',
-            desc: '오픈소스·자체 호스팅. 데이터가 외부로 나가면 안 될 때 적합.',
-            links: [
-              { label: 'n8n', url: 'https://n8n.io' },
-            ],
-          },
-          {
-            name: 'Microsoft Power Automate',
-            desc: 'MS 생태계(팀즈·쉐어포인트) 및 RPA에 강점.',
-            links: [
-              { label: 'Microsoft Power Automate', url: 'https://www.microsoft.com/power-platform/products/power-automate' },
-            ],
-          },
-          {
-            name: 'Pabbly Connect',
-            desc: '저렴한 정액제. 내부 작업(필터·라우터)은 과금에서 제외.',
-            links: [
-              { label: 'Pabbly Connect', url: 'https://www.pabbly.com/connect/' },
-            ],
-          },
-          {
-            name: '활용 예시',
-            desc: '설문 제출 → 구글시트 자동 기록 → 슬랙 알림.',
-          },
-          {
-            name: '자동화 원칙',
-            desc: '“설명할 수 있어야 자동화할 수 있다.” 워크플로를 먼저 정의하세요.',
-          },
-          {
-            name: '병원 환경 주의',
-            desc: '개인정보·의료정보가 오가면 자체 호스팅(n8n) 또는 규정 준수 인증 도구를 선택합니다.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    no: 10,
-    title: 'SNS 마케팅 도구',
-    hook: '한 주치 콘텐츠를 월요일에 미리',
-    fullTitle: 'SNS · 콘텐츠 마케팅 도구',
-    groups: [
-      {
-        items: [
-          {
-            name: 'Buffer',
-            desc: '직관적 UI, 소규모 팀 최적. 무료 플랜도 실용적(3채널·채널당 10개 예약).',
-            links: [
-              { label: 'Buffer', url: 'https://buffer.com' },
-            ],
-          },
-          {
-            name: 'Metricool',
-            desc: '예약 + 분석 + 웹 추적 통합. 무료 플랜의 분석 기능이 강점.',
-            links: [
-              { label: 'Metricool', url: 'https://metricool.com' },
-            ],
-          },
-          {
-            name: 'Hootsuite',
-            desc: '대규모·다브랜드 운영에 적합. 깊은 분석·협업(단, 가격·복잡도 높음).',
-            links: [
-              { label: 'Hootsuite', url: 'https://www.hootsuite.com' },
-            ],
-          },
-          {
-            name: 'Later',
-            desc: '인스타·핀터레스트 등 비주얼 중심. 피드 그리드 미리보기 제공.',
-            links: [
-              { label: 'Later', url: 'https://later.com' },
-            ],
-          },
-          {
-            name: 'Sprout Social',
-            desc: '프리미엄. 전담 마케팅 조직을 갖춘 곳에 적합.',
-            links: [
-              { label: 'Sprout Social', url: 'https://sproutsocial.com' },
-            ],
-          },
-          {
-            name: 'Planable',
-            desc: '캠페인 기획·플랫폼별 미리보기·다인 피드백(승인 워크플로).',
-            links: [
-              { label: 'Planable', url: 'https://planable.io' },
-            ],
-          },
-          {
-            name: 'Tailwind',
-            desc: '인스타·핀터레스트 특화. 최적 발행 시간 자동 추천.',
-            links: [
-              { label: 'Tailwind', url: 'https://www.tailwindapp.com' },
-            ],
-          },
-          {
-            name: '공통 기능',
-            desc: '콘텐츠 캘린더, 최적 발행시간 추천, AI 캡션, 성과 분석.',
-          },
-          {
-            name: '의료광고 주의',
-            desc: '병원 SNS는 의료광고 사전심의 대상일 수 있으니 발행 전 심의 규정을 확인합니다.',
-          },
-        ],
-      },
-    ],
+    checked: '2026-10-25',
   },
 ];
