@@ -53,7 +53,7 @@ const itemList = {
 
     <ul class="tip-grid">
       {
-        tips.map((tip) => (
+        [...tips].sort((a, b) => b.no - a.no).map((tip) => (
           <li>
             <a
               class="tip-card"

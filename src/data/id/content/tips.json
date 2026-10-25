@@ -1,50 +1,47 @@
 {
   "meta": {
     "title": "Tips Praktis",
-    "description": "Cara pakai AI untuk staf administrasi dan keperawatan rumah sakit: draf surat, ringkasan notulen, penyederhanaan istilah, plus yang tidak boleh dimasukkan.",
+    "description": "Tips memakai AI untuk tenaga administrasi dan keperawatan rumah sakit, satu per satu, sederhana, dan disertai sumber. Kali ini: satu kalimat yang mengizinkan AI berkata tidak tahu.",
     "pageTitle": "Tips Praktis",
-    "lead": "Mulailah dari pekerjaan yang tidak menyentuh data pasien. Empat hal berikut yang paling sering terpakai di bagian administrasi dan keperawatan, lengkap dengan hal yang perlu diperhatikan."
+    "lead": "Tips singkat dengan manfaat yang jelas saat memakai AI, diterbitkan satu per satu. Sumbernya dicantumkan dan tidak perlu anggaran atau pengaturan khusus. Periksa dulu aturan pengelolaan informasi di rumah sakit Anda, lalu coba."
   },
   "sections": [
     {
-      "heading": "Sebelum mulai: ini yang tidak boleh dimasukkan",
-      "body": "Bagian ini ditaruh paling depan karena lebih penting daripada teknik apa pun. Data kesehatan pasien termasuk data pribadi yang bersifat spesifik menurut UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi. Layanan AI awan adalah pihak ketiga di luar rumah sakit, jadi sebelum menempelkan data ke sana rumah sakit harus punya dasar yang jelas — ini bukan keputusan perorangan. Kementerian Kesehatan juga menekankan bahwa pemanfaatan AI kesehatan harus disertai tata kelola ketat dan etika yang kuat.",
+      "heading": "TIP 01 — Beri AI izin untuk berkata tidak tahu",
+      "body": "Satu kalimat mengurangi jawaban keliru yang terdengar meyakinkan.",
+      "items": []
+    },
+    {
+      "heading": "Mengapa AI menjawab seolah-olah hal yang tidak ada itu ada",
+      "body": "Anda mengunggah PDF proposal vendor lalu bertanya, Sertifikasi keamanan apa saja yang dimiliki? Jawabannya memuat nama sertifikasi yang terdengar meyakinkan padahal tidak tertulis di proposal. Jika pernah mengalaminya, tips ini berguna. Mengapa AI berlagak tahu? Menurut penjelasan satu tim peneliti, cara AI saat ini dilatih dan dinilai membuat menebak lebih menguntungkan daripada mengaku tidak tahu. Seperti ujian: lembar kosong bernilai nol, sedangkan menebak masih mungkin benar.",
+      "items": []
+    },
+    {
+      "heading": "Solusinya satu kalimat",
+      "body": "Di akhir pertanyaan, tambahkan izin untuk menjawab tidak tahu. Panduan resmi Anthropic (pembuat Claude) menyebut bahwa memberi AI izin eksplisit untuk mengakui ketidakpastian dapat mengurangi informasi palsu secara drastis. Tempelkan kalimat berikut di akhir pertanyaan apa adanya.",
       "items": [
-        "Nama pasien, nomor rekam medis, NIK, tanggal lahir, kontak — jangan dimasukkan.",
-        "Uraian yang bisa merangkai identitas seseorang (diagnosis langka, unit layanan, dan tanggal sekaligus) — juga jangan.",
-        "Dokumen internal, kontrak, dan data kepegawaian yang belum dipublikasikan — periksa dulu aturan internal.",
-        "Kalau ingin menyunting materi edukasi atau isi rekam medis, buang dulu bagian yang bisa mengidentifikasi orang; sisakan hanya struktur teksnya.",
-        "Kalau rumah sakit sudah punya aturan penggunaan AI generatif, aturan itu yang berlaku. Kalau belum, itulah yang pertama perlu dibuat."
+        "Jika suatu hal tidak ada dalam dokumen, jangan menebak; tulis saja \"tidak terkonfirmasi dalam dokumen\"."
       ]
     },
     {
-      "heading": "Draf surat dinas, pengumuman, dan lembar edukasi",
-      "body": "Yang paling menyita waktu di administrasi biasanya bukan memikirkan isinya, melainkan menuangkannya ke dalam format yang benar. Pekerjaan seperti itu cocok diserahkan ke AI sebagai draf — Anda memberi poin-poinnya, AI memberi strukturnya, Anda yang merapikan. ChatGPT, Claude, Gemini, dan Microsoft Copilot semuanya dapat diakses dari Indonesia.",
+      "heading": "Jika dokumennya panjang, tambahkan satu langkah",
+      "body": "Saat menyerahkan dokumen panjang, jangan langsung meminta kesimpulan. Minta AI mengutip dulu kalimat yang menjadi dasarnya, persis seperti di dokumen. Panduan yang sama menganjurkan cara ini untuk dokumen panjang. Jika analisis hanya memakai kutipan itu, AI lebih sulit menyelipkan hal yang tidak ada di dokumen, dan Anda lebih mudah mencocokkannya dengan aslinya. Untuk menelaah proposal, minta dalam dua tahap.",
       "items": [
-        "Beri tiga hal: untuk siapa, apa yang ingin disampaikan, kira-kira sepanjang apa. Kalau hanya memberi topik, hasilnya akan kosong.",
-        "Tempelkan satu contoh dokumen internal yang sudah baik sebagai acuan format — hasilnya jauh lebih baik daripada instruksi apa pun.",
-        "Hasilnya wajib Anda baca ulang sebelum dikirim — bagian yang sebenarnya tidak pasti akan ditulis dengan nada sangat yakin.",
-        "Angka, tanggal, dan nomor peraturan selalu diperiksa sendiri. Di situlah kekeliruan paling sering terjadi."
+        "1) Dari proposal di bawah, kutip persis kalimat tentang angka kinerja dan perlindungan data pribadi, beri nomor. Jika tidak ada, tulis \"tidak ada kalimat yang sesuai\". 2) Hanya berdasarkan kalimat yang dikutip, rangkum tiga hal yang perlu dipastikan sebelum dipakai."
       ]
     },
     {
-      "heading": "Ringkasan notulen dan dokumen panjang",
-      "body": "Notulen rapat yang panjang, berkas akreditasi, dan presentasi vendor bisa diringkas lebih dulu sebelum dibaca. Yang perlu diwaspadai: bagian tengah dokumen paling mudah terlewat. Kalau dokumennya panjang, potong per bagian.",
-      "items": [
-        "Tanyakan dulu apa kesimpulan dokumen ini, baru apa saja tindak lanjutnya dan siapa penanggung jawabnya. Dua tahap lebih akurat daripada sekali tanya.",
-        "Dokumen panjang dipotong per bagian, jangan ditempel sekaligus.",
-        "Setelah ringkasan jadi, periksa dua tiga bagian penting untuk memastikan tidak ada yang hilang atau berubah makna.",
-        "Kalau notulen memuat data pribadi atau kepegawaian, lakukan de-identifikasi lebih dulu."
-      ]
+      "heading": "Hal yang perlu diingat",
+      "body": "Cara ini mengurangi jawaban keliru, tetapi tidak menghilangkannya. Panduan itu juga menyarankan agar keputusan penting selalu diperiksa sendiri. Angka yang terkait anggaran dan syarat kontrak perlu dicari di dokumen asli untuk memastikan kalimat kutipan itu benar-benar ada. Jangan memasukkan informasi yang bisa mengenali seseorang, seperti nama pasien atau catatan medis, ke layanan AI. Periksa dulu pedoman keamanan informasi di rumah sakit Anda.",
+      "items": []
     },
     {
-      "heading": "Penyederhanaan istilah dan pengolahan tabel",
-      "body": "Mengubah istilah medis yang sulit menjadi bahasa yang dipahami pasien adalah pekerjaan yang muncul di edukasi maupun administrasi. Untuk tabel, rumus tidak perlu dihafal — jelaskan apa yang ingin dilakukan, lalu minta rumusnya. Persamaan keduanya: yang diberikan adalah draf atau alat, benar atau tidaknya Anda yang memastikan.",
+      "heading": "Sumber",
+      "body": "",
       "items": [
-        "Sebutkan sasarannya dengan jelas (misalnya untuk keluarga tanpa latar belakang medis) — hasilnya jauh berbeda.",
-        "Hasil penyederhanaan wajib diperiksa rekan yang berkompeten — dalam proses menyederhanakan, isi bisa berubah atau hilang.",
-        "Minta rumus sekaligus penjelasan tentang apa yang dilakukan rumus itu, supaya bisa dinilai benar atau tidak.",
-        "Kalau menempelkan data tabel untuk dihitung, hasilnya wajib Anda verifikasi sendiri — angka keliru tanpa pesan kesalahan apa pun."
+        "Anthropic, \"Reduce hallucinations\" (dokumentasi resmi) https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+        "Kalai dkk., \"Why Language Models Hallucinate\" (arXiv, September 2025) https://arxiv.org/abs/2509.04664",
+        "Tanggal pemeriksaan sumber: 25 Oktober 2026"
       ]
     }
   ]
