@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-25T07:34:31.266Z",
+  "updatedAt": "2026-10-25T14:22:03.873Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Почему геймификация убьет разум в ИИ: скрытые риски коммерческого сбора данных и тупик Alignment",
+      "link": "https://habr.com/ru/articles/1099128/?utm_campaign=1099128&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-25T14:18:58.000Z"
+    },
+    {
+      "title": "Как не нарушить 152-ФЗ при проверке договора с помощью ИИ или обезличивание персональных данных c Docx Anonymizer",
+      "link": "https://habr.com/ru/articles/1099118/?utm_campaign=1099118&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-25T14:09:05.000Z"
+    },
     {
       "title": "ИИ-агент — сотрудник без права на последний клик. Как мы организовали разработку на ELMA 365 с ИИ-агентами",
       "link": "https://habr.com/ru/articles/1099004/?utm_campaign=1099004&utm_source=habrahabr&utm_medium=rss",
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-08_sberuniversitet_zapustil",
       "source": "CNews",
       "pubDate": "2026-10-08T10:00:00.000Z"
-    },
-    {
-      "title": "«СберЛизинг» обработал более 36 тыс. заявок с помощью ИИ-модели",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_sberlizing_obrabotal_bolee",
-      "source": "CNews",
-      "pubDate": "2026-10-08T09:48:00.000Z"
-    },
-    {
-      "title": "В Selectel представили единую ИИ-платформу с новыми сервисами для инференса",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_v_selectel_predstavili_edinuyu",
-      "source": "CNews",
-      "pubDate": "2026-10-08T09:32:00.000Z"
     }
   ]
 }
