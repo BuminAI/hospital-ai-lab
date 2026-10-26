@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-26T00:22:11.087Z",
+  "updatedAt": "2026-10-26T07:46:44.963Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "С полуслова: исследователи MWS AI и ИТМО сократили объем данных для обучения голосовых моделей новым языкам почти в четыре раза",
+      "link": "https://www.cnews.ru/news/line/2026-10-26_s_poluslova_issledovateli",
+      "source": "CNews",
+      "pubDate": "2026-10-26T07:32:00.000Z"
+    },
+    {
+      "title": "AI-агенты принесли 400 тысяч рублей за два месяца. Показываю расходы и окупаемость",
+      "link": "https://habr.com/ru/articles/1099342/?utm_campaign=1099342&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T07:05:43.000Z"
+    },
+    {
+      "title": "Свежие научные работы про ИИ, агентов и все такое. Сентябрь 2026",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1097732/?utm_campaign=1097732&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T07:00:15.000Z"
+    },
+    {
+      "title": "[Перевод] Дерматолог проверил GPT-6 Astra и Claude на 200 образованиях кожи: CNN 2015 года точнее",
+      "link": "https://habr.com/ru/articles/1099308/?utm_campaign=1099308&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T04:09:54.000Z"
+    },
     {
       "title": "Осталось только всё улучшить: почему с ИИ так трудно закончить работу",
       "link": "https://habr.com/ru/articles/1099146/?utm_campaign=1099146&utm_source=habrahabr&utm_medium=rss",
@@ -1777,30 +1801,6 @@
       "link": "https://www.tadviser.ru/a/109894",
       "source": "TAdviser",
       "pubDate": "2026-10-08T13:00:00.000Z"
-    },
-    {
-      "title": "Российский рынок облачных сервисов для ИИ достиг 65,5 млрд руб. в 2025 году",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_rossijskij_rynok_oblachnyh",
-      "source": "CNews",
-      "pubDate": "2026-10-08T11:44:00.000Z"
-    },
-    {
-      "title": "С начала 2026 г. инвестиционными ИИ-сервисами воспользовались 1,5 млн человек",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_s_nachala_2026_ginvestitsionnymi",
-      "source": "CNews",
-      "pubDate": "2026-10-08T11:41:00.000Z"
-    },
-    {
-      "title": "«Рамблер» запустил единого ИИ-помощника с полноценной мультиагентной системой «под капотом»",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_rambler_zapustil_edinogo",
-      "source": "CNews",
-      "pubDate": "2026-10-08T11:02:00.000Z"
-    },
-    {
-      "title": "[Перевод] Как мы создали и внедрили AI‑разработчика: опыт EXANTE",
-      "link": "https://habr.com/ru/articles/1091956/?utm_campaign=1091956&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-08T10:49:06.000Z"
     }
   ]
 }
