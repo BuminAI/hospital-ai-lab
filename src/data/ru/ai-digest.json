@@ -1,7 +1,85 @@
 {
-  "updatedAt": "2026-10-26T07:46:44.963Z",
+  "updatedAt": "2026-10-26T16:47:20.493Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Сказ от Anthropic о том, как рой ИИ-агентов может превратиться в сборище бюрократов",
+      "link": "https://habr.com/ru/articles/1099290/?utm_campaign=1099290&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T16:30:53.000Z"
+    },
+    {
+      "title": "Исследователи ИИ-центра «Т-Банка» разработали новые методы обучения моделей для снижения затрат на корпоративный ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-10-26_issledovateli_ii-tsentra",
+      "source": "CNews",
+      "pubDate": "2026-10-26T14:28:00.000Z"
+    },
+    {
+      "title": "Pydantic AI: типизированные агенты на своих моделях",
+      "link": "https://habr.com/ru/companies/bothub/articles/1099642/?utm_campaign=1099642&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T14:18:26.000Z"
+    },
+    {
+      "title": "Сколько стоит ИИ-бот для бизнеса в 2026 году: считаем на ценах GigaChat и YandexGPT",
+      "link": "https://habr.com/ru/articles/1099084/?utm_campaign=1099084&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T13:53:33.000Z"
+    },
+    {
+      "title": "[Перевод] Как Codemode меняет работу ИИ‑агентов с инструментами — и что не так с MCP",
+      "link": "https://habr.com/ru/companies/otus/articles/1098056/?utm_campaign=1098056&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T13:30:40.000Z"
+    },
+    {
+      "title": "Руководство по сборке локального AI-стека. Часть 6. Конвертация моделей Hugging Face в GGUF",
+      "link": "https://habr.com/ru/articles/1099540/?utm_campaign=1099540&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T12:11:37.000Z"
+    },
+    {
+      "title": "Руководство по сборке локального AI-стека. Часть 3. Наполнение моделями",
+      "link": "https://habr.com/ru/articles/1099492/?utm_campaign=1099492&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T11:09:19.000Z"
+    },
+    {
+      "title": "Слабый (Artificial Narrow Intelligence, ANI) и сильный (Artificial General Intelligence, AGI) ИИ в законодательстве РФ",
+      "link": "https://habr.com/ru/articles/1099490/?utm_campaign=1099490&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T11:07:47.000Z"
+    },
+    {
+      "title": "Как ИИ меняет разработку на 1С: практические эксперименты, ошибки и неожиданные результаты",
+      "link": "https://habr.com/ru/companies/infostart/articles/1099398/?utm_campaign=1099398&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T08:47:54.000Z"
+    },
+    {
+      "title": "Сбросить до заводских настроек: что нужно ИИ-агентам, чтобы пилот дошёл до тиражирования?",
+      "link": "https://habr.com/ru/companies/tn_digital/articles/1099388/?utm_campaign=1099388&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T08:34:14.000Z"
+    },
+    {
+      "title": "АНО «НЦК ИСУ» создала ИИ-сервисы для автоматизированной подготовки документации и моделирования данных ERP",
+      "link": "https://www.cnews.ru/news/line/2026-10-26_ano_ntsk_isu_sozdala_ii-servisy",
+      "source": "CNews",
+      "pubDate": "2026-10-26T08:06:00.000Z"
+    },
+    {
+      "title": "«МТС Линк» запустил ИИ-агента для планирования встреч",
+      "link": "https://www.cnews.ru/news/line/2026-10-26_mts_link_zapustil_ii-agenta",
+      "source": "CNews",
+      "pubDate": "2026-10-26T08:01:00.000Z"
+    },
+    {
+      "title": "«Астра ИИ Платформа» открывает бизнесу доступ к безопасным агентам",
+      "link": "https://www.cnews.ru/news/line/2026-10-26_astra_ii_platforma_otkryvaet",
+      "source": "CNews",
+      "pubDate": "2026-10-26T07:59:00.000Z"
+    },
     {
       "title": "С полуслова: исследователи MWS AI и ИТМО сократили объем данных для обучения голосовых моделей новым языкам почти в четыре раза",
       "link": "https://www.cnews.ru/news/line/2026-10-26_s_poluslova_issledovateli",
@@ -1723,84 +1801,6 @@
       "link": "https://habr.com/ru/companies/speshu_ai/articles/1092304/?utm_campaign=1092304&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-09T07:47:55.000Z"
-    },
-    {
-      "title": "ИИ в техподдержке для разработчиков: от чат-ботов к агентам, которые чинят билды",
-      "link": "https://habr.com/ru/articles/1092290/?utm_campaign=1092290&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T07:23:31.000Z"
-    },
-    {
-      "title": "Как мы проверяем, какие данные остаются в тексте после маскировки перед LLM",
-      "link": "https://habr.com/ru/articles/1090732/?utm_campaign=1090732&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T07:18:42.000Z"
-    },
-    {
-      "title": "MWS AI проверила способности нейросетей выявлять поддельные документы",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_mws_ai_proverila_sposobnosti",
-      "source": "CNews",
-      "pubDate": "2026-10-09T07:15:00.000Z"
-    },
-    {
-      "title": "«СберСтрахование жизни» запустит ИИ-аватара инвестиционного советника в рамках инвестиционных инструментов",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_sberstrahovanie_zhizni",
-      "source": "CNews",
-      "pubDate": "2026-10-09T06:03:00.000Z"
-    },
-    {
-      "title": "«Брусника» масштабирует систему ИИ-видеоаналитики QMonitoring на все строительные объекты компании",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_brusnika_masshtabiruet",
-      "source": "CNews",
-      "pubDate": "2026-10-09T03:55:00.000Z"
-    },
-    {
-      "title": "Anthropic запустила бесплатный сервис для поиска дыр в ПО с открытым исходным кодом",
-      "link": "https://3dnews.ru/1149679/anthropic-zapustila-besplatniy-servis-skanirovaniya-uyazvimostey-dlya-po-s-otkritim-ishodnim-kodom",
-      "source": "3DNews",
-      "pubDate": "2026-10-09T01:27:00.000Z"
-    },
-    {
-      "title": "Google представила ИИ-сотрудника — Gemini agent сможет самостоятельно выполнять задачи от начала до конца",
-      "link": "https://3dnews.ru/1149662/google-predstavila-iisotrudnika-gemini-agent-smoget-samostoyatelno-vipolnyat-zadachi-ot-nachala-do-kontsa",
-      "source": "3DNews",
-      "pubDate": "2026-10-08T15:24:00.000Z"
-    },
-    {
-      "title": "Группа Arenadata развивает дата-платформу в направлении интеграции с ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_gruppa_arenadata_razvivaet_data-platformu",
-      "source": "CNews",
-      "pubDate": "2026-10-08T14:54:00.000Z"
-    },
-    {
-      "title": "К брокерскому счету в «СберИнвестициях» можно будет подключить внешних ИИ-агентов",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_k_brokerskomu_schetu_v_sberinvestitsiyah",
-      "source": "CNews",
-      "pubDate": "2026-10-08T14:48:00.000Z"
-    },
-    {
-      "title": "«МегаФон»: бизнесу необязательно перестраивать всю ИТ-архитектуру ради ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_megafon_biznesu_neobyazatelno",
-      "source": "CNews",
-      "pubDate": "2026-10-08T14:33:00.000Z"
-    },
-    {
-      "title": "Новосибирская область и «Руссофт» объединяются для развития российско-индийского сотрудничества в сфере ИИ и кибербезопасности",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_novosibirskaya_oblast_i",
-      "source": "CNews",
-      "pubDate": "2026-10-08T14:28:00.000Z"
-    },
-    {
-      "title": "[Перевод] Где сломался AI-агент? Как отлаживать многоэтапные воркфлоу по шагам",
-      "link": "https://habr.com/ru/companies/otus/articles/1091962/?utm_campaign=1091962&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-08T14:18:34.000Z"
-    },
-    {
-      "title": "Российский рынок облачных сервисов для ИИ за год вырос на 62% и достиг 65,5 млрд рублей",
-      "link": "https://www.tadviser.ru/a/109894",
-      "source": "TAdviser",
-      "pubDate": "2026-10-08T13:00:00.000Z"
     }
   ]
 }
