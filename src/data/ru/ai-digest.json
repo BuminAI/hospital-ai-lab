@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-25T14:22:03.873Z",
+  "updatedAt": "2026-10-26T00:22:11.087Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Осталось только всё улучшить: почему с ИИ так трудно закончить работу",
+      "link": "https://habr.com/ru/articles/1099146/?utm_campaign=1099146&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-25T16:22:53.000Z"
+    },
+    {
+      "title": "Сколько «агентских сил» под капотом? Почему AI-агентов всё ещё трудно сравнивать",
+      "link": "https://habr.com/ru/articles/1099142/?utm_campaign=1099142&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-25T15:07:25.000Z"
+    },
     {
       "title": "Почему геймификация убьет разум в ИИ: скрытые риски коммерческого сбора данных и тупик Alignment",
       "link": "https://habr.com/ru/articles/1099128/?utm_campaign=1099128&utm_source=habrahabr&utm_medium=rss",
@@ -1789,18 +1801,6 @@
       "link": "https://habr.com/ru/articles/1091956/?utm_campaign=1091956&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-08T10:49:06.000Z"
-    },
-    {
-      "title": "ГК «Черкизово» создала ИИ-платформу для обучения и адаптации сотрудников из Индии, Шри‑Ланки, Нигерии и Египта",
-      "link": "https://www.tadviser.ru/a/971353",
-      "source": "TAdviser",
-      "pubDate": "2026-10-08T10:42:31.000Z"
-    },
-    {
-      "title": "«СберУниверситет» запустил инструмент оценки ИИ-зрелости финансовой функции компании",
-      "link": "https://www.cnews.ru/news/line/2026-10-08_sberuniversitet_zapustil",
-      "source": "CNews",
-      "pubDate": "2026-10-08T10:00:00.000Z"
     }
   ]
 }
