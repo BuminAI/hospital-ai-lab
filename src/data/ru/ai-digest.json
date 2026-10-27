@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-26T16:47:20.493Z",
+  "updatedAt": "2026-10-27T01:28:34.615Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "OpenAI представила GPT-6.1 Terra — быструю модель для самостоятельной работы на компьютере",
+      "link": "https://3dnews.ru/1150458/openai-predstavila-gpt61-terra-bistruyu-model-dlya-samostoyatelnoy-raboti-na-kompyutere",
+      "source": "3DNews",
+      "pubDate": "2026-10-26T21:33:00.000Z"
+    },
+    {
+      "title": "Компьютер начал подвисать, когда на нём заработали ИИ-агенты. Нашлись две причины",
+      "link": "https://habr.com/ru/articles/1099768/?utm_campaign=1099768&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-26T19:40:17.000Z"
+    },
     {
       "title": "Сказ от Anthropic о том, как рой ИИ-агентов может превратиться в сборище бюрократов",
       "link": "https://habr.com/ru/articles/1099290/?utm_campaign=1099290&utm_source=habrahabr&utm_medium=rss",
@@ -33,13 +45,13 @@
       "pubDate": "2026-10-26T13:30:40.000Z"
     },
     {
-      "title": "Руководство по сборке локального AI-стека. Часть 6. Конвертация моделей Hugging Face в GGUF",
+      "title": "Руководство по сборке локального AI‑стека. Часть 6. Конвертация моделей Hugging Face в GGUF",
       "link": "https://habr.com/ru/articles/1099540/?utm_campaign=1099540&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-26T12:11:37.000Z"
     },
     {
-      "title": "Руководство по сборке локального AI-стека. Часть 3. Наполнение моделями",
+      "title": "Руководство по сборке локального AI‑стека. Часть 3. Наполнение моделями",
       "link": "https://habr.com/ru/articles/1099492/?utm_campaign=1099492&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-26T11:09:19.000Z"
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-09_selectel_planiruet_uvelichit",
       "source": "CNews",
       "pubDate": "2026-10-09T08:32:00.000Z"
-    },
-    {
-      "title": "Почему ИИ‑агенты уязвимы к prompt injection и как защитить их на уровне архитектуры",
-      "link": "https://habr.com/ru/companies/otus/articles/1088194/?utm_campaign=1088194&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T08:05:50.000Z"
-    },
-    {
-      "title": "Карликовые модели: зачем компании обучают крошечную LLM под одну узкую задачу",
-      "link": "https://habr.com/ru/companies/speshu_ai/articles/1092304/?utm_campaign=1092304&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T07:47:55.000Z"
     }
   ]
 }
