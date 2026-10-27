@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-27T01:28:34.615Z",
+  "updatedAt": "2026-10-27T07:50:17.139Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "AI-менеджер для WB, Ozon и Маркета: почему мы начали с регулярок, а не с агента",
+      "link": "https://habr.com/ru/articles/1099778/?utm_campaign=1099778&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T07:11:53.000Z"
+    },
+    {
+      "title": "Разобрал сейв Skyrim VR ИИ-агентами и сделал из него словарь для английского",
+      "link": "https://habr.com/ru/articles/1099838/?utm_campaign=1099838&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T06:45:50.000Z"
+    },
+    {
+      "title": "LLM-беседы: эпистемный класс элементов и форм в исследованиях пространств активаций",
+      "link": "https://habr.com/ru/articles/1099834/?utm_campaign=1099834&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T06:23:06.000Z"
+    },
+    {
+      "title": "Few-shot: пристрелочная для ИИ-агента",
+      "link": "https://habr.com/ru/articles/1099792/?utm_campaign=1099792&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T04:30:38.000Z"
+    },
     {
       "title": "OpenAI представила GPT-6.1 Terra — быструю модель для самостоятельной работы на компьютере",
       "link": "https://3dnews.ru/1150458/openai-predstavila-gpt61-terra-bistruyu-model-dlya-samostoyatelnoy-raboti-na-kompyutere",
@@ -1777,30 +1801,6 @@
       "link": "https://habr.com/ru/articles/1092384/?utm_campaign=1092384&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-09T09:30:44.000Z"
-    },
-    {
-      "title": "Хакеры парализовали крупного инвестора Intel, ARM и ChatGPT, полтысячи компаний и местные власти Японии",
-      "link": "https://www.cnews.ru/news/top/2026-10-09_kiberataka_na_oblachnogo",
-      "source": "CNews",
-      "pubDate": "2026-10-09T09:16:00.000Z"
-    },
-    {
-      "title": "Билайн представил на «Цифровых решениях» новых ИИ-агентов для бизнеса и государства",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_bilajn_predstavil_na_tsifrovyh",
-      "source": "CNews",
-      "pubDate": "2026-10-09T09:14:00.000Z"
-    },
-    {
-      "title": "ИИ в атаке и защите: итоги киберучений Standoff на форуме «Цифровые решения»",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_ii_v_atake_i_zashchite_itogi",
-      "source": "CNews",
-      "pubDate": "2026-10-09T09:06:00.000Z"
-    },
-    {
-      "title": "Selectel планирует увеличить инвестиции в экосистему продуктов для ИИ-проектов до 25 млрд руб. до 2031 года",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_selectel_planiruet_uvelichit",
-      "source": "CNews",
-      "pubDate": "2026-10-09T08:32:00.000Z"
     }
   ]
 }
