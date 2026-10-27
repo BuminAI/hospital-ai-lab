@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-10-27T07:50:17.139Z",
+  "updatedAt": "2026-10-27T15:52:37.642Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Как я закрыл от ИИ-агента часть кода и проверил это кодом, а не промптом",
+      "link": "https://habr.com/ru/articles/1100200/?utm_campaign=1100200&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T15:16:50.000Z"
+    },
+    {
+      "title": "ИИ-агенты в QA: как я выстроил процесс от анализа требований до CI",
+      "link": "https://habr.com/ru/articles/1099374/?utm_campaign=1099374&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T14:29:17.000Z"
+    },
+    {
+      "title": "Код считает, модель описывает: как мы встроили LLM в отчетность и не дали ей трогать цифры",
+      "link": "https://habr.com/ru/companies/yadro/articles/1099914/?utm_campaign=1099914&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T13:36:56.000Z"
+    },
+    {
+      "title": "Новейшая ИИ-модель DeepSeek стала безопаснее, но недостаточно",
+      "link": "https://3dnews.ru/1150491/noveyshaya-iimodel-deepseek-stala-bezopasnee-no-nedostatochno",
+      "source": "3DNews",
+      "pubDate": "2026-10-27T13:10:00.000Z"
+    },
+    {
+      "title": "Как мы строим безопасную on-prem AI-платформу для корпоративных AI-агентов",
+      "link": "https://habr.com/ru/companies/agima/articles/1100006/?utm_campaign=1100006&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T10:22:39.000Z"
+    },
+    {
+      "title": "125 токенов в секунду на RTX 4070 Ti SUPER: как я заставил локальную LLM работать полноценным кодинг-агентом",
+      "link": "https://habr.com/ru/articles/1099962/?utm_campaign=1099962&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T09:20:01.000Z"
+    },
+    {
+      "title": "ИИ-модель Alibaba Qwen уличили в попытке отправить данные на китайский сервер, хотя её об этом не просили",
+      "link": "https://3dnews.ru/1150478/iimodel-alibaba-qwen-ulichili-v-popitke-otpravit-dannie-na-kitayskiy-server-hotya-eyo-ob-etom-ne-prosili",
+      "source": "3DNews",
+      "pubDate": "2026-10-27T09:16:00.000Z"
+    },
+    {
+      "title": "ИИ-бум обогатил лишь семерых: остальные 493 компании S&P 500 пока не видят отдачи от инвестиций",
+      "link": "https://3dnews.ru/1150475/iibum-obogatil-lish-semerih-ostalnie-493-kompanii-sp-500-poka-ne-vidyat-otdachi-ot-investitsiy",
+      "source": "3DNews",
+      "pubDate": "2026-10-27T08:55:00.000Z"
+    },
+    {
+      "title": "Вредоносный ИИ-агент Skynet захватывает других агентов и заставляет жертв оплачивать свою работу",
+      "link": "https://3dnews.ru/1150474/vredonosniy-iiagent-skynet-zahvativaet-drugih-agentov-i-zastavlyaet-gertv-oplachivat-svoyu-rabotu",
+      "source": "3DNews",
+      "pubDate": "2026-10-27T08:51:00.000Z"
+    },
+    {
+      "title": "Keystone 1.0: LLM-шлюз, который не хардкодит модели, держит свои GPU и не теряет ключи",
+      "link": "https://habr.com/ru/articles/1099790/?utm_campaign=1099790&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T08:31:02.000Z"
+    },
     {
       "title": "AI-менеджер для WB, Ozon и Маркета: почему мы начали с регулярок, а не с агента",
       "link": "https://habr.com/ru/articles/1099778/?utm_campaign=1099778&utm_source=habrahabr&utm_medium=rss",
@@ -1741,66 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-09_universitet_innopolis",
       "source": "CNews",
       "pubDate": "2026-10-09T14:36:00.000Z"
-    },
-    {
-      "title": "Программист в одиночку бросил вызов закрытому контуру. Он вносит в реестр ПО долговременную память для ИИ-агентов, которые будут работать без интернета",
-      "link": "https://www.cnews.ru/news/top/2026-10-09_programmist_v_odinochku_brosil",
-      "source": "CNews",
-      "pubDate": "2026-10-09T14:11:00.000Z"
-    },
-    {
-      "title": "LLM-разработка в 2026: навыки, кейсы, требования",
-      "link": "https://habr.com/ru/companies/hexlet/articles/1092494/?utm_campaign=1092494&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T13:03:08.000Z"
-    },
-    {
-      "title": "ИИ-агенты ошибаются опаснее чат-ботов — они сливают личные данные и совершают покупки без разрешения",
-      "link": "https://3dnews.ru/1149710/iiagenti-oshibayutsya-opasnee-chatbotov-oni-slivayut-lichnie-dannie-i-sovershayut-pokupki-bez-razresheniya",
-      "source": "3DNews",
-      "pubDate": "2026-10-09T12:57:00.000Z"
-    },
-    {
-      "title": "Как скормить нейросети большой проект и не скормить лишнего: что я узнал, пока агенты читали мой код",
-      "link": "https://habr.com/ru/articles/1092488/?utm_campaign=1092488&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T12:50:13.000Z"
-    },
-    {
-      "title": "«ФлексСофт» на форуме «Финтех Х10»: AI-Native архитектура и платформенный подход обеспечат нулевой Time-to-Market в финансовой отрасли",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_flekssoft_na_forume_finteh",
-      "source": "CNews",
-      "pubDate": "2026-10-09T11:48:00.000Z"
-    },
-    {
-      "title": "Рейтинг нейросетей для видео: сравнил 12 моделей на одном промпте (октябрь 2026)",
-      "link": "https://habr.com/ru/companies/syntx_ai/articles/1092400/?utm_campaign=1092400&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T11:17:35.000Z"
-    },
-    {
-      "title": "Anthropic прокачала Claude — теперь он визуализирует данные и создаёт анимацию прямо в чате",
-      "link": "https://3dnews.ru/1149702/anthropic-obogatila-claude-panelyu-monitoringa-dannih-i-animatsiey",
-      "source": "3DNews",
-      "pubDate": "2026-10-09T10:13:00.000Z"
-    },
-    {
-      "title": "В «МегаФоне» назвали главное препятствие для внедрения ИИ-агентов в телекоме",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_v_megafone_nazvali_glavnoe",
-      "source": "CNews",
-      "pubDate": "2026-10-09T09:47:00.000Z"
-    },
-    {
-      "title": "В «МегаФоне» рассказали, какие функции нельзя доверить ИИ-агентам",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_v_megafone_rasskazali",
-      "source": "CNews",
-      "pubDate": "2026-10-09T09:45:00.000Z"
-    },
-    {
-      "title": "Я написал свитчер раскладки для Mac вместе с ИИ-агентом. Через три месяца он всё ещё портил мне русские слова",
-      "link": "https://habr.com/ru/articles/1092384/?utm_campaign=1092384&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T09:30:44.000Z"
     }
   ]
 }
