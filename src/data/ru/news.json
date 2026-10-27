@@ -1,11 +1,17 @@
 {
-  "updatedAt": "2026-10-26T14:30:32.903Z",
+  "updatedAt": "2026-10-27T00:01:44.943Z",
   "source": "Медвестник·Vademecum",
   "items": [
     {
       "title": "ИИ Microsoft диагностировал сложные случаи почти в два раза точнее врачей",
       "link": "https://medvestnik.ru/content/news/ii-microsoft-diagnostiroval-slojnye-sluchai-pochti-v-dva-raza-tochnee-vrachei.html",
       "source": "Медвестник",
+      "pubDate": "2026-10-26T09:00:00.000Z"
+    },
+    {
+      "title": "Метаанализ: контроль врача за клиническим ИИ не гарантирует безопасность",
+      "link": "https://www.vademec.ru/news/2026/10/26/meta-analiz-kontrol-vracha-za-klinicheskim-ii-ne-garantiruet-bezopasnost/",
+      "source": "Vademecum",
       "pubDate": "2026-10-26T09:00:00.000Z"
     },
     {
