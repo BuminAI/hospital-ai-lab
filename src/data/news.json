@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-10-28T01:20:33.935Z",
+  "updatedAt": "2026-10-28T08:29:57.012Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "흉부 엑스레이로 심장 기능 저하 예측 AI 개발",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=251840",
+      "source": "병원신문",
+      "pubDate": "2026-10-28T05:27:00.000Z"
+    },
+    {
+      "title": "로킷헬스, BIX 2026서 AI 장기재생·오믹스 기술 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171462",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-28T02:13:52.000Z"
+    },
+    {
+      "title": "흉부 CT로 심혈관까지…건강검진 AI 활용 확대",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171460",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-28T01:52:13.000Z"
+    },
     {
       "title": "딥노이드, KoSAIM 2026서 다분야 의료 AI 성과 입증",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171458",
@@ -19,6 +37,12 @@
       "link": "https://www.khanews.com/news/articleView.html?idxno=251785",
       "source": "병원신문",
       "pubDate": "2026-10-27T04:18:00.000Z"
+    },
+    {
+      "title": "약국 90% 잡은 바로팜, 다음 승부처는 '전문약'",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171432",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-10-27T03:35:00.000Z"
     },
     {
       "title": "동아대병원, AI·VR 활용 국가유산 디지털 체험관 운영",
