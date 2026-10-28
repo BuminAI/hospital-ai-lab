@@ -1,7 +1,55 @@
 {
-  "updatedAt": "2026-10-27T15:53:09.315Z",
+  "updatedAt": "2026-10-28T01:19:58.423Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Investasi AI Membengkak, Microsoft Tawarkan PHK Sukarela ke 60.000 Karyawan",
+      "link": "https://katadata.co.id/digital/teknologi/6ae149a2d6d14/investasi-ai-membengkak-microsoft-tawarkan-phk-sukarela-ke-60000-karyawan",
+      "source": "Katadata",
+      "pubDate": "2026-10-28T01:02:00.000Z"
+    },
+    {
+      "title": "Otonomi dan Akuntabilitas AI",
+      "link": "https://katadata.co.id/indepth/opini/6adffe5b1712f/otonomi-dan-akuntabilitas-ai",
+      "source": "Katadata",
+      "pubDate": "2026-10-28T00:55:00.000Z"
+    },
+    {
+      "title": "iOS 27.2 Bikin Siri AI Lebih Pintar, iPhone Duo Kebagian Fitur Baru",
+      "link": "https://uzone.id/ios-272-bikin-siri-ai-lebih-pintar-iphone-duo-kebagian-fitur-baru",
+      "source": "Uzone",
+      "pubDate": "2026-10-28T00:04:27.000Z"
+    },
+    {
+      "title": "Cara Memulai Pakai Agen AI untuk Bantu Aktivitas Harian",
+      "link": "https://mediaindonesia.com/teknologi/949475/cara-memulai-pakai-agen-ai-untuk-bantu-aktivitas-harian",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-28T00:00:00.000Z"
+    },
+    {
+      "title": "Syahrini siap konser usai hiatus hingga Singapura luncurkan AI sendiri",
+      "link": "https://www.antaranews.com/berita/5816051/syahrini-siap-konser-usai-hiatus-hingga-singapura-luncurkan-ai-sendiri",
+      "source": "ANTARA",
+      "pubDate": "2026-10-27T23:45:23.000Z"
+    },
+    {
+      "title": "CEO Broadcom Intervensi Kesepakatan Utang Anthropic Senilai Rp1 Kuadriliun",
+      "link": "https://mediaindonesia.com/teknologi/949471/ceo-broadcom-intervensi-kesepakatan-utang-anthropic-senilai-rp1-kuadriliun",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-27T23:45:00.000Z"
+    },
+    {
+      "title": "Perusahaan AI Berebut Rp180 Kuadriliun dalam Ancaman Defisit Modal",
+      "link": "https://mediaindonesia.com/teknologi/949465/perusahaan-ai-berebut-rp180-kuadriliun-dalam-ancaman-defisit-modal",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-27T23:15:00.000Z"
+    },
+    {
+      "title": "Jelang IPO, Raksasa AI Ini Ungkap Bakar Duit Rp 1.465 Triliun",
+      "link": "https://inet.detik.com/business/d-8726816/jelang-ipo-raksasa-ai-ini-ungkap-bakar-duit-rp-1-465-triliun",
+      "source": "detikINET",
+      "pubDate": "2026-10-27T22:45:15.000Z"
+    },
     {
       "title": "Dubai AI Festival dibuka, diikuti lebih dari 100 perusahaan China",
       "link": "https://www.antaranews.com/berita/5815827/dubai-ai-festival-dibuka-diikuti-lebih-dari-100-perusahaan-china",
@@ -1753,54 +1801,6 @@
       "link": "https://katadata.co.id/digital/teknologi/6acc9c43f080e/video-ai-makin-realistis-ceo-tiktok-ungkap-penonton-masih-pilih-konten-autentik",
       "source": "Katadata",
       "pubDate": "2026-10-12T08:37:00.000Z"
-    },
-    {
-      "title": "CEO TikTok Ungkap Keterampilan yang Wajib Dimiliki Pekerja di Era AI",
-      "link": "https://katadata.co.id/digital/teknologi/6acc98e352580/ceo-tiktok-ungkap-keterampilan-yang-wajib-dimiliki-pekerja-di-era-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-12T08:22:00.000Z"
-    },
-    {
-      "title": "Siapkan UMKM Dagang Digital, Kemendag Dorong Pemanfaatan AI",
-      "link": "https://mediaindonesia.com/ekonomi/943317/siapkan-umkm-dagang-digital-kemendag-dorong-pemanfaatan-ai-",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-12T07:28:00.000Z"
-    },
-    {
-      "title": "AI dan Data Center Makin Haus Bandwidth, JLM Perkuat Kabel Laut RI-Singapura",
-      "link": "https://inet.detik.com/telecommunication/d-8703154/ai-dan-data-center-makin-haus-bandwidth-jlm-perkuat-kabel-laut-ri-singapura",
-      "source": "detikINET",
-      "pubDate": "2026-10-12T06:35:59.000Z"
-    },
-    {
-      "title": "Dari Cip hingga Data Center, Ini Modal Asia untuk Memimpin AI",
-      "link": "https://katadata.co.id/digital/teknologi/6acc8c800a7e0/dari-cip-hingga-data-center-ini-modal-asia-untuk-memimpin-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-12T06:01:00.000Z"
-    },
-    {
-      "title": "Fenomena Mahasiswa Gen Z Pakar AI Raup Duit Triliunan",
-      "link": "https://inet.detik.com/cyberlife/d-8702852/fenomena-mahasiswa-gen-z-pakar-ai-raup-duit-triliunan",
-      "source": "detikINET",
-      "pubDate": "2026-10-12T05:15:28.000Z"
-    },
-    {
-      "title": "CEO DBS Ungkap Kekhawatiran AI Perlebar Kesenjangan antara Si Kaya dan Si Miskin",
-      "link": "https://katadata.co.id/digital/teknologi/6acc651af03ff/ceo-dbs-ungkap-kekhawatiran-ai-perlebar-kesenjangan-antara-si-kaya-dan-si-miskin",
-      "source": "Katadata",
-      "pubDate": "2026-10-12T04:43:00.000Z"
-    },
-    {
-      "title": "CEO Microsoft Sebut AI Perlu \"Rem Darurat” yang Dikendalikan Manusia",
-      "link": "https://katadata.co.id/digital/teknologi/6acc5c5a1a057/ceo-microsoft-sebut-ai-perlu-rem-darurat-yang-dikendalikan-manusia",
-      "source": "Katadata",
-      "pubDate": "2026-10-12T04:04:00.000Z"
-    },
-    {
-      "title": "Semua Orang Kini Wajib Pakai AI? Ini Kata Bos Indosat",
-      "link": "https://inet.detik.com/business/d-8702724/semua-orang-kini-wajib-pakai-ai-ini-kata-bos-indosat",
-      "source": "detikINET",
-      "pubDate": "2026-10-12T02:45:04.000Z"
     }
   ]
 }

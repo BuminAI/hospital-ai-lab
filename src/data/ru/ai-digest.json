@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-27T15:52:37.642Z",
+  "updatedAt": "2026-10-28T01:19:27.186Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ не только пишет тесты: как ручной QA использовал агента для аудита автотестов",
+      "link": "https://habr.com/ru/articles/1099782/?utm_campaign=1099782&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T19:45:45.000Z"
+    },
+    {
+      "title": "Условия, в которых рождаются системы. Средовой подход для ИИ‑агентов",
+      "link": "https://habr.com/ru/articles/1100302/?utm_campaign=1100302&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T19:42:08.000Z"
+    },
+    {
+      "title": "[Перевод] Фаззер против ИИ-агента на V8: 37 и 45 уязвимостей за полгода, общих — четверть",
+      "link": "https://habr.com/ru/articles/1100292/?utm_campaign=1100292&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T19:13:24.000Z"
+    },
+    {
+      "title": "Google представила Genie 4: ИИ-модель создаёт интерактивные виртуальные миры, которые теперь живут до двух минут",
+      "link": "https://3dnews.ru/1150511/google-predstavila-genie-4-iimodel-sozdayot-interaktivnie-virtualnie-miri-kotorie-teper-givut-do-dvuh-minut",
+      "source": "3DNews",
+      "pubDate": "2026-10-27T17:08:00.000Z"
+    },
     {
       "title": "Как я закрыл от ИИ-агента часть кода и проверил это кодом, а не промптом",
       "link": "https://habr.com/ru/articles/1100200/?utm_campaign=1100200&utm_source=habrahabr&utm_medium=rss",
@@ -57,7 +81,7 @@
       "pubDate": "2026-10-27T08:51:00.000Z"
     },
     {
-      "title": "Keystone 1.0: LLM-шлюз, который не хардкодит модели, держит свои GPU и не теряет ключи",
+      "title": "Keystone 1.0: LLM‑шлюз, который не хардкодит модели, держит свои GPU и не теряет ключи",
       "link": "https://habr.com/ru/articles/1099790/?utm_campaign=1099790&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-27T08:31:02.000Z"
@@ -1777,30 +1801,6 @@
       "link": "https://3dnews.ru/1149719/kitayskie-iikompanii-skrivayut-naskolko-opasni-ih-modeli-publichnih-testov-pochti-net",
       "source": "3DNews",
       "pubDate": "2026-10-09T17:47:00.000Z"
-    },
-    {
-      "title": "Обучаем LLM по клику: платформа распределённого обучения на HGX",
-      "link": "https://habr.com/ru/companies/open-aot/articles/1092420/?utm_campaign=1092420&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T15:13:04.000Z"
-    },
-    {
-      "title": "На сессии ИКС Холдинга на «Цифровых решениях» обсудили переход от ускорителей к корпоративным ИИ-сервисам",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_na_sessii_iks_holdinga_na",
-      "source": "CNews",
-      "pubDate": "2026-10-09T15:02:00.000Z"
-    },
-    {
-      "title": "Один кабинет вместо пяти сервисов: зачем я делаю 121ai для тех, кто работает 1-на-1",
-      "link": "https://habr.com/ru/articles/1092446/?utm_campaign=1092446&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-09T15:00:18.000Z"
-    },
-    {
-      "title": "«Университет Иннополис» показал прототип интерактивного ИИ-учебника для школьников",
-      "link": "https://www.cnews.ru/news/line/2026-10-09_universitet_innopolis",
-      "source": "CNews",
-      "pubDate": "2026-10-09T14:36:00.000Z"
     }
   ]
 }
