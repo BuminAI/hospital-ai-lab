@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-10-28T01:19:27.186Z",
+  "updatedAt": "2026-10-28T08:27:34.932Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Внедрение ИИ буксует не из-за модели, главный тормоз — интеграция",
+      "link": "https://habr.com/ru/companies/diasoft_company/articles/1100442/?utm_campaign=1100442&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-28T08:07:12.000Z"
+    },
+    {
+      "title": "AI-adoption: где спрятан буст к разработке, что делать, когда агенты дерутся, и как изменится работа мясных девелоперов",
+      "link": "https://habr.com/ru/companies/cloud_ru/articles/1085100/?utm_campaign=1085100&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-28T08:02:11.000Z"
+    },
+    {
+      "title": "Вызываем паранойю у ИИ-агентов: заменит ли MCP AppSec?",
+      "link": "https://habr.com/ru/articles/1099840/?utm_campaign=1099840&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-28T07:23:45.000Z"
+    },
+    {
+      "title": "AI-менеджер для WB, Ozon и Маркета: отдали решения агенту и сразу его ограничили",
+      "link": "https://habr.com/ru/articles/1100298/?utm_campaign=1100298&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-28T07:08:57.000Z"
+    },
+    {
+      "title": "На каком языке ИИ-агенту искать по своей памяти: SQL или SPARQL?",
+      "link": "https://habr.com/ru/articles/1100348/?utm_campaign=1100348&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-28T06:00:40.000Z"
+    },
     {
       "title": "ИИ не только пишет тесты: как ручной QA использовал агента для аудита автотестов",
       "link": "https://habr.com/ru/articles/1099782/?utm_campaign=1099782&utm_source=habrahabr&utm_medium=rss",
@@ -25,6 +55,12 @@
       "link": "https://3dnews.ru/1150511/google-predstavila-genie-4-iimodel-sozdayot-interaktivnie-virtualnie-miri-kotorie-teper-givut-do-dvuh-minut",
       "source": "3DNews",
       "pubDate": "2026-10-27T17:08:00.000Z"
+    },
+    {
+      "title": "«У тебя агент ронял прод?» Что ИИ-пентест умеет в 2026 году и где он до сих пор плох",
+      "link": "https://habr.com/ru/articles/1097210/?utm_campaign=1097210&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-27T16:12:53.000Z"
     },
     {
       "title": "Как я закрыл от ИИ-агента часть кода и проверил это кодом, а не промптом",
@@ -1765,42 +1801,6 @@
       "link": "https://3dnews.ru/1149762/peredovie-iimodeli-pozvolyayut-bukvalno-za-noch-dekompilirovat-kompyuternuyu-igru-i-portirovat-eyo-pod-brauzer",
       "source": "3DNews",
       "pubDate": "2026-10-11T05:50:00.000Z"
-    },
-    {
-      "title": "8 ИИ‑сервисов для Reels и Shorts: что работает в 2026 году",
-      "link": "https://habr.com/ru/companies/polzaai/articles/1092706/?utm_campaign=1092706&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-10T15:39:38.000Z"
-    },
-    {
-      "title": "Anthropic признала, что не может контролировать своих ИИ-агентов — поэтому им отключили интернет",
-      "link": "https://3dnews.ru/1149750/anthropic-priznala-chto-ne-moget-kontrolirovat-svoih-iiagentov-poetomu-im-otklyuchili-internet",
-      "source": "3DNews",
-      "pubDate": "2026-10-10T14:21:00.000Z"
-    },
-    {
-      "title": "Google тестирует новую Gemini 4 Carbon — сотрудники сравнивают её с Claude Opus 5.5",
-      "link": "https://3dnews.ru/1149739/google-testiruet-novuyu-gemini-4-carbon-sotrudniki-sravnivayut-eyo-s-claude-opus-55",
-      "source": "3DNews",
-      "pubDate": "2026-10-10T07:56:00.000Z"
-    },
-    {
-      "title": "Белый дом отныне будет требовать от разработчиков ИИ обязательного предоставления отчётов об инцидентах с моделями",
-      "link": "https://3dnews.ru/1149731/beliy-dom-otnine-budet-trebovat-ot-razrabotchikov-ii-obyazatelnogo-predostavleniya-otchyotov-ob-intsidentah-s-modelyami",
-      "source": "3DNews",
-      "pubDate": "2026-10-10T04:52:00.000Z"
-    },
-    {
-      "title": "OpenAI уволила трёх исследователей безопасности ИИ — они опасаются, что компания заставит сотрудников молчать о рисках",
-      "link": "https://3dnews.ru/1149720/openai-uvolila-tryoh-issledovateley-bezopasnosti-ii-oni-zayavili-chto-kompaniya-zastavit-sotrudnikov-molchat-o-riskah",
-      "source": "3DNews",
-      "pubDate": "2026-10-09T17:57:00.000Z"
-    },
-    {
-      "title": "Китайские ИИ-компании скрывают, насколько опасны их модели — публичных тестов почти нет",
-      "link": "https://3dnews.ru/1149719/kitayskie-iikompanii-skrivayut-naskolko-opasni-ih-modeli-publichnih-testov-pochti-net",
-      "source": "3DNews",
-      "pubDate": "2026-10-09T17:47:00.000Z"
     }
   ]
 }
