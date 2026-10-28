@@ -164,4 +164,15 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 }
 @media print{body>*:not(dialog){display:none!important}dialog.resdlg{position:static;display:block;width:auto;max-height:none;border:0;overflow:visible}dialog.resdlg .btns{display:none}dialog.resdlg::backdrop{display:none}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* review v2: gate list, criterion table, kind tags */
+.gate{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.gate li{font-size:13.5px;padding-left:22px;position:relative}
+.gate li::before{position:absolute;left:0;font-weight:700}
+.gate li.ok::before{content:'¹3';color:var(--ok)} .gate li.no::before{content:'¹5';color:var(--warn)} .gate li.info::before{content:'i';color:var(--muted)}
+.file.unsup{opacity:.75;border-style:dashed}
+tr.areahead td{background:var(--soft);font-size:13px}
+.kind{display:inline-block;font-size:11px;font-weight:600;border-radius:4px;padding:0 6px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.k0{background:var(--ok-bg);color:var(--ok)} .k1{background:var(--gB-bg);color:var(--gB)} .k2{background:var(--gS-bg);color:var(--gS)}
+.rubric td:first-child{white-space:normal}
 </style>

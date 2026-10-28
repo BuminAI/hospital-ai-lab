@@ -116,7 +116,7 @@ def main():
             T['rx']['msg_chars'] += '\\uAC00-\\uD7A3'
         css_l = re.sub(r'--sans:[^\n]*', '--sans:' + meta['sans'] + ';', css)
         raw = {'alts': alts, 'jsonld': jsonld, 'font_href': esc(meta['font_href']), 'style': css_l,
-               'ex_readme': H['ex_readme'], 'sb_key': key,
+               'ex_readme': H.get('ex_readme', ''), 'sb_key': key,
                'T_JSON': json.dumps(T, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')}
         vals = {k: esc(v) for k, v in H.items() if k != 'ex_readme'}
         vals.update(lang=meta['lang'], canon=canon, og_locale=meta['og_locale'], home=home)
