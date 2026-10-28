@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-10-28T08:28:35.607Z",
+  "updatedAt": "2026-10-28T16:37:52.304Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Flood Eye, teknologi AI untuk prediksi banjir di Kota Semarang",
+      "link": "https://www.antaranews.com/video/5818071/flood-eye-teknologi-ai-untuk-prediksi-banjir-di-kota-semarang",
+      "source": "ANTARA",
+      "pubDate": "2026-10-28T16:16:40.000Z"
+    },
+    {
+      "title": "Meta Rilis Waddle World: Aplikasi Hewan Peliharaan AI Mirip Tamagotchi",
+      "link": "https://mediaindonesia.com/teknologi/949882/meta-rilis-waddle-world-aplikasi-hewan-peliharaan-ai-mirip-tamagotchi",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-28T15:42:00.000Z"
+    },
+    {
+      "title": "Skor Adopsi AI Perbankan RI Di Bawah Rata-Rata ASEAN, Masih Minim Tata Kelola",
+      "link": "https://katadata.co.id/digital/teknologi/6ae20733df6c7/skor-adopsi-ai-perbankan-ri-di-bawah-rata-rata-asean-masih-minim-tata-kelola",
+      "source": "Katadata",
+      "pubDate": "2026-10-28T14:31:00.000Z"
+    },
+    {
+      "title": "PKBM Nara Kreatif Jadi Sekolah Model Pembelajaran Mendalam dan Kecerdasan Artifisial",
+      "link": "https://mediaindonesia.com/nusantara/949847/pkbm-nara-kreatif-jadi-sekolah-model-pembelajaran-mendalam-dan-kecerdasan-artifisial",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-28T14:28:00.000Z"
+    },
+    {
+      "title": "Pemuda.ai Resmi Meluncur, Dorong Industri Kreatif dengan Teknologi AI Lokal",
+      "link": "https://mediaindonesia.com/teknologi/949798/pemudaai-resmi-meluncur-dorong-industri-kreatif-dengan-teknologi-ai-lokal",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-28T12:51:00.000Z"
+    },
+    {
+      "title": "Telkom Kenalkan AI ke Guru dan Siswa Sekolah Rakyat Kulon Progo",
+      "link": "https://uzone.id/telkom-kenalkan-ai-ke-guru-dan-siswa-sekolah-rakyat-kulon-progo",
+      "source": "Uzone",
+      "pubDate": "2026-10-28T11:16:22.000Z"
+    },
+    {
+      "title": "Nvidia RTX 20 Disulap Jadi GPU AI, Begini Caranya",
+      "link": "https://inet.detik.com/consumer/d-8728319/nvidia-rtx-20-disulap-jadi-gpu-ai-begini-caranya",
+      "source": "detikINET",
+      "pubDate": "2026-10-28T11:08:03.000Z"
+    },
+    {
+      "title": "200 Startup AI Diprediksi Bangkrut Gara-gara Gak Bisa Ngutang ke Investor",
+      "link": "https://uzone.id/200-startup-ai-diprediksi-bangkrut-gara-gara-gak-bisa-ngutang-ke-investor",
+      "source": "Uzone",
+      "pubDate": "2026-10-28T11:02:53.000Z"
+    },
+    {
+      "title": "Mengenal Asmuni, Asisten AI Lokal Buatan Pemuda.ai",
+      "link": "https://www.liputan6.com/tekno/read/8323306/mengenal-asmuni-asisten-ai-lokal-buatan-pemudaai",
+      "source": "Liputan6",
+      "pubDate": "2026-10-28T09:45:14.000Z"
+    },
+    {
+      "title": "Bot Meta AI Sebut Komdigi Takedown Konten, Komdigi Minta Klarifikasi",
+      "link": "https://uzone.id/bot-meta-ai-sebut-komdigi-takedown-konten-komdigi-minta-klarifikasi",
+      "source": "Uzone",
+      "pubDate": "2026-10-28T09:30:00.000Z"
+    },
     {
       "title": "iOS 27.2 bawa peningkatan Siri AI hingga dukungan stylus iPhone Duo",
       "link": "https://www.antaranews.com/berita/5816923/ios-272-bawa-peningkatan-siri-ai-hingga-dukungan-stylus-iphone-duo",
@@ -1741,66 +1801,6 @@
       "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8704324/bank-dunia-imf-wanti-wanti-dampak-ai-ke-lapangan-kerja",
       "source": "detikFinance",
       "pubDate": "2026-10-13T01:45:38.000Z"
-    },
-    {
-      "title": "PM Lawrence Wong Ungkap Cara Singapura Lindungi Pekerja dari Tren PHK Imbas AI",
-      "link": "https://katadata.co.id/digital/teknologi/6acd053657bd2/pm-lawrence-wong-ungkap-cara-singapura-lindungi-pekerja-dari-tren-phk-imbas-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-13T01:05:00.000Z"
-    },
-    {
-      "title": "PM Singapura Lawrence Wong Peringatkan Risiko Agen AI yang Lepas Kendali",
-      "link": "https://katadata.co.id/digital/teknologi/6accfd23a4c86/pm-singapura-lawrence-wong-peringatkan-risiko-agen-ai-yang-lepas-kendali",
-      "source": "Katadata",
-      "pubDate": "2026-10-13T00:30:00.000Z"
-    },
-    {
-      "title": "Bos Intel Ungkap Teknologi Cip yang Bisa Bikin AI Lebih Hemat Energi",
-      "link": "https://katadata.co.id/digital/teknologi/6acce58010b78/bos-intel-ungkap-teknologi-cip-yang-bisa-bikin-ai-lebih-hemat-energi",
-      "source": "Katadata",
-      "pubDate": "2026-10-13T00:10:00.000Z"
-    },
-    {
-      "title": "Investor AI Bidik RI, Danantara Soroti Isu Lingkungan Bisa Bikin Proyek Disetop",
-      "link": "https://katadata.co.id/digital/teknologi/6accf441b1fbb/investor-ai-bidik-ri-danantara-soroti-isu-lingkungan-bisa-bikin-proyek-disetop",
-      "source": "Katadata",
-      "pubDate": "2026-10-13T00:10:00.000Z"
-    },
-    {
-      "title": "CEO TikTok Ungkap Risiko Besar Agen AI yang Sering Diabaikan Pengguna",
-      "link": "https://katadata.co.id/digital/teknologi/6accf02d56dbd/ceo-tiktok-ungkap-risiko-besar-agen-ai-yang-sering-diabaikan-pengguna",
-      "source": "Katadata",
-      "pubDate": "2026-10-12T23:45:00.000Z"
-    },
-    {
-      "title": "Pendiri Startup AI Ini Berharta Rp 103 Triliun di Usia 30 Tahun",
-      "link": "https://inet.detik.com/business/d-8704256/pendiri-startup-ai-ini-berharta-rp-103-triliun-di-usia-30-tahun",
-      "source": "detikINET",
-      "pubDate": "2026-10-12T23:15:08.000Z"
-    },
-    {
-      "title": "CEO Broadcom Soroti Risiko Investasi AI, Investor Disebut Seperti Berjudi",
-      "link": "https://katadata.co.id/digital/startup/6acce07fc10dd/ceo-broadcom-soroti-risiko-investasi-ai-investor-disebut-seperti-berjudi",
-      "source": "Katadata",
-      "pubDate": "2026-10-12T23:10:00.000Z"
-    },
-    {
-      "title": "Naik Kelas Otomatis: Berkah atau Musibah untuk Deep Learning?",
-      "link": "https://mediaindonesia.com/opini/943514/naik-kelas-otomatis-berkah-atau-musibah-untuk-deep-learning",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-12T22:05:00.000Z"
-    },
-    {
-      "title": "Bos Microsoft Sebut Regulasi AI Lebih Longgar dari Susu",
-      "link": "https://mediaindonesia.com/teknologi/943506/bos-microsoft-sebut-regulasi-ai-lebih-longgar-dari-susu",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-12T14:16:00.000Z"
-    },
-    {
-      "title": "Bos Microsoft Usulkan Rem Darurat untuk Kendalikan AI",
-      "link": "https://inet.detik.com/cyberlife/d-8703938/bos-microsoft-usulkan-rem-darurat-untuk-kendalikan-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-12T14:13:30.000Z"
     }
   ]
 }
