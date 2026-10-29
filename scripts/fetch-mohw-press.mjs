@@ -22,8 +22,7 @@ const FILE_DIR = new URL('../public/press/mohw/', import.meta.url);
 const DATA_FILE = new URL('../src/data/press.json', import.meta.url);
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) hospital-ai-lab press fetcher';
 
-// 첨부 가운데 이 확장자만 받는다. PDF가 있으면 PDF만, 없을 때만 hwpx를 받는다
-// (hwpx는 그림이 들어가면 PDF의 3배 가까이 커서 저장소 용량 부담이 크다).
+// 첨부 가운데 이 확장자만 받는다. 확장자마다 본문 파일 1개씩(PDF·hwpx 모두).
 const WANT = ['pdf', 'hwpx'];
 const AI_RE = /(?<![A-Za-z])AI(?![A-Za-z])|인공지능|생성형|디지털 ?헬스|디지털 ?치료|의료 ?데이터|CDSS/;
 
@@ -81,7 +80,7 @@ function pickFiles(files) {
   for (const ext of WANT) {
     const list = files.filter((f) => f.ext === ext);
     const main = list.find((f) => !/^\s*[\[(]?\s*(별첨|붙임|참고)/.test(f.name)) || list[0];
-    if (main) return [main];
+    if (main) out.push(main);
   }
   return out;
 }

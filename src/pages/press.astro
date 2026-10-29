@@ -46,15 +46,15 @@ const collectionPage = {
 ---
 
 <BaseLayout
-  title="보건복지부 보도자료"
+  title="알림 · 보건복지부 보도자료"
   description="보건복지부 누리집에 올라온 보도자료를 하루 여러 차례 확인해 원문 파일(PDF·hwpx)과 함께 모아 둡니다."
   schema={[collectionPage]}
 >
   <div class="container">
     <header class="page-head">
-      <h1>보건복지부 보도자료</h1>
+      <h1>알림</h1>
       <p class="lead">
-        보건복지부 누리집의 보도자료를 하루에도 몇 번씩 새로 확인해, 원문 파일을 그대로
+        '알림'은 보건복지부 누리집의 보도자료를 하루에도 몇 번씩 새로 확인해, 원문 파일을 그대로
         내려받을 수 있게 모아 둡니다. 병원 행정·간호 현장에 영향을 주는 정책 발표를
         찾아볼 때 쓰세요. 최근 {items.length}건을 보관합니다.
       </p>
@@ -81,8 +81,8 @@ const collectionPage = {
               <span class="files">
                 {item.files.length > 0 ? (
                   item.files.map((f) => (
-                    <a href={withBase(f.path)} download>
-                      {f.ext.toUpperCase()} 내려받기 <small>({mb(f.bytes)})</small>
+                    <a href={withBase(f.path)} download={`${item.title}.${f.ext}`}>
+                      {item.title}.{f.ext} <small>({mb(f.bytes)})</small>
                     </a>
                   ))
                 ) : (
@@ -153,7 +153,8 @@ const collectionPage = {
   .files {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
+    flex-direction: column;
+    gap: 0.25rem;
     font-size: 0.875rem;
   }
   .files small,
