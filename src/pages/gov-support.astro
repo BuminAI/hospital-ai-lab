@@ -55,12 +55,26 @@ const collectionPage = {
     })),
   },
 };
+const pressList = {
+  '@type': 'ItemList',
+  '@id': `${pageUrl}#press-list`,
+  name: '보건복지부 보도자료',
+  description: '보건복지부 누리집 보도자료의 제목·작성일·본문과 원문 파일(PDF·hwpx). 공공누리 제1·3유형 자료만 파일을 싣는다.',
+  url: `${pageUrl}#press`,
+  numberOfItems: pressItems.length,
+  itemListElement: pressItems.slice(0, 20).map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.title,
+    url: it.link,
+  })),
+};
 ---
 
 <BaseLayout
-  title="병원·의료기관 정부 지원사업 공고"
-  description="보건복지부·한국보건산업진흥원·정보통신산업진흥원·대한병원협회에 올라온 병원·의료 분야 지원사업 공고를 날마다 새로 확인해 원문 링크로 안내합니다."
-  schema={[collectionPage]}
+  title="병원 정부 지원사업 공고·보건복지부 보도자료"
+  description="병원·의료 분야 정부 지원사업 공고를 날마다 확인해 원문 링크로 안내하고, 보건복지부 보도자료 본문과 원문 파일(PDF·hwpx)을 함께 모아 둡니다."
+  schema={[collectionPage, pressList]}
   jaPath="/ja/subsidies/"
 >
   <div class="container">

@@ -116,9 +116,9 @@ const homeVideos = [
 // 신뢰 스탯 스트립 수치 — 전부 빌드 시 실측치(수동 갱신·창작 없음).
 const contentCount = allPosts.length + videos.length;
 
-// 홈 전용 설명문 (briefing.md 사실 범위: 경력·대상 독자·콘텐츠 종류만)
+// 홈 전용 설명문 (대상 독자·콘텐츠 종류만 — 경력은 홈에 싣지 않는다, 오너 지시 2026-10-29)
 const homeDescription =
-  '종합병원 17년차 실무자가 행정·간호의 언어로 의료 AI를 기록합니다. 매일 챙기는 AI 뉴스와 칼럼·강의노트·추천 영상을 담았습니다.';
+  '병원 행정·간호의 언어로 의료 AI를 연구하고 기록합니다. 매일 챙기는 AI 뉴스와 칼럼·강의노트·추천 영상을 담았습니다.';
 
 // 구조화 데이터(JSON-LD)는 2026-07-27부터 SchemaOrg 컴포넌트가 BaseLayout에서
 // 전 페이지에 넣는다(저자 Person + Organization + WebSite). 여기 있던 중복 정의는 제거했다.
@@ -141,11 +141,11 @@ const homeFaq = [
   },
   {
     q: '정보의 출처는 어디인가요?',
-    a: 'AI 뉴스는 메디칼타임즈의 의료기기·AI 지면과 병원신문 두 곳에서 자동으로 모읍니다. 정부 지원사업은 보건복지부·한국보건산업진흥원·대한병원협회의 공고에서 모읍니다. 용어사전·FAQ·체크리스트에 적은 제도 설명에는 식약처·보건복지부·법령 원문 같은 일차 자료 링크를 함께 답니다. 출처를 확인하지 못한 문장은 싣지 않습니다.',
+    a: 'AI 뉴스는 메디칼타임즈의 의료기기·AI 지면과 병원신문 두 곳에서 자동으로 모읍니다. 정부 지원사업은 보건복지부·한국보건산업진흥원·대한병원협회의 공고에서 모으고, 보건복지부 보도자료는 누리집의 본문과 원문 파일(PDF·hwpx)을 그대로 가져옵니다. 용어사전·FAQ·체크리스트에 적은 제도 설명에는 식약처·보건복지부·법령 원문 같은 일차 자료 링크를 함께 답니다. 출처를 확인하지 못한 문장은 싣지 않습니다.',
   },
   {
     q: '얼마나 자주 갱신되나요?',
-    a: 'AI 뉴스는 매시간, 정부 지원사업과 교육·행사는 하루 세 번 자동으로 확인합니다. 새로 올라온 것이 없으면 갱신하지 않습니다. 각 페이지 위쪽에 마지막 확인 날짜를 적어 둡니다.',
+    a: 'AI 뉴스는 매시간, 정부 지원사업과 교육·행사는 하루 세 번, 보건복지부 보도자료는 3시간마다 자동으로 확인합니다. 새로 올라온 것이 없으면 갱신하지 않습니다. 각 페이지 위쪽에 마지막 확인 날짜를 적어 둡니다.',
   },
   {
     q: '일본어·러시아어·인도네시아어·대만어판은 번역본인가요?',
@@ -188,17 +188,14 @@ const homeSeries = (await getResolvedSeries())
         <p class="eyebrow"><span>HOSPITAL AI LAB</span><span class="eyebrow-ko">병원 AI 연구소</span></p>
         <h1>의료 현장의 언어로<br />인공지능을 <em>연구</em>합니다</h1>
         <p class="tagline">
-          종합병원 17년, 그중 기획 7년의 현장 경험으로 의료 AI를 검토합니다.
           화려한 기술보다 근거가 분명하고 병원에서 실행할 수 있는지를 먼저 따져,
-          행정·간호가 바로 읽을 수 있게 기록합니다.
+          행정·간호가 바로 읽을 수 있게 의료 AI를 기록합니다.
         </p>
         <div class="hero-actions">
           <a class="btn" href={withBase('/guide/')}>입문 가이드 시작하기</a>
           <a class="btn ghost" href={withBase('/about/')}>연구소 소개</a>
         </div>
         <dl class="hero-facts" aria-label="연구소 현황">
-          <div><dt>종합병원 근무</dt><dd>17<small>년</small></dd></div>
-          <div><dt>병원 기획 업무</dt><dd>7<small>년</small></dd></div>
           <div><dt>모아 온 의료 AI 뉴스</dt><dd>{news.items.length}<small>건</small></dd></div>
           <div><dt>글·추천 영상</dt><dd>{contentCount}<small>건</small></dd></div>
         </dl>
@@ -613,7 +610,7 @@ const homeSeries = (await getResolvedSeries())
 
   .hero-facts {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(2, auto);
     justify-content: start;
     gap: 0;
     margin: 2.25rem 0 0;
