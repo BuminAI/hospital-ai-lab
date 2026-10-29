@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-10-29T01:47:18.817Z",
+  "updatedAt": "2026-10-29T08:27:32.749Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Anthropic научила Claude доносить начальству на сотрудников, которые зря тратят токены",
+      "link": "https://3dnews.ru/1150600/anthropic-nauchila-claude-donosit-nachalstvu-na-sotrudnikov-kotorie-zrya-tratyat-tokeni",
+      "source": "3DNews",
+      "pubDate": "2026-10-29T08:12:00.000Z"
+    },
+    {
+      "title": "Под капотом современных ИИ-сервисов: KV-кэш, батчинг, квантизация и серверное железо",
+      "link": "https://habr.com/ru/companies/selectel/articles/1099322/?utm_campaign=1099322&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T08:00:43.000Z"
+    },
+    {
+      "title": "UI-фреймворк для людей и AI-агентов: Rust, C, C++, ASM, 6 платформ, 900 КБ",
+      "link": "https://habr.com/ru/articles/1100946/?utm_campaign=1100946&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T06:30:10.000Z"
+    },
+    {
+      "title": "«Да, мы вайбкодим»: Epic Games подтвердила повсеместное использование ИИ в разработке Fortnite, Unreal Engine 6 и не только",
+      "link": "https://3dnews.ru/1150590/da-mi-vaybkodim-epic-games-podtverdila-povsemestnoe-ispolzovanie-ii-v-razrabotke-fortnite-unreal-engine-6-i-ne-tolko",
+      "source": "3DNews",
+      "pubDate": "2026-10-29T06:19:00.000Z"
+    },
     {
       "title": "Nvidia представила открытую ИИ-модель для распознавания речи на 40 языках, включая русский",
       "link": "https://3dnews.ru/1150582/nvidia-predstavila-otkrituyu-iimodel-dlya-raspoznavaniya-rechi-na-40-yazikah-vklyuchaya-russkiy",
@@ -1777,30 +1801,6 @@
       "link": "https://www.tadviser.ru/a/970854",
       "source": "TAdviser",
       "pubDate": "2026-10-13T07:27:56.000Z"
-    },
-    {
-      "title": "Вышла Muse Wonder и Full: модель обогнала GPT-6 Astra и Gemini 4 Argon",
-      "link": "https://habr.com/ru/companies/gptunnel/articles/1093648/?utm_campaign=1093648&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T07:17:57.000Z"
-    },
-    {
-      "title": "Ученые МФТИ научились «упаковывать» нейросети без потери качества",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_uchenye_mfti_nauchilis_upakovyvat",
-      "source": "CNews",
-      "pubDate": "2026-10-13T07:07:00.000Z"
-    },
-    {
-      "title": "Сбербанк запустил платформу GigaPlatform AI Studio для проверки ИИ-гипотез и создания агентов без программирования",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_sberbank_zapustil_platformu",
-      "source": "CNews",
-      "pubDate": "2026-10-13T07:04:00.000Z"
-    },
-    {
-      "title": "Безопасность ИИ-систем 2026. Часть 1: нормативные акты и методологии защиты",
-      "link": "https://habr.com/ru/companies/ussc/articles/1088988/?utm_campaign=1088988&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T06:58:23.000Z"
     }
   ]
 }
