@@ -77,7 +77,10 @@ function kstToIso(s) {
 
 // 상세 페이지 → 제목·작성일·담당부서·공공누리 유형·첨부 목록
 function parseView(html) {
-  const title = text((html.match(/<h2 class="title"[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '');
+  // 페이지 위쪽에 '알림'이라는 같은 클래스의 구역 제목이 따로 있어, 반드시 게시물 본체(board_view) 안에서 읽는다.
+  const view = html.slice(Math.max(0, html.indexOf('<article class="board_view">')));
+  const title = text((view.match(/<h2 class="title"[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '');
+  if (!title || title === '알림') throw new Error('게시물 제목을 읽지 못함');
   const dateM = html.match(/<strong>작성일<\/strong>[\s\S]*?<span>(\d{4}-\d{2}-\d{2} \d{2}:\d{2})<\/span>/);
   const deptM = html.match(/<strong>담당부서<\/strong>[\s\S]*?<span>([^<]*)<\/span>/);
   const licM = html.match(/alt="공공누리 (\d)유형"/);

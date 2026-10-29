@@ -81,7 +81,7 @@ const pressList = {
   itemListElement: pressItems.slice(0, 20).map((it, i) => ({
     '@type': 'ListItem',
     position: i + 1,
-    name: it.title,
+    name: `[보건복지부 보도자료] ${it.title}`,
     url: it.link,
   })),
 };
@@ -121,12 +121,12 @@ const pressList = {
           {rows.map((item) => (
             <li>
               <a href={item.link} target="_blank" rel="noopener">
-                {item.title}
+                {item.kind === 'press' ? `[보건복지부 보도자료] ${item.title}` : item.title}
                 <span class="sr-only"> (새 탭으로 열림)</span>
               </a>
               {item.summary && <p class="summary">{item.summary}</p>}
               <span class="meta">
-                <span class={item.kind === 'press' ? 'src press-src' : 'src'}>{item.source}</span>
+                {item.kind !== 'press' && <span class="src">{item.source}</span>}
                 <time datetime={item.pubDate}>
                   {fmtDay.format(new Date(item.pubDate))} {item.kind === 'press' ? '보도' : '공고'}
                 </time>

@@ -14,6 +14,7 @@ import news from '../data/news.json';
 import videos from '../data/recommended-videos.json';
 import govPrograms from '../data/gov-programs.json';
 import events from '../data/events.json';
+import press from '../data/press.json';
 import { getResolvedSeries } from '../utils/series';
 
 // 마지막 업데이트일 = 마지막 커밋 날짜(빌드 시 자동 계산, 수동 갱신 불필요).
@@ -114,7 +115,13 @@ const homeVideos = [
 ];
 
 // 신뢰 스탯 스트립 수치 — 전부 빌드 시 실측치(수동 갱신·창작 없음).
-const contentCount = allPosts.length + videos.length;
+// 홈 첫 화면 지표 — 자동 수집 4개 분류의 누적 건수(정부 지원사업은 같은 목록에 섞여 있는 보건복지부 보도자료 포함)
+const stats = [
+  { label: 'AI 뉴스', n: news.items.length, href: '/news/' },
+  { label: '정부 지원사업', n: govPrograms.items.length + press.items.length, href: '/gov-support/' },
+  { label: 'AI 교육·행사', n: events.items.length, href: '/events/' },
+  { label: '추천 영상', n: videos.length, href: '/youtube/' },
+];
 
 // 홈 전용 설명문 (대상 독자·콘텐츠 종류만 — 경력은 홈에 싣지 않는다, 오너 지시 2026-10-29)
 const homeDescription =
@@ -196,8 +203,12 @@ const homeSeries = (await getResolvedSeries())
           <a class="btn ghost" href={withBase('/about/')}>연구소 소개</a>
         </div>
         <dl class="hero-facts" aria-label="연구소 현황">
-          <div><dt>모아 온 의료 AI 뉴스</dt><dd>{news.items.length}<small>건</small></dd></div>
-          <div><dt>글·추천 영상</dt><dd>{contentCount}<small>건</small></dd></div>
+          {stats.map((s) => (
+            <div>
+              <dt><a href={withBase(s.href)}>{s.label}</a></dt>
+              <dd>{s.n}<small>건</small></dd>
+            </div>
+          ))}
         </dl>
       </div>
 
@@ -610,7 +621,7 @@ const homeSeries = (await getResolvedSeries())
 
   .hero-facts {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(4, auto);
     justify-content: start;
     gap: 0;
     margin: 2.25rem 0 0;
@@ -634,6 +645,15 @@ const homeSeries = (await getResolvedSeries())
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.62);
     white-space: nowrap;
+  }
+
+  .hero-facts dt a {
+    color: inherit;
+  }
+
+  .hero-facts dt a:hover {
+    color: #fff;
+    text-decoration: underline;
   }
 
   .hero-facts dd {
