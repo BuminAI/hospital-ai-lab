@@ -23,9 +23,25 @@ const updatedAt = fmtFull.format(new Date(programs.updatedAt));
 const items = programs.items;
 // 소스별 건수 — 어디서 모으는지 한눈에 보이게
 const pressItems = press.items;
-const pressUpdated = fmtFull.format(new Date(press.updatedAt));
 const kb = (b: number) => (b >= 1048576 ? `${(b / 1048576).toFixed(1)}MB` : `${Math.max(1, Math.round(b / 1024))}KB`);
 const sources = [...new Set(items.map((i) => i.source))];
+// 지원사업 공고와 보건복지부 보도자료를 날짜순으로 한 목록에 섞는다.
+type Row = {
+  kind: 'program' | 'press';
+  title: string;
+  link: string;
+  pubDate: string;
+  source: string;
+  summary?: string;
+  dept?: string;
+  body?: string;
+  files?: { name: string; path: string; bytes: number }[];
+};
+const rows: Row[] = [
+  ...items.map((i): Row => ({ kind: 'program', ...i })),
+  ...pressItems.map((i): Row => ({ kind: 'press', ...i, source: '보건복지부 보도자료' })),
+].sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf());
+const allSources = [...sources.filter((x) => x !== '보건복지부 보도자료'), '보건복지부 보도자료'];
 
 // CollectionPage + ItemList 구조화 데이터.
 // 이 페이지는 자동 수집 목록이라 본문 글이 아니다. AI 답변 엔진과 검색엔진에
@@ -60,7 +76,7 @@ const pressList = {
   '@id': `${pageUrl}#press-list`,
   name: '보건복지부 보도자료',
   description: '보건복지부 누리집 보도자료의 제목·작성일·본문과 원문 파일(PDF·hwpx). 공공누리 제1·3유형 자료만 파일을 싣는다.',
-  url: `${pageUrl}#press`,
+  url: pageUrl,
   numberOfItems: pressItems.length,
   itemListElement: pressItems.slice(0, 20).map((it, i) => ({
     '@type': 'ListItem',
@@ -82,14 +98,14 @@ const pressList = {
       <h1>정부 지원사업</h1>
       <p class="lead">
         병원·의료 분야의 정부·공공기관 지원사업 공고를 날마다 새로 올라온 것이
-        있는지 확인해 담아 둡니다. 제목을 누르면 해당 기관의 원문 공고로
+        있는지 확인해 담아 둡니다. 보건복지부 보도자료도 날짜에 맞춰 함께 보여 줍니다. 제목을 누르면 해당 기관의 원문으로
         이동합니다.
       </p>
     </header>
 
     <p class="updated">
       마지막 업데이트: <time datetime={programs.updatedAt}>{updatedAt}</time>
-      {sources.length > 0 && <> · 출처: {sources.join(' · ')}</>}
+      {allSources.length > 0 && <> · 출처: {allSources.join(' · ')}</>}
     </p>
 
     <p class="caution">
@@ -100,9 +116,9 @@ const pressList = {
     </p>
 
     {
-      items.length > 0 ? (
+      rows.length > 0 ? (
         <ul class="program-list">
-          {items.map((item) => (
+          {rows.map((item) => (
             <li>
               <a href={item.link} target="_blank" rel="noopener">
                 {item.title}
@@ -110,37 +126,13 @@ const pressList = {
               </a>
               {item.summary && <p class="summary">{item.summary}</p>}
               <span class="meta">
-                <span class="src">{item.source}</span>
-                <time datetime={item.pubDate}>{fmtDay.format(new Date(item.pubDate))} 공고</time>
-              </span>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p class="empty">아직 담긴 공고가 없습니다.</p>
-      )
-    }
-
-    <section class="press" id="press">
-      <h2>보건복지부 보도자료</h2>
-      <p class="updated">
-        보건복지부 누리집의 보도자료를 3시간마다 확인해, 본문과 원문 파일(PDF·hwpx)을 그대로
-        모아 둡니다. 최근 {pressItems.length}건 · 마지막 업데이트 <time datetime={press.updatedAt}>{pressUpdated}</time>
-      </p>
-      <ul class="press-list">
-        {
-          pressItems.map((item) => (
-            <li>
-              <a class="ptitle" href={item.link} target="_blank" rel="noopener">
-                {item.title}
-                <span class="sr-only"> (새 탭으로 열림)</span>
-              </a>
-              <span class="meta">
-                <span class="src">보건복지부</span>
-                <time datetime={item.pubDate}>{fmtDay.format(new Date(item.pubDate))}</time>
+                <span class={item.kind === 'press' ? 'src press-src' : 'src'}>{item.source}</span>
+                <time datetime={item.pubDate}>
+                  {fmtDay.format(new Date(item.pubDate))} {item.kind === 'press' ? '보도' : '공고'}
+                </time>
                 {item.dept && <span>{item.dept}</span>}
               </span>
-              {item.files.length > 0 && (
+              {item.files && item.files.length > 0 && (
                 <span class="pfiles">
                   {item.files.map((f) => (
                     <a href={withBase(f.path)} download={f.name}>
@@ -156,17 +148,20 @@ const pressList = {
                 </details>
               )}
             </li>
-          ))
-        }
-      </ul>
-      <p class="pnote">
-        출처: 보건복지부 보도자료(공공누리 제1유형 출처표시·제3유형 출처표시 변경금지). 본문과 파일은 누리집에
-        올라온 그대로이며 연구소가 고치지 않았습니다. 정확한 기준은 보건복지부 누리집의 원문입니다. 그 밖의
-        유형의 자료는 싣지 않고 원문 링크만 겁니다.
-      </p>
-    </section>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty">아직 담긴 공고가 없습니다.</p>
+      )
+    }
 
     <section class="notice">
+      <p>
+        '보건복지부 보도자료' 표시가 붙은 항목은 지원사업 공고가 아니라 보건복지부 누리집의 보도자료입니다.
+        3시간마다 확인해 본문과 원문 파일(PDF·hwpx)을 날짜순으로 함께 모아 둡니다. 공공누리 제1유형(출처표시)과
+        제3유형(출처표시·변경금지)만 본문과 파일을 싣고, 그 밖의 유형은 원문 링크만 겁니다. 본문과 파일은 누리집에
+        올라온 그대로이며 연구소가 고치지 않았습니다. 정확한 기준은 보건복지부 누리집의 원문입니다.
+      </p>
       <p>
         이 목록은 각 기관 홈페이지에 올라온 공고 가운데 조건에 걸리는 것만
         제목과 링크로 옮겨 둔 것입니다. 연구소가 내용을 검토하고 고른 사업도,
@@ -281,34 +276,7 @@ const pressList = {
     margin-top: 0.6rem;
   }
 
-  .press {
-    margin-top: 3rem;
-    max-width: 52rem;
-  }
-  .press-list {
-    margin: 1rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
-  .press-list li {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-  .press-list li:first-child {
-    border-top: 1px solid var(--color-border);
-  }
-  .ptitle {
-    color: var(--color-text);
-    font-weight: 600;
-    line-height: 1.5;
-  }
-  .ptitle:hover {
-    color: var(--color-primary);
-  }
-  .pfiles {
+    .pfiles {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
@@ -318,7 +286,7 @@ const pressList = {
   .pfiles small {
     color: var(--color-muted);
   }
-  .press details summary {
+  .program-list details summary {
     cursor: pointer;
     font-size: 0.875rem;
     color: var(--color-primary);
@@ -335,9 +303,8 @@ const pressList = {
     line-height: 1.7;
     white-space: pre-line;
   }
-  .pnote {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: var(--color-muted);
+  .meta .press-src {
+    color: var(--color-primary);
+    background: var(--color-primary-soft);
   }
 </style>
