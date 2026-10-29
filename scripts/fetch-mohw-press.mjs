@@ -36,6 +36,32 @@ const decode = (s) =>
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&nbsp;/g, ' ')
     .trim();
+const NAMED = { lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”', hellip: '…', middot: '·', ndash: '–', mdash: '—', bull: '•' };
+const decodeAll = (s) =>
+  s
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
+    .replace(/&([a-z]+);/g, (m, n) => NAMED[n] ?? m);
+// 본문 HTML → 줄바꿈이 살아 있는 평문(문단·표 셀 구분 유지)
+function bodyText(html) {
+  const m = html.match(/<div class="contents">([\s\S]*?)<\/div>\s*(?:<div class="file">|<\/article>)/);
+  if (!m) return '';
+  const t = decodeAll(
+    decode(
+      m[1]
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/(p|div|tr|li|h\d)>/gi, '\n')
+        .replace(/<\/t[dh]>/gi, ' | ')
+        .replace(/<[^>]+>/g, '')
+    )
+  );
+  return t
+    .split('\n')
+    .map((l) => l.replace(/[ \t ]+/g, ' ').replace(/(\s\|)+\s*$/, '').trim())
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
 const text = (s) => decode(s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '));
 
 async function get(url) {
@@ -70,6 +96,7 @@ function parseView(html) {
     pubDate: dateM ? kstToIso(dateM[1]) : null,
     dept: deptM ? decode(deptM[1]) : '',
     license: licM ? Number(licM[1]) : 0,
+    body: bodyText(html),
     files,
   };
 }
@@ -144,6 +171,8 @@ for (const id of ids) {
       dept: v.dept,
       license: v.license,
       ai: AI_RE.test(v.title),
+      // 본문 문장은 공공누리 1·3유형일 때만 그대로 싣는다(파일과 같은 기준)
+      body: v.license === 1 || v.license === 3 ? v.body : '',
       link: `${BASE}/board.es?mid=a10503000000&bid=0027&list_no=${id}&act=view`,
       files: saved,
     });
