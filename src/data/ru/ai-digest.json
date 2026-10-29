@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-10-29T08:27:32.749Z",
+  "updatedAt": "2026-10-29T16:55:29.646Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Mistral открыла веса ИИ-модели Large 4 с триллионом параметров и удешевила доступ через API",
+      "link": "https://3dnews.ru/1150622/mistral-otkrila-vesa-iimodeli-large-4-s-trillionom-parametrov-i-udeshevila-dostup-cherez-api",
+      "source": "3DNews",
+      "pubDate": "2026-10-29T16:12:00.000Z"
+    },
+    {
+      "title": "vue-llm: AI SDK для Vue и Nuxt — стриминговый чат, Generative UI и модели прямо в браузере",
+      "link": "https://habr.com/ru/articles/1101308/?utm_campaign=1101308&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T14:35:14.000Z"
+    },
+    {
+      "title": "Как построить self‑hosted RAG‑систему с LangGraph‑агентом на локальных LLM",
+      "link": "https://habr.com/ru/articles/1101266/?utm_campaign=1101266&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T12:59:00.000Z"
+    },
+    {
+      "title": "Софта для рецептур масел не было никогда — своя нейросеть сократила разработку с полугода до месяца",
+      "link": "https://habr.com/ru/articles/1101256/?utm_campaign=1101256&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T12:50:30.000Z"
+    },
+    {
+      "title": "Что бэкапить в ИИ-приложении: модель, документы, индексы или историю диалогов?",
+      "link": "https://habr.com/ru/companies/runity/articles/1101250/?utm_campaign=1101250&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T12:44:03.000Z"
+    },
+    {
+      "title": "От Word по почте до ИИ‑скиллов: обсудим эволюцию документации и зачем нейросетям бизнес‑контекст",
+      "link": "https://habr.com/ru/articles/1101204/?utm_campaign=1101204&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T11:44:23.000Z"
+    },
+    {
+      "title": "Не давайте агенту docker.sock: как я сделал для ИИ отдельный вход в свой Docker-менеджер",
+      "link": "https://habr.com/ru/articles/1101202/?utm_campaign=1101202&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T11:44:18.000Z"
+    },
+    {
+      "title": "Локальные LLM в AppSec: что можно доверить открытым инструментам и моделям",
+      "link": "https://habr.com/ru/companies/codescoring/articles/1101180/?utm_campaign=1101180&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T10:51:16.000Z"
+    },
+    {
+      "title": "Workflow as a YAML: детерминированная песочница для агента поверх Pydantic AI",
+      "link": "https://habr.com/ru/articles/1101120/?utm_campaign=1101120&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T09:50:38.000Z"
+    },
+    {
+      "title": "Оптимизация ИБ-бюджета, итоги «Киберарены» и ИИ в SOC: что мы узнали на GISDAYS 2026",
+      "link": "https://habr.com/ru/companies/gaz-is/articles/1101088/?utm_campaign=1101088&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T09:01:34.000Z"
+    },
     {
       "title": "Anthropic научила Claude доносить начальству на сотрудников, которые зря тратят токены",
       "link": "https://3dnews.ru/1150600/anthropic-nauchila-claude-donosit-nachalstvu-na-sotrudnikov-kotorie-zrya-tratyat-tokeni",
@@ -1741,66 +1801,6 @@
       "link": "https://habr.com/ru/companies/speshu_ai/articles/1093732/?utm_campaign=1093732&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-13T09:23:41.000Z"
-    },
-    {
-      "title": "Зачем нам 200 инструментов и 5 чатов: как мы строим ИИ-агентов в финтехе",
-      "link": "https://habr.com/ru/companies/svoi_ru/articles/1093724/?utm_campaign=1093724&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T09:16:22.000Z"
-    },
-    {
-      "title": "Исследование Mail: треть россиян доверила бы ИИ рутину в работе и личных делах",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_issledovanie_mail_tret_rossiyan",
-      "source": "CNews",
-      "pubDate": "2026-10-13T09:03:00.000Z"
-    },
-    {
-      "title": "На конференции TAdviser «СЭД и ECM Day 2026»: эксперты обсудили подходы к внедрению ЮЗЭДО, успешные кейсы, ограничения применения ИИ",
-      "link": "https://www.tadviser.ru/a/972320",
-      "source": "TAdviser",
-      "pubDate": "2026-10-13T08:56:06.000Z"
-    },
-    {
-      "title": "Napoleon IT стал партнером «Салют для бизнеса» по внедрению платформы ИИ-агентов GigaCowork",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_napoleon_it_stal_partnerom_salyut",
-      "source": "CNews",
-      "pubDate": "2026-10-13T08:56:00.000Z"
-    },
-    {
-      "title": "Хронология инцидентов с ИИ‑агентами: два разных класса и чек‑лист изоляции для своего агента",
-      "link": "https://habr.com/ru/companies/syntx_ai/articles/1093670/?utm_campaign=1093670&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T08:54:41.000Z"
-    },
-    {
-      "title": "Компания «Синимекс» расширила возможности ИИ-агента для «1С»",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_kompaniya_sinimeks_rasshirila",
-      "source": "CNews",
-      "pubDate": "2026-10-13T08:42:00.000Z"
-    },
-    {
-      "title": "Какие ответы LLM стоит перепроверять? Как мы искали ошибки в ответах модели по logprobs",
-      "link": "https://habr.com/ru/companies/ingos_it/articles/1092408/?utm_campaign=1092408&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T08:17:16.000Z"
-    },
-    {
-      "title": "200 OK, а клиент видит пустой чат: второй баг тишины в ИИ‑агенте на n8n",
-      "link": "https://habr.com/ru/articles/1092216/?utm_campaign=1092216&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T07:45:34.000Z"
-    },
-    {
-      "title": "AI-агент сказал «готово». Как проверить, что он действительно сделал работу",
-      "link": "https://habr.com/ru/articles/1093658/?utm_campaign=1093658&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T07:28:31.000Z"
-    },
-    {
-      "title": "Ольга Михеева, ELMA365: Сотрудники используют теневой ИИ — и компании не контролируют это",
-      "link": "https://www.tadviser.ru/a/970854",
-      "source": "TAdviser",
-      "pubDate": "2026-10-13T07:27:56.000Z"
     }
   ]
 }
