@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-10-30T08:37:44.064Z",
+  "updatedAt": "2026-10-30T16:42:17.675Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Когда пользователь медсервиса — ИИ-агент",
+      "link": "https://habr.com/ru/articles/1101590/?utm_campaign=1101590&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-30T14:00:33.000Z"
+    },
+    {
+      "title": "Виртуальные сотрудники под контролем: как ограничить автономных ИИ-агентов",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1097646/?utm_campaign=1097646&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-30T13:02:02.000Z"
+    },
+    {
+      "title": "От ИИ-агента в 1С до мотивации команды: семь коротких докладов на A&PM EVENT 2026",
+      "link": "https://habr.com/ru/companies/infostart/articles/1101692/?utm_campaign=1101692&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-30T11:16:41.000Z"
+    },
     {
       "title": "Роботы-коммунисты: что бывает, когда у тысячи ИИ-агентов нет начальника",
       "link": "https://habr.com/ru/companies/ru_mts/articles/1098444/?utm_campaign=1098444&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://habr.com/ru/articles/1093838/?utm_campaign=1093838&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-13T11:20:45.000Z"
-    },
-    {
-      "title": "Anthropic перекрыла лазейку для клонирования Claude — дистиллировать модели стало в 10–100 раз труднее",
-      "link": "https://3dnews.ru/1149848/anthropic-dobilas-rezkogo-sokrashcheniya-atak-s-distillyatsiey-ii",
-      "source": "3DNews",
-      "pubDate": "2026-10-13T10:28:00.000Z"
-    },
-    {
-      "title": "«АрхиТех ИИ» и МГИМО развивают научно-технологическое сотрудничество в сфере разработки и применения ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_arhiteh_ii_i_mgimo_razvivayut",
-      "source": "CNews",
-      "pubDate": "2026-10-13T10:01:00.000Z"
-    },
-    {
-      "title": "Ученые ПНИПУ научили нейросети находить руду в два раза быстрее",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_uchenye_pnipu_nauchili_nejroseti",
-      "source": "CNews",
-      "pubDate": "2026-10-13T09:54:00.000Z"
     }
   ]
 }

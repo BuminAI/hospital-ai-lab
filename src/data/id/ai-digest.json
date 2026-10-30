@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-10-30T08:38:40.117Z",
+  "updatedAt": "2026-10-30T16:42:54.437Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "China luncurkan model AI berbasis satelit Fengyun untuk cuaca ekstrem",
+      "link": "https://www.antaranews.com/berita/5822687/china-luncurkan-model-ai-berbasis-satelit-fengyun-untuk-cuaca-ekstrem",
+      "source": "ANTARA",
+      "pubDate": "2026-10-30T15:58:06.000Z"
+    },
+    {
+      "title": "Raffi Ahmad ajak peserta IYS jangan takut hadapi kemajuan AI",
+      "link": "https://www.antaranews.com/berita/5822643/raffi-ahmad-ajak-peserta-iys-jangan-takut-hadapi-kemajuan-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-10-30T15:31:59.000Z"
+    },
+    {
+      "title": "TelkomGroup Rilis 4 Teknologi Digital, Ada Data Center AI Bidik 1 GW",
+      "link": "https://uzone.id/telkomgroup-rilis-4-teknologi-digital-ada-data-center-ai-bidik-1-gw",
+      "source": "Uzone",
+      "pubDate": "2026-10-30T13:40:00.000Z"
+    },
+    {
+      "title": "AI Nakal tidak Peduli Peringatan Aksinya Dapat Lukai Manusia",
+      "link": "https://mediaindonesia.com/teknologi/950635/ai-nakal-tidak-peduli-peringatan-aksinya-dapat-lukai-manusia",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-30T12:41:00.000Z"
+    },
+    {
+      "title": "Raksasa Teknologi Global Bahas Potensi AI Indonesia",
+      "link": "https://mediaindonesia.com/teknologi/950627/raksasa-teknologi-global-bahas-potensi-ai-indonesia",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-30T12:19:00.000Z"
+    },
+    {
+      "title": "ChatGPT Digugat usai Pasien Epilepsi Meninggal Gara-Gara Hal Ini",
+      "link": "https://www.liputan6.com/tekno/read/8324631/chatgpt-digugat-usai-pasien-epilepsi-meninggal-gara-gara-hal-ini",
+      "source": "Liputan6",
+      "pubDate": "2026-10-30T10:09:28.000Z"
+    },
+    {
+      "title": "Telkom, Danantara, PLN Kembangkan Hub Pusat Data AI Berbasis Kawasan Industri",
+      "link": "https://katadata.co.id/digital/teknologi/6ae46777acc34/telkom-danantara-pln-kembangkan-hub-pusat-data-ai-berbasis-kawasan-industri",
+      "source": "Katadata",
+      "pubDate": "2026-10-30T09:46:00.000Z"
+    },
     {
       "title": "Kim Jong Un ingin percepat pengembangan senjata nirawak berbasis AI",
       "link": "https://www.antaranews.com/berita/5821515/kim-jong-un-ingin-percepat-pengembangan-senjata-nirawak-berbasis-ai",
@@ -1759,48 +1801,6 @@
       "link": "https://uzone.id/5-pesaing-gemini-4-argon-adu-fitur-harga-dan-kecerdasan-ai",
       "source": "Uzone",
       "pubDate": "2026-10-14T11:20:00.000Z"
-    },
-    {
-      "title": "Risiko Data Center AI Tumbangkan Listrik Satu Kota",
-      "link": "https://inet.detik.com/business/d-8707010/risiko-data-center-ai-tumbangkan-listrik-satu-kota",
-      "source": "detikINET",
-      "pubDate": "2026-10-14T10:34:53.000Z"
-    },
-    {
-      "title": "Gemini 4 Argon Tersedia Global, Harga Mulai Rp 35 Ribu",
-      "link": "https://www.liputan6.com/tekno/read/8312711/gemini-4-argon-tersedia-global-harga-mulai-rp-35-ribu",
-      "source": "Liputan6",
-      "pubDate": "2026-10-14T09:17:49.000Z"
-    },
-    {
-      "title": "Laju AI Tak Terbendung, Perusahaan Wajib Amankan Tata Kelola Data",
-      "link": "https://www.liputan6.com/tekno/read/8312369/laju-ai-tak-terbendung-perusahaan-wajib-amankan-tata-kelola-data",
-      "source": "Liputan6",
-      "pubDate": "2026-10-14T08:11:35.000Z"
-    },
-    {
-      "title": "Anthropic Peringatkan AI Bisa Berkembang Biak Sendiri Tanpa Pusat Data",
-      "link": "https://inet.detik.com/cyberlife/d-8706635/anthropic-peringatkan-ai-bisa-berkembang-biak-sendiri-tanpa-pusat-data",
-      "source": "detikINET",
-      "pubDate": "2026-10-14T07:53:54.000Z"
-    },
-    {
-      "title": "Layanan RT/RW mulai dijajaki lewat aplikasi berbasis AI",
-      "link": "https://www.antaranews.com/berita/5785453/layanan-rt-rw-mulai-dijajaki-lewat-aplikasi-berbasis-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-10-14T07:09:42.000Z"
-    },
-    {
-      "title": "Jepang kaji penggunaan drone berbasis AI deteksi penangkapan ilegal",
-      "link": "https://www.antaranews.com/berita/5785445/jepang-kaji-penggunaan-drone-berbasis-ai-deteksi-penangkapan-ilegal",
-      "source": "ANTARA",
-      "pubDate": "2026-10-14T07:07:32.000Z"
-    },
-    {
-      "title": "Lawan Ransomware Era AI, Perusahaan Indonesia Diimbau Pisahkan Backup Data",
-      "link": "https://www.liputan6.com/tekno/read/8312766/lawan-ransomware-era-ai-perusahaan-indonesia-diimbau-pisahkan-backup-data",
-      "source": "Liputan6",
-      "pubDate": "2026-10-14T04:37:19.000Z"
     }
   ]
 }
