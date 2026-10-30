@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-30T01:57:15.018Z",
+  "updatedAt": "2026-10-30T08:37:44.064Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Роботы-коммунисты: что бывает, когда у тысячи ИИ-агентов нет начальника",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1098444/?utm_campaign=1098444&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-30T07:48:14.000Z"
+    },
     {
       "title": "DeepSeek и Moonshot AI использовали GPT-6 Astra для обучения своих ИИ-моделей",
       "link": "https://3dnews.ru/1150637/deepseek-i-moonshot-ai-ispolzovali-gpt6-astra-dlya-obucheniya-svoih-iimodeley",
@@ -1795,12 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-13_uchenye_pnipu_nauchili_nejroseti",
       "source": "CNews",
       "pubDate": "2026-10-13T09:54:00.000Z"
-    },
-    {
-      "title": "VK Tech представила VK Data Catalog для управляемой работы ИИ-агентов с корпоративными данными",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_vk_tech_predstavila_vk_data_catalog",
-      "source": "CNews",
-      "pubDate": "2026-10-13T09:47:00.000Z"
     }
   ]
 }

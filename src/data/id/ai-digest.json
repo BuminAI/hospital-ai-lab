@@ -1,7 +1,79 @@
 {
-  "updatedAt": "2026-10-30T01:57:46.589Z",
+  "updatedAt": "2026-10-30T08:38:40.117Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Kim Jong Un ingin percepat pengembangan senjata nirawak berbasis AI",
+      "link": "https://www.antaranews.com/berita/5821515/kim-jong-un-ingin-percepat-pengembangan-senjata-nirawak-berbasis-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-10-30T08:25:12.000Z"
+    },
+    {
+      "title": "Bill Gates Ramal AI Akan Picu Zaman Gonjang Ganjing Selama 20 Tahun",
+      "link": "https://inet.detik.com/cyberlife/d-8730926/bill-gates-ramal-ai-akan-picu-zaman-gonjang-ganjing-selama-20-tahun",
+      "source": "detikINET",
+      "pubDate": "2026-10-30T07:10:26.000Z"
+    },
+    {
+      "title": "BRIN Proyeksikan Tren AI dan Cloud Dorong Pertumbuhan Industri Teknologi Nasional",
+      "link": "https://mediaindonesia.com/humaniora/950467/brin-proyeksikan-tren-ai-dan-cloud-dorong-pertumbuhan-industri-teknologi-nasional",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-30T07:00:00.000Z"
+    },
+    {
+      "title": "TelkomGroup Dorong Kolaborasi AI Data Center untuk Memperkuat Infrastruktur Digital AI-Ready Indonesia",
+      "link": "https://mediaindonesia.com/ekonomi/950462/telkomgroup-dorong-kolaborasi-ai-data-center-untuk-memperkuat-infrastruktur-digital-ai-ready-indonesia",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-30T06:40:00.000Z"
+    },
+    {
+      "title": "Google Umumkan Gemini 4 Carbon, Model AI Baru yang Belum Bisa Dipakai Publik",
+      "link": "https://www.liputan6.com/tekno/read/8323775/google-umumkan-gemini-4-carbon-model-ai-baru-yang-belum-bisa-dipakai-publik",
+      "source": "Liputan6",
+      "pubDate": "2026-10-30T05:21:47.000Z"
+    },
+    {
+      "title": "Solusi Infrastruktur Inferensi AI Lokal untuk Efisiensi dan Keamanan Data Perusahaan",
+      "link": "https://mediaindonesia.com/teknologi/950451/solusi-infrastruktur-inferensi-ai-lokal-untuk-efisiensi-dan-keamanan-data-perusahaan",
+      "source": "Media Indonesia",
+      "pubDate": "2026-10-30T05:21:00.000Z"
+    },
+    {
+      "title": "AI Jadi Senjata Makan Tuan, Google Kehilangan Rp 9.000 Triliun",
+      "link": "https://inet.detik.com/business/d-8730576/ai-jadi-senjata-makan-tuan-google-kehilangan-rp-9-000-triliun",
+      "source": "detikINET",
+      "pubDate": "2026-10-30T04:20:28.000Z"
+    },
+    {
+      "title": "LG Andalkan Mesin Cuci AI di RI, Kapasitasnya hingga 25 Kg",
+      "link": "https://inet.detik.com/consumer/d-8730557/lg-andalkan-mesin-cuci-ai-di-ri-kapasitasnya-hingga-25-kg",
+      "source": "detikINET",
+      "pubDate": "2026-10-30T04:00:26.000Z"
+    },
+    {
+      "title": "Saham Rontok Gara-gara AI, Induk Google Rugi Rp9.000 Triliun",
+      "link": "https://uzone.id/sahamnya-anjlok-gara-gara-ai-induk-google-rugi-rp9000-triliun",
+      "source": "Uzone",
+      "pubDate": "2026-10-30T04:00:00.000Z"
+    },
+    {
+      "title": "Meta AI Bikin Heboh soal Konten Demo, Komdigi: Jangan Langsung Percaya",
+      "link": "https://uzone.id/meta-ai-bikin-heboh-soal-konten-demo-komdigi-jangan-langsung-percaya",
+      "source": "Uzone",
+      "pubDate": "2026-10-30T03:30:00.000Z"
+    },
+    {
+      "title": "Startup Besutan Elon Musk Klaim Retas Sistem Anthropic",
+      "link": "https://www.liputan6.com/tekno/read/8323800/startup-besutan-elon-musk-klaim-retas-sistem-anthropic",
+      "source": "Liputan6",
+      "pubDate": "2026-10-30T03:18:23.000Z"
+    },
+    {
+      "title": "Bos Instagram Sebut Kemarahan Publik pada AI Bakal Makin Parah",
+      "link": "https://inet.detik.com/cyberlife/d-8730533/bos-instagram-sebut-kemarahan-publik-pada-ai-bakal-makin-parah",
+      "source": "detikINET",
+      "pubDate": "2026-10-30T03:15:33.000Z"
+    },
     {
       "title": "4 Mahasiswa Bikin AI Bantu Tunanetra Belajar Matematika, Juara SFT 2026",
       "link": "https://inet.detik.com/cyberlife/d-8730320/4-mahasiswa-bikin-ai-bantu-tunanetra-belajar-matematika-juara-sft-2026",
@@ -1729,78 +1801,6 @@
       "link": "https://www.liputan6.com/tekno/read/8312766/lawan-ransomware-era-ai-perusahaan-indonesia-diimbau-pisahkan-backup-data",
       "source": "Liputan6",
       "pubDate": "2026-10-14T04:37:19.000Z"
-    },
-    {
-      "title": "Dokumen Internal Microsoft Ungkap Ancaman Doom Loop AI terhadap Ekonomi Web",
-      "link": "https://mediaindonesia.com/teknologi/944195/dokumen-internal-microsoft-ungkap-ancaman-doom-loop-ai-terhadap-ekonomi-web",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-14T04:29:00.000Z"
-    },
-    {
-      "title": "Studi Sebut Chatbot AI Bikin Otak Cepat Lemah dan Mudah Menyerah",
-      "link": "https://mediaindonesia.com/humaniora/944187/studi-sebut-chatbot-ai-bikin-otak-cepat-lemah-dan-mudah-menyerah",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-14T04:19:00.000Z"
-    },
-    {
-      "title": "NEC Boyong 3 Solusi Manufaktur Berbasis AI ke Indonesia, Apa Saja?",
-      "link": "https://www.liputan6.com/tekno/read/8312629/nec-boyong-3-solusi-manufaktur-berbasis-ai-ke-indonesia-apa-saja",
-      "source": "Liputan6",
-      "pubDate": "2026-10-14T02:09:39.000Z"
-    },
-    {
-      "title": "Bukan Cuma Canggih, Ini Kunci Utama Penerapan AI di Perusahaan",
-      "link": "https://www.liputan6.com/tekno/read/8312286/bukan-cuma-canggih-ini-kunci-utama-penerapan-ai-di-perusahaan",
-      "source": "Liputan6",
-      "pubDate": "2026-10-14T01:13:08.000Z"
-    },
-    {
-      "title": "Presiden Microsoft: Regulasi Susu Lebih Ketat Dibandingkan AI",
-      "link": "https://inet.detik.com/cyberlife/d-8705921/presiden-microsoft-regulasi-susu-lebih-ketat-dibandingkan-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-14T00:40:27.000Z"
-    },
-    {
-      "title": "Bank Dunia & IMF Wanti-wanti Dampak Buruk AI",
-      "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8705734/bank-dunia-imf-wanti-wanti-dampak-buruk-ai",
-      "source": "detikFinance",
-      "pubDate": "2026-10-13T23:30:15.000Z"
-    },
-    {
-      "title": "Anthropic Peringatkan AI Dapat Replikasi Diri di Perangkat Pintar Rumah Tangga",
-      "link": "https://mediaindonesia.com/teknologi/944105/anthropic-peringatkan-ai-dapat-replikasi-diri-di-perangkat-pintar-rumah-tangga",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-13T23:15:00.000Z"
-    },
-    {
-      "title": "Lawan Serangan Siber Berbasis AI, Sistem Pertahanan Digital Perlu Digandakan",
-      "link": "https://mediaindonesia.com/teknologi/944113/lawan-serangan-siber-berbasis-ai-sistem-pertahanan-digital-perlu-digandakan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-13T23:07:00.000Z"
-    },
-    {
-      "title": "Karyawan OpenAI Ditangkap FBI Usai Ketahuan Pasang Alat Perekam Rahasia di Ruang Rapat Eksekutif",
-      "link": "https://mediaindonesia.com/internasional/944103/karyawan-openai-ditangkap-fbi-usai-ketahuan-pasang-alat-perekam-rahasia-di-ruang-rapat-eksekutif",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-13T22:53:00.000Z"
-    },
-    {
-      "title": "Ekspansi Pusat Data AI Dorong Kebutuhan Infrastruktur Listrik yang Lebih Cepat",
-      "link": "https://mediaindonesia.com/ekonomi/944072/ekspansi-pusat-data-ai-dorong-kebutuhan-infrastruktur-listrik-yang-lebih-cepat",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-13T19:01:00.000Z"
-    },
-    {
-      "title": "Data dan AI Jadi Penopang Strategi Ekspansi Bisnis",
-      "link": "https://mediaindonesia.com/ekonomi/944047/data-dan-ai-jadi-penopang-strategi-ekspansi-bisnis",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-13T15:43:00.000Z"
-    },
-    {
-      "title": "Sandiaga Uno: AI bantu agen asuransi kerja cerdas dan efektif",
-      "link": "https://www.antaranews.com/berita/5784545/sandiaga-uno-ai-bantu-agen-asuransi-kerja-cerdas-dan-efektif",
-      "source": "ANTARA",
-      "pubDate": "2026-10-13T15:38:50.000Z"
     }
   ]
 }
