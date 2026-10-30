@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-29T16:55:29.646Z",
+  "updatedAt": "2026-10-30T01:57:15.018Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "DeepSeek и Moonshot AI использовали GPT-6 Astra для обучения своих ИИ-моделей",
+      "link": "https://3dnews.ru/1150637/deepseek-i-moonshot-ai-ispolzovali-gpt6-astra-dlya-obucheniya-svoih-iimodeley",
+      "source": "3DNews",
+      "pubDate": "2026-10-29T22:10:00.000Z"
+    },
     {
       "title": "Mistral открыла веса ИИ-модели Large 4 с триллионом параметров и удешевила доступ через API",
       "link": "https://3dnews.ru/1150622/mistral-otkrila-vesa-iimodeli-large-4-s-trillionom-parametrov-i-udeshevila-dostup-cherez-api",
@@ -61,6 +67,12 @@
       "link": "https://habr.com/ru/companies/gaz-is/articles/1101088/?utm_campaign=1101088&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-29T09:01:34.000Z"
+    },
+    {
+      "title": "Сбербанк в руководстве по ИИ менеджменту повышает нормативы для работников до 500%",
+      "link": "https://habr.com/ru/articles/1101038/?utm_campaign=1101038&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-10-29T08:25:01.000Z"
     },
     {
       "title": "Anthropic научила Claude доносить начальству на сотрудников, которые зря тратят токены",
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-13_vk_tech_predstavila_vk_data_catalog",
       "source": "CNews",
       "pubDate": "2026-10-13T09:47:00.000Z"
-    },
-    {
-      "title": "Oracle показала, что у технологической ИИ-революции могут закончиться деньги",
-      "link": "https://habr.com/ru/articles/1093726/?utm_campaign=1093726&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T09:31:57.000Z"
-    },
-    {
-      "title": "Ошибки RAG: 6 причин, почему лагает память ИИ-агента, и как провести диагностику retrieval",
-      "link": "https://habr.com/ru/companies/speshu_ai/articles/1093732/?utm_campaign=1093732&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T09:23:41.000Z"
     }
   ]
 }
