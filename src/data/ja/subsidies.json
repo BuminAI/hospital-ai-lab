@@ -1,54 +1,6 @@
 {
-  "updatedAt": "2026-10-28T15:02:33.135Z",
+  "updatedAt": "2026-10-30T15:00:02.247Z",
   "items": [
-    {
-      "id": "a0WJ200000CDVu7MAH",
-      "title": "令和７年度勤務環境改善体制医師派遣等推進事業",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDVu7MAH",
-      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
-      "catchPhrase": "医師派遣事業",
-      "maxLimit": 0,
-      "rate": "10/10（資産形成経費は9/10）",
-      "area": "東京都",
-      "startDate": "2025-10-29T00:00:00.000Z",
-      "endDate": "2026-10-30T14:59:00.000Z"
-    },
-    {
-      "id": "a0WJ200000CDY6uMAH",
-      "title": "令和8年度医療機関診療情報デジタル導入支援事業",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WJ200000CDY6uMAH",
-      "usePurpose": "新たな事業を行いたい",
-      "catchPhrase": "",
-      "maxLimit": 0,
-      "rate": "200床以上の病院：1/2 200床未満の医療機関：3/4",
-      "area": "東京都",
-      "startDate": "2026-04-14T15:00:00.000Z",
-      "endDate": "2026-10-30T14:59:00.000Z"
-    },
-    {
-      "id": "a0WfQ000003I9xZUAS",
-      "title": "令和６年度地域医療勤務環境改善体制整備特別事業【仕入控除税額報告】",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000003I9xZUAS",
-      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
-      "catchPhrase": "",
-      "maxLimit": 0,
-      "rate": "10/10（資産形成経費は9/10）",
-      "area": "東京都",
-      "startDate": "2025-10-29T00:00:00.000Z",
-      "endDate": "2026-10-30T14:59:00.000Z"
-    },
-    {
-      "id": "a0WfQ000003IBL3UAO",
-      "title": "令和６年度 勤務環境改善医師派遣等推進事業【仕入控除税額報告】",
-      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000003IBL3UAO",
-      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
-      "catchPhrase": "",
-      "maxLimit": 0,
-      "rate": "10/10（資産形成経費は9/10）",
-      "area": "東京都",
-      "startDate": "2025-10-29T00:00:00.000Z",
-      "endDate": "2026-10-30T14:59:00.000Z"
-    },
     {
       "id": "a0WJ200000CDXvUMAX",
       "title": "令和８年度東京都医療ＤＸ人材育成支援事業",
