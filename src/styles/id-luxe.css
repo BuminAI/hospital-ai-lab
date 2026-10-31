@@ -1,0 +1,330 @@
+/* Tema "luxe" edisi Indonesia (2026-10-31, permintaan pemilik: kesan profesional, tepercaya, mewah)
+   Rujukan gaya: latar hitam pekat, cahaya hangat perunggu-emas, garis tipis (hairline), tipografi serif berjarak lebar,
+   foto/panel panorama lebar. Hanya mengganti variabel dan penampilan edisi Indonesia (data-locale='id').
+   Seluruh halaman edisi Indonesia memakai tema gelap ini agar konsisten (tidak mengikuti mode terang/gelap perangkat). */
+
+:root[data-locale='id'] {
+  color-scheme: dark;
+  --id-base: #0a0908;
+  --id-surface: #12100e;
+  --id-surface-2: #1b1814;
+  --id-border: #2b2620;
+  --id-text: #ece6da;
+  --id-text-sub: #a89e8d;
+  --id-primary: #c8a46a;
+  --id-primary-dk: #e3cb9a;
+  --id-btn-bg: #a52831;
+  --id-btn-bg-hover: #c0303b;
+  --id-btn-fg: #ffffff;
+  --id-accent: #c8a46a;
+  --id-badge-new: #c8a46a;
+  --id-badge-info: #9ab4c9;
+  --id-badge-gov: #b9c79a;
+  --id-gold: #c8a46a;
+  --id-gold-soft: #e3cb9a;
+  --id-hair: rgba(200, 164, 106, 0.24);
+  --id-serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', Georgia, serif;
+}
+
+html[data-locale='id'],
+[data-locale='id'] body {
+  background: var(--id-base);
+  color: var(--id-text);
+}
+html[data-locale='id'] body {
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+/* ── Header: wordmark di tengah, garis tipis ───────────── */
+html[data-locale='id'] .id-header {
+  background: #050403;
+  border-bottom: 1px solid var(--id-hair);
+  padding: 0;
+}
+html[data-locale='id'] .id-header::after {
+  display: none;
+}
+html[data-locale='id'] .id-header-inner {
+  justify-content: center;
+  text-align: center;
+  padding: 24px 20px 18px;
+}
+html[data-locale='id'] .id-brand {
+  display: inline-block;
+  font-family: var(--id-serif);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #f3ecdc;
+  text-decoration: none;
+}
+html[data-locale='id'] .id-brand-sub {
+  display: block;
+  margin-top: 8px;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--id-gold);
+}
+
+/* ── Menu: huruf kapital tipis, garis emas pada halaman aktif ── */
+html[data-locale='id'] .id-nav {
+  background: #0a0908;
+  border-bottom: 1px solid var(--id-hair);
+}
+html[data-locale='id'] .id-nav .id-nav-primary {
+  justify-content: center;
+}
+html[data-locale='id'] .id-nav .id-nav-primary a {
+  padding: 15px 18px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e8e0cf;
+}
+html[data-locale='id'] .id-nav .id-nav-primary a[aria-current='page'],
+html[data-locale='id'] .id-nav .id-nav-primary a:hover {
+  color: var(--id-gold-soft);
+  box-shadow: inset 0 -2px 0 var(--id-gold);
+}
+html[data-locale='id'] .id-nav .id-nav-secondary {
+  background: #070605;
+  border-top: 1px solid var(--id-border);
+}
+html[data-locale='id'] .id-nav .id-nav-secondary-inner {
+  justify-content: center;
+}
+html[data-locale='id'] .id-nav .id-nav-label {
+  color: var(--id-gold);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+}
+html[data-locale='id'] .id-nav .id-nav-secondary a {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--id-text-sub);
+}
+html[data-locale='id'] .id-nav .id-nav-secondary a[aria-current='page'],
+html[data-locale='id'] .id-nav .id-nav-secondary a:hover {
+  color: var(--id-gold-soft);
+}
+html[data-locale='id'] .id-breadcrumb {
+  color: var(--id-text-sub);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Tipografi isi ─────────────────────────────────────── */
+html[data-locale='id'] h1,
+html[data-locale='id'] h2,
+html[data-locale='id'] h3 {
+  font-family: var(--id-serif);
+  font-weight: 500;
+  color: #f4eee0;
+}
+html[data-locale='id'] h1 {
+  font-size: 32px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+html[data-locale='id'] main h2 {
+  font-size: 22px;
+  border: 0;
+  border-bottom: 1px solid var(--id-hair);
+  padding: 0 0 10px;
+  margin-top: 40px;
+}
+html[data-locale='id'] a {
+  color: var(--id-gold-soft);
+}
+html[data-locale='id'] a:hover {
+  color: #f6e7c4;
+}
+html[data-locale='id'] main table {
+  border-color: var(--id-border);
+}
+html[data-locale='id'] main th {
+  background: var(--id-surface-2);
+  color: var(--id-gold-soft);
+}
+html[data-locale='id'] main tbody tr:nth-child(even) > * {
+  background: rgba(255, 255, 255, 0.02);
+}
+html[data-locale='id'] main td,
+html[data-locale='id'] main th {
+  border-color: var(--id-border);
+}
+
+/* ── Kotak, kartu, tag ─────────────────────────────────── */
+html[data-locale='id'] .tg-box,
+html[data-locale='id'] .id-note {
+  background: var(--id-surface);
+  border: 1px solid var(--id-hair);
+  border-radius: 0;
+}
+html[data-locale='id'] .tg-warn {
+  border-left: 3px solid var(--id-gold);
+}
+html[data-locale='id'] .tg-answer {
+  background: var(--id-surface);
+  border-left: 3px solid var(--id-btn-bg);
+  color: var(--id-text);
+}
+html[data-locale='id'] [class$='-cards'] > a[class],
+html[data-locale='id'] .tg-card {
+  background: var(--id-surface);
+  border: 1px solid var(--id-hair);
+  border-left: 1px solid var(--id-hair);
+  border-radius: 0;
+}
+html[data-locale='id'] .tg-card:hover {
+  border-color: var(--id-gold);
+}
+html[data-locale='id'] .tg-card b {
+  font-family: var(--id-serif);
+  font-weight: 500;
+  color: var(--id-gold-soft);
+}
+html[data-locale='id'] .tg-tag {
+  background: transparent;
+  border: 1px solid var(--id-hair);
+  color: var(--id-gold);
+  letter-spacing: 0.08em;
+  border-radius: 0;
+}
+html[data-locale='id'] .tg-copy pre {
+  background: #050403;
+  border: 1px solid var(--id-hair);
+  color: #e8e0cf;
+}
+html[data-locale='id'] .tg-btn {
+  background: transparent;
+  border: 1px solid var(--id-gold);
+  color: var(--id-gold-soft);
+  border-radius: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+html[data-locale='id'] .id-side section {
+  background: var(--id-surface);
+  border: 1px solid var(--id-hair);
+  border-radius: 0;
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+html[data-locale='id'] .id-footer {
+  background: #050403;
+  border-top: 1px solid var(--id-hair);
+  color: var(--id-text-sub);
+}
+html[data-locale='id'] .id-footer::before {
+  display: none;
+}
+html[data-locale='id'] .id-footer a {
+  color: var(--id-gold-soft);
+}
+
+@media (max-width: 640px) {
+  html[data-locale='id'] h1 {
+    font-size: 26px;
+  }
+  html[data-locale='id'] .id-brand {
+    font-size: 14px;
+    letter-spacing: 0.28em;
+  }
+  html[data-locale='id'] .id-nav .id-nav-primary {
+    justify-content: flex-start;
+  }
+  html[data-locale='id'] .id-nav .id-nav-primary a {
+    padding: 13px 12px;
+    letter-spacing: 0.14em;
+  }
+}
+
+/* ── Beranda: tegaskan gaya heading khusus beranda di atas aturan umum main h2 ── */
+html[data-locale='id'] main .th-hero-card h2 {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--id-gold);
+}
+html[data-locale='id'] main h2.th-h {
+  margin: 0 0 34px;
+  padding: 0 0 16px;
+  border: 0;
+  border-bottom: 1px solid var(--id-hair);
+  font-size: 28px;
+  font-weight: 400;
+}
+html[data-locale='id'] main .th-post h3,
+html[data-locale='id'] main .th-lib strong {
+  border: 0;
+}
+html[data-locale='id'] main .th-task {
+  text-decoration: none;
+}
+
+/* ── Beranda selebar penuh: sidebar disembunyikan hanya di beranda (halaman dengan .th-hero) ── */
+html[data-locale='id'] body:has(.th-hero) .id-shell {
+  display: block;
+  max-width: none;
+  padding: 0 0 56px;
+}
+html[data-locale='id'] body:has(.th-hero) .id-side,
+html[data-locale='id'] body:has(.th-hero) .id-updated {
+  display: none;
+}
+html[data-locale='id'] body:has(.th-hero) .id-breadcrumb {
+  display: none;
+}
+html[data-locale='id'] main h2.th-h {
+  background: transparent;
+  padding-left: 0;
+}
+
+/* ── Sidebar: judul emas di atas latar gelap (bukan blok merah) ── */
+html[data-locale='id'] .id-side h2 {
+  background: transparent;
+  color: var(--id-gold);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  border: 0;
+  border-bottom: 1px solid var(--id-hair);
+  margin: 0;
+  padding: 14px 18px;
+}
+
+/* Hero berada di luar <main>, jadi aturan heading perlu tanpa "main" */
+html[data-locale='id'] .th-hero-card h2 {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--id-gold);
+}
+html[data-locale='id'] .th-hero h1 {
+  border: 0;
+  padding: 0;
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 400;
+  line-height: 1.22;
+}
