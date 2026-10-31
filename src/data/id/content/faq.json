@@ -2,18 +2,20 @@
   {
     "id": "mulai-dari-mana",
     "question": "Rumah sakit kami baru mulai mempertimbangkan AI. Harus mulai dari mana?",
-    "answer": "Mulailah dari dua hal yang tidak bergantung pada produk mana pun: dasar hukum pemrosesan data pasien, dan status perizinan alat atau sistem yang ditawarkan. UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi diundangkan pada 17 Oktober 2022, dan Pasal 74 memberi waktu paling lama dua tahun untuk menyesuaikan cara memproses data pribadi. Untuk alat kesehatan, izin edarnya dapat ditelusuri melalui portal resmi Kementerian Kesehatan. Kedua hal ini bisa Anda periksa sebelum membicarakan fitur apa pun.",
+    "answer": "Mulailah dari dua hal yang tidak bergantung pada produk mana pun: dasar hukum pemrosesan data pasien, dan status perizinan alat atau sistem yang ditawarkan. UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi diundangkan pada 17 Oktober 2022, dan Pasal 74 memberi waktu paling lama dua tahun untuk menyesuaikan cara memproses data pribadi, sehingga masa penyesuaian berakhir pada 17 Oktober 2024. Untuk alat kesehatan, izin edarnya dapat ditelusuri melalui portal resmi Kementerian Kesehatan; untuk perangkat lunak dan AI, lihat Kepmenkes 951/2026 yang menentukan bahwa AI hanya termasuk alat kesehatan bila bertujuan medis. Kedua hal ini bisa Anda periksa sebelum membicarakan fitur apa pun.",
     "sources": [
       "https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022",
-      "https://regalkes.kemkes.go.id/"
+      "https://regalkes.kemkes.go.id/",
+      "https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026"
     ]
   },
   {
     "id": "aturan-ai-sudah-ada",
     "question": "Apakah Indonesia sudah punya aturan khusus untuk AI di layanan kesehatan?",
-    "answer": "Sebagian masih dalam penyusunan. Pada 8 Juni 2026 Kementerian Kesehatan menyampaikan bahwa pemanfaatan AI kesehatan harus diiringi tata kelola yang ketat dan etika yang kuat, dan menyebut hal-hal yang sedang disiapkan: aturan untuk alat kesehatan berbasis AI, tata kelola data, prosedur persetujuan pasien sebelum data digunakan, serta penguatan kapasitas komite etik penelitian kesehatan. Karena itu, keputusan yang diambil sekarang sebaiknya dibuat agar mudah disesuaikan ketika aturan teknisnya terbit.",
+    "answer": "Sebagian sudah ada, sebagian masih disiapkan. Kepmenkes HK.01.07/MENKES/951/2026 (7 September 2026) memuat pedoman izin edar alat kesehatan berbasis perangkat lunak, termasuk aplikasi kecerdasan buatan: AI/machine learning hanya termasuk alat kesehatan bila bertujuan medis, sedangkan fungsi non-medis seperti pengelolaan data administratif tidak termasuk. Pada 8 Juni 2026 Kementerian Kesehatan juga menyampaikan bahwa pemanfaatan AI kesehatan harus diiringi tata kelola ketat dan etika kuat, dan menyebut hal yang sedang disiapkan: tata kelola data, prosedur persetujuan pasien sebelum data digunakan, serta penguatan kapasitas komite etik penelitian kesehatan. Keputusan yang diambil sekarang sebaiknya mudah disesuaikan ketika aturan teknis lain terbit.",
     "sources": [
-      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat",
+      "https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026"
     ]
   },
   {
@@ -27,8 +29,11 @@
   {
     "id": "izin-edar-cek",
     "question": "Bagaimana memastikan alat yang ditawarkan sudah punya izin edar?",
-    "answer": "Izin edar alat kesehatan diterbitkan Kementerian Kesehatan, dan pendaftarannya dilayani melalui portal resmi regalkes.kemkes.go.id yang juga menangani PKRT. Anda dapat memeriksa sendiri melalui portal tersebut, alih-alih hanya menerima keterangan lisan dari penyedia. Simpan hasil pemeriksaan itu dalam berkas pengadaan.",
-    "sources": ["https://regalkes.kemkes.go.id/"]
+    "answer": "Izin edar alat kesehatan diterbitkan Kementerian Kesehatan, dan pendaftarannya dilayani melalui portal resmi regalkes.kemkes.go.id yang juga menangani PKRT. Anda dapat memeriksa sendiri melalui portal tersebut, alih-alih hanya menerima keterangan lisan dari penyedia. Simpan hasil pemeriksaan itu dalam berkas pengadaan. Untuk perangkat lunak dan AI, pedomannya ada di Kepmenkes 951/2026; mintalah vendor menuliskan tujuan penggunaan produk.",
+    "sources": [
+      "https://regalkes.kemkes.go.id/",
+      "https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026"
+    ]
   },
   {
     "id": "satusehat-apa",

@@ -25,7 +25,9 @@
     "category": "Regulasi dan Perizinan",
     "definition": "Izin yang diterbitkan Kementerian Kesehatan agar alat kesehatan boleh diedarkan di Indonesia. Pendaftarannya dilayani melalui portal resmi Kementerian Kesehatan, regalkes.kemkes.go.id, yang juga menangani PKRT (Perbekalan Kesehatan Rumah Tangga).",
     "whyMatters": "Saat menerima penawaran alat atau sistem baru, rumah sakit dapat menanyakan status izin edarnya dan memeriksa sendiri melalui portal resmi tersebut, alih-alih hanya mengandalkan penjelasan lisan penyedia.",
-    "sources": ["https://regalkes.kemkes.go.id/"]
+    "sources": [
+      "https://regalkes.kemkes.go.id/"
+    ]
   },
   {
     "id": "satusehat",
@@ -33,7 +35,9 @@
     "category": "Data dan Platform Nasional",
     "definition": "Menurut situs resminya, SATUSEHAT adalah ekosistem digital kesehatan nasional untuk memudahkan masyarakat mengakses data kesehatan dan mengelola kesehatan pribadi secara mandiri. Platform ini berada di bawah Kementerian Kesehatan Republik Indonesia.",
     "whyMatters": "Pembicaraan tentang data kesehatan di Indonesia hampir selalu bersinggungan dengan SATUSEHAT. Saat menilai proposal yang menyebut integrasi data, ada baiknya memastikan lebih dulu apa yang sebenarnya dimaksud penyedia dengan 'terhubung', karena istilah itu sering dipakai longgar.",
-    "sources": ["https://satusehat.kemkes.go.id/"]
+    "sources": [
+      "https://satusehat.kemkes.go.id/"
+    ]
   },
   {
     "id": "satusehat-ai",
@@ -49,10 +53,11 @@
     "id": "arah-regulasi-ai-kesehatan",
     "term": "Arah regulasi AI kesehatan di Indonesia",
     "category": "Regulasi dan Perizinan",
-    "definition": "Pada 8 Juni 2026 Kementerian Kesehatan menyampaikan bahwa pemanfaatan AI kesehatan harus diiringi tata kelola yang ketat dan etika yang kuat. Hal-hal yang disebut sedang disiapkan mencakup aturan untuk alat kesehatan berbasis AI, tata kelola data, prosedur persetujuan pasien sebelum data digunakan, serta penguatan kapasitas komite etik penelitian kesehatan.",
+    "definition": "Pada 7 September 2026 terbit Kepmenkes HK.01.07/MENKES/951/2026 tentang pedoman izin edar alat kesehatan berbasis perangkat lunak, termasuk aplikasi kecerdasan buatan. Pada 8 Juni 2026 Kementerian Kesehatan juga menyampaikan bahwa pemanfaatan AI kesehatan harus diiringi tata kelola yang ketat dan etika yang kuat; hal yang disebut sedang disiapkan mencakup tata kelola data, prosedur persetujuan pasien sebelum data digunakan, serta penguatan kapasitas komite etik penelitian kesehatan.",
     "whyMatters": "Artinya sebagian aturan teknis masih dalam penyusunan. Untuk rumah sakit, ini berarti keputusan hari ini sebaiknya dibuat agar tidak sulit disesuaikan nanti — misalnya dengan menyimpan catatan dasar pemrosesan data dan riwayat persetujuan pasien sejak awal.",
     "sources": [
-      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+      "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat",
+      "https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026"
     ]
   },
   {
@@ -73,6 +78,36 @@
     "whyMatters": "Kalau rumah sakit ikut serta dalam uji coba atau penelitian bersama vendor AI, jalur telaah etik perlu dipastikan sejak perencanaan — bukan setelah data terlanjur dikumpulkan.",
     "sources": [
       "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
+    ]
+  },
+  {
+    "id": "rme",
+    "term": "Rekam medis elektronik (RME)",
+    "category": "Regulasi dan Perizinan",
+    "definition": "Diatur dalam Permenkes 24/2022 tentang Rekam Medis (ditetapkan 31 Agustus 2022). Pasal 45 menyatakan seluruh fasilitas pelayanan kesehatan harus menyelenggarakan RME paling lambat 31 Desember 2023. Data RME disimpan paling singkat 25 tahun sejak kunjungan terakhir pasien (Pasal 39), dan RME harus terhubung dengan platform interoperabilitas yang dikelola Kemenkes (Pasal 21).",
+    "whyMatters": "Alat AI yang membaca atau menulis rekam medis berada dalam ruang lingkup peraturan ini: registrasi sistem elektronik, penyimpanan, cadangan data, dan hak akses perlu dijawab sejak tahap pengadaan.",
+    "sources": [
+      "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-24-tahun-2022"
+    ]
+  },
+  {
+    "id": "samd-simd",
+    "term": "SaMD dan SiMD",
+    "category": "Regulasi dan Perizinan",
+    "definition": "Menurut Kepmenkes 951/2026, SaMD (Software as a Medical Device) adalah alat kesehatan berbasis perangkat lunak yang dapat berdiri sendiri dan dipakai untuk satu atau lebih tujuan medis; SiMD (Software in Medical Device) adalah perangkat lunak yang tertanam dan menjadi bagian dari alat kesehatan. AI dan machine learning hanya termasuk alat kesehatan bila bertujuan medis; fungsi non-medis seperti pengelolaan data administratif tidak termasuk.",
+    "whyMatters": "Ketika vendor berkata \"ini hanya alat bantu\", tanyakan tujuan penggunaannya secara tertulis dan cocokkan dengan definisi ini.",
+    "sources": [
+      "https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026"
+    ]
+  },
+  {
+    "id": "data-pribadi-spesifik",
+    "term": "Data pribadi yang bersifat spesifik",
+    "category": "Regulasi dan Perizinan",
+    "definition": "UU 27/2022 Pasal 4 menyebut data dan informasi kesehatan, data biometrik, data genetika, catatan kejahatan, data anak, dan data keuangan pribadi sebagai data pribadi yang bersifat spesifik. Dasar pemrosesan yang diatur Pasal 20 meliputi persetujuan eksplisit untuk tujuan tertentu, pemenuhan perjanjian, kewajiban hukum, pelindungan kepentingan vital, tugas kepentingan umum, dan kepentingan yang sah.",
+    "whyMatters": "Sebelum data pasien diberikan kepada vendor AI, rumah sakit perlu dapat menyebutkan dasar pemrosesan yang dipakai dan siapa yang menetapkannya.",
+    "sources": [
+      "https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022"
     ]
   }
 ]

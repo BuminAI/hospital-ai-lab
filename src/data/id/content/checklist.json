@@ -8,7 +8,7 @@
   "sections": [
     {
       "heading": "1. Dasar hukum pemrosesan data pasien",
-      "body": "UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi diundangkan pada 17 Oktober 2022, dan Pasal 74 memberi masa penyesuaian dua tahun sejak diundangkan. Data kesehatan pasien termasuk data pribadi yang bersifat spesifik, jadi pertanyaannya bukan apakah boleh, melainkan atas dasar apa.",
+      "body": "UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi diundangkan pada 17 Oktober 2022, dan Pasal 74 memberi masa penyesuaian dua tahun sejak diundangkan, jadi masa itu berakhir pada 17 Oktober 2024. Data kesehatan pasien termasuk data pribadi yang bersifat spesifik, jadi pertanyaannya bukan apakah boleh, melainkan atas dasar apa.",
       "items": [
         "Data apa saja yang akan diproses? Buat daftarnya lebih dulu, jangan mulai dari fitur produk.",
         "Apa dasar pemrosesannya, dan siapa di rumah sakit yang menetapkannya?",
@@ -25,7 +25,8 @@
         "Minta nomor izin edar secara tertulis, lalu cek sendiri di portal Regalkes.",
         "Cakupan izinnya untuk penggunaan yang mana? Cocokkan dengan cara Anda akan memakainya.",
         "Kalau vendor menyatakan produknya tidak perlu izin edar, minta alasannya secara tertulis — jangan berhenti pada penjelasan lisan.",
-        "⚠️ Situs ini belum memuat kesimpulan tentang apakah perangkat lunak termasuk alat kesehatan yang wajib berizin, karena hal itu belum dapat kami pastikan dari sumber primer. Untuk kasus Anda, tanyakan langsung ke Kementerian Kesehatan."
+        "Untuk perangkat lunak dan AI, rujuk Kepmenkes HK.01.07/MENKES/951/2026 (7 September 2026): AI/machine learning hanya termasuk alat kesehatan bila bertujuan medis; fungsi non-medis seperti pengelolaan data administratif tidak termasuk definisi alat kesehatan. Minta vendor menuliskan tujuan penggunaan produknya.",
+        "Untuk produk impor yang dinyatakan alat kesehatan: tanyakan apakah memerlukan validasi klinis lokal di Indonesia menurut pedoman tersebut. Keputusan untuk produk tertentu tetap ada pada naskah pedoman dan otoritas yang berwenang."
       ]
     },
     {
