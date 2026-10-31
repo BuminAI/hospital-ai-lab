@@ -63,10 +63,10 @@ async function get(url, tries = 3) {
 
 // 분류 표시(화면의 작은 표시용) — 제목의 낱말로만 정한다
 function kindOf(t) {
-  if (/補\(捐\)助|補助|獎助|獎勵/.test(t)) return '補助・計畫';
+  if (/補\(捐\)助|補助|獎助|獎勵/.test(t)) return '補助、計畫';
   if (/徵求|徵件|公開徵求/.test(t)) return '公開徵求';
-  if (/說明會|研討會/.test(t)) return '說明會・研討會';
-  return '申請・公告';
+  if (/說明會|研討會/.test(t)) return '說明會、研討會';
+  return '申請、公告';
 }
 
 async function fetchMohw(page) {

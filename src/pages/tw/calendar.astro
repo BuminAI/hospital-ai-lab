@@ -1,0 +1,146 @@
+---
+// 制度日曆 (2026-10-31 新設)
+// 既有的自動收集資料（衛福部公告、教育與活動）加上手寫、經一手資料確認的時間點（milestones.ts）。
+// 沒有增加新的收集來源。
+// ⚠️ 公告的日期是「公告上線日」，不是截止日。申請期間、資格與文件，一律要回到公告原文確認；
+//    本頁不會從標題推測截止日。
+import '../../styles/tw-guide.css';
+import TwLayout from '../../layouts/TwLayout.astro';
+import TwGuideFoot from '../../components/TwGuideFoot.astro';
+import notices from '../../data/tw/gov-notices.json';
+import events from '../../data/tw/events.json';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/tw/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const now = Date.now();
+const fmtDay = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'long', day: 'numeric' });
+const fmtShort = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', month: 'long', day: 'numeric' });
+
+// 最近 60 天的衛福部補助、申請、說明會公告（新的在前）
+const recentNotices = notices.items.filter((n) => now - new Date(n.pubDate).getTime() <= 60 * 86400000).slice(0, 12);
+
+const nowMonth = new Date(now).toISOString().slice(0, 7);
+const horizon = new Date(now + 2 * 365 * 86400000).toISOString().slice(0, 7);
+const ahead = MILESTONES.filter((m) => m.status === 'ahead' && m.sort >= nowMonth && m.sort <= horizon).sort((a, b) =>
+  a.sort.localeCompare(b.sort)
+);
+const undated = MILESTONES.filter((m) => m.status === 'ahead' && m.sort > horizon);
+
+const recentEvents = events.items.slice(0, 8);
+
+const title = '醫療數位與補助日曆｜衛福部最新公告與制度時間點';
+const description =
+  '把衛福部最近的補助、申請與說明會公告，以及智慧醫療與 AI 規範的時間點，放在同一頁；公告每日自動確認，教育與活動每日更新。';
+const sources = [
+  SRC.aiAct,
+  { label: '衛生福利部「公告訊息」', url: 'https://www.mohw.gov.tw/lp-18-1.html' },
+  { label: '衛生福利部「政府網站資料開放宣告」', url: 'https://www.mohw.gov.tw/cp-81-155-1.html' },
+];
+---
+
+<TwLayout
+  title={title}
+  description={description}
+  crumb="制度日曆"
+  standalone
+  updated={new Date(notices.updatedAt)}
+>
+  <h1>醫療數位與補助日曆</h1>
+  <p class="tg-lead">
+    想知道「最近有什麼補助或申請可以看」「接下來有哪些制度時間點」，這一頁一次看完。公告是自動收集的，時間點是人工對照一手資料整理的。
+  </p>
+  <p class="tg-meta">顯示於 {fmtDay.format(new Date(now))} ／ 公告資料更新：{fmtDay.format(new Date(notices.updatedAt))}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+    <h2 id="h-notice">衛福部最近的補助、申請與說明會公告</h2>
+    <div class="tg-box tg-warn">
+      下列日期是公告上線的日期，<strong>不是申請截止日</strong>。申請資格、期間與文件，請一律點進公告原文確認。
+    </div>
+    {
+      recentNotices.length > 0 ? (
+        <ol class="tg-tl">
+          {recentNotices.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.dept && <span class="tg-tag">{n.dept}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+                    <span class="sr-only">（另開新分頁）</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>最近 60 天沒有符合條件的公告。</p>
+      )
+    }
+    <p><a href={withBase('/tw/gov-support/')}>看所有政府資源與公告 →</a></p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+    <h2 id="h-ms">制度時間點（接下來約兩年）</h2>
+    <p>
+      標示「報導」的項目是新聞報導中的計畫，不是已公告的期限。完整說明請看<a href={withBase('/tw/dx-roadmap/')}>智慧醫療與 AI 規範年表</a>。
+    </p>
+    <ol class="tg-tl">
+      {
+        ahead.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.report && <span class="tg-tag">報導</span>}
+                {m.title}
+              </b>
+            </div>
+          </li>
+        ))
+      }
+      {
+        undated.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  {
+    recentEvents.length > 0 && (
+      <section class="tg-sec" aria-labelledby="h-ev">
+        <h2 id="h-ev">最近的研討會、論壇與活動消息</h2>
+        <p>從中央社與衛福部的消息自動整理，日期是消息的發布日，不是活動日。活動時間請看原文。</p>
+        <ul class="tg-list">
+          {recentEvents.map((i) => (
+            <li>
+              <a href={i.link} target="_blank" rel="noopener">
+                {i.title}
+                <span class="sr-only">（另開新分頁）</span>
+              </a>
+              <br />
+              <small>
+                {i.source}｜{fmtShort.format(new Date(i.pubDate))}
+              </small>
+            </li>
+          ))}
+        </ul>
+        <p><a href={withBase('/tw/events/')}>看更多教育與活動 →</a></p>
+      </section>
+    )
+  }
+
+  <TwGuideFoot sources={sources} checked={CHECKED} />
+</TwLayout>

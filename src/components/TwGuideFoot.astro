@@ -1,0 +1,40 @@
+---
+// 台灣版 實務指南・患者專區 頁面共用的「出處與查證日・免責聲明」區塊 (2026-10-31)
+// 出處必須是實際連線確認過的頁面。
+interface Props {
+  sources: { label: string; url: string }[];
+  /** 查證出處的日期(顯示用) */
+  checked: string;
+  /** 患者專區頁面為 true — 更明確聲明不是診斷或治療建議 */
+  patient?: boolean;
+}
+const { sources, checked, patient = false } = Astro.props;
+---
+
+<section class="tg-src" aria-labelledby="tg-src-h">
+  <h2 id="tg-src-h">出處與查證日</h2>
+  <ul>
+    {
+      sources.map((s) => (
+        <li>
+          <a href={s.url} target="_blank" rel="noopener">
+            {s.label}
+            <span class="sr-only">（另開新分頁）</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p>以上出處已於{checked}查證。法規與作業方式可能調整，請以出處的官方頁面公告的最新內容為準。</p>
+  {
+    patient ? (
+      <p class="tg-disc">
+        本頁為一般性資訊，並非針對特定人症狀的診斷或治療建議。身體不適時，請洽原就診的醫療院所，或使用頁面內列出的諮詢管道。本站也不推薦特定醫療院所或產品。
+      </p>
+    ) : (
+      <p class="tg-disc">
+        本站內容為一般性資訊與研究教育之用，不能取代對特定病人的醫療診斷或建議，也不構成法律意見或個別採購決策的建議。法規與制度內容請務必以官方一手資料為準。
+      </p>
+    )
+  }
+</section>

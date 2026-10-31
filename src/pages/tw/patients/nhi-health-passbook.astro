@@ -1,0 +1,120 @@
+---
+// 患者專區：健保卡、健康存摺與就醫小提醒 (2026-10-31 新設)
+// 依據（實際讀過）：健保署「就醫程序」（112-11-29 更新）、衛福部新聞稿「健保卡數位化 出示手機即可就醫」（111-01-07）、
+//   衛福部新聞稿「全民健保行動快易通│健康存摺 APP 改版」（110-03-31）。
+// ⚠️ 後兩份是 2021～2022 年的新聞稿，功能與適用範圍可能已調整；頁面上都標明日期，並請讀者以 APP 與健保署最新說明為準。
+//    「找醫療院所」的官方工具沒有查到可確認的最新頁面，所以不寫。
+import '../../../styles/tw-guide.css';
+import TwLayout from '../../../layouts/TwLayout.astro';
+import TwGuideFoot from '../../../components/TwGuideFoot.astro';
+import TwFaq from '../../../components/TwFaq.astro';
+import { guideSchema } from '../../../utils/tw-guide';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = '2026 年 10 月 31 日';
+const title = '健保卡、健康存摺與就醫小提醒｜忘記帶卡怎麼辦';
+const description =
+  '忘記帶健保卡還能看診嗎？健康存摺可以查什麼？虛擬健保卡是什麼？依健保署的就醫程序與衛福部新聞稿，用淺顯的話整理給病人與家屬。';
+
+const sources = [
+  { label: '健保署「就醫程序」（112 年 11 月 29 日更新）', url: 'https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html' },
+  { label: '衛福部新聞稿「健保卡數位化 出示手機即可就醫」（111 年 1 月 7 日）', url: 'https://www.mohw.gov.tw/cp-16-65465-1.html' },
+  { label: '衛福部新聞稿「全民健保行動快易通│健康存摺 APP 改版升級」（110 年 3 月 31 日）', url: 'https://www.mohw.gov.tw/cp-5014-58851-1.html' },
+];
+
+const faq = [
+  {
+    q: '忘記帶健保卡，還可以看診嗎？',
+    a: '可以。健保署的就醫程序規定，民眾因為尚未領到卡、分娩或緊急傷病就醫等原因提不出健保卡或身分證件時，醫療院所應先提供醫療服務、收取保險醫療費用，並開給明細表及收據。',
+  },
+  {
+    q: '先自費之後，怎麼把錢拿回來？',
+    a: '在就醫之日起 10 日內（不含例假日）或出院前，把健保卡或身分證明補送給醫療院所，院所會把所收的保險醫療費用扣除您應自行負擔的部分後退還。如果因為不可抗力等原因來不及，可以檢附院所開的明細表及收據，向健保署轄區業務組申請核退。',
+  },
+  {
+    q: '健康存摺可以查什麼？',
+    a: '依衛福部 2021 年的新聞稿，「全民健保行動快易通│健康存摺」APP 可以查詢用藥、檢驗資料與影像報告等就醫資料，也有疫苗接種資料；有「眷屬管理」功能，可以查看家中長輩或孩子的資料。使用前需要先完成手機認證。功能可能已有調整，請以 APP 的最新說明為準。',
+  },
+  {
+    q: '虛擬健保卡是什麼？現在每家醫院都能用嗎？',
+    a: '2022 年 1 月衛福部的新聞稿說明，民眾可以用 APP 申請虛擬健保卡，以 QR Code 就醫。當時是試辦，只有參加試辦並完成線上受理的院所才能受理，民眾就醫前要先查名單並電話確認。這是當時的內容，目前的適用範圍請向健保署確認。',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/tw/patients/nhi-health-passbook/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: '病人與家屬',
+  faq,
+});
+---
+
+<TwLayout
+  title={title}
+  description={description}
+  crumb="健保卡、健康存摺與就醫小提醒"
+  standalone
+  updated={new Date('2026-10-31T00:00:00+08:00')}
+  schema={guide}
+>
+  <h1>健保卡、健康存摺與就醫小提醒</h1>
+  <p class="tg-lead">
+    「忘記帶健保卡了怎麼辦？」「手機可以查自己的就醫紀錄嗎？」這些常見的疑問，這一頁依健保署與衛福部公布的資料來回答。
+  </p>
+  <p class="tg-meta">查證日：{CHECKED} ／ 適用對象：病人與家屬</p>
+
+  <p class="tg-answer">
+    重點：沒帶健保卡也可以先看診；醫療院所會先收費並開收據，您在就醫之日起 10 日內（不含例假日）或出院前補送健保卡，院所會退還健保給付的部分。
+  </p>
+
+  <section class="tg-sec" aria-labelledby="s1">
+    <h2 id="s1">1. 忘記帶健保卡</h2>
+    <ol class="tg-list">
+      <li>先看診。醫療院所會先收取保險醫療費用，並開給明細表及收據。</li>
+      <li>在就醫之日起 <strong>10 日內（不含例假日）</strong>或出院前，把健保卡或身分證明補送給院所。</li>
+      <li>院所會在健保卡登錄就醫紀錄，並把收的費用扣除您應自行負擔的部分後退還。</li>
+      <li>如果有不可抗力等原因來不及補送，可以拿院所開的明細表及收據，向健保署轄區業務組申請核退。</li>
+    </ol>
+    <p>民眾就醫時要繳驗健保卡；保險憑證已足以辨識身分時，可以免繳驗國民身分證等身分證件。未滿 14 歲的孩子，可以用戶口名簿、戶籍謄本等影本代替。</p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="s2">
+    <h2 id="s2">2. 健康存摺</h2>
+    <p>
+      「全民健保行動快易通│健康存摺」是健保署的 APP。依衛福部 2021 年 3 月的新聞稿，它可以查詢用藥、檢驗資料與影像報告等就醫資料，也有疫苗接種資料。有「眷屬管理」功能，可以查看家中長輩或孩子的健康存摺。
+    </p>
+    <ul class="tg-list">
+      <li>使用「健康存摺」前，需要先完成手機認證（為了確保個人資料安全與落實實名制）。</li>
+      <li>這是 2021 年的資料，現在的功能與查詢範圍可能已經調整，請以 APP 的最新說明為準。</li>
+    </ul>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="s3">
+    <h2 id="s3">3. 虛擬健保卡</h2>
+    <p>
+      2022 年 1 月，衛福部說明民眾可以用上述 APP 申請「虛擬健保卡」，用手機上的 QR Code 就醫。當時是試辦，領域為遠距醫療、居家醫療與擴大視訊診療門診；只有參加試辦並完成線上受理的醫療院所，才能受理虛擬健保卡。新聞稿請民眾就醫前先查看可受理的院所名單，並電話確認。
+    </p>
+    <p>這是 2022 年的資料。目前哪些院所可以用，請向健保署或要去的醫療院所確認。</p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="s4">
+    <h2 id="s4">4. 有疑問時</h2>
+    <ul class="tg-list">
+      <li><strong>健保署諮詢服務專線：</strong>市話 <strong>0800-030-598</strong>，手機請撥 <strong>02-4128-678</strong>（健保署網站頁尾）。</li>
+      <li><strong>辦理各項健保業務：</strong>請至健保署各分區業務組。</li>
+    </ul>
+    <p>
+      對 AI 的疑問，請看<a href={withBase('/tw/patients/ai-health-consult/')}>問 AI 健康問題之前，先知道的 6 件事</a>。
+    </p>
+  </section>
+
+  <TwFaq items={faq} />
+
+  <TwGuideFoot sources={sources} checked={CHECKED} patient />
+</TwLayout>

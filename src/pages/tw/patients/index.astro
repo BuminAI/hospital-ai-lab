@@ -1,0 +1,40 @@
+---
+// 患者專區（病人與家屬）的總覽頁 (2026-10-31 新設)
+// ⚠️ 這裡不做診斷或治療建議。只寫一般性資訊，且只寫能用官方資料確認的內容。
+import '../../../styles/tw-guide.css';
+import TwLayout from '../../../layouts/TwLayout.astro';
+import { withBase } from '../../../utils/site';
+
+const title = '患者專區｜AI 與就醫的疑問，用淺顯的話說明';
+const description =
+  '問 AI 健康問題之前要知道的事、醫院使用 AI 時病人可以知道的事、健保卡與健康存摺的使用，依官方資料用淺顯的話整理給病人與家屬。';
+
+const cards = [
+  { href: '/tw/patients/ai-health-consult/', t: '問 AI 健康問題之前，先知道的 6 件事', d: 'AI 的回答不是診斷、可能出錯、個人資料怎麼保護、緊急時該找誰。' },
+  { href: '/tw/patients/ai-in-hospital/', t: '醫院使用 AI 時，病人可以知道的事', d: '誰負責判斷、會不會告知、錄音錄影可不可以拒絕、可以怎麼問醫院。' },
+  { href: '/tw/patients/nhi-health-passbook/', t: '健保卡、健康存摺與就醫小提醒', d: '忘記帶卡怎麼辦、健康存摺可以查什麼、虛擬健保卡是什麼。' },
+];
+---
+
+<TwLayout title={title} description={description} crumb="患者專區" standalone>
+  <h1>患者專區</h1>
+  <p class="tg-lead">
+    關於醫院和 AI 的事，「想問，但不知道要問誰」。這裡依官方資料來回答，盡量不用難懂的詞。
+  </p>
+  <div class="tg-box tg-warn">
+    這裡是一般性的資訊，不是針對特定症狀的診斷或治療建議。身體有不安時，請洽原就診的醫療院所，或參考各頁列出的諮詢管道。
+  </div>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+    在醫院工作的人，請看<a href={withBase('/tw/practice/')}>實務指南</a>。
+  </p>
+</TwLayout>

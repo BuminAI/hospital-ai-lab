@@ -18,9 +18,11 @@
 import '../styles/global.css';
 import '../styles/tw-tokens.css';
 import '../styles/locale-theme.css';
+import '../styles/tw-refresh.css';
 import tw from '../i18n/tw.json';
 import { growth } from '../i18n/growth';
 import navConfig from '../data/tw/content/nav.json';
+import linkHealth from '../data/tw/link-health.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import { organizationShared } from '../utils/entity';
 import {
@@ -115,8 +117,15 @@ const nav = navConfig
   .filter((item) => item.href === '/tw/' || item.enabled)
   .map((item) => ({
     href: item.href,
+    key: item.key,
     label: navLabels[item.key] ?? item.key,
   }));
+
+// 主從兩段式選單(2026-10-31): 主要 6 項放大顯示，其餘資料放在下一段。
+// 順序與顯示/隱藏仍由 nav.json(管理頁面)決定，這裡只負責分段。
+const PRIMARY_KEYS = ['home', 'practice', 'govSupport', 'news', 'patients', 'blog'];
+const navPrimary = nav.filter((n) => PRIMARY_KEYS.includes(n.key));
+const navSecondary = nav.filter((n) => !PRIMARY_KEYS.includes(n.key));
 
 const isActive = (href: string) =>
   href === '/tw/' ? canonicalPath === '/tw/' : canonicalPath.startsWith(href);
@@ -333,9 +342,9 @@ const year = new Date().getFullYear();
     </header>
 
     <nav class="tw-nav" aria-label="主選單">
-      <ul>
+      <ul class="tw-nav-primary">
         {
-          nav.map((item) => (
+          navPrimary.map((item) => (
             <li>
               <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
                 {item.label}
@@ -344,14 +353,37 @@ const year = new Date().getFullYear();
           ))
         }
       </ul>
+      {
+        navSecondary.length > 0 && (
+          <div class="tw-nav-secondary">
+            <ul class="tw-nav-secondary-inner">
+              <li class="tw-nav-label">資料</li>
+              {navSecondary.map((item) => (
+                <li>
+                  <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
     </nav>
 
-    <nav class="tw-breadcrumb" aria-label="導覽路徑">
-      <ol>
-        <li><a href={withBase('/tw/')}>{tw.ui.breadcrumbHome}</a></li>
-        {crumb && <li aria-current="page">{crumb}</li>}
-      </ol>
-    </nav>
+    {/* 首頁等需要滿版寬度的區塊(英雄區)用。沒有使用的頁面不會輸出任何東西 */}
+    <slot name="hero" />
+
+    {
+      crumb && (
+        <nav class="tw-breadcrumb" aria-label="導覽路徑">
+          <ol>
+            <li><a href={withBase('/tw/')}>{tw.ui.breadcrumbHome}</a></li>
+            <li aria-current="page">{crumb}</li>
+          </ol>
+        </nav>
+      )
+    }
 
     <div class="tw-shell">
       <main id="tw-main">
@@ -404,6 +436,7 @@ const year = new Date().getFullYear();
       <div class="tw-footer-inner">
         <ul>
           <li><a href={withBase('/tw/about/')}>{tw.footer.about}</a></li>
+          <li><a href={withBase('/tw/updates/')}>更新資訊</a></li>
           <li><a href={withBase('/tw/series/')}>{growth.tw.seriesName}</a></li>
           <li><a href={withBase('/privacy/')}>{tw.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{tw.footer.contact}</a></li>
@@ -432,6 +465,16 @@ const year = new Date().getFullYear();
               <a href={withBase('/id/')} hreflang="id" lang="id">{tw.editions.id}</a>
             </li>
         </ul>
+        {
+          /* 出處連結每日確認 (scripts/check-tw-links.mjs → link-health.json)。
+             只把「找不到頁面」(404/410) 算成失效，連不上的另外算成未確認。 */
+          linkHealth.checkedAt && (
+            <p class="tw-footer-check">
+              出處連結自動檢查：{new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(linkHealth.checkedAt))}
+              （共檢查 {linkHealth.total} 筆，找不到頁面 {linkHealth.dead.length} 筆，無法連線而未能確認 {linkHealth.unknown} 筆）
+            </p>
+          )
+        }
         <p>{tw.ui.disclaimer}</p>
         <p style="margin-top:10px">© {year} {SITE_TW}</p>
       </div>

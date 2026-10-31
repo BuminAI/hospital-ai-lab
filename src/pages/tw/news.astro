@@ -21,7 +21,7 @@ const items = news.items;
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteUrl}${withBase('/tw/news/')}`;
 const DESC =
-  '自動收集中央社、科技新報、健康醫療網當中提到 AI 或醫療數位化的報導，每天更新數次，舊的報導不會刪除。標題直接連到原媒體。';
+  '自動收集中央社、科技新報、健康醫療網的報導，以及衛福部與食藥署公開的相關新聞，涵蓋 AI、電子病歷、資安與醫療數位化，每天更新數次，舊的報導不會刪除。標題直接連到原媒體或機關頁面。';
 
 const collectionPage = {
   '@type': 'CollectionPage',
@@ -56,8 +56,8 @@ const collectionPage = {
 >
   <h1>{twI18n.nav.news}</h1>
   <p class="tw-lead">
-    自動收集中央社、科技新報、健康醫療網當中提到 AI 或醫療數位化的報導，
-    每天更新數次。舊的報導不會刪除。
+    自動收集中央社、科技新報、健康醫療網的報導，以及衛福部與食藥署公開的相關新聞，
+    涵蓋 AI、電子病歷、資安與醫療數位化，每天更新數次。舊的報導不會刪除。
   </p>
 
   {
@@ -84,7 +84,8 @@ const collectionPage = {
   <div class="tw-note">
     <p>
       這份清單是以標題關鍵字自動篩選出來的，不是編輯精選——本站沒有對個別報導
-      做評價或推薦。標題會直接連到原媒體的文章。
+      做評價或推薦。標題會直接連到原媒體的文章。衛福部與食藥署的新聞，依「政府資料開放授權條款」
+      公開，本站只列標題與連結並標示出處。
     </p>
   </div>
 </TwLayout>

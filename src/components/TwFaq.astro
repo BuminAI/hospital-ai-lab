@@ -1,0 +1,23 @@
+---
+// 台灣版 實務指南・患者專區 頁面共用的「常見問題」區塊 (2026-10-31)
+// 同一份陣列也要傳給 tw-guide.ts 的 guideSchema(faq)，讓畫面與結構化資料一致。
+interface Props {
+  items: { q: string; a: string }[];
+  heading?: string;
+}
+const { items, heading = '常見問題' } = Astro.props;
+---
+
+<section class="tg-sec tg-faq" aria-labelledby="tg-faq-h">
+  <h2 id="tg-faq-h">{heading}</h2>
+  <dl>
+    {
+      items.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+</section>

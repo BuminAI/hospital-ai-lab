@@ -20,6 +20,16 @@
     "enabled": true
   },
   {
+    "href": "/tw/practice/",
+    "key": "practice",
+    "enabled": true
+  },
+  {
+    "href": "/tw/patients/",
+    "key": "patients",
+    "enabled": true
+  },
+  {
     "href": "/tw/gov-support/",
     "key": "govSupport",
     "enabled": true

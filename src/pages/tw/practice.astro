@@ -1,0 +1,39 @@
+---
+// 實務指南（醫院工作人員）的總覽頁 (2026-10-31 新設)
+import '../../styles/tw-guide.css';
+import TwLayout from '../../layouts/TwLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = '實務指南｜醫事、行政與護理單位的智慧醫療與資安資料';
+const description =
+  '智慧醫療與 AI 規範年表、制度日曆、健保卡就醫櫃檯應對、醫院資安自我檢核、院內生成式 AI 使用規範範本。以一手資料為基礎，給醫院行政與護理單位直接使用。';
+
+const cards = [
+  { href: '/tw/dx-roadmap/', t: '智慧醫療與 AI 規範年表', d: '人工智慧基本法、資通安全管理法、個資法修正、衛福部生成式 AI 指引與病歷互通，一張年表看完。' },
+  { href: '/tw/calendar/', t: '制度日曆', d: '衛福部最近的補助、申請與說明會公告，加上接下來的制度時間點。' },
+  { href: '/tw/nhi-card-reception/', t: '健保卡就醫櫃檯應對', d: '忘記帶卡、停電、讀卡機故障時，依健保署規定怎麼處理。' },
+  { href: '/tw/cyber-checklist/', t: '醫院資安自我檢核', d: '依資通安全管理法與電子病歷辦法整理的 20 個檢核重點。' },
+  { href: '/tw/templates/', t: '範本集', d: '院內生成式 AI 使用規範、向廠商提問 20 題、給病人的告知文、資安事件通報聯絡表。' },
+  { href: '/tw/checklist/', t: 'AI 導入檢核表', d: '評估 AI 提案時可以逐項確認的項目。' },
+];
+---
+
+<TwLayout title={title} description={description} crumb="實務指南" standalone>
+  <h1>實務指南</h1>
+  <p class="tg-lead">
+    給醫事、行政與護理單位，明天就能用的資料。制度上的事實，都是實際查過衛福部、健保署與全國法規資料庫等一手資料才寫的，每一頁都附出處與查證日。
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+    給病人與家屬的說明，請看<a href={withBase('/tw/patients/')}>患者專區</a>。櫃檯在向病人說明時，也可以參考。
+  </p>
+</TwLayout>

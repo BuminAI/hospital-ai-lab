@@ -1,0 +1,180 @@
+---
+// 患者專區：問 AI 健康問題之前 (2026-10-31 新設)
+// ⚠️ 不做診斷或治療建議，只寫一般性資訊，且只寫能用官方資料或論文確認的內容。
+//    已確認：衛福部《醫療機構應用生成式人工智慧指引》全文、《個人資料保護法》第 6 條、消防署「119 救護車的適正利用」新聞稿、
+//    《醫療事故預防及爭議處理法》、兩篇系統性回顧的摘要。
+//    「用 AI 問健康問題是安全／危險」這種斷定，沒有可靠的官方資料，所以不斷定。
+import '../../../styles/tw-guide.css';
+import TwLayout from '../../../layouts/TwLayout.astro';
+import TwGuideFoot from '../../../components/TwGuideFoot.astro';
+import TwFaq from '../../../components/TwFaq.astro';
+import { guideSchema } from '../../../utils/tw-guide';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = '2026 年 10 月 31 日';
+const title = '問 AI 健康問題之前，先知道的 6 件事';
+const description =
+  '身體不舒服時想先問 AI？AI 的回答不是診斷、可能出錯、個人資料要保護、緊急時該找誰，依衛福部指引、消防署與研究論文，用淺顯的話整理。';
+
+const sources = [
+  { label: '衛福部《醫療機構應用生成式人工智慧指引》（115 年 5 月 29 日衛部醫字第 1151663164 號函頒）', url: 'https://www.mohw.gov.tw/cp-18-86695-1.html' },
+  { label: '全國法規資料庫《個人資料保護法》第 6 條', url: 'https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=I0050021&flno=6' },
+  { label: '內政部消防署「珍惜緊急救護資源 把 119 救護車留給重症患者」（110 年 5 月 25 日發布、111 年 6 月 21 日更新）', url: 'https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=1470&article_id=10345' },
+  { label: '全國法規資料庫《醫療事故預防及爭議處理法》', url: 'https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020227' },
+  { label: 'Riboli-Sasco 等人，Triage and diagnostic accuracy of online symptom checkers: systematic review，J Med Internet Res 2023', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10276326/' },
+  { label: 'Kopka 等人，Accuracy of self-triage by symptom assessment apps, LLMs and laypeople: systematic review，npj Digital Medicine 2025', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11937345/' },
+];
+
+const faq = [
+  {
+    q: '把症狀告訴 AI，它能幫我診斷嗎？',
+    a: '不能把 AI 的回答當成診斷。衛福部指引要求，生成式 AI 在醫療場域只是輔助工具，臨床醫師等決策人員負有最終判斷責任。AI 的回答和醫師看診後做出的診斷，是兩件事。',
+  },
+  {
+    q: 'AI 的回答會出錯嗎？',
+    a: '會。衛福部指引指出，生成式 AI 可能產出看似合理但實際不正確的內容，例如編造不存在的醫學文獻、產生錯誤的藥物交互作用資訊，或提供與現行臨床指引不符的建議。',
+  },
+  {
+    q: '可以把病歷或檢查報告貼給 AI 嗎？',
+    a: '建議不要貼出可以認出您是誰的資料。《個人資料保護法》第 6 條把病歷、醫療、健康檢查等資料列為特別敏感的個人資料，原則上不得蒐集、處理或利用，只有法律規定的例外情形才可以。要使用時，請先遮住姓名、身分證字號、病歷號、健保卡號等可識別的部分。',
+  },
+  {
+    q: '什麼時候該打 119？',
+    a: '消防署的新聞稿呼籲，把有限的救護資源留給急重症患者；單純想去醫院急診時，撥 119 之前請先想想有沒有其他就醫方式。如果您或身邊的人有生命危險，請立即撥打 119。',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/tw/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: '病人與家屬',
+  faq,
+});
+---
+
+<TwLayout
+  title={title}
+  description={description}
+  crumb="問 AI 健康問題之前"
+  standalone
+  updated={new Date('2026-10-31T00:00:00+08:00')}
+  schema={guide}
+>
+  <h1>問 AI 健康問題之前，先知道的 6 件事</h1>
+  <p class="tg-lead">
+    身體不舒服時，很多人會先拿手機問 AI。方便是方便，但有幾件事知道了會比較安心。這一頁只整理能用官方資料或研究論文確認的內容，是一般性的資訊。
+  </p>
+  <p class="tg-meta">查證日：{CHECKED} ／ 適用對象：病人與家屬</p>
+
+  <p class="tg-answer">
+    重點：AI 的回答不是診斷，也可能出錯。不要輸入可識別您個人的資料。有生命危險請立即撥打 119。
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>這一頁的限制</strong><br />
+    這一頁不能告訴您「這個症狀要不要緊」「這個藥可不可以吃」。這些要由醫師看診後判斷。身體有不安時，請洽原就診的醫療院所或家庭醫師。
+  </div>
+
+  <section class="tg-sec" aria-labelledby="p1">
+    <h2 id="p1">1. AI 的回答，不是診斷</h2>
+    <p>
+      衛福部的《醫療機構應用生成式人工智慧指引》要求，生成式 AI 在醫療場域是輔助工具，臨床醫師、行政主管或其他決策人員負有最終判斷責任；涉及臨床判斷、病人安全的使用情境，要由具相應資格的醫事人員負最終確認、審核與責任。
+    </p>
+    <p>所以，手機上的 AI 回答，不能取代醫師的診察。就算參考，也要記得它不是診斷。</p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="p2">
+    <h2 id="p2">2. 看起來合理，不代表正確</h2>
+    <p>
+      衛福部指引說明，生成式 AI 可能產出看似合理但實際不正確的內容，包括編造不存在的醫學文獻、產生錯誤的藥物交互作用資訊，或提供與現行臨床指引不符的建議，在醫療場域有直接危害病人安全的潛在風險。
+    </p>
+    <p>有兩篇研究整理了「用症狀判斷病況或緊急程度」的準確度（系統性回顧：把多項研究合併分析的論文）：</p>
+    <table class="tg-table">
+      <thead>
+        <tr><th>研究</th><th>結果</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>線上症狀檢查工具<br />（2023 年，合併 14 項研究）</th>
+          <td>判斷病名的準確度整體偏低，而且幾乎都低於比較對象。緊急程度判斷的準確度，因工具而差異很大；評估分流準確度的 13 項研究中，有 9 項（約七成）的整體結果不理想。研究者認為，要廣泛使用以前，還需要更多驗證。</td>
+        </tr>
+        <tr>
+          <th>症狀檢查 App、生成式 AI 與一般民眾的比較<br />（2025 年，合併 19 項研究）</th>
+          <td>判斷緊急程度的準確度，症狀檢查 App 為 11.5%～90.0%，差異極大；大型語言模型為 57.8%～76.0%；一般民眾為 47.3%～62.4%。研究者的結論是，不應一律推薦、也不應一律勸阻使用這類工具，要依使用情境與使用者判斷它是否有幫助。</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>簡單說：AI 的回答「可能對，也可能錯」，請用這個心態看待。</p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="p3">
+    <h2 id="p3">3. 先保護好您的個人資料</h2>
+    <p>
+      《個人資料保護法》第 6 條，把病歷、醫療、健康檢查等個人資料列為特別敏感的資料，原則上不得蒐集、處理或利用，只有法律規定的幾種例外情形（例如法律明文規定、經當事人書面同意等）才可以。
+    </p>
+    <p>本研究所的建議（不是法規）：</p>
+    <ul class="tg-list">
+      <li>不要輸入姓名、身分證字號、病歷號、健保卡號、出生日期、住址、電話，也不要寫出就診的醫院名稱。</li>
+      <li>要拿檢查報告或藥袋照片問 AI 時，先遮住可識別身分的部分。</li>
+      <li>家人的資料也一樣處理。</li>
+    </ul>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="p4">
+    <h2 id="p4">4. 緊急或不確定的時候</h2>
+    <table class="tg-table">
+      <thead>
+        <tr><th>狀況</th><th>可以怎麼做</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>有生命危險</th>
+          <td>
+            立即撥打 <strong>119</strong>。內政部消防署呼籲，把有限的救護資源留給急重症患者；單純想去醫院急診時，撥打 119 之前請先想想其他就醫方式。<br />
+            <a href="https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=1470&article_id=10345" target="_blank" rel="noopener">消防署：把 119 救護車留給重症患者<span class="sr-only">（另開新分頁）</span></a>
+          </td>
+        </tr>
+        <tr>
+          <th>不舒服，想知道要不要就醫</th>
+          <td>請洽原就診的醫療院所或家庭醫師。本站不提供症狀判斷。</td>
+        </tr>
+        <tr>
+          <th>健保卡、健保費用的問題</th>
+          <td>健保署諮詢服務專線：市話 0800-030-598，手機請撥 02-4128-678（見<a href={withBase('/tw/patients/nhi-health-passbook/')}>健保卡、健康存摺與找院所</a>）。</td>
+        </tr>
+        <tr>
+          <th>對醫療過程有疑慮、發生醫療事故</th>
+          <td>《醫療事故預防及爭議處理法》規定，醫療事故（病人發生重大傷害或死亡）發生後，醫療機構要在翌日起 5 個工作日內向病人、家屬說明並提供關懷服務；醫療爭議可向直轄市、縣（市）主管機關組成的醫療爭議調解會申請調解。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="p5">
+    <h2 id="p5">5. 用 AI 當「準備工具」，不要當「判斷工具」</h2>
+    <p>以下是本研究所的建議：AI 用在看診前的準備，出錯的影響比較小。</p>
+    <ul class="tg-list">
+      <li>把想問醫師的問題整理成條列。</li>
+      <li>請 AI 把看不懂的名詞換成白話，再向醫師或藥師確認。</li>
+      <li>把症狀的經過整理成有日期的紀錄（不要放可識別身分的資料）。</li>
+    </ul>
+    <p>不要照著 AI 的說法自己選藥，或決定不去看醫生。</p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="p6">
+    <h2 id="p6">6. 想知道醫院有沒有在用 AI，可以問</h2>
+    <p>
+      醫院使用 AI 時，哪些事情要告知病人、可以問什麼，請看<a href={withBase('/tw/patients/ai-in-hospital/')}>醫院使用 AI 時，病人可以知道的事</a>。
+    </p>
+  </section>
+
+  <TwFaq items={faq} />
+
+  <TwGuideFoot sources={sources} checked={CHECKED} patient />
+</TwLayout>

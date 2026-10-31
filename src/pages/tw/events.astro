@@ -22,7 +22,7 @@ const items = events.items;
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteUrl}${withBase('/tw/events/')}`;
 const DESC =
-  '臺灣醫療 AI 相關的研討會、論壇、工作坊與醫療科技展消息，從中央社的報導與衛生福利部的公告自動整理。日期是刊出日，不是活動日期；要參加請點進原文向主辦單位確認。';
+  '臺灣醫療 AI 相關的研討會、論壇、工作坊與醫療科技展消息，從中央社的報導與衛生福利部、食品藥物管理署的公告自動整理。日期是刊出日，不是活動日期；要參加請點進原文向主辦單位確認。';
 
 const collectionPage = {
   '@type': 'CollectionPage',
@@ -58,7 +58,7 @@ const collectionPage = {
   <h1>{twI18n.nav.events}</h1>
   <p class="tw-lead">
     臺灣醫療 AI 相關的研討會、論壇、工作坊與醫療科技展消息，從<strong>中央社的報導</strong>
-    與<strong>衛生福利部的最新消息</strong>自動整理。點標題會連到原本的報導或公告。
+    與<strong>衛生福利部、食品藥物管理署的公告</strong>自動整理。點標題會連到原本的報導或公告。
   </p>
 
   {/* 이 안내를 지우지 말 것 — 이 목록은 '행사 안내'가 아니라 '행사를 다룬

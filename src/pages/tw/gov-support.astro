@@ -12,9 +12,13 @@
 import TwLayout from '../../layouts/TwLayout.astro';
 import twI18n from '../../i18n/tw.json';
 import { govSupportTw } from '../../data/tw/pages';
+import notices from '../../data/tw/gov-notices.json';
 import { withBase } from '../../utils/site';
 
 const p = govSupportTw;
+const fmtDay = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'long', day: 'numeric' });
+// 最新公告(自動收集, 2026-10-31 新增): 衛福部「公告訊息」中的補助·徵求·申請須知·說明會, 食藥署的醫療器材公告
+const recent = notices.items.slice(0, 30);
 
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteUrl}${withBase('/tw/gov-support/')}`;
@@ -49,6 +53,33 @@ const schema = [
   <p class="tw-lead">{p.meta.lead}</p>
 
   <p class="tw-notice">{p.notice}</p>
+
+  <section class="tw-notice-sec" aria-labelledby="tw-latest-h">
+    <h2 id="tw-latest-h">最新補助、申請與說明會公告（自動收集）</h2>
+    <p class="tw-lead">
+      自動收集衛福部「公告訊息」中的補助、公開徵求、申請作業須知與說明會，以及食藥署與醫療器材有關的公告，每天確認數次，過去的公告不會刪除。下列日期是<strong>公告上線的日期，不是申請截止日</strong>；申請資格、期間與文件，請一律點進公告原文確認。這些是機關依「政府資料開放授權條款」公開的資料，本站只列標題與連結。
+    </p>
+    <ul class="tw-programs">
+      {
+        recent.map((n) => (
+          <li>
+            <h3>
+              <a href={n.link} target="_blank" rel="noopener">
+                {n.title}
+                <span class="sr-only"> ({twI18n.ui.external})</span>
+              </a>
+            </h3>
+            <p class="tw-org">
+              {n.source}{n.dept && <>｜{n.dept}</>}｜{n.kind}｜{fmtDay.format(new Date(n.pubDate))}公告
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="tw-note">資料更新：{fmtDay.format(new Date(notices.updatedAt))}。出處：衛生福利部、食品藥物管理署。</p>
+  </section>
+
+  <h2>官方入口與法規（人工整理）</h2>
 
   <ul class="tw-programs">
     {

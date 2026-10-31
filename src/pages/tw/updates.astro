@@ -1,0 +1,85 @@
+---
+// 更新資訊 (2026-10-31 新設) — 台灣版各領域最近新增的內容，依日期排列。
+// 日期是新聞的發布日、公告日、影片加入本站的日期、專欄的發布日，不是建置網站的時間。
+import '../../styles/tw-guide.css';
+import TwLayout from '../../layouts/TwLayout.astro';
+import { getTwUpdates, KIND_LABEL } from '../../utils/tw-updates';
+import { withBase } from '../../utils/site';
+
+const DAYS = 45;
+const items = await getTwUpdates(DAYS);
+const fmtDay = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+const dayKey = (iso: string) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Taipei' }).format(new Date(iso));
+
+const groups: { key: string; label: string; list: typeof items }[] = [];
+for (const it of items) {
+  const k = dayKey(it.date);
+  let g = groups[groups.length - 1];
+  if (!g || g.key !== k) {
+    g = { key: k, label: fmtDay.format(new Date(it.date)), list: [] };
+    groups.push(g);
+  }
+  g.list.push(it);
+}
+const count = (kind: string) => items.filter((i) => i.kind === kind).length;
+
+const title = '更新資訊｜AI 新聞、政府公告、活動、影片與專欄的新內容';
+const description = `台灣版最近 ${DAYS} 天新增的 AI 新聞、衛福部公告、教育與活動、推薦影片與專欄，依日期排列。資料自動收集，每日確認。`;
+const latest = items.length ? new Date(items[0].date) : undefined;
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${siteRoot}${withBase('/tw/updates/')}#collection`,
+    name: '更新資訊',
+    inLanguage: 'zh-TW',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 30).map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.title,
+        url: it.external ? it.href : `${siteRoot}${it.href}`,
+      })),
+    },
+  },
+];
+---
+
+<TwLayout title={title} description={description} crumb="更新資訊" standalone updated={latest} schema={schema}>
+  <h1>更新資訊</h1>
+  <p class="tg-lead">
+    台灣版最近 {DAYS} 天新增的內容，依日期排列。新聞每 3 小時、衛福部公告與教育活動每日數次、推薦影片每日自動確認；專欄在寫好時新增。
+  </p>
+  <p class="tg-meta">
+    最近 {DAYS} 天：{KIND_LABEL.news} {count('news')} 筆／{KIND_LABEL.notice} {count('notice')} 筆／{KIND_LABEL.event} {count('event')} 筆／{KIND_LABEL.video} {count('video')} 筆／{KIND_LABEL.blog} {count('blog')} 篇
+  </p>
+  <div class="tg-box">
+    畫面上的日期，是新聞的發布日、公告日、影片加入本站的日期或專欄的發布日，不是建置網站的時間。外部連結會前往各機關或媒體的頁面。
+  </div>
+
+  {
+    groups.length > 0 ? (
+      groups.map((g) => (
+        <section class="tg-sec" aria-label={g.label}>
+          <h2>{g.label}</h2>
+          <ul class="tg-list">
+            {g.list.map((it) => (
+              <li>
+                <span class="tg-tag">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only">（另開新分頁）</span>}
+                </a>
+                {it.note && <small>｜{it.note}</small>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    ) : (
+      <p>這段期間沒有新增的內容。</p>
+    )
+  }
+</TwLayout>

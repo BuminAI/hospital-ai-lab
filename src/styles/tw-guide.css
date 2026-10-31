@@ -1,0 +1,214 @@
+/* 台灣版「實務指南」「患者專區」頁面共用樣式 (2026-10-31)
+   tw-tokens.css の変数(--tw-*)だけを使う。クラスは tg- 開頭。 */
+[data-locale='tw'] .tg-lead {
+  color: var(--tw-text-sub);
+  line-height: 1.9;
+}
+[data-locale='tw'] .tg-meta {
+  font-size: 13px;
+  color: var(--tw-text-sub);
+  margin: 4px 0 18px;
+}
+[data-locale='tw'] .tg-box {
+  border: 1px solid var(--tw-border);
+  border-left: 4px solid var(--tw-primary);
+  background: var(--tw-surface);
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 18px 0;
+}
+[data-locale='tw'] .tg-box strong {
+  color: var(--tw-text);
+}
+[data-locale='tw'] .tg-warn {
+  border-left-color: #b45309;
+}
+[data-locale='tw'] .tg-sec {
+  margin-top: 34px;
+}
+[data-locale='tw'] .tg-sec h2 {
+  font-size: 19px;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+[data-locale='tw'] .tg-sec h3 {
+  font-size: 16px;
+  margin: 22px 0 6px;
+  line-height: 1.5;
+}
+[data-locale='tw'] .tg-sec p,
+[data-locale='tw'] .tg-sec li {
+  line-height: 1.9;
+}
+[data-locale='tw'] .tg-list {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+}
+[data-locale='tw'] .tg-list li {
+  margin: 5px 0;
+}
+[data-locale='tw'] .tg-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 14px;
+}
+[data-locale='tw'] .tg-table th,
+[data-locale='tw'] .tg-table td {
+  border: 1px solid var(--tw-border);
+  padding: 9px 10px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.8;
+}
+[data-locale='tw'] .tg-table th {
+  background: var(--tw-surface);
+  white-space: nowrap;
+}
+[data-locale='tw'] .tg-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 14px 0 0;
+}
+[data-locale='tw'] .tg-card {
+  display: block;
+  border: 1px solid var(--tw-border);
+  padding: 14px 16px;
+  background: var(--tw-surface);
+  color: var(--tw-text);
+  text-decoration: none;
+}
+[data-locale='tw'] .tg-card:hover {
+  border-color: var(--tw-primary);
+}
+[data-locale='tw'] .tg-card b {
+  display: block;
+  color: var(--tw-primary);
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+[data-locale='tw'] .tg-card span {
+  font-size: 13.5px;
+  color: var(--tw-text-sub);
+  line-height: 1.75;
+}
+[data-locale='tw'] .tg-tl {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--tw-border);
+}
+[data-locale='tw'] .tg-tl > li {
+  display: grid;
+  grid-template-columns: 9.5em 1fr;
+  gap: 4px 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--tw-border);
+}
+[data-locale='tw'] .tg-tl .when {
+  font-weight: 700;
+  color: var(--tw-primary);
+  line-height: 1.6;
+}
+[data-locale='tw'] .tg-tl .what b {
+  display: block;
+  line-height: 1.6;
+}
+[data-locale='tw'] .tg-tl .what span {
+  font-size: 14px;
+  color: var(--tw-text-sub);
+  line-height: 1.8;
+}
+[data-locale='tw'] .tg-tag {
+  display: inline-block;
+  font-size: 12px;
+  border: 1px solid var(--tw-border);
+  padding: 1px 8px;
+  margin: 0 6px 0 0;
+  color: var(--tw-text-sub);
+  background: var(--tw-surface);
+}
+[data-locale='tw'] .tg-src {
+  margin-top: 40px;
+  border-top: 1px solid var(--tw-border);
+  padding-top: 14px;
+  font-size: 13.5px;
+  color: var(--tw-text-sub);
+}
+[data-locale='tw'] .tg-src h2 {
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+[data-locale='tw'] .tg-src li {
+  margin: 4px 0;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+[data-locale='tw'] .tg-disc {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--tw-text-sub);
+  line-height: 1.85;
+}
+[data-locale='tw'] .tg-copy {
+  position: relative;
+  border: 1px solid var(--tw-border);
+  background: var(--tw-surface);
+  padding: 14px 16px;
+  margin: 10px 0;
+}
+[data-locale='tw'] .tg-copy pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.85;
+}
+[data-locale='tw'] .tg-btn {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  font-size: 13px;
+  border: 1px solid var(--tw-primary);
+  background: transparent;
+  color: var(--tw-primary);
+  cursor: pointer;
+}
+[data-locale='tw'] .tg-btn:hover {
+  background: var(--tw-primary);
+  color: #fff;
+}
+@media (max-width: 640px) {
+  [data-locale='tw'] .tg-tl > li {
+    grid-template-columns: 1fr;
+  }
+  [data-locale='tw'] .tg-table th {
+    white-space: normal;
+  }
+}
+
+/* 要点（先に答えを示すブロック）とよくある質問 (2026-10-31) */
+[data-locale='tw'] .tg-answer {
+  border-left: 4px solid var(--tw-primary);
+  background: var(--tw-surface);
+  padding: 12px 14px;
+  margin: 14px 0 18px;
+  font-size: 15px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+[data-locale='tw'] .tg-faq dl {
+  margin: 8px 0 0;
+}
+[data-locale='tw'] .tg-faq dt {
+  font-weight: 700;
+  margin-top: 18px;
+  line-height: 1.7;
+}
+[data-locale='tw'] .tg-faq dd {
+  margin: 4px 0 0;
+  line-height: 1.9;
+}

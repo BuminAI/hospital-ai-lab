@@ -1,0 +1,109 @@
+---
+// 患者專區：醫院使用 AI 時，病人可以知道的事 (2026-10-31 新設)
+// 依據：衛福部《醫療機構應用生成式人工智慧指引》全文（PDF 本文直接讀過）、
+//       《醫療事故預防及爭議處理法》第 6、12～14 條。
+// ⚠️ 指引是行政指導、不是強制規定，所以不寫成「醫院一定要」；也不介紹或評價特定醫院與產品（避免醫療廣告問題）。
+import '../../../styles/tw-guide.css';
+import TwLayout from '../../../layouts/TwLayout.astro';
+import TwGuideFoot from '../../../components/TwGuideFoot.astro';
+import TwFaq from '../../../components/TwFaq.astro';
+import { guideSchema } from '../../../utils/tw-guide';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = '2026 年 10 月 31 日';
+const title = '醫院使用 AI 時，病人可以知道的事';
+const description =
+  '醫院用生成式 AI 時，誰負責判斷？會不會告知病人？錄音錄影可以拒絕嗎？個人資料怎麼處理？依衛福部指引與相關法律，用問答整理給病人與家屬。';
+
+const sources = [
+  { label: '衛福部《醫療機構應用生成式人工智慧指引》（115 年 5 月 29 日衛部醫字第 1151663164 號函頒）', url: 'https://www.mohw.gov.tw/cp-18-86695-1.html' },
+  { label: '全國法規資料庫《醫療事故預防及爭議處理法》', url: 'https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020227' },
+];
+
+const qa = [
+  {
+    q: '醫院用 AI，是 AI 在診斷我的病嗎？',
+    a: '衛福部指引要求，生成式 AI 在醫療場域是輔助工具，臨床醫師、行政主管或其他決策人員負有最終判斷責任。涉及臨床判斷、病人安全、病人溝通或醫療紀錄的使用情境，要由具相應資格、在其執業範圍內的醫事人員負最終確認、審核與責任。',
+  },
+  {
+    q: '醫院會用 AI 做哪些事？',
+    a: '指引適用的情境包含病歷撰寫輔助、臨床決策支援、行政文書撰擬與病人溝通工具。至於哪一家醫院實際用了什麼，各院不同，您可以直接詢問。',
+  },
+  {
+    q: '醫院有告知我 AI 的使用嗎？',
+    a: '指引寫明，醫療機構應以適當方式告知病人及家屬生成式 AI 的參與範圍、用途與限制。如果是用 AI 系統直接和民眾對話，應主動揭露這是 AI 在運作，並提醒輸出可能出現錯誤，內容僅供參考，必要時由醫事人員進一步確認。指引屬行政指導，不是強制規定。',
+  },
+  {
+    q: '看診時被要求錄音或錄影，我可以拒絕嗎？',
+    a: '依指引，因使用生成式 AI 而需要在醫療照護過程中錄音、錄影時，應先以適當方式告知病人或家屬，說明必要性與用途限制；病人或家屬明確拒絕時，應停止錄音、錄影，錄音錄影資料也只能用於告知的目的範圍。',
+  },
+  {
+    q: '我的資料會被拿去做什麼？',
+    a: '指引要求醫院在導入前進行資訊安全與資料保護評估，並要求與廠商簽的契約載明，廠商蒐集、處理或利用個人資料時應遵守《個人資料保護法》，且只能在契約約定的目的與範圍內使用。每家醫院的實際作法不同，您可以向醫院的個資窗口詢問。',
+  },
+  {
+    q: '對醫療過程有疑慮或發生醫療事故，可以找誰？',
+    a: '依《醫療事故預防及爭議處理法》，醫療事故（病人發生重大傷害或死亡，但不包括疾病本身或醫療處置不能避免的結果）發生後，醫療機構要在翌日起 5 個工作日內向病人、家屬說明並提供關懷服務（99 床以下的醫院及診所可以指定專業人員或委託專業機構）。醫療爭議可向直轄市、縣（市）主管機關組成的醫療爭議調解會申請調解。',
+  },
+];
+
+const faq = qa.map((x) => ({ q: x.q, a: x.a }));
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/tw/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: '病人與家屬',
+  faq,
+});
+---
+
+<TwLayout
+  title={title}
+  description={description}
+  crumb="醫院使用 AI 時"
+  standalone
+  updated={new Date('2026-10-31T00:00:00+08:00')}
+  schema={guide}
+>
+  <h1>醫院使用 AI 時，病人可以知道的事</h1>
+  <p class="tg-lead">
+    醫院裡，AI 愈來愈常出現在病歷撰寫輔助、文書作業等場合。「AI 會不會幫我診斷？」「我的資料怎麼辦？」這些疑問，這一頁依衛福部的指引與相關法律來回答。
+  </p>
+  <p class="tg-meta">查證日：{CHECKED} ／ 適用對象：病人與家屬</p>
+
+  <p class="tg-answer">
+    重點：醫院使用生成式 AI 時，最終判斷與責任在醫師等醫事人員。依衛福部指引，醫院應告知病人 AI 的參與範圍，錄音錄影要先告知，明確拒絕時要停止。
+  </p>
+
+  <div class="tg-box">
+    本頁不介紹或評價特定的醫院與產品，也不是針對特定病情的建議。衛福部的指引屬行政指導，不是強制規定；每家醫院的作法不同，有疑問都可以直接詢問。
+  </div>
+
+  <TwFaq items={faq} heading="問與答" />
+
+  <section class="tg-sec" aria-labelledby="ask">
+    <h2 id="ask">可以這樣問醫院（本研究所的建議）</h2>
+    <ul class="tg-list">
+      <li>「這次的檢查或說明，有用到 AI 嗎？」</li>
+      <li>「AI 的結果，有醫師確認過嗎？」</li>
+      <li>「我的資料會不會送到醫院外面的服務？」</li>
+      <li>「如果 AI 的結果和醫師的判斷不一樣，以哪個為準？」</li>
+    </ul>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="more">
+    <h2 id="more">一起看</h2>
+    <ul class="tg-list">
+      <li><a href={withBase('/tw/patients/ai-health-consult/')}>問 AI 健康問題之前，先知道的 6 件事</a></li>
+      <li><a href={withBase('/tw/patients/nhi-health-passbook/')}>健保卡、健康存摺與找院所</a></li>
+    </ul>
+    <p>在醫院工作的人，也可以用<a href={withBase('/tw/templates/')}>範本集</a>裡給病人的告知草稿。</p>
+  </section>
+
+  <TwGuideFoot sources={sources} checked={CHECKED} patient />
+</TwLayout>

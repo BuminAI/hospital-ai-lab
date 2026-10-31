@@ -1,0 +1,154 @@
+---
+// 智慧醫療與 AI 規範年表 (2026-10-31 新設) — 以全國法規資料庫與衛福部一手資料為準。
+// 事實集中在 src/data/tw/guides/milestones.ts，這裡只負責排版。
+import '../../styles/tw-guide.css';
+import TwLayout from '../../layouts/TwLayout.astro';
+import TwGuideFoot from '../../components/TwGuideFoot.astro';
+import TwFaq from '../../components/TwFaq.astro';
+import { guideSchema } from '../../utils/tw-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/tw/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+
+const title = '智慧醫療與 AI 規範年表｜醫院該留意哪些時間點';
+const description =
+  '整理人工智慧基本法、資通安全管理法、個資法修正、衛福部生成式 AI 指引與病歷互通（FHIR）等，醫院行政與護理單位需要知道的重要時間點，每一項都附一手出處。';
+
+const sources = [SRC.aiAct, SRC.cyberAct, SRC.cyberReport, SRC.cyberLevel, SRC.pdpa, SRC.guideline, SRC.fhir, SRC.aimdOffice, SRC.cna0806];
+
+const faq = [
+  {
+    q: '《人工智慧基本法》是什麼時候施行的？',
+    a: '《人工智慧基本法》於民國 115 年 1 月 14 日（2026 年 1 月 14 日）公布，第 20 條規定公布日施行。第 4 條訂有永續發展與福祉、人類自主、隱私保護與資料治理、資安與安全、透明與可解釋、公平與不歧視、問責七項原則。',
+  },
+  {
+    q: '衛福部的生成式 AI 指引是強制規定嗎？',
+    a: '不是。指引內文寫明屬行政指導性質，是原則性與實務性的參考，並非強制性規定，醫療機構仍可依實際情況與相關法令採取適當的導入與管理措施。指引於民國 115 年 5 月 29 日以衛部醫字第 1151663164 號函頒。',
+  },
+  {
+    q: '醫院發生資安事件，要在多久內通報？',
+    a: '依《資通安全事件通報及應變辦法》（115 年 1 月 5 日修正）第 11 條，特定非公務機關知悉資通安全事件後，應於 1 小時內依中央目的事業主管機關指定的方式通報。應變處置要在 72 小時內完成（重大事件 36 小時內），並在 1 個月內送交調查、處理及改善報告。私立醫院是否屬於特定非公務機關，要看是否被指定，本頁沒有查到可以確認的名單。',
+  },
+  {
+    q: '個資法修正後，醫院現在就要遵守新條文嗎？',
+    a: '還不用。《個人資料保護法》於民國 114 年 11 月 11 日修正公布，但法規資料庫標示最後生效日期未定，施行日期由行政院另定。在施行日公告以前，新增的事故通報與安全維護條文尚未生效。',
+  },
+  {
+    q: '表中標示「報導」的項目，可以當成正式期限嗎？',
+    a: '不可以。標示「報導」的項目，依據的是中央社對會議內容的報導（例如 FHIR Box 預計 2026 年底上線、醫療 AI 施行細則草案預告 3 個月內提出），不是已公告的官方期限。實際日期請以衛福部的正式公告為準。',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRootG}${withBase('/tw/dx-roadmap/')}`;
+const schema = [
+  {
+    '@type': 'ItemList',
+    '@id': `${pageUrl}#timeline`,
+    name: '智慧醫療與 AI 規範的時間點（之後）',
+    numberOfItems: ahead.length,
+    itemListElement: ahead.map((m, i) => ({ '@type': 'ListItem', position: i + 1, name: `${m.when} ${m.title}` })),
+  },
+  ...guideSchema({
+    siteRoot: siteRootG,
+    path: '/tw/dx-roadmap/',
+    headline: title,
+    description,
+    sources,
+    published: '2026-10-31',
+    modified: '2026-10-31',
+    audience: '醫院行政與護理單位',
+    faq,
+  }),
+];
+---
+
+<TwLayout
+  title={title}
+  description={description}
+  crumb="智慧醫療與 AI 規範年表"
+  standalone
+  updated={new Date('2026-10-31T00:00:00+08:00')}
+  schema={schema}
+>
+  <h1>智慧醫療與 AI 規範年表</h1>
+  <p class="tg-lead">
+    「我們醫院什麼時候要做什麼？」智慧醫療與 AI 的消息愈多，這個問題愈難回答。這裡把法規與政策裡已經寫明的時間點，排成一張年表，並分清楚哪些是公告、哪些只是報導中的計畫。
+  </p>
+  <p class="tg-meta">查證日：{CHECKED} ／ 適用對象：醫院行政與護理單位</p>
+
+  <p class="tg-answer">
+    重點：《人工智慧基本法》已於 2026 年 1 月 14 日公布施行；衛福部於 2026 年 5 月 29 日函頒《醫療機構應用生成式人工智慧指引》（行政指導、非強制）；《資通安全管理法》修正版自 2025 年 12 月 1 日施行；個資法修正已公布但施行日未定。
+  </p>
+
+  <div class="tg-box">
+    <strong>如何閱讀這張年表</strong><br />
+    標示「報導」的項目，依據的是新聞報導對會議內容的轉述，是計畫而不是已公告的期限。醫院各自要遵守哪些義務、適用範圍多大，要看法令與主管機關的公告，請以官方文件和廠商的正式說明為準。
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">之後要留意的時間點</h2>
+    <ol class="tg-tl">
+      {
+        ahead.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.report && <span class="tg-tag">報導</span>}
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">已經發生的重要事項</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.report && <span class="tg-tag">報導</span>}
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">搭配使用的頁面</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/tw/calendar/')}>
+        <b>制度日曆</b>
+        <span>衛福部最近的補助與申請公告，以及年表中接下來的時間點。</span>
+      </a>
+      <a class="tg-card" href={withBase('/tw/cyber-checklist/')}>
+        <b>醫院資安自我檢核</b>
+        <span>依資通安全管理法與相關辦法整理的檢核重點。</span>
+      </a>
+      <a class="tg-card" href={withBase('/tw/templates/')}>
+        <b>範本集</b>
+        <span>院內生成式 AI 使用規範、向廠商提問的 20 題等，可複製後改寫。</span>
+      </a>
+    </div>
+  </section>
+
+  <TwFaq items={faq} />
+
+  <TwGuideFoot sources={sources} checked={CHECKED} />
+</TwLayout>

@@ -1,37 +1,80 @@
 ---
-// 대만어판(정체자) 홈 (Fase A — 2026-09-05 신설).
+// 台灣版首頁 (2026-10-31 全面改版，오너 지시: 일본어판과 같은 방법으로 대만판도 — 가독성·후킹·전문성·신뢰)
 //
-// 2026-09-06: 뉴스·정부 프로그램·추천 영상이 생기면서 카드 그리드를 넣었다.
-// 처음 만들 때는 참조 페이지가 없어 일부러 카드를 안 뒀다 — 내용 없는
-// 페이지로 링크를 걸면 방문자 신뢰도 떨어지고 검색엔진도 빈약한 페이지로
-// 취급하기 때문이다. 지금은 여섯 곳 다 실제 내용이 있어 입구를 연다.
-// ⚠️ 카드는 **내용이 있는 페이지만** 건다. 새 페이지를 만들 때 카드부터
-//    추가하지 말 것.
+// 구성(위에서 아래로 — 대만 방문자가 "이 사이트는 믿을 만한가 / 내게 필요한가"를 판단하는 순서):
+//   1) 청록 히어로: 약속 한 줄 + 행동 2개 + 오른쪽 「最新更新」(살아 있는 사이트라는 증거)
+//   2) 신뢰 수치 띠: 전부 실데이터(글 수·출처 링크 확인 수·정부 공고 수·뉴스 수). 지어낸 수치 없음
+//   3) 「遇到這些情況時」 목적별 입구 6개 — 질문형 문구로 클릭 이유를 준다
+//   4) 更新資訊 → 衛福部 補助·申請 공고 → 注目專欄 → 連載
+//   5) 本站的承諾 → 資料 → 常見問題 → 本站說明
+// ⚠️ 경력(17년 등)은 홈 본문과 메타 설명에 새로 싣지 않는다(사이드바 프로필에는 기존대로 있음).
+// ⚠️ 수치·문구는 데이터에서 계산하거나, 이미 사이트에 있는 사실만 쓴다.
+import '../../styles/tw-home.css';
+import { getCollection } from 'astro:content';
 import TwLayout from '../../layouts/TwLayout.astro';
-import LocaleHero from '../../components/LocaleHero.astro';
 import tw from '../../i18n/tw.json';
-import { withBase } from '../../utils/site';
-import HomeSeries from '../../components/HomeSeries.astro';
-import { getResolvedSeries } from '../../utils/series';
+import notices from '../../data/tw/gov-notices.json';
 import newsData from '../../data/tw/news.json';
+import linkHealth from '../../data/tw/link-health.json';
+import HomeSeries from '../../components/HomeSeries.astro';
+import { withBase } from '../../utils/site';
+import { getResolvedSeries } from '../../utils/series';
+import { getTwUpdates, KIND_LABEL } from '../../utils/tw-updates';
 
-// ── AEO/GEO — 홈에서 바로 답이 되는 블록 (2026-09-07) ──────────
-// 답변 엔진은 "이 사이트는 무엇이고 누구를 위한 것인가"를 물었을 때
-// **그 답이 실제로 적혀 있는 페이지**를 인용한다. 홈이 소개 문단만
-// 있으면 인용할 문장이 없다. 그래서 사이트 자체에 대한 문답을
-// 화면에 그대로 싣고 FAQPage로 표시한다.
-//
-// ⚠️ 여기 답변은 /tw/faq/ 의 제도 문답과 **내용이 겹치지 않는다.**
-//    저쪽은 "AI를 도입할 때 무엇을 확인하나", 여기는 "이 사이트는
-//    무엇인가"다. 같은 문답을 두 곳에 복사하면 안 된다.
-// ⚠️ 답변에 적은 사실(수집처·갱신 주기)은 scripts/ 의 수집기와
-//    .github/workflows/ 의 cron 에서 확인한 것이다. 수집처나 주기를
-//    바꾸면 이 문구도 함께 고칠 것.
-const recentNews = newsData.items.slice(0, 5);
+const updated = new Date(notices.updatedAt);
+const fmtMD = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', month: 'numeric', day: 'numeric' });
+const fmtYMD = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'long', day: 'numeric' });
+
+const posts = (await getCollection('blogTw', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featured = posts.slice(0, 4);
+
+const feed = await getTwUpdates(30);
+const heroFeed = feed.slice(0, 4);
+const newsFeed = feed.slice(0, 8);
+const weekly = feed.filter((u) => Date.now() - new Date(u.date).getTime() <= 7 * 86400000);
+const weeklyCount = (k: 'news' | 'notice' | 'event' | 'video' | 'blog') => weekly.filter((u) => u.kind === k).length;
+
+// 衛福部 補助·申請·說明會 公告(新的在前)
+const topNotices = notices.items.slice(0, 5);
+
+// 信賴數字(全部來自實際資料)
+const stats = [
+  { n: posts.length, unit: '篇', label: '公開的專欄文章', href: '/tw/blog/' },
+  { n: linkHealth.total, unit: '筆', label: '出處連結每日檢查', href: '/tw/updates/' },
+  { n: notices.items.length, unit: '筆', label: '衛福部補助與申請公告', href: '/tw/gov-support/' },
+  { n: newsData.items.length, unit: '筆', label: 'AI 新聞（每 3 小時確認）', href: '/tw/news/' },
+];
+const checkedDay = linkHealth.checkedAt ? fmtYMD.format(new Date(linkHealth.checkedAt)) : '';
+
+const tasks = [
+  { q: '接下來有哪些時間點？', t: '智慧醫療與 AI 規範年表', d: '人工智慧基本法、資通安全管理法、個資法修正與病歷互通，一張年表看完。', href: '/tw/dx-roadmap/' },
+  { q: '有什麼補助可以看？', t: '制度日曆', d: '衛福部最近的補助、申請與說明會公告，加上制度時間點。', href: '/tw/calendar/' },
+  { q: '民眾沒帶健保卡？', t: '健保卡就醫櫃檯應對', d: '忘記帶卡、停電、讀卡機故障時，依健保署規定怎麼處理。', href: '/tw/nhi-card-reception/' },
+  { q: '我們醫院資安夠嗎？', t: '醫院資安自我檢核', d: '依資通安全管理法與電子病歷辦法整理的 20 個檢核重點。', href: '/tw/cyber-checklist/' },
+  { q: '導入 AI 之前', t: '使用規範範本與向廠商提問 20 題', d: '收到提案書時，可以直接複製改寫的文件草稿。', href: '/tw/templates/' },
+  { q: '病人與家屬想知道', t: '患者專區', d: '問 AI 健康問題之前、醫院用 AI 時的告知、健保卡與健康存摺。', href: '/tw/patients/' },
+];
+
+const promises = [
+  { t: '以一手資料為準', d: '只寫實際讀過衛福部、健保署、全國法規資料庫等原文，查得到出處的內容，並附上連結。' },
+  { t: '標示查證日', d: '實務指南與患者專區的每一頁下方，都有「出處與查證日」。法規會變，所以日期一定要標。' },
+  { t: '每天檢查出處連結', d: `台灣版的外部連結 ${linkHealth.total} 筆，每天自動連線確認，找不到頁面的有 ${linkHealth.dead.length} 筆${checkedDay ? `（${checkedDay}）` : ''}。` },
+  { t: '不推薦特定產品或醫院', d: '重點是自家醫院能不能用、有沒有依據，不推薦產品，也不催促導入。' },
+];
+
+const library = [
+  { t: tw.nav.guide, d: tw.home.guideDesc, href: '/tw/guide/' },
+  { t: tw.nav.glossary, d: tw.home.glossaryDesc, href: '/tw/glossary/' },
+  { t: tw.nav.faq, d: tw.home.faqDesc, href: '/tw/faq/' },
+  { t: tw.nav.checklist, d: tw.home.checklistDesc, href: '/tw/checklist/' },
+  { t: tw.nav.tips, d: tw.home.tipsDesc, href: '/tw/tips/' },
+  { t: tw.nav.videos, d: tw.home.videosDesc, href: '/tw/videos/' },
+];
 
 const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteRoot}${withBase('/tw/')}`;
-
 const homeFaqLd = {
   '@type': 'FAQPage',
   '@id': `${pageUrl}#home-faq`,
@@ -45,7 +88,6 @@ const homeFaqLd = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
-// 연재 시리즈 진입로(2026-09-20) — 글이 많은 순서대로 최대 3개.
 const homeSeries = (await getResolvedSeries('tw'))
   .slice()
   .sort((a, b) => b.posts.length - a.posts.length)
@@ -59,92 +101,182 @@ const homeSeries = (await getResolvedSeries('tw'))
   idPath="/id/"
   jaPath="/ja/"
   ruPath="/ru/"
+  updated={updated}
   schema={[homeFaqLd]}
 >
-  <LocaleHero locale="tw" eyebrow={tw.home.heroEyebrow}>
-    <h1 slot="title">{tw.home.heroTitle}</h1>
-    <p>{tw.home.heroLead}</p>
-    <p style="margin-top:16px">
-      <a class="tw-cta" href={withBase('/tw/about/')}>{tw.nav.about} →</a>
-    </p>
-  </LocaleHero>
+  <Fragment slot="hero">
+    <section class="th-hero">
+      <div class="th-hero-inner">
+        <div class="th-hero-copy">
+          <p class="th-eyebrow">醫事、行政、護理單位的智慧醫療資訊</p>
+          <h1>醫療 AI 的「導入判斷」，<br />用台灣的法規與一手資料來看。</h1>
+          <p class="th-lead">
+            醫療器材算不算、病人資料能不能這樣用、資安事件要多久通報。整理衛福部、健保署與全國法規資料庫的規定，每一項都附出處與查證日。
+          </p>
+          <p class="th-cta">
+            <a class="th-btn th-btn-main" href={withBase('/tw/dx-roadmap/')}>看智慧醫療與 AI 規範年表</a>
+            <a class="th-btn th-btn-sub" href={withBase('/tw/gov-support/')}>看衛福部補助公告</a>
+          </p>
+        </div>
+        <aside class="th-hero-card" aria-labelledby="th-live-h">
+          <h2 id="th-live-h"><span class="th-dot" aria-hidden="true"></span>最新更新</h2>
+          <ul>
+            {heroFeed.map((it) => (
+              <li>
+                <time datetime={it.date}>{fmtMD.format(new Date(it.date))}</time>
+                <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only">（{tw.ui.external}）</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="th-hero-more" href={withBase('/tw/updates/')}>看全部更新資訊 →</a>
+        </aside>
+      </div>
+    </section>
 
-  <div class="tw-cards">
-    <a class="tw-card" href={withBase('/tw/glossary/')}>
-      <span class="tw-card-t">{tw.nav.glossary}</span>
-      <span class="tw-card-d">{tw.home.glossaryDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/faq/')}>
-      <span class="tw-card-t">{tw.nav.faq}</span>
-      <span class="tw-card-d">{tw.home.faqDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/news/')}>
-      <span class="tw-card-t">{tw.nav.news}</span>
-      <span class="tw-card-d">{tw.home.newsDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/events/')}>
-      <span class="tw-card-t">{tw.nav.events}</span>
-      <span class="tw-card-d">{tw.home.eventsDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/gov-support/')}>
-      <span class="tw-card-t">{tw.nav.govSupport}</span>
-      <span class="tw-card-d">{tw.home.govSupportDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/videos/')}>
-      <span class="tw-card-t">{tw.nav.videos}</span>
-      <span class="tw-card-d">{tw.home.videosDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/blog/')}>
-      <span class="tw-card-t">{tw.nav.blog}</span>
-      <span class="tw-card-d">{tw.home.blogDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/checklist/')}>
-      <span class="tw-card-t">{tw.nav.checklist}</span>
-      <span class="tw-card-d">{tw.home.checklistDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/guide/')}>
-      <span class="tw-card-t">{tw.nav.guide}</span>
-      <span class="tw-card-d">{tw.home.guideDesc}</span>
-    </a>
-    <a class="tw-card" href={withBase('/tw/tips/')}>
-      <span class="tw-card-t">{tw.nav.tips}</span>
-      <span class="tw-card-d">{tw.home.tipsDesc}</span>
-    </a>
-  </div>
+    <section class="th-stats" aria-label="網站現況">
+      <ul>
+        {
+          stats.map((s) => (
+            <li>
+              <a href={withBase(s.href)}>
+                <span class="th-num">{s.n.toLocaleString('zh-TW')}<small>{s.unit}</small></span>
+                <span class="th-lab">{s.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </Fragment>
+
+  <section class="th-sec" aria-labelledby="th-tasks-h">
+    <h2 class="th-h" id="th-tasks-h"><span>遇到這些情況時</span><small>BY PURPOSE</small></h2>
+    <div class="th-tasks">
+      {
+        tasks.map((x) => (
+          <a class="th-task" href={withBase(x.href)}>
+            <span class="th-task-q">{x.q}</span>
+            <span class="th-task-t">{x.t}</span>
+            <span class="th-task-d">{x.d}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-feed-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-feed-h"><span>更新資訊</span><small>WHAT'S NEW</small></h2>
+      <a class="th-more" href={withBase('/tw/updates/')}>看全部 →</a>
+    </div>
+    <p class="th-note">
+      最近 7 天：{KIND_LABEL.news} {weeklyCount('news')} 筆／{KIND_LABEL.notice} {weeklyCount('notice')} 筆／{KIND_LABEL.event} {weeklyCount('event')} 筆／{KIND_LABEL.video} {weeklyCount('video')} 筆／{KIND_LABEL.blog} {weeklyCount('blog')} 篇
+    </p>
+    <ul class="th-feed">
+      {
+        newsFeed.map((it) => (
+          <li>
+            <time datetime={it.date}>{fmtYMD.format(new Date(it.date))}</time>
+            <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+            <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+              {it.title}
+              {it.external && <span class="sr-only">（{tw.ui.external}）</span>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-gov-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-gov-h"><span>衛福部補助與申請公告</span><small>GOV NOTICES</small></h2>
+      <a class="th-more" href={withBase('/tw/gov-support/')}>看全部 →</a>
+    </div>
+    <p class="th-note">日期是公告上線的日期，不是截止日。申請資格、期間與文件，請點進公告原文確認。</p>
+    <ul class="th-feed th-feed-sub">
+      {
+        topNotices.map((n) => (
+          <li>
+            <time datetime={n.pubDate}>{fmtYMD.format(new Date(n.pubDate))}</time>
+            <span class="th-chip th-chip-gov">{n.kind}</span>
+            <a href={n.link} target="_blank" rel="noopener">
+              {n.title}
+              <span class="sr-only">（{tw.ui.external}）</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-posts-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-posts-h"><span>注目專欄</span><small>ARTICLES</small></h2>
+      <a class="th-more" href={withBase('/tw/blog/')}>專欄列表 →</a>
+    </div>
+    <div class="th-posts">
+      {
+        featured.map((p) => (
+          <article class="th-post">
+            <p class="th-post-meta">
+              <span class="th-chip">{p.data.category}</span>
+              <time datetime={p.data.pubDate.toISOString()}>{fmtYMD.format(p.data.pubDate)}</time>
+            </p>
+            <h3><a href={withBase(`/tw/blog/${p.id}/`)}>{p.data.title}</a></h3>
+            <p class="th-post-d">{p.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 
   <HomeSeries loc="tw" list={homeSeries} />
 
-  {/* 최신 뉴스 — 홈에 실제 내용이 있어야 검색·답변 엔진이 인용할 거리가 생긴다.
-      한국어판 홈이 이미 쓰는 방식이고, 다른 판에는 빠져 있었다(2026-09-07 추가). */}
-  {
-    recentNews.length > 0 && (
-      <section class="tw-home-sec">
-        <div class="tw-sec-head">
-          <h2>{tw.home.homeNewsTitle}</h2>
-          <a class="tw-more" href={withBase('/tw/news/')}>{tw.home.homeNewsMore}</a>
-        </div>
-        <ul class="tw-news-preview">
-          {recentNews.map((item) => (
-            <li>
-              <a href={item.link} target="_blank" rel="noopener">
-                {item.title}
-                <span class="sr-only"> ({tw.ui.external})</span>
-              </a>
-              {item.source && <span class="tw-src">{item.source}</span>}
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
+  <section class="th-sec th-promise" aria-labelledby="th-promise-h">
+    <h2 class="th-h" id="th-promise-h"><span>本站的承諾</span><small>OUR PRINCIPLES</small></h2>
+    <ul>
+      {
+        promises.map((x, i) => (
+          <li>
+            <span class="th-no">{i + 1}</span>
+            <div>
+              <strong>{x.t}</strong>
+              <p>{x.d}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="th-note"><a href={withBase('/tw/about/#principles')}>看寫作與查證的原則 →</a></p>
+  </section>
 
-  {/* 사이트 자체에 대한 문답. /tw/faq/ 의 제도 문답과 내용이 겹치지 않는다. */}
-  <section class="tw-home-sec">
-    <div class="tw-sec-head">
-      <h2>{tw.home.homeFaqTitle}</h2>
-      <a class="tw-more" href={withBase('/tw/faq/')}>{tw.home.homeFaqMore}</a>
+  <section class="th-sec" aria-labelledby="th-lib-h">
+    <h2 class="th-h" id="th-lib-h"><span>學習與查詢</span><small>LIBRARY</small></h2>
+    <ul class="th-lib">
+      {
+        library.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.t}</strong>
+              <span>{x.d}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-faq-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-faq-h"><span>{tw.home.homeFaqTitle}</span><small>ABOUT THIS SITE</small></h2>
+      <a class="th-more" href={withBase('/tw/faq/')}>{tw.home.homeFaqMore}</a>
     </div>
-    <dl class="tw-home-faq">
+    <dl class="th-faq">
       {
         tw.home.homeFaq.map((f) => (
           <>
@@ -156,132 +288,15 @@ const homeSeries = (await getResolvedSeries('tw'))
     </dl>
   </section>
 
-  <h2>{tw.home.notTranslationTitle}</h2>
-  <p>{tw.home.notTranslationBody}</p>
-
-  <h2>{tw.home.sourceNoteTitle}</h2>
-  <p>{tw.home.sourceNoteBody}</p>
-
-  <div class="tw-note">
-    <p><strong>{tw.home.koNoticeTitle}</strong></p>
-    <p style="margin-top:6px">{tw.home.koNoticeBody}</p>
-    <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{tw.ui.langKo} →</a></p>
-  </div>
+  <section class="th-sec" aria-labelledby="th-intro-h">
+    <h2 class="th-h" id="th-intro-h"><span>{tw.home.notTranslationTitle}</span><small>ABOUT</small></h2>
+    <p>{tw.home.notTranslationBody}</p>
+    <h3>{tw.home.sourceNoteTitle}</h3>
+    <p>{tw.home.sourceNoteBody}</p>
+    <div class="tw-note">
+      <p><strong>{tw.home.koNoticeTitle}</strong></p>
+      <p style="margin-top:6px">{tw.home.koNoticeBody}</p>
+      <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{tw.ui.langKo} →</a></p>
+    </div>
+  </section>
 </TwLayout>
-
-<style>
-  /* .tw-cta 는 마크업에만 있고 스타일이 없어서 평범한 링크로 나왔다
-     (2026-09-06 색상 교체 중 발견). ja·ru 홈과 같은 버튼 모양으로 맞춘다. */
-  .tw-cta {
-    display: inline-block;
-    background: var(--tw-btn-bg);
-    color: var(--tw-btn-fg);
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 4px;
-    font-size: 14.5px;
-  }
-  .tw-cta:hover { background: var(--tw-btn-bg-hover); }
-
-  .tw-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 12px;
-    margin: 26px 0 8px;
-  }
-  .tw-card {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    border: 1px solid var(--tw-border);
-    background: var(--tw-base);
-    padding: 14px 16px;
-    text-decoration: none;
-    color: var(--tw-text);
-  }
-  .tw-card:hover {
-    background: var(--tw-surface);
-    border-color: var(--tw-primary);
-  }
-  .tw-card-t {
-    font-weight: 700;
-    color: var(--tw-primary);
-    font-size: 15px;
-  }
-  .tw-card-d {
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--tw-text-sub);
-  }
-
-  .tw-wip {
-    margin-top: 28px;
-    padding-top: 16px;
-    border-top: 1px solid var(--tw-border);
-    font-size: 13.5px;
-    color: var(--tw-text-sub);
-  }
-
-  /* 홈 뉴스·문답 (2026-09-07 AEO/GEO) */
-  .tw-home-sec {
-    margin-top: 30px;
-    padding-top: 18px;
-    border-top: 1px solid var(--tw-border);
-  }
-  .tw-sec-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .tw-sec-head h2 {
-    margin: 0;
-  }
-  .tw-more {
-    font-size: 13px;
-    color: var(--tw-primary);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .tw-more:hover { text-decoration: underline; }
-  .tw-news-preview {
-    list-style: none;
-    margin: 14px 0 0;
-    padding: 0;
-  }
-  .tw-news-preview li {
-    padding: 9px 0;
-    border-bottom: 1px solid var(--tw-border);
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  .tw-news-preview a {
-    color: var(--tw-text);
-    text-decoration: none;
-  }
-  .tw-news-preview a:hover { color: var(--tw-primary); text-decoration: underline; }
-  .tw-src {
-    display: inline-block;
-    margin-left: 8px;
-    font-size: 12px;
-    color: var(--tw-text-sub);
-  }
-  .tw-home-faq {
-    margin: 14px 0 0;
-  }
-  .tw-home-faq dt {
-    font-weight: 700;
-    color: var(--tw-primary);
-    margin-top: 16px;
-    font-size: 14.5px;
-    line-height: 1.7;
-  }
-  .tw-home-faq dt:first-child { margin-top: 0; }
-  .tw-home-faq dd {
-    margin: 6px 0 0;
-    font-size: 14px;
-    line-height: 1.9;
-    color: var(--tw-text);
-  }
-</style>
