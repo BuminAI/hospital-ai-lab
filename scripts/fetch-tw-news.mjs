@@ -44,7 +44,35 @@ const TN_PAGES = 3; // 100건×3 ≈ 최근 2주(이 분류는 갱신이 매우 
 
 const CNA_SOURCE = '中央社';
 // 검색어로 주제를 좁힌다. 지면 목록과 달리 과거 기사까지 100건씩 돌려준다.
-const CNA_QUERIES = ['AI醫療', '智慧醫療', '電子病歷', '遠距醫療', 'AI 醫院'];
+// 中央社 검색은 90초에 7건이 한도다(fetch-tw-events.mjs 머리말의 실측). 기본 5개 + 확대분 중 이번 회차 2개만
+// 돌리고, 검색어 사이를 쉰다. 확대분 6개는 회차마다 2개씩 돌려 써서 하루(8회) 안에 모두 한 바퀴 돈다.
+// ⚠️ 2026-10-31 확대 직후 11개를 쉬지 않고 돌렸더니 뒤쪽 6개가 전부 HTTP 429로 죽었다.
+const CNA_CORE_QUERIES = ['AI醫療', '智慧醫療', '電子病歷', '遠距醫療', 'AI 醫院'];
+const CNA_EXTRA_QUERIES = ['醫院 資安', '醫療 個資', '健保 數位', '健康存摺', '醫療器材 AI', '生成式AI 醫療'];
+const CNA_GAP_MS = 13000;
+const slot = Math.floor(Date.now() / (3 * 3600 * 1000)); // 3시간 단위 회차
+const CNA_QUERIES = [
+  ...CNA_CORE_QUERIES,
+  CNA_EXTRA_QUERIES[(slot * 2) % CNA_EXTRA_QUERIES.length],
+  CNA_EXTRA_QUERIES[(slot * 2 + 1) % CNA_EXTRA_QUERIES.length],
+];
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// ── 정부 공식 RSS (2026-10-31 추가) ─────────────────────
+// 衛福部·食藥署는 RSS를 공개하고, 정부 웹사이트 내용은 「政府資料開放授權條款-第1版」
+// (衛福部 政府網站資料開放宣告 cp-81-155-1 확인: 복제·편집·재배포 가능, 출처 표시 필수)에 따라 쓸 수 있다.
+// 제목·링크·날짜만 저장하고 본문은 옮기지 않는다. 衛福部 목록 페이지는 최신 글을 노출하지 않아
+// (아래 머리말) 자동 수집에 못 썼지만, RSS는 최신순으로 20건을 정확히 준다.
+const GOV_FEEDS = [
+  { source: '衛生福利部', url: 'https://www.mohw.gov.tw/rss-16-1.html', kind: 'mohw' }, // 焦點新聞
+  { source: '衛生福利部', url: 'https://www.mohw.gov.tw/rss-18-1.html', kind: 'mohw' }, // 公告訊息
+  { source: '食品藥物管理署', url: 'https://www.fda.gov.tw/tc/rssNews.ashx', kind: 'fda' }, // 本署新聞
+  { source: '食品藥物管理署', url: 'https://www.fda.gov.tw/tc/rssAnnouncement.ashx', kind: 'fda' }, // 公告
+  { source: '食品藥物管理署', url: 'https://www.fda.gov.tw/tc/rssLawMedical.ashx', kind: 'fda' }, // 醫療器材 법규
+];
+// 정부 RSS는 식품·감염병·건강 캠페인이 대부분이라, 이 사이트의 주제(AI·디지털·보안·醫療器材)만 통과시킨다.
+const GOV_RE =
+  /(?<![A-Za-z])AI(?![A-Za-z])|人工智慧|生成式|智慧醫療|智慧照護|數位|資通安全|資安|個資|個人資料|電子病歷|電子處方|健保卡|健康存摺|醫療器材.*(軟體|AI|智慧)|軟體.*醫療器材|遠距|醫療資訊|資訊安全|雲端/;
 
 const HN_SOURCE = '健康醫療網';
 const HN_LIST = 'https://www.healthnews.com.tw/';
@@ -196,9 +224,41 @@ async function fetchHealthnewsDate(link) {
   }
 }
 
+// RSS 2.0 파싱 — 제목·링크·발행일만. utm_* 추적 파라미터는 지운다.
+async function fetchGovFeed(feed) {
+  const xml = await (await fetchRetry(feed.url)).text();
+  const rows = [];
+  for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+    const it = m[1];
+    const g = (k) => {
+      const r = it.match(new RegExp(String.raw`<${k}>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?</${k}>`));
+      return r ? r[1].trim() : '';
+    };
+    const title = stripTags(g('title'));
+    let link = decodeEntities(g('link')).replace(/[?&]utm_[^&]*/g, '').replace(/&$/, '');
+    link = link.replace(/^http:\/\//, 'https://');
+    const d = new Date(g('pubDate'));
+    if (!title || !link || Number.isNaN(d.getTime())) continue;
+    rows.push({ title, link, source: feed.source, pubDate: d.toISOString() });
+  }
+  return rows;
+}
+
 // ── 수집 ──────────────────────────────────────────────
 const collected = [];
 let okSources = 0;
+
+for (const feed of GOV_FEEDS) {
+  try {
+    const rows = await fetchGovFeed(feed);
+    const kept = rows.filter((r) => GOV_RE.test(r.title));
+    collected.push(...kept);
+    okSources++;
+    console.log(`${feed.source}(${feed.url.split('/').pop()}): ${rows.length}건 중 ${kept.length}건 채택`);
+  } catch (e) {
+    console.error(`${feed.source} ${feed.url} 수집 실패 — ${e.message}`);
+  }
+}
 
 try {
   const rows = await fetchTechnews();
@@ -212,7 +272,8 @@ try {
   console.error(`${TN_SOURCE} 수집 실패 — ${e.message}`);
 }
 
-for (const query of CNA_QUERIES) {
+for (const [qi, query] of CNA_QUERIES.entries()) {
+  if (qi > 0) await sleep(CNA_GAP_MS);
   try {
     const rows = await fetchCna(query);
     // 검색어가 주제를 좁혀 주지만, 검색 결과에는 "AI 서버 출하" 같은 산업
@@ -286,7 +347,7 @@ await writeFile(
   JSON.stringify(
     {
       updatedAt: new Date().toISOString(),
-      source: `${TN_SOURCE}·${CNA_SOURCE}·${HN_SOURCE}`,
+      source: `${CNA_SOURCE}·${TN_SOURCE}·${HN_SOURCE}·衛生福利部·食品藥物管理署`,
       items,
     },
     null,

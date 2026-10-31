@@ -247,6 +247,49 @@ if (mohwOk) {
   console.log(`${MOHW_SOURCE}: ${mohwRows}건 중 ${mohwKept}건 채택`);
 }
 
+// 정부 공식 RSS (2026-10-31 추가) — 衛福部 공고·焦點新聞, 食藥署 活動·공고.
+// 「政府資料開放授權條款-第1版」(출처 표시) 아래 쓸 수 있고, 제목·링크·날짜만 저장한다.
+// 食藥署는 해외 IP(GitHub 러너 등)에 HTTP 544를 줄 수 있어, 실패해도 다른 수집원은 계속한다.
+// 정부 RSS는 식품·감염병 행사가 대부분이라, 이 사이트 주제(AI·디지털·보안·醫療器材)와 겹칠 때만 통과시킨다.
+const GOV_EVENT_FEEDS = [
+  { source: '衛生福利部', url: 'https://www.mohw.gov.tw/rss-18-1.html' },
+  { source: '衛生福利部', url: 'https://www.mohw.gov.tw/rss-16-1.html' },
+  { source: '食品藥物管理署', url: 'https://www.fda.gov.tw/tc/rssActivity.ashx' },
+  { source: '食品藥物管理署', url: 'https://www.fda.gov.tw/tc/rssAnnouncement.ashx' },
+];
+const GOV_TOPIC_RE =
+  /(?<![A-Za-z])AI(?![A-Za-z])|人工智慧|生成式|智慧醫療|智慧照護|數位|資通安全|資安|個資|電子病歷|醫療器材|遠距|醫療資訊|雲端|軟體/;
+async function fetchGovRss(feed) {
+  const res = await fetch(feed.url, { headers: { 'user-agent': UA, 'accept-language': 'zh-TW,zh;q=0.9' }, signal: AbortSignal.timeout(25000) });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const xml = await res.text();
+  const rows = [];
+  for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+    const it = m[1];
+    const g = (k) => {
+      const r = it.match(new RegExp(String.raw`<${k}>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?</${k}>`));
+      return r ? r[1].trim() : '';
+    };
+    const title = decodeEntities(g('title').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '));
+    const link = decodeEntities(g('link')).replace(/[?&]utm_[^&]*/g, '').replace(/&$/, '').replace(/^http:\/\//, 'https://');
+    const d = new Date(g('pubDate'));
+    if (!title || !link || Number.isNaN(d.getTime())) continue;
+    rows.push({ title, link, source: feed.source, pubDate: d.toISOString() });
+  }
+  return rows;
+}
+for (const feed of GOV_EVENT_FEEDS) {
+  try {
+    const rows = await fetchGovRss(feed);
+    const kept = rows.filter((r) => isEvent(r.title) && GOV_TOPIC_RE.test(r.title));
+    collected.push(...kept);
+    okSources++;
+    console.log(`${feed.source}(${feed.url.split('/').pop()}): ${rows.length}건 중 ${kept.length}건 채택`);
+  } catch (e) {
+    console.error(`${feed.source} ${feed.url} 수집 실패 — ${e.message}`);
+  }
+}
+
 // 이미 쌓인 뉴스에서 행사성 기사를 끌어온다. 실패해도 치명적이지 않다.
 try {
   const news = JSON.parse(await readFile(NEWS, 'utf8'));
@@ -293,7 +336,7 @@ if (JSON.stringify(items) === JSON.stringify(existing)) {
 
 await writeFile(
   OUT,
-  JSON.stringify({ updatedAt: new Date().toISOString(), source: `${CNA_SOURCE}·${MOHW_SOURCE}`, items }, null, 2) + '\n',
+  JSON.stringify({ updatedAt: new Date().toISOString(), source: `${CNA_SOURCE}·${MOHW_SOURCE}·食品藥物管理署`, items }, null, 2) + '\n',
   'utf8'
 );
 console.log(`수집 완료: 누적 ${items.length}건`);

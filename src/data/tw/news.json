@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-30T13:38:38.265Z",
-  "source": "科技新報·中央社·健康醫療網",
+  "updatedAt": "2026-10-31T03:58:26.024Z",
+  "source": "中央社·科技新報·健康醫療網·衛生福利部·食品藥物管理署",
   "items": [
     {
       "title": "林百里：透過APEC讓AI醫療走出實驗室 造福亞太病患",
@@ -49,6 +49,12 @@
       "link": "https://technews.tw/2026/10/23/human-receives-ai-designed-virus-for-the-first-time/",
       "source": "科技新報",
       "pubDate": "2026-10-23T02:20:11.000Z"
+    },
+    {
+      "title": "亞太專家齊聚臺南 數位創新強化身體活動與營養管理",
+      "link": "https://www.mohw.gov.tw/cp-16-88294-1.html",
+      "source": "衛生福利部",
+      "pubDate": "2026-10-22T05:06:00.000Z"
     },
     {
       "title": "美醫院以 4 千萬張臉部照片訓練 AI，單張照片可估生理年齡並預測癌症病患存活率",
@@ -117,14 +123,14 @@
       "pubDate": "2026-10-06T02:10:41.000Z"
     },
     {
-      "title": "2D變3D降漏診風險 衛福部力推智慧醫療普惠全國",
-      "link": "https://www.cna.com.tw/news/ahel/202610050133.aspx",
+      "title": "台灣AI 3D醫療影像技術 貝里斯大使：拯救生命新助力",
+      "link": "https://www.cna.com.tw/news/ahel/202610050070.aspx",
       "source": "中央社",
       "pubDate": "2026-10-05T04:00:00.000Z"
     },
     {
-      "title": "台灣AI 3D醫療影像技術 貝里斯大使：拯救生命新助力",
-      "link": "https://www.cna.com.tw/news/ahel/202610050070.aspx",
+      "title": "2D變3D降漏診風險 衛福部力推智慧醫療普惠全國",
+      "link": "https://www.cna.com.tw/news/ahel/202610050133.aspx",
       "source": "中央社",
       "pubDate": "2026-10-05T04:00:00.000Z"
     },
@@ -177,12 +183,6 @@
       "pubDate": "2026-09-22T23:20:12.000Z"
     },
     {
-      "title": "智捷運用AI將醫療影像3D化 防跌計畫深入社區助長者訓練",
-      "link": "https://www.cna.com.tw/news/afe/202609210270.aspx",
-      "source": "中央社",
-      "pubDate": "2026-09-21T04:00:00.000Z"
-    },
-    {
       "title": "智捷AI醫療影像進算力中心 許添財談精準健康新模式",
       "link": "https://www.cna.com.tw/news/afe/202609210234.aspx",
       "source": "中央社",
@@ -191,6 +191,12 @@
     {
       "title": "奇美推AI助急診醫師 30秒生成病歷摘要還可追問",
       "link": "https://www.cna.com.tw/news/ahel/202609210087.aspx",
+      "source": "中央社",
+      "pubDate": "2026-09-21T04:00:00.000Z"
+    },
+    {
+      "title": "智捷運用AI將醫療影像3D化 防跌計畫深入社區助長者訓練",
+      "link": "https://www.cna.com.tw/news/afe/202609210270.aspx",
       "source": "中央社",
       "pubDate": "2026-09-21T04:00:00.000Z"
     },
@@ -243,14 +249,14 @@
       "pubDate": "2026-09-09T04:00:00.000Z"
     },
     {
-      "title": "台南首輛中西醫智慧醫療巡迴車啟用 行動服務開進偏鄉",
-      "link": "https://www.cna.com.tw/news/ahel/202609080138.aspx",
+      "title": "南投東華醫院用AI助復健 種菜老農盼再拚冠軍",
+      "link": "https://www.cna.com.tw/news/ahel/202609080121.aspx",
       "source": "中央社",
       "pubDate": "2026-09-08T04:00:00.000Z"
     },
     {
-      "title": "南投東華醫院用AI助復健 種菜老農盼再拚冠軍",
-      "link": "https://www.cna.com.tw/news/ahel/202609080121.aspx",
+      "title": "台南首輛中西醫智慧醫療巡迴車啟用 行動服務開進偏鄉",
+      "link": "https://www.cna.com.tw/news/ahel/202609080138.aspx",
       "source": "中央社",
       "pubDate": "2026-09-08T04:00:00.000Z"
     },
@@ -333,6 +339,18 @@
       "pubDate": "2026-07-28T04:00:00.000Z"
     },
     {
+      "title": "中醫大附醫院長永續講堂 探討數位轉型與照護韌性",
+      "link": "https://www.cna.com.tw/news/ahel/202607270156.aspx",
+      "source": "中央社",
+      "pubDate": "2026-07-27T04:00:00.000Z"
+    },
+    {
+      "title": "食藥署公布中聯油脂事件第三方獨立調查結果 修法強化製程管理、品質管理及數位治理",
+      "link": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634544",
+      "source": "食品藥物管理署",
+      "pubDate": "2026-07-27T00:00:00.000Z"
+    },
+    {
       "title": "華碩結盟關渡醫院 推動低碳醫療數位轉型",
       "link": "https://www.cna.com.tw/news/afe/202607170219.aspx",
       "source": "中央社",
@@ -373,6 +391,12 @@
       "link": "https://www.cna.com.tw/news/afe/202606250109.aspx",
       "source": "中央社",
       "pubDate": "2026-06-25T04:00:00.000Z"
+    },
+    {
+      "title": "卓榮泰定調主權AI 應用涵蓋教育醫療金融司法",
+      "link": "https://www.cna.com.tw/news/aipl/202606230314.aspx",
+      "source": "中央社",
+      "pubDate": "2026-06-23T04:00:00.000Z"
     },
     {
       "title": "整合綠能供電緊急救護 台科大智慧醫療站獲金獎",
@@ -453,6 +477,12 @@
       "pubDate": "2026-05-03T02:00:00.000Z"
     },
     {
+      "title": "資策會攜手奇美醫院 推動醫療AI人才職能護照",
+      "link": "https://www.cna.com.tw/news/afe/202604240178.aspx",
+      "source": "中央社",
+      "pubDate": "2026-04-24T04:00:00.000Z"
+    },
+    {
       "title": "全台醫學中心電子病歷將互通 給付評鑑雙管齊下",
       "link": "https://www.cna.com.tw/news/ahel/202604130151.aspx",
       "source": "中央社",
@@ -471,6 +501,18 @@
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
     {
+      "title": "健保推動糖尿病個人化AI助理 健康存摺試辦驗證",
+      "link": "https://www.cna.com.tw/news/ahel/202603040334.aspx",
+      "source": "中央社",
+      "pubDate": "2026-03-04T04:00:00.000Z"
+    },
+    {
+      "title": "新北土城醫院獲智慧醫院標章 導入AI提升效能",
+      "link": "https://www.cna.com.tw/news/aloc/202603040091.aspx",
+      "source": "中央社",
+      "pubDate": "2026-03-04T04:00:00.000Z"
+    },
+    {
       "title": "訪菲啟動遠距醫療平台 石崇良：海外打拚健保續用",
       "link": "https://www.cna.com.tw/news/ahel/202602270138.aspx",
       "source": "中央社",
@@ -481,6 +523,12 @@
       "link": "https://www.cna.com.tw/news/aopl/202602090340.aspx",
       "source": "中央社",
       "pubDate": "2026-02-09T04:00:00.000Z"
+    },
+    {
+      "title": "谷歌AI健康資訊堪慮 專家籲醫療決策應諮詢醫師",
+      "link": "https://www.cna.com.tw/news/ahel/202602050210.aspx",
+      "source": "中央社",
+      "pubDate": "2026-02-05T04:00:00.000Z"
     },
     {
       "title": "北榮攜手板橋榮家推遠距醫療 守護長者健康",
@@ -537,6 +585,36 @@
       "pubDate": "2025-12-04T04:00:00.000Z"
     },
     {
+      "title": "友達推顯微鏡手術方案 拚智慧醫療事業持續成長",
+      "link": "https://www.cna.com.tw/news/afe/202512040063.aspx",
+      "source": "中央社",
+      "pubDate": "2025-12-04T04:00:00.000Z"
+    },
+    {
+      "title": "AI輔助診斷 台大手機快篩口腔癌、榮總測膝關節炎",
+      "link": "https://www.cna.com.tw/news/ahel/202512040250.aspx",
+      "source": "中央社",
+      "pubDate": "2025-12-04T04:00:00.000Z"
+    },
+    {
+      "title": "台灣醫療科技展 村田製作所秀智慧醫療解決方案",
+      "link": "https://www.cna.com.tw/news/afe/202512040227.aspx",
+      "source": "中央社",
+      "pubDate": "2025-12-04T04:00:00.000Z"
+    },
+    {
+      "title": "醫療科技展4日登場 醫療機器人、AI輔助診斷成焦點",
+      "link": "https://www.cna.com.tw/news/afe/202512020334.aspx",
+      "source": "中央社",
+      "pubDate": "2025-12-02T04:00:00.000Z"
+    },
+    {
+      "title": "奇美偕思科推智慧醫療 AI導入地端運算避資安疑慮",
+      "link": "https://www.cna.com.tw/news/ahel/202511240141.aspx",
+      "source": "中央社",
+      "pubDate": "2025-11-24T04:00:00.000Z"
+    },
+    {
       "title": "衛福部啟動AI影響性研究中心 助評估AI效益",
       "link": "https://www.cna.com.tw/news/ahel/202511200264.aspx",
       "source": "中央社",
@@ -553,6 +631,12 @@
       "link": "https://www.cna.com.tw/news/afe/202511180324.aspx",
       "source": "中央社",
       "pubDate": "2025-11-18T04:00:00.000Z"
+    },
+    {
+      "title": "別把AI當醫師 台大研究：3大生成式AI表現不及格",
+      "link": "https://www.cna.com.tw/news/ahel/202511060395.aspx",
+      "source": "中央社",
+      "pubDate": "2025-11-06T04:00:00.000Z"
     },
     {
       "title": "鴻海合作馬偕及祥寶 布局AI遠距醫療長照",
@@ -573,6 +657,18 @@
       "pubDate": "2025-10-14T04:00:00.000Z"
     },
     {
+      "title": "工研院率智慧醫療業者東京參展 攜手日商布局亞太",
+      "link": "https://www.cna.com.tw/news/afe/202510020033.aspx",
+      "source": "中央社",
+      "pubDate": "2025-10-02T04:00:00.000Z"
+    },
+    {
+      "title": "中山大學攜手資策會 推動智慧醫療、可信任AI",
+      "link": "https://www.cna.com.tw/news/ahel/202510010154.aspx",
+      "source": "中央社",
+      "pubDate": "2025-10-01T04:00:00.000Z"
+    },
+    {
       "title": "川普上傳AI醫療床影片重炒陰謀論 網路一片嘩然",
       "link": "https://www.cna.com.tw/news/aopl/202509300317.aspx",
       "source": "中央社",
@@ -583,6 +679,12 @@
       "link": "https://www.cna.com.tw/news/aloc/202509260131.aspx",
       "source": "中央社",
       "pubDate": "2025-09-26T04:00:00.000Z"
+    },
+    {
+      "title": "長聯科技生成式AI照護機器人亮相 期盼明年第1季量產",
+      "link": "https://www.cna.com.tw/news/afe/202509250422.aspx",
+      "source": "中央社",
+      "pubDate": "2025-09-25T04:00:00.000Z"
     },
     {
       "title": "宏碁智醫生成式AI新應用 10月在台上市",
@@ -597,10 +699,28 @@
       "pubDate": "2025-09-22T04:00:00.000Z"
     },
     {
+      "title": "工研院率智慧醫療廠商進軍泰國 拓展國際市場",
+      "link": "https://www.cna.com.tw/news/afe/202509110294.aspx",
+      "source": "中央社",
+      "pubDate": "2025-09-11T04:00:00.000Z"
+    },
+    {
       "title": "台灣精品赴曼谷秀AI醫療創新 瞄準東南亞展人文關懷",
       "link": "https://www.cna.com.tw/news/afe/202509100399.aspx",
       "source": "中央社",
       "pubDate": "2025-09-10T04:00:00.000Z"
+    },
+    {
+      "title": "台企前進亞洲醫療器材展 智慧醫療展現供應鏈實力",
+      "link": "https://www.cna.com.tw/news/ahel/202509100236.aspx",
+      "source": "中央社",
+      "pubDate": "2025-09-10T04:00:00.000Z"
+    },
+    {
+      "title": "賴總統：百億投資智慧醫療 鼓勵企業創新研發",
+      "link": "https://www.cna.com.tw/news/aipl/202509040347.aspx",
+      "source": "中央社",
+      "pubDate": "2025-09-04T04:00:00.000Z"
     },
     {
       "title": "丹麥學者：AI醫療藏隱私憂慮 促建道德原則",
@@ -615,6 +735,18 @@
       "pubDate": "2025-08-21T04:00:00.000Z"
     },
     {
+      "title": "衛福部爭取AI新十大建設 設國家級醫院資安中心",
+      "link": "https://www.cna.com.tw/news/afe/202508150312.aspx",
+      "source": "中央社",
+      "pubDate": "2025-08-15T04:00:00.000Z"
+    },
+    {
+      "title": "AI模擬失智、桌遊防嗆咳 慈濟醫養打造友善高齡",
+      "link": "https://www.cna.com.tw/news/ahel/202508080237.aspx",
+      "source": "中央社",
+      "pubDate": "2025-08-08T04:00:00.000Z"
+    },
+    {
       "title": "台東馬偕醫院導入AI 推動智慧醫療起飛",
       "link": "https://www.cna.com.tw/news/aloc/202508070254.aspx",
       "source": "中央社",
@@ -627,10 +759,22 @@
       "pubDate": "2025-07-24T04:00:00.000Z"
     },
     {
+      "title": "亞洲生技論壇登場 AI加速臨床開發成關注焦點",
+      "link": "https://www.cna.com.tw/news/afe/202507230317.aspx",
+      "source": "中央社",
+      "pubDate": "2025-07-23T04:00:00.000Z"
+    },
+    {
       "title": "世台會關注全球AI醫療 台美專家分享跨國服務挑戰",
       "link": "https://www.cna.com.tw/news/ahel/202507190034.aspx",
       "source": "中央社",
       "pubDate": "2025-07-19T04:00:00.000Z"
+    },
+    {
+      "title": "廣達林百里：打造智慧醫療不容易 醫生是最聰明的人",
+      "link": "https://www.cna.com.tw/news/afe/202506170112.aspx",
+      "source": "中央社",
+      "pubDate": "2025-06-17T04:00:00.000Z"
     },
     {
       "title": "國合會率21國專業代表訪員榮醫院 借鏡台灣AI醫療",
@@ -651,6 +795,12 @@
       "pubDate": "2025-04-07T04:00:00.000Z"
     },
     {
+      "title": "健保署推AI預測糖尿病併發症風險 供客製化衛教",
+      "link": "https://www.cna.com.tw/news/ahel/202503280319.aspx",
+      "source": "中央社",
+      "pubDate": "2025-03-28T04:00:00.000Z"
+    },
+    {
       "title": "國合會與美大學合作 AI助攻索馬利蘭醫療改革",
       "link": "https://www.cna.com.tw/news/aipl/202503280286.aspx",
       "source": "中央社",
@@ -669,8 +819,32 @@
       "pubDate": "2025-03-06T04:00:00.000Z"
     },
     {
+      "title": "華碩搶攻AI智慧醫療 助長庚醫院9院區診療升級",
+      "link": "https://www.cna.com.tw/news/afe/202412190302.aspx",
+      "source": "中央社",
+      "pubDate": "2024-12-19T04:00:00.000Z"
+    },
+    {
+      "title": "醫療數位轉型解護理荒 電子紙、智慧藥櫃省工時",
+      "link": "https://www.cna.com.tw/news/ahel/202412170119.aspx",
+      "source": "中央社",
+      "pubDate": "2024-12-17T04:00:00.000Z"
+    },
+    {
+      "title": "黃彥男：醫療演變使AI技術發展重要 也需做好資安",
+      "link": "https://www.cna.com.tw/news/aloc/202412130225.aspx",
+      "source": "中央社",
+      "pubDate": "2024-12-13T04:00:00.000Z"
+    },
+    {
       "title": "佳世達楊宏培：AI如同讓醫師擁有經驗豐富「副駕駛」",
       "link": "https://www.cna.com.tw/news/afe/202412050229.aspx",
+      "source": "中央社",
+      "pubDate": "2024-12-05T04:00:00.000Z"
+    },
+    {
+      "title": "鴻海拚數位健康軟硬整合 導入數位孿生強化AI診斷",
+      "link": "https://www.cna.com.tw/news/afe/202412050181.aspx",
       "source": "中央社",
       "pubDate": "2024-12-05T04:00:00.000Z"
     },
@@ -693,10 +867,28 @@
       "pubDate": "2024-10-07T04:00:00.000Z"
     },
     {
+      "title": "智慧醫療高齡照護創新 中山醫大校長黃建寧獲獎",
+      "link": "https://www.cna.com.tw/news/ahel/202409130207.aspx",
+      "source": "中央社",
+      "pubDate": "2024-09-13T04:00:00.000Z"
+    },
+    {
+      "title": "AI診斷工具擬納健保 年底完成效益評估",
+      "link": "https://www.cna.com.tw/news/ahel/202408260275.aspx",
+      "source": "中央社",
+      "pubDate": "2024-08-26T04:00:00.000Z"
+    },
+    {
       "title": "仁寶結盟新光醫院 加速AI應用落地醫療產業",
       "link": "https://www.cna.com.tw/news/afe/202408210062.aspx",
       "source": "中央社",
       "pubDate": "2024-08-21T04:00:00.000Z"
+    },
+    {
+      "title": "童醫院試辦遠距醫療 嘉惠越南台商眷屬幹部",
+      "link": "https://www.cna.com.tw/news/aloc/202407010231.aspx",
+      "source": "中央社",
+      "pubDate": "2024-07-01T04:00:00.000Z"
     },
     {
       "title": "健保署攜手Google 推動糖尿病疾病風險AI模型",
