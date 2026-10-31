@@ -10,7 +10,7 @@ Kecerdasan artifisial (AI) dapat dipakai staf rumah sakit untuk merangkum dokume
 
 ## Apa yang diuji
 
-Studi berjudul "AI Assistance Reduces Persistence and Hurts Independent Performance" ditulis oleh Grace Liu, Brian Christian, Tsvetomira Dumbalska, Michiel A. Bakker, dan Rachit Dubey, dan tersedia sebagai pracetak di [arXiv](https://arxiv.org/abs/2604.04721). Pracetak berarti naskah yang diunggah penulisnya sendiri; halaman arXiv tidak mencantumkan jurnal atau konferensi tempat naskah ini terbit.
+Studi berjudul "AI Assistance Reduces Persistence and Hurts Independent Performance" ditulis oleh Grace Liu, Brian Christian, Tsvetomira Dumbalska, Michiel A. Bakker, dan Rachit Dubey, dan tersedia sebagai naskah di [arXiv](https://arxiv.org/abs/2604.04721), tempat penulis mengunggah naskahnya sendiri. Halaman ringkasan arXiv tidak mencantumkan jurnal atau konferensi, tetapi berkas PDF-nya bertuliskan "Published as a conference paper at COLM 2026" dan Liputan6 menyebut temuan ini dipublikasikan di Conference on Language Modeling. Kami tidak memeriksa status penelaahan sejawatnya.
 
 Penelitinya menjalankan tiga eksperimen acak dengan total 1.222 peserta. Polanya sama di ketiganya. Peserta dibagi menjadi dua kelompok: satu kelompok mengerjakan soal dengan asisten AI di sisi layar, kelompok lain tanpa AI. Setelah beberapa soal latihan, bantuan AI dicabut tanpa pemberitahuan, lalu semua peserta mengerjakan tiga soal uji sendirian. Dua eksperimen pertama memakai soal pecahan, eksperimen ketiga memakai soal pemahaman bacaan. Waktu peserta berinteraksi dengan AI hanya sekitar 10 sampai 15 menit.
 
@@ -31,7 +31,7 @@ Bagian ini penting agar studi tersebut tidak dibaca berlebihan.
 - Yang diuji hanya interaksi singkat. Penulis sendiri menyatakan efek jangka panjang belum diketahui dan meminta studi lanjutan dengan pengamatan lebih lama.
 - Tugasnya adalah soal pecahan dan pemahaman bacaan di platform daring, bukan pekerjaan rumah sakit. Studi ini tidak menguji perawat, staf administrasi, atau tugas klinis.
 - Temuan tentang peserta yang "meminta jawaban langsung" berasal dari pengakuan peserta sendiri, dan penulis tidak menganggapnya sebagai bukti sebab-akibat.
-- Naskahnya berstatus pracetak.
+- Naskah ini kami baca dari arXiv; PDF-nya menyebut konferensi COLM 2026, tetapi kami tidak memeriksa penelaahan sejawatnya.
 
 Jadi, studi ini tidak membuktikan bahwa memakai AI membuat staf rumah sakit menjadi kurang cakap. Yang ditunjukkannya lebih sempit: dalam tugas belajar singkat, orang yang terbiasa dibantu AI cenderung lebih cepat menyerah ketika bantuan itu hilang.
 
@@ -49,7 +49,7 @@ Bagi manajemen yang menilai tawaran alat AI, ada satu pertanyaan tambahan untuk 
 
 - Tiga eksperimen acak dengan total 1.222 peserta menunjukkan bahwa setelah bantuan AI dicabut, peserta menjawab benar lebih sedikit dan, pada dua dari tiga eksperimen, lebih sering melewati soal.
 - Efek ini muncul setelah interaksi sekitar 10 sampai 15 menit, pada soal pecahan dan pemahaman bacaan.
-- Studi ini masih pracetak, hanya menguji interaksi singkat, dan tidak dilakukan pada pekerjaan rumah sakit.
+- Studi ini hanya menguji interaksi singkat, dilakukan pada soal pecahan dan pemahaman bacaan (bukan pekerjaan rumah sakit), dan status penelaahan sejawatnya tidak kami periksa.
 - Rumah sakit dapat memakainya sebagai bahan saat merancang orientasi staf dan menentukan keterampilan yang harus tetap dikuasai tanpa alat bantu.
 
 ---

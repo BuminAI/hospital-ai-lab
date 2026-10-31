@@ -1,6 +1,6 @@
 ---
 title: "Skrining TBC dengan AI rontgen: yang perlu disiapkan faskes"
-description: "WHO merekomendasikan perangkat lunak CAD untuk membaca rontgen dada dalam skrining TBC. Yang menentukan hasilnya bukan kecepatan baca, melainkan alur tindak lanjutnya."
+description: "Pedoman skrining TBC WHO mencantumkan perangkat lunak CAD sebagai salah satu alat skrining. Yang menentukan hasilnya bukan kecepatan baca, melainkan alur tindak lanjutnya."
 pubDate: 2026-09-10
 category: "Kolom"
 draft: false
@@ -12,13 +12,13 @@ Indonesia termasuk negara dengan beban tuberkulosis (TBC) tertinggi di dunia. Me
 
 Perangkat lunak deteksi berbantuan komputer (computer-aided detection, CAD) menganalisis rontgen dada dan memberi skor kecurigaan adanya kelainan yang mengarah ke TBC paru. Salah satu contoh buatan dalam negeri adalah TBScreen.AI yang dikembangkan Universitas Gadjah Mada; menurut laporan UGM pada Agustus 2026, sensitivitasnya sekitar 83 persen dan spesifisitasnya sekitar 87 persen.
 
-WHO sejak pedoman skrining TBC tahun 2021 menyatakan perangkat lunak CAD dapat digunakan menggantikan pembaca manusia untuk interpretasi rontgen dada digital, baik untuk skrining maupun triase, pada orang berusia 15 tahun ke atas. Jadi pemakaian AI di tahap ini bukan hal eksperimental, melainkan sudah masuk rekomendasi internasional.
+Pedoman skrining TBC WHO (22 Maret 2021) merekomendasikan beberapa alat skrining, yaitu skrining gejala, rontgen dada, perangkat lunak deteksi berbantuan komputer (CAD), tes diagnostik cepat molekuler yang disetujui WHO, dan C-reactive protein. Halaman WHO yang kami rujuk hanya memuat daftar ini; syarat rinci pemakaian CAD (misalnya kelompok usia) tidak kami baca dari teks pedomannya, jadi periksa langsung pedoman WHO sebelum merujuknya.
 
 ## Yang sering disalahpahami
 
 Skor CAD bukan persentase kepastian bahwa seseorang menderita TBC, dan tidak boleh diperlakukan sebagai diagnosis. Angka itu hanya menandai perlunya pemeriksaan lanjutan, biasanya pemeriksaan dahak atau tes cepat molekuler.
 
-Selain itu, ambang batas skor yang dipakai untuk menyatakan "curiga" tidak bersifat universal. WHO menganjurkan setiap program menetapkan target sensitivitas sesuai konteksnya dan mengkalibrasi ambang CAD secara lokal memakai data nyata di lapangan. Ambang yang dipakai fasilitas lain belum tentu cocok untuk populasi pasien Anda.
+Selain itu, ambang batas skor yang dipakai untuk menyatakan "curiga" tidak bersifat universal. Saran kami (bukan kutipan WHO atau ANTARA): tetapkan target sensitivitas sesuai konteks dan kalibrasi ambang CAD secara lokal memakai data nyata di lapangan. Ambang yang dipakai fasilitas lain belum tentu cocok untuk populasi pasien Anda.
 
 ## Hambatan sebenarnya ada di tindak lanjut
 
@@ -34,8 +34,8 @@ Artikel ANTARA menegaskan satu hal yang mudah terlewat: kecepatan membaca gambar
 
 ## Ringkasan
 
-- WHO sejak 2021 merekomendasikan perangkat lunak CAD dapat menggantikan pembaca manusia untuk rontgen dada digital dalam skrining dan triase TBC pada orang berusia 15 tahun ke atas.
-- Skor CAD menandai perlunya pemeriksaan lanjutan, bukan diagnosis, dan ambangnya perlu dikalibrasi secara lokal dengan data nyata.
+- Pedoman skrining TBC WHO (2021) mencantumkan perangkat lunak CAD sebagai salah satu alat skrining; syarat rinci pemakaiannya tidak kami baca dari teks pedoman.
+- Skor CAD menandai perlunya pemeriksaan lanjutan, bukan diagnosis; saran kami, ambangnya dikalibrasi secara lokal dengan data nyata.
 - Menurut ANTARA, hambatan utama bukan kecepatan baca melainkan kecepatan mengubah kecurigaan menjadi diagnosis dan pengobatan.
 - Yang perlu disiapkan faskes adalah alur rujukan konfirmasi, pencatatan dan pelacakan kontak, peninjauan manusia untuk kasus batas, kalibrasi ambang lokal, dan penjelasan yang jelas kepada pasien.
 

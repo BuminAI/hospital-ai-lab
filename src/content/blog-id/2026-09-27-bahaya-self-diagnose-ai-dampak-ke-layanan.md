@@ -6,7 +6,7 @@ category: "Kolom"
 draft: false
 ---
 
-Semakin banyak pasien yang bertanya ke chatbot AI seperti ChatGPT sebelum datang ke dokter. dr. Kristin Tjandra, dokter umum di Prodia Children Jakarta, menyoroti fenomena ini: pasien kerap tiba di ruang periksa dalam kondisi "sangat ketakutan dan paranoid" setelah gejala ringan seperti batuk ditafsirkan AI sebagai kemungkinan penyakit yang jauh lebih serius ([ANTARA News, 24 September 2026](https://www.antaranews.com/berita/5757240/dokter-soroti-bahaya-self-diagnose-via-ai-dan-sikap-menyangkal)). Bagi staf pendaftaran dan perawat yang pertama menerima pasien, kondisi ini punya konsekuensi praktis, bukan cuma soal klinis.
+Semakin banyak pasien yang bertanya ke chatbot AI seperti ChatGPT sebelum datang ke dokter. dr. Kristin Tjandra, dokter umum di Prodia Children Jakarta, menyoroti fenomena ini: pasien kerap tiba di ruang periksa dalam kondisi "sangat takut dan parno" setelah gejala ringan seperti batuk ditafsirkan AI sebagai kemungkinan penyakit yang jauh lebih serius ([ANTARA News, 24 September 2026](https://www.antaranews.com/berita/5757240/dokter-soroti-bahaya-self-diagnose-via-ai-dan-sikap-menyangkal)). Bagi staf pendaftaran dan perawat yang pertama menerima pasien, kondisi ini punya konsekuensi praktis, bukan cuma soal klinis.
 
 ## Gejala ringan, kecemasan berat
 

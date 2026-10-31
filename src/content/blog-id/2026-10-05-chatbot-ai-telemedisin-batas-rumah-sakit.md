@@ -11,7 +11,7 @@ Semakin banyak pasien memakai aplikasi telemedisin sebelum memutuskan datang ke 
 
 ## Apa yang disampaikan
 
-Rizalul Durrun Pasundani, Direktur Utama PT Medika Inovasi Nusantara (DokterIN), menjelaskan bahwa triase awal lewat telemedisin membantu pasien mendapat arahan yang tepat sejak awal, sehingga tindakan yang tidak perlu dapat dihindari. Muhamad Nasrun Ihsan dari AdMedika menambahkan bahwa pengurangan tindakan berlebih ini turut membuat rasio klaim asuransi lebih sehat — hal yang relevan bagi bagian administrasi rumah sakit yang menangani klaim BPJS Kesehatan maupun asuransi swasta.
+Rizalul Durrun Pasundani, Direktur Utama PT Medika Inovasi Nusantara (DokterIN), menjelaskan bahwa konsultasi awal lewat telemedisin membantu pasien mendapat arahan yang tepat sejak awal, sehingga tindakan yang tidak perlu dapat dihindari. Muhamad Nasrun Ihsan dari AdMedika menambahkan bahwa pengurangan tindakan berlebih ini turut membuat rasio klaim asuransi lebih sehat — hal yang relevan bagi bagian administrasi rumah sakit yang menangani klaim BPJS Kesehatan maupun asuransi swasta.
 
 ## Yang ditegaskan soal chatbot AI-nya
 
@@ -27,7 +27,7 @@ Bagi manajemen yang mengevaluasi tawaran integrasi telemedisin atau chatbot seru
 
 ## Rangkuman
 
-- Perluasan akses telemedisin dengan chatbot AI disebut membantu triase awal dan efisiensi rasio klaim asuransi.
+- Perluasan akses telemedisin disebut membantu pasien diarahkan dengan tepat sejak awal dan menjaga keberlanjutan ekosistem asuransi (rasio klaim).
 - Pemberitaan ini menegaskan chatbot AI itu tidak bisa melakukan anamnesis menyeluruh, diagnosis yang bertanggung jawab, meresepkan obat, atau memantau kondisi pasien.
 - Staf pendaftaran dan perawat tetap perlu melakukan asesmen awal penuh, terlepas dari hasil "konsultasi" AI yang dibawa pasien.
 - Saat menilai proposal teknologi serupa, mintalah batas kewenangan chatbot dinyatakan tertulis, bukan hanya disampaikan lisan.
