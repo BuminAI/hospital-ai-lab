@@ -1,0 +1,106 @@
+{
+  "checkedAt": "2026-10-31T08:35:08.176Z",
+  "readOk": 11,
+  "total": 11,
+  "laws": [
+    {
+      "pcode": "I0050021",
+      "name": "個人資料保護法",
+      "baseline": "2025-11-11",
+      "current": "2025-11-11",
+      "changed": false,
+      "lastRead": "2026-10-31T08:34:52.894Z",
+      "error": null
+    },
+    {
+      "pcode": "L0020121",
+      "name": "醫療機構電子病歷製作及管理辦法",
+      "baseline": "2022-07-18",
+      "current": "2022-07-18",
+      "changed": false,
+      "lastRead": "2026-10-31T08:34:54.132Z",
+      "error": null
+    },
+    {
+      "pcode": "L0030106",
+      "name": "醫療器材管理法",
+      "baseline": "2020-01-15",
+      "current": "2020-01-15",
+      "changed": false,
+      "lastRead": "2026-10-31T08:34:55.885Z",
+      "error": null
+    },
+    {
+      "pcode": "L0030120",
+      "name": "醫療器材分類分級管理辦法",
+      "baseline": "2023-08-22",
+      "current": "2023-08-22",
+      "changed": false,
+      "lastRead": "2026-10-31T08:34:57.014Z",
+      "error": null
+    },
+    {
+      "pcode": "L0020021",
+      "name": "醫療法",
+      "baseline": "2026-09-23",
+      "current": "2026-09-23",
+      "changed": false,
+      "lastRead": "2026-10-31T08:34:59.423Z",
+      "error": null
+    },
+    {
+      "pcode": "L0020197",
+      "name": "通訊診察治療辦法",
+      "baseline": "2024-01-22",
+      "current": "2024-01-22",
+      "changed": false,
+      "lastRead": "2026-10-31T08:35:00.716Z",
+      "error": null
+    },
+    {
+      "pcode": "L0020227",
+      "name": "醫療事故預防及爭議處理法",
+      "baseline": "2022-06-22",
+      "current": "2022-06-22",
+      "changed": false,
+      "lastRead": "2026-10-31T08:35:02.173Z",
+      "error": null
+    },
+    {
+      "pcode": "A0030297",
+      "name": "資通安全管理法",
+      "baseline": "2025-09-24",
+      "current": "2025-09-24",
+      "changed": false,
+      "lastRead": "2026-10-31T08:35:03.704Z",
+      "error": null
+    },
+    {
+      "pcode": "A0030305",
+      "name": "資通安全事件通報應變及演練辦法",
+      "baseline": "2026-01-05",
+      "current": "2026-01-05",
+      "changed": false,
+      "lastRead": "2026-10-31T08:35:04.975Z",
+      "error": null
+    },
+    {
+      "pcode": "A0030304",
+      "name": "資通安全責任等級分級辦法",
+      "baseline": "2026-01-07",
+      "current": "2026-01-07",
+      "changed": false,
+      "lastRead": "2026-10-31T08:35:06.116Z",
+      "error": null
+    },
+    {
+      "pcode": "H0160093",
+      "name": "人工智慧基本法",
+      "baseline": "2026-01-14",
+      "current": "2026-01-14",
+      "changed": false,
+      "lastRead": "2026-10-31T08:35:07.362Z",
+      "error": null
+    }
+  ]
+}

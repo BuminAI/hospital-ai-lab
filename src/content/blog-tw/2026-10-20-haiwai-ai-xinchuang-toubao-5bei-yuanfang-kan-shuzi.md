@@ -48,7 +48,7 @@ series: before-procurement
 - 依TechCrunch報導，Healthleap的軟體從臨床筆記與結構化資料產生風險分數，目前篩檢營養不良與譫妄，已用於50多家醫院，仍有多項病況在臨床驗證中。
 - 「5倍以上」的投報，以及公司用來舉例的年化效益，都是公司自己的說法，報導沒有獨立驗證，也沒有已發表的研究。
 - 美國醫院的額外給付與住院天數效益，不能直接套用到台灣的支付制度，需要用自己的資料試算。
-- 採購時可以追問數字的算法、獨立評估、計價與退場機制、護理端的處置流程、資料去向，以及產品是否屬於醫療器材。
+- 採購時可以追問數字的計算方式、獨立評估、計價與退場機制、護理端的處置流程、資料去向，以及產品是否屬於醫療器材。
 
 **資料來源**
 - [TechCrunch：Healthleap raises $38M for its AI that flags hospital patients who may need a closer look（2026年10月7日）](https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/)

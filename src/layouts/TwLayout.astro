@@ -23,6 +23,7 @@ import tw from '../i18n/tw.json';
 import { growth } from '../i18n/growth';
 import navConfig from '../data/tw/content/nav.json';
 import linkHealth from '../data/tw/link-health.json';
+import lawWatch from '../data/tw/law-watch.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import { organizationShared } from '../utils/entity';
 import {
@@ -472,6 +473,19 @@ const year = new Date().getFullYear();
             <p class="tw-footer-check">
               出處連結自動檢查：{new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(linkHealth.checkedAt))}
               （共檢查 {linkHealth.total} 筆，找不到頁面 {linkHealth.dead.length} 筆，無法連線而未能確認 {linkHealth.unknown} 筆）
+            </p>
+          )
+        }
+        {
+          /* 根據法令的修正日每日確認 (scripts/check-tw-laws.mjs → law-watch.json)。
+             與本站查證當時的修正日不同時，把法規名稱列出來，提醒讀者以最新條文為準。 */
+          lawWatch.checkedAt && (
+            <p class="tw-footer-check">
+              根據法令修正日自動確認：{new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(lawWatch.checkedAt))}
+              （全國法規資料庫，{lawWatch.laws.length} 部）
+              {lawWatch.laws.some((l) => l.changed)
+                ? `。${lawWatch.laws.filter((l) => l.changed).map((l) => `《${l.name}》`).join('、')}的修正日與本站查證時不同，相關內容正在重新查證，請以最新條文為準。`
+                : '。目前沒有發現與本站查證時不同的修正。'}
             </p>
           )
         }
