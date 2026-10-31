@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-10-31T03:12:15.630Z",
+  "checkedAt": "2026-10-31T21:46:12.189Z",
   "total": 135,
-  "ok": 131,
-  "unknown": 4,
+  "ok": 132,
+  "unknown": 3,
   "unknownList": [
     {
       "url": "https://shirobon.net/doubt/r06/007-q023-00-00-i/",
@@ -15,10 +15,6 @@
     {
       "url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2781307",
       "status": 403
-    },
-    {
-      "url": "https://www.jstage.jst.go.jp/article/gee/63/11/63_2297/_html/-char/ja",
-      "status": 0
     }
   ],
   "dead": []
