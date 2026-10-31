@@ -43,16 +43,38 @@ const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 
 const CB_SOURCE = 'CBnews';
-const CB_LISTS = [
-  'https://www.cbnews.jp/news/category/medical',
-  'https://www.cbnews.jp/news/category/society',
-];
+// 2026-10-31 확대: 목록 1페이지(20건)만 읽던 것을 지면 6개 × 최대 4페이지로 넓혔다.
+// (tieup·mgt_pr 지면은 광고성이라 쓰지 않는다)
+const CB_CATEGORIES = ['medical', 'society', 'care', 'medicine', 'topic', 'feature'];
+const CB_PAGES = 4;
+const CB_LISTS = CB_CATEGORIES.flatMap((c) =>
+  Array.from({ length: CB_PAGES }, (_, i) =>
+    `https://www.cbnews.jp/news/category/${c}${i ? `?page=${i + 1}` : ''}`
+  )
+);
+
+// ── 厚生労働省 報道発表 (2026-10-31 추가) ───────────────
+// ⚠️ 후생노동성 **RSS**는 재배포가 금지돼 있어(rss/index.html 안내) 쓰지 않는다.
+//    여기서 읽는 것은 홈페이지의 월별 報道発表資料 목록(HTML)이며, 이 콘텐츠는
+//    「公共データ利用規約（PDL1.0）」에 따라 출처를 표시하면 이용할 수 있다
+//    (chosakuken/index.html 확인). 제목·링크·날짜만 저장하고 본문은 옮기지 않는다.
+const MHLW_SOURCE = '厚生労働省';
+const MHLW_MONTH_URL = (y, m) =>
+  `https://www.mhlw.go.jp/stf/houdou/houdou_list_${y}${String(m).padStart(2, '0')}.html`;
+
+// ── デジタル庁 新着・更新 RSS (2026-10-31 추가) ───────────
+// 정부 표준 이용규약(출처 표시 시 이용 가능). 의료·AI 관련 제목만 채택한다.
+const DIGITAL_SOURCE = 'デジタル庁';
+const DIGITAL_RSS = 'https://www.digital.go.jp/rss/news.xml';
+const DIGITAL_RE =
+  /医療|病院|診療|薬局|電子カルテ|マイナ保険証|マイナンバーカード.*(保険証|医療)|PMH|ヘルスケア|(?<![A-Za-z])AI(?![A-Za-z])|人工知能|生成AI|ガバメントAI/;
+
 
 // medical·society 지면은 DX 전담이 아니라 병원·의료행정 전반을 다루므로,
 // 이 정규식이 실질적인 채택 기준이다(위 dx 지면 시절엔 이미 좁혀진 뒤라
 // 형식적인 안전장치였지만, 지금은 이게 진짜 필터다).
 const TOPIC_RE =
-  /(?<![A-Za-z])AI(?![A-Za-z])|人工知能|生成AI|機械学習|アルゴリズム|デジタル|DX|電子カルテ|オンライン診療|遠隔診療|ビッグデータ|データ利活用|ICT|システム|情報共有|標準化|マイナ保険証|クラウド|サイバー/;
+  /(?<![A-Za-z])AI(?![A-Za-z])|人工知能|生成AI|機械学習|アルゴリズム|デジタル|DX|電子カルテ|電子処方箋|オンライン資格確認|オンライン診療|遠隔診療|ビッグデータ|データ利活用|医療情報|ICT|システム|情報共有|標準化|マイナ保険証|クラウド|サイバー|セキュリティ|個人情報|ロボット|遠隔|PHR|レセプト/;
 
 // ⚠️ 광고 기사 제외. CBnews의 병원DX 특집에는 제목 옆에 「PR」이 붙은
 //    스폰서 기사가 섞인다. 광고를 뉴스로 싣지 않는다.
@@ -139,20 +161,91 @@ async function fetchCb(listUrl) {
   return rows;
 }
 
+// 厚労省 월별 목록: <h3 ...>2026年10月30日（金）掲載</h3> 다음 <ul class="m-listNews"> 안의 항목들
+async function fetchMhlw(y, m) {
+  const html = await (await fetchRetry(MHLW_MONTH_URL(y, m))).text();
+  const rows = [];
+  for (const part of html.split('<h3 class="m-hdgLv3__hdg">').slice(1)) {
+    const dm = part.match(/^(\d{4})年(\d{1,2})月(\d{1,2})日/);
+    if (!dm) continue;
+    const d = new Date(`${dm[1]}-${dm[2].padStart(2, '0')}-${dm[3].padStart(2, '0')}T09:00:00+09:00`);
+    if (Number.isNaN(d.getTime())) continue;
+    const ul = part.split('</ul>')[0];
+    for (const li of ul.split('<li>').slice(1)) {
+      const href = li.match(/href="(\/stf\/[^"]+\.html)"/);
+      const t = li.match(/<span>([\s\S]*?)<\/span>/);
+      if (!href || !t) continue;
+      const title = stripTags(t[1]);
+      if (!title) continue;
+      rows.push({ title, link: `https://www.mhlw.go.jp${href[1]}`, source: MHLW_SOURCE, pubDate: d.toISOString() });
+    }
+  }
+  return rows;
+}
+
+async function fetchDigital() {
+  const xml = await (await fetchRetry(DIGITAL_RSS)).text();
+  const rows = [];
+  for (const it of xml.split('<item>').slice(1)) {
+    const title = stripTags((it.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '');
+    const link = ((it.match(/<link>([\s\S]*?)<\/link>/) || [])[1] || '').trim();
+    const pub = (it.match(/<pubDate>([\s\S]*?)<\/pubDate>/) || [])[1];
+    const d = pub ? new Date(pub) : null;
+    if (!title || !link || !d || Number.isNaN(d.getTime())) continue;
+    rows.push({ title, link, source: DIGITAL_SOURCE, pubDate: d.toISOString() });
+  }
+  return rows;
+}
+
 // ── 수집 ──────────────────────────────────────────────
 const collected = [];
 let okSources = 0;
 
+const cbTally = {};
 for (const url of CB_LISTS) {
   try {
     const rows = await fetchCb(url);
     const kept = rows.filter((r) => TOPIC_RE.test(r.title));
     collected.push(...kept);
     okSources++;
-    console.log(`${CB_SOURCE} ${url.replace('https://www.cbnews.jp', '')}: ${rows.length}건 중 ${kept.length}건 채택`);
+    const k = url.replace('https://www.cbnews.jp/news/category/', '').split('?')[0];
+    cbTally[k] = (cbTally[k] || 0) + kept.length;
   } catch (e) {
     console.error(`${CB_SOURCE} ${url} 수집 실패 — ${e.message}`);
   }
+}
+console.log(`${CB_SOURCE} 채택(지면별): ${JSON.stringify(cbTally)}`);
+
+// 厚労省: 이번 달과 지난달
+{
+  const now = new Date(Date.now() + 9 * 3600 * 1000);
+  const months = [[now.getUTCFullYear(), now.getUTCMonth() + 1]];
+  months.push(months[0][1] === 1 ? [months[0][0] - 1, 12] : [months[0][0], months[0][1] - 1]);
+  let n = 0, kept = 0;
+  for (const [y, m] of months) {
+    try {
+      const rows = await fetchMhlw(y, m);
+      // 開催案内·公募 성격의 제목은 医療·病院과 함께 있으면 AI·DX 단어가 없어도 채택한다(교육·행사 페이지용)
+      const hit = rows.filter((r) => TOPIC_RE.test(r.title) || (/開催|シンポジウム|セミナー|説明会|研修|公募|募集/.test(r.title) && /医療|病院|看護|医療機関|薬局/.test(r.title)));
+      collected.push(...hit);
+      n += rows.length;
+      kept += hit.length;
+      okSources++;
+    } catch (e) {
+      console.error(`${MHLW_SOURCE} ${y}-${m} 수집 실패 — ${e.message}`);
+    }
+  }
+  console.log(`${MHLW_SOURCE}: ${n}건 중 ${kept}건 채택`);
+}
+
+try {
+  const rows = await fetchDigital();
+  const hit = rows.filter((r) => DIGITAL_RE.test(r.title));
+  collected.push(...hit);
+  okSources++;
+  console.log(`${DIGITAL_SOURCE}: ${rows.length}건 중 ${hit.length}건 채택`);
+} catch (e) {
+  console.error(`${DIGITAL_SOURCE} 수집 실패 — ${e.message}`);
 }
 
 if (okSources === 0) {
@@ -190,7 +283,7 @@ if (JSON.stringify(items) === JSON.stringify(existing)) {
 
 await writeFile(
   OUT,
-  JSON.stringify({ updatedAt: new Date().toISOString(), source: CB_SOURCE, items }, null, 2) + '\n',
+  JSON.stringify({ updatedAt: new Date().toISOString(), source: `${CB_SOURCE}・${MHLW_SOURCE}・${DIGITAL_SOURCE}`, items }, null, 2) + '\n',
   'utf8'
 );
 console.log(`수집 완료: 누적 ${items.length}건`);

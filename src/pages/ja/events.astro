@@ -12,9 +12,15 @@
 import JaLayout from '../../layouts/JaLayout.astro';
 import ja from '../../i18n/ja.json';
 import { eventsJa } from '../../data/ja/pages';
+import news from '../../data/ja/news.json';
 import { withBase } from '../../utils/site';
 
 const p = eventsJa;
+
+// 医療DX・医療AI関連の開催案内・公募を、収集済みの見出しから自動で抜き出す(2026-10-31 追加)。
+const EVENT_RE = /開催|シンポジウム|セミナー|説明会|研修|公募|募集|検討会|アワード|フォーラム/;
+const fmt = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = news.items.filter((i) => EVENT_RE.test(i.title)).slice(0, 12);
 
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteUrl}${withBase('/ja/events/')}`;
@@ -78,6 +84,30 @@ const schema = [
     }
   </ul>
 
+  {
+    recent.length > 0 && (
+      <section class="ja-recent" aria-labelledby="ja-recent-h">
+        <h2 id="ja-recent-h">最近の開催案内・公募（自動収集）</h2>
+        <p class="ja-recent-lead">
+          厚生労働省・デジタル庁・CBnewsの見出しから、検討会・シンポジウム・公募などの案内を自動で拾っています。日程や申込条件は必ず元のページでご確認ください。
+        </p>
+        <ul>
+          {recent.map((i) => (
+            <li>
+              <a href={i.link} target="_blank" rel="noopener">
+                {i.title}
+                <span class="sr-only"> ({ja.ui.external})</span>
+              </a>
+              <span class="ja-recent-meta">
+                {i.source} · <time datetime={i.pubDate}>{fmt.format(new Date(i.pubDate))}</time>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   <div class="ja-note">
     <p>
       ここに挙げたのは公式の入口だけです。個々の開催情報までは載せていません — 日程・申込・費用は必ず各主催者のページでご確認ください。確認できなかったものは載せていません。
@@ -86,6 +116,43 @@ const schema = [
 </JaLayout>
 
 <style>
+  .ja-recent {
+    margin-top: 32px;
+  }
+  .ja-recent h2 {
+    font-size: 18px;
+    margin: 0 0 8px;
+  }
+  .ja-recent-lead {
+    font-size: 13.5px;
+    color: var(--ja-text-sub);
+    line-height: 1.85;
+  }
+  .ja-recent ul {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    border-top: 1px solid var(--ja-border);
+  }
+  .ja-recent li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ja-border);
+  }
+  .ja-recent a {
+    color: var(--ja-text);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .ja-recent a:hover {
+    color: var(--ja-primary);
+  }
+  .ja-recent-meta {
+    font-size: 13px;
+    color: var(--ja-text-sub);
+  }
   .ja-lead {
     color: var(--ja-text-sub);
   }

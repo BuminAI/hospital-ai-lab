@@ -1,12 +1,54 @@
 {
-  "updatedAt": "2026-10-22T12:28:49.239Z",
-  "source": "CBnews",
+  "updatedAt": "2026-10-31T01:53:57.001Z",
+  "source": "CBnews・厚生労働省・デジタル庁",
   "items": [
+    {
+      "title": "自治体・医療機関等をつなぐ情報連携システム（Public Medical Hub：PMH）に係る「先行実施事業の実施状況」「自治体・自治体システムベンダー向けの情報」「医療機関・薬局システムベンダー向けの情報」の資料を更新しました",
+      "link": "https://www.digital.go.jp/policies/health/public-medical-hub",
+      "source": "デジタル庁",
+      "pubDate": "2026-10-30T06:00:00.000Z"
+    },
+    {
+      "title": "ガバメントAI 源内 利用状況アンケート調査（第1回）の結果を公表しました",
+      "link": "https://www.digital.go.jp/policies/genai/f9ed1b1c-b22f-4466-8e50-c1c9adf9f8eb",
+      "source": "デジタル庁",
+      "pubDate": "2026-10-29T23:51:04.000Z"
+    },
+    {
+      "title": "ガバメントAI 源内で「国会答弁作成支援AIアプリ」のプロトタイプ版を提供開始します",
+      "link": "https://www.digital.go.jp/policies/genai/b736d2d7-b03b-43f0-9932-eba7da7f8142",
+      "source": "デジタル庁",
+      "pubDate": "2026-10-29T23:48:18.000Z"
+    },
+    {
+      "title": "第6回先進的AI利活用アドバイザリーボードの議事要旨を掲載しました",
+      "link": "https://www.digital.go.jp/councils/ai-advisory-board/162953b0-3dc0-46a6-a24c-0e3a335e0495",
+      "source": "デジタル庁",
+      "pubDate": "2026-10-28T06:00:00.000Z"
+    },
     {
       "title": "AIロボでフレイル予防 高齢者200人で検証へ",
       "link": "https://www.cbnews.jp/news/entry/20261022135249",
       "source": "CBnews",
       "pubDate": "2026-10-22T05:30:00.000Z"
+    },
+    {
+      "title": "委託事業に係る個人情報の漏えいについて",
+      "link": "https://www.mhlw.go.jp/stf/newpage_76892.html",
+      "source": "厚生労働省",
+      "pubDate": "2026-10-22T00:00:00.000Z"
+    },
+    {
+      "title": "令和８年度（令和７年度からの繰越分）医療施設等施設整備費補助金の交付額の３回目内示について（２次募集分）",
+      "link": "https://www.mhlw.go.jp/stf/newpage_76647.html",
+      "source": "厚生労働省",
+      "pubDate": "2026-10-09T00:00:00.000Z"
+    },
+    {
+      "title": "国内初、手術支援ロボットによる遠隔手術を臨床応用",
+      "link": "https://www.cbnews.jp/news/entry/20261008125203",
+      "source": "CBnews",
+      "pubDate": "2026-10-08T04:05:00.000Z"
     },
     {
       "title": "マイナ保険証利用、医療機関・薬局で初の7割超",
@@ -15,10 +57,22 @@
       "pubDate": "2026-10-06T07:40:00.000Z"
     },
     {
+      "title": "かかりつけ医機能に関する情報の医療情報ネット（ナビイ）での提供について",
+      "link": "https://www.mhlw.go.jp/stf/houdou/newpage_75698.html",
+      "source": "厚生労働省",
+      "pubDate": "2026-09-25T00:00:00.000Z"
+    },
+    {
       "title": "上野厚労相は留任 デジタル相に古川俊治氏",
       "link": "https://www.cbnews.jp/news/entry/20260917153130",
       "source": "CBnews",
       "pubDate": "2026-09-17T06:15:00.000Z"
+    },
+    {
+      "title": "第６回 健康・医療・介護情報利活用検討会 医療等情報の二次利用に関するワーキンググループの開催案内",
+      "link": "https://www.mhlw.go.jp/stf/shingi/0001210262_00103.html",
+      "source": "厚生労働省",
+      "pubDate": "2026-09-09T00:00:00.000Z"
     },
     {
       "title": "デジタル人材育成強化へ 新たな検討会9日開催",
@@ -31,6 +85,12 @@
       "link": "https://www.cbnews.jp/news/entry/20260828083508",
       "source": "CBnews",
       "pubDate": "2026-08-28T01:15:00.000Z"
+    },
+    {
+      "title": "研修未受講でのオンライン診療、初診・再診料算定可",
+      "link": "https://www.cbnews.jp/news/entry/20260820133031",
+      "source": "CBnews",
+      "pubDate": "2026-08-20T05:50:00.000Z"
     },
     {
       "title": "日医、電子カルテ巡る厚労相の発言を評価",
@@ -75,6 +135,12 @@
       "pubDate": "2026-07-10T05:44:00.000Z"
     },
     {
+      "title": "介護にAIも 高齢社会DX協会シンポ",
+      "link": "https://www.cbnews.jp/news/entry/20260706171806",
+      "source": "CBnews",
+      "pubDate": "2026-07-08T01:30:00.000Z"
+    },
+    {
       "title": "サイバーセキュリティー実施率、2030年に100％",
       "link": "https://www.cbnews.jp/news/entry/20260625125746",
       "source": "CBnews",
@@ -91,6 +157,108 @@
       "link": "https://www.cbnews.jp/news/entry/20260616121604",
       "source": "CBnews",
       "pubDate": "2026-06-16T03:53:00.000Z"
+    },
+    {
+      "title": "病院DXに必要な「3つのR」恵寿総合・神野氏",
+      "link": "https://www.cbnews.jp/news/entry/20260512132504",
+      "source": "CBnews",
+      "pubDate": "2026-05-14T04:00:00.000Z"
+    },
+    {
+      "title": "ロボットスーツ「HAL」を介護予防に活用",
+      "link": "https://www.cbnews.jp/news/entry/20260424155835",
+      "source": "CBnews",
+      "pubDate": "2026-04-24T07:00:00.000Z"
+    },
+    {
+      "title": "DXの現在地は“普及期” 自力本願で病院経営に貢献",
+      "link": "https://www.cbnews.jp/news/entry/20260424113051",
+      "source": "CBnews",
+      "pubDate": "2026-04-24T06:30:00.000Z"
+    },
+    {
+      "title": "ロボット未来創造センターが始動 東京科学大",
+      "link": "https://www.cbnews.jp/news/entry/20260417135432",
+      "source": "CBnews",
+      "pubDate": "2026-04-17T05:21:00.000Z"
+    },
+    {
+      "title": "遠隔医療システムで平等な医療を目指す",
+      "link": "https://www.cbnews.jp/news/entry/20260406114814",
+      "source": "CBnews",
+      "pubDate": "2026-04-07T08:58:00.000Z"
+    },
+    {
+      "title": "薬歴作成時間 生成AIで45％短縮",
+      "link": "https://www.cbnews.jp/news/entry/20260323142155",
+      "source": "CBnews",
+      "pubDate": "2026-03-23T05:30:00.000Z"
+    },
+    {
+      "title": "医療や介護などでAI開発・社会実装促進へ",
+      "link": "https://www.cbnews.jp/news/entry/20251224181708",
+      "source": "CBnews",
+      "pubDate": "2025-12-24T09:15:00.000Z"
+    },
+    {
+      "title": "高齢者の孤独感、ロボットを介した対話で改善",
+      "link": "https://www.cbnews.jp/news/entry/20251216144243",
+      "source": "CBnews",
+      "pubDate": "2025-12-16T05:45:00.000Z"
+    },
+    {
+      "title": "病院の委託職員が個人情報を漏えい 岩見沢市立総合病院",
+      "link": "https://www.cbnews.jp/news/entry/20251118163827",
+      "source": "CBnews",
+      "pubDate": "2025-11-18T08:05:00.000Z"
+    },
+    {
+      "title": "サイバーセキュリティー月間 あす開始",
+      "link": "https://www.cbnews.jp/news/entry/20250131143944",
+      "source": "CBnews",
+      "pubDate": "2025-01-31T05:20:00.000Z"
+    },
+    {
+      "title": "医療従事者が選ぶ 「病院DXアワード」開催",
+      "link": "https://www.cbnews.jp/news/entry/20241018154434",
+      "source": "CBnews",
+      "pubDate": "2024-10-18T07:10:00.000Z"
+    },
+    {
+      "title": "商業施設での購買意欲の刺激にPHR活用サービスが一役",
+      "link": "https://www.cbnews.jp/news/entry/20240321155149",
+      "source": "CBnews",
+      "pubDate": "2024-03-22T01:00:00.000Z"
+    },
+    {
+      "title": "セキュリティ対策、薬局向けチェックリスト作成",
+      "link": "https://www.cbnews.jp/news/entry/20231019170426",
+      "source": "CBnews",
+      "pubDate": "2023-10-19T08:11:00.000Z"
+    },
+    {
+      "title": "医療DXカオスマップ β版を公開",
+      "link": "https://www.cbnews.jp/news/entry/20230330203550",
+      "source": "CBnews",
+      "pubDate": "2023-03-31T08:30:00.000Z"
+    },
+    {
+      "title": "医薬品安全推進のAI活用状況、厚労科研で調査へ",
+      "link": "https://www.cbnews.jp/news/entry/20230327183231",
+      "source": "CBnews",
+      "pubDate": "2023-03-27T10:10:00.000Z"
+    },
+    {
+      "title": "CS向上も期待、人手不足対応だけでないロボットの力",
+      "link": "https://www.cbnews.jp/news/entry/20220712174953",
+      "source": "CBnews",
+      "pubDate": "2022-07-13T06:35:00.000Z"
+    },
+    {
+      "title": "病棟内での説明、移動… ロボットは“バディ”になれるか",
+      "link": "https://www.cbnews.jp/news/entry/20220712171445",
+      "source": "CBnews",
+      "pubDate": "2022-07-13T06:30:00.000Z"
     }
   ]
 }
