@@ -1,16 +1,56 @@
 {
-  "checkedAt": "2026-10-31T11:53:32.199Z",
-  "total": 88,
-  "ok": 86,
-  "unknown": 2,
+  "checkedAt": "2026-10-31T12:17:09.475Z",
+  "total": 92,
+  "ok": 80,
+  "unknown": 12,
   "unknownList": [
+    {
+      "url": "https://www.vademec.ru/news/2026/08/18/moskovskaya-oblast-zakupit-superkompyutery-dlya-uskoreniya-raboty-meditsinskikh-ii/",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/05/23/ii-v-zdravookhranenii-daydzhest-vademecum-za-17-23-maya-2026-goda/",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/08/24/spk-razrabotal-proekt-trudovoy-funktsii-medrabotnikov-po-ispolzovaniyu-ii/",
+      "status": 0
+    },
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
       "status": 0
     },
     {
+      "url": "https://www.vademec.ru/news/2026/08/24/niiozmm-razrabotaet-sistemu-otsenki-medtekhnologiy-na-osnove-dannykh-realnoy-praktiki/",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/09/16/podmoskove-zakupit-12-ii-platform-dlya-tsifrovykh-proektov-za-704-2-mln-rubley/",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/09/24/ii-agent-openai-vzlomal-portal-meditsinskoy-statistiki-avstralii/",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/09/29/issledovanie-ispolzovanie-sppvr-v-poliklinikakh-mozhet-sokrashchat-zatraty-na-18-mln-rubley-v-god/",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/10/01/molodye-lyudi-zadayushchie-ii-voprosy-o-zdorove-chashche-pokazyvayut-priznaki-trevogi-i-depressii/",
+      "status": 0
+    },
+    {
       "url": "https://habr.com/ru/articles/1099004/",
       "status": 403
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/10/15/uchenye-predlozhili-fiksirovat-raskhozhdeniya-mezhdu-vrachom-i-ii-dlya-povysheniya-prozrachnosti-i-o/",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
+      "status": 0
     }
   ],
   "dead": []
