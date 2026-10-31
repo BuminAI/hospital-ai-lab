@@ -46,6 +46,19 @@ const timeline = [
       </p>
     </header>
 
+    <section class="section about-video" aria-label="병원 AI 연구소 소개 영상">
+      <video
+        controls
+        preload="metadata"
+        playsinline
+        src={withBase('/media/hospital-ai-lab-15s.mp4')}
+        aria-label="병원 AI 연구소 소개 영상 (15초)"
+      >
+        브라우저가 동영상을 지원하지 않습니다.
+        <a href={withBase('/media/hospital-ai-lab-15s.mp4')}>소개 영상 내려받기</a>
+      </video>
+    </section>
+
     <section class="section">
       <h2>연구 방식에 대하여</h2>
       <div class="honest-note">
@@ -179,6 +192,14 @@ const timeline = [
 </BaseLayout>
 
 <style>
+  .about-video video {
+    display: block;
+    width: 100%;
+    max-width: 880px;
+    height: auto;
+    border-radius: 12px;
+    background: #000;
+  }
   .section {
     padding-block: 2.25rem;
     max-width: var(--prose-width);
