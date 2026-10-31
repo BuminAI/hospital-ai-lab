@@ -767,3 +767,10 @@ src/assets/fonts/            # 통짜 Pretendard — OG 이미지 생성 전용(
   - **SAS KOREA 수상 이력은 계속 비공개.** 위 공개 전환의 승인 범위가 아니었다. 공개하려면 오너에게 따로 확인할 것.
   - ⚠️ 구조화 데이터·llms.txt는 검색엔진·AI가 기계 수집하므로, 되돌려도 외부 캐시·학습분은 남을 수 있다.
 - 새 글은 draft로 시작 → 브랜치 + PR → 오너 머지가 기본. 단, 예약 자동 발행 글은 사실 검증 통과 시 예외적으로 바로 발행(§4-2). 커밋 메시지는 한국어, 큰따옴표 금지(§6).
+
+### 5-9. 인도네시아어판 실무 가이드·환자 코너·매일 갱신 (2026-10-31, 오너 지시: 대만어판과 같은 방법으로)
+- 새 페이지: `/id/{dx-roadmap,rme-checklist,cyber-checklist,calendar,templates,practice,updates}/`, `/id/patients/{index,ai-health-consult,ai-in-hospital,hak-rekam-medis}/`. 홈 전면 재구성(`id-home.css`·`id-refresh.css`·`id-guide.css`, 진한 적색 팔레트). 메뉴는 주종 2단(`IdLayout` PRIMARY_KEYS).
+- 사실의 출처는 JDIH Kemenkes/Komdigi 원문 PDF·HTML을 직접 읽은 조문만(UU 17/2023 Pasal 4·276·345~351, PP 28/2024 Pasal 966, Permenkes 24/2022 Pasal 9·12·20~22·26·29·30·39·45, UU 27/2022 Pasal 4·5~14·20·30·32·35~40·46·56·57·74, Kepmenkes 951/2026). `src/data/id/guides/milestones.ts`에 모여 있다. **PP 33/2026 등 공식 본문을 못 연 항목은 쓰지 않았다.**
+- 자동 수집·점검(전부 GitHub Actions, 2026-10-31 수동 실행으로 러너에서도 정상 확인): `update-id-gov.yml`(JDIH Kemenkes 신규 규정 → `gov-notices.json`, 하루 3회), `update-id-videos.yml`(공적·보도 채널 allowlist), `check-id-links.yml`(링크 63건 모두 정상), `check-id-laws.yml`(근거 규정 4건의 JDIH 효력 상태·관계 규정 지문 비교 → `law-watch.json`, 달라지면 푸터에 「재확인 중」).
+- ⚠️ `fetch-id-news.mjs` 필터를 풀었다: 보건·디지털 태그(satusehat 등)는 제목에 DIGITAL_RE가 없어도 HEALTH_TECH_RE면 채택. 이전 필터가 10/15 이후 2주간 새 기사를 0건으로 만들고 있었다(워크플로는 계속 success).
+- 한계: JDIH 관계 규정 표는 사람이 입력해 개정 반영에 시차가 있다. 신규 규정 수집은 제목에 주제어가 있는 것만 받아 양이 적다(2026-10 기준 4건). 인도네시아 원어민 감수는 받지 않았다.
