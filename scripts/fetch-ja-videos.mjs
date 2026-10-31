@@ -130,12 +130,21 @@ async function verify(videoId) {
   }
 }
 
+// 2026-10-31: 動画は「公的機関・報道機関」のチャンネルのものだけを自動で載せる。
+// 個人や企業・クリニックのチャンネルは、特定の製品・医療機関の宣伝になりやすい(医療広告の観点)ため、
+// 自動では載せない。載せたいチャンネルがあれば、オーナーの確認のうえでこの一覧に足す。
+const CHANNEL_ALLOW =
+  /厚生労働省|デジタル庁|首相官邸|経済産業省|総務省|日本医師会|日本病院会|NHK|日テレNEWS|日本テレビ|TBS NEWS|テレ朝news|ANNnewsCH|FNN|ニュースJAPAN|日経|東洋経済|読売新聞|朝日新聞|毎日新聞|共同通信|時事通信|南海放送|メディアドゥ|CBnews/i;
+const channelOk = (ch) => CHANNEL_ALLOW.test(ch || '');
+
 const hasKana = (s) => /[぀-ヿ]/.test(s); // 히라가나·가타카나가 있어야 일본어 영상
 // 採用・求人 영상과 태그를 나열한 광고성 제목(' / '이 4번 이상)은 제외한다.
 const NOT_EDU = /採用|求める人物|転職|就活|求人|カルチャー|協賛|スポンサー/;
-const tagStuffed = (t) => (t.match(/ \/ /g) || []).length >= 4;
+const tagStuffed = (t) => (t.match(/ \/ |／/g) || []).length >= 2 || [...t].length > 70;
+// 2026-10-31: 専門性・信頼を重んじるサイトの方針に合わせ、疑問形の煽り(「…？」)や強い不安をあおる語を含む題も除く
+const ALARM = /致命的|中毒|治る[？?]|危険すぎ|終わり|怖い|やばい|[…]+[？?]/;
 const okTitle = (t) =>
-  hasKana(t) && AI_SIGNAL.test(t) && MEDICAL.test(t) && !CLICKBAIT.test(t) && !NOT_EDU.test(t) && !tagStuffed(t);
+  hasKana(t) && AI_SIGNAL.test(t) && MEDICAL.test(t) && !CLICKBAIT.test(t) && !NOT_EDU.test(t) && !tagStuffed(t) && !ALARM.test(t);
 
 async function main() {
   let existing = [];
@@ -165,7 +174,7 @@ async function main() {
   for (const q of QUERIES) {
     try {
       for (const it of await search(q)) {
-        if (!okTitle(it.title)) continue;
+        if (!okTitle(it.title) || !channelOk(it.channel)) continue;
         if (daysAgo(it.pub) > RECENT_DAYS || it.views < MIN_VIEWS) continue;
         if (!cand.has(it.videoId)) cand.set(it.videoId, it);
       }

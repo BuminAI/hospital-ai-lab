@@ -1,0 +1,507 @@
+/* 日本語版ホーム (2026-10-31 全面再構成) — クラスは jh- で始める。色は ja-tokens の変数を使う。 */
+
+/* ── ヒーロー(画面いっぱいの紺の帯) ─────────────────── */
+[data-locale='ja'] .jh-hero {
+  background: linear-gradient(160deg, #12305a 0%, #0b1f3c 100%);
+  color: #fff;
+  border-bottom: 1px solid #0b1f3c;
+}
+[data-locale='ja'] .jh-hero-inner {
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 40px 20px 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 36px;
+  align-items: center;
+}
+[data-locale='ja'] .jh-eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #a9c4ea;
+}
+[data-locale='ja'] .jh-hero h1 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: clamp(26px, 4.2vw, 36px);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+[data-locale='ja'] .jh-lead {
+  margin: 0 0 22px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 15.5px;
+  line-height: 1.95;
+}
+[data-locale='ja'] .jh-cta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+[data-locale='ja'] .jh-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+[data-locale='ja'] .jh-btn-main {
+  background: #fff;
+  color: #12305a;
+}
+[data-locale='ja'] .jh-btn-main:hover {
+  background: #e3ecf8;
+}
+[data-locale='ja'] .jh-btn-sub {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+[data-locale='ja'] .jh-btn-sub:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+[data-locale='ja'] .jh-hero-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  padding: 18px 20px 14px;
+}
+[data-locale='ja'] .jh-hero-card h2 {
+  margin: 0 0 8px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-image: none;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+}
+[data-locale='ja'] .jh-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #3ddc84;
+  vertical-align: 1px;
+}
+[data-locale='ja'] .jh-hero-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[data-locale='ja'] .jh-hero-card li {
+  display: grid;
+  grid-template-columns: 3.2em auto 1fr;
+  gap: 4px 8px;
+  align-items: baseline;
+  padding: 9px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+[data-locale='ja'] .jh-hero-card time {
+  color: #a9c4ea;
+  font-variant-numeric: tabular-nums;
+}
+[data-locale='ja'] .jh-hero-card a {
+  color: #fff;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+[data-locale='ja'] .jh-hero-card a:hover {
+  text-decoration: underline;
+}
+[data-locale='ja'] .jh-hero-card .jh-chip {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: transparent;
+  color: #dbe7f8;
+}
+[data-locale='ja'] .jh-hero-more {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #cfe0f7;
+}
+
+/* ── 信頼の数字 ─────────────────────────────────────── */
+[data-locale='ja'] .jh-stats {
+  background: var(--ja-surface);
+  border-bottom: 1px solid var(--ja-border);
+}
+[data-locale='ja'] .jh-stats ul {
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+[data-locale='ja'] .jh-stats li + li {
+  border-left: 1px solid var(--ja-border);
+}
+[data-locale='ja'] .jh-stats a {
+  display: block;
+  padding: 16px 16px;
+  text-decoration: none;
+  color: var(--ja-text);
+}
+[data-locale='ja'] .jh-stats a:hover {
+  background: var(--ja-base);
+}
+[data-locale='ja'] .jh-num {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ja-primary);
+  font-variant-numeric: tabular-nums;
+}
+[data-locale='ja'] .jh-num small {
+  margin-left: 3px;
+  font-size: 14px;
+  font-weight: 400;
+}
+[data-locale='ja'] .jh-lab {
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ja-text-sub);
+}
+
+/* ── セクション共通 ─────────────────────────────────── */
+[data-locale='ja'] .jh-sec {
+  margin-top: 40px;
+}
+[data-locale='ja'] .jh-sec:first-child {
+  margin-top: 8px;
+}
+html[data-locale='ja'] main h2.jh-h {
+  margin: 0 0 14px;
+  padding: 0 0 8px;
+  background: none;
+  border: 0;
+  border-image: none;
+  border-bottom: 2px solid var(--ja-primary);
+  font-size: 22px;
+  line-height: 1.4;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+html[data-locale='ja'] main h2.jh-h small {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 400;
+  color: var(--ja-text-sub);
+}
+[data-locale='ja'] .jh-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+html[data-locale='ja'] main .jh-head-row h2.jh-h {
+  flex: 1;
+}
+[data-locale='ja'] .jh-more {
+  font-size: 13px;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+[data-locale='ja'] .jh-more:hover {
+  text-decoration: underline;
+}
+[data-locale='ja'] .jh-note {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--ja-text-sub);
+  line-height: 1.85;
+}
+[data-locale='ja'] .jh-chip {
+  display: inline-block;
+  font-size: 11.5px;
+  line-height: 1.6;
+  padding: 0 8px;
+  border: 1px solid var(--ja-border);
+  border-radius: 2px;
+  background: var(--ja-surface);
+  color: var(--ja-text-sub);
+  white-space: nowrap;
+}
+[data-locale='ja'] .jh-chip-gov {
+  border-color: var(--ja-badge-gov);
+  color: var(--ja-badge-gov);
+  background: transparent;
+}
+
+/* ── こんなときに(目的別の入口) ────────────────────── */
+[data-locale='ja'] .jh-tasks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+[data-locale='ja'] .jh-task {
+  display: block;
+  position: relative;
+  padding: 14px 40px 14px 16px;
+  border: 1px solid var(--ja-border);
+  border-left: 4px solid var(--ja-primary);
+  background: var(--ja-base);
+  color: var(--ja-text);
+  text-decoration: none;
+}
+[data-locale='ja'] .jh-task::after {
+  content: '→';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ja-primary);
+  font-size: 18px;
+}
+[data-locale='ja'] .jh-task:hover {
+  background: var(--ja-surface);
+  border-color: var(--ja-primary);
+}
+[data-locale='ja'] .jh-task-q {
+  display: block;
+  font-size: 12.5px;
+  color: var(--ja-accent);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+[data-locale='ja'] .jh-task-t {
+  display: block;
+  margin: 2px 0 4px;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--ja-primary);
+  line-height: 1.55;
+}
+[data-locale='ja'] .jh-task-d {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--ja-text-sub);
+}
+
+/* ── 新着情報・補助金(日付つきの一覧) ─────────────── */
+[data-locale='ja'] .jh-feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ja-border);
+}
+[data-locale='ja'] .jh-feed li {
+  display: grid;
+  grid-template-columns: 9.5em auto 1fr;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding: 11px 2px;
+  border-bottom: 1px solid var(--ja-border);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+[data-locale='ja'] .jh-feed time {
+  color: var(--ja-text-sub);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+[data-locale='ja'] .jh-feed a {
+  color: var(--ja-text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+[data-locale='ja'] .jh-feed a:hover {
+  color: var(--ja-primary);
+  text-decoration: underline;
+}
+
+/* ── 注目の解説 ─────────────────────────────────────── */
+[data-locale='ja'] .jh-posts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+[data-locale='ja'] .jh-post {
+  border: 1px solid var(--ja-border);
+  padding: 14px 16px;
+  background: var(--ja-base);
+}
+[data-locale='ja'] .jh-post-meta {
+  margin: 0 0 6px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 12.5px;
+  color: var(--ja-text-sub);
+}
+[data-locale='ja'] .jh-post h3 {
+  margin: 0 0 6px;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+[data-locale='ja'] .jh-post h3 a {
+  color: var(--ja-primary);
+  text-decoration: none;
+}
+[data-locale='ja'] .jh-post h3 a:hover {
+  text-decoration: underline;
+}
+[data-locale='ja'] .jh-post-d {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--ja-text-sub);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── このサイトの約束 ───────────────────────────────── */
+[data-locale='ja'] .jh-promise ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
+}
+[data-locale='ja'] .jh-promise li {
+  display: grid;
+  grid-template-columns: 2.2em 1fr;
+  gap: 10px;
+  align-items: start;
+}
+[data-locale='ja'] .jh-no {
+  width: 2em;
+  height: 2em;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ja-primary);
+  color: var(--ja-btn-fg, #fff);
+  font-size: 14px;
+  font-weight: 700;
+}
+[data-locale='ja'] .jh-promise strong {
+  display: block;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+[data-locale='ja'] .jh-promise p {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--ja-text-sub);
+}
+
+/* ── 学ぶ・調べる ───────────────────────────────────── */
+[data-locale='ja'] .jh-lib {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+[data-locale='ja'] .jh-lib a {
+  display: block;
+  height: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--ja-border);
+  background: var(--ja-base);
+  text-decoration: none;
+  color: var(--ja-text);
+}
+[data-locale='ja'] .jh-lib a:hover {
+  background: var(--ja-surface);
+  border-color: var(--ja-primary);
+}
+[data-locale='ja'] .jh-lib strong {
+  display: block;
+  font-size: 14.5px;
+  color: var(--ja-primary);
+  line-height: 1.6;
+}
+[data-locale='ja'] .jh-lib span {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ja-text-sub);
+}
+
+/* ── よくあるご質問 ─────────────────────────────────── */
+[data-locale='ja'] .jh-faq {
+  margin: 0;
+}
+[data-locale='ja'] .jh-faq dt {
+  margin-top: 16px;
+  font-weight: 700;
+  color: var(--ja-primary);
+  font-size: 15px;
+  line-height: 1.7;
+}
+[data-locale='ja'] .jh-faq dt:first-child {
+  margin-top: 0;
+}
+[data-locale='ja'] .jh-faq dd {
+  margin: 4px 0 0;
+  font-size: 14.5px;
+  line-height: 1.95;
+}
+
+/* ── スマートフォン ─────────────────────────────────── */
+@media (max-width: 860px) {
+  [data-locale='ja'] .jh-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 28px 20px 30px;
+  }
+  [data-locale='ja'] .jh-stats ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  [data-locale='ja'] .jh-stats li:nth-child(3) {
+    border-left: 0;
+  }
+  [data-locale='ja'] .jh-stats li:nth-child(n + 3) {
+    border-top: 1px solid var(--ja-border);
+  }
+  [data-locale='ja'] .jh-lib {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  [data-locale='ja'] .jh-tasks,
+  [data-locale='ja'] .jh-posts,
+  [data-locale='ja'] .jh-promise ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-locale='ja'] .jh-feed li {
+    grid-template-columns: auto 1fr;
+  }
+  [data-locale='ja'] .jh-feed li a {
+    grid-column: 1 / -1;
+  }
+  [data-locale='ja'] .jh-lib {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-locale='ja'] .jh-h {
+    font-size: 20px;
+  }
+}

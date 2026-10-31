@@ -10,6 +10,7 @@
 import '../styles/global.css';
 import '../styles/ja-tokens.css';
 import '../styles/locale-theme.css';
+import '../styles/ja-refresh.css';
 import ja from '../i18n/ja.json';
 import { growth } from '../i18n/growth';
 import navConfig from '../data/ja/content/nav.json';
@@ -126,8 +127,15 @@ const nav = navConfig
   .filter((item) => item.href === '/ja/' || item.enabled)
   .map((item) => ({
     href: item.href,
+    key: item.key,
     label: navLabels[item.key] ?? item.key,
   }));
+
+// 主従二段のメニュー(2026-10-31): 主要6項目を大きく、その他の資料を下の段に小さく出す。
+// 並び順と表示/非表示は、これまでどおり nav.json(管理画面)が決める。ここは段の振り分けだけ。
+const PRIMARY_KEYS = ['home', 'practice', 'subsidies', 'news', 'patients', 'blog'];
+const navPrimary = nav.filter((n) => PRIMARY_KEYS.includes(n.key));
+const navSecondary = nav.filter((n) => !PRIMARY_KEYS.includes(n.key));
 
 const isActive = (href: string) =>
   href === '/ja/' ? canonicalPath === '/ja/' : canonicalPath.startsWith(href);
@@ -347,9 +355,9 @@ const year = new Date().getFullYear();
     </header>
 
     <nav class="ja-nav" aria-label="メインメニュー">
-      <ul>
+      <ul class="ja-nav-primary">
         {
-          nav.map((item) => (
+          navPrimary.map((item) => (
             <li>
               <a
                 href={withBase(item.href)}
@@ -361,15 +369,41 @@ const year = new Date().getFullYear();
           ))
         }
       </ul>
+      {
+        navSecondary.length > 0 && (
+          <div class="ja-nav-secondary">
+            <ul class="ja-nav-secondary-inner">
+              <li class="ja-nav-label">資料</li>
+              {navSecondary.map((item) => (
+                <li>
+                  <a
+                    href={withBase(item.href)}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
     </nav>
 
+    {/* ホームなど、画面いっぱいの幅で見せたい帯(ヒーロー)用。使わないページでは何も出ない */}
+    <slot name="hero" />
+
     {/* パンくずリスト — 일본 사이트에서는 없으면 아마추어로 읽힌다 */}
-    <nav class="ja-breadcrumb" aria-label="パンくずリスト">
-      <ol>
-        <li><a href={withBase('/ja/')}>{ja.ui.breadcrumbHome}</a></li>
-        {crumb && <li aria-current="page">{crumb}</li>}
-      </ol>
-    </nav>
+    {
+      crumb && (
+        <nav class="ja-breadcrumb" aria-label="パンくずリスト">
+          <ol>
+            <li><a href={withBase('/ja/')}>{ja.ui.breadcrumbHome}</a></li>
+            <li aria-current="page">{crumb}</li>
+          </ol>
+        </nav>
+      )
+    }
 
     <div class="ja-shell">
       <main id="ja-main">

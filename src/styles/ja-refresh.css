@@ -1,0 +1,172 @@
+/* 日本語版 全体の読みやすさ・信頼感の整え直し (2026-10-31, 오너 지시: 전문성·신뢰·가독성)
+   ja-tokens.css / locale-theme.css のあとに読み込み、日本語版だけを上書きする。
+   方針: 装飾を減らし、情報の階層(見出し・余白・行間・メニューの主従)で信頼感をつくる。
+   - 青海波の帯は日本語版から外す(「和風の装飾」より、医療・公的機関らしい静かな画面にする)
+   - 紙色の黄みをやめ、白と青みのある灰色に
+   - メニューは主従二段(主要6項目＋資料) */
+
+@media not (prefers-color-scheme: dark) {
+  :root[data-locale='ja'] {
+    --ja-base: #ffffff;
+    --ja-surface: #f3f6fa;
+    --ja-surface-2: #e8edf4;
+    --ja-border: #d6dde7;
+    --ja-primary: #17365f;
+    --ja-primary-dk: #0f2744;
+    --ja-text-sub: #4f5b6b;
+  }
+}
+
+/* ── 帯と装飾をなくす ───────────────────────────────── */
+html[data-locale='ja'] .ja-header::after,
+html[data-locale='ja'] .ja-footer::before {
+  display: none;
+}
+html[data-locale='ja'] .ja-header {
+  padding-bottom: 0;
+  border-bottom: 3px solid var(--ja-primary);
+}
+html[data-locale='ja'] .ja-footer {
+  padding-top: 0;
+  border-top: 3px solid var(--ja-primary);
+}
+html[data-locale='ja'] .ja-main h2,
+html[data-locale='ja'] main h2 {
+  border-image: none;
+  border-left: 4px solid var(--ja-primary);
+}
+html[data-locale='ja'] [class$='-cards'] > a[class] {
+  border-top: 1px solid var(--ja-border);
+  border-left: 4px solid var(--ja-primary);
+}
+
+/* ── 本文の読みやすさ ───────────────────────────────── */
+html[data-locale='ja'] body {
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 0.03em;
+}
+html[data-locale='ja'] h1 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+html[data-locale='ja'] h2 {
+  font-size: 21px;
+}
+html[data-locale='ja'] main p,
+html[data-locale='ja'] main li {
+  overflow-wrap: break-word;
+}
+/* 本文中のリンクは下線つきで、リンクと分かるように */
+html[data-locale='ja'] main p a,
+html[data-locale='ja'] main li a,
+html[data-locale='ja'] main dd a,
+html[data-locale='ja'] main td a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+html[data-locale='ja'] main .ja-list a,
+html[data-locale='ja'] main a.ja-card,
+html[data-locale='ja'] main a.jg-card,
+html[data-locale='ja'] main a.jh-task,
+html[data-locale='ja'] main .jh-feed a,
+html[data-locale='ja'] main .jh-post a {
+  text-decoration: none;
+}
+html[data-locale='ja'] main table {
+  font-size: 14.5px;
+}
+html[data-locale='ja'] main tbody tr:nth-child(even) > * {
+  background: color-mix(in srgb, var(--ja-surface) 55%, transparent);
+}
+
+/* ── メニューの主従二段 ─────────────────────────────── */
+html[data-locale='ja'] .ja-nav {
+  background: var(--ja-base);
+  border-bottom: 1px solid var(--ja-border);
+}
+html[data-locale='ja'] .ja-nav ul {
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+html[data-locale='ja'] .ja-nav .ja-nav-primary a {
+  padding: 13px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+html[data-locale='ja'] .ja-nav .ja-nav-secondary {
+  background: var(--ja-surface);
+  border-top: 1px solid var(--ja-border);
+  max-width: none;
+  padding: 0;
+}
+html[data-locale='ja'] .ja-nav .ja-nav-secondary-inner {
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+}
+html[data-locale='ja'] .ja-nav .ja-nav-label {
+  font-size: 12px;
+  color: var(--ja-text-sub);
+  letter-spacing: 0.1em;
+  padding-right: 8px;
+}
+html[data-locale='ja'] .ja-nav .ja-nav-secondary a {
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* ── 目次・補足の整え ──────────────────────────────── */
+html[data-locale='ja'] .ja-updated {
+  margin: 0 0 6px;
+}
+html[data-locale='ja'] .ja-side section {
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  html[data-locale='ja'] body {
+    font-size: 16px;
+  }
+  html[data-locale='ja'] h1 {
+    font-size: 24px;
+  }
+  html[data-locale='ja'] .ja-nav .ja-nav-primary a {
+    padding: 11px 12px;
+    font-size: 14px;
+  }
+}
+
+/* スマートフォン: メニューは折り返さず、各段を横にスクロールできる一行にして、本文が画面の上に来るようにする */
+@media (max-width: 640px) {
+  html[data-locale='ja'] .ja-nav .ja-nav-primary,
+  html[data-locale='ja'] .ja-nav .ja-nav-secondary-inner {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  html[data-locale='ja'] .ja-nav a,
+  html[data-locale='ja'] .ja-nav .ja-nav-label {
+    white-space: nowrap;
+  }
+  html[data-locale='ja'] .ja-nav .ja-nav-secondary a {
+    padding: 8px 10px;
+  }
+  html[data-locale='ja'] .ja-header-inner {
+    padding: 10px 20px;
+  }
+}

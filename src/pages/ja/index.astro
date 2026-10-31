@@ -1,47 +1,86 @@
 ---
-// 일본어판 홈
+// 일본어판 홈 (2026-10-31 전면 재구성, 오너 지시: 가독성·후킹·전문성·신뢰)
+//
+// 구성(위에서 아래로 — 일본 방문자가 "이 사이트는 믿을 만한가 / 내게 필요한가"를 판단하는 순서):
+//   1) 네이비 히어로: 약속 한 줄 + 행동 2개 + 오른쪽에 "지금의 갱신"(살아 있는 사이트라는 증거)
+//   2) 신뢰 수치 띠: 전부 실데이터(글 수·출처 링크 확인 수·보조금 수·뉴스 수). 지어낸 수치 없음
+//   3) 「こんなときに」 목적별 입구 6개 — 질문형 문구로 클릭 이유를 준다
+//   4) 新着情報(실데이터 날짜만) → 締切が近い補助金 → 注目の解説 → 連載
+//   5) このサイトの約束(편집 원칙) → 資料ライブラリ → よくあるご質問 → 運営の趣旨
+// ⚠️ 경력(17년 등)은 홈 본문에 새로 싣지 않는다(사이드바 프로필에는 기존대로 있음).
+// ⚠️ 수치·문구는 데이터에서 계산하거나, 이미 사이트에 있는 사실만 쓴다.
+import '../../styles/ja-home.css';
+import { getCollection } from 'astro:content';
 import JaLayout from '../../layouts/JaLayout.astro';
-import LocaleHero from '../../components/LocaleHero.astro';
 import ja from '../../i18n/ja.json';
 import subsidies from '../../data/ja/subsidies.json';
-import { withBase } from '../../utils/site';
-import HomeSeries from '../../components/HomeSeries.astro';
-import { getResolvedSeries } from '../../utils/series';
 import newsData from '../../data/ja/news.json';
+import linkHealth from '../../data/ja/link-health.json';
+import HomeSeries from '../../components/HomeSeries.astro';
+import { withBase } from '../../utils/site';
+import { getResolvedSeries } from '../../utils/series';
 import { getJaUpdates, KIND_LABEL } from '../../utils/ja-updates';
 
-// 홈에는 마감 임박 순 5건만. 일본 사용자는 정보가 화면에 미리 보이는 것을
-// 신뢰의 근거로 삼으므로, 목록으로 들어가야만 내용을 볼 수 있게 두지 않는다.
 const top = subsidies.items.slice(0, 5);
 const updated = new Date(subsidies.updatedAt);
 
-const fmtJa = (iso) => {
+const fmtJa = (iso: string | null) => {
   if (!iso) return null;
   const d = new Date(iso);
   return Number.isNaN(d.getTime()) ? null : `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
 };
+const fmtMD = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', month: 'numeric', day: 'numeric' });
+const fmtYMD = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: 'long', day: 'numeric' });
 
-// ── AEO/GEO — 홈에서 바로 답이 되는 블록 (2026-09-07) ──────────
-// 답변 엔진은 "이 사이트는 무엇이고 누구를 위한 것인가"를 물었을 때
-// **그 답이 실제로 적혀 있는 페이지**를 인용한다. 홈이 소개 문단만
-// 있으면 인용할 문장이 없다. 그래서 사이트 자체에 대한 문답을
-// 화면에 그대로 싣고 FAQPage로 표시한다.
-//
-// ⚠️ 여기 답변은 /ja/faq/ 의 제도 문답과 **내용이 겹치지 않는다.**
-//    저쪽은 "AI를 도입할 때 무엇을 확인하나", 여기는 "이 사이트는
-//    무엇인가"다. 같은 문답을 두 곳에 복사하면 안 된다.
-// ⚠️ 답변에 적은 사실(수집처·갱신 주기)은 scripts/ 의 수집기와
-//    .github/workflows/ 의 cron 에서 확인한 것이다. 수집처나 주기를
-//    바꾸면 이 문구도 함께 고칠 것.
-const recentNews = newsData.items.slice(0, 5);
+const posts = (await getCollection('blogJa', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featured = posts.slice(0, 4);
 
-// 直近7日の更新件数(実データの日付だけから数える。ビルド時刻は使わない)
-const weekly = await getJaUpdates(7);
+// 新着情報(ニュース・補助金・動画・記事を日付順に) — 日付は実データの日付で、ビルド時刻ではない
+const feed = await getJaUpdates(30);
+const heroFeed = feed.slice(0, 4);
+const newsFeed = feed.slice(0, 8);
+const weekly = feed.filter((u) => Date.now() - new Date(u.date).getTime() <= 7 * 86400000);
 const weeklyCount = (k: 'news' | 'subsidy' | 'video' | 'blog') => weekly.filter((u) => u.kind === k).length;
+
+// 信頼の数字(すべて実データから)
+const stats = [
+  { n: posts.length, unit: '本', label: '公開中の解説記事', href: '/ja/blog/' },
+  { n: linkHealth.total, unit: '件', label: '出典リンクを毎日確認', href: '/ja/updates/' },
+  { n: subsidies.items.length, unit: '件', label: '補助金・助成金（毎日更新）', href: '/ja/subsidies/' },
+  { n: newsData.items.length, unit: '件', label: '医療AIニュース（3時間ごと確認）', href: '/ja/news/' },
+];
+const checkedDay = linkHealth.checkedAt ? fmtYMD.format(new Date(linkHealth.checkedAt)) : '';
+
+// 「こんなときに」— 質問の形で、行き先がすぐ分かるように
+const tasks = [
+  { q: 'いつまでに、何を備える？', t: '医療DX年表', d: '電子カルテ情報共有サービスや普及目標など、病院が備える節目を時期順に。', href: '/ja/dx-roadmap/' },
+  { q: '補助金の締切は？', t: '制度カレンダー', d: '補助金の締切と年度の節目を、近い順に一画面で。', href: '/ja/calendar/' },
+  { q: '受付で困ったら', t: 'マイナ保険証 窓口対応', d: '顔認証が通らない、読み取れないときの対応を場面別に。', href: '/ja/mynumber-reception/' },
+  { q: '自院は大丈夫？', t: 'サイバーセキュリティ自己点検', d: '立入検査で確認される令和8年度チェックリスト19項目を解説。', href: '/ja/cyber-checklist/' },
+  { q: 'AIを入れる前に', t: '院内ルールの雛形・ベンダー質問20問', d: '提案書を受け取ったときに、そのまま使える文書のたたき台。', href: '/ja/templates/' },
+  { q: '患者さん・ご家族の方へ', t: '患者さん向けの解説', d: 'AIへの健康相談の注意点、マイナ保険証の使い方をやさしく。', href: '/ja/patients/' },
+];
+
+const promises = [
+  { t: '一次資料で確かめます', d: '厚生労働省・PMDA・個人情報保護委員会などの原文で確認できた内容だけを書き、出典リンクを付けます。' },
+  { t: '確認した日を明記します', d: '実務ガイドなどの解説ページの下に「出典と確認日」を載せています。制度は変わるため、日付を必ず添えます。' },
+  { t: '出典リンクを毎日確認します', d: `日本語版の外部リンク${linkHealth.total}件に、毎日自動でアクセスしています。ページが消えたものは${linkHealth.dead.length}件です${checkedDay ? `（${checkedDay}時点）` : ''}。` },
+  { t: '特定の製品はすすめません', d: '新しい技術かどうかよりも、自院で実際に使えるかを先に考えます。製品の推薦や、導入を急かすことはしません。' },
+];
+
+const library = [
+  { t: ja.nav.guide, d: ja.home.guideDesc, href: '/ja/guide/' },
+  { t: ja.nav.glossary, d: ja.home.glossaryDesc, href: '/ja/glossary/' },
+  { t: ja.nav.faq, d: ja.home.faqDesc, href: '/ja/faq/' },
+  { t: ja.nav.checklist, d: ja.home.checklistDesc, href: '/ja/checklist/' },
+  { t: ja.nav.tips, d: ja.home.tipsDesc, href: '/ja/tips/' },
+  { t: ja.nav.videos, d: ja.home.videosDesc, href: '/ja/videos/' },
+];
 
 const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteRoot}${withBase('/ja/')}`;
-
 const homeFaqLd = {
   '@type': 'FAQPage',
   '@id': `${pageUrl}#home-faq`,
@@ -55,7 +94,6 @@ const homeFaqLd = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
-// 연재 시리즈 진입로(2026-09-20) — 글이 많은 순서대로 최대 3개.
 const homeSeries = (await getResolvedSeries('ja'))
   .slice()
   .sort((a, b) => b.posts.length - a.posts.length)
@@ -72,116 +110,179 @@ const homeSeries = (await getResolvedSeries('ja'))
   updated={updated}
   schema={[homeFaqLd]}
 >
-  <LocaleHero locale="ja" eyebrow={ja.home.heroEyebrow}>
-    <h1 slot="title">{ja.home.heroTitle}<br />{ja.home.heroTitle2}</h1>
-    <p>{ja.home.heroLead}</p>
-    <p style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-      <a class="ja-cta" href={withBase('/ja/subsidies/')}>{ja.home.ctaSubsidies}</a>
-      <a class="ja-cta ja-cta-ghost" href={withBase('/ja/about/')}>{ja.home.ctaAbout}</a>
+  <Fragment slot="hero">
+    <section class="jh-hero">
+      <div class="jh-hero-inner">
+        <div class="jh-hero-copy">
+          <p class="jh-eyebrow">医事課・経営企画・看護部のための医療AI</p>
+          <h1>医療AIの「導入判断」を、<br />現場の言葉で、根拠とともに。</h1>
+          <p class="jh-lead">
+            病院が備える制度の節目、補助金の締切、受付とセキュリティの実務を、厚生労働省などの一次資料に基づいて整理しています。
+          </p>
+          <p class="jh-cta">
+            <a class="jh-btn jh-btn-main" href={withBase('/ja/dx-roadmap/')}>医療DX年表を見る</a>
+            <a class="jh-btn jh-btn-sub" href={withBase('/ja/subsidies/')}>補助金・助成金を探す</a>
+          </p>
+        </div>
+        <aside class="jh-hero-card" aria-labelledby="jh-live-h">
+          <h2 id="jh-live-h"><span class="jh-dot" aria-hidden="true"></span>最新の更新</h2>
+          <ul>
+            {heroFeed.map((it) => (
+              <li>
+                <time datetime={it.date}>{fmtMD.format(new Date(it.date))}</time>
+                <span class="jh-chip">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only"> （{ja.ui.external}）</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="jh-hero-more" href={withBase('/ja/updates/')}>更新情報をすべて見る →</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="jh-stats" aria-label="サイトの現況">
+      <ul>
+        {
+          stats.map((s) => (
+            <li>
+              <a href={withBase(s.href)}>
+                <span class="jh-num">{s.n.toLocaleString('ja-JP')}<small>{s.unit}</small></span>
+                <span class="jh-lab">{s.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </Fragment>
+
+  <section class="jh-sec" aria-labelledby="jh-tasks-h">
+    <h2 class="jh-h" id="jh-tasks-h"><span>こんなときに</span><small>BY PURPOSE</small></h2>
+    <div class="jh-tasks">
+      {
+        tasks.map((x) => (
+          <a class="jh-task" href={withBase(x.href)}>
+            <span class="jh-task-q">{x.q}</span>
+            <span class="jh-task-t">{x.t}</span>
+            <span class="jh-task-d">{x.d}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="jh-sec" aria-labelledby="jh-feed-h">
+    <div class="jh-head-row">
+      <h2 class="jh-h" id="jh-feed-h"><span>新着情報</span><small>WHAT'S NEW</small></h2>
+      <a class="jh-more" href={withBase('/ja/updates/')}>すべて見る →</a>
+    </div>
+    <p class="jh-note">
+      直近7日: {KIND_LABEL.news}{weeklyCount('news')}件 ・ {KIND_LABEL.subsidy}{weeklyCount('subsidy')}件 ・ {KIND_LABEL.video}{weeklyCount('video')}件 ・ {KIND_LABEL.blog}{weeklyCount('blog')}件
     </p>
-  </LocaleHero>
+    <ul class="jh-feed">
+      {
+        newsFeed.map((it) => (
+          <li>
+            <time datetime={it.date}>{fmtYMD.format(new Date(it.date))}</time>
+            <span class="jh-chip">{KIND_LABEL[it.kind]}</span>
+            <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+              {it.title}
+              {it.external && <span class="sr-only"> （{ja.ui.external}）</span>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 
-  <p class="ja-home-updates">
-    <strong>直近7日の更新</strong>
-    {KIND_LABEL.news}{weeklyCount('news')}件 ・ {KIND_LABEL.subsidy}{weeklyCount('subsidy')}件 ・ {KIND_LABEL.video}{weeklyCount('video')}件 ・ {KIND_LABEL.blog}{weeklyCount('blog')}件
-    <a href={withBase('/ja/updates/')}>更新情報を見る →</a>
-  </p>
+  <section class="jh-sec" aria-labelledby="jh-sub-h">
+    <div class="jh-head-row">
+      <h2 class="jh-h" id="jh-sub-h"><span>補助金・助成金</span><small>SUBSIDIES</small></h2>
+      <a class="jh-more" href={withBase('/ja/subsidies/')}>{ja.ui.viewAll} →</a>
+    </div>
+    <p class="jh-note">現在募集中のものを、締切の近い順に。日付は募集の締切です。対象要件・申請期間・提出書類は、必ず公募元のページでご確認ください。</p>
+    <ul class="jh-feed jh-feed-sub">
+      {
+        top.map((item) => (
+          <li>
+            <time datetime={item.endDate ?? ''}>{fmtJa(item.endDate) ? `${fmtJa(item.endDate)}締切` : ''}</time>
+            {item.area && <span class="jh-chip jh-chip-gov">{item.area}</span>}
+            <a href={item.link} target="_blank" rel="noopener">
+              {item.title}
+              <span class="sr-only"> （{ja.ui.external}）</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 
-  <h2>{ja.home.subsidiesTitle}</h2>
-  <p>{ja.home.subsidiesDesc}</p>
-  <ul class="ja-list">
-    {top.map((item) => (
-      <li>
-        <a class="ja-item-title ja-ext" href={item.link} target="_blank" rel="noopener">
-          {item.title}
-          <span class="sr-only">（{ja.ui.external}）</span>
-        </a>
-        <span class="ja-item-meta">
-          {fmtJa(item.endDate) && <span>{ja.subsidies.labelDeadline}：{fmtJa(item.endDate)}</span>}
-          {item.area && <span class="ja-badge ja-badge-gov">{item.area}</span>}
-        </span>
-      </li>
-    ))}
-  </ul>
-  <p style="margin-top:12px"><a href={withBase('/ja/subsidies/')}>{ja.ui.viewAll} →</a></p>
-
-  <h2>{ja.home.resourcesTitle}</h2>
-  <div class="ja-cards">
-    <a class="ja-card" href={withBase('/ja/dx-roadmap/')}>
-      <span class="ja-card-t">医療DX年表</span>
-      <span class="ja-card-d">電子カルテ情報共有サービス、電子カルテの普及目標など、病院が備える節目を時期順に。</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/calendar/')}>
-      <span class="ja-card-t">制度カレンダー</span>
-      <span class="ja-card-d">補助金の締切と年度の節目を、近い順に一画面で。</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/practice/')}>
-      <span class="ja-card-t">実務ガイド</span>
-      <span class="ja-card-d">マイナ保険証の窓口対応、サイバーセキュリティ自己点検、院内AI利用ルールの雛形。</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/patients/')}>
-      <span class="ja-card-t">患者さん・ご家族向け</span>
-      <span class="ja-card-d">AIに健康相談をする前に知っておきたいこと、マイナ保険証の使い方。</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/videos/')}>
-      <span class="ja-card-t">{ja.nav.videos}</span>
-      <span class="ja-card-d">{ja.home.videosDesc}</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/guide/')}>
-      <span class="ja-card-t">{ja.nav.guide}</span>
-      <span class="ja-card-d">{ja.home.guideDesc}</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/tips/')}>
-      <span class="ja-card-t">{ja.nav.tips}</span>
-      <span class="ja-card-d">{ja.home.tipsDesc}</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/checklist/')}>
-      <span class="ja-card-t">{ja.nav.checklist}</span>
-      <span class="ja-card-d">{ja.home.checklistDesc}</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/glossary/')}>
-      <span class="ja-card-t">{ja.nav.glossary}</span>
-      <span class="ja-card-d">{ja.home.glossaryDesc}</span>
-    </a>
-    <a class="ja-card" href={withBase('/ja/faq/')}>
-      <span class="ja-card-t">{ja.nav.faq}</span>
-      <span class="ja-card-d">{ja.home.faqDesc}</span>
-    </a>
-  </div>
+  <section class="jh-sec" aria-labelledby="jh-posts-h">
+    <div class="jh-head-row">
+      <h2 class="jh-h" id="jh-posts-h"><span>注目の解説</span><small>ARTICLES</small></h2>
+      <a class="jh-more" href={withBase('/ja/blog/')}>記事一覧 →</a>
+    </div>
+    <div class="jh-posts">
+      {
+        featured.map((p) => (
+          <article class="jh-post">
+            <p class="jh-post-meta">
+              <span class="jh-chip">{p.data.category}</span>
+              <time datetime={p.data.pubDate.toISOString()}>{fmtYMD.format(p.data.pubDate)}</time>
+            </p>
+            <h3><a href={withBase(`/ja/blog/${p.id}/`)}>{p.data.title}</a></h3>
+            <p class="jh-post-d">{p.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 
   <HomeSeries loc="ja" list={homeSeries} />
 
-  {/* 최신 뉴스 — 홈에 실제 내용이 있어야 검색·답변 엔진이 인용할 거리가 생긴다.
-      한국어판 홈이 이미 쓰는 방식이고, 다른 판에는 빠져 있었다(2026-09-07 추가). */}
-  {
-    recentNews.length > 0 && (
-      <section class="ja-home-sec">
-        <div class="ja-sec-head">
-          <h2>{ja.home.homeNewsTitle}</h2>
-          <a class="ja-more" href={withBase('/ja/news/')}>{ja.home.homeNewsMore}</a>
-        </div>
-        <ul class="ja-news-preview">
-          {recentNews.map((item) => (
-            <li>
-              <a href={item.link} target="_blank" rel="noopener">
-                {item.title}
-                <span class="sr-only"> ({ja.ui.external})</span>
-              </a>
-              {item.source && <span class="ja-src">{item.source}</span>}
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
+  <section class="jh-sec jh-promise" aria-labelledby="jh-promise-h">
+    <h2 class="jh-h" id="jh-promise-h"><span>このサイトの約束</span><small>OUR PRINCIPLES</small></h2>
+    <ul>
+      {
+        promises.map((x, i) => (
+          <li>
+            <span class="jh-no">{i + 1}</span>
+            <div>
+              <strong>{x.t}</strong>
+              <p>{x.d}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="jh-note"><a href={withBase('/ja/about/#principles')}>記事を書く・確かめるときの原則を読む →</a></p>
+  </section>
 
-  {/* 사이트 자체에 대한 문답. /ja/faq/ 의 제도 문답과 내용이 겹치지 않는다. */}
-  <section class="ja-home-sec">
-    <div class="ja-sec-head">
-      <h2>{ja.home.homeFaqTitle}</h2>
-      <a class="ja-more" href={withBase('/ja/faq/')}>{ja.home.homeFaqMore}</a>
+  <section class="jh-sec" aria-labelledby="jh-lib-h">
+    <h2 class="jh-h" id="jh-lib-h"><span>学ぶ・調べる</span><small>LIBRARY</small></h2>
+    <ul class="jh-lib">
+      {
+        library.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.t}</strong>
+              <span>{x.d}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="jh-sec" aria-labelledby="jh-faq-h">
+    <div class="jh-head-row">
+      <h2 class="jh-h" id="jh-faq-h"><span>{ja.home.homeFaqTitle}</span><small>ABOUT THIS SITE</small></h2>
+      <a class="jh-more" href={withBase('/ja/faq/')}>{ja.home.homeFaqMore}</a>
     </div>
-    <dl class="ja-home-faq">
+    <dl class="jh-faq">
       {
         ja.home.homeFaq.map((f) => (
           <>
@@ -193,124 +294,13 @@ const homeSeries = (await getResolvedSeries('ja'))
     </dl>
   </section>
 
-  <h2>{ja.home.introTitle}</h2>
-  <p>{ja.home.introBody}</p>
-
-  <div class="ja-note">
-    <p><strong>{ja.home.koNoticeTitle}</strong></p>
-    <p style="margin-top:6px">{ja.home.koNoticeBody}</p>
-    <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{ja.ui.langKo} →</a></p>
-  </div>
+  <section class="jh-sec" aria-labelledby="jh-intro-h">
+    <h2 class="jh-h" id="jh-intro-h"><span>{ja.home.introTitle}</span><small>ABOUT</small></h2>
+    <p>{ja.home.introBody}</p>
+    <div class="ja-note">
+      <p><strong>{ja.home.koNoticeTitle}</strong></p>
+      <p style="margin-top:6px">{ja.home.koNoticeBody}</p>
+      <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{ja.ui.langKo} →</a></p>
+    </div>
+  </section>
 </JaLayout>
-
-<style>
-  .ja-home-updates {
-    margin: 18px 0 0;
-    padding: 10px 14px;
-    border: 1px solid var(--ja-border);
-    background: var(--ja-surface);
-    font-size: 13.5px;
-    line-height: 1.9;
-  }
-  .ja-home-updates strong { margin-right: 8px; }
-  .ja-home-updates a { margin-left: 8px; white-space: nowrap; }
-  .ja-cta {
-    display: inline-block;
-    background: var(--ja-btn-bg);
-    color: var(--ja-btn-fg);
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 4px;
-    font-size: 14.5px;
-  }
-  .ja-cta:hover { background: var(--ja-btn-bg-hover); }
-  .ja-cta-ghost {
-    background: transparent;
-    color: var(--ja-primary);
-    border: 1px solid var(--ja-primary);
-  }
-  .ja-cta-ghost:hover { background: var(--ja-surface); color: var(--ja-primary); }
-
-  /* 資料カード — 日本の利用者は情報が画面に見えていることを信頼の根拠にする */
-  .ja-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 14px;
-    margin-top: 4px;
-  }
-  .ja-card {
-    display: block;
-    border: 1px solid var(--ja-border);
-    border-left: 4px solid var(--ja-primary);
-    background: var(--ja-base);
-    padding: 14px 16px;
-    text-decoration: none;
-    color: var(--ja-text);
-  }
-  .ja-card:hover { background: var(--ja-surface); }
-  .ja-card-t { display: block; font-size: 15.5px; color: var(--ja-primary); margin-bottom: 6px; }
-  .ja-card-d { display: block; font-size: 13.5px; color: var(--ja-text-sub); line-height: 1.8; }
-
-  /* 홈 뉴스·문답 (2026-09-07 AEO/GEO) */
-  .ja-home-sec {
-    margin-top: 30px;
-    padding-top: 18px;
-    border-top: 1px solid var(--ja-border);
-  }
-  .ja-sec-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .ja-sec-head h2 {
-    margin: 0;
-  }
-  .ja-more {
-    font-size: 13px;
-    color: var(--ja-primary);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .ja-more:hover { text-decoration: underline; }
-  .ja-news-preview {
-    list-style: none;
-    margin: 14px 0 0;
-    padding: 0;
-  }
-  .ja-news-preview li {
-    padding: 9px 0;
-    border-bottom: 1px solid var(--ja-border);
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  .ja-news-preview a {
-    color: var(--ja-text);
-    text-decoration: none;
-  }
-  .ja-news-preview a:hover { color: var(--ja-primary); text-decoration: underline; }
-  .ja-src {
-    display: inline-block;
-    margin-left: 8px;
-    font-size: 12px;
-    color: var(--ja-text-sub);
-  }
-  .ja-home-faq {
-    margin: 14px 0 0;
-  }
-  .ja-home-faq dt {
-    font-weight: 700;
-    color: var(--ja-primary);
-    margin-top: 16px;
-    font-size: 14.5px;
-    line-height: 1.7;
-  }
-  .ja-home-faq dt:first-child { margin-top: 0; }
-  .ja-home-faq dd {
-    margin: 6px 0 0;
-    font-size: 14px;
-    line-height: 1.9;
-    color: var(--ja-text);
-  }
-</style>
