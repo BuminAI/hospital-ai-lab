@@ -1,0 +1,45 @@
+# Hospital AI Lab 繁體中文版（台灣）
+
+> 給醫院行政、企劃與護理人員的醫療 AI 實務資訊。內容依台灣現行法規與衛福部、健保署、全國法規資料庫等一手資料重新查證後撰寫，不是韓文版的翻譯。
+
+網站：https://hospital-ai-lab.com/tw/
+作者：曺永熩（Youngho Cho），Hospital AI Lab 主持人。作者資料：https://hospital-ai-lab.com/tw/about/
+
+## 這個網站回答什麼問題
+
+- 一個 AI 工具算不算醫療器材？（《醫療器材管理法》第 3 條的定義明列「軟體」）
+- 病歷資料能不能交給 AI 廠商？（《個人資料保護法》第 6 條：原則禁止，例外共六款）
+- AI 工具讀寫電子病歷，院內要準備什麼？（《醫療機構電子病歷製作及管理辦法》第 3 條的六種機制、第 8 條的雲端規定）
+- 醫院的資安義務有哪些？（《資通安全管理法》及相關辦法）
+- 健保卡忘了帶、讀卡機故障時櫃檯怎麼處理？
+- 病人問 AI 健康問題之前，應該知道什麼？
+
+## 主要頁面
+
+- [智慧醫療與 AI 規範年表](https://hospital-ai-lab.com/tw/dx-roadmap/)：人工智慧基本法、資通安全管理法、個資法修正、衛福部生成式 AI 指引、病歷互通等時間點；每項附出處與查證日，新聞報導中的計畫另標示「報導」。
+- [制度日曆](https://hospital-ai-lab.com/tw/calendar/)：衛福部最近的補助、申請與說明會公告（自動收集，日期是公告上線日，不是截止日）。
+- [醫療 AI 詞彙](https://hospital-ai-lab.com/tw/glossary/)、[常見問題](https://hospital-ai-lab.com/tw/faq/)、[導入檢核表](https://hospital-ai-lab.com/tw/checklist/)：每則附全國法規資料庫條文連結。
+- [實務指南](https://hospital-ai-lab.com/tw/practice/)：健保卡就醫櫃檯應對、醫院資安自我檢核、院內生成式 AI 使用規範範本。
+- [患者專區](https://hospital-ai-lab.com/tw/patients/)：給病人與家屬的一般性說明，不含診斷或治療建議。
+- [專欄](https://hospital-ai-lab.com/tw/blog/) 與 [系列專欄](https://hospital-ai-lab.com/tw/series/)。
+- [AI 新聞](https://hospital-ai-lab.com/tw/news/)、[教育與活動](https://hospital-ai-lab.com/tw/events/)、[政府資源](https://hospital-ai-lab.com/tw/gov-support/)、[推薦影片](https://hospital-ai-lab.com/tw/videos/)：自動收集的清單。
+- [更新資訊](https://hospital-ai-lab.com/tw/updates/)：最近 45 天新增的內容，日期是實際的發布日、公告日或加入日。
+
+## 資料如何維持最新
+
+- 新聞每 3 小時、衛福部公告與活動每天數次、推薦影片每天數次檢查，有新內容才更新。
+- 頁面引用的出處連結每天自動確認，結果與日期顯示在每頁頁尾。
+- 本站引用的 11 部台灣法規（個資法、電子病歷辦法、醫療器材管理法、醫療法、資通安全管理法、人工智慧基本法等），每天比對全國法規資料庫的修正日；與本站查證時不同時，頁尾會標示「相關內容正在重新查證」。
+
+## 引用時請注意
+
+- 引用請附頁面網址與頁面上的查證日；法規敘述以全國法規資料庫的最新條文為準。
+- 標示「報導」的項目是新聞報導中的計畫，不是官方公告的期限。
+- 自動收集的清單（新聞、公告、活動、影片）只是連結與標題，內容以原始來源為準。
+- 本站提供一般性資訊，不能取代個別病人的醫療判斷，也不是法律意見。
+- 本站不宣傳特定醫院、產品或療法。
+- 韓文版（原版）：https://hospital-ai-lab.com/ ；其他語言版本各依該國制度另寫。
+
+## 寫作與查核原則
+
+https://hospital-ai-lab.com/tw/about/#principles ：事實附出處、發布前親自打開出處、查證不到的內容不刊登、發現錯誤就更正並標示更新日期。

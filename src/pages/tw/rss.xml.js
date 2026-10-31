@@ -13,7 +13,7 @@ import { BASE } from '../../utils/site';
 
 const SITE_TW = 'Hospital AI Lab';
 const DESC_TW =
-  '臺灣醫療 AI 的法規與實務專欄——醫療器材認定、個人資料保護、電子病歷管理，都附上法規原文出處。';
+  '台灣醫療 AI 的法規與實務專欄——醫療器材認定、個人資料保護、電子病歷管理，都附上法規原文出處。';
 
 export async function GET(context) {
   const posts = (await getCollection('blogTw', ({ data }) => !data.draft)).sort(
