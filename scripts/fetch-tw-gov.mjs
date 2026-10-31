@@ -97,7 +97,7 @@ async function fetchMohwDepts() {
 }
 
 async function fetchFda() {
-  const xml = await get('https://www.fda.gov.tw/tc/rssAnnouncement.ashx');
+  const xml = await get('https://www.fda.gov.tw/tc/rssAnnouncement.ashx', 1); // 해외 IP에서 실패하기 쉬워 한 번만 시도
   const rows = [];
   for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
     const g = (k) => {

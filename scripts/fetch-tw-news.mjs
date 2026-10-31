@@ -226,7 +226,8 @@ async function fetchHealthnewsDate(link) {
 
 // RSS 2.0 파싱 — 제목·링크·발행일만. utm_* 추적 파라미터는 지운다.
 async function fetchGovFeed(feed) {
-  const xml = await (await fetchRetry(feed.url)).text();
+  // 食藥署는 GitHub 러너(해외 IP)에서 소켓 오류·시간 초과가 난다(2026-10-31 실측) — 한 번만 시도해 시간을 아낀다
+  const xml = await (await fetchRetry(feed.url, feed.kind === 'fda' ? 1 : 3)).text();
   const rows = [];
   for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
     const it = m[1];

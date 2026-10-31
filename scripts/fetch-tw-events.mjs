@@ -260,7 +260,7 @@ const GOV_EVENT_FEEDS = [
 const GOV_TOPIC_RE =
   /(?<![A-Za-z])AI(?![A-Za-z])|人工智慧|生成式|智慧醫療|智慧照護|數位|資通安全|資安|個資|電子病歷|醫療器材|遠距|醫療資訊|雲端|軟體/;
 async function fetchGovRss(feed) {
-  const res = await fetch(feed.url, { headers: { 'user-agent': UA, 'accept-language': 'zh-TW,zh;q=0.9' }, signal: AbortSignal.timeout(25000) });
+  const res = await fetch(feed.url, { headers: { 'user-agent': UA, 'accept-language': 'zh-TW,zh;q=0.9' }, signal: AbortSignal.timeout(feed.source === '食品藥物管理署' ? 10000 : 25000) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const xml = await res.text();
   const rows = [];
