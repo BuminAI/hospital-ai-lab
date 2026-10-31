@@ -3,7 +3,7 @@
 // 出典は必ず実際にアクセスして確認したページだけを渡すこと。
 interface Props {
   sources: { label: string; url: string }[];
-  /** 出典を確認した日(表示用) */
+  /** 出典を確認した日（表示用） */
   checked: string;
   /** 患者さん向けページでは true — 診断・治療の助言ではない旨を強めに出す */
   patient?: boolean;
@@ -19,7 +19,7 @@ const { sources, checked, patient = false } = Astro.props;
         <li>
           <a href={s.url} target="_blank" rel="noopener">
             {s.label}
-            <span class="sr-only"> (新しいタブで開きます)</span>
+            <span class="sr-only"> （新しいタブで開きます）</span>
           </a>
         </li>
       ))

@@ -17,7 +17,7 @@ import { withBase } from '../../utils/site';
 
 const p = eventsJa;
 
-// 医療DX・医療AI関連の開催案内・公募を、収集済みの見出しから自動で抜き出す(2026-10-31 追加)。
+// 医療DX・医療AI関連の開催案内・公募を、収集済みの見出しから自動で抜き出す（2026-10-31 追加）。
 const EVENT_RE = /開催|シンポジウム|セミナー|説明会|研修|公募|募集|検討会|アワード|フォーラム/;
 const fmt = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: 'long', day: 'numeric' });
 const recent = news.items.filter((i) => EVENT_RE.test(i.title)).slice(0, 12);

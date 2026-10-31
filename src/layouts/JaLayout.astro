@@ -13,6 +13,7 @@ import '../styles/locale-theme.css';
 import ja from '../i18n/ja.json';
 import { growth } from '../i18n/growth';
 import navConfig from '../data/ja/content/nav.json';
+import linkHealth from '../data/ja/link-health.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import { organizationShared } from '../utils/entity';
 import {
@@ -431,6 +432,7 @@ const year = new Date().getFullYear();
       <div class="ja-footer-inner">
         <ul>
           <li><a href={withBase('/ja/about/')}>{ja.footer.about}</a></li>
+          <li><a href={withBase('/ja/updates/')}>更新情報</a></li>
           <li><a href={withBase('/ja/series/')}>{growth.ja.seriesName}</a></li>
           <li><a href={withBase('/privacy/')}>{ja.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{ja.footer.contact}</a></li>
@@ -459,12 +461,28 @@ const year = new Date().getFullYear();
               <a href={withBase('/tw/')} hreflang="zh-TW" lang="zh-TW">{ja.editions.tw}</a>
             </li>
         </ul>
+        {
+          /* 出典リンクの毎日確認 (scripts/check-ja-links.mjs → link-health.json)。
+             「ページが見つからない」(404/410) だけを数え、接続できなかったものは未確認として別に数える。 */
+          linkHealth.checkedAt && (
+            <p class="ja-footer-check">
+              出典リンクの自動確認: {new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(linkHealth.checkedAt))}
+              （{linkHealth.total}件を確認。ページが見つからないもの{linkHealth.dead.length}件、接続できず未確認のもの{linkHealth.unknown}件）
+            </p>
+          )
+        }
         <p>{ja.ui.disclaimer}</p>
         <p style="margin-top:10px">© {year} 病院AI研究所（HOSPITAL AI LAB）</p>
       </div>
     </footer>
 
     <style>
+      .ja-footer-check {
+        margin: 12px 0 6px;
+        font-size: 12.5px;
+        opacity: 0.8;
+        line-height: 1.7;
+      }
       .ja-footer-lang-title {
     margin: 14px 0 6px;
     font-weight: 700;

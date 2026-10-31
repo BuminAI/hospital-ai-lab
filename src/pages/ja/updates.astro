@@ -1,0 +1,85 @@
+---
+// 更新情報 (2026-10-31 新設) — 日本語版の各分野に最近加わったものを、日付順に一覧する。
+// 日付はニュースの発行日・補助金の募集開始日・動画の追加日・記事の公開日で、ビルド時刻ではない。
+import '../../styles/ja-guide.css';
+import JaLayout from '../../layouts/JaLayout.astro';
+import { getJaUpdates, KIND_LABEL } from '../../utils/ja-updates';
+import { withBase } from '../../utils/site';
+
+const DAYS = 45;
+const items = await getJaUpdates(DAYS);
+const fmtDay = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+const dayKey = (iso: string) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date(iso));
+
+const groups: { key: string; label: string; list: typeof items }[] = [];
+for (const it of items) {
+  const k = dayKey(it.date);
+  let g = groups[groups.length - 1];
+  if (!g || g.key !== k) {
+    g = { key: k, label: fmtDay.format(new Date(it.date)), list: [] };
+    groups.push(g);
+  }
+  g.list.push(it);
+}
+const count = (kind: string) => items.filter((i) => i.kind === kind).length;
+
+const title = '更新情報｜医療AIニュース・補助金・動画・記事の新着';
+const description = `日本語版に最近${DAYS}日で加わった医療AIニュース、補助金・助成金、おすすめ動画、ブログ記事を、日付順に一覧できます。収集は自動で、毎日確認しています。`;
+const latest = items.length ? new Date(items[0].date) : undefined;
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${siteRoot}${withBase('/ja/updates/')}#collection`,
+    name: '更新情報',
+    inLanguage: 'ja-JP',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 30).map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.title,
+        url: it.external ? it.href : `${siteRoot}${it.href}`,
+      })),
+    },
+  },
+];
+---
+
+<JaLayout title={title} description={description} crumb="更新情報" standalone updated={latest} schema={schema}>
+  <h1>更新情報</h1>
+  <p class="jg-lead">
+    日本語版に、最近{DAYS}日で加わったものを日付順に並べています。ニュースは3時間ごと、補助金は1日3回、動画は毎日、自動で確認しています。ブログ記事は、新しいものが書けたときに追加されます。
+  </p>
+  <p class="jg-meta">
+    直近{DAYS}日: {KIND_LABEL.news}{count('news')}件 ／ {KIND_LABEL.subsidy}{count('subsidy')}件 ／ {KIND_LABEL.video}{count('video')}件 ／ {KIND_LABEL.blog}{count('blog')}件
+  </p>
+  <div class="jg-box">
+    表示している日付は、ニュースの発行日、補助金の募集開始日、動画をこのサイトに追加した日、記事の公開日です。サイトを作り直した時刻ではありません。外部のリンクは、各機関・媒体のページに移動します。
+  </div>
+
+  {
+    groups.length > 0 ? (
+      groups.map((g) => (
+        <section class="jg-sec" aria-label={g.label}>
+          <h2>{g.label}</h2>
+          <ul class="jg-list">
+            {g.list.map((it) => (
+              <li>
+                <span class="jg-tag">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only"> （新しいタブで開きます）</span>}
+                </a>
+                {it.note && <small> ・ {it.note}</small>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    ) : (
+      <p>この期間に加わったものはありません。</p>
+    )
+  }
+</JaLayout>

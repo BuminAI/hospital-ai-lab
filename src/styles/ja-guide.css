@@ -189,3 +189,26 @@
     white-space: normal;
   }
 }
+
+/* 要点（先に答えを示すブロック）とよくある質問 (2026-10-31) */
+[data-locale='ja'] .jg-answer {
+  border-left: 4px solid var(--ja-primary);
+  background: var(--ja-surface);
+  padding: 12px 14px;
+  margin: 14px 0 18px;
+  font-size: 15px;
+  line-height: 1.9;
+  font-weight: 600;
+}
+[data-locale='ja'] .jg-faq dl {
+  margin: 8px 0 0;
+}
+[data-locale='ja'] .jg-faq dt {
+  font-weight: 700;
+  margin-top: 18px;
+  line-height: 1.7;
+}
+[data-locale='ja'] .jg-faq dd {
+  margin: 4px 0 0;
+  line-height: 1.9;
+}

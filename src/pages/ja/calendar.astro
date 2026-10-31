@@ -1,9 +1,9 @@
 ---
-// 制度カレンダー (2026-10-31 新設)
-// 既存の自動収集データ(補助金・ニュース)と、手書きで一次資料から確認した年度の節目(milestones.ts)を
+// 制度カレンダー （2026-10-31 新設）
+// 既存の自動収集データ（補助金・ニュース）と、手書きで一次資料から確認した年度の節目（milestones.ts）を
 // 一つの画面にまとめる。新しい収集元は増やしていない。
 // ⚠️ 補助金の締切は jGrants の掲載データそのまま。実際の接受期間は公募元で確認する必要がある
-//    (HANDOFF の「jGrants 掲載期間 ≠ 実際の申請窓口」を参照)。画面にもその注意を出している。
+//    （HANDOFF の「jGrants 掲載期間 ≠ 実際の申請窓口」を参照）。画面にもその注意を出している。
 import '../../styles/ja-guide.css';
 import JaLayout from '../../layouts/JaLayout.astro';
 import JaGuideFoot from '../../components/JaGuideFoot.astro';
@@ -26,7 +26,7 @@ const upcoming = subsidies.items
     return { ...s, left: Math.ceil((t - now) / DAY) };
   });
 
-// 目安として、今から約2年先までの節目だけを出す(その先は年表ページへ)
+// 目安として、今から約2年先までの節目だけを出す（その先は年表ページへ）
 const horizon = new Date(now + 2 * 365 * DAY).toISOString().slice(0, 7);
 const nowMonth = new Date(now).toISOString().slice(0, 7);
 const ahead = MILESTONES.filter((m) => m.status === 'ahead' && m.sort >= nowMonth && m.sort <= horizon).sort((a, b) =>
@@ -56,7 +56,7 @@ const sources = [SRC.policy, SRC.checklist, { label: 'jGrants(デジタル庁の
   <p class="jg-meta">表示は{fmtDay.format(new Date(now))}時点の目安 ／ 補助金データの更新: {fmtDay.format(new Date(subsidies.updatedAt))}</p>
 
   <section class="jg-sec" aria-labelledby="h-sub">
-    <h2 id="h-sub">補助金・助成金の締切(近い順)</h2>
+    <h2 id="h-sub">補助金・助成金の締切（近い順）</h2>
     <div class="jg-box jg-warn">
       締切は、jGrants(補助金電子申請システム)に載っている日付です。実際の申請は、事前の計画提出や選定が先に必要で、公募元が別の日程を定めている場合があります。必ず公募元のページで、受付期間と申請の流れをご確認ください。
     </div>
@@ -75,7 +75,7 @@ const sources = [SRC.policy, SRC.checklist, { label: 'jGrants(デジタル庁の
                   {s.area && <span class="jg-tag">{s.area}</span>}
                   <a href={s.link} target="_blank" rel="noopener">
                     {s.title}
-                    <span class="sr-only"> (新しいタブで開きます)</span>
+                    <span class="sr-only"> （新しいタブで開きます）</span>
                   </a>
                 </b>
               </div>
@@ -90,7 +90,7 @@ const sources = [SRC.policy, SRC.checklist, { label: 'jGrants(デジタル庁の
   </section>
 
   <section class="jg-sec" aria-labelledby="h-ms">
-    <h2 id="h-ms">制度の節目(今後およそ2年)</h2>
+    <h2 id="h-ms">制度の節目（今後およそ2年）</h2>
     <p>国の「医療情報化推進方針」などから、時期が示されているものを並べました。「めど」「目指す」は目標であり、確定した期限ではありません。</p>
     <ol class="jg-tl">
       {
@@ -120,7 +120,7 @@ const sources = [SRC.policy, SRC.checklist, { label: 'jGrants(デジタル庁の
             <li>
               <a href={i.link} target="_blank" rel="noopener">
                 {i.title}
-                <span class="sr-only"> (新しいタブで開きます)</span>
+                <span class="sr-only"> （新しいタブで開きます）</span>
               </a>
               <br />
               <small>

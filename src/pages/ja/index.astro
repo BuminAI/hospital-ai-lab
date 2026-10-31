@@ -8,6 +8,7 @@ import { withBase } from '../../utils/site';
 import HomeSeries from '../../components/HomeSeries.astro';
 import { getResolvedSeries } from '../../utils/series';
 import newsData from '../../data/ja/news.json';
+import { getJaUpdates, KIND_LABEL } from '../../utils/ja-updates';
 
 // 홈에는 마감 임박 순 5건만. 일본 사용자는 정보가 화면에 미리 보이는 것을
 // 신뢰의 근거로 삼으므로, 목록으로 들어가야만 내용을 볼 수 있게 두지 않는다.
@@ -33,6 +34,10 @@ const fmtJa = (iso) => {
 //    .github/workflows/ 의 cron 에서 확인한 것이다. 수집처나 주기를
 //    바꾸면 이 문구도 함께 고칠 것.
 const recentNews = newsData.items.slice(0, 5);
+
+// 直近7日の更新件数(実データの日付だけから数える。ビルド時刻は使わない)
+const weekly = await getJaUpdates(7);
+const weeklyCount = (k: 'news' | 'subsidy' | 'video' | 'blog') => weekly.filter((u) => u.kind === k).length;
 
 const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteRoot}${withBase('/ja/')}`;
@@ -75,6 +80,12 @@ const homeSeries = (await getResolvedSeries('ja'))
       <a class="ja-cta ja-cta-ghost" href={withBase('/ja/about/')}>{ja.home.ctaAbout}</a>
     </p>
   </LocaleHero>
+
+  <p class="ja-home-updates">
+    <strong>直近7日の更新</strong>
+    {KIND_LABEL.news}{weeklyCount('news')}件 ・ {KIND_LABEL.subsidy}{weeklyCount('subsidy')}件 ・ {KIND_LABEL.video}{weeklyCount('video')}件 ・ {KIND_LABEL.blog}{weeklyCount('blog')}件
+    <a href={withBase('/ja/updates/')}>更新情報を見る →</a>
+  </p>
 
   <h2>{ja.home.subsidiesTitle}</h2>
   <p>{ja.home.subsidiesDesc}</p>
@@ -193,6 +204,16 @@ const homeSeries = (await getResolvedSeries('ja'))
 </JaLayout>
 
 <style>
+  .ja-home-updates {
+    margin: 18px 0 0;
+    padding: 10px 14px;
+    border: 1px solid var(--ja-border);
+    background: var(--ja-surface);
+    font-size: 13.5px;
+    line-height: 1.9;
+  }
+  .ja-home-updates strong { margin-right: 8px; }
+  .ja-home-updates a { margin-left: 8px; white-space: nowrap; }
   .ja-cta {
     display: inline-block;
     background: var(--ja-btn-bg);

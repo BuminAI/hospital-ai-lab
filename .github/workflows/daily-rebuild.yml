@@ -1,0 +1,28 @@
+name: Daily Rebuild
+
+on:
+  schedule:
+    # 매일 KST 00:10 (UTC 15:10)에 사이트를 다시 빌드해 배포한다.
+    # 보조금의 "앞으로 ○일", 연도별 이정표 목록, 업데이트 기간처럼 빌드 시점의 날짜로
+    # 정해지는 표시를, 새 데이터가 안 들어온 날에도 매일 갱신하기 위해서다.
+    # 배포는 deploy.yml 한 곳에 모아 둔다(항상 최신 main을 빌드한다).
+    - cron: '10 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write # deploy.yml 수동 트리거(gh workflow run)
+
+concurrency:
+  group: daily-rebuild
+  cancel-in-progress: false
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 배포 트리거 (deploy.yml)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run deploy.yml

@@ -1,30 +1,52 @@
 ---
-// 患者さん向け: AIに健康相談をする前に (2026-10-31 新設)
+// 患者さん向け: AIに健康相談をする前に （2026-10-31 新設）
 // ⚠️ 診断・治療の助言はしない。一般的な情報だけを、公的機関の資料と論文で確認できる範囲で書く。
-//    確認した出典: 厚労省医事課長通知(医政医発1219第1号)、個人情報保護委員会の注意喚起(令和5年6月2日)、
-//    消防庁の救急安心センター事業(#7119)とQ助のページ、厚労省 医療情報ネット(ナビイ)、
-//    医療安全支援センター運営要領、2本の系統的レビュー(要旨を直接確認)。
+//    確認した出典: 厚労省医事課長通知（医政医発1219第1号）、個人情報保護委員会の注意喚起（令和5年6月2日）、
+//    消防庁の救急安心センター事業（#7119）とQ助のページ、厚労省 医療情報ネット（ナビイ）、
+//    医療安全支援センター運営要領、2本の系統的レビュー（要旨を直接確認）。
 //    「AIの健康相談は安全/危険」と言い切る公的資料は見つからなかったので、そういう断定はしない。
 import '../../../styles/ja-guide.css';
 import JaLayout from '../../../layouts/JaLayout.astro';
 import JaGuideFoot from '../../../components/JaGuideFoot.astro';
+import JaFaq from '../../../components/JaFaq.astro';
+import { guideSchema } from '../../../utils/ja-guide';
 import { withBase } from '../../../utils/site';
 
 const CHECKED = '2026年10月31日';
 const title = 'AIに健康相談をする前に知っておきたい6つのこと';
 const description =
-  '体調が気になってAIに聞いてみる前に。AIの答えは診断ではないこと、間違いがありうること、個人情報の守り方、迷ったときの相談先(#7119・Q助・医療情報ネット)を、公的機関の資料に沿って分かりやすくまとめました。';
+  '体調が気になってAIに聞いてみる前に。AIの答えは診断ではないこと、間違いがありうること、個人情報の守り方、迷ったときの相談先（#7119・Q助・医療情報ネット）を、公的機関の資料に沿って分かりやすくまとめました。';
 
 const sources = [
-  { label: '厚生労働省医政局医事課長通知「人工知能(AI)を用いた診断、治療等の支援を行うプログラムの利用と医師法第17条の規定との関係について」(医政医発1219第1号、平成30年12月19日)', url: 'https://www.mhlw.go.jp/content/10601000/000468150.pdf' },
-  { label: '個人情報保護委員会「生成AIサービスの利用に関する注意喚起等について」(令和5年6月2日)', url: 'https://www.ppc.go.jp/news/careful_information/230602_AI_utilize_alert/' },
-  { label: '総務省消防庁「救急安心センター事業(♯7119)ってナニ?」', url: 'https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html' },
-  { label: '総務省消防庁「全国版救急受診アプリ(Q助)」', url: 'https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate003.html' },
-  { label: '厚生労働省「医療情報ネット(ナビイ)」', url: 'https://www.iryou.teikyouseido.mhlw.go.jp/' },
+  { label: '厚生労働省医政局医事課長通知「人工知能（AI）を用いた診断、治療等の支援を行うプログラムの利用と医師法第17条の規定との関係について」（医政医発1219第1号、平成30年12月19日）', url: 'https://www.mhlw.go.jp/content/10601000/000468150.pdf' },
+  { label: '個人情報保護委員会「生成AIサービスの利用に関する注意喚起等について」（令和5年6月2日）', url: 'https://www.ppc.go.jp/news/careful_information/230602_AI_utilize_alert/' },
+  { label: '総務省消防庁「救急安心センター事業（♯7119）ってナニ?」', url: 'https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html' },
+  { label: '総務省消防庁「全国版救急受診アプリ（Q助）」', url: 'https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate003.html' },
+  { label: '厚生労働省「医療情報ネット（ナビイ）」', url: 'https://www.iryou.teikyouseido.mhlw.go.jp/' },
   { label: '厚生労働省「医療安全支援センター運営要領」', url: 'https://www.mhlw.go.jp/content/10800000/000921599.pdf' },
   { label: 'Riboli-Sasco ほか「Triage and diagnostic accuracy of online symptom checkers: systematic review」J Med Internet Res 2023', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10276326/' },
   { label: 'Kopka ほか「Accuracy of self-triage by symptom assessment apps, LLMs and laypeople: systematic review」npj Digital Medicine 2025', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11937345/' },
 ];
+
+// 検索・回答エンジン向けの構造化データ（画面に見えている出典・質問と同じ内容を渡す）
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const faq = [
+  { q: 'AIに症状を入力すれば、診断してもらえますか。', a: 'いいえ。厚生労働省は、AIを使った診断・治療の支援でも、診断・治療を行う主体は医師で、医師が最終的な判断の責任を負うと整理しています。AIの答えは診断とは別のもので、参考にするとしても、診断ではないことを前提にします。' },
+  { q: 'AIの答えは、どのくらい当たりますか。', a: '2025年の系統的レビュー（19件の研究を統合）では、緊急度を判断したときの正しさは、症状チェッカーアプリが11.5〜90.0%、生成AIが57.8〜76.0%、一般の人が47.3〜62.4%でした。研究者は、一律にすすめることも避けるよう言うこともすべきではないと述べています。' },
+  { q: 'AIに個人情報を入力して大丈夫ですか。', a: '個人情報保護委員会は、入力した個人情報が機械学習に使われ、他の情報と結びついて出力されるおそれがあると注意しています。お名前、住所、生年月日、保険証や診察券の番号などは入力しないようにしましょう。' },
+  { q: '救急車を呼ぶか迷ったときは、どこに相談できますか。', a: '救急安心センター事業（♯7119）で、医師・看護師・救急救命士に電話で相談できます。全国42地域で実施されており、全国一律ではありません。15歳未満は♯8000が案内されています（消防庁のページの記載）。' },
+];
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ja/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: '患者・家族',
+  faq,
+});
 ---
 
 <JaLayout
@@ -32,6 +54,7 @@ const sources = [
   description={description}
   crumb="AIに健康相談をする前に"
   standalone
+  schema={guide}
   updated={new Date('2026-10-31T00:00:00+09:00')}
 >
   <h1>AIに健康相談をする前に知っておきたい6つのこと</h1>
@@ -39,6 +62,8 @@ const sources = [
     体調が気になったとき、スマートフォンのAIに聞いてみたくなることがあります。便利な面もありますが、知っておくと安心な点がいくつかあります。このページは、公的機関の資料や研究論文で確認できたことだけをまとめた、一般的な情報です。
   </p>
   <p class="jg-meta">確認日: {CHECKED} ／ 患者さん・ご家族向け</p>
+
+  <p class="jg-answer">要点: AIの答えは診断ではなく、誤りが含まれることがあります。個人情報は入力せず、迷ったときは救急安心センター事業（♯7119）など、公的な相談先も使いましょう。</p>
 
   <div class="jg-box jg-warn">
     <strong>このページについて</strong><br />
@@ -60,18 +85,18 @@ const sources = [
     <p>
       個人情報保護委員会は、生成AIの応答には不正確な内容が含まれることがあり、自然な文章であっても、確率的な相関関係に基づいて作られたものだと注意を呼びかけています。
     </p>
-    <p>症状から緊急度や病名を判断させる使い方について調べた、2つの研究(系統的レビュー、複数の研究をまとめて分析した論文)の要点です。</p>
+    <p>症状から緊急度や病名を判断させる使い方について調べた、2つの研究（系統的レビュー、複数の研究をまとめて分析した論文）の要点です。</p>
     <table class="jg-table">
       <thead>
         <tr><th>研究</th><th>わかったこと</th></tr>
       </thead>
       <tbody>
         <tr>
-          <th>オンライン症状チェッカー<br />(2023年・14件の研究を統合)</th>
+          <th>オンライン症状チェッカー<br />（2023年・14件の研究を統合）</th>
           <td>病名を当てる精度は全体に低く、比べた相手よりほとんどの場合低い、という結果でした。緊急度の判定の精度は、ツールによって大きくばらつき、13件の研究のうち9件で、全体として十分とはいえない結果でした。研究者は、広く使う前にさらに検証が必要だと結論づけています。</td>
         </tr>
         <tr>
-          <th>症状チェッカーアプリ・生成AI・一般の人の比較<br />(2025年・19件の研究を統合)</th>
+          <th>症状チェッカーアプリ・生成AI・一般の人の比較<br />（2025年・19件の研究を統合）</th>
           <td>緊急度を判断したときの正しさは、症状チェッカーアプリが11.5〜90.0%と大きくばらつき、生成AI(大規模言語モデル)が57.8〜76.0%、一般の人が47.3〜62.4%でした。研究者は、アプリや生成AIを「一律にすすめることも、避けるよう言うこともすべきではない」とし、使う場面と使う人に合わせて役立つかを考える必要があると述べています。</td>
         </tr>
       </tbody>
@@ -84,7 +109,7 @@ const sources = [
     <p>
       個人情報保護委員会は、入力した個人情報が生成AIの機械学習に使われ、他の情報と結びついたうえで、正確または不正確な内容として出力されるおそれがあると注意しています。また、提供事業者の利用規約やプライバシーポリシーを確認して、入力する内容を考えて使うよう求めています。
     </p>
-    <p>そこで、次のような点に気をつけると安心です(当研究所からの提案です)。</p>
+    <p>そこで、次のような点に気をつけると安心です（当研究所からの提案です）。</p>
     <ul class="jg-list">
       <li>お名前、住所、生年月日、電話番号、保険証や診察券の番号、通院している病院名などは入力しない。</li>
       <li>検査結果や薬の説明書の写真・文書を使うときは、お名前などの個人が特定できる部分を隠す。</li>
@@ -103,22 +128,22 @@ const sources = [
         <tr>
           <th>急な病気やケガで、救急車を呼ぶか迷う</th>
           <td>
-            <strong>救急安心センター事業(♯7119)</strong>。医師・看護師・救急救命士に電話で相談できます。応急手当の助言や、受診先の案内をしてもらえます。緊急性が高いと判断されたときは、119番への転送や、かけ直しをお願いされることがあります。実施しているのは全国42地域(消防庁のページの記載)で、全国一律ではなく、対象年齢や時間も地域で異なります。15歳未満は♯8000が案内されています。お住まいの地域で使えるかは、消防庁や自治体のページでご確認ください。<br />
-            <a href="https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html" target="_blank" rel="noopener">消防庁「救急安心センター事業(♯7119)ってナニ?」<span class="sr-only"> (新しいタブで開きます)</span></a>
+            <strong>救急安心センター事業（♯7119）</strong>。医師・看護師・救急救命士に電話で相談できます。応急手当の助言や、受診先の案内をしてもらえます。緊急性が高いと判断されたときは、119番への転送や、かけ直しをお願いされることがあります。実施しているのは全国42地域（消防庁のページの記載）で、全国一律ではなく、対象年齢や時間も地域で異なります。15歳未満は♯8000が案内されています。お住まいの地域で使えるかは、消防庁や自治体のページでご確認ください。<br />
+            <a href="https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html" target="_blank" rel="noopener">消防庁「救急安心センター事業（♯7119）ってナニ?」<span class="sr-only"> （新しいタブで開きます）</span></a>
           </td>
         </tr>
         <tr>
           <th>症状から、緊急度の目安を知りたい</th>
           <td>
-            <strong>全国版救急受診アプリ「Q助」</strong>(消防庁)。症状を画面で選ぶと、緊急度に応じた対応(例:「今すぐ救急車を呼びましょう」)が表示されます。そのあと、医療機関の検索に進めます。アプリ版とWeb版があります。<br />
-            <a href="https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate003.html" target="_blank" rel="noopener">消防庁「全国版救急受診アプリ(Q助)」<span class="sr-only"> (新しいタブで開きます)</span></a>
+            <strong>全国版救急受診アプリ「Q助」</strong>（消防庁）。症状を画面で選ぶと、緊急度に応じた対応（例:「今すぐ救急車を呼びましょう」）が表示されます。そのあと、医療機関の検索に進めます。アプリ版とWeb版があります。<br />
+            <a href="https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate003.html" target="_blank" rel="noopener">消防庁「全国版救急受診アプリ（Q助）」<span class="sr-only"> （新しいタブで開きます）</span></a>
           </td>
         </tr>
         <tr>
           <th>近くの病院・診療所・薬局を探したい</th>
           <td>
-            <strong>医療情報ネット(ナビイ)</strong>(厚生労働省)。全国の医療機関・薬局を、診療日、診療科目、対応できる疾患・治療内容、提供しているサービスなどで探せます。<br />
-            <a href="https://www.iryou.teikyouseido.mhlw.go.jp/" target="_blank" rel="noopener">医療情報ネット(ナビイ)<span class="sr-only"> (新しいタブで開きます)</span></a>
+            <strong>医療情報ネット（ナビイ）</strong>（厚生労働省）。全国の医療機関・薬局を、診療日、診療科目、対応できる疾患・治療内容、提供しているサービスなどで探せます。<br />
+            <a href="https://www.iryou.teikyouseido.mhlw.go.jp/" target="_blank" rel="noopener">医療情報ネット（ナビイ）<span class="sr-only"> （新しいタブで開きます）</span></a>
           </td>
         </tr>
         <tr>
@@ -137,8 +162,8 @@ const sources = [
     <p>当研究所からの提案として、AIは、診察を受けるための準備に使うと、間違いの影響が小さくなります。</p>
     <ul class="jg-list">
       <li>先生に聞きたいことを、箇条書きにまとめる。</li>
-      <li>説明書や検査の用語を、やさしい言葉に言い換えてもらう(そのあと、先生や薬剤師に確認する)。</li>
-      <li>気になる症状の経過を、日付つきのメモに整理する(個人が特定される情報は入れない)。</li>
+      <li>説明書や検査の用語を、やさしい言葉に言い換えてもらう（そのあと、先生や薬剤師に確認する）。</li>
+      <li>気になる症状の経過を、日付つきのメモに整理する（個人が特定される情報は入れない）。</li>
     </ul>
     <p>AIが言ったことを、そのまま信じて薬を選んだり、受診をやめたりすることは、避けましょう。</p>
   </section>
@@ -149,6 +174,8 @@ const sources = [
       病院でAIが使われているとき、気になることを尋ねるのは自然なことです。どんなことを聞けるかは、<a href={withBase('/ja/patients/ai-in-hospital/')}>病院でAIが使われるとき、患者さんが知っておきたいこと</a>にまとめました。
     </p>
   </section>
+
+  <JaFaq items={faq} />
 
   <JaGuideFoot sources={sources} checked={CHECKED} patient />
 </JaLayout>

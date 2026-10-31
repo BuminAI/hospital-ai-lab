@@ -1,0 +1,23 @@
+---
+// 日本語版 実務ガイド・患者さん向けページ共通の「よくある質問」ブロック（2026-10-31）
+// 同じ配列を ja-guide.ts の guideSchema(faq) にも渡し、画面と構造化データを一致させる。
+interface Props {
+  items: { q: string; a: string }[];
+  heading?: string;
+}
+const { items, heading = 'よくある質問' } = Astro.props;
+---
+
+<section class="jg-sec jg-faq" aria-labelledby="jg-faq-h">
+  <h2 id="jg-faq-h">{heading}</h2>
+  <dl>
+    {
+      items.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+</section>
