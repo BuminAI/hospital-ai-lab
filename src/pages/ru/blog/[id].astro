@@ -9,6 +9,7 @@ import SeriesBox from '../../../components/SeriesBox.astro';
 import SubscribeCta from '../../../components/SubscribeCta.astro';
 import { getResolvedSeries, seriesOfPost } from '../../../utils/series';
 import { pickRelated } from '../../../utils/related';
+import { extractSummary, legislationMentions, aboutTopics } from '../../../utils/ru-aeo';
 
 const fmt = new Intl.DateTimeFormat('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -60,6 +61,11 @@ try {
 // BlogPosting — author는 ko/ja와 같은 Person 엔티티를 @id로 참조한다
 // (같은 사람이므로 언어판마다 엔티티를 새로 만들지 않는다).
 const citations = citationsOf(post.body);
+// AEO/GEO(2026-10-31): 글에 이미 있는 «Главное/Коротко/Итог» 요약을 맨 위 «Краткий ответ»로 올리고, 본문에 실제로 나오는 규정·주제를 연결한다.
+const summary = extractSummary(post.body);
+const bodyText = `${post.data.title} ${post.data.description} ${post.body ?? ''}`;
+const mentions = legislationMentions(bodyText);
+const about = aboutTopics(bodyText);
 const blogPosting = {
   '@type': 'BlogPosting',
   '@id': `${canonicalUrl}#article`,
@@ -81,6 +87,10 @@ const blogPosting = {
   mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
   // 본문에 링크로 걸린 외부 출처(화면에 보이는 것만). 없으면 필드를 내지 않는다.
   ...(citations.length > 0 ? { citation: citations } : {}),
+  ...(summary.length > 0 ? { abstract: summary.join(' ') } : {}),
+  ...(about.length > 0 ? { about } : {}),
+  ...(mentions.length > 0 ? { mentions } : {}),
+  ...(summary.length > 0 ? { speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.ru-answer', 'h1'] } } : {}),
 };
 
 // hreflang을 내지 않는 이유(standalone):
@@ -117,6 +127,20 @@ const blogPosting = {
   </div>
   <h1>{post.data.title}</h1>
   <p class="ru-lead">{post.data.description}</p>
+
+  {
+    summary.length > 0 && (
+      <aside class="ru-answer" aria-labelledby="ru-answer-h">
+        <h2 id="ru-answer-h">Краткий ответ</h2>
+        <ul>
+          {summary.map((s) => (
+            <li>{s}</li>
+          ))}
+        </ul>
+        <p class="ru-answer-note">Кратко изложено из раздела ниже; источники и ограничения — в тексте статьи.</p>
+      </aside>
+    )
+  }
 
   <div class="ru-prose">
     <Content />

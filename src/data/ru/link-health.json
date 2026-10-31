@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-31T11:53:32.199Z",
+  "total": 88,
+  "ok": 86,
+  "unknown": 2,
+  "unknownList": [
+    {
+      "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
+      "status": 0
+    },
+    {
+      "url": "https://habr.com/ru/articles/1099004/",
+      "status": 403
+    }
+  ],
+  "dead": []
+}

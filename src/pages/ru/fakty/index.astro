@@ -1,0 +1,112 @@
+---
+// Ключевые факты для цитирования (2026-10-31) — страница для AEO/GEO.
+// Один пункт = вопрос + короткий ответ + статья + первичный источник. Данные: src/data/ru/guides/facts.ts.
+// У каждого пункта есть якорь (#id) для прямой ссылки.
+import '../../../styles/ru-guide.css';
+import RuLayout from '../../../layouts/RuLayout.astro';
+import RuGuideFoot from '../../../components/RuGuideFoot.astro';
+import { FACTS, FACT_TOPICS, FACTS_CHECKED } from '../../../data/ru/guides/facts';
+import { SRC } from '../../../data/ru/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const title = 'Ключевые факты: данные пациентов, документы и ИИ в больнице';
+const description = `${FACTS.length} коротких ответов, которые можно цитировать: персональные данные, место хранения, врачебная тайна, электронные медицинские документы, КИИ и ИИ-изделия — со статьёй и первичным источником.`;
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/ru/fakta/')}`;
+
+const faqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'ru',
+  isPartOf: { '@id': `${siteRoot}/#website-ru` },
+  mainEntity: FACTS.map((f) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#${f.id}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: `${f.a} (Основание: ${f.basis}.)`, citation: SRC[f.src].url },
+  })),
+};
+const articleLd = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: title,
+  description,
+  inLanguage: 'ru',
+  author: { '@id': `${siteRoot}/#person` },
+  publisher: { '@id': `${siteRoot}/#organization` },
+  isPartOf: { '@id': `${siteRoot}/#website-ru` },
+  mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  datePublished: '2026-10-31T00:00:00+03:00',
+  dateModified: '2026-10-31T00:00:00+03:00',
+  isAccessibleForFree: true,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.tg-answer', 'h1'] },
+  citation: Object.values(SRC).map((s) => ({ '@type': 'CreativeWork', name: s.label, url: s.url })),
+};
+
+const sources = [SRC.fz152_10, SRC.fz152_18, SRC.fz152_21, SRC.fz323_13, SRC.order209, SRC.fz187];
+---
+
+<RuLayout title={title} description={description} crumb="Ключевые факты" standalone updated={new Date('2026-10-31T00:00:00+03:00')} schema={[articleLd, faqLd]}>
+  <h1>Ключевые факты: данные пациентов, документы и ИИ в больнице</h1>
+  <p class="tg-lead">
+    Короткие ответы на вопросы, которые чаще всего возникают на закупочных и комплаенс-совещаниях. Каждый ответ записан после того, как открыли текст акта, и содержит статью и ссылку на первичный источник.
+  </p>
+  <p class="tg-meta">Проверено: {FACTS_CHECKED} · {FACTS.length} пунктов · Для: администрации, медсестёр и пациентов</p>
+
+  <p class="tg-answer">
+    Коротко: об инциденте — уведомление Роскомнадзора в течение 24 и 72 часов; базы данных граждан России — на территории России; электронные медицинские документы — по приказу № 209н с 1 сентября 2026 г.; подпись — усиленная квалифицированная электронная подпись сформировавшего документ работника.
+  </p>
+
+  <div class="tg-box">
+    <strong>Как пользоваться страницей</strong><br />
+    Скопируйте ответ вместе со статьёй, а текст нормы сверяйте по первичному источнику. Здесь нет сроков и норм, тексты которых мы не читали; это не юридическая консультация.
+    <br />
+    {
+      FACT_TOPICS.map((t, i) => (
+        <>
+          <a href={`#t-${i}`}>{t}</a>
+          {i < FACT_TOPICS.length - 1 ? ' · ' : ''}
+        </>
+      ))
+    }
+  </div>
+
+  {
+    FACT_TOPICS.map((topic, i) => (
+      <section class="tg-sec" aria-labelledby={`t-${i}`}>
+        <h2 id={`t-${i}`}>{topic}</h2>
+        <dl class="tg-facts">
+          {FACTS.filter((f) => f.topic === topic).map((f) => (
+            <>
+              <dt id={f.id}>
+                <a href={`#${f.id}`}>{f.q}</a>
+              </dt>
+              <dd>
+                <p>{f.a}</p>
+                <p class="tg-basis">
+                  Основание: {f.basis} ·{' '}
+                  <a href={SRC[f.src].url} target="_blank" rel="noopener">
+                    первичный источник<span class="sr-only"> (откроется в новой вкладке)</span>
+                  </a>
+                </p>
+              </dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Дальше</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ru/dx-roadmap/')}><b>Дорожная карта</b><span>Ключевые акты на одной шкале времени.</span></a>
+      <a class="tg-card" href={withBase('/ru/data-checklist/')}><b>Чек-лист защиты данных пациентов</b><span>18 пунктов по статьям.</span></a>
+      <a class="tg-card" href={withBase('/ru/glossary/')}><b>Глоссарий</b><span>Термины медицинского ИИ простым языком.</span></a>
+    </div>
+  </section>
+
+  <RuGuideFoot sources={sources} checked={FACTS_CHECKED} />
+</RuLayout>

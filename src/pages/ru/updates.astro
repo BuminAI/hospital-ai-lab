@@ -1,0 +1,85 @@
+---
+// Обновления (2026-10-31) — что недавно добавлено в русской версии, по датам.
+// Даты: выход новости, дата акта, дата добавления видео, дата статьи — не время сборки сайта.
+import '../../styles/ru-guide.css';
+import RuLayout from '../../layouts/RuLayout.astro';
+import { getRuUpdates, KIND_LABEL } from '../../utils/ru-updates';
+import { withBase } from '../../utils/site';
+
+const DAYS = 45;
+const items = await getRuUpdates(DAYS);
+const fmtDay = new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+const dayKey = (iso: string) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Moscow' }).format(new Date(iso));
+
+const groups: { key: string; label: string; list: typeof items }[] = [];
+for (const it of items) {
+  const k = dayKey(it.date);
+  let g = groups[groups.length - 1];
+  if (!g || g.key !== k) {
+    g = { key: k, label: fmtDay.format(new Date(it.date)), list: [] };
+    groups.push(g);
+  }
+  g.list.push(it);
+}
+const count = (kind: string) => items.filter((i) => i.kind === kind).length;
+
+const title = 'Обновления: новости ИИ, новые акты, видео и статьи';
+const description = `Новости ИИ, новые акты с официального портала, видео и статьи, добавленные за последние ${DAYS} дней, по датам. Собираются автоматически, проверяются каждый день.`;
+const latest = items.length ? new Date(items[0].date) : undefined;
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${siteRoot}${withBase('/ru/updates/')}#collection`,
+    name: 'Обновления',
+    inLanguage: 'ru',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 30).map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.title,
+        url: it.external ? it.href : `${siteRoot}${it.href}`,
+      })),
+    },
+  },
+];
+---
+
+<RuLayout title={title} description={description} crumb="Обновления" standalone updated={latest} schema={schema}>
+  <h1>Обновления</h1>
+  <p class="tg-lead">
+    Что добавлено в русской версии за последние {DAYS} дней, по датам. Новости проверяются каждые 3 часа, новые акты и видео — несколько раз в сутки; статьи добавляются по мере готовности.
+  </p>
+  <p class="tg-meta">
+    За {DAYS} дней: {KIND_LABEL.news} {count('news')} · {KIND_LABEL.notice} {count('notice')} · {KIND_LABEL.video} {count('video')} · {KIND_LABEL.blog} {count('blog')}
+  </p>
+  <div class="tg-box">
+    Даты на экране — это дата выхода новости, дата акта, дата добавления видео или дата статьи, а не время сборки сайта. Внешние ссылки ведут на страницы организаций и СМИ.
+  </div>
+
+  {
+    groups.length > 0 ? (
+      groups.map((g) => (
+        <section class="tg-sec" aria-label={g.label}>
+          <h2>{g.label}</h2>
+          <ul class="tg-list">
+            {g.list.map((it) => (
+              <li>
+                <span class="tg-tag">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only">(откроется в новой вкладке)</span>}
+                </a>
+                {it.note && <small> · {it.note}</small>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    ) : (
+      <p>За этот период ничего нового не добавлено.</p>
+    )
+  }
+</RuLayout>

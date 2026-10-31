@@ -1,0 +1,387 @@
+/* Тема «luxe» русской версии (2026-10-31, пожелание владельца: профессионализм, доверие, премиальность).
+   Чёрный фон, тёплое бронзово-золотое свечение, тонкие линии, serif-заголовки с широким трекингом. Затрагивает только русскую версию (data-locale=ru). */
+
+:root[data-locale='ru'] {
+  color-scheme: dark;
+  --ru-base: #0a0908;
+  --ru-surface: #12100e;
+  --ru-surface-2: #1b1814;
+  --ru-border: #2b2620;
+  --ru-text: #ece6da;
+  --ru-text-sub: #a89e8d;
+  --ru-primary: #c8a46a;
+  --ru-primary-dk: #e3cb9a;
+  --ru-btn-bg: #a52831;
+  --ru-btn-bg-hover: #c0303b;
+  --ru-btn-fg: #ffffff;
+  --ru-accent: #c8a46a;
+  --ru-badge-new: #c8a46a;
+  --ru-badge-info: #9ab4c9;
+  --ru-badge-gov: #b9c79a;
+  --ru-gold: #c8a46a;
+  --ru-gold-soft: #e3cb9a;
+  --ru-hair: rgba(200, 164, 106, 0.24);
+  --ru-serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', Georgia, serif;
+}
+
+html[data-locale='ru'],
+[data-locale='ru'] body {
+  background: var(--ru-base);
+  color: var(--ru-text);
+}
+html[data-locale='ru'] body {
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+/* ---- */
+html[data-locale='ru'] .ru-header {
+  background: #050403;
+  border-bottom: 1px solid var(--ru-hair);
+  padding: 0;
+}
+html[data-locale='ru'] .ru-header::after {
+  display: none;
+}
+html[data-locale='ru'] .ru-header-inner {
+  justify-content: center;
+  text-align: center;
+  padding: 24px 20px 18px;
+}
+html[data-locale='ru'] .ru-brand {
+  display: inline-block;
+  font-family: var(--ru-serif);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #f3ecdc;
+  text-decoration: none;
+}
+html[data-locale='ru'] .ru-brand-sub {
+  display: block;
+  margin-top: 8px;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ru-gold);
+}
+
+/* ---- */
+html[data-locale='ru'] .ru-nav {
+  background: #0a0908;
+  border-bottom: 1px solid var(--ru-hair);
+}
+html[data-locale='ru'] .ru-nav .ru-nav-primary {
+  justify-content: center;
+}
+html[data-locale='ru'] .ru-nav .ru-nav-primary a {
+  padding: 15px 18px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e8e0cf;
+}
+html[data-locale='ru'] .ru-nav .ru-nav-primary a[aria-current='page'],
+html[data-locale='ru'] .ru-nav .ru-nav-primary a:hover {
+  color: var(--ru-gold-soft);
+  box-shadow: inset 0 -2px 0 var(--ru-gold);
+}
+html[data-locale='ru'] .ru-nav .ru-nav-secondary {
+  background: #070605;
+  border-top: 1px solid var(--ru-border);
+}
+html[data-locale='ru'] .ru-nav .ru-nav-secondary-inner {
+  justify-content: center;
+}
+html[data-locale='ru'] .ru-nav .ru-nav-label {
+  color: var(--ru-gold);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+}
+html[data-locale='ru'] .ru-nav .ru-nav-secondary a {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ru-text-sub);
+}
+html[data-locale='ru'] .ru-nav .ru-nav-secondary a[aria-current='page'],
+html[data-locale='ru'] .ru-nav .ru-nav-secondary a:hover {
+  color: var(--ru-gold-soft);
+}
+html[data-locale='ru'] .ru-breadcrumb {
+  color: var(--ru-text-sub);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- */
+html[data-locale='ru'] h1,
+html[data-locale='ru'] h2,
+html[data-locale='ru'] h3 {
+  font-family: var(--ru-serif);
+  font-weight: 500;
+  color: #f4eee0;
+}
+html[data-locale='ru'] h1 {
+  font-size: 32px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+html[data-locale='ru'] main h2 {
+  font-size: 22px;
+  border: 0;
+  border-bottom: 1px solid var(--ru-hair);
+  padding: 0 0 10px;
+  margin-top: 40px;
+}
+html[data-locale='ru'] a {
+  color: var(--ru-gold-soft);
+}
+html[data-locale='ru'] a:hover {
+  color: #f6e7c4;
+}
+html[data-locale='ru'] main table {
+  border-color: var(--ru-border);
+}
+html[data-locale='ru'] main th {
+  background: var(--ru-surface-2);
+  color: var(--ru-gold-soft);
+}
+html[data-locale='ru'] main tbody tr:nth-child(even) > * {
+  background: rgba(255, 255, 255, 0.02);
+}
+html[data-locale='ru'] main td,
+html[data-locale='ru'] main th {
+  border-color: var(--ru-border);
+}
+
+/* ---- */
+html[data-locale='ru'] .tg-box,
+html[data-locale='ru'] .ru-note {
+  background: var(--ru-surface);
+  border: 1px solid var(--ru-hair);
+  border-radius: 0;
+}
+html[data-locale='ru'] .tg-warn {
+  border-left: 3px solid var(--ru-gold);
+}
+html[data-locale='ru'] .tg-answer {
+  background: var(--ru-surface);
+  border-left: 3px solid var(--ru-btn-bg);
+  color: var(--ru-text);
+}
+html[data-locale='ru'] [class$='-cards'] > a[class],
+html[data-locale='ru'] .tg-card {
+  background: var(--ru-surface);
+  border: 1px solid var(--ru-hair);
+  border-left: 1px solid var(--ru-hair);
+  border-radius: 0;
+}
+html[data-locale='ru'] .tg-card:hover {
+  border-color: var(--ru-gold);
+}
+html[data-locale='ru'] .tg-card b {
+  font-family: var(--ru-serif);
+  font-weight: 500;
+  color: var(--ru-gold-soft);
+}
+html[data-locale='ru'] .tg-tag {
+  background: transparent;
+  border: 1px solid var(--ru-hair);
+  color: var(--ru-gold);
+  letter-spacing: 0.08em;
+  border-radius: 0;
+}
+html[data-locale='ru'] .tg-copy pre {
+  background: #050403;
+  border: 1px solid var(--ru-hair);
+  color: #e8e0cf;
+}
+html[data-locale='ru'] .tg-btn {
+  background: transparent;
+  border: 1px solid var(--ru-gold);
+  color: var(--ru-gold-soft);
+  border-radius: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+html[data-locale='ru'] .ru-side section {
+  background: var(--ru-surface);
+  border: 1px solid var(--ru-hair);
+  border-radius: 0;
+}
+
+/* ---- */
+html[data-locale='ru'] .ru-footer {
+  background: #050403;
+  border-top: 1px solid var(--ru-hair);
+  color: var(--ru-text-sub);
+}
+html[data-locale='ru'] .ru-footer::before {
+  display: none;
+}
+html[data-locale='ru'] .ru-footer a {
+  color: var(--ru-gold-soft);
+}
+
+@media (max-width: 640px) {
+  html[data-locale='ru'] h1 {
+    font-size: 26px;
+  }
+  html[data-locale='ru'] .ru-brand {
+    font-size: 14px;
+    letter-spacing: 0.28em;
+  }
+  html[data-locale='ru'] .ru-nav .ru-nav-primary {
+    justify-content: flex-start;
+  }
+  html[data-locale='ru'] .ru-nav .ru-nav-primary a {
+    padding: 13px 12px;
+    letter-spacing: 0.14em;
+  }
+}
+
+/* ---- */
+html[data-locale='ru'] main .th-hero-card h2 {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ru-gold);
+}
+html[data-locale='ru'] main h2.th-h {
+  margin: 0 0 34px;
+  padding: 0 0 16px;
+  border: 0;
+  border-bottom: 1px solid var(--ru-hair);
+  font-size: 28px;
+  font-weight: 400;
+}
+html[data-locale='ru'] main .th-post h3,
+html[data-locale='ru'] main .th-lib strong {
+  border: 0;
+}
+html[data-locale='ru'] main .th-task {
+  text-decoration: none;
+}
+
+/* ---- */
+html[data-locale='ru'] body:has(.th-hero) .ru-shell {
+  display: block;
+  max-width: none;
+  padding: 0 0 56px;
+}
+html[data-locale='ru'] body:has(.th-hero) .ru-side,
+html[data-locale='ru'] body:has(.th-hero) .ru-updated {
+  display: none;
+}
+html[data-locale='ru'] body:has(.th-hero) .ru-breadcrumb {
+  display: none;
+}
+html[data-locale='ru'] main h2.th-h {
+  background: transparent;
+  padding-left: 0;
+}
+
+/* ---- */
+html[data-locale='ru'] .ru-side h2 {
+  background: transparent;
+  color: var(--ru-gold);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  border: 0;
+  border-bottom: 1px solid var(--ru-hair);
+  margin: 0;
+  padding: 14px 18px;
+}
+
+/* ---- */
+html[data-locale='ru'] .th-hero-card h2 {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ru-gold);
+}
+html[data-locale='ru'] .th-hero h1 {
+  border: 0;
+  padding: 0;
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 400;
+  line-height: 1.22;
+}
+
+/* ---- */
+html[data-locale='ru'] .ru-answer {
+  margin: 22px 0 8px;
+  padding: 20px 24px 14px;
+  background: var(--ru-surface);
+  border: 1px solid var(--ru-hair);
+  border-left: 3px solid var(--ru-gold);
+}
+html[data-locale='ru'] .ru-answer h2 {
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ru-gold);
+}
+html[data-locale='ru'] .ru-answer ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+html[data-locale='ru'] .ru-answer li {
+  margin: 6px 0;
+  line-height: 1.75;
+  font-size: 15px;
+}
+html[data-locale='ru'] .ru-answer-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--ru-text-sub);
+}
+
+/* ---- */
+html[data-locale='ru'] .tg-facts dt {
+  margin: 0;
+  padding: 18px 0 4px;
+  border-top: 1px solid var(--ru-border);
+  font-family: var(--ru-serif);
+  font-size: 17.5px;
+  line-height: 1.5;
+}
+html[data-locale='ru'] .tg-facts dt a {
+  color: #f4eee0;
+  text-decoration: none;
+}
+html[data-locale='ru'] .tg-facts dd {
+  margin: 0 0 12px;
+}
+html[data-locale='ru'] .tg-facts dd p {
+  margin: 4px 0;
+}
+html[data-locale='ru'] .tg-facts .tg-basis {
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  color: var(--ru-text-sub);
+}

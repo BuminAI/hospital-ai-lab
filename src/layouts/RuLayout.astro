@@ -12,9 +12,13 @@
 import '../styles/global.css';
 import '../styles/ru-tokens.css';
 import '../styles/locale-theme.css';
+import '../styles/ru-refresh.css';
+import '../styles/ru-luxe.css';
 import ru from '../i18n/ru.json';
 import { growth } from '../i18n/growth';
 import navConfig from '../data/ru/content/nav.json';
+import linkHealth from '../data/ru/link-health.json';
+import lawWatch from '../data/ru/law-watch.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import { organizationShared } from '../utils/entity';
 import {
@@ -128,8 +132,14 @@ const nav = navConfig
   .filter((item) => item.href === '/ru/' || item.enabled)
   .map((item) => ({
     href: item.href,
+    key: item.key,
     label: navLabels[item.key] ?? item.key,
   }));
+
+// Двухуровневое меню (2026-10-31): 6 основных пунктов крупно, остальное во втором ряду.
+const PRIMARY_KEYS = ['home', 'practice', 'govSupport', 'news', 'patients', 'blog'];
+const navPrimary = nav.filter((n) => PRIMARY_KEYS.includes(n.key));
+const navSecondary = nav.filter((n) => !PRIMARY_KEYS.includes(n.key));
 
 const isActive = (href: string) =>
   href === '/ru/' ? canonicalPath === '/ru/' : canonicalPath.startsWith(href);
@@ -347,9 +357,9 @@ const year = new Date().getFullYear();
     </header>
 
     <nav class="ru-nav" aria-label="Главное меню">
-      <ul>
+      <ul class="ru-nav-primary">
         {
-          nav.map((item) => (
+          navPrimary.map((item) => (
             <li>
               <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
                 {item.label}
@@ -358,14 +368,37 @@ const year = new Date().getFullYear();
           ))
         }
       </ul>
+      {
+        navSecondary.length > 0 && (
+          <div class="ru-nav-secondary">
+            <ul class="ru-nav-secondary-inner">
+              <li class="ru-nav-label">Данные</li>
+              {navSecondary.map((item) => (
+                <li>
+                  <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
     </nav>
 
-    <nav class="ru-breadcrumb" aria-label="Хлебные крошки">
-      <ol>
-        <li><a href={withBase('/ru/')}>{ru.ui.breadcrumbHome}</a></li>
-        {crumb && <li aria-current="page">{crumb}</li>}
-      </ol>
-    </nav>
+    {/* Слот для блока на всю ширину (hero главной). Страницы без него ничего не выводят */}
+    <slot name="hero" />
+
+    {
+      crumb && (
+        <nav class="ru-breadcrumb" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href={withBase('/ru/')}>{ru.ui.breadcrumbHome}</a></li>
+            <li aria-current="page">{crumb}</li>
+          </ol>
+        </nav>
+      )
+    }
 
     <div class="ru-shell">
       <main id="ru-main">
@@ -422,6 +455,7 @@ const year = new Date().getFullYear();
         <ul>
           <li><a href={withBase('/ru/about/')}>{ru.footer.about}</a></li>
           <li><a href={withBase('/ru/series/')}>{growth.ru.seriesName}</a></li>
+          <li><a href={withBase('/ru/updates/')}>Обновления</a></li>
           <li><a href={withBase('/privacy/')}>{ru.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{ru.footer.contact}</a></li>
           <li><a href={withBase('/sitemap-index.xml')}>{ru.footer.sitemap}</a></li>
@@ -449,6 +483,29 @@ const year = new Date().getFullYear();
               <a href={withBase('/tw/')} hreflang="zh-TW" lang="zh-TW">{ru.editions.tw}</a>
             </li>
         </ul>
+        {
+          /* Ежедневная проверка ссылок-источников (scripts/check-ru-links.mjs → link-health.json).
+             Неработающими считаются только 404/410; недоступные ссылки считаются отдельно как «не удалось проверить». */
+          linkHealth.checkedAt && (
+            <p class="ru-footer-check">
+              Автоматическая проверка ссылок на источники: {new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(linkHealth.checkedAt))}
+              (проверено {linkHealth.total}, не найдено {linkHealth.dead.length}, не удалось проверить из-за недоступности {linkHealth.unknown})
+            </p>
+          )
+        }
+        {
+          /* Ежедневный контроль редакций базовых законов (scripts/check-ru-laws.mjs → law-watch.json).
+             Если дата последней редакции отличается от той, по которой писался сайт, название закона выводится здесь. */
+          lawWatch.checkedAt && (
+            <p class="ru-footer-check">
+              Контроль редакций базовых законов: {new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(lawWatch.checkedAt))}
+              (КонсультантПлюс, {lawWatch.laws.length})
+              {lawWatch.laws.some((l) => l.changed)
+                ? `. Редакция ${lawWatch.laws.filter((l) => l.changed).map((l) => l.name).join('; ')} отличается от той, по которой писался сайт; материалы перепроверяются. Ориентируйтесь на действующий текст.`
+                : '. Сейчас отличий от редакций, по которым писался сайт, не найдено.'}
+            </p>
+          )
+        }
         <p>{ru.ui.disclaimer}</p>
         <p style="margin-top:10px">© {year} {SITE_RU}</p>
       </div>

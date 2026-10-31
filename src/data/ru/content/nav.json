@@ -20,6 +20,16 @@
     "enabled": true
   },
   {
+    "href": "/ru/practice/",
+    "key": "practice",
+    "enabled": true
+  },
+  {
+    "href": "/ru/patients/",
+    "key": "patients",
+    "enabled": true
+  },
+  {
     "href": "/ru/ai-digest/",
     "key": "aiDigest",
     "enabled": true

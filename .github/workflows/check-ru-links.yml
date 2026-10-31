@@ -1,0 +1,57 @@
+name: Check RU Source Links
+
+on:
+  schedule:
+    # 매일 KST 03:43 (UTC 18:43). 러시아어판 출처 링크에 실제로 접속해 결과를
+    # src/data/ru/link-health.json 에 쓴다. 러시아어판 푸터에 확인일로 표시된다.
+    - cron: '51 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # 결과 JSON 커밋
+  actions: write # deploy.yml 수동 트리거(gh workflow run)
+
+# 자기 자신의 중복 실행만 직렬화한다. deploy.yml의 'pages' 그룹과 공유하지 않는다
+# (공유하면 오너의 수동 배포 대기분이 취소된다 — update-news.yml과 같은 이유).
+concurrency:
+  group: check-ru-links
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 접속 자체가 막혀 한 건도 확인하지 못하면 스크립트는 아무것도 쓰지 않고 실패한다.
+      # 그 경우에도 여기서 멈추지 않고 "지난번 결과를 그대로 둔다".
+      - name: 출처 링크 확인
+        run: node scripts/check-ru-links.mjs || echo "확인을 끝내지 못해 지난 결과를 유지합니다"
+
+      - name: link-health.json 커밋 (변경 있을 때만)
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/ru/link-health.json
+          if git diff --cached --quiet; then
+            echo "변경 없음 — 커밋·배포 생략"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "유지보수: 러시아어판 출처 링크 자동 확인"
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 배포 트리거 (deploy.yml)
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml

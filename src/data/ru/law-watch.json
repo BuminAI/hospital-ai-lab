@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-31T11:54:11.863Z",
+  "readOk": 5,
+  "total": 5,
+  "laws": [
+    {
+      "id": "LAW_61801",
+      "name": "Федеральный закон № 152-ФЗ «О персональных данных»",
+      "baseline": "2026-07-26",
+      "baselinePending": true,
+      "current": "2026-07-26",
+      "pending": true,
+      "changed": false,
+      "lastRead": "2026-10-31T11:54:03.605Z",
+      "error": null
+    },
+    {
+      "id": "LAW_121895",
+      "name": "Федеральный закон № 323-ФЗ «Об основах охраны здоровья граждан»",
+      "baseline": "2026-08-04",
+      "baselinePending": false,
+      "current": "2026-08-04",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-10-31T11:54:05.287Z",
+      "error": null
+    },
+    {
+      "id": "LAW_34661",
+      "name": "КоАП РФ (ст. 13.11)",
+      "baseline": "2026-08-04",
+      "baselinePending": false,
+      "current": "2026-08-04",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-10-31T11:54:07.648Z",
+      "error": null
+    },
+    {
+      "id": "LAW_220885",
+      "name": "Федеральный закон № 187-ФЗ «О безопасности КИИ»",
+      "baseline": "2025-04-07",
+      "baselinePending": false,
+      "current": "2025-04-07",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-10-31T11:54:09.179Z",
+      "error": null
+    },
+    {
+      "id": "LAW_507869",
+      "name": "Приказ ФСТЭК России № 117",
+      "baseline": "2026-05-08",
+      "baselinePending": true,
+      "current": "2026-05-08",
+      "pending": true,
+      "changed": false,
+      "lastRead": "2026-10-31T11:54:10.649Z",
+      "error": null
+    }
+  ]
+}

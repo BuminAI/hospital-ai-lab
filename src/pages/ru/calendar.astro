@@ -1,0 +1,66 @@
+---
+// Календарь актов (2026-10-31)
+// Новые акты собираются автоматически с официального портала (scripts/fetch-ru-gov.mjs): Минздрав, Росздравнадзор, ФСТЭК, Роскомнадзор.
+// ⚠️ В России нет единого открытого источника по грантам и программам для больниц (как jGrants в Японии); «объявления» здесь — НОВЫЕ АКТЫ,
+//    а не программы поддержки. Дата = дата акта, а не срок.
+import '../../styles/ru-guide.css';
+import RuLayout from '../../layouts/RuLayout.astro';
+import RuGuideFoot from '../../components/RuGuideFoot.astro';
+import notices from '../../data/ru/gov-notices.json';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = notices.items.slice(0, 20);
+
+const title = 'Календарь актов: новые приказы Минздрава, Росздравнадзора, ФСТЭК';
+const description =
+  'Новые акты по персональным данным, медицинским документам, информационной безопасности и медицинским изделиям с официального портала опубликования. Обновляется автоматически каждый день.';
+const sources = [{ label: 'Официальное опубликование правовых актов (publication.pravo.gov.ru)', url: 'http://publication.pravo.gov.ru/' }];
+---
+
+<RuLayout title={title} description={description} crumb="Календарь актов" standalone updated={new Date(notices.updatedAt)}>
+  <h1>Календарь актов</h1>
+  <p class="tg-lead">
+    Какие акты вышли недавно? Сюда автоматически попадают новые документы Минздрава России, Росздравнадзора, ФСТЭК России и Роскомнадзора, которые касаются персональных данных, информации и медицинской документации.
+  </p>
+  <p class="tg-meta">Показано: {fmtDay.format(new Date())} · Данные обновлены: {fmtDay.format(new Date(notices.updatedAt))}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+    <h2 id="h-notice">Новые акты с официального портала</h2>
+    <div class="tg-box tg-warn">
+      Дата ниже — <strong>дата акта</strong>, а не срок исполнения. Содержание, обязанности и порядок вступления в силу смотрите в тексте. Копируются только название, номер, дата и орган.
+    </div>
+    {
+      recent.length > 0 ? (
+        <ol class="tg-tl">
+          {recent.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+                    <span class="sr-only">(откроется в новой вкладке)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>Подходящих актов пока нет.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+    <h2 id="h-ms">Предстоящие сроки</h2>
+    <p>
+      Подтверждённых по первичным источникам новых сроков для больниц мы не нашли. Уже наступившие вехи — в <a href={withBase('/ru/dx-roadmap/')}>Дорожной карте</a>.
+    </p>
+  </section>
+
+  <RuGuideFoot sources={sources} checked="31 октября 2026 г." />
+</RuLayout>

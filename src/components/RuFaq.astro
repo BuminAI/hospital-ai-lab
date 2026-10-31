@@ -1,0 +1,23 @@
+---
+// Общий блок «Частые вопросы» для страниц «Практикум» и «Для пациентов» русской версии (2026-10-31)
+// Тот же массив нужно передавать в guideSchema(faq) из ru-guide.ts, чтобы экран и структурированные данные совпадали.
+interface Props {
+  items: { q: string; a: string }[];
+  heading?: string;
+}
+const { items, heading = 'Частые вопросы' } = Astro.props;
+---
+
+<section class="tg-sec tg-faq" aria-labelledby="tg-faq-h">
+  <h2 id="tg-faq-h">{heading}</h2>
+  <dl>
+    {
+      items.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+</section>
