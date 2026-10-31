@@ -1,0 +1,112 @@
+---
+// Fakta kunci yang dapat dikutip (2026-10-31) — halaman AEO/GEO.
+// Satu butir = satu pertanyaan + jawaban pendek + pasal + sumber primer. Data di src/data/id/guides/facts.ts.
+// Setiap butir punya anchor (#id) agar mesin jawaban dan manusia bisa menautkan langsung.
+import '../../../styles/id-guide.css';
+import IdLayout from '../../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../../components/IdGuideFoot.astro';
+import { FACTS, FACT_TOPICS, FACTS_CHECKED } from '../../../data/id/guides/facts';
+import { SRC } from '../../../data/id/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const title = 'Fakta kunci RME, data pasien, dan AI rumah sakit per pasal';
+const description = `${FACTS.length} jawaban singkat yang dapat dikutip tentang RME, lokasi data, UU PDP, alat kesehatan berbasis AI, SATUSEHAT, dan hak pasien — masing-masing dengan pasal dan sumber primer.`;
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/id/fakta/')}`;
+
+const faqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'id',
+  isPartOf: { '@id': `${siteRoot}/#website-id` },
+  mainEntity: FACTS.map((f) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#${f.id}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: `${f.a} (Dasar: ${f.basis}.)`, citation: SRC[f.src].url },
+  })),
+};
+const articleLd = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: title,
+  description,
+  inLanguage: 'id',
+  author: { '@id': `${siteRoot}/#person` },
+  publisher: { '@id': `${siteRoot}/#organization` },
+  isPartOf: { '@id': `${siteRoot}/#website-id` },
+  mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  datePublished: '2026-10-31T00:00:00+07:00',
+  dateModified: '2026-10-31T00:00:00+07:00',
+  isAccessibleForFree: true,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.tg-answer', 'h1'] },
+  citation: Object.values(SRC).map((s) => ({ '@type': 'CreativeWork', name: s.label, url: s.url })),
+};
+
+const sources = [SRC.permenkes24, SRC.uuPdp, SRC.uuKesehatan, SRC.pp28, SRC.kepmenkes951, SRC.satusehatRme];
+---
+
+<IdLayout title={title} description={description} crumb="Fakta kunci" standalone updated={new Date('2026-10-31T00:00:00+07:00')} schema={[articleLd, faqLd]}>
+  <h1>Fakta kunci RME, data pasien, dan AI rumah sakit</h1>
+  <p class="tg-lead">
+    Jawaban singkat untuk pertanyaan yang paling sering muncul di rapat pengadaan dan kepatuhan. Setiap jawaban ditulis setelah naskah resminya dibuka, dan mencantumkan pasal serta tautan sumber primernya.
+  </p>
+  <p class="tg-meta">Diverifikasi: {FACTS_CHECKED} · {FACTS.length} butir · Untuk: administrasi, keperawatan, dan pasien</p>
+
+  <p class="tg-answer">
+    Ringkasnya: RME wajib sejak 31 Desember 2023 dan disimpan paling singkat 25 tahun; data kesehatan diproses dan disimpan di Indonesia; kebocoran data pribadi diberitahukan tertulis dalam 3 x 24 jam; AI hanya termasuk alat kesehatan bila bertujuan medis (Kepmenkes 951/2026).
+  </p>
+
+  <div class="tg-box">
+    <strong>Cara memakai halaman ini</strong><br />
+    Salin jawaban beserta pasalnya, lalu rujuk naskah resmi untuk bunyi lengkap. Halaman ini tidak memuat tenggat atau ketentuan yang naskah resminya belum kami baca, dan bukan nasihat hukum.
+    <br />
+    {
+      FACT_TOPICS.map((t, i) => (
+        <>
+          <a href={`#t-${i}`}>{t}</a>
+          {i < FACT_TOPICS.length - 1 ? ' · ' : ''}
+        </>
+      ))
+    }
+  </div>
+
+  {
+    FACT_TOPICS.map((topic, i) => (
+      <section class="tg-sec" aria-labelledby={`t-${i}`}>
+        <h2 id={`t-${i}`}>{topic}</h2>
+        <dl class="tg-facts">
+          {FACTS.filter((f) => f.topic === topic).map((f) => (
+            <>
+              <dt id={f.id}>
+                <a href={`#${f.id}`}>{f.q}</a>
+              </dt>
+              <dd>
+                <p>{f.a}</p>
+                <p class="tg-basis">
+                  Dasar: {f.basis} ·{' '}
+                  <a href={SRC[f.src].url} target="_blank" rel="noopener">
+                    sumber primer<span class="sr-only"> (dibuka di tab baru)</span>
+                  </a>
+                </p>
+              </dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Lanjutkan ke</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/id/dx-roadmap/')}><b>Peta waktu</b><span>Tonggak regulasi dalam satu garis waktu.</span></a>
+      <a class="tg-card" href={withBase('/id/cyber-checklist/')}><b>Daftar periksa keamanan data pasien</b><span>20 butir lengkap dengan pasal.</span></a>
+      <a class="tg-card" href={withBase('/id/glossary/')}><b>Kamus istilah</b><span>Definisi RME, SaMD/SiMD, data pribadi spesifik, dan lainnya.</span></a>
+    </div>
+  </section>
+
+  <IdGuideFoot sources={sources} checked={FACTS_CHECKED} />
+</IdLayout>
