@@ -774,3 +774,11 @@ src/assets/fonts/            # 통짜 Pretendard — OG 이미지 생성 전용(
 - 자동 수집·점검(전부 GitHub Actions, 2026-10-31 수동 실행으로 러너에서도 정상 확인): `update-id-gov.yml`(JDIH Kemenkes 신규 규정 → `gov-notices.json`, 하루 3회), `update-id-videos.yml`(공적·보도 채널 allowlist), `check-id-links.yml`(링크 63건 모두 정상), `check-id-laws.yml`(근거 규정 4건의 JDIH 효력 상태·관계 규정 지문 비교 → `law-watch.json`, 달라지면 푸터에 「재확인 중」).
 - ⚠️ `fetch-id-news.mjs` 필터를 풀었다: 보건·디지털 태그(satusehat 등)는 제목에 DIGITAL_RE가 없어도 HEALTH_TECH_RE면 채택. 이전 필터가 10/15 이후 2주간 새 기사를 0건으로 만들고 있었다(워크플로는 계속 success).
 - 한계: JDIH 관계 규정 표는 사람이 입력해 개정 반영에 시차가 있다. 신규 규정 수집은 제목에 주제어가 있는 것만 받아 양이 적다(2026-10 기준 4건). 인도네시아 원어민 감수는 받지 않았다.
+
+### 5-10. 러시아어판 실무 가이드·환자 코너·매일 갱신·럭셔리 디자인 (2026-10-31, 오너 지시: 대만·인도네시아어판과 같은 방법 + 인도네시아판의 흑색·금색 디자인)
+- 새 페이지: `/ru/{dx-roadmap,data-checklist,documents-checklist,calendar,templates,practice,updates,fakty}/`, `/ru/patients/{index,ai-health-consult,ai-in-hospital,medical-records}/`. 홈은 id 홈 구조로 재구성(`src/pages/ru/index.astro`), 테마는 `ru-luxe.css`(전 페이지 강제 다크), `ru-home.css`, `ru-guide.css`, `ru-refresh.css`. 상단 메뉴 2단(`PRIMARY_KEYS`).
+- 사실 출처는 КонсультантПлюс 조문별 페이지(루트 페이지 목차에서 40자리 해시를 뽑아 `cons_doc_LAW_<n>/<hash>/`), rg.ru·legalacts.ru·Контур.Норматив 전문, publication.pravo.gov.ru만. 근거 데이터는 `src/data/ru/guides/{milestones,facts}.ts`. AI 관련 2차 출처(gxpnews 등)에서 온 주장은 싣지 않았다.
+- 자동 점검(GitHub Actions, 2026-10-31 수동 실행으로 러너 접속 확인): `update-ru-gov.yml`(publication.pravo.gov.ru 신규 문서 → `gov-notices.json`, 하루 3회; 러시아엔 보조금 피드가 없어 「Новые акты」로 표기), `check-ru-laws.yml`(핵심 법령 5건 КонсультантПлюс 개정일 대조 → `law-watch.json`, 변경되면 푸터 안내만 켜고 본문은 자동 수정하지 않음), `check-ru-links.yml`(404/410만 죽은 링크, 나머지는 unknown), `update-ru-videos.yml`(채널 화이트리스트 — 후보 0건, 확대 필요).
+- AEO/GEO: `src/utils/ru-aeo.ts`(요약 제목 Главное|Коротко|Итог|Основные выводы|Вывод), 글 상단 `ru-answer` 상자 + abstract/about/mentions/speakable, 사실 허브 `/ru/fakty/`, `src/pages/ru/llms-full.txt.ts`, `public/ru/llms.txt`.
+- 기존 글 대조(전수 아님): 4편을 1차 출처로 바로잡음 — AI법은 243-ФЗ(2026-07-26)이며 조문 1~12에 здравоохранение·медицина 언급이 없음, 1684호 기한(50/31/25일)은 Контур 전문으로 확인하되 «5일» 서술과 «요건» 표현 삭제, 152-ФЗ 동의 요건에 예외 명시(ст.10 ч.2 п.4), КИИ 목록 제출 기한은 개정에 따라 5일/10일로 달라 단정 삭제, ГОСТ 59921은 gostinfo 원문에서 확인되는 것만 남김. 뉴스 기반 약 30편(Медвестник·Vademecum 요약)은 문장 단위 대조를 하지 않았다.
+- 한계: 모국어 검수 없음. base.garant.ru는 접속 차단이라 우회하지 않음. 달력의 «Предстоящие сроки»는 1차 확인된 미래 기한이 없어 비어 있음.
