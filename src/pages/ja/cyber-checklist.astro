@@ -1,0 +1,168 @@
+---
+// サイバーセキュリティ自己点検 (2026-10-31 新設)
+// 根拠: 厚生労働省「医療機関・薬局におけるサイバーセキュリティ対策チェックリスト」令和8年度版(PDF本文を直接読んで確認)。
+//       項目の言い回しは、読みやすいように言い換えている(原文の意味は変えていない)。
+import '../../styles/ja-guide.css';
+import JaLayout from '../../layouts/JaLayout.astro';
+import JaGuideFoot from '../../components/JaGuideFoot.astro';
+import { SRC } from '../../data/ja/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = '2026年10月31日';
+const title = '病院のサイバーセキュリティ自己点検｜令和8年度チェックリスト';
+const description =
+  '厚生労働省の令和8年度版サイバーセキュリティ対策チェックリスト(全19項目)を、病院の事務・看護部門にも分かる言葉で整理しました。立入検査で確認される項目と、自己点検の進め方をまとめています。';
+
+type Item = { no: string; text: string; ask?: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: '1 体制構築',
+    items: [{ no: '1-①', text: '医療情報システムの「安全管理責任者」を決めている。', ask: '責任者の名前が、院内の誰にでも説明できますか。' }],
+  },
+  {
+    id: 'g2',
+    head: '2 医療情報システムの管理・運用',
+    lead: '医療情報システム全般',
+    items: [
+      { no: '2-①', text: 'サーバ、端末、ネットワーク機器を台帳で管理している。' },
+      { no: '2-②', text: 'リモートメンテナンス(離れた場所からの保守)を使っている機器があるか、事業者などに確認した。', ask: '外部の事業者が院内に入れる「入り口」を、病院側が把握していますか。' },
+      { no: '2-③', text: '事業者から、製造業者/サービス事業者による医療情報セキュリティ開示書(MDS/SDS)を出してもらう。', ask: 'AIやクラウドのサービスを入れるときも、この書類を求められるかを確認しておきます。' },
+      { no: '2-④', text: '職種・担当業務ごと、情報の区分ごとに、アクセスできる権限を決めている(管理者権限をもつ人を明確にしている)。' },
+      { no: '2-⑤', text: '退職者や、使っていないアカウントを、削除または無効にしている。' },
+      { no: '2-⑥', text: 'セキュリティパッチ(最新のファームウェアや更新プログラム)を適用している。' },
+      { no: '2-⑦', text: 'パスワードは、英数字が混ざった8桁以上にしている(二要素認証にするまでの間は13桁以上)。' },
+      { no: '2-⑧', text: 'パスワードの使い回しを禁止している。' },
+      { no: '2-⑨', text: 'USBメモリなどの外部記録媒体や情報機器につなぐことを制限している。' },
+      { no: '2-⑩', text: 'バックグラウンドで動いている、不要なソフトウェアやサービスを止めている。' },
+    ],
+  },
+  {
+    id: 'g2b',
+    head: '2 医療情報システムの管理・運用(つづき)',
+    lead: '端末・サーバ・ネットワーク機器',
+    items: [
+      { no: '2-⑪', text: '【端末】アプリケーションにログインするとき、二要素認証を実装している。または、令和9年度以降の最初のシステム更改のときに実装する予定である。' },
+      { no: '2-⑫', text: '【サーバ】OSにログインするとき、二要素認証を実装している。または、令和9年度以降の最初のシステム更改のときに実装する予定である。' },
+      { no: '2-⑬', text: '【サーバ】アクセスログを管理している。' },
+      { no: '2-⑭', text: '【ネットワーク機器】接続元を制限している。' },
+    ],
+  },
+  {
+    id: 'g3',
+    head: '3 インシデント(事故・攻撃)に備えた対応',
+    items: [
+      { no: '3-①', text: '事故が起きたときの、院内と外部(事業者、厚生労働省、警察など)への連絡体制図がある。', ask: '夜間・休日でも、連絡先がすぐに見つかりますか。' },
+      { no: '3-②', text: '診療を続けるために必要な情報を検討し、バックアップを確保したうえで、復旧の手順を確認している。' },
+      { no: '3-③', text: 'サイバー攻撃を想定した事業継続計画(BCP)をつくっている。', ask: '厚生労働省はBCPの確認表・手引き・ひな形(Word)も出しています(下のリンク)。' },
+    ],
+  },
+  {
+    id: 'g4',
+    head: '4 規程類の整備',
+    items: [{ no: '4-①', text: '上の1〜3のすべての項目について、具体的なやり方を、運用管理規程などに定めている。' }],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const links = [
+  { label: 'チェックリスト(令和8年度版・PDF)', url: 'https://www.mhlw.go.jp/content/10808000/001716185.pdf' },
+  { label: 'チェックリストマニュアル(医療機関・薬局・事業者向け)', url: 'https://www.mhlw.go.jp/content/10808000/001716186.pdf' },
+  { label: '医療機関・薬局確認用(Excel)', url: 'https://www.mhlw.go.jp/content/10808000/001716187.xlsx' },
+  { label: '事業者確認用(Excel)', url: 'https://www.mhlw.go.jp/content/10808000/001716188.xlsx' },
+  { label: 'BCP策定の確認表(医療機関用・Excel)', url: 'https://www.mhlw.go.jp/content/10808000/001266648.xlsx' },
+  { label: 'BCP確認表のための手引き', url: 'https://www.mhlw.go.jp/content/10808000/001261301.pdf' },
+  { label: '医療情報システム部門等におけるBCPのひな形(Word)', url: 'https://www.mhlw.go.jp/content/10808000/001261303.docx' },
+  { label: '医療情報セキュリティ研修(教育支援ポータル)', url: 'https://mist.mhlw.go.jp/' },
+];
+const sources = [SRC.checklist, SRC.guideline];
+---
+
+<JaLayout
+  title={title}
+  description={description}
+  crumb="サイバーセキュリティ自己点検"
+  standalone
+  updated={new Date('2026-10-31T00:00:00+09:00')}
+>
+  <h1>病院のサイバーセキュリティ自己点検</h1>
+  <p class="jg-lead">
+    厚生労働省は、病院・薬局向けの「サイバーセキュリティ対策チェックリスト」を、令和8年度版として出しています。立入検査のときに確認される、と明記されたリストです。専門用語の多い項目を、事務・看護部門の方にも読みやすい言葉に言い換えました。
+  </p>
+  <p class="jg-meta">確認日: {CHECKED} ／ 全{total}項目 ／ 根拠: 厚生労働省チェックリスト 令和8年度版</p>
+
+  <div class="jg-box">
+    <strong>最初に知っておきたいこと</strong>
+    <ul class="jg-list">
+      <li>チェックリストには「立入検査時、本チェックリストを確認します。令和8年度中にすべての項目で「はい」にマルが付くよう取り組んでください」と書かれています。</li>
+      <li>「いいえ」の項目には、令和8年度中の対応目標日を記入します。</li>
+      <li>チェックリストは、令和7年度版までは医療機関用と薬局用に分かれていましたが、令和8年6月版から一つにまとまりました。</li>
+      <li>事業者向けには別の確認用リストがあり、「保守契約の範囲外」の項目は、医療機関・薬局が責任を負うと整理されています。責任の線引きに食い違いがないか、事業者側から確認するよう求められています。</li>
+    </ul>
+  </div>
+
+  <p>
+    法的な位置づけ(管理者の義務、立入検査)は、<a href={withBase('/ja/blog/2026-10-01-iryoho-cybersecurity-tachiiri-kensa/')}>サイバーセキュリティは管理者の義務、立入検査でも確認</a>で整理しています。ガイドライン本体の改訂は、<a href={withBase('/ja/blog/2026-10-22-anzen-kanri-guideline-7-0-kakunin/')}>安全管理ガイドラインが第7.0版に</a>をご覧ください。
+  </p>
+
+  {
+    groups.map((g) => (
+      <section class="jg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="jg-table">
+          <thead>
+            <tr>
+              <th>番号</th>
+              <th>確認する内容(言い換え)</th>
+              <th>確認のヒント(当研究所)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.ask ?? '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="jg-sec" aria-labelledby="h-how">
+    <h2 id="h-how">自己点検の進め方(当研究所の提案)</h2>
+    <p>以下は当研究所のたたき台で、厚生労働省の指示ではありません。</p>
+    <ol class="jg-list">
+      <li><strong>まず「はい・いいえ・わからない」の3つに分けます。</strong>わからない項目は、システム担当や保守事業者に聞く宿題にします。</li>
+      <li><strong>事業者に確認する項目を先に洗い出します。</strong>2-②(リモートメンテナンス)、2-③(MDS/SDS)、2-⑥(パッチ)、2-⑪・2-⑫(二要素認証)などは、保守事業者の協力がないと答えが出ません。</li>
+      <li><strong>「いいえ」には、日付を入れた目標をつけます。</strong>チェックリスト自体が、目標日の記入を求めています。</li>
+      <li><strong>最後に4-①、規程に書き込みます。</strong>運用管理規程に、1〜3の具体的なやり方が書かれていることが条件です。</li>
+      <li><strong>AIやクラウドを導入するときも、同じ視点で確認します。</strong>外部の事業者が院内のデータにどこから触れるか、という点は、2-②・2-③・2-④とつながります。</li>
+    </ol>
+  </section>
+
+  <section class="jg-sec" aria-labelledby="h-links">
+    <h2 id="h-links">厚生労働省の公式資料</h2>
+    <ul class="jg-list">
+      {
+        links.map((l) => (
+          <li>
+            <a href={l.url} target="_blank" rel="noopener">
+              {l.label}
+              <span class="sr-only"> (新しいタブで開きます)</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p>令和8年度の医療情報セキュリティ研修は、e-learningを主体に行われています(教育支援ポータル)。</p>
+  </section>
+
+  <JaGuideFoot sources={sources} checked={CHECKED} />
+</JaLayout>

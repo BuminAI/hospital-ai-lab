@@ -1,0 +1,40 @@
+---
+// 日本語版 実務ガイド・患者さん向けページ共通の「出典・確認日・免責」ブロック (2026-10-31)
+// 出典は必ず実際にアクセスして確認したページだけを渡すこと。
+interface Props {
+  sources: { label: string; url: string }[];
+  /** 出典を確認した日(表示用) */
+  checked: string;
+  /** 患者さん向けページでは true — 診断・治療の助言ではない旨を強めに出す */
+  patient?: boolean;
+}
+const { sources, checked, patient = false } = Astro.props;
+---
+
+<section class="jg-src" aria-labelledby="jg-src-h">
+  <h2 id="jg-src-h">出典と確認日</h2>
+  <ul>
+    {
+      sources.map((s) => (
+        <li>
+          <a href={s.url} target="_blank" rel="noopener">
+            {s.label}
+            <span class="sr-only"> (新しいタブで開きます)</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p>上記の出典は{checked}に確認しました。制度や運用は変わることがあります。最新の内容は必ず出典の公式ページでご確認ください。</p>
+  {
+    patient ? (
+      <p class="jg-disc">
+        このページは一般的な情報提供です。特定の方の症状について、診断や治療の助言をするものではありません。体調に不安があるときは、かかりつけの医療機関や、ページ内の相談窓口にご相談ください。特定の医療機関や製品をすすめるものでもありません。
+      </p>
+    ) : (
+      <p class="jg-disc">
+        本サイトのコンテンツは一般的な情報提供および研究・教育を目的としたものであり、特定の患者に対する医学的診断や助言に代わるものではありません。また、法的助言や個別の調達判断を推奨するものではありません。最新の制度内容は必ず一次情報でご確認ください。
+      </p>
+    )
+  }
+</section>

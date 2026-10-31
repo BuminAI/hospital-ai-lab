@@ -1,0 +1,68 @@
+---
+// 実務ガイド(病院スタッフ向け)のハブページ (2026-10-31 新設)
+import '../../styles/ja-guide.css';
+import JaLayout from '../../layouts/JaLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = '実務ガイド｜医事課・経営企画・看護部のための医療DX・AI資料';
+const description =
+  '医療DX年表、制度カレンダー、マイナ保険証の窓口対応、サイバーセキュリティ自己点検、院内AI利用ルールの雛形。病院の事務・看護部門がそのまま使える実務資料を、一次資料に基づいてまとめました。';
+
+const cards = [
+  {
+    href: '/ja/dx-roadmap/',
+    t: '医療DX年表',
+    d: '「医療情報化推進方針」などから、電子カルテ情報共有サービス、電子カルテの普及目標など、病院が備える節目を時期順に整理。',
+  },
+  {
+    href: '/ja/calendar/',
+    t: '制度カレンダー',
+    d: '補助金の締切、年度の節目、検討会・公募の案内を、近い順に一画面で確認。',
+  },
+  {
+    href: '/ja/mynumber-reception/',
+    t: 'マイナ保険証 窓口対応ガイド',
+    d: '顔認証がうまくいかない、読み取れない、資格確認書など、受付で迷う場面を厚生労働省の資料に沿って整理。',
+  },
+  {
+    href: '/ja/cyber-checklist/',
+    t: 'サイバーセキュリティ自己点検',
+    d: '立入検査で確認される令和8年度版チェックリスト19項目を、やさしい言葉で解説。',
+  },
+  {
+    href: '/ja/templates/',
+    t: '雛形集',
+    d: '院内の生成AI利用ルール、ベンダーに聞く20の質問、患者さんへのお知らせ文、事故時の連絡体制表。コピーして使えます。',
+  },
+  {
+    href: '/ja/checklist/',
+    t: 'AI導入チェックリスト',
+    d: '導入提案を検討するときに確認したい項目の一覧。',
+  },
+];
+---
+
+<JaLayout
+  title={title}
+  description={description}
+  crumb="実務ガイド"
+  standalone
+>
+  <h1>実務ガイド</h1>
+  <p class="jg-lead">
+    医事課・経営企画・看護部の方が、明日の仕事にそのまま使える資料をまとめました。制度の事実は、厚生労働省などの一次資料に実際にアクセスして確認した内容だけを載せ、各ページに出典と確認日を付けています。
+  </p>
+  <div class="jg-cards">
+    {
+      cards.map((c) => (
+        <a class="jg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="jg-meta" style="margin-top:22px">
+    患者さん・ご家族向けの解説は、<a href={withBase('/ja/patients/')}>患者さん向けのページ</a>にあります。窓口で患者さんに案内するときにもお使いください。
+  </p>
+</JaLayout>

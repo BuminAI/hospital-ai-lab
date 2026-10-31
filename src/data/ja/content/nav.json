@@ -20,6 +20,16 @@
     "enabled": true
   },
   {
+    "href": "/ja/practice/",
+    "key": "practice",
+    "enabled": true
+  },
+  {
+    "href": "/ja/patients/",
+    "key": "patients",
+    "enabled": true
+  },
+  {
     "href": "/ja/subsidies/",
     "key": "subsidies",
     "enabled": true

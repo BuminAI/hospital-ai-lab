@@ -1,0 +1,134 @@
+---
+// 医療DX年表 (2026-10-31 新設) — 厚生労働省告示第370号「医療情報化推進方針」ほか一次資料に基づく
+// 事実は src/data/ja/guides/milestones.ts に集約している。ここでは並べて見せるだけ。
+import '../../styles/ja-guide.css';
+import JaLayout from '../../layouts/JaLayout.astro';
+import JaGuideFoot from '../../components/JaGuideFoot.astro';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/ja/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+
+const title = '医療DX年表｜病院はいつ、何に備えるか';
+const description =
+  '厚生労働省の「医療情報化推進方針」(2026年10月1日適用)などの一次資料から、病院の医事課・経営企画・看護部が知っておきたい医療DXの節目を、時期順にまとめました。';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/ja/dx-roadmap/')}`;
+const schema = [
+  {
+    '@type': 'ItemList',
+    '@id': `${pageUrl}#timeline`,
+    name: '医療DXの節目(これから)',
+    numberOfItems: ahead.length,
+    itemListElement: ahead.map((m, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${m.when} ${m.title}`,
+    })),
+  },
+];
+const sources = [SRC.policy, SRC.dxsite, SRC.card, SRC.cardOrg, SRC.guideline, SRC.checklist];
+---
+
+<JaLayout
+  title={title}
+  description={description}
+  crumb="医療DX年表"
+  standalone
+  updated={new Date('2026-10-31T00:00:00+09:00')}
+  schema={schema}
+>
+  <h1>医療DX年表</h1>
+  <p class="jg-lead">
+    「うちの病院は、いつまでに何をすればいいのか」。医療DXの話題が増えるほど、この問いに答えにくくなります。ここでは、国の方針に書かれている時期を、一つの年表に並べました。
+  </p>
+  <p class="jg-meta">確認日: {CHECKED} ／ 主な根拠: 厚生労働省告示第370号「医療情報化推進方針」</p>
+
+  <div class="jg-box">
+    <strong>この年表の読み方</strong><br />
+    「めど」「目指す」と書いてある項目は、方針の原文が目標として書いているものです。決定した期限ではありません。病院ごとの対応が義務かどうか、対象はどこまでか、といった細かな点は、法令や通知で別に決まります。実際の対応は、必ず公式の通知と、お使いのベンダーの案内でご確認ください。
+  </div>
+
+  <section class="jg-sec" aria-labelledby="h-key">
+    <h2 id="h-key">まず押さえたい3つのこと</h2>
+    <ul class="jg-list">
+      <li>
+        <strong>方針の対象期間は、2026年10月1日から2030年3月31日まで。</strong>
+        2026年9月30日に告示された「医療情報化推進方針」は、10月1日から適用されています。
+      </li>
+      <li>
+        <strong>電子カルテ情報共有サービスは、2026年度冬をめどに全国で運用が始まる予定です。</strong>
+        臨床現場で支障なく運用できる文書・情報から始めるとされています。
+      </li>
+      <li>
+        <strong>2030年末までに、電子カルテの普及率を約100%にすることを、政府が達成するよう、法律が定めています。</strong>
+        あわせて、2028年度までに、電子カルテ未導入の200床以上の病院(療養病床等が中心の病院を除く)で普及率100%を目指すとされています。
+      </li>
+    </ul>
+    <p>
+      これまでの経緯と、病院の事務部門で確認したい点は、<a href={withBase('/ja/blog/2026-09-27-densikaruteshare-chiikiiryoshien-doryokugimu/')}>電子カルテ情報共有サービスの解説</a>や、<a href={withBase('/ja/blog/2026-10-25-iryo-dx-dashboard-hospital-jimu-yomikata/')}>医療DXダッシュボードの読み方</a>でも整理しています。
+    </p>
+  </section>
+
+  <section class="jg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">これから迎える節目</h2>
+    <ol class="jg-tl">
+      {
+        ahead.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="jg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="jg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">これまでの経緯(実施済み)</h2>
+    <ol class="jg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="jg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="jg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">あわせて使いたいページ</h2>
+    <div class="jg-cards">
+      <a class="jg-card" href={withBase('/ja/calendar/')}>
+        <b>制度カレンダー</b>
+        <span>補助金の締切と、年度の節目を、近い順に確認できます。</span>
+      </a>
+      <a class="jg-card" href={withBase('/ja/mynumber-reception/')}>
+        <b>マイナ保険証 窓口対応ガイド</b>
+        <span>受付で迷いやすい場面を、厚生労働省の資料に沿って整理しました。</span>
+      </a>
+      <a class="jg-card" href={withBase('/ja/cyber-checklist/')}>
+        <b>サイバーセキュリティ自己点検</b>
+        <span>令和8年度版チェックリストの項目を、実務の言葉で読み解きます。</span>
+      </a>
+    </div>
+  </section>
+
+  <JaGuideFoot sources={sources} checked={CHECKED} />
+</JaLayout>

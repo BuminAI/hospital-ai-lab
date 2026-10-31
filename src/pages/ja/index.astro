@@ -96,6 +96,22 @@ const homeSeries = (await getResolvedSeries('ja'))
 
   <h2>{ja.home.resourcesTitle}</h2>
   <div class="ja-cards">
+    <a class="ja-card" href={withBase('/ja/dx-roadmap/')}>
+      <span class="ja-card-t">医療DX年表</span>
+      <span class="ja-card-d">電子カルテ情報共有サービス、電子カルテの普及目標など、病院が備える節目を時期順に。</span>
+    </a>
+    <a class="ja-card" href={withBase('/ja/calendar/')}>
+      <span class="ja-card-t">制度カレンダー</span>
+      <span class="ja-card-d">補助金の締切と年度の節目を、近い順に一画面で。</span>
+    </a>
+    <a class="ja-card" href={withBase('/ja/practice/')}>
+      <span class="ja-card-t">実務ガイド</span>
+      <span class="ja-card-d">マイナ保険証の窓口対応、サイバーセキュリティ自己点検、院内AI利用ルールの雛形。</span>
+    </a>
+    <a class="ja-card" href={withBase('/ja/patients/')}>
+      <span class="ja-card-t">患者さん・ご家族向け</span>
+      <span class="ja-card-d">AIに健康相談をする前に知っておきたいこと、マイナ保険証の使い方。</span>
+    </a>
     <a class="ja-card" href={withBase('/ja/videos/')}>
       <span class="ja-card-t">{ja.nav.videos}</span>
       <span class="ja-card-d">{ja.home.videosDesc}</span>

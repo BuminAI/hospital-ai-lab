@@ -15,7 +15,9 @@
     "events": "AI教育・イベント",
     "columns": "コラム",
     "notes": "講義ノート",
-    "aiJudge": "AIプログラム審査"
+    "aiJudge": "AIプログラム審査",
+    "practice": "実務ガイド",
+    "patients": "患者さん向け"
   },
   "footer": {
     "about": "運営者について",

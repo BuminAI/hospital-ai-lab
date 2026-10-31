@@ -631,6 +631,14 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 
 `gov-support.json`(id·tw·ru)과 curated `events.json`(ja·ru)은 아직 패널이 없다. `{meta, notice, checkedAt, items}` 형태라 기존 「본문 페이지」 패널(`{meta, sections}`)로는 다룰 수 없다. 지금은 파일을 직접 고쳐야 한다 — 필요해지면 전용 패널을 만들 것.
 
+## 5-7. 일본어판 실무 가이드·환자용 페이지 (2026-10-31 신설, 오너 지시)
+
+- 새 페이지(모두 `standalone`, hreflang 없음): `/ja/dx-roadmap/`(의료DX 연표), `/ja/calendar/`(제도 캘린더, 자동+수기 혼합), `/ja/mynumber-reception/`(창구 대응), `/ja/cyber-checklist/`(레이와8년도 체크리스트 19항목 해설), `/ja/templates/`(복사용 양식 4종), 허브 `/ja/practice/`(직원용)·`/ja/patients/`(환자용), 환자용 3편 `/ja/patients/{ai-health-consult,ai-in-hospital,mynumber-navii}/`.
+- **사실의 출처는 1차 자료를 직접 읽어 확인한 것뿐이다.** 연표 데이터는 `src/data/ja/guides/milestones.ts` 한 곳(항목마다 `src`로 출처 지정, 연표·캘린더가 공유). 핵심 근거는 후생노동성 고시 제370호 「医療情報化推進方針」(2026-09-30 고시, 10-01 적용; PDF 본문을 pdfminer로 추출해 읽음)과 후생노동성 마이나 보험증 FAQ·페이지, 소방청 #7119·Q助 페이지, 2018 의사과장 통지(PDF 본문 확인).
+- 환자용 페이지 원칙: 진단·치료 조언 금지, 일반 정보만, 특정 병원·제품 홍보 금지. 「AI 건강상담은 안전/위험」이라고 단정하는 공적 자료는 찾지 못해 단정하지 않는다(WebSearch로 확인). 논문 수치는 초록에서 직접 확인한 것만 싣는다(한국어판 글의 「27~92%」는 초록에서 확인되지 않아 쓰지 않았다).
+- 갱신할 때: 방침이 개정되면 milestones.ts와 `CHECKED` 날짜를 다시 확인해 고친다. 체크리스트가 바뀌면 `cyber-checklist.astro`의 항목을 새 PDF와 대조한다. 외부 링크 51개는 2026-10-31에 전부 200/206 확인.
+- 상단 메뉴에 「실무 가이드」「환자 대상」 추가(`nav.json`·`ja.json` nav). 홈 자료 카드에도 4개 카드 추가.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

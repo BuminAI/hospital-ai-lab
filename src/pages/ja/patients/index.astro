@@ -1,0 +1,57 @@
+---
+// 患者さん・ご家族向けのハブページ (2026-10-31 新設)
+// ⚠️ ここは診断・治療の助言をする場所ではない。一般的な情報だけを、公的機関の資料に基づいて載せる。
+import '../../../styles/ja-guide.css';
+import JaLayout from '../../../layouts/JaLayout.astro';
+import { withBase } from '../../../utils/site';
+
+const title = '患者さん・ご家族向け｜AIと医療のこと、やさしく解説';
+const description =
+  'AIに健康相談をする前に知っておきたいこと、病院でAIが使われるときの疑問、マイナ保険証と医療情報ネット(ナビイ)の使い方を、公的機関の資料に沿ってやさしく解説します。';
+
+const cards = [
+  {
+    href: '/ja/patients/ai-health-consult/',
+    t: 'AIに健康相談をする前に知っておきたい6つのこと',
+    d: 'AIの答えは診断ではないこと、間違いがありうること、個人情報の守り方、迷ったときの相談先(♯7119・Q助)。',
+  },
+  {
+    href: '/ja/patients/ai-in-hospital/',
+    t: '病院でAIが使われるとき、患者さんが知っておきたいこと',
+    d: '診断するのは誰か、自分の情報はどう扱われるのか、病院にどう尋ねればよいか。',
+  },
+  {
+    href: '/ja/patients/mynumber-navii/',
+    t: 'マイナ保険証の使い方と、医療情報ネット(ナビイ)',
+    d: '受付での流れ、うまくいかないとき、資格確認書、電子証明書の期限。全国の病院・薬局の探し方。',
+  },
+];
+---
+
+<JaLayout
+  title={title}
+  description={description}
+  crumb="患者さん向け"
+  standalone
+>
+  <h1>患者さん・ご家族向け</h1>
+  <p class="jg-lead">
+    病院やAIのことで、「聞きたいけれど、誰に聞けばいいかわからない」という疑問に、公的機関の資料に沿ってお答えします。難しい言葉はできるだけ使いません。
+  </p>
+  <div class="jg-box jg-warn">
+    ここにあるのは、一般的な情報です。特定の方の症状についての診断や治療のアドバイスではありません。体調に不安があるときは、かかりつけの医療機関や、各ページに載せている相談窓口にご相談ください。
+  </div>
+  <div class="jg-cards">
+    {
+      cards.map((c) => (
+        <a class="jg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="jg-meta" style="margin-top:22px">
+    病院で働く方は、<a href={withBase('/ja/practice/')}>実務ガイド</a>をご覧ください。
+  </p>
+</JaLayout>

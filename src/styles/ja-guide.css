@@ -1,0 +1,191 @@
+/* 日本語版「実務ガイド」「患者さん向け」ページ共通スタイル (2026-10-31)
+   ja-tokens.css の変数(--ja-*)だけを使う。クラスは jg- で始める。 */
+[data-locale='ja'] .jg-lead {
+  color: var(--ja-text-sub);
+  line-height: 1.9;
+}
+[data-locale='ja'] .jg-meta {
+  font-size: 13px;
+  color: var(--ja-text-sub);
+  margin: 4px 0 18px;
+}
+[data-locale='ja'] .jg-box {
+  border: 1px solid var(--ja-border);
+  border-left: 4px solid var(--ja-primary);
+  background: var(--ja-surface);
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 18px 0;
+}
+[data-locale='ja'] .jg-box strong {
+  color: var(--ja-text);
+}
+[data-locale='ja'] .jg-warn {
+  border-left-color: #b45309;
+}
+[data-locale='ja'] .jg-sec {
+  margin-top: 34px;
+}
+[data-locale='ja'] .jg-sec h2 {
+  font-size: 19px;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+[data-locale='ja'] .jg-sec h3 {
+  font-size: 16px;
+  margin: 22px 0 6px;
+  line-height: 1.5;
+}
+[data-locale='ja'] .jg-sec p,
+[data-locale='ja'] .jg-sec li {
+  line-height: 1.9;
+}
+[data-locale='ja'] .jg-list {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+}
+[data-locale='ja'] .jg-list li {
+  margin: 5px 0;
+}
+[data-locale='ja'] .jg-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 14px;
+}
+[data-locale='ja'] .jg-table th,
+[data-locale='ja'] .jg-table td {
+  border: 1px solid var(--ja-border);
+  padding: 9px 10px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.8;
+}
+[data-locale='ja'] .jg-table th {
+  background: var(--ja-surface);
+  white-space: nowrap;
+}
+[data-locale='ja'] .jg-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 14px 0 0;
+}
+[data-locale='ja'] .jg-card {
+  display: block;
+  border: 1px solid var(--ja-border);
+  padding: 14px 16px;
+  background: var(--ja-surface);
+  color: var(--ja-text);
+  text-decoration: none;
+}
+[data-locale='ja'] .jg-card:hover {
+  border-color: var(--ja-primary);
+}
+[data-locale='ja'] .jg-card b {
+  display: block;
+  color: var(--ja-primary);
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+[data-locale='ja'] .jg-card span {
+  font-size: 13.5px;
+  color: var(--ja-text-sub);
+  line-height: 1.75;
+}
+[data-locale='ja'] .jg-tl {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--ja-border);
+}
+[data-locale='ja'] .jg-tl > li {
+  display: grid;
+  grid-template-columns: 9.5em 1fr;
+  gap: 4px 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--ja-border);
+}
+[data-locale='ja'] .jg-tl .when {
+  font-weight: 700;
+  color: var(--ja-primary);
+  line-height: 1.6;
+}
+[data-locale='ja'] .jg-tl .what b {
+  display: block;
+  line-height: 1.6;
+}
+[data-locale='ja'] .jg-tl .what span {
+  font-size: 14px;
+  color: var(--ja-text-sub);
+  line-height: 1.8;
+}
+[data-locale='ja'] .jg-tag {
+  display: inline-block;
+  font-size: 12px;
+  border: 1px solid var(--ja-border);
+  padding: 1px 8px;
+  margin: 0 6px 0 0;
+  color: var(--ja-text-sub);
+  background: var(--ja-surface);
+}
+[data-locale='ja'] .jg-src {
+  margin-top: 40px;
+  border-top: 1px solid var(--ja-border);
+  padding-top: 14px;
+  font-size: 13.5px;
+  color: var(--ja-text-sub);
+}
+[data-locale='ja'] .jg-src h2 {
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+[data-locale='ja'] .jg-src li {
+  margin: 4px 0;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+[data-locale='ja'] .jg-disc {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ja-text-sub);
+  line-height: 1.85;
+}
+[data-locale='ja'] .jg-copy {
+  position: relative;
+  border: 1px solid var(--ja-border);
+  background: var(--ja-surface);
+  padding: 14px 16px;
+  margin: 10px 0;
+}
+[data-locale='ja'] .jg-copy pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.85;
+}
+[data-locale='ja'] .jg-btn {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  font-size: 13px;
+  border: 1px solid var(--ja-primary);
+  background: transparent;
+  color: var(--ja-primary);
+  cursor: pointer;
+}
+[data-locale='ja'] .jg-btn:hover {
+  background: var(--ja-primary);
+  color: #fff;
+}
+@media (max-width: 640px) {
+  [data-locale='ja'] .jg-tl > li {
+    grid-template-columns: 1fr;
+  }
+  [data-locale='ja'] .jg-table th {
+    white-space: normal;
+  }
+}
