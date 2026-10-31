@@ -14,7 +14,9 @@
     "govSupport": "Program Pemerintah",
     "blog": "Blog",
     "aiDigest": "Sorotan AI",
-    "aiJudge": "Penilaian Program AI"
+    "aiJudge": "Penilaian Program AI",
+    "practice": "Panduan praktis",
+    "patients": "Sudut pasien"
   },
   "footer": {
     "about": "Tentang Penulis",
@@ -57,16 +59,16 @@
     "nameShort": "Youngho Cho"
   },
   "home": {
-    "metaTitle": "Informasi Praktis AI untuk Rumah Sakit",
-    "metaDescription": "Informasi AI kesehatan untuk tenaga administrasi dan keperawatan rumah sakit di Indonesia, disusun berdasarkan regulasi yang berlaku.",
+    "metaTitle": "RME, SATUSEHAT, UU PDP, dan AI di rumah sakit",
+    "metaDescription": "Peta waktu, daftar periksa RME dan keamanan data pasien, serta peraturan baru JDIH Kemenkes untuk administrasi dan keperawatan rumah sakit — dengan sumber primer.",
     "heroEyebrow": "AI KESEHATAN — SUDUT PANDANG PRAKTIK RUMAH SAKIT",
     "heroTitle": "AI kesehatan, dibaca dari meja kerja rumah sakit",
     "heroLead": "Situs ini membahas kecerdasan artifisial (AI) di rumah sakit dari sudut pandang tenaga administrasi dan keperawatan — bukan dari sudut pandang klinis semata. Yang dibahas adalah hal yang benar-benar muncul dalam pekerjaan: menilai proposal vendor, memeriksa aspek data pribadi, dan menyiapkan alur kerja sebelum sebuah sistem dipakai.",
     "glossaryDesc": "Istilah AI kesehatan yang muncul di proposal vendor dan rapat, dijelaskan dengan bahasa sehari-hari.",
     "faqDesc": "Pertanyaan yang biasa muncul saat rumah sakit mulai mempertimbangkan AI.",
-    "newsDesc": "Berita AI dan digitalisasi layanan kesehatan dari PERSI dan ANTARA, dikumpulkan otomatis.",
+    "newsDesc": "Berita AI dan digitalisasi kesehatan dari PERSI dan ANTARA, dikumpulkan otomatis.",
     "eventsDesc": "Info pelatihan PERSI soal RME, koding, dan AI.",
-    "govSupportDesc": "Program pendanaan dan platform resmi pemerintah, dirangkum dari halaman resminya.",
+    "govSupportDesc": "Peraturan baru dari JDIH Kemenkes serta program dan platform resmi pemerintah, dirangkum dari halaman resminya.",
     "videosDesc": "Seri 12 video pengantar penerapan AI dalam pekerjaan rumah sakit.",
     "blogDesc": "Kolom tentang regulasi dan praktik AI kesehatan di Indonesia.",
     "checklistDesc": "Yang ditanyakan satu per satu saat proposal AI masuk.",
@@ -89,11 +91,11 @@
       },
       {
         "q": "Dari mana informasinya?",
-        "a": "Berita AI dikumpulkan otomatis dari PERSI (Perhimpunan Rumah Sakit Seluruh Indonesia) dan ANTARA. Info pelatihan dan acara berasal dari PERSI, rilis berita Kemenkes, dan PORMIKI. Setiap keterangan soal aturan di kamus istilah, pertanyaan umum, dan daftar periksa disertai tautan ke sumber resminya."
+        "a": "Berita AI dikumpulkan otomatis dari PERSI dan ANTARA. Peraturan baru dikumpulkan dari JDIH Kemenkes. Info pelatihan dan acara berasal dari PERSI, rilis berita Kemenkes, dan PORMIKI. Penjelasan aturan di panduan praktis, kamus istilah, pertanyaan umum, dan daftar periksa ditulis setelah membuka naskah resminya dan disertai tautan serta tanggal verifikasi."
       },
       {
         "q": "Seberapa sering diperbarui?",
-        "a": "Berita diperiksa setiap 3 jam dan hanya diperbarui kalau memang ada yang baru. Tanggal pemeriksaan terakhir ditampilkan di bagian atas tiap halaman."
+        "a": "Berita diperiksa setiap 3 jam; peraturan baru dan acara beberapa kali sehari; video pilihan beberapa kali sehari; tautan sumber diperiksa setiap hari, dan status peraturan dasar dipantau setiap hari. Halaman penjelasan yang ditulis manusia tidak diganti setiap hari; bila status peraturan dasar berubah, catatan 'sedang diverifikasi ulang' muncul di bagian bawah halaman."
       },
       {
         "q": "Apakah ini terjemahan versi Korea?",
@@ -104,7 +106,7 @@
   },
   "glossary": {
     "pageTitle": "Kamus Istilah AI Kesehatan",
-    "metaTitle": "Kamus Istilah AI Kesehatan",
+    "metaTitle": "Kamus istilah AI kesehatan: RME, alat kesehatan, data pribadi",
     "metaDescription": "Istilah yang muncul dalam proposal dan rapat soal AI kesehatan, dijelaskan dengan rujukan regulasi Indonesia.",
     "pageLead": "Istilah yang sering muncul dalam proposal penyedia dan rapat internal, dijelaskan seperlunya untuk keperluan administrasi rumah sakit.",
     "notice": "Setiap penjelasan disertai tautan sumber. Kalau ada yang tidak dapat kami pastikan sumbernya, istilah itu tidak dimasukkan.",
@@ -112,7 +114,7 @@
   },
   "faq": {
     "pageTitle": "Pertanyaan Umum",
-    "metaTitle": "Pertanyaan Umum",
+    "metaTitle": "Pertanyaan umum penerapan AI di rumah sakit Indonesia",
     "metaDescription": "Pertanyaan yang sering muncul saat rumah sakit mempertimbangkan AI, dijawab dengan rujukan regulasi Indonesia.",
     "pageLead": "Pertanyaan yang biasanya muncul lebih dulu di bagian administrasi dan keperawatan, bukan di ruang klinis.",
     "notice": "Jawaban di sini bersifat informasi umum, bukan nasihat hukum. Untuk keputusan resmi, periksa tautan sumber dan konsultasikan dengan bagian hukum."

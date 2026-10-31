@@ -1,0 +1,152 @@
+---
+// Daftar periksa RME dan vendor AI (2026-10-31)
+// ⚠️ Butir disusun penulis dari Permenkes 24/2022 dan Kepmenkes 951/2026 yang naskahnya sudah dibaca; bukan daftar periksa resmi.
+//    Ketentuan yang tidak kami temukan teks resminya (mis. detail pedoman RME oleh Dirjen) tidak diuraikan.
+import '../../styles/id-guide.css';
+import IdLayout from '../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../components/IdGuideFoot.astro';
+import IdFaq from '../../components/IdFaq.astro';
+import { guideSchema } from '../../utils/id-guide';
+import { SRC } from '../../data/id/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = '31 Oktober 2026';
+const title = 'Daftar periksa RME dan vendor AI untuk rumah sakit';
+const description =
+  'Yang perlu dipastikan sebelum sistem RME atau layanan AI menyentuh rekam medis: status alat kesehatan, registrasi, interoperabilitas, penyimpanan, masa simpan.';
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. Apakah produk AI-nya alat kesehatan?',
+    lead: 'Sebelum membahas fitur, pastikan posisi hukum produk. Kepmenkes 951/2026 (7 September 2026) mencakup SaMD, SiMD, dan aplikasi kecerdasan buatan.',
+    items: [
+      { no: '1', text: 'Vendor menuliskan tujuan penggunaan produk. AI/machine learning hanya masuk kategori alat kesehatan bila memiliki tujuan medis yang dimaksudkan.', basis: 'Kepmenkes 951/2026 Bab II (bagian AI)' },
+      { no: '2', text: 'Bila fungsinya non-medis — misalnya pengelolaan data administratif, penyimpanan data, atau fungsi operasional yang tidak memengaruhi fungsi alat kesehatan — vendor menjelaskan mengapa produk berada di luar definisi alat kesehatan.', basis: 'Kepmenkes 951/2026 Bab II (bagian AI)' },
+      { no: '3', text: 'Untuk produk yang dinyatakan sebagai alat kesehatan dan diimpor: ditanyakan apakah memerlukan validasi klinis lokal di Indonesia dan bagaimana status dokumennya.', basis: 'Kepmenkes 951/2026 (dokumen hasil pengujian: validasi klinis lokal)' },
+      { no: '4', text: 'Vendor menyatakan komitmen agar output data pemeriksaan dapat diintegrasikan dengan Sistem Informasi Kesehatan Nasional (SIKN) atau SATUSEHAT.', basis: 'Kepmenkes 951/2026 (komitmen integrasi SIKN/SATUSEHAT)' },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Penyelenggaraan RME',
+    items: [
+      { no: '5', text: 'Sistem elektronik yang dipakai berupa sistem buatan Kemenkes, milik fasilitas sendiri, atau milik penyelenggara sistem elektronik melalui kerja sama; bila memakai sistem Kemenkes diajukan permohonan tertulis.', basis: 'Permenkes 24/2022 Pasal 9 ayat 1–2' },
+      { no: '6', text: 'Penyelenggara sistem elektronik terdaftar sebagai PSE di sektor kesehatan pada kementerian bidang komunikasi dan informatika.', basis: 'Permenkes 24/2022 Pasal 9 ayat 3' },
+      { no: '7', text: 'Registrasi sistem elektronik di Kemenkes dilakukan dengan dokumen: nama sistem, dokumentasi, fitur/fungsi, lokasi penyimpanan data, variabel dan metadata, serta daftar fasilitas pengguna bila dipakai fasilitas lain.', basis: 'Permenkes 24/2022 Pasal 12' },
+      { no: '8', text: 'Sistem memiliki kompatibilitas dan/atau interoperabilitas, dan RME terhubung dengan platform layanan interoperabilitas dan integrasi data kesehatan Kemenkes.', basis: 'Permenkes 24/2022 Pasal 10, 21' },
+      { no: '9', text: 'Hak akses diberikan pimpinan fasilitas (input, perbaikan, melihat) dan ditetapkan dalam SOP.', basis: 'Permenkes 24/2022 Pasal 30' },
+      { no: '10', text: 'Penyimpanan di server atau cloud tersertifikasi, ada backup di lokasi berbeda yang dilakukan periodik dan tertuang dalam SOP.', basis: 'Permenkes 24/2022 Pasal 20' },
+      { no: '11', text: 'Data RME disimpan paling singkat 25 tahun sejak kunjungan terakhir pasien; pemusnahan mengikuti peraturan perundang-undangan.', basis: 'Permenkes 24/2022 Pasal 39' },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. Hak pasien atas rekam medis',
+    items: [
+      { no: '12', text: 'Isi rekam medis adalah milik pasien dan disampaikan kepada pasien; penyampaian kepada keluarga terdekat bila pasien di bawah 18 tahun dan/atau dalam keadaan darurat; kepada pihak lain setelah mendapat persetujuan pasien.', basis: 'Permenkes 24/2022 Pasal 26' },
+      { no: '13', text: 'Pasien berhak mendapatkan akses terhadap informasi dalam rekam medis.', basis: 'UU 17/2023 Pasal 276 huruf e' },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'Apa yang dimaksud rekam medis elektronik dalam Permenkes 24/2022?',
+    a: 'Permenkes 24/2022 mengatur penyelenggaraan rekam medis elektronik, mulai dari pendaftaran (data identitas paling sedikit berisi nomor rekam medis, nama pasien, dan NIK, Pasal 13) hingga penyimpanan (Pasal 20). Peraturan ini mencabut Permenkes 269/2008 tentang Rekam Medis.',
+  },
+  {
+    q: 'Berapa lama rekam medis elektronik harus disimpan?',
+    a: 'Pasal 39 Permenkes 24/2022: penyimpanan data RME di fasilitas pelayanan kesehatan paling singkat 25 tahun sejak tanggal kunjungan terakhir pasien. Setelah itu RME dapat dikecualikan dari pemusnahan bila data masih akan digunakan.',
+  },
+  {
+    q: 'Apakah vendor bebas memakai data rekam medis rumah sakit?',
+    a: 'Tidak. Pada kerja sama penyimpanan dengan penyelenggara sistem elektronik, Pasal 22 Permenkes 24/2022 melarang mereka membuka, mengambil, memanipulasi, merusak, memanfaatkan data, dan hal lain yang merugikan fasilitas; larangan itu dituangkan dalam pakta integritas atau NDA, dan fasilitas harus memperoleh akses tidak terbatas ke data.',
+  },
+];
+
+const sources = [SRC.permenkes24, SRC.kepmenkes951, SRC.uuKesehatan];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/id/rme-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: 'Administrasi dan keperawatan rumah sakit',
+  faq,
+});
+---
+
+<IdLayout title={title} description={description} crumb="Daftar periksa RME dan vendor" standalone updated={new Date('2026-10-31T00:00:00+07:00')} schema={guide}>
+  <h1>Daftar periksa RME dan vendor AI</h1>
+  <p class="tg-lead">
+    Ketika vendor menawarkan sistem RME atau layanan AI yang akan menyentuh rekam medis, ada pertanyaan hukum yang harus dijawab sebelum membandingkan fitur. Halaman ini menyusunnya menjadi daftar periksa dengan pasal sebagai dasarnya.
+  </p>
+  <p class="tg-meta">Diverifikasi: {CHECKED} · {total} butir · Untuk: administrasi dan keperawatan rumah sakit</p>
+
+  <p class="tg-answer">
+    Intinya: tanyakan tujuan penggunaan produk (alat kesehatan atau bukan, Kepmenkes 951/2026), pastikan registrasi sistem elektronik dan interoperabilitas (Permenkes 24/2022), dan pastikan penyimpanan, backup, serta masa simpan 25 tahun.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Perlu dipahami lebih dulu</strong>
+    <ul class="tg-list">
+      <li>Ini <strong>bukan daftar periksa resmi pemerintah</strong>; penulis menyusunnya dari pasal-pasal yang sudah dibaca. Rujuk naskah resmi untuk keputusan.</li>
+      <li>Keputusan apakah suatu produk adalah alat kesehatan ada pada naskah pedoman dan otoritas yang berwenang; halaman ini tidak membuat penentuan untuk produk tertentu.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Yang perlu dipastikan</th>
+              <th>Dasar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Lanjutkan ke</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/id/cyber-checklist/')}>
+        <b>Daftar periksa keamanan data pasien</b>
+        <span>UU PDP, penyimpanan data, dan pemberitahuan insiden 3 x 24 jam.</span>
+      </a>
+      <a class="tg-card" href={withBase('/id/templates/')}>
+        <b>Contoh dokumen</b>
+        <span>20 pertanyaan untuk vendor dan kebijakan AI generatif yang bisa disalin.</span>
+      </a>
+    </div>
+  </section>
+
+  <IdFaq items={faq} />
+
+  <IdGuideFoot sources={sources} checked={CHECKED} />
+</IdLayout>

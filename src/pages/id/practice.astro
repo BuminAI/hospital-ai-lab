@@ -1,0 +1,39 @@
+---
+// Panduan praktis (untuk pekerja rumah sakit) — halaman ringkasan (2026-10-31)
+import '../../styles/id-guide.css';
+import IdLayout from '../../layouts/IdLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = 'Panduan praktis RME, data pasien, dan AI untuk RS';
+const description =
+  'Peta waktu, daftar periksa RME dan keamanan data pasien, kalender regulasi, dan contoh dokumen — berbasis naskah peraturan resmi untuk administrasi dan keperawatan.';
+
+const cards = [
+  { href: '/id/dx-roadmap/', t: 'Peta waktu digital kesehatan dan AI', d: 'Permenkes 24/2022, UU PDP, UU 17/2023, PP 28/2024, SATUSEHAT RME, dan Kepmenkes 951/2026 dalam satu garis waktu.' },
+  { href: '/id/rme-checklist/', t: 'Daftar periksa RME dan vendor AI', d: 'Status alat kesehatan, registrasi sistem elektronik, interoperabilitas, penyimpanan, dan masa simpan.' },
+  { href: '/id/cyber-checklist/', t: 'Daftar periksa keamanan data pasien', d: 'Dasar pemrosesan, hak pasien, penyimpanan di Indonesia, vendor, dan pemberitahuan insiden 3 x 24 jam.' },
+  { href: '/id/calendar/', t: 'Kalender regulasi dan acara', d: 'Peraturan baru dari JDIH Kemenkes serta pelatihan dan acara terbaru.' },
+  { href: '/id/templates/', t: 'Contoh dokumen', d: 'Kebijakan AI generatif, 20 pertanyaan untuk vendor, naskah untuk pasien, kartu kontak insiden.' },
+  { href: '/id/checklist/', t: 'Daftar periksa penerapan AI', d: 'Daftar yang dapat dicek saat mengevaluasi proposal AI.' },
+];
+---
+
+<IdLayout title={title} description={description} crumb="Panduan praktis" standalone>
+  <h1>Panduan praktis</h1>
+  <p class="tg-lead">
+    Untuk bagian administrasi, perencanaan, dan keperawatan: materi yang bisa dipakai besok pagi. Fakta tentang peraturan ditulis setelah membuka dan membaca naskah resminya (JDIH Kemenkes, JDIH Komdigi, siaran pers Kemenkes), dan setiap halaman mencantumkan sumber dan tanggal verifikasi.
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+    Penjelasan untuk pasien dan keluarga ada di <a href={withBase('/id/patients/')}>Sudut pasien</a>; petugas loket juga dapat memanfaatkannya.
+  </p>
+</IdLayout>

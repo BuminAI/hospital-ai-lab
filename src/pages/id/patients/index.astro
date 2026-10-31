@@ -1,0 +1,40 @@
+---
+// Sudut pasien (pasien dan keluarga) — halaman ringkasan (2026-10-31)
+// ⚠️ Tidak ada diagnosis atau saran terapi. Hanya informasi umum yang dapat dirujuk ke sumber resmi.
+import '../../../styles/id-guide.css';
+import IdLayout from '../../../layouts/IdLayout.astro';
+import { withBase } from '../../../utils/site';
+
+const title = 'Sudut pasien: AI, rekam medis, dan hak Anda';
+const description =
+  'Sebelum bertanya soal kesehatan ke AI, hak saat rumah sakit memakai AI, dan hak atas rekam medis — disusun dari peraturan resmi dengan bahasa sederhana.';
+
+const cards = [
+  { href: '/id/patients/ai-health-consult/', t: 'Sebelum bertanya soal kesehatan ke AI: 6 hal', d: 'Jawaban AI bukan diagnosis, bisa keliru, bagaimana menjaga data pribadi, dan kapan harus ke IGD.' },
+  { href: '/id/patients/ai-in-hospital/', t: 'Ketika rumah sakit memakai AI: hak Anda', d: 'Informasi, persetujuan, data pribadi, dan keberatan atas keputusan yang hanya berdasar pemrosesan otomatis.' },
+  { href: '/id/patients/hak-rekam-medis/', t: 'Hak Anda atas rekam medis', d: 'Siapa pemilik isinya, kepada siapa boleh disampaikan, berapa lama disimpan, dan cara meminta perbaikan.' },
+];
+---
+
+<IdLayout title={title} description={description} crumb="Sudut pasien" standalone>
+  <h1>Sudut pasien</h1>
+  <p class="tg-lead">
+    Tentang rumah sakit dan AI, banyak pertanyaan yang "ingin ditanyakan tetapi tidak tahu kepada siapa". Di sini jawabannya disusun dari peraturan resmi, dengan sedapat mungkin menghindari istilah rumit.
+  </p>
+  <div class="tg-box tg-warn">
+    Ini informasi umum, bukan diagnosis atau saran terapi untuk gejala tertentu. Jika ada keluhan, hubungi fasilitas kesehatan tempat Anda berobat atau saluran yang tertera di tiap halaman.
+  </div>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+    Bagi yang bekerja di rumah sakit, lihat <a href={withBase('/id/practice/')}>Panduan praktis</a>.
+  </p>
+</IdLayout>

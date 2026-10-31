@@ -1,0 +1,214 @@
+/* Gaya bersama halaman 'Panduan praktis' dan 'Sudut pasien' edisi Indonesia (2026-10-31)
+   Hanya memakai variabel --id-* dari id-tokens.css. Kelas diawali tg-. */
+[data-locale='id'] .tg-lead {
+  color: var(--id-text-sub);
+  line-height: 1.9;
+}
+[data-locale='id'] .tg-meta {
+  font-size: 13px;
+  color: var(--id-text-sub);
+  margin: 4px 0 18px;
+}
+[data-locale='id'] .tg-box {
+  border: 1px solid var(--id-border);
+  border-left: 4px solid var(--id-primary);
+  background: var(--id-surface);
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 18px 0;
+}
+[data-locale='id'] .tg-box strong {
+  color: var(--id-text);
+}
+[data-locale='id'] .tg-warn {
+  border-left-color: #b45309;
+}
+[data-locale='id'] .tg-sec {
+  margin-top: 34px;
+}
+[data-locale='id'] .tg-sec h2 {
+  font-size: 19px;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+[data-locale='id'] .tg-sec h3 {
+  font-size: 16px;
+  margin: 22px 0 6px;
+  line-height: 1.5;
+}
+[data-locale='id'] .tg-sec p,
+[data-locale='id'] .tg-sec li {
+  line-height: 1.9;
+}
+[data-locale='id'] .tg-list {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+}
+[data-locale='id'] .tg-list li {
+  margin: 5px 0;
+}
+[data-locale='id'] .tg-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 14px;
+}
+[data-locale='id'] .tg-table th,
+[data-locale='id'] .tg-table td {
+  border: 1px solid var(--id-border);
+  padding: 9px 10px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.8;
+}
+[data-locale='id'] .tg-table th {
+  background: var(--id-surface);
+  white-space: nowrap;
+}
+[data-locale='id'] .tg-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 14px 0 0;
+}
+[data-locale='id'] .tg-card {
+  display: block;
+  border: 1px solid var(--id-border);
+  padding: 14px 16px;
+  background: var(--id-surface);
+  color: var(--id-text);
+  text-decoration: none;
+}
+[data-locale='id'] .tg-card:hover {
+  border-color: var(--id-primary);
+}
+[data-locale='id'] .tg-card b {
+  display: block;
+  color: var(--id-primary);
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+[data-locale='id'] .tg-card span {
+  font-size: 13.5px;
+  color: var(--id-text-sub);
+  line-height: 1.75;
+}
+[data-locale='id'] .tg-tl {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--id-border);
+}
+[data-locale='id'] .tg-tl > li {
+  display: grid;
+  grid-template-columns: 9.5em 1fr;
+  gap: 4px 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--id-border);
+}
+[data-locale='id'] .tg-tl .when {
+  font-weight: 700;
+  color: var(--id-primary);
+  line-height: 1.6;
+}
+[data-locale='id'] .tg-tl .what b {
+  display: block;
+  line-height: 1.6;
+}
+[data-locale='id'] .tg-tl .what span {
+  font-size: 14px;
+  color: var(--id-text-sub);
+  line-height: 1.8;
+}
+[data-locale='id'] .tg-tag {
+  display: inline-block;
+  font-size: 12px;
+  border: 1px solid var(--id-border);
+  padding: 1px 8px;
+  margin: 0 6px 0 0;
+  color: var(--id-text-sub);
+  background: var(--id-surface);
+}
+[data-locale='id'] .tg-src {
+  margin-top: 40px;
+  border-top: 1px solid var(--id-border);
+  padding-top: 14px;
+  font-size: 13.5px;
+  color: var(--id-text-sub);
+}
+[data-locale='id'] .tg-src h2 {
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+[data-locale='id'] .tg-src li {
+  margin: 4px 0;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+[data-locale='id'] .tg-disc {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--id-text-sub);
+  line-height: 1.85;
+}
+[data-locale='id'] .tg-copy {
+  position: relative;
+  border: 1px solid var(--id-border);
+  background: var(--id-surface);
+  padding: 14px 16px;
+  margin: 10px 0;
+}
+[data-locale='id'] .tg-copy pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.85;
+}
+[data-locale='id'] .tg-btn {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  font-size: 13px;
+  border: 1px solid var(--id-primary);
+  background: transparent;
+  color: var(--id-primary);
+  cursor: pointer;
+}
+[data-locale='id'] .tg-btn:hover {
+  background: var(--id-primary);
+  color: #fff;
+}
+@media (max-width: 640px) {
+  [data-locale='id'] .tg-tl > li {
+    grid-template-columns: 1fr;
+  }
+  [data-locale='id'] .tg-table th {
+    white-space: normal;
+  }
+}
+
+/* ---- */
+[data-locale='id'] .tg-answer {
+  border-left: 4px solid var(--id-primary);
+  background: var(--id-surface);
+  padding: 12px 14px;
+  margin: 14px 0 18px;
+  font-size: 15px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+[data-locale='id'] .tg-faq dl {
+  margin: 8px 0 0;
+}
+[data-locale='id'] .tg-faq dt {
+  font-weight: 700;
+  margin-top: 18px;
+  line-height: 1.7;
+}
+[data-locale='id'] .tg-faq dd {
+  margin: 4px 0 0;
+  line-height: 1.9;
+}

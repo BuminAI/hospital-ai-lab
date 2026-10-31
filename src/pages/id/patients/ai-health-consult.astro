@@ -1,0 +1,117 @@
+---
+// Sebelum bertanya soal kesehatan ke AI: enam hal (2026-10-31)
+// ⚠️ Informasi umum, bukan saran medis. Sumber: ANTARA (24 Sep 2026, dr. Kristin Tjandra), makalah Nature Health (Crossref, 9 Okt 2026)
+//    melalui Medical Xpress/TechNews, serta UU 27/2022 Pasal 4. Tidak ada klaim efektivitas atau saran pengobatan.
+import '../../../styles/id-guide.css';
+import IdLayout from '../../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../../components/IdGuideFoot.astro';
+import IdFaq from '../../../components/IdFaq.astro';
+import { guideSchema } from '../../../utils/id-guide';
+import { SRC } from '../../../data/id/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = '31 Oktober 2026';
+const title = 'Sebelum bertanya soal kesehatan ke AI: 6 hal penting';
+const description =
+  'Jawaban chatbot AI bukan diagnosis. Enam hal agar mencari informasi kesehatan lewat AI tidak menimbulkan salah paham atau kepanikan.';
+
+const points = [
+  {
+    h: '1. Jawaban AI bukan diagnosis',
+    p: 'Seorang dokter umum yang dikutip ANTARA (24 September 2026) menggambarkan pasien yang datang sangat takut setelah mencari gejalanya sendiri, padahal keluhannya belum tentu seburuk hasil pencarian. Pencarian diagnosis mandiri yang sembarangan dapat memicu salah persepsi dan kepanikan.',
+  },
+  {
+    h: '2. AI bisa keliru, dan kekeliruannya sulit dilacak',
+    p: 'Makalah di Nature Health (9 Oktober 2026) menyoroti bahwa percakapan dengan chatbot umumnya tersimpan di sistem perusahaan AI, sehingga tenaga kesehatan, peneliti, dan regulator sulit mengetahui apa yang sebenarnya disarankan. Contohnya seorang pria berusia 60 tahun yang mengganti garam dapur dengan natrium bromida setelah bertanya kepada ChatGPT, lalu dirawat karena keracunan bromida.',
+  },
+  {
+    h: '3. Tunjukkan percakapan kepada tenaga kesehatan bila Anda mau',
+    p: 'Salah satu rekomendasi makalah itu adalah agar pengguna mudah mengakses percakapan kesehatan mereka dan membagikannya kepada tenaga kesehatan. Jika Anda sudah menanyakan sesuatu kepada AI sebelum berobat, menunjukkan layar percakapan dapat membantu dokter memahami apa yang Anda baca (saran penulis, bukan kewajiban).',
+  },
+  {
+    h: '4. Jangan memasukkan data pribadi yang tidak perlu',
+    p: 'Data dan informasi kesehatan termasuk data pribadi yang bersifat spesifik menurut UU 27/2022 Pasal 4. Saran penulis: jangan memasukkan nama lengkap, NIK, nomor rekam medis, atau foto hasil pemeriksaan yang menampilkan identitas ke layanan AI umum.',
+  },
+  {
+    h: '5. Siapkan catatan untuk konsultasi',
+    p: 'Dokter dalam artikel ANTARA yang sama menyarankan pasien menulis daftar keluhan dan pertanyaan, membawa riwayat rekam medis sebelumnya, serta aktif bertanya, agar konsultasi lebih efektif.',
+  },
+  {
+    h: '6. Bila keluhan berat atau mendadak, jangan menunda',
+    p: 'AI tidak dapat memeriksa Anda. Untuk keluhan yang berat atau memburuk dengan cepat, datanglah ke IGD terdekat atau hubungi nomor darurat resmi di daerah Anda. Halaman ini tidak memberi saran pengobatan.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Apakah salah bertanya soal kesehatan ke AI?',
+    a: 'Tidak ada larangan, dan banyak orang melakukannya. Yang perlu diingat adalah jawabannya bukan diagnosis, bisa keliru, dan tidak menggantikan pemeriksaan oleh tenaga kesehatan. Jadikan sebagai bahan pertanyaan untuk dokter, bukan kesimpulan.',
+  },
+  {
+    q: 'Apakah rumah sakit bisa melihat percakapan saya dengan AI?',
+    a: 'Tidak otomatis. Menurut makalah Nature Health yang dirangkum Medical Xpress, percakapan umumnya tersimpan di platform perusahaan AI, bukan di rumah sakit; karena itu dokter hanya dapat melihatnya bila Anda menunjukkannya.',
+  },
+];
+
+const sources = [
+  { label: 'ANTARA — Dokter soroti bahaya "self-diagnose" via AI dan sikap menyangkal (24 September 2026)', url: 'https://www.antaranews.com/berita/5757240/dokter-soroti-bahaya-self-diagnose-via-ai-dan-sikap-menyangkal' },
+  { label: 'Crossref — DeVerna dkk., The invisible risks of AI-generated health information, Nature Health (9 Oktober 2026)', url: 'https://api.crossref.org/works/10.1038/s44360-026-00206-x' },
+  { label: 'Medical Xpress — ringkasan makalah Nature Health (9 Oktober 2026)', url: 'https://medicalxpress.com/news/2026-10-chatbot-doctors-struggling-ai-health.html' },
+  SRC.uuPdp,
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/id/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: 'Pasien dan keluarga',
+  faq,
+});
+---
+
+<IdLayout title={title} description={description} crumb="Bertanya soal kesehatan ke AI" standalone updated={new Date('2026-10-31T00:00:00+07:00')} schema={schema}>
+  <h1>Sebelum bertanya soal kesehatan ke AI: 6 hal yang perlu diketahui</h1>
+  <p class="tg-lead">
+    Bertanya ke chatbot AI itu mudah, cepat, dan tersedia kapan saja. Tetapi ada hal yang baik diketahui lebih dulu agar jawabannya tidak menimbulkan salah paham atau kepanikan.
+  </p>
+  <p class="tg-meta">Diverifikasi: {CHECKED} · Untuk: pasien dan keluarga</p>
+
+  <div class="tg-box tg-warn">
+    Halaman ini informasi umum, bukan diagnosis atau saran pengobatan untuk gejala seseorang. Jika tidak enak badan, hubungi fasilitas kesehatan tempat Anda berobat.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-points">
+    <h2 id="h-points">Enam hal</h2>
+    {
+      points.map((x) => (
+        <>
+          <h3>{x.h}</h3>
+          <p>{x.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <IdFaq items={faq} />
+
+  <section class="tg-sec" aria-labelledby="h-more">
+    <h2 id="h-more">Baca juga</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/id/patients/hak-rekam-medis/')}>
+        <b>Hak Anda atas rekam medis</b>
+        <span>Akses, salinan, dan penyimpanan 25 tahun.</span>
+      </a>
+      <a class="tg-card" href={withBase('/id/patients/ai-in-hospital/')}>
+        <b>Ketika rumah sakit memakai AI</b>
+        <span>Hak atas informasi, persetujuan, dan keberatan atas keputusan otomatis.</span>
+      </a>
+    </div>
+  </section>
+
+  <IdGuideFoot sources={sources} checked={CHECKED} patient />
+</IdLayout>

@@ -1,0 +1,226 @@
+---
+// Contoh dokumen (2026-10-31): kebijakan AI generatif, 20 pertanyaan untuk vendor, naskah untuk pasien, kartu kontak insiden.
+// ⚠️ Semuanya DRAF buatan penulis, bukan nasihat hukum. Dasar hukum yang dirujuk hanya pasal yang naskahnya sudah dibaca.
+import '../../styles/id-guide.css';
+import IdLayout from '../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../components/IdGuideFoot.astro';
+import { SRC } from '../../data/id/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = '31 Oktober 2026';
+const title = 'Contoh kebijakan AI generatif RS dan 20 pertanyaan vendor';
+const description =
+  'Empat draf yang bisa disalin: kebijakan AI generatif, 20 pertanyaan untuk vendor, pemberitahuan untuk pasien, dan kartu kontak insiden data.';
+
+const policy = [
+  'KEBIJAKAN PENGGUNAAN AI GENERATIF DI RS __ (DRAF)',
+  '',
+  '1. Tujuan',
+  '   Mengatur penggunaan alat AI generatif (mis. chatbot, alat ringkasan, alat terjemahan) oleh karyawan RS __.',
+  '',
+  '2. Data yang TIDAK boleh dimasukkan',
+  '   - Nama, NIK, nomor rekam medis, alamat, atau isi rekam medis pasien.',
+  '   - Gambar atau rekaman yang memungkinkan pasien dikenali.',
+  '   - Dokumen kontrak, data keuangan, atau data kepegawaian yang rahasia.',
+  '',
+  '3. Penggunaan yang diizinkan (contoh)',
+  '   - Menyusun draf surat/pengumuman internal tanpa data pasien.',
+  '   - Merapikan bahasa dokumen umum yang tidak rahasia.',
+  '',
+  '4. Hasil AI adalah draf',
+  '   Pengguna wajib memeriksa isi (fakta, angka, nama, rujukan) sebelum dipakai. Tanggung jawab atas hasil tetap pada pengguna.',
+  '',
+  '5. Alat yang disetujui',
+  '   Hanya alat dalam daftar yang ditetapkan __ (bagian TI/Hukum). Alat di luar daftar tidak dipakai untuk pekerjaan RS.',
+  '',
+  '6. Pelaporan',
+  '   Dugaan data pasien masuk ke alat AI dilaporkan segera ke __ (nomor/ekstensi: __).',
+  '',
+  '7. Peninjauan',
+  '   Kebijakan ini ditinjau setiap __ bulan dan saat ada peraturan baru.',
+].join('\n');
+
+const questions = [
+  '20 PERTANYAAN UNTUK VENDOR AI / RME (DRAF)',
+  '',
+  'Status produk',
+  ' 1. Apa tujuan penggunaan produk? Tuliskan dalam dokumen, bukan hanya di presentasi.',
+  ' 2. Menurut vendor, apakah produk ini alat kesehatan? Jika bukan, apa alasannya? Jika ya, apa nomor izin edarnya?',
+  ' 3. Jika produk impor dan dinyatakan alat kesehatan: bagaimana status validasi klinis lokal di Indonesia?',
+  '',
+  'Data dan lokasi',
+  ' 4. Di mana data disimpan (kota, penyedia pusat data)? Apakah seluruhnya di dalam wilayah Indonesia?',
+  ' 5. Apakah ada data atau metadata yang dikirim ke luar negeri? Untuk tujuan apa, atas dasar apa?',
+  ' 6. Siapa saja (termasuk subkontraktor) yang dapat mengakses data rumah sakit?',
+  ' 7. Apakah data rumah sakit dipakai untuk melatih atau menyempurnakan model? Jika ya, atas dasar apa dan dapatkah ditolak?',
+  ' 8. Siapa yang memiliki dan mengendalikan data? Tuliskan dalam kontrak.',
+  '',
+  'Regulasi RME',
+  ' 9. Apakah sistem terdaftar sebagai sistem elektronik di Kemenkes dan PSE di sektor kesehatan?',
+  '10. Apakah sistem interoperabel dengan platform data kesehatan Kemenkes / SATUSEHAT?',
+  '11. Bagaimana pengaturan hak akses (input, perbaikan, melihat) dan jejak log?',
+  '12. Bagaimana backup dilakukan (lokasi berbeda, periodik)?',
+  '',
+  'Keamanan dan insiden',
+  '13. Dalam berapa jam vendor memberi tahu rumah sakit setelah mengetahui insiden? (RS perlu memberi pemberitahuan tertulis kepada pasien dan lembaga dalam 3 x 24 jam.)',
+  '14. Informasi apa yang vendor berikan saat insiden (data yang terungkap, waktu dan cara, upaya pemulihan)?',
+  '15. Apakah ada sertifikasi/audit keamanan pihak ketiga? Dapatkah buktinya dilihat?',
+  '',
+  'Kinerja dan kontrak',
+  '16. Angka akurasi/efisiensi diukur pada data siapa, di mana, dan dengan pembanding apa? Adakah penilaian independen?',
+  '17. Bagaimana pembaruan model diberitahukan dan divalidasi ulang?',
+  '18. Apa yang terjadi jika layanan terhenti? Bagaimana RS kembali ke alur manual?',
+  '19. Bagaimana data dikembalikan dan dimusnahkan saat kontrak berakhir, dan siapa yang memastikan?',
+  '20. Siapa menanggung tanggung jawab dan biaya bila terjadi kesalahan atau insiden?',
+].join('\n');
+
+const patient = [
+  'PEMBERITAHUAN UNTUK PASIEN (DRAF)',
+  '',
+  'RS __ menggunakan alat berbantuan AI untuk __ (mis. membantu merapikan catatan administrasi).',
+  '',
+  '- AI hanya membantu; keputusan tentang perawatan Anda tetap diambil oleh tenaga kesehatan.',
+  '- AI dapat membuat kesalahan. Jika ada hal yang tampak tidak sesuai, silakan sampaikan kepada petugas.',
+  '- Data Anda diproses untuk tujuan __ dan disimpan di __ (di dalam Indonesia).',
+  '- Anda berhak meminta informasi tentang data kesehatan Anda dan akses ke rekam medis Anda.',
+  '- Jika kami perlu merekam suara atau gambar sebagai bagian dari penggunaan alat ini, kami akan menjelaskan tujuannya lebih dulu dan meminta persetujuan Anda.',
+  '',
+  'Pertanyaan: hubungi __ (telepon/ekstensi: __).',
+].join('\n');
+
+const incident = [
+  'KARTU KONTAK INSIDEN DATA PASIEN (DRAF)',
+  '',
+  'Waktu mengetahui insiden: __/__/__ __:__  (batas pemberitahuan tertulis 3 x 24 jam: __/__/__ __:__)',
+  'Pelapor: __   Unit: __',
+  '',
+  'Ringkasan: data apa, sistem apa, perkiraan jumlah pasien, apakah masih berlangsung?',
+  '  __',
+  '',
+  'Kontak (siapkan sebelum insiden terjadi)',
+  '  Penanggung jawab keamanan informasi / TI: __  (HP: __)',
+  '  Direksi / pimpinan: __  (HP: __)',
+  '  Hukum / kepatuhan: __  (HP: __)',
+  '  Juru bicara / humas: __  (HP: __)',
+  '  Vendor terkait: __  (nomor darurat 24 jam: __)',
+  '',
+  'Isi pemberitahuan tertulis (minimal): data pribadi yang terungkap; kapan dan bagaimana terungkap; upaya penanganan dan pemulihan.',
+  'Penerima: pasien yang terdampak; lembaga yang berwenang (cari nama dan kanal resmi pada saat itu); masyarakat bila termasuk "hal tertentu".',
+  '',
+  'Dicatat: __ (siapa yang menghubungi siapa, kapan).',
+].join('\n');
+
+const items = [
+  {
+    id: 'policy',
+    head: '1. Kebijakan penggunaan AI generatif',
+    lead: 'Satu halaman yang dapat diberikan kepada karyawan. Gantilah tanda __ dengan isi rumah sakit Anda.',
+    basis: [
+      'Larangan memasukkan data pasien dilandaskan pada kewajiban pelindungan data: data kesehatan termasuk data pribadi spesifik (UU 27/2022 Pasal 4) dan pengendali data wajib menjaga kerahasiaan (Pasal 36).',
+      'Draf ini adalah usulan penulis; Permenkes 24/2022 mengatur hak akses RME oleh pimpinan fasilitas dalam SOP (Pasal 30).',
+    ],
+    text: policy,
+  },
+  {
+    id: 'vendor',
+    head: '2. Dua puluh pertanyaan untuk vendor',
+    lead: 'Cetak dan bawa ke rapat presentasi vendor. Catat jawabannya secara tertulis.',
+    basis: [
+      'Butir 2–3: Kepmenkes 951/2026 (tujuan medis menentukan status alat kesehatan; validasi klinis lokal untuk impor tertentu).',
+      'Butir 4–8: PP 28/2024 Pasal 966; UU 17/2023 Pasal 346 ayat 6 dan Pasal 349 ayat 7; UU 27/2022 Pasal 56; Permenkes 24/2022 Pasal 22.',
+      'Butir 9–12: Permenkes 24/2022 Pasal 9, 12, 20, 21, 30.',
+      'Butir 13–14: UU 27/2022 Pasal 46 (pemberitahuan tertulis 3 x 24 jam dengan isi minimal).',
+      'Butir 15–20: saran penulis, bukan kewajiban hukum.',
+    ],
+    text: questions,
+  },
+  {
+    id: 'patient',
+    head: '3. Pemberitahuan untuk pasien',
+    lead: 'Contoh singkat agar pasien tahu bahwa rumah sakit memakai AI. Sesuaikan dengan praktik sebenarnya.',
+    basis: [
+      'Pasien berhak memperoleh informasi tentang data kesehatannya dan akses ke rekam medis (UU 17/2023 Pasal 4 ayat 1 huruf j, Pasal 276 huruf e).',
+      'Persetujuan eksplisit untuk tujuan tertentu merupakan salah satu dasar pemrosesan (UU 27/2022 Pasal 20).',
+    ],
+    text: patient,
+  },
+  {
+    id: 'incident',
+    head: '4. Kartu kontak insiden data pasien',
+    lead: 'Jadikan alur pelaporan sebagai satu kartu yang dapat diisi, dan simpan di tempat yang mudah ditemukan malam dan akhir pekan.',
+    basis: [
+      'UU 27/2022 Pasal 46: pemberitahuan tertulis kepada pasien dan lembaga paling lambat 3 x 24 jam, dengan isi minimal tertentu; pemberitahuan kepada masyarakat dalam hal tertentu.',
+    ],
+    text: incident,
+  },
+];
+
+const sources = [SRC.uuPdp, SRC.permenkes24, SRC.pp28, SRC.uuKesehatan, SRC.kepmenkes951];
+---
+
+<IdLayout title={title} description={description} crumb="Contoh dokumen" standalone updated={new Date('2026-10-31T00:00:00+07:00')}>
+  <h1>Contoh kebijakan AI generatif dan 20 pertanyaan untuk vendor</h1>
+  <p class="tg-lead">
+    "Tidak tahu mulai menulis dari mana" adalah keluhan banyak rumah sakit. Di sini ada empat draf: tekan tombol untuk menyalin, lalu ganti garis bawah (__) dengan isi rumah sakit Anda.
+  </p>
+  <p class="tg-meta">Diverifikasi: {CHECKED} · Untuk: administrasi dan TI rumah sakit</p>
+
+  <div class="tg-box tg-warn">
+    <strong>Mohon perhatikan sebelum memakai</strong><br />
+    Ini <strong>draf</strong> buatan penulis, bukan nasihat hukum, dan bukan versi yang "tinggal salin sudah cukup". Sesuaikan dengan ukuran, sistem, dan kontrak rumah sakit Anda, lalu minta bagian hukum/kepatuhan memeriksanya sebelum dijadikan dokumen resmi.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-toc">
+    <h2 id="h-toc">Isi halaman</h2>
+    <ul class="tg-list">
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.head}</a></li>)}
+    </ul>
+    <p>
+      Penjelasan terkait: <a href={withBase('/id/dx-roadmap/')}>Peta waktu</a>, <a href={withBase('/id/rme-checklist/')}>Daftar periksa RME dan vendor</a>, dan <a href={withBase('/id/cyber-checklist/')}>Daftar periksa keamanan data pasien</a>.
+    </p>
+  </section>
+
+  {
+    items.map((it) => (
+      <section class="tg-sec" id={it.id} aria-labelledby={`${it.id}-h`}>
+        <h2 id={`${it.id}-h`}>{it.head}</h2>
+        <p>{it.lead}</p>
+        <div class="tg-copy">
+          <button type="button" class="tg-btn" data-target={`${it.id}-text`}>
+            Salin
+          </button>
+          <pre id={`${it.id}-text`}>{it.text}</pre>
+        </div>
+        <h3>Dasar draf ini</h3>
+        <ul class="tg-list">
+          {it.basis.map((b) => <li>{b}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <IdGuideFoot sources={sources} checked={CHECKED} />
+</IdLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.tg-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = document.getElementById(btn.dataset.target ?? '');
+      if (!el) return;
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Tersalin';
+      } catch {
+        // Bila papan klip tidak tersedia: pilih isinya agar pengguna menyalin sendiri
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = window.getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Terpilih (tekan Ctrl+C)';
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>

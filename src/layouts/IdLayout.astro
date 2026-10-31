@@ -12,9 +12,12 @@
 import '../styles/global.css';
 import '../styles/id-tokens.css';
 import '../styles/locale-theme.css';
+import '../styles/id-refresh.css';
 import id from '../i18n/id.json';
 import { growth } from '../i18n/growth';
 import navConfig from '../data/id/content/nav.json';
+import linkHealth from '../data/id/link-health.json';
+import lawWatch from '../data/id/law-watch.json';
 import { lastModifiedForPath } from '../utils/git-lastmod.mjs';
 import { organizationShared } from '../utils/entity';
 import {
@@ -112,14 +115,21 @@ const ruHref = ruPath ? `${siteRoot}${withBase(ruPath)}` : undefined;
 const twHref = twPath ? `${siteRoot}${withBase(twPath)}` : undefined;
 
 // 메뉴 표시·비표시는 src/data/id/content/nav.json에서 관리한다
-// (홈은 항상 표시 — 지우면 러시아어판 입구가 없어진다).
+// (홈은 항상 표시 — 지우면 인도네시아어판 입구가 없어진다).
 const navLabels = id.nav as Record<string, string>;
 const nav = navConfig
   .filter((item) => item.href === '/id/' || item.enabled)
   .map((item) => ({
     href: item.href,
+    key: item.key,
     label: navLabels[item.key] ?? item.key,
   }));
+
+// Menu dua tingkat (2026-10-31): 6 butir utama ditampilkan besar, sisanya di baris kedua.
+// Urutan dan tampil/sembunyi tetap diatur nav.json; di sini hanya pembagian tingkat.
+const PRIMARY_KEYS = ['home', 'practice', 'govSupport', 'news', 'patients', 'blog'];
+const navPrimary = nav.filter((n) => PRIMARY_KEYS.includes(n.key));
+const navSecondary = nav.filter((n) => !PRIMARY_KEYS.includes(n.key));
 
 const isActive = (href: string) =>
   href === '/id/' ? canonicalPath === '/id/' : canonicalPath.startsWith(href);
@@ -334,9 +344,9 @@ const year = new Date().getFullYear();
     </header>
 
     <nav class="id-nav" aria-label="Menu utama">
-      <ul>
+      <ul class="id-nav-primary">
         {
-          nav.map((item) => (
+          navPrimary.map((item) => (
             <li>
               <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
                 {item.label}
@@ -345,14 +355,37 @@ const year = new Date().getFullYear();
           ))
         }
       </ul>
+      {
+        navSecondary.length > 0 && (
+          <div class="id-nav-secondary">
+            <ul class="id-nav-secondary-inner">
+              <li class="id-nav-label">Data</li>
+              {navSecondary.map((item) => (
+                <li>
+                  <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
     </nav>
 
-    <nav class="id-breadcrumb" aria-label="Remah roti">
-      <ol>
-        <li><a href={withBase('/id/')}>{id.ui.breadcrumbHome}</a></li>
-        {crumb && <li aria-current="page">{crumb}</li>}
-      </ol>
-    </nav>
+    {/* Slot untuk blok selebar layar (hero beranda). Halaman yang tidak memakainya tidak menghasilkan apa pun */}
+    <slot name="hero" />
+
+    {
+      crumb && (
+        <nav class="id-breadcrumb" aria-label="Remah roti">
+          <ol>
+            <li><a href={withBase('/id/')}>{id.ui.breadcrumbHome}</a></li>
+            <li aria-current="page">{crumb}</li>
+          </ol>
+        </nav>
+      )
+    }
 
     <div class="id-shell">
       <main id="id-main">
@@ -405,6 +438,7 @@ const year = new Date().getFullYear();
       <div class="id-footer-inner">
         <ul>
           <li><a href={withBase('/id/about/')}>{id.footer.about}</a></li>
+          <li><a href={withBase('/id/updates/')}>Informasi pembaruan</a></li>
           <li><a href={withBase('/id/series/')}>{growth.id.seriesName}</a></li>
           <li><a href={withBase('/privacy/')}>{id.footer.privacy}</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`}>{id.footer.contact}</a></li>
@@ -433,6 +467,29 @@ const year = new Date().getFullYear();
               <a href={withBase('/tw/')} hreflang="zh-TW" lang="zh-TW">{id.editions.tw}</a>
             </li>
         </ul>
+        {
+          /* Pemeriksaan harian tautan sumber (scripts/check-id-links.mjs → link-health.json).
+             Hanya 'halaman tidak ditemukan' (404/410) dihitung rusak; yang tidak bisa dihubungi dihitung terpisah sebagai 'belum terverifikasi'. */
+          linkHealth.checkedAt && (
+            <p class="id-footer-check">
+              Pemeriksaan otomatis tautan sumber: {new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(linkHealth.checkedAt))}
+              ({linkHealth.total} tautan diperiksa, {linkHealth.dead.length} tidak ditemukan, {linkHealth.unknown} belum terverifikasi karena tidak dapat dihubungi)
+            </p>
+          )
+        }
+        {
+          /* Pemantauan harian status peraturan dasar (scripts/check-id-laws.mjs → law-watch.json).
+             Jika status atau keterkaitan peraturan di JDIH Kemenkes berubah dari saat situs ini memeriksanya, nama peraturan ditampilkan. */
+          lawWatch.checkedAt && (
+            <p class="id-footer-check">
+              Pemantauan status peraturan dasar: {new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(lawWatch.checkedAt))}
+              (JDIH Kemenkes, {lawWatch.laws.length} peraturan)
+              {lawWatch.laws.some((l) => l.changed)
+                ? `. Status atau keterkaitan ${lawWatch.laws.filter((l) => l.changed).map((l) => l.name).join('; ')} berbeda dari saat situs ini memeriksanya; isi terkait sedang diverifikasi ulang. Rujuk peraturan terbaru.`
+                : '. Saat ini tidak ditemukan perubahan dari saat situs ini memeriksanya.'}
+            </p>
+          )
+        }
         <p>{id.ui.disclaimer}</p>
         <p style="margin-top:10px">© {year} {SITE_ID}</p>
       </div>

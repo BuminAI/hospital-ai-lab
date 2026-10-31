@@ -1,0 +1,85 @@
+---
+// Informasi pembaruan (2026-10-31) — konten yang baru ditambahkan di edisi Indonesia per bidang, urut tanggal.
+// Tanggal = tanggal terbit berita, tanggal penetapan peraturan, tanggal terbit info acara, tanggal video ditambahkan, tanggal terbit artikel; bukan waktu build situs.
+import '../../styles/id-guide.css';
+import IdLayout from '../../layouts/IdLayout.astro';
+import { getIdUpdates, KIND_LABEL } from '../../utils/id-updates';
+import { withBase } from '../../utils/site';
+
+const DAYS = 45;
+const items = await getIdUpdates(DAYS);
+const fmtDay = new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+const dayKey = (iso: string) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Jakarta' }).format(new Date(iso));
+
+const groups: { key: string; label: string; list: typeof items }[] = [];
+for (const it of items) {
+  const k = dayKey(it.date);
+  let g = groups[groups.length - 1];
+  if (!g || g.key !== k) {
+    g = { key: k, label: fmtDay.format(new Date(it.date)), list: [] };
+    groups.push(g);
+  }
+  g.list.push(it);
+}
+const count = (kind: string) => items.filter((i) => i.kind === kind).length;
+
+const title = 'Informasi pembaruan: berita AI, regulasi, acara, video';
+const description = `Berita AI, peraturan baru dari JDIH Kemenkes, pelatihan dan acara, video pilihan, serta artikel yang ditambahkan dalam ${DAYS} hari terakhir, urut tanggal. Dikumpulkan otomatis dan diperiksa setiap hari.`;
+const latest = items.length ? new Date(items[0].date) : undefined;
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${siteRoot}${withBase('/id/updates/')}#collection`,
+    name: 'Informasi pembaruan',
+    inLanguage: 'id',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 30).map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.title,
+        url: it.external ? it.href : `${siteRoot}${it.href}`,
+      })),
+    },
+  },
+];
+---
+
+<IdLayout title={title} description={description} crumb="Informasi pembaruan" standalone updated={latest} schema={schema}>
+  <h1>Informasi pembaruan</h1>
+  <p class="tg-lead">
+    Konten yang ditambahkan di edisi Indonesia dalam {DAYS} hari terakhir, urut tanggal. Berita diperiksa setiap 3 jam, peraturan baru dan acara beberapa kali sehari, video pilihan beberapa kali sehari; artikel ditambahkan saat selesai ditulis.
+  </p>
+  <p class="tg-meta">
+    {DAYS} hari terakhir: {KIND_LABEL.news} {count('news')} · {KIND_LABEL.notice} {count('notice')} · {KIND_LABEL.event} {count('event')} · {KIND_LABEL.video} {count('video')} · {KIND_LABEL.blog} {count('blog')}
+  </p>
+  <div class="tg-box">
+    Tanggal di layar adalah tanggal terbit berita, tanggal penetapan peraturan, tanggal video ditambahkan, atau tanggal terbit artikel — bukan waktu build situs. Tautan eksternal menuju halaman instansi atau media yang bersangkutan.
+  </div>
+
+  {
+    groups.length > 0 ? (
+      groups.map((g) => (
+        <section class="tg-sec" aria-label={g.label}>
+          <h2>{g.label}</h2>
+          <ul class="tg-list">
+            {g.list.map((it) => (
+              <li>
+                <span class="tg-tag">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only">(dibuka di tab baru)</span>}
+                </a>
+                {it.note && <small> · {it.note}</small>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    ) : (
+      <p>Tidak ada konten baru pada periode ini.</p>
+    )
+  }
+</IdLayout>

@@ -1,0 +1,121 @@
+---
+// Peta waktu digital kesehatan & AI di Indonesia (2026-10-31) — berdasarkan naskah primer JDIH dan siaran pers Kemenkes.
+// Fakta dikumpulkan di src/data/id/guides/milestones.ts; halaman ini hanya mengatur tampilan.
+import '../../styles/id-guide.css';
+import IdLayout from '../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../components/IdGuideFoot.astro';
+import IdFaq from '../../components/IdFaq.astro';
+import { guideSchema } from '../../utils/id-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/id/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+
+const title = 'Peta waktu RME, SATUSEHAT, UU PDP, dan AI kesehatan';
+const description =
+  'Tonggak penting untuk administrasi dan keperawatan rumah sakit: Permenkes 24/2022, UU PDP, UU 17/2023, PP 28/2024, SATUSEHAT RME, Kepmenkes 951/2026 — dengan sumber.';
+
+const sources = [SRC.permenkes24, SRC.uuPdp, SRC.uuKesehatan, SRC.pp28, SRC.satusehatRme, SRC.kepmenkes951];
+
+const faq = [
+  {
+    q: 'Sejak kapan rumah sakit wajib menyelenggarakan rekam medis elektronik (RME)?',
+    a: 'Pasal 45 Permenkes 24/2022 (ditetapkan 31 Agustus 2022) menyatakan seluruh fasilitas pelayanan kesehatan harus menyelenggarakan RME sesuai peraturan itu paling lambat 31 Desember 2023.',
+  },
+  {
+    q: 'Apakah data pasien boleh disimpan di server atau cloud di luar negeri?',
+    a: 'Pasal 966 PP 28/2024 menyatakan pangkalan data kesehatan berupa pusat data di dalam wilayah Indonesia, dan penyimpanan lewat jasa pihak lain pun harus dilaksanakan di dalam wilayah Indonesia. Pasal 346 ayat 6 UU 17/2023 juga mewajibkan pemrosesan data dan informasi kesehatan di wilayah Indonesia. Transfer ke luar wilayah hanya untuk tujuan spesifik dan terbatas dengan izin Pemerintah Pusat (Pasal 349 ayat 7 UU 17/2023).',
+  },
+  {
+    q: 'Apakah alat AI untuk urusan administrasi rumah sakit termasuk alat kesehatan?',
+    a: 'Menurut Kepmenkes 951/2026, AI dan machine learning hanya termasuk kategori alat kesehatan bila memiliki tujuan medis yang dimaksudkan. Penggunaan untuk fungsi non-medis, termasuk pengelolaan data administratif dan penyimpanan data, tidak termasuk dalam definisi alat kesehatan. Penentuan untuk produk tertentu tetap perlu dicek pada naskah pedomannya.',
+  },
+  {
+    q: 'Apakah masa penyesuaian UU Pelindungan Data Pribadi sudah berakhir?',
+    a: 'Pasal 74 UU 27/2022 memberi waktu paling lama 2 tahun sejak diundangkan (17 Oktober 2022) untuk menyesuaikan pemrosesan data pribadi. Artinya masa penyesuaian berakhir pada 17 Oktober 2024.',
+  },
+  {
+    q: 'Apakah ada tenggat baru yang sudah resmi untuk rumah sakit?',
+    a: 'Di halaman ini hanya tercantum tanggal yang bersumber dari naskah resmi atau siaran pers instansi. Kami tidak menemukan tenggat baru yang dapat diverifikasi dari sumber resmi, sehingga tidak mencantumkannya. Pantau halaman "Kalender regulasi" untuk peraturan baru dari JDIH Kemenkes.',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/id/dx-roadmap/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: 'Administrasi dan keperawatan rumah sakit',
+  faq,
+});
+---
+
+<IdLayout title={title} description={description} crumb="Peta waktu" standalone updated={new Date('2026-10-31T00:00:00+07:00')} schema={schema}>
+  <h1>Peta waktu digital kesehatan dan AI</h1>
+  <p class="tg-lead">
+    "Rumah sakit kami wajib melakukan apa, dan sejak kapan?" Semakin banyak kabar tentang RME, SATUSEHAT, dan AI, semakin sulit menjawabnya. Halaman ini menyusun tanggal-tanggal yang tercantum dalam naskah resmi, lengkap dengan pasal dan sumbernya.
+  </p>
+  <p class="tg-meta">Diverifikasi: {CHECKED} · Untuk: bagian administrasi dan keperawatan rumah sakit</p>
+
+  <p class="tg-answer">
+    Ringkasnya: RME wajib sejak 31 Desember 2023 (Permenkes 24/2022); data kesehatan harus diproses dan disimpan di Indonesia (UU 17/2023, PP 28/2024); data kesehatan termasuk data pribadi spesifik menurut UU PDP (masa penyesuaian berakhir 17 Oktober 2024); dan Kepmenkes 951/2026 (7 September 2026) mengatur izin edar perangkat lunak dan AI yang bertujuan medis.
+  </p>
+
+  <div class="tg-box">
+    <strong>Cara membaca halaman ini</strong><br />
+    Setiap butir ditulis setelah naskah resminya dibuka dan dibaca. Kami tidak menambahkan tenggat yang hanya beredar di pemberitaan atau media sosial. Kewajiban tiap rumah sakit bergantung pada jenis fasilitasnya; rujuk naskah resmi dan konsultasikan dengan bagian hukum.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">Tonggak yang sudah terjadi</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">Tenggat yang akan datang</h2>
+    <p>
+      Kami belum menemukan tenggat baru untuk rumah sakit yang dapat diverifikasi dari naskah resmi, sehingga bagian ini sengaja kosong. Peraturan pelaksana UU PDP juga belum kami temukan naskah resminya, jadi isinya tidak kami uraikan. Peraturan baru dari JDIH Kemenkes muncul otomatis di <a href={withBase('/id/calendar/')}>Kalender regulasi</a>.
+    </p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Halaman yang saling melengkapi</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/id/rme-checklist/')}>
+        <b>Daftar periksa RME dan vendor</b>
+        <span>Apa yang perlu dipastikan sebelum sistem RME atau AI berurusan dengan rekam medis.</span>
+      </a>
+      <a class="tg-card" href={withBase('/id/cyber-checklist/')}>
+        <b>Daftar periksa keamanan data pasien</b>
+        <span>Kewajiban pengendali data dan penyimpanan data kesehatan, per pasal.</span>
+      </a>
+      <a class="tg-card" href={withBase('/id/templates/')}>
+        <b>Contoh dokumen</b>
+        <span>Kebijakan AI generatif, 20 pertanyaan untuk vendor, naskah pemberitahuan insiden.</span>
+      </a>
+    </div>
+  </section>
+
+  <IdFaq items={faq} />
+
+  <IdGuideFoot sources={sources} checked={CHECKED} />
+</IdLayout>

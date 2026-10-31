@@ -1,0 +1,169 @@
+---
+// Daftar periksa keamanan data pasien (2026-10-31)
+// ⚠️ Indonesia tidak punya satu daftar periksa keamanan resmi yang khusus rumah sakit. Butir di sini disusun sendiri oleh
+//    penulis berdasarkan pasal-pasal yang naskahnya sudah dibuka dan dibaca: UU 27/2022 (PDP), Permenkes 24/2022 (Rekam Medis),
+//    PP 28/2024 Pasal 966, dan UU 17/2023. Setiap butir mencantumkan pasalnya.
+// ⚠️ Peraturan pelaksana UU PDP belum kami temukan naskah resminya, jadi tidak diuraikan.
+import '../../styles/id-guide.css';
+import IdLayout from '../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../components/IdGuideFoot.astro';
+import IdFaq from '../../components/IdFaq.astro';
+import { guideSchema } from '../../utils/id-guide';
+import { SRC } from '../../data/id/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = '31 Oktober 2026';
+const title = 'Daftar periksa keamanan data pasien rumah sakit';
+const description =
+  '20 butir yang bisa dicentang administrasi dan TI rumah sakit, disusun dari UU PDP, Permenkes 24/2022, PP 28/2024, dan UU 17/2023 — lengkap dengan pasalnya.';
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. Dasar pemrosesan dan hak pasien',
+    lead: 'Data dan informasi kesehatan termasuk data pribadi yang bersifat spesifik (UU PDP Pasal 4).',
+    items: [
+      { no: '1', text: 'Untuk setiap aliran data pasien sudah ditentukan dasar pemrosesannya: persetujuan eksplisit untuk tujuan tertentu, pemenuhan perjanjian, kewajiban hukum, pelindungan kepentingan vital, tugas kepentingan umum/pelayanan publik, atau kepentingan yang sah.', basis: 'UU 27/2022 Pasal 20' },
+      { no: '2', text: 'Permintaan pasien untuk memperbarui/memperbaiki data diselesaikan paling lambat 3 x 24 jam sejak diterima, dan hasilnya diberitahukan kepada pasien.', basis: 'UU 27/2022 Pasal 30' },
+      { no: '3', text: 'Akses pasien ke data pribadinya beserta rekam jejak pemrosesan diberikan paling lambat 3 x 24 jam sejak permintaan diterima.', basis: 'UU 27/2022 Pasal 32' },
+      { no: '4', text: 'Pemrosesan dihentikan paling lambat 3 x 24 jam sejak pasien menarik persetujuan.', basis: 'UU 27/2022 Pasal 40' },
+      { no: '5', text: 'Seluruh kegiatan pemrosesan data pribadi direkam (log).', basis: 'UU 27/2022 Pasal 31' },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Keamanan rekam medis elektronik',
+    items: [
+      { no: '6', text: 'Ada langkah teknis operasional untuk melindungi data dan tingkat keamanan ditentukan menurut sifat dan risiko data.', basis: 'UU 27/2022 Pasal 35' },
+      { no: '7', text: 'Kerahasiaan terjaga, pihak yang terlibat dalam pemrosesan diawasi, dan pemrosesan tidak sah dicegah.', basis: 'UU 27/2022 Pasal 36, 37, 38' },
+      { no: '8', text: 'Akses tidak sah dicegah dengan sistem elektronik yang andal, aman, dan bertanggung jawab.', basis: 'UU 27/2022 Pasal 39' },
+      { no: '9', text: 'RME memenuhi prinsip kerahasiaan, integritas, dan ketersediaan.', basis: 'Permenkes 24/2022 Pasal 29' },
+      { no: '10', text: 'Pimpinan fasilitas memberikan hak akses (input, perbaikan, melihat data) kepada tenaga kesehatan/tenaga lain, dan ini menjadi bagian dari SOP penyelenggaraan RME.', basis: 'Permenkes 24/2022 Pasal 30' },
+      { no: '11', text: 'Penyimpanan RME memakai server atau cloud yang tersertifikasi; ada cadangan data (backup) di lokasi berbeda dari fasilitas, dilakukan periodik, dan tertuang dalam SOP.', basis: 'Permenkes 24/2022 Pasal 20' },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. Vendor, cloud, dan lokasi data',
+    lead: 'Saat rumah sakit menyerahkan penyimpanan atau pengolahan data ke pihak lain, di sinilah risiko terbesar biasanya berada.',
+    items: [
+      { no: '12', text: 'Sistem elektronik RME yang dipakai sudah diregistrasikan di Kemenkes (termasuk lokasi penyimpanan data), dan penyelenggara sistem elektronik terdaftar di sektor kesehatan.', basis: 'Permenkes 24/2022 Pasal 9 ayat 3, Pasal 12' },
+      { no: '13', text: 'Jika penyimpanan dikerjasamakan karena keterbatasan sumber daya: penyelenggara sistem elektronik punya fasilitas penyimpanan di dalam negeri, mendapat rekomendasi unit data dan informasi Kemenkes, dilarang membuka/mengambil/memanipulasi/memanfaatkan data, larangan itu dituangkan dalam pakta integritas atau NDA, dan rumah sakit memperoleh akses tidak terbatas ke data.', basis: 'Permenkes 24/2022 Pasal 22' },
+      { no: '14', text: 'Data kesehatan disimpan di pusat data di dalam wilayah Indonesia; bila memakai jasa pihak lain, perjanjian memuat paling sedikit kerahasiaan, tingkat layanan, dan target tingkat layanan, dan data tetap dimiliki dan dikendalikan penyelenggara.', basis: 'PP 28/2024 Pasal 966' },
+      { no: '15', text: 'Pemrosesan data dan informasi kesehatan dilakukan di wilayah Indonesia; transfer ke luar wilayah hanya untuk tujuan spesifik dan terbatas dengan izin Pemerintah Pusat.', basis: 'UU 17/2023 Pasal 346 ayat 6, Pasal 349 ayat 7' },
+      { no: '16', text: 'Jika data pribadi dikirim ke luar wilayah Indonesia: dipastikan negara penerima memiliki pelindungan setara atau lebih tinggi; jika tidak, ada pelindungan yang memadai dan mengikat; jika keduanya tidak terpenuhi, diperlukan persetujuan pasien.', basis: 'UU 27/2022 Pasal 56' },
+      { no: '17', text: 'RME terhubung/terinteroperabilitas dengan platform data kesehatan Kemenkes, dan sistem informasi kesehatan terintegrasi dengan Sistem Informasi Kesehatan Nasional.', basis: 'Permenkes 24/2022 Pasal 21; UU 17/2023 Pasal 345 ayat 3' },
+    ],
+  },
+  {
+    id: 'g4',
+    head: 'D. Ketika terjadi kegagalan pelindungan data',
+    items: [
+      { no: '18', text: 'Ada prosedur memberi pemberitahuan tertulis kepada pasien dan lembaga yang berwenang paling lambat 3 x 24 jam sejak kegagalan pelindungan data pribadi.', basis: 'UU 27/2022 Pasal 46 ayat 1' },
+      { no: '19', text: 'Pemberitahuan memuat minimal: data pribadi yang terungkap; kapan dan bagaimana terungkap; upaya penanganan dan pemulihan oleh pengendali data.', basis: 'UU 27/2022 Pasal 46 ayat 2' },
+      { no: '20', text: 'Dalam hal tertentu (penjelasan pasal memberi contoh: mengganggu pelayanan publik atau berdampak serius pada kepentingan masyarakat) ada rencana pemberitahuan kepada masyarakat.', basis: 'UU 27/2022 Pasal 46 ayat 3 dan penjelasannya' },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'Dalam berapa lama rumah sakit harus memberi tahu pasien jika data bocor?',
+    a: 'Pasal 46 ayat 1 UU 27/2022: dalam hal terjadi kegagalan pelindungan data pribadi, pengendali data wajib menyampaikan pemberitahuan tertulis paling lambat 3 x 24 jam kepada subjek data dan lembaga. Pemberitahuan minimal memuat data yang terungkap, kapan dan bagaimana terungkap, serta upaya penanganan dan pemulihan.',
+  },
+  {
+    q: 'Apa sanksinya jika kewajiban-kewajiban itu tidak dipenuhi?',
+    a: 'Pasal 57 UU 27/2022 mengenakan sanksi administratif atas pelanggaran sejumlah pasal (termasuk Pasal 46 ayat 1 dan 3) berupa peringatan tertulis, penghentian sementara kegiatan pemrosesan, penghapusan atau pemusnahan data, dan/atau denda administratif. Besaran denda dan tata caranya tidak kami uraikan di sini.',
+  },
+  {
+    q: 'Bolehkah rumah sakit menyimpan rekam medis elektronik di cloud?',
+    a: 'Permenkes 24/2022 Pasal 20 ayat 3 menyebut media penyimpanan digital dapat berupa server atau sistem komputasi awan (cloud) yang tersertifikasi, dengan cadangan data di lokasi berbeda. PP 28/2024 Pasal 966 menambahkan bahwa pusat data harus berada di dalam wilayah Indonesia. Syarat lengkap ada pada pasal-pasal tersebut.',
+  },
+];
+
+const sources = [SRC.uuPdp, SRC.permenkes24, SRC.pp28, SRC.uuKesehatan];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/id/cyber-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: 'Administrasi dan TI rumah sakit',
+  faq,
+});
+---
+
+<IdLayout title={title} description={description} crumb="Keamanan data pasien" standalone updated={new Date('2026-10-31T00:00:00+07:00')} schema={guide}>
+  <h1>Daftar periksa keamanan data pasien</h1>
+  <p class="tg-lead">
+    Kewajiban melindungi data pasien tersebar di beberapa peraturan: UU Pelindungan Data Pribadi, Permenkes tentang Rekam Medis, PP 28/2024, dan UU Kesehatan. Halaman ini menyusunnya menjadi daftar periksa yang bisa dicentang satu per satu.
+  </p>
+  <p class="tg-meta">Diverifikasi: {CHECKED} · {total} butir · Untuk: administrasi dan TI rumah sakit</p>
+
+  <p class="tg-answer">
+    Intinya: kegagalan pelindungan data pribadi harus diberitahukan secara tertulis kepada pasien dan lembaga paling lambat 3 x 24 jam (UU PDP Pasal 46); data kesehatan disimpan di pusat data di Indonesia dengan cadangan data (PP 28/2024 Pasal 966); dan kerja sama penyimpanan dengan pihak lain tunduk pada Permenkes 24/2022 Pasal 22.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Perlu dipahami lebih dulu</strong>
+    <ul class="tg-list">
+      <li>Daftar ini <strong>bukan daftar periksa resmi pemerintah</strong>. Penulis menyusunnya dari pasal-pasal yang naskahnya sudah dibaca; setiap butir mencantumkan pasalnya, jadi mohon kembali ke naskah resmi.</li>
+      <li>Peraturan pelaksana UU PDP (misalnya tentang tata cara sanksi) belum kami temukan naskah resminya, sehingga tidak dimasukkan.</li>
+      <li>Kewajiban rinci bergantung pada jenis dan kewenangan fasilitas Anda. Rujuk bagian hukum untuk keputusan pada kasus tertentu.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Yang perlu dipastikan</th>
+              <th>Dasar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-how">
+    <h2 id="h-how">Cara memakainya (saran penulis)</h2>
+    <p>Berikut saran penulis, bukan kewajiban hukum.</p>
+    <ol class="tg-list">
+      <li><strong>Bagi menjadi "sudah, belum, tidak yakin".</strong> Butir yang tidak yakin ditanyakan ke TI atau vendor.</li>
+      <li><strong>Mulai dari bagian C (vendor dan cloud).</strong> Bagian ini butuh kerja sama pihak luar sehingga biasanya paling lama.</li>
+      <li><strong>Buat kartu satu halaman untuk insiden.</strong> Siapa yang melapor, kepada siapa, dan batas 3 x 24 jam, ditempatkan di tempat yang mudah ditemukan malam dan akhir pekan.</li>
+      <li><strong>Gunakan standar yang sama saat menilai layanan AI.</strong> Apakah vendor dapat mengakses data rumah sakit, di mana data disimpan, dan apa jaminan kontraknya (butir 12–17).</li>
+    </ol>
+    <p>
+      Pertanyaan untuk vendor dapat memakai "20 pertanyaan untuk vendor" di <a href={withBase('/id/templates/')}>Contoh dokumen</a>.
+    </p>
+  </section>
+
+  <IdFaq items={faq} />
+
+  <IdGuideFoot sources={sources} checked={CHECKED} />
+</IdLayout>

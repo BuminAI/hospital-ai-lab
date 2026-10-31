@@ -65,6 +65,8 @@
 - [Berita AI](https://hospital-ai-lab.com/id/news/): PERSI와 ANTARA에서 자동 수집 (의료 AI 전용)
 - [Sorotan AI](https://hospital-ai-lab.com/id/ai-digest/): CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6의 AI 기사 — 의료에 한정하지 않은 일반 동향. 하루 여러 번 갱신
 - [Pelatihan & Acara](https://hospital-ai-lab.com/id/events/): PERSI·Kemenkes·PORMIKI
+- 인도네시아어 전용 안내문: [llms.txt (Bahasa Indonesia)](https://hospital-ai-lab.com/id/llms.txt)
+- 실무 가이드(`/id/dx-roadmap/`·`/id/rme-checklist/`·`/id/cyber-checklist/`)·환자 코너(`/id/patients/`)·규정 캘린더(`/id/calendar/`, JDIH Kemenkes 신규 규정 자동 수집)·갱신 정보(`/id/updates/`). 근거 규정 4건(UU 17/2023·PP 28/2024·Permenkes 24/2022·Kepmenkes 951/2026)의 JDIH 효력 상태를 매일 대조한다.
 
 ## 대만어판 / 정체 중국어 (https://hospital-ai-lab.com/tw/)
 

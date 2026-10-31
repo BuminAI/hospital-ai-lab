@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-31T10:38:09.804Z",
+  "readOk": 4,
+  "total": 4,
+  "laws": [
+    {
+      "slug": "undang-undang-nomor-17-tahun-2023",
+      "name": "UU 17/2023 tentang Kesehatan",
+      "status": "Berlaku",
+      "baseline": "d2259c32f4fb",
+      "current": "d2259c32f4fb",
+      "changed": false,
+      "lastRead": "2026-10-31T10:38:03.838Z",
+      "error": null
+    },
+    {
+      "slug": "peraturan-pemerintah-nomor-28-tahun-2024",
+      "name": "PP 28/2024 (pelaksanaan UU Kesehatan)",
+      "status": "Berlaku",
+      "baseline": "7cb6d94fbaae",
+      "current": "7cb6d94fbaae",
+      "changed": false,
+      "lastRead": "2026-10-31T10:38:05.422Z",
+      "error": null
+    },
+    {
+      "slug": "peraturan-menteri-kesehatan-nomor-24-tahun-2022",
+      "name": "Permenkes 24/2022 tentang Rekam Medis",
+      "status": "Berlaku",
+      "baseline": "2aecc88dbf78",
+      "current": "2aecc88dbf78",
+      "changed": false,
+      "lastRead": "2026-10-31T10:38:06.996Z",
+      "error": null
+    },
+    {
+      "slug": "keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026",
+      "name": "Kepmenkes HK.01.07/MENKES/951/2026 (izin edar alat kesehatan berbasis perangkat lunak)",
+      "status": "Berlaku",
+      "baseline": "2f54e97b1ac5",
+      "current": "2f54e97b1ac5",
+      "changed": false,
+      "lastRead": "2026-10-31T10:38:08.598Z",
+      "error": null
+    }
+  ]
+}

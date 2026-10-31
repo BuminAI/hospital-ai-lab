@@ -1,0 +1,23 @@
+---
+// Blok 'Pertanyaan umum' bersama untuk halaman panduan praktis dan sudut pasien edisi Indonesia (2026-10-31)
+// Larik yang sama harus diteruskan ke guideSchema(faq) di id-guide.ts agar layar dan data terstruktur identik.
+interface Props {
+  items: { q: string; a: string }[];
+  heading?: string;
+}
+const { items, heading = 'Pertanyaan umum' } = Astro.props;
+---
+
+<section class="tg-sec tg-faq" aria-labelledby="tg-faq-h">
+  <h2 id="tg-faq-h">{heading}</h2>
+  <dl>
+    {
+      items.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+</section>

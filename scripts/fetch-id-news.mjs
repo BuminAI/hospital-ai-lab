@@ -60,7 +60,11 @@ const DIGITAL_RE =
 
 // 병원·의료 신호. 일반 AI 지면(kecerdasan-buatan)에만 함께 적용한다.
 const MED_RE =
-  /rumah sakit|(?<![A-Za-z])RS(?![A-Za-z])|dokter|pasien|medis|kesehatan|klinik|perawat|diagnosis|kemenkes|BPJS|obat|farmasi|nakes|faskes|puskesmas|JKN/i;
+  /rumah sakit|(?<![A-Za-z])RS(?![A-Za-z])|dokter|pasien|medis|kesehatan|klinik|perawat|diagnosis|kemenkes|BPJS|obat|farmasi|nakes|faskes|puskesmas|JKN|BPOM|satusehat|sandbox/i;
+
+// 보건·디지털 태그에서 DIGITAL_RE에 안 걸리는 제목 중 주제에 맞는 것(2026-10-31)
+const HEALTH_TECH_RE =
+  /satusehat|sandbox|rekam medis|(?<![A-Za-z])RME(?![A-Za-z])|telemedis|telekesehatan|integrasi data|data kesehatan|sistem informasi|aplikasi|platform|inovasi/i;
 
 const decodeEntities = (s) =>
   s
@@ -213,8 +217,12 @@ try {
 for (const [tag, needMed] of ANTARA_TAGS) {
   try {
     const rows = await fetchAntaraTag(tag);
-    const kept = rows.filter(
-      (r) => DIGITAL_RE.test(r.title) && (!needMed || MED_RE.test(r.title))
+    // 2026-10-31: 보건·디지털 전용 태그(satusehat·rekam-medis-elektronik·telemedisin·kesehatan-digital)는
+    // 태그 자체가 주제를 보증하므로 제목에 디지털 낱말이 없어도(예: "Kemenkes kuatkan Sandbox Kesehatan")
+    // 의료 낱말이 있으면 채택한다. 이전에는 DIGITAL_RE를 요구해 10/15 이후 2주간 새 기사가 0건이었다.
+    // 일반 AI 지면(kecerdasan-buatan)은 그대로 둘 다 요구한다.
+    const kept = rows.filter((r) =>
+      needMed ? DIGITAL_RE.test(r.title) && MED_RE.test(r.title) : DIGITAL_RE.test(r.title) || HEALTH_TECH_RE.test(r.title)
     );
     collected.push(...kept);
     okSources++;

@@ -1,0 +1,188 @@
+/* Penyesuaian keterbacaan dan kesan tepercaya edisi Indonesia (2026-10-31)
+   Dimuat setelah id-tokens.css / locale-theme.css; hanya menimpa edisi Indonesia.
+   Prinsip: tanpa dekorasi, kesan tepercaya dibangun lewat hierarki informasi (judul, jarak, tinggi baris, menu utama/sekunder). */
+
+@media not (prefers-color-scheme: dark) {
+  :root[data-locale='id'] {
+    --id-base: #ffffff;
+    --id-surface: #f3f6fa;
+    --id-surface-2: #e8edf4;
+    --id-border: #d6dde7;
+    --id-primary: #7d1e25;
+    --id-primary-dk: #5a151b;
+    --id-text-sub: #4f5b6b;
+    --id-accent: #b4452a;
+  }
+}
+
+/* ---- */
+html[data-locale='id'] .id-header::after,
+html[data-locale='id'] .id-footer::before {
+  display: none;
+}
+html[data-locale='id'] .id-header {
+  padding-bottom: 0;
+  border-bottom: 3px solid var(--id-primary);
+}
+html[data-locale='id'] .id-footer {
+  padding-top: 0;
+  border-top: 3px solid var(--id-primary);
+}
+html[data-locale='id'] .id-main h2,
+html[data-locale='id'] main h2 {
+  border-image: none;
+  border-left: 4px solid var(--id-primary);
+}
+html[data-locale='id'] [class$='-cards'] > a[class] {
+  border-top: 1px solid var(--id-border);
+  border-left: 4px solid var(--id-primary);
+}
+
+/* ---- */
+html[data-locale='id'] body {
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 0.03em;
+}
+html[data-locale='id'] h1 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+html[data-locale='id'] h2 {
+  font-size: 21px;
+}
+html[data-locale='id'] main p,
+html[data-locale='id'] main li {
+  overflow-wrap: break-word;
+}
+/* ---- */
+html[data-locale='id'] main p a,
+html[data-locale='id'] main li a,
+html[data-locale='id'] main dd a,
+html[data-locale='id'] main td a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+html[data-locale='id'] main .id-list a,
+html[data-locale='id'] main a.id-card,
+html[data-locale='id'] main a.tg-card,
+html[data-locale='id'] main a.th-task,
+html[data-locale='id'] main .th-feed a,
+html[data-locale='id'] main .th-post a {
+  text-decoration: none;
+}
+html[data-locale='id'] main table {
+  font-size: 14.5px;
+}
+html[data-locale='id'] main tbody tr:nth-child(even) > * {
+  background: color-mix(in srgb, var(--id-surface) 55%, transparent);
+}
+
+/* ---- */
+html[data-locale='id'] .id-nav {
+  background: var(--id-base);
+  border-bottom: 1px solid var(--id-border);
+}
+html[data-locale='id'] .id-nav ul {
+  max-width: var(--id-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+html[data-locale='id'] .id-nav .id-nav-primary a {
+  padding: 13px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+html[data-locale='id'] .id-nav .id-nav-secondary {
+  background: var(--id-surface);
+  border-top: 1px solid var(--id-border);
+  max-width: none;
+  padding: 0;
+}
+html[data-locale='id'] .id-nav .id-nav-secondary-inner {
+  max-width: var(--id-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+}
+html[data-locale='id'] .id-nav .id-nav-label {
+  font-size: 12px;
+  color: var(--id-text-sub);
+  letter-spacing: 0.1em;
+  padding-right: 8px;
+}
+html[data-locale='id'] .id-nav .id-nav-secondary a {
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* ---- */
+html[data-locale='id'] .id-updated {
+  margin: 0 0 6px;
+}
+html[data-locale='id'] .id-side section {
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  html[data-locale='id'] body {
+    font-size: 16px;
+  }
+  html[data-locale='id'] h1 {
+    font-size: 24px;
+  }
+  html[data-locale='id'] .id-nav .id-nav-primary a {
+    padding: 11px 12px;
+    font-size: 14px;
+  }
+}
+
+/* ---- */
+@media (max-width: 640px) {
+  html[data-locale='id'] .id-nav .id-nav-primary,
+  html[data-locale='id'] .id-nav .id-nav-secondary-inner {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  html[data-locale='id'] .id-nav a,
+  html[data-locale='id'] .id-nav .id-nav-label {
+    white-space: nowrap;
+  }
+  html[data-locale='id'] .id-nav .id-nav-secondary a {
+    padding: 8px 10px;
+  }
+  html[data-locale='id'] .id-header-inner {
+    padding: 10px 20px;
+  }
+}
+
+/* ---- */
+@media (prefers-color-scheme: dark) {
+  :root[data-locale='id'] {
+    --id-primary: #e48a92;
+    --id-primary-dk: #f3b9be;
+    --id-btn-bg: #a52831;
+    --id-btn-bg-hover: #b8323b;
+    --id-accent: #f0a07f;
+  }
+}
+
+html[data-locale='id'] .id-footer-check {
+  margin: 12px 0 6px;
+  font-size: 12.5px;
+  opacity: 0.8;
+  line-height: 1.7;
+}

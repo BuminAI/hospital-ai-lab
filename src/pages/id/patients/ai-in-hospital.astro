@@ -1,0 +1,97 @@
+---
+// Hak pasien ketika rumah sakit memakai AI (2026-10-31)
+// ⚠️ Informasi umum, bukan nasihat hukum atau medis. Hanya pasal yang naskahnya sudah dibaca yang dirujuk:
+//    UU 17/2023 Pasal 4, 276; UU 27/2022 Pasal 5–14; Permenkes 24/2022 Pasal 26.
+import '../../../styles/id-guide.css';
+import IdLayout from '../../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../../components/IdGuideFoot.astro';
+import IdFaq from '../../../components/IdFaq.astro';
+import { guideSchema } from '../../../utils/id-guide';
+import { SRC } from '../../../data/id/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = '31 Oktober 2026';
+const title = 'Ketika rumah sakit memakai AI: hak Anda sebagai pasien';
+const description =
+  'Hak pasien atas informasi, persetujuan, data pribadi, dan keberatan atas keputusan otomatis — berdasarkan UU Kesehatan dan UU PDP.';
+
+const rights = [
+  { h: 'Mendapat informasi dan penjelasan', p: 'Pasien berhak mendapatkan informasi mengenai kesehatan dirinya dan penjelasan yang memadai mengenai pelayanan kesehatan yang diterimanya (UU 17/2023 Pasal 276 huruf a dan b).' },
+  { h: 'Menyetujui atau menolak tindakan medis', p: 'Pasien berhak menolak atau menyetujui tindakan medis, kecuali untuk tindakan yang diperlukan dalam pencegahan penyakit menular dan penanggulangan KLB atau wabah (Pasal 276 huruf d). Setiap orang juga berhak menerima atau menolak tindakan setelah menerima dan memahami informasinya secara lengkap (Pasal 4 ayat 1 huruf h).' },
+  { h: 'Kerahasiaan data kesehatan', p: 'Setiap orang berhak memperoleh kerahasiaan data dan informasi kesehatan pribadinya (UU 17/2023 Pasal 4 ayat 1 huruf i). Data kesehatan termasuk data pribadi yang bersifat spesifik (UU 27/2022 Pasal 4).' },
+  { h: 'Meminta pendapat tenaga kesehatan lain', p: 'Pasien berhak meminta pendapat tenaga medis atau tenaga kesehatan lain (Pasal 276 huruf f).' },
+  { h: 'Mengakses dan memperbaiki data pribadi', p: 'Subjek data berhak mendapat akses dan salinan data pribadinya (UU 27/2022 Pasal 7), melengkapi atau memperbaiki data yang keliru (Pasal 6), menarik kembali persetujuan (Pasal 9), dan menunda atau membatasi pemrosesan (Pasal 11).' },
+  { h: 'Keberatan atas keputusan otomatis', p: 'Subjek data berhak mengajukan keberatan atas tindakan pengambilan keputusan yang hanya didasarkan pada pemrosesan secara otomatis, termasuk pemrofilan, yang menimbulkan akibat hukum atau berdampak signifikan padanya (UU 27/2022 Pasal 10 ayat 1). Ketentuan lebih lanjut diatur dalam peraturan pemerintah yang naskahnya belum kami temukan.' },
+];
+
+const faq = [
+  {
+    q: 'Apakah rumah sakit wajib memberi tahu saya jika memakai AI?',
+    a: 'Kami tidak menemukan pasal dalam UU 17/2023 atau UU 27/2022 yang secara khusus mewajibkan pemberitahuan penggunaan AI. Namun pasien berhak atas informasi dan penjelasan yang memadai tentang pelayanan yang diterimanya (Pasal 276 huruf a dan b), dan subjek data berhak atas informasi tentang tujuan penggunaan datanya (UU PDP Pasal 5). Anda boleh menanyakan langsung kepada rumah sakit.',
+  },
+  {
+    q: 'Bolehkah saya menolak data saya diproses?',
+    a: 'Subjek data berhak menarik kembali persetujuan pemrosesan (UU PDP Pasal 9), dan pengendali data wajib menghentikan pemrosesan paling lambat 3 x 24 jam sejak permintaan penarikan persetujuan diterima (Pasal 40). Hak-hak tertentu dikecualikan untuk kepentingan yang disebut dalam Pasal 15, misalnya penegakan hukum atau kepentingan statistik dan penelitian ilmiah. Untuk kasus Anda, tanyakan kepada rumah sakit atau konsultasikan dengan ahli hukum.',
+  },
+  {
+    q: 'Bagaimana cara mengajukan hak-hak itu?',
+    a: 'Pasal 14 UU PDP menyatakan pelaksanaan hak (Pasal 6 sampai 11) diajukan melalui permohonan tercatat yang disampaikan secara elektronik atau nonelektronik kepada pengendali data, dalam hal ini rumah sakit. Tanyakan kepada rumah sakit di mana permohonan tersebut diterima.',
+  },
+];
+
+const sources = [SRC.uuKesehatan, SRC.uuPdp, SRC.permenkes24];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/id/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: 'Pasien dan keluarga',
+  faq,
+});
+---
+
+<IdLayout title={title} description={description} crumb="Hak pasien dan AI" standalone updated={new Date('2026-10-31T00:00:00+07:00')} schema={schema}>
+  <h1>Ketika rumah sakit memakai AI: hak Anda sebagai pasien</h1>
+  <p class="tg-lead">
+    Semakin banyak rumah sakit memakai alat berbantuan AI. Anda mungkin bertanya: apa hak saya? Halaman ini merangkum hak pasien yang tertulis dalam UU Kesehatan dan UU Pelindungan Data Pribadi, dengan bahasa sehari-hari.
+  </p>
+  <p class="tg-meta">Diverifikasi: {CHECKED} · Untuk: pasien dan keluarga</p>
+
+  <div class="tg-box tg-warn">
+    Ini informasi umum, bukan nasihat hukum atau saran medis untuk kondisi tertentu. Untuk keluhan kesehatan, hubungi fasilitas kesehatan tempat Anda berobat.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Hak-hak yang tercantum dalam peraturan</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ask">
+    <h2 id="h-ask">Yang bisa Anda tanyakan kepada rumah sakit</h2>
+    <p>Berikut saran penulis, bukan kewajiban hukum:</p>
+    <ul class="tg-list">
+      <li>Apakah alat berbantuan AI dipakai dalam pelayanan saya? Untuk apa?</li>
+      <li>Siapa yang membuat keputusan akhir — tenaga kesehatan atau alatnya?</li>
+      <li>Data saya disimpan di mana dan siapa yang dapat mengaksesnya?</li>
+      <li>Jika ada rekaman suara atau gambar, untuk apa dan berapa lama disimpan?</li>
+      <li>Ke siapa saya dapat meminta salinan atau perbaikan data saya?</li>
+    </ul>
+    <p>Hak atas rekam medis dijelaskan lebih rinci di <a href={withBase('/id/patients/hak-rekam-medis/')}>Hak Anda atas rekam medis</a>.</p>
+  </section>
+
+  <IdFaq items={faq} />
+
+  <IdGuideFoot sources={sources} checked={CHECKED} patient />
+</IdLayout>

@@ -1,0 +1,116 @@
+---
+// Kalender regulasi dan acara (2026-10-31)
+// Peraturan baru dikumpulkan otomatis dari JDIH Kemenkes (scripts/fetch-id-gov.mjs), acara dari PERSI/Kemenkes/PORMIKI.
+// ⚠️ Di Indonesia tidak ada sumber terbuka tunggal untuk program bantuan/hibah rumah sakit seperti jGrants (Jepang); karena itu
+//    "pengumuman" di sini adalah PERATURAN BARU, bukan program hibah. Tanggal = tanggal penetapan peraturan, bukan tenggat.
+import '../../styles/id-guide.css';
+import IdLayout from '../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../components/IdGuideFoot.astro';
+import notices from '../../data/id/gov-notices.json';
+import events from '../../data/id/events.json';
+import { MILESTONES, THEMES, CHECKED } from '../../data/id/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', year: 'numeric', month: 'long', day: 'numeric' });
+const fmtShort = new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', month: 'long', day: 'numeric' });
+
+const recentNotices = notices.items.slice(0, 15);
+const recentEvents = events.items.slice(0, 8);
+const ahead = MILESTONES.filter((m) => m.status === 'ahead');
+
+const title = 'Kalender regulasi: peraturan baru JDIH Kemenkes dan acara';
+const description =
+  'Peraturan kesehatan terbaru soal RME, SATUSEHAT, AI, dan alat kesehatan dari JDIH Kemenkes, plus info pelatihan dan acara. Diperbarui otomatis tiap hari.';
+const sources = [
+  { label: 'JDIH Kementerian Kesehatan — daftar dokumen peraturan', url: 'https://jdih.kemkes.go.id/documents' },
+];
+---
+
+<IdLayout title={title} description={description} crumb="Kalender regulasi" standalone updated={new Date(notices.updatedAt)}>
+  <h1>Kalender regulasi dan acara</h1>
+  <p class="tg-lead">
+    Ingin tahu peraturan baru apa yang terbit dan acara apa yang ada? Peraturan dikumpulkan otomatis dari JDIH Kemenkes; hanya yang berhubungan dengan RME, SATUSEHAT, AI, dan alat kesehatan yang ditampilkan.
+  </p>
+  <p class="tg-meta">Ditampilkan: {fmtDay.format(new Date())} · Data peraturan diperbarui: {fmtDay.format(new Date(notices.updatedAt))}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+    <h2 id="h-notice">Peraturan baru dari JDIH Kemenkes</h2>
+    <div class="tg-box tg-warn">
+      Tanggal di bawah adalah <strong>tanggal penetapan</strong> peraturan, bukan tenggat. Isi, kewajiban, dan status berlaku harus dibaca pada naskah resminya. Hanya judul, nomor, tanggal, jenis, dan status yang disalin.
+    </div>
+    {
+      recentNotices.length > 0 ? (
+        <ol class="tg-tl">
+          {recentNotices.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+                    <span class="sr-only">(dibuka di tab baru)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>Belum ada peraturan yang memenuhi kriteria.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+    <h2 id="h-ms">Tenggat yang akan datang</h2>
+    {
+      ahead.length > 0 ? (
+        <ol class="tg-tl">
+          {ahead.map((m) => (
+            <li>
+              <div class="when">{m.when}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{THEMES[m.theme]}</span>
+                  {m.title}
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>
+          Belum ada tenggat baru yang dapat kami verifikasi dari naskah resmi. Tonggak yang sudah lewat ada di <a href={withBase('/id/dx-roadmap/')}>Peta waktu</a>.
+        </p>
+      )
+    }
+  </section>
+
+  {
+    recentEvents.length > 0 && (
+      <section class="tg-sec" aria-labelledby="h-ev">
+        <h2 id="h-ev">Pelatihan, webinar, dan acara terbaru</h2>
+        <p>Dikumpulkan otomatis dari PERSI, Kemenkes, PORMIKI, dan pemberitaan. Tanggal adalah tanggal terbit info, bukan tanggal acara; waktu acara dan kuota ada di sumber aslinya.</p>
+        <ul class="tg-list">
+          {recentEvents.map((i) => (
+            <li>
+              <a href={i.link} target="_blank" rel="noopener">
+                {i.title}
+                <span class="sr-only">(dibuka di tab baru)</span>
+              </a>
+              <br />
+              <small>
+                {i.source} · {fmtShort.format(new Date(i.pubDate))}
+              </small>
+            </li>
+          ))}
+        </ul>
+        <p><a href={withBase('/id/events/')}>Lihat semua pelatihan dan acara →</a></p>
+      </section>
+    )
+  }
+
+  <IdGuideFoot sources={sources} checked={CHECKED} />
+</IdLayout>

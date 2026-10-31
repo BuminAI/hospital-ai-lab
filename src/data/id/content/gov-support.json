@@ -1,7 +1,7 @@
 {
   "_comment": "인도네시아어판 정부 지원·제도 안내. ⚠️ 한국어판(/gov-support/)·일본어판(/ja/subsidies/)과 달리 이 페이지는 자동 수집이 아니라 사람이 확인해 적은 목록이다. 2026-09-06 조사에서 인도네시아에는 jGrants(일본)나 보건복지부 공고 목록(한국)처럼 기계로 읽을 수 있는 공고 소스를 찾지 못했다 — BRIN 공고 목록과 Komdigi는 자바스크립트로 그려져 원문 HTML에 내용이 없고, Kemenkes 공고 지면은 대부분 채용·조달 공고라 병원 지원사업과 성격이 다르며, LPDP는 이 환경에서 접속 자체가 되지 않았다. programs[]의 모든 서술은 url·sourceUrl에 실제 접속해 확인한 내용만 쓴다. 확인 못 한 것은 쓰지 않는다(CLAUDE.md 절대 원칙).",
   "meta": {
-    "title": "Program Pemerintah",
+    "title": "Program pemerintah dan peraturan untuk rumah sakit",
     "description": "Program pendanaan dan platform resmi pemerintah Indonesia yang berkaitan dengan rumah sakit, pendidikan tenaga kesehatan, dan digitalisasi layanan.",
     "pageTitle": "Program Pemerintah",
     "lead": "Program pendanaan dan platform resmi yang paling sering ditanyakan bagian administrasi rumah sakit. Setiap keterangan diambil dari halaman resmi programnya, dan tautannya menuju ke sana."

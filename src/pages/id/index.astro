@@ -1,37 +1,80 @@
 ---
-// 인도네시아어판 홈 (Fase A — 2026-09-05 신설).
+// Beranda edisi Indonesia (2026-10-31, desain ulang — susunan sama dengan edisi Taiwan dan Jepang: keterbacaan, daya tarik, kesan profesional dan tepercaya)
 //
-// 2026-09-06: 뉴스·정부 프로그램·추천 영상이 생기면서 카드 그리드를 넣었다.
-// 처음 만들 때는 참조 페이지가 없어 일부러 카드를 안 뒀다 — 내용 없는
-// 페이지로 링크를 걸면 방문자 신뢰도 떨어지고 검색엔진도 빈약한 페이지로
-// 취급하기 때문이다. 지금은 여섯 곳 다 실제 내용이 있어 입구를 연다.
-// ⚠️ 카드는 **내용이 있는 페이지만** 건다. 새 페이지를 만들 때 카드부터
-//    추가하지 말 것.
+// Susunan (atas ke bawah):
+//   1) Hero: janji satu kalimat + dua tindakan + "Pembaruan terbaru" di kanan (bukti situs hidup)
+//   2) Deretan angka kepercayaan: semuanya data nyata. Tidak ada angka karangan
+//   3) "Ketika Anda menghadapi ini": enam pintu masuk berdasarkan tujuan
+//   4) Informasi pembaruan, peraturan baru JDIH Kemenkes, artikel pilihan, seri
+//   5) Prinsip situs, pustaka, pertanyaan umum, tentang situs
+// ⚠️ Masa kerja penulis tidak ditulis di badan beranda dan deskripsi meta (profil di sidebar tetap seperti semula).
+// ⚠️ Angka dihitung dari data, atau hanya fakta yang sudah ada di situs.
+import '../../styles/id-home.css';
+import { getCollection } from 'astro:content';
 import IdLayout from '../../layouts/IdLayout.astro';
-import LocaleHero from '../../components/LocaleHero.astro';
 import id from '../../i18n/id.json';
-import { withBase } from '../../utils/site';
-import HomeSeries from '../../components/HomeSeries.astro';
-import { getResolvedSeries } from '../../utils/series';
+import notices from '../../data/id/gov-notices.json';
 import newsData from '../../data/id/news.json';
+import linkHealth from '../../data/id/link-health.json';
+import HomeSeries from '../../components/HomeSeries.astro';
+import { withBase } from '../../utils/site';
+import { getResolvedSeries } from '../../utils/series';
+import { getIdUpdates, KIND_LABEL } from '../../utils/id-updates';
 
-// ── AEO/GEO — 홈에서 바로 답이 되는 블록 (2026-09-07) ──────────
-// 답변 엔진은 "이 사이트는 무엇이고 누구를 위한 것인가"를 물었을 때
-// **그 답이 실제로 적혀 있는 페이지**를 인용한다. 홈이 소개 문단만
-// 있으면 인용할 문장이 없다. 그래서 사이트 자체에 대한 문답을
-// 화면에 그대로 싣고 FAQPage로 표시한다.
-//
-// ⚠️ 여기 답변은 /id/faq/ 의 제도 문답과 **내용이 겹치지 않는다.**
-//    저쪽은 "AI를 도입할 때 무엇을 확인하나", 여기는 "이 사이트는
-//    무엇인가"다. 같은 문답을 두 곳에 복사하면 안 된다.
-// ⚠️ 답변에 적은 사실(수집처·갱신 주기)은 scripts/ 의 수집기와
-//    .github/workflows/ 의 cron 에서 확인한 것이다. 수집처나 주기를
-//    바꾸면 이 문구도 함께 고칠 것.
-const recentNews = newsData.items.slice(0, 5);
+const updated = new Date(notices.updatedAt);
+const fmtMD = new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', month: 'numeric', day: 'numeric' });
+const fmtYMD = new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', year: 'numeric', month: 'long', day: 'numeric' });
+
+const posts = (await getCollection('blogId', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featured = posts.slice(0, 4);
+
+const feed = await getIdUpdates(30);
+const heroFeed = feed.slice(0, 4);
+const newsFeed = feed.slice(0, 8);
+const weekly = feed.filter((u) => Date.now() - new Date(u.date).getTime() <= 7 * 86400000);
+const weeklyCount = (k: 'news' | 'notice' | 'event' | 'video' | 'blog') => weekly.filter((u) => u.kind === k).length;
+
+// Peraturan baru dari JDIH Kemenkes (terbaru di atas)
+const topNotices = notices.items.slice(0, 5);
+
+// Angka kepercayaan (semuanya dari data nyata)
+const stats = [
+  { n: posts.length, unit: '', label: 'Artikel terbit', href: '/id/blog/' },
+  { n: linkHealth.total, unit: '', label: 'Tautan sumber diperiksa tiap hari', href: '/id/updates/' },
+  { n: notices.items.length, unit: '', label: 'Peraturan baru JDIH Kemenkes', href: '/id/calendar/' },
+  { n: newsData.items.length, unit: '', label: 'Berita AI (diperiksa tiap 3 jam)', href: '/id/news/' },
+];
+const checkedDay = linkHealth.checkedAt ? fmtYMD.format(new Date(linkHealth.checkedAt)) : '';
+
+const tasks = [
+  { q: 'Apa saja tonggak yang perlu diketahui?', t: 'Peta waktu digital kesehatan dan AI', d: 'Permenkes 24/2022, UU PDP, UU 17/2023, PP 28/2024, SATUSEHAT RME, dan Kepmenkes 951/2026 dalam satu garis waktu.', href: '/id/dx-roadmap/' },
+  { q: 'Peraturan apa yang baru terbit?', t: 'Kalender regulasi dan acara', d: 'Peraturan baru dari JDIH Kemenkes serta pelatihan dan acara terbaru.', href: '/id/calendar/' },
+  { q: 'Vendor menawarkan sistem RME atau AI?', t: 'Daftar periksa RME dan vendor AI', d: 'Status alat kesehatan, registrasi sistem elektronik, interoperabilitas, penyimpanan, dan masa simpan.', href: '/id/rme-checklist/' },
+  { q: 'Data pasien kami sudah aman?', t: 'Daftar periksa keamanan data pasien', d: '20 butir dari UU PDP, Permenkes 24/2022, dan PP 28/2024, lengkap dengan pasalnya.', href: '/id/cyber-checklist/' },
+  { q: 'Sebelum menerapkan AI', t: 'Contoh kebijakan dan 20 pertanyaan untuk vendor', d: 'Draf dokumen yang bisa disalin dan disesuaikan saat proposal masuk.', href: '/id/templates/' },
+  { q: 'Pasien dan keluarga ingin tahu', t: 'Sudut pasien', d: 'Sebelum bertanya soal kesehatan ke AI, hak saat rumah sakit memakai AI, dan hak atas rekam medis.', href: '/id/patients/' },
+];
+
+const promises = [
+  { t: 'Berpegang pada sumber primer', d: 'Hanya menulis hal yang naskah resminya sudah dibuka dan dibaca (JDIH Kemenkes, JDIH Komdigi, siaran pers Kemenkes), disertai tautan.' },
+  { t: 'Menampilkan tanggal verifikasi', d: 'Di bagian bawah setiap halaman panduan praktis dan sudut pasien ada "Sumber dan tanggal verifikasi". Peraturan berubah, jadi tanggal wajib ditampilkan.' },
+  { t: 'Memeriksa tautan sumber setiap hari', d: `Tautan eksternal edisi Indonesia berjumlah ${linkHealth.total}, diperiksa otomatis setiap hari; yang tidak ditemukan ${linkHealth.dead.length}${checkedDay ? ` (${checkedDay})` : ''}.` },
+  { t: 'Tidak merekomendasikan produk atau rumah sakit tertentu', d: 'Yang dibahas adalah apakah sesuatu dapat dipakai di rumah sakit Anda dan apa dasarnya — bukan merek, dan bukan dorongan untuk segera menerapkan.' },
+];
+
+const library = [
+  { t: id.nav.guide, d: id.home.guideDesc, href: '/id/guide/' },
+  { t: id.nav.glossary, d: id.home.glossaryDesc, href: '/id/glossary/' },
+  { t: id.nav.faq, d: id.home.faqDesc, href: '/id/faq/' },
+  { t: id.nav.checklist, d: id.home.checklistDesc, href: '/id/checklist/' },
+  { t: id.nav.tips, d: id.home.tipsDesc, href: '/id/tips/' },
+  { t: id.nav.videos, d: id.home.videosDesc, href: '/id/videos/' },
+];
 
 const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteRoot}${withBase('/id/')}`;
-
 const homeFaqLd = {
   '@type': 'FAQPage',
   '@id': `${pageUrl}#home-faq`,
@@ -45,7 +88,6 @@ const homeFaqLd = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
-// 연재 시리즈 진입로(2026-09-20) — 글이 많은 순서대로 최대 3개.
 const homeSeries = (await getResolvedSeries('id'))
   .slice()
   .sort((a, b) => b.posts.length - a.posts.length)
@@ -59,96 +101,182 @@ const homeSeries = (await getResolvedSeries('id'))
   twPath="/tw/"
   jaPath="/ja/"
   ruPath="/ru/"
+  updated={updated}
   schema={[homeFaqLd]}
 >
-  <LocaleHero locale="id" eyebrow={id.home.heroEyebrow}>
-    <h1 slot="title">{id.home.heroTitle}</h1>
-    <p>{id.home.heroLead}</p>
-    <p style="margin-top:16px">
-      <a class="id-cta" href={withBase('/id/about/')}>{id.nav.about} →</a>
-    </p>
-  </LocaleHero>
+  <Fragment slot="hero">
+    <section class="th-hero">
+      <div class="th-hero-inner">
+        <div class="th-hero-copy">
+          <p class="th-eyebrow">RME, SATUSEHAT, dan AI untuk administrasi dan keperawatan rumah sakit</p>
+          <h1>Keputusan menerapkan AI di rumah sakit,<br />dibaca dari peraturan Indonesia dan sumber primer.</h1>
+          <p class="th-lead">
+            Apakah produknya alat kesehatan, bolehkah data pasien diproses seperti itu, di mana data harus disimpan, dan dalam berapa jam insiden harus diberitahukan. Disusun dari naskah resmi JDIH Kemenkes dan JDIH Komdigi, setiap butir dengan sumber dan tanggal verifikasi.
+          </p>
+          <p class="th-cta">
+            <a class="th-btn th-btn-main" href={withBase('/id/dx-roadmap/')}>Lihat peta waktu</a>
+            <a class="th-btn th-btn-sub" href={withBase('/id/calendar/')}>Lihat peraturan baru</a>
+          </p>
+        </div>
+        <aside class="th-hero-card" aria-labelledby="th-live-h">
+          <h2 id="th-live-h"><span class="th-dot" aria-hidden="true"></span>Pembaruan terbaru</h2>
+          <ul>
+            {heroFeed.map((it) => (
+              <li>
+                <time datetime={it.date}>{fmtMD.format(new Date(it.date))}</time>
+                <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only">({id.ui.external})</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="th-hero-more" href={withBase('/id/updates/')}>Semua informasi pembaruan →</a>
+        </aside>
+      </div>
+    </section>
 
-  <div class="id-cards">
-    <a class="id-card" href={withBase('/id/ai-digest/')}>
-      <span class="id-card-t">{id.nav.aiDigest}</span>
-      <span class="id-card-d">{id.home.aiDigestDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/glossary/')}>
-      <span class="id-card-t">{id.nav.glossary}</span>
-      <span class="id-card-d">{id.home.glossaryDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/faq/')}>
-      <span class="id-card-t">{id.nav.faq}</span>
-      <span class="id-card-d">{id.home.faqDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/news/')}>
-      <span class="id-card-t">{id.nav.news}</span>
-      <span class="id-card-d">{id.home.newsDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/events/')}>
-      <span class="id-card-t">{id.nav.events}</span>
-      <span class="id-card-d">{id.home.eventsDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/gov-support/')}>
-      <span class="id-card-t">{id.nav.govSupport}</span>
-      <span class="id-card-d">{id.home.govSupportDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/videos/')}>
-      <span class="id-card-t">{id.nav.videos}</span>
-      <span class="id-card-d">{id.home.videosDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/blog/')}>
-      <span class="id-card-t">{id.nav.blog}</span>
-      <span class="id-card-d">{id.home.blogDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/checklist/')}>
-      <span class="id-card-t">{id.nav.checklist}</span>
-      <span class="id-card-d">{id.home.checklistDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/guide/')}>
-      <span class="id-card-t">{id.nav.guide}</span>
-      <span class="id-card-d">{id.home.guideDesc}</span>
-    </a>
-    <a class="id-card" href={withBase('/id/tips/')}>
-      <span class="id-card-t">{id.nav.tips}</span>
-      <span class="id-card-d">{id.home.tipsDesc}</span>
-    </a>
-  </div>
+    <section class="th-stats" aria-label="Kondisi situs">
+      <ul>
+        {
+          stats.map((s) => (
+            <li>
+              <a href={withBase(s.href)}>
+                <span class="th-num">{s.n.toLocaleString('id-ID')}<small>{s.unit}</small></span>
+                <span class="th-lab">{s.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </Fragment>
+
+  <section class="th-sec" aria-labelledby="th-tasks-h">
+    <h2 class="th-h" id="th-tasks-h"><span>Ketika Anda menghadapi ini</span><small>BY PURPOSE</small></h2>
+    <div class="th-tasks">
+      {
+        tasks.map((x) => (
+          <a class="th-task" href={withBase(x.href)}>
+            <span class="th-task-q">{x.q}</span>
+            <span class="th-task-t">{x.t}</span>
+            <span class="th-task-d">{x.d}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-feed-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-feed-h"><span>Informasi pembaruan</span><small>WHAT'S NEW</small></h2>
+      <a class="th-more" href={withBase('/id/updates/')}>Lihat semua →</a>
+    </div>
+    <p class="th-note">
+      7 hari terakhir: {KIND_LABEL.news} {weeklyCount('news')} · {KIND_LABEL.notice} {weeklyCount('notice')} · {KIND_LABEL.event} {weeklyCount('event')} · {KIND_LABEL.video} {weeklyCount('video')}
+    </p>
+    <ul class="th-feed">
+      {
+        newsFeed.map((it) => (
+          <li>
+            <time datetime={it.date}>{fmtYMD.format(new Date(it.date))}</time>
+            <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+            <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+              {it.title}
+              {it.external && <span class="sr-only">({id.ui.external})</span>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-gov-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-gov-h"><span>Peraturan baru dari JDIH Kemenkes</span><small>NEW REGULATIONS</small></h2>
+      <a class="th-more" href={withBase('/id/calendar/')}>Lihat semua →</a>
+    </div>
+    <p class="th-note">Tanggal adalah tanggal penetapan peraturan, bukan tenggat. Isi dan status berlaku harus dibaca pada naskah resminya.</p>
+    <ul class="th-feed th-feed-sub">
+      {
+        topNotices.map((n) => (
+          <li>
+            <time datetime={n.pubDate}>{fmtYMD.format(new Date(n.pubDate))}</time>
+            <span class="th-chip th-chip-gov">{n.kind}</span>
+            <a href={n.link} target="_blank" rel="noopener">
+              {n.title}
+              <span class="sr-only">({id.ui.external})</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-posts-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-posts-h"><span>Artikel pilihan</span><small>ARTICLES</small></h2>
+      <a class="th-more" href={withBase('/id/blog/')}>Daftar artikel →</a>
+    </div>
+    <div class="th-posts">
+      {
+        featured.map((p) => (
+          <article class="th-post">
+            <p class="th-post-meta">
+              <span class="th-chip">{p.data.category}</span>
+              <time datetime={p.data.pubDate.toISOString()}>{fmtYMD.format(p.data.pubDate)}</time>
+            </p>
+            <h3><a href={withBase(`/id/blog/${p.id}/`)}>{p.data.title}</a></h3>
+            <p class="th-post-d">{p.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 
   <HomeSeries loc="id" list={homeSeries} />
 
-  {/* 최신 뉴스 — 홈에 실제 내용이 있어야 검색·답변 엔진이 인용할 거리가 생긴다.
-      한국어판 홈이 이미 쓰는 방식이고, 다른 판에는 빠져 있었다(2026-09-07 추가). */}
-  {
-    recentNews.length > 0 && (
-      <section class="id-home-sec">
-        <div class="id-sec-head">
-          <h2>{id.home.homeNewsTitle}</h2>
-          <a class="id-more" href={withBase('/id/news/')}>{id.home.homeNewsMore}</a>
-        </div>
-        <ul class="id-news-preview">
-          {recentNews.map((item) => (
-            <li>
-              <a href={item.link} target="_blank" rel="noopener">
-                {item.title}
-                <span class="sr-only"> ({id.ui.external})</span>
-              </a>
-              {item.source && <span class="id-src">{item.source}</span>}
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
+  <section class="th-sec th-promise" aria-labelledby="th-promise-h">
+    <h2 class="th-h" id="th-promise-h"><span>Prinsip situs ini</span><small>OUR PRINCIPLES</small></h2>
+    <ul>
+      {
+        promises.map((x, i) => (
+          <li>
+            <span class="th-no">{i + 1}</span>
+            <div>
+              <strong>{x.t}</strong>
+              <p>{x.d}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="th-note"><a href={withBase('/id/about/#principles')}>Prinsip penulisan dan verifikasi →</a></p>
+  </section>
 
-  {/* 사이트 자체에 대한 문답. /id/faq/ 의 제도 문답과 내용이 겹치지 않는다. */}
-  <section class="id-home-sec">
-    <div class="id-sec-head">
-      <h2>{id.home.homeFaqTitle}</h2>
-      <a class="id-more" href={withBase('/id/faq/')}>{id.home.homeFaqMore}</a>
+  <section class="th-sec" aria-labelledby="th-lib-h">
+    <h2 class="th-h" id="th-lib-h"><span>Belajar dan referensi</span><small>LIBRARY</small></h2>
+    <ul class="th-lib">
+      {
+        library.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.t}</strong>
+              <span>{x.d}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-faq-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-faq-h"><span>{id.home.homeFaqTitle}</span><small>ABOUT THIS SITE</small></h2>
+      <a class="th-more" href={withBase('/id/faq/')}>{id.home.homeFaqMore}</a>
     </div>
-    <dl class="id-home-faq">
+    <dl class="th-faq">
       {
         id.home.homeFaq.map((f) => (
           <>
@@ -160,133 +288,15 @@ const homeSeries = (await getResolvedSeries('id'))
     </dl>
   </section>
 
-  <h2>{id.home.notTranslationTitle}</h2>
-  <p>{id.home.notTranslationBody}</p>
-
-  <h2>{id.home.sourceNoteTitle}</h2>
-  <p>{id.home.sourceNoteBody}</p>
-
-  <div class="id-note">
-    <p><strong>{id.home.koNoticeTitle}</strong></p>
-    <p style="margin-top:6px">{id.home.koNoticeBody}</p>
-    <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{id.ui.langKo} →</a></p>
-  </div>
+  <section class="th-sec" aria-labelledby="th-intro-h">
+    <h2 class="th-h" id="th-intro-h"><span>{id.home.notTranslationTitle}</span><small>ABOUT</small></h2>
+    <p>{id.home.notTranslationBody}</p>
+    <h3>{id.home.sourceNoteTitle}</h3>
+    <p>{id.home.sourceNoteBody}</p>
+    <div class="id-note">
+      <p><strong>{id.home.koNoticeTitle}</strong></p>
+      <p style="margin-top:6px">{id.home.koNoticeBody}</p>
+      <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{id.ui.langKo} →</a></p>
+    </div>
+  </section>
 </IdLayout>
-
-<style>
-
-  /* .id-cta 는 마크업에만 있고 스타일이 없어서 평범한 링크로 나왔다
-     (2026-09-06 색상 교체 중 발견). ja·ru 홈과 같은 버튼 모양으로 맞춘다. */
-  .id-cta {
-    display: inline-block;
-    background: var(--id-btn-bg);
-    color: var(--id-btn-fg);
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 4px;
-    font-size: 14.5px;
-  }
-  .id-cta:hover { background: var(--id-btn-bg-hover); }
-
-  .id-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 12px;
-    margin: 26px 0 8px;
-  }
-  .id-card {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    border: 1px solid var(--id-border);
-    background: var(--id-base);
-    padding: 14px 16px;
-    text-decoration: none;
-    color: var(--id-text);
-  }
-  .id-card:hover {
-    background: var(--id-surface);
-    border-color: var(--id-primary);
-  }
-  .id-card-t {
-    font-weight: 700;
-    color: var(--id-primary);
-    font-size: 15px;
-  }
-  .id-card-d {
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--id-text-sub);
-  }
-
-  .id-wip {
-    margin-top: 28px;
-    padding-top: 16px;
-    border-top: 1px solid var(--id-border);
-    font-size: 13.5px;
-    color: var(--id-text-sub);
-  }
-
-  /* 홈 뉴스·문답 (2026-09-07 AEO/GEO) */
-  .id-home-sec {
-    margin-top: 30px;
-    padding-top: 18px;
-    border-top: 1px solid var(--id-border);
-  }
-  .id-sec-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .id-sec-head h2 {
-    margin: 0;
-  }
-  .id-more {
-    font-size: 13px;
-    color: var(--id-primary);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .id-more:hover { text-decoration: underline; }
-  .id-news-preview {
-    list-style: none;
-    margin: 14px 0 0;
-    padding: 0;
-  }
-  .id-news-preview li {
-    padding: 9px 0;
-    border-bottom: 1px solid var(--id-border);
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  .id-news-preview a {
-    color: var(--id-text);
-    text-decoration: none;
-  }
-  .id-news-preview a:hover { color: var(--id-primary); text-decoration: underline; }
-  .id-src {
-    display: inline-block;
-    margin-left: 8px;
-    font-size: 12px;
-    color: var(--id-text-sub);
-  }
-  .id-home-faq {
-    margin: 14px 0 0;
-  }
-  .id-home-faq dt {
-    font-weight: 700;
-    color: var(--id-primary);
-    margin-top: 16px;
-    font-size: 14.5px;
-    line-height: 1.7;
-  }
-  .id-home-faq dt:first-child { margin-top: 0; }
-  .id-home-faq dd {
-    margin: 6px 0 0;
-    font-size: 14px;
-    line-height: 1.9;
-    color: var(--id-text);
-  }
-</style>

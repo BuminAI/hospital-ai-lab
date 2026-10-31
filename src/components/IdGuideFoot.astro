@@ -1,0 +1,40 @@
+---
+// Blok bersama 'Sumber dan tanggal verifikasi · pernyataan batas' untuk halaman panduan praktis dan sudut pasien edisi Indonesia (2026-10-31)
+// Sumber harus halaman yang benar-benar sudah dibuka dan diperiksa.
+interface Props {
+  sources: { label: string; url: string }[];
+  /** Tanggal verifikasi sumber (untuk tampilan) */
+  checked: string;
+  /** true untuk halaman sudut pasien — pernyataan 'bukan diagnosis/terapi' ditegaskan */
+  patient?: boolean;
+}
+const { sources, checked, patient = false } = Astro.props;
+---
+
+<section class="tg-src" aria-labelledby="tg-src-h">
+  <h2 id="tg-src-h">Sumber dan tanggal verifikasi</h2>
+  <ul>
+    {
+      sources.map((s) => (
+        <li>
+          <a href={s.url} target="_blank" rel="noopener">
+            {s.label}
+            <span class="sr-only">(dibuka di tab baru)</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p>Sumber di atas diperiksa pada {checked}. Peraturan dan tata cara dapat berubah; selalu rujuk isi terbaru di halaman resmi sumbernya.</p>
+  {
+    patient ? (
+      <p class="tg-disc">
+        Halaman ini berisi informasi umum, bukan diagnosis atau saran terapi untuk gejala seseorang. Jika merasa tidak sehat, hubungi fasilitas kesehatan tempat Anda berobat atau gunakan saluran konsultasi yang tertera di halaman. Situs ini juga tidak merekomendasikan fasilitas kesehatan atau produk tertentu.
+      </p>
+    ) : (
+      <p class="tg-disc">
+        Isi situs ini adalah informasi umum untuk penelitian dan pendidikan. Isi ini tidak menggantikan diagnosis atau saran medis untuk pasien tertentu, bukan nasihat hukum, dan bukan rekomendasi keputusan pengadaan. Untuk peraturan dan kebijakan, selalu rujuk sumber primer resmi.
+      </p>
+    )
+  }
+</section>

@@ -1,0 +1,84 @@
+---
+// Hak Anda atas rekam medis (2026-10-31)
+// ⚠️ Informasi umum. Dasar: Permenkes 24/2022 Pasal 26 dan 39; UU 17/2023 Pasal 276 huruf e dan Pasal 351; UU 27/2022 Pasal 7, 30, 32.
+import '../../../styles/id-guide.css';
+import IdLayout from '../../../layouts/IdLayout.astro';
+import IdGuideFoot from '../../../components/IdGuideFoot.astro';
+import IdFaq from '../../../components/IdFaq.astro';
+import { guideSchema } from '../../../utils/id-guide';
+import { SRC } from '../../../data/id/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = '31 Oktober 2026';
+const title = 'Hak Anda atas rekam medis: akses, salinan, 25 tahun';
+const description =
+  'Siapa pemilik isi rekam medis, kepada siapa boleh disampaikan, berapa lama disimpan, dan cara meminta perbaikan data — dari Permenkes 24/2022 dan UU PDP.';
+
+const faq = [
+  {
+    q: 'Rekam medis itu milik siapa?',
+    a: 'Pasal 26 ayat 1 Permenkes 24/2022 menyatakan isi rekam medis milik pasien, dan isi itu disampaikan kepada pasien (ayat 2). Pasien juga berhak mendapatkan akses terhadap informasi yang terdapat di dalam rekam medis (UU 17/2023 Pasal 276 huruf e).',
+  },
+  {
+    q: 'Bolehkah keluarga atau orang lain meminta isi rekam medis saya?',
+    a: 'Menurut Pasal 26 Permenkes 24/2022, isi rekam medis dapat disampaikan kepada keluarga terdekat bila pasien berusia di bawah 18 tahun dan/atau dalam keadaan darurat. Penyampaian kepada pihak lain dilakukan setelah mendapat persetujuan pasien.',
+  },
+  {
+    q: 'Berapa lama rekam medis disimpan?',
+    a: 'Untuk rekam medis elektronik, Pasal 39 menyatakan penyimpanan di fasilitas pelayanan kesehatan paling singkat 25 tahun sejak tanggal kunjungan terakhir pasien. Setelah batas itu, data dapat dikecualikan dari pemusnahan bila masih akan digunakan atau dimanfaatkan.',
+  },
+  {
+    q: 'Bisakah saya meminta perbaikan jika ada data yang salah?',
+    a: 'Subjek data berhak memperbaiki kesalahan dan ketidakakuratan data pribadinya (UU 27/2022 Pasal 6), dan pengendali data wajib memperbarui atau memperbaiki paling lambat 3 x 24 jam sejak menerima permintaan serta memberi tahu hasilnya (Pasal 30). Dalam sistem informasi kesehatan, pemilik data juga berhak meminta penghapusan data yang tidak benar atas persetujuan pemilik data (UU 17/2023 Pasal 351 ayat 3). Bagaimana prosedurnya di rumah sakit tertentu, tanyakan kepada rumah sakit tersebut.',
+  },
+];
+
+const sources = [SRC.permenkes24, SRC.uuKesehatan, SRC.uuPdp];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/id/patients/hak-rekam-medis/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-10-31',
+  modified: '2026-10-31',
+  audience: 'Pasien dan keluarga',
+  faq,
+});
+---
+
+<IdLayout title={title} description={description} crumb="Hak atas rekam medis" standalone updated={new Date('2026-10-31T00:00:00+07:00')} schema={schema}>
+  <h1>Hak Anda atas rekam medis</h1>
+  <p class="tg-lead">
+    Rekam medis berisi riwayat kesehatan Anda. Siapa yang berhak melihatnya, dan apa yang bisa Anda minta? Halaman ini menjawabnya dengan merujuk pasal dari peraturan yang berlaku.
+  </p>
+  <p class="tg-meta">Diverifikasi: {CHECKED} · Untuk: pasien dan keluarga</p>
+
+  <p class="tg-answer">
+    Intinya: isi rekam medis milik pasien dan disampaikan kepada pasien; keluarga terdekat dapat menerimanya bila pasien di bawah 18 tahun dan/atau darurat; pihak lain perlu persetujuan pasien; rekam medis elektronik disimpan paling singkat 25 tahun sejak kunjungan terakhir.
+  </p>
+
+  <div class="tg-box tg-warn">
+    Informasi umum, bukan nasihat hukum atau medis. Prosedur permintaan salinan berbeda antarrumah sakit; tanyakan kepada bagian rekam medis atau pendaftaran di rumah sakit Anda.
+  </div>
+
+  <IdFaq items={faq} heading="Pertanyaan yang sering muncul" />
+
+  <section class="tg-sec" aria-labelledby="h-more">
+    <h2 id="h-more">Baca juga</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/id/patients/ai-in-hospital/')}>
+        <b>Ketika rumah sakit memakai AI</b>
+        <span>Hak atas informasi, persetujuan, dan keberatan atas keputusan otomatis.</span>
+      </a>
+      <a class="tg-card" href={withBase('/id/patients/ai-health-consult/')}>
+        <b>Sebelum bertanya soal kesehatan ke AI</b>
+        <span>Enam hal yang perlu diketahui.</span>
+      </a>
+    </div>
+  </section>
+
+  <IdGuideFoot sources={sources} checked={CHECKED} patient />
+</IdLayout>
