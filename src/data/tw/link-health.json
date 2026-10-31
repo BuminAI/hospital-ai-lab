@@ -1,8 +1,85 @@
 {
-  "checkedAt": "2026-10-31T04:09:14.404Z",
-  "total": 58,
-  "ok": 58,
-  "unknown": 0,
-  "unknownList": [],
+  "checkedAt": "2026-10-31T04:27:23.542Z",
+  "total": 70,
+  "ok": 51,
+  "unknown": 19,
+  "unknownList": [
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020121",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030106",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030120",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0160093",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020197",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020197&flno=18",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020197&flno=19",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=I0050021&flno=6",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020021",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030297",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030304",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030305",
+      "status": 0
+    },
+    {
+      "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
+      "status": 403
+    },
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020227",
+      "status": 0
+    },
+    {
+      "url": "https://law.moj.gov.tw/",
+      "status": 0
+    },
+    {
+      "url": "https://www.fda.gov.tw/tc/siteListContent.aspx?sid=310&id=42528",
+      "status": 0
+    },
+    {
+      "url": "https://www.fda.gov.tw/tc/siteListContent.aspx?sid=310&id=49448",
+      "status": 0
+    },
+    {
+      "url": "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638914649714556514&type=1",
+      "status": 0
+    }
+  ],
   "dead": []
 }
