@@ -48,8 +48,9 @@ const timeline = [
 
     <section class="section about-video" aria-label="병원 AI 연구소 소개 영상">
       <video
+        id="about-intro-video"
         controls
-        preload="metadata"
+        preload="auto"
         playsinline
         src={withBase('/media/hospital-ai-lab-15s.mp4')}
         aria-label="병원 AI 연구소 소개 영상 (15초)"
@@ -312,3 +313,17 @@ const timeline = [
     color: var(--color-muted);
   }
 </style>
+
+<script>
+  // 소개 페이지에 들어오면 영상을 1회 자동 재생한다(반복 없음).
+  // 브라우저는 소리 있는 자동재생을 막는 경우가 많아, 먼저 소리 포함으로 시도하고 막히면 음소거로 재생한다
+  // (음소거 상태에서도 컨트롤의 소리 버튼으로 켤 수 있다). 모션 줄이기 설정이면 자동재생하지 않는다.
+  const v = document.getElementById('about-intro-video') as HTMLVideoElement | null;
+  if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.loop = false;
+    v.play().catch(() => {
+      v.muted = true;
+      v.play().catch(() => {});
+    });
+  }
+</script>
