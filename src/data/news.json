@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-11-01T22:49:13.893Z",
+  "updatedAt": "2026-11-02T02:30:12.203Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "로엔서지컬 수술로봇 '자메닉스' 대전 지역 첫 도입",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171560",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-02T02:24:20.000Z"
+    },
+    {
+      "title": "조직검사 넘보는 흉부 CT…기술 어떻게 발전하나",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171552",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-02T01:28:01.000Z"
+    },
+    {
+      "title": "노을, 파나마 공공의료에 AI 자궁경부암 진단 공급",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171549",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-02T01:08:21.000Z"
+    },
+    {
+      "title": "[행사]2026 헬스케어 인공지능 투자포럼",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252055",
+      "source": "병원신문",
+      "pubDate": "2026-11-02T00:08:00.000Z"
+    },
     {
       "title": "\"병원 밖에서도 전주기 관리…치매 환자 위한 플랜 B\"",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171535",
@@ -2977,30 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169414",
       "source": "메디칼타임즈",
       "pubDate": "2026-06-23T20:20:00.000Z"
-    },
-    {
-      "title": "코어라인, 흉부 촬영 AI 기술 독일간다....민트메디컬과 협력",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169402",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-23T02:45:07.000Z"
-    },
-    {
-      "title": "디지털 헬스케어 법제화 속도…의료계 \"효과적 통제안 필요\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169393",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-22T20:30:00.000Z"
-    },
-    {
-      "title": "보험 가입하면 건강관리로 연계...카카오헬스-롯데손보 맛손",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169378",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-22T02:56:31.000Z"
-    },
-    {
-      "title": "퍼즐에이아이, 의료 AI 테스트베드 사업 선정",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169375",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-22T02:29:18.000Z"
     }
   ]
 }
