@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-11-02T09:28:15.409Z",
+  "updatedAt": "2026-11-02T20:22:01.112Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Produsen manufaktur Singapura tetap optimistis terkait permintaan AI",
+      "link": "https://www.antaranews.com/berita/5827771/produsen-manufaktur-singapura-tetap-optimistis-terkait-permintaan-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-11-02T17:00:13.000Z"
+    },
+    {
+      "title": "AI Anthropic Kendalikan Robot untuk Suntikkan Terapi Gen ke Otak Tikus, Picu Perdebatan Etika",
+      "link": "https://mediaindonesia.com/teknologi/951555/ai-anthropic-kendalikan-robot-untuk-suntikkan-terapi-gen-ke-otak-tikus-picu-perdebatan-etika",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-02T15:50:00.000Z"
+    },
+    {
+      "title": "Dukung Komputasi Berdaya Tinggi, Pusat Data AI Berkapasitas 21 MW Mulai Beroperasi di Jakarta",
+      "link": "https://mediaindonesia.com/ekonomi/951541/dukung-komputasi-berdaya-tinggi-pusat-data-ai-berkapasitas-21-mw-mulai-beroperasi-di-jakarta",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-02T15:14:00.000Z"
+    },
+    {
+      "title": "Takut Diprotes Warga, OpenAI Ubah Nama Pusat Data Jadi Kampus Komputasi",
+      "link": "https://inet.detik.com/cyberlife/d-8735320/takut-diprotes-warga-openai-ubah-nama-pusat-data-jadi-kampus-komputasi",
+      "source": "detikINET",
+      "pubDate": "2026-11-02T14:21:17.000Z"
+    },
+    {
+      "title": "Guru di Jawa Timur Adopsi Teknologi AI untuk Inovasi Pembelajaran Sejarah dan Budaya",
+      "link": "https://mediaindonesia.com/humaniora/951499/guru-di-jawa-timur-adopsi-teknologi-ai-untuk-inovasi-pembelajaran-sejarah-dan-budaya",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-02T13:53:00.000Z"
+    },
+    {
+      "title": "AI Bikin Solusi Penyimpanan Jadul Ini Bangkit Kembali",
+      "link": "https://inet.detik.com/business/d-8735319/ai-bikin-solusi-penyimpanan-jadul-ini-bangkit-kembali",
+      "source": "detikINET",
+      "pubDate": "2026-11-02T13:48:11.000Z"
+    },
+    {
+      "title": "Kemenekraf Dorong Adopsi AI bagi Pelaku Ekonomi Kreatif di Lampung Selatan",
+      "link": "https://mediaindonesia.com/humaniora/951470/kemenekraf-dorong-adopsi-ai-bagi-pelaku-ekonomi-kreatif-di-lampung-selatan",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-02T13:08:00.000Z"
+    },
+    {
+      "title": "Robot Humanoid China Makin Canggih, Kini Berlomba Kembangkan Otak AI",
+      "link": "https://www.cnnindonesia.com/teknologi/20261102144732-192-1422334/robot-humanoid-china-makin-canggih-kini-berlomba-kembangkan-otak-ai",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-02T12:15:32.000Z"
+    },
+    {
+      "title": "12 Prompt Gemini AI Foto Ulang Tahun Sendiri, Studio hingga candid",
+      "link": "https://katadata.co.id/lifestyle/varia/6ae8334ce692e/12-prompt-gemini-ai-foto-ulang-tahun-sendiri-studio-hingga-candid",
+      "source": "Katadata",
+      "pubDate": "2026-11-02T10:22:00.000Z"
+    },
+    {
+      "title": "Cegah Kebocoran Data, Akamai Punya Cara Amankan Workload AI di Satu platform",
+      "link": "https://www.liputan6.com/tekno/read/8326807/cegah-kebocoran-data-akamai-punya-cara-amankan-workload-ai-di-satu-platform",
+      "source": "Liputan6",
+      "pubDate": "2026-11-02T10:11:15.000Z"
+    },
     {
       "title": "DataOn HR Conference 2026 Segera Digelar, Soroti Peran AI dalam Kinerja SDM",
       "link": "https://katadata.co.id/digital/teknologi/6ae852d872ac3/dataon-hr-conference-2026-segera-digelar-soroti-peran-ai-dalam-kinerja-sdm",
@@ -1741,66 +1801,6 @@
       "link": "https://mediaindonesia.com/teknologi/945463/ai-buka-peluang-global-dalam-mendukung-pengembangan-bisnis",
       "source": "Media Indonesia",
       "pubDate": "2026-10-17T00:43:00.000Z"
-    },
-    {
-      "title": "ChatGPT Dituding Bahayakan Anak-anak, OpenAI Digugat",
-      "link": "https://inet.detik.com/cyberlife/d-8710741/chatgpt-dituding-bahayakan-anak-anak-openai-digugat",
-      "source": "detikINET",
-      "pubDate": "2026-10-16T15:02:10.000Z"
-    },
-    {
-      "title": "8 Tips Berkreasi dengan AI untuk Content Creator agar Konten tidak Generik",
-      "link": "https://mediaindonesia.com/teknologi/945338/8-tips-berkreasi-dengan-ai-untuk-content-creator-agar-konten-tidak-generik",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-16T13:02:00.000Z"
-    },
-    {
-      "title": "Lonjakan Pemakaian AI Bikin Perusahaan Was-was: Krisis Storage",
-      "link": "https://inet.detik.com/business/d-8710424/lonjakan-pemakaian-ai-bikin-perusahaan-was-was-krisis-storage",
-      "source": "detikINET",
-      "pubDate": "2026-10-16T12:30:30.000Z"
-    },
-    {
-      "title": "Apa Itu AI PC & Copilot+ PC? Panduan Lengkap Laptop Cerdas untuk Kreator",
-      "link": "https://inet.detik.com/consumer/d-8710323/apa-itu-ai-pc-copilot-pc-panduan-lengkap-laptop-cerdas-untuk-kreator",
-      "source": "detikINET",
-      "pubDate": "2026-10-16T11:00:10.000Z"
-    },
-    {
-      "title": "Meneropong Masa Depan Telkomsel 5G Didukung dengan AI",
-      "link": "https://inet.detik.com/telecommunication/d-8710316/meneropong-masa-depan-telkomsel-5g-didukung-dengan-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-16T10:31:17.000Z"
-    },
-    {
-      "title": "Indonesia Tak Bisa Hanya Andalkan Kekayaan Alam untuk Bangun Industri Cip AI",
-      "link": "https://katadata.co.id/digital/teknologi/6ad1fb3771a7d/indonesia-tak-bisa-hanya-andalkan-kekayaan-alam-untuk-bangun-industri-cip-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-16T10:23:00.000Z"
-    },
-    {
-      "title": "Hadapi Tantangan Global, CIMB Gelar Acara Bahas AI hingga Supply Chain",
-      "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8710321/hadapi-tantangan-global-cimb-gelar-acara-bahas-ai-hingga-supply-chain",
-      "source": "detikFinance",
-      "pubDate": "2026-10-16T09:17:33.000Z"
-    },
-    {
-      "title": "Ini Jurusan Kuliah dengan Lulusan Gaji Tertinggi di Era AI",
-      "link": "https://katadata.co.id/digital/teknologi/6ad1dbe7329f5/ini-jurusan-kuliah-dengan-lulusan-gaji-tertinggi-di-era-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-16T08:10:00.000Z"
-    },
-    {
-      "title": "Melihat Lebih Dekat Kulkas, AC, dan Mesin Cuci Samsung Berteknologi AI",
-      "link": "https://inet.detik.com/fotoinet/d-8709995/melihat-lebih-dekat-kulkas-ac-dan-mesin-cuci-samsung-berteknologi-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-16T08:00:14.000Z"
-    },
-    {
-      "title": "Komdigi Ingatkan Perusahaan Waspadai Risiko Agen AI Bisa Bertindak Sendiri",
-      "link": "https://katadata.co.id/digital/teknologi/6ad1d6bf51ffb/komdigi-ingatkan-perusahaan-waspadai-risiko-agen-ai-bisa-bertindak-sendiri",
-      "source": "Katadata",
-      "pubDate": "2026-10-16T07:48:00.000Z"
     }
   ]
 }
