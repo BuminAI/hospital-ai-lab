@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-10-31T15:43:27.497Z",
+  "updatedAt": "2026-11-02T01:29:56.026Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "DeepSeek создала «ИИ-суперагента» — конкурент Claude Code сам читает чаты разработчиков и предлагает решения задач",
+      "link": "https://3dnews.ru/1150724/deepseek-sozdala-iisuperagenta-konkurent-claude-code-sam-chitaet-chati-razrabotchikov-i-predlagaet-resheniya-zadach",
+      "source": "3DNews",
+      "pubDate": "2026-11-01T17:35:00.000Z"
+    },
+    {
+      "title": "Личные AI-ассистенты и угроза приватности. Детальные профили на друзей и семью",
+      "link": "https://habr.com/ru/companies/globalsign/articles/1102364/?utm_campaign=1102364&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-01T17:05:05.000Z"
+    },
     {
       "title": "Как ИИ‑детекторы убивают высшее образование",
       "link": "https://habr.com/ru/articles/1102058/?utm_campaign=1102058&utm_source=habrahabr&utm_medium=rss",
@@ -1789,18 +1801,6 @@
       "link": "https://habr.com/ru/companies/swordfish_security/articles/1093878/?utm_campaign=1093878&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-13T13:04:53.000Z"
-    },
-    {
-      "title": "Вся правда о цифровизации строительной отрасли, диалог с правительством, рабочий софт и прикладной ИИ в руках инженера на форуме «СИЛА ПЛАТФОРМЫ»",
-      "link": "https://www.cnews.ru/news/line/2026-10-13_vsya_pravda_o_tsifrovizatsii",
-      "source": "CNews",
-      "pubDate": "2026-10-13T11:56:00.000Z"
-    },
-    {
-      "title": "Почему с AI‑агентами код доезжает до main медленнее",
-      "link": "https://habr.com/ru/companies/otus/articles/1088870/?utm_campaign=1088870&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T11:50:13.000Z"
     }
   ]
 }
