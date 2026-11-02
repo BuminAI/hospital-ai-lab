@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-02T02:30:12.203Z",
+  "updatedAt": "2026-11-02T20:46:07.069Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "의무기록 작성만으론 부족…의료 AI, 업무 자동화 경쟁",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171580",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-02T20:30:00.000Z"
+    },
     {
       "title": "로엔서지컬 수술로봇 '자메닉스' 대전 지역 첫 도입",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171560",
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169425",
       "source": "메디칼타임즈",
       "pubDate": "2026-06-24T02:56:05.000Z"
-    },
-    {
-      "title": "스마트병원 구축 기술만으론 부족 \"최적화·현장 소통 필수\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169414",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-23T20:20:00.000Z"
     }
   ]
 }
