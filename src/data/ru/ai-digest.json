@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-11-02T01:29:56.026Z",
+  "updatedAt": "2026-11-02T09:27:49.110Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Что такое JEV и зачем он нужен: собираем AI-агента на связке LLM + open-source аналог JEV",
+      "link": "https://habr.com/ru/companies/hostkey/articles/1099428/?utm_campaign=1099428&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-02T09:26:36.000Z"
+    },
+    {
+      "title": "М.Видео расширяет применение ИИ в разработке ПО, клиентском сервисе и бизнес-процессах",
+      "link": "https://habr.com/ru/articles/1102594/?utm_campaign=1102594&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-02T09:14:22.000Z"
+    },
+    {
+      "title": "LLm агент в КОМПАС-3D: собрал редуктор, сделал КД, споткнулся на спецификации",
+      "link": "https://habr.com/ru/articles/1102580/?utm_campaign=1102580&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-02T09:03:55.000Z"
+    },
+    {
+      "title": "ИИ-хакеры против ИИ-безопасников: гонка вооружений и скорости в 2026",
+      "link": "https://habr.com/ru/companies/bitrix/articles/1101856/?utm_campaign=1101856&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-02T08:00:12.000Z"
+    },
+    {
+      "title": "Как организовать общий контекст между разными AI-платформами",
+      "link": "https://habr.com/ru/articles/1102508/?utm_campaign=1102508&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-02T07:17:41.000Z"
+    },
+    {
+      "title": "Рой ИИ-агентов без начальника: дал им доску задач, git и право писать себе инструменты",
+      "link": "https://habr.com/ru/articles/1098900/?utm_campaign=1098900&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-02T06:01:54.000Z"
+    },
     {
       "title": "DeepSeek создала «ИИ-суперагента» — конкурент Claude Code сам читает чаты разработчиков и предлагает решения задач",
       "link": "https://3dnews.ru/1150724/deepseek-sozdala-iisuperagenta-konkurent-claude-code-sam-chitaet-chati-razrabotchikov-i-predlagaet-resheniya-zadach",
@@ -1765,42 +1801,6 @@
       "link": "https://habr.com/ru/articles/1094062/?utm_campaign=1094062&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-13T20:37:12.000Z"
-    },
-    {
-      "title": "Google добавила флагманскую ИИ-модель Gemini 4 Argon в подписку за $20 — но с ограничениями",
-      "link": "https://3dnews.ru/1149878/google-dobavila-flagmanskuyu-iimodel-gemini-4-argon-v-podpisku-za-20-no-s-ogranicheniyami",
-      "source": "3DNews",
-      "pubDate": "2026-10-13T19:59:00.000Z"
-    },
-    {
-      "title": "Вышла Gemini 4 Argon: разбираем бенчмарки и карточку модели",
-      "link": "https://habr.com/ru/articles/1094026/?utm_campaign=1094026&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T18:18:54.000Z"
-    },
-    {
-      "title": "Китайский ИИ-агент от Alibaba научился спорить с поддержкой, возвращать деньги и бронировать услуги",
-      "link": "https://3dnews.ru/1149858/kitayskiy-iiagent-ot-alibaba-nauchilsya-sporit-s-poddergkoy-vozvrashchat-dengi-i-bronirovat-uslugi",
-      "source": "3DNews",
-      "pubDate": "2026-10-13T14:16:00.000Z"
-    },
-    {
-      "title": "Зачем ИИ-агентам свои языки и можно ли их прочитать",
-      "link": "https://habr.com/ru/companies/ru_mts/articles/1092372/?utm_campaign=1092372&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T14:10:03.000Z"
-    },
-    {
-      "title": "[Перевод] 600 миллиардов токенов спустя: как мы управляли ИИ-агентами при декомпиляции шутера",
-      "link": "https://habr.com/ru/companies/cloud4y/articles/1093912/?utm_campaign=1093912&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T13:53:44.000Z"
-    },
-    {
-      "title": "Как защищать ИИ-системы и конвейер разработки. Смотрим доклады с PRO DevSecOps Conf 2026",
-      "link": "https://habr.com/ru/companies/swordfish_security/articles/1093878/?utm_campaign=1093878&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-13T13:04:53.000Z"
     }
   ]
 }
