@@ -1,12 +1,20 @@
 {
-  "checkedAt": "2026-11-03T01:18:15.373Z",
+  "checkedAt": "2026-11-03T23:42:47.172Z",
   "total": 69,
-  "ok": 68,
-  "unknown": 1,
+  "ok": 66,
+  "unknown": 3,
   "unknownList": [
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030305",
+      "status": 0
+    },
     {
       "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
       "status": 403
+    },
+    {
+      "url": "https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=1470&article_id=10345",
+      "status": 0
     }
   ],
   "dead": []
