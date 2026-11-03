@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-03T18:26:22.144Z",
+  "updatedAt": "2026-11-03T23:58:52.653Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "AI·웨어러블로 모은 데이터로 만성콩팥병 위험 예측",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252187",
+      "source": "병원신문",
+      "pubDate": "2026-11-03T23:57:00.000Z"
+    },
     {
       "title": "NMC, 공공보건의료사업 담당자 AI 활용 교육 마쳐",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252178",
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169457",
       "source": "메디칼타임즈",
       "pubDate": "2026-06-26T02:52:26.000Z"
-    },
-    {
-      "title": "\"결국 살 길은 플랫폼\"…의료 AI 기업들 체질 개선 속도",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169454",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-25T20:30:00.000Z"
     }
   ]
 }
