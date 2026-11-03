@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-02T20:46:07.069Z",
+  "updatedAt": "2026-11-03T02:54:53.201Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "로킷헬스, 미니피그 신장 기능 80% 재생 확인",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171590",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-03T02:43:11.000Z"
+    },
+    {
+      "title": "쓰리빌리언, 바이오 유럽서 AI 신약개발 역량 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171589",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-03T02:19:15.000Z"
+    },
     {
       "title": "의무기록 작성만으론 부족…의료 AI, 업무 자동화 경쟁",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171580",
@@ -2989,18 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169427",
       "source": "메디칼타임즈",
       "pubDate": "2026-06-24T03:30:20.000Z"
-    },
-    {
-      "title": "레몬헬스케어, 공모가 상단 1만 원 확정…7월 코스닥 상장",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169426",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-24T02:56:17.000Z"
-    },
-    {
-      "title": "카카오헬스, 정부 의료 데이터 사업 수주 \"AI 생태계 선도\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169425",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-24T02:56:05.000Z"
     }
   ]
 }
