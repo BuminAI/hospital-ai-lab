@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-03T02:54:53.201Z",
+  "updatedAt": "2026-11-03T10:51:10.158Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "아이쿱, 씨어스 연계 확대…의료데이터 플랫폼 생태계 확장",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171600",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-03T09:20:00.000Z"
+    },
     {
       "title": "로킷헬스, 미니피그 신장 기능 80% 재생 확인",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171590",
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169428",
       "source": "메디칼타임즈",
       "pubDate": "2026-06-24T03:36:12.000Z"
-    },
-    {
-      "title": "디지털헬스학회, 춘계학술대회서 전 생애주기 AI 혁신 모색",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169427",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ]
 }
