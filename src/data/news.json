@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-03T10:51:10.158Z",
+  "updatedAt": "2026-11-03T18:26:22.144Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "NMC, 공공보건의료사업 담당자 AI 활용 교육 마쳐",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252178",
+      "source": "병원신문",
+      "pubDate": "2026-11-03T13:34:00.000Z"
+    },
     {
       "title": "아이쿱, 씨어스 연계 확대…의료데이터 플랫폼 생태계 확장",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171600",
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169454",
       "source": "메디칼타임즈",
       "pubDate": "2026-06-25T20:30:00.000Z"
-    },
-    {
-      "title": "메디스비, 정부 AI 상용화 과제 선정…의료 로봇 시장 공략 속도",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169428",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-24T03:36:12.000Z"
     }
   ]
 }
