@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-03T14:10:26.258Z",
+  "updatedAt": "2026-11-03T20:32:22.662Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Власти выводят на ИТ-рынок новое решение для проверок россиян на дипфейки и использование ИИ",
+      "link": "https://www.cnews.ru/news/top/2026-11-02_vlasti_vedut_na_it-rynok",
+      "source": "CNews",
+      "pubDate": "2026-11-03T14:23:00.000Z"
+    },
     {
       "title": "Как проводить технические собеседования в эпоху ИИ-суфлёров и агентной разработки",
       "link": "https://habr.com/ru/articles/1103212/?utm_campaign=1103212&utm_source=habrahabr&utm_medium=rss",
@@ -1795,12 +1801,6 @@
       "link": "https://3dnews.ru/1149958/pribil-vagnee-bezopasnosti-vosem-shtatov-ssha-podali-v-sud-na-openai-za-vredniy-chatgpt",
       "source": "3DNews",
       "pubDate": "2026-10-15T08:54:00.000Z"
-    },
-    {
-      "title": "Академия АйТи fabricaONE.AI открыла набор на курс «Аналитик киберугроз»",
-      "link": "https://www.cnews.ru/news/line/2026-10-15_akademiya_ajti_fabricaoneai_otkryla",
-      "source": "CNews",
-      "pubDate": "2026-10-15T08:07:00.000Z"
     }
   ]
 }
