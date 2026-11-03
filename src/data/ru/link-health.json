@@ -1,9 +1,13 @@
 {
-  "checkedAt": "2026-11-01T22:28:43.866Z",
+  "checkedAt": "2026-11-03T01:19:59.214Z",
   "total": 96,
-  "ok": 94,
-  "unknown": 2,
+  "ok": 93,
+  "unknown": 3,
   "unknownList": [
+    {
+      "url": "https://xn--80aapampemcchfmo7a3c9ehj.xn--p1ai/new-projects/prodolzhitelnaya-i-aktivnaya-zhizn/natsionalnaya-tsifrovaya-platforma-zdorove/",
+      "status": 403
+    },
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
       "status": 0
