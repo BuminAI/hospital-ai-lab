@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-03T23:58:52.653Z",
+  "updatedAt": "2026-11-04T06:19:36.738Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "코어라인 독일 계약 100곳 돌파 \"사용량 확대 기대\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171613",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-04T01:25:22.000Z"
+    },
     {
       "title": "AI·웨어러블로 모은 데이터로 만성콩팥병 위험 예측",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252187",
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169463",
       "source": "메디칼타임즈",
       "pubDate": "2026-06-26T02:59:09.000Z"
-    },
-    {
-      "title": "일상속으로 들어오는 유전체 검사…AI 맞물리며 시장 확대",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169457",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-26T02:52:26.000Z"
     }
   ]
 }
