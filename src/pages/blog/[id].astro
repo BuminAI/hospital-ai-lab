@@ -9,6 +9,7 @@ import { withBase, formatDate } from '../../utils/site';
 import { citationsOf } from '../../utils/citations';
 import { pickRelated } from '../../utils/related';
 import { getResolvedSeries, seriesOfPost } from '../../utils/series';
+import { ANSWER_LABEL, aboutTopics, extractSummary } from '../../utils/answer';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -90,6 +91,9 @@ const modifiedLabel = new Intl.DateTimeFormat('ko-KR', {
 // 여기서는 `@id`로 참조만 하고, 이 노드는 BaseLayout의 schema prop으로 넘겨
 // 같은 @graph에 합쳐진다(script 태그를 따로 만들지 않는다).
 const citations = citationsOf(post.body);
+// AEO/GEO(2026-11-04): 글 하단 「핵심 요약」을 맨 위 답변 상자로 올리고, 본문에 실제로 나오는 주제만 about 으로 잇는다.
+const summary = extractSummary(post.body, 'ko');
+const about = aboutTopics(`${post.data.title} ${post.data.description} ${post.body ?? ''}`, 'ko');
 const blogPosting = {
   '@type': 'BlogPosting',
   '@id': `${canonicalUrl}#article`,
@@ -111,6 +115,9 @@ const blogPosting = {
   mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
   // 본문에 링크로 걸린 외부 출처(화면에 보이는 것만). 없으면 필드를 내지 않는다.
   ...(citations.length > 0 ? { citation: citations } : {}),
+  ...(summary.length > 0 ? { abstract: summary.join(' ') } : {}),
+  ...(about.length > 0 ? { about } : {}),
+  ...(summary.length > 0 ? { speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.answer-box', 'h1'] } } : {}),
 };
 ---
 
@@ -149,6 +156,20 @@ const blogPosting = {
         <p class="description">{post.data.description}</p>
       </header>
 
+      {
+        summary.length > 0 && (
+          <aside class="answer-box" aria-labelledby="answer-box-h">
+            <h2 id="answer-box-h">{ANSWER_LABEL.ko.title}</h2>
+            <ul>
+              {summary.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+            <p class="answer-note">{ANSWER_LABEL.ko.note}</p>
+          </aside>
+        )
+      }
+
       <div class="prose">
         <Content />
       </div>
@@ -177,6 +198,35 @@ const blogPosting = {
 </BaseLayout>
 
 <style>
+  .answer-box {
+    max-width: var(--prose-width);
+    margin: 0 0 2rem;
+    padding: 1.1rem 1.4rem 0.9rem;
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary-border);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 6px;
+  }
+  .answer-box h2 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    color: var(--color-primary-strong);
+  }
+  .answer-box ul {
+    margin: 0;
+    padding-left: 1.2em;
+  }
+  .answer-box li {
+    margin: 0.35rem 0;
+    line-height: 1.75;
+  }
+  .answer-note {
+    margin: 0.6rem 0 0;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+
   .byline {
     display: inline-flex;
     align-items: center;
