@@ -1,20 +1,24 @@
 {
-  "checkedAt": "2026-11-03T23:44:47.463Z",
+  "checkedAt": "2026-11-04T23:58:32.259Z",
   "total": 96,
-  "ok": 93,
-  "unknown": 3,
+  "ok": 92,
+  "unknown": 4,
   "unknownList": [
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
       "status": 0
     },
     {
-      "url": "https://habr.com/ru/articles/1099004/",
-      "status": 403
+      "url": "https://minzdrav.gov.ru/documents/9646-metodicheskie-rekomendatsii-po-kategorirovaniyu-ob-ektov-kriticheskoy-informatsionnoy-infrastruktury-sfery-zdravoohraneniya",
+      "status": 0
     },
     {
-      "url": "https://www.ec-rs.ru/blog/informacionnaja-bezopasnost/novye-trebovaniya-fstek-117-chto-izmenitsya-s-1-marta-2026-goda-i-kak-podgotovitsya/",
+      "url": "https://www.cnews.ru/news/top/2026-09-15_chatgptdeepseek_i_claude_stali_prikrytiem",
       "status": 0
+    },
+    {
+      "url": "https://habr.com/ru/articles/1099004/",
+      "status": 403
     }
   ],
   "dead": []
