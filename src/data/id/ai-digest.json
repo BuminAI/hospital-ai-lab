@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-11-03T20:32:54.225Z",
+  "updatedAt": "2026-11-04T02:19:42.618Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Meta Ungkap Cara Jaga Privasi Pengguna Kacamata AI",
+      "link": "https://www.liputan6.com/tekno/read/8327741/meta-ungkap-cara-jaga-privasi-pengguna-kacamata-ai",
+      "source": "Liputan6",
+      "pubDate": "2026-11-04T02:14:42.000Z"
+    },
+    {
+      "title": "NTT DATA Bangun Data Center AI di Jakarta, Bidik Pasar Asia Tenggara",
+      "link": "https://katadata.co.id/digital/teknologi/6aea89af15733/ntt-data-bangun-data-center-ai-di-jakarta-bidik-pasar-asia-tenggara",
+      "source": "Katadata",
+      "pubDate": "2026-11-04T01:26:00.000Z"
+    },
+    {
+      "title": "Gagal Akuisisi Foodpanda Taiwan, Grab Fokus ke AI dan Bisnis di Asia Tenggara",
+      "link": "https://katadata.co.id/digital/startup/6aea87ad775ab/gagal-akuisisi-foodpanda-taiwan-grab-fokus-ke-ai-dan-bisnis-di-asia-tenggara",
+      "source": "Katadata",
+      "pubDate": "2026-11-04T01:17:00.000Z"
+    },
+    {
+      "title": "Mahasiswa Fiktif Curi Dana Bantuan Kuliah Rp 2 Triliun Pakai AI",
+      "link": "https://inet.detik.com/security/d-8737347/mahasiswa-fiktif-curi-dana-bantuan-kuliah-rp-2-triliun-pakai-ai",
+      "source": "detikINET",
+      "pubDate": "2026-11-04T01:15:03.000Z"
+    },
+    {
+      "title": "Pengembangan SDM Berbasis AI Jadi Kunci Adaptasi terhadap Kebutuhan Dunia Kerja",
+      "link": "https://mediaindonesia.com/ekonomi/952012/pengembangan-sdm-berbasis-ai-jadi-kunci-adaptasi-terhadap-kebutuhan-dunia-kerja",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-03T20:52:00.000Z"
+    },
+    {
+      "title": "BuildX 2026: Integrasi Budaya Nusantara dan Teknologi AI dalam Industri Konstruksi",
+      "link": "https://mediaindonesia.com/humaniora/952010/buildx-2026-integrasi-budaya-nusantara-dan-teknologi-ai-dalam-industri-konstruksi",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-03T20:45:00.000Z"
+    },
     {
       "title": "Anthropic makin dekat dengan AI mampu membangun dirinya sendiri",
       "link": "https://www.antaranews.com/berita/5830119/anthropic-makin-dekat-dengan-ai-mampu-membangun-dirinya-sendiri",
@@ -1765,42 +1801,6 @@
       "link": "https://www.antaranews.com/berita/5796213/keamanan-berbasis-teknologi-cerdas-untuk-makau-ctm-dan-huawei-berkolaborasi-memperkuat-keamanan-jaringan-di-era-ai",
       "source": "ANTARA",
       "pubDate": "2026-10-19T06:50:30.000Z"
-    },
-    {
-      "title": "ChatGPT Tambah Fitur Baru, Bisa Bantu Belanja dan Coba Baju Virtual",
-      "link": "https://uzone.id/chatgpt-tambah-fitur-baru-bisa-bantu-belanja-dan-coba-baju-virtual",
-      "source": "Uzone",
-      "pubDate": "2026-10-19T06:30:00.000Z"
-    },
-    {
-      "title": "Anthropic Claude Sisihkan Saham untuk Bantu Pekerja yang Di-PHK karena AI",
-      "link": "https://katadata.co.id/digital/teknologi/6ad5a92d89f98/anthropic-claude-sisihkan-saham-untuk-bantu-pekerja-yang-di-phk-karena-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-19T05:22:00.000Z"
-    },
-    {
-      "title": "Konten AI Makin Sulit Dibedakan, Ini 5 Tips Buat Kreator TikTok",
-      "link": "https://inet.detik.com/security/d-8713502/konten-ai-makin-sulit-dibedakan-ini-5-tips-buat-kreator-tiktok",
-      "source": "detikINET",
-      "pubDate": "2026-10-19T04:50:00.000Z"
-    },
-    {
-      "title": "Bos IMF Ibaratkan AI Mobil F1 Tanpa Pagar Pengaman, Kenapa?",
-      "link": "https://inet.detik.com/cyberlife/d-8713376/bos-imf-ibaratkan-ai-mobil-f1-tanpa-pagar-pengaman-kenapa",
-      "source": "detikINET",
-      "pubDate": "2026-10-19T03:45:51.000Z"
-    },
-    {
-      "title": "ChatGPT Kini Bisa Intip Situs yang Dibuka di Chrome",
-      "link": "https://inet.detik.com/cyberlife/d-8713206/chatgpt-kini-bisa-intip-situs-yang-dibuka-di-chrome",
-      "source": "detikINET",
-      "pubDate": "2026-10-19T01:45:16.000Z"
-    },
-    {
-      "title": "Kesal TV Xiaomi Banyak Iklan, Pria Ini Sulap Jadi Apple TV Pakai AI",
-      "link": "https://inet.detik.com/consumer/d-8713172/kesal-tv-xiaomi-banyak-iklan-pria-ini-sulap-jadi-apple-tv-pakai-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-19T00:45:51.000Z"
     }
   ]
 }
