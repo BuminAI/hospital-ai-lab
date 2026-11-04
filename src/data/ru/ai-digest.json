@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-03T20:32:22.662Z",
+  "updatedAt": "2026-11-04T14:29:24.189Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Китайская Tencent бросила вызов DeepSeek и Kimi — открытая ИИ-модель Hy4 умеет видеть и рассуждать",
+      "link": "https://3dnews.ru/1150848/kitayskaya-tencent-brosila-vizov-deepseek-i-kimi-otkritaya-iimodel-hy4-umeet-videt-i-rassugdat",
+      "source": "3DNews",
+      "pubDate": "2026-11-04T13:17:00.000Z"
+    },
+    {
+      "title": "«Богатство агентов»: масштабирование ИИ без увеличения модели",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1103346/?utm_campaign=1103346&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-04T13:16:17.000Z"
+    },
+    {
+      "title": "Программист с ИИ пишет код за день вместо недели. Почему компании сокращают тестировщиков?",
+      "link": "https://habr.com/ru/articles/1103436/?utm_campaign=1103436&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-04T08:34:35.000Z"
+    },
+    {
+      "title": "OpenAI годами пренебрегала защитой от шпионажа ради гонки ИИ — теперь её разработки под угрозой",
+      "link": "https://3dnews.ru/1150835/openai-godami-prenebregala-zashchitoy-otshpionagaradi-gonki-ii-teper-eyo-razrabotki-pod-ugrozoy",
+      "source": "3DNews",
+      "pubDate": "2026-11-04T07:55:00.000Z"
+    },
+    {
+      "title": "Вам понадобятся железные нервы для работы с ИИ-агентами",
+      "link": "https://habr.com/ru/articles/1103388/?utm_campaign=1103388&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-04T03:43:23.000Z"
+    },
     {
       "title": "Власти выводят на ИТ-рынок новое решение для проверок россиян на дипфейки и использование ИИ",
       "link": "https://www.cnews.ru/news/top/2026-11-02_vlasti_vedut_na_it-rynok",
@@ -201,7 +231,7 @@
       "pubDate": "2026-11-02T10:16:15.000Z"
     },
     {
-      "title": "Что такое JEV и зачем он нужен: собираем AI-агента на связке LLM + open-source аналог JEV",
+      "title": "Что такое JEV и зачем он нужен: собираем AI‑агента на связке LLM + open‑source аналог JEV",
       "link": "https://habr.com/ru/companies/hostkey/articles/1099428/?utm_campaign=1099428&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-02T09:26:36.000Z"
@@ -1771,36 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-15_ii_v_himprome_dominanta",
       "source": "CNews",
       "pubDate": "2026-10-15T10:37:00.000Z"
-    },
-    {
-      "title": "Интересное из отчета о безопасности Gemini 4 Argon: как проверить ИИ, который раскусил проверку",
-      "link": "https://habr.com/ru/articles/1094674/?utm_campaign=1094674&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-15T10:34:46.000Z"
-    },
-    {
-      "title": "Cloud.ru представил Evolution Workflow Studio — облачный инструмент для автоматизации выпуска приложений с ИИ-агентами",
-      "link": "https://www.cnews.ru/news/line/2026-10-15_cloudru_predstavil_evolution_workflow",
-      "source": "CNews",
-      "pubDate": "2026-10-15T10:30:00.000Z"
-    },
-    {
-      "title": "«Яндекс» восстановил значительную часть функций «Алисы AI», умных устройств и облачных сервисов",
-      "link": "https://3dnews.ru/1149965/yandeks-vosstanovil-znachitelnuyu-chast-funktsiy-alisi-ai-umnih-ustroystv-i-oblachnih-servisov",
-      "source": "3DNews",
-      "pubDate": "2026-10-15T10:15:00.000Z"
-    },
-    {
-      "title": "Сloud.ru представил сервис RepoWiki для автоматизации создания документации к коду с помощью ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-10-15_sloudru_predstavil_servis_repowiki",
-      "source": "CNews",
-      "pubDate": "2026-10-15T10:02:00.000Z"
-    },
-    {
-      "title": "«Прибыль важнее безопасности»: восемь штатов США подали в суд на OpenAI за вредный ChatGPT",
-      "link": "https://3dnews.ru/1149958/pribil-vagnee-bezopasnosti-vosem-shtatov-ssha-podali-v-sud-na-openai-za-vredniy-chatgpt",
-      "source": "3DNews",
-      "pubDate": "2026-10-15T08:54:00.000Z"
     }
   ]
 }
