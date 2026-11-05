@@ -1,0 +1,155 @@
+[
+  {
+    "id": "samd",
+    "term": "Software as a medical device (SaMD)",
+    "category": "Regulation and certification",
+    "definition": "Software whose intended use makes it a medical device, so that FDA oversight applies. FDA says its digital health policies apply to software functions that meet the device definition, including functions intended for patients or caregivers.",
+    "whyMatters": "The first question for any clinical AI proposal is whether the vendor treats the product as a device. Ask for the answer and its basis in writing.",
+    "sources": [
+      "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software"
+    ]
+  },
+  {
+    "id": "cds",
+    "term": "Clinical decision support (CDS) software",
+    "category": "Regulation and certification",
+    "definition": "Software that supports clinical decisions. Under section 520(o)(1)(E) of the FD&C Act, certain clinical decision support functions that meet statutory criteria are excluded from the device definition; FDA’s guidance explains how it reads those criteria.",
+    "whyMatters": "A vendor may call a product “just decision support.” Whether that is right depends on the criteria and on what the software actually does, not on the label.",
+    "sources": [
+      "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software"
+    ]
+  },
+  {
+    "id": "pccp",
+    "term": "Predetermined change control plan (PCCP)",
+    "category": "Regulation and certification",
+    "definition": "A plan in a marketing submission that describes planned changes to a device and how the manufacturer will develop, test and implement them, so that FDA can authorize those changes in advance. FDA lists a final guidance dated August 2025 for AI-enabled device software functions.",
+    "whyMatters": "AI products can change over time. Ask whether the product has a PCCP and which changes it covers.",
+    "sources": [
+      "https://www.fda.gov/medical-devices/premarket-submissions-selecting-and-preparing-correct-submission/predetermined-change-control-plans"
+    ]
+  },
+  {
+    "id": "fda-ai-list",
+    "term": "FDA list of AI-enabled medical devices",
+    "category": "Regulation and certification",
+    "definition": "A public list of AI-enabled medical devices authorized for marketing. FDA states that it is not a comprehensive resource of AI-enabled devices, because devices were identified mainly by AI-related terms in their summaries or classifications.",
+    "whyMatters": "Presence on the list is not a performance guarantee, and absence is not proof that a product is not a device.",
+    "sources": [
+      "https://www.fda.gov/medical-devices/artificial-intelligence-enabled-medical-devices/list-artificial-intelligence-enabled-medical-devices"
+    ]
+  },
+  {
+    "id": "dsi",
+    "term": "Decision support intervention (DSI)",
+    "category": "Regulation and certification",
+    "definition": "A term used in the ONC health IT certification criterion at 45 CFR 170.315(b)(11). The HTI-5 final rule (91 FR 67916, October 28, 2026) removes paragraphs (b)(11)(iv) through (vi), the source attribute and risk-management requirements, with an effective date of December 28, 2026 (three instructions January 1, 2027).",
+    "whyMatters": "A certified EHR vendor may no longer have to meet those federal certification requirements, so ask for model information directly.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-170.315",
+      "https://www.federalregister.gov/documents/2026/10/28/2026-21943/health-data-technology-and-interoperability-onc-deregulatory-actions-to-unleash-prosperity"
+    ]
+  },
+  {
+    "id": "info-blocking",
+    "term": "Information blocking",
+    "category": "Regulation and certification",
+    "definition": "A practice likely to interfere with access, exchange or use of electronic health information, except as required by law or covered by an exception. For a health care provider, the standard is that the provider knows the practice is unreasonable and likely to interfere (45 CFR 171.103).",
+    "whyMatters": "Refusing to share data, for example with a vendor or another provider, can raise this question. Check the exceptions in Part 171 with compliance.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-171.103"
+    ]
+  },
+  {
+    "id": "s1557",
+    "term": "Patient care decision support tool (Section 1557)",
+    "category": "Regulation and certification",
+    "definition": "A term in the Section 1557 regulation. Under 45 CFR 92.210, a covered entity must not discriminate on the basis of race, color, national origin, sex, age or disability through such tools, must make reasonable efforts to identify tools that use those characteristics as inputs, and must make reasonable efforts to mitigate the risk.",
+    "whyMatters": "This applies to tools the hospital uses in its programs, including many AI tools. Keep a list.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-92.210"
+    ]
+  },
+  {
+    "id": "covered-entity",
+    "term": "Covered entity",
+    "category": "Data and privacy",
+    "definition": "Under HIPAA, a health plan, a health care clearinghouse, or a health care provider that transmits any health information in electronic form in connection with a covered transaction (45 CFR 160.103).",
+    "whyMatters": "A hospital that transmits health information electronically in covered transactions is a covered entity, and the Privacy, Security and Breach Notification rules apply to it.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-160.103"
+    ]
+  },
+  {
+    "id": "phi",
+    "term": "Protected health information (PHI)",
+    "category": "Data and privacy",
+    "definition": "Individually identifiable health information that is transmitted or maintained in any form or medium, with exceptions listed in the definition (45 CFR 160.103). Electronic PHI is called ePHI.",
+    "whyMatters": "Whether data counts as PHI decides which rules apply to it. De-identified data under 164.514(b) is not PHI.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-160.103"
+    ]
+  },
+  {
+    "id": "baa",
+    "term": "Business associate and business associate agreement",
+    "category": "Data and privacy",
+    "definition": "A person who, on behalf of a covered entity, creates, receives, maintains or transmits PHI for a regulated function, or who provides listed services such as legal, consulting or data aggregation involving PHI (45 CFR 160.103). A covered entity may disclose PHI to a business associate only after documenting satisfactory assurance in a written contract that meets 45 CFR 164.504(e).",
+    "whyMatters": "If an AI vendor handles PHI for you, it is likely a business associate. No agreement means no disclosure.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-160.103",
+      "https://www.ecfr.gov/current/title-45/section-164.504"
+    ]
+  },
+  {
+    "id": "deid",
+    "term": "De-identification",
+    "category": "Data and privacy",
+    "definition": "Under 45 CFR 164.514(b), health information can be treated as not individually identifiable by expert determination (a qualified person finds the risk very small and documents the method) or by removing the listed identifiers with no actual knowledge that the data could identify a person.",
+    "whyMatters": "Vendors sometimes say data is “anonymized.” Ask which of the two methods was used and who documented it.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.514"
+    ]
+  },
+  {
+    "id": "breach",
+    "term": "Breach",
+    "category": "Data and privacy",
+    "definition": "An acquisition, access, use or disclosure of PHI not permitted by the Privacy Rule that compromises its security or privacy. It is presumed to be a breach unless a risk assessment shows a low probability of compromise (45 CFR 164.402). Notice to individuals is due without unreasonable delay and within 60 calendar days of discovery.",
+    "whyMatters": "The 60-day clock starts at discovery, including when a workforce member or agent knew or should have known.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.402",
+      "https://www.ecfr.gov/current/title-45/section-164.404"
+    ]
+  },
+  {
+    "id": "min-necessary",
+    "term": "Minimum necessary",
+    "category": "Data and privacy",
+    "definition": "When using or disclosing PHI or requesting it, a covered entity or business associate must make reasonable efforts to limit it to the minimum necessary for the purpose, with exceptions listed in 45 CFR 164.502(b).",
+    "whyMatters": "It applies to what you send to a vendor. Do not send more than the tool needs.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.502"
+    ]
+  },
+  {
+    "id": "risk-analysis",
+    "term": "Security Rule risk analysis",
+    "category": "Standards and terminology",
+    "definition": "A required assessment of the potential risks and vulnerabilities to the confidentiality, integrity and availability of ePHI, together with security measures sufficient to reduce them to a reasonable and appropriate level (45 CFR 164.308(a)(1)(ii)(A)–(B)).",
+    "whyMatters": "Adding an AI tool changes your systems, so the analysis should be updated.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.308"
+    ]
+  },
+  {
+    "id": "nist-rmf",
+    "term": "NIST AI Risk Management Framework",
+    "category": "Standards and terminology",
+    "definition": "A framework from NIST to help manage risks to individuals, organizations and society associated with AI. NIST says it is intended for voluntary use. AI RMF 1.0 was released on January 26, 2023, and a generative AI profile on July 26, 2024.",
+    "whyMatters": "It is a common vocabulary for governance discussions with vendors. It is not a legal requirement.",
+    "sources": [
+      "https://www.nist.gov/itl/ai-risk-management-framework"
+    ]
+  }
+]

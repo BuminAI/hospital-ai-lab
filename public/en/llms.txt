@@ -1,0 +1,40 @@
+# Hospital AI Lab — English (U.S.) edition
+
+> Practical information on patient data, health records and AI for administrators and nursing leaders in U.S. hospitals. Written from primary sources (eCFR, Federal Register, FDA, ASTP/ONC, NIST); it is not a translation of the Korean edition. General information; not legal or medical advice.
+
+Site: https://hospital-ai-lab.com/en/
+Full version in one file: https://hospital-ai-lab.com/en/llms-full.txt · Key facts by section: https://hospital-ai-lab.com/en/facts/
+Author profile: https://hospital-ai-lab.com/en/about/
+
+## Questions this site answers
+
+- How fast must a hospital notify patients and HHS of a breach? (45 CFR 164.404 and 164.408: 60 calendar days; HHS at the same time for 500 or more)
+- Is a written agreement required before patient data goes to an AI vendor? (45 CFR 164.502(e) and 164.504(e): yes, for a business associate)
+- Is clinical decision support software always an FDA-regulated device? (No; see FDA's clinical decision support guidance, January 2026)
+- What did the October 2026 HTI-5 final rule change? (91 FR 67916: removes 45 CFR 170.315(b)(11)(iv) through (vi); effective December 28, 2026)
+- Has the HIPAA Security Rule rewrite taken effect? (We found no final rule; proposed January 6, 2025, 90 FR 898)
+
+## Main pages
+
+- [Roadmap](https://hospital-ai-lab.com/en/dx-roadmap/): dates from the text of rules, with sections and sources.
+- [Patient data protection checklist](https://hospital-ai-lab.com/en/data-checklist/) and [Checklist: records access and AI vendors](https://hospital-ai-lab.com/en/documents-checklist/): each item gives its basis.
+- [Calendar](https://hospital-ai-lab.com/en/calendar/): new HHS, FDA, CMS and FTC documents from the Federal Register (automatic).
+- [Templates](https://hospital-ai-lab.com/en/templates/): generative AI policy, 20 vendor questions, patient text, incident record.
+- [For patients](https://hospital-ai-lab.com/en/patients/): general information for patients and families (not a diagnosis or treatment advice).
+- [Glossary](https://hospital-ai-lab.com/en/glossary/), [FAQ](https://hospital-ai-lab.com/en/faq/), [AI adoption checklist](https://hospital-ai-lab.com/en/checklist/).
+- [Blog](https://hospital-ai-lab.com/en/blog/) and [Series](https://hospital-ai-lab.com/en/series/).
+- [AI news](https://hospital-ai-lab.com/en/news/), [Government resources](https://hospital-ai-lab.com/en/gov-support/), [Videos](https://hospital-ai-lab.com/en/videos/), [Updates](https://hospital-ai-lab.com/en/updates/).
+
+## How the site stays current
+
+- New federal documents, news headlines and videos are collected automatically on a schedule.
+- Working links to sources are checked daily; the result and date appear at the bottom of each page.
+- The current edition dates of 45 CFR Parts 160, 164, 170, 171 and 92 are compared daily with the eCFR; a difference appears as a "being rechecked" note in the page footer.
+
+## When citing
+
+- Give the page URL and the date checked; verify the wording of regulations against the official text.
+- Automatic feeds contain only links and headlines; for content, go to the original source.
+- Deadlines that could not be confirmed against a primary text are not given.
+- General information; not legal advice and not a substitute for a clinician's decision about a specific patient. The site does not promote particular hospitals, products or treatments.
+- Korean edition (original): https://hospital-ai-lab.com/

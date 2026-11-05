@@ -1,0 +1,213 @@
+/* Shared styles of the Practice and For-patients pages of the English edition (2026-11-06). Classes tg-. */
+[data-locale='en'] .tg-lead {
+  color: var(--en-text-sub);
+  line-height: 1.9;
+}
+[data-locale='en'] .tg-meta {
+  font-size: 13px;
+  color: var(--en-text-sub);
+  margin: 4px 0 18px;
+}
+[data-locale='en'] .tg-box {
+  border: 1px solid var(--en-border);
+  border-left: 4px solid var(--en-primary);
+  background: var(--en-surface);
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 18px 0;
+}
+[data-locale='en'] .tg-box strong {
+  color: var(--en-text);
+}
+[data-locale='en'] .tg-warn {
+  border-left-color: #b45309;
+}
+[data-locale='en'] .tg-sec {
+  margin-top: 34px;
+}
+[data-locale='en'] .tg-sec h2 {
+  font-size: 19px;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+[data-locale='en'] .tg-sec h3 {
+  font-size: 16px;
+  margin: 22px 0 6px;
+  line-height: 1.5;
+}
+[data-locale='en'] .tg-sec p,
+[data-locale='en'] .tg-sec li {
+  line-height: 1.9;
+}
+[data-locale='en'] .tg-list {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+}
+[data-locale='en'] .tg-list li {
+  margin: 5px 0;
+}
+[data-locale='en'] .tg-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 14px;
+}
+[data-locale='en'] .tg-table th,
+[data-locale='en'] .tg-table td {
+  border: 1px solid var(--en-border);
+  padding: 9px 10px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.8;
+}
+[data-locale='en'] .tg-table th {
+  background: var(--en-surface);
+  white-space: nowrap;
+}
+[data-locale='en'] .tg-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 14px 0 0;
+}
+[data-locale='en'] .tg-card {
+  display: block;
+  border: 1px solid var(--en-border);
+  padding: 14px 16px;
+  background: var(--en-surface);
+  color: var(--en-text);
+  text-decoration: none;
+}
+[data-locale='en'] .tg-card:hover {
+  border-color: var(--en-primary);
+}
+[data-locale='en'] .tg-card b {
+  display: block;
+  color: var(--en-primary);
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+[data-locale='en'] .tg-card span {
+  font-size: 13.5px;
+  color: var(--en-text-sub);
+  line-height: 1.75;
+}
+[data-locale='en'] .tg-tl {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--en-border);
+}
+[data-locale='en'] .tg-tl > li {
+  display: grid;
+  grid-template-columns: 9.5em 1fr;
+  gap: 4px 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--en-border);
+}
+[data-locale='en'] .tg-tl .when {
+  font-weight: 700;
+  color: var(--en-primary);
+  line-height: 1.6;
+}
+[data-locale='en'] .tg-tl .what b {
+  display: block;
+  line-height: 1.6;
+}
+[data-locale='en'] .tg-tl .what span {
+  font-size: 14px;
+  color: var(--en-text-sub);
+  line-height: 1.8;
+}
+[data-locale='en'] .tg-tag {
+  display: inline-block;
+  font-size: 12px;
+  border: 1px solid var(--en-border);
+  padding: 1px 8px;
+  margin: 0 6px 0 0;
+  color: var(--en-text-sub);
+  background: var(--en-surface);
+}
+[data-locale='en'] .tg-src {
+  margin-top: 40px;
+  border-top: 1px solid var(--en-border);
+  padding-top: 14px;
+  font-size: 13.5px;
+  color: var(--en-text-sub);
+}
+[data-locale='en'] .tg-src h2 {
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+[data-locale='en'] .tg-src li {
+  margin: 4px 0;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+[data-locale='en'] .tg-disc {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--en-text-sub);
+  line-height: 1.85;
+}
+[data-locale='en'] .tg-copy {
+  position: relative;
+  border: 1px solid var(--en-border);
+  background: var(--en-surface);
+  padding: 14px 16px;
+  margin: 10px 0;
+}
+[data-locale='en'] .tg-copy pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.85;
+}
+[data-locale='en'] .tg-btn {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  font-size: 13px;
+  border: 1px solid var(--en-primary);
+  background: transparent;
+  color: var(--en-primary);
+  cursor: pointer;
+}
+[data-locale='en'] .tg-btn:hover {
+  background: var(--en-primary);
+  color: #fff;
+}
+@media (max-width: 640px) {
+  [data-locale='en'] .tg-tl > li {
+    grid-template-columns: 1fr;
+  }
+  [data-locale='en'] .tg-table th {
+    white-space: normal;
+  }
+}
+
+/* ---- */
+[data-locale='en'] .tg-answer {
+  border-left: 4px solid var(--en-primary);
+  background: var(--en-surface);
+  padding: 12px 14px;
+  margin: 14px 0 18px;
+  font-size: 15px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+[data-locale='en'] .tg-faq dl {
+  margin: 8px 0 0;
+}
+[data-locale='en'] .tg-faq dt {
+  font-weight: 700;
+  margin-top: 18px;
+  line-height: 1.7;
+}
+[data-locale='en'] .tg-faq dd {
+  margin: 4px 0 0;
+  line-height: 1.9;
+}

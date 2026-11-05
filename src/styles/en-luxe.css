@@ -1,0 +1,387 @@
+/* "Luxe" theme of the English edition (2026-11-06): deep navy ground, cool steel-blue highlight, thin rules, wide-tracked serif headings.
+   Same structure as the Russian edition; only the palette differs. Affects only data-locale=en. */
+
+:root[data-locale='en'] {
+  color-scheme: dark;
+  --en-base: #09111f;
+  --en-surface: #0e1a2e;
+  --en-surface-2: #15233b;
+  --en-border: #243452;
+  --en-text: #e9edf5;
+  --en-text-sub: #9aa9c0;
+  --en-primary: #8fb6ee;
+  --en-primary-dk: #bcd5f7;
+  --en-btn-bg: #a52831;
+  --en-btn-bg-hover: #c0303b;
+  --en-btn-fg: #ffffff;
+  --en-accent: #8fb6ee;
+  --en-badge-new: #8fb6ee;
+  --en-badge-info: #9ab4c9;
+  --en-badge-gov: #b9c79a;
+  --en-gold: #8fb6ee;
+  --en-gold-soft: #bcd5f7;
+  --en-hair: rgba(143, 182, 238, 0.24);
+  --en-serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Times New Roman', Georgia, serif;
+}
+
+html[data-locale='en'],
+[data-locale='en'] body {
+  background: var(--en-base);
+  color: var(--en-text);
+}
+html[data-locale='en'] body {
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+/* ---- */
+html[data-locale='en'] .en-header {
+  background: #040913;
+  border-bottom: 1px solid var(--en-hair);
+  padding: 0;
+}
+html[data-locale='en'] .en-header::after {
+  display: none;
+}
+html[data-locale='en'] .en-header-inner {
+  justify-content: center;
+  text-align: center;
+  padding: 24px 20px 18px;
+}
+html[data-locale='en'] .en-brand {
+  display: inline-block;
+  font-family: var(--en-serif);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #edf1f8;
+  text-decoration: none;
+}
+html[data-locale='en'] .en-brand-sub {
+  display: block;
+  margin-top: 8px;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--en-gold);
+}
+
+/* ---- */
+html[data-locale='en'] .en-nav {
+  background: #09111f;
+  border-bottom: 1px solid var(--en-hair);
+}
+html[data-locale='en'] .en-nav .en-nav-primary {
+  justify-content: center;
+}
+html[data-locale='en'] .en-nav .en-nav-primary a {
+  padding: 15px 18px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #dfe6f2;
+}
+html[data-locale='en'] .en-nav .en-nav-primary a[aria-current='page'],
+html[data-locale='en'] .en-nav .en-nav-primary a:hover {
+  color: var(--en-gold-soft);
+  box-shadow: inset 0 -2px 0 var(--en-gold);
+}
+html[data-locale='en'] .en-nav .en-nav-secondary {
+  background: #070605;
+  border-top: 1px solid var(--en-border);
+}
+html[data-locale='en'] .en-nav .en-nav-secondary-inner {
+  justify-content: center;
+}
+html[data-locale='en'] .en-nav .en-nav-label {
+  color: var(--en-gold);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+}
+html[data-locale='en'] .en-nav .en-nav-secondary a {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--en-text-sub);
+}
+html[data-locale='en'] .en-nav .en-nav-secondary a[aria-current='page'],
+html[data-locale='en'] .en-nav .en-nav-secondary a:hover {
+  color: var(--en-gold-soft);
+}
+html[data-locale='en'] .en-breadcrumb {
+  color: var(--en-text-sub);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- */
+html[data-locale='en'] h1,
+html[data-locale='en'] h2,
+html[data-locale='en'] h3 {
+  font-family: var(--en-serif);
+  font-weight: 500;
+  color: #eef2fa;
+}
+html[data-locale='en'] h1 {
+  font-size: 32px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+html[data-locale='en'] main h2 {
+  font-size: 22px;
+  border: 0;
+  border-bottom: 1px solid var(--en-hair);
+  padding: 0 0 10px;
+  margin-top: 40px;
+}
+html[data-locale='en'] a {
+  color: var(--en-gold-soft);
+}
+html[data-locale='en'] a:hover {
+  color: #dce8fa;
+}
+html[data-locale='en'] main table {
+  border-color: var(--en-border);
+}
+html[data-locale='en'] main th {
+  background: var(--en-surface-2);
+  color: var(--en-gold-soft);
+}
+html[data-locale='en'] main tbody tr:nth-child(even) > * {
+  background: rgba(255, 255, 255, 0.02);
+}
+html[data-locale='en'] main td,
+html[data-locale='en'] main th {
+  border-color: var(--en-border);
+}
+
+/* ---- */
+html[data-locale='en'] .tg-box,
+html[data-locale='en'] .en-note {
+  background: var(--en-surface);
+  border: 1px solid var(--en-hair);
+  border-radius: 0;
+}
+html[data-locale='en'] .tg-warn {
+  border-left: 3px solid var(--en-gold);
+}
+html[data-locale='en'] .tg-answer {
+  background: var(--en-surface);
+  border-left: 3px solid var(--en-btn-bg);
+  color: var(--en-text);
+}
+html[data-locale='en'] [class$='-cards'] > a[class],
+html[data-locale='en'] .tg-card {
+  background: var(--en-surface);
+  border: 1px solid var(--en-hair);
+  border-left: 1px solid var(--en-hair);
+  border-radius: 0;
+}
+html[data-locale='en'] .tg-card:hover {
+  border-color: var(--en-gold);
+}
+html[data-locale='en'] .tg-card b {
+  font-family: var(--en-serif);
+  font-weight: 500;
+  color: var(--en-gold-soft);
+}
+html[data-locale='en'] .tg-tag {
+  background: transparent;
+  border: 1px solid var(--en-hair);
+  color: var(--en-gold);
+  letter-spacing: 0.08em;
+  border-radius: 0;
+}
+html[data-locale='en'] .tg-copy pre {
+  background: #040913;
+  border: 1px solid var(--en-hair);
+  color: #dfe6f2;
+}
+html[data-locale='en'] .tg-btn {
+  background: transparent;
+  border: 1px solid var(--en-gold);
+  color: var(--en-gold-soft);
+  border-radius: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+html[data-locale='en'] .en-side section {
+  background: var(--en-surface);
+  border: 1px solid var(--en-hair);
+  border-radius: 0;
+}
+
+/* ---- */
+html[data-locale='en'] .en-footer {
+  background: #040913;
+  border-top: 1px solid var(--en-hair);
+  color: var(--en-text-sub);
+}
+html[data-locale='en'] .en-footer::before {
+  display: none;
+}
+html[data-locale='en'] .en-footer a {
+  color: var(--en-gold-soft);
+}
+
+@media (max-width: 640px) {
+  html[data-locale='en'] h1 {
+    font-size: 26px;
+  }
+  html[data-locale='en'] .en-brand {
+    font-size: 14px;
+    letter-spacing: 0.28em;
+  }
+  html[data-locale='en'] .en-nav .en-nav-primary {
+    justify-content: flex-start;
+  }
+  html[data-locale='en'] .en-nav .en-nav-primary a {
+    padding: 13px 12px;
+    letter-spacing: 0.14em;
+  }
+}
+
+/* ---- */
+html[data-locale='en'] main .th-hero-card h2 {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--en-gold);
+}
+html[data-locale='en'] main h2.th-h {
+  margin: 0 0 34px;
+  padding: 0 0 16px;
+  border: 0;
+  border-bottom: 1px solid var(--en-hair);
+  font-size: 28px;
+  font-weight: 400;
+}
+html[data-locale='en'] main .th-post h3,
+html[data-locale='en'] main .th-lib strong {
+  border: 0;
+}
+html[data-locale='en'] main .th-task {
+  text-decoration: none;
+}
+
+/* ---- */
+html[data-locale='en'] body:has(.th-hero) .en-shell {
+  display: block;
+  max-width: none;
+  padding: 0 0 56px;
+}
+html[data-locale='en'] body:has(.th-hero) .en-side,
+html[data-locale='en'] body:has(.th-hero) .en-updated {
+  display: none;
+}
+html[data-locale='en'] body:has(.th-hero) .en-breadcrumb {
+  display: none;
+}
+html[data-locale='en'] main h2.th-h {
+  background: transparent;
+  padding-left: 0;
+}
+
+/* ---- */
+html[data-locale='en'] .en-side h2 {
+  background: transparent;
+  color: var(--en-gold);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  border: 0;
+  border-bottom: 1px solid var(--en-hair);
+  margin: 0;
+  padding: 14px 18px;
+}
+
+/* ---- */
+html[data-locale='en'] .th-hero-card h2 {
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--en-gold);
+}
+html[data-locale='en'] .th-hero h1 {
+  border: 0;
+  padding: 0;
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 400;
+  line-height: 1.22;
+}
+
+/* ---- */
+html[data-locale='en'] .en-answer {
+  margin: 22px 0 8px;
+  padding: 20px 24px 14px;
+  background: var(--en-surface);
+  border: 1px solid var(--en-hair);
+  border-left: 3px solid var(--en-gold);
+}
+html[data-locale='en'] .en-answer h2 {
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--en-gold);
+}
+html[data-locale='en'] .en-answer ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+html[data-locale='en'] .en-answer li {
+  margin: 6px 0;
+  line-height: 1.75;
+  font-size: 15px;
+}
+html[data-locale='en'] .en-answer-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--en-text-sub);
+}
+
+/* ---- */
+html[data-locale='en'] .tg-facts dt {
+  margin: 0;
+  padding: 18px 0 4px;
+  border-top: 1px solid var(--en-border);
+  font-family: var(--en-serif);
+  font-size: 17.5px;
+  line-height: 1.5;
+}
+html[data-locale='en'] .tg-facts dt a {
+  color: #eef2fa;
+  text-decoration: none;
+}
+html[data-locale='en'] .tg-facts dd {
+  margin: 0 0 12px;
+}
+html[data-locale='en'] .tg-facts dd p {
+  margin: 4px 0;
+}
+html[data-locale='en'] .tg-facts .tg-basis {
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  color: var(--en-text-sub);
+}

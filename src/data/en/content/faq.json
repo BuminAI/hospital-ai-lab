@@ -1,0 +1,61 @@
+[
+  {
+    "question": "Does every AI tool a hospital buys need FDA clearance?",
+    "answer": "No. Whether software is a medical device depends on its intended use. Some clinical decision support functions are excluded from the device definition if they meet the statutory criteria in section 520(o)(1)(E) of the FD&C Act, and FDA’s guidance (January 2026) explains how it reads them. Ask the vendor for its regulatory basis in writing.",
+    "sources": [
+      "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software"
+    ]
+  },
+  {
+    "question": "Do we need a business associate agreement with an AI vendor?",
+    "answer": "If the vendor creates, receives, maintains or transmits PHI on your behalf, or provides a listed service involving PHI, it is a business associate and you need a written agreement before disclosing PHI (45 CFR 160.103, 164.502(e), 164.504(e)).",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.502",
+      "https://www.ecfr.gov/current/title-45/section-164.504"
+    ]
+  },
+  {
+    "question": "How long do we have to notify patients of a breach?",
+    "answer": "Without unreasonable delay and no later than 60 calendar days after discovery. HHS is notified at the same time for breaches of 500 or more individuals, and within 60 days after year end for smaller ones (45 CFR 164.404, 164.408).",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.404",
+      "https://www.ecfr.gov/current/title-45/section-164.408"
+    ]
+  },
+  {
+    "question": "Has the HIPAA Security Rule been rewritten?",
+    "answer": "We found no final rule. HHS proposed changes on January 6, 2025 (90 FR 898), and a Federal Register search on November 6, 2026 returned no final rule. The existing Security Rule text still applies.",
+    "sources": [
+      "https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information"
+    ]
+  },
+  {
+    "question": "What did the October 2026 HTI-5 rule change?",
+    "answer": "It narrows the federal health IT certification program. It removes paragraphs (b)(11)(iv) through (vi) of 45 CFR 170.315, covering source attribute and risk-management requirements for decision support interventions. It is effective December 28, 2026, except three amendatory instructions effective January 1, 2027.",
+    "sources": [
+      "https://www.federalregister.gov/documents/2026/10/28/2026-21943/health-data-technology-and-interoperability-onc-deregulatory-actions-to-unleash-prosperity"
+    ]
+  },
+  {
+    "question": "Can an AI vendor use our patient data to train its own model?",
+    "answer": "Only if the business associate agreement allows it, and the agreement may not authorize uses that would violate the Privacy Rule if the hospital did them, apart from narrow exceptions for the vendor’s own management and data aggregation (45 CFR 164.504(e)(2)(i)). Have counsel read the clause.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.504"
+    ]
+  },
+  {
+    "question": "Are we required to check AI tools for discrimination?",
+    "answer": "A covered entity under the Section 1557 rule must make reasonable efforts to identify patient care decision support tools that use race, color, national origin, sex, age or disability as inputs and to mitigate the risk of discrimination (45 CFR 92.210).",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-92.210"
+    ]
+  },
+  {
+    "question": "Is there one federal law on AI in hospitals?",
+    "answer": "We did not find one. The rules cited on this site (HIPAA, FDA device rules, Section 1557, ONC certification and information blocking) apply to AI tools through their general terms. States may add their own rules, which this site does not cover.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.502",
+      "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software"
+    ]
+  }
+]

@@ -21,7 +21,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
-export const SITEMAP_LOCALES = ['ja', 'ru', 'id', 'tw'];
+export const SITEMAP_LOCALES = ['ja', 'ru', 'id', 'tw', 'en'];
 
 const esc = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

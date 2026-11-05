@@ -1,0 +1,144 @@
+---
+// Checklist: patient records access and AI vendors (2026-11-06)
+// ⚠️ These items were written by the author from the text of 45 CFR 164.524, 164.504(e), 164.312, 171.103, 171.201, 92.210, the FDA pages cited,
+//    and the HTI-5 final rule (91 FR 67916). This is not an official checklist. The page does not claim what a specific vendor’s product does.
+import '../../styles/en-guide.css';
+import EnLayout from '../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../components/EnGuideFoot.astro';
+import EnFaq from '../../components/EnFaq.astro';
+import { guideSchema } from '../../utils/en-guide';
+import { SRC } from '../../data/en/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 6, 2026';
+const title = 'Checklist: patient records access and AI vendors';
+const description =
+  'What to check when an AI tool drafts, summarizes or moves patient records: the 30-day access clock, electronic copies, information blocking, FDA status and the October 2026 HTI-5 change.';
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. Patient access to records',
+    lead: 'The Privacy Rule gives individuals a right of access to PHI in designated record sets, with timing and format rules that apply however the record is kept.',
+    items: [
+      { no: '1', text: 'A request for access is acted on no later than 30 days after receipt. If more time is needed, the hospital sends a written statement of the reasons and the completion date within the first 30 days, and uses the single permitted extension of up to 30 days.', basis: '45 CFR 164.524(b)(2)' },
+      { no: '2', text: 'When records are kept electronically and the patient asks for an electronic copy, the hospital provides it in the requested form and format if readily producible, or in a readable electronic form agreed with the patient.', basis: '45 CFR 164.524(c)(2)(ii)' },
+      { no: '3', text: 'Vendor contracts require the vendor to make PHI available for access, amendment and accounting of disclosures, so a vendor-held copy does not slow the hospital’s response.', basis: '45 CFR 164.504(e)(2)(ii)(E)–(G)' },
+      { no: '4', text: 'Staff who refuse or delay sharing electronic health information know the information blocking standard for providers and have checked whether an exception applies. The preventing-harm exception, for example, requires a reasonable belief that the practice will substantially reduce a risk of harm and a practice no broader than necessary.', basis: '45 CFR 171.103; 171.201(a)–(b)' },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. AI tools that draft, summarize or route records',
+    items: [
+      { no: '5', text: 'The policy says who reviews an AI-generated draft before it becomes part of the record, and that the clinician who signs is responsible for the final text.', basis: 'Author’s recommendation' },
+      { no: '6', text: 'It is defined where AI drafts and request logs are stored, who can see them, and how they are deleted. Systems that hold ePHI need audit controls and regular log review.', basis: '45 CFR 164.312(b); 164.308(a)(1)(ii)(D)' },
+      { no: '7', text: 'The vendor has returned a written answer on whether it treats the product as a medical device or as non-device clinical decision support, and on what basis.', basis: 'FDA CDS guidance (January 2026)' },
+      { no: '8', text: 'If the product is an FDA-authorized AI-enabled device, the vendor says whether the authorization includes a predetermined change control plan, and which kinds of change it covers.', basis: 'FDA PCCP page (August 2025 final guidance)' },
+      { no: '9', text: 'You do not treat the FDA list of AI-enabled devices as proof either way: FDA says the list is not comprehensive.', basis: 'FDA list page' },
+      { no: '10', text: 'If a certified EHR supplies a predictive decision support tool, you ask the developer directly for source and risk-management information, because the HTI-5 final rule removes the certification requirements for source attributes and risk management (the rule is effective December 28, 2026, except three amendatory instructions effective January 1, 2027).', basis: '91 FR 67916; 45 CFR 170.315(b)(11)(iv)–(vi) as removed' },
+      { no: '11', text: 'The tool is on your list of patient care decision support tools if it uses race, color, national origin, sex, age or disability as an input, and a mitigation step is recorded.', basis: '45 CFR 92.210(b)–(c)' },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'How long does a hospital have to give a patient their records?',
+    a: 'It must act on a request for access no later than 30 days after receipt, with one extension of up to 30 days if it sends a written statement of the reasons and the completion date within the first 30 days (45 CFR 164.524(b)(2)). State law may set a different time, so check with your privacy officer.',
+  },
+  {
+    q: 'Does the HTI-5 rule change what a hospital must do about AI tools?',
+    a: 'HTI-5 changes the federal health IT certification program, which governs developers’ certified products. According to its abstract it covers certification criteria and certification programs. It removes the source attribute and risk-management certification requirements for decision support interventions. Hospital duties under HIPAA and 45 CFR 92.210 are in other parts of the regulations, so the removal puts more weight on your own vendor review.',
+  },
+  {
+    q: 'Is every AI documentation assistant an FDA-regulated device?',
+    a: 'Not necessarily. Whether software is a device depends on its intended use and on the statutory criteria for non-device clinical decision support, which FDA explains in its guidance. Ask the vendor for its regulatory position in writing rather than assuming either answer.',
+  },
+];
+
+const sources = [SRC.access524, SRC.baa504, SRC.ib103, SRC.sec312, SRC.sec308, SRC.fdaCds, SRC.fdaPccp, SRC.fdaList, SRC.hti5, SRC.s1557_210];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/en/documents-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-06',
+  modified: '2026-11-06',
+  audience: 'Hospital administration and executives',
+  faq,
+});
+---
+
+<EnLayout title={title} description={description} crumb="Records and AI vendors" standalone updated={new Date('2026-11-06T00:00:00-05:00')} schema={guide}>
+  <h1>Checklist: patient records access and AI vendors</h1>
+  <p class="tg-lead">
+    When an AI tool touches the medical record, three questions come up together: can patients still get their records on time, who is responsible for what the tool wrote, and what is the tool’s regulatory status. This list follows those questions to the text of the rules.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and executives</p>
+
+  <p class="tg-answer">
+    In short: a hospital acts on a patient’s access request within 30 days, with one extension of up to 30 days and a written explanation (45 CFR 164.524(b)(2)); a patient who asks for an electronic copy gets it in the requested electronic form if readily producible (§ 164.524(c)(2)(ii)); the FDA list of AI-enabled devices is not comprehensive.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from the texts cited; each item gives its basis.</li>
+      <li>The rules cited say nothing about AI documentation tools as such. Section B items are the author’s conclusions and recommendations, and say so in the basis column.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/en/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>Business associates, Security Rule safeguards and breach notification.</span>
+      </a>
+      <a class="tg-card" href={withBase('/en/templates/')}>
+        <b>Document templates</b>
+        <span>20 vendor questions and a generative AI policy.</span>
+      </a>
+    </div>
+  </section>
+
+  <EnFaq items={faq} />
+
+  <EnGuideFoot sources={sources} checked={CHECKED} />
+</EnLayout>

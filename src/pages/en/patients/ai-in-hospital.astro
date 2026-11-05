@@ -1,0 +1,94 @@
+---
+// Patient rights when a hospital uses AI (2026-11-06). Only sections whose text was opened: 45 CFR 164.520, 164.524, 164.526, 164.528, 164.404, 92.210.
+import '../../../styles/en-guide.css';
+import EnLayout from '../../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../../components/EnGuideFoot.astro';
+import EnFaq from '../../../components/EnFaq.astro';
+import { guideSchema } from '../../../utils/en-guide';
+import { SRC } from '../../../data/en/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 6, 2026';
+const title = 'When your hospital uses AI: what the rules give you';
+const description =
+  'Hospitals increasingly use AI tools. Which rights do you have? A plain-language summary of your HIPAA rights and the nondiscrimination rule for decision support tools, with links to the sections.';
+
+const rights = [
+  { h: 'A notice that explains how your information is used', p: 'A covered entity must give you adequate notice of the uses and disclosures of your health information that it may make, and of your rights and its legal duties (45 CFR 164.520(a)(1)). The notice has a required header that begins “This notice describes how medical information about you may be used and disclosed.”' },
+  { h: 'Getting a copy of your records', p: 'You can ask to inspect or obtain a copy of your health information in the hospital’s designated record sets. The hospital must act on your request no later than 30 days after receiving it, with at most one extension of up to 30 days, and must tell you in writing why (45 CFR 164.524(b)(2)). If you ask for an electronic copy and the record is kept electronically, you are entitled to it in the electronic form you request if it can readily be produced that way (§ 164.524(c)(2)(ii)).' },
+  { h: 'Asking for a correction', p: 'You can ask the hospital to amend information in your record. It must act no later than 60 days after receiving the request, with at most one extension of up to 30 days (45 CFR 164.526(b)(2)). If it denies the request, it must give you a written denial.' },
+  { h: 'A list of certain disclosures', p: 'You have a right to an accounting of disclosures made in the six years before your request, except for several categories, including disclosures for treatment, payment and health care operations (45 CFR 164.528(a)).' },
+  { h: 'Being told about a breach', p: 'If unsecured health information about you is breached, the hospital must notify you without unreasonable delay and no later than 60 calendar days after it discovers the breach (45 CFR 164.404(b)).' },
+  { h: 'Protection from discrimination in decision support tools', p: 'A hospital covered by the Section 1557 rule must not discriminate on the basis of race, color, national origin, sex, age or disability through patient care decision support tools, and must make reasonable efforts to identify and reduce that risk (45 CFR 92.210).' },
+];
+
+const faq = [
+  {
+    q: 'How long does the hospital have to give me my records?',
+    a: 'No later than 30 days after your request, with at most one extension of up to 30 days if the hospital tells you in writing why and when (45 CFR 164.524(b)(2)). State law may set a different time.',
+  },
+  {
+    q: 'Does HIPAA say a hospital must tell me when AI is used?',
+    a: 'The sections cited here do not contain such a requirement, and none of them mentions AI. You can ask the hospital directly. State laws may differ.',
+  },
+  {
+    q: 'What happens if my information is breached?',
+    a: 'The hospital must notify you without unreasonable delay and no later than 60 calendar days after discovery (45 CFR 164.404(b)). The notice must describe what happened and what you can do.',
+  },
+];
+
+const sources = [SRC.notice520, SRC.access524, SRC.amend526, SRC.account528, SRC.breach404, SRC.s1557_210];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/en/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-06',
+  modified: '2026-11-06',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<EnLayout title={title} description={description} crumb="Patient rights and AI" standalone updated={new Date('2026-11-06T00:00:00-05:00')} schema={schema}>
+  <h1>When your hospital uses AI: what the rules give you</h1>
+  <p class="tg-lead">
+    Hospitals increasingly use tools that rely on AI. Which of your rights apply? Below are patient rights from the HIPAA rules and the Section 1557 rule in plain language, with the section for each. None of the sections cited is written specifically about AI.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organization that treats you. In an emergency, call 911.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Rights written into the rules</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ask">
+    <h2 id="h-ask">What you can ask your hospital</h2>
+    <p>The author’s suggestion, not a legal requirement. The sections above do not give a specific right to be told whether AI is used, but you can ask:</p>
+    <ul class="tg-list">
+      <li>Are AI tools used in my care or my billing? For what?</li>
+      <li>Who makes the final decision: a clinician or the tool?</li>
+      <li>Where is my information stored, and who can see it?</li>
+      <li>If a voice or image is recorded, for what purpose and for how long?</li>
+    </ul>
+    <p>More on records: <a href={withBase('/en/patients/medical-records/')}>Your rights to your medical records</a>.</p>
+  </section>
+
+  <EnFaq items={faq} />
+
+  <EnGuideFoot sources={sources} checked={CHECKED} patient />
+</EnLayout>

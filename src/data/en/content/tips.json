@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "title": "Practical tips for working with AI tools in a hospital",
+    "description": "Plain advice for administrators and nursing staff: what not to type into a chatbot, how to review AI output, how to read a proposal, and how to keep records.",
+    "pageTitle": "Practical tips",
+    "lead": "These are the author’s practical suggestions, not legal requirements. Where a rule applies, the page says so and gives the section."
+  },
+  "sections": [
+    {
+      "heading": "Do not paste patient information into tools you have not approved",
+      "body": "Names, record numbers, dates of birth, addresses and the contents of records should stay out of consumer chatbots. Use only tools your privacy officer has approved, under a written agreement where PHI is involved (45 CFR 164.502(e)).",
+      "items": []
+    },
+    {
+      "heading": "Treat every AI draft as a draft",
+      "body": "Check facts, numbers and names against the source. A person who signs or sends the text is responsible for it. Decide in policy who reviews AI text before it becomes part of a patient record.",
+      "items": []
+    },
+    {
+      "heading": "Keep a list of the AI tools in use",
+      "body": "Include the owner, what data it receives, the vendor contract, and the date of the last review. You cannot review what you cannot see, and you will need the list for risk analysis and, where it applies, for decision support tool review under 45 CFR 92.210.",
+      "items": []
+    },
+    {
+      "heading": "Read the vendor’s answers, not the brochure",
+      "body": "Brochures describe capabilities. The questions in the templates page ask for status, data handling and breach notice in writing. If a question is not answered, treat it as unanswered.",
+      "items": []
+    },
+    {
+      "heading": "Write the incident card before you need it",
+      "body": "A breach clock of 60 calendar days starts when the breach is known or would have been known with reasonable diligence (45 CFR 164.404). Decide now who decides, who files, and who calls the vendor at night.",
+      "items": []
+    },
+    {
+      "heading": "Involve nursing early",
+      "body": "Alerts, summaries and scheduling tools change nursing work first. Ask nurse leaders what would make a tool unusable on a busy shift before you sign.",
+      "items": []
+    }
+  ]
+}

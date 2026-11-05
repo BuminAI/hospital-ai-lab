@@ -62,6 +62,23 @@ const CONFIG = {
       /\bигр\w*\b|геймер\w*|консол\w*|наушник\w*|сериал\w*|фильм\w*|актер\w*|блогер\w*|мем\w*|аниме|криптовалют\w*|биткоин|майнинг|обзор\s+смартфона|распродаж\w*|скидк\w*|промокод|гороскоп/i,
     pro: /закон|регулиров\w*|правител\w*|минцифр\w*|минздрав\w*|госдум\w*|указ|постановлен\w*|стандарт\w*|ГОСТ|персональн\w*\s+данн\w*|данн\w*|безопасн\w*|кибер\w*|утечк\w*|медицин\w*|здравоохранен\w*|больниц\w*|клиник\w*|врач\w*|пациент\w*|диагност\w*|компани\w*|бизнес\w*|предприят\w*|внедрен\w*|импортозамещен\w*|госуслуг\w*|образован\w*|сотрудник\w*|работник\w*|рынок|инвестиц\w*|этик\w*|приватност\w*|документ\w*|отчет\w*|исследован\w*|учены\w*|университет\w*|агент\w*|модел\w*|платформ\w*|сервис\w*|разработ\w*/i,
   },
+  en: {
+    out: 'src/data/en/ai-digest.json',
+    // U.S. technology publications carry a lot of AI coverage, so a practical-signal filter (policy, regulation,
+    // organizations, security, health) can be required without starving the list.
+    requirePro: true,
+    feeds: [
+      ['TechCrunch', 'https://techcrunch.com/category/artificial-intelligence/feed/'],
+      ['Ars Technica', 'https://arstechnica.com/ai/feed/'],
+      ['MIT Technology Review', 'https://www.technologyreview.com/topic/artificial-intelligence/feed'],
+      ['The Verge', 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml'],
+      ['Wired', 'https://www.wired.com/feed/tag/ai/latest/rss'],
+    ],
+    ai: /(?<![A-Za-z])AI(?![A-Za-z])|artificial\s+intelligence|machine\s+learning|deep\s+learning|large\s+language\s+model|\bLLMs?\b|generative|chatbot|ChatGPT|OpenAI|Anthropic|Gemini|Copilot|neural\s+network/i,
+    noise:
+      /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|nfl|nba/i,
+    pro: /law|legislat\w*|regulat\w*|congress|senate|white\s+house|\bFDA\b|\bFTC\b|\bHHS\b|\bNIST\b|policy|privacy|data\s+protection|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|research|study|benchmark|safety|audit|governance|compliance|procurement|government|federal|state\s+attorney/i,
+  },
   id: {
     out: 'src/data/id/ai-digest.json',
     // 인도네시아 일반 매체는 AI 기사 자체가 적어(325건 중 25건) 실무 신호까지

@@ -1,0 +1,82 @@
+[
+  {
+    "href": "/en/",
+    "key": "home",
+    "enabled": true
+  },
+  {
+    "href": "/en/about/",
+    "key": "about",
+    "enabled": true
+  },
+  {
+    "href": "/en/blog/",
+    "key": "blog",
+    "enabled": true
+  },
+  {
+    "href": "/en/news/",
+    "key": "news",
+    "enabled": true
+  },
+  {
+    "href": "/en/practice/",
+    "key": "practice",
+    "enabled": true
+  },
+  {
+    "href": "/en/patients/",
+    "key": "patients",
+    "enabled": true
+  },
+  {
+    "href": "/en/ai-digest/",
+    "key": "aiDigest",
+    "enabled": true
+  },
+  {
+    "href": "/en/gov-support/",
+    "key": "govSupport",
+    "enabled": true
+  },
+  {
+    "href": "/en/events/",
+    "key": "events",
+    "enabled": true
+  },
+  {
+    "href": "/en/videos/",
+    "key": "videos",
+    "enabled": true
+  },
+  {
+    "href": "/en/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/en/guide/",
+    "key": "guide",
+    "enabled": true
+  },
+  {
+    "href": "/en/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/en/checklist/",
+    "key": "checklist",
+    "enabled": true
+  },
+  {
+    "href": "/en/faq/",
+    "key": "faq",
+    "enabled": true
+  },
+  {
+    "href": "/en/ai-judge/",
+    "key": "aiJudge",
+    "enabled": false
+  }
+]

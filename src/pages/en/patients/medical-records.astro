@@ -1,0 +1,83 @@
+---
+// Rights to medical records (2026-11-06). Bases: 45 CFR 164.524, 164.526, 164.508, 164.502(g), 160.102.
+import '../../../styles/en-guide.css';
+import EnLayout from '../../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../../components/EnGuideFoot.astro';
+import EnFaq from '../../../components/EnFaq.astro';
+import { guideSchema } from '../../../utils/en-guide';
+import { SRC } from '../../../data/en/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 6, 2026';
+const title = 'Your rights to your medical records: access, correction and sharing';
+const description =
+  'Who can see your records, how fast a hospital must respond, how to ask for a correction, and when your information can be shared. Plain language, with the section of 45 CFR for each.';
+
+const rights = [
+  { h: 'Who the rules apply to', p: 'The HIPAA standards apply to health plans, health care clearinghouses, and health care providers that transmit health information electronically in connection with covered transactions, and in places to their business associates (45 CFR 160.102).' },
+  { h: 'Getting your records', p: 'You can inspect or obtain a copy of your health information in designated record sets. The hospital must act on your request no later than 30 days after receipt, with one extension of up to 30 days if it explains in writing (45 CFR 164.524(b)(2)). It must provide the form and format you request if readily producible, including an electronic copy when the record is kept electronically (§ 164.524(c)(2)).' },
+  { h: 'Asking for a correction', p: 'You can ask the hospital to amend your record. It must act within 60 days, with one extension of up to 30 days, and give a written denial if it refuses (45 CFR 164.526(b)(2)).' },
+  { h: 'Who else can get your information', p: 'Some uses and disclosures need your written authorization, including marketing (with the exception stated in the rule) and the sale of health information (45 CFR 164.508(a)(3)–(4)). Hospitals may use and share information for treatment, payment and health care operations without an authorization (§ 164.506).' },
+  { h: 'A person who acts for you', p: 'If a person has authority under applicable law to make health care decisions for an adult or emancipated minor, the hospital must treat that person as your personal representative for the information relevant to that role (45 CFR 164.502(g)(1)–(2)). The rule has special provisions for minors (§ 164.502(g)(3)).' },
+  { h: 'After a person dies', p: 'A covered entity must continue to apply the privacy requirements to the information of a deceased person for 50 years following the death (45 CFR 164.502(f)).' },
+];
+
+const faq = [
+  {
+    q: 'Can the hospital give my records to my family?',
+    a: 'Not automatically. A person is treated as your personal representative only if they have authority under applicable law to make health care decisions for you. Other disclosures depend on the rules cited above and on your authorization. Ask the hospital how it handles this.',
+  },
+  {
+    q: 'Can I get my records on my phone or by email?',
+    a: 'The rule requires the electronic form and format you ask for if it is readily producible in that form, or a readable electronic form you agree on (45 CFR 164.524(c)(2)(ii)). Ask what the hospital offers.',
+  },
+  {
+    q: 'Does this page apply to my state?',
+    a: 'It covers the federal rules only. Your state may add rights or set shorter times.',
+  },
+];
+
+const sources = [SRC.app160, SRC.access524, SRC.amend526, SRC.auth508, SRC.tpo506, SRC.baa502];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/en/patients/medical-records/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-06',
+  modified: '2026-11-06',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<EnLayout title={title} description={description} crumb="Medical records rights" standalone updated={new Date('2026-11-06T00:00:00-05:00')} schema={schema}>
+  <h1>Your rights to your medical records</h1>
+  <p class="tg-lead">
+    Many people are unsure how to get their records, or who else can see them. This page explains what the federal HIPAA rules say, with the section for each.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organization that treats you. In an emergency, call 911.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">What the rules say</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+
+  <EnFaq items={faq} />
+
+  <EnGuideFoot sources={sources} checked={CHECKED} patient />
+</EnLayout>

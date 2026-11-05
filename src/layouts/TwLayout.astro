@@ -44,6 +44,8 @@ interface Props {
   crumb?: string;
   /** 이 페이지의 한국어판 경로(hreflang·언어 전환용). 없으면 한국어 홈. */
   koPath?: string;
+  /** English (US) edition path (added 2026-11-06). */
+  enPath?: string;
   /** 이 페이지의 일본어판 경로. 아직 일본어판이 없는 페이지는 넘기지 않는다. */
   jaPath?: string;
   /** 이 페이지의 러시아어판 경로. */
@@ -73,6 +75,7 @@ const {
   description,
   crumb,
   koPath = '/',
+  enPath,
   jaPath,
   ruPath,
   idPath,
@@ -107,6 +110,7 @@ const updatedAt = updated ?? lastModifiedForPath(Astro.url.pathname, BASE) ?? ne
 
 // hreflang — 짝이 서로를 가리켜야 유효하다. x-default는 한국어(원본).
 const koHref = `${siteRoot}${withBase(koPath)}`;
+const enHref = enPath ? `${siteRoot}${withBase(enPath)}` : undefined;
 const jaHref = jaPath ? `${siteRoot}${withBase(jaPath)}` : undefined;
 const ruHref = ruPath ? `${siteRoot}${withBase(ruPath)}` : undefined;
 const idHref = idPath ? `${siteRoot}${withBase(idPath)}` : undefined;
@@ -260,6 +264,7 @@ const year = new Date().getFullYear();
       !standalone && (
         <>
           <link rel="alternate" hreflang="ko" href={koHref} />
+          {enHref && <link rel="alternate" hreflang="en" href={enHref} />}
           {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
           {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
           {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
@@ -455,6 +460,9 @@ const year = new Date().getFullYear();
         <ul>
             <li>
               <a href={withBase('/')} hreflang="ko" lang="ko">{tw.editions.ko}</a>
+            </li>
+            <li>
+              <a href={withBase('/en/')} hreflang="en" lang="en">{tw.editions.en}</a>
             </li>
             <li>
               <a href={withBase('/ja/')} hreflang="ja" lang="ja">{tw.editions.ja}</a>

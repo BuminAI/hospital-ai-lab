@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Where to start with medical AI in a U.S. hospital",
+    "description": "Five steps for administrators and nurse leaders with no technical background: the task, the regulatory status, the patient data, the written answers from the vendor, and the people who will work with it.",
+    "pageTitle": "Where to start",
+    "lead": "You do not need to understand how a model works to review a proposal for one. You need to know what it is for, who regulates it, where patient data goes, and what changes for staff. Five steps, in order."
+  },
+  "sections": [
+    {
+      "heading": "1. Name the task before the technology",
+      "body": "Write one sentence: what job will this tool do, for whom, and what happens today without it? A tool that drafts visit summaries, a tool that flags patients for review and a tool that schedules staff raise different questions. Vendors describe what the product can do; you need to describe the job.",
+      "items": []
+    },
+    {
+      "heading": "2. Ask who regulates it",
+      "body": "Some software is regulated by FDA as a medical device, and some clinical decision support software is excluded from the device definition if it meets statutory criteria. FDA’s guidance (January 2026) explains how it reads those criteria. Ask the vendor in writing whether it treats the product as a device or as non-device clinical decision support, and why. FDA’s list of AI-enabled devices is not comprehensive, so do not use it as proof either way.",
+      "items": []
+    },
+    {
+      "heading": "3. Follow the patient data",
+      "body": "Find out whether the tool receives protected health information, where it goes, who else touches it, and how it is deleted. If the vendor handles PHI for you, it is probably a business associate, and a written business associate agreement is required before PHI is disclosed (45 CFR 164.502(e)). Our data checklist walks through the sections.",
+      "items": []
+    },
+    {
+      "heading": "4. Get the answers in writing",
+      "body": "Use the vendor questions in the templates page. Put the answers into the contract or an attachment to it. Pay attention to breach notice: the hospital’s own notice to patients is due within 60 calendar days of discovery, so a vendor that notifies you late can use up your time.",
+      "items": []
+    },
+    {
+      "heading": "5. Plan for the people who will work with it",
+      "body": "Ask who gets more work, who reviews the tool’s output, who responds to its alerts, and how staff are trained. HIPAA requires workforce training on PHI policies and documentation that it took place (45 CFR 164.530(b)). Nursing leaders should be in the review from the start, not after go-live.",
+      "items": []
+    }
+  ]
+}

@@ -7,6 +7,13 @@
 import type { Loc } from '../utils/locale';
 
 export const checklistRelated: Record<Exclude<Loc, 'ko'>, Record<number, string[]>> = {
+  en: {
+    0: ['2026-11-06-fda-cds-guidance-vendor-questions'],
+    1: ['2026-11-06-fda-cds-guidance-vendor-questions', '2026-11-06-fda-pccp-ai-device-changes', '2026-11-06-hti-5-decision-support-rule'],
+    2: ['2026-11-06-business-associate-agreement-ai-vendor'],
+    3: ['2026-11-06-hipaa-breach-60-day-clock-ai-vendors', '2026-11-06-hipaa-security-rule-proposal-status'],
+    4: ['2026-11-06-hti-5-decision-support-rule'],
+  },
   ja: {
     0: ['2026-08-20-samd-idaten-review-body-reform'],
     1: [

@@ -1,0 +1,83 @@
+---
+// Before you ask an AI about your health (2026-11-06). General cautions only; no diagnosis or treatment advice. Bases: 45 CFR 160.102, 164.524; FDA pages.
+import '../../../styles/en-guide.css';
+import EnLayout from '../../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../../components/EnGuideFoot.astro';
+import EnFaq from '../../../components/EnFaq.astro';
+import { guideSchema } from '../../../utils/en-guide';
+import { SRC } from '../../../data/en/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 6, 2026';
+const title = 'Before you ask an AI about your health: six things to know';
+const description =
+  'An AI answer is not a diagnosis. Six things to know before you type your health questions into a chatbot: privacy, medical-device status, your own records, and when not to wait.';
+
+const rights = [
+  { h: '1. An AI answer is not a diagnosis', p: 'A chatbot cannot examine you or see your full history, and it can sound sure when it is wrong. Treat its answer as something to discuss with a clinician, not a decision.' },
+  { h: '2. Do not wait if it may be urgent', p: 'If you think you or someone else may be having an emergency, call 911 or go to an emergency department. Do not wait for a chatbot reply.' },
+  { h: '3. What you type may not be covered by HIPAA', p: 'The HIPAA standards apply to health plans, clearinghouses, and providers that transmit health information electronically in covered transactions, and in places to their business associates (45 CFR 160.102). A consumer app that is none of these is not obviously covered. Read its privacy policy before you share health details.' },
+  { h: '4. Share less than you think you need to', p: 'Leave out names, dates of birth, addresses, account numbers and photos that could identify you. This is the author’s advice, not a legal rule.' },
+  { h: '5. Some health software is regulated, some is not', p: 'FDA regulates software that meets the medical device definition, and its guidance explains which clinical decision support functions fall outside it. FDA’s list of AI-enabled devices is not comprehensive, so a tool’s absence from the list does not tell you how reliable it is.' },
+  { h: '6. Bring your own records to your clinician', p: 'You can ask your provider for a copy of your records, including an electronic copy (45 CFR 164.524). Having them can make a visit more useful than any chatbot summary.' },
+];
+
+const faq = [
+  {
+    q: 'Is it safe to paste my test results into a chatbot?',
+    a: 'This page cannot say what a particular tool does with them. Consider what the tool’s privacy policy says, and remove details that identify you. For what the results mean, ask your clinician.',
+  },
+  {
+    q: 'Does HIPAA protect what I tell a chatbot?',
+    a: 'Only if the company is a covered entity or a business associate acting for one (45 CFR 160.102). Check the company’s terms.',
+  },
+  {
+    q: 'Can I rely on an AI that says it is FDA approved?',
+    a: 'Ask exactly what FDA authorized and for what intended use. FDA’s public list is not comprehensive, and an authorization covers a specific device and intended use, not every answer a chatbot gives.',
+  },
+];
+
+const sources = [SRC.app160, SRC.access524, SRC.fdaCds, SRC.fdaList];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/en/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-06',
+  modified: '2026-11-06',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<EnLayout title={title} description={description} crumb="Asking AI about health" standalone updated={new Date('2026-11-06T00:00:00-05:00')} schema={schema}>
+  <h1>Before you ask an AI about your health: six things to know</h1>
+  <p class="tg-lead">
+    Many people now ask AI chatbots about symptoms, test results and medicines. This page does not tell you what to do about any health condition. It explains a few facts that help you use such tools more carefully.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organization that treats you. In an emergency, call 911.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Six things</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+
+  <EnFaq items={faq} />
+
+  <EnGuideFoot sources={sources} checked={CHECKED} patient />
+</EnLayout>

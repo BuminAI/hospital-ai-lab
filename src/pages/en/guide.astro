@@ -1,0 +1,90 @@
+---
+import EnLayout from '../../layouts/EnLayout.astro';
+import EnSections from '../../components/EnSections.astro';
+import { guideEn } from '../../data/en/pages';
+import en from '../../i18n/en.json';
+import { withBase } from '../../utils/site';
+
+const p = guideEn;
+
+// The headings are in order, so the page is marked up as HowTo (2026-08-27, replaced ItemList). Only what is visible on the page goes into the markup.
+//
+// ⚠️ Only sections whose heading begins with "Step N" or a number are used as steps; a section of another kind added later stays out of the markup.
+const stepSections = p.sections.filter((s) => /^(Step\s*)?\d+[.)]?\s/.test(s.heading));
+const schema = [
+  {
+    '@type': 'HowTo',
+    name: p.meta.pageTitle,
+    description: p.meta.description,
+    inLanguage: 'en-US',
+    step: stepSections.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.heading,
+      text: s.body,
+    })),
+  },
+];
+---
+
+<EnLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={en.nav.guide}
+  koPath="/guide/"
+  idPath="/id/guide/"
+  ruPath="/ru/guide/"
+  twPath="/tw/guide/"
+  jaPath="/ja/guide/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="en-lead">{p.meta.lead}</p>
+
+  <EnSections sections={p.sections} />
+
+  <section class="en-next">
+<h2>See also</h2>
+    <ul>
+      <li>
+        <a href={withBase('/en/glossary/')}>{en.nav.glossary}</a> —
+terms you meet in proposals and meetings.
+      </li>
+      <li>
+        <a href={withBase('/en/checklist/')}>{en.nav.checklist}</a> —
+questions to put to the vendor when you review a specific adoption proposal.
+      </li>
+    </ul>
+  </section>
+</EnLayout>
+
+<style>
+  .en-lead {
+    color: var(--en-text-sub);
+  }
+  .en-next {
+    margin-top: 36px;
+    border-top: 1px solid var(--en-border);
+    padding-top: 20px;
+  }
+  .en-next h2 {
+    font-size: 15px;
+    color: var(--en-text-sub);
+    margin-bottom: 10px;
+    border: 0;
+    padding: 0;
+    background: none;
+  }
+  .en-next ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .en-next li {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+</style>

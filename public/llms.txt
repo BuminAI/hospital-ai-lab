@@ -1,7 +1,7 @@
 # 병원 AI 연구소 (Hospital AI Lab)
 
 > 병원 행정·간호 종사자를 위한 의료 AI 실무 정보 사이트. 종합병원 17년차(그중 7년 기획) 실무자가
-> 운영하며, 한국어·일본어·러시아어·인도네시아어·정체 중국어(대만) 다섯 판을 각 나라 제도에 맞춰
+> 운영하며, 한국어·일본어·러시아어·인도네시아어·정체 중국어(대만)·영어(미국) 여섯 판을 각 나라 제도에 맞춰
 > 따로 씁니다. 번역본이 아닙니다.
 
 이 사이트의 모든 제도 설명에는 일차 자료 링크가 붙어 있습니다. 출처를 확인하지 못한 내용은
@@ -56,6 +56,14 @@
 - [Серии статей](https://hospital-ai-lab.com/ru/series/): 발행한 글을 주제별 읽는 순서로 묶음(규제·등록, 데이터·보안, 러시아 현장 사례)
 - [Новости об ИИ](https://hospital-ai-lab.com/ru/news/): «Медвестник»과 Vademecum에서 자동 수집 (의료 AI 전용)
 - [ИИ-дайджест](https://hospital-ai-lab.com/ru/ai-digest/): Хабр·CNews·TAdviser·3DNews의 AI 기사 — 의료에 한정하지 않은 일반 동향. 하루 여러 번 갱신
+
+## 영어판 (미국, https://hospital-ai-lab.com/en/)
+
+- 번역본이 아니라 미국 제도(HIPAA·FDA·ONC·CMS)를 eCFR·연방 관보·FDA 페이지로 새로 조사해 쓴 판입니다. 병원 행정·간호 리더 대상.
+- 영어 전용 안내문: [llms.txt (English)](https://hospital-ai-lab.com/en/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/en/llms-full.txt) · 인용용 사실 허브 [/en/facts/](https://hospital-ai-lab.com/en/facts/)
+- 실무 가이드(`/en/dx-roadmap/`·`/en/data-checklist/`·`/en/documents-checklist/`·`/en/templates/`)·환자 코너(`/en/patients/`)·연방 관보 캘린더(`/en/calendar/`, HHS·FDA·CMS·FTC 신규 규칙 자동 수집)·갱신 정보(`/en/updates/`). 45 CFR 160·164·170·171·92의 eCFR 개정일을 매일 대조한다.
+- [홈](https://hospital-ai-lab.com/en/) · [Glossary](https://hospital-ai-lab.com/en/glossary/) · [FAQ](https://hospital-ai-lab.com/en/faq/) · [Checklist](https://hospital-ai-lab.com/en/checklist/)
+- [Article series](https://hospital-ai-lab.com/en/series/) · [AI news](https://hospital-ai-lab.com/en/news/): Fierce Healthcare·Healthcare Dive·Becker's Hospital Review에서 AI 관련 헤드라인 자동 수집 · [AI digest](https://hospital-ai-lab.com/en/ai-digest/)
 
 ## 인도네시아어판 (https://hospital-ai-lab.com/id/)
 

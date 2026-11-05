@@ -21,11 +21,11 @@ import path from 'node:path';
 const DIST = path.resolve('dist');
 const SITE = 'https://hospital-ai-lab.com';
 const JSON_OUT = process.argv.includes('--json');
-const LOCALES = ['ko', 'ja', 'ru', 'id', 'tw'];
+const LOCALES = ['ko', 'ja', 'ru', 'id', 'tw', 'en'];
 
-const HTML_LANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW' };
-const OG_LOCALE = { ko: 'ko_KR', ja: 'ja_JP', ru: 'ru_RU', id: 'id_ID', tw: 'zh_TW' };
-const HREFLANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW' };
+const HTML_LANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en' };
+const OG_LOCALE = { ko: 'ko_KR', ja: 'ja_JP', ru: 'ru_RU', id: 'id_ID', tw: 'zh_TW', en: 'en_US' };
+const HREFLANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en' };
 
 // 언어판별 "이 문자가 본문에 보이면 이상하다" 판정
 const RE = {
@@ -40,11 +40,12 @@ const FOREIGN = {
   ru: ['hangul', 'kana', 'han'],
   id: ['hangul', 'kana', 'cyrillic', 'han'],
   tw: ['hangul', 'kana', 'cyrillic'],
+  en: ['hangul', 'kana', 'cyrillic', 'han'],
 };
 
 // 언어 전환 링크 등 모든 페이지에 있는 자국 밖 표기는 허용한다
 const ALLOWED_FOREIGN =
-  /한국어|日本語|Русский|Русская версия|Bahasa Indonesia|繁體中文|조영호|병원|연구소|Hospital AI Lab/g;
+  /한국어|日本語|Русский|Русская версия|Bahasa Indonesia|繁體中文|English|조영호|병원|연구소|Hospital AI Lab/g;
 
 // 소개 성격의 글이라 외부 출처가 없어도 되는 글(저자 사실의 근거는 briefing.md)
 const SOURCE_EXEMPT = new Set(['/blog/starting-hospital-ai-lab/']);
@@ -71,7 +72,7 @@ async function walk(dir) {
 }
 
 const localeOf = (urlPath) => {
-  const m = /^\/(ja|ru|id|tw)(\/|$)/.exec(urlPath);
+  const m = /^\/(ja|ru|id|tw|en)(\/|$)/.exec(urlPath);
   return m ? m[1] : 'ko';
 };
 // dist 경로 → URL 경로
@@ -250,6 +251,7 @@ const DISCLAIMER_HINT = {
   ru: /не заменя|не является/i,
   id: /tidak menggantikan|bukan pengganti/i,
   tw: /不能取代|不代替|並非/,
+  en: /not legal advice|does not replace|not a substitute/i,
 };
 const HYPE = {
   ko: /완치|100\s?%|부작용\s?없|확실히\s?낫|(?<![가-힣])기적(?![가-힣]*적)/,
@@ -257,6 +259,7 @@ const HYPE = {
   ru: /100\s?%|полное излечение|без побочных/i,
   id: /100\s?%|sembuh total|tanpa efek samping/i,
   tw: /根治|100\s?%|無副作用|保證/,
+  en: /100\s?%|completely cure|no side effects|guaranteed (?:cure|results?)/i,
 };
 for (const info of pages.values()) {
   if (!isPost(info.url)) continue;

@@ -1,0 +1,187 @@
+{
+  "_comment": "UI strings for the English (US) edition (2026-11-06). The content is NOT a translation of the Korean site: it is written from U.S. primary sources (eCFR, Federal Register, HHS, FDA, ONC/ASTP, CMS). Style: plain, polite English; second person (\"you\") is fine; no hype. Use 'AI' (not 'artificial intelligence') after first mention. Keep 'Hospital AI Lab' as the brand name. The author facts come from briefing.md only.",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "glossary": "Glossary",
+    "faq": "FAQ",
+    "checklist": "Adoption checklist",
+    "guide": "Start here",
+    "tips": "Practical tips",
+    "videos": "Videos",
+    "news": "AI news",
+    "events": "Training & events",
+    "govSupport": "Government resources",
+    "blog": "Blog",
+    "aiDigest": "AI digest",
+    "aiJudge": "AI program review",
+    "practice": "Practice guides",
+    "patients": "For patients"
+  },
+  "footer": {
+    "about": "About",
+    "privacy": "Privacy policy",
+    "contact": "Contact",
+    "sitemap": "Sitemap",
+    "rss": "RSS feed"
+  },
+  "editions": {
+    "title": "Other language editions",
+    "ko": "Korean edition （한국어）",
+    "ja": "Japanese edition （日本語）",
+    "ru": "Russian edition （Русский）",
+    "id": "Indonesian edition （Indonesia）",
+    "tw": "Traditional Chinese edition （繁體中文）"
+  },
+  "ui": {
+    "updated": "Updated",
+    "new": "New",
+    "external": "Opens in a new tab",
+    "breadcrumbHome": "Home",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "source": "Source",
+    "deadline": "Deadline",
+    "noItems": "There is nothing in this section yet.",
+    "langKo": "Korean edition (한국어)",
+    "langJa": "Japanese edition (日本語)",
+    "sidebarProfileTitle": "About the author",
+    "disclaimer": "The material on this site is general information for education. It is not legal advice, and it does not replace medical advice about a specific patient.",
+    "underConstruction": "The English edition is being built in stages as each source is checked."
+  },
+  "profile": {
+    "name": "Youngho Cho (조영호)",
+    "role": "Director, Hospital AI Lab (병원 AI 연구소)",
+    "career": "17 years at a general hospital in South Korea, 7 of them in hospital planning.",
+    "education": "Master's in statistics; PhD in economics.",
+    "careerShort": "17 years at a hospital (7 in planning)",
+    "educationShort": "MS statistics, PhD economics",
+    "youtube": "YouTube channel",
+    "nameShort": "Youngho Cho"
+  },
+  "home": {
+    "metaTitle": "Hospital AI in the U.S.: HIPAA, FDA and ONC rules explained",
+    "metaDescription": "A practice guide for U.S. hospital administrators and nurse leaders: patient data, EHR rules, FDA status of AI tools, and vendor questions. Every item cites a regulation and a check date.",
+    "heroEyebrow": "MEDICAL AI FOR HOSPITAL ADMINISTRATION AND NURSING",
+    "heroTitle": "17 years in a hospital, 7 of them in strategic planning.",
+    "heroTitle2": "I read medical AI in the language of the people who run hospitals.",
+    "heroLead": "The question is not how new a technology is. It is whether your hospital can actually use it, and on what legal footing. These pages are written for administrators who decide on adoption, review vendor proposals and own budgets, and for nursing staff whose daily work changes when a system goes live.",
+    "ctaAbout": "About the author",
+    "introTitle": "About this site",
+    "introBody": "Hospital AI Lab is a site for people who decide whether a hospital adopts medical AI. It is not a technical manual for developers. The pages cover the questions that administration and nursing run into: the regulatory status of a product, patient data, and day-to-day operation. The content is general information and does not replace advice from a lawyer, a compliance officer, or a qualified specialist for your situation.",
+    "koNoticeTitle": "The Korean edition",
+    "koNoticeBody": "The main edition of the site is in Korean and has been running since 2026. The English edition is newer and has fewer pages.",
+    "resourcesTitle": "On this site",
+    "glossaryDesc": "Medical AI terms you meet in vendor proposals and meetings, explained in plain language.",
+    "faqDesc": "Answers to the questions people ask most when they consider AI in a U.S. hospital.",
+    "guideDesc": "Where to start if you have no technical background: five steps in order.",
+    "checklistDesc": "Questions to put to a vendor when you receive a specific proposal.",
+    "homeNewsTitle": "Latest AI news",
+    "homeNewsMore": "All AI news →",
+    "homeFaqTitle": "Questions about this site",
+    "homeFaqMore": "Questions about medical AI →",
+    "homeFaq": [
+      {
+        "q": "Who is this site for?",
+        "a": "Mainly people in hospital administration and nursing: planning and finance, IT, compliance, and nurse managers. It is not a site only for physicians. Deciding on adoption, reviewing a proposal and managing the budget are administrative work. Responding to system alerts and adjusting workflows is nursing work."
+      },
+      {
+        "q": "Where does the information come from?",
+        "a": "AI news headlines are collected automatically from trade publications (Fierce Healthcare, Healthcare Dive and Becker's Hospital Review), and new federal rules come from the Federal Register. Statements about regulations in the practice guides, glossary and checklists carry a citation to the primary text: the eCFR, the Federal Register, HHS, FDA, ASTP/ONC and CMS."
+      },
+      {
+        "q": "How often is the site updated?",
+        "a": "News is checked several times a day, new federal documents several times a day, and the links to sources and the editions of the core regulations are checked daily. A page changes only when something new appears. Each practice guide shows the date it was last checked."
+      },
+      {
+        "q": "Is this a translation of the Korean edition?",
+        "a": "No. The English edition is written from scratch for the United States, from sources such as the HIPAA rules in 45 CFR Parts 160 and 164, FDA guidance on AI-enabled device software, and the ONC rules in 45 CFR Part 170. The content differs from the Korean edition."
+      }
+    ],
+    "aiDigestDesc": "AI news from general technology publications: regulation, data, security."
+  },
+  "about": {
+    "metaTitle": "About the author",
+    "metaDescription": "The author of Hospital AI Lab worked 17 years at a general hospital in South Korea, 7 of them in hospital planning.",
+    "pageTitle": "About the author",
+    "pageLead": "This site is run by someone who spent 17 years in the administration of a general hospital in South Korea. I am not a clinician. I look at medical AI from the side of the people who decide whether to adopt it.",
+    "whyTitle": "Why I run this site",
+    "why": "When a hospital starts talking about AI, the first person to read the proposal is more often an administrator than a physician. Vendor material usually describes what the product can do and says little about what will actually change in the hospital's daily work. In hospital planning I often saw decisions that had to be made before all the information was in. I want to fill that gap a little at a time, not with a collection of impressive case studies but with material that helps you check whether a decision fits your own hospital.",
+    "stanceTitle": "Whose point of view this site takes",
+    "stance": "This site is not written only for physicians. Administration decides on adoption and budget, and nursing staff deal every day with changed workflows and system alerts. So instead of accuracy figures alone, the pages ask first who gets more work and how a new system connects to the EHR already in use. Specialist terms are explained in plain words where possible.",
+    "methodTitle": "How this site is made",
+    "method": "I am not a programmer. I am someone who spent many years in a hospital. The material and the technical side of this site are produced in dialogue with generative AI, so I cannot explain the code line by line. What I can do is show openly, on this site and on the YouTube channel, why a decision was made and how facts were checked.",
+    "principlesTitle": "How material is written and checked",
+    "principlesLead": "Material is written so that people in hospital administration and nursing can follow the links and check what is said. These are the rules.",
+    "principles": [
+      {
+        "title": "Claims are backed by sources.",
+        "body": "Statements about rules, figures and examples link to primary sources: agency texts, research papers and press reports."
+      },
+      {
+        "title": "Sources are opened before publication.",
+        "body": "The link must work and must actually support what the page says."
+      },
+      {
+        "title": "What cannot be verified is not published.",
+        "body": "Unconfirmed statements are deleted, and medical information we are not sure about is left out."
+      },
+      {
+        "title": "General information only.",
+        "body": "No advice on diagnosing or treating a specific patient, and no promotion of particular hospitals or products. Every page ends with a disclaimer."
+      },
+      {
+        "title": "Errors are fixed and the date of the fix is kept.",
+        "body": "If an error or a missing source turns up after publication, the page is corrected and the change date shows in the Updated line. If you notice an inaccuracy, write to the address at the bottom of the page."
+      }
+    ],
+    "researchTitle": "Research areas",
+    "researchAreas": [
+      {
+        "title": "Hospital operations data and AI",
+        "body": "Drawing on hospital planning experience, we study how to pull the signals needed for decisions out of clinical and administrative data. We also look at the risks of adopting AI tools without enough evidence."
+      },
+      {
+        "title": "AI education for hospital staff",
+        "body": "For administrative and nursing staff with no coding background, we pass on the minimum knowledge needed to judge an AI adoption, through lecture notes and video lessons. The focus is on reading a proposal and asking the right questions, not on building the technology."
+      },
+      {
+        "title": "AI research collaboration",
+        "body": "We look for collaboration with practitioners in hospital administration and nursing and with researchers from many fields, to widen research on medical AI. We want to form new questions where field experience meets research."
+      },
+      {
+        "title": "AI for hospital planners",
+        "body": "Not clinical data science, but AI tools and methods that hospital planning and administration staff can use directly in their own work."
+      }
+    ],
+    "contactTitle": "Contact",
+    "contact": "If you notice an inaccuracy, want to suggest a topic, or want to discuss collaboration, write to the email address below. It helps if you include your organization and name."
+  },
+  "glossary": {
+    "metaTitle": "Medical AI glossary for U.S. hospitals",
+    "metaDescription": "Medical AI terms from vendor proposals and meetings in plain language, from FDA device status and SaMD to HIPAA terms.",
+    "pageTitle": "Medical AI glossary",
+    "pageLead": "Medical AI terms you meet in proposals and meetings, collected to the extent needed for a practical assessment. You can jump straight to a term by its name.",
+    "caution": "Terms tied to law are given as of the time of writing, based on the U.S. rules in force then. They are summaries, not the text of the law. Before you decide, check the primary source and, where needed, ask a specialist.",
+    "notice": "This glossary is not a translation of the Korean or Japanese edition. Each regulatory entry is written from official U.S. sources that were checked separately. Anything we could not confirm is left out.",
+    "countLabel": "Number of terms"
+  },
+  "faq": {
+    "metaTitle": "FAQ: adopting AI in a U.S. hospital",
+    "metaDescription": "Answers to common questions from administrators and nursing staff about adopting AI: FDA status, HIPAA, state laws, and what to ask a vendor.",
+    "pageTitle": "Frequently asked questions",
+    "pageLead": "Questions that come up most often when a hospital considers medical AI. Select a question to see the answer.",
+    "notice": "Regulation changes, so for important decisions check the primary source linked in each answer.",
+    "countLabel": "Number of questions"
+  },
+  "aiDigest": {
+    "pageTitle": "AI digest: technology beyond medicine",
+    "metaDescription": "AI news from general technology publications: regulation, data, security and adoption. Updated several times a day.",
+    "lead": "This page collects AI stories from general technology publications, not only medicine: regulation, data, information security, adoption in organizations. Headlines link to the original page.",
+    "notice": "This is a list of headlines from public RSS feeds, not editorial content of this site. We do not copy article text, only the headline, the date and a link to the source. Accuracy and completeness stay with the publisher.",
+    "why": "Why this matters to hospital administration",
+    "whyBody": "Data privacy expectations, security practice and the way organizations adopt AI change faster than the specialist medical press can report. Much of what general technology media discuss first reaches hospitals a few months later as a regulator's expectation or a line in a vendor contract.",
+    "sourcesTitle": "Sources",
+    "empty": "Nothing here yet."
+  }
+}

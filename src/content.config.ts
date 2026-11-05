@@ -76,4 +76,18 @@ const blogTw = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa, blogId, blogTw };
+// 영어판(미국) 블로그 (2026-11-06 신설). 다른 언어판과 완전히 별개 컬렉션이다 —
+// 번역이 아니라 미국 제도(HIPAA·FDA·ONC·CMS 등)를 1차 출처로 조사해 쓰는 독립 집필이다.
+const blogEn = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-en' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Research Review', 'AI Tools', 'Column', 'News']),
+    draft: z.boolean().default(false),
+    series: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn };

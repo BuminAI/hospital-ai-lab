@@ -1,0 +1,40 @@
+---
+// Shared "Sources and date checked · disclaimers" block for the Practice and For-patients pages (2026-11-06)
+// Sources must be pages that were actually opened and checked.
+interface Props {
+  sources: { label: string; url: string }[];
+  /** Date the sources were checked (shown on screen) */
+  checked: string;
+  /** true on the For-patients pages: the "not a diagnosis or treatment advice" disclaimer is stronger */
+  patient?: boolean;
+}
+const { sources, checked, patient = false } = Astro.props;
+---
+
+<section class="tg-src" aria-labelledby="tg-src-h">
+  <h2 id="tg-src-h">Sources and date checked</h2>
+  <ul>
+    {
+      sources.map((s) => (
+        <li>
+          <a href={s.url} target="_blank" rel="noopener">
+            {s.label}
+            <span class="sr-only">(opens in a new tab)</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p>Sources checked {checked}. Rules and procedures change, so rely on the current text on the official source page.</p>
+  {
+    patient ? (
+      <p class="tg-disc">
+        This page contains general information. It is not a diagnosis or a treatment recommendation for anyone’s symptoms. If you feel unwell, contact the clinician or health care organization that treats you. In an emergency, call 911. This site does not recommend particular health care organizations or products.
+      </p>
+    ) : (
+      <p class="tg-disc">
+        The material on this site is general information for education. It does not replace diagnosis or medical advice for a specific patient, and it is not legal advice or a purchasing recommendation. For rules and policy, rely on the primary official sources.
+      </p>
+    )
+  }
+</section>
