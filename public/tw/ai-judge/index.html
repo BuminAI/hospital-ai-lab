@@ -201,6 +201,33 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   .mbar b{font-family:var(--mono)}
   body{padding-bottom:64px}
 }
+/* Coach layer (understanding · recognition · empathy) */
+.coach{display:grid;gap:12px;border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--surface)}
+.coach .welcome{margin:0;font-size:13px;color:var(--muted);font-style:italic}
+.coach .sumline{margin:0;font-size:16.5px;font-weight:600;line-height:1.55}
+.coach .delta{margin:0;font-size:13.5px;color:var(--ok);background:var(--ok-bg);border-radius:6px;padding:6px 10px}
+.coach h3{font-size:14.5px;margin-bottom:6px}
+.prog{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.prog .bar{height:8px;background:var(--soft);border-radius:999px;overflow:hidden}
+.prog .bar i{display:block;height:100%;background:var(--mid);border-radius:999px}
+.coach-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:18px}
+@media (max-width:720px){.coach-grid{grid-template-columns:minmax(0,1fr)}}
+.goods{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:13.5px}
+.goods li{color:var(--ok)}
+.nsteps{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px;counter-reset:ns}
+.nsteps li{counter-increment:ns;border-left:3px solid var(--mid);padding:2px 0 2px 12px}
+.nsteps .st-h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.nsteps .gain{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--ok);background:var(--ok-bg);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.nsteps p{margin:3px 0 0;font-size:13.5px}
+.nsteps .why{color:var(--muted)}
+.nsteps .fix{font-weight:600}
+.nsteps .where{font-size:12.5px;color:var(--muted)}
+details.more{margin-top:8px}
+details.more summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--focus)}
+.trust{border:1px dashed var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:6px;margin-top:4px}
+.trust h3{font-size:14px}
+.trust ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:13px;color:var(--muted)}
+.trust a{font-size:13px;font-weight:600}
 @media print{body>*:not(dialog){display:none!important}dialog.resdlg{position:static;display:block;width:auto;max-height:none;border:0;overflow:visible}dialog.resdlg .btns{display:none}dialog.resdlg::backdrop{display:none}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
@@ -361,7 +388,7 @@ const SUBMIT_URL = 'supabase';
 const RUBRIC_VER = 'v2.0 (2026-10-28)';
 
 /* ================= Strings (per language) ================= */
-const T={"none":"無","loc":"zh-TW","cur":"","cur_pre":"NT$","pay_default":{"S":"2000","A":"1400","B":"800","C":"0"},"pay_step":"100","gl":["90 分以上","75～89.9 分","60～74.9 分","未滿 60 分 · 補強後再提交"],"ex_name":"特休天數計算器","ex_author":"人資組 王小明（範例）","s4_title":"4. 提交同意","s4_pts":"必填","consent_lines":["接受評審時，您上傳的檔案會傳送給本網站的營運者並加以保存。","· 傳送項目：程式名稱、提交者與單位、上傳的檔案、等級與分數（評審結果的 PDF 不會傳送）","· 目的：確認評審紀錄與改善評審標準","· 若有疑似 API 金鑰或密碼的內容，就不會傳送。請刪除後重新上傳。","· 保存期間：自提交日起 1 個月後刪除。若想在此之前刪除，請透過<a href=\"mailto:choyj80@naver.com\">聯絡我們<\/a>提出。","· 不同意的話，就無法查看評審結果。"],"consent_label":"我已確認上述內容，並同意將上傳的檔案傳送給營運者。","pay_label":"獎勵（新臺幣）","zip_fail":"無法載入開啟 ZIP 的工具。請先解壓縮，再上傳檔案。","read_fail":"無法讀取「{name}」檔案。","skipped":"已排除 {n} 個無法分析的檔案（圖片、Excel、超過 2MB 等）。","k_doc":"說明文件","lines_fmt":"{n} 行","rm_aria":"移除 {name}","rm":"移除","hard_t":["個人電腦路徑","試算表或資料夾的專屬 ID","Google 文件網址","內部 IP 與本機位址","未加密的 http 網址"],"risk_t":["eval 等動態執行程式碼","對 innerHTML、document.write 賦值","執行 shell 指令","不安全的還原處理（pickle 等）","關閉憑證驗證","以字串串接組成的 SQL","把密碼或權杖存在瀏覽器中"],"async_err":"未處理的非同步錯誤：","running":"正在隔離的視窗中執行「{name}」…","analyzing":"分析中…","analyzed":"已分析 {n} 個檔案、{l} 行。","b_analyzing":"正在分析檔案。","b_consent":"勾選第 4 項的提交同意後，就會顯示評審結果。","ready":"評分完成。請用下方按鈕查看結果。","grade_fmt":"{g} 級","th_total":"合計","f_fail":"因必要條件不符而暫緩評定：{items}。請在自動分析報告中確認位置，修正後再重新上傳。","sub_secret":"因為有疑似 API 金鑰或密碼的內容，所以沒有傳送給營運者。請刪除後重新上傳。","sub_ing":"正在提交給營運者…","sub_noname":"（未命名）","sub_ok":"已提交給營運者（{time}）。結果只能在這個畫面查看。","sub_big":"檔案太大（壓縮後超過 5MB），無法傳送給營運者。您仍可照常查看評審結果。","sub_fail":"無法提交給營運者。您仍可照常查看評審結果。","rt_title":"[AI 程式評審結果]","rt_name":"程式名稱：{v}","rt_none":"（未填寫）","rt_author":"提交者：{v}","rt_files":"提交檔案：{v}","rt_hold":"暫緩（需確認必要條件）","rt_reward":" / 獎勵 {pay}","rt_fail":"- 不符合：{v}","pill_submit":"同意後，上傳的檔案會傳給營運者 · 結果 PDF 僅限本人","more":"另有 {n} 處","line_fmt":"第 {n} 行","rep_empty":"上傳檔案後，分析結果會顯示在這裡。","cnt":"{n} 個","spots":"{n} 處","g_sec":"安全性 · 個人資料","need_check":"{n} 處需要確認","no_issue":"沒有問題","t_key":"API 金鑰或密碼","t_rrn":"韓國住民登錄號碼格式","t_phone":"手機號碼（韓國格式）","remove_it":"請從程式碼中刪除，改由設定檔或使用者輸入取得","sec_none":"沒有找到 API 金鑰、密碼、住民登錄號碼或手機號碼格式的內容。","emails":"電子郵件地址 {n} 處（僅供參考）","g_risk":"危險的程式寫法","risk_warn":"請確認使用者輸入的值是否會傳到這段程式，並盡量改成更安全的寫法。","risk_none":"沒有找到危險的程式寫法。","g_run":"執行與語法檢查","run_ok":"通過","run_na":"無法檢查","run_html":"已在隔離的視窗中開啟 {n} 個 HTML，確認沒有指令碼錯誤。","run_js":"已檢查 {n} 個 JS、Apps Script 檔案的語法。","run_py":"Python 與模組檔案無法在瀏覽器中執行，因此未檢查。","g_hard":"寫死的內容","hard_warn":"若要讓其他人使用，請把這些值移到程式碼最上方的設定區，或改成輸入值。","hard_none":"沒有找到個人路徑、專屬 ID 等綁定特定環境的內容。","g_todo":"未完成標記","copied":"已複製結果。","copy_fail":"無法複製。請直接選取結果表格後複製。","req":["沒有洩漏 API 金鑰或密碼","沒有疑似個人資料的內容"],"rub_ver":"評分標準 {ver}","how_head":["領域","項目","評估內容","計分規則","配分"],"area_n":["安全性","可靠度","易用性","易維護性","可移植性"],"crit":{"S1":{"n":"機密外洩","how":"程式碼中是否寫有 API 金鑰、密碼、權杖、私密金鑰","rule":"沒有 10 · 有 0 且暫緩評定"},"S2":{"n":"個資外洩","how":"韓國住民登錄號碼、手機號碼格式的內容","rule":"沒有 8 · 有 0 且暫緩評定"},"S3":{"n":"危險的程式寫法","how":"eval、對 innerHTML 賦值、執行 shell、不安全的還原處理、關閉憑證驗證、字串串接的 SQL 等","rule":"9 分起算，每處 −3（最低 0）"},"S4":{"n":"對外連線","how":"程式碼傳送或取得資料的外部位址（呼叫請求、載入其他網站的指令碼、AI 服務）","rule":"8 分起算，每個不同的外部位址 −2（最低 0）"},"R1":{"n":"執行與語法檢查","how":"HTML 在隔離視窗中實際開啟以找出指令碼錯誤，JS 與 Apps Script 檢查語法","rule":"通過 10 · 僅部分可檢查 7 · 無法檢查（Python 等）5 · 有錯誤 0"},"R2":{"n":"錯誤處理","how":"try/catch、except、.catch()、onerror 等處理錯誤的程式碼","rule":"3 處以上（或佔函式 30% 以上）8 · 1～2 處 4 · 沒有 0"},"R3":{"n":"輸入驗證","how":"檢查空值、數字格式、必填欄位的程式碼（僅限會接收輸入的程式）","rule":"3 處以上 7 · 1～2 處 3 · 沒有 0 · 不接收輸入則 7（不適用）"},"R4":{"n":"未完成標記","how":"TODO、FIXME、XXX、HACK 註解","rule":"沒有 5 · 1～2 個 3 · 3 個以上 0"},"U1":{"n":"畫面與輸入方式","how":"有輸入欄與按鈕的 HTML 畫面、Apps Script 選單、Python 的 input、命令列或 GUI","rule":"有畫面 6 · 簡單輸入方式 3 · 沒有 0"},"U2":{"n":"提示文字","how":"程式碼中的 label、placeholder、標題、輸入提示文字與說明","rule":"5 個以上 5 · 1～4 個 2 · 沒有 0"},"U3":{"n":"使用者訊息","how":"alert、錯誤訊息、結果文字中使用的繁體中文提示","rule":"3 個以上 4 · 1～2 個 2 · 沒有 0"},"M1":{"n":"註解","how":"程式碼行數中註解行所佔的比例","rule":"15% 以上 5 · 5% 以上 3 · 更低 1 · 沒有 0"},"M2":{"n":"函式拆分","how":"程式碼被拆成函式的程度","rule":"5 個以上 5 · 2～4 個 3 · 1 個 1 · 沒有 0"},"P1":{"n":"寫死的內容","how":"個人電腦路徑、試算表與資料夾的專屬 ID、內部 IP、未加密的 http 網址","rule":"沒有 10 · 1～2 處 7 · 3～5 處 4 · 6 處以上 0"}},"kind":["實際執行測量","樣式檢查","數量計算"],"kind_short":["測量","樣式","計數"],"grade_head":["等級","標準"],"grade_rows":[["S","90 分以上（且必須通過實際的執行檢查）"],["A","75～89.9 分"],["B","60～74.9 分（有執行錯誤時最高為 B）"],["C","未滿 60 分 · 補強後再提交"],["暫緩","發現機密或個資時，不論分數都暫緩確定等級"]],"unsup_tag":"非審查對象 · 已排除","ev":{"found":"發現 {n} 處","none":"沒有","hosts":"外部位址 {n} 個","run_err":"{n} 個錯誤","run_part":"僅部分檢查","run_ok":"通過（檢查 {n} 個）","run_na":"無法檢查","cnt":"{n} 處","no_input":"不接收輸入（不適用）","ui_html":"有輸入欄與按鈕的畫面","ui_simple":"簡單輸入方式","ui_none":"沒有","items":"{n} 個","pct":"{n}%"},"g_gate":"審查對象確認","gate_pass":"確認為程式","gate_fail_title":"不是審查對象","gate_fail_help":"請上傳含有可執行原始碼的程式檔案（含指令碼的 HTML、JS、Apps Script、Python、ZIP）。只有 PDF、Word、Excel、圖片或說明文件無法審查。","gate_ok_files":"已確認 {n} 個程式碼檔案","gate_ok_logic":"會執行的程式碼 {lines} 行 · 找到函式、條件式等共 {tokens} 個","gate_no_code":"沒有程式碼檔案","gate_static_html":"只有畫面的 HTML，沒有會執行的指令碼","gate_no_logic":"會執行的程式碼太少（{lines} 行）","gate_unsup":"已排除 {n} 個非審查對象的檔案（PDF、文件、圖片等）","gate_info_ai":"連接 AI 服務的程式碼 {n} 處（僅供參考，與分數無關）","v_inel":"非審查對象","v_hold":"暫緩","v_sub":"{score} 分 / 100 分 · {x}","sub_hold":"確認必要條件後再定案","id_line":"結果編號 {id} · 評分標準 {ver}","id_note":"再次上傳相同的程式碼，會得到相同的結果編號與分數。提交者填寫的內容未用於計分。","th_item":"項目","th_score":"分數","th_basis":"依據","f_cap_err":"有執行錯誤，因此等級限制在 B 以下。","f_cap_run":"無法實際執行檢查，因此以 A 取代 S。","f_net":"程式碼會對外連線：{hosts}。光看程式碼無法判斷是否傳送敏感資訊，請承辦人員確認。","host_dyn":"（位址在程式碼中組合而成）","f_limit":"自動檢查是依規則閱讀程式碼來判斷，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。請將結果作為輔助承辦人員判斷的依據。","mbar_hold":"暫緩 · {score} 分","mbar_g":"<b>{g}<\/b> 級 · {score} 分","rt_result":"結果：{r} / {score} 分","rt_id":"結果編號：{id}（評分標準 {ver}）","rt_note":"※ 這是自動檢查的結果，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。","m":["已分析檔案","總行數","執行與語法檢查","錯誤處理","輸入驗證","註解比例","畫面元件","使用者提示","寫死的內容","危險寫法","外部位址"],"g_net":"對外連線","how":{"call":"呼叫請求","src":"從其他網站載入","ai":"AI 服務"},"net_warn":"程式碼會把資料傳到這個位址，或從這個位址取得資料。請確認其中是否含有敏感資訊。","net_none":"沒有找到對外連線的程式碼。","b_nofile":"請上傳程式檔案。審查對象是會執行的原始碼。","rx":{"msg_chars":"\\u4E00-\\u9FFF\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|在這裡|請輸入|金鑰|dummy|test"}};
+const T={"none":"無","loc":"zh-TW","cur":"","cur_pre":"NT$","pay_default":{"S":"2000","A":"1400","B":"800","C":"0"},"pay_step":"100","gl":["90 分以上","75～89.9 分","60～74.9 分","未滿 60 分 · 補強後再提交"],"ex_name":"特休天數計算器","ex_author":"人資組 王小明（範例）","s4_title":"4. 提交同意","s4_pts":"必填","consent_lines":["接受評審時，您上傳的檔案會傳送給本網站的營運者並加以保存。","· 傳送項目：程式名稱、提交者與單位、上傳的檔案、等級與分數（評審結果的 PDF 不會傳送）","· 目的：確認評審紀錄與改善評審標準","· 若有疑似 API 金鑰或密碼的內容，就不會傳送。請刪除後重新上傳。","· 保存期間：自提交日起 1 個月後刪除。若想在此之前刪除，請透過<a href=\"mailto:choyj80@naver.com\">聯絡我們<\/a>提出。","· 不同意的話，就無法查看評審結果。"],"consent_label":"我已確認上述內容，並同意將上傳的檔案傳送給營運者。","pay_label":"獎勵（新臺幣）","zip_fail":"無法載入開啟 ZIP 的工具。請先解壓縮，再上傳檔案。","read_fail":"無法讀取「{name}」檔案。","skipped":"已排除 {n} 個無法分析的檔案（圖片、Excel、超過 2MB 等）。","k_doc":"說明文件","lines_fmt":"{n} 行","rm_aria":"移除 {name}","rm":"移除","hard_t":["個人電腦路徑","試算表或資料夾的專屬 ID","Google 文件網址","內部 IP 與本機位址","未加密的 http 網址"],"risk_t":["eval 等動態執行程式碼","對 innerHTML、document.write 賦值","執行 shell 指令","不安全的還原處理（pickle 等）","關閉憑證驗證","以字串串接組成的 SQL","把密碼或權杖存在瀏覽器中"],"async_err":"未處理的非同步錯誤：","running":"正在隔離的視窗中執行「{name}」…","analyzing":"分析中…","analyzed":"已分析 {n} 個檔案、{l} 行。","b_analyzing":"正在分析檔案。","b_consent":"勾選第 4 項的提交同意後，就會顯示評審結果。","ready":"評分完成。請用下方按鈕查看結果。","grade_fmt":"{g} 級","th_total":"合計","f_fail":"因必要條件不符而暫緩評定：{items}。請在自動分析報告中確認位置，修正後再重新上傳。","sub_secret":"因為有疑似 API 金鑰或密碼的內容，所以沒有傳送給營運者。請刪除後重新上傳。","sub_ing":"正在提交給營運者…","sub_noname":"（未命名）","sub_ok":"已提交給營運者（{time}）。結果只能在這個畫面查看。","sub_big":"檔案太大（壓縮後超過 5MB），無法傳送給營運者。您仍可照常查看評審結果。","sub_fail":"無法提交給營運者。您仍可照常查看評審結果。","rt_title":"[AI 程式評審結果]","rt_name":"程式名稱：{v}","rt_none":"（未填寫）","rt_author":"提交者：{v}","rt_files":"提交檔案：{v}","rt_hold":"暫緩（需確認必要條件）","rt_reward":" / 獎勵 {pay}","rt_fail":"- 不符合：{v}","pill_submit":"同意後，上傳的檔案會傳給營運者 · 結果 PDF 僅限本人","more":"另有 {n} 處","line_fmt":"第 {n} 行","rep_empty":"上傳檔案後，分析結果會顯示在這裡。","cnt":"{n} 個","spots":"{n} 處","g_sec":"安全性 · 個人資料","need_check":"{n} 處需要確認","no_issue":"沒有問題","t_key":"API 金鑰或密碼","t_rrn":"韓國住民登錄號碼格式","t_phone":"手機號碼（韓國格式）","remove_it":"請從程式碼中刪除，改由設定檔或使用者輸入取得","sec_none":"沒有找到 API 金鑰、密碼、住民登錄號碼或手機號碼格式的內容。","emails":"電子郵件地址 {n} 處（僅供參考）","g_risk":"危險的程式寫法","risk_warn":"請確認使用者輸入的值是否會傳到這段程式，並盡量改成更安全的寫法。","risk_none":"沒有找到危險的程式寫法。","g_run":"執行與語法檢查","run_ok":"通過","run_na":"無法檢查","run_html":"已在隔離的視窗中開啟 {n} 個 HTML，確認沒有指令碼錯誤。","run_js":"已檢查 {n} 個 JS、Apps Script 檔案的語法。","run_py":"Python 與模組檔案無法在瀏覽器中執行，因此未檢查。","g_hard":"寫死的內容","hard_warn":"若要讓其他人使用，請把這些值移到程式碼最上方的設定區，或改成輸入值。","hard_none":"沒有找到個人路徑、專屬 ID 等綁定特定環境的內容。","g_todo":"未完成標記","copied":"已複製結果。","copy_fail":"無法複製。請直接選取結果表格後複製。","req":["沒有洩漏 API 金鑰或密碼","沒有疑似個人資料的內容"],"rub_ver":"評分標準 {ver}","how_head":["領域","項目","評估內容","計分規則","配分"],"area_n":["安全性","可靠度","易用性","易維護性","可移植性"],"crit":{"S1":{"n":"機密外洩","how":"程式碼中是否寫有 API 金鑰、密碼、權杖、私密金鑰","rule":"沒有 10 · 有 0 且暫緩評定"},"S2":{"n":"個資外洩","how":"韓國住民登錄號碼、手機號碼格式的內容","rule":"沒有 8 · 有 0 且暫緩評定"},"S3":{"n":"危險的程式寫法","how":"eval、對 innerHTML 賦值、執行 shell、不安全的還原處理、關閉憑證驗證、字串串接的 SQL 等","rule":"9 分起算，每處 −3（最低 0）"},"S4":{"n":"對外連線","how":"程式碼傳送或取得資料的外部位址（呼叫請求、載入其他網站的指令碼、AI 服務）","rule":"8 分起算，每個不同的外部位址 −2（最低 0）"},"R1":{"n":"執行與語法檢查","how":"HTML 在隔離視窗中實際開啟以找出指令碼錯誤，JS 與 Apps Script 檢查語法","rule":"通過 10 · 僅部分可檢查 7 · 無法檢查（Python 等）5 · 有錯誤 0"},"R2":{"n":"錯誤處理","how":"try/catch、except、.catch()、onerror 等處理錯誤的程式碼","rule":"3 處以上（或佔函式 30% 以上）8 · 1～2 處 4 · 沒有 0"},"R3":{"n":"輸入驗證","how":"檢查空值、數字格式、必填欄位的程式碼（僅限會接收輸入的程式）","rule":"3 處以上 7 · 1～2 處 3 · 沒有 0 · 不接收輸入則 7（不適用）"},"R4":{"n":"未完成標記","how":"TODO、FIXME、XXX、HACK 註解","rule":"沒有 5 · 1～2 個 3 · 3 個以上 0"},"U1":{"n":"畫面與輸入方式","how":"有輸入欄與按鈕的 HTML 畫面、Apps Script 選單、Python 的 input、命令列或 GUI","rule":"有畫面 6 · 簡單輸入方式 3 · 沒有 0"},"U2":{"n":"提示文字","how":"程式碼中的 label、placeholder、標題、輸入提示文字與說明","rule":"5 個以上 5 · 1～4 個 2 · 沒有 0"},"U3":{"n":"使用者訊息","how":"alert、錯誤訊息、結果文字中使用的繁體中文提示","rule":"3 個以上 4 · 1～2 個 2 · 沒有 0"},"M1":{"n":"註解","how":"程式碼行數中註解行所佔的比例","rule":"15% 以上 5 · 5% 以上 3 · 更低 1 · 沒有 0"},"M2":{"n":"函式拆分","how":"程式碼被拆成函式的程度","rule":"5 個以上 5 · 2～4 個 3 · 1 個 1 · 沒有 0"},"P1":{"n":"寫死的內容","how":"個人電腦路徑、試算表與資料夾的專屬 ID、內部 IP、未加密的 http 網址","rule":"沒有 10 · 1～2 處 7 · 3～5 處 4 · 6 處以上 0"}},"kind":["實際執行測量","樣式檢查","數量計算"],"kind_short":["測量","樣式","計數"],"grade_head":["等級","標準"],"grade_rows":[["S","90 分以上（且必須通過實際的執行檢查）"],["A","75～89.9 分"],["B","60～74.9 分（有執行錯誤時最高為 B）"],["C","未滿 60 分 · 補強後再提交"],["暫緩","發現機密或個資時，不論分數都暫緩確定等級"]],"unsup_tag":"非審查對象 · 已排除","ev":{"found":"發現 {n} 處","none":"沒有","hosts":"外部位址 {n} 個","run_err":"{n} 個錯誤","run_part":"僅部分檢查","run_ok":"通過（檢查 {n} 個）","run_na":"無法檢查","cnt":"{n} 處","no_input":"不接收輸入（不適用）","ui_html":"有輸入欄與按鈕的畫面","ui_simple":"簡單輸入方式","ui_none":"沒有","items":"{n} 個","pct":"{n}%"},"g_gate":"審查對象確認","gate_pass":"確認為程式","gate_fail_title":"不是審查對象","gate_fail_help":"請上傳含有可執行原始碼的程式檔案（含指令碼的 HTML、JS、Apps Script、Python、ZIP）。只有 PDF、Word、Excel、圖片或說明文件無法審查。","gate_ok_files":"已確認 {n} 個程式碼檔案","gate_ok_logic":"會執行的程式碼 {lines} 行 · 找到函式、條件式等共 {tokens} 個","gate_no_code":"沒有程式碼檔案","gate_static_html":"只有畫面的 HTML，沒有會執行的指令碼","gate_no_logic":"會執行的程式碼太少（{lines} 行）","gate_unsup":"已排除 {n} 個非審查對象的檔案（PDF、文件、圖片等）","gate_info_ai":"連接 AI 服務的程式碼 {n} 處（僅供參考，與分數無關）","v_inel":"非審查對象","v_hold":"暫緩","v_sub":"{score} 分 / 100 分 · {x}","sub_hold":"確認必要條件後再定案","id_line":"結果編號 {id} · 評分標準 {ver}","id_note":"再次上傳相同的程式碼，會得到相同的結果編號與分數。提交者填寫的內容未用於計分。","th_item":"項目","th_score":"分數","th_basis":"依據","f_cap_err":"有執行錯誤，因此等級限制在 B 以下。","f_cap_run":"無法實際執行檢查，因此以 A 取代 S。","f_net":"程式碼會對外連線：{hosts}。光看程式碼無法判斷是否傳送敏感資訊，請承辦人員確認。","host_dyn":"（位址在程式碼中組合而成）","f_limit":"自動檢查是依規則閱讀程式碼來判斷，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。請將結果作為輔助承辦人員判斷的依據。","mbar_hold":"暫緩 · {score} 分","mbar_g":"<b>{g}<\/b> 級 · {score} 分","rt_result":"結果：{r} / {score} 分","rt_id":"結果編號：{id}（評分標準 {ver}）","rt_note":"※ 這是自動檢查的結果，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。","m":["已分析檔案","總行數","執行與語法檢查","錯誤處理","輸入驗證","註解比例","畫面元件","使用者提示","寫死的內容","危險寫法","外部位址"],"g_net":"對外連線","how":{"call":"呼叫請求","src":"從其他網站載入","ai":"AI 服務"},"net_warn":"程式碼會把資料傳到這個位址，或從這個位址取得資料。請確認其中是否含有敏感資訊。","net_none":"沒有找到對外連線的程式碼。","b_nofile":"請上傳程式檔案。審查對象是會執行的原始碼。","rx":{"msg_chars":"\\u4E00-\\u9FFF\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|在這裡|請輸入|金鑰|dummy|test"},"contact_href":"mailto:choyj80@naver.com","ux":{"welcome":"在分享自己做的程式之前先請人檢查，正是醫院現場最需要的謹慎習慣。","sum":{"S":"這是一個做得非常好的程式。安全、執行與易用都明顯超過標準，同事可以放心使用。","A":"這是一個做得很好的程式。執行上沒有大問題，只要再調整下面幾項，就能讓更多同事放心使用。","B":"已經具備可用程式的基本功。把下面「接下來可以做的事」改善幾項，就會有明顯進步。","C":"還有不少地方可以調整，但任何程式一開始都是這樣。需要修正的地方已在下方逐項列出。","H":"等級暫時保留，因為程式碼中似乎含有密碼、金鑰或個人資料。這很常見、也很快能改好；現在發現，就保護了病人與您自己。"},"hold_note":"您上傳的檔案沒有被傳送到任何地方。刪除該值後再上傳一次，等級就會立刻出現。","prog":"再 {n} 分就能到 {g} 級。","prog_top":"這是最高等級。","good_title":"做得好的地方","good_item":"{n}：滿分","good_none":"這次檢查只是起點。現在您已經清楚知道該改進什麼。","next_title":"接下來可以做的事","next_hint":"依「加分多、又容易做」的順序排列。","next_none":"在我們衡量的項目中，已沒有需要再修正的地方。辛苦了。","gain":"+{n} 分","where":"位置：{w}","more":"查看其餘 {n} 項","r1_note":"Python 等檔案無法在瀏覽器中執行，因此這一項以 5 分計算，並不是因為有錯誤。","delta_up":"比上一次檢查（在這個瀏覽器）多了 {n} 分，修正有了成果。","delta_down":"比上一次檢查（在這個瀏覽器）少了 {n} 分。下方表格可以看到哪裡不同。","delta_same":"與上一次檢查（在這個瀏覽器）的分數相同。","trust_title":"如何看待這個分數","trust":["分數只依據您上傳程式碼中的事實計算，每個項目都附有檔案與行號作為依據。","相同的程式碼永遠得到相同的分數與結果 ID，不會因審查者的心情而改變。","程式名稱、提交者、所屬單位與說明書完全不會用於計分。","這個檢查無法判斷程式在醫學上是否正確、在法律上是否適當。在醫院使用之前，仍須由人員確認。","若您認為程式碼被誤判，請把修正後的檔案再上傳一次，或透過下方連結告訴我們。"],"trust_link":"覺得被誤判了，請告訴我們","rt_next":"接下來可以做的事","areas":"各領域得分"},"help":{"S1":{"why":"程式碼裡的金鑰或密碼，任何看到檔案的人都能複製，並可能打開病人系統的大門。","fix":"從程式碼中刪除，向發行處更換新的金鑰，並改由設定檔或輸入欄位取得。"},"S2":{"why":"程式碼中若有身分證字號或手機號碼的格式，檔案一分享，真實的人就暴露了。","fix":"改成虛構的範例值。"},"S3":{"why":"有些寫法會讓使用者輸入的文字被當成指令執行。","fix":"在標示的每個位置改用更安全的寫法（例如用 textContent 取代 innerHTML）。"},"S4":{"why":"會連到外部位址的程式碼，可能在沒人察覺的情況下把資料送出醫院。","fix":"確認每個位址都是預期中的，且絕不要把病人資料送到醫院尚未核准的服務。"},"R1":{"why":"在同事面前出錯停住的程式，很快就會失去信任。","fix":"打開程式，把每個按鈕按一次，先修正看到的第一個錯誤。"},"R2":{"why":"沒有錯誤處理的話，一筆錯誤的輸入就可能讓整個程式停住。","fix":"把可能失敗的步驟（讀檔、日期、數字）包起來，讓畫面出現清楚的提示。"},"R3":{"why":"人們會輸入出乎意料的內容，例如空白欄位、在數字欄位輸入文字。","fix":"使用前先檢查每個輸入，並告訴使用者該修正什麼。"},"R4":{"why":"TODO 註記代表尚未完成的部分，同事可能會踩到。","fix":"完成或刪除每則註記，真正要做的事另外列成清單。"},"U1":{"why":"不知道要按哪裡的程式，不會有人用。","fix":"做一個簡單的畫面：有標示的輸入欄位，以及一個清楚的按鈕。"},"U2":{"why":"有標籤與提示，新來的人不必問您也能使用。","fix":"為每個輸入欄位加上標籤與簡短提示。"},"U3":{"why":"清楚的訊息會告訴使用者發生了什麼事、接下來該怎麼做。","fix":"成功時與每種錯誤都顯示一句白話的說明。"},"M1":{"why":"註解能讓下一個人（或半年後的您）看懂程式碼。","fix":"在每一段程式上方加一行註解，說明它的用途。"},"M2":{"why":"取了名字的小函式，比一長串程式碼更容易修改與重複使用。","fix":"把程式拆成各自只做一件事的函式。"},"P1":{"why":"含有您電腦上的路徑或私人試算表 ID，程式在別人的電腦上就跑不起來。","fix":"把這類值移到程式開頭的設定區，或改成由輸入取得。"}}};
 const F=(s,o)=>String(s).replace(/\{(\w+)\}/g,(_,k)=>o[k]);
 
 /* ================= Criteria ================= */
@@ -668,6 +695,55 @@ function score(M){
   return out;
 }
 
+/* ================= Coach: understanding · recognition · empathy =================
+   Scoring is NOT touched here. This layer only explains the result: a one-line summary with encouragement, what went well,
+   the next steps (points to gain + where in the code), the distance to the next grade, why the score can be trusted, and the change since the last check. */
+const U=T.ux, HLP=T.help;
+const EFFORT={S1:1,S2:1,S3:2,S4:2,R1:3,R2:2,R3:2,R4:1,U1:3,U2:1,U3:1,M1:1,M2:2,P1:1};
+function evidence(id,M){
+  const pick={S1:M.secrets,S2:[...M.rrn,...M.phones],S3:M.risky,S4:M.hostList,R1:[...M.run.errors,...M.syntax.errors],R4:M.todos,P1:M.hard}[id]||[];
+  return pick.filter(x=>x.file).slice(0,3).map(at).join(', ');
+}
+// criteria that lost points and that the submitter can act on, biggest and easiest first (secrets/personal data always first)
+function nextSteps(S,M,hold){
+  const first=id=>(id==='S1'||id==='S2')?0:1;
+  return S.filter(c=>c.pts<c.max&&!(c.id==='R1'&&!M.execErrors))
+    .map(c=>({...c,gap:c.max-c.pts,eff:EFFORT[c.id]||2}))
+    .sort((a,b)=>(hold?first(a.id)-first(b.id):0)||(b.gap/b.eff-a.gap/a.eff)||(b.gap-a.gap));
+}
+let deltaMemo={fp:null,line:''};
+function deltaLine(M,total){
+  if(exampleShown)return '';
+  if(deltaMemo.fp===M.fp)return deltaMemo.line;
+  const k='aiJudgeLast-'+T.loc;let prev=null;
+  try{prev=JSON.parse(localStorage.getItem(k)||'null')}catch{}
+  let line='';
+  if(prev&&prev.fp&&prev.fp!==M.fp){const d=total-prev.total;line=d>0?F(U.delta_up,{n:d}):d<0?F(U.delta_down,{n:-d}):U.delta_same}
+  try{localStorage.setItem(k,JSON.stringify({fp:M.fp,total}))}catch{}
+  deltaMemo={fp:M.fp,line};
+  return line;
+}
+function coachHtml(S,total,g,hold,M){
+  const key=hold?'H':g.g;
+  const steps=nextSteps(S,M,hold);
+  const stepHtml=c=>{const h=HLP[c.id],w=evidence(c.id,M);return `<li><div class="st-h"><b>${T.crit[c.id].n}</b><span class="gain">${F(U.gain,{n:c.gap})}</span></div><p class="why">${h.why}</p><p class="fix">▸ ${h.fix}</p>${w?`<p class="where">${F(U.where,{w})}</p>`:''}</li>`};
+  const top=steps.slice(0,3).map(stepHtml).join(''),rest=steps.slice(3);
+  const r1note=(!M.execErrors&&!M.testable&&S.some(c=>c.id==='R1'&&c.pts<c.max))?`<p class="hint">${U.r1_note}</p>`:'';
+  const nextBox=steps.length?`<ol class="nsteps">${top}</ol>${rest.length?`<details class="more"><summary>${F(U.more,{n:rest.length})}</summary><ol class="nsteps">${rest.map(stepHtml).join('')}</ol></details>`:''}${r1note}`:`<p class="status">${U.next_none}</p>${r1note}`;
+  const goods=hold?[]:S.filter(c=>c.pts===c.max&&!(c.id==='R3'&&!M.takesInput)&&!(c.id==='R1'&&!M.testable));
+  const goodBox=goods.length?`<ul class="goods">${goods.map(c=>`<li>✓ ${F(U.good_item,{n:T.crit[c.id].n})}</li>`).join('')}</ul>`:`<p class="status">${U.good_none}</p>`;
+  let prog='';
+  if(!hold){const i=GRADES.findIndex(x=>x.g===g.g);
+    if(i>0){const nx=GRADES[i-1],need=Math.max(0,nx.min-total),span=(nx.min-g.min)||1,pct=Math.max(4,Math.min(100,Math.round((total-g.min)/span*100)));
+      prog=`<div class="prog"><div class="bar" role="img" aria-label="${esc(F(U.prog,{n:need,g:nx.g}))}"><i style="width:${pct}%"></i></div><span>${F(U.prog,{n:need,g:nx.g})}</span></div>`}
+    else prog=`<p class="status">${U.prog_top}</p>`}
+  const dl=hold?'':deltaLine(M,total);
+  return `<div class="coach"><p class="welcome">${U.welcome}</p><p class="sumline">${U.sum[key]}</p>${hold?`<p class="status">${U.hold_note}</p>`:''}${dl?`<p class="delta">${dl}</p>`:''}${prog}
+    <div class="coach-grid"><section><h3>${U.good_title}</h3>${goodBox}</section><section><h3>${U.next_title}</h3>${steps.length?`<p class="hint">${U.next_hint}</p>`:''}${nextBox}</section></div></div>`;
+}
+function trustHtml(){return `<aside class="trust"><h3>${U.trust_title}</h3><ul>${U.trust.map(x=>`<li>${x}</li>`).join('')}</ul><a href="${esc(T.contact_href)}">${U.trust_link}</a></aside>`}
+function nextLines(S,M,hold){const st=nextSteps(S,M,hold);return st.length?[U.rt_next+':',...st.slice(0,5).map(c=>`  · ${T.crit[c.id].n} (${F(U.gain,{n:c.gap})}) — ${HLP[c.id].fix}`)]:[]}
+
 /* ================= Result ================= */
 let LAST=null,READY=false;
 function openResult(){const d=$('resDialog');if(d.open)return;if(d.showModal)d.showModal();else d.setAttribute('open','')}
@@ -709,15 +785,17 @@ function update(){
   flags.push(`<div class="flag info">${T.f_limit}</div>`);
   const rows=[0,1,2,3,4].map(a=>`<tr class="areahead"><td colspan="2"><b>${T.area_n[a]}</b></td><td class="c num"><b>${areaPts[a]} / ${AREA_MAX[a]}</b></td><td></td></tr>`+
     S.filter(c=>c.area===a).map(c=>{const cr=CRIT.find(x=>x.id===c.id);return `<tr class="${c.pts<c.max?'gap':''}"><td><span class="kind k${cr.kind}" title="${esc(T.kind[cr.kind])}">${T.kind_short[cr.kind]}</span></td><td>${T.crit[c.id].n}</td><td class="c num">${c.pts} / ${c.max}</td><td class="hint">${esc(c.basis)}</td></tr>`}).join('')).join('');
+  const coach=coachHtml(S,total,g,hold,M),trust=trustHtml();
   $('result').innerHTML=`
     <div class="verdict"><div class="badge g-${hold?'H':g.g}">${hold?'!':g.g}</div>
       <div><div class="big">${hold?T.v_hold:F(T.grade_fmt,{g:g.g})}${!hold&&pay&&Number(PAY[g.g])>0?' · '+pay:''}</div>
       <div class="sub">${F(T.v_sub,{score:`<b class="num">${total}</b>`,x:hold?T.sub_hold:g.label})}</div>
       <div class="sub">${F(T.id_line,{id:`<code>${M.fp}</code>`,ver:RUBRIC_VER})}</div></div></div>
+    ${coach}
     <div class="flags">${flags.join('')}</div>
     <div class="tbl"><table><thead><tr><th></th><th>${T.th_item}</th><th class="c">${T.th_score}</th><th>${T.th_basis}</th></tr></thead>
       <tbody>${rows}<tr><td colspan="2"><b>${T.th_total}</b></td><td class="c num"><b>${total} / 100</b></td><td></td></tr></tbody></table></div>
-    <p class="status">${T.id_note}</p>`;
+    <p class="status">${T.id_note}</p>${trust}`;
   $('mbarText').innerHTML=hold?F(T.mbar_hold,{score:total}):F(T.mbar_g,{g:g.g,score:total});
   LAST={S,total,areaPts,g,hold,pay,fail,caps};
   scheduleSubmit();
@@ -766,6 +844,7 @@ function resultText(){
     ...[0,1,2,3,4].map(a=>`- ${T.area_n[a]}: ${areaPts[a]} / ${AREA_MAX[a]}`),
     ...S.filter(c=>c.pts<c.max).map(c=>`  · ${T.crit[c.id].n}: ${c.pts} / ${c.max} (${c.basis})`),
     ...fail.map(r=>F(T.rt_fail,{v:r.t})),...caps.map(c=>'- '+c),
+    ...nextLines(S,M,hold),
     T.rt_note].filter(Boolean).join('\n');
 }
 if(SUBMIT_URL)$('privacyPill').textContent=T.pill_submit;

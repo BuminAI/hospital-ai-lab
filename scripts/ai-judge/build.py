@@ -78,8 +78,17 @@ def contact_href(code, meta):
     return 'mailto:' + m.group(1)
 
 
+def load_ux():
+    spec = importlib.util.spec_from_file_location('lang_ux', os.path.join(HERE, 'lang', 'ux.py'))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m.UX
+
+
 def main():
     base = load('ko')
+    UX = load_ux()
+    ref_ux = shape(UX['ko'])
     ref_h, ref_t = shape(base.H), shape(base.T)
     tpl = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
     css = open(os.path.join(HERE, 'style.css.part'), encoding='utf-8').read()
@@ -90,7 +99,7 @@ def main():
     problems = []
     for code in (sys.argv[1:] or CODES):
         m = load(code)
-        bad = diff(ref_h, shape(m.H), 'H') + diff(ref_t, shape(m.T), 'T')
+        bad = diff(ref_h, shape(m.H), 'H') + diff(ref_t, shape(m.T), 'T') + (diff(ref_ux, shape(UX[code]), 'UX') if code in UX else ['UX: 문구 없음'])
         if bad:
             problems += [f'[{code}] {b}' for b in bad]
             continue
@@ -98,6 +107,9 @@ def main():
         canon = SITE + meta['path']
         home = meta['home']
         T['consent_lines'] = [s.replace('{contact}', contact_href(code, meta)) for s in T['consent_lines']]
+        T['contact_href'] = contact_href(code, meta)
+        T['ux'] = UX[code]['ux']
+        T['help'] = UX[code]['help']
         site_id = f'{SITE}/#website' if code == 'ko' else f'{SITE}/#website-{code}'
         jsonld = json.dumps({
             '@context': 'https://schema.org',

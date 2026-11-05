@@ -162,6 +162,33 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   .mbar b{font-family:var(--mono)}
   body{padding-bottom:64px}
 }
+/* Coach layer (understanding · recognition · empathy) */
+.coach{display:grid;gap:12px;border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--surface)}
+.coach .welcome{margin:0;font-size:13px;color:var(--muted);font-style:italic}
+.coach .sumline{margin:0;font-size:16.5px;font-weight:600;line-height:1.55}
+.coach .delta{margin:0;font-size:13.5px;color:var(--ok);background:var(--ok-bg);border-radius:6px;padding:6px 10px}
+.coach h3{font-size:14.5px;margin-bottom:6px}
+.prog{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.prog .bar{height:8px;background:var(--soft);border-radius:999px;overflow:hidden}
+.prog .bar i{display:block;height:100%;background:var(--mid);border-radius:999px}
+.coach-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:18px}
+@media (max-width:720px){.coach-grid{grid-template-columns:minmax(0,1fr)}}
+.goods{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:13.5px}
+.goods li{color:var(--ok)}
+.nsteps{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px;counter-reset:ns}
+.nsteps li{counter-increment:ns;border-left:3px solid var(--mid);padding:2px 0 2px 12px}
+.nsteps .st-h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.nsteps .gain{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--ok);background:var(--ok-bg);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.nsteps p{margin:3px 0 0;font-size:13.5px}
+.nsteps .why{color:var(--muted)}
+.nsteps .fix{font-weight:600}
+.nsteps .where{font-size:12.5px;color:var(--muted)}
+details.more{margin-top:8px}
+details.more summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--focus)}
+.trust{border:1px dashed var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:6px;margin-top:4px}
+.trust h3{font-size:14px}
+.trust ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:13px;color:var(--muted)}
+.trust a{font-size:13px;font-weight:600}
 @media print{body>*:not(dialog){display:none!important}dialog.resdlg{position:static;display:block;width:auto;max-height:none;border:0;overflow:visible}dialog.resdlg .btns{display:none}dialog.resdlg::backdrop{display:none}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
