@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-05T02:27:10.618Z",
+  "updatedAt": "2026-11-05T10:54:49.133Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "소아청소년 특화 디지털 헬스케어 및 비대면 진료 미래 비전 제시",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252315",
+      "source": "병원신문",
+      "pubDate": "2026-11-05T05:10:00.000Z"
+    },
+    {
+      "title": "블루엠텍, 3분기 매출 73% 껑충…자사주 1.4% 소각",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171644",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-05T03:41:48.000Z"
+    },
     {
       "title": "봉생기념병원, AI로 환자 의견 듣고 서비스 개선 추진",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252277",
@@ -2989,18 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169506",
       "source": "메디칼타임즈",
       "pubDate": "2026-06-30T02:24:55.000Z"
-    },
-    {
-      "title": "'AI 신장결석 로봇' 자메닉스...원격 수술 플랫폼 결합 '날개'",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169507",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-30T02:23:59.000Z"
-    },
-    {
-      "title": "내원 전 AI에게 먼저 상담…의학계 \"매우 위험한 행위\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169498",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-06-29T20:30:00.000Z"
     }
   ]
 }
