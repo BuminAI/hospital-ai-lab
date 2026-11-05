@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-11-05T22:25:51.070Z",
+  "readOk": 5,
+  "total": 5,
+  "laws": [
+    {
+      "id": "45-160",
+      "name": "45 CFR Part 160 (HIPAA general administrative requirements)",
+      "baseline": "2026-05-26",
+      "baselinePending": false,
+      "current": "2026-05-26",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-05T22:25:45.955Z",
+      "error": null
+    },
+    {
+      "id": "45-164",
+      "name": "45 CFR Part 164 (HIPAA Security, Breach Notification and Privacy Rules)",
+      "baseline": "2024-06-25",
+      "baselinePending": false,
+      "current": "2024-06-25",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-05T22:25:47.029Z",
+      "error": null
+    },
+    {
+      "id": "45-170",
+      "name": "45 CFR Part 170 (health IT certification program)",
+      "baseline": "2026-10-28",
+      "baselinePending": false,
+      "current": "2026-10-28",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-05T22:25:48.117Z",
+      "error": null
+    },
+    {
+      "id": "45-171",
+      "name": "45 CFR Part 171 (information blocking)",
+      "baseline": "2025-01-15",
+      "baselinePending": false,
+      "current": "2025-01-15",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-05T22:25:49.191Z",
+      "error": null
+    },
+    {
+      "id": "45-92",
+      "name": "45 CFR Part 92 (nondiscrimination in health programs, Section 1557)",
+      "baseline": "2024-07-05",
+      "baselinePending": false,
+      "current": "2024-07-05",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-05T22:25:50.267Z",
+      "error": null
+    }
+  ]
+}

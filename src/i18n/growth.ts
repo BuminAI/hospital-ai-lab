@@ -51,6 +51,39 @@ const ruPlural = (n: number, one: string, few: string, many: string) => {
 };
 
 export const growth: Record<Loc, GrowthStrings> = {
+  en: {
+    seriesName: 'Article series',
+    hub: {
+      title: 'Article series',
+      lead: 'You can read the articles one at a time, but reading them by topic makes the criteria clearer. We grouped the questions that U.S. hospital administrators and nursing leaders meet most often when they assess AI. Within each series the articles follow a suggested reading order.',
+      metaDescription:
+        'Articles on AI in U.S. hospitals for administrators and nursing leaders, grouped by topic: FDA status and certification, and patient data and security.',
+      count: (n) => `${n} ${n === 1 ? 'article' : 'articles'}`,
+      latest: 'Latest',
+      firstPost: 'Start with the first article',
+      viewList: 'See the list',
+    },
+    detail: {
+      back: '← Article series',
+      order: (n) => `${n} ${n === 1 ? 'article' : 'articles'} · we suggest reading them in the order below.`,
+      relatedChecklist: 'A checklist to use next:',
+      metaSuffix: (n) => `${n} ${n === 1 ? 'article' : 'articles'} in reading order.`,
+    },
+    box: { heading: 'This article is part of a series', prev: '← Previous', next: 'Next →', all: 'All series' },
+    subscribe: {
+      title: (c = 'new articles') => `How to keep up with ${c}`,
+      body: 'We regularly publish material on AI in medicine for hospital administrators and nursing leaders. Add the RSS feed to a reader and new articles will arrive as they are published.',
+      rss: 'Subscribe by RSS',
+    },
+    checklist: {
+      progress: (d, t) => `${d} of ${t} checked`,
+      reset: 'Start over',
+      print: 'Print / save as PDF',
+      related: 'Read next',
+    },
+    home: { title: 'Read by topic', more: 'All series →' },
+  },
+
   ko: {
     seriesName: '연재 시리즈',
     hub: {

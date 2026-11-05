@@ -1,0 +1,142 @@
+---
+// Digital health and AI roadmap for U.S. hospitals (2026-11-06) — from primary sources.
+// The facts live in src/data/en/guides/milestones.ts; this page only handles layout.
+import '../../styles/en-guide.css';
+import EnLayout from '../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../components/EnGuideFoot.astro';
+import EnFaq from '../../components/EnFaq.astro';
+import { guideSchema } from '../../utils/en-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/en/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+
+const title = 'Roadmap: HIPAA, information blocking, FDA and AI for U.S. hospitals';
+const description =
+  'Key dates for hospital administration and nursing leaders: HIPAA breach and Security Rule texts, Section 1557 decision support tools, FDA guidance on AI-enabled devices, and the October 2026 HTI-5 rule, each with its primary source.';
+
+const sources = [SRC.breach404, SRC.sec316, SRC.ib103, SRC.s1557_210, SRC.nprm, SRC.fdaPccp, SRC.fdaCds, SRC.hti5];
+
+const faq = [
+  {
+    q: 'How quickly must a hospital notify patients of a breach of their health information?',
+    a: 'Without unreasonable delay and no later than 60 calendar days after discovery (45 CFR 164.404(b)). For a breach affecting 500 or more individuals, HHS is notified at the same time as the individuals; for fewer than 500, within 60 days after the end of the calendar year (§ 164.408).',
+  },
+  {
+    q: 'Has the proposed HIPAA Security Rule rewrite taken effect?',
+    a: 'We found no final rule. It was proposed on January 6, 2025 (90 FR 898), the comment period closed March 7, 2025, and a Federal Register search on November 6, 2026 returned no final rule. The existing Security Rule text still applies.',
+  },
+  {
+    q: 'Does a hospital need a written agreement before giving patient data to an AI vendor?',
+    a: 'If the vendor is a business associate, yes. A covered entity may disclose protected health information to a business associate only after obtaining satisfactory assurance, documented in a written contract that meets 45 CFR 164.504(e) (§ 164.502(e)).',
+  },
+  {
+    q: 'Is clinical decision support software always an FDA-regulated device?',
+    a: 'No, but it can be. The FD&C Act excludes certain clinical decision support functions that meet statutory criteria, and FDA’s guidance (dated January 2026) explains its reading. Software that meets the device definition remains subject to FDA policies. Ask the vendor for its regulatory basis in writing.',
+  },
+  {
+    q: 'Are there confirmed upcoming deadlines for hospitals?',
+    a: 'This page lists only dates that appear in the text of a rule or an official publication. The one confirmed upcoming date we found is the December 28, 2026 effective date of the HTI-5 final rule, which affects health IT developers’ certification, not a hospital filing. New federal documents appear in the Calendar.',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/en/dx-roadmap/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-06',
+  modified: '2026-11-06',
+  audience: 'Hospital administration and nursing leadership',
+  faq,
+});
+---
+
+<EnLayout title={title} description={description} crumb="Roadmap" standalone updated={new Date('2026-11-06T00:00:00-05:00')} schema={schema}>
+  <h1>Digital health and AI roadmap</h1>
+  <p class="tg-lead">
+    “What does our hospital have to do, and by when?” The more AI news there is, the harder that is to answer. This page collects dates that appear in the text of rules and official publications, with sections and links to the sources.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and nursing leadership</p>
+
+  <p class="tg-answer">
+    In short: patients must be notified of a breach within 60 calendar days of discovery (45 CFR 164.404); HHS is notified at the same time for breaches of 500 or more individuals (§ 164.408); the proposed Security Rule rewrite (90 FR 898) is still only proposed; the HTI-5 final rule (91 FR 67916) takes effect December 28, 2026.
+  </p>
+
+  <div class="tg-box">
+    <strong>How to read this page</strong><br />
+    Each item was written after the text of the rule was opened and read. We do not add dates that circulate only in summaries. What applies to a particular hospital depends on its status and structure, so check the text and ask counsel or your compliance officer.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">What has already happened</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">Upcoming dates</h2>
+    {
+      ahead.length > 0 ? (
+        <ol class="tg-tl">
+          {ahead.map((m) => (
+            <li>
+              <div class="when">{m.when}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{THEMES[m.theme]}</span>
+                  {m.title}
+                </b>
+                <span>{m.body}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>We found no upcoming dates confirmed by a primary source, so this section is intentionally empty.</p>
+      )
+    }
+    <p>
+      New federal documents from HHS, FDA, CMS and ASTP/ONC appear automatically in the <a href={withBase('/en/calendar/')}>Federal Register calendar</a>.
+    </p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Pages that complement this one</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/en/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>HIPAA Privacy, Security and Breach Notification rules, by section.</span>
+      </a>
+      <a class="tg-card" href={withBase('/en/documents-checklist/')}>
+        <b>Checklist: EHR records and AI vendors</b>
+        <span>Access, information blocking, FDA status and questions for the vendor.</span>
+      </a>
+      <a class="tg-card" href={withBase('/en/templates/')}>
+        <b>Document templates</b>
+        <span>Generative AI policy, 20 vendor questions, incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <EnFaq items={faq} />
+
+  <EnGuideFoot sources={sources} checked={CHECKED} />
+</EnLayout>

@@ -661,6 +661,28 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - **디자인**: 일본어판과 같은 구조(`tw-refresh.css`·`tw-home.css`·`tw-guide.css`)에 청록 계열 팔레트. `TwLayout`에 주종 2단 메뉴(PRIMARY_KEYS)·`hero` 슬롯·출처 링크 확인일 푸터. 타일 무늬 띠는 걷어냄. ⚠️ 대만어 화면에는 가타카나 중점 「・」을 쓰지 않는다(감사의 foreign-script 경고) — 「、」「｜」「‧」를 쓴다.
 - **매일**: `daily-rebuild.yml`(공통), `check-tw-links.yml`(`scripts/check-tw-links.mjs` → `src/data/tw/link-health.json`, 매일 KST 03:43), 새 수집 워크플로 2개.
 
+## 5-11. 영어판(미국) `/en/` (2026-11-06 신설, 오너 지시: 러시아어판 수준의 전체 패리티)
+
+독자는 **미국 병원 행정·간호 리더**다(오너가 미국으로 확정). 다른 언어판처럼 **번역이 아니라 미국 제도를 1차 출처로 새로 조사해 쓴 판**이다. 러시아어판 구조를 복제해 만들었고(`RuLayout`→`EnLayout`, `ru-*.css`→`en-*.css`, 클래스 접두어 `en-`·`th-`·`tg-`), 팔레트만 남색·강철빛 파랑으로 바꿨다. 푸터·hreflang은 여섯 레이아웃(Base·Ja·Ru·En·Id·Tw) 전부에 연결돼 있다.
+
+| 항목 | 위치 | 비고 |
+|---|---|---|
+| 레이아웃·토큰·CSS | `src/layouts/EnLayout.astro`, `src/styles/en-{tokens,luxe,refresh,home,guide}.css` | TITLE_BUDGET 60(라틴) |
+| UI 문구 | `src/i18n/en.json` | 사실 주장은 briefing.md 범위(홈 FAQ의 수집처 문구는 실제 수집기와 일치해야 함) |
+| 실무 가이드 | `src/pages/en/{dx-roadmap,data-checklist,documents-checklist,templates,practice,facts,calendar,updates}` | 사실은 `src/data/en/guides/{milestones,facts}.ts` 한곳. 근거는 eCFR 현행 조문(2026-11-03 기준)·연방 관보 API·FDA 페이지를 **실제로 열어 읽은 것만** |
+| 환자 코너 | `src/pages/en/patients/*` | 진단·치료 조언 금지, 911 안내 |
+| 콘텐츠 JSON | `src/data/en/content/*.json` | guide·checklist·tips·glossary·faq·gov-support·events·nav·videos-meta |
+| 글 | `src/content/blog-en/` (컬렉션 `blogEn`, 분류 Research Review·AI Tools·Column·News) | 첫 글 6편(FDA CDS·PCCP·HTI-5, 60일 침해통지·BAA·보안규칙 제안 상태), 시리즈 2개는 `src/data/series-locales.ts`의 `en` |
+| 수집 | `scripts/fetch-en-news.mjs`(Fierce Healthcare·Healthcare Dive·Becker's RSS, AI 관련만), `fetch-en-gov.mjs`(연방 관보 API: HHS·FDA·CMS·FTC 규칙·제안규칙), `fetch-en-videos.mjs`, `fetch-ai-digest.mjs en`(TechCrunch·Ars Technica·MIT Tech Review·Wired) | 워크플로 `update-en-{news,gov,videos}.yml`, `update-ai-digest.yml` |
+| 점검 | `check-en-links.mjs`(출처 링크), `check-en-laws.mjs`(eCFR versioner로 45 CFR 160·164·170·171·92 최종 개정일 대조 → 푸터) | 워크플로 `check-en-{links,laws}.yml` |
+
+**미국 사실 확인에서 알게 된 것**
+- 연방 관보 API는 설명 있는 User-Agent와 인코딩된 쿼리에는 응답하지만 브라우저식 요청은 Cloudflare 확인 화면을 준다. eCFR 전문 API는 `Accept-Encoding: gzip`이 없으면 406이다. `hhs.gov`는 봇에 403이라 HHS 페이지는 출처로 쓰지 않고 eCFR 조문을 인용한다. Healthcare IT News·MobiHealthNews RSS도 Cloudflare 확인 화면이라 수집처에서 뺐다(우회 금지).
+- 규제 상태가 2026년에 바뀐 것: FDA CDS 지침 2026년 1월판(최종), ONC **HTI-5 최종 규칙** 2026-10-28 공표·2026-12-28 시행(45 CFR 170.315(b)(11)(iv)~(vi) 삭제), HIPAA 보안규칙 개정안은 2025-01-06 제안 후 최종 규칙을 못 찾음(관보 검색, 2026-11-06). 이 셋은 날짜가 지나면 바뀔 수 있으니 `milestones.ts`의 `CHECKED`와 함께 갱신할 것.
+- 주(州)법은 **일부러 다루지 않았다**(캘리포니아 입법 사이트가 봇에 403이라 원문을 못 읽었다). 확인하지 못한 주법 조항을 쓰지 않는다 — 추가하려면 1차 원문부터 열 것.
+
+**만들지 않은 것(오너 결정 대기)**: 관리자 화면 `admin-en`, AI 심사실(`/en/ai-judge/`, build.py 생성물이라 영어 정의 필요), 영어판 글 자동 발행 예외(CLAUDE.md는 ko·ru·ja·id·tw 다섯 가지만 명시 — 오너가 확대를 지시하기 전에는 영어 글은 draft + PR). 이번 첫 글 6편은 오너 요청의 전체 패리티에 포함해 `draft: false`로 PR에 실었으니, 머지 전에 오너가 검토한다.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

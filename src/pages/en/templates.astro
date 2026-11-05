@@ -1,0 +1,215 @@
+---
+// Templates (2026-11-06): generative AI policy, 20 vendor questions, patient-facing text, incident record
+// ⚠️ Everything here is the author’s DRAFT, not legal advice. Legal bases are cited only to sections whose text was opened (45 CFR 164.x, eCFR current text as of 2026-11-03).
+import '../../styles/en-guide.css';
+import EnLayout from '../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../components/EnGuideFoot.astro';
+import { SRC } from '../../data/en/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 6, 2026';
+const title = 'Templates: generative AI policy and 20 vendor questions';
+const description =
+  'Four drafts you can copy and adapt: a generative AI use policy, 20 questions for an AI vendor, a short text for patients, and an incident record with the 60-day breach clock.';
+
+const policy = [
+  'GENERATIVE AI USE POLICY, "__" HOSPITAL (DRAFT)',
+  '',
+  '1. Purpose',
+  '   Sets rules for staff of "__" when they use generative AI tools (chatbots, summarizing tools, translation tools).',
+  '',
+  '2. What must NOT be entered',
+  '   - Patient names, medical record numbers, dates of birth, addresses, phone numbers, or the content of patient records.',
+  '   - Images or recordings that could identify a patient.',
+  '   - Contracts, or restricted financial and personnel data.',
+  '   Exception: a tool the privacy officer has approved in writing under a business associate agreement.',
+  '',
+  '3. Approved tools',
+  '   Only tools on the approved list kept by "__" (owner: __). Using an unapproved tool for work is not allowed.',
+  '',
+  '4. Review of output',
+  '   A person is responsible for every AI-generated text used in work. Check facts, numbers and names against the source before use.',
+  '   AI output is never entered in a patient record until the responsible clinician has reviewed and approved it.',
+  '',
+  '5. Reporting',
+  '   If PHI was entered into an unapproved tool, report it the same day to __ (privacy officer, phone __). Do not try to delete it yourself first.',
+  '',
+  '6. Training and review',
+  '   Staff are trained on this policy when they join and when it changes; training is documented. The policy is reviewed every __ months.',
+].join('\n');
+
+const questions = [
+  'VENDOR QUESTIONS (20) — write down the answers',
+  '',
+  'Regulatory status',
+  '1. Do you consider the product a medical device, or non-device clinical decision support? On what basis, in writing?',
+  '2. If it is an FDA-authorized device, what is the authorization pathway and number, and what is the intended use as authorized?',
+  '3. Does the authorization include a predetermined change control plan? Which kinds of change does it cover?',
+  '4. How will we be told about changes to the model or its intended use?',
+  '',
+  'Patient data and HIPAA',
+  '5. Will you sign a business associate agreement before any PHI is shared? May we see your standard form?',
+  '6. Which of your subcontractors (cloud, model providers) will touch PHI, and are they bound to the same terms?',
+  '7. Where is data processed and stored, and for how long?',
+  '8. Will you use our data to train or improve your own models? If so, on what contractual basis?',
+  '9. How do you de-identify data, and who documents the method?',
+  '10. How is our data returned or destroyed at the end of the contract?',
+  '',
+  'Security',
+  '11. Do you provide a recent third-party security assessment? Can we read it?',
+  '12. Is data encrypted in transit and at rest? Who holds the keys?',
+  '13. What audit logs do you keep, and can we get them?',
+  '',
+  'Incidents',
+  '14. How quickly will you tell us about a suspected breach? (We must notify patients within 60 days of discovery.)',
+  '15. Who is our 24-hour contact at your company?',
+  '',
+  'Performance and fairness',
+  '16. How was the tool tested, on what patient population, and how does that compare with ours?',
+  '17. Does it use race, color, national origin, sex, age or disability as an input? If so, how is discrimination risk mitigated?',
+  '18. How will we monitor its performance after go-live, and what do you provide for that?',
+  '',
+  'Operations',
+  '19. What changes for nurses and administrative staff day to day, and who gets additional work?',
+  '20. What is the exit plan if we stop using it?',
+].join('\n');
+
+const patient = [
+  'PATIENT-FACING TEXT (SAMPLE — adapt to your practice)',
+  '',
+  'Our hospital uses a computer program that drafts [describe use, e.g. visit summaries / appointment reminders]. A member of our staff',
+  'reviews the result before it is used in your care or in your record. The program is operated for us under a written agreement',
+  'that requires it to protect your health information.',
+  '',
+  'You can ask for a copy of your records at any time. Questions: __ (phone, email).',
+].join('\n');
+
+const incident = [
+  'INCIDENT RECORD (one page)',
+  '',
+  'Date and time discovered: __   By whom: __',
+  'What happened: __',
+  'What information: __   Approx. number of individuals: __   States of residence: __',
+  'Who may have seen or received it: __',
+  '',
+  'Risk assessment (four factors): nature and extent of PHI / who used or received it / whether actually acquired or viewed / mitigation done: __',
+  'Conclusion: low probability of compromise? yes / no   Decided by: __',
+  '',
+  'Clock: discovery date + 60 calendar days = __ (outer limit; notify without unreasonable delay)',
+  '  Individuals: __   HHS: (500 or more: at the same time as individuals; fewer than 500: annual log, due within 60 days after year end)   Media: (more than 500 residents of a state)',
+  '  Vendor involved: __   (contact: __, 24-hour line: __)',
+  '',
+  'Recorded: __ (who contacted whom, and when).',
+].join('\n');
+
+const items = [
+  {
+    id: 'policy',
+    head: '1. Generative AI use policy',
+    lead: 'A page you can hand to staff. Replace "__" with your hospital’s details.',
+    basis: [
+      'The ban on entering PHI into unapproved tools rests on the Privacy Rule’s limits on uses and disclosures (45 CFR 164.502, 164.506) and on business associate agreements (164.502(e)).',
+      'Workforce training and its documentation: 45 CFR 164.530(b).',
+      'The rest is the author’s proposal.',
+    ],
+    text: policy,
+  },
+  {
+    id: 'vendor',
+    head: '2. Twenty questions for a vendor',
+    lead: 'Print it and take it to the vendor presentation. Write the answers down.',
+    basis: [
+      'Questions 5–6 and 10: 45 CFR 164.502(e) and 164.504(e)(2). Question 9: 164.514(b).',
+      'Question 14: 45 CFR 164.404 and 164.410 (60-day outer limits).',
+      'Questions 1–4: FDA clinical decision support guidance (January 2026) and FDA PCCP page. Question 17: 45 CFR 92.210.',
+      'The other questions are the author’s proposals, not legal requirements.',
+    ],
+    text: questions,
+  },
+  {
+    id: 'patient',
+    head: '3. Text for patients',
+    lead: 'A short example of how to tell a patient that the hospital uses an AI tool. Match it to your actual practice.',
+    basis: [
+      'Patients have a right of access to PHI in designated record sets (45 CFR 164.524).',
+      'The wording is the author’s example, not required language.',
+    ],
+    text: patient,
+  },
+  {
+    id: 'incident',
+    head: '4. Incident record',
+    lead: 'Turn the procedure into one fillable page and keep it where people will find it at night and on weekends.',
+    basis: ['45 CFR 164.402 (risk assessment factors), 164.404–164.408 (notice to individuals, media and HHS), 164.410 (business associate notice).'],
+    text: incident,
+  },
+];
+
+const sources = [SRC.baa502, SRC.baa504, SRC.deid514, SRC.train530, SRC.access524, SRC.breach402, SRC.breach404, SRC.breach408, SRC.breach410, SRC.s1557_210, SRC.fdaCds, SRC.fdaPccp];
+---
+
+<EnLayout title={title} description={description} crumb="Templates" standalone updated={new Date('2026-11-06T00:00:00-05:00')}>
+  <h1>Templates: generative AI policy and 20 vendor questions</h1>
+  <p class="tg-lead">
+    “We don’t know where to start writing” is a common problem for hospitals. Here are four drafts: press the button, copy, and replace “__” with your own details.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and IT</p>
+
+  <div class="tg-box tg-warn">
+    <strong>Before you use these</strong><br />
+    These are the author’s <strong>drafts</strong>, not legal advice and not a version that is ready to copy as is. Adapt them to the size, systems and contracts of your hospital, and show them to counsel or your compliance office before they become documents.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-toc">
+    <h2 id="h-toc">Contents</h2>
+    <ul class="tg-list">
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.head}</a></li>)}
+    </ul>
+    <p>
+      Related pages: <a href={withBase('/en/dx-roadmap/')}>Roadmap</a>, <a href={withBase('/en/data-checklist/')}>Patient data checklist</a>, <a href={withBase('/en/documents-checklist/')}>Checklist: records and AI vendors</a>.
+    </p>
+  </section>
+
+  {
+    items.map((it) => (
+      <section class="tg-sec" id={it.id} aria-labelledby={`${it.id}-h`}>
+        <h2 id={`${it.id}-h`}>{it.head}</h2>
+        <p>{it.lead}</p>
+        <div class="tg-copy">
+          <button type="button" class="tg-btn" data-target={`${it.id}-text`}>
+            Copy
+          </button>
+          <pre id={`${it.id}-text`}>{it.text}</pre>
+        </div>
+        <h3>Basis of the template</h3>
+        <ul class="tg-list">
+          {it.basis.map((b) => <li>{b}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <EnGuideFoot sources={sources} checked={CHECKED} />
+</EnLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.tg-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = document.getElementById(btn.dataset.target ?? '');
+      if (!el) return;
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Copied';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = window.getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Selected (press Ctrl+C)';
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>

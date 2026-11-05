@@ -1,0 +1,112 @@
+---
+// Key facts for citation (2026-11-06) — a page for AEO/GEO.
+// One item = question + short answer + section + primary source. Data: src/data/en/guides/facts.ts.
+// Each item has an anchor (#id) for direct linking.
+import '../../../styles/en-guide.css';
+import EnLayout from '../../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../../components/EnGuideFoot.astro';
+import { FACTS, FACT_TOPICS, FACTS_CHECKED } from '../../../data/en/guides/facts';
+import { SRC } from '../../../data/en/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const title = 'Key facts: patient data, records and AI in U.S. hospitals';
+const description = `${FACTS.length} short answers you can cite: HIPAA privacy, breach notification, the Security Rule, business associates and AI vendors, records access, FDA and AI-enabled devices.`;
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/en/facts/')}`;
+
+const faqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'en',
+  isPartOf: { '@id': `${siteRoot}/#website-en` },
+  mainEntity: FACTS.map((f) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#${f.id}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: `${f.a} (Basis: ${f.basis}.)`, citation: SRC[f.src].url },
+  })),
+};
+const articleLd = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: title,
+  description,
+  inLanguage: 'en',
+  author: { '@id': `${siteRoot}/#person` },
+  publisher: { '@id': `${siteRoot}/#organization` },
+  isPartOf: { '@id': `${siteRoot}/#website-en` },
+  mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  datePublished: '2026-11-06T00:00:00-05:00',
+  dateModified: '2026-11-06T00:00:00-05:00',
+  isAccessibleForFree: true,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.tg-answer', 'h1'] },
+  citation: Object.values(SRC).map((s) => ({ '@type': 'CreativeWork', name: s.label, url: s.url })),
+};
+
+const sources = [SRC.breach404, SRC.baa504, SRC.sec308, SRC.access524, SRC.fdaCds, SRC.hti5];
+---
+
+<EnLayout title={title} description={description} crumb="Key facts" standalone updated={new Date('2026-11-06T00:00:00-05:00')} schema={[articleLd, faqLd]}>
+  <h1>Key facts: patient data, records and AI in U.S. hospitals</h1>
+  <p class="tg-lead">
+    Short answers to the questions that come up most in purchasing and compliance meetings. Each answer was written after the text of the rule was opened, and gives the section and a link to the primary source.
+  </p>
+  <p class="tg-meta">Checked: {FACTS_CHECKED} · {FACTS.length} items · For: administrators, nurses and patients</p>
+
+  <p class="tg-answer">
+    In short: patients must be notified of a breach within 60 calendar days of discovery; HHS at the same time when 500 or more people are affected; a business associate agreement must be in writing before PHI goes to a vendor; the FDA list of AI-enabled devices is not comprehensive.
+  </p>
+
+  <div class="tg-box">
+    <strong>How to use this page</strong><br />
+    Copy an answer together with its section, and check the text of the rule at the primary source. There are no deadlines or rules here whose text we did not read; this is not legal advice.
+    <br />
+    {
+      FACT_TOPICS.map((t, i) => (
+        <>
+          <a href={`#t-${i}`}>{t}</a>
+          {i < FACT_TOPICS.length - 1 ? ' · ' : ''}
+        </>
+      ))
+    }
+  </div>
+
+  {
+    FACT_TOPICS.map((topic, i) => (
+      <section class="tg-sec" aria-labelledby={`t-${i}`}>
+        <h2 id={`t-${i}`}>{topic}</h2>
+        <dl class="tg-facts">
+          {FACTS.filter((f) => f.topic === topic).map((f) => (
+            <>
+              <dt id={f.id}>
+                <a href={`#${f.id}`}>{f.q}</a>
+              </dt>
+              <dd>
+                <p>{f.a}</p>
+                <p class="tg-basis">
+                  Basis: {f.basis} ·{' '}
+                  <a href={SRC[f.src].url} target="_blank" rel="noopener">
+                    primary source<span class="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </p>
+              </dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/en/dx-roadmap/')}><b>Roadmap</b><span>Key rules on one timeline.</span></a>
+      <a class="tg-card" href={withBase('/en/data-checklist/')}><b>Patient data protection checklist</b><span>Items by section of 45 CFR.</span></a>
+      <a class="tg-card" href={withBase('/en/glossary/')}><b>Glossary</b><span>Medical AI terms in plain language.</span></a>
+    </div>
+  </section>
+
+  <EnGuideFoot sources={sources} checked={FACTS_CHECKED} />
+</EnLayout>

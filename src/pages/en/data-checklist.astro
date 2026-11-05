@@ -1,0 +1,171 @@
+---
+// Patient data protection checklist (2026-11-06)
+// ⚠️ There is no single official checklist written for hospitals. These items were written by the author from sections whose text
+//    was opened and read: 45 CFR 160.103, 164.308, 164.312, 164.316, 164.402–164.410, 164.502, 164.504, 164.506, 164.508, 164.514,
+//    164.530, 171.103, 92.210 (eCFR, current text as of 2026-11-03).
+// ⚠️ Whether an organization is a covered entity, and how state law adds to HIPAA, are not decided here.
+import '../../styles/en-guide.css';
+import EnLayout from '../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../components/EnGuideFoot.astro';
+import EnFaq from '../../components/EnFaq.astro';
+import { guideSchema } from '../../utils/en-guide';
+import { SRC } from '../../data/en/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 6, 2026';
+const title = 'Patient data checklist: HIPAA, vendors, security and breaches';
+const description =
+  'A numbered checklist for hospital administration and IT: permitted uses, business associate agreements, Security Rule safeguards and the 60-day breach notification clock, each tied to a section of 45 CFR.';
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. Permitted uses and disclosures',
+    lead: 'The Privacy Rule lets a covered entity use protected health information (PHI) for treatment, payment and health care operations, and requires authorization for some uses, such as marketing and sale of PHI.',
+    items: [
+      { no: '1', text: 'For each flow of patient data (including any flow to an AI tool), you can name the basis: treatment, payment or health care operations, a required authorization, or another permitted path.', basis: '45 CFR 164.506(a), (c)' },
+      { no: '2', text: 'You checked whether any use is marketing, or a disclosure that amounts to a sale of PHI, because those need an authorization (with the exceptions in the text).', basis: '45 CFR 164.508(a)(3), (a)(4)' },
+      { no: '3', text: 'Minimum necessary is applied: reasonable efforts to limit PHI to what is needed for the purpose, noting the exceptions in § 164.502(b)(2).', basis: '45 CFR 164.502(b)' },
+      { no: '4', text: 'If data is de-identified before it goes to a tool, the method is documented: expert determination (with the methods and results written down) or removal of the listed identifiers with no actual knowledge that the data could identify a person.', basis: '45 CFR 164.514(b)' },
+      { no: '5', text: 'All workforce members are trained on PHI policies as needed for their work, and the training is documented. This includes staff who use AI tools.', basis: '45 CFR 164.530(b)' },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Vendors and business associates',
+    items: [
+      { no: '6', text: 'For each AI or software vendor, someone has decided whether it is a business associate, by reading the definition against what the vendor actually does with PHI.', basis: '45 CFR 160.103' },
+      { no: '7', text: 'Before PHI is disclosed to a business associate, you have satisfactory assurance documented in a written contract that meets § 164.504(e).', basis: '45 CFR 164.502(e)(1)–(2)' },
+      { no: '8', text: 'The agreement covers: no use or disclosure beyond the contract or the law, safeguards, reporting of unauthorized uses and breaches, subcontractors bound to the same terms, support for access, amendment and accounting, return or destruction at termination if feasible, and your right to terminate for a material violation.', basis: '45 CFR 164.504(e)(2)(i)–(iii)' },
+      { no: '9', text: 'You asked whether the vendor’s planned use of your data, such as improving its own product, fits within what the contract may permit, and had counsel read the answer.', basis: '45 CFR 164.504(e)(2)(i)' },
+      { no: '10', text: 'The contract sets a vendor breach-notice period shorter than the 60-day outer limit, lists subcontractors, and says where data is processed and how it is deleted.', basis: 'Author’s recommendation (not a legal requirement)' },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. Security Rule safeguards',
+    items: [
+      { no: '11', text: 'A risk analysis covers the electronic PHI the hospital holds, including systems added with an AI tool, and is accurate and thorough.', basis: '45 CFR 164.308(a)(1)(ii)(A)' },
+      { no: '12', text: 'Security measures reduce the identified risks to a reasonable and appropriate level.', basis: '45 CFR 164.308(a)(1)(ii)(B)' },
+      { no: '13', text: 'Systems that contain or use ePHI record and examine activity (audit controls), and someone regularly reviews audit logs and access reports.', basis: '45 CFR 164.312(b); 164.308(a)(1)(ii)(D)' },
+      { no: '14', text: 'The decision on encryption of ePHI is assessed and documented. The current text lists it as an addressable specification.', basis: '45 CFR 164.312(a)(2)(iv)' },
+      { no: '15', text: 'Policies and required documentation are in writing, kept 6 years from creation or last effective date, and reviewed when operations change.', basis: '45 CFR 164.316(b)' },
+    ],
+  },
+  {
+    id: 'g4',
+    head: 'D. Incidents and breaches',
+    items: [
+      { no: '16', text: 'There is a procedure to assess an impermissible use or disclosure against the four risk factors, since it is presumed to be a breach unless you can show a low probability of compromise.', basis: '45 CFR 164.402' },
+      { no: '17', text: 'The notice clock is known: individuals within 60 calendar days of discovery; HHS at the same time for 500 or more; media for more than 500 residents of a state; an annual log for fewer than 500.', basis: '45 CFR 164.404–164.408' },
+      { no: '18', text: 'Discovery is understood as the first day the breach is known, or would have been known with reasonable diligence, to any workforce member or agent. A one-page incident card shows who decides and who files.', basis: '45 CFR 164.404(a)(2); author’s recommendation for the card' },
+    ],
+  },
+  {
+    id: 'g5',
+    head: 'E. Oversight of decision support tools',
+    items: [
+      { no: '19', text: 'You keep a list of patient care decision support tools that use input variables measuring race, color, national origin, sex, age or disability, and made reasonable efforts to mitigate discrimination risk for each.', basis: '45 CFR 92.210(b)–(c)' },
+      { no: '20', text: 'Staff know the information blocking standard for providers and the exceptions before refusing to share electronic health information, including with a vendor.', basis: '45 CFR 171.103' },
+      { no: '21', text: 'For each clinical decision support product, the vendor has said in writing whether it treats the product as a device or as non-device clinical decision support, and why.', basis: 'FDA CDS guidance (January 2026)' },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'How fast must we report a breach?',
+    a: 'Notify affected individuals without unreasonable delay and no later than 60 calendar days after discovery (45 CFR 164.404(b)). For 500 or more individuals, notify HHS at the same time (§ 164.408(b)); for fewer than 500, keep a log and report within 60 days after the end of the calendar year (§ 164.408(c)).',
+  },
+  {
+    q: 'Can an AI vendor use our patient data to improve its own product?',
+    a: 'It depends on the business associate agreement. The contract may not authorize the business associate to use or further disclose PHI in a way that would violate the Privacy Rule if the hospital did it, with narrow exceptions for the business associate’s own management and administration and for data aggregation (45 CFR 164.504(e)(2)(i)). Ask counsel to read the vendor’s clause against that text.',
+  },
+  {
+    q: 'Is a business associate agreement needed for every software vendor?',
+    a: 'Only if the vendor is a business associate, which depends on whether it creates, receives, maintains or transmits PHI on your behalf, or provides listed services involving disclosure of PHI (45 CFR 160.103). If it is, § 164.502(e) requires satisfactory assurance documented in a written contract.',
+  },
+];
+
+const sources = [SRC.tpo506, SRC.auth508, SRC.baa502, SRC.baa504, SRC.def160, SRC.deid514, SRC.train530, SRC.sec308, SRC.sec312, SRC.sec316, SRC.breach402, SRC.breach404, SRC.breach406, SRC.breach408, SRC.s1557_210, SRC.ib103, SRC.fdaCds];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/en/data-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-06',
+  modified: '2026-11-06',
+  audience: 'Hospital administration and IT',
+  faq,
+});
+---
+
+<EnLayout title={title} description={description} crumb="Patient data protection" standalone updated={new Date('2026-11-06T00:00:00-05:00')} schema={guide}>
+  <h1>Patient data protection checklist</h1>
+  <p class="tg-lead">
+    The rules for protecting patient data sit in several places: the Privacy Rule, the Security Rule, the Breach Notification Rule, and information blocking and nondiscrimination provisions. This page puts them into one list you can go through item by item.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and IT</p>
+
+  <p class="tg-answer">
+    In short: patients must be notified of a breach within 60 calendar days of discovery, and HHS at the same time when 500 or more people are affected (45 CFR 164.404, 164.408); a written business associate agreement is needed before PHI goes to a vendor that is a business associate (§ 164.502(e)); the Security Rule requires a risk analysis (§ 164.308(a)(1)(ii)(A)).
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from sections that were read; each item gives its basis, so check the text.</li>
+      <li>Whether your organization is a covered entity, and what state law adds to HIPAA, are not decided here. Ask your privacy officer or counsel.</li>
+      <li>Items marked “author’s recommendation” are not legal requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-how">
+    <h2 id="h-how">How to use it (author’s advice)</h2>
+    <ol class="tg-list">
+      <li><strong>Sort the items into “done,” “not done” and “not sure.”</strong> Send the unsure ones to IT, compliance or the vendor.</li>
+      <li><strong>Start with section B.</strong> It needs the vendor’s input and usually takes the longest.</li>
+      <li><strong>Make a one-page incident card.</strong> Who decides, who files, where, and the 60-day outer limit, placed where people will find it at night and on weekends.</li>
+    </ol>
+    <p>Questions for vendors are in the <a href={withBase('/en/templates/')}>templates</a>; records and AI vendors are in the <a href={withBase('/en/documents-checklist/')}>separate checklist</a>.</p>
+  </section>
+
+  <EnFaq items={faq} />
+
+  <EnGuideFoot sources={sources} checked={CHECKED} />
+</EnLayout>

@@ -1,0 +1,67 @@
+{
+  "_comment": "English edition government resources. Unlike the Korean edition this is a hand-checked list: each URL was opened (HTTP 200) on 2026-11-06. hhs.gov returned 403 to automated requests, so HHS pages are not listed; HIPAA texts are cited from the eCFR instead. Do not describe a page beyond what it shows.",
+  "meta": {
+    "title": "Official U.S. resources for hospital AI decisions",
+    "description": "Official sources behind this site: eCFR, Federal Register, FDA digital health, ONC information blocking, NIST AI RMF and the FTC breach rule.",
+    "pageTitle": "Government resources",
+    "lead": "This page collects the official sources behind the rest of this site, each one opened and checked."
+  },
+  "notice": "This list is not an endorsement and not complete. Pages and rules change; rely on the current text at each source.",
+  "checkedAt": "2026-11-06",
+  "programs": [
+    {
+      "name": "eCFR (Electronic Code of Federal Regulations)",
+      "org": "Office of the Federal Register and GPO",
+      "url": "https://www.ecfr.gov/",
+      "body": "The current text of federal regulations, including 45 CFR Parts 160, 164, 170 and 171. This site cites it for the HIPAA rules, information blocking and the Section 1557 decision support provision.",
+      "audience": "Compliance, privacy and legal staff.",
+      "sourceUrl": "https://www.ecfr.gov/",
+      "sourceLabel": "eCFR home page"
+    },
+    {
+      "name": "Federal Register",
+      "org": "Office of the Federal Register",
+      "url": "https://www.federalregister.gov/",
+      "body": "The daily publication of proposed and final rules, including HHS, FDA and CMS documents. The Calendar page on this site reads new documents from its public API.",
+      "audience": "Compliance, policy and legal staff.",
+      "sourceUrl": "https://www.federalregister.gov/",
+      "sourceLabel": "Federal Register home page"
+    },
+    {
+      "name": "Digital Health Center of Excellence",
+      "org": "FDA",
+      "url": "https://www.fda.gov/medical-devices/digital-health-center-excellence",
+      "body": "FDA’s page on digital health, with links to guidance on software functions and AI-enabled devices.",
+      "audience": "Procurement, clinical engineering and compliance staff.",
+      "sourceUrl": "https://www.fda.gov/medical-devices/digital-health-center-excellence",
+      "sourceLabel": "FDA Digital Health Center of Excellence"
+    },
+    {
+      "name": "Information blocking",
+      "org": "ASTP/ONC (HealthIT.gov)",
+      "url": "https://healthit.gov/information-blocking/",
+      "body": "The federal health IT office’s page on the information blocking regulations in 45 CFR Part 171.",
+      "audience": "Compliance and health IT staff.",
+      "sourceUrl": "https://healthit.gov/information-blocking/",
+      "sourceLabel": "ONC information blocking page"
+    },
+    {
+      "name": "AI Risk Management Framework",
+      "org": "NIST",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "body": "NIST’s voluntary framework for managing AI risks, with a playbook and a generative AI profile. Useful as a common vocabulary with vendors; it is not a legal requirement.",
+      "audience": "Governance committees and IT leaders.",
+      "sourceUrl": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "sourceLabel": "NIST AI RMF page"
+    },
+    {
+      "name": "Health Breach Notification Rule",
+      "org": "Federal Trade Commission",
+      "url": "https://www.ftc.gov/legal-library/browse/rules/health-breach-notification-rule",
+      "body": "The FTC’s page on its Health Breach Notification Rule. It is a different rule from HIPAA’s; check with counsel whether it could apply to a vendor or app you use.",
+      "audience": "Compliance and legal staff.",
+      "sourceUrl": "https://www.ftc.gov/legal-library/browse/rules/health-breach-notification-rule",
+      "sourceLabel": "FTC rule page"
+    }
+  ]
+}

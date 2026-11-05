@@ -1,0 +1,65 @@
+---
+// Federal Register calendar (2026-11-06)
+// New documents are collected automatically from the Federal Register API (scripts/fetch-en-gov.mjs): HHS (including OCR, ASTP/ONC), FDA, CMS and the FTC.
+// ⚠️ These are NEW FEDERAL DOCUMENTS (proposed rules, final rules, notices), not grant programs. Date = publication date, not a deadline.
+import '../../styles/en-guide.css';
+import EnLayout from '../../layouts/EnLayout.astro';
+import EnGuideFoot from '../../components/EnGuideFoot.astro';
+import notices from '../../data/en/gov-notices.json';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = notices.items.slice(0, 20);
+
+const title = 'Federal Register calendar: new HHS, FDA and CMS documents';
+const description =
+'New federal documents on health privacy, health IT, medical devices and payment from the Federal Register. Updated automatically.';
+const sources = [{ label: 'Federal Register (federalregister.gov)', url: 'https://www.federalregister.gov/' }];
+---
+
+<EnLayout title={title} description={description} crumb="Calendar" standalone updated={new Date(notices.updatedAt ?? Date.now())}>
+<h1>Federal Register calendar</h1>
+  <p class="tg-lead">
+Which federal documents came out recently? New documents from HHS, FDA, CMS and the FTC that touch health privacy, health IT, medical devices and health care payment appear here automatically.
+  </p>
+<p class="tg-meta">Shown: {fmtDay.format(new Date())} · Data updated: {notices.updatedAt ? fmtDay.format(new Date(notices.updatedAt)) : 'not yet'}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+<h2 id="h-notice">New documents from the Federal Register</h2>
+    <div class="tg-box tg-warn">
+The date below is the <strong>publication date</strong>, not a compliance deadline. Read the document for its content, duties and effective date. Only the title, type, date and agency are copied.
+    </div>
+    {
+      recent.length > 0 ? (
+        <ol class="tg-tl">
+          {recent.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+<span class="sr-only">(opens in a new tab)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+<p>No matching documents yet.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+<h2 id="h-ms">Upcoming dates</h2>
+    <p>
+Confirmed upcoming dates are listed in the <a href={withBase('/en/dx-roadmap/')}>Roadmap</a> together with the milestones that have already passed.
+    </p>
+  </section>
+
+<EnGuideFoot sources={sources} checked="November 6, 2026" />
+</EnLayout>

@@ -1,0 +1,120 @@
+---
+// Glossary — newly researched from U.S. sources (not a translation)
+//
+// ⚠️ Regulatory entries rest on 45 CFR, FDA and Federal Register pages that were opened;
+//    새로 조사해 썼고, 출처를 실제 접속해 확인했다(src/data/en/content/glossary.json).
+//    고칠 때도 같은 원칙을 지킬 것.
+import EnLayout from '../../layouts/EnLayout.astro';
+import en from '../../i18n/en.json';
+import { glossaryTermsEn, glossaryCategoriesEn } from '../../data/en/glossary';
+import { withBase } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/en/glossary/')}`;
+
+// DefinedTermSet — AI 답변 엔진이 용어 정의를 딥링크로 인용할 수 있게 한다
+const definedTermSet = {
+  '@type': 'DefinedTermSet',
+  '@id': `${pageUrl}#termset`,
+  url: pageUrl,
+  name: en.glossary.pageTitle,
+  description: en.glossary.metaDescription,
+  inLanguage: 'en-US',
+  isPartOf: { '@id': `${siteRoot}/#website-en` },
+  hasDefinedTerm: glossaryTermsEn.map((t) => ({
+    '@type': 'DefinedTerm',
+    '@id': `${pageUrl}#${t.id}`,
+    url: `${pageUrl}#${t.id}`,
+    name: t.term,
+    description: t.definition,
+    termCode: t.id,
+    inDefinedTermSet: { '@id': `${pageUrl}#termset` },
+  })),
+};
+---
+
+<EnLayout
+  title={en.glossary.pageTitle}
+  description={en.glossary.metaDescription}
+  crumb={en.nav.glossary}
+  koPath="/glossary/"
+  twPath="/tw/glossary/"
+  jaPath="/ja/glossary/"
+  idPath="/id/glossary/"
+  ruPath="/ru/glossary/"
+  schema={[definedTermSet]}
+>
+  <h1>{en.glossary.pageTitle}</h1>
+  <p>{en.glossary.pageLead}</p>
+
+  <p class="en-caution">{en.glossary.caution}</p>
+
+<nav class="en-index" aria-label="Term index">
+    <ul>
+      {glossaryTermsEn.map((t) => (
+        <li><a href={`#${t.id}`}>{t.term}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  {glossaryCategoriesEn.map((cat) => {
+    const terms = glossaryTermsEn.filter((t) => t.category === cat);
+    if (terms.length === 0) return null;
+    return (
+      <section>
+        <h2>{cat}</h2>
+        <dl class="en-terms">
+          {terms.map((t) => (
+            <div class="en-term" id={t.id}>
+              <dt>{t.term}</dt>
+              <dd>
+                <p>{t.definition}</p>
+<p class="en-why"><span>Why it matters</span>{t.whyMatters}</p>
+                {t.sources.length > 0 && (
+                  <p class="en-src">
+                    {en.ui.source}:{' '}
+                    {t.sources.map((src, i) => (
+                      <>
+                        {i > 0 && ' / '}
+                        <a class="en-ext" href={src} target="_blank" rel="noopener">
+                          {new URL(src).hostname.replace(/^www\./, '')}
+                          <span class="sr-only"> ({en.ui.external})</span>
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    );
+  })}
+
+  <div class="en-note"><p>{en.glossary.notice}</p></div>
+</EnLayout>
+
+<style>
+  .en-index {
+    border: 1px solid var(--en-border);
+    background: var(--en-surface);
+    padding: 12px 14px;
+    margin: 16px 0 8px;
+  }
+  .en-index ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    font-size: 13.5px;
+  }
+  .en-terms { margin: 0; }
+  .en-term { scroll-margin-top: 4rem; padding: 14px 0; border-bottom: 1px solid var(--en-border); }
+  .en-term dt { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .en-term dd { margin: 0; }
+  .en-why { margin-top: 8px; font-size: 14px; color: var(--en-text-sub); }
+  .en-why span {
+    display: inline-block; margin-right: 8px; padding: 0 8px;
+    background: var(--en-surface-2); border-radius: 3px; font-size: 12.5px;
+  }
+  .en-src { margin-top: 6px; font-size: 12.5px; }
+</style>

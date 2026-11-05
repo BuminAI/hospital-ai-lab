@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "title": "AI adoption review checklist for hospitals",
+    "description": "Questions administration and nursing leaders can ask when a vendor proposes an AI product: purpose, regulatory status, patient data, security, performance, and operations.",
+    "pageTitle": "AI adoption review checklist",
+    "lead": "Use this when you receive a specific proposal. Tick each item when you have a written answer. The items are the author’s list; the pages on data and records give the sections of 45 CFR behind many of them."
+  },
+  "sections": [
+    {
+      "heading": "Purpose and scope",
+      "body": "",
+      "items": [
+        "The job the tool will do is described in one sentence and agreed by the department that will use it.",
+        "Who will use it, and who will be affected by its output, is listed (including nurses and front-desk staff).",
+        "The current process, and what measurement will show whether the tool helps, is written down."
+      ]
+    },
+    {
+      "heading": "Regulatory status",
+      "body": "",
+      "items": [
+        "The vendor states in writing whether it treats the product as a medical device or as non-device clinical decision support, and why.",
+        "If it is an FDA-authorized device, the authorization pathway and intended use are written down, and you have checked that your use matches.",
+        "The vendor says whether there is a predetermined change control plan and what changes it covers.",
+        "You do not treat the FDA list of AI-enabled devices as proof either way, because FDA says it is not comprehensive."
+      ]
+    },
+    {
+      "heading": "Patient data",
+      "body": "",
+      "items": [
+        "Someone has decided whether the vendor is a business associate, and a written agreement meeting 45 CFR 164.504(e) is in place before PHI is shared.",
+        "The vendor lists its subcontractors that touch PHI, and says where data is processed and how it is deleted.",
+        "The vendor’s planned use of your data, including any use to improve its own product, is stated and checked against the agreement.",
+        "If data is de-identified, the method (expert determination or removal of listed identifiers) is documented."
+      ]
+    },
+    {
+      "heading": "Security and incidents",
+      "body": "",
+      "items": [
+        "The risk analysis was updated to include the new system.",
+        "Audit logs exist for systems that hold ePHI and someone reviews them regularly.",
+        "The contract sets a vendor breach-notice period shorter than the 60-day outer limit, and names a 24-hour contact.",
+        "The hospital’s incident record shows who decides and who files notices to patients, HHS and the media."
+      ]
+    },
+    {
+      "heading": "Performance and fairness",
+      "body": "",
+      "items": [
+        "The vendor describes how the tool was tested, on which patients, and how that compares with your population.",
+        "You know whether the tool uses race, color, national origin, sex, age or disability as an input, and a mitigation step is recorded (45 CFR 92.210).",
+        "A plan exists to watch the tool’s performance after go-live, and a person who can switch it off."
+      ]
+    },
+    {
+      "heading": "Operations and people",
+      "body": "",
+      "items": [
+        "It is clear what changes for nurses and administrative staff, and who gets additional work.",
+        "Staff are trained on the policy for the tool, and the training is documented.",
+        "The exit plan, including return or deletion of data, is written into the contract."
+      ]
+    }
+  ]
+}

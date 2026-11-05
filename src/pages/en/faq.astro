@@ -1,0 +1,81 @@
+---
+// FAQ — newly written for the U.S. (not a translation)
+import EnLayout from '../../layouts/EnLayout.astro';
+import en from '../../i18n/en.json';
+import { faqItemsEn } from '../../data/en/faq';
+import { withBase } from '../../utils/site';
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/en/faq/')}`;
+
+// FAQPage — AI 답변 엔진이 Q&A 쌍을 그대로 인용할 수 있게 한다.
+// 답변이 <details> 안에 실제로 렌더되므로 '숨겨진 콘텐츠 마크업'이 아니다.
+const faqPage = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'en-US',
+  isPartOf: { '@id': `${siteRoot}/#website-en` },
+  mainEntity: faqItemsEn.map((it, i) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#q${i + 1}`,
+    name: it.question,
+    acceptedAnswer: { '@type': 'Answer', text: it.answer },
+  })),
+};
+---
+
+<EnLayout
+  title="FAQ: AI in a U.S. hospital"
+  description={en.faq.metaDescription}
+  crumb={en.nav.faq}
+  koPath="/faq/"
+  twPath="/tw/faq/"
+  jaPath="/ja/faq/"
+  idPath="/id/faq/"
+  ruPath="/ru/faq/"
+  schema={[faqPage]}
+>
+  <h1>{en.faq.pageTitle}</h1>
+  <p>{en.faq.pageLead}</p>
+
+  <div class="en-faq">
+    {faqItemsEn.map((item) => (
+      <details class="en-faq-item">
+        <summary>{item.question}</summary>
+        <div class="en-faq-a">
+          <p>{item.answer}</p>
+          {item.sources.length > 0 && (
+            <p class="en-src">
+              {en.ui.source}:{' '}
+              {item.sources.map((src, i) => (
+                <>
+                  {i > 0 && ' / '}
+                  <a class="en-ext" href={src} target="_blank" rel="noopener">
+                    {new URL(src).hostname.replace(/^www\./, '')}
+                    <span class="sr-only"> ({en.ui.external})</span>
+                  </a>
+                </>
+              ))}
+            </p>
+          )}
+        </div>
+      </details>
+    ))}
+  </div>
+
+  <div class="en-note"><p>{en.faq.notice}</p></div>
+</EnLayout>
+
+<style>
+  .en-faq { margin-top: 16px; border-top: 1px solid var(--en-border); }
+  .en-faq-item { border-bottom: 1px solid var(--en-border); }
+  .en-faq-item summary {
+    cursor: pointer; padding: 14px 4px; font-size: 15px; line-height: 1.7;
+    list-style-position: outside;
+  }
+  .en-faq-item summary:hover { color: var(--en-primary); }
+  .en-faq-item[open] summary { color: var(--en-primary); }
+  .en-faq-a { padding: 0 4px 16px; }
+  .en-src { margin-top: 8px; font-size: 12.5px; }
+</style>

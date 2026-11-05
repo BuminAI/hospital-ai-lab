@@ -1,0 +1,114 @@
+---
+// Blog — list of the English edition. ko↔en posts are independent writing, not translations, so
+// hreflang을 걸지 않는다(뉴스 목록과 같은 이유, HANDOFF.md 5-3절 참고).
+import { getCollection } from 'astro:content';
+import EnLayout from '../../../layouts/EnLayout.astro';
+import en from '../../../i18n/en.json';
+import { withBase } from '../../../utils/site';
+
+const posts = (await getCollection('blogEn', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// CollectionPage + ItemList — AI 답변 엔진이 "이 블로그에 어떤 글이 있는가"를
+// 순서대로 읽을 수 있게 한다(ko blog/category 페이지와 같은 패턴).
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/en/blog/')}`;
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: en.nav.blog,
+  inLanguage: 'en-US',
+  isPartOf: { '@id': `${siteUrl}/#website-en` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: post.data.title,
+      url: `${siteUrl}${withBase(`/en/blog/${post.id}/`)}`,
+    })),
+  },
+};
+---
+
+<EnLayout
+  title="Blog: AI in the hospital — rules, data, practice"
+  description="Columns on the regulation of medical AI in the United States: HIPAA, FDA device software, information blocking and new federal rules."
+  crumb={en.nav.blog}
+  koPath="/blog/"
+  twPath="/tw/blog/"
+  jaPath="/ja/blog/"
+  idPath="/id/blog/"
+  ruPath="/ru/blog/"
+  schema={[collectionPage]}
+>
+  <h1>{en.nav.blog}</h1>
+  <p class="en-lead">
+    Columns on the practical questions of adopting AI in hospitals, based on
+    checked sources about U.S. regulation.
+  </p>
+
+  {
+    posts.length > 0 ? (
+      <ul class="en-blog-list">
+        {posts.map((post) => (
+          <li>
+            <a class="en-blog-title" href={withBase(`/en/blog/${post.id}/`)}>
+              {post.data.title}
+            </a>
+            <p class="en-blog-desc">{post.data.description}</p>
+            <span class="en-blog-meta">
+              {post.data.category} · <time datetime={post.data.pubDate.toISOString()}>{fmt.format(post.data.pubDate)}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="en-empty">{en.ui.noItems}</p>
+    )
+  }
+</EnLayout>
+
+<style>
+  .en-lead {
+    color: var(--en-text-sub);
+  }
+  .en-blog-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--en-border);
+  }
+  .en-blog-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--en-border);
+  }
+  .en-blog-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--en-primary);
+    line-height: 1.6;
+  }
+  .en-blog-desc {
+    margin-top: 6px;
+    font-size: 13.5px;
+    color: var(--en-text-sub);
+    line-height: 1.75;
+  }
+  .en-blog-meta {
+    display: block;
+    margin-top: 6px;
+    font-size: 12.5px;
+    color: var(--en-text-sub);
+  }
+  .en-empty {
+    margin-top: 20px;
+    color: var(--en-text-sub);
+  }
+</style>

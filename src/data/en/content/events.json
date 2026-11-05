@@ -1,0 +1,49 @@
+{
+  "_comment": "English edition training and learning resources. Hand-checked: each URL was opened on 2026-11-06. This is a list of standing official resources, not a calendar of events; the English edition does not auto-collect events.",
+  "meta": {
+    "title": "Training and learning resources for hospital AI governance",
+    "description": "Official training and guidance resources from FDA, NIST and ONC that hospital administrators and IT teams use to learn about AI and HIPAA security.",
+    "pageTitle": "Training and learning resources",
+    "lead": "There is no single official events calendar for hospital AI. Here are standing resources from official sources, each opened and checked."
+  },
+  "notice": "Standing resources, not scheduled events. Check each page for what it currently offers.",
+  "checkedAt": "2026-11-06",
+  "items": [
+    {
+      "name": "CDRH Learn",
+      "org": "FDA",
+      "url": "https://www.fda.gov/training-and-continuing-education/cdrh-learn",
+      "body": "FDA’s training resource for the medical device center. Check the page for current modules.",
+      "audience": "Procurement and clinical engineering staff.",
+      "sourceUrl": "https://www.fda.gov/training-and-continuing-education/cdrh-learn",
+      "sourceLabel": "CDRH Learn page"
+    },
+    {
+      "name": "NIST AI RMF Playbook",
+      "org": "NIST",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+      "body": "A companion resource to the AI Risk Management Framework with suggested actions for managing AI risk.",
+      "audience": "Governance committees and IT leaders.",
+      "sourceUrl": "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+      "sourceLabel": "NIST AI RMF Playbook"
+    },
+    {
+      "name": "Implementing the HIPAA Security Rule (SP 800-66 Rev. 2)",
+      "org": "NIST",
+      "url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "body": "A NIST publication on implementing the HIPAA Security Rule, useful for IT and compliance teams doing a risk analysis.",
+      "audience": "IT security and compliance staff.",
+      "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "sourceLabel": "NIST SP 800-66 Rev. 2"
+    },
+    {
+      "name": "Information blocking resources",
+      "org": "ASTP/ONC (HealthIT.gov)",
+      "url": "https://healthit.gov/information-blocking/",
+      "body": "The federal health IT office’s materials on information blocking.",
+      "audience": "Compliance and health IT staff.",
+      "sourceUrl": "https://healthit.gov/information-blocking/",
+      "sourceLabel": "ONC information blocking page"
+    }
+  ]
+}

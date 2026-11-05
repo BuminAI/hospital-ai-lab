@@ -1,0 +1,40 @@
+---
+// Practice guides (for hospital staff) — overview page (2026-11-06)
+import '../../styles/en-guide.css';
+import EnLayout from '../../layouts/EnLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = 'Practice guides: patient data, records and AI for administrators';
+const description =
+'A roadmap, checklists on patient data and records, a Federal Register calendar, templates and key facts, written from primary texts for hospital administration and nursing leaders.';
+
+const cards = [
+{ href: '/en/facts/', t: 'Key facts', d: 'Short answers with the section and a link to the primary source: privacy, breach notice, security, vendors, FDA.' },
+{ href: '/en/dx-roadmap/', t: 'Roadmap', d: 'HIPAA, information blocking, Section 1557, FDA guidance and HTI-5 on one timeline.' },
+{ href: '/en/data-checklist/', t: 'Patient data protection checklist', d: 'Permitted uses, business associates, Security Rule safeguards, breaches.' },
+{ href: '/en/documents-checklist/', t: 'Checklist: records and AI vendors', d: 'Access timing, information blocking, FDA status and HTI-5.' },
+{ href: '/en/calendar/', t: 'Federal Register calendar', d: 'New HHS, FDA and CMS documents from the Federal Register.' },
+{ href: '/en/templates/', t: 'Templates', d: 'Generative AI policy, 20 vendor questions, patient text, incident record.' },
+{ href: '/en/checklist/', t: 'AI adoption checklist', d: 'A list for assessing proposals from AI vendors.' },
+];
+---
+
+<EnLayout title={title} description={description} crumb="Practice guides" standalone>
+<h1>Practice guides</h1>
+  <p class="tg-lead">
+For administration, planning and nursing leadership: material you can use tomorrow. Rules are written after the texts were opened and read (the eCFR, the Federal Register, FDA pages); each page shows its sources and the date they were checked.
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+Explanations for patients and their families are in <a href={withBase('/en/patients/')}>For patients</a>; front-desk staff can use them too.
+  </p>
+</EnLayout>

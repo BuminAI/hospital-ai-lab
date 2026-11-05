@@ -12,6 +12,32 @@ import type { SeriesDef } from './series';
 import type { Loc } from '../utils/locale';
 
 export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
+  en: [
+    {
+      slug: 'regulatory-status',
+      title: 'FDA status and certification',
+      description:
+        'How to check whether an AI product is a medical device, what a predetermined change control plan means, and what the October 2026 HTI-5 rule changes for decision support in certified EHRs. Articles are in a suggested reading order.',
+      checklist: { href: '/en/checklist/', label: 'AI adoption review checklist' },
+      postIds: [
+        '2026-11-06-fda-cds-guidance-vendor-questions',
+        '2026-11-06-fda-pccp-ai-device-changes',
+        '2026-11-06-hti-5-decision-support-rule',
+      ],
+    },
+    {
+      slug: 'data-and-security',
+      title: 'Patient data and security',
+      description:
+        'The 60-day breach clock and your AI vendor, what a business associate agreement must say, and what applies while the HIPAA Security Rule rewrite is still a proposal. Articles are in a suggested reading order.',
+      checklist: { href: '/en/data-checklist/', label: 'Patient data protection checklist' },
+      postIds: [
+        '2026-11-06-hipaa-breach-60-day-clock-ai-vendors',
+        '2026-11-06-business-associate-agreement-ai-vendor',
+        '2026-11-06-hipaa-security-rule-proposal-status',
+      ],
+    },
+  ],
   ja: [
     {
       slug: 'ai-devices-and-rules',

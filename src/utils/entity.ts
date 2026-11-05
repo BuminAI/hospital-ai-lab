@@ -15,7 +15,7 @@ import { YOUTUBE_CHANNEL_URL } from './site';
 const ORG_NAMES = ['병원 AI 연구소', '病院AI研究所', 'Лаборатория ИИ для больниц', 'Hospital AI Lab'];
 
 // 이 사이트가 실제로 글을 내는 언어(ISO 639 / BCP 47).
-const SITE_LANGUAGES = ['ko', 'ja', 'ru', 'id', 'zh-TW'];
+const SITE_LANGUAGES = ['ko', 'ja', 'ru', 'id', 'zh-TW', 'en'];
 
 interface OrgSharedOptions {
   /** 사이트 루트 URL(끝 슬래시 없음) */
