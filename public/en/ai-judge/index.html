@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI Program Review Room</title>
+<meta name="description" content="A free tool: upload the source code of a work program you built with AI, and 14 checks of safety, reliability, usability, maintainability and portability run automatically, with a score out of 100 and a grade of S, A, B or C. PDFs and documents are not reviewed.">
+<meta name="theme-color" content="#0e141d">
+<link rel="canonical" href="https://hospital-ai-lab.com/en/ai-judge/">
+<link rel="alternate" hreflang="ko" href="https://hospital-ai-lab.com/ai-judge/">
+<link rel="alternate" hreflang="ja" href="https://hospital-ai-lab.com/ja/ai-judge/">
+<link rel="alternate" hreflang="ru" href="https://hospital-ai-lab.com/ru/ai-judge/">
+<link rel="alternate" hreflang="id" href="https://hospital-ai-lab.com/id/ai-judge/">
+<link rel="alternate" hreflang="zh-TW" href="https://hospital-ai-lab.com/tw/ai-judge/">
+<link rel="alternate" hreflang="en" href="https://hospital-ai-lab.com/en/ai-judge/">
+<link rel="alternate" hreflang="x-default" href="https://hospital-ai-lab.com/ai-judge/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hospital AI Lab">
+<meta property="og:title" content="AI Program Review Room · Hospital AI Lab">
+<meta property="og:description" content="A free tool: upload the source code of a work program you built with AI, and 14 checks of safety, reliability, usability, maintainability and portability run automatically, with a score out of 100 and a grade of S, A, B or C. PDFs and documents are not reviewed.">
+<meta property="og:url" content="https://hospital-ai-lab.com/en/ai-judge/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hospital-ai-lab.com/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hospital AI Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Program Review Room · Hospital AI Lab">
+<meta name="twitter:description" content="A free tool: upload the source code of a work program you built with AI, and 14 checks of safety, reliability, usability, maintainability and portability run automatically, with a score out of 100 and a grade of S, A, B or C. PDFs and documents are not reviewed.">
+<meta name="twitter:image" content="https://hospital-ai-lab.com/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://hospital-ai-lab.com/en/ai-judge/#webpage","url":"https://hospital-ai-lab.com/en/ai-judge/","name":"AI Program Review Room","description":"A free tool: upload the source code of a work program you built with AI, and 14 checks of safety, reliability, usability, maintainability and portability run automatically, with a score out of 100 and a grade of S, A, B or C. PDFs and documents are not reviewed.","inLanguage":"en-US","isPartOf":{"@id":"https://hospital-ai-lab.com/#website-en"},"breadcrumb":{"@id":"https://hospital-ai-lab.com/en/ai-judge/#breadcrumb"},"about":{"@id":"https://hospital-ai-lab.com/#organization"}},{"@type":"BreadcrumbList","@id":"https://hospital-ai-lab.com/en/ai-judge/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://hospital-ai-lab.com/en/"},{"@type":"ListItem","position":2,"name":"AI Program Review","item":"https://hospital-ai-lab.com/en/ai-judge/"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
+<style>
+/* Layout: upload + short questions, result in a popup, report and public rubric below */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --ink:#0e141d; --muted:#566173; --line:#d8dde6; --soft:#e9edf3;
+  --accent:#0e141d; --accent-ink:#ffffff; --focus:#2f5fd0;
+  --prog:#b9471f; --mid:#0f6e64; --cons:#2a4f9a;
+  --gS:#9a6400; --gS-bg:#fbf0d6; --gA:#17694a; --gA-bg:#dff1e7; --gB:#2a4f9a; --gB-bg:#e2e9f7; --gC:#5f6673; --gC-bg:#e9ebef;
+  --warn:#9a3a12; --warn-bg:#fbe8de; --ok:#17694a; --ok-bg:#dff1e7;
+  --sans:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e141d; --surface:#151d29; --ink:#e6ebf2; --muted:#9aa6b8; --line:#2a3546; --soft:#1c2634;
+  --accent:#e6ebf2; --accent-ink:#0e141d; --focus:#7fa2ff;
+  --prog:#f0936c; --mid:#5cc7b8; --cons:#8fb0f2;
+  --gS:#f1c35c; --gS-bg:#382d14; --gA:#74d2a4; --gA-bg:#163327; --gB:#9fbaf0; --gB-bg:#1b2944; --gC:#a9b0bc; --gC-bg:#242b36;
+  --warn:#f3a27c; --warn-bg:#3a2219; --ok:#74d2a4; --ok-bg:#163327; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e141d; --surface:#151d29; --ink:#e6ebf2; --muted:#9aa6b8; --line:#2a3546; --soft:#1c2634;
+  --accent:#e6ebf2; --accent-ink:#0e141d; --focus:#7fa2ff;
+  --prog:#f0936c; --mid:#5cc7b8; --cons:#8fb0f2;
+  --gS:#f1c35c; --gS-bg:#382d14; --gA:#74d2a4; --gA-bg:#163327; --gB:#9fbaf0; --gB-bg:#1b2944; --gC:#a9b0bc; --gC-bg:#242b36;
+  --warn:#f3a27c; --warn-bg:#3a2219; --ok:#74d2a4; --ok-bg:#163327; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}
+a{color:inherit}
+code,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+code{font-size:.9em;background:var(--soft);border-radius:4px;padding:0 4px;word-break:break-all}
+h1,h2,h3{margin:0;text-wrap:balance}
+.topbar{border-bottom:1px solid var(--line);background:var(--surface)}
+.topbar .in{max-width:1200px;margin:0 auto;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px}
+.topbar a{text-decoration:none;color:var(--muted)} .topbar a:hover{color:var(--ink)}
+.wrap{max-width:1200px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+header.hero{display:grid;gap:6px;border-bottom:2px solid var(--ink);padding-bottom:18px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted)}
+h1{font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.015em}
+.lede{color:var(--muted);max-width:72ch;margin:0}
+.pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pill{font-size:12.5px;background:var(--soft);border-radius:999px;padding:3px 10px;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:920px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:16px;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+h2{font-size:18px;font-weight:700}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;font-size:13.5px;font-weight:600;border-radius:6px;padding:7px 14px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.example-note{font-size:13px;color:var(--warn);background:var(--warn-bg);border-radius:6px;padding:7px 10px;margin:0}
+
+.field{display:grid;gap:5px;min-width:0}
+.field>label,.q-title{font-size:14px;font-weight:600}
+input[type=text],input[type=number]{width:100%;font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.row2,.row3{grid-template-columns:1fr}}
+.hint{font-size:12.5px;color:var(--muted);font-weight:400}
+
+.drop{border:2px dashed var(--line);border-radius:10px;padding:20px;display:grid;gap:8px;justify-items:center;text-align:center;background:var(--bg);transition:border-color .15s}
+.drop.over{border-color:var(--focus)}
+.drop b{font-size:15px}
+.files{display:grid;gap:6px}
+.file{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:7px;padding:7px 10px;font-size:13.5px}
+.file .ty{font-family:var(--mono);font-size:11.5px;font-weight:600;border-radius:4px;padding:1px 6px;background:var(--soft);color:var(--muted);text-transform:uppercase}
+.file .nm{overflow-wrap:anywhere}
+.file button{padding:2px 8px;font-size:12px}
+
+.area{border-top:1px solid var(--line);padding-top:16px;display:grid;gap:14px}
+.area-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.area-head h3{font-size:15.5px}
+.area-head .pts{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.q{display:grid;gap:6px;border:0;padding:0;margin:0;min-width:0}
+.q legend{padding:0;margin-bottom:6px}
+.opts{display:grid;gap:6px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:7px;padding:8px 10px;cursor:pointer;font-size:14px;background:var(--bg)}
+.opt input{margin:3px 0 0;accent-color:var(--ink)}
+.opt:has(input:checked){border-color:var(--ink);background:var(--soft)}
+.opts.inline{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+.calc{font-size:13px;color:var(--muted);background:var(--soft);border-radius:6px;padding:7px 10px}
+.auto{font-size:13px;color:var(--muted);background:var(--soft);border-radius:6px;padding:8px 10px}
+
+/* result */
+dialog.resdlg{width:min(860px,calc(100vw - 24px));max-height:calc(100vh - 24px);padding:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:inherit;overflow:auto}
+dialog.resdlg::backdrop{background:rgba(0,0,0,.5)}
+dialog.resdlg .in{padding:18px 20px 22px}
+.submitbar{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.submitbar .go{font-weight:700;font-size:15px;border-radius:8px;padding:11px 18px;cursor:pointer;background:var(--accent);color:var(--accent-ink);border:0}
+.submitbar .go:disabled{opacity:.5;cursor:not-allowed}
+@media (max-width:920px){.result{position:static}}
+#result{display:grid;gap:12px}
+.verdict{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;border-radius:10px;padding:16px;background:var(--soft)}
+.badge{width:76px;height:76px;border-radius:10px;display:grid;place-items:center;font-size:38px;font-weight:700;font-family:var(--mono);background:var(--g-bg);color:var(--g)}
+.g-S{--g:var(--gS);--g-bg:var(--gS-bg)} .g-A{--g:var(--gA);--g-bg:var(--gA-bg)} .g-B{--g:var(--gB);--g-bg:var(--gB-bg)} .g-C{--g:var(--gC);--g-bg:var(--gC-bg)} .g-H{--g:var(--warn);--g-bg:var(--warn-bg)}
+.verdict .big{font-size:22px;font-weight:700;line-height:1.3}
+.verdict .sub{font-size:13px;color:var(--muted)}
+.judges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.judge{border:1px solid var(--line);border-top:4px solid var(--jc);border-radius:8px;padding:10px;display:grid;gap:2px;min-width:0}
+.judge .n{font-size:13px;font-weight:700;color:var(--jc)}
+.judge .s{font-size:26px;font-weight:600;line-height:1.15}
+.judge .g{font-size:12.5px;color:var(--muted)}
+.j-prog{--jc:var(--prog)} .j-mid{--jc:var(--mid)} .j-cons{--jc:var(--cons)}
+.flags{display:grid;gap:6px}
+.flag{font-size:13px;border-radius:6px;padding:7px 10px;background:var(--warn-bg);color:var(--warn)}
+.flag.ok{background:var(--ok-bg);color:var(--ok)}
+.flag.info{background:var(--soft);color:var(--muted)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+tr:last-child td{border-bottom:0}
+thead th{background:var(--soft);font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap}
+.c{text-align:center}
+.src{font-size:11px;font-weight:600;border-radius:3px;padding:0 5px;margin-left:4px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.lv{display:inline-block;min-width:40px;text-align:center;font-weight:600;border-radius:4px;padding:0 6px;font-size:12.5px}
+.lv0{background:var(--ok-bg);color:var(--ok)} .lv1{background:var(--gB-bg);color:var(--gB)} .lv2{background:var(--gS-bg);color:var(--gS)} .lv3{background:var(--warn-bg);color:var(--warn)}
+tr.gap td{background:color-mix(in srgb,var(--warn-bg) 60%,transparent)}
+details{border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+details summary{cursor:pointer;font-weight:600;font-size:14px}
+.why{display:grid;gap:8px;margin-top:10px;font-size:13.5px}
+.why div{display:grid;gap:1px}
+.why .adj{color:var(--jc)}
+.status{font-size:12.5px;color:var(--muted);margin:0}
+
+/* report */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.metric{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:2px}
+.metric .k{font-size:12.5px;color:var(--muted)}
+.metric .v{font-size:20px;font-weight:600}
+.find{display:grid;gap:8px}
+.fgroup{border:1px solid var(--line);border-left:4px solid var(--fc);border-radius:8px;padding:10px 12px;display:grid;gap:4px;font-size:13.5px}
+.fgroup h3{font-size:14px;color:var(--fc)}
+.fgroup ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.f-bad{--fc:var(--warn)} .f-ok{--fc:var(--ok)} .f-info{--fc:var(--muted)}
+
+/* rubric */
+.pay{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.pay{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pay-card{border-radius:8px;padding:12px;background:var(--g-bg);color:var(--g);display:grid;gap:4px}
+.pay-card .gg{font-family:var(--mono);font-size:24px;font-weight:700}
+.pay-card .rng{font-size:12.5px}
+.pay-card label{font-size:12px}
+.pay-card input{padding:5px 8px;font-size:13.5px;background:var(--surface)}
+.rubric td:first-child{white-space:nowrap;font-weight:600}
+.rubric .pt{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.rules{grid-template-columns:minmax(0,1fr)}}
+.rule{border:1px solid var(--line);border-top:4px solid var(--jc);border-radius:8px;padding:12px 14px;font-size:13.5px}
+.rule h3{color:var(--jc);font-size:15px;margin-bottom:4px}
+.rule ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px}
+.steps{margin:0;padding-left:20px;display:grid;gap:4px;font-size:14px}
+footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.sandbox{position:absolute;left:-9999px;top:0;width:800px;height:600px;border:0}
+
+.mbar{display:none}
+.mbar button{font:inherit;font-weight:600;border:0;background:none;color:var(--accent);cursor:pointer}
+@media (max-width:920px){
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:12px;align-items:center;justify-content:space-between;background:var(--surface);border-top:1px solid var(--line);padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:14px}
+  .mbar b{font-family:var(--mono)}
+  body{padding-bottom:64px}
+}
+@media print{body>*:not(dialog){display:none!important}dialog.resdlg{position:static;display:block;width:auto;max-height:none;border:0;overflow:visible}dialog.resdlg .btns{display:none}dialog.resdlg::backdrop{display:none}body{background:#fff}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* review v2: gate list, criterion table, kind tags */
+.gate{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.gate li{font-size:13.5px;padding-left:22px;position:relative}
+.gate li::before{position:absolute;left:0;font-weight:700}
+.gate li.ok::before{content:'¹3';color:var(--ok)} .gate li.no::before{content:'¹5';color:var(--warn)} .gate li.info::before{content:'i';color:var(--muted)}
+.file.unsup{opacity:.75;border-style:dashed}
+tr.areahead td{background:var(--soft);font-size:13px}
+.kind{display:inline-block;font-size:11px;font-weight:600;border-radius:4px;padding:0 6px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.k0{background:var(--ok-bg);color:var(--ok)} .k1{background:var(--gB-bg);color:var(--gB)} .k2{background:var(--gS-bg);color:var(--gS)}
+.rubric td:first-child{white-space:normal}
+</style>
+</head>
+<body>
+<nav class="topbar" aria-label="Site"><div class="in"><a href="/en/">← Back to home</a><span class="hint">AI Program Review Room · free tool</span></div></nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">AI PROGRAM REVIEW</div>
+    <h1>AI Program Review Room</h1>
+    <p class="lede">Upload the source code of a work program you built with AI. The tool first confirms that it really is a program, then analyzes and runs the code automatically and checks safety, reliability, usability, maintainability and portability in 14 items. The score is set only by facts found in the code, so the same code always gets the same score and result ID, and entries such as the program name, the submitter and a manual do not affect the score. All criteria and point values are published below.</p>
+    <div class="pill-row"><span class="pill">Only program code is reviewed · PDFs and documents are not</span><span class="pill">No AI calls · same file, same score</span><span class="pill" id="privacyPill">Analysis runs inside this browser</span></div>
+  </header>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="formTitle">
+      <div class="panel-head"><h2 id="formTitle">Submission</h2>
+        <div class="btns"><button type="button" id="exampleBtn">Load example</button><button type="button" id="resetBtn">Clear all</button></div></div>
+      <p class="example-note" id="exampleNote">An example program, &quot;Leave day counter,&quot; is loaded now. Press &quot;Clear all,&quot; then upload the program you want reviewed.</p>
+      <form id="form" novalidate>
+        <div class="row2">
+          <div class="field"><label for="name">Program name</label><input type="text" id="name" autocomplete="off"></div>
+          <div class="field"><label for="author">Submitter · department</label><input type="text" id="author" autocomplete="off"></div>
+        </div>
+        <p class="hint">The program name, submitter and department are for the record and do not affect the score.</p>
+
+        <div class="area">
+          <div class="area-head"><h3>1. Program files</h3><span class="pts">Automatic checks: safety · reliability · usability · maintainability · portability</span></div>
+          <div class="drop" id="drop">
+            <b>Drag files or a ZIP here</b>
+            <span class="hint">HTML (with scripts) · JS · Apps Script (.gs) · Python · notebook (.ipynb) · ZIP</span>
+            <label class="primary" style="display:inline-block"><input type="file" id="fileInput" multiple accept=".html,.htm,.js,.mjs,.ts,.gs,.py,.ipynb,.txt,.md,.json,.csv,.zip" hidden><span style="display:inline-block;font-weight:600;font-size:13.5px;border-radius:6px;padding:7px 14px;cursor:pointer;background:var(--accent);color:var(--accent-ink)">Choose files</span></label>
+            <span class="hint">Only program source code is reviewed. PDF, Word, Excel, images and explanatory documents are not reviewed and do not count toward the score. Up to 2 MB per file and 200 files.</span>
+          </div>
+          <div class="files" id="fileList"></div>
+          <p class="status" id="analyzeStatus" aria-live="polite"></p>
+        </div>
+        <div id="questions"></div>
+        <div class="submitbar">
+          <button type="button" class="go" id="showBtn" disabled>See review result</button>
+          <p class="status" id="readyNote" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="repTitle">
+    <div class="panel-head"><h2 id="repTitle">Automatic analysis report</h2><span class="hint">Evidence found in the uploaded files · with line numbers</span></div>
+    <div id="report"><p class="status">The analysis result appears here once you upload files.</p></div>
+  </section>
+
+  <section class="panel" id="rubricSec" aria-labelledby="rubTitle">
+    <div class="panel-head"><h2 id="rubTitle">Score table and review rules</h2><span class="hint" id="rubVer">All criteria are public</span></div>
+    <ol class="steps">
+      <li>First it checks whether the upload can be reviewed. It must be a program that contains code that actually runs (scripts in HTML, or JS, Apps Script, Python and the like). PDFs, documents, images and HTML with only a screen are marked &quot;not subject to review,&quot; get no score and are not sent to the operator. (It does not decide whether AI made it; it only confirms that it is a program.)</li>
+      <li>Mandatory requirement: if the code contains a value that looks like an API key, a password or personal data, the grade is not set and the review is put on hold, whatever the score.</li>
+      <li>14 items, 100 points at most: safety 35, reliability 30, usability 15, maintainability 10, portability 10. All points are calculated only from facts found in the uploaded code (with file and line evidence); the points and the rule for each item are published below.</li>
+      <li>The grade is set from the points (S from 90, A from 75, B from 60). If there is a runtime error the grade is capped at B, and if the execution check could not be done, S is not given.</li>
+      <li>The same code always gets the same score and the same result ID (a fingerprint made from the code and the scoring-rules version). Anything the submitter writes, such as the program name, submitter, department or a manual, is not used in the score at all.</li>
+    </ol>
+    <div class="tbl"><table class="rubric" id="rubric"></table></div>
+    <div class="tbl"><table id="gradeTable"></table></div>
+    <div class="pay" id="payCards"></div>
+    <p class="status">Reward amounts differ by organization, so enter your own. What you enter is saved only in this browser.</p>
+    <p class="status">The automatic analysis judges by text-matching rules, so it can miss things or catch the wrong ones. Use the result as supporting material for a reviewer’s judgment.</p>
+  </section>
+
+  <footer><span>AI Program Review Room · these scoring rules are free to refer to and reuse.</span><a href="/en/">Back to home</a></footer>
+</div>
+
+<dialog class="resdlg" id="resDialog" aria-labelledby="resTitle"><div class="in">
+  <div class="panel-head"><h2 id="resTitle">Review result</h2>
+    <div class="btns"><button type="button" id="copyBtn">Copy result</button><button type="button" id="printBtn">Save as PDF</button><button type="button" id="closeBtn">Close</button></div></div>
+  <p class="hint">This result is made only in your browser and is not sent to the operator as a PDF. &quot;Save as PDF&quot; opens the print window; choose &quot;Save as PDF&quot; as the destination (printer).</p>
+  <div id="result" aria-live="polite"></div>
+  <p class="status" id="status"></p>
+</div></dialog>
+<div class="mbar" aria-hidden="true"><span id="mbarText">–</span><button type="button" id="mbarBtn">See result</button></div>
+
+<!-- example program (for the load-example button) -->
+<template id="exHtml"><!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Leave day counter</title></head>
+<body>
+  <h2>Leave day counter</h2>
+  <p>Pick a start date and an end date and the program counts the days of leave without weekends and holidays.</p>
+  <label for="start">Start date</label>
+  <input type="date" id="start" required>
+  <label for="end">End date</label>
+  <input type="date" id="end" required>
+  <label for="holidays">Holidays (separated by commas)</label>
+  <input type="text" id="holidays" placeholder="e.g. 2026-07-03, 2026-09-07">
+  <button id="calcBtn">Calculate</button>
+  <p id="out"></p>
+  <script>
+    // Setting: where to save the result file
+    const SAVE_DIR = "C:\\Users\\hong\\Desktop\\Leave";
+    // Check whether it is a weekend (Saturday, Sunday)
+    function isWeekend(d) { return d.getDay() === 0 || d.getDay() === 6; }
+    // Turn the holiday string into a list of dates
+    function parseHolidays(text) {
+      if (!text.trim()) return [];
+      return text.split(",").map(s => s.trim()).filter(s => s.length > 0);
+    }
+    // Count the working days between two dates
+    function countDays(start, end, holidays) {
+      let n = 0;
+      for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+        const key = d.toISOString().slice(0, 10);
+        if (!isWeekend(d) && !holidays.includes(key)) n++;
+      }
+      return n;
+    }
+    document.getElementById("calcBtn").addEventListener("click", () => {
+      const out = document.getElementById("out");
+      try {
+        const s = document.getElementById("start").value;
+        const e = document.getElementById("end").value;
+        if (!s || !e) { out.textContent = "Choose both a start date and an end date."; return; }
+        const start = new Date(s), end = new Date(e);
+        if (isNaN(start) || isNaN(end)) { out.textContent = "The date format is not valid."; return; }
+        if (start > end) { out.textContent = "The end date is earlier than the start date."; return; }
+        const days = countDays(start, end, parseHolidays(document.getElementById("holidays").value));
+        out.textContent = "Days of leave: " + days + " days";
+      } catch (err) {
+        out.textContent = "Something went wrong in the calculation. Please check your entries.";
+      }
+    });
+    // TODO: Add half-day (0.5 day) calculation
+  </script>
+</body>
+</html></template>
+
+<script>
+/* ================= Submission settings =================
+   'supabase': files of consenting visitors are stored privately (ZIP) and downloaded from the admin dashboard
+   (needs supabase/setup.sql). Review results are never stored. Empty string turns sending off.
+   This file is generated: edit scripts/ai-judge/template.html and lang/*.py, then run build.py.
+
+   REVIEW DESIGN (rubric v2, 2026-10-28)
+   1. Gate: only real program code is scored. PDFs, documents, images and static pages are "not a program".
+   2. Required checks (secrets, personal data) decide HOLD. Everything else is points.
+   3. Points come only from facts found in the uploaded code (file:line evidence). Names, README, answers: never used.
+   4. One fixed rubric, no judges: same code + same rubric version = same result ID and same score. */
+const SUBMIT_URL = 'supabase';
+const RUBRIC_VER = 'v2.0 (2026-10-28)';
+
+/* ================= Strings (per language) ================= */
+const T={"none":"None","loc":"en-US","cur":"","gl":["90 points or more","75 to 89.9 points","60 to 74.9 points","Under 60 · fix and resubmit"],"ex_name":"Leave day counter","ex_author":"HR team, Jane Doe (example)","s4_title":"4. Consent to submit","s4_pts":"Required","consent_lines":["When you get a review, the files you uploaded are passed to the operator of this site and kept.","· What is sent: program name, submitter · department, the uploaded files, grade and score (the result PDF is not sent)","· Purpose: checking the review record and improving the review criteria","· If a value that looks like an API key or password is present, nothing is sent. Remove it and upload again.","· Retention: deleted one month after the submission date. If you want it deleted sooner, ask through <a href=\"mailto:choyj80@naver.com\">the contact link<\/a>.","· If you do not consent, you cannot see the review result."],"consent_label":"I have read the above and agree to send the uploaded files to the operator.","pay_label":"Reward (amount)","zip_fail":"The tool that opens ZIP files could not be loaded. Please unzip the files and upload them.","read_fail":"Could not read the file \"{name}\".","skipped":"{n} files that cannot be analyzed (images, Excel, over 2 MB and so on) were left out.","k_doc":"manual","lines_fmt":"{n} lines","rm_aria":"Remove {name}","rm":"Remove","hard_t":["Personal PC path","Sheet or folder ID","Google document address","Internal IP or local address","Unencrypted http address"],"risk_t":["Dynamic code execution such as eval","Assigning to innerHTML or document.write","Running shell commands","Unsafe deserialization (pickle and so on)","Turning off certificate checks","SQL built by joining strings","Storing passwords or tokens in the browser"],"async_err":"Unhandled asynchronous error: ","running":"Running \"{name}\" in an isolated window…","analyzing":"Analyzing…","analyzed":"Analyzed {n} files · {l} lines.","b_analyzing":"The files are being analyzed.","b_consent":"Check the consent in step 4 to see the review result.","ready":"Scoring is finished. Use the button below to see the result.","grade_fmt":"Grade {g}","th_total":"Total","f_fail":"On hold because a mandatory requirement is not met: {items}. Find the location in the automatic analysis report, fix it and upload again.","sub_secret":"A value that looks like an API key or password was found, so nothing was sent to the operator. Remove it and upload again.","sub_ing":"Submitting to the operator…","sub_noname":"(no name)","sub_ok":"Submitted to the operator ({time}). The result can be seen only on this screen.","sub_big":"The files are large (over 5 MB after compression), so they could not be sent to the operator. You can still see the review result.","sub_fail":"Could not submit to the operator. You can still see the review result.","rt_title":"[AI Program Review Result]","rt_name":"Program name: {v}","rt_none":"(not entered)","rt_author":"Submitter: {v}","rt_files":"Submitted files: {v}","rt_hold":"On hold (mandatory requirement to be checked)","rt_reward":" / Reward {pay}","rt_fail":"- Not met: {v}","pill_submit":"If you consent, the files are passed to the operator · the result PDF stays with you","more":"and {n} more","line_fmt":"line {n}","rep_empty":"The analysis result appears here once you upload files.","cnt":"{n}","spots":"{n} places","g_sec":"Security · personal data","need_check":"{n} places to check","no_issue":"No issue","t_key":"API key · password","t_rrn":"Korean resident registration number format","t_phone":"Korean mobile phone number format","remove_it":"Remove it from the code and take it from a settings file or an input instead","sec_none":"No API key, password, or value in the format of a Korean resident registration number or mobile phone number was found.","emails":"Email addresses: {n} places (for reference)","g_risk":"Risky code patterns","risk_warn":"Check whether input reaches this code, and if possible change to a safer approach.","risk_none":"No risky code pattern was found.","g_run":"Run · syntax check","run_ok":"Passed","run_na":"Cannot check","run_html":"Opened {n} HTML files in an isolated window and checked that there are no script errors.","run_js":"Checked the syntax of {n} JS or Apps Script files.","run_py":"Python and module files cannot run in the browser, so they were not checked.","g_hard":"Hard-coding","hard_warn":"For others to use it, move this value to the settings area at the top of the code or to an input.","hard_none":"No value tied to a particular environment, such as a personal path or a unique ID, was found.","g_todo":"Unfinished marks","copied":"Copied the result.","copy_fail":"Could not copy. Please select the result table and copy it yourself.","req":["No API key or password exposed","No value that looks like personal data"],"rub_ver":"Scoring rules {ver}","how_head":["Area","Item","What it looks at","Score rule","Points"],"area_n":["Safety","Reliability","Usability","Maintainability","Portability"],"crit":{"S1":{"n":"Exposed secrets","how":"Whether an API key, password, token or private key is written in the code","rule":"None 10 · present 0 + grade on hold"},"S2":{"n":"Exposed personal data","how":"Values in the format of a Korean resident registration number or mobile phone number","rule":"None 8 · present 0 + grade on hold"},"S3":{"n":"Risky code patterns","how":"eval, assigning to innerHTML, shell execution, unsafe deserialization, turning off certificate checks, joined SQL and so on","rule":"Start from 9, −3 per place (minimum 0)"},"S4":{"n":"External connections","how":"External addresses the code sends data to or loads from (request calls, scripts from other sites, AI services)","rule":"Start from 8, −2 per distinct external address (minimum 0)"},"R1":{"n":"Run · syntax check","how":"HTML is actually opened in an isolated window to look for script errors; JS and Apps Script get a syntax check","rule":"Passed 10 · only partly checkable 7 · cannot check (Python and so on) 5 · error 0"},"R2":{"n":"Error handling","how":"Code that handles errors: try/catch, except, .catch(), onerror and so on","rule":"3 or more places (or 30% or more of functions) 8 · 1 to 2 places 4 · none 0"},"R3":{"n":"Input validation","how":"Code that checks empty values, number formats and required input (only for programs that take input)","rule":"3 or more places 7 · 1 to 2 places 3 · none 0 · takes no input 7 (not applicable)"},"R4":{"n":"Unfinished traces","how":"TODO, FIXME, XXX and HACK comments","rule":"None 5 · 1 to 2 → 3 · 3 or more 0"},"U1":{"n":"Screen · input method","how":"An HTML screen with input fields and buttons, an Apps Script menu, Python input, command line or GUI","rule":"Screen 6 · simple input method 3 · none 0"},"U2":{"n":"Guidance text","how":"Labels, placeholders, titles, input hints and help text in the code","rule":"5 or more 5 · 1 to 4 → 2 · none 0"},"U3":{"n":"Messages to the user","how":"User-facing messages used in alerts, errors and results (in English)","rule":"3 or more 4 · 1 to 2 → 2 · none 0"},"M1":{"n":"Comments","how":"The share of code lines that are comment lines","rule":"15% or more 5 · 5% or more 3 · below that 1 · none 0"},"M2":{"n":"Function structure","how":"How far the code is divided into functions","rule":"5 or more 5 · 2 to 4 → 3 · 1 → 1 · none 0"},"P1":{"n":"Hard-coding","how":"Personal PC paths, sheet or folder IDs, internal IPs, unencrypted http addresses","rule":"None 10 · 1 to 2 places 7 · 3 to 5 places 4 · 6 or more 0"}},"kind":["Measured by running","Pattern check","Count"],"kind_short":["Measured","Pattern","Count"],"grade_head":["Grade","Criterion"],"grade_rows":[["S","90 points or more (and the execution check must pass)"],["A","75 to 89.9 points"],["B","60 to 74.9 points (at most B if there is a runtime error)"],["C","Under 60 points · fix and resubmit"],["On hold","If a secret or personal data appears, the grade is put on hold whatever the score"]],"unsup_tag":"Not subject to review · excluded","ev":{"found":"{n} found","none":"None","hosts":"{n} external addresses","run_err":"{n} errors","run_part":"only partly checked","run_ok":"Passed ({n} checked)","run_na":"Cannot check","cnt":"{n} places","no_input":"Takes no input (not applicable)","ui_html":"Screen with input fields and buttons","ui_simple":"Simple input method","ui_none":"None","items":"{n}","pct":"{n}%"},"g_gate":"Check of whether it can be reviewed","gate_pass":"Confirmed to be a program","gate_fail_title":"This cannot be reviewed","gate_fail_help":"Please upload a program file that contains running source code (HTML with a script, JS, Apps Script, Python, ZIP). PDF, Word, Excel, images and explanatory documents alone cannot be reviewed.","gate_ok_files":"Confirmed {n} program code files","gate_ok_logic":"Confirmed {lines} lines of running code · {tokens} functions, conditions and the like","gate_no_code":"There is no program code file","gate_static_html":"It is HTML with only a screen and no running script","gate_no_logic":"There is too little running code ({lines} lines)","gate_unsup":"Left out {n} files that cannot be reviewed (PDFs, documents, images and the like)","gate_info_ai":"AI service connection code: {n} places (information only, not part of the score)","v_inel":"Not subject to review","v_hold":"On hold","v_sub":"{score} points / 100 · {x}","sub_hold":"Set after the mandatory requirement is checked","id_line":"Result ID {id} · scoring rules {ver}","id_note":"If you upload the same code again, you get the same result ID and the same score. What the submitter wrote was not used in the score.","th_item":"Item","th_score":"Score","th_basis":"Basis","f_cap_err":"There is a runtime error, so the grade was capped at B or below.","f_cap_run":"The execution check could not be done, so the grade was capped at A instead of S.","f_net":"The code connects to the outside: {hosts}. Whether it sends sensitive information cannot be judged from the code alone, so have the person in charge check.","host_dyn":"(address built in the code)","f_limit":"The automatic check reads the code by rules and does not guarantee the accuracy of real operation, medical validity or legal fitness. Use the result as supporting material for the judgment of the person in charge.","mbar_hold":"On hold · {score}","mbar_g":"<b>Grade {g}<\/b> · {score}","rt_result":"Result: {r} / {score} points","rt_id":"Result ID: {id} (scoring rules {ver})","rt_note":"* This is an automatic check result and does not guarantee real operation, medical validity or legal fitness.","m":["Files analyzed","Total lines","Run · syntax check","Error handling","Input validation","Comment ratio","Screen elements","User guidance","Hard-coding","Risky patterns","External addresses"],"g_net":"External connections","how":{"call":"request call","src":"loaded from another site","ai":"AI service"},"net_warn":"The code sends data to this address or loads data from it. Check whether sensitive information is included.","net_none":"No code that connects to the outside was found.","b_nofile":"Please upload a program file. What is reviewed is running source code.","rx":{"msg_chars":"\\uAC00-\\uD7A3","msg_words":"please|enter|select|choose|invalid|must|should|cannot|failed|success|required|empty|missing|your|try again|not valid|error","msg_flags":"gi","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|enter here|enter your|key here|dummy|test"}};
+const F=(s,o)=>String(s).replace(/\{(\w+)\}/g,(_,k)=>o[k]);
+
+/* ================= Criteria ================= */
+const GRADES=[{g:'S',min:90,label:T.gl[0]},{g:'A',min:75,label:T.gl[1]},{g:'B',min:60,label:T.gl[2]},{g:'C',min:0,label:T.gl[3]}];
+const RANK={S:0,A:1,B:2,C:3};
+const DEFAULT_PAY={S:'100000',A:'70000',B:'40000',C:'0'};
+const SB_URL='https://qasjbbkegjqilrqylvdb.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFhc2piYmtlZ2pxaWxycXlsdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNDQwMzgsImV4cCI6MjA5ODcyMDAzOH0.s9KhnZjvcIaPxOdiT0yFwcR2VeAXzJMqdLZn0TiQvdg';
+// 14 criteria, 100 points. area: 0 security 35 · 1 reliability 30 · 2 usability 15 · 3 maintainability 10 · 4 portability 10
+// kind: 0 measured by running · 1 pattern check · 2 count
+const CRIT=[
+ {id:'S1',area:0,max:10,kind:1},{id:'S2',area:0,max:8,kind:1},{id:'S3',area:0,max:9,kind:1},{id:'S4',area:0,max:8,kind:1},
+ {id:'R1',area:1,max:10,kind:0},{id:'R2',area:1,max:8,kind:2},{id:'R3',area:1,max:7,kind:1},{id:'R4',area:1,max:5,kind:2},
+ {id:'U1',area:2,max:6,kind:1},{id:'U2',area:2,max:5,kind:2},{id:'U3',area:2,max:4,kind:2},
+ {id:'M1',area:3,max:5,kind:2},{id:'M2',area:3,max:5,kind:2},
+ {id:'P1',area:4,max:10,kind:1},
+];
+const AREA_MAX=[0,1,2,3,4].map(a=>CRIT.filter(c=>c.area===a).reduce((s,c)=>s+c.max,0));
+const EX_NAME=T.ex_name, EX_AUTHOR=T.ex_author;
+
+/* ================= Utils ================= */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const won=v=>{const n=Number(v);return v===''||isNaN(n)?'':n.toLocaleString(T.loc)+T.cur};
+const gradeOf=s=>GRADES.find(g=>s>=g.min);
+const mask=s=>{s=String(s);return s.length<=8?s.slice(0,2)+'•••':s.slice(0,4)+'•••'+s.slice(-2)};
+$('rubVer').textContent=F(T.rub_ver,{ver:RUBRIC_VER});
+
+/* ================= Consent ================= */
+const qHtml=[];
+if(SUBMIT_URL){
+  qHtml.push(`<div class="area"><div class="area-head"><h3>${T.s4_title}</h3><span class="pts">${T.s4_pts}</span></div>
+    <div class="auto">${T.consent_lines.join('<br>\n    ')}</div>
+    <label class="opt"><input type="checkbox" id="consent"><span>${T.consent_label}</span></label>
+    <input type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px"></div>`);
+}
+$('questions').innerHTML=qHtml.join('');
+
+/* ================= Rubric tables ================= */
+$('rubric').innerHTML=`<thead><tr>${T.how_head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${
+  [0,1,2,3,4].map(a=>`<tr class="areahead"><td colspan="5"><b>${T.area_n[a]}</b> <span class="num hint">${AREA_MAX[a]}</span></td></tr>`+
+    CRIT.filter(c=>c.area===a).map(c=>{const t=T.crit[c.id];return `<tr><td></td><td>${t.n}</td><td><span class="kind k${c.kind}">${T.kind[c.kind]}</span> ${t.how}</td><td>${t.rule}</td><td class="c num">${c.max}</td></tr>`}).join('')
+  ).join('')}</tbody>`;
+$('gradeTable').innerHTML=`<thead><tr>${T.grade_head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${T.grade_rows.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td></tr>`).join('')}</tbody>`;
+let PAY={...DEFAULT_PAY};
+try{const s=JSON.parse(localStorage.getItem('aiJudgePay')||'null');if(s)PAY={...PAY,...s}}catch{}
+$('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">${T.pay_label}</label><input type="number" id="pay-${g.g}" min="0" step="1000" value="${esc(PAY[g.g])}"></div>`).join('');
+GRADES.forEach(g=>$('pay-'+g.g).addEventListener('input',e=>{PAY[g.g]=e.target.value;try{localStorage.setItem('aiJudgePay',JSON.stringify(PAY))}catch{}update()}));
+
+/* ================= Files ================= */
+let FILES=[];      // {name, ext, kind, text}
+let UNSUP=[];      // names of files that are not source code or text (PDF, Office, images ...)
+let M=null;        // analysis result
+let analyzing=false;
+const CODE_EXT=['html','htm','js','mjs','ts','gs','py','ipynb'];
+const TEXT_EXT=[...CODE_EXT,'txt','md','json','csv'];
+function kindOf(name){
+  const ext=(name.split('.').pop()||'').toLowerCase();
+  if(['html','htm'].includes(ext))return 'html';
+  if(['js','mjs','ts','gs'].includes(ext))return 'js';
+  if(ext==='py'||ext==='ipynb')return 'py';
+  return 'doc';
+}
+async function addFiles(list){
+  const st=$('analyzeStatus');let skipped=0;
+  for(const f of list){
+    if(FILES.length>=200){skipped++;continue}
+    const ext=(f.name.split('.').pop()||'').toLowerCase();
+    try{
+      if(ext==='zip'){
+        if(!window.JSZip){st.textContent=T.zip_fail;continue}
+        const zip=await JSZip.loadAsync(f);
+        for(const [path,entry] of Object.entries(zip.files)){
+          if(entry.dir||/(^|\/)(node_modules|\.git|__MACOSX|venv|\.venv)\//.test(path))continue;
+          const e2=(path.split('.').pop()||'').toLowerCase();
+          if(!TEXT_EXT.includes(e2)){UNSUP.push(path);continue}
+          const txt=await entry.async('string');
+          if(txt.length>2e6){skipped++;continue}
+          if(FILES.length<200)FILES.push(mkFile(path,txt));else skipped++;
+        }
+      }else if(TEXT_EXT.includes(ext)){
+        if(f.size>2e6){skipped++;continue}
+        FILES.push(mkFile(f.name,await f.text()));
+      }else UNSUP.push(f.name);
+    }catch(e){st.textContent=F(T.read_fail,{name:f.name})}
+  }
+  if(skipped)st.textContent=F(T.skipped,{n:skipped});
+  hideExample();renderFiles();await runAnalysis();
+}
+function mkFile(name,text){
+  let k=kindOf(name),ext=(name.split('.').pop()||'').toLowerCase();
+  if(ext==='ipynb'){try{const nb=JSON.parse(text);text=(nb.cells||[]).filter(c=>c.cell_type==='code').map(c=>[].concat(c.source||[]).join('')+'\n').join('\n')}catch{}}
+  return {name,ext,kind:k,text};
+}
+const KIND_LABEL={html:'HTML',js:'JS',py:'PY',doc:T.k_doc};
+function renderFiles(){
+  $('fileList').innerHTML=FILES.map((f,i)=>`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('')+
+    UNSUP.slice(0,8).map(n=>`<div class="file unsup"><span class="ty">✕</span><span class="nm">${esc(n)} <span class="hint">${T.unsup_tag}</span></span><span></span></div>`).join('');
+}
+$('fileList').addEventListener('click',async e=>{const i=e.target.dataset?.rm;if(i==null)return;FILES.splice(Number(i),1);hideExample();renderFiles();await runAnalysis()});
+$('fileInput').addEventListener('change',e=>{addFiles([...e.target.files]);e.target.value=''});
+const drop=$('drop');
+['dragenter','dragover'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.add('over')}));
+['dragleave','drop'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.remove('over')}));
+drop.addEventListener('drop',e=>addFiles([...e.dataTransfer.files]));
+
+/* ================= Analysis ================= */
+// Messages written for people in the page language: a quoted string that has Hangul, the page script, or (for languages without their own script) common words
+const MSG_PRE='(?:alert|confirm|throw\\s+new\\s+\\w*Error|raise\\s+\\w+|print|showToast|toast|textContent\\s*=|innerText\\s*=|msgBox|Browser\\.msgBox|setTitle|console\\.(?:warn|error))\\s*\\(?\\s*[^\\n]{0,20}?["\'`][^"\'`\\n]*';
+const MSG_SUF='[^"\'`\\n]*["\'`]';
+const MSG_RE=new RegExp(MSG_PRE+'(?:['+T.rx.msg_chars+']'+(T.rx.msg_words?'|\\b(?:'+T.rx.msg_words+')\\b':'')+')'+MSG_SUF,T.rx.msg_flags);
+const RX={
+  secret:[
+    /\bsk-(?:ant-|proj-)?[A-Za-z0-9_-]{20,}/g, /\bAIza[0-9A-Za-z_-]{35}\b/g, /\bgh[pousr]_[A-Za-z0-9]{30,}\b/g,
+    /\bxox[abpr]-[A-Za-z0-9-]{10,}/g, /\bAKIA[0-9A-Z]{16}\b/g, /-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----/g,
+    /(?:api[_-]?key|apikey|secret|password|passwd|pwd|access[_-]?token|client[_-]?secret)\s*[:=]\s*["'`]([^"'`\s]{8,})["'`]/gi,
+  ],
+  placeholder:new RegExp(T.rx.placeholder,'i'),
+  rrn:/\b\d{6}-?[1-4]\d{6}\b/g,
+  phone:/\b01[016789]-?\d{3,4}-?\d{4}\b/g,
+  email:/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g,
+  ai:/api\.openai\.com|api\.anthropic\.com|generativelanguage\.googleapis\.com|aiplatform\.googleapis\.com|clovastudio|hyperclova|api\.perplexity|api\.mistral|api\.groq|openai\.azure\.com|\bOpenAI\(|\bAnthropic\(|google\.generativeai|GoogleGenerativeAI/gi,
+  hard:[
+    {re:/["'`][A-Za-z]:\\\\?[^"'`\n]{2,}["'`]/g,t:T.hard_t[0]},
+    {re:/["'`](?:\/Users\/|\/home\/)[^"'`\n]+["'`]/g,t:T.hard_t[0]},
+    {re:/(?:openById|getFileById|getFolderById|openByUrl|spreadsheetId|folderId|fileId|sheetId|SHEET_ID|FOLDER_ID)[^\n]{0,20}?["'`]([A-Za-z0-9_-]{25,})["'`]/g,t:T.hard_t[1]},
+    {re:/docs\.google\.com\/(?:spreadsheets|document|presentation)\/d\/[A-Za-z0-9_-]{25,}/g,t:T.hard_t[2]},
+    {re:/\b(?:192\.168|10\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01]))\.\d{1,3}\.\d{1,3}\b|localhost:\d+/g,t:T.hard_t[3]},
+    {re:/["'`]http:\/\/(?!localhost)[^"'`\s]+["'`]/g,t:T.hard_t[4]},
+  ],
+  handler:/\btry\s*\{|\bcatch\s*\(|\.catch\(|^\s*try\s*:|^\s*except\b|\bonerror\b|addEventListener\(\s*["']error|\bon_error\b/gm,
+  valid:/\bisNaN\(|Number\.isFinite|Number\.isNaN|\.trim\(\)|\brequired\b|\btypeof\b|if\s*\(\s*!\s*[\w.$]+\s*\)|\.length\s*===?\s*0|\bpattern=|\bvalidate\w*|\bisinstance\(|if\s+not\s+\w+|len\([^)]*\)\s*==\s*0|\.isdigit\(|\.strip\(\)|checkValidity|\bmin=|\bmax=/g,
+  inputUse:/<(?:input|select|textarea)\b|\.value\b|\binput\s*\(|sys\.argv|argparse|sys\.stdin|\bprompt\s*\(|process\.argv|e\.parameter|getActiveRange|getValues?\s*\(|\.files\b|FileReader|readline/g,
+  todo:/\b(?:TODO|FIXME|XXX|HACK)\b/g,
+  fnJs:/\bfunction\b|=>|^\s*(?:async\s+)?[A-Za-z_$][\w$]*\s*\([^)]*\)\s*\{/gm,
+  fnPy:/^\s*(?:async\s+)?def\s+\w+/gm,
+  uiHtml:/<(?:input|select|textarea|button)\b/gi,
+  uiSimple:/\bonOpen\b|createMenu|HtmlService|SpreadsheetApp\.getUi|\binput\(|argparse|tkinter|streamlit|gradio|PySimpleGUI|readline|process\.argv/g,
+  guide:/<label\b|\bplaceholder=|\btitle=|<h[1-3]\b|aria-label=|\bhelp=|setHelpText|\bhint\b|\binput\s*\(\s*["'`][^"'`\n]{3,}|\bdescription\s*=\s*["'`]/gi,
+  msg:MSG_RE,
+  // outbound network calls: literal host captured when written in the code
+  net:/(?:\bfetch|UrlFetchApp\.fetch|axios(?:\.(?:get|post|put|delete|request))?|requests\.(?:get|post|put|delete|request)|urlopen|\$\.(?:ajax|get|post)|navigator\.sendBeacon|\.open)\s*\(\s*(?:[A-Za-z]+\s*,\s*)?(?:["'`](https?:\/\/[^"'`\s\/]+))?/g,
+  extSrc:/<(?:script|link|img|iframe)\b[^>]*?(?:src|href)\s*=\s*["'](https?:\/\/[^"'\s\/]+)/gi,
+};
+// Risky code patterns (deterministic string rules). Index = T.risk_t.
+const RISK=[
+  {re:/\beval\s*\(|\bnew\s+Function\s*\(/g,t:T.risk_t[0]},
+  {re:/document\.write\s*\(|\.(?:innerHTML|outerHTML)\s*\+?=/g,t:T.risk_t[1]},
+  {re:/\bos\.system\s*\(|shell\s*=\s*True|\bchild_process\b|\bexecSync\s*\(/g,t:T.risk_t[2]},
+  {re:/\bpickle\.loads?\s*\(|\byaml\.load\s*\((?![^)]*Loader)/g,t:T.risk_t[3]},
+  {re:/verify\s*=\s*False|rejectUnauthorized\s*:\s*false|NODE_TLS_REJECT_UNAUTHORIZED/g,t:T.risk_t[4]},
+  {re:/["'`]\s*(?:SELECT|INSERT|UPDATE|DELETE)\b[^"'`\n]*["'`]\s*\+/gi,t:T.risk_t[5]},
+  {re:/(?:localStorage|sessionStorage)\.setItem\s*\([^)]*(?:password|passwd|token|secret|jumin)/gi,t:T.risk_t[6]},
+];
+function lineOf(text,idx){let n=1;for(let i=0;i<idx&&i<text.length;i++)if(text.charCodeAt(i)===10)n++;return n}
+function findAll(f,re,cb){re.lastIndex=0;let m,c=0;while((m=re.exec(f.text))&&c<300){cb(m,lineOf(f.text,m.index));c++;if(m[0]==='')re.lastIndex++}}
+function commentLines(f){
+  const lines=f.text.split('\n');let code=0,com=0,inBlock=false,inHtml=false;
+  for(const raw of lines){const l=raw.trim();if(!l)continue;code++;
+    if(f.kind==='py'){if(l.startsWith('#')||/^("""|''')/.test(l))com++;continue}
+    if(inBlock){com++;if(l.includes('*/'))inBlock=false;continue}
+    if(inHtml){com++;if(l.includes('-'+'->'))inHtml=false;continue}
+    if(l.startsWith('//')){com++;continue}
+    if(l.startsWith('/*')){com++;if(!l.includes('*/'))inBlock=true;continue}
+    if(l.startsWith('<!'+'--')){com++;if(!l.includes('-'+'->'))inHtml=true;continue}
+    if(/\s\/\/\s/.test(l)||/#\s/.test(l)&&f.kind==='py')com+=0.5;
+  }
+  return {code,com};
+}
+// The executable part of a file: for HTML only the <script> bodies and inline event handlers (markup alone is a document, not a program).
+function scriptText(f){
+  if(f.kind!=='html')return f.text;
+  let out='';
+  f.text.replace(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi,(m,attr,body)=>{if(body.trim())out+=body+'\n';return m});
+  f.text.replace(/\son[a-z]+\s*=\s*(?:"([^"]*)"|'([^']*)')/gi,(m,a,b)=>{out+=(a||b)+'\n';return m});
+  return out;
+}
+function effectiveLines(src,kind){
+  let n=0,inBlock=false;
+  for(const raw of src.split('\n')){const l=raw.trim();if(!l)continue;
+    if(inBlock){if(l.includes('*/'))inBlock=false;continue}
+    if(kind==='py'){if(l.startsWith('#'))continue}
+    else{if(l.startsWith('//'))continue;if(l.startsWith('/*')){if(!l.includes('*/'))inBlock=true;continue}if(l.startsWith('*')||l.startsWith('<!'+'--'))continue}
+    n++}
+  return n;
+}
+const LOGIC=/\b(?:function|def|class|if|else|elif|for|while|switch|try|catch|except|return|import|from|const|let|var|async|await|lambda)\b|=>/g;
+function runHtml(f){
+  return new Promise(res=>{
+    const id='r'+Math.random().toString(36).slice(2);const errors=[];
+    const fr=document.createElement('iframe');fr.className='sandbox';fr.setAttribute('sandbox','allow-scripts');fr.setAttribute('aria-hidden','true');fr.tabIndex=-1;
+    const inj=`<script>(function(){var P=function(m){try{parent.postMessage(Object.assign({aj:'${id}'},m),'*')}catch(e){}};window.addEventListener('error',function(e){if(e&&e.message)P({t:'err',msg:e.message,line:e.lineno})});window.addEventListener('unhandledrejection',function(e){P({t:'err',msg:${JSON.stringify(T.async_err)}+(e.reason&&e.reason.message||e.reason)})});window.addEventListener('load',function(){setTimeout(function(){P({t:'done'})},700)});})();<\/script>`;
+    let html=f.text;
+    html=/<head[^>]*>/i.test(html)?html.replace(/<head[^>]*>/i,m=>m+inj):inj+html;
+    let done=false;
+    const finish=()=>{if(done)return;done=true;window.removeEventListener('message',onMsg);fr.remove();res(errors)};
+    const onMsg=e=>{const d=e.data;if(!d||d.aj!==id)return;if(d.t==='err')errors.push(d);if(d.t==='done')finish()};
+    window.addEventListener('message',onMsg);
+    fr.srcdoc=html;document.body.appendChild(fr);
+    setTimeout(finish,4000);
+  });
+}
+function syntaxJs(f){
+  if(/^\s*(import|export)\b/m.test(f.text)||f.ext==='ts')return null; // modules and TS are not checked
+  try{new Function(f.text);return []}catch(e){return [{msg:e.message}]}
+}
+// Result ID: SHA-256 of the rubric version and the code files (names + normalized text). Documents do not change it.
+async function fingerprint(code){
+  const s=RUBRIC_VER+'\n'+code.slice().sort((a,b)=>a.name<b.name?-1:1).map(f=>f.name+'\u0000'+f.text.replace(/\r\n?/g,'\n')).join('\u0001');
+  try{
+    if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,12)}
+  }catch{}
+  let h=5381;for(let i=0;i<s.length;i++)h=((h*33)^s.charCodeAt(i))>>>0;return h.toString(16).padStart(8,'0')+'0000';
+}
+async function analyze(){
+  const code=FILES.filter(f=>['html','js','py'].includes(f.kind));
+  const R={files:FILES.length,codeFiles:code.length,unsupported:UNSUP.length,
+    lines:0,comment:0,codeLines:0,fns:0,handlers:[],valids:0,todos:[],uiHtml:0,uiSimple:0,guide:0,takesInput:false,koMsgs:[],
+    hard:[],risky:[],hosts:[],secrets:[],rrn:[],phones:[],emails:[],ai:[],run:{tested:0,errors:[]},syntax:{tested:0,skipped:0,errors:[]}};
+  for(const f of FILES){
+    R.lines+=f.text.split('\n').length;
+    // security: every text file is scanned, documents too (they also leave your browser when you consent)
+    for(const re of RX.secret)findAll(f,re,(m,ln)=>{const v=m[1]||m[0];if(RX.placeholder.test(v))return;R.secrets.push({file:f.name,line:ln,v:mask(v)})});
+    findAll(f,RX.rrn,(m,ln)=>R.rrn.push({file:f.name,line:ln,v:mask(m[0])}));
+    if(f.kind!=='doc'){findAll(f,RX.phone,(m,ln)=>R.phones.push({file:f.name,line:ln,v:mask(m[0])}));
+      findAll(f,RX.email,(m,ln)=>{if(!/example|test|domain|sample|noreply/i.test(m[0]))R.emails.push({file:f.name,line:ln,v:mask(m[0])})})}
+    findAll(f,RX.ai,(m,ln)=>R.ai.push({file:f.name,line:ln,v:m[0]}));
+  }
+  // gate: is this a program?
+  let eff=0,logic=0,staticHtml=0;
+  for(const f of code){const st=scriptText(f);const n=effectiveLines(st,f.kind);eff+=n;logic+=(st.match(LOGIC)||[]).length;if(f.kind==='html'&&n===0)staticHtml++}
+  R.effLines=eff;R.logic=logic;R.staticHtml=staticHtml;
+  R.eligible=code.length>0&&eff>=10&&logic>=3;
+  R.testable=false;R.untestedPy=false;R.execErrors=0;R.commentRatio=0;R.fp='';
+  if(!R.eligible)return R;
+  for(const f of code){
+    const c=commentLines(f);R.codeLines+=c.code;R.comment+=c.com;
+    findAll(f,f.kind==='py'?RX.fnPy:RX.fnJs,()=>R.fns++);
+    findAll(f,RX.handler,(m,ln)=>R.handlers.push({file:f.name,line:ln}));
+    findAll(f,RX.valid,()=>R.valids++);
+    findAll(f,RX.todo,(m,ln)=>R.todos.push({file:f.name,line:ln,v:m[0]}));
+    if(f.kind==='html')findAll(f,RX.uiHtml,()=>R.uiHtml++);
+    findAll(f,RX.uiSimple,()=>R.uiSimple++);
+    findAll(f,RX.inputUse,()=>{R.takesInput=true});
+    findAll(f,RX.guide,()=>R.guide++);
+    findAll(f,RX.msg,(m,ln)=>R.koMsgs.push({file:f.name,line:ln}));
+    for(const rk of RISK)findAll(f,rk.re,(m,ln)=>R.risky.push({file:f.name,line:ln,t:rk.t,v:m[0].slice(0,40)}));
+    for(const h of RX.hard)findAll(f,h.re,(m,ln)=>R.hard.push({file:f.name,line:ln,t:h.t,v:mask(m[1]||m[0].replace(/["'`]/g,''))}));
+    // external hosts: literal hosts, scripts/styles loaded from other sites, AI services; calls whose address is built in code count as one unknown host
+    const seen=new Set(),add=(h,ln,how)=>{h=h.replace(/^https?:\/\//,'').toLowerCase();if(/^(localhost|127\.0\.0\.1)/.test(h))return;R.hosts.push({file:f.name,line:ln,host:h,how})};
+    findAll(f,RX.net,(m,ln)=>{if(m[1])add(m[1],ln,'call');else if(/fetch|UrlFetchApp|axios|requests|urlopen|\$\.|sendBeacon/.test(m[0]))add('?',ln,'call')});
+    if(f.kind==='html')findAll(f,RX.extSrc,(m,ln)=>add(m[1],ln,'src'));
+    findAll(f,RX.ai,(m,ln)=>add(m[0].toLowerCase(),ln,'ai'));
+  }
+  // distinct hosts only ('?' = address decided in code, counted once)
+  const uh=new Map();for(const h of R.hosts)if(!uh.has(h.host))uh.set(h.host,h);R.hostList=[...uh.values()];
+  // run / syntax check
+  for(const f of code.filter(f=>f.kind==='html').slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
+  for(const f of code.filter(f=>f.kind==='js')){const r=syntaxJs(f);if(r===null){R.syntax.skipped++;continue}R.syntax.tested++;r.forEach(e=>R.syntax.errors.push({file:f.name,msg:e.msg}))}
+  R.testable=R.run.tested+R.syntax.tested>0;
+  R.untestedPy=code.some(f=>f.kind==='py')||R.syntax.skipped>0;
+  R.execErrors=R.run.errors.length+R.syntax.errors.length;
+  // de-duplicate
+  const uniq=(arr,key)=>{const s=new Set();return arr.filter(x=>{const k=key(x);if(s.has(k))return false;s.add(k);return true})};
+  R.hard=uniq(R.hard,x=>x.file+x.line+x.t);R.risky=uniq(R.risky,x=>x.file+x.line+x.t);R.secrets=uniq(R.secrets,x=>x.file+x.line);R.ai=uniq(R.ai,x=>x.file+x.line);
+  R.commentRatio=R.codeLines?R.comment/R.codeLines:0;
+  R.fp=await fingerprint(code);
+  return R;
+}
+async function runAnalysis(){
+  if(!FILES.length&&!UNSUP.length){M=null;$('analyzeStatus').textContent='';renderReport();update();return}
+  analyzing=true;update();
+  $('analyzeStatus').textContent=T.analyzing;
+  M=await analyze();
+  analyzing=false;
+  $('analyzeStatus').textContent=M.eligible?F(T.analyzed,{n:M.files,l:M.lines.toLocaleString()}):T.gate_fail_title;
+  renderReport();update();
+}
+
+/* ================= Scoring ================= */
+// Only M (what the analysis found in the uploaded code) is used. Name, author, README and anything typed by the submitter never enter this function.
+function score(M){
+  const out=[];
+  const add=(id,pts,basis)=>{const c=CRIT.find(x=>x.id===id);out.push({id,area:c.area,max:c.max,pts:Math.max(0,Math.min(c.max,pts)),basis})};
+  const sN=M.secrets.length,pN=M.rrn.length+M.phones.length,rk=M.risky.length,d=M.hostList.length;
+  add('S1',sN?0:10,sN?F(T.ev.found,{n:sN}):T.ev.none);
+  add('S2',pN?0:8,pN?F(T.ev.found,{n:pN}):T.ev.none);
+  add('S3',9-3*rk,rk?F(T.ev.found,{n:rk}):T.ev.none);
+  add('S4',8-2*d,d?F(T.ev.hosts,{n:d}):T.ev.none);
+  const hn=M.handlers.length,ratio=hn/Math.max(1,M.fns);
+  add('R1',M.execErrors?0:M.testable?(M.untestedPy?7:10):5,M.execErrors?F(T.ev.run_err,{n:M.execErrors}):M.testable?(M.untestedPy?T.ev.run_part:F(T.ev.run_ok,{n:M.run.tested+M.syntax.tested})):T.ev.run_na);
+  add('R2',(hn>=3||ratio>=0.3)?8:hn>=1?4:0,F(T.ev.cnt,{n:hn}));
+  add('R3',M.takesInput?(M.valids>=3?7:M.valids>=1?3:0):7,M.takesInput?F(T.ev.cnt,{n:M.valids}):T.ev.no_input);
+  add('R4',M.todos.length===0?5:M.todos.length<3?3:0,F(T.ev.cnt,{n:M.todos.length}));
+  add('U1',M.uiHtml>0?6:M.uiSimple>0?3:0,M.uiHtml>0?T.ev.ui_html:M.uiSimple>0?T.ev.ui_simple:T.ev.ui_none);
+  add('U2',M.guide>=5?5:M.guide>=1?2:0,F(T.ev.items,{n:M.guide}));
+  add('U3',M.koMsgs.length>=3?4:M.koMsgs.length>=1?2:0,F(T.ev.items,{n:M.koMsgs.length}));
+  const r=M.commentRatio;
+  add('M1',r>=.15?5:r>=.05?3:r>0?1:0,F(T.ev.pct,{n:Math.round(r*100)}));
+  add('M2',M.fns>=5?5:M.fns>=2?3:M.fns===1?1:0,F(T.ev.items,{n:M.fns}));
+  const n=M.hard.length;
+  add('P1',n===0?10:n<=2?7:n<=5?4:0,F(T.ev.cnt,{n}));
+  return out;
+}
+
+/* ================= Result ================= */
+let LAST=null,READY=false;
+function openResult(){const d=$('resDialog');if(d.open)return;if(d.showModal)d.showModal();else d.setAttribute('open','')}
+function update(){
+  const needConsent=SUBMIT_URL&&!exampleShown&&!$('consent')?.checked;
+  const block=analyzing?T.b_analyzing:!M?T.b_nofile:(M.eligible&&needConsent)?T.b_consent:'';
+  const nores=()=>{$('copyBtn').disabled=true;$('printBtn').disabled=true};
+  if(block){LAST=null;$('result').innerHTML=`<p class="flag info">${block}</p>`;$('mbarText').textContent=block.split(/[.。]/)[0];nores();$('showBtn').disabled=true;$('readyNote').textContent=block;READY=false;return}
+  // not a program: no score, nothing is sent to the operator
+  if(!M.eligible){
+    const why=[];
+    if(!M.codeFiles)why.push(T.gate_no_code);
+    else{if(M.staticHtml&&M.staticHtml===M.codeFiles)why.push(T.gate_static_html);why.push(F(T.gate_no_logic,{lines:M.effLines}))}
+    if(M.unsupported)why.push(F(T.gate_unsup,{n:M.unsupported}));
+    LAST=null;
+    $('result').innerHTML=`<div class="verdict"><div class="badge g-H">✕</div><div><div class="big">${T.v_inel}</div><div class="sub">${T.gate_fail_help}</div></div></div><div class="flags">${why.map(w=>`<div class="flag">${esc(w)}</div>`).join('')}</div>`;
+    $('mbarText').textContent=T.v_inel;nores();$('showBtn').disabled=false;$('readyNote').textContent=T.v_inel;
+    if(!READY){READY=true;openResult()}
+    return;
+  }
+  $('copyBtn').disabled=false;$('printBtn').disabled=false;$('showBtn').disabled=false;$('readyNote').textContent=T.ready;
+  const S=score(M);
+  const total=S.reduce((s,c)=>s+c.pts,0);
+  const areaPts=[0,1,2,3,4].map(a=>S.filter(c=>c.area===a).reduce((s,c)=>s+c.pts,0));
+  const reqs=[{t:T.req[0],ok:!M.secrets.length},{t:T.req[1],ok:!(M.rrn.length+M.phones.length)}];
+  const fail=reqs.filter(r=>!r.ok);
+  const hold=fail.length>0;
+  let g=gradeOf(total);const caps=[];
+  if(!hold){
+    if(M.execErrors>0&&RANK[g.g]<RANK.B){g=GRADES.find(x=>x.g==='B');caps.push(T.f_cap_err)}
+    if(g.g==='S'&&!M.testable){g=GRADES.find(x=>x.g==='A');caps.push(T.f_cap_run)}
+  }
+  const pay=won(PAY[g.g]);
+  const flags=[];
+  if(hold)flags.push(`<div class="flag">${F(T.f_fail,{items:fail.map(r=>r.t).join(' / ')})}</div>`);
+  caps.forEach(c=>flags.push(`<div class="flag">${c}</div>`));
+  if(M.hostList.length)flags.push(`<div class="flag info">${F(T.f_net,{hosts:M.hostList.map(h=>h.host==='?'?T.host_dyn:h.host).slice(0,6).join(', ')})}</div>`);
+  if(M.unsupported)flags.push(`<div class="flag info">${F(T.gate_unsup,{n:M.unsupported})}</div>`);
+  flags.push(`<div class="flag info">${T.f_limit}</div>`);
+  const rows=[0,1,2,3,4].map(a=>`<tr class="areahead"><td colspan="2"><b>${T.area_n[a]}</b></td><td class="c num"><b>${areaPts[a]} / ${AREA_MAX[a]}</b></td><td></td></tr>`+
+    S.filter(c=>c.area===a).map(c=>{const cr=CRIT.find(x=>x.id===c.id);return `<tr class="${c.pts<c.max?'gap':''}"><td><span class="kind k${cr.kind}" title="${esc(T.kind[cr.kind])}">${T.kind_short[cr.kind]}</span></td><td>${T.crit[c.id].n}</td><td class="c num">${c.pts} / ${c.max}</td><td class="hint">${esc(c.basis)}</td></tr>`}).join('')).join('');
+  $('result').innerHTML=`
+    <div class="verdict"><div class="badge g-${hold?'H':g.g}">${hold?'!':g.g}</div>
+      <div><div class="big">${hold?T.v_hold:F(T.grade_fmt,{g:g.g})}${!hold&&pay&&Number(PAY[g.g])>0?' · '+pay:''}</div>
+      <div class="sub">${F(T.v_sub,{score:`<b class="num">${total}</b>`,x:hold?T.sub_hold:g.label})}</div>
+      <div class="sub">${F(T.id_line,{id:`<code>${M.fp}</code>`,ver:RUBRIC_VER})}</div></div></div>
+    <div class="flags">${flags.join('')}</div>
+    <div class="tbl"><table><thead><tr><th></th><th>${T.th_item}</th><th class="c">${T.th_score}</th><th>${T.th_basis}</th></tr></thead>
+      <tbody>${rows}<tr><td colspan="2"><b>${T.th_total}</b></td><td class="c num"><b>${total} / 100</b></td><td></td></tr></tbody></table></div>
+    <p class="status">${T.id_note}</p>`;
+  $('mbarText').innerHTML=hold?F(T.mbar_hold,{score:total}):F(T.mbar_g,{g:g.g,score:total});
+  LAST={S,total,areaPts,g,hold,pay,fail,caps};
+  scheduleSubmit();
+  if(!READY){READY=true;if(!exampleShown)openResult()}
+}
+
+/* ================= Submit to the operator ================= */
+let sentSig=null,submitTimer=null,sending=false;
+const fileSig=()=>FILES.map(f=>f.name+':'+f.text.length).join('|')+'#'+$('name').value.trim();
+function scheduleSubmit(){
+  if(!SUBMIT_URL||exampleShown||!LAST||!$('consent')?.checked)return;
+  if(M&&M.secrets.length){$('status').textContent=T.sub_secret;return}
+  if(fileSig()===sentSig)return;
+  clearTimeout(submitTimer);
+  submitTimer=setTimeout(submit,2500); // wait for the answers to settle, then send once
+}
+async function submit(){
+  if(sending||!LAST)return;const sig=fileSig();if(sig===sentSig)return;
+  if($('hp')?.value)return; // honeypot: bots are ignored silently
+  sending=true;$('status').textContent=T.sub_ing;
+  try{
+    const zip=new JSZip();
+    FILES.forEach(f=>zip.file(f.name.replace(/^\/+/,''),f.text));
+    const blob=await zip.generateAsync({type:'blob',compression:'DEFLATE'});
+    if(blob.size>5e6)throw new Error('big');
+    const path=`submissions/${Date.now()}-${Math.random().toString(36).slice(2,10)}.zip`;
+    const H={apikey:SB_KEY,Authorization:'Bearer '+SB_KEY};
+    const up=await fetch(`${SB_URL}/storage/v1/object/ai-judge-submissions/${path}`,{method:'POST',headers:{...H,'Content-Type':'application/zip'},body:blob});
+    if(!up.ok)throw new Error('upload');
+    // The admin dashboard is Korean: the stored grade text stays Korean in every language edition.
+    const row=await fetch(`${SB_URL}/rest/v1/ai_judge_submissions`,{method:'POST',headers:{...H,'Content-Type':'application/json',Prefer:'return=minimal'},
+      body:JSON.stringify({program_name:(($('name').value.trim())||T.sub_noname).slice(0,200),submitter:($('author').value.trim()||'').slice(0,200),grade:LAST.hold?'\uBCF4\uB958':LAST.g.g+'\uB4F1\uAE09',avg_score:LAST.total,file_count:FILES.length,file_size:blob.size,storage_path:path})});
+    if(!row.ok)throw new Error('row');
+    sentSig=sig;
+    $('status').textContent=F(T.sub_ok,{time:new Date().toLocaleTimeString(T.loc,{hour:'2-digit',minute:'2-digit'})});
+  }catch(e){
+    $('status').textContent=e.message==='big'?T.sub_big:T.sub_fail;
+  }finally{sending=false}
+}
+function resultText(){
+  if(!LAST||!M)return '';const {S,total,areaPts,g,hold,pay,fail,caps}=LAST;
+  const nm=$('name').value.trim(),au=$('author').value.trim();
+  return [T.rt_title,F(T.rt_name,{v:nm||T.rt_none}),F(T.rt_author,{v:au||T.rt_none}),F(T.rt_files,{v:FILES.map(f=>f.name).join(', ')}),
+    F(T.rt_result,{r:hold?T.rt_hold:F(T.grade_fmt,{g:g.g})+(pay&&Number(PAY[g.g])>0?F(T.rt_reward,{pay}):''),score:total}),
+    F(T.rt_id,{id:M.fp,ver:RUBRIC_VER}),
+    ...[0,1,2,3,4].map(a=>`- ${T.area_n[a]}: ${areaPts[a]} / ${AREA_MAX[a]}`),
+    ...S.filter(c=>c.pts<c.max).map(c=>`  · ${T.crit[c.id].n}: ${c.pts} / ${c.max} (${c.basis})`),
+    ...fail.map(r=>F(T.rt_fail,{v:r.t})),...caps.map(c=>'- '+c),
+    T.rt_note].filter(Boolean).join('\n');
+}
+if(SUBMIT_URL)$('privacyPill').textContent=T.pill_submit;
+
+/* ================= Report ================= */
+function list(items,fmt,max=6){if(!items.length)return '';const more=items.length>max?`<li class="hint">${F(T.more,{n:items.length-max})}</li>`:'';return `<ul>${items.slice(0,max).map(x=>`<li>${fmt(x)}</li>`).join('')}${more}</ul>`}
+const at=x=>`<code>${esc(x.file)}</code>${x.line?' '+F(T.line_fmt,{n:x.line}):''}`;
+function renderReport(){
+  if(!M){$('report').innerHTML=`<p class="status">${T.rep_empty}</p>`;return}
+  const G=[];
+  // gate
+  const gateLines=[];
+  gateLines.push(M.codeFiles?`<li class="ok">${F(T.gate_ok_files,{n:M.codeFiles})}</li>`:`<li class="no">${T.gate_no_code}</li>`);
+  if(M.codeFiles)gateLines.push((M.eligible)?`<li class="ok">${F(T.gate_ok_logic,{lines:M.effLines,tokens:M.logic})}</li>`:`<li class="no">${M.staticHtml&&M.staticHtml===M.codeFiles?T.gate_static_html+' · ':''}${F(T.gate_no_logic,{lines:M.effLines})}</li>`);
+  if(M.unsupported)gateLines.push(`<li class="info">${F(T.gate_unsup,{n:M.unsupported})}</li>`);
+  if(M.ai.length)gateLines.push(`<li class="info">${F(T.gate_info_ai,{n:M.ai.length})}</li>`);
+  G.push(`<div class="fgroup ${M.eligible?'f-ok':'f-bad'}"><h3>${T.g_gate} — ${M.eligible?T.gate_pass:T.gate_fail_title}</h3><ul class="gate">${gateLines.join('')}</ul>${M.eligible?'':`<span class="hint">${T.gate_fail_help}</span>`}</div>`);
+  if(!M.eligible){$('report').innerHTML=`<div class="find">${G.join('')}</div>`;return}
+  const pct=Math.round(M.commentRatio*100);
+  const runLabel=M.testable?(M.execErrors?F(T.ev.run_err,{n:M.execErrors}):T.run_ok):T.run_na;
+  const metrics=[
+    [T.m[0],F(T.cnt,{n:M.files})],[T.m[1],M.lines.toLocaleString()],
+    [T.m[2],runLabel],
+    [T.m[3],F(T.spots,{n:M.handlers.length})],[T.m[4],F(T.spots,{n:M.valids})],[T.m[5],pct+'%'],
+    [T.m[6],F(T.cnt,{n:M.uiHtml})],[T.m[7],F(T.cnt,{n:M.koMsgs.length})],[T.m[8],F(T.spots,{n:M.hard.length})],[T.m[9],F(T.spots,{n:M.risky.length})],[T.m[10],F(T.cnt,{n:M.hostList.length})],
+  ];
+  const sec=M.secrets.length+M.rrn.length+M.phones.length;
+  G.push(`<div class="fgroup ${sec?'f-bad':'f-ok'}"><h3>${T.g_sec} ${sec?'— '+F(T.need_check,{n:sec}):'— '+T.no_issue}</h3>
+    ${sec?list([...M.secrets.map(x=>({...x,t:T.t_key})),...M.rrn.map(x=>({...x,t:T.t_rrn})),...M.phones.map(x=>({...x,t:T.t_phone}))],x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code> — ${T.remove_it}`):`<span class="hint">${T.sec_none}</span>`}
+    ${M.emails.length?`<span class="hint">${F(T.emails,{n:M.emails.length})}</span>`:''}</div>`);
+  G.push(`<div class="fgroup ${M.risky.length?'f-bad':'f-ok'}"><h3>${T.g_risk} — ${M.risky.length?F(T.spots,{n:M.risky.length}):T.none}</h3>${M.risky.length?list(M.risky,x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code>`)+`<span class="hint">${T.risk_warn}</span>`:`<span class="hint">${T.risk_none}</span>`}</div>`);
+  G.push(`<div class="fgroup ${M.hostList.length?'f-info':'f-ok'}"><h3>${T.g_net} — ${M.hostList.length?F(T.cnt,{n:M.hostList.length}):T.none}</h3>${M.hostList.length?list(M.hostList,x=>`${at(x)} · <code>${esc(x.host==='?'?T.host_dyn:x.host)}</code> <span class="hint">${T.how[x.how]}</span>`)+`<span class="hint">${T.net_warn}</span>`:`<span class="hint">${T.net_none}</span>`}</div>`);
+  const ex=[...M.run.errors,...M.syntax.errors];
+  G.push(`<div class="fgroup ${ex.length?'f-bad':M.testable?'f-ok':'f-info'}"><h3>${T.g_run} — ${ex.length?F(T.ev.run_err,{n:ex.length}):M.testable?T.run_ok:T.run_na}</h3>
+    ${ex.length?list(ex,x=>`${at(x)} · ${esc(x.msg)}`):`<span class="hint">${M.run.tested?F(T.run_html,{n:M.run.tested})+' ':''}${M.syntax.tested?F(T.run_js,{n:M.syntax.tested})+' ':''}${M.untestedPy?T.run_py:''}</span>`}</div>`);
+  G.push(`<div class="fgroup ${M.hard.length?'f-bad':'f-ok'}"><h3>${T.g_hard} — ${M.hard.length?F(T.spots,{n:M.hard.length}):T.none}</h3>${M.hard.length?list(M.hard,x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code>`)+`<span class="hint">${T.hard_warn}</span>`:`<span class="hint">${T.hard_none}</span>`}</div>`);
+  if(M.todos.length)G.push(`<div class="fgroup f-info"><h3>${T.g_todo} — ${F(T.spots,{n:M.todos.length})}</h3>${list(M.todos,x=>`${at(x)} · ${x.v}`)}</div>`);
+  $('report').innerHTML=`<div class="metrics">${metrics.map(([k,v])=>`<div class="metric"><span class="k">${k}</span><span class="v num">${v}</span></div>`).join('')}</div><div class="find">${G.join('')}</div>`;
+}
+
+/* ================= Events ================= */
+let exampleShown=false;
+function hideExample(){if(exampleShown){exampleShown=false;$('exampleNote').hidden=true}}
+$('form').addEventListener('input',e=>{if(e.target.type!=='file')hideExample();update()});
+$('form').addEventListener('change',update);
+$('form').addEventListener('submit',e=>e.preventDefault());
+async function loadExample(){
+  FILES=[mkFile('index.html',$('exHtml').innerHTML.trim())];UNSUP=[];
+  $('name').value=EX_NAME;$('author').value=EX_AUTHOR;exampleShown=true;$('exampleNote').hidden=false;renderFiles();await runAnalysis();
+}
+$('exampleBtn').onclick=loadExample;
+$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
+$('printBtn').onclick=()=>window.print();
+$('showBtn').onclick=openResult;$('mbarBtn').onclick=openResult;$('closeBtn').onclick=()=>$('resDialog').close();
+$('copyBtn').onclick=async()=>{
+  if(!LAST)return;const t=resultText();
+  try{await navigator.clipboard.writeText(t);$('status').textContent=T.copied}catch{$('status').textContent=T.copy_fail}
+};
+loadExample();
+</script>
+</body>
+</html>
