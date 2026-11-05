@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "videoId": "f2i0INZZrkY",
+    "title": "How schools are using AI and VR to train the next generation of nurses",
+    "channel": "PBS NewsHour",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:00:00.220Z"
+  },
+  {
+    "videoId": "xfvfqILU8Oc",
+    "title": "How AI can make things ‘better’ in government, health",
+    "channel": "PBS NewsHour",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:00:00.336Z"
+  },
+  {
+    "videoId": "nzRy-eZAcSU",
+    "title": "How patients are using AI to fight back against denied insurance claims",
+    "channel": "PBS NewsHour",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:00:00.436Z"
+  },
+  {
+    "videoId": "5kwyuYJ2xEA",
+    "title": "How AI is transforming healthcare across the country",
+    "channel": "NBC News",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:00:00.512Z"
+  }
+]
