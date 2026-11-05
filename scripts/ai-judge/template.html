@@ -184,7 +184,8 @@ const F=(s,o)=>String(s).replace(/\{(\w+)\}/g,(_,k)=>o[k]);
 /* ================= Criteria ================= */
 const GRADES=[{g:'S',min:90,label:T.gl[0]},{g:'A',min:75,label:T.gl[1]},{g:'B',min:60,label:T.gl[2]},{g:'C',min:0,label:T.gl[3]}];
 const RANK={S:0,A:1,B:2,C:3};
-const DEFAULT_PAY={S:'100000',A:'70000',B:'40000',C:'0'};
+const DEFAULT_PAY={...T.pay_default}; // per-country default reward amounts (lang/*.py); only initial values of the input boxes
+const PAY_KEY='aiJudgePay'+(T.loc==='ko-KR'?'':'-'+T.loc); // saved values are kept per language so currencies do not mix
 const SB_URL='https://qasjbbkegjqilrqylvdb.supabase.co';
 const SB_KEY='{{!sb_key}}';
 // 14 criteria, 100 points. area: 0 security 35 · 1 reliability 30 · 2 usability 15 · 3 maintainability 10 · 4 portability 10
@@ -202,7 +203,7 @@ const EX_NAME=T.ex_name, EX_AUTHOR=T.ex_author;
 /* ================= Utils ================= */
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const won=v=>{const n=Number(v);return v===''||isNaN(n)?'':n.toLocaleString(T.loc)+T.cur};
+const won=v=>{const n=Number(v);return v===''||isNaN(n)?'':(T.cur_pre||'')+n.toLocaleString(T.loc)+T.cur};
 const gradeOf=s=>GRADES.find(g=>s>=g.min);
 const mask=s=>{s=String(s);return s.length<=8?s.slice(0,2)+'•••':s.slice(0,4)+'•••'+s.slice(-2)};
 $('rubVer').textContent=F(T.rub_ver,{ver:RUBRIC_VER});
@@ -224,9 +225,9 @@ $('rubric').innerHTML=`<thead><tr>${T.how_head.map(h=>`<th>${h}</th>`).join('')}
   ).join('')}</tbody>`;
 $('gradeTable').innerHTML=`<thead><tr>${T.grade_head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${T.grade_rows.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td></tr>`).join('')}</tbody>`;
 let PAY={...DEFAULT_PAY};
-try{const s=JSON.parse(localStorage.getItem('aiJudgePay')||'null');if(s)PAY={...PAY,...s}}catch{}
-$('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">${T.pay_label}</label><input type="number" id="pay-${g.g}" min="0" step="1000" value="${esc(PAY[g.g])}"></div>`).join('');
-GRADES.forEach(g=>$('pay-'+g.g).addEventListener('input',e=>{PAY[g.g]=e.target.value;try{localStorage.setItem('aiJudgePay',JSON.stringify(PAY))}catch{}update()}));
+try{const s=JSON.parse(localStorage.getItem(PAY_KEY)||'null');if(s)PAY={...PAY,...s}}catch{}
+$('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">${T.pay_label}</label><input type="number" id="pay-${g.g}" min="0" step="${esc(T.pay_step)}" value="${esc(PAY[g.g])}"></div>`).join('');
+GRADES.forEach(g=>$('pay-'+g.g).addEventListener('input',e=>{PAY[g.g]=e.target.value;try{localStorage.setItem(PAY_KEY,JSON.stringify(PAY))}catch{}update()}));
 
 /* ================= Files ================= */
 let FILES=[];      // {name, ext, kind, text}
