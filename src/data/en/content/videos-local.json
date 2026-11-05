@@ -26,5 +26,75 @@
     "channel": "NBC News",
     "source": "manual",
     "addedAt": "2026-11-05T23:00:00.512Z"
+  },
+  {
+    "videoId": "rA1nWtQGteM",
+    "title": "I work in China’s AI Hospitals. This will surprise you!",
+    "channel": "Dr. Luke in China",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.079Z"
+  },
+  {
+    "videoId": "FqsvgFTQv8w",
+    "title": "How AI is Revolutionizing Medicine",
+    "channel": "Bloomberg Originals",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.158Z"
+  },
+  {
+    "videoId": "lMNDDvNoc-k",
+    "title": "How AI is changing the way doctors treat their patients | 7.30",
+    "channel": "ABC News In-depth",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.241Z"
+  },
+  {
+    "videoId": "SGaorSXGMkE",
+    "title": "A quick guide to Ambient AI Scribes: what they are and how they can help save clinician time",
+    "channel": "Newton's Tree",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.340Z"
+  },
+  {
+    "videoId": "hiZxnsB-jSI",
+    "title": "NotebookLM for Medical Students: Study Robbins Pathology in Minutes | AI Tutorial | Dr. Ranjith Sir",
+    "channel": "PW MedEd",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.428Z"
+  },
+  {
+    "videoId": "miDJLLlS_0s",
+    "title": "These AI Prompts Will Make Your Life SO EASY In Medical School",
+    "channel": "Evolving Medic, MD",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.505Z"
+  },
+  {
+    "videoId": "9oJySubZRSA",
+    "title": "The Ultimate Beginner’s Guide to Claude AI",
+    "channel": "Metics Media",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.602Z"
+  },
+  {
+    "videoId": "6q8joS_592k",
+    "title": "Claude Code Tutorial for Beginners: Build App with AI (2026)",
+    "channel": "Mikey No Code",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.697Z"
+  },
+  {
+    "videoId": "bcM9dP_uXJU",
+    "title": "How to Build an AI Agent with Claude Code (Claude AI Agent Tutorial)",
+    "channel": "AI Master",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.772Z"
+  },
+  {
+    "videoId": "DIjybQ5hw2k",
+    "title": "How to Use AI for Project Management with Gemini & NotebookLM | Gemini at Work - Lesson 2",
+    "channel": "Google Workspace",
+    "source": "manual",
+    "addedAt": "2026-11-05T23:12:18.879Z"
   }
 ]
