@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-04T14:29:51.853Z",
+  "updatedAt": "2026-11-05T02:26:23.687Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "AS ajak ASEAN perdalam kerja sama frontier AI (Bagian 2)",
+      "link": "https://www.antaranews.com/video/5832571/as-ajak-asean-perdalam-kerja-sama-frontier-ai-bagian-2",
+      "source": "ANTARA",
+      "pubDate": "2026-11-05T01:05:10.000Z"
+    },
+    {
+      "title": "Dilema AI: Ketika Mesin Mulai Berkomplot",
+      "link": "https://katadata.co.id/indepth/opini/6aea9cf765420/dilema-ai-ketika-mesin-mulai-berkomplot",
+      "source": "Katadata",
+      "pubDate": "2026-11-04T23:05:00.000Z"
+    },
+    {
+      "title": "Pemilu Sela AS: Pemilih Dukung Kampanye Pembatasan Pusat Data AI",
+      "link": "https://mediaindonesia.com/internasional/952522/pemilu-sela-as-pemilih-dukung-kampanye-pembatasan-pusat-data-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-04T22:16:00.000Z"
+    },
+    {
+      "title": "Indonesia-Swiss Kembangkan Sovereign AI Berbasis Superkomputer di Batam",
+      "link": "https://mediaindonesia.com/nusantara/952488/indonesia-swiss-kembangkan-sovereign-ai-berbasis-superkomputer-di-batam",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-04T15:56:00.000Z"
+    },
+    {
+      "title": "AI Bisa Deteksi Potensi Gangguan Sistem IT Sebelum Layanan Terganggu",
+      "link": "https://www.cnnindonesia.com/teknologi/20261104211052-192-1423420/ai-bisa-deteksi-potensi-gangguan-sistem-it-sebelum-layanan-terganggu",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-04T14:30:54.000Z"
+    },
     {
       "title": "Studi: Satu dari 15 orang dewasa alami pelecehan berbasis gambar AI",
       "link": "https://www.antaranews.com/berita/5832271/studi-satu-dari-15-orang-dewasa-alami-pelecehan-berbasis-gambar-ai",
@@ -1771,36 +1801,6 @@
       "link": "https://finance.detik.com/foto-bisnis/d-8714787/inovasi-kandang-pintar-manfaatkan-ai-untuk-pantau-kesehatan-ayam",
       "source": "detikFinance",
       "pubDate": "2026-10-20T02:00:10.000Z"
-    },
-    {
-      "title": "GoTo Rilis Model AI 27 Miliar Parameter, Bisa Bahasa Daerah",
-      "link": "https://inet.detik.com/cyberlife/d-8714893/goto-rilis-model-ai-27-miliar-parameter-bisa-bahasa-daerah",
-      "source": "detikINET",
-      "pubDate": "2026-10-20T01:15:46.000Z"
-    },
-    {
-      "title": "Ketika AI Bikin HP Murah Makin Mahal, iPhone Terbaru Tetap Diburu",
-      "link": "https://katadata.co.id/indepth/telaah/6ad64bd9a4173/ketika-ai-bikin-hp-murah-makin-mahal-iphone-terbaru-tetap-diburu",
-      "source": "Katadata",
-      "pubDate": "2026-10-20T00:05:00.000Z"
-    },
-    {
-      "title": "Pusat Data AI: Berapa Nilai Publik dari Setiap Megawatt?",
-      "link": "https://mediaindonesia.com/opini/946205/pusat-data-ai-berapa-nilai-publik-dari-setiap-megawatt",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-19T22:05:00.000Z"
-    },
-    {
-      "title": "Kejar Royalti Adil di Era Kecerdasan Buatan",
-      "link": "https://mediaindonesia.com/politik-dan-hukum/946158/kejar-royalti-adil-di-era-kecerdasan-buatan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-19T22:00:00.000Z"
-    },
-    {
-      "title": "BDO: Keamanan data jadi tantangan adopsi AI bagi perusahaan",
-      "link": "https://www.antaranews.com/berita/5797973/bdo-keamanan-data-jadi-tantangan-adopsi-ai-bagi-perusahaan",
-      "source": "ANTARA",
-      "pubDate": "2026-10-19T17:26:57.000Z"
     }
   ]
 }
