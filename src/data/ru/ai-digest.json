@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-05T14:37:19.115Z",
+  "updatedAt": "2026-11-06T02:24:57.921Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-агенты OpenAI выявили почти 1000 уязвимостей в ядре Linux",
+      "link": "https://3dnews.ru/1150922/iiagenti-openai-viyavili-pochti-1000-uyazvimostey-v-yadre-linux",
+      "source": "3DNews",
+      "pubDate": "2026-11-05T19:30:00.000Z"
+    },
+    {
+      "title": "OpenAI представила GPT-6 Cyber — свою лучшую ИИ-модель для защиты от киберугроз",
+      "link": "https://3dnews.ru/1150926/openai-predstavila-gpt6-cyber-svoyu-luchshuyu-iimodel-dlya-zashchiti-ot-kiberugroz",
+      "source": "3DNews",
+      "pubDate": "2026-11-05T19:27:00.000Z"
+    },
+    {
+      "title": "Как выбрать бизнес‑процесс, который стоит делегировать ИИ",
+      "link": "https://habr.com/ru/articles/1104192/?utm_campaign=1104192&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-05T19:14:41.000Z"
+    },
     {
       "title": "Самая дорогая компания в мире зажала деньги на нейросети для создателей iPhone. Слишком много тратят",
       "link": "https://www.cnews.ru/news/top/2026-11-05_samaya_dorogaya_kompaniya_v",
@@ -15,7 +33,7 @@
       "pubDate": "2026-11-05T13:19:42.000Z"
     },
     {
-      "title": "LLM-беседа: Модель пользователя: Обзор экспериментальных исследований",
+      "title": "LLM‑беседа: Модель пользователя: Обзор экспериментальных исследований",
       "link": "https://habr.com/ru/articles/1103998/?utm_campaign=1103998&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-05T12:53:21.000Z"
@@ -1783,24 +1801,6 @@
       "link": "https://www.tadviser.ru/a/741397",
       "source": "TAdviser",
       "pubDate": "2026-10-16T12:49:25.000Z"
-    },
-    {
-      "title": "«Труконф» выпустила фирменный TrueConf Server MCP для работы с ИИ-агентами",
-      "link": "https://www.cnews.ru/news/line/2026-10-16_trukonf_vypustila_firmennyj",
-      "source": "CNews",
-      "pubDate": "2026-10-16T12:12:00.000Z"
-    },
-    {
-      "title": "Изучаем ИИ в финтехе: чего на самом деле хотят пользователи и разработчики",
-      "link": "https://habr.com/ru/specials/1095232/?utm_campaign=1095232&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-16T12:09:03.000Z"
-    },
-    {
-      "title": "Китай решил контролировать, кому достанутся его лучшие ИИ-модели",
-      "link": "https://3dnews.ru/1150041/kitay-reshil-kontrolirovat-komu-dostanutsya-ego-luchshie-iimodeli",
-      "source": "3DNews",
-      "pubDate": "2026-10-16T11:58:00.000Z"
     }
   ]
 }

@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-05T14:37:47.106Z",
+  "updatedAt": "2026-11-06T02:25:25.139Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Dihujat Gara-gara RAM, Bos OpenAI: Saya Ingin Kalian Punya Banyak",
+      "link": "https://inet.detik.com/cyberlife/d-8740635/dihujat-gara-gara-ram-bos-openai-saya-ingin-kalian-punya-banyak",
+      "source": "detikINET",
+      "pubDate": "2026-11-06T01:15:51.000Z"
+    },
+    {
+      "title": "Warga Eropa di 15 Negara Gelar Protes Ekspansi Pusat Data untuk AI",
+      "link": "https://mediaindonesia.com/internasional/953042/warga-eropa-di-15-negara-gelar-protes-ekspansi-pusat-data-untuk-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-06T00:59:00.000Z"
+    },
+    {
+      "title": "Wall Street Ambruk, Saham AI Rontok Dihantam Kekhawatiran Investasi Pusat Data",
+      "link": "https://katadata.co.id/finansial/bursa/6aed162e45789/wall-street-ambruk-saham-ai-rontok-dihantam-kekhawatiran-investasi-pusat-data",
+      "source": "Katadata",
+      "pubDate": "2026-11-05T23:50:00.000Z"
+    },
+    {
+      "title": "Strategi Ekspansi Bisnis ke Pasar ASEAN Melalui Integrasi Teknologi AI dan Logistik",
+      "link": "https://mediaindonesia.com/ekonomi/953000/strategi-ekspansi-bisnis-ke-pasar-asean-melalui-integrasi-teknologi-ai-dan-logistik",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-05T21:19:00.000Z"
+    },
+    {
+      "title": "AI Makin Berkembang, Asosiasi Soroti Kebutuhan Infrastruktur Fiber Optik",
+      "link": "https://inet.detik.com/telecommunication/d-8740267/ai-makin-berkembang-asosiasi-soroti-kebutuhan-infrastruktur-fiber-optik",
+      "source": "detikINET",
+      "pubDate": "2026-11-05T15:40:31.000Z"
+    },
     {
       "title": "Apple Rilis iOS 27.3 Beta: Bawa Perubahan Aplikasi Health hingga Siri AI",
       "link": "https://www.liputan6.com/tekno/read/8328000/apple-rilis-ios-273-beta-bawa-perubahan-aplikasi-health-hingga-siri-ai",
@@ -1771,36 +1801,6 @@
       "link": "https://inet.detik.com/fotoinet/d-8715772/harga-tembus-113-juta-ini-wujud-laptop-ai-asus-proart-p14-dan-p16",
       "source": "detikINET",
       "pubDate": "2026-10-20T11:15:40.000Z"
-    },
-    {
-      "title": "GoTo Rilis Model LLM 27B, Paham Bahasa Indonesia hingga Daerah",
-      "link": "https://inet.detik.com/cyberlife/d-8716074/goto-rilis-model-llm-27b-paham-bahasa-indonesia-hingga-daerah",
-      "source": "detikINET",
-      "pubDate": "2026-10-20T11:01:48.000Z"
-    },
-    {
-      "title": "GoTo Rilis Model Bahasa AI Gratis, dari Bahasa Indonesia hingga Batak",
-      "link": "https://uzone.id/goto-rilis-model-bahasa-ai-gratis-dari-bahasa-indonesia-hingga-batak",
-      "source": "Uzone",
-      "pubDate": "2026-10-20T10:46:45.000Z"
-    },
-    {
-      "title": "Bos ITSEC Wanti-wanti Serangan Siber Makin Cepat Berkat AI, 27% Terjadi di RI",
-      "link": "https://katadata.co.id/digital/teknologi/6ad73530e99f3/bos-itsec-wanti-wanti-serangan-siber-makin-cepat-berkat-ai-27-terjadi-di-ri",
-      "source": "Katadata",
-      "pubDate": "2026-10-20T09:32:00.000Z"
-    },
-    {
-      "title": "Microsoft: Hati-Hati, Agen AI Bisa Jadi Ancaman Internal Perusahaan",
-      "link": "https://www.liputan6.com/tekno/read/8316880/microsoft-hati-hati-agen-ai-bisa-jadi-ancaman-internal-perusahaan",
-      "source": "Liputan6",
-      "pubDate": "2026-10-20T09:08:26.000Z"
-    },
-    {
-      "title": "AS Blokir AI China DeepSeek dari Sistem Pemerintah",
-      "link": "https://www.liputan6.com/tekno/read/8317219/as-blokir-ai-china-deepseek-dari-sistem-pemerintah",
-      "source": "Liputan6",
-      "pubDate": "2026-10-20T07:53:49.000Z"
     }
   ]
 }
