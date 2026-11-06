@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-11-05T23:53:05.929Z",
-  "total": 97,
-  "ok": 84,
+  "checkedAt": "2026-11-06T23:34:59.587Z",
+  "total": 98,
+  "ok": 85,
   "unknown": 13,
   "unknownList": [
     {
@@ -49,11 +49,11 @@
       "status": 0
     },
     {
-      "url": "https://www.vademec.ru/news/2026/10/26/meta-analiz-kontrol-vracha-za-klinicheskim-ii-ne-garantiruet-bezopasnost/",
+      "url": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
       "status": 0
     },
     {
-      "url": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
+      "url": "https://www.vademec.ru/news/2026/10/26/meta-analiz-kontrol-vracha-za-klinicheskim-ii-ne-garantiruet-bezopasnost/",
       "status": 0
     }
   ],
