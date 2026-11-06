@@ -1,6 +1,6 @@
 ---
-title: "The HIPAA Security Rule rewrite is still a proposal: what applies today"
-description: "HHS proposed a rewrite of the HIPAA Security Rule in January 2025, and a November 2026 search of the Federal Register found no final rule. What hospitals must do under the current text."
+title: "HIPAA Security Rule rewrite is still only a proposal"
+description: "HHS proposed a HIPAA Security Rule rewrite in January 2025, and a November 2026 search found no final rule. What hospitals must do under the current text."
 pubDate: 2026-11-06
 category: "Column"
 draft: false

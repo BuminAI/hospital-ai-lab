@@ -1,6 +1,6 @@
 ---
-title: "HTI-5 final rule: what changes for decision support in certified EHRs"
-description: "ONC's HTI-5 final rule, published October 28, 2026, removes the source attribute and risk-management certification requirements for decision support interventions. What that means for a hospital's vendor review."
+title: "HTI-5 final rule: what changes for EHR decision support"
+description: "ONC’s HTI-5 final rule, published October 28, 2026, removes decision support source attribute and risk-management certification requirements."
 pubDate: 2026-11-06
 category: "Column"
 draft: false

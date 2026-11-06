@@ -1,6 +1,6 @@
 ---
 title: "The 60-day breach clock and your AI vendor: who is counting?"
-description: "HIPAA gives a hospital up to 60 calendar days after discovery to notify patients of a breach, and the clock can start when a vendor knew. Why that matters when you sign with an AI vendor."
+description: "HIPAA gives a hospital up to 60 calendar days after discovery to notify patients of a breach, and a vendor’s delay can eat into that time."
 pubDate: 2026-11-06
 category: "Column"
 draft: false

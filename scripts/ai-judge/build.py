@@ -105,6 +105,10 @@ def main():
                 {'@type': 'WebPage', '@id': canon + '#webpage', 'url': canon, 'name': H['title'], 'description': H['desc'],
                  'inLanguage': meta['in_language'], 'isPartOf': {'@id': site_id},
                  'breadcrumb': {'@id': canon + '#breadcrumb'}, 'about': {'@id': SITE + '/#organization'}},
+                {'@type': 'WebApplication', '@id': canon + '#app', 'name': H['title'], 'url': canon, 'description': H['desc'],
+                 'applicationCategory': 'BusinessApplication', 'operatingSystem': 'Any (web browser)', 'inLanguage': meta['in_language'],
+                 'isAccessibleForFree': True, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'},
+                 'isPartOf': {'@id': site_id}, 'publisher': {'@id': SITE + '/#organization'}, 'mainEntityOfPage': {'@id': canon + '#webpage'}},
                 {'@type': 'BreadcrumbList', '@id': canon + '#breadcrumb', 'itemListElement': [
                     {'@type': 'ListItem', 'position': 1, 'name': H['crumb_home'], 'item': SITE + home},
                     {'@type': 'ListItem', 'position': 2, 'name': H['crumb_page'], 'item': canon}]},

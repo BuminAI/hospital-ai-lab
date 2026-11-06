@@ -1,6 +1,6 @@
 ---
-title: "When an AI device changes after approval: what a PCCP means for hospitals"
-description: "FDA lists a final guidance from August 2025 on predetermined change control plans for AI-enabled devices. What it is, and what a hospital should ask a vendor."
+title: "AI device changes after approval: what a PCCP means"
+description: "FDA lists an August 2025 final guidance on predetermined change control plans for AI-enabled devices. What it is, and what a hospital should ask."
 pubDate: 2026-11-06
 category: "Column"
 draft: false
