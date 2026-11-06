@@ -287,6 +287,27 @@ footer{margin-top:4px}
 .uploader .opt{background:var(--surface)}
 :lang(ko) .lede,:lang(ko) .how-grid p,:lang(ko) .uploader .hint,:lang(ko) .hero-band .hello{word-break:keep-all;overflow-wrap:break-word}
 :lang(ja) .lede,:lang(zh-TW) .lede{line-break:strict}
+.linkbox{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--bg)}
+.linkbox>summary{cursor:pointer;font-size:14px;font-weight:600}
+.linkbox[open]>summary{margin-bottom:8px}
+.linkrow{display:flex;gap:8px}
+.linkrow input{flex:1;min-width:0;font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+.linkrow button{white-space:nowrap}
+.links{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.lk{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--surface);display:grid;gap:8px}
+.lk-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:8px;align-items:center;font-size:13px}
+.lk-kind{font-size:11.5px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.lk-url{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:none;padding:0}
+.lk-st{font-size:12.5px;white-space:nowrap}
+.lk-ok .lk-st{color:var(--ok)} .lk-blocked .lk-st{color:var(--warn);font-weight:600} .lk-info .lk-st{color:var(--gS);font-weight:600}
+.lk-blocked{border-color:var(--warn)} .lk-info{border-color:var(--gS)}
+.unblock{background:var(--warn-bg);color:var(--ink);border-radius:8px;padding:10px 12px;font-size:13.5px;display:grid;gap:6px}
+.unblock b{color:var(--warn)}
+.unblock ol{margin:0;padding-left:20px;display:grid;gap:4px}
+.lk-info .unblock{background:var(--gS-bg)} .lk-info .unblock b{color:var(--gS)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chipbtn{font-size:12.5px;font-weight:500;border-radius:999px;padding:4px 11px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:640px){.lk-row{grid-template-columns:auto minmax(0,1fr) auto}.lk-st{grid-column:1/-1;white-space:normal}.linkrow{flex-direction:column}}
 /* result window */
 dialog.resdlg{width:min(940px,calc(100vw - 24px));border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 80px -20px rgba(0,0,0,.55)}
 dialog.resdlg .in{padding:0}
@@ -356,6 +377,14 @@ tr.areahead td{background:var(--soft);font-size:13px}
       </div>
       <div class="files" id="fileList"></div>
       <p class="status reading-line" id="analyzeStatus" aria-live="polite"></p>
+      <details class="linkbox" id="linkBox">
+        <summary>連携しているリンクも一緒に審査（任意）</summary>
+        <p class="hint">プログラムがGitHubリポジトリやGoogle Apps Scriptのウェブアプリなどとつながっている場合は、アドレスを貼り付けてください。アップロードしたファイルと合わせて、一つのプログラムとして審査します。</p>
+        <div class="linkrow"><input type="url" id="linkInput" placeholder="https://github.com/…  または  https://script.google.com/macros/s/…/exec" autocomplete="off" inputmode="url" aria-label="連携しているリンクも一緒に審査（任意）"><button type="button" id="linkAdd">リンクを追加</button></div>
+        <p class="status" id="linkMsg" aria-live="polite"></p>
+        <ul class="links" id="linkList"></ul>
+        <div id="linkDetected"></div>
+      </details>
       <details class="optinfo">
         <summary>プログラム名・提出者を入力（任意）</summary>
         <div class="row2">
@@ -426,6 +455,7 @@ tr.areahead td{background:var(--soft);font-size:13px}
       <li>14項目・100点満点: 安全性35点・信頼性30点・使いやすさ15点・保守のしやすさ10点・移植のしやすさ10点。すべての点数は、アップロードしたコードから見つかった事実（ファイルと行番号の根拠つき）だけで計算し、項目ごとの配点と採点ルールを下にすべて公開しています。</li>
       <li>等級は点数で決めます（S 90点以上・A 75点以上・B 60点以上）。ただし、実行時のエラーがあればB以下に制限し、実際の実行チェックができていなければSは付けません。</li>
       <li>同じコードなら、いつでも同じ点数と同じ結果IDになります（コードと採点基準のバージョンから作る指紋）。プログラム名・提出者・所属・説明書など、提出者が書いた内容は点数にまったく使いません。</li>
+      <li>連携したリンク（GitHub・Gist・ウェブページ・Apps Scriptウェブアプリ）から読み込んだコードは、アップロードしたファイルと合わせて審査します。リンクを読み込めない場合、その部分は点数に入らず、審査範囲が部分的になるためS等級は付きません。解除の方法は分析レポートに表示されます。</li>
     </ol>
     <div class="tbl"><table class="rubric" id="rubric"></table></div>
     <div class="tbl"><table id="gradeTable"></table></div>
@@ -502,10 +532,10 @@ tr.areahead td{background:var(--soft);font-size:13px}
    3. Points come only from facts found in the uploaded code (file:line evidence). Names, README, answers: never used.
    4. One fixed rubric, no judges: same code + same rubric version = same result ID and same score. */
 const SUBMIT_URL = 'supabase';
-const RUBRIC_VER = 'v2.0 (2026-10-28)';
+const RUBRIC_VER = 'v2.1 (2026-11-07)'; // v2.1: linked sources are reviewed together; unread links cap the grade at A. Without links, scoring is identical to v2.0.
 
 /* ================= Strings (per language) ================= */
-const T={"none":"なし","loc":"ja-JP","cur":"円","cur_pre":"","pay_default":{"S":"10000","A":"7000","B":"4000","C":"0"},"pay_step":"500","gl":["90点以上","75〜89.9点","60〜74.9点","60点未満 · 改善して再提出"],"ex_name":"年次有給休暇の日数計算ツール","ex_author":"人事課 山田太郎（例）","s4_title":"提出への同意","s4_pts":"必須","consent_lines":["審査を受けると、アップロードしたファイルがこのサイトの運営者に送られ、保管されます。","· 送る項目: プログラム名、提出者・所属、アップロードしたファイル、等級と点数（審査結果のPDFは送りません）","· 目的: 審査記録の確認と、審査基準の改善","· APIキー・パスワードとみられる値がある場合は送信しません。消してからもう一度アップロードしてください。","· 保管期間: 提出日から1か月後に削除します。それより前に削除を希望する場合は、<a href=\"mailto:choyj80@naver.com\">お問い合わせ<\/a>からご連絡ください。","· 同意しない場合は、審査結果を見ることができません。"],"consent_label":"上の内容を確認し、アップロードしたファイルを運営者に送ることに同意します。","pay_label":"報酬（円）","zip_fail":"ZIPを開くためのツールを読み込めませんでした。ファイルを解凍してからアップロードしてください。","read_fail":"「{name}」を読み込めませんでした。","skipped":"分析できないファイル{n}個（画像・Excel・2MB超など）は除外しました。","k_doc":"説明書","lines_fmt":"{n}行","rm_aria":"{name} を外す","rm":"外す","hard_t":["個人PCのパス","シート・フォルダの固有ID","Googleドキュメントのアドレス","内部IP・ローカルのアドレス","暗号化されていないhttpのアドレス"],"risk_t":["evalなどの動的なコード実行","innerHTML・document.writeへの代入","シェルコマンドの実行","安全でない復元処理（pickleなど）","証明書の検証を無効にする設定","文字列を連結して作ったSQL","パスワード・トークンをブラウザに保存"],"async_err":"処理されていない非同期エラー: ","running":"「{name}」を隔離したウィンドウで実行しています…","analyzing":"分析中…","analyzed":"ファイル{n}個 · {l}行を分析しました。","b_analyzing":"ファイルを分析しています。","b_consent":"提出への同意にチェックを入れると、審査結果が表示されます。","ready":"採点が終わりました。下のボタンで結果を確認してください。","grade_fmt":"{g}等級","th_total":"合計","f_fail":"必須要件を満たしていないため保留にします: {items}。自動分析レポートで場所を確認し、直してからもう一度アップロードしてください。","sub_secret":"APIキー・パスワードとみられる値があるため、運営者には送信していません。消してからもう一度アップロードしてください。","sub_ing":"運営者に提出しています…","sub_noname":"（名前なし）","sub_ok":"運営者に提出しました（{time}）。結果はこの画面でだけ見られます。","sub_big":"ファイルの容量が大きいため（圧縮後5MB超）、運営者には送信できませんでした。審査結果はそのままご覧になれます。","sub_fail":"運営者に提出できませんでした。審査結果はそのままご覧になれます。","rt_title":"[AIプログラム審査の結果]","rt_name":"プログラム名: {v}","rt_none":"（未入力）","rt_author":"提出者: {v}","rt_files":"提出ファイル: {v}","rt_hold":"保留（必須要件の確認が必要）","rt_reward":" / 報酬 {pay}","rt_fail":"- 満たしていない: {v}","pill_submit":"同意するとアップロードしたファイルが運営者に送られます · 結果のPDFはご本人だけ","more":"ほか{n}か所","line_fmt":"{n}行目","rep_empty":"ファイルをアップロードすると、分析結果がここに表示されます。","cnt":"{n}個","spots":"{n}か所","g_sec":"セキュリティ · 個人情報","need_check":"{n}か所で確認が必要","no_issue":"問題なし","t_key":"APIキー・パスワード","t_rrn":"住民登録番号の形式（韓国）","t_phone":"携帯電話番号（韓国の形式）","remove_it":"コードから消して、設定ファイルや入力で受け取るように変えてください","sec_none":"APIキー・パスワード、住民登録番号・携帯電話番号の形式の値は見つかりませんでした。","emails":"メールアドレス {n}か所（参考）","g_risk":"危険なコードの書き方","risk_warn":"入力された値がこのコードに届かないか確認し、できればより安全な書き方に変えてください。","risk_none":"危険なコードの書き方は見つかりませんでした。","g_run":"実行・構文チェック","run_ok":"合格","run_na":"チェック不可","run_html":"HTML {n}個を隔離したウィンドウで開き、スクリプトのエラーがないか確認しました。","run_js":"JS・Apps Script {n}個の構文をチェックしました。","run_py":"Pythonとモジュールのファイルはブラウザで実行できないため、チェックしていません。","g_hard":"埋め込み値","hard_warn":"ほかの人が使うには、この値をコードの先頭の設定欄か入力値に移してください。","hard_none":"個人のパスや固有IDなど、特定の環境に結びついた値は見つかりませんでした。","g_todo":"未完成の印","copied":"結果をコピーしました。","copy_fail":"コピーできませんでした。結果の表を直接選択してコピーしてください。","req":["APIキー・パスワードの露出なし","個人情報とみられる値なし"],"rub_ver":"採点基準 {ver}","how_head":["領域","項目","何を見るか","点数のルール","配点"],"area_n":["安全性","信頼性","使いやすさ","保守のしやすさ","移植のしやすさ"],"crit":{"S1":{"n":"秘密情報の露出","how":"APIキー・パスワード・トークン・秘密鍵がコードに書かれていないか","rule":"なければ10 · あれば0 + 等級を保留"},"S2":{"n":"個人情報の露出","how":"住民登録番号・携帯電話番号の形式の値（韓国）","rule":"なければ8 · あれば0 + 等級を保留"},"S3":{"n":"危険なコードの書き方","how":"eval、innerHTMLへの代入、シェル実行、安全でない復元処理、証明書検証の無効化、連結したSQLなど","rule":"9点から1か所につき−3（最低0）"},"S4":{"n":"外部への接続","how":"コードがデータを送ったり取り込んだりする外部アドレス（通信の呼び出し、他サイトのスクリプト、AIサービス）","rule":"8点から、異なる外部アドレス1つにつき−2（最低0）"},"R1":{"n":"実行・構文チェック","how":"HTMLは隔離したウィンドウで実際に開いてスクリプトのエラーを確認、JS・Apps Scriptは構文をチェック","rule":"合格10 · 一部のみ可能7 · チェック不可（Pythonなど）5 · エラー0"},"R2":{"n":"エラー処理","how":"try/catch、except、.catch()、onerrorなど、エラーを処理するコード","rule":"3か所以上（または関数の30%以上）8 · 1〜2か所4 · なし0"},"R3":{"n":"入力チェック","how":"空の値・数値の形式・必須入力を確認するコード（入力を受け取るプログラムのみ）","rule":"3か所以上7 · 1〜2か所3 · なし0 · 入力を受け取らなければ7（該当なし）"},"R4":{"n":"未完成の印","how":"TODO、FIXME、XXX、HACK のコメント","rule":"なし5 · 1〜2個3 · 3個以上0"},"U1":{"n":"画面・入力手段","how":"入力欄とボタンがあるHTMLの画面、Apps Scriptのメニュー、Pythonのinput・コマンドライン・GUI","rule":"画面6 · 簡単な入力方式3 · なし0"},"U2":{"n":"案内文","how":"コード内のlabel、placeholder、見出し、入力の案内文、ヘルプ","rule":"5個以上5 · 1〜4個2 · なし0"},"U3":{"n":"利用者向けメッセージ","how":"alert、エラー、結果の文言に使われている日本語の案内","rule":"3個以上4 · 1〜2個2 · なし0"},"M1":{"n":"コメント","how":"コードの行のうち、コメント行が占める割合","rule":"15%以上5 · 5%以上3 · それ未満1 · なし0"},"M2":{"n":"関数の構成","how":"コードが関数に分かれている程度","rule":"5個以上5 · 2〜4個3 · 1個1 · なし0"},"P1":{"n":"埋め込み値","how":"個人PCのパス、シート・フォルダの固有ID、内部IP、暗号化されていないhttpアドレス","rule":"なし10 · 1〜2か所7 · 3〜5か所4 · 6か所以上0"}},"kind":["実行して測定","パターン点検","数を数える"],"kind_short":["測定","パターン","数"],"grade_head":["等級","基準"],"grade_rows":[["S","90点以上（ただし、実際の実行チェックに合格していること）"],["A","75〜89.9点"],["B","60〜74.9点（実行時のエラーがあれば最大B）"],["C","60点未満 · 改善して再提出"],["保留","秘密情報・個人情報が見つかった場合は、点数に関係なく等級の確定を保留"]],"unsup_tag":"審査対象外 · 除外","ev":{"found":"{n}か所で発見","none":"なし","hosts":"外部アドレス{n}件","run_err":"エラー{n}件","run_part":"一部のみチェック","run_ok":"合格（{n}件チェック）","run_na":"チェック不可","cnt":"{n}か所","no_input":"入力を受け取らない（該当なし）","ui_html":"入力欄・ボタンのある画面","ui_simple":"簡単な入力方式","ui_none":"なし","items":"{n}個","pct":"{n}%"},"g_gate":"審査対象の確認","gate_pass":"プログラムと確認できました","gate_fail_title":"審査の対象ではありません","gate_fail_help":"実際に動くソースコードが入ったプログラムのファイル（HTML+スクリプト、JS、Apps Script、Python、ZIP）をアップロードしてください。PDF・Word・Excel・画像・説明文書だけでは審査できません。","gate_ok_files":"プログラムのコードファイルを{n}個確認しました","gate_ok_logic":"動くコード{lines}行 · 関数や条件文などを{tokens}個確認しました","gate_no_code":"プログラムのコードファイルがありません","gate_static_html":"画面だけのHTMLで、動くスクリプトがありません","gate_no_logic":"動くコードが少なすぎます（{lines}行）","gate_unsup":"審査対象外のファイル{n}個は除外しました（PDF・文書・画像など）","gate_info_ai":"AIサービスと連携するコード{n}か所（点数とは無関係の情報）","v_inel":"審査対象外","v_hold":"保留","v_sub":"{score}点 / 100点 · {x}","sub_hold":"必須要件の確認後に確定","id_line":"結果ID {id} · 採点基準 {ver}","id_note":"同じコードをもう一度アップロードすると、同じ結果IDと同じ点数になります。提出者が書いた内容は点数に使っていません。","th_item":"項目","th_score":"点数","th_basis":"根拠","f_cap_err":"実行時のエラーがあるため、等級をB以下に制限しました。","f_cap_run":"実際の実行チェックができなかったため、SではなくAに制限しました。","f_net":"コードが外部に接続します: {hosts}。機微な情報を送っているかはコードだけでは判断できないため、担当者が確認してください。","host_dyn":"（アドレスをコード内で組み立てている）","f_limit":"自動点検はコードをルールで読み取って判断するもので、実際の動作の正しさ・医療上の妥当性・法的な適合性を保証するものではありません。結果は、担当者の判断を助ける材料として使ってください。","mbar_hold":"保留 · {score}点","mbar_g":"<b>{g}<\/b>等級 · {score}点","rt_result":"結果: {r} / {score}点","rt_id":"結果ID: {id}（採点基準 {ver}）","rt_note":"※ 自動点検の結果であり、実際の動作・医療上の妥当性・法的な適合性を保証するものではありません。","m":["分析したファイル","全体の行数","実行・構文チェック","エラー処理","入力チェック","コメント比率","画面の要素","利用者向け案内","埋め込み値","危険な書き方","外部アドレス"],"g_net":"外部への接続","how":{"call":"通信の呼び出し","src":"他サイトから読み込み","ai":"AIサービス"},"net_warn":"コードがこのアドレスにデータを送ったり、取り込んだりします。機微な情報が含まれないか確認してください。","net_none":"外部に接続するコードは見つかりませんでした。","b_nofile":"プログラムのファイルをアップロードしてください。審査するのは、動くソースコードです。","rx":{"msg_chars":"\\u3041-\\u3093\\u30A1-\\u30F6\\u4E00-\\u9FA5\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|ここに|入力|キーを|dummy|test"},"contact_href":"mailto:choyj80@naver.com","ux":{"welcome":"自作のプログラムを共有する前に点検を受けること。それこそが病院の現場に必要な、丁寧な習慣です。","sum":{"S":"とてもよくできたプログラムです。安全性・動作・使いやすさのすべてが基準を十分に超えており、同僚も安心して使えます。","A":"よくできたプログラムです。大きな問題なく動いており、下の数点を整えれば、さらに多くの同僚が安心して使えます。","B":"使えるプログラムとしての基本は備わっています。下の「次にやること」を少し直すだけで、目に見えて良くなります。","C":"まだ整えるところは多いですが、どんなプログラムも最初はこうです。直す点を一つずつ下に書きました。","H":"等級をいったん保留にしました。コードにパスワード・キー、または個人情報に見える値が含まれているためです。よくあることで、すぐ直せます。今見つかったことで、患者さんとご自身を守れました。"},"hold_note":"アップロードしたファイルはどこにも送信されていません。値を消してもう一度アップロードすれば、すぐに等級が出ます。","prog":"あと{n}点で{g}等級です。","prog_top":"いちばん高い等級です。","good_title":"よくできた点","good_item":"{n}：満点","good_none":"今回の点検は出発点です。何を直せばよいか、これではっきり分かりました。","next_title":"次にやること","next_hint":"点数が大きく上がる順、かつ簡単な順に並べています。","next_none":"私たちが測る項目では、直すところはもうありません。お疲れさまでした。","gain":"+{n}点","where":"場所：{w}","more":"残りの{n}件を見る","r1_note":"Pythonなどはブラウザで実行できないため、この項目は5点として計算されます。エラーがあるからではありません。","delta_up":"前回の点検（このブラウザ）より{n}点上がりました。直した成果が出ています。","delta_down":"前回の点検（このブラウザ）より{n}点低くなりました。下の表で何が変わったか確認できます。","delta_same":"前回の点検（このブラウザ）と同じ点数です。","trust_title":"この点数の読み方","trust":["点数は、アップロードされたコードにある事実だけから計算し、項目ごとにファイルと行番号の根拠を示します。","同じコードには、いつでも同じ点数と結果IDが出ます。審査する人の気分で変わることはありません。","プログラム名・提出者・所属・説明書は、点数にまったく使われません。","医学的に正しいか、法的に問題がないかは判断できません。病院で使う前に、必ず人が確認してください。","コードが誤って読まれたと思われる場合は、直したファイルをもう一度アップロードするか、下のリンクからお知らせください。"],"trust_link":"誤って読まれたと思ったらお知らせください","rt_next":"次にやること","areas":"領域別の点数"},"help":{"S1":{"why":"コードに書かれたキーやパスワードは、ファイルを見た人なら誰でもコピーでき、患者システムの扉を開けてしまいます。","fix":"コードから消し、発行元でキーを新しくしたうえで、設定ファイルや入力欄から受け取る形にしましょう。"},"S2":{"why":"マイナンバーや携帯電話番号の形式の値がコードにあると、ファイルを共有した瞬間に実在の人が特定されます。","fix":"架空のサンプル値に置き換えましょう。"},"S3":{"why":"利用者が入力した文字が、そのまま命令として実行されてしまうコードの形があります。","fix":"示された箇所ごとに、より安全な書き方に変えましょう（例：innerHTMLの代わりにtextContent）。"},"S4":{"why":"外部の宛先と通信するコードは、病院の外へデータが出ても気づかれにくくなります。","fix":"各宛先が意図したものか確認し、病院が承認していないサービスには患者情報を送らないでください。"},"R1":{"why":"同僚の前でエラーで止まるプログラムは、すぐに信頼を失います。","fix":"プログラムを開いてボタンを一つずつ押し、最初に出たエラーから直しましょう。"},"R2":{"why":"エラー処理がないと、入力の間違い一つでプログラム全体が止まります。","fix":"失敗しうる手順（ファイル読み込み・日付・数値）を囲み、分かりやすいメッセージが出るようにしましょう。"},"R3":{"why":"人は、空欄や数値欄への文字など、思いがけない値を入力します。","fix":"値を使う前に確認し、何を直せばよいか利用者に伝えましょう。"},"R4":{"why":"TODOのメモは、未完成の部分を同僚が踏んでしまう原因になります。","fix":"メモを片づけるか消し、本当にやることは別のリストに移しましょう。"},"U1":{"why":"どこを押せばよいか分からないプログラムは、使われません。","fix":"ラベル付きの入力欄と、分かりやすいボタンが一つある簡単な画面にしましょう。"},"U2":{"why":"ラベルと案内文があれば、新しく来た人も尋ねずに使えます。","fix":"すべての入力欄にラベルと短い案内を付けましょう。"},"U3":{"why":"分かりやすいメッセージは、何が起きたか、次に何をすればよいかを伝えてくれます。","fix":"成功したときと、エラーごとに、平易な一文を表示しましょう。"},"M1":{"why":"コメントがあれば、次の人（半年後の自分も）がコードを理解できます。","fix":"コードのまとまりごとに、何のためのものか一行コメントを付けましょう。"},"M2":{"why":"名前を付けた小さな関数は、長い一塊よりも直しやすく、再利用しやすくなります。","fix":"一つのことだけをする関数に分けましょう。"},"P1":{"why":"自分のPCのパスや非公開のシートIDが入っていると、他の人のパソコンでは動きません。","fix":"そのような値はコードの先頭の設定欄に移すか、入力で受け取りましょう。"}},"ui":{"back_hello":"おかえりなさい。前回の点検は{d}、{s}点でした。","hist_confirm":"点検履歴をすべて消しますか？元に戻せません。","sample_banner":"サンプルプログラムの結果です。練習用のため、運営者には送信されず、点検履歴にも残りません。","card_done":"結果カードを保存しました。","card_sample":"サンプル体験","hist_none":"名称なし"}};
+const T={"none":"なし","loc":"ja-JP","cur":"円","cur_pre":"","pay_default":{"S":"10000","A":"7000","B":"4000","C":"0"},"pay_step":"500","gl":["90点以上","75〜89.9点","60〜74.9点","60点未満 · 改善して再提出"],"ex_name":"年次有給休暇の日数計算ツール","ex_author":"人事課 山田太郎（例）","s4_title":"提出への同意","s4_pts":"必須","consent_lines":["審査を受けると、アップロードしたファイルがこのサイトの運営者に送られ、保管されます。","· 送る項目: プログラム名、提出者・所属、アップロードしたファイル（リンクから読み込んだコードを含む）、等級と点数（審査結果のPDFは送りません）","· 目的: 審査記録の確認と、審査基準の改善","· APIキー・パスワードとみられる値がある場合は送信しません。消してからもう一度アップロードしてください。","· 保管期間: 提出日から1か月後に削除します。それより前に削除を希望する場合は、<a href=\"mailto:choyj80@naver.com\">お問い合わせ<\/a>からご連絡ください。","· 同意しない場合は、審査結果を見ることができません。"],"consent_label":"上の内容を確認し、アップロードしたファイルを運営者に送ることに同意します。","pay_label":"報酬（円）","zip_fail":"ZIPを開くためのツールを読み込めませんでした。ファイルを解凍してからアップロードしてください。","read_fail":"「{name}」を読み込めませんでした。","skipped":"分析できないファイル{n}個（画像・Excel・2MB超など）は除外しました。","k_doc":"説明書","lines_fmt":"{n}行","rm_aria":"{name} を外す","rm":"外す","hard_t":["個人PCのパス","シート・フォルダの固有ID","Googleドキュメントのアドレス","内部IP・ローカルのアドレス","暗号化されていないhttpのアドレス"],"risk_t":["evalなどの動的なコード実行","innerHTML・document.writeへの代入","シェルコマンドの実行","安全でない復元処理（pickleなど）","証明書の検証を無効にする設定","文字列を連結して作ったSQL","パスワード・トークンをブラウザに保存"],"async_err":"処理されていない非同期エラー: ","running":"「{name}」を隔離したウィンドウで実行しています…","analyzing":"分析中…","analyzed":"ファイル{n}個 · {l}行を分析しました。","b_analyzing":"ファイルを分析しています。","b_consent":"提出への同意にチェックを入れると、審査結果が表示されます。","ready":"採点が終わりました。下のボタンで結果を確認してください。","grade_fmt":"{g}等級","th_total":"合計","f_fail":"必須要件を満たしていないため保留にします: {items}。自動分析レポートで場所を確認し、直してからもう一度アップロードしてください。","sub_secret":"APIキー・パスワードとみられる値があるため、運営者には送信していません。消してからもう一度アップロードしてください。","sub_ing":"運営者に提出しています…","sub_noname":"（名前なし）","sub_ok":"運営者に提出しました（{time}）。結果はこの画面でだけ見られます。","sub_big":"ファイルの容量が大きいため（圧縮後5MB超）、運営者には送信できませんでした。審査結果はそのままご覧になれます。","sub_fail":"運営者に提出できませんでした。審査結果はそのままご覧になれます。","rt_title":"[AIプログラム審査の結果]","rt_name":"プログラム名: {v}","rt_none":"（未入力）","rt_author":"提出者: {v}","rt_files":"提出ファイル: {v}","rt_hold":"保留（必須要件の確認が必要）","rt_reward":" / 報酬 {pay}","rt_fail":"- 満たしていない: {v}","pill_submit":"同意するとアップロードしたファイルが運営者に送られます · 結果のPDFはご本人だけ","more":"ほか{n}か所","line_fmt":"{n}行目","rep_empty":"ファイルをアップロードすると、分析結果がここに表示されます。","cnt":"{n}個","spots":"{n}か所","g_sec":"セキュリティ · 個人情報","need_check":"{n}か所で確認が必要","no_issue":"問題なし","t_key":"APIキー・パスワード","t_rrn":"住民登録番号の形式（韓国）","t_phone":"携帯電話番号（韓国の形式）","remove_it":"コードから消して、設定ファイルや入力で受け取るように変えてください","sec_none":"APIキー・パスワード、住民登録番号・携帯電話番号の形式の値は見つかりませんでした。","emails":"メールアドレス {n}か所（参考）","g_risk":"危険なコードの書き方","risk_warn":"入力された値がこのコードに届かないか確認し、できればより安全な書き方に変えてください。","risk_none":"危険なコードの書き方は見つかりませんでした。","g_run":"実行・構文チェック","run_ok":"合格","run_na":"チェック不可","run_html":"HTML {n}個を隔離したウィンドウで開き、スクリプトのエラーがないか確認しました。","run_js":"JS・Apps Script {n}個の構文をチェックしました。","run_py":"Pythonとモジュールのファイルはブラウザで実行できないため、チェックしていません。","g_hard":"埋め込み値","hard_warn":"ほかの人が使うには、この値をコードの先頭の設定欄か入力値に移してください。","hard_none":"個人のパスや固有IDなど、特定の環境に結びついた値は見つかりませんでした。","g_todo":"未完成の印","copied":"結果をコピーしました。","copy_fail":"コピーできませんでした。結果の表を直接選択してコピーしてください。","req":["APIキー・パスワードの露出なし","個人情報とみられる値なし"],"rub_ver":"採点基準 {ver}","how_head":["領域","項目","何を見るか","点数のルール","配点"],"area_n":["安全性","信頼性","使いやすさ","保守のしやすさ","移植のしやすさ"],"crit":{"S1":{"n":"秘密情報の露出","how":"APIキー・パスワード・トークン・秘密鍵がコードに書かれていないか","rule":"なければ10 · あれば0 + 等級を保留"},"S2":{"n":"個人情報の露出","how":"住民登録番号・携帯電話番号の形式の値（韓国）","rule":"なければ8 · あれば0 + 等級を保留"},"S3":{"n":"危険なコードの書き方","how":"eval、innerHTMLへの代入、シェル実行、安全でない復元処理、証明書検証の無効化、連結したSQLなど","rule":"9点から1か所につき−3（最低0）"},"S4":{"n":"外部への接続","how":"コードがデータを送ったり取り込んだりする外部アドレス（通信の呼び出し、他サイトのスクリプト、AIサービス）","rule":"8点から、異なる外部アドレス1つにつき−2（最低0）"},"R1":{"n":"実行・構文チェック","how":"HTMLは隔離したウィンドウで実際に開いてスクリプトのエラーを確認、JS・Apps Scriptは構文をチェック","rule":"合格10 · 一部のみ可能7 · チェック不可（Pythonなど）5 · エラー0"},"R2":{"n":"エラー処理","how":"try/catch、except、.catch()、onerrorなど、エラーを処理するコード","rule":"3か所以上（または関数の30%以上）8 · 1〜2か所4 · なし0"},"R3":{"n":"入力チェック","how":"空の値・数値の形式・必須入力を確認するコード（入力を受け取るプログラムのみ）","rule":"3か所以上7 · 1〜2か所3 · なし0 · 入力を受け取らなければ7（該当なし）"},"R4":{"n":"未完成の印","how":"TODO、FIXME、XXX、HACK のコメント","rule":"なし5 · 1〜2個3 · 3個以上0"},"U1":{"n":"画面・入力手段","how":"入力欄とボタンがあるHTMLの画面、Apps Scriptのメニュー、Pythonのinput・コマンドライン・GUI","rule":"画面6 · 簡単な入力方式3 · なし0"},"U2":{"n":"案内文","how":"コード内のlabel、placeholder、見出し、入力の案内文、ヘルプ","rule":"5個以上5 · 1〜4個2 · なし0"},"U3":{"n":"利用者向けメッセージ","how":"alert、エラー、結果の文言に使われている日本語の案内","rule":"3個以上4 · 1〜2個2 · なし0"},"M1":{"n":"コメント","how":"コードの行のうち、コメント行が占める割合","rule":"15%以上5 · 5%以上3 · それ未満1 · なし0"},"M2":{"n":"関数の構成","how":"コードが関数に分かれている程度","rule":"5個以上5 · 2〜4個3 · 1個1 · なし0"},"P1":{"n":"埋め込み値","how":"個人PCのパス、シート・フォルダの固有ID、内部IP、暗号化されていないhttpアドレス","rule":"なし10 · 1〜2か所7 · 3〜5か所4 · 6か所以上0"}},"kind":["実行して測定","パターン点検","数を数える"],"kind_short":["測定","パターン","数"],"grade_head":["等級","基準"],"grade_rows":[["S","90点以上（ただし、実際の実行チェックに合格していること）"],["A","75〜89.9点"],["B","60〜74.9点（実行時のエラーがあれば最大B）"],["C","60点未満 · 改善して再提出"],["保留","秘密情報・個人情報が見つかった場合は、点数に関係なく等級の確定を保留"]],"unsup_tag":"審査対象外 · 除外","ev":{"found":"{n}か所で発見","none":"なし","hosts":"外部アドレス{n}件","run_err":"エラー{n}件","run_part":"一部のみチェック","run_ok":"合格（{n}件チェック）","run_na":"チェック不可","cnt":"{n}か所","no_input":"入力を受け取らない（該当なし）","ui_html":"入力欄・ボタンのある画面","ui_simple":"簡単な入力方式","ui_none":"なし","items":"{n}個","pct":"{n}%"},"g_gate":"審査対象の確認","gate_pass":"プログラムと確認できました","gate_fail_title":"審査の対象ではありません","gate_fail_help":"実際に動くソースコードが入ったプログラムのファイル（HTML+スクリプト、JS、Apps Script、Python、ZIP）をアップロードしてください。PDF・Word・Excel・画像・説明文書だけでは審査できません。","gate_ok_files":"プログラムのコードファイルを{n}個確認しました","gate_ok_logic":"動くコード{lines}行 · 関数や条件文などを{tokens}個確認しました","gate_no_code":"プログラムのコードファイルがありません","gate_static_html":"画面だけのHTMLで、動くスクリプトがありません","gate_no_logic":"動くコードが少なすぎます（{lines}行）","gate_unsup":"審査対象外のファイル{n}個は除外しました（PDF・文書・画像など）","gate_info_ai":"AIサービスと連携するコード{n}か所（点数とは無関係の情報）","v_inel":"審査対象外","v_hold":"保留","v_sub":"{score}点 / 100点 · {x}","sub_hold":"必須要件の確認後に確定","id_line":"結果ID {id} · 採点基準 {ver}","id_note":"同じコードをもう一度アップロードすると、同じ結果IDと同じ点数になります。提出者が書いた内容は点数に使っていません。","th_item":"項目","th_score":"点数","th_basis":"根拠","f_cap_err":"実行時のエラーがあるため、等級をB以下に制限しました。","f_cap_run":"実際の実行チェックができなかったため、SではなくAに制限しました。","f_net":"コードが外部に接続します: {hosts}。機微な情報を送っているかはコードだけでは判断できないため、担当者が確認してください。","host_dyn":"（アドレスをコード内で組み立てている）","f_limit":"自動点検はコードをルールで読み取って判断するもので、実際の動作の正しさ・医療上の妥当性・法的な適合性を保証するものではありません。結果は、担当者の判断を助ける材料として使ってください。","mbar_hold":"保留 · {score}点","mbar_g":"<b>{g}<\/b>等級 · {score}点","rt_result":"結果: {r} / {score}点","rt_id":"結果ID: {id}（採点基準 {ver}）","rt_note":"※ 自動点検の結果であり、実際の動作・医療上の妥当性・法的な適合性を保証するものではありません。","m":["分析したファイル","全体の行数","実行・構文チェック","エラー処理","入力チェック","コメント比率","画面の要素","利用者向け案内","埋め込み値","危険な書き方","外部アドレス"],"g_net":"外部への接続","how":{"call":"通信の呼び出し","src":"他サイトから読み込み","ai":"AIサービス"},"net_warn":"コードがこのアドレスにデータを送ったり、取り込んだりします。機微な情報が含まれないか確認してください。","net_none":"外部に接続するコードは見つかりませんでした。","b_nofile":"プログラムのファイルをアップロードしてください。審査するのは、動くソースコードです。","rx":{"msg_chars":"\\u3041-\\u3093\\u30A1-\\u30F6\\u4E00-\\u9FA5\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|ここに|入力|キーを|dummy|test"},"contact_href":"mailto:choyj80@naver.com","ux":{"welcome":"自作のプログラムを共有する前に点検を受けること。それこそが病院の現場に必要な、丁寧な習慣です。","sum":{"S":"とてもよくできたプログラムです。安全性・動作・使いやすさのすべてが基準を十分に超えており、同僚も安心して使えます。","A":"よくできたプログラムです。大きな問題なく動いており、下の数点を整えれば、さらに多くの同僚が安心して使えます。","B":"使えるプログラムとしての基本は備わっています。下の「次にやること」を少し直すだけで、目に見えて良くなります。","C":"まだ整えるところは多いですが、どんなプログラムも最初はこうです。直す点を一つずつ下に書きました。","H":"等級をいったん保留にしました。コードにパスワード・キー、または個人情報に見える値が含まれているためです。よくあることで、すぐ直せます。今見つかったことで、患者さんとご自身を守れました。"},"hold_note":"アップロードしたファイルはどこにも送信されていません。値を消してもう一度アップロードすれば、すぐに等級が出ます。","prog":"あと{n}点で{g}等級です。","prog_top":"いちばん高い等級です。","good_title":"よくできた点","good_item":"{n}：満点","good_none":"今回の点検は出発点です。何を直せばよいか、これではっきり分かりました。","next_title":"次にやること","next_hint":"点数が大きく上がる順、かつ簡単な順に並べています。","next_none":"私たちが測る項目では、直すところはもうありません。お疲れさまでした。","gain":"+{n}点","where":"場所：{w}","more":"残りの{n}件を見る","r1_note":"Pythonなどはブラウザで実行できないため、この項目は5点として計算されます。エラーがあるからではありません。","delta_up":"前回の点検（このブラウザ）より{n}点上がりました。直した成果が出ています。","delta_down":"前回の点検（このブラウザ）より{n}点低くなりました。下の表で何が変わったか確認できます。","delta_same":"前回の点検（このブラウザ）と同じ点数です。","trust_title":"この点数の読み方","trust":["点数は、アップロードされたコードにある事実だけから計算し、項目ごとにファイルと行番号の根拠を示します。","同じコードには、いつでも同じ点数と結果IDが出ます。審査する人の気分で変わることはありません。","プログラム名・提出者・所属・説明書は、点数にまったく使われません。","医学的に正しいか、法的に問題がないかは判断できません。病院で使う前に、必ず人が確認してください。","コードが誤って読まれたと思われる場合は、直したファイルをもう一度アップロードするか、下のリンクからお知らせください。"],"trust_link":"誤って読まれたと思ったらお知らせください","rt_next":"次にやること","areas":"領域別の点数"},"help":{"S1":{"why":"コードに書かれたキーやパスワードは、ファイルを見た人なら誰でもコピーでき、患者システムの扉を開けてしまいます。","fix":"コードから消し、発行元でキーを新しくしたうえで、設定ファイルや入力欄から受け取る形にしましょう。"},"S2":{"why":"マイナンバーや携帯電話番号の形式の値がコードにあると、ファイルを共有した瞬間に実在の人が特定されます。","fix":"架空のサンプル値に置き換えましょう。"},"S3":{"why":"利用者が入力した文字が、そのまま命令として実行されてしまうコードの形があります。","fix":"示された箇所ごとに、より安全な書き方に変えましょう（例：innerHTMLの代わりにtextContent）。"},"S4":{"why":"外部の宛先と通信するコードは、病院の外へデータが出ても気づかれにくくなります。","fix":"各宛先が意図したものか確認し、病院が承認していないサービスには患者情報を送らないでください。"},"R1":{"why":"同僚の前でエラーで止まるプログラムは、すぐに信頼を失います。","fix":"プログラムを開いてボタンを一つずつ押し、最初に出たエラーから直しましょう。"},"R2":{"why":"エラー処理がないと、入力の間違い一つでプログラム全体が止まります。","fix":"失敗しうる手順（ファイル読み込み・日付・数値）を囲み、分かりやすいメッセージが出るようにしましょう。"},"R3":{"why":"人は、空欄や数値欄への文字など、思いがけない値を入力します。","fix":"値を使う前に確認し、何を直せばよいか利用者に伝えましょう。"},"R4":{"why":"TODOのメモは、未完成の部分を同僚が踏んでしまう原因になります。","fix":"メモを片づけるか消し、本当にやることは別のリストに移しましょう。"},"U1":{"why":"どこを押せばよいか分からないプログラムは、使われません。","fix":"ラベル付きの入力欄と、分かりやすいボタンが一つある簡単な画面にしましょう。"},"U2":{"why":"ラベルと案内文があれば、新しく来た人も尋ねずに使えます。","fix":"すべての入力欄にラベルと短い案内を付けましょう。"},"U3":{"why":"分かりやすいメッセージは、何が起きたか、次に何をすればよいかを伝えてくれます。","fix":"成功したときと、エラーごとに、平易な一文を表示しましょう。"},"M1":{"why":"コメントがあれば、次の人（半年後の自分も）がコードを理解できます。","fix":"コードのまとまりごとに、何のためのものか一行コメントを付けましょう。"},"M2":{"why":"名前を付けた小さな関数は、長い一塊よりも直しやすく、再利用しやすくなります。","fix":"一つのことだけをする関数に分けましょう。"},"P1":{"why":"自分のPCのパスや非公開のシートIDが入っていると、他の人のパソコンでは動きません。","fix":"そのような値はコードの先頭の設定欄に移すか、入力で受け取りましょう。"}},"ui":{"back_hello":"おかえりなさい。前回の点検は{d}、{s}点でした。","hist_confirm":"点検履歴をすべて消しますか？元に戻せません。","sample_banner":"サンプルプログラムの結果です。練習用のため、運営者には送信されず、点検履歴にも残りません。","card_done":"結果カードを保存しました。","card_sample":"サンプル体験","hist_none":"名称なし","l_reading":"読み込み中…","l_ok":"読み込み済み・ファイル{n}件","l_page_ok":"読み込み済み・ページ1件","l_blocked":"ブロックされています","l_info":"接続のみ確認","l_rm":"外す","l_bad":"https:// で始まる正しいアドレスを入力してください。","l_dup":"すでに追加されているリンクです。","l_max":"リンクは最大{n}件まで追加できます。","k_gh":"GitHubリポジトリ","k_gist":"GitHub Gist","k_gsapp":"Apps Scriptウェブアプリ","k_gsedit":"Apps Scriptエディタ","k_web":"ウェブページ","g_hint":"ブロックをこのように解除してください","g_after":"直したあとは、このリンクを外してもう一度追加してください。","det_title":"コード内で見つかったリンク","det_add":"一緒に審査","l_trunc":"ファイルが多いため、先頭の{n}件だけ読み込みました。","g_links":"統合審査の範囲","links_sum":"アップロード{a}件・リンク{b}件（読み込み済み{c}件）","cov_yes":"リンクで一緒に審査済み","cov_no":"リンクで審査されていない外部接続","f_links_partial":"連携リンク{n}件を読み込めなかったため、審査範囲が部分的です。読み込めなかった部分は点数に含まれていません。解除の方法は分析レポートのタブにあります。","f_cap_link":"読み込めないリンクがあるため、Sの代わりにAに制限しました。","rt_links":"リンク：{c} / {b}件読み込み"},"lk":{"gh_notfound":{"t":"GitHubリポジトリが見つからないか、非公開です","s":["アドレスの所有者名・リポジトリ名の綴りを確認してください。","非公開の場合は、GitHubの Settings → General → 最下部の Danger Zone → Change visibility → Make public で公開してください。公開してよいコードか先に確認し、パスワードやキーが含まれる場合は公開しないでください。","公開が難しい場合は、Code → Download ZIP で取得したファイルを上のアップロード欄に入れてください。"]},"gh_rate":{"t":"GitHubが一時的にリクエストを制限しています","s":["GitHubは、ログインなしのリクエストを1時間あたりの回数で制限しています。今はその上限に達しています。","約1時間後に、このリンクを外してもう一度追加してください。","お急ぎの場合は、リポジトリをZIPで取得してアップロードしてください。"]},"gh_nocode":{"t":"読み込めるコードファイルがありません","s":["リポジトリにHTML・JS・Python・Apps Scriptなどのコードファイルがあるか確認してください。","コードがサブフォルダにある場合は、そのフォルダのアドレス（…/tree/ブランチ/フォルダ）を入力してください。","ファイルが大きすぎる、または多すぎる場合は、ZIPでアップロードしてください。"]},"gs_editor":{"t":"Apps Scriptエディタのリンクではコードを読み込めません","s":["GoogleはApps Scriptのソースをリンクで読み取らせてくれません。審査するには、コードをファイルとして取り込む必要があります。","エディタで各ファイル（.gs、.html）の内容をコピーし、同じ名前のファイルに保存して、上のアップロード欄に入れてください。","claspをお使いの場合は、clasp cloneで取得したフォルダをZIPにしてアップロードしても構いません。"]},"gs_login":{"t":"ウェブアプリがログイン画面を返しています","s":["エディタ右上の デプロイ → デプロイを管理 → 鉛筆（編集）ボタンを押してください。","「アクセスできるユーザー」を「全員」に変更してデプロイしてください。会社や学校のアカウントでは、管理者が外部共有を禁止している場合があります。","公開が難しい場合は、ソース（.gs）をファイルとして保存してアップロードしてください。"]},"gs_cors":{"t":"接続はできますが、Googleが内容の読み取りを制限しています","s":["このウェブアプリのアドレスでは接続の確認しかできず、コードは読み取れません。エラーではなく、Googleの保護の仕組みです。","「デプロイを管理」で、ウェブアプリが「全員」に公開されているかも確認してください。","正確な審査のため、ソース（.gs・.html）をファイルとして保存し、上のアップロード欄に入れてください。"]},"gs_unreach":{"t":"ウェブアプリに接続できませんでした","s":["アドレスが …/macros/s/…/exec の形か確認してください。/dev のアドレスは編集権限のある人しか開けません。","広告ブロックや社内のセキュリティネットワークが script.google.com をブロックしていないか確認してください。","それでも接続できない場合は、ソースをファイルとして保存してアップロードしてください。"]},"web_cors":{"t":"このサイトは外部から読み取れないよう制限されています","s":["このサイトは、ほかのサイトから内容を読み取れない設定になっています（CORS）。サイトの不具合ではありません。","ソースをZIPでアップロードするか、公開GitHubリポジトリに置いてそのアドレスを入力してください。","ご自身で運営しているサイトなら、レスポンスヘッダーに Access-Control-Allow-Origin: * を追加すると読み取れるようになります。"]},"web_status":{"t":"ページが正常に応答していません","s":["アドレスが正しいか、ブラウザの新しいタブで直接開いて確認してください。","ログインが必要なページは読み取れません。公開されているアドレスを入力してください。","サーバーが一時的に止まっている可能性があります。しばらくしてからもう一度追加してください。"]},"net_fail":{"t":"接続できませんでした","s":["アドレスの綴りと、https:// で始まっているかを確認してください。","インターネット接続、広告ブロック、社内のセキュリティネットワークを確認してください。","それでも接続できない場合は、ソースをZIPでアップロードしてください。"]}}};
 const F=(s,o)=>String(s).replace(/\{(\w+)\}/g,(_,k)=>o[k]);
 
 /* ================= Criteria ================= */
@@ -562,6 +592,150 @@ try{const s=JSON.parse(localStorage.getItem(PAY_KEY)||'null');if(s)PAY={...PAY,.
 $('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">${T.pay_label}</label><input type="number" id="pay-${g.g}" min="0" step="${esc(T.pay_step)}" value="${esc(PAY[g.g])}"></div>`).join('');
 GRADES.forEach(g=>$('pay-'+g.g).addEventListener('input',e=>{PAY[g.g]=e.target.value;try{localStorage.setItem(PAY_KEY,JSON.stringify(PAY))}catch{}update()}));
 
+/* ================= Linked sources =================
+   Programs are often tied to a GitHub repository, a Google Apps Script web app or a hosted page. Those are read in the browser and reviewed
+   together with the uploaded files as ONE program. Only public, CORS-readable sources can be read; when a link is blocked the page tells the
+   submitter exactly how to unblock it. Nothing goes through our servers. */
+const U2=T.ui;
+const LINKS=[];            // {id,url,kind,state:'reading'|'ok'|'info'|'blocked',code,n,hosts,trunc}
+const MAX_LINKS=8,MAX_REMOTE_FILES=60,MAX_REMOTE_BYTES=1.5e6,MAX_FILE_BYTES=2e5;
+const SKIP_PATH=/(^|\/)(node_modules|vendor|dist|build|\.git|__pycache__|venv|\.venv|coverage|\.next|\.cache)\//;
+const SKIP_FILE=/(\.min\.(js|css)|package-lock\.json|yarn\.lock|pnpm-lock\.yaml)$/i;
+const WANT_DOC=/(^|\/)(\.env(\.[\w-]+)?|package\.json|appsscript\.json|\.clasp\.json|README(\.md)?)$/i;
+const extOf=n=>(n.split('.').pop()||'').toLowerCase();
+const shortUrl=u=>u.replace(/^https:\/\//,'').replace(/\/$/,'');
+const fx=async(url,opt={})=>{const ac=new AbortController();const to=setTimeout(()=>ac.abort(),15000);try{return await fetch(url,{...opt,signal:ac.signal})}finally{clearTimeout(to)}};
+function parseLink(raw){
+  let u;try{u=new URL(String(raw).trim())}catch{return null}
+  if(u.protocol!=='https:')return null;
+  const h=u.hostname.toLowerCase(),p=u.pathname.replace(/\/+$/,''),s=p.split('/').filter(Boolean);
+  if(h==='github.com'||h==='www.github.com'){
+    if(s.length<2)return null;
+    const o=s[0],r=s[1].replace(/\.git$/,'');let ref='HEAD',sub='';
+    if((s[2]==='tree'||s[2]==='blob')&&s[3]){ref=s[3];sub=s.slice(4).join('/')}
+    return {kind:'gh',o,r,ref,sub,url:`https://github.com/${o}/${r}`+(s[2]?'/'+s.slice(2).join('/'):'')};
+  }
+  if(h==='gist.github.com'){const id=s[s.length-1];if(!/^[0-9a-f]{8,}$/i.test(id||''))return null;return {kind:'gist',id,url:u.href.replace(/\/$/,'')}}
+  if(h==='script.google.com'){
+    if(/^\/macros\/s\/[^/]+\/(exec|dev)$/.test(p))return {kind:'gsapp',url:u.origin+p};
+    return {kind:'gsedit',url:u.origin+p};
+  }
+  return {kind:'web',url:u.href.replace(/\/$/,'')};
+}
+const fail=(l,code)=>{l.state=code==='gs_cors'?'info':'blocked';l.code=code};
+async function loadGh(l,p){
+  let res;
+  try{res=await fx(`https://api.github.com/repos/${p.o}/${p.r}/git/trees/${encodeURIComponent(p.ref)}?recursive=1`,{headers:{Accept:'application/vnd.github+json'}})}catch{return fail(l,'net_fail')}
+  if(res.status===404)return fail(l,'gh_notfound');
+  if(res.status===403||res.status===429)return fail(l,'gh_rate');
+  if(!res.ok)return fail(l,'web_status');
+  const d=await res.json(),pre=p.sub?p.sub.replace(/\/?$/,'/'):'';
+  const want=(d.tree||[]).filter(x=>x.type==='blob'&&!SKIP_PATH.test(x.path)&&!SKIP_FILE.test(x.path)&&(!p.sub||x.path===p.sub||x.path.startsWith(pre))&&(CODE_EXT.includes(extOf(x.path))||WANT_DOC.test(x.path))&&(x.size||0)<=MAX_FILE_BYTES)
+    .sort((a,b)=>a.path.split('/').length-b.path.split('/').length||(a.path<b.path?-1:1));
+  const pick=[];let bytes=0;
+  for(const x of want){if(pick.length>=MAX_REMOTE_FILES||bytes+(x.size||0)>MAX_REMOTE_BYTES)break;pick.push(x);bytes+=x.size||0}
+  if(!pick.some(x=>CODE_EXT.includes(extOf(x.path))))return fail(l,'gh_nocode');
+  const got=[];let i=0;
+  await Promise.all(Array.from({length:6},async()=>{while(i<pick.length){const x=pick[i++];
+    try{const r=await fx(`https://raw.githubusercontent.com/${p.o}/${p.r}/${encodeURIComponent(p.ref)}/${x.path.split('/').map(encodeURIComponent).join('/')}`);if(r.ok)got.push({path:x.path,text:await r.text()})}catch{}}}));
+  if(!got.length)return fail(l,'gh_nocode');
+  got.sort((a,b)=>a.path<b.path?-1:1).forEach(g=>FILES.push({...mkFile(`${p.o}/${p.r}/${g.path}`,g.text),remote:l.id}));
+  l.state='ok';l.n=got.length;l.hosts=['github.com','api.github.com','raw.githubusercontent.com'];
+  l.trunc=(want.length>pick.length||d.truncated)?got.length:0;
+}
+async function loadGist(l,p){
+  let res;try{res=await fx(`https://api.github.com/gists/${p.id}`,{headers:{Accept:'application/vnd.github+json'}})}catch{return fail(l,'net_fail')}
+  if(res.status===404)return fail(l,'gh_notfound');
+  if(res.status===403||res.status===429)return fail(l,'gh_rate');
+  if(!res.ok)return fail(l,'web_status');
+  const d=await res.json(),got=[];
+  for(const g of Object.values(d.files||{})){
+    if(!TEXT_EXT.includes(extOf(g.filename||''))&&!WANT_DOC.test(g.filename||''))continue;
+    let text=g.content;
+    if(g.truncated&&g.raw_url){try{const r=await fx(g.raw_url);if(r.ok)text=await r.text()}catch{}}
+    if(typeof text==='string'&&text.length<=MAX_FILE_BYTES*3)got.push({path:g.filename,text});
+  }
+  if(!got.length||!got.some(g=>CODE_EXT.includes(extOf(g.path))))return fail(l,'gh_nocode');
+  got.forEach(g=>FILES.push({...mkFile(`gist/${p.id}/${g.path}`,g.text),remote:l.id}));
+  l.state='ok';l.n=got.length;l.hosts=['gist.github.com','api.github.com'];
+}
+// Apps Script: Google offers no public way to read a project's source. A web app address can at best return its page; most of the time it
+// can only be probed. So: try to read, fall back to a connection probe, and always tell the submitter how to bring the source in.
+async function loadGsApp(l,p){
+  let r;
+  try{r=await fx(p.url,{redirect:'follow'})}
+  catch{
+    try{await fx(p.url,{mode:'no-cors',redirect:'follow'});return fail(l,'gs_cors')}catch{return fail(l,'gs_unreach')}
+  }
+  if(/accounts\.google\.com/.test(r.url||'')||r.status===401||r.status===403)return fail(l,'gs_login');
+  if(!r.ok)return fail(l,'gs_unreach');
+  const ct=(r.headers.get('content-type')||'').toLowerCase(),txt=await r.text();
+  if(/accounts\.google\.com\/(ServiceLogin|signin)/i.test(txt.slice(0,20000)))return fail(l,'gs_login');
+  if(ct.includes('html')&&txt.length<1.5e6){FILES.push({...mkFile('apps-script-webapp/index.html',txt),remote:l.id});l.state='ok';l.n=1;l.hosts=['script.google.com','script.googleusercontent.com'];return}
+  fail(l,'gs_cors');
+}
+async function loadWeb(l,p){
+  let r;
+  try{r=await fx(p.url,{redirect:'follow'})}
+  catch{try{await fx(p.url,{mode:'no-cors',redirect:'follow'});return fail(l,'web_cors')}catch{return fail(l,'net_fail')}}
+  if(!r.ok)return fail(l,'web_status');
+  const ct=(r.headers.get('content-type')||'').toLowerCase(),txt=await r.text();
+  if(txt.length>1.5e6)return fail(l,'web_status');
+  const u=new URL(p.url);let path=(u.hostname+u.pathname).replace(/\/$/,'')||u.hostname;
+  let name=ct.includes('html')?(/\.html?$/.test(path)?path:path+'/index.html'):ct.includes('javascript')?(/\.m?js$/.test(path)?path:path+'.js'):null;
+  if(!name)return fail(l,'web_status');
+  FILES.push({...mkFile(name,txt),remote:l.id});l.state='ok';l.n=1;l.hosts=[u.hostname];
+}
+async function addLink(raw){
+  const msg=$('linkMsg');msg.textContent='';
+  const p=parseLink(raw);
+  if(!p){msg.textContent=U2.l_bad;return}
+  if(LINKS.some(l=>l.url===p.url)){msg.textContent=U2.l_dup;return}
+  if(LINKS.length>=MAX_LINKS){msg.textContent=F(U2.l_max,{n:MAX_LINKS});return}
+  // a sample must never be mixed with a real submission
+  if(FILES.some(f=>f.sample)){FILES=FILES.filter(f=>!f.sample);hideExample()}
+  const l={id:'L'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),url:p.url,kind:p.kind,state:'reading'};
+  LINKS.push(l);$('linkBox').open=true;renderLinks();
+  try{
+    if(p.kind==='gh')await loadGh(l,p);else if(p.kind==='gist')await loadGist(l,p);
+    else if(p.kind==='gsedit')fail(l,'gs_editor');else if(p.kind==='gsapp')await loadGsApp(l,p);else await loadWeb(l,p);
+  }catch{fail(l,'net_fail')}
+  renderLinks();renderFiles();QUIET=READY;try{await runAnalysis()}finally{QUIET=false}
+}
+function removeLink(id){
+  const i=LINKS.findIndex(l=>l.id===id);if(i<0)return;LINKS.splice(i,1);FILES=FILES.filter(f=>f.remote!==id);
+  renderLinks();renderFiles();QUIET=READY;Promise.resolve(runAnalysis()).finally(()=>{QUIET=false});
+}
+const linkStatus=l=>l.state==='ok'?((l.kind==='gh'||l.kind==='gist')?F(U2.l_ok,{n:l.n}):U2.l_page_ok):l.state==='reading'?U2.l_reading:l.state==='info'?U2.l_info:U2.l_blocked;
+function guideHtml(l){
+  const G=l.code&&T.lk[l.code];if(!G)return '';
+  return `<div class="unblock" role="alert"><b>${esc(U2.g_hint)} — ${esc(G.t)}</b><ol>${G.s.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><span class="hint">${U2.g_after}</span></div>`;
+}
+function renderLinks(){
+  $('linkList').innerHTML=LINKS.map(l=>`<li class="lk lk-${l.state}"><div class="lk-row"><span class="lk-kind">${U2['k_'+l.kind]}</span><code class="lk-url">${esc(shortUrl(l.url))}</code><span class="lk-st">${linkStatus(l)}${l.trunc?' · '+F(U2.l_trunc,{n:l.trunc}):''}</span><button type="button" class="linkbtn" data-lrm="${l.id}">${U2.l_rm}</button></div>${guideHtml(l)}</li>`).join('');
+  $('linkList').querySelectorAll('[data-lrm]').forEach(b=>b.onclick=()=>removeLink(b.dataset.lrm));
+  detectLinks();
+}
+// links written inside the uploaded code are offered as one-click additions
+const LINK_RE=/https:\/\/(?:github\.com\/[\w.-]+\/[\w.-]+|gist\.github\.com\/[\w.-]+(?:\/[0-9a-f]{8,})?|script\.google\.com\/macros\/s\/[\w-]+\/(?:exec|dev)|[\w-]+\.github\.io(?:\/[\w./-]*)?)/g;
+function detectLinks(){
+  const have=new Set(LINKS.map(l=>l.url)),found=new Map();
+  for(const f of FILES){if(f.remote)continue;for(const m of f.text.matchAll(LINK_RE)){const p=parseLink(m[0].replace(/[.,;:)\]'"]+$/,''));if(p&&!have.has(p.url)&&!found.has(p.url))found.set(p.url,p)}}
+  const items=[...found.values()].slice(0,6);
+  $('linkDetected').innerHTML=items.length?`<p class="hint">${U2.det_title}</p><div class="chips">${items.map(p=>`<button type="button" class="chipbtn" data-ladd="${esc(p.url)}">＋ ${esc(shortUrl(p.url))} <span class="hint">${U2.det_add}</span></button>`).join('')}</div>`:'';
+  $('linkDetected').querySelectorAll('[data-ladd]').forEach(b=>b.onclick=()=>addLink(b.dataset.ladd));
+  if(items.length)$('linkBox').open=true;
+}
+const unreadLinks=()=>LINKS.filter(l=>l.state!=='ok').length;
+const linkCov=x=>LINKS.length?` <span class="hint">· ${LINKS.some(l=>l.state==='ok'&&(l.hosts||[]).includes(x.host))?U2.cov_yes:U2.cov_no}</span>`:'';
+function linksGroup(){
+  const ok=LINKS.filter(l=>l.state==='ok').length,bad=LINKS.length-ok;
+  const rows=LINKS.map(l=>`<li class="${l.state==='ok'?'ok':l.state==='reading'?'info':'no'}"><span class="lk-kind">${U2['k_'+l.kind]}</span> <code>${esc(shortUrl(l.url))}</code> — ${linkStatus(l)}${guideHtml(l)}</li>`).join('');
+  return `<div class="fgroup ${bad?'f-bad':'f-ok'}"><h3>${U2.g_links} — ${F(U2.links_sum,{a:FILES.filter(f=>!f.remote).length,b:LINKS.length,c:ok})}</h3><ul class="gate">${rows}</ul></div>`;
+}
+$('linkAdd').onclick=async()=>{const v=$('linkInput').value.trim();if(!v)return;$('linkInput').value='';await addLink(v)};
+$('linkInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('linkAdd').click()}});
+
 /* ================= Files ================= */
 let FILES=[];      // {name, ext, kind, text}
 let UNSUP=[];      // names of files that are not source code or text (PDF, Office, images ...)
@@ -609,7 +783,7 @@ function mkFile(name,text){
 }
 const KIND_LABEL={html:'HTML',js:'JS',py:'PY',doc:T.k_doc};
 function renderFiles(){
-  $('fileList').innerHTML=FILES.map((f,i)=>`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('')+
+  $('fileList').innerHTML=FILES.map((f,i)=>f.remote?'':`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('')+
     UNSUP.slice(0,8).map(n=>`<div class="file unsup"><span class="ty">✕</span><span class="nm">${esc(n)} <span class="hint">${T.unsup_tag}</span></span><span></span></div>`).join('');
 }
 $('fileList').addEventListener('click',async e=>{const i=e.target.dataset?.rm;if(i==null)return;FILES.splice(Number(i),1);hideExample();renderFiles();await runAnalysis()});
@@ -721,7 +895,7 @@ function syntaxJs(f){
 }
 // Result ID: SHA-256 of the rubric version and the code files (names + normalized text). Documents do not change it.
 async function fingerprint(code){
-  const s=RUBRIC_VER+'\n'+code.slice().sort((a,b)=>a.name<b.name?-1:1).map(f=>f.name+'\u0000'+f.text.replace(/\r\n?/g,'\n')).join('\u0001');
+  const s=RUBRIC_VER+'\nlinks:'+LINKS.filter(l=>l.state!=='ok').length+'/'+LINKS.length+'\n'+code.slice().sort((a,b)=>a.name<b.name?-1:1).map(f=>f.name+'\u0000'+f.text.replace(/\r\n?/g,'\n')).join('\u0001');
   try{
     if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,12)}
   }catch{}
@@ -770,7 +944,7 @@ async function analyze(){
   // distinct hosts only ('?' = address decided in code, counted once)
   const uh=new Map();for(const h of R.hosts)if(!uh.has(h.host))uh.set(h.host,h);R.hostList=[...uh.values()];
   // run / syntax check
-  for(const f of code.filter(f=>f.kind==='html').slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
+  for(const f of code.filter(f=>f.kind==='html'&&!f.remote).slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
   for(const f of code.filter(f=>f.kind==='js')){const r=syntaxJs(f);if(r===null){R.syntax.skipped++;continue}R.syntax.tested++;r.forEach(e=>R.syntax.errors.push({file:f.name,msg:e.msg}))}
   R.testable=R.run.tested+R.syntax.tested>0;
   R.untestedPy=code.some(f=>f.kind==='py')||R.syntax.skipped>0;
@@ -869,7 +1043,7 @@ function trustHtml(){return `<aside class="trust"><h3>${U.trust_title}</h3><ul>$
 function nextLines(S,M,hold){const st=nextSteps(S,M,hold);return st.length?[U.rt_next+':',...st.slice(0,5).map(c=>`  · ${T.crit[c.id].n} (${F(U.gain,{n:c.gap})}) — ${HLP[c.id].fix}`)]:[]}
 
 /* ================= Result ================= */
-let LAST=null,READY=false;
+let LAST=null,READY=false,QUIET=false; // QUIET: a link change after the result was already shown updates it in place instead of popping the window again
 const TABS=['pnlSum','pnlRep','pnlRules'];
 function showTab(i){TABS.forEach((id,k)=>{$(id).hidden=k!==i;const b=$('tab'+k);b.setAttribute('aria-selected',k===i?'true':'false');b.tabIndex=k===i?0:-1});$('cardBtn').hidden=!(i===0&&LAST);$('copyBtn').hidden=i!==0;}
 TABS.forEach((_,k)=>{$('tab'+k).onclick=()=>showTab(k);$('tab'+k).onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=(k+(e.key==='ArrowRight'?1:2))%3;showTab(n);$('tab'+n).focus()}}});
@@ -969,7 +1143,7 @@ function update(){
     LAST=null;
     $('result').innerHTML=`<div class="verdict"><div class="badge g-H">✕</div><div><div class="big">${T.v_inel}</div><div class="sub">${T.gate_fail_help}</div></div></div><div class="flags">${why.map(w=>`<div class="flag">${esc(w)}</div>`).join('')}</div>`;
     $('mbarText').textContent=T.v_inel;nores();$('showBtn').disabled=false;$('readyNote').textContent=T.v_inel;
-    if(!READY){READY=true;openResult()}
+    if(!READY){READY=true;if(!QUIET)openResult()}
     return;
   }
   $('copyBtn').disabled=false;$('printBtn').disabled=false;$('showBtn').disabled=false;$('readyNote').textContent=T.ready;
@@ -983,11 +1157,13 @@ function update(){
   if(!hold){
     if(M.execErrors>0&&RANK[g.g]<RANK.B){g=GRADES.find(x=>x.g==='B');caps.push(T.f_cap_err)}
     if(g.g==='S'&&!M.testable){g=GRADES.find(x=>x.g==='A');caps.push(T.f_cap_run)}
+    if(g.g==='S'&&unreadLinks()>0){g=GRADES.find(x=>x.g==='A');caps.push(U2.f_cap_link)}
   }
   const pay=won(PAY[g.g]);
   const flags=[];
   if(hold)flags.push(`<div class="flag">${F(T.f_fail,{items:fail.map(r=>r.t).join(' / ')})}</div>`);
   caps.forEach(c=>flags.push(`<div class="flag">${c}</div>`));
+  if(LINKS.length){if(unreadLinks())flags.push(`<div class="flag">${F(U2.f_links_partial,{n:unreadLinks()})}</div>`);flags.push(`<div class="flag info">${F(U2.links_sum,{a:FILES.filter(f=>!f.remote).length,b:LINKS.length,c:LINKS.length-unreadLinks()})}</div>`)}
   if(M.hostList.length)flags.push(`<div class="flag info">${F(T.f_net,{hosts:M.hostList.map(h=>h.host==='?'?T.host_dyn:h.host).slice(0,6).join(', ')})}</div>`);
   if(M.unsupported)flags.push(`<div class="flag info">${F(T.gate_unsup,{n:M.unsupported})}</div>`);
   flags.push(`<div class="flag info">${T.f_limit}</div>`);
@@ -1009,7 +1185,7 @@ function update(){
   LAST={S,total,areaPts,g,hold,pay,fail,caps};
   scheduleSubmit();
   histAdd();
-  if(!READY){READY=true;openResult(0)}
+  if(!READY){READY=true;if(!QUIET)openResult(0)}
 }
 
 /* ================= Submit to the operator ================= */
@@ -1054,6 +1230,7 @@ function resultText(){
     ...[0,1,2,3,4].map(a=>`- ${T.area_n[a]}: ${areaPts[a]} / ${AREA_MAX[a]}`),
     ...S.filter(c=>c.pts<c.max).map(c=>`  · ${T.crit[c.id].n}: ${c.pts} / ${c.max} (${c.basis})`),
     ...fail.map(r=>F(T.rt_fail,{v:r.t})),...caps.map(c=>'- '+c),
+    ...(LINKS.length?[F(U2.rt_links,{c:LINKS.length-unreadLinks(),b:LINKS.length})]:[]),
     ...nextLines(S,M,hold),
     T.rt_note].filter(Boolean).join('\n');
 }
@@ -1072,6 +1249,7 @@ function renderReport(){
   if(M.unsupported)gateLines.push(`<li class="info">${F(T.gate_unsup,{n:M.unsupported})}</li>`);
   if(M.ai.length)gateLines.push(`<li class="info">${F(T.gate_info_ai,{n:M.ai.length})}</li>`);
   G.push(`<div class="fgroup ${M.eligible?'f-ok':'f-bad'}"><h3>${T.g_gate} — ${M.eligible?T.gate_pass:T.gate_fail_title}</h3><ul class="gate">${gateLines.join('')}</ul>${M.eligible?'':`<span class="hint">${T.gate_fail_help}</span>`}</div>`);
+  if(LINKS.length)G.push(linksGroup());
   if(!M.eligible){$('report').innerHTML=`<div class="find">${G.join('')}</div>`;return}
   const pct=Math.round(M.commentRatio*100);
   const runLabel=M.testable?(M.execErrors?F(T.ev.run_err,{n:M.execErrors}):T.run_ok):T.run_na;
@@ -1086,7 +1264,7 @@ function renderReport(){
     ${sec?list([...M.secrets.map(x=>({...x,t:T.t_key})),...M.rrn.map(x=>({...x,t:T.t_rrn})),...M.phones.map(x=>({...x,t:T.t_phone}))],x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code> — ${T.remove_it}`):`<span class="hint">${T.sec_none}</span>`}
     ${M.emails.length?`<span class="hint">${F(T.emails,{n:M.emails.length})}</span>`:''}</div>`);
   G.push(`<div class="fgroup ${M.risky.length?'f-bad':'f-ok'}"><h3>${T.g_risk} — ${M.risky.length?F(T.spots,{n:M.risky.length}):T.none}</h3>${M.risky.length?list(M.risky,x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code>`)+`<span class="hint">${T.risk_warn}</span>`:`<span class="hint">${T.risk_none}</span>`}</div>`);
-  G.push(`<div class="fgroup ${M.hostList.length?'f-info':'f-ok'}"><h3>${T.g_net} — ${M.hostList.length?F(T.cnt,{n:M.hostList.length}):T.none}</h3>${M.hostList.length?list(M.hostList,x=>`${at(x)} · <code>${esc(x.host==='?'?T.host_dyn:x.host)}</code> <span class="hint">${T.how[x.how]}</span>`)+`<span class="hint">${T.net_warn}</span>`:`<span class="hint">${T.net_none}</span>`}</div>`);
+  G.push(`<div class="fgroup ${M.hostList.length?'f-info':'f-ok'}"><h3>${T.g_net} — ${M.hostList.length?F(T.cnt,{n:M.hostList.length}):T.none}</h3>${M.hostList.length?list(M.hostList,x=>`${at(x)} · <code>${esc(x.host==='?'?T.host_dyn:x.host)}</code> <span class="hint">${T.how[x.how]}</span>${linkCov(x)}`)+`<span class="hint">${T.net_warn}</span>`:`<span class="hint">${T.net_none}</span>`}</div>`);
   const ex=[...M.run.errors,...M.syntax.errors];
   G.push(`<div class="fgroup ${ex.length?'f-bad':M.testable?'f-ok':'f-info'}"><h3>${T.g_run} — ${ex.length?F(T.ev.run_err,{n:ex.length}):M.testable?T.run_ok:T.run_na}</h3>
     ${ex.length?list(ex,x=>`${at(x)} · ${esc(x.msg)}`):`<span class="hint">${M.run.tested?F(T.run_html,{n:M.run.tested})+' ':''}${M.syntax.tested?F(T.run_js,{n:M.syntax.tested})+' ':''}${M.untestedPy?T.run_py:''}</span>`}</div>`);
@@ -1106,14 +1284,14 @@ async function loadExample(){
   $('name').value=EX_NAME;$('author').value=EX_AUTHOR;exampleShown=true;$('exampleNote').hidden=false;renderFiles();await runAnalysis();
 }
 $('exampleBtn').onclick=loadExample;
-$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];$('resDialog').open&&$('resDialog').close();$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
+$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];LINKS.length=0;renderLinks();$('resDialog').open&&$('resDialog').close();$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
 $('printBtn').onclick=()=>window.print();
 $('showBtn').onclick=()=>openResult(0);$('mbarBtn').onclick=()=>openResult(0);$('rulesBtn').onclick=()=>openResult(2);$('closeBtn').onclick=()=>$('resDialog').close();
 $('copyBtn').onclick=async()=>{
   if(!LAST)return;const t=resultText();
   try{await navigator.clipboard.writeText(t);$('status').textContent=T.copied}catch{$('status').textContent=T.copy_fail}
 };
-histRender();renderFiles();update();
+histRender();renderFiles();renderLinks();update();
 </script>
 </body>
 </html>

@@ -92,8 +92,17 @@ def load_uxp():
     return m.UXP
 
 
+def load_uxl():
+    spec = importlib.util.spec_from_file_location('lang_uxl', os.path.join(HERE, 'lang', 'ux_links.py'))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m.UXL
+
+
 def main():
     base = load('ko')
+    UXL = load_uxl()
+    ref_uxl = shape(UXL['ko'])
     UX = load_ux()
     UXP = load_uxp()
     ref_ux = shape(UX['ko'])
@@ -108,19 +117,21 @@ def main():
     problems = []
     for code in (sys.argv[1:] or CODES):
         m = load(code)
-        bad = diff(ref_h, shape(m.H), 'H') + diff(ref_t, shape(m.T), 'T') + (diff(ref_ux, shape(UX[code]), 'UX') if code in UX else ['UX: 문구 없음']) + (diff(ref_uxp, shape(UXP[code]), 'UXP') if code in UXP else ['UXP: 문구 없음'])
+        bad = diff(ref_h, shape(m.H), 'H') + diff(ref_t, shape(m.T), 'T') + (diff(ref_ux, shape(UX[code]), 'UX') if code in UX else ['UX: 문구 없음']) + (diff(ref_uxp, shape(UXP[code]), 'UXP') if code in UXP else ['UXP: 문구 없음']) + (diff(ref_uxl, shape(UXL[code]), 'UXL') if code in UXL else ['UXL: 문구 없음'])
         if bad:
             problems += [f'[{code}] {b}' for b in bad]
             continue
         meta, H, T = m.META, dict(m.H), json.loads(json.dumps(m.T))
         H.update(UXP[code]['page'])
+        H.update(UXL[code]['page'])
         canon = SITE + meta['path']
         home = meta['home']
         T['consent_lines'] = [s.replace('{contact}', contact_href(code, meta)) for s in T['consent_lines']]
         T['contact_href'] = contact_href(code, meta)
         T['ux'] = UX[code]['ux']
         T['help'] = UX[code]['help']
-        T['ui'] = UXP[code]['ui']
+        T['ui'] = {**UXP[code]['ui'], **UXL[code]['ui']}
+        T['lk'] = UXL[code]['guide']
         site_id = f'{SITE}/#website' if code == 'ko' else f'{SITE}/#website-{code}'
         jsonld = json.dumps({
             '@context': 'https://schema.org',

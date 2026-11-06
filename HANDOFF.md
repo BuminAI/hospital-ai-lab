@@ -703,6 +703,19 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - **샘플은 운영자에게 가지 않는다**: 예전엔 '샘플 여부'가 화면 상태라서 입력칸(동의 체크 포함)을 건드리는 순간 샘플이 일반 제출로 바뀌어 Supabase에 올라갔다. 이제 **샘플 파일에 표시를 붙이고 내용이 샘플 원문과 같으면 샘플로 판정**해 전송·기록·동의 요구를 모두 건너뛴다(`isSample()`). 예전에 올라온 샘플 제출은 관리자 목록(`admin-ko`)과 대시보드 집계에서 이름으로 숨긴다(삭제는 하지 않았다).
 - 문구는 `lang/ux_page.py`(첫 화면·결과 창)와 `lang/ux.py`(해설 층). 6개 언어판이 한 템플릿을 쓰므로 **한국어판만이 아니라 전 언어판에 같이 적용**됐다.
 
+## 5-15. AI 심사실 '연결 링크 통합 심사' (2026-11-07, 오너 지시: 깃허브·구글 앱스크립트 같은 외부 링크도 함께 분석, 막히면 푸는 법 안내)
+
+- **무엇**: 업로드 카드 안의 "연결된 링크도 함께 심사" 칸(`#linkBox`)에 주소를 넣으면 브라우저가 그 코드를 읽어 **업로드 파일과 하나의 프로그램으로** 채점한다. 서버를 거치지 않는다(전부 브라우저 안).
+  업로드한 코드 안에 GitHub·Gist·Apps Script·`*.github.io` 주소가 있으면 "함께 심사" 버튼으로 한 번에 추가할 수 있다(`detectLinks`).
+- **읽는 방법**: GitHub 저장소 = `api.github.com/.../git/trees/{ref}?recursive=1` + `raw.githubusercontent.com`(코드·README·package.json·appsscript.json 등, 최대 60개·1.5MB·파일당 200KB, node_modules·dist·min·lock 제외, `/tree/브랜치/폴더` 주소 지원). Gist = gist API. 웹 페이지 = CORS가 열려 있을 때만 본문 읽기. 원격 HTML은 **실행하지 않고** 정적으로만 본다(`f.remote`).
+- **한계(Google 쪽 제약, 우회 불가)**: Apps Script **편집기 링크로는 소스를 읽을 수 없다.** `/exec` 웹앱 주소도 대부분 CORS가 막혀 "연결만 확인"까지다. 그래서 Apps Script는 읽지 못한 링크로 두고, 안내문("코드를 파일로 올려 주세요: 편집기에서 .gs/.html 복사, clasp clone ZIP")을 띄운다. 비공개 저장소도 마찬가지(공개 전환 방법 또는 ZIP 업로드 안내).
+- **막혔을 때 메시지**(`lang/ux_links.py`의 `guide`, 6개 언어): gh_notfound · gh_rate · gh_nocode · gs_editor · gs_login · gs_cors · gs_unreach · web_cors · web_status · net_fail. 각 항목은 제목 1개 + 풀이 단계 정확히 3개. 링크 목록 안과 분석 리포트의 "통합 심사 범위" 묶음에 같이 뜬다.
+- **채점 규칙(RUBRIC v2.1)**: 링크가 하나도 없으면 v2.0과 점수가 같다. 읽지 못한 링크가 있으면 **S 등급을 A로 낮추고**(`f_cap_link`) "심사 범위가 부분적" 안내를 띄운다. 읽은 링크의 코드는 일반 파일과 똑같이 보안·구조·네트워크 점검에 들어간다(네트워크 목록에는 "연결 링크로 코드를 읽음/못 읽음" 표시). 지문(fingerprint)에 링크 현황이 들어가서 링크가 달라지면 같은 결과로 취급하지 않는다.
+- **샘플과 분리**: 링크를 추가하면 샘플 파일은 제거된다(샘플과 실제 제출 혼합 금지). 링크 변경으로 결과 창이 이미 한 번 떴으면 창을 다시 띄우지 않고 제자리에서 갱신한다(`QUIET`).
+- **동의 문구**: "보내는 항목"에 '연결한 링크에서 읽어 온 코드 포함'을 명시했다(6개 언어 `consent_lines[1]`). 제출 시 서버로 가는 것은 기존과 같은 올린 파일 + 읽어 온 코드.
+- **GitHub 비로그인 API는 시간당 60회**(IP 기준). 초과하면 `gh_rate` 안내가 뜬다. 판 페이지에는 CSP 메타가 없어 막히지 않지만, 나중에 `src/utils/site.ts`의 CSP를 심사실에 적용하면 `connect-src`에 `api.github.com`(이미 있음)·`raw.githubusercontent.com`을 더해야 한다.
+- **수정 위치**: `scripts/ai-judge/template.html`(`Linked sources` 구역)·`style.css.part`(`.linkbox` 이하)·`lang/ux_links.py`·`build.py`(`UXL`). 생성물(`public/**/ai-judge/index.html`)은 직접 고치지 않는다.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

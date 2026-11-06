@@ -287,6 +287,27 @@ footer{margin-top:4px}
 .uploader .opt{background:var(--surface)}
 :lang(ko) .lede,:lang(ko) .how-grid p,:lang(ko) .uploader .hint,:lang(ko) .hero-band .hello{word-break:keep-all;overflow-wrap:break-word}
 :lang(ja) .lede,:lang(zh-TW) .lede{line-break:strict}
+.linkbox{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--bg)}
+.linkbox>summary{cursor:pointer;font-size:14px;font-weight:600}
+.linkbox[open]>summary{margin-bottom:8px}
+.linkrow{display:flex;gap:8px}
+.linkrow input{flex:1;min-width:0;font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+.linkrow button{white-space:nowrap}
+.links{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.lk{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--surface);display:grid;gap:8px}
+.lk-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:8px;align-items:center;font-size:13px}
+.lk-kind{font-size:11.5px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.lk-url{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:none;padding:0}
+.lk-st{font-size:12.5px;white-space:nowrap}
+.lk-ok .lk-st{color:var(--ok)} .lk-blocked .lk-st{color:var(--warn);font-weight:600} .lk-info .lk-st{color:var(--gS);font-weight:600}
+.lk-blocked{border-color:var(--warn)} .lk-info{border-color:var(--gS)}
+.unblock{background:var(--warn-bg);color:var(--ink);border-radius:8px;padding:10px 12px;font-size:13.5px;display:grid;gap:6px}
+.unblock b{color:var(--warn)}
+.unblock ol{margin:0;padding-left:20px;display:grid;gap:4px}
+.lk-info .unblock{background:var(--gS-bg)} .lk-info .unblock b{color:var(--gS)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chipbtn{font-size:12.5px;font-weight:500;border-radius:999px;padding:4px 11px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:640px){.lk-row{grid-template-columns:auto minmax(0,1fr) auto}.lk-st{grid-column:1/-1;white-space:normal}.linkrow{flex-direction:column}}
 /* result window */
 dialog.resdlg{width:min(940px,calc(100vw - 24px));border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 80px -20px rgba(0,0,0,.55)}
 dialog.resdlg .in{padding:0}
@@ -356,6 +377,14 @@ tr.areahead td{background:var(--soft);font-size:13px}
       </div>
       <div class="files" id="fileList"></div>
       <p class="status reading-line" id="analyzeStatus" aria-live="polite"></p>
+      <details class="linkbox" id="linkBox">
+        <summary>連結的來源也一併評審（選填）</summary>
+        <p class="hint">如果您的程式連到 GitHub 儲存庫、Google Apps Script 網頁應用程式等，請貼上網址。它們會與您上傳的檔案合在一起，當作一個程式來評審。</p>
+        <div class="linkrow"><input type="url" id="linkInput" placeholder="https://github.com/…  或  https://script.google.com/macros/s/…/exec" autocomplete="off" inputmode="url" aria-label="連結的來源也一併評審（選填）"><button type="button" id="linkAdd">新增連結</button></div>
+        <p class="status" id="linkMsg" aria-live="polite"></p>
+        <ul class="links" id="linkList"></ul>
+        <div id="linkDetected"></div>
+      </details>
       <details class="optinfo">
         <summary>填寫程式名稱與提交者（選填）</summary>
         <div class="row2">
@@ -426,6 +455,7 @@ tr.areahead td{background:var(--soft);font-size:13px}
       <li>共 14 項、滿分 100 分：安全性 35 分、可靠度 30 分、易用性 15 分、易維護性 10 分、可移植性 10 分。所有分數都只依據上傳程式碼中找到的事實（附檔案與行號）計算，每一項的配分與計分規則都公開在下方。</li>
       <li>等級依分數決定（S 90 分以上、A 75 分以上、B 60 分以上）。但有執行錯誤時最高只到 B，若無法實際執行檢查則不給 S。</li>
       <li>相同的程式碼一定得到相同的分數與結果編號（由程式碼與評分標準版本產生的指紋）。程式名稱、提交者、單位、說明文件等提交者填寫的內容，完全不會用於計分。</li>
+      <li>從連結（GitHub、Gist、網頁、Apps Script 網頁應用程式）讀取的程式碼，會與上傳的檔案合併評審。讀取不到的連結不會計入分數，且因為評審範圍不完整，不會給 S 級。分析報告中會說明如何解除阻擋。</li>
     </ol>
     <div class="tbl"><table class="rubric" id="rubric"></table></div>
     <div class="tbl"><table id="gradeTable"></table></div>
@@ -502,10 +532,10 @@ tr.areahead td{background:var(--soft);font-size:13px}
    3. Points come only from facts found in the uploaded code (file:line evidence). Names, README, answers: never used.
    4. One fixed rubric, no judges: same code + same rubric version = same result ID and same score. */
 const SUBMIT_URL = 'supabase';
-const RUBRIC_VER = 'v2.0 (2026-10-28)';
+const RUBRIC_VER = 'v2.1 (2026-11-07)'; // v2.1: linked sources are reviewed together; unread links cap the grade at A. Without links, scoring is identical to v2.0.
 
 /* ================= Strings (per language) ================= */
-const T={"none":"無","loc":"zh-TW","cur":"","cur_pre":"NT$","pay_default":{"S":"2000","A":"1400","B":"800","C":"0"},"pay_step":"100","gl":["90 分以上","75～89.9 分","60～74.9 分","未滿 60 分 · 補強後再提交"],"ex_name":"特休天數計算器","ex_author":"人資組 王小明（範例）","s4_title":"提交同意","s4_pts":"必填","consent_lines":["接受評審時，您上傳的檔案會傳送給本網站的營運者並加以保存。","· 傳送項目：程式名稱、提交者與單位、上傳的檔案、等級與分數（評審結果的 PDF 不會傳送）","· 目的：確認評審紀錄與改善評審標準","· 若有疑似 API 金鑰或密碼的內容，就不會傳送。請刪除後重新上傳。","· 保存期間：自提交日起 1 個月後刪除。若想在此之前刪除，請透過<a href=\"mailto:choyj80@naver.com\">聯絡我們<\/a>提出。","· 不同意的話，就無法查看評審結果。"],"consent_label":"我已確認上述內容，並同意將上傳的檔案傳送給營運者。","pay_label":"獎勵（新臺幣）","zip_fail":"無法載入開啟 ZIP 的工具。請先解壓縮，再上傳檔案。","read_fail":"無法讀取「{name}」檔案。","skipped":"已排除 {n} 個無法分析的檔案（圖片、Excel、超過 2MB 等）。","k_doc":"說明文件","lines_fmt":"{n} 行","rm_aria":"移除 {name}","rm":"移除","hard_t":["個人電腦路徑","試算表或資料夾的專屬 ID","Google 文件網址","內部 IP 與本機位址","未加密的 http 網址"],"risk_t":["eval 等動態執行程式碼","對 innerHTML、document.write 賦值","執行 shell 指令","不安全的還原處理（pickle 等）","關閉憑證驗證","以字串串接組成的 SQL","把密碼或權杖存在瀏覽器中"],"async_err":"未處理的非同步錯誤：","running":"正在隔離的視窗中執行「{name}」…","analyzing":"分析中…","analyzed":"已分析 {n} 個檔案、{l} 行。","b_analyzing":"正在分析檔案。","b_consent":"勾選提交同意後，就會顯示評審結果。","ready":"評分完成。請用下方按鈕查看結果。","grade_fmt":"{g} 級","th_total":"合計","f_fail":"因必要條件不符而暫緩評定：{items}。請在自動分析報告中確認位置，修正後再重新上傳。","sub_secret":"因為有疑似 API 金鑰或密碼的內容，所以沒有傳送給營運者。請刪除後重新上傳。","sub_ing":"正在提交給營運者…","sub_noname":"（未命名）","sub_ok":"已提交給營運者（{time}）。結果只能在這個畫面查看。","sub_big":"檔案太大（壓縮後超過 5MB），無法傳送給營運者。您仍可照常查看評審結果。","sub_fail":"無法提交給營運者。您仍可照常查看評審結果。","rt_title":"[AI 程式評審結果]","rt_name":"程式名稱：{v}","rt_none":"（未填寫）","rt_author":"提交者：{v}","rt_files":"提交檔案：{v}","rt_hold":"暫緩（需確認必要條件）","rt_reward":" / 獎勵 {pay}","rt_fail":"- 不符合：{v}","pill_submit":"同意後，上傳的檔案會傳給營運者 · 結果 PDF 僅限本人","more":"另有 {n} 處","line_fmt":"第 {n} 行","rep_empty":"上傳檔案後，分析結果會顯示在這裡。","cnt":"{n} 個","spots":"{n} 處","g_sec":"安全性 · 個人資料","need_check":"{n} 處需要確認","no_issue":"沒有問題","t_key":"API 金鑰或密碼","t_rrn":"韓國住民登錄號碼格式","t_phone":"手機號碼（韓國格式）","remove_it":"請從程式碼中刪除，改由設定檔或使用者輸入取得","sec_none":"沒有找到 API 金鑰、密碼、住民登錄號碼或手機號碼格式的內容。","emails":"電子郵件地址 {n} 處（僅供參考）","g_risk":"危險的程式寫法","risk_warn":"請確認使用者輸入的值是否會傳到這段程式，並盡量改成更安全的寫法。","risk_none":"沒有找到危險的程式寫法。","g_run":"執行與語法檢查","run_ok":"通過","run_na":"無法檢查","run_html":"已在隔離的視窗中開啟 {n} 個 HTML，確認沒有指令碼錯誤。","run_js":"已檢查 {n} 個 JS、Apps Script 檔案的語法。","run_py":"Python 與模組檔案無法在瀏覽器中執行，因此未檢查。","g_hard":"寫死的內容","hard_warn":"若要讓其他人使用，請把這些值移到程式碼最上方的設定區，或改成輸入值。","hard_none":"沒有找到個人路徑、專屬 ID 等綁定特定環境的內容。","g_todo":"未完成標記","copied":"已複製結果。","copy_fail":"無法複製。請直接選取結果表格後複製。","req":["沒有洩漏 API 金鑰或密碼","沒有疑似個人資料的內容"],"rub_ver":"評分標準 {ver}","how_head":["領域","項目","評估內容","計分規則","配分"],"area_n":["安全性","可靠度","易用性","易維護性","可移植性"],"crit":{"S1":{"n":"機密外洩","how":"程式碼中是否寫有 API 金鑰、密碼、權杖、私密金鑰","rule":"沒有 10 · 有 0 且暫緩評定"},"S2":{"n":"個資外洩","how":"韓國住民登錄號碼、手機號碼格式的內容","rule":"沒有 8 · 有 0 且暫緩評定"},"S3":{"n":"危險的程式寫法","how":"eval、對 innerHTML 賦值、執行 shell、不安全的還原處理、關閉憑證驗證、字串串接的 SQL 等","rule":"9 分起算，每處 −3（最低 0）"},"S4":{"n":"對外連線","how":"程式碼傳送或取得資料的外部位址（呼叫請求、載入其他網站的指令碼、AI 服務）","rule":"8 分起算，每個不同的外部位址 −2（最低 0）"},"R1":{"n":"執行與語法檢查","how":"HTML 在隔離視窗中實際開啟以找出指令碼錯誤，JS 與 Apps Script 檢查語法","rule":"通過 10 · 僅部分可檢查 7 · 無法檢查（Python 等）5 · 有錯誤 0"},"R2":{"n":"錯誤處理","how":"try/catch、except、.catch()、onerror 等處理錯誤的程式碼","rule":"3 處以上（或佔函式 30% 以上）8 · 1～2 處 4 · 沒有 0"},"R3":{"n":"輸入驗證","how":"檢查空值、數字格式、必填欄位的程式碼（僅限會接收輸入的程式）","rule":"3 處以上 7 · 1～2 處 3 · 沒有 0 · 不接收輸入則 7（不適用）"},"R4":{"n":"未完成標記","how":"TODO、FIXME、XXX、HACK 註解","rule":"沒有 5 · 1～2 個 3 · 3 個以上 0"},"U1":{"n":"畫面與輸入方式","how":"有輸入欄與按鈕的 HTML 畫面、Apps Script 選單、Python 的 input、命令列或 GUI","rule":"有畫面 6 · 簡單輸入方式 3 · 沒有 0"},"U2":{"n":"提示文字","how":"程式碼中的 label、placeholder、標題、輸入提示文字與說明","rule":"5 個以上 5 · 1～4 個 2 · 沒有 0"},"U3":{"n":"使用者訊息","how":"alert、錯誤訊息、結果文字中使用的繁體中文提示","rule":"3 個以上 4 · 1～2 個 2 · 沒有 0"},"M1":{"n":"註解","how":"程式碼行數中註解行所佔的比例","rule":"15% 以上 5 · 5% 以上 3 · 更低 1 · 沒有 0"},"M2":{"n":"函式拆分","how":"程式碼被拆成函式的程度","rule":"5 個以上 5 · 2～4 個 3 · 1 個 1 · 沒有 0"},"P1":{"n":"寫死的內容","how":"個人電腦路徑、試算表與資料夾的專屬 ID、內部 IP、未加密的 http 網址","rule":"沒有 10 · 1～2 處 7 · 3～5 處 4 · 6 處以上 0"}},"kind":["實際執行測量","樣式檢查","數量計算"],"kind_short":["測量","樣式","計數"],"grade_head":["等級","標準"],"grade_rows":[["S","90 分以上（且必須通過實際的執行檢查）"],["A","75～89.9 分"],["B","60～74.9 分（有執行錯誤時最高為 B）"],["C","未滿 60 分 · 補強後再提交"],["暫緩","發現機密或個資時，不論分數都暫緩確定等級"]],"unsup_tag":"非審查對象 · 已排除","ev":{"found":"發現 {n} 處","none":"沒有","hosts":"外部位址 {n} 個","run_err":"{n} 個錯誤","run_part":"僅部分檢查","run_ok":"通過（檢查 {n} 個）","run_na":"無法檢查","cnt":"{n} 處","no_input":"不接收輸入（不適用）","ui_html":"有輸入欄與按鈕的畫面","ui_simple":"簡單輸入方式","ui_none":"沒有","items":"{n} 個","pct":"{n}%"},"g_gate":"審查對象確認","gate_pass":"確認為程式","gate_fail_title":"不是審查對象","gate_fail_help":"請上傳含有可執行原始碼的程式檔案（含指令碼的 HTML、JS、Apps Script、Python、ZIP）。只有 PDF、Word、Excel、圖片或說明文件無法審查。","gate_ok_files":"已確認 {n} 個程式碼檔案","gate_ok_logic":"會執行的程式碼 {lines} 行 · 找到函式、條件式等共 {tokens} 個","gate_no_code":"沒有程式碼檔案","gate_static_html":"只有畫面的 HTML，沒有會執行的指令碼","gate_no_logic":"會執行的程式碼太少（{lines} 行）","gate_unsup":"已排除 {n} 個非審查對象的檔案（PDF、文件、圖片等）","gate_info_ai":"連接 AI 服務的程式碼 {n} 處（僅供參考，與分數無關）","v_inel":"非審查對象","v_hold":"暫緩","v_sub":"{score} 分 / 100 分 · {x}","sub_hold":"確認必要條件後再定案","id_line":"結果編號 {id} · 評分標準 {ver}","id_note":"再次上傳相同的程式碼，會得到相同的結果編號與分數。提交者填寫的內容未用於計分。","th_item":"項目","th_score":"分數","th_basis":"依據","f_cap_err":"有執行錯誤，因此等級限制在 B 以下。","f_cap_run":"無法實際執行檢查，因此以 A 取代 S。","f_net":"程式碼會對外連線：{hosts}。光看程式碼無法判斷是否傳送敏感資訊，請承辦人員確認。","host_dyn":"（位址在程式碼中組合而成）","f_limit":"自動檢查是依規則閱讀程式碼來判斷，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。請將結果作為輔助承辦人員判斷的依據。","mbar_hold":"暫緩 · {score} 分","mbar_g":"<b>{g}<\/b> 級 · {score} 分","rt_result":"結果：{r} / {score} 分","rt_id":"結果編號：{id}（評分標準 {ver}）","rt_note":"※ 這是自動檢查的結果，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。","m":["已分析檔案","總行數","執行與語法檢查","錯誤處理","輸入驗證","註解比例","畫面元件","使用者提示","寫死的內容","危險寫法","外部位址"],"g_net":"對外連線","how":{"call":"呼叫請求","src":"從其他網站載入","ai":"AI 服務"},"net_warn":"程式碼會把資料傳到這個位址，或從這個位址取得資料。請確認其中是否含有敏感資訊。","net_none":"沒有找到對外連線的程式碼。","b_nofile":"請上傳程式檔案。審查對象是會執行的原始碼。","rx":{"msg_chars":"\\u4E00-\\u9FFF\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|在這裡|請輸入|金鑰|dummy|test"},"contact_href":"mailto:choyj80@naver.com","ux":{"welcome":"在分享自己做的程式之前先請人檢查，正是醫院現場最需要的謹慎習慣。","sum":{"S":"這是一個做得非常好的程式。安全、執行與易用都明顯超過標準，同事可以放心使用。","A":"這是一個做得很好的程式。執行上沒有大問題，只要再調整下面幾項，就能讓更多同事放心使用。","B":"已經具備可用程式的基本功。把下面「接下來可以做的事」改善幾項，就會有明顯進步。","C":"還有不少地方可以調整，但任何程式一開始都是這樣。需要修正的地方已在下方逐項列出。","H":"等級暫時保留，因為程式碼中似乎含有密碼、金鑰或個人資料。這很常見、也很快能改好；現在發現，就保護了病人與您自己。"},"hold_note":"您上傳的檔案沒有被傳送到任何地方。刪除該值後再上傳一次，等級就會立刻出現。","prog":"再 {n} 分就能到 {g} 級。","prog_top":"這是最高等級。","good_title":"做得好的地方","good_item":"{n}：滿分","good_none":"這次檢查只是起點。現在您已經清楚知道該改進什麼。","next_title":"接下來可以做的事","next_hint":"依「加分多、又容易做」的順序排列。","next_none":"在我們衡量的項目中，已沒有需要再修正的地方。辛苦了。","gain":"+{n} 分","where":"位置：{w}","more":"查看其餘 {n} 項","r1_note":"Python 等檔案無法在瀏覽器中執行，因此這一項以 5 分計算，並不是因為有錯誤。","delta_up":"比上一次檢查（在這個瀏覽器）多了 {n} 分，修正有了成果。","delta_down":"比上一次檢查（在這個瀏覽器）少了 {n} 分。下方表格可以看到哪裡不同。","delta_same":"與上一次檢查（在這個瀏覽器）的分數相同。","trust_title":"如何看待這個分數","trust":["分數只依據您上傳程式碼中的事實計算，每個項目都附有檔案與行號作為依據。","相同的程式碼永遠得到相同的分數與結果 ID，不會因審查者的心情而改變。","程式名稱、提交者、所屬單位與說明書完全不會用於計分。","這個檢查無法判斷程式在醫學上是否正確、在法律上是否適當。在醫院使用之前，仍須由人員確認。","若您認為程式碼被誤判，請把修正後的檔案再上傳一次，或透過下方連結告訴我們。"],"trust_link":"覺得被誤判了，請告訴我們","rt_next":"接下來可以做的事","areas":"各領域得分"},"help":{"S1":{"why":"程式碼裡的金鑰或密碼，任何看到檔案的人都能複製，並可能打開病人系統的大門。","fix":"從程式碼中刪除，向發行處更換新的金鑰，並改由設定檔或輸入欄位取得。"},"S2":{"why":"程式碼中若有身分證字號或手機號碼的格式，檔案一分享，真實的人就暴露了。","fix":"改成虛構的範例值。"},"S3":{"why":"有些寫法會讓使用者輸入的文字被當成指令執行。","fix":"在標示的每個位置改用更安全的寫法（例如用 textContent 取代 innerHTML）。"},"S4":{"why":"會連到外部位址的程式碼，可能在沒人察覺的情況下把資料送出醫院。","fix":"確認每個位址都是預期中的，且絕不要把病人資料送到醫院尚未核准的服務。"},"R1":{"why":"在同事面前出錯停住的程式，很快就會失去信任。","fix":"打開程式，把每個按鈕按一次，先修正看到的第一個錯誤。"},"R2":{"why":"沒有錯誤處理的話，一筆錯誤的輸入就可能讓整個程式停住。","fix":"把可能失敗的步驟（讀檔、日期、數字）包起來，讓畫面出現清楚的提示。"},"R3":{"why":"人們會輸入出乎意料的內容，例如空白欄位、在數字欄位輸入文字。","fix":"使用前先檢查每個輸入，並告訴使用者該修正什麼。"},"R4":{"why":"TODO 註記代表尚未完成的部分，同事可能會踩到。","fix":"完成或刪除每則註記，真正要做的事另外列成清單。"},"U1":{"why":"不知道要按哪裡的程式，不會有人用。","fix":"做一個簡單的畫面：有標示的輸入欄位，以及一個清楚的按鈕。"},"U2":{"why":"有標籤與提示，新來的人不必問您也能使用。","fix":"為每個輸入欄位加上標籤與簡短提示。"},"U3":{"why":"清楚的訊息會告訴使用者發生了什麼事、接下來該怎麼做。","fix":"成功時與每種錯誤都顯示一句白話的說明。"},"M1":{"why":"註解能讓下一個人（或半年後的您）看懂程式碼。","fix":"在每一段程式上方加一行註解，說明它的用途。"},"M2":{"why":"取了名字的小函式，比一長串程式碼更容易修改與重複使用。","fix":"把程式拆成各自只做一件事的函式。"},"P1":{"why":"含有您電腦上的路徑或私人試算表 ID，程式在別人的電腦上就跑不起來。","fix":"把這類值移到程式開頭的設定區，或改成由輸入取得。"}},"ui":{"back_hello":"歡迎回來。上次檢查是在{d}，得到 {s} 分。","hist_confirm":"要清除所有檢查紀錄嗎？無法復原。","sample_banner":"這是範例程式的結果。僅供練習，因此不會傳送給營運者，也不會留在檢查紀錄中。","card_done":"已儲存結果卡。","card_sample":"範例體驗","hist_none":"未命名"}};
+const T={"none":"無","loc":"zh-TW","cur":"","cur_pre":"NT$","pay_default":{"S":"2000","A":"1400","B":"800","C":"0"},"pay_step":"100","gl":["90 分以上","75～89.9 分","60～74.9 分","未滿 60 分 · 補強後再提交"],"ex_name":"特休天數計算器","ex_author":"人資組 王小明（範例）","s4_title":"提交同意","s4_pts":"必填","consent_lines":["接受評審時，您上傳的檔案會傳送給本網站的營運者並加以保存。","· 傳送項目：程式名稱、提交者與單位、上傳的檔案（含從連結讀取的程式碼）、等級與分數（評審結果的 PDF 不會傳送）","· 目的：確認評審紀錄與改善評審標準","· 若有疑似 API 金鑰或密碼的內容，就不會傳送。請刪除後重新上傳。","· 保存期間：自提交日起 1 個月後刪除。若想在此之前刪除，請透過<a href=\"mailto:choyj80@naver.com\">聯絡我們<\/a>提出。","· 不同意的話，就無法查看評審結果。"],"consent_label":"我已確認上述內容，並同意將上傳的檔案傳送給營運者。","pay_label":"獎勵（新臺幣）","zip_fail":"無法載入開啟 ZIP 的工具。請先解壓縮，再上傳檔案。","read_fail":"無法讀取「{name}」檔案。","skipped":"已排除 {n} 個無法分析的檔案（圖片、Excel、超過 2MB 等）。","k_doc":"說明文件","lines_fmt":"{n} 行","rm_aria":"移除 {name}","rm":"移除","hard_t":["個人電腦路徑","試算表或資料夾的專屬 ID","Google 文件網址","內部 IP 與本機位址","未加密的 http 網址"],"risk_t":["eval 等動態執行程式碼","對 innerHTML、document.write 賦值","執行 shell 指令","不安全的還原處理（pickle 等）","關閉憑證驗證","以字串串接組成的 SQL","把密碼或權杖存在瀏覽器中"],"async_err":"未處理的非同步錯誤：","running":"正在隔離的視窗中執行「{name}」…","analyzing":"分析中…","analyzed":"已分析 {n} 個檔案、{l} 行。","b_analyzing":"正在分析檔案。","b_consent":"勾選提交同意後，就會顯示評審結果。","ready":"評分完成。請用下方按鈕查看結果。","grade_fmt":"{g} 級","th_total":"合計","f_fail":"因必要條件不符而暫緩評定：{items}。請在自動分析報告中確認位置，修正後再重新上傳。","sub_secret":"因為有疑似 API 金鑰或密碼的內容，所以沒有傳送給營運者。請刪除後重新上傳。","sub_ing":"正在提交給營運者…","sub_noname":"（未命名）","sub_ok":"已提交給營運者（{time}）。結果只能在這個畫面查看。","sub_big":"檔案太大（壓縮後超過 5MB），無法傳送給營運者。您仍可照常查看評審結果。","sub_fail":"無法提交給營運者。您仍可照常查看評審結果。","rt_title":"[AI 程式評審結果]","rt_name":"程式名稱：{v}","rt_none":"（未填寫）","rt_author":"提交者：{v}","rt_files":"提交檔案：{v}","rt_hold":"暫緩（需確認必要條件）","rt_reward":" / 獎勵 {pay}","rt_fail":"- 不符合：{v}","pill_submit":"同意後，上傳的檔案會傳給營運者 · 結果 PDF 僅限本人","more":"另有 {n} 處","line_fmt":"第 {n} 行","rep_empty":"上傳檔案後，分析結果會顯示在這裡。","cnt":"{n} 個","spots":"{n} 處","g_sec":"安全性 · 個人資料","need_check":"{n} 處需要確認","no_issue":"沒有問題","t_key":"API 金鑰或密碼","t_rrn":"韓國住民登錄號碼格式","t_phone":"手機號碼（韓國格式）","remove_it":"請從程式碼中刪除，改由設定檔或使用者輸入取得","sec_none":"沒有找到 API 金鑰、密碼、住民登錄號碼或手機號碼格式的內容。","emails":"電子郵件地址 {n} 處（僅供參考）","g_risk":"危險的程式寫法","risk_warn":"請確認使用者輸入的值是否會傳到這段程式，並盡量改成更安全的寫法。","risk_none":"沒有找到危險的程式寫法。","g_run":"執行與語法檢查","run_ok":"通過","run_na":"無法檢查","run_html":"已在隔離的視窗中開啟 {n} 個 HTML，確認沒有指令碼錯誤。","run_js":"已檢查 {n} 個 JS、Apps Script 檔案的語法。","run_py":"Python 與模組檔案無法在瀏覽器中執行，因此未檢查。","g_hard":"寫死的內容","hard_warn":"若要讓其他人使用，請把這些值移到程式碼最上方的設定區，或改成輸入值。","hard_none":"沒有找到個人路徑、專屬 ID 等綁定特定環境的內容。","g_todo":"未完成標記","copied":"已複製結果。","copy_fail":"無法複製。請直接選取結果表格後複製。","req":["沒有洩漏 API 金鑰或密碼","沒有疑似個人資料的內容"],"rub_ver":"評分標準 {ver}","how_head":["領域","項目","評估內容","計分規則","配分"],"area_n":["安全性","可靠度","易用性","易維護性","可移植性"],"crit":{"S1":{"n":"機密外洩","how":"程式碼中是否寫有 API 金鑰、密碼、權杖、私密金鑰","rule":"沒有 10 · 有 0 且暫緩評定"},"S2":{"n":"個資外洩","how":"韓國住民登錄號碼、手機號碼格式的內容","rule":"沒有 8 · 有 0 且暫緩評定"},"S3":{"n":"危險的程式寫法","how":"eval、對 innerHTML 賦值、執行 shell、不安全的還原處理、關閉憑證驗證、字串串接的 SQL 等","rule":"9 分起算，每處 −3（最低 0）"},"S4":{"n":"對外連線","how":"程式碼傳送或取得資料的外部位址（呼叫請求、載入其他網站的指令碼、AI 服務）","rule":"8 分起算，每個不同的外部位址 −2（最低 0）"},"R1":{"n":"執行與語法檢查","how":"HTML 在隔離視窗中實際開啟以找出指令碼錯誤，JS 與 Apps Script 檢查語法","rule":"通過 10 · 僅部分可檢查 7 · 無法檢查（Python 等）5 · 有錯誤 0"},"R2":{"n":"錯誤處理","how":"try/catch、except、.catch()、onerror 等處理錯誤的程式碼","rule":"3 處以上（或佔函式 30% 以上）8 · 1～2 處 4 · 沒有 0"},"R3":{"n":"輸入驗證","how":"檢查空值、數字格式、必填欄位的程式碼（僅限會接收輸入的程式）","rule":"3 處以上 7 · 1～2 處 3 · 沒有 0 · 不接收輸入則 7（不適用）"},"R4":{"n":"未完成標記","how":"TODO、FIXME、XXX、HACK 註解","rule":"沒有 5 · 1～2 個 3 · 3 個以上 0"},"U1":{"n":"畫面與輸入方式","how":"有輸入欄與按鈕的 HTML 畫面、Apps Script 選單、Python 的 input、命令列或 GUI","rule":"有畫面 6 · 簡單輸入方式 3 · 沒有 0"},"U2":{"n":"提示文字","how":"程式碼中的 label、placeholder、標題、輸入提示文字與說明","rule":"5 個以上 5 · 1～4 個 2 · 沒有 0"},"U3":{"n":"使用者訊息","how":"alert、錯誤訊息、結果文字中使用的繁體中文提示","rule":"3 個以上 4 · 1～2 個 2 · 沒有 0"},"M1":{"n":"註解","how":"程式碼行數中註解行所佔的比例","rule":"15% 以上 5 · 5% 以上 3 · 更低 1 · 沒有 0"},"M2":{"n":"函式拆分","how":"程式碼被拆成函式的程度","rule":"5 個以上 5 · 2～4 個 3 · 1 個 1 · 沒有 0"},"P1":{"n":"寫死的內容","how":"個人電腦路徑、試算表與資料夾的專屬 ID、內部 IP、未加密的 http 網址","rule":"沒有 10 · 1～2 處 7 · 3～5 處 4 · 6 處以上 0"}},"kind":["實際執行測量","樣式檢查","數量計算"],"kind_short":["測量","樣式","計數"],"grade_head":["等級","標準"],"grade_rows":[["S","90 分以上（且必須通過實際的執行檢查）"],["A","75～89.9 分"],["B","60～74.9 分（有執行錯誤時最高為 B）"],["C","未滿 60 分 · 補強後再提交"],["暫緩","發現機密或個資時，不論分數都暫緩確定等級"]],"unsup_tag":"非審查對象 · 已排除","ev":{"found":"發現 {n} 處","none":"沒有","hosts":"外部位址 {n} 個","run_err":"{n} 個錯誤","run_part":"僅部分檢查","run_ok":"通過（檢查 {n} 個）","run_na":"無法檢查","cnt":"{n} 處","no_input":"不接收輸入（不適用）","ui_html":"有輸入欄與按鈕的畫面","ui_simple":"簡單輸入方式","ui_none":"沒有","items":"{n} 個","pct":"{n}%"},"g_gate":"審查對象確認","gate_pass":"確認為程式","gate_fail_title":"不是審查對象","gate_fail_help":"請上傳含有可執行原始碼的程式檔案（含指令碼的 HTML、JS、Apps Script、Python、ZIP）。只有 PDF、Word、Excel、圖片或說明文件無法審查。","gate_ok_files":"已確認 {n} 個程式碼檔案","gate_ok_logic":"會執行的程式碼 {lines} 行 · 找到函式、條件式等共 {tokens} 個","gate_no_code":"沒有程式碼檔案","gate_static_html":"只有畫面的 HTML，沒有會執行的指令碼","gate_no_logic":"會執行的程式碼太少（{lines} 行）","gate_unsup":"已排除 {n} 個非審查對象的檔案（PDF、文件、圖片等）","gate_info_ai":"連接 AI 服務的程式碼 {n} 處（僅供參考，與分數無關）","v_inel":"非審查對象","v_hold":"暫緩","v_sub":"{score} 分 / 100 分 · {x}","sub_hold":"確認必要條件後再定案","id_line":"結果編號 {id} · 評分標準 {ver}","id_note":"再次上傳相同的程式碼，會得到相同的結果編號與分數。提交者填寫的內容未用於計分。","th_item":"項目","th_score":"分數","th_basis":"依據","f_cap_err":"有執行錯誤，因此等級限制在 B 以下。","f_cap_run":"無法實際執行檢查，因此以 A 取代 S。","f_net":"程式碼會對外連線：{hosts}。光看程式碼無法判斷是否傳送敏感資訊，請承辦人員確認。","host_dyn":"（位址在程式碼中組合而成）","f_limit":"自動檢查是依規則閱讀程式碼來判斷，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。請將結果作為輔助承辦人員判斷的依據。","mbar_hold":"暫緩 · {score} 分","mbar_g":"<b>{g}<\/b> 級 · {score} 分","rt_result":"結果：{r} / {score} 分","rt_id":"結果編號：{id}（評分標準 {ver}）","rt_note":"※ 這是自動檢查的結果，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。","m":["已分析檔案","總行數","執行與語法檢查","錯誤處理","輸入驗證","註解比例","畫面元件","使用者提示","寫死的內容","危險寫法","外部位址"],"g_net":"對外連線","how":{"call":"呼叫請求","src":"從其他網站載入","ai":"AI 服務"},"net_warn":"程式碼會把資料傳到這個位址，或從這個位址取得資料。請確認其中是否含有敏感資訊。","net_none":"沒有找到對外連線的程式碼。","b_nofile":"請上傳程式檔案。審查對象是會執行的原始碼。","rx":{"msg_chars":"\\u4E00-\\u9FFF\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|在這裡|請輸入|金鑰|dummy|test"},"contact_href":"mailto:choyj80@naver.com","ux":{"welcome":"在分享自己做的程式之前先請人檢查，正是醫院現場最需要的謹慎習慣。","sum":{"S":"這是一個做得非常好的程式。安全、執行與易用都明顯超過標準，同事可以放心使用。","A":"這是一個做得很好的程式。執行上沒有大問題，只要再調整下面幾項，就能讓更多同事放心使用。","B":"已經具備可用程式的基本功。把下面「接下來可以做的事」改善幾項，就會有明顯進步。","C":"還有不少地方可以調整，但任何程式一開始都是這樣。需要修正的地方已在下方逐項列出。","H":"等級暫時保留，因為程式碼中似乎含有密碼、金鑰或個人資料。這很常見、也很快能改好；現在發現，就保護了病人與您自己。"},"hold_note":"您上傳的檔案沒有被傳送到任何地方。刪除該值後再上傳一次，等級就會立刻出現。","prog":"再 {n} 分就能到 {g} 級。","prog_top":"這是最高等級。","good_title":"做得好的地方","good_item":"{n}：滿分","good_none":"這次檢查只是起點。現在您已經清楚知道該改進什麼。","next_title":"接下來可以做的事","next_hint":"依「加分多、又容易做」的順序排列。","next_none":"在我們衡量的項目中，已沒有需要再修正的地方。辛苦了。","gain":"+{n} 分","where":"位置：{w}","more":"查看其餘 {n} 項","r1_note":"Python 等檔案無法在瀏覽器中執行，因此這一項以 5 分計算，並不是因為有錯誤。","delta_up":"比上一次檢查（在這個瀏覽器）多了 {n} 分，修正有了成果。","delta_down":"比上一次檢查（在這個瀏覽器）少了 {n} 分。下方表格可以看到哪裡不同。","delta_same":"與上一次檢查（在這個瀏覽器）的分數相同。","trust_title":"如何看待這個分數","trust":["分數只依據您上傳程式碼中的事實計算，每個項目都附有檔案與行號作為依據。","相同的程式碼永遠得到相同的分數與結果 ID，不會因審查者的心情而改變。","程式名稱、提交者、所屬單位與說明書完全不會用於計分。","這個檢查無法判斷程式在醫學上是否正確、在法律上是否適當。在醫院使用之前，仍須由人員確認。","若您認為程式碼被誤判，請把修正後的檔案再上傳一次，或透過下方連結告訴我們。"],"trust_link":"覺得被誤判了，請告訴我們","rt_next":"接下來可以做的事","areas":"各領域得分"},"help":{"S1":{"why":"程式碼裡的金鑰或密碼，任何看到檔案的人都能複製，並可能打開病人系統的大門。","fix":"從程式碼中刪除，向發行處更換新的金鑰，並改由設定檔或輸入欄位取得。"},"S2":{"why":"程式碼中若有身分證字號或手機號碼的格式，檔案一分享，真實的人就暴露了。","fix":"改成虛構的範例值。"},"S3":{"why":"有些寫法會讓使用者輸入的文字被當成指令執行。","fix":"在標示的每個位置改用更安全的寫法（例如用 textContent 取代 innerHTML）。"},"S4":{"why":"會連到外部位址的程式碼，可能在沒人察覺的情況下把資料送出醫院。","fix":"確認每個位址都是預期中的，且絕不要把病人資料送到醫院尚未核准的服務。"},"R1":{"why":"在同事面前出錯停住的程式，很快就會失去信任。","fix":"打開程式，把每個按鈕按一次，先修正看到的第一個錯誤。"},"R2":{"why":"沒有錯誤處理的話，一筆錯誤的輸入就可能讓整個程式停住。","fix":"把可能失敗的步驟（讀檔、日期、數字）包起來，讓畫面出現清楚的提示。"},"R3":{"why":"人們會輸入出乎意料的內容，例如空白欄位、在數字欄位輸入文字。","fix":"使用前先檢查每個輸入，並告訴使用者該修正什麼。"},"R4":{"why":"TODO 註記代表尚未完成的部分，同事可能會踩到。","fix":"完成或刪除每則註記，真正要做的事另外列成清單。"},"U1":{"why":"不知道要按哪裡的程式，不會有人用。","fix":"做一個簡單的畫面：有標示的輸入欄位，以及一個清楚的按鈕。"},"U2":{"why":"有標籤與提示，新來的人不必問您也能使用。","fix":"為每個輸入欄位加上標籤與簡短提示。"},"U3":{"why":"清楚的訊息會告訴使用者發生了什麼事、接下來該怎麼做。","fix":"成功時與每種錯誤都顯示一句白話的說明。"},"M1":{"why":"註解能讓下一個人（或半年後的您）看懂程式碼。","fix":"在每一段程式上方加一行註解，說明它的用途。"},"M2":{"why":"取了名字的小函式，比一長串程式碼更容易修改與重複使用。","fix":"把程式拆成各自只做一件事的函式。"},"P1":{"why":"含有您電腦上的路徑或私人試算表 ID，程式在別人的電腦上就跑不起來。","fix":"把這類值移到程式開頭的設定區，或改成由輸入取得。"}},"ui":{"back_hello":"歡迎回來。上次檢查是在{d}，得到 {s} 分。","hist_confirm":"要清除所有檢查紀錄嗎？無法復原。","sample_banner":"這是範例程式的結果。僅供練習，因此不會傳送給營運者，也不會留在檢查紀錄中。","card_done":"已儲存結果卡。","card_sample":"範例體驗","hist_none":"未命名","l_reading":"讀取中…","l_ok":"已讀取・{n} 個檔案","l_page_ok":"已讀取・1 個頁面","l_blocked":"被阻擋","l_info":"僅確認連線","l_rm":"移除","l_bad":"請輸入以 https:// 開頭的正確網址。","l_dup":"這個連結已經加入。","l_max":"最多可加入 {n} 個連結。","k_gh":"GitHub 儲存庫","k_gist":"GitHub Gist","k_gsapp":"Apps Script 網頁應用程式","k_gsedit":"Apps Script 編輯器","k_web":"網頁","g_hint":"請這樣解除阻擋","g_after":"修正後，請先移除這個連結再重新加入。","det_title":"在程式碼中發現的連結","det_add":"一併評審","l_trunc":"檔案很多，只讀取了前 {n} 個。","g_links":"整合評審範圍","links_sum":"上傳 {a} 個檔案・連結 {b} 個（已讀取 {c} 個）","cov_yes":"已透過連結一併評審","cov_no":"未透過連結評審的外部連線","f_links_partial":"有 {n} 個連結的來源無法讀取，評審範圍因此不完整。讀不到的部分沒有計入分數。解除阻擋的方法在「分析報告」分頁。","f_cap_link":"有連結來源無法讀取，因此等級限制為 A，不給 S。","rt_links":"連結：已讀取 {c} / {b} 個"},"lk":{"gh_notfound":{"t":"找不到 GitHub 儲存庫，或它是私人的","s":["請確認網址中擁有者與儲存庫名稱的拼字。","若是私人儲存庫，請在 GitHub 的 Settings → General → 最下方 Danger Zone → Change visibility → Make public 改為公開。請先確認程式碼可以公開；若含有密碼或金鑰，請不要公開。","若無法公開，請用 Code → Download ZIP 下載後，把檔案上傳到上方。"]},"gh_rate":{"t":"GitHub 暫時限制了請求","s":["GitHub 對未登入的請求有每小時次數的限制，目前已達上限。","請在約一小時後，移除這個連結再重新加入。","若很急，請把儲存庫下載成 ZIP 後上傳。"]},"gh_nocode":{"t":"找不到可讀取的程式碼檔案","s":["請確認儲存庫中有 HTML、JS、Python 或 Apps Script 等程式碼檔案。","若程式碼在子資料夾，請貼上該資料夾的網址（…/tree/分支/資料夾）。","若檔案太大或太多，請改用 ZIP 上傳。"]},"gs_editor":{"t":"Apps Script 編輯器的連結無法讀取程式碼","s":["Google 不允許透過連結讀取 Apps Script 的原始碼。要評審，必須把程式碼以檔案帶進來。","在編輯器中，把每個檔案（.gs、.html）的內容複製到同名檔案，並上傳到上方。","若您使用 clasp，也可以把 clasp clone 取得的資料夾壓縮成 ZIP 上傳。"]},"gs_login":{"t":"網頁應用程式回傳了登入畫面","s":["在編輯器右上角點選「部署」→「管理部署作業」→ 鉛筆（編輯）按鈕。","把「誰可以存取」改成「所有人」再部署。若是公司或學校帳號，管理員可能禁止了對外分享。","若無法公開，請把原始碼（.gs）存成檔案後上傳。"]},"gs_cors":{"t":"可以連線，但 Google 阻擋了內容的讀取","s":["用這個網頁應用程式的網址，只能確認有連線，無法讀取程式碼。這不是錯誤，而是 Google 的保護機制。","也請在「管理部署作業」中確認網頁應用程式已對「所有人」開放。","為了準確評審，請把原始碼（.gs、.html）存成檔案，上傳到上方。"]},"gs_unreach":{"t":"無法連到網頁應用程式","s":["請確認網址形如 …/macros/s/…/exec。/dev 的網址只有具編輯權限的人才能開啟。","請確認廣告阻擋程式或公司的資安網路沒有擋住 script.google.com。","若仍然不行，請把原始碼存成檔案後上傳。"]},"web_cors":{"t":"這個網站被設定成無法從外部讀取","s":["這個網站被設定成其他網站無法讀取它的內容（CORS）。這不是網站故障。","請把原始碼用 ZIP 上傳，或放到公開的 GitHub 儲存庫再貼上該網址。","若這是您自己經營的網站，在回應標頭加上 Access-Control-Allow-Origin: * 就能讀取。"]},"web_status":{"t":"頁面沒有正常回應","s":["請在瀏覽器新分頁直接開啟網址，確認是否正確。","需要登入的頁面無法讀取，請貼上公開的網址。","伺服器可能暫時停止，請稍後再試著加入。"]},"net_fail":{"t":"無法連線","s":["請確認網址拼字，以及是否以 https:// 開頭。","請檢查網路連線、廣告阻擋程式與公司的資安網路。","若仍然不行，請把原始碼用 ZIP 上傳。"]}}};
 const F=(s,o)=>String(s).replace(/\{(\w+)\}/g,(_,k)=>o[k]);
 
 /* ================= Criteria ================= */
@@ -562,6 +592,150 @@ try{const s=JSON.parse(localStorage.getItem(PAY_KEY)||'null');if(s)PAY={...PAY,.
 $('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">${T.pay_label}</label><input type="number" id="pay-${g.g}" min="0" step="${esc(T.pay_step)}" value="${esc(PAY[g.g])}"></div>`).join('');
 GRADES.forEach(g=>$('pay-'+g.g).addEventListener('input',e=>{PAY[g.g]=e.target.value;try{localStorage.setItem(PAY_KEY,JSON.stringify(PAY))}catch{}update()}));
 
+/* ================= Linked sources =================
+   Programs are often tied to a GitHub repository, a Google Apps Script web app or a hosted page. Those are read in the browser and reviewed
+   together with the uploaded files as ONE program. Only public, CORS-readable sources can be read; when a link is blocked the page tells the
+   submitter exactly how to unblock it. Nothing goes through our servers. */
+const U2=T.ui;
+const LINKS=[];            // {id,url,kind,state:'reading'|'ok'|'info'|'blocked',code,n,hosts,trunc}
+const MAX_LINKS=8,MAX_REMOTE_FILES=60,MAX_REMOTE_BYTES=1.5e6,MAX_FILE_BYTES=2e5;
+const SKIP_PATH=/(^|\/)(node_modules|vendor|dist|build|\.git|__pycache__|venv|\.venv|coverage|\.next|\.cache)\//;
+const SKIP_FILE=/(\.min\.(js|css)|package-lock\.json|yarn\.lock|pnpm-lock\.yaml)$/i;
+const WANT_DOC=/(^|\/)(\.env(\.[\w-]+)?|package\.json|appsscript\.json|\.clasp\.json|README(\.md)?)$/i;
+const extOf=n=>(n.split('.').pop()||'').toLowerCase();
+const shortUrl=u=>u.replace(/^https:\/\//,'').replace(/\/$/,'');
+const fx=async(url,opt={})=>{const ac=new AbortController();const to=setTimeout(()=>ac.abort(),15000);try{return await fetch(url,{...opt,signal:ac.signal})}finally{clearTimeout(to)}};
+function parseLink(raw){
+  let u;try{u=new URL(String(raw).trim())}catch{return null}
+  if(u.protocol!=='https:')return null;
+  const h=u.hostname.toLowerCase(),p=u.pathname.replace(/\/+$/,''),s=p.split('/').filter(Boolean);
+  if(h==='github.com'||h==='www.github.com'){
+    if(s.length<2)return null;
+    const o=s[0],r=s[1].replace(/\.git$/,'');let ref='HEAD',sub='';
+    if((s[2]==='tree'||s[2]==='blob')&&s[3]){ref=s[3];sub=s.slice(4).join('/')}
+    return {kind:'gh',o,r,ref,sub,url:`https://github.com/${o}/${r}`+(s[2]?'/'+s.slice(2).join('/'):'')};
+  }
+  if(h==='gist.github.com'){const id=s[s.length-1];if(!/^[0-9a-f]{8,}$/i.test(id||''))return null;return {kind:'gist',id,url:u.href.replace(/\/$/,'')}}
+  if(h==='script.google.com'){
+    if(/^\/macros\/s\/[^/]+\/(exec|dev)$/.test(p))return {kind:'gsapp',url:u.origin+p};
+    return {kind:'gsedit',url:u.origin+p};
+  }
+  return {kind:'web',url:u.href.replace(/\/$/,'')};
+}
+const fail=(l,code)=>{l.state=code==='gs_cors'?'info':'blocked';l.code=code};
+async function loadGh(l,p){
+  let res;
+  try{res=await fx(`https://api.github.com/repos/${p.o}/${p.r}/git/trees/${encodeURIComponent(p.ref)}?recursive=1`,{headers:{Accept:'application/vnd.github+json'}})}catch{return fail(l,'net_fail')}
+  if(res.status===404)return fail(l,'gh_notfound');
+  if(res.status===403||res.status===429)return fail(l,'gh_rate');
+  if(!res.ok)return fail(l,'web_status');
+  const d=await res.json(),pre=p.sub?p.sub.replace(/\/?$/,'/'):'';
+  const want=(d.tree||[]).filter(x=>x.type==='blob'&&!SKIP_PATH.test(x.path)&&!SKIP_FILE.test(x.path)&&(!p.sub||x.path===p.sub||x.path.startsWith(pre))&&(CODE_EXT.includes(extOf(x.path))||WANT_DOC.test(x.path))&&(x.size||0)<=MAX_FILE_BYTES)
+    .sort((a,b)=>a.path.split('/').length-b.path.split('/').length||(a.path<b.path?-1:1));
+  const pick=[];let bytes=0;
+  for(const x of want){if(pick.length>=MAX_REMOTE_FILES||bytes+(x.size||0)>MAX_REMOTE_BYTES)break;pick.push(x);bytes+=x.size||0}
+  if(!pick.some(x=>CODE_EXT.includes(extOf(x.path))))return fail(l,'gh_nocode');
+  const got=[];let i=0;
+  await Promise.all(Array.from({length:6},async()=>{while(i<pick.length){const x=pick[i++];
+    try{const r=await fx(`https://raw.githubusercontent.com/${p.o}/${p.r}/${encodeURIComponent(p.ref)}/${x.path.split('/').map(encodeURIComponent).join('/')}`);if(r.ok)got.push({path:x.path,text:await r.text()})}catch{}}}));
+  if(!got.length)return fail(l,'gh_nocode');
+  got.sort((a,b)=>a.path<b.path?-1:1).forEach(g=>FILES.push({...mkFile(`${p.o}/${p.r}/${g.path}`,g.text),remote:l.id}));
+  l.state='ok';l.n=got.length;l.hosts=['github.com','api.github.com','raw.githubusercontent.com'];
+  l.trunc=(want.length>pick.length||d.truncated)?got.length:0;
+}
+async function loadGist(l,p){
+  let res;try{res=await fx(`https://api.github.com/gists/${p.id}`,{headers:{Accept:'application/vnd.github+json'}})}catch{return fail(l,'net_fail')}
+  if(res.status===404)return fail(l,'gh_notfound');
+  if(res.status===403||res.status===429)return fail(l,'gh_rate');
+  if(!res.ok)return fail(l,'web_status');
+  const d=await res.json(),got=[];
+  for(const g of Object.values(d.files||{})){
+    if(!TEXT_EXT.includes(extOf(g.filename||''))&&!WANT_DOC.test(g.filename||''))continue;
+    let text=g.content;
+    if(g.truncated&&g.raw_url){try{const r=await fx(g.raw_url);if(r.ok)text=await r.text()}catch{}}
+    if(typeof text==='string'&&text.length<=MAX_FILE_BYTES*3)got.push({path:g.filename,text});
+  }
+  if(!got.length||!got.some(g=>CODE_EXT.includes(extOf(g.path))))return fail(l,'gh_nocode');
+  got.forEach(g=>FILES.push({...mkFile(`gist/${p.id}/${g.path}`,g.text),remote:l.id}));
+  l.state='ok';l.n=got.length;l.hosts=['gist.github.com','api.github.com'];
+}
+// Apps Script: Google offers no public way to read a project's source. A web app address can at best return its page; most of the time it
+// can only be probed. So: try to read, fall back to a connection probe, and always tell the submitter how to bring the source in.
+async function loadGsApp(l,p){
+  let r;
+  try{r=await fx(p.url,{redirect:'follow'})}
+  catch{
+    try{await fx(p.url,{mode:'no-cors',redirect:'follow'});return fail(l,'gs_cors')}catch{return fail(l,'gs_unreach')}
+  }
+  if(/accounts\.google\.com/.test(r.url||'')||r.status===401||r.status===403)return fail(l,'gs_login');
+  if(!r.ok)return fail(l,'gs_unreach');
+  const ct=(r.headers.get('content-type')||'').toLowerCase(),txt=await r.text();
+  if(/accounts\.google\.com\/(ServiceLogin|signin)/i.test(txt.slice(0,20000)))return fail(l,'gs_login');
+  if(ct.includes('html')&&txt.length<1.5e6){FILES.push({...mkFile('apps-script-webapp/index.html',txt),remote:l.id});l.state='ok';l.n=1;l.hosts=['script.google.com','script.googleusercontent.com'];return}
+  fail(l,'gs_cors');
+}
+async function loadWeb(l,p){
+  let r;
+  try{r=await fx(p.url,{redirect:'follow'})}
+  catch{try{await fx(p.url,{mode:'no-cors',redirect:'follow'});return fail(l,'web_cors')}catch{return fail(l,'net_fail')}}
+  if(!r.ok)return fail(l,'web_status');
+  const ct=(r.headers.get('content-type')||'').toLowerCase(),txt=await r.text();
+  if(txt.length>1.5e6)return fail(l,'web_status');
+  const u=new URL(p.url);let path=(u.hostname+u.pathname).replace(/\/$/,'')||u.hostname;
+  let name=ct.includes('html')?(/\.html?$/.test(path)?path:path+'/index.html'):ct.includes('javascript')?(/\.m?js$/.test(path)?path:path+'.js'):null;
+  if(!name)return fail(l,'web_status');
+  FILES.push({...mkFile(name,txt),remote:l.id});l.state='ok';l.n=1;l.hosts=[u.hostname];
+}
+async function addLink(raw){
+  const msg=$('linkMsg');msg.textContent='';
+  const p=parseLink(raw);
+  if(!p){msg.textContent=U2.l_bad;return}
+  if(LINKS.some(l=>l.url===p.url)){msg.textContent=U2.l_dup;return}
+  if(LINKS.length>=MAX_LINKS){msg.textContent=F(U2.l_max,{n:MAX_LINKS});return}
+  // a sample must never be mixed with a real submission
+  if(FILES.some(f=>f.sample)){FILES=FILES.filter(f=>!f.sample);hideExample()}
+  const l={id:'L'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),url:p.url,kind:p.kind,state:'reading'};
+  LINKS.push(l);$('linkBox').open=true;renderLinks();
+  try{
+    if(p.kind==='gh')await loadGh(l,p);else if(p.kind==='gist')await loadGist(l,p);
+    else if(p.kind==='gsedit')fail(l,'gs_editor');else if(p.kind==='gsapp')await loadGsApp(l,p);else await loadWeb(l,p);
+  }catch{fail(l,'net_fail')}
+  renderLinks();renderFiles();QUIET=READY;try{await runAnalysis()}finally{QUIET=false}
+}
+function removeLink(id){
+  const i=LINKS.findIndex(l=>l.id===id);if(i<0)return;LINKS.splice(i,1);FILES=FILES.filter(f=>f.remote!==id);
+  renderLinks();renderFiles();QUIET=READY;Promise.resolve(runAnalysis()).finally(()=>{QUIET=false});
+}
+const linkStatus=l=>l.state==='ok'?((l.kind==='gh'||l.kind==='gist')?F(U2.l_ok,{n:l.n}):U2.l_page_ok):l.state==='reading'?U2.l_reading:l.state==='info'?U2.l_info:U2.l_blocked;
+function guideHtml(l){
+  const G=l.code&&T.lk[l.code];if(!G)return '';
+  return `<div class="unblock" role="alert"><b>${esc(U2.g_hint)} — ${esc(G.t)}</b><ol>${G.s.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><span class="hint">${U2.g_after}</span></div>`;
+}
+function renderLinks(){
+  $('linkList').innerHTML=LINKS.map(l=>`<li class="lk lk-${l.state}"><div class="lk-row"><span class="lk-kind">${U2['k_'+l.kind]}</span><code class="lk-url">${esc(shortUrl(l.url))}</code><span class="lk-st">${linkStatus(l)}${l.trunc?' · '+F(U2.l_trunc,{n:l.trunc}):''}</span><button type="button" class="linkbtn" data-lrm="${l.id}">${U2.l_rm}</button></div>${guideHtml(l)}</li>`).join('');
+  $('linkList').querySelectorAll('[data-lrm]').forEach(b=>b.onclick=()=>removeLink(b.dataset.lrm));
+  detectLinks();
+}
+// links written inside the uploaded code are offered as one-click additions
+const LINK_RE=/https:\/\/(?:github\.com\/[\w.-]+\/[\w.-]+|gist\.github\.com\/[\w.-]+(?:\/[0-9a-f]{8,})?|script\.google\.com\/macros\/s\/[\w-]+\/(?:exec|dev)|[\w-]+\.github\.io(?:\/[\w./-]*)?)/g;
+function detectLinks(){
+  const have=new Set(LINKS.map(l=>l.url)),found=new Map();
+  for(const f of FILES){if(f.remote)continue;for(const m of f.text.matchAll(LINK_RE)){const p=parseLink(m[0].replace(/[.,;:)\]'"]+$/,''));if(p&&!have.has(p.url)&&!found.has(p.url))found.set(p.url,p)}}
+  const items=[...found.values()].slice(0,6);
+  $('linkDetected').innerHTML=items.length?`<p class="hint">${U2.det_title}</p><div class="chips">${items.map(p=>`<button type="button" class="chipbtn" data-ladd="${esc(p.url)}">＋ ${esc(shortUrl(p.url))} <span class="hint">${U2.det_add}</span></button>`).join('')}</div>`:'';
+  $('linkDetected').querySelectorAll('[data-ladd]').forEach(b=>b.onclick=()=>addLink(b.dataset.ladd));
+  if(items.length)$('linkBox').open=true;
+}
+const unreadLinks=()=>LINKS.filter(l=>l.state!=='ok').length;
+const linkCov=x=>LINKS.length?` <span class="hint">· ${LINKS.some(l=>l.state==='ok'&&(l.hosts||[]).includes(x.host))?U2.cov_yes:U2.cov_no}</span>`:'';
+function linksGroup(){
+  const ok=LINKS.filter(l=>l.state==='ok').length,bad=LINKS.length-ok;
+  const rows=LINKS.map(l=>`<li class="${l.state==='ok'?'ok':l.state==='reading'?'info':'no'}"><span class="lk-kind">${U2['k_'+l.kind]}</span> <code>${esc(shortUrl(l.url))}</code> — ${linkStatus(l)}${guideHtml(l)}</li>`).join('');
+  return `<div class="fgroup ${bad?'f-bad':'f-ok'}"><h3>${U2.g_links} — ${F(U2.links_sum,{a:FILES.filter(f=>!f.remote).length,b:LINKS.length,c:ok})}</h3><ul class="gate">${rows}</ul></div>`;
+}
+$('linkAdd').onclick=async()=>{const v=$('linkInput').value.trim();if(!v)return;$('linkInput').value='';await addLink(v)};
+$('linkInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('linkAdd').click()}});
+
 /* ================= Files ================= */
 let FILES=[];      // {name, ext, kind, text}
 let UNSUP=[];      // names of files that are not source code or text (PDF, Office, images ...)
@@ -609,7 +783,7 @@ function mkFile(name,text){
 }
 const KIND_LABEL={html:'HTML',js:'JS',py:'PY',doc:T.k_doc};
 function renderFiles(){
-  $('fileList').innerHTML=FILES.map((f,i)=>`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('')+
+  $('fileList').innerHTML=FILES.map((f,i)=>f.remote?'':`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('')+
     UNSUP.slice(0,8).map(n=>`<div class="file unsup"><span class="ty">✕</span><span class="nm">${esc(n)} <span class="hint">${T.unsup_tag}</span></span><span></span></div>`).join('');
 }
 $('fileList').addEventListener('click',async e=>{const i=e.target.dataset?.rm;if(i==null)return;FILES.splice(Number(i),1);hideExample();renderFiles();await runAnalysis()});
@@ -721,7 +895,7 @@ function syntaxJs(f){
 }
 // Result ID: SHA-256 of the rubric version and the code files (names + normalized text). Documents do not change it.
 async function fingerprint(code){
-  const s=RUBRIC_VER+'\n'+code.slice().sort((a,b)=>a.name<b.name?-1:1).map(f=>f.name+'\u0000'+f.text.replace(/\r\n?/g,'\n')).join('\u0001');
+  const s=RUBRIC_VER+'\nlinks:'+LINKS.filter(l=>l.state!=='ok').length+'/'+LINKS.length+'\n'+code.slice().sort((a,b)=>a.name<b.name?-1:1).map(f=>f.name+'\u0000'+f.text.replace(/\r\n?/g,'\n')).join('\u0001');
   try{
     if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,12)}
   }catch{}
@@ -770,7 +944,7 @@ async function analyze(){
   // distinct hosts only ('?' = address decided in code, counted once)
   const uh=new Map();for(const h of R.hosts)if(!uh.has(h.host))uh.set(h.host,h);R.hostList=[...uh.values()];
   // run / syntax check
-  for(const f of code.filter(f=>f.kind==='html').slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
+  for(const f of code.filter(f=>f.kind==='html'&&!f.remote).slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
   for(const f of code.filter(f=>f.kind==='js')){const r=syntaxJs(f);if(r===null){R.syntax.skipped++;continue}R.syntax.tested++;r.forEach(e=>R.syntax.errors.push({file:f.name,msg:e.msg}))}
   R.testable=R.run.tested+R.syntax.tested>0;
   R.untestedPy=code.some(f=>f.kind==='py')||R.syntax.skipped>0;
@@ -869,7 +1043,7 @@ function trustHtml(){return `<aside class="trust"><h3>${U.trust_title}</h3><ul>$
 function nextLines(S,M,hold){const st=nextSteps(S,M,hold);return st.length?[U.rt_next+':',...st.slice(0,5).map(c=>`  · ${T.crit[c.id].n} (${F(U.gain,{n:c.gap})}) — ${HLP[c.id].fix}`)]:[]}
 
 /* ================= Result ================= */
-let LAST=null,READY=false;
+let LAST=null,READY=false,QUIET=false; // QUIET: a link change after the result was already shown updates it in place instead of popping the window again
 const TABS=['pnlSum','pnlRep','pnlRules'];
 function showTab(i){TABS.forEach((id,k)=>{$(id).hidden=k!==i;const b=$('tab'+k);b.setAttribute('aria-selected',k===i?'true':'false');b.tabIndex=k===i?0:-1});$('cardBtn').hidden=!(i===0&&LAST);$('copyBtn').hidden=i!==0;}
 TABS.forEach((_,k)=>{$('tab'+k).onclick=()=>showTab(k);$('tab'+k).onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=(k+(e.key==='ArrowRight'?1:2))%3;showTab(n);$('tab'+n).focus()}}});
@@ -969,7 +1143,7 @@ function update(){
     LAST=null;
     $('result').innerHTML=`<div class="verdict"><div class="badge g-H">✕</div><div><div class="big">${T.v_inel}</div><div class="sub">${T.gate_fail_help}</div></div></div><div class="flags">${why.map(w=>`<div class="flag">${esc(w)}</div>`).join('')}</div>`;
     $('mbarText').textContent=T.v_inel;nores();$('showBtn').disabled=false;$('readyNote').textContent=T.v_inel;
-    if(!READY){READY=true;openResult()}
+    if(!READY){READY=true;if(!QUIET)openResult()}
     return;
   }
   $('copyBtn').disabled=false;$('printBtn').disabled=false;$('showBtn').disabled=false;$('readyNote').textContent=T.ready;
@@ -983,11 +1157,13 @@ function update(){
   if(!hold){
     if(M.execErrors>0&&RANK[g.g]<RANK.B){g=GRADES.find(x=>x.g==='B');caps.push(T.f_cap_err)}
     if(g.g==='S'&&!M.testable){g=GRADES.find(x=>x.g==='A');caps.push(T.f_cap_run)}
+    if(g.g==='S'&&unreadLinks()>0){g=GRADES.find(x=>x.g==='A');caps.push(U2.f_cap_link)}
   }
   const pay=won(PAY[g.g]);
   const flags=[];
   if(hold)flags.push(`<div class="flag">${F(T.f_fail,{items:fail.map(r=>r.t).join(' / ')})}</div>`);
   caps.forEach(c=>flags.push(`<div class="flag">${c}</div>`));
+  if(LINKS.length){if(unreadLinks())flags.push(`<div class="flag">${F(U2.f_links_partial,{n:unreadLinks()})}</div>`);flags.push(`<div class="flag info">${F(U2.links_sum,{a:FILES.filter(f=>!f.remote).length,b:LINKS.length,c:LINKS.length-unreadLinks()})}</div>`)}
   if(M.hostList.length)flags.push(`<div class="flag info">${F(T.f_net,{hosts:M.hostList.map(h=>h.host==='?'?T.host_dyn:h.host).slice(0,6).join(', ')})}</div>`);
   if(M.unsupported)flags.push(`<div class="flag info">${F(T.gate_unsup,{n:M.unsupported})}</div>`);
   flags.push(`<div class="flag info">${T.f_limit}</div>`);
@@ -1009,7 +1185,7 @@ function update(){
   LAST={S,total,areaPts,g,hold,pay,fail,caps};
   scheduleSubmit();
   histAdd();
-  if(!READY){READY=true;openResult(0)}
+  if(!READY){READY=true;if(!QUIET)openResult(0)}
 }
 
 /* ================= Submit to the operator ================= */
@@ -1054,6 +1230,7 @@ function resultText(){
     ...[0,1,2,3,4].map(a=>`- ${T.area_n[a]}: ${areaPts[a]} / ${AREA_MAX[a]}`),
     ...S.filter(c=>c.pts<c.max).map(c=>`  · ${T.crit[c.id].n}: ${c.pts} / ${c.max} (${c.basis})`),
     ...fail.map(r=>F(T.rt_fail,{v:r.t})),...caps.map(c=>'- '+c),
+    ...(LINKS.length?[F(U2.rt_links,{c:LINKS.length-unreadLinks(),b:LINKS.length})]:[]),
     ...nextLines(S,M,hold),
     T.rt_note].filter(Boolean).join('\n');
 }
@@ -1072,6 +1249,7 @@ function renderReport(){
   if(M.unsupported)gateLines.push(`<li class="info">${F(T.gate_unsup,{n:M.unsupported})}</li>`);
   if(M.ai.length)gateLines.push(`<li class="info">${F(T.gate_info_ai,{n:M.ai.length})}</li>`);
   G.push(`<div class="fgroup ${M.eligible?'f-ok':'f-bad'}"><h3>${T.g_gate} — ${M.eligible?T.gate_pass:T.gate_fail_title}</h3><ul class="gate">${gateLines.join('')}</ul>${M.eligible?'':`<span class="hint">${T.gate_fail_help}</span>`}</div>`);
+  if(LINKS.length)G.push(linksGroup());
   if(!M.eligible){$('report').innerHTML=`<div class="find">${G.join('')}</div>`;return}
   const pct=Math.round(M.commentRatio*100);
   const runLabel=M.testable?(M.execErrors?F(T.ev.run_err,{n:M.execErrors}):T.run_ok):T.run_na;
@@ -1086,7 +1264,7 @@ function renderReport(){
     ${sec?list([...M.secrets.map(x=>({...x,t:T.t_key})),...M.rrn.map(x=>({...x,t:T.t_rrn})),...M.phones.map(x=>({...x,t:T.t_phone}))],x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code> — ${T.remove_it}`):`<span class="hint">${T.sec_none}</span>`}
     ${M.emails.length?`<span class="hint">${F(T.emails,{n:M.emails.length})}</span>`:''}</div>`);
   G.push(`<div class="fgroup ${M.risky.length?'f-bad':'f-ok'}"><h3>${T.g_risk} — ${M.risky.length?F(T.spots,{n:M.risky.length}):T.none}</h3>${M.risky.length?list(M.risky,x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code>`)+`<span class="hint">${T.risk_warn}</span>`:`<span class="hint">${T.risk_none}</span>`}</div>`);
-  G.push(`<div class="fgroup ${M.hostList.length?'f-info':'f-ok'}"><h3>${T.g_net} — ${M.hostList.length?F(T.cnt,{n:M.hostList.length}):T.none}</h3>${M.hostList.length?list(M.hostList,x=>`${at(x)} · <code>${esc(x.host==='?'?T.host_dyn:x.host)}</code> <span class="hint">${T.how[x.how]}</span>`)+`<span class="hint">${T.net_warn}</span>`:`<span class="hint">${T.net_none}</span>`}</div>`);
+  G.push(`<div class="fgroup ${M.hostList.length?'f-info':'f-ok'}"><h3>${T.g_net} — ${M.hostList.length?F(T.cnt,{n:M.hostList.length}):T.none}</h3>${M.hostList.length?list(M.hostList,x=>`${at(x)} · <code>${esc(x.host==='?'?T.host_dyn:x.host)}</code> <span class="hint">${T.how[x.how]}</span>${linkCov(x)}`)+`<span class="hint">${T.net_warn}</span>`:`<span class="hint">${T.net_none}</span>`}</div>`);
   const ex=[...M.run.errors,...M.syntax.errors];
   G.push(`<div class="fgroup ${ex.length?'f-bad':M.testable?'f-ok':'f-info'}"><h3>${T.g_run} — ${ex.length?F(T.ev.run_err,{n:ex.length}):M.testable?T.run_ok:T.run_na}</h3>
     ${ex.length?list(ex,x=>`${at(x)} · ${esc(x.msg)}`):`<span class="hint">${M.run.tested?F(T.run_html,{n:M.run.tested})+' ':''}${M.syntax.tested?F(T.run_js,{n:M.syntax.tested})+' ':''}${M.untestedPy?T.run_py:''}</span>`}</div>`);
@@ -1106,14 +1284,14 @@ async function loadExample(){
   $('name').value=EX_NAME;$('author').value=EX_AUTHOR;exampleShown=true;$('exampleNote').hidden=false;renderFiles();await runAnalysis();
 }
 $('exampleBtn').onclick=loadExample;
-$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];$('resDialog').open&&$('resDialog').close();$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
+$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];LINKS.length=0;renderLinks();$('resDialog').open&&$('resDialog').close();$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
 $('printBtn').onclick=()=>window.print();
 $('showBtn').onclick=()=>openResult(0);$('mbarBtn').onclick=()=>openResult(0);$('rulesBtn').onclick=()=>openResult(2);$('closeBtn').onclick=()=>$('resDialog').close();
 $('copyBtn').onclick=async()=>{
   if(!LAST)return;const t=resultText();
   try{await navigator.clipboard.writeText(t);$('status').textContent=T.copied}catch{$('status').textContent=T.copy_fail}
 };
-histRender();renderFiles();update();
+histRender();renderFiles();renderLinks();update();
 </script>
 </body>
 </html>

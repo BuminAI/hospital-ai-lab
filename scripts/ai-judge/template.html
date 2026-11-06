@@ -59,6 +59,14 @@
       </div>
       <div class="files" id="fileList"></div>
       <p class="status reading-line" id="analyzeStatus" aria-live="polite"></p>
+      <details class="linkbox" id="linkBox">
+        <summary>{{link_title}}</summary>
+        <p class="hint">{{link_hint}}</p>
+        <div class="linkrow"><input type="url" id="linkInput" placeholder="{{link_ph}}" autocomplete="off" inputmode="url" aria-label="{{link_title}}"><button type="button" id="linkAdd">{{link_add}}</button></div>
+        <p class="status" id="linkMsg" aria-live="polite"></p>
+        <ul class="links" id="linkList"></ul>
+        <div id="linkDetected"></div>
+      </details>
       <details class="optinfo">
         <summary>{{opt_info}}</summary>
         <div class="row2">
@@ -129,6 +137,7 @@
       <li>{{step3}}</li>
       <li>{{step4}}</li>
       <li>{{step5}}</li>
+      <li>{{links_rule}}</li>
     </ol>
     <div class="tbl"><table class="rubric" id="rubric"></table></div>
     <div class="tbl"><table id="gradeTable"></table></div>
@@ -205,7 +214,7 @@
    3. Points come only from facts found in the uploaded code (file:line evidence). Names, README, answers: never used.
    4. One fixed rubric, no judges: same code + same rubric version = same result ID and same score. */
 const SUBMIT_URL = 'supabase';
-const RUBRIC_VER = 'v2.0 (2026-10-28)';
+const RUBRIC_VER = 'v2.1 (2026-11-07)'; // v2.1: linked sources are reviewed together; unread links cap the grade at A. Without links, scoring is identical to v2.0.
 
 /* ================= Strings (per language) ================= */
 const T={{!T_JSON}};
@@ -265,6 +274,150 @@ try{const s=JSON.parse(localStorage.getItem(PAY_KEY)||'null');if(s)PAY={...PAY,.
 $('payCards').innerHTML=GRADES.map(g=>`<div class="pay-card g-${g.g}"><span class="gg">${g.g}</span><span class="rng">${g.label}</span><label for="pay-${g.g}">${T.pay_label}</label><input type="number" id="pay-${g.g}" min="0" step="${esc(T.pay_step)}" value="${esc(PAY[g.g])}"></div>`).join('');
 GRADES.forEach(g=>$('pay-'+g.g).addEventListener('input',e=>{PAY[g.g]=e.target.value;try{localStorage.setItem(PAY_KEY,JSON.stringify(PAY))}catch{}update()}));
 
+/* ================= Linked sources =================
+   Programs are often tied to a GitHub repository, a Google Apps Script web app or a hosted page. Those are read in the browser and reviewed
+   together with the uploaded files as ONE program. Only public, CORS-readable sources can be read; when a link is blocked the page tells the
+   submitter exactly how to unblock it. Nothing goes through our servers. */
+const U2=T.ui;
+const LINKS=[];            // {id,url,kind,state:'reading'|'ok'|'info'|'blocked',code,n,hosts,trunc}
+const MAX_LINKS=8,MAX_REMOTE_FILES=60,MAX_REMOTE_BYTES=1.5e6,MAX_FILE_BYTES=2e5;
+const SKIP_PATH=/(^|\/)(node_modules|vendor|dist|build|\.git|__pycache__|venv|\.venv|coverage|\.next|\.cache)\//;
+const SKIP_FILE=/(\.min\.(js|css)|package-lock\.json|yarn\.lock|pnpm-lock\.yaml)$/i;
+const WANT_DOC=/(^|\/)(\.env(\.[\w-]+)?|package\.json|appsscript\.json|\.clasp\.json|README(\.md)?)$/i;
+const extOf=n=>(n.split('.').pop()||'').toLowerCase();
+const shortUrl=u=>u.replace(/^https:\/\//,'').replace(/\/$/,'');
+const fx=async(url,opt={})=>{const ac=new AbortController();const to=setTimeout(()=>ac.abort(),15000);try{return await fetch(url,{...opt,signal:ac.signal})}finally{clearTimeout(to)}};
+function parseLink(raw){
+  let u;try{u=new URL(String(raw).trim())}catch{return null}
+  if(u.protocol!=='https:')return null;
+  const h=u.hostname.toLowerCase(),p=u.pathname.replace(/\/+$/,''),s=p.split('/').filter(Boolean);
+  if(h==='github.com'||h==='www.github.com'){
+    if(s.length<2)return null;
+    const o=s[0],r=s[1].replace(/\.git$/,'');let ref='HEAD',sub='';
+    if((s[2]==='tree'||s[2]==='blob')&&s[3]){ref=s[3];sub=s.slice(4).join('/')}
+    return {kind:'gh',o,r,ref,sub,url:`https://github.com/${o}/${r}`+(s[2]?'/'+s.slice(2).join('/'):'')};
+  }
+  if(h==='gist.github.com'){const id=s[s.length-1];if(!/^[0-9a-f]{8,}$/i.test(id||''))return null;return {kind:'gist',id,url:u.href.replace(/\/$/,'')}}
+  if(h==='script.google.com'){
+    if(/^\/macros\/s\/[^/]+\/(exec|dev)$/.test(p))return {kind:'gsapp',url:u.origin+p};
+    return {kind:'gsedit',url:u.origin+p};
+  }
+  return {kind:'web',url:u.href.replace(/\/$/,'')};
+}
+const fail=(l,code)=>{l.state=code==='gs_cors'?'info':'blocked';l.code=code};
+async function loadGh(l,p){
+  let res;
+  try{res=await fx(`https://api.github.com/repos/${p.o}/${p.r}/git/trees/${encodeURIComponent(p.ref)}?recursive=1`,{headers:{Accept:'application/vnd.github+json'}})}catch{return fail(l,'net_fail')}
+  if(res.status===404)return fail(l,'gh_notfound');
+  if(res.status===403||res.status===429)return fail(l,'gh_rate');
+  if(!res.ok)return fail(l,'web_status');
+  const d=await res.json(),pre=p.sub?p.sub.replace(/\/?$/,'/'):'';
+  const want=(d.tree||[]).filter(x=>x.type==='blob'&&!SKIP_PATH.test(x.path)&&!SKIP_FILE.test(x.path)&&(!p.sub||x.path===p.sub||x.path.startsWith(pre))&&(CODE_EXT.includes(extOf(x.path))||WANT_DOC.test(x.path))&&(x.size||0)<=MAX_FILE_BYTES)
+    .sort((a,b)=>a.path.split('/').length-b.path.split('/').length||(a.path<b.path?-1:1));
+  const pick=[];let bytes=0;
+  for(const x of want){if(pick.length>=MAX_REMOTE_FILES||bytes+(x.size||0)>MAX_REMOTE_BYTES)break;pick.push(x);bytes+=x.size||0}
+  if(!pick.some(x=>CODE_EXT.includes(extOf(x.path))))return fail(l,'gh_nocode');
+  const got=[];let i=0;
+  await Promise.all(Array.from({length:6},async()=>{while(i<pick.length){const x=pick[i++];
+    try{const r=await fx(`https://raw.githubusercontent.com/${p.o}/${p.r}/${encodeURIComponent(p.ref)}/${x.path.split('/').map(encodeURIComponent).join('/')}`);if(r.ok)got.push({path:x.path,text:await r.text()})}catch{}}}));
+  if(!got.length)return fail(l,'gh_nocode');
+  got.sort((a,b)=>a.path<b.path?-1:1).forEach(g=>FILES.push({...mkFile(`${p.o}/${p.r}/${g.path}`,g.text),remote:l.id}));
+  l.state='ok';l.n=got.length;l.hosts=['github.com','api.github.com','raw.githubusercontent.com'];
+  l.trunc=(want.length>pick.length||d.truncated)?got.length:0;
+}
+async function loadGist(l,p){
+  let res;try{res=await fx(`https://api.github.com/gists/${p.id}`,{headers:{Accept:'application/vnd.github+json'}})}catch{return fail(l,'net_fail')}
+  if(res.status===404)return fail(l,'gh_notfound');
+  if(res.status===403||res.status===429)return fail(l,'gh_rate');
+  if(!res.ok)return fail(l,'web_status');
+  const d=await res.json(),got=[];
+  for(const g of Object.values(d.files||{})){
+    if(!TEXT_EXT.includes(extOf(g.filename||''))&&!WANT_DOC.test(g.filename||''))continue;
+    let text=g.content;
+    if(g.truncated&&g.raw_url){try{const r=await fx(g.raw_url);if(r.ok)text=await r.text()}catch{}}
+    if(typeof text==='string'&&text.length<=MAX_FILE_BYTES*3)got.push({path:g.filename,text});
+  }
+  if(!got.length||!got.some(g=>CODE_EXT.includes(extOf(g.path))))return fail(l,'gh_nocode');
+  got.forEach(g=>FILES.push({...mkFile(`gist/${p.id}/${g.path}`,g.text),remote:l.id}));
+  l.state='ok';l.n=got.length;l.hosts=['gist.github.com','api.github.com'];
+}
+// Apps Script: Google offers no public way to read a project's source. A web app address can at best return its page; most of the time it
+// can only be probed. So: try to read, fall back to a connection probe, and always tell the submitter how to bring the source in.
+async function loadGsApp(l,p){
+  let r;
+  try{r=await fx(p.url,{redirect:'follow'})}
+  catch{
+    try{await fx(p.url,{mode:'no-cors',redirect:'follow'});return fail(l,'gs_cors')}catch{return fail(l,'gs_unreach')}
+  }
+  if(/accounts\.google\.com/.test(r.url||'')||r.status===401||r.status===403)return fail(l,'gs_login');
+  if(!r.ok)return fail(l,'gs_unreach');
+  const ct=(r.headers.get('content-type')||'').toLowerCase(),txt=await r.text();
+  if(/accounts\.google\.com\/(ServiceLogin|signin)/i.test(txt.slice(0,20000)))return fail(l,'gs_login');
+  if(ct.includes('html')&&txt.length<1.5e6){FILES.push({...mkFile('apps-script-webapp/index.html',txt),remote:l.id});l.state='ok';l.n=1;l.hosts=['script.google.com','script.googleusercontent.com'];return}
+  fail(l,'gs_cors');
+}
+async function loadWeb(l,p){
+  let r;
+  try{r=await fx(p.url,{redirect:'follow'})}
+  catch{try{await fx(p.url,{mode:'no-cors',redirect:'follow'});return fail(l,'web_cors')}catch{return fail(l,'net_fail')}}
+  if(!r.ok)return fail(l,'web_status');
+  const ct=(r.headers.get('content-type')||'').toLowerCase(),txt=await r.text();
+  if(txt.length>1.5e6)return fail(l,'web_status');
+  const u=new URL(p.url);let path=(u.hostname+u.pathname).replace(/\/$/,'')||u.hostname;
+  let name=ct.includes('html')?(/\.html?$/.test(path)?path:path+'/index.html'):ct.includes('javascript')?(/\.m?js$/.test(path)?path:path+'.js'):null;
+  if(!name)return fail(l,'web_status');
+  FILES.push({...mkFile(name,txt),remote:l.id});l.state='ok';l.n=1;l.hosts=[u.hostname];
+}
+async function addLink(raw){
+  const msg=$('linkMsg');msg.textContent='';
+  const p=parseLink(raw);
+  if(!p){msg.textContent=U2.l_bad;return}
+  if(LINKS.some(l=>l.url===p.url)){msg.textContent=U2.l_dup;return}
+  if(LINKS.length>=MAX_LINKS){msg.textContent=F(U2.l_max,{n:MAX_LINKS});return}
+  // a sample must never be mixed with a real submission
+  if(FILES.some(f=>f.sample)){FILES=FILES.filter(f=>!f.sample);hideExample()}
+  const l={id:'L'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),url:p.url,kind:p.kind,state:'reading'};
+  LINKS.push(l);$('linkBox').open=true;renderLinks();
+  try{
+    if(p.kind==='gh')await loadGh(l,p);else if(p.kind==='gist')await loadGist(l,p);
+    else if(p.kind==='gsedit')fail(l,'gs_editor');else if(p.kind==='gsapp')await loadGsApp(l,p);else await loadWeb(l,p);
+  }catch{fail(l,'net_fail')}
+  renderLinks();renderFiles();QUIET=READY;try{await runAnalysis()}finally{QUIET=false}
+}
+function removeLink(id){
+  const i=LINKS.findIndex(l=>l.id===id);if(i<0)return;LINKS.splice(i,1);FILES=FILES.filter(f=>f.remote!==id);
+  renderLinks();renderFiles();QUIET=READY;Promise.resolve(runAnalysis()).finally(()=>{QUIET=false});
+}
+const linkStatus=l=>l.state==='ok'?((l.kind==='gh'||l.kind==='gist')?F(U2.l_ok,{n:l.n}):U2.l_page_ok):l.state==='reading'?U2.l_reading:l.state==='info'?U2.l_info:U2.l_blocked;
+function guideHtml(l){
+  const G=l.code&&T.lk[l.code];if(!G)return '';
+  return `<div class="unblock" role="alert"><b>${esc(U2.g_hint)} — ${esc(G.t)}</b><ol>${G.s.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><span class="hint">${U2.g_after}</span></div>`;
+}
+function renderLinks(){
+  $('linkList').innerHTML=LINKS.map(l=>`<li class="lk lk-${l.state}"><div class="lk-row"><span class="lk-kind">${U2['k_'+l.kind]}</span><code class="lk-url">${esc(shortUrl(l.url))}</code><span class="lk-st">${linkStatus(l)}${l.trunc?' · '+F(U2.l_trunc,{n:l.trunc}):''}</span><button type="button" class="linkbtn" data-lrm="${l.id}">${U2.l_rm}</button></div>${guideHtml(l)}</li>`).join('');
+  $('linkList').querySelectorAll('[data-lrm]').forEach(b=>b.onclick=()=>removeLink(b.dataset.lrm));
+  detectLinks();
+}
+// links written inside the uploaded code are offered as one-click additions
+const LINK_RE=/https:\/\/(?:github\.com\/[\w.-]+\/[\w.-]+|gist\.github\.com\/[\w.-]+(?:\/[0-9a-f]{8,})?|script\.google\.com\/macros\/s\/[\w-]+\/(?:exec|dev)|[\w-]+\.github\.io(?:\/[\w./-]*)?)/g;
+function detectLinks(){
+  const have=new Set(LINKS.map(l=>l.url)),found=new Map();
+  for(const f of FILES){if(f.remote)continue;for(const m of f.text.matchAll(LINK_RE)){const p=parseLink(m[0].replace(/[.,;:)\]'"]+$/,''));if(p&&!have.has(p.url)&&!found.has(p.url))found.set(p.url,p)}}
+  const items=[...found.values()].slice(0,6);
+  $('linkDetected').innerHTML=items.length?`<p class="hint">${U2.det_title}</p><div class="chips">${items.map(p=>`<button type="button" class="chipbtn" data-ladd="${esc(p.url)}">＋ ${esc(shortUrl(p.url))} <span class="hint">${U2.det_add}</span></button>`).join('')}</div>`:'';
+  $('linkDetected').querySelectorAll('[data-ladd]').forEach(b=>b.onclick=()=>addLink(b.dataset.ladd));
+  if(items.length)$('linkBox').open=true;
+}
+const unreadLinks=()=>LINKS.filter(l=>l.state!=='ok').length;
+const linkCov=x=>LINKS.length?` <span class="hint">· ${LINKS.some(l=>l.state==='ok'&&(l.hosts||[]).includes(x.host))?U2.cov_yes:U2.cov_no}</span>`:'';
+function linksGroup(){
+  const ok=LINKS.filter(l=>l.state==='ok').length,bad=LINKS.length-ok;
+  const rows=LINKS.map(l=>`<li class="${l.state==='ok'?'ok':l.state==='reading'?'info':'no'}"><span class="lk-kind">${U2['k_'+l.kind]}</span> <code>${esc(shortUrl(l.url))}</code> — ${linkStatus(l)}${guideHtml(l)}</li>`).join('');
+  return `<div class="fgroup ${bad?'f-bad':'f-ok'}"><h3>${U2.g_links} — ${F(U2.links_sum,{a:FILES.filter(f=>!f.remote).length,b:LINKS.length,c:ok})}</h3><ul class="gate">${rows}</ul></div>`;
+}
+$('linkAdd').onclick=async()=>{const v=$('linkInput').value.trim();if(!v)return;$('linkInput').value='';await addLink(v)};
+$('linkInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('linkAdd').click()}});
+
 /* ================= Files ================= */
 let FILES=[];      // {name, ext, kind, text}
 let UNSUP=[];      // names of files that are not source code or text (PDF, Office, images ...)
@@ -312,7 +465,7 @@ function mkFile(name,text){
 }
 const KIND_LABEL={html:'HTML',js:'JS',py:'PY',doc:T.k_doc};
 function renderFiles(){
-  $('fileList').innerHTML=FILES.map((f,i)=>`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('')+
+  $('fileList').innerHTML=FILES.map((f,i)=>f.remote?'':`<div class="file"><span class="ty">${KIND_LABEL[f.kind]}</span><span class="nm">${esc(f.name)} <span class="hint num">${F(T.lines_fmt,{n:f.text.split('\n').length})}</span></span><button type="button" data-rm="${i}" aria-label="${esc(F(T.rm_aria,{name:f.name}))}">${T.rm}</button></div>`).join('')+
     UNSUP.slice(0,8).map(n=>`<div class="file unsup"><span class="ty">✕</span><span class="nm">${esc(n)} <span class="hint">${T.unsup_tag}</span></span><span></span></div>`).join('');
 }
 $('fileList').addEventListener('click',async e=>{const i=e.target.dataset?.rm;if(i==null)return;FILES.splice(Number(i),1);hideExample();renderFiles();await runAnalysis()});
@@ -424,7 +577,7 @@ function syntaxJs(f){
 }
 // Result ID: SHA-256 of the rubric version and the code files (names + normalized text). Documents do not change it.
 async function fingerprint(code){
-  const s=RUBRIC_VER+'\n'+code.slice().sort((a,b)=>a.name<b.name?-1:1).map(f=>f.name+'\u0000'+f.text.replace(/\r\n?/g,'\n')).join('\u0001');
+  const s=RUBRIC_VER+'\nlinks:'+LINKS.filter(l=>l.state!=='ok').length+'/'+LINKS.length+'\n'+code.slice().sort((a,b)=>a.name<b.name?-1:1).map(f=>f.name+'\u0000'+f.text.replace(/\r\n?/g,'\n')).join('\u0001');
   try{
     if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,12)}
   }catch{}
@@ -473,7 +626,7 @@ async function analyze(){
   // distinct hosts only ('?' = address decided in code, counted once)
   const uh=new Map();for(const h of R.hosts)if(!uh.has(h.host))uh.set(h.host,h);R.hostList=[...uh.values()];
   // run / syntax check
-  for(const f of code.filter(f=>f.kind==='html').slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
+  for(const f of code.filter(f=>f.kind==='html'&&!f.remote).slice(0,5)){$('analyzeStatus').textContent=F(T.running,{name:f.name});const er=await runHtml(f);R.run.tested++;er.forEach(e=>R.run.errors.push({file:f.name,line:e.line,msg:e.msg}))}
   for(const f of code.filter(f=>f.kind==='js')){const r=syntaxJs(f);if(r===null){R.syntax.skipped++;continue}R.syntax.tested++;r.forEach(e=>R.syntax.errors.push({file:f.name,msg:e.msg}))}
   R.testable=R.run.tested+R.syntax.tested>0;
   R.untestedPy=code.some(f=>f.kind==='py')||R.syntax.skipped>0;
@@ -572,7 +725,7 @@ function trustHtml(){return `<aside class="trust"><h3>${U.trust_title}</h3><ul>$
 function nextLines(S,M,hold){const st=nextSteps(S,M,hold);return st.length?[U.rt_next+':',...st.slice(0,5).map(c=>`  · ${T.crit[c.id].n} (${F(U.gain,{n:c.gap})}) — ${HLP[c.id].fix}`)]:[]}
 
 /* ================= Result ================= */
-let LAST=null,READY=false;
+let LAST=null,READY=false,QUIET=false; // QUIET: a link change after the result was already shown updates it in place instead of popping the window again
 const TABS=['pnlSum','pnlRep','pnlRules'];
 function showTab(i){TABS.forEach((id,k)=>{$(id).hidden=k!==i;const b=$('tab'+k);b.setAttribute('aria-selected',k===i?'true':'false');b.tabIndex=k===i?0:-1});$('cardBtn').hidden=!(i===0&&LAST);$('copyBtn').hidden=i!==0;}
 TABS.forEach((_,k)=>{$('tab'+k).onclick=()=>showTab(k);$('tab'+k).onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=(k+(e.key==='ArrowRight'?1:2))%3;showTab(n);$('tab'+n).focus()}}});
@@ -672,7 +825,7 @@ function update(){
     LAST=null;
     $('result').innerHTML=`<div class="verdict"><div class="badge g-H">✕</div><div><div class="big">${T.v_inel}</div><div class="sub">${T.gate_fail_help}</div></div></div><div class="flags">${why.map(w=>`<div class="flag">${esc(w)}</div>`).join('')}</div>`;
     $('mbarText').textContent=T.v_inel;nores();$('showBtn').disabled=false;$('readyNote').textContent=T.v_inel;
-    if(!READY){READY=true;openResult()}
+    if(!READY){READY=true;if(!QUIET)openResult()}
     return;
   }
   $('copyBtn').disabled=false;$('printBtn').disabled=false;$('showBtn').disabled=false;$('readyNote').textContent=T.ready;
@@ -686,11 +839,13 @@ function update(){
   if(!hold){
     if(M.execErrors>0&&RANK[g.g]<RANK.B){g=GRADES.find(x=>x.g==='B');caps.push(T.f_cap_err)}
     if(g.g==='S'&&!M.testable){g=GRADES.find(x=>x.g==='A');caps.push(T.f_cap_run)}
+    if(g.g==='S'&&unreadLinks()>0){g=GRADES.find(x=>x.g==='A');caps.push(U2.f_cap_link)}
   }
   const pay=won(PAY[g.g]);
   const flags=[];
   if(hold)flags.push(`<div class="flag">${F(T.f_fail,{items:fail.map(r=>r.t).join(' / ')})}</div>`);
   caps.forEach(c=>flags.push(`<div class="flag">${c}</div>`));
+  if(LINKS.length){if(unreadLinks())flags.push(`<div class="flag">${F(U2.f_links_partial,{n:unreadLinks()})}</div>`);flags.push(`<div class="flag info">${F(U2.links_sum,{a:FILES.filter(f=>!f.remote).length,b:LINKS.length,c:LINKS.length-unreadLinks()})}</div>`)}
   if(M.hostList.length)flags.push(`<div class="flag info">${F(T.f_net,{hosts:M.hostList.map(h=>h.host==='?'?T.host_dyn:h.host).slice(0,6).join(', ')})}</div>`);
   if(M.unsupported)flags.push(`<div class="flag info">${F(T.gate_unsup,{n:M.unsupported})}</div>`);
   flags.push(`<div class="flag info">${T.f_limit}</div>`);
@@ -712,7 +867,7 @@ function update(){
   LAST={S,total,areaPts,g,hold,pay,fail,caps};
   scheduleSubmit();
   histAdd();
-  if(!READY){READY=true;openResult(0)}
+  if(!READY){READY=true;if(!QUIET)openResult(0)}
 }
 
 /* ================= Submit to the operator ================= */
@@ -757,6 +912,7 @@ function resultText(){
     ...[0,1,2,3,4].map(a=>`- ${T.area_n[a]}: ${areaPts[a]} / ${AREA_MAX[a]}`),
     ...S.filter(c=>c.pts<c.max).map(c=>`  · ${T.crit[c.id].n}: ${c.pts} / ${c.max} (${c.basis})`),
     ...fail.map(r=>F(T.rt_fail,{v:r.t})),...caps.map(c=>'- '+c),
+    ...(LINKS.length?[F(U2.rt_links,{c:LINKS.length-unreadLinks(),b:LINKS.length})]:[]),
     ...nextLines(S,M,hold),
     T.rt_note].filter(Boolean).join('\n');
 }
@@ -775,6 +931,7 @@ function renderReport(){
   if(M.unsupported)gateLines.push(`<li class="info">${F(T.gate_unsup,{n:M.unsupported})}</li>`);
   if(M.ai.length)gateLines.push(`<li class="info">${F(T.gate_info_ai,{n:M.ai.length})}</li>`);
   G.push(`<div class="fgroup ${M.eligible?'f-ok':'f-bad'}"><h3>${T.g_gate} — ${M.eligible?T.gate_pass:T.gate_fail_title}</h3><ul class="gate">${gateLines.join('')}</ul>${M.eligible?'':`<span class="hint">${T.gate_fail_help}</span>`}</div>`);
+  if(LINKS.length)G.push(linksGroup());
   if(!M.eligible){$('report').innerHTML=`<div class="find">${G.join('')}</div>`;return}
   const pct=Math.round(M.commentRatio*100);
   const runLabel=M.testable?(M.execErrors?F(T.ev.run_err,{n:M.execErrors}):T.run_ok):T.run_na;
@@ -789,7 +946,7 @@ function renderReport(){
     ${sec?list([...M.secrets.map(x=>({...x,t:T.t_key})),...M.rrn.map(x=>({...x,t:T.t_rrn})),...M.phones.map(x=>({...x,t:T.t_phone}))],x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code> — ${T.remove_it}`):`<span class="hint">${T.sec_none}</span>`}
     ${M.emails.length?`<span class="hint">${F(T.emails,{n:M.emails.length})}</span>`:''}</div>`);
   G.push(`<div class="fgroup ${M.risky.length?'f-bad':'f-ok'}"><h3>${T.g_risk} — ${M.risky.length?F(T.spots,{n:M.risky.length}):T.none}</h3>${M.risky.length?list(M.risky,x=>`${at(x)} · ${x.t} <code>${esc(x.v)}</code>`)+`<span class="hint">${T.risk_warn}</span>`:`<span class="hint">${T.risk_none}</span>`}</div>`);
-  G.push(`<div class="fgroup ${M.hostList.length?'f-info':'f-ok'}"><h3>${T.g_net} — ${M.hostList.length?F(T.cnt,{n:M.hostList.length}):T.none}</h3>${M.hostList.length?list(M.hostList,x=>`${at(x)} · <code>${esc(x.host==='?'?T.host_dyn:x.host)}</code> <span class="hint">${T.how[x.how]}</span>`)+`<span class="hint">${T.net_warn}</span>`:`<span class="hint">${T.net_none}</span>`}</div>`);
+  G.push(`<div class="fgroup ${M.hostList.length?'f-info':'f-ok'}"><h3>${T.g_net} — ${M.hostList.length?F(T.cnt,{n:M.hostList.length}):T.none}</h3>${M.hostList.length?list(M.hostList,x=>`${at(x)} · <code>${esc(x.host==='?'?T.host_dyn:x.host)}</code> <span class="hint">${T.how[x.how]}</span>${linkCov(x)}`)+`<span class="hint">${T.net_warn}</span>`:`<span class="hint">${T.net_none}</span>`}</div>`);
   const ex=[...M.run.errors,...M.syntax.errors];
   G.push(`<div class="fgroup ${ex.length?'f-bad':M.testable?'f-ok':'f-info'}"><h3>${T.g_run} — ${ex.length?F(T.ev.run_err,{n:ex.length}):M.testable?T.run_ok:T.run_na}</h3>
     ${ex.length?list(ex,x=>`${at(x)} · ${esc(x.msg)}`):`<span class="hint">${M.run.tested?F(T.run_html,{n:M.run.tested})+' ':''}${M.syntax.tested?F(T.run_js,{n:M.syntax.tested})+' ':''}${M.untestedPy?T.run_py:''}</span>`}</div>`);
@@ -809,14 +966,14 @@ async function loadExample(){
   $('name').value=EX_NAME;$('author').value=EX_AUTHOR;exampleShown=true;$('exampleNote').hidden=false;renderFiles();await runAnalysis();
 }
 $('exampleBtn').onclick=loadExample;
-$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];$('resDialog').open&&$('resDialog').close();$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
+$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];LINKS.length=0;renderLinks();$('resDialog').open&&$('resDialog').close();$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
 $('printBtn').onclick=()=>window.print();
 $('showBtn').onclick=()=>openResult(0);$('mbarBtn').onclick=()=>openResult(0);$('rulesBtn').onclick=()=>openResult(2);$('closeBtn').onclick=()=>$('resDialog').close();
 $('copyBtn').onclick=async()=>{
   if(!LAST)return;const t=resultText();
   try{await navigator.clipboard.writeText(t);$('status').textContent=T.copied}catch{$('status').textContent=T.copy_fail}
 };
-histRender();renderFiles();update();
+histRender();renderFiles();renderLinks();update();
 </script>
 </body>
 </html>

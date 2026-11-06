@@ -106,7 +106,7 @@ T = {'none': 'tidak ada',
  's4_title': 'Persetujuan pengiriman',
  's4_pts': 'wajib',
  'consent_lines': ['Jika Anda mengikuti penilaian, berkas yang diunggah dikirim ke pengelola situs ini dan disimpan.',
-                   '· Yang dikirim: nama program, pengaju dan unit kerja, berkas yang diunggah, tingkat dan nilai (PDF hasil penilaian '
+                   '· Yang dikirim: nama program, pengaju dan unit kerja, berkas yang diunggah (termasuk kode yang dibaca dari tautan), tingkat dan nilai (PDF hasil penilaian '
                    'tidak dikirim)',
                    '· Tujuan: memeriksa catatan penilaian dan memperbaiki kriteria',
                    '· Jika ada nilai yang tampak seperti kunci API atau kata sandi, berkas tidak dikirim. Hapus lalu unggah ulang.',
