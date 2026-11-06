@@ -640,16 +640,24 @@ import {
     // 임시 주소(60초 유효)로만 가능하다.
     async function loadJudgeSubmissions() {
       const el = $('judge-list');
-      const { data, error } = await sb
+      let { data, error } = await sb
         .from('ai_judge_submissions')
         .select('id, created_at, program_name, submitter, grade, avg_score, file_count, file_size, storage_path')
         .order('created_at', { ascending: false })
         .limit(200);
       if (error) { el.textContent = dbSetupHint(error); return; }
+      // 샘플(체험용 예시 프로그램) 제출은 보관·다운로드 대상이 아니다. 2026-11-07부터 화면에서 보내지 않지만,
+      // 그전에 올라온 것은 목록에서 빼고 건수만 알린다(지우려면 아래 '샘플 정리').
+      const SAMPLE_NAMES = ['연차 사용일수 계산기', '年次有給休暇の日数計算ツール', 'Калькулятор дней отпуска', 'Penghitung hari cuti', '特休天數計算器', 'Leave day counter'];
+      const isSample = (r) => SAMPLE_NAMES.includes((r.program_name || '').trim());
+      const samples = data.filter(isSample);
+      data = data.filter((r) => !isSample(r));
       const expired = (r) => Date.now() - new Date(r.created_at).getTime() > 30 * 86400000;
       const old = data.filter(expired);
       $('judge-purge').hidden = !old.length;
-      $('judge-status').textContent = old.length ? `보관 1개월이 지난 제출이 ${old.length}건 있습니다. 삭제해 주세요.` : '';
+      $('judge-status').textContent =
+        (old.length ? `보관 1개월이 지난 제출이 ${old.length}건 있습니다. 삭제해 주세요.` : '') +
+        (samples.length ? ` 체험용 샘플 제출 ${samples.length}건은 숨겼습니다.` : '');
       $('judge-purge').onclick = async () => {
         if (!confirm(`보관 기간(1개월)이 지난 ${old.length}건을 삭제할까요? 되돌릴 수 없습니다.`)) return;
         const { error: e0 } = await sb.storage.from('ai-judge-submissions').remove(old.map((r) => r.storage_path));

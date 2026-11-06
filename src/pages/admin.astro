@@ -125,7 +125,13 @@ const editions = [
       $('gate').hidden = ok;
       $('shell').hidden = !ok;
       if (!ok) return;
-      const [members, judge] = await Promise.all([count('profiles'), count('ai_judge_submissions')]);
+      // 체험용 샘플 제출은 집계에서 뺀다(2026-11-07). 예전 버전이 샘플도 올렸다.
+      const SAMPLE_NAMES = ['연차 사용일수 계산기', '年次有給休暇の日数計算ツール', 'Калькулятор дней отпуска', 'Penghitung hari cuti', '特休天數計算器', 'Leave day counter'];
+      const countJudge = async () => {
+        const { count: n, error } = await sb.from('ai_judge_submissions').select('*', { count: 'exact', head: true }).not('program_name', 'in', `(${SAMPLE_NAMES.map((s) => '"' + s + '"').join(',')})`);
+        return error ? null : n;
+      };
+      const [members, judge] = await Promise.all([count('profiles'), countJudge()]);
       if (members != null) {
         $('st-members').textContent = members + '명';
         $('side-members').textContent = members; $('side-members').hidden = false;
@@ -136,7 +142,7 @@ const editions = [
       } else {
         $('st-judge').textContent = judge + '건';
         if (judge) { $('side-judge').textContent = judge; $('side-judge').hidden = false; }
-        const { data } = await sb.from('ai_judge_submissions').select('created_at').order('created_at', { ascending: true }).limit(200);
+        const { data } = await sb.from('ai_judge_submissions').select('created_at').not('program_name', 'in', `(${SAMPLE_NAMES.map((s) => '"' + s + '"').join(',')})`).order('created_at', { ascending: true }).limit(200);
         const old = (data || []).filter((r) => Date.now() - new Date(r.created_at).getTime() > 30 * 86400000).length;
         $('st-judge-sub').textContent = old ? `보관 1개월이 지난 ${old}건 — 삭제가 필요합니다` : '';
         if (old) { $('notice').hidden = false; $('notice').textContent = `AI 심사 제출 중 보관 1개월이 지난 ${old}건이 있습니다. AI 심사 제출 화면에서 삭제해 주세요.`; }
