@@ -1,7 +1,79 @@
 {
-  "updatedAt": "2026-11-06T02:24:57.921Z",
+  "updatedAt": "2026-11-06T14:14:46.986Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Как я строил ИИ-обвязку рабочего места аналитика в IT-компании",
+      "link": "https://habr.com/ru/articles/1104618/?utm_campaign=1104618&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T13:45:38.000Z"
+    },
+    {
+      "title": "45% наших ИИ-отчетов получали тройку и ниже: как мы считали метрики и что нашли",
+      "link": "https://habr.com/ru/companies/atom/articles/1104602/?utm_campaign=1104602&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T13:28:08.000Z"
+    },
+    {
+      "title": "Anthropic выяснила, насколько ИИ ускорит научные исследования: в перспективе — до 15 раз",
+      "link": "https://3dnews.ru/1150959/anthropic-viyasnila-naskolko-ii-uskorit-nauchnie-issledovaniya-v-perspektive-do-15-raz",
+      "source": "3DNews",
+      "pubDate": "2026-11-06T12:20:00.000Z"
+    },
+    {
+      "title": "Скелет для ИИ: почему BPM-платформа важнее модели",
+      "link": "https://habr.com/ru/companies/diasoft_company/articles/1104490/?utm_campaign=1104490&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T11:19:00.000Z"
+    },
+    {
+      "title": "База знаний на максималках: как ИИ-агенты с помощью QA сами наполняют общую память тестирования",
+      "link": "https://habr.com/ru/companies/vkusvill/articles/1104486/?utm_campaign=1104486&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T11:16:21.000Z"
+    },
+    {
+      "title": "Ученые ПНИПУ научили нейросеть почти в два раза точнее находить несанкционированные свалки",
+      "link": "https://www.cnews.ru/news/line/2026-11-06_uchenye_pnipu_nauchili_nejroset",
+      "source": "CNews",
+      "pubDate": "2026-11-06T09:35:00.000Z"
+    },
+    {
+      "title": "ИИ-агент отчитался о создании заявки — а заявки нет. Как проверить прототип до пилота",
+      "link": "https://habr.com/ru/articles/1104380/?utm_campaign=1104380&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T09:08:44.000Z"
+    },
+    {
+      "title": "Модель размечает, код считает: как устроена ИИ-проверка ЕГЭ по обществознанию",
+      "link": "https://habr.com/ru/articles/1104376/?utm_campaign=1104376&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T08:58:19.000Z"
+    },
+    {
+      "title": "Perplexity представила ИИ-коллег — агентов для совместной работы 24 часа в сутки",
+      "link": "https://3dnews.ru/1150944/perplexity-predstavila-iikolleg-agentov-dlya-sovmestnoy-raboti-24-chasa-v-sutki",
+      "source": "3DNews",
+      "pubDate": "2026-11-06T08:28:00.000Z"
+    },
+    {
+      "title": "От ИИ-агентов до RAG и локальных LLM: 26 бесплатных вебинаров для тех, кто работает с искусственным интеллектом",
+      "link": "https://habr.com/ru/companies/otus/articles/1104104/?utm_campaign=1104104&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T08:06:54.000Z"
+    },
+    {
+      "title": "ИИ ускорил развитие моделей Anthropic почти вдвое — самосовершенствование создаёт новые риски",
+      "link": "https://3dnews.ru/1150935/ii-uskoril-razvitie-modeley-anthropic-pochti-vdvoe-samosovershenstvovanie-sozdayot-novie-riski",
+      "source": "3DNews",
+      "pubDate": "2026-11-06T06:13:00.000Z"
+    },
+    {
+      "title": "«Экспанта» вошла в капитал разработчика AI-native платформы «Ирактис Трекер»",
+      "link": "https://www.cnews.ru/news/line/2026-11-06_ekspanta_voshla_v_kapital",
+      "source": "CNews",
+      "pubDate": "2026-11-06T04:00:00.000Z"
+    },
     {
       "title": "ИИ-агенты OpenAI выявили почти 1000 уязвимостей в ядре Linux",
       "link": "https://3dnews.ru/1150922/iiagenti-openai-viyavili-pochti-1000-uyazvimostey-v-yadre-linux",
@@ -39,7 +111,7 @@
       "pubDate": "2026-11-05T12:53:21.000Z"
     },
     {
-      "title": "Я продакт и не читаю код ИИ-агента. Обвязка, процесс вокруг нее и пять вещей, которые я сделаю иначе",
+      "title": "Код пишут ИИ-агенты: как продакту контролировать «черный ящик» от идеи до приемки",
       "link": "https://habr.com/ru/articles/1103924/?utm_campaign=1103924&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-05T11:25:35.000Z"
@@ -1729,78 +1801,6 @@
       "link": "https://habr.com/ru/articles/1095622/?utm_campaign=1095622&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-17T16:06:26.000Z"
-    },
-    {
-      "title": "Anthropic предложила американским законодателям собственный законопроект о регулировании отрасли ИИ",
-      "link": "https://3dnews.ru/1150074/anthropic-predlogila-amerikanskim-zakonodatelyam-sobstvenniy-zakonoproekt-o-regulirovanii-otrasli-ii",
-      "source": "3DNews",
-      "pubDate": "2026-10-17T04:11:00.000Z"
-    },
-    {
-      "title": "ИИ-модели Google достигли переломного момента: вскоре они смогут самосовершенствоваться",
-      "link": "https://3dnews.ru/1150072/iimodeli-google-dostigli-perelomnogo-momenta-vskore-oni-smogut-samosovershenstvovatsya",
-      "source": "3DNews",
-      "pubDate": "2026-10-17T03:37:00.000Z"
-    },
-    {
-      "title": "Глава Nvidia призвал отрасль не мириться с инцидентами в сфере безопасности, вызванными ИИ",
-      "link": "https://3dnews.ru/1150070/glava-nvidia-prizval-otrasl-ne-miritsya-s-intsidentami-v-sfere-bezopasnosti-vizvannimi-ii",
-      "source": "3DNews",
-      "pubDate": "2026-10-17T02:51:00.000Z"
-    },
-    {
-      "title": "Nvidia без спроса открыла ИИ-агентам доступ к управлению видеокартой и играми на ПК пользователя",
-      "link": "https://3dnews.ru/1150065/nvidia-bez-sprosa-otkrila-iiagentam-dostup-k-upravleniyu-videokartoy-i-igrami-na-pk-polzovatelya",
-      "source": "3DNews",
-      "pubDate": "2026-10-16T17:53:00.000Z"
-    },
-    {
-      "title": "M**a выпустила мощную открытую ИИ-модель Muse Spark Open — для её работы хватит всего двух Mac Studio",
-      "link": "https://3dnews.ru/1150060/meta-vipustila-moshchnuyu-otkrituyu-iimodel-muse-spark-open-dlya-eyo-raboti-hvatit-vsego-dvuh-mac-studio",
-      "source": "3DNews",
-      "pubDate": "2026-10-16T17:30:00.000Z"
-    },
-    {
-      "title": "ИИ-модель Z.ai GLM-5.3 заподозрили в имитации безопасного поведения для прохождения тестов",
-      "link": "https://3dnews.ru/1150057/iimodel-zai-glm53-zapodozrili-v-imitatsii-bezopasnogo-povedeniya-dlya-prohogdeniya-testov",
-      "source": "3DNews",
-      "pubDate": "2026-10-16T16:56:00.000Z"
-    },
-    {
-      "title": "Объем потребления токенов при работе с ИИ-сервисами в Сбере достиг 9 трлн в месяц",
-      "link": "https://www.cnews.ru/news/line/2026-10-16_obem_potrebleniya_tokenov",
-      "source": "CNews",
-      "pubDate": "2026-10-16T14:45:00.000Z"
-    },
-    {
-      "title": "Tencent призналась, что её ИИ-агенты ушли в самоволку во время тестов",
-      "link": "https://3dnews.ru/1150050/tencent-priznalas-chto-eyo-iiagenti-ushli-v-samovolku-vo-vremya-testov",
-      "source": "3DNews",
-      "pubDate": "2026-10-16T14:39:00.000Z"
-    },
-    {
-      "title": "Research First Builder: как проверить, откуда ИИ‑агент взял архитектурное решение",
-      "link": "https://habr.com/ru/articles/1095394/?utm_campaign=1095394&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-16T14:19:35.000Z"
-    },
-    {
-      "title": "Сбербанк представил первый в России бенчмарк Cowork Bench для оценки ИИ-агентов на офисных задачах",
-      "link": "https://www.cnews.ru/news/line/2026-10-16_sberbank_predstavil_pervyj",
-      "source": "CNews",
-      "pubDate": "2026-10-16T14:16:00.000Z"
-    },
-    {
-      "title": "ПАК для рентабельного ИИ: как бизнесу контролировать затраты на инфраструктуру",
-      "link": "https://www.tadviser.ru/a/973018",
-      "source": "TAdviser",
-      "pubDate": "2026-10-16T13:05:37.000Z"
-    },
-    {
-      "title": "Разработчик самого популярного ИИ-сервиса для программистов Claude завершил год с убытком в $42 млрд",
-      "link": "https://www.tadviser.ru/a/741397",
-      "source": "TAdviser",
-      "pubDate": "2026-10-16T12:49:25.000Z"
     }
   ]
 }
