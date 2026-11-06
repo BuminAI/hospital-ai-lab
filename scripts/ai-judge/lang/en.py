@@ -13,7 +13,7 @@ META = dict(
 H = {'title': 'AI Program Review Room',
  'title_full': 'AI Program Review Room · Hospital AI Lab',
  'site_name': 'Hospital AI Lab',
- 'desc': 'A free tool: upload the source code of a work program you built with AI, and 14 checks of safety, reliability, usability, maintainability and portability run automatically, with a score out of 100 and a grade of S, A, B or C. PDFs and documents are not reviewed.',
+ 'desc': 'A free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. No PDFs.',
  'crumb_home': 'Home',
  'crumb_page': 'AI Program Review',
  'nav_label': 'Site',

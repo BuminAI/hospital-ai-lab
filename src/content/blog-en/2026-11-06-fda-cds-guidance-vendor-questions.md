@@ -1,6 +1,6 @@
 ---
-title: "Is that AI tool a medical device? FDA's decision support guidance"
-description: "FDA's clinical decision support guidance, dated January 2026, explains which decision support software falls outside the device definition. Here is what a hospital buyer should ask a vendor."
+title: "Is your AI tool a medical device? FDA’s CDS guidance"
+description: "FDA’s January 2026 guidance explains which decision support software falls outside the device definition, and what a hospital buyer should ask a vendor."
 pubDate: 2026-11-06
 category: "Column"
 draft: false

@@ -17,7 +17,7 @@ export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
       slug: 'regulatory-status',
       title: 'FDA status and certification',
       description:
-        'How to check whether an AI product is a medical device, what a predetermined change control plan means, and what the October 2026 HTI-5 rule changes for decision support in certified EHRs. Articles are in a suggested reading order.',
+        'Is an AI product a medical device? What a PCCP means and what HTI-5 changes for EHR decision support.',
       checklist: { href: '/en/checklist/', label: 'AI adoption review checklist' },
       postIds: [
         '2026-11-06-fda-cds-guidance-vendor-questions',
@@ -29,7 +29,7 @@ export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
       slug: 'data-and-security',
       title: 'Patient data and security',
       description:
-        'The 60-day breach clock and your AI vendor, what a business associate agreement must say, and what applies while the HIPAA Security Rule rewrite is still a proposal. Articles are in a suggested reading order.',
+        'The 60-day breach clock, what a BAA must say, and what applies while the Security Rule rewrite is a proposal.',
       checklist: { href: '/en/data-checklist/', label: 'Patient data protection checklist' },
       postIds: [
         '2026-11-06-hipaa-breach-60-day-clock-ai-vendors',

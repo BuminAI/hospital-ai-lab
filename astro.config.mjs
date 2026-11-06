@@ -73,6 +73,16 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      // public/ 에 든 정적 페이지(AI 심사실 6개 언어판)는 Astro 라우트가 아니라 사이트맵에 자동으로 안 들어간다(2026-11-06 발견).
+      // 같은 주소를 언어판별 사이트맵에도 넣는다(src/utils/locale-sitemaps.mjs의 STATIC_PAGES).
+      customPages: [
+        `${site}/ai-judge/`,
+        `${site}/ja/ai-judge/`,
+        `${site}/ru/ai-judge/`,
+        `${site}/id/ai-judge/`,
+        `${site}/tw/ai-judge/`,
+        `${site}/en/ai-judge/`,
+      ],
       // 페이지별 실제 수정일을 넣는다(src/utils/git-lastmod.mjs 참고).
       // 빌드 시각을 쓰면 뉴스 수집 배포마다 전 페이지가 "방금 수정됨"이 되어
       // 검색엔진이 lastmod 자체를 무시하게 된다.

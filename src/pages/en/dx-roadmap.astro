@@ -12,9 +12,9 @@ import { withBase } from '../../utils/site';
 const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
 const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
 
-const title = 'Roadmap: HIPAA, information blocking, FDA and AI for U.S. hospitals';
+const title = 'Roadmap: HIPAA, FDA and ONC rules for U.S. hospital AI';
 const description =
-  'Key dates for hospital administration and nursing leaders: HIPAA breach and Security Rule texts, Section 1557 decision support tools, FDA guidance on AI-enabled devices, and the October 2026 HTI-5 rule, each with its primary source.';
+  'Key dates for hospital administrators and nurse leaders: HIPAA breach and Security Rule texts, Section 1557, FDA guidance on AI devices and HTI-5.';
 
 const sources = [SRC.breach404, SRC.sec316, SRC.ib103, SRC.s1557_210, SRC.nprm, SRC.fdaPccp, SRC.fdaCds, SRC.hti5];
 

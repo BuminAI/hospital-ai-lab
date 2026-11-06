@@ -1,6 +1,6 @@
 ---
-title: "Business associate agreements for AI vendors: what must be in writing"
-description: "Before a hospital shares patient data with an AI vendor that is a business associate, HIPAA requires a written agreement with specific terms. A plain reading of 45 CFR 164.502(e) and 164.504(e)."
+title: "AI vendor business associate agreements: what to write down"
+description: "HIPAA requires a written agreement before patient data goes to an AI vendor that is a business associate. A plain reading of the rule."
 pubDate: 2026-11-06
 category: "Column"
 draft: false
