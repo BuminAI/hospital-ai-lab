@@ -248,6 +248,27 @@ footer{margin-top:4px}
 .uploader .opt{background:var(--surface)}
 :lang(ko) .lede,:lang(ko) .how-grid p,:lang(ko) .uploader .hint,:lang(ko) .hero-band .hello{word-break:keep-all;overflow-wrap:break-word}
 :lang(ja) .lede,:lang(zh-TW) .lede{line-break:strict}
+.linkbox{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--bg)}
+.linkbox>summary{cursor:pointer;font-size:14px;font-weight:600}
+.linkbox[open]>summary{margin-bottom:8px}
+.linkrow{display:flex;gap:8px}
+.linkrow input{flex:1;min-width:0;font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+.linkrow button{white-space:nowrap}
+.links{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.lk{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--surface);display:grid;gap:8px}
+.lk-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:8px;align-items:center;font-size:13px}
+.lk-kind{font-size:11.5px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--muted);white-space:nowrap}
+.lk-url{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:none;padding:0}
+.lk-st{font-size:12.5px;white-space:nowrap}
+.lk-ok .lk-st{color:var(--ok)} .lk-blocked .lk-st{color:var(--warn);font-weight:600} .lk-info .lk-st{color:var(--gS);font-weight:600}
+.lk-blocked{border-color:var(--warn)} .lk-info{border-color:var(--gS)}
+.unblock{background:var(--warn-bg);color:var(--ink);border-radius:8px;padding:10px 12px;font-size:13.5px;display:grid;gap:6px}
+.unblock b{color:var(--warn)}
+.unblock ol{margin:0;padding-left:20px;display:grid;gap:4px}
+.lk-info .unblock{background:var(--gS-bg)} .lk-info .unblock b{color:var(--gS)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chipbtn{font-size:12.5px;font-weight:500;border-radius:999px;padding:4px 11px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:640px){.lk-row{grid-template-columns:auto minmax(0,1fr) auto}.lk-st{grid-column:1/-1;white-space:normal}.linkrow{flex-direction:column}}
 /* result window */
 dialog.resdlg{width:min(940px,calc(100vw - 24px));border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 80px -20px rgba(0,0,0,.55)}
 dialog.resdlg .in{padding:0}
