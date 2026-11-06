@@ -228,6 +228,93 @@ details.more summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(-
 .trust h3{font-size:14px}
 .trust ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:13px;color:var(--muted)}
 .trust a{font-size:13px;font-weight:600}
+/* ===== 2026-11-07 redesign: calm first screen (upload + explanation), separate result window ===== */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:root{--gold:#c9a45c;--ink-deep:#0b1322}
+.hero-band{background:radial-gradient(120% 140% at 50% -20%,#1d3358 0%,#0d1626 55%,#09101d 100%);color:#e9eef7;padding:44px 16px 118px;text-align:center;position:relative}
+.hero-band::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.55}
+.hero-in{max-width:760px;margin:0 auto;display:grid;gap:12px;justify-items:center}
+.emblem{color:var(--gold)}
+.hero-band .eyebrow{color:var(--gold);letter-spacing:.28em;font-size:11.5px}
+.hero-band h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;letter-spacing:-.02em;color:#f4f7fc}
+.hero-band .lede{color:#aebbd0;max-width:58ch;font-size:15.5px;line-height:1.75;margin:0}
+.hero-band .hello{margin:4px 0 0;font-size:13px;color:var(--gold);border:1px solid rgba(201,164,92,.4);border-radius:999px;padding:4px 14px}
+.topbar{background:var(--ink-deep);border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar a,.topbar .hint{color:#9fb0c9}
+.topbar a:hover{color:#fff}
+.stage{max-width:880px;margin:-84px auto 0;padding:0 max(16px,env(safe-area-inset-left,0px)) 72px;display:grid;gap:40px;position:relative}
+.uploader{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:0 18px 48px -18px rgba(8,16,32,.35);display:grid;gap:16px}
+.uploader .drop{border:1.5px dashed color-mix(in srgb,var(--gold) 55%,var(--line));border-radius:12px;padding:34px 20px;gap:10px;background:color-mix(in srgb,var(--gold) 5%,var(--bg));position:relative;overflow:hidden}
+.uploader .drop:hover,.uploader .drop.over{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 9%,var(--bg))}
+.uploader .drop b{font-size:17px}
+.up-ico{color:var(--gold)}
+.pick span{display:inline-block;font-weight:600;font-size:14px;border-radius:8px;padding:9px 18px;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.drop.reading::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:read 1.1s linear infinite}
+@keyframes read{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.reading-line:empty{display:none}
+.optinfo{border:0;padding:0;background:none}
+.optinfo summary{font-size:13.5px;color:var(--muted);font-weight:500;cursor:pointer;padding:4px 0}
+.optinfo[open] .row2{margin:8px 0 4px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.actions .go{font-weight:700;font-size:15.5px;border-radius:10px;padding:12px 26px;background:var(--accent);color:var(--accent-ink);border:0}
+.linkbtn{background:none;border:0;padding:6px 4px;color:var(--muted);font-weight:500;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:13.5px}
+.linkbtn:hover{color:var(--ink)}
+.sample-hint,.trustline{font-size:12.5px;color:var(--muted);margin:0}
+.trustline{text-align:center;border-top:1px solid var(--line);padding-top:14px;letter-spacing:.01em}
+.how h2,.history h2{font-size:20px;letter-spacing:-.01em}
+.how-grid{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:820px){.how-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.how-grid{grid-template-columns:minmax(0,1fr)}}
+.how-grid li{border-top:2px solid var(--gold);padding-top:12px;display:grid;gap:4px;align-content:start}
+.how-grid .no{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em}
+.how-grid b{font-size:15.5px}
+.how-grid p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.7}
+.rules-link{margin:14px 0 0}
+.history{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px}
+.hist-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+#histSpark{color:var(--gold)}
+.hist-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.hist-list li{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto auto;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding:6px 0;font-size:13.5px}
+.hist-list .hd{color:var(--muted);font-size:12.5px}
+.hist-list .hn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip{display:inline-block;min-width:26px;text-align:center;font-family:var(--mono);font-weight:700;font-size:12.5px;border-radius:6px;padding:1px 7px;background:var(--g-bg);color:var(--g)}
+.dl{font-family:var(--mono);font-size:12px;color:var(--muted)} .dl.up{color:var(--ok)} .dl.dn{color:var(--warn)}
+footer{margin-top:4px}
+.uploader .area{border-top:0;padding-top:0;gap:10px}
+.uploader .area-head h3{font-size:14px;color:var(--muted);font-weight:600}
+.uploader .area-head .pts{display:none}
+.uploader .auto{font-size:12.5px;line-height:1.7}
+.uploader .opt{background:var(--surface)}
+:lang(ko) .lede,:lang(ko) .how-grid p,:lang(ko) .uploader .hint,:lang(ko) .hero-band .hello{word-break:keep-all;overflow-wrap:break-word}
+:lang(ja) .lede,:lang(zh-TW) .lede{line-break:strict}
+/* result window */
+dialog.resdlg{width:min(940px,calc(100vw - 24px));border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 80px -20px rgba(0,0,0,.55)}
+dialog.resdlg .in{padding:0}
+.dlg-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 22px 10px;position:sticky;top:0;background:var(--surface);z-index:2}
+.dlg-head h2{font-size:18px}
+.tabs{display:flex;gap:4px;padding:0 22px;border-bottom:1px solid var(--line);position:sticky;top:57px;background:var(--surface);z-index:2;overflow-x:auto}
+.tabs button{border:0;border-bottom:3px solid transparent;border-radius:0;background:none;padding:10px 12px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--gold)}
+.tabpanel{padding:18px 22px 26px;display:grid;gap:14px}
+.tabpanel[hidden]{display:none}
+.sample-banner{font-size:13.5px;background:var(--gS-bg);color:var(--gS);border-radius:8px;padding:9px 12px}
+.verdict{background:linear-gradient(135deg,var(--soft),color-mix(in srgb,var(--g-bg) 55%,var(--soft)));border:1px solid var(--line);padding:20px}
+.badge{border-radius:50%;width:88px;height:88px;font-size:44px;border:3px solid var(--g);box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 6px var(--g)}
+#result.reveal .badge{animation:stamp .55s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes stamp{0%{transform:scale(1.8) rotate(-10deg);opacity:0}65%{transform:scale(.93) rotate(2deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+#result.reveal .coach,#result.reveal .tbl{animation:fadeup .5s .25s ease both}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.verdict .big{font-size:24px}
+.mbar{display:none!important}
+@media (max-width:640px){
+  .uploader{padding:18px}
+  dialog.resdlg{width:100vw;max-width:100vw;max-height:100vh;border-radius:0;margin:0}
+  .dlg-head,.tabpanel{padding-left:16px;padding-right:16px}
+  .tabs{padding:0 16px}
+  .hist-list li{grid-template-columns:minmax(0,1fr) auto auto auto}
+  .hist-list .hd{display:none}
+}
+@media print{.tabpanel[hidden]{display:grid!important}.tabs,.dlg-head .btns{display:none!important}.hero-band,.topbar,.stage{display:none!important}}
 @media print{body>*:not(dialog){display:none!important}dialog.resdlg{position:static;display:block;width:auto;max-height:none;border:0;overflow:visible}dialog.resdlg .btns{display:none}dialog.resdlg::backdrop{display:none}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
@@ -246,53 +333,93 @@ tr.areahead td{background:var(--soft);font-size:13px}
 <body>
 <nav class="topbar" aria-label="網站"><div class="in"><a href="/tw/">← 回首頁</a><span class="hint">AI 程式評審室 · 免費工具</span></div></nav>
 
-<div class="wrap">
-  <header class="hero">
+<header class="hero-band">
+  <div class="hero-in">
+    <svg class="emblem" viewBox="0 0 64 64" width="56" height="56" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="32" cy="32" r="23" fill="none" stroke="currentColor" stroke-width=".8" stroke-dasharray="2 3"/><path d="M20 33.5l8 8 16-18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <div class="eyebrow">AI PROGRAM REVIEW</div>
     <h1>AI 程式評審室</h1>
-    <p class="lede">上傳自己開發的 AI 業務程式的原始碼，系統會先確認這是不是程式，再自動分析並執行程式碼，以 14 項檢查安全性、可靠度、易用性、易維護性與可移植性。分數只由程式碼中找到的事實決定，所以相同的程式碼一定得到相同的分數與結果編號；程式名稱、提交者、說明文件等填寫內容不影響分數。所有標準與配分都公開在下方。</p>
-    <div class="pill-row"><span class="pill">只審查程式碼 · PDF 與文件不在範圍</span><span class="pill">不呼叫 AI · 相同檔案得到相同分數</span><span class="pill" id="privacyPill">分析在這個瀏覽器內進行</span></div>
-  </header>
+    <p class="lede">請上傳您做的程式。我們會從安全、可靠、易用、易維護、易移植十四個面向，靜靜地為您讀一遍。</p>
+    <p class="hello" id="hello" hidden></p>
+  </div>
+</header>
 
-  <div class="grid">
-    <section class="panel" aria-labelledby="formTitle">
-      <div class="panel-head"><h2 id="formTitle">提交</h2>
-        <div class="btns"><button type="button" id="exampleBtn">載入範例</button><button type="button" id="resetBtn">全部清除</button></div></div>
-      <p class="example-note" id="exampleNote">目前載入的是範例程式「特休天數計算器」。請先按「全部清除」，再上傳要審查的程式。</p>
-      <form id="form" novalidate>
+<main class="stage">
+  <section class="uploader" aria-labelledby="formTitle">
+    <h2 id="formTitle" class="sr-only">上傳程式</h2>
+    <form id="form" novalidate>
+      <div class="drop" id="drop">
+        <svg class="up-ico" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false"><path d="M24 33V13m0 0l-8 8m8-8l8 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 33v3a4 4 0 004 4h20a4 4 0 004-4v-3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <b>請將檔案或 ZIP 拖曳到這裡</b>
+        <span class="hint">HTML（含指令碼） · JS · Apps Script(.gs) · Python · 筆記本(.ipynb) · ZIP</span>
+        <label class="pick"><input type="file" id="fileInput" multiple accept=".html,.htm,.js,.mjs,.ts,.gs,.py,.ipynb,.txt,.md,.json,.csv,.zip" hidden><span>選擇檔案</span></label>
+        <span class="hint">只審查程式的原始碼。PDF、Word、Excel、圖片與說明文件不在審查範圍，也不會計入分數。每個檔案上限 2MB，最多 200 個。</span>
+      </div>
+      <div class="files" id="fileList"></div>
+      <p class="status reading-line" id="analyzeStatus" aria-live="polite"></p>
+      <details class="optinfo">
+        <summary>填寫程式名稱與提交者（選填）</summary>
         <div class="row2">
           <div class="field"><label for="name">程式名稱</label><input type="text" id="name" autocomplete="off"></div>
           <div class="field"><label for="author">提交者 · 單位</label><input type="text" id="author" autocomplete="off"></div>
         </div>
         <p class="hint">程式名稱、提交者與單位僅供記錄，不影響分數。</p>
-
-        <div class="area">
-          <div class="area-head"><h3>1. 程式檔案</h3><span class="pts">自動檢查：安全性 · 可靠度 · 易用性 · 易維護 · 可移植</span></div>
-          <div class="drop" id="drop">
-            <b>請將檔案或 ZIP 拖曳到這裡</b>
-            <span class="hint">HTML（含指令碼） · JS · Apps Script(.gs) · Python · 筆記本(.ipynb) · ZIP</span>
-            <label class="primary" style="display:inline-block"><input type="file" id="fileInput" multiple accept=".html,.htm,.js,.mjs,.ts,.gs,.py,.ipynb,.txt,.md,.json,.csv,.zip" hidden><span style="display:inline-block;font-weight:600;font-size:13.5px;border-radius:6px;padding:7px 14px;cursor:pointer;background:var(--accent);color:var(--accent-ink)">選擇檔案</span></label>
-            <span class="hint">只審查程式的原始碼。PDF、Word、Excel、圖片與說明文件不在審查範圍，也不會計入分數。每個檔案上限 2MB，最多 200 個。</span>
-          </div>
-          <div class="files" id="fileList"></div>
-          <p class="status" id="analyzeStatus" aria-live="polite"></p>
-        </div>
-        <div id="questions"></div>
-        <div class="submitbar">
-          <button type="button" class="go" id="showBtn" disabled>查看評審結果</button>
-          <p class="status" id="readyNote" aria-live="polite"></p>
-        </div>
-      </form>
-    </section>
-  </div>
-
-  <section class="panel" aria-labelledby="repTitle">
-    <div class="panel-head"><h2 id="repTitle">自動分析報告</h2><span class="hint">在上傳檔案中找到的依據 · 附行號</span></div>
-    <div id="report"><p class="status">上傳檔案後，分析結果會顯示在這裡。</p></div>
+      </details>
+      <div id="questions"></div>
+      <div class="actions">
+        <button type="button" class="go" id="showBtn" disabled>查看評審結果</button>
+        <button type="button" class="linkbtn" id="exampleBtn">先用範例體驗</button>
+        <button type="button" class="linkbtn" id="resetBtn">全部清除</button>
+      </div>
+      <p class="status" id="readyNote" aria-live="polite"></p>
+      <p class="example-note" id="exampleNote" hidden>目前載入的是範例程式「特休天數計算器」。請先按「全部清除」，再上傳要審查的程式。</p>
+      <p class="sample-hint">範例僅供練習，不會傳送給營運者，也不會留在紀錄中。</p>
+    </form>
+    <p class="trustline">不呼叫 AI · 相同程式碼得到相同分數 · 分析在這個瀏覽器內進行</p>
   </section>
 
-  <section class="panel" id="rubricSec" aria-labelledby="rubTitle">
-    <div class="panel-head"><h2 id="rubTitle">評分表與評審規則</h2><span class="hint" id="rubVer">所有標準全部公開</span></div>
+  <section class="how" aria-labelledby="howTitle">
+    <h2 id="howTitle">我們如何閱讀您的程式</h2>
+    <ol class="how-grid">
+      <li><span class="no">01</span><b>上傳</b><p>上傳 HTML、JS、Python 等程式檔或 ZIP。文件與圖片不在檢查範圍。</p></li>
+      <li><span class="no">02</span><b>閱讀</b><p>我們會讀程式碼，並盡可能在隔離的視窗中實際執行。所有分析都只在這個瀏覽器內進行。</p></li>
+      <li><span class="no">03</span><b>評分</b><p>十四個項目、滿分 100 分，只根據程式碼中找到的事實。相同的程式碼永遠得到相同的分數。</p></li>
+      <li><span class="no">04</span><b>說明</b><p>除了分數，也會告訴您做得好的地方、接下來可以做的事，以及依據的行號。改好後再上傳，看看分數怎麼提高。</p></li>
+    </ol>
+    <p class="rules-link"><button type="button" class="linkbtn" id="rulesBtn">查看完整評分標準 →</button></p>
+  </section>
+
+  <section class="history" id="historySec" aria-labelledby="histTitle" hidden>
+    <div class="hist-head"><h2 id="histTitle">我的檢查紀錄</h2><button type="button" class="linkbtn" id="histClear">清除紀錄</button></div>
+    <p class="hint">只儲存在這個瀏覽器中。改好再上傳，就能看到分數的變化。</p>
+    <div id="histSpark"></div>
+    <ul class="hist-list" id="histList"></ul>
+  </section>
+
+  <footer><span>AI 程式評審室 · 評分規則可自由參考與運用。</span><a href="/tw/">回首頁</a></footer>
+</main>
+
+<dialog class="resdlg" id="resDialog" aria-labelledby="resTitle"><div class="in">
+  <div class="dlg-head">
+    <h2 id="resTitle">評審結果</h2>
+    <div class="btns"><button type="button" id="cardBtn">儲存結果卡</button><button type="button" id="copyBtn">複製結果</button><button type="button" id="printBtn">儲存為 PDF</button><button type="button" id="closeBtn">關閉</button></div>
+  </div>
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" id="tab0" aria-selected="true">結果摘要</button>
+    <button type="button" role="tab" id="tab1" aria-selected="false" tabindex="-1">分析報告</button>
+    <button type="button" role="tab" id="tab2" aria-selected="false" tabindex="-1">評分標準</button>
+  </div>
+  <section class="tabpanel" id="pnlSum" role="tabpanel" aria-labelledby="tab0">
+    <p class="hint">這份結果只會在上傳者的瀏覽器中產生，不會以 PDF 傳給營運者。按下「儲存為 PDF」會開啟列印視窗，請將目的地（印表機）選為「另存為 PDF」。</p>
+    <div class="sample-banner" id="sampleBanner" hidden></div>
+    <div id="result" aria-live="polite"></div>
+    <p class="status" id="status"></p>
+  </section>
+  <section class="tabpanel" id="pnlRep" role="tabpanel" aria-labelledby="tab1" hidden>
+    <p class="hint">在上傳檔案中找到的依據 · 附行號</p>
+    <div id="report"><p class="status">上傳檔案後，分析結果會顯示在這裡。</p></div>
+  </section>
+  <section class="tabpanel" id="pnlRules" role="tabpanel" aria-labelledby="tab2" hidden>
+    <div class="panel-head"><h3>評分表與評審規則</h3><span class="hint" id="rubVer">所有標準全部公開</span></div>
     <ol class="steps">
       <li>先確認是否為審查對象。必須是含有實際會執行的程式碼的程式（HTML 要有指令碼，或是 JS、Apps Script、Python 等）。PDF、文件、圖片，以及只有畫面的 HTML，不給分數，只提示「非審查對象」，也不會傳送給營運者。（不判斷是否由 AI 製作，只確認是不是程式。）</li>
       <li>必要條件：若程式碼中發現疑似 API 金鑰、密碼或個人資料的內容，不論分數高低，都不確定等級並暫緩評定。</li>
@@ -306,16 +433,6 @@ tr.areahead td{background:var(--soft);font-size:13px}
     <p class="status">獎勵金額因機構而異，請自行輸入。輸入的內容只會儲存在這個瀏覽器中。</p>
     <p class="status">自動分析是依字串規則判斷，可能會有漏掉或誤判的情形。請把結果當作輔助評審承辦人員判斷的依據。</p>
   </section>
-
-  <footer><span>AI 程式評審室 · 評分規則可自由參考與運用。</span><a href="/tw/">回首頁</a></footer>
-</div>
-
-<dialog class="resdlg" id="resDialog" aria-labelledby="resTitle"><div class="in">
-  <div class="panel-head"><h2 id="resTitle">評審結果</h2>
-    <div class="btns"><button type="button" id="copyBtn">複製結果</button><button type="button" id="printBtn">儲存為 PDF</button><button type="button" id="closeBtn">關閉</button></div></div>
-  <p class="hint">這份結果只會在上傳者的瀏覽器中產生，不會以 PDF 傳給營運者。按下「儲存為 PDF」會開啟列印視窗，請將目的地（印表機）選為「另存為 PDF」。</p>
-  <div id="result" aria-live="polite"></div>
-  <p class="status" id="status"></p>
 </div></dialog>
 <div class="mbar" aria-hidden="true"><span id="mbarText">–</span><button type="button" id="mbarBtn">查看結果</button></div>
 
@@ -388,7 +505,7 @@ const SUBMIT_URL = 'supabase';
 const RUBRIC_VER = 'v2.0 (2026-10-28)';
 
 /* ================= Strings (per language) ================= */
-const T={"none":"無","loc":"zh-TW","cur":"","cur_pre":"NT$","pay_default":{"S":"2000","A":"1400","B":"800","C":"0"},"pay_step":"100","gl":["90 分以上","75～89.9 分","60～74.9 分","未滿 60 分 · 補強後再提交"],"ex_name":"特休天數計算器","ex_author":"人資組 王小明（範例）","s4_title":"4. 提交同意","s4_pts":"必填","consent_lines":["接受評審時，您上傳的檔案會傳送給本網站的營運者並加以保存。","· 傳送項目：程式名稱、提交者與單位、上傳的檔案、等級與分數（評審結果的 PDF 不會傳送）","· 目的：確認評審紀錄與改善評審標準","· 若有疑似 API 金鑰或密碼的內容，就不會傳送。請刪除後重新上傳。","· 保存期間：自提交日起 1 個月後刪除。若想在此之前刪除，請透過<a href=\"mailto:choyj80@naver.com\">聯絡我們<\/a>提出。","· 不同意的話，就無法查看評審結果。"],"consent_label":"我已確認上述內容，並同意將上傳的檔案傳送給營運者。","pay_label":"獎勵（新臺幣）","zip_fail":"無法載入開啟 ZIP 的工具。請先解壓縮，再上傳檔案。","read_fail":"無法讀取「{name}」檔案。","skipped":"已排除 {n} 個無法分析的檔案（圖片、Excel、超過 2MB 等）。","k_doc":"說明文件","lines_fmt":"{n} 行","rm_aria":"移除 {name}","rm":"移除","hard_t":["個人電腦路徑","試算表或資料夾的專屬 ID","Google 文件網址","內部 IP 與本機位址","未加密的 http 網址"],"risk_t":["eval 等動態執行程式碼","對 innerHTML、document.write 賦值","執行 shell 指令","不安全的還原處理（pickle 等）","關閉憑證驗證","以字串串接組成的 SQL","把密碼或權杖存在瀏覽器中"],"async_err":"未處理的非同步錯誤：","running":"正在隔離的視窗中執行「{name}」…","analyzing":"分析中…","analyzed":"已分析 {n} 個檔案、{l} 行。","b_analyzing":"正在分析檔案。","b_consent":"勾選第 4 項的提交同意後，就會顯示評審結果。","ready":"評分完成。請用下方按鈕查看結果。","grade_fmt":"{g} 級","th_total":"合計","f_fail":"因必要條件不符而暫緩評定：{items}。請在自動分析報告中確認位置，修正後再重新上傳。","sub_secret":"因為有疑似 API 金鑰或密碼的內容，所以沒有傳送給營運者。請刪除後重新上傳。","sub_ing":"正在提交給營運者…","sub_noname":"（未命名）","sub_ok":"已提交給營運者（{time}）。結果只能在這個畫面查看。","sub_big":"檔案太大（壓縮後超過 5MB），無法傳送給營運者。您仍可照常查看評審結果。","sub_fail":"無法提交給營運者。您仍可照常查看評審結果。","rt_title":"[AI 程式評審結果]","rt_name":"程式名稱：{v}","rt_none":"（未填寫）","rt_author":"提交者：{v}","rt_files":"提交檔案：{v}","rt_hold":"暫緩（需確認必要條件）","rt_reward":" / 獎勵 {pay}","rt_fail":"- 不符合：{v}","pill_submit":"同意後，上傳的檔案會傳給營運者 · 結果 PDF 僅限本人","more":"另有 {n} 處","line_fmt":"第 {n} 行","rep_empty":"上傳檔案後，分析結果會顯示在這裡。","cnt":"{n} 個","spots":"{n} 處","g_sec":"安全性 · 個人資料","need_check":"{n} 處需要確認","no_issue":"沒有問題","t_key":"API 金鑰或密碼","t_rrn":"韓國住民登錄號碼格式","t_phone":"手機號碼（韓國格式）","remove_it":"請從程式碼中刪除，改由設定檔或使用者輸入取得","sec_none":"沒有找到 API 金鑰、密碼、住民登錄號碼或手機號碼格式的內容。","emails":"電子郵件地址 {n} 處（僅供參考）","g_risk":"危險的程式寫法","risk_warn":"請確認使用者輸入的值是否會傳到這段程式，並盡量改成更安全的寫法。","risk_none":"沒有找到危險的程式寫法。","g_run":"執行與語法檢查","run_ok":"通過","run_na":"無法檢查","run_html":"已在隔離的視窗中開啟 {n} 個 HTML，確認沒有指令碼錯誤。","run_js":"已檢查 {n} 個 JS、Apps Script 檔案的語法。","run_py":"Python 與模組檔案無法在瀏覽器中執行，因此未檢查。","g_hard":"寫死的內容","hard_warn":"若要讓其他人使用，請把這些值移到程式碼最上方的設定區，或改成輸入值。","hard_none":"沒有找到個人路徑、專屬 ID 等綁定特定環境的內容。","g_todo":"未完成標記","copied":"已複製結果。","copy_fail":"無法複製。請直接選取結果表格後複製。","req":["沒有洩漏 API 金鑰或密碼","沒有疑似個人資料的內容"],"rub_ver":"評分標準 {ver}","how_head":["領域","項目","評估內容","計分規則","配分"],"area_n":["安全性","可靠度","易用性","易維護性","可移植性"],"crit":{"S1":{"n":"機密外洩","how":"程式碼中是否寫有 API 金鑰、密碼、權杖、私密金鑰","rule":"沒有 10 · 有 0 且暫緩評定"},"S2":{"n":"個資外洩","how":"韓國住民登錄號碼、手機號碼格式的內容","rule":"沒有 8 · 有 0 且暫緩評定"},"S3":{"n":"危險的程式寫法","how":"eval、對 innerHTML 賦值、執行 shell、不安全的還原處理、關閉憑證驗證、字串串接的 SQL 等","rule":"9 分起算，每處 −3（最低 0）"},"S4":{"n":"對外連線","how":"程式碼傳送或取得資料的外部位址（呼叫請求、載入其他網站的指令碼、AI 服務）","rule":"8 分起算，每個不同的外部位址 −2（最低 0）"},"R1":{"n":"執行與語法檢查","how":"HTML 在隔離視窗中實際開啟以找出指令碼錯誤，JS 與 Apps Script 檢查語法","rule":"通過 10 · 僅部分可檢查 7 · 無法檢查（Python 等）5 · 有錯誤 0"},"R2":{"n":"錯誤處理","how":"try/catch、except、.catch()、onerror 等處理錯誤的程式碼","rule":"3 處以上（或佔函式 30% 以上）8 · 1～2 處 4 · 沒有 0"},"R3":{"n":"輸入驗證","how":"檢查空值、數字格式、必填欄位的程式碼（僅限會接收輸入的程式）","rule":"3 處以上 7 · 1～2 處 3 · 沒有 0 · 不接收輸入則 7（不適用）"},"R4":{"n":"未完成標記","how":"TODO、FIXME、XXX、HACK 註解","rule":"沒有 5 · 1～2 個 3 · 3 個以上 0"},"U1":{"n":"畫面與輸入方式","how":"有輸入欄與按鈕的 HTML 畫面、Apps Script 選單、Python 的 input、命令列或 GUI","rule":"有畫面 6 · 簡單輸入方式 3 · 沒有 0"},"U2":{"n":"提示文字","how":"程式碼中的 label、placeholder、標題、輸入提示文字與說明","rule":"5 個以上 5 · 1～4 個 2 · 沒有 0"},"U3":{"n":"使用者訊息","how":"alert、錯誤訊息、結果文字中使用的繁體中文提示","rule":"3 個以上 4 · 1～2 個 2 · 沒有 0"},"M1":{"n":"註解","how":"程式碼行數中註解行所佔的比例","rule":"15% 以上 5 · 5% 以上 3 · 更低 1 · 沒有 0"},"M2":{"n":"函式拆分","how":"程式碼被拆成函式的程度","rule":"5 個以上 5 · 2～4 個 3 · 1 個 1 · 沒有 0"},"P1":{"n":"寫死的內容","how":"個人電腦路徑、試算表與資料夾的專屬 ID、內部 IP、未加密的 http 網址","rule":"沒有 10 · 1～2 處 7 · 3～5 處 4 · 6 處以上 0"}},"kind":["實際執行測量","樣式檢查","數量計算"],"kind_short":["測量","樣式","計數"],"grade_head":["等級","標準"],"grade_rows":[["S","90 分以上（且必須通過實際的執行檢查）"],["A","75～89.9 分"],["B","60～74.9 分（有執行錯誤時最高為 B）"],["C","未滿 60 分 · 補強後再提交"],["暫緩","發現機密或個資時，不論分數都暫緩確定等級"]],"unsup_tag":"非審查對象 · 已排除","ev":{"found":"發現 {n} 處","none":"沒有","hosts":"外部位址 {n} 個","run_err":"{n} 個錯誤","run_part":"僅部分檢查","run_ok":"通過（檢查 {n} 個）","run_na":"無法檢查","cnt":"{n} 處","no_input":"不接收輸入（不適用）","ui_html":"有輸入欄與按鈕的畫面","ui_simple":"簡單輸入方式","ui_none":"沒有","items":"{n} 個","pct":"{n}%"},"g_gate":"審查對象確認","gate_pass":"確認為程式","gate_fail_title":"不是審查對象","gate_fail_help":"請上傳含有可執行原始碼的程式檔案（含指令碼的 HTML、JS、Apps Script、Python、ZIP）。只有 PDF、Word、Excel、圖片或說明文件無法審查。","gate_ok_files":"已確認 {n} 個程式碼檔案","gate_ok_logic":"會執行的程式碼 {lines} 行 · 找到函式、條件式等共 {tokens} 個","gate_no_code":"沒有程式碼檔案","gate_static_html":"只有畫面的 HTML，沒有會執行的指令碼","gate_no_logic":"會執行的程式碼太少（{lines} 行）","gate_unsup":"已排除 {n} 個非審查對象的檔案（PDF、文件、圖片等）","gate_info_ai":"連接 AI 服務的程式碼 {n} 處（僅供參考，與分數無關）","v_inel":"非審查對象","v_hold":"暫緩","v_sub":"{score} 分 / 100 分 · {x}","sub_hold":"確認必要條件後再定案","id_line":"結果編號 {id} · 評分標準 {ver}","id_note":"再次上傳相同的程式碼，會得到相同的結果編號與分數。提交者填寫的內容未用於計分。","th_item":"項目","th_score":"分數","th_basis":"依據","f_cap_err":"有執行錯誤，因此等級限制在 B 以下。","f_cap_run":"無法實際執行檢查，因此以 A 取代 S。","f_net":"程式碼會對外連線：{hosts}。光看程式碼無法判斷是否傳送敏感資訊，請承辦人員確認。","host_dyn":"（位址在程式碼中組合而成）","f_limit":"自動檢查是依規則閱讀程式碼來判斷，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。請將結果作為輔助承辦人員判斷的依據。","mbar_hold":"暫緩 · {score} 分","mbar_g":"<b>{g}<\/b> 級 · {score} 分","rt_result":"結果：{r} / {score} 分","rt_id":"結果編號：{id}（評分標準 {ver}）","rt_note":"※ 這是自動檢查的結果，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。","m":["已分析檔案","總行數","執行與語法檢查","錯誤處理","輸入驗證","註解比例","畫面元件","使用者提示","寫死的內容","危險寫法","外部位址"],"g_net":"對外連線","how":{"call":"呼叫請求","src":"從其他網站載入","ai":"AI 服務"},"net_warn":"程式碼會把資料傳到這個位址，或從這個位址取得資料。請確認其中是否含有敏感資訊。","net_none":"沒有找到對外連線的程式碼。","b_nofile":"請上傳程式檔案。審查對象是會執行的原始碼。","rx":{"msg_chars":"\\u4E00-\\u9FFF\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|在這裡|請輸入|金鑰|dummy|test"},"contact_href":"mailto:choyj80@naver.com","ux":{"welcome":"在分享自己做的程式之前先請人檢查，正是醫院現場最需要的謹慎習慣。","sum":{"S":"這是一個做得非常好的程式。安全、執行與易用都明顯超過標準，同事可以放心使用。","A":"這是一個做得很好的程式。執行上沒有大問題，只要再調整下面幾項，就能讓更多同事放心使用。","B":"已經具備可用程式的基本功。把下面「接下來可以做的事」改善幾項，就會有明顯進步。","C":"還有不少地方可以調整，但任何程式一開始都是這樣。需要修正的地方已在下方逐項列出。","H":"等級暫時保留，因為程式碼中似乎含有密碼、金鑰或個人資料。這很常見、也很快能改好；現在發現，就保護了病人與您自己。"},"hold_note":"您上傳的檔案沒有被傳送到任何地方。刪除該值後再上傳一次，等級就會立刻出現。","prog":"再 {n} 分就能到 {g} 級。","prog_top":"這是最高等級。","good_title":"做得好的地方","good_item":"{n}：滿分","good_none":"這次檢查只是起點。現在您已經清楚知道該改進什麼。","next_title":"接下來可以做的事","next_hint":"依「加分多、又容易做」的順序排列。","next_none":"在我們衡量的項目中，已沒有需要再修正的地方。辛苦了。","gain":"+{n} 分","where":"位置：{w}","more":"查看其餘 {n} 項","r1_note":"Python 等檔案無法在瀏覽器中執行，因此這一項以 5 分計算，並不是因為有錯誤。","delta_up":"比上一次檢查（在這個瀏覽器）多了 {n} 分，修正有了成果。","delta_down":"比上一次檢查（在這個瀏覽器）少了 {n} 分。下方表格可以看到哪裡不同。","delta_same":"與上一次檢查（在這個瀏覽器）的分數相同。","trust_title":"如何看待這個分數","trust":["分數只依據您上傳程式碼中的事實計算，每個項目都附有檔案與行號作為依據。","相同的程式碼永遠得到相同的分數與結果 ID，不會因審查者的心情而改變。","程式名稱、提交者、所屬單位與說明書完全不會用於計分。","這個檢查無法判斷程式在醫學上是否正確、在法律上是否適當。在醫院使用之前，仍須由人員確認。","若您認為程式碼被誤判，請把修正後的檔案再上傳一次，或透過下方連結告訴我們。"],"trust_link":"覺得被誤判了，請告訴我們","rt_next":"接下來可以做的事","areas":"各領域得分"},"help":{"S1":{"why":"程式碼裡的金鑰或密碼，任何看到檔案的人都能複製，並可能打開病人系統的大門。","fix":"從程式碼中刪除，向發行處更換新的金鑰，並改由設定檔或輸入欄位取得。"},"S2":{"why":"程式碼中若有身分證字號或手機號碼的格式，檔案一分享，真實的人就暴露了。","fix":"改成虛構的範例值。"},"S3":{"why":"有些寫法會讓使用者輸入的文字被當成指令執行。","fix":"在標示的每個位置改用更安全的寫法（例如用 textContent 取代 innerHTML）。"},"S4":{"why":"會連到外部位址的程式碼，可能在沒人察覺的情況下把資料送出醫院。","fix":"確認每個位址都是預期中的，且絕不要把病人資料送到醫院尚未核准的服務。"},"R1":{"why":"在同事面前出錯停住的程式，很快就會失去信任。","fix":"打開程式，把每個按鈕按一次，先修正看到的第一個錯誤。"},"R2":{"why":"沒有錯誤處理的話，一筆錯誤的輸入就可能讓整個程式停住。","fix":"把可能失敗的步驟（讀檔、日期、數字）包起來，讓畫面出現清楚的提示。"},"R3":{"why":"人們會輸入出乎意料的內容，例如空白欄位、在數字欄位輸入文字。","fix":"使用前先檢查每個輸入，並告訴使用者該修正什麼。"},"R4":{"why":"TODO 註記代表尚未完成的部分，同事可能會踩到。","fix":"完成或刪除每則註記，真正要做的事另外列成清單。"},"U1":{"why":"不知道要按哪裡的程式，不會有人用。","fix":"做一個簡單的畫面：有標示的輸入欄位，以及一個清楚的按鈕。"},"U2":{"why":"有標籤與提示，新來的人不必問您也能使用。","fix":"為每個輸入欄位加上標籤與簡短提示。"},"U3":{"why":"清楚的訊息會告訴使用者發生了什麼事、接下來該怎麼做。","fix":"成功時與每種錯誤都顯示一句白話的說明。"},"M1":{"why":"註解能讓下一個人（或半年後的您）看懂程式碼。","fix":"在每一段程式上方加一行註解，說明它的用途。"},"M2":{"why":"取了名字的小函式，比一長串程式碼更容易修改與重複使用。","fix":"把程式拆成各自只做一件事的函式。"},"P1":{"why":"含有您電腦上的路徑或私人試算表 ID，程式在別人的電腦上就跑不起來。","fix":"把這類值移到程式開頭的設定區，或改成由輸入取得。"}}};
+const T={"none":"無","loc":"zh-TW","cur":"","cur_pre":"NT$","pay_default":{"S":"2000","A":"1400","B":"800","C":"0"},"pay_step":"100","gl":["90 分以上","75～89.9 分","60～74.9 分","未滿 60 分 · 補強後再提交"],"ex_name":"特休天數計算器","ex_author":"人資組 王小明（範例）","s4_title":"提交同意","s4_pts":"必填","consent_lines":["接受評審時，您上傳的檔案會傳送給本網站的營運者並加以保存。","· 傳送項目：程式名稱、提交者與單位、上傳的檔案、等級與分數（評審結果的 PDF 不會傳送）","· 目的：確認評審紀錄與改善評審標準","· 若有疑似 API 金鑰或密碼的內容，就不會傳送。請刪除後重新上傳。","· 保存期間：自提交日起 1 個月後刪除。若想在此之前刪除，請透過<a href=\"mailto:choyj80@naver.com\">聯絡我們<\/a>提出。","· 不同意的話，就無法查看評審結果。"],"consent_label":"我已確認上述內容，並同意將上傳的檔案傳送給營運者。","pay_label":"獎勵（新臺幣）","zip_fail":"無法載入開啟 ZIP 的工具。請先解壓縮，再上傳檔案。","read_fail":"無法讀取「{name}」檔案。","skipped":"已排除 {n} 個無法分析的檔案（圖片、Excel、超過 2MB 等）。","k_doc":"說明文件","lines_fmt":"{n} 行","rm_aria":"移除 {name}","rm":"移除","hard_t":["個人電腦路徑","試算表或資料夾的專屬 ID","Google 文件網址","內部 IP 與本機位址","未加密的 http 網址"],"risk_t":["eval 等動態執行程式碼","對 innerHTML、document.write 賦值","執行 shell 指令","不安全的還原處理（pickle 等）","關閉憑證驗證","以字串串接組成的 SQL","把密碼或權杖存在瀏覽器中"],"async_err":"未處理的非同步錯誤：","running":"正在隔離的視窗中執行「{name}」…","analyzing":"分析中…","analyzed":"已分析 {n} 個檔案、{l} 行。","b_analyzing":"正在分析檔案。","b_consent":"勾選提交同意後，就會顯示評審結果。","ready":"評分完成。請用下方按鈕查看結果。","grade_fmt":"{g} 級","th_total":"合計","f_fail":"因必要條件不符而暫緩評定：{items}。請在自動分析報告中確認位置，修正後再重新上傳。","sub_secret":"因為有疑似 API 金鑰或密碼的內容，所以沒有傳送給營運者。請刪除後重新上傳。","sub_ing":"正在提交給營運者…","sub_noname":"（未命名）","sub_ok":"已提交給營運者（{time}）。結果只能在這個畫面查看。","sub_big":"檔案太大（壓縮後超過 5MB），無法傳送給營運者。您仍可照常查看評審結果。","sub_fail":"無法提交給營運者。您仍可照常查看評審結果。","rt_title":"[AI 程式評審結果]","rt_name":"程式名稱：{v}","rt_none":"（未填寫）","rt_author":"提交者：{v}","rt_files":"提交檔案：{v}","rt_hold":"暫緩（需確認必要條件）","rt_reward":" / 獎勵 {pay}","rt_fail":"- 不符合：{v}","pill_submit":"同意後，上傳的檔案會傳給營運者 · 結果 PDF 僅限本人","more":"另有 {n} 處","line_fmt":"第 {n} 行","rep_empty":"上傳檔案後，分析結果會顯示在這裡。","cnt":"{n} 個","spots":"{n} 處","g_sec":"安全性 · 個人資料","need_check":"{n} 處需要確認","no_issue":"沒有問題","t_key":"API 金鑰或密碼","t_rrn":"韓國住民登錄號碼格式","t_phone":"手機號碼（韓國格式）","remove_it":"請從程式碼中刪除，改由設定檔或使用者輸入取得","sec_none":"沒有找到 API 金鑰、密碼、住民登錄號碼或手機號碼格式的內容。","emails":"電子郵件地址 {n} 處（僅供參考）","g_risk":"危險的程式寫法","risk_warn":"請確認使用者輸入的值是否會傳到這段程式，並盡量改成更安全的寫法。","risk_none":"沒有找到危險的程式寫法。","g_run":"執行與語法檢查","run_ok":"通過","run_na":"無法檢查","run_html":"已在隔離的視窗中開啟 {n} 個 HTML，確認沒有指令碼錯誤。","run_js":"已檢查 {n} 個 JS、Apps Script 檔案的語法。","run_py":"Python 與模組檔案無法在瀏覽器中執行，因此未檢查。","g_hard":"寫死的內容","hard_warn":"若要讓其他人使用，請把這些值移到程式碼最上方的設定區，或改成輸入值。","hard_none":"沒有找到個人路徑、專屬 ID 等綁定特定環境的內容。","g_todo":"未完成標記","copied":"已複製結果。","copy_fail":"無法複製。請直接選取結果表格後複製。","req":["沒有洩漏 API 金鑰或密碼","沒有疑似個人資料的內容"],"rub_ver":"評分標準 {ver}","how_head":["領域","項目","評估內容","計分規則","配分"],"area_n":["安全性","可靠度","易用性","易維護性","可移植性"],"crit":{"S1":{"n":"機密外洩","how":"程式碼中是否寫有 API 金鑰、密碼、權杖、私密金鑰","rule":"沒有 10 · 有 0 且暫緩評定"},"S2":{"n":"個資外洩","how":"韓國住民登錄號碼、手機號碼格式的內容","rule":"沒有 8 · 有 0 且暫緩評定"},"S3":{"n":"危險的程式寫法","how":"eval、對 innerHTML 賦值、執行 shell、不安全的還原處理、關閉憑證驗證、字串串接的 SQL 等","rule":"9 分起算，每處 −3（最低 0）"},"S4":{"n":"對外連線","how":"程式碼傳送或取得資料的外部位址（呼叫請求、載入其他網站的指令碼、AI 服務）","rule":"8 分起算，每個不同的外部位址 −2（最低 0）"},"R1":{"n":"執行與語法檢查","how":"HTML 在隔離視窗中實際開啟以找出指令碼錯誤，JS 與 Apps Script 檢查語法","rule":"通過 10 · 僅部分可檢查 7 · 無法檢查（Python 等）5 · 有錯誤 0"},"R2":{"n":"錯誤處理","how":"try/catch、except、.catch()、onerror 等處理錯誤的程式碼","rule":"3 處以上（或佔函式 30% 以上）8 · 1～2 處 4 · 沒有 0"},"R3":{"n":"輸入驗證","how":"檢查空值、數字格式、必填欄位的程式碼（僅限會接收輸入的程式）","rule":"3 處以上 7 · 1～2 處 3 · 沒有 0 · 不接收輸入則 7（不適用）"},"R4":{"n":"未完成標記","how":"TODO、FIXME、XXX、HACK 註解","rule":"沒有 5 · 1～2 個 3 · 3 個以上 0"},"U1":{"n":"畫面與輸入方式","how":"有輸入欄與按鈕的 HTML 畫面、Apps Script 選單、Python 的 input、命令列或 GUI","rule":"有畫面 6 · 簡單輸入方式 3 · 沒有 0"},"U2":{"n":"提示文字","how":"程式碼中的 label、placeholder、標題、輸入提示文字與說明","rule":"5 個以上 5 · 1～4 個 2 · 沒有 0"},"U3":{"n":"使用者訊息","how":"alert、錯誤訊息、結果文字中使用的繁體中文提示","rule":"3 個以上 4 · 1～2 個 2 · 沒有 0"},"M1":{"n":"註解","how":"程式碼行數中註解行所佔的比例","rule":"15% 以上 5 · 5% 以上 3 · 更低 1 · 沒有 0"},"M2":{"n":"函式拆分","how":"程式碼被拆成函式的程度","rule":"5 個以上 5 · 2～4 個 3 · 1 個 1 · 沒有 0"},"P1":{"n":"寫死的內容","how":"個人電腦路徑、試算表與資料夾的專屬 ID、內部 IP、未加密的 http 網址","rule":"沒有 10 · 1～2 處 7 · 3～5 處 4 · 6 處以上 0"}},"kind":["實際執行測量","樣式檢查","數量計算"],"kind_short":["測量","樣式","計數"],"grade_head":["等級","標準"],"grade_rows":[["S","90 分以上（且必須通過實際的執行檢查）"],["A","75～89.9 分"],["B","60～74.9 分（有執行錯誤時最高為 B）"],["C","未滿 60 分 · 補強後再提交"],["暫緩","發現機密或個資時，不論分數都暫緩確定等級"]],"unsup_tag":"非審查對象 · 已排除","ev":{"found":"發現 {n} 處","none":"沒有","hosts":"外部位址 {n} 個","run_err":"{n} 個錯誤","run_part":"僅部分檢查","run_ok":"通過（檢查 {n} 個）","run_na":"無法檢查","cnt":"{n} 處","no_input":"不接收輸入（不適用）","ui_html":"有輸入欄與按鈕的畫面","ui_simple":"簡單輸入方式","ui_none":"沒有","items":"{n} 個","pct":"{n}%"},"g_gate":"審查對象確認","gate_pass":"確認為程式","gate_fail_title":"不是審查對象","gate_fail_help":"請上傳含有可執行原始碼的程式檔案（含指令碼的 HTML、JS、Apps Script、Python、ZIP）。只有 PDF、Word、Excel、圖片或說明文件無法審查。","gate_ok_files":"已確認 {n} 個程式碼檔案","gate_ok_logic":"會執行的程式碼 {lines} 行 · 找到函式、條件式等共 {tokens} 個","gate_no_code":"沒有程式碼檔案","gate_static_html":"只有畫面的 HTML，沒有會執行的指令碼","gate_no_logic":"會執行的程式碼太少（{lines} 行）","gate_unsup":"已排除 {n} 個非審查對象的檔案（PDF、文件、圖片等）","gate_info_ai":"連接 AI 服務的程式碼 {n} 處（僅供參考，與分數無關）","v_inel":"非審查對象","v_hold":"暫緩","v_sub":"{score} 分 / 100 分 · {x}","sub_hold":"確認必要條件後再定案","id_line":"結果編號 {id} · 評分標準 {ver}","id_note":"再次上傳相同的程式碼，會得到相同的結果編號與分數。提交者填寫的內容未用於計分。","th_item":"項目","th_score":"分數","th_basis":"依據","f_cap_err":"有執行錯誤，因此等級限制在 B 以下。","f_cap_run":"無法實際執行檢查，因此以 A 取代 S。","f_net":"程式碼會對外連線：{hosts}。光看程式碼無法判斷是否傳送敏感資訊，請承辦人員確認。","host_dyn":"（位址在程式碼中組合而成）","f_limit":"自動檢查是依規則閱讀程式碼來判斷，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。請將結果作為輔助承辦人員判斷的依據。","mbar_hold":"暫緩 · {score} 分","mbar_g":"<b>{g}<\/b> 級 · {score} 分","rt_result":"結果：{r} / {score} 分","rt_id":"結果編號：{id}（評分標準 {ver}）","rt_note":"※ 這是自動檢查的結果，不保證實際運作的正確性、醫療上的適切性與法律上的符合性。","m":["已分析檔案","總行數","執行與語法檢查","錯誤處理","輸入驗證","註解比例","畫面元件","使用者提示","寫死的內容","危險寫法","外部位址"],"g_net":"對外連線","how":{"call":"呼叫請求","src":"從其他網站載入","ai":"AI 服務"},"net_warn":"程式碼會把資料傳到這個位址，或從這個位址取得資料。請確認其中是否含有敏感資訊。","net_none":"沒有找到對外連線的程式碼。","b_nofile":"請上傳程式檔案。審查對象是會執行的原始碼。","rx":{"msg_chars":"\\u4E00-\\u9FFF\\uAC00-\\uD7A3","msg_words":"","msg_flags":"g","placeholder":"your|xxxx|\\*\\*\\*|<.+>|example|sample|placeholder|在這裡|請輸入|金鑰|dummy|test"},"contact_href":"mailto:choyj80@naver.com","ux":{"welcome":"在分享自己做的程式之前先請人檢查，正是醫院現場最需要的謹慎習慣。","sum":{"S":"這是一個做得非常好的程式。安全、執行與易用都明顯超過標準，同事可以放心使用。","A":"這是一個做得很好的程式。執行上沒有大問題，只要再調整下面幾項，就能讓更多同事放心使用。","B":"已經具備可用程式的基本功。把下面「接下來可以做的事」改善幾項，就會有明顯進步。","C":"還有不少地方可以調整，但任何程式一開始都是這樣。需要修正的地方已在下方逐項列出。","H":"等級暫時保留，因為程式碼中似乎含有密碼、金鑰或個人資料。這很常見、也很快能改好；現在發現，就保護了病人與您自己。"},"hold_note":"您上傳的檔案沒有被傳送到任何地方。刪除該值後再上傳一次，等級就會立刻出現。","prog":"再 {n} 分就能到 {g} 級。","prog_top":"這是最高等級。","good_title":"做得好的地方","good_item":"{n}：滿分","good_none":"這次檢查只是起點。現在您已經清楚知道該改進什麼。","next_title":"接下來可以做的事","next_hint":"依「加分多、又容易做」的順序排列。","next_none":"在我們衡量的項目中，已沒有需要再修正的地方。辛苦了。","gain":"+{n} 分","where":"位置：{w}","more":"查看其餘 {n} 項","r1_note":"Python 等檔案無法在瀏覽器中執行，因此這一項以 5 分計算，並不是因為有錯誤。","delta_up":"比上一次檢查（在這個瀏覽器）多了 {n} 分，修正有了成果。","delta_down":"比上一次檢查（在這個瀏覽器）少了 {n} 分。下方表格可以看到哪裡不同。","delta_same":"與上一次檢查（在這個瀏覽器）的分數相同。","trust_title":"如何看待這個分數","trust":["分數只依據您上傳程式碼中的事實計算，每個項目都附有檔案與行號作為依據。","相同的程式碼永遠得到相同的分數與結果 ID，不會因審查者的心情而改變。","程式名稱、提交者、所屬單位與說明書完全不會用於計分。","這個檢查無法判斷程式在醫學上是否正確、在法律上是否適當。在醫院使用之前，仍須由人員確認。","若您認為程式碼被誤判，請把修正後的檔案再上傳一次，或透過下方連結告訴我們。"],"trust_link":"覺得被誤判了，請告訴我們","rt_next":"接下來可以做的事","areas":"各領域得分"},"help":{"S1":{"why":"程式碼裡的金鑰或密碼，任何看到檔案的人都能複製，並可能打開病人系統的大門。","fix":"從程式碼中刪除，向發行處更換新的金鑰，並改由設定檔或輸入欄位取得。"},"S2":{"why":"程式碼中若有身分證字號或手機號碼的格式，檔案一分享，真實的人就暴露了。","fix":"改成虛構的範例值。"},"S3":{"why":"有些寫法會讓使用者輸入的文字被當成指令執行。","fix":"在標示的每個位置改用更安全的寫法（例如用 textContent 取代 innerHTML）。"},"S4":{"why":"會連到外部位址的程式碼，可能在沒人察覺的情況下把資料送出醫院。","fix":"確認每個位址都是預期中的，且絕不要把病人資料送到醫院尚未核准的服務。"},"R1":{"why":"在同事面前出錯停住的程式，很快就會失去信任。","fix":"打開程式，把每個按鈕按一次，先修正看到的第一個錯誤。"},"R2":{"why":"沒有錯誤處理的話，一筆錯誤的輸入就可能讓整個程式停住。","fix":"把可能失敗的步驟（讀檔、日期、數字）包起來，讓畫面出現清楚的提示。"},"R3":{"why":"人們會輸入出乎意料的內容，例如空白欄位、在數字欄位輸入文字。","fix":"使用前先檢查每個輸入，並告訴使用者該修正什麼。"},"R4":{"why":"TODO 註記代表尚未完成的部分，同事可能會踩到。","fix":"完成或刪除每則註記，真正要做的事另外列成清單。"},"U1":{"why":"不知道要按哪裡的程式，不會有人用。","fix":"做一個簡單的畫面：有標示的輸入欄位，以及一個清楚的按鈕。"},"U2":{"why":"有標籤與提示，新來的人不必問您也能使用。","fix":"為每個輸入欄位加上標籤與簡短提示。"},"U3":{"why":"清楚的訊息會告訴使用者發生了什麼事、接下來該怎麼做。","fix":"成功時與每種錯誤都顯示一句白話的說明。"},"M1":{"why":"註解能讓下一個人（或半年後的您）看懂程式碼。","fix":"在每一段程式上方加一行註解，說明它的用途。"},"M2":{"why":"取了名字的小函式，比一長串程式碼更容易修改與重複使用。","fix":"把程式拆成各自只做一件事的函式。"},"P1":{"why":"含有您電腦上的路徑或私人試算表 ID，程式在別人的電腦上就跑不起來。","fix":"把這類值移到程式開頭的設定區，或改成由輸入取得。"}},"ui":{"back_hello":"歡迎回來。上次檢查是在{d}，得到 {s} 分。","hist_confirm":"要清除所有檢查紀錄嗎？無法復原。","sample_banner":"這是範例程式的結果。僅供練習，因此不會傳送給營運者，也不會留在檢查紀錄中。","card_done":"已儲存結果卡。","card_sample":"範例體驗","hist_none":"未命名"}};
 const F=(s,o)=>String(s).replace(/\{(\w+)\}/g,(_,k)=>o[k]);
 
 /* ================= Criteria ================= */
@@ -409,6 +526,12 @@ const CRIT=[
 ];
 const AREA_MAX=[0,1,2,3,4].map(a=>CRIT.filter(c=>c.area===a).reduce((s,c)=>s+c.max,0));
 const EX_NAME=T.ex_name, EX_AUTHOR=T.ex_author;
+
+/* ================= Sample guard =================
+   The sample program is for practice only. It must never be sent to the operator, saved to the history or counted as a submission.
+   (Before 2026-11-07 the flag was a UI state: touching any input - even the consent box - turned the sample into a normal submission.) */
+const SAMPLE_TEXT=document.getElementById('exHtml').innerHTML.trim();
+const isSample=()=>FILES.length>0&&FILES.every(f=>f.sample||f.text.trim()===SAMPLE_TEXT);
 
 /* ================= Utils ================= */
 const $=id=>document.getElementById(id);
@@ -660,11 +783,12 @@ async function analyze(){
   return R;
 }
 async function runAnalysis(){
+  READY=false;
   if(!FILES.length&&!UNSUP.length){M=null;$('analyzeStatus').textContent='';renderReport();update();return}
-  analyzing=true;update();
+  analyzing=true;update();$('drop').classList.add('reading');
   $('analyzeStatus').textContent=T.analyzing;
   M=await analyze();
-  analyzing=false;
+  analyzing=false;$('drop').classList.remove('reading');
   $('analyzeStatus').textContent=M.eligible?F(T.analyzed,{n:M.files,l:M.lines.toLocaleString()}):T.gate_fail_title;
   renderReport();update();
 }
@@ -713,7 +837,7 @@ function nextSteps(S,M,hold){
 }
 let deltaMemo={fp:null,line:''};
 function deltaLine(M,total){
-  if(exampleShown)return '';
+  if(isSample())return '';
   if(deltaMemo.fp===M.fp)return deltaMemo.line;
   const k='aiJudgeLast-'+T.loc;let prev=null;
   try{prev=JSON.parse(localStorage.getItem(k)||'null')}catch{}
@@ -746,9 +870,93 @@ function nextLines(S,M,hold){const st=nextSteps(S,M,hold);return st.length?[U.rt
 
 /* ================= Result ================= */
 let LAST=null,READY=false;
-function openResult(){const d=$('resDialog');if(d.open)return;if(d.showModal)d.showModal();else d.setAttribute('open','')}
+const TABS=['pnlSum','pnlRep','pnlRules'];
+function showTab(i){TABS.forEach((id,k)=>{$(id).hidden=k!==i;const b=$('tab'+k);b.setAttribute('aria-selected',k===i?'true':'false');b.tabIndex=k===i?0:-1});$('cardBtn').hidden=!(i===0&&LAST);$('copyBtn').hidden=i!==0;}
+TABS.forEach((_,k)=>{$('tab'+k).onclick=()=>showTab(k);$('tab'+k).onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=(k+(e.key==='ArrowRight'?1:2))%3;showTab(n);$('tab'+n).focus()}}});
+function openResult(tab=0){
+  const d=$('resDialog');showTab(tab);
+  if(!d.open){if(d.showModal)d.showModal();else d.setAttribute('open','')}
+  d.scrollTop=0;
+  if(tab===0)reveal();
+}
+// the result appears like a reading: the seal is stamped, then the score counts up (skipped for reduced motion)
+function reveal(){
+  const r=$('result');r.classList.remove('reveal');void r.offsetWidth;r.classList.add('reveal');
+  const el=document.querySelector('#result .verdict .sub b.num');
+  if(!el||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const to=Number(el.textContent);if(isNaN(to))return;const t0=performance.now();
+  const step=now=>{const p=Math.min(1,(now-t0)/900);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+}
+
+/* ================= History (this browser only) ================= */
+const HIST_KEY='aiJudgeHistory'+(T.loc==='ko-KR'?'':'-'+T.loc);
+const histLoad=()=>{try{const a=JSON.parse(localStorage.getItem(HIST_KEY)||'[]');return Array.isArray(a)?a:[]}catch{return[]}};
+const histSave=a=>{try{localStorage.setItem(HIST_KEY,JSON.stringify(a.slice(-30)))}catch{}};
+const fmtDate=ts=>new Date(ts).toLocaleDateString(T.loc,{year:'numeric',month:'short',day:'numeric'});
+function histAdd(){
+  if(!LAST||!M||isSample())return;
+  const a=histLoad();if(a.length&&a[a.length-1].fp===M.fp)return;
+  a.push({t:Date.now(),fp:M.fp,n:($('name').value||'').trim().slice(0,60),s:LAST.total,g:LAST.hold?'H':LAST.g.g});
+  histSave(a);histRender();
+}
+function histRender(){
+  const a=histLoad(),sec=$('historySec'),hello=$('hello');
+  sec.hidden=!a.length;
+  if(!a.length){hello.hidden=true;return}
+  const last=a[a.length-1];
+  hello.hidden=false;hello.textContent=F(T.ui.back_hello,{d:fmtDate(last.t),s:last.s});
+  const rows=a.slice(-8).reverse();
+  $('histList').innerHTML=rows.map((r,i)=>{
+    const prev=a[a.length-1-i-1],d=prev?r.s-prev.s:0;
+    const dt=prev?`<span class="dl ${d>0?'up':d<0?'dn':''}">${d>0?'▲'+d:d<0?'▼'+(-d):'＝'}</span>`:'';
+    return `<li><span class="hd">${fmtDate(r.t)}</span><span class="hn">${esc(r.n||T.ui.hist_none)}</span><span class="chip g-${r.g}">${r.g==='H'?T.v_hold:r.g}</span><span class="hs num">${r.s}</span>${dt}</li>`}).join('');
+  const pts=a.slice(-10);
+  if(pts.length>1){
+    const W=260,H=46,px=i=>8+i*(W-16)/(pts.length-1),py=v=>H-6-(v/100)*(H-12);
+    $('histSpark').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(pts.map(p=>p.s).join(' → '))}"><polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" points="${pts.map((p,i)=>px(i)+','+py(p.s)).join(' ')}"/>${pts.map((p,i)=>`<circle cx="${px(i)}" cy="${py(p.s)}" r="3" fill="currentColor"/>`).join('')}</svg>`;
+  }else $('histSpark').innerHTML='';
+}
+$('histClear').onclick=()=>{if(confirm(T.ui.hist_confirm)){try{localStorage.removeItem(HIST_KEY)}catch{}histRender()}};
+
+/* ================= Result card (image) ================= */
+function saveCard(){
+  if(!LAST||!M)return;
+  const W=1200,H=630,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+  const css=getComputedStyle(document.body),ff=css.fontFamily||'sans-serif';
+  const gcol={S:'#e0b252',A:'#4fbf8f',B:'#7fa2ff',C:'#a9b0bc',H:'#f3a27c'}[LAST.hold?'H':LAST.g.g];
+  const grad=x.createLinearGradient(0,0,W,H);grad.addColorStop(0,'#0b1322');grad.addColorStop(1,'#16233b');x.fillStyle=grad;x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(224,178,82,.45)';x.lineWidth=2;x.strokeRect(24,24,W-48,H-48);
+  x.fillStyle='#c9a45c';x.font='600 22px '+ff;x.fillText(document.querySelector('meta[property="og:site_name"]')?.content||'',64,84);
+  x.fillStyle='#e9eef7';x.font='700 40px '+ff;x.fillText(document.querySelector('h1').textContent,64,140);
+  // seal
+  x.beginPath();x.arc(230,350,120,0,Math.PI*2);x.strokeStyle=gcol;x.lineWidth=6;x.stroke();
+  x.beginPath();x.arc(230,350,106,0,Math.PI*2);x.lineWidth=2;x.setLineDash([3,7]);x.stroke();x.setLineDash([]);
+  x.fillStyle=gcol;x.font='700 130px ui-monospace,Menlo,Consolas,monospace';x.textAlign='center';x.textBaseline='middle';x.fillText(LAST.hold?'!':LAST.g.g,230,356);
+  x.textAlign='left';x.textBaseline='alphabetic';
+  x.fillStyle='#e9eef7';x.font='700 76px ui-monospace,Menlo,Consolas,monospace';x.fillText(String(LAST.total),410,330);
+  x.fillStyle='#9aa6b8';x.font='500 30px '+ff;x.fillText('/ 100',410+x.measureText(String(LAST.total)).width+16-6,330);
+  x.fillStyle='#e9eef7';x.font='600 28px '+ff;
+  const nm=($('name').value||'').trim()||(isSample()?T.ui.card_sample:'');
+  if(nm)x.fillText(nm.length>34?nm.slice(0,33)+'…':nm,410,382);
+  // area bars
+  const bx=410,bw=640;let by=430;
+  for(let a=0;a<5;a++){
+    x.fillStyle='#9aa6b8';x.font='500 22px '+ff;x.fillText(T.area_n[a],bx,by+16);
+    x.fillStyle='rgba(255,255,255,.12)';x.fillRect(bx+190,by,bw-190-110,16);
+    x.fillStyle=gcol;x.fillRect(bx+190,by,(bw-190-110)*(LAST.areaPts[a]/AREA_MAX[a]),16);
+    x.fillStyle='#e9eef7';x.font='600 22px ui-monospace,Menlo,Consolas,monospace';x.fillText(LAST.areaPts[a]+' / '+AREA_MAX[a],bx+bw-96,by+16);
+    by+=30;
+  }
+  x.fillStyle='#6f7c91';x.font='500 20px ui-monospace,Menlo,Consolas,monospace';x.fillText(F(T.id_line,{id:M.fp,ver:RUBRIC_VER}).replace(/<[^>]+>/g,'')+'  ·  hospital-ai-lab.com',64,H-48);
+  c.toBlob(b=>{if(!b)return;const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ai-review-'+M.fp+'.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000);$('status').textContent=T.ui.card_done});
+}
+$('cardBtn').onclick=saveCard;
+
 function update(){
-  const needConsent=SUBMIT_URL&&!exampleShown&&!$('consent')?.checked;
+  const sample=isSample();
+  $('questions').hidden=!FILES.length||sample;
+  const needConsent=SUBMIT_URL&&!sample&&!$('consent')?.checked;
   const block=analyzing?T.b_analyzing:!M?T.b_nofile:(M.eligible&&needConsent)?T.b_consent:'';
   const nores=()=>{$('copyBtn').disabled=true;$('printBtn').disabled=true};
   if(block){LAST=null;$('result').innerHTML=`<p class="flag info">${block}</p>`;$('mbarText').textContent=block.split(/[.。]/)[0];nores();$('showBtn').disabled=true;$('readyNote').textContent=block;READY=false;return}
@@ -797,23 +1005,25 @@ function update(){
       <tbody>${rows}<tr><td colspan="2"><b>${T.th_total}</b></td><td class="c num"><b>${total} / 100</b></td><td></td></tr></tbody></table></div>
     <p class="status">${T.id_note}</p>${trust}`;
   $('mbarText').innerHTML=hold?F(T.mbar_hold,{score:total}):F(T.mbar_g,{g:g.g,score:total});
+  $('sampleBanner').hidden=!sample;$('sampleBanner').textContent=sample?T.ui.sample_banner:'';
   LAST={S,total,areaPts,g,hold,pay,fail,caps};
   scheduleSubmit();
-  if(!READY){READY=true;if(!exampleShown)openResult()}
+  histAdd();
+  if(!READY){READY=true;openResult(0)}
 }
 
 /* ================= Submit to the operator ================= */
 let sentSig=null,submitTimer=null,sending=false;
 const fileSig=()=>FILES.map(f=>f.name+':'+f.text.length).join('|')+'#'+$('name').value.trim();
 function scheduleSubmit(){
-  if(!SUBMIT_URL||exampleShown||!LAST||!$('consent')?.checked)return;
+  if(!SUBMIT_URL||isSample()||!LAST||!$('consent')?.checked)return;
   if(M&&M.secrets.length){$('status').textContent=T.sub_secret;return}
   if(fileSig()===sentSig)return;
   clearTimeout(submitTimer);
   submitTimer=setTimeout(submit,2500); // wait for the answers to settle, then send once
 }
 async function submit(){
-  if(sending||!LAST)return;const sig=fileSig();if(sig===sentSig)return;
+  if(sending||!LAST||isSample())return;const sig=fileSig();if(sig===sentSig)return;
   if($('hp')?.value)return; // honeypot: bots are ignored silently
   sending=true;$('status').textContent=T.sub_ing;
   try{
@@ -847,7 +1057,7 @@ function resultText(){
     ...nextLines(S,M,hold),
     T.rt_note].filter(Boolean).join('\n');
 }
-if(SUBMIT_URL)$('privacyPill').textContent=T.pill_submit;
+
 
 /* ================= Report ================= */
 function list(items,fmt,max=6){if(!items.length)return '';const more=items.length>max?`<li class="hint">${F(T.more,{n:items.length-max})}</li>`:'';return `<ul>${items.slice(0,max).map(x=>`<li>${fmt(x)}</li>`).join('')}${more}</ul>`}
@@ -892,18 +1102,18 @@ $('form').addEventListener('input',e=>{if(e.target.type!=='file')hideExample();u
 $('form').addEventListener('change',update);
 $('form').addEventListener('submit',e=>e.preventDefault());
 async function loadExample(){
-  FILES=[mkFile('index.html',$('exHtml').innerHTML.trim())];UNSUP=[];
+  FILES=[{...mkFile('index.html',SAMPLE_TEXT),sample:true}];UNSUP=[];READY=false;
   $('name').value=EX_NAME;$('author').value=EX_AUTHOR;exampleShown=true;$('exampleNote').hidden=false;renderFiles();await runAnalysis();
 }
 $('exampleBtn').onclick=loadExample;
-$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
+$('resetBtn').onclick=async()=>{FILES=[];UNSUP=[];$('resDialog').open&&$('resDialog').close();$('name').value='';$('author').value='';hideExample();$('analyzeStatus').textContent='';READY=false;renderFiles();await runAnalysis();$('name').focus()};
 $('printBtn').onclick=()=>window.print();
-$('showBtn').onclick=openResult;$('mbarBtn').onclick=openResult;$('closeBtn').onclick=()=>$('resDialog').close();
+$('showBtn').onclick=()=>openResult(0);$('mbarBtn').onclick=()=>openResult(0);$('rulesBtn').onclick=()=>openResult(2);$('closeBtn').onclick=()=>$('resDialog').close();
 $('copyBtn').onclick=async()=>{
   if(!LAST)return;const t=resultText();
   try{await navigator.clipboard.writeText(t);$('status').textContent=T.copied}catch{$('status').textContent=T.copy_fail}
 };
-loadExample();
+histRender();renderFiles();update();
 </script>
 </body>
 </html>
