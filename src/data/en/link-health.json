@@ -1,33 +1,8 @@
 {
-  "checkedAt": "2026-11-05T22:26:43.424Z",
+  "checkedAt": "2026-11-06T03:03:11.066Z",
   "total": 35,
-  "ok": 29,
-  "unknown": 6,
-  "unknownList": [
-    {
-      "url": "https://www.ecfr.gov/current/title-45/section-164.520",
-      "status": 429
-    },
-    {
-      "url": "https://www.ecfr.gov/current/title-45/section-164.506",
-      "status": 429
-    },
-    {
-      "url": "https://www.ecfr.gov/current/title-45/section-164.526",
-      "status": 429
-    },
-    {
-      "url": "https://www.ecfr.gov/current/title-45/section-164.524",
-      "status": 429
-    },
-    {
-      "url": "https://www.ecfr.gov/current/title-45/section-164.528",
-      "status": 429
-    },
-    {
-      "url": "https://www.ecfr.gov/current/title-45/section-164.508",
-      "status": 429
-    }
-  ],
+  "ok": 35,
+  "unknown": 0,
+  "unknownList": [],
   "dead": []
 }
