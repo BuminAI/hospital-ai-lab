@@ -485,6 +485,55 @@ function score(M){
   return out;
 }
 
+/* ================= Coach: understanding · recognition · empathy =================
+   Scoring is NOT touched here. This layer only explains the result: a one-line summary with encouragement, what went well,
+   the next steps (points to gain + where in the code), the distance to the next grade, why the score can be trusted, and the change since the last check. */
+const U=T.ux, HLP=T.help;
+const EFFORT={S1:1,S2:1,S3:2,S4:2,R1:3,R2:2,R3:2,R4:1,U1:3,U2:1,U3:1,M1:1,M2:2,P1:1};
+function evidence(id,M){
+  const pick={S1:M.secrets,S2:[...M.rrn,...M.phones],S3:M.risky,S4:M.hostList,R1:[...M.run.errors,...M.syntax.errors],R4:M.todos,P1:M.hard}[id]||[];
+  return pick.filter(x=>x.file).slice(0,3).map(at).join(', ');
+}
+// criteria that lost points and that the submitter can act on, biggest and easiest first (secrets/personal data always first)
+function nextSteps(S,M,hold){
+  const first=id=>(id==='S1'||id==='S2')?0:1;
+  return S.filter(c=>c.pts<c.max&&!(c.id==='R1'&&!M.execErrors))
+    .map(c=>({...c,gap:c.max-c.pts,eff:EFFORT[c.id]||2}))
+    .sort((a,b)=>(hold?first(a.id)-first(b.id):0)||(b.gap/b.eff-a.gap/a.eff)||(b.gap-a.gap));
+}
+let deltaMemo={fp:null,line:''};
+function deltaLine(M,total){
+  if(exampleShown)return '';
+  if(deltaMemo.fp===M.fp)return deltaMemo.line;
+  const k='aiJudgeLast-'+T.loc;let prev=null;
+  try{prev=JSON.parse(localStorage.getItem(k)||'null')}catch{}
+  let line='';
+  if(prev&&prev.fp&&prev.fp!==M.fp){const d=total-prev.total;line=d>0?F(U.delta_up,{n:d}):d<0?F(U.delta_down,{n:-d}):U.delta_same}
+  try{localStorage.setItem(k,JSON.stringify({fp:M.fp,total}))}catch{}
+  deltaMemo={fp:M.fp,line};
+  return line;
+}
+function coachHtml(S,total,g,hold,M){
+  const key=hold?'H':g.g;
+  const steps=nextSteps(S,M,hold);
+  const stepHtml=c=>{const h=HLP[c.id],w=evidence(c.id,M);return `<li><div class="st-h"><b>${T.crit[c.id].n}</b><span class="gain">${F(U.gain,{n:c.gap})}</span></div><p class="why">${h.why}</p><p class="fix">▸ ${h.fix}</p>${w?`<p class="where">${F(U.where,{w})}</p>`:''}</li>`};
+  const top=steps.slice(0,3).map(stepHtml).join(''),rest=steps.slice(3);
+  const r1note=(!M.execErrors&&!M.testable&&S.some(c=>c.id==='R1'&&c.pts<c.max))?`<p class="hint">${U.r1_note}</p>`:'';
+  const nextBox=steps.length?`<ol class="nsteps">${top}</ol>${rest.length?`<details class="more"><summary>${F(U.more,{n:rest.length})}</summary><ol class="nsteps">${rest.map(stepHtml).join('')}</ol></details>`:''}${r1note}`:`<p class="status">${U.next_none}</p>${r1note}`;
+  const goods=hold?[]:S.filter(c=>c.pts===c.max&&!(c.id==='R3'&&!M.takesInput)&&!(c.id==='R1'&&!M.testable));
+  const goodBox=goods.length?`<ul class="goods">${goods.map(c=>`<li>✓ ${F(U.good_item,{n:T.crit[c.id].n})}</li>`).join('')}</ul>`:`<p class="status">${U.good_none}</p>`;
+  let prog='';
+  if(!hold){const i=GRADES.findIndex(x=>x.g===g.g);
+    if(i>0){const nx=GRADES[i-1],need=Math.max(0,nx.min-total),span=(nx.min-g.min)||1,pct=Math.max(4,Math.min(100,Math.round((total-g.min)/span*100)));
+      prog=`<div class="prog"><div class="bar" role="img" aria-label="${esc(F(U.prog,{n:need,g:nx.g}))}"><i style="width:${pct}%"></i></div><span>${F(U.prog,{n:need,g:nx.g})}</span></div>`}
+    else prog=`<p class="status">${U.prog_top}</p>`}
+  const dl=hold?'':deltaLine(M,total);
+  return `<div class="coach"><p class="welcome">${U.welcome}</p><p class="sumline">${U.sum[key]}</p>${hold?`<p class="status">${U.hold_note}</p>`:''}${dl?`<p class="delta">${dl}</p>`:''}${prog}
+    <div class="coach-grid"><section><h3>${U.good_title}</h3>${goodBox}</section><section><h3>${U.next_title}</h3>${steps.length?`<p class="hint">${U.next_hint}</p>`:''}${nextBox}</section></div></div>`;
+}
+function trustHtml(){return `<aside class="trust"><h3>${U.trust_title}</h3><ul>${U.trust.map(x=>`<li>${x}</li>`).join('')}</ul><a href="${esc(T.contact_href)}">${U.trust_link}</a></aside>`}
+function nextLines(S,M,hold){const st=nextSteps(S,M,hold);return st.length?[U.rt_next+':',...st.slice(0,5).map(c=>`  · ${T.crit[c.id].n} (${F(U.gain,{n:c.gap})}) — ${HLP[c.id].fix}`)]:[]}
+
 /* ================= Result ================= */
 let LAST=null,READY=false;
 function openResult(){const d=$('resDialog');if(d.open)return;if(d.showModal)d.showModal();else d.setAttribute('open','')}
@@ -526,15 +575,17 @@ function update(){
   flags.push(`<div class="flag info">${T.f_limit}</div>`);
   const rows=[0,1,2,3,4].map(a=>`<tr class="areahead"><td colspan="2"><b>${T.area_n[a]}</b></td><td class="c num"><b>${areaPts[a]} / ${AREA_MAX[a]}</b></td><td></td></tr>`+
     S.filter(c=>c.area===a).map(c=>{const cr=CRIT.find(x=>x.id===c.id);return `<tr class="${c.pts<c.max?'gap':''}"><td><span class="kind k${cr.kind}" title="${esc(T.kind[cr.kind])}">${T.kind_short[cr.kind]}</span></td><td>${T.crit[c.id].n}</td><td class="c num">${c.pts} / ${c.max}</td><td class="hint">${esc(c.basis)}</td></tr>`}).join('')).join('');
+  const coach=coachHtml(S,total,g,hold,M),trust=trustHtml();
   $('result').innerHTML=`
     <div class="verdict"><div class="badge g-${hold?'H':g.g}">${hold?'!':g.g}</div>
       <div><div class="big">${hold?T.v_hold:F(T.grade_fmt,{g:g.g})}${!hold&&pay&&Number(PAY[g.g])>0?' · '+pay:''}</div>
       <div class="sub">${F(T.v_sub,{score:`<b class="num">${total}</b>`,x:hold?T.sub_hold:g.label})}</div>
       <div class="sub">${F(T.id_line,{id:`<code>${M.fp}</code>`,ver:RUBRIC_VER})}</div></div></div>
+    ${coach}
     <div class="flags">${flags.join('')}</div>
     <div class="tbl"><table><thead><tr><th></th><th>${T.th_item}</th><th class="c">${T.th_score}</th><th>${T.th_basis}</th></tr></thead>
       <tbody>${rows}<tr><td colspan="2"><b>${T.th_total}</b></td><td class="c num"><b>${total} / 100</b></td><td></td></tr></tbody></table></div>
-    <p class="status">${T.id_note}</p>`;
+    <p class="status">${T.id_note}</p>${trust}`;
   $('mbarText').innerHTML=hold?F(T.mbar_hold,{score:total}):F(T.mbar_g,{g:g.g,score:total});
   LAST={S,total,areaPts,g,hold,pay,fail,caps};
   scheduleSubmit();
@@ -583,6 +634,7 @@ function resultText(){
     ...[0,1,2,3,4].map(a=>`- ${T.area_n[a]}: ${areaPts[a]} / ${AREA_MAX[a]}`),
     ...S.filter(c=>c.pts<c.max).map(c=>`  · ${T.crit[c.id].n}: ${c.pts} / ${c.max} (${c.basis})`),
     ...fail.map(r=>F(T.rt_fail,{v:r.t})),...caps.map(c=>'- '+c),
+    ...nextLines(S,M,hold),
     T.rt_note].filter(Boolean).join('\n');
 }
 if(SUBMIT_URL)$('privacyPill').textContent=T.pill_submit;
