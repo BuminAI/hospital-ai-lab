@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-07T01:54:44.946Z",
+  "updatedAt": "2026-11-07T08:45:37.536Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "[Перевод] Знают ли модели ИИ, о чём они думают? Учёные пытаются это проверить",
+      "link": "https://habr.com/ru/articles/1104758/?utm_campaign=1104758&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-07T08:44:38.000Z"
+    },
+    {
+      "title": "E-commerce и финтех: готовы ли российские сервисы к интеграции с ИИ-агентами? Исследование 424 компаний и продуктов",
+      "link": "https://habr.com/ru/articles/1104816/?utm_campaign=1104816&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-07T08:12:00.000Z"
+    },
+    {
+      "title": "Как мы с локальной LLM легально победили жесткий антифрод и создали визуально-текстового DOM-агента в обход блокировок",
+      "link": "https://habr.com/ru/articles/1104808/?utm_campaign=1104808&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-07T07:46:28.000Z"
+    },
     {
       "title": "IPO на $1,5 трлн под угрозой: потенциальных инвесторов Anthropic напугал обвал акций IT-компаний",
       "link": "https://3dnews.ru/1150980/ipo-na-15-trln-pod-ugrozoy-potentsialnih-investorov-anthropic-napugal-obval-aktsiy-itkompaniy",
@@ -1783,24 +1801,6 @@
       "link": "https://habr.com/ru/articles/1090944/?utm_campaign=1090944&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-19T06:40:33.000Z"
-    },
-    {
-      "title": "Синтетическая эмпатия: как RAG, системные промпты и TTS инженерят привязанность к LLM-агентам",
-      "link": "https://habr.com/ru/articles/1095852/?utm_campaign=1095852&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-18T13:26:25.000Z"
-    },
-    {
-      "title": "DeepSeek обновила ИИ-модель V4.1-Flash — она стала быстрее и эффективнее",
-      "link": "https://3dnews.ru/1150101/deepseek-obnovila-iimodel-v41flash-ona-stala-bistree-i-effektivnee",
-      "source": "3DNews",
-      "pubDate": "2026-10-18T10:31:47.000Z"
-    },
-    {
-      "title": "ИИ не ускоряет разработчиков. Он увеличивает разрыв между ними",
-      "link": "https://habr.com/ru/articles/1095794/?utm_campaign=1095794&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-18T10:20:10.000Z"
     }
   ]
 }
