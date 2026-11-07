@@ -1,33 +1,9 @@
 {
-  "checkedAt": "2026-11-06T23:20:11.035Z",
+  "checkedAt": "2026-11-07T22:06:40.368Z",
   "total": 138,
-  "ok": 123,
-  "unknown": 15,
+  "ok": 135,
+  "unknown": 3,
   "unknownList": [
-    {
-      "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_anonymous/",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/all_faq_index/faq1-q14-17/",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/news/press/2026/260717/",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/files/pdf/260717_kaiseihounitsuite.pdf",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/all_faq_index/faq7-q2-4-1/",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/personalinfo/legal/r8kaiseihogohou/",
-      "status": 503
-    },
     {
       "url": "https://shirobon.net/doubt/r06/007-q023-00-00-i/",
       "status": 403
@@ -37,32 +13,8 @@
       "status": 503
     },
     {
-      "url": "https://www.ppc.go.jp/news/careful_information/230602_AI_utilize_alert/",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/files/pdf/230602_alert_generative_AI_service.pdf",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/personalinfo/legal/",
-      "status": 503
-    },
-    {
       "url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2781307",
       "status": 403
-    },
-    {
-      "url": "https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/all_faq_index/faq1-q14-1/",
-      "status": 503
-    },
-    {
-      "url": "https://www.ppc.go.jp/personalinfo/tokumeikakouInfo/",
-      "status": 503
     }
   ],
   "dead": []
