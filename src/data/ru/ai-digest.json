@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-06T14:14:46.986Z",
+  "updatedAt": "2026-11-07T01:54:44.946Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "IPO на $1,5 трлн под угрозой: потенциальных инвесторов Anthropic напугал обвал акций IT-компаний",
+      "link": "https://3dnews.ru/1150980/ipo-na-15-trln-pod-ugrozoy-potentsialnih-investorov-anthropic-napugal-obval-aktsiy-itkompaniy",
+      "source": "3DNews",
+      "pubDate": "2026-11-06T18:32:00.000Z"
+    },
+    {
+      "title": "Как мы построили платформу с нуля, а потом научили нейросети на ней работать",
+      "link": "https://habr.com/ru/companies/severstal/articles/1104690/?utm_campaign=1104690&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T15:15:28.000Z"
+    },
+    {
+      "title": "Большинство ИИ-агентов внутри одинаковые. Тогда в чём разница?",
+      "link": "https://habr.com/ru/companies/sberbank/articles/1104670/?utm_campaign=1104670&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-06T14:53:30.000Z"
+    },
     {
       "title": "Как я строил ИИ-обвязку рабочего места аналитика в IT-компании",
       "link": "https://habr.com/ru/articles/1104618/?utm_campaign=1104618&utm_source=habrahabr&utm_medium=rss",
@@ -21,7 +39,7 @@
       "pubDate": "2026-11-06T12:20:00.000Z"
     },
     {
-      "title": "Скелет для ИИ: почему BPM-платформа важнее модели",
+      "title": "Скелет для ИИ: почему BPM‑платформа важнее модели",
       "link": "https://habr.com/ru/companies/diasoft_company/articles/1104490/?utm_campaign=1104490&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-06T11:19:00.000Z"
@@ -1783,24 +1801,6 @@
       "link": "https://habr.com/ru/articles/1095794/?utm_campaign=1095794&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-18T10:20:10.000Z"
-    },
-    {
-      "title": "Я пустил ИИ-агента на рабочий кластер 1С. Он нашёл 119 ГБ srvinfo, бэкап-призрак и не нашёл тормозов",
-      "link": "https://habr.com/ru/articles/1095764/?utm_campaign=1095764&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-18T06:53:55.000Z"
-    },
-    {
-      "title": "Ни зарплат, ни отпусков, ни больничных. Зато есть User Story и Merge Request: как AI‑агенты работают у меня в Jira",
-      "link": "https://habr.com/ru/articles/1095690/?utm_campaign=1095690&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-17T16:36:51.000Z"
-    },
-    {
-      "title": "ИИ-агенту разрешили не больше 100 единиц. Три корректных ALLOW дали итог 120",
-      "link": "https://habr.com/ru/articles/1095622/?utm_campaign=1095622&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-17T16:06:26.000Z"
     }
   ]
 }
