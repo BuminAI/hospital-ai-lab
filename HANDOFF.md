@@ -716,6 +716,15 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - **GitHub 비로그인 API는 시간당 60회**(IP 기준). 초과하면 `gh_rate` 안내가 뜬다. 판 페이지에는 CSP 메타가 없어 막히지 않지만, 나중에 `src/utils/site.ts`의 CSP를 심사실에 적용하면 `connect-src`에 `api.github.com`(이미 있음)·`raw.githubusercontent.com`을 더해야 한다.
 - **수정 위치**: `scripts/ai-judge/template.html`(`Linked sources` 구역)·`style.css.part`(`.linkbox` 이하)·`lang/ux_links.py`·`build.py`(`UXL`). 생성물(`public/**/ai-judge/index.html`)은 직접 고치지 않는다.
 
+## 5-16. 2026-11-07 SEO/AEO/GEO 재점검 (오너 지시: 구글 SEO 전체 + AEO·GEO 다시)
+
+- **재측정**: Bing `site:` 결과에 이 도메인 0건(엉뚱한 도서관 사이트만 나옴), Brave는 429(우회 안 함), WebSearch '병원 AI 연구소 hospital-ai-lab.com'에는 GitHub 저장소만 나오고 사이트는 안 나옴 → **병목은 여전히 색인·외부 링크**(오너 몫: 서치 콘솔·Bing 웹마스터·네이버 수집 요청, 외부 프로필 링크). 사이트 안 장치는 그대로 천장.
+- **dist 전수 정적 분석**(일회성 스크립트, 미커밋): 제목·설명 중복 0, 캐노니컬·뷰포트·OG 이미지·JSON-LD 파싱 전부 정상, 글 BlogPosting 필드(headline·날짜·author·image·publisher·mainEntityOfPage·speakable 등) 전부 있음, 이미지 크기 속성 누락 0, 내부 링크 슬래시 일관, llms.txt·llms-full.txt 안 링크·앵커 죽은 것 0.
+- **실제로 찾은 구멍 하나 — 사이트맵 lastmod 누락**: 410개 URL 중 181개(44%)가 lastmod 없이 나갔다. 일본어·러시아어·인도네시아어·대만어·영어 글 약 150편, 5개 언어 시리즈, 점검표 상세, AI 심사실 6개 페이지. `src/utils/git-lastmod.mjs`가 한국어 글만 원본(.md)을 찾았기 때문. `/<언어>/blog/<slug>` → `src/content/blog-<언어>/<slug>.md`, 목록·카테고리 → 그 폴더, 시리즈 → `src/data/series.ts`, `/checklist/<slug>` → `src/data/checklists.ts`, AI 심사실 → `public/**/ai-judge/index.html` 매핑을 추가해 **전 URL lastmod 보유**로 만들었다(거짓 날짜 대신 git 실제 수정일).
+- **GEO**: AI 심사실 구조화 데이터(WebApplication)에 `featureList` 5개 항목 추가(6개 언어, 연결 링크 통합 심사 포함). `llms.txt`(루트 6개 절 + ru/id/tw/en)의 AI 심사실 줄에 'GitHub·Gist·웹 링크 코드도 함께 심사' 한 문장씩.
+- **서치 콘솔 실측(오너 제공, 2026-11-07 내보내기)**: 커버리지 — 구글 색인 279쪽(10-23 기준, 8/14 73쪽에서 꾸준히 증가), 미색인 36쪽(noindex 3·404 1·발견됨 19·크롤링됨 13; URL 목록은 미확인). 실적(최근 3개월, 11-04까지) — 클릭 204·노출 7,049·CTR 2.89%·평균 순위 7.7(1페이지권). 국가별 클릭 한국 107·일본 65(순위 9.8)·러시아 11·대만 9·인도네시아 5·미국 1(노출 1,338, CTR 0.07%). 최다 노출 검색어는 일본어 'ai 医療用語'(291)와 변형들, 최다 노출 페이지는 `/ja/glossary/`(756). 결론: **색인이 아니라 검색 수요(롱테일)와 클릭률이 한계**. 이에 맞춰 용어집 제목·설명을 검색어 어순('AI 医療用語', '의료 AI 용어·약어')에 맞춤. 노출이 큰 자동 목록(`/news/`·`/gov-support/`·`/youtube/`)은 순위 5~10인데 클릭 0~4 — 제목·설명은 이미 명확해 건드리지 않음.
+- 잡히지 않아도 되는 것: 구글·네이버 인증 파일(`/ja/googlefd…html`, `naver…html`)은 canonical·JSON-LD가 없는 게 정상(사이트맵 제외).
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

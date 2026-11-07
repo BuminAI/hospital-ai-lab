@@ -28,7 +28,7 @@
 - [블로그](https://hospital-ai-lab.com/blog/): 논문 리뷰, AI 도구, 칼럼, 소식
 - [추천 영상](https://hospital-ai-lab.com/youtube/)
 - [소개](https://hospital-ai-lab.com/about/): 운영자 이력과 연구 분야
-- [AI 프로그램 심사실](https://hospital-ai-lab.com/ai-judge/): 직접 만든 AI 업무 프로그램의 소스 코드를 올리면 안전·신뢰·사용성·유지보수·이식성 14개 항목을 자동 점검해 100점 만점과 S~C 등급을 알려 주는 무료 도구. 채점 규칙 전부 공개, 같은 코드는 같은 점수, 분석은 브라우저 안에서 진행
+- [AI 프로그램 심사실](https://hospital-ai-lab.com/ai-judge/): 직접 만든 AI 업무 프로그램의 소스 코드를 올리면 안전·신뢰·사용성·유지보수·이식성 14개 항목을 자동 점검해 100점 만점과 S~C 등급을 알려 주는 무료 도구. 채점 규칙 전부 공개, 같은 코드는 같은 점수, 분석은 브라우저 안에서 진행 GitHub 저장소·Gist·웹 페이지 링크의 코드도 업로드 파일과 함께 심사합니다.
 
 ## 일본어판 (https://hospital-ai-lab.com/ja/)
 
@@ -45,7 +45,7 @@
 - [患者さん向け](https://hospital-ai-lab.com/ja/patients/): AIに健康相談をする前に知っておきたいこと、病院でAIが使われるとき、マイナ保険証と医療情報ネット(一般情報・公的資料に基づく)
 - [更新情報](https://hospital-ai-lab.com/ja/updates/): 최근 45일간 일본어판에 추가된 뉴스·보조금·동영상·글(날짜는 실제 발행일·모집 시작일·추가일)
 - 인용 안내(일본어판): 각 해설 페이지 하단에 「出典と確認日」가 있고, 출처 링크는 매일 자동 확인해 푸터에 확인일을 표시합니다. 인용할 때는 페이지 URL과 확인일을 함께 적어 주세요. 「めど」「目指す」는 원문이 목표로 쓴 표현이라 확정이 아닙니다.
-- [AIプログラム審査室](https://hospital-ai-lab.com/ja/ai-judge/): 自作のAI業務プログラムのソースコードを14項目で自動点検し、100点満点とS〜C等級を示す無料ツール。採点規則はすべて公開、同じコードなら同じ点数
+- [AIプログラム審査室](https://hospital-ai-lab.com/ja/ai-judge/): 自作のAI業務プログラムのソースコードを14項目で自動点検し、100点満点とS〜C等級を示す無料ツール。採点規則はすべて公開、同じコードなら同じ点数 GitHubリポジトリ・Gist・ウェブページのリンク先コードもアップロードファイルと合わせて審査します。
 
 ## 러시아어판 (https://hospital-ai-lab.com/ru/)
 
@@ -58,7 +58,7 @@
 - [Серии статей](https://hospital-ai-lab.com/ru/series/): 발행한 글을 주제별 읽는 순서로 묶음(규제·등록, 데이터·보안, 러시아 현장 사례)
 - [Новости об ИИ](https://hospital-ai-lab.com/ru/news/): «Медвестник»과 Vademecum에서 자동 수집 (의료 AI 전용)
 - [ИИ-дайджест](https://hospital-ai-lab.com/ru/ai-digest/): Хабр·CNews·TAdviser·3DNews의 AI 기사 — 의료에 한정하지 않은 일반 동향. 하루 여러 번 갱신
-- [Экспертиза ИИ-программ](https://hospital-ai-lab.com/ru/ai-judge/): бесплатный инструмент — по исходному коду рабочей программы, созданной с ИИ, проверяет 14 пунктов и даёт балл из 100 и уровень S–C. Правила оценки открыты, одинаковый код — одинаковый балл
+- [Экспертиза ИИ-программ](https://hospital-ai-lab.com/ru/ai-judge/): бесплатный инструмент — по исходному коду рабочей программы, созданной с ИИ, проверяет 14 пунктов и даёт балл из 100 и уровень S–C. Правила оценки открыты, одинаковый код — одинаковый балл Код по ссылкам на GitHub, Gist и веб-страницы проверяется вместе с загруженными файлами.
 
 ## 영어판 (미국, https://hospital-ai-lab.com/en/)
 
@@ -67,7 +67,7 @@
 - 실무 가이드(`/en/dx-roadmap/`·`/en/data-checklist/`·`/en/documents-checklist/`·`/en/templates/`)·환자 코너(`/en/patients/`)·연방 관보 캘린더(`/en/calendar/`, HHS·FDA·CMS·FTC 신규 규칙 자동 수집)·갱신 정보(`/en/updates/`). 45 CFR 160·164·170·171·92의 eCFR 개정일을 매일 대조한다.
 - [홈](https://hospital-ai-lab.com/en/) · [Glossary](https://hospital-ai-lab.com/en/glossary/) · [FAQ](https://hospital-ai-lab.com/en/faq/) · [Checklist](https://hospital-ai-lab.com/en/checklist/)
 - [Article series](https://hospital-ai-lab.com/en/series/) · [AI news](https://hospital-ai-lab.com/en/news/): Fierce Healthcare·Healthcare Dive·Becker's Hospital Review에서 AI 관련 헤드라인 자동 수집 · [AI digest](https://hospital-ai-lab.com/en/ai-digest/)
-- [AI Program Review Room](https://hospital-ai-lab.com/en/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score
+- [AI Program Review Room](https://hospital-ai-lab.com/en/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score Code behind GitHub, Gist and web-page links is reviewed together with the uploaded files.
 
 ## 인도네시아어판 (https://hospital-ai-lab.com/id/)
 
@@ -81,7 +81,7 @@
 - [Pelatihan & Acara](https://hospital-ai-lab.com/id/events/): PERSI·Kemenkes·PORMIKI
 - 인도네시아어 전용 안내문: [llms.txt (Bahasa Indonesia)](https://hospital-ai-lab.com/id/llms.txt)
 - 실무 가이드(`/id/dx-roadmap/`·`/id/rme-checklist/`·`/id/cyber-checklist/`)·환자 코너(`/id/patients/`)·규정 캘린더(`/id/calendar/`, JDIH Kemenkes 신규 규정 자동 수집)·갱신 정보(`/id/updates/`). 근거 규정 4건(UU 17/2023·PP 28/2024·Permenkes 24/2022·Kepmenkes 951/2026)의 JDIH 효력 상태를 매일 대조한다.
-- [Ruang Penilaian Program AI](https://hospital-ai-lab.com/id/ai-judge/): alat gratis yang memeriksa 14 butir pada kode sumber program kerja buatan AI dan memberi nilai dari 100 serta tingkat S–C. Aturan penilaian terbuka, kode sama nilai sama
+- [Ruang Penilaian Program AI](https://hospital-ai-lab.com/id/ai-judge/): alat gratis yang memeriksa 14 butir pada kode sumber program kerja buatan AI dan memberi nilai dari 100 serta tingkat S–C. Aturan penilaian terbuka, kode sama nilai sama Kode dari tautan GitHub, Gist, dan halaman web ikut dinilai bersama berkas yang diunggah.
 
 ## 대만어판 / 정체 중국어 (https://hospital-ai-lab.com/tw/)
 
@@ -101,7 +101,7 @@
 - [患者專區](https://hospital-ai-lab.com/tw/patients/): 問 AI 健康問題之前, 醫院使用 AI 時病人可以知道的事, 健保卡·健康存摺(일반 정보·공적 자료 기반)
 - [更新資訊](https://hospital-ai-lab.com/tw/updates/): 최근 45일간 대만어판에 추가된 뉴스·공고·활동·영상·글(날짜는 실제 발행일·공고일·추가일)
 - 인용 안내(대만어판): 각 해설 페이지 하단에 「出處與查證日」가 있고, 출처 링크는 매일 자동 확인해 푸터에 확인일을 표시합니다. 인용할 때는 페이지 URL과 확인일을 함께 적어 주세요. 「報導」 표시 항목은 보도에 근거한 계획이며 공식 기한이 아닙니다.
-- [AI 程式評審室](https://hospital-ai-lab.com/tw/ai-judge/)：免費工具，上傳自製 AI 工作程式的原始碼，自動檢查 14 個項目並給出 100 分制分數與 S～C 等級。評分規則全部公開，相同程式碼得到相同分數
+- [AI 程式評審室](https://hospital-ai-lab.com/tw/ai-judge/)：免費工具，上傳自製 AI 工作程式的原始碼，自動檢查 14 個項目並給出 100 分制分數與 S～C 等級。評分規則全部公開，相同程式碼得到相同分數也會把 GitHub、Gist、網頁連結中的程式碼與上傳檔案一併評審。
 
 ## 인용할 때
 

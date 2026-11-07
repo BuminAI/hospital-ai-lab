@@ -141,6 +141,7 @@ def main():
                  'breadcrumb': {'@id': canon + '#breadcrumb'}, 'about': {'@id': SITE + '/#organization'}},
                 {'@type': 'WebApplication', '@id': canon + '#app', 'name': H['title'], 'url': canon, 'description': H['desc'],
                  'applicationCategory': 'BusinessApplication', 'operatingSystem': 'Any (web browser)', 'inLanguage': meta['in_language'],
+                 'featureList': UXL[code]['feat'],
                  'isAccessibleForFree': True, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'},
                  'isPartOf': {'@id': site_id}, 'publisher': {'@id': SITE + '/#organization'}, 'mainEntityOfPage': {'@id': canon + '#webpage'}},
                 {'@type': 'BreadcrumbList', '@id': canon + '#breadcrumb', 'itemListElement': [

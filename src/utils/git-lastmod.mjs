@@ -68,6 +68,24 @@ export function sourceFileForPath(pathname, base = '/') {
     if (existsSync(md)) return md;
   }
 
+  // 언어판 글: /ja/blog/<slug> → src/content/blog-ja/<slug>.md (ko는 위에서 처리). 2026-11-07 추가 —
+  // 이게 없어서 ja·ru·id·tw·en 글 약 150편이 사이트맵에서 lastmod 없이 나갔다.
+  const locBlog = path.match(/^\/(ja|ru|id|tw|en)\/blog\/([^/]+)$/);
+  if (locBlog && locBlog[2] !== 'category') {
+    const md = `src/content/blog-${locBlog[1]}/${locBlog[2]}.md`;
+    if (existsSync(md)) return md;
+  }
+  const locBlogList = path.match(/^\/(ja|ru|id|tw|en)\/blog(\/category(\/[^/]+)?)?$/);
+  if (locBlogList) return `src/content/blog-${locBlogList[1]}`;
+
+  // 연재 시리즈(목록·상세)는 시리즈 정의와 언어판 정의가 바뀔 때, 실무 점검표 상세는 점검표 데이터가 바뀔 때 달라진다.
+  if (/^(\/(ja|ru|id|tw|en))?\/series(\/[^/]+)?$/.test(path)) return 'src/data/series.ts';
+  if (/^\/checklist\/[^/]+$/.test(path)) return 'src/data/checklists.ts';
+
+  // 생성되는 AI 심사실 페이지(public/**/ai-judge/index.html)
+  const judge = path.match(/^(\/(ja|ru|id|tw|en))?\/ai-judge$/);
+  if (judge) return `public${judge[1] || ''}/ai-judge/index.html`;
+
   const dynamic = DYNAMIC_ROUTE_SOURCES.find((r) => r.pattern.test(path));
   if (dynamic) return dynamic.file;
 

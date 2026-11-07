@@ -7,6 +7,7 @@ UXL = {}
 
 # ═══════════════════════ 한국어 ═══════════════════════
 UXL['ko'] = dict(
+ feat=["14개 항목(안전성·신뢰성·사용성·유지보수성·이식성)을 자동 점검해 100점 만점과 S·A·B·C 등급 제공", "채점 규칙 전부 공개, 같은 코드는 항상 같은 점수", "GitHub 저장소·Gist·웹 페이지에서 읽은 코드를 업로드 파일과 함께 통합 심사", "링크가 막혔을 때 원인별 해제 방법 안내", "브라우저 안에서 분석(동의 전에는 서버로 전송하지 않음), 무료"],
  page=dict(
   link_title="연결된 링크도 함께 심사 (선택)",
   link_hint="프로그램이 GitHub 저장소나 구글 앱스크립트 웹앱 등과 이어져 있다면 주소를 붙여 넣으세요. 업로드한 파일과 합쳐 하나의 프로그램으로 심사합니다.",
@@ -40,6 +41,7 @@ UXL['ko'] = dict(
 
 # ═══════════════════════ English ═══════════════════════
 UXL['en'] = dict(
+ feat=["Checks 14 items (safety, reliability, usability, maintainability, portability) and gives a score out of 100 and a grade from S to C", "All scoring rules are public; the same code always gets the same score", "Reviews code read from GitHub repositories, Gists and web pages together with the uploaded files", "Explains how to unblock a link that cannot be read, by cause", "Runs in the browser (nothing is sent to a server before consent); free"],
  page=dict(
   link_title="Review linked sources too (optional)",
   link_hint="If your program is tied to a GitHub repository, a Google Apps Script web app or similar, paste the addresses. They are reviewed together with your uploaded files as one program.",
@@ -73,6 +75,7 @@ UXL['en'] = dict(
 
 # ═══════════════════════ 日本語 ═══════════════════════
 UXL['ja'] = dict(
+ feat=["14項目（安全性・信頼性・使いやすさ・保守性・移植性）を自動点検し、100点満点とS〜C等級を表示", "採点規則はすべて公開、同じコードは常に同じ点数", "GitHubリポジトリ・Gist・ウェブページから読み込んだコードをアップロードファイルと合わせて審査", "リンクが読めないときは原因別に解除方法を案内", "ブラウザ内で分析（同意前はサーバーへ送信しません）、無料"],
  page=dict(
   link_title="連携しているリンクも一緒に審査（任意）",
   link_hint="プログラムがGitHubリポジトリやGoogle Apps Scriptのウェブアプリなどとつながっている場合は、アドレスを貼り付けてください。アップロードしたファイルと合わせて、一つのプログラムとして審査します。",
@@ -106,6 +109,7 @@ UXL['ja'] = dict(
 
 # ═══════════════════════ Русский ═══════════════════════
 UXL['ru'] = dict(
+ feat=["Проверяет 14 пунктов (безопасность, надёжность, удобство, сопровождаемость, переносимость) и выставляет балл из 100 и уровень от S до C", "Все правила оценки открыты, один и тот же код всегда получает один и тот же балл", "Проверяет вместе с загруженными файлами код, прочитанный из репозиториев GitHub, Gist и веб-страниц", "Если ссылку не удалось прочитать, объясняет по причине, как снять блокировку", "Работает в браузере (до согласия ничего не отправляется на сервер), бесплатно"],
  page=dict(
   link_title="Проверить и связанные источники (необязательно)",
   link_hint="Если программа связана с репозиторием GitHub, веб-приложением Google Apps Script и т. п., вставьте адреса. Они проверяются вместе с загруженными файлами как одна программа.",
@@ -139,6 +143,7 @@ UXL['ru'] = dict(
 
 # ═══════════════════════ Bahasa Indonesia ═══════════════════════
 UXL['id'] = dict(
+ feat=["Memeriksa 14 butir (keamanan, keandalan, kemudahan pakai, kemudahan perawatan, portabilitas) dan memberi nilai dari 100 serta tingkat S–C", "Semua aturan penilaian terbuka; kode yang sama selalu mendapat nilai yang sama", "Menilai kode dari repositori GitHub, Gist, dan halaman web bersama berkas yang diunggah", "Menjelaskan cara membuka tautan yang tidak bisa dibaca, menurut penyebabnya", "Berjalan di peramban (tidak ada yang dikirim ke server sebelum persetujuan), gratis"],
  page=dict(
   link_title="Nilai juga sumber yang tertaut (opsional)",
   link_hint="Jika program Anda terhubung ke repositori GitHub, aplikasi web Google Apps Script, atau sejenisnya, tempelkan alamatnya. Semuanya dinilai bersama berkas yang diunggah sebagai satu program.",
@@ -172,6 +177,7 @@ UXL['id'] = dict(
 
 # ═══════════════════════ 繁體中文 ═══════════════════════
 UXL['tw'] = dict(
+ feat=["自動檢查 14 個項目（安全性、可靠性、易用性、可維護性、可移植性），給出 100 分制分數與 S～C 等級", "評分規則全部公開，相同程式碼一定得到相同分數", "將從 GitHub 儲存庫、Gist、網頁讀取的程式碼與上傳檔案合併評審", "連結讀取不到時，依原因說明如何解除阻擋", "在瀏覽器內分析（同意前不會傳送到伺服器），免費"],
  page=dict(
   link_title="連結的來源也一併評審（選填）",
   link_hint="如果您的程式連到 GitHub 儲存庫、Google Apps Script 網頁應用程式等，請貼上網址。它們會與您上傳的檔案合在一起，當作一個程式來評審。",
