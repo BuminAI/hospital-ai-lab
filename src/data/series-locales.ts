@@ -38,6 +38,32 @@ export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
       ],
     },
   ],
+  in: [
+    {
+      slug: 'device-status',
+      title: 'CDSCO status and software as a device',
+      description:
+        'Is AI software a medical device under the Medical Devices Rules? Which hospital systems are not, and what a vendor should tell you about model updates.',
+      checklist: { href: '/in/checklist/', label: 'AI adoption review checklist' },
+      postIds: [
+        '2026-11-07-is-your-hospital-ai-a-medical-device-cdsco',
+        '2026-11-07-hospital-information-systems-not-medical-devices-cdsco',
+        '2026-11-07-ai-model-updates-algorithm-change-protocol-cdsco',
+      ],
+    },
+    {
+      slug: 'data-and-ethics',
+      title: 'Patient data and ethics',
+      description:
+        'What the DPDP Act asks before a patient consents, why the hospital stays responsible for an AI vendor, and what ICMR’s AI principles mean in a proposal.',
+      checklist: { href: '/in/data-checklist/', label: 'Patient data protection checklist' },
+      postIds: [
+        '2026-11-07-dpdp-act-consent-notice-hospital',
+        '2026-11-07-dpdp-act-ai-vendor-processes-patient-data',
+        '2026-11-07-icmr-ai-guidelines-ten-principles-for-administrators',
+      ],
+    },
+  ],
   ja: [
     {
       slug: 'ai-devices-and-rules',

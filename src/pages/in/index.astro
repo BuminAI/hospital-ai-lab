@@ -1,0 +1,303 @@
+---
+// Home page of the English edition for India (2026-11-07; cloned from the U.S. edition, same structure as the other editions)
+//
+// Structure (top to bottom):
+//   1) Hero: one-sentence promise + two actions + "Latest updates" on the right (proof that the site is alive)
+//   2) Row of trust figures: only real data, nothing invented
+//   3) "When you face this": six entry points by task
+//   4) Updates, new CDSCO device notices, featured articles, series
+//   5) Principles, library, FAQ, about the site
+// ⚠️ The author's years of experience are not written in the home text or the meta description (the sidebar profile stays as is).
+// ⚠️ Figures are computed from the data, or are facts already on the site.
+import '../../styles/in-home.css';
+import { getCollection } from 'astro:content';
+import InLayout from '../../layouts/InLayout.astro';
+import en from '../../i18n/in.json';
+import notices from '../../data/in/gov-notices.json';
+import newsData from '../../data/in/news.json';
+import linkHealth from '../../data/in/link-health.json';
+import HomeSeries from '../../components/HomeSeries.astro';
+import { withBase } from '../../utils/site';
+import { getResolvedSeries } from '../../utils/series';
+import { getEnUpdates, KIND_LABEL } from '../../utils/in-updates';
+
+const updated = notices.updatedAt ? new Date(notices.updatedAt) : undefined;
+const fmtMD = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'numeric' });
+const fmtYMD = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', year: 'numeric', month: 'long', day: 'numeric' });
+const short = (t: string, n = 150) => (t.length > n ? t.slice(0, n).replace(/\s+\S*$/, '') + '…' : t);
+
+const posts = (await getCollection('blogIn', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featured = posts.slice(0, 4);
+
+const feed = await getEnUpdates(30);
+const heroFeed = feed.slice(0, 4);
+const newsFeed = feed.slice(0, 8);
+const weekly = feed.filter((u) => Date.now() - new Date(u.date).getTime() <= 7 * 86400000);
+const weeklyCount = (k: 'news' | 'notice' | 'event' | 'video' | 'blog') => weekly.filter((u) => u.kind === k).length;
+
+// New device-related CDSCO notices (newest first)
+const topNotices = notices.items.slice(0, 5);
+
+// Trust figures (all from real data)
+const stats = [
+  { n: posts.length, unit: '', label: 'Published articles', href: '/in/blog/' },
+  { n: linkHealth.total, unit: '', label: 'Source links checked daily', href: '/in/updates/' },
+  { n: notices.items.length, unit: '', label: 'CDSCO device notices in the feed', href: '/in/calendar/' },
+  { n: newsData.items.length, unit: '', label: 'AI news headlines (checked several times a day)', href: '/in/news/' },
+];
+const checkedDay = linkHealth.checkedAt ? fmtYMD.format(new Date(linkHealth.checkedAt)) : '';
+
+const tasks = [
+  { q: 'Which dates should I know?', t: 'Roadmap: CDSCO, DPDP Act and ICMR', d: 'The Medical Devices Rules, the DPDP Act, CDSCO’s software guidance and ICMR’s AI guidelines on one timeline.', href: '/in/dx-roadmap/' },
+  { q: 'What did the regulator publish lately?', t: 'Calendar: new CDSCO device notices', d: 'New medical-device and software notices from CDSCO’s public-notices page, automatically.', href: '/in/calendar/' },
+  { q: 'A vendor offers software or AI?', t: 'Checklist: device status and AI vendors', d: 'Is it a medical device, which class, which permission, what happens at updates, with sections.', href: '/in/documents-checklist/' },
+  { q: 'Is patient data protected?', t: 'Patient data protection checklist', d: 'Items from the DPDP Act, by section: notice, consent, vendors, security and breaches.', href: '/in/data-checklist/' },
+  { q: 'Before adopting AI', t: 'Templates: policy and 21 vendor questions', d: 'Drafts you can copy and adapt when a proposal arrives.', href: '/in/templates/' },
+  { q: 'For patients and families', t: 'For patients', d: 'Before asking an AI about your health, what to know when a hospital uses AI, and about your records.', href: '/in/patients/' },
+];
+
+const promises = [
+  { t: 'Based on primary sources', d: 'We write only what comes from official documents that were opened and read (CDSCO, the Gazette of India text of the DPDP Act, ICMR), with links.' },
+  { t: 'The date checked is visible', d: 'At the bottom of every practice and patient page: “Sources and date checked.” Rules change, so the date is required.' },
+  { t: 'Source links are checked daily', d: `The English edition has ${linkHealth.total} external links; they are checked automatically every day, and ${linkHealth.dead.length} are not found (404/410)${checkedDay ? ` (${checkedDay})` : ''}.` },
+  { t: 'No recommendations of particular products or hospitals', d: 'We look at whether something can be used in your hospital and on what basis, not at brands or a push to adopt quickly.' },
+];
+
+const library = [
+  { t: en.nav.guide, d: en.home.guideDesc, href: '/in/guide/' },
+  { t: en.nav.glossary, d: en.home.glossaryDesc, href: '/in/glossary/' },
+  { t: en.nav.faq, d: en.home.faqDesc, href: '/in/faq/' },
+  { t: en.nav.checklist, d: en.home.checklistDesc, href: '/in/checklist/' },
+  { t: en.nav.tips, d: 'Practical tips for working with AI services in a hospital.', href: '/in/tips/' },
+  { t: en.nav.videos, d: 'A selection of videos about AI in health care.', href: '/in/videos/' },
+];
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/in/')}`;
+const homeFaqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#home-faq`,
+  url: pageUrl,
+  inLanguage: 'en-IN',
+  isPartOf: { '@id': `${siteRoot}/#website-in` },
+  mainEntity: en.home.homeFaq.map((f, i) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#home-q${i + 1}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const homeSeries = (await getResolvedSeries('in'))
+  .slice()
+  .sort((a, b) => b.posts.length - a.posts.length)
+  .slice(0, 3);
+---
+
+<InLayout
+  title={en.home.metaTitle}
+  description={en.home.metaDescription}
+  koPath="/"
+  twPath="/tw/"
+  enPath="/en/"
+  jaPath="/ja/"
+  idPath="/id/"
+  ruPath="/ru/"
+  updated={updated}
+  schema={[homeFaqLd]}
+>
+  <Fragment slot="hero">
+    <section class="th-hero">
+      <div class="th-hero-inner">
+        <div class="th-hero-copy">
+          <p class="th-eyebrow">Medical devices, patient data and AI — for administration and nursing</p>
+          <h1>The decision to adopt AI in a hospital —<br />read from Indian rules and primary sources.</h1>
+          <p class="th-lead">
+            Is the product a medical device, on what basis may patient data be used, where does it go, and who must be told of a breach. Collected from CDSCO documents, the Gazette text of the DPDP Act and ICMR guidelines; each item gives its section and the date checked.
+          </p>
+          <p class="th-cta">
+            <a class="th-btn th-btn-main" href={withBase('/in/dx-roadmap/')}>Roadmap</a>
+            <a class="th-btn th-btn-sub" href={withBase('/in/calendar/')}>New CDSCO notices</a>
+          </p>
+        </div>
+        <aside class="th-hero-card" aria-labelledby="th-live-h">
+          <h2 id="th-live-h"><span class="th-dot" aria-hidden="true"></span>Latest updates</h2>
+          <ul>
+            {heroFeed.map((it) => (
+              <li>
+                <time datetime={it.date}>{fmtMD.format(new Date(it.date))}</time>
+                <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only">({en.ui.external})</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="th-hero-more" href={withBase('/in/updates/')}>All updates →</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="th-stats" aria-label="Site status">
+      <ul>
+        {
+          stats.map((s) => (
+            <li>
+              <a href={withBase(s.href)}>
+                <span class="th-num">{s.n.toLocaleString('id-ID')}<small>{s.unit}</small></span>
+                <span class="th-lab">{s.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </Fragment>
+
+  <section class="th-sec" aria-labelledby="th-tasks-h">
+    <h2 class="th-h" id="th-tasks-h"><span>When you face this</span><small>BY PURPOSE</small></h2>
+    <div class="th-tasks">
+      {
+        tasks.map((x) => (
+          <a class="th-task" href={withBase(x.href)}>
+            <span class="th-task-q">{x.q}</span>
+            <span class="th-task-t">{x.t}</span>
+            <span class="th-task-d">{x.d}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-feed-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-feed-h"><span>Updates</span><small>WHAT'S NEW</small></h2>
+      <a class="th-more" href={withBase('/in/updates/')}>See all →</a>
+    </div>
+    <p class="th-note">
+      Last 7 days: {KIND_LABEL.news} {weeklyCount('news')} · {KIND_LABEL.notice} {weeklyCount('notice')} · {KIND_LABEL.event} {weeklyCount('event')} · {KIND_LABEL.video} {weeklyCount('video')}
+    </p>
+    <ul class="th-feed">
+      {
+        newsFeed.map((it) => (
+          <li>
+            <time datetime={it.date}>{fmtYMD.format(new Date(it.date))}</time>
+            <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+            <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+              {it.title}
+              {it.external && <span class="sr-only">({en.ui.external})</span>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-gov-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-gov-h"><span>New CDSCO notices on medical devices</span><small>REGULATOR NOTICES</small></h2>
+      <a class="th-more" href={withBase('/in/calendar/')}>See all →</a>
+    </div>
+    <p class="th-note">The date is the release date shown on CDSCO’s page, not a deadline. Read the notice itself for its content and effect; the list keeps notices whose title mentions medical devices, diagnostics, software or AI.</p>
+    <ul class="th-feed th-feed-sub">
+      {
+        topNotices.map((n) => (
+          <li>
+            <time datetime={n.pubDate}>{fmtYMD.format(new Date(n.pubDate))}</time>
+            <span class="th-chip th-chip-gov">{n.kind}</span>
+            <a href={n.link} target="_blank" rel="noopener">
+              {short(n.title)}
+              <span class="sr-only">({en.ui.external})</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-posts-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-posts-h"><span>Featured articles</span><small>ARTICLES</small></h2>
+      <a class="th-more" href={withBase('/in/blog/')}>All articles →</a>
+    </div>
+    <div class="th-posts">
+      {
+        featured.map((p) => (
+          <article class="th-post">
+            <p class="th-post-meta">
+              <span class="th-chip">{p.data.category}</span>
+              <time datetime={p.data.pubDate.toISOString()}>{fmtYMD.format(p.data.pubDate)}</time>
+            </p>
+            <h3><a href={withBase(`/in/blog/${p.id}/`)}>{p.data.title}</a></h3>
+            <p class="th-post-d">{p.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <HomeSeries loc="in" list={homeSeries} />
+
+  <section class="th-sec th-promise" aria-labelledby="th-promise-h">
+    <h2 class="th-h" id="th-promise-h"><span>Our principles</span><small>OUR PRINCIPLES</small></h2>
+    <ul>
+      {
+        promises.map((x, i) => (
+          <li>
+            <span class="th-no">{i + 1}</span>
+            <div>
+              <strong>{x.t}</strong>
+              <p>{x.d}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="th-note"><a href={withBase('/in/about/#principles')}>How material is written and checked →</a></p>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-lib-h">
+    <h2 class="th-h" id="th-lib-h"><span>Learning materials and reference</span><small>LIBRARY</small></h2>
+    <ul class="th-lib">
+      {
+        library.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.t}</strong>
+              <span>{x.d}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-faq-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-faq-h"><span>{en.home.homeFaqTitle}</span><small>ABOUT THIS SITE</small></h2>
+      <a class="th-more" href={withBase('/in/faq/')}>{en.home.homeFaqMore}</a>
+    </div>
+    <dl class="th-faq">
+      {
+        en.home.homeFaq.map((f) => (
+          <>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-intro-h">
+    <h2 class="th-h" id="th-intro-h"><span>{en.home.introTitle}</span><small>ABOUT</small></h2>
+    <p>{en.home.introBody}</p>
+    <div class="en-note">
+      <p><strong>{en.home.koNoticeTitle}</strong></p>
+      <p style="margin-top:6px">{en.home.koNoticeBody}</p>
+      <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{en.ui.langKo} →</a></p>
+    </div>
+  </section>
+</InLayout>

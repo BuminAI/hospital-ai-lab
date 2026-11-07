@@ -208,3 +208,7 @@ UXL['tw'] = dict(
   web_status=dict(t="頁面沒有正常回應", s=["請在瀏覽器新分頁直接開啟網址，確認是否正確。", "需要登入的頁面無法讀取，請貼上公開的網址。", "伺服器可能暫時停止，請稍後再試著加入。"]),
   net_fail=dict(t="無法連線", s=["請確認網址拼字，以及是否以 https:// 開頭。", "請檢查網路連線、廣告阻擋程式與公司的資安網路。", "若仍然不行，請把原始碼用 ZIP 上傳。"]))
 )
+
+# English (India) edition: same wording as the U.S. edition (2026-11-07)
+import copy
+UXL['in'] = copy.deepcopy(UXL['en'])

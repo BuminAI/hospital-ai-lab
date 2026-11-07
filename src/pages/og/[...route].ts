@@ -40,6 +40,7 @@ const posts = await getCollection('blog', ({ data }) => !data.draft);
 const ruPosts = await getCollection('blogRu', ({ data }) => !data.draft);
 const idPosts = await getCollection('blogId', ({ data }) => !data.draft);
 const enPosts = await getCollection('blogEn', ({ data }) => !data.draft);
+const inPosts = await getCollection('blogIn', ({ data }) => !data.draft);
 
 const entry = (post: { id: string; data: { title: string; description: string } }) => [
   post.id,
@@ -51,6 +52,7 @@ const pages = Object.fromEntries([
   ...ruPosts.map((post) => [`ru/${post.id}`, { title: post.data.title, description: post.data.description }] as const),
   ...idPosts.map((post) => [`id/${post.id}`, { title: post.data.title, description: post.data.description }] as const),
   ...enPosts.map((post) => [`en/${post.id}`, { title: post.data.title, description: post.data.description }] as const),
+  ...inPosts.map((post) => [`in/${post.id}`, { title: post.data.title, description: post.data.description }] as const),
 ]);
 
 // ⚠️ (5) `OGImageRoute`는 async 함수라 **await가 필수**다.

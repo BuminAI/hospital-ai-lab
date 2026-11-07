@@ -14,7 +14,7 @@ const list = await getResolvedSeries('ja');
   title="病院AIの連載シリーズ：制度・データ・補助金をテーマ別に"
   description={seriesIndexDescription('ja')}
   crumb={growth.ja.seriesName}
-  enPath="/en/series/" koPath="/series/" ruPath="/ru/series/" idPath="/id/series/" twPath="/tw/series/"
+  enPath="/en/series/" inPath="/in/series/" koPath="/series/" ruPath="/ru/series/" idPath="/id/series/" twPath="/tw/series/"
   schema={[seriesIndexSchema('ja', list, Astro.site)]}
 >
   <SeriesIndexView loc="ja" list={list} />

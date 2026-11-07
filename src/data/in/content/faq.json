@@ -1,0 +1,67 @@
+[
+  {
+    "question": "Does every AI tool a hospital buys need a CDSCO licence?",
+    "answer": "No. It depends on whether the software meets the definition of a medical device in the Medical Devices Rules, 2017. CDSCO’s Guidance Document on Medical Device Software treats AI/ML-based and cloud-based software that meets that definition as Medical Device Software. It lists examples that are not, such as hospital or clinical information systems used only for admission, scheduling, billing and similar functions. What decides it is the intended use the manufacturer states. The guidance says it is for public awareness and not for legal use, so for a real decision read the Rules and ask the vendor in writing.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf",
+      "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf"
+    ]
+  },
+  {
+    "question": "How are AI software risk classes decided?",
+    "answer": "Rule 4 of the Medical Devices Rules, 2017 sets four classes, A (low risk), B (low moderate), C (moderate high) and D (high risk), on the parameters in Part I of the First Schedule. CDSCO’s guidance says the class of Medical Device Software is fundamentally based on its intended use and the applicable rules in the First Schedule.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
+      "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf"
+    ]
+  },
+  {
+    "question": "What should we ask a vendor about updates to an AI model?",
+    "answer": "CDSCO’s guidance describes an Algorithm Change Protocol that “may be devised, wherever applicable”. It can include a data management plan, a performance evaluation and monitoring plan, an algorithm retraining plan, a software update plan that covers how updates are communicated to users, and a rollback plan. Ask whether the vendor has one, what changes it covers, and how you will be told before a change reaches your wards.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf"
+    ]
+  },
+  {
+    "question": "What does the DPDP Act require before we ask a patient for consent?",
+    "answer": "A notice must accompany or precede the request for consent. It says which personal data will be processed and why, how the person can exercise their rights, and how to complain to the Data Protection Board. The consent must be free, specific, informed, unconditional and unambiguous, and limited to the data necessary for the stated purpose. The notice and the consent request must be available in English or any Eighth Schedule language (sections 5 and 6).",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "question": "Can we use patient data without consent in an emergency?",
+    "answer": "Section 7 of the DPDP Act lists legitimate uses that do not rest on consent. They include responding to a medical emergency involving a threat to life or an immediate threat to health, and taking measures to provide treatment or health services during an epidemic, outbreak or other public-health threat.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "question": "Are we responsible when an AI vendor processes our patient data?",
+    "answer": "Yes. The data fiduciary is responsible for complying with the Act for processing it does, or that a data processor does on its behalf, irrespective of any agreement to the contrary. A processor may be engaged only under a valid contract (section 8(1) and 8(2)). Section 8(5) also requires reasonable security safeguards to prevent a personal data breach, including for processors, and the Schedule sets a penalty that may extend to two hundred and fifty crore rupees for failing it.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "question": "Who must be told about a data breach?",
+    "answer": "The Data Protection Board and each affected person (section 8(6)). The Act leaves the form and manner to the Rules. We could not open the Rules from this site’s systems, so we do not state a deadline; check the current notifications at the Ministry of Electronics and IT.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "question": "Is the DPDP Act already in force?",
+    "answer": "Section 1(2) says it comes into force on the date the Central Government appoints by notification, and different dates may be appointed for different provisions. The Act’s text alone therefore does not tell you a start date. We could not read the notifications, so we do not state one; check the Ministry of Electronics and IT before planning around a date.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "question": "Is there Indian guidance on the ethics of AI in healthcare?",
+    "answer": "Yes. The DHR-ICMR Artificial Intelligence Cell published Ethical Guidelines for Application of Artificial Intelligence in Biomedical Research and Healthcare in 2023. They list ten principles, from autonomy and safety to accountability, data privacy, fairness and validity, and add guiding principles for development, validation and deployment, an ethical review procedure, informed consent and an ethics checklist. They are ethical guidelines; this site treats them as guidance, not as a statute.",
+    "sources": [
+      "https://www.icmr.gov.in/icmrobject/uploads/Guidelines/1724842648_ethical_guidelines_application_artificial_intelligence_biomed_rsrch_2023.pdf"
+    ]
+  }
+]

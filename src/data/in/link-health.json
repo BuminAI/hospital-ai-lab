@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-07T14:40:38.376Z",
+  "total": 12,
+  "ok": 7,
+  "unknown": 5,
+  "unknownList": [
+    {
+      "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
+      "status": 0
+    },
+    {
+      "url": "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf",
+      "status": 0
+    },
+    {
+      "url": "https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notices/",
+      "status": 0
+    },
+    {
+      "url": "https://cdsco.gov.in/opencms/opencms/en/Medical-Device-Diagnostics/",
+      "status": 0
+    },
+    {
+      "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadPublic_NoticesFiles/Draft%20guidance%20document%20on%20Medical%20Device%20Software%2021%2010%202025.pdf",
+      "status": 0
+    }
+  ],
+  "dead": []
+}

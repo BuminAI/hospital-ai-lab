@@ -1,0 +1,40 @@
+{
+  "_comment": "English edition (India) learning resources. Hand-checked: each URL was opened on 2026-11-07. This is a list of standing official resources, not a calendar of events.",
+  "meta": {
+    "title": "Learning resources for hospital AI governance in India",
+    "description": "Official guidance and consultation pages from CDSCO and ICMR that hospital administrators and compliance teams use to learn about AI and data protection.",
+    "pageTitle": "Learning resources",
+    "lead": "There is no single official events calendar for hospital AI. Here are standing resources from official sources, each opened and checked."
+  },
+  "notice": "Standing resources, not scheduled events. Check each page for what it currently offers.",
+  "checkedAt": "2026-11-07",
+  "items": [
+    {
+      "name": "CDSCO public notices (consultations)",
+      "org": "CDSCO",
+      "url": "https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notices/",
+      "body": "Draft guidance documents appear here for stakeholder comments. Reading a draft before it is final is a way to see where requirements are heading.",
+      "audience": "Compliance, procurement and clinical engineering staff.",
+      "sourceUrl": "https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notices/",
+      "sourceLabel": "CDSCO public notices (consultations)"
+    },
+    {
+      "name": "ICMR guidelines",
+      "org": "ICMR",
+      "url": "https://www.icmr.gov.in/guidelines",
+      "body": "Ethics guidance including the 2023 guidelines on AI in biomedical research and healthcare, whose Section 5 covers governance and which end with an ethics checklist (the guidelines page lists the document).",
+      "audience": "Ethics committees and quality staff.",
+      "sourceUrl": "https://www.icmr.gov.in/guidelines",
+      "sourceLabel": "ICMR guidelines"
+    },
+    {
+      "name": "Medical Devices Rules, 2017",
+      "org": "CDSCO",
+      "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
+      "body": "The full text of the Rules, the legal basis for how medical devices, including software, are classified and licensed.",
+      "audience": "Compliance and legal staff.",
+      "sourceUrl": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
+      "sourceLabel": "Medical Devices Rules, 2017"
+    }
+  ]
+}
