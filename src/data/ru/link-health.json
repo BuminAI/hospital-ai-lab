@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-06T23:34:59.587Z",
+  "checkedAt": "2026-11-07T22:22:32.662Z",
   "total": 98,
-  "ok": 85,
-  "unknown": 13,
+  "ok": 84,
+  "unknown": 14,
   "unknownList": [
     {
       "url": "https://www.vademec.ru/news/2026/08/18/moskovskaya-oblast-zakupit-superkompyutery-dlya-uskoreniya-raboty-meditsinskikh-ii/",
@@ -54,6 +54,10 @@
     },
     {
       "url": "https://www.vademec.ru/news/2026/10/26/meta-analiz-kontrol-vracha-za-klinicheskim-ii-ne-garantiruet-bezopasnost/",
+      "status": 0
+    },
+    {
+      "url": "https://minzdrav.gov.ru/",
       "status": 0
     }
   ],
