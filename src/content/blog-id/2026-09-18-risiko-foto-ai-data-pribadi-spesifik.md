@@ -1,5 +1,5 @@
 ---
-title: "Risiko Privasi Saat Staf Kirim Foto ke AI: Ini Kata UU PDP"
+title: "Staf Kirim Foto Wajah ke AI? Data Spesifik Menurut UU PDP"
 description: "Sebuah foto bisa memuat data pribadi lebih dari yang terlihat. UU PDP menggolongkan gambar wajah sebagai data biometrik spesifik yang dilindungi ketat."
 pubDate: 2026-09-18
 category: "Alat AI"

@@ -1,5 +1,5 @@
 ---
-title: "Kepmenkes 951/2026: Izin Edar Perangkat Lunak Medis dan AI"
+title: "Izin edar AI medis: Kepmenkes 951/2026 dan yang dicek RS"
 description: "Kemenkes menetapkan pedoman izin edar alat kesehatan berbasis perangkat lunak, termasuk AI, pada 7 September 2026. Apa yang perlu dicek RS?"
 pubDate: 2026-10-20
 category: "Kabar"
