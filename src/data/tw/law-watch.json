@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-06T23:17:05.769Z",
-  "readOk": 10,
+  "checkedAt": "2026-11-07T21:59:35.476Z",
+  "readOk": 11,
   "total": 11,
   "laws": [
     {
@@ -9,8 +9,8 @@
       "baseline": "2025-11-11",
       "current": "2025-11-11",
       "changed": false,
-      "lastRead": "2026-11-05T23:43:04.826Z",
-      "error": "fetch failed"
+      "lastRead": "2026-11-07T21:59:19.713Z",
+      "error": null
     },
     {
       "pcode": "L0020121",
@@ -18,7 +18,7 @@
       "baseline": "2022-07-18",
       "current": "2022-07-18",
       "changed": false,
-      "lastRead": "2026-11-06T23:16:50.021Z",
+      "lastRead": "2026-11-07T21:59:21.064Z",
       "error": null
     },
     {
@@ -27,7 +27,7 @@
       "baseline": "2020-01-15",
       "current": "2020-01-15",
       "changed": false,
-      "lastRead": "2026-11-06T23:16:52.175Z",
+      "lastRead": "2026-11-07T21:59:23.159Z",
       "error": null
     },
     {
@@ -36,7 +36,7 @@
       "baseline": "2023-08-22",
       "current": "2023-08-22",
       "changed": false,
-      "lastRead": "2026-11-06T23:16:53.528Z",
+      "lastRead": "2026-11-07T21:59:24.368Z",
       "error": null
     },
     {
@@ -45,7 +45,7 @@
       "baseline": "2026-09-23",
       "current": "2026-09-23",
       "changed": false,
-      "lastRead": "2026-11-06T23:16:56.021Z",
+      "lastRead": "2026-11-07T21:59:26.556Z",
       "error": null
     },
     {
@@ -54,7 +54,7 @@
       "baseline": "2024-01-22",
       "current": "2024-01-22",
       "changed": false,
-      "lastRead": "2026-11-06T23:16:57.452Z",
+      "lastRead": "2026-11-07T21:59:27.841Z",
       "error": null
     },
     {
@@ -63,7 +63,7 @@
       "baseline": "2022-06-22",
       "current": "2022-06-22",
       "changed": false,
-      "lastRead": "2026-11-06T23:16:59.013Z",
+      "lastRead": "2026-11-07T21:59:29.389Z",
       "error": null
     },
     {
@@ -72,7 +72,7 @@
       "baseline": "2025-09-24",
       "current": "2025-09-24",
       "changed": false,
-      "lastRead": "2026-11-06T23:17:00.581Z",
+      "lastRead": "2026-11-07T21:59:30.801Z",
       "error": null
     },
     {
@@ -81,7 +81,7 @@
       "baseline": "2026-01-05",
       "current": "2026-01-05",
       "changed": false,
-      "lastRead": "2026-11-06T23:17:02.083Z",
+      "lastRead": "2026-11-07T21:59:32.098Z",
       "error": null
     },
     {
@@ -90,7 +90,7 @@
       "baseline": "2026-01-07",
       "current": "2026-01-07",
       "changed": false,
-      "lastRead": "2026-11-06T23:17:03.509Z",
+      "lastRead": "2026-11-07T21:59:33.326Z",
       "error": null
     },
     {
@@ -99,7 +99,7 @@
       "baseline": "2026-01-14",
       "current": "2026-01-14",
       "changed": false,
-      "lastRead": "2026-11-06T23:17:04.968Z",
+      "lastRead": "2026-11-07T21:59:34.676Z",
       "error": null
     }
   ]
