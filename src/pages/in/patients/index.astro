@@ -1,0 +1,47 @@
+---
+// For patients (patients and families) — overview page (2026-11-07)
+// ⚠️ No diagnosis or treatment advice. General information with links to official sources.
+import '../../../styles/in-guide.css';
+import InLayout from '../../../layouts/InLayout.astro';
+import { withBase } from '../../../utils/site';
+
+const title = 'For patients: AI, your data and your rights';
+const description =
+  'Before you ask an AI about your health, and what the DPDP Act gives you when a hospital uses your data. Plain language, with official sources.';
+
+const cards = [
+  {
+    "href": "/in/patients/ai-health-consult/",
+    "t": "Before you ask an AI about your health: six things",
+    "d": "An AI answer is not a diagnosis, what you type may not be protected as you assume, and when not to wait."
+  },
+  {
+    "href": "/in/patients/ai-in-hospital/",
+    "t": "When your hospital uses AI: what the DPDP Act gives you",
+    "d": "Notice, consent, access, correction, complaint, breach notice and children’s data."
+  }
+];
+---
+
+<InLayout title={title} description={description} crumb="For patients" standalone>
+  <h1>For patients</h1>
+  <p class="tg-lead">
+    People have many questions about hospitals and AI that they would like to ask but are not sure whom to ask. The answers here come from official sources and use as few technical terms as possible.
+  </p>
+  <div class="tg-box tg-warn">
+    This is general information, not a diagnosis or a treatment recommendation. For a health concern, contact the clinician or hospital that treats you. In an emergency, go to the nearest emergency department or call your local emergency number.
+  </div>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+    For hospital staff, see the <a href={withBase('/in/practice/')}>Practice guides</a>.
+  </p>
+</InLayout>

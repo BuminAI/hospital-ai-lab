@@ -1,0 +1,40 @@
+---
+// Practice guides (for hospital staff) — overview page (2026-11-07)
+import '../../styles/in-guide.css';
+import InLayout from '../../layouts/InLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = 'Practice guides: device status, patient data and AI';
+const description =
+  'A roadmap, checklists, a CDSCO calendar, templates and key facts from primary documents, for hospital administrators and nurse leaders.';
+
+const cards = [
+{ href: '/in/facts/', t: 'Key facts', d: 'Short answers with the section and a link to the primary source: personal data, security, vendors, CDSCO status, ICMR.' },
+{ href: '/in/dx-roadmap/', t: 'Roadmap', d: 'The Medical Devices Rules, the DPDP Act, CDSCO’s software guidance and ICMR’s AI guidelines on one timeline.' },
+{ href: '/in/data-checklist/', t: 'Patient data protection checklist', d: 'Notice and consent, vendors and processors, security safeguards, breaches.' },
+{ href: '/in/documents-checklist/', t: 'Checklist: device status and AI vendors', d: 'Is it a medical device, which class and permission, and how updates are handled.' },
+{ href: '/in/calendar/', t: 'CDSCO calendar', d: 'New CDSCO notices on medical devices and software.' },
+{ href: '/in/templates/', t: 'Templates', d: 'Generative AI policy, 21 vendor questions, patient text, incident record.' },
+{ href: '/in/checklist/', t: 'AI adoption checklist', d: 'A list for assessing proposals from AI vendors.' },
+];
+---
+
+<InLayout title={title} description={description} crumb="Practice guides" standalone>
+<h1>Practice guides</h1>
+  <p class="tg-lead">
+For administration, planning and nursing leadership: material you can use tomorrow. Rules are written after the documents were opened and read (CDSCO, the Gazette text of the DPDP Act, ICMR); each page shows its sources and the date they were checked.
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+Explanations for patients and their families are in <a href={withBase('/in/patients/')}>For patients</a>; front-desk staff can use them too.
+  </p>
+</InLayout>

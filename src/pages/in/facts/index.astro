@@ -1,0 +1,112 @@
+---
+// Key facts for citation (2026-11-06) — a page for AEO/GEO.
+// One item = question + short answer + section + primary source. Data: src/data/in/guides/facts.ts.
+// Each item has an anchor (#id) for direct linking.
+import '../../../styles/in-guide.css';
+import InLayout from '../../../layouts/InLayout.astro';
+import InGuideFoot from '../../../components/InGuideFoot.astro';
+import { FACTS, FACT_TOPICS, FACTS_CHECKED } from '../../../data/in/guides/facts';
+import { SRC } from '../../../data/in/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const title = 'Key facts: patient data, device status and AI in Indian hospitals';
+const description = `${FACTS.length} short answers you can cite on the DPDP Act, security and breaches, CDSCO’s rules for AI software and ICMR’s AI guidelines.`;
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/in/facts/')}`;
+
+const faqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'en-IN',
+  isPartOf: { '@id': `${siteRoot}/#website-in` },
+  mainEntity: FACTS.map((f) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#${f.id}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: `${f.a} (Basis: ${f.basis}.)`, citation: SRC[f.src].url },
+  })),
+};
+const articleLd = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: title,
+  description,
+  inLanguage: 'en-IN',
+  author: { '@id': `${siteRoot}/#person` },
+  publisher: { '@id': `${siteRoot}/#organization` },
+  isPartOf: { '@id': `${siteRoot}/#website-in` },
+  mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  datePublished: '2026-11-07T00:00:00+05:30',
+  dateModified: '2026-11-07T00:00:00+05:30',
+  isAccessibleForFree: true,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.tg-answer', 'h1'] },
+  citation: Object.values(SRC).map((s) => ({ '@type': 'CreativeWork', name: s.label, url: s.url })),
+};
+
+const sources = [SRC.dpdp, SRC.mdsw, SRC.mdr, SRC.icmr];
+---
+
+<InLayout title={title} description={description} crumb="Key facts" standalone updated={new Date('2026-11-07T00:00:00+05:30')} schema={[articleLd, faqLd]}>
+  <h1>Key facts: patient data, device status and AI in Indian hospitals</h1>
+  <p class="tg-lead">
+    Short answers to the questions that come up most in purchasing and compliance meetings. Each answer was written after the text of the document was opened, and gives the section and a link to the primary source.
+  </p>
+  <p class="tg-meta">Checked: {FACTS_CHECKED} · {FACTS.length} items · For: administrators, nurses and patients</p>
+
+  <p class="tg-answer">
+    In short: a notice must come with or before each request for consent and consent must be free, specific, informed, unconditional and unambiguous (DPDP Act, sections 5 and 6); the hospital stays responsible for what a vendor processes for it (section 8(1)); software that meets the definition of a medical device is regulated by CDSCO under the Medical Devices Rules, 2017, in classes A to D; and ICMR lists ten ethical principles for AI in healthcare.
+  </p>
+
+  <div class="tg-box">
+    <strong>How to use this page</strong><br />
+    Copy an answer together with its section, and check the text of the rule at the primary source. There are no deadlines or rules here whose text we did not read; this is not legal advice.
+    <br />
+    {
+      FACT_TOPICS.map((t, i) => (
+        <>
+          <a href={`#t-${i}`}>{t}</a>
+          {i < FACT_TOPICS.length - 1 ? ' · ' : ''}
+        </>
+      ))
+    }
+  </div>
+
+  {
+    FACT_TOPICS.map((topic, i) => (
+      <section class="tg-sec" aria-labelledby={`t-${i}`}>
+        <h2 id={`t-${i}`}>{topic}</h2>
+        <dl class="tg-facts">
+          {FACTS.filter((f) => f.topic === topic).map((f) => (
+            <>
+              <dt id={f.id}>
+                <a href={`#${f.id}`}>{f.q}</a>
+              </dt>
+              <dd>
+                <p>{f.a}</p>
+                <p class="tg-basis">
+                  Basis: {f.basis} ·{' '}
+                  <a href={SRC[f.src].url} target="_blank" rel="noopener">
+                    primary source<span class="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </p>
+              </dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/in/dx-roadmap/')}><b>Roadmap</b><span>Key rules on one timeline.</span></a>
+      <a class="tg-card" href={withBase('/in/data-checklist/')}><b>Patient data protection checklist</b><span>Items by section of the DPDP Act.</span></a>
+      <a class="tg-card" href={withBase('/in/glossary/')}><b>Glossary</b><span>Medical AI terms in plain language.</span></a>
+    </div>
+  </section>
+
+  <InGuideFoot sources={sources} checked={FACTS_CHECKED} />
+</InLayout>

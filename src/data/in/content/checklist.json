@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "AI adoption review checklist for Indian hospitals",
+    "description": "Questions administrators and nurse leaders can ask when a vendor proposes an AI product: purpose, CDSCO status, patient data under the DPDP Act, security and operations.",
+    "pageTitle": "AI adoption review checklist",
+    "lead": "Use this when you receive a specific proposal. Tick each item when you have a written answer. The items are the author’s list; the data checklist and the facts page give the sections of the documents behind many of them."
+  },
+  "sections": [
+    {
+      "heading": "Purpose and scope",
+      "body": "",
+      "items": [
+        "The job the tool will do is described in one sentence and agreed by the department that will use it.",
+        "Who will use it, and who will be affected by its output, is listed (including nurses and front-desk staff).",
+        "The current process, and what measurement will show whether the tool helps, is written down."
+      ]
+    },
+    {
+      "heading": "Regulatory status",
+      "body": "",
+      "items": [
+        "The vendor states in writing whether it treats the product as a medical device under the Medical Devices Rules, 2017 and why. CDSCO’s software guidance lists hospital information systems used only for admission, scheduling, billing and similar functions as examples that are not medical devices.",
+        "If it is treated as a medical device, the risk class (A, B, C or D) and the licence or permission held for this software and this intended use are written down, and you have checked that your planned use matches the intended use.",
+        "The vendor says whether it has an algorithm change protocol for model updates and what changes it covers.",
+        "You have read the intended use statement itself, not only the sales material."
+      ]
+    },
+    {
+      "heading": "Patient data",
+      "body": "",
+      "items": [
+        "Someone has decided whether the hospital is the data fiduciary and the vendor a data processor, and a valid written contract is in place before patient data is shared (DPDP Act, section 8(2)).",
+        "The vendor lists the sub-processors that touch patient data, and says where data is processed and how it is erased.",
+        "The vendor’s planned use of your data, including any use to improve its own product, is stated and checked against the contract and the purpose in your notice.",
+        "The notice and consent request are available in English or an Eighth Schedule language, and give the contact of a Data Protection Officer where applicable or another authorised person (sections 5 and 6).",
+        "A process exists for withdrawal of consent and for erasure when the purpose is no longer served (sections 6 and 8(7))."
+      ]
+    },
+    {
+      "heading": "Security and incidents",
+      "body": "",
+      "items": [
+        "The vendor describes its security safeguards, and you have read them against section 8(5) (reasonable security safeguards to prevent a personal data breach).",
+        "The contract makes the vendor tell you promptly about a breach and names a contact who answers at any hour.",
+        "The hospital’s incident record shows who decides, and who intimates the Data Protection Board and each affected patient. The deadline and form are in the Rules; check the current Rules before you fix a number."
+      ]
+    },
+    {
+      "heading": "Performance and fairness",
+      "body": "",
+      "items": [
+        "The vendor describes how the tool was tested, on which patients, and how that compares with your population, including language and region.",
+        "You know whether the tool’s output is used to make a decision that affects a patient, and someone is responsible for checking the completeness, accuracy and consistency of the data it uses (section 8(3)).",
+        "A plan exists to watch the tool’s performance after go-live, and a person who can switch it off.",
+        "An ethics committee or equivalent has looked at the tool against ICMR’s principles where the use involves research."
+      ]
+    },
+    {
+      "heading": "Operations and people",
+      "body": "",
+      "items": [
+        "It is clear what changes for nurses and administrative staff, and who gets additional work.",
+        "Staff are trained on the policy for the tool, and the training is documented.",
+        "The exit plan, including return or erasure of data, is written into the contract."
+      ]
+    }
+  ]
+}

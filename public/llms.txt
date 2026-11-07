@@ -1,7 +1,7 @@
 # 병원 AI 연구소 (Hospital AI Lab)
 
 > 병원 행정·간호 종사자를 위한 의료 AI 실무 정보 사이트. 종합병원 17년차(그중 7년 기획) 실무자가
-> 운영하며, 한국어·일본어·러시아어·인도네시아어·정체 중국어(대만)·영어(미국) 여섯 판을 각 나라 제도에 맞춰
+> 운영하며, 한국어·일본어·러시아어·인도네시아어·정체 중국어(대만)·영어(미국)·영어(인도) 일곱 판을 각 나라 제도에 맞춰
 > 따로 씁니다. 번역본이 아닙니다.
 
 이 사이트의 모든 제도 설명에는 일차 자료 링크가 붙어 있습니다. 출처를 확인하지 못한 내용은
@@ -68,6 +68,15 @@
 - [홈](https://hospital-ai-lab.com/en/) · [Glossary](https://hospital-ai-lab.com/en/glossary/) · [FAQ](https://hospital-ai-lab.com/en/faq/) · [Checklist](https://hospital-ai-lab.com/en/checklist/)
 - [Article series](https://hospital-ai-lab.com/en/series/) · [AI news](https://hospital-ai-lab.com/en/news/): Fierce Healthcare·Healthcare Dive·Becker's Hospital Review에서 AI 관련 헤드라인 자동 수집 · [AI digest](https://hospital-ai-lab.com/en/ai-digest/)
 - [AI Program Review Room](https://hospital-ai-lab.com/en/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score Code behind GitHub, Gist and web-page links is reviewed together with the uploaded files.
+
+## 영어판 (인도, https://hospital-ai-lab.com/in/)
+
+- 번역본이 아니라 인도 제도를 1차 문서로 새로 조사해 쓴 판입니다(CDSCO 의료기기 규칙 2017·의료기기 소프트웨어 지침, DPDP법 2023 관보본, ICMR AI 윤리 지침 2023). 병원 행정·간호 리더 대상. 인도 정부 사이트 중 MeitY·PIB·ABDM·MoHFW 등은 자동 접속을 막아 읽지 못했고, 그래서 DPDP 규칙과 조항별 시행일은 싣지 않았습니다.
+- 영어 전용 안내문: [llms.txt (English)](https://hospital-ai-lab.com/in/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/in/llms-full.txt) · 인용용 사실 허브 [/in/facts/](https://hospital-ai-lab.com/in/facts/)
+- 실무 가이드(`/in/dx-roadmap/`·`/in/data-checklist/`·`/in/documents-checklist/`·`/in/templates/`)·환자 코너(`/in/patients/`)·CDSCO 공지 캘린더(`/in/calendar/`, 의료기기·소프트웨어 관련 공지 자동 수집)·갱신 정보(`/in/updates/`).
+- [홈](https://hospital-ai-lab.com/in/) · [Glossary](https://hospital-ai-lab.com/in/glossary/) · [FAQ](https://hospital-ai-lab.com/in/faq/) · [Checklist](https://hospital-ai-lab.com/in/checklist/)
+- [Article series](https://hospital-ai-lab.com/in/series/) · [AI news](https://hospital-ai-lab.com/in/news/): ET HealthWorld·Express Healthcare·Medical Dialogues에서 AI 관련 헤드라인 자동 수집
+- [AI Program Review Room](https://hospital-ai-lab.com/in/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score. Code read from GitHub, Gist and web-page links is reviewed together with the uploaded files.
 
 ## 인도네시아어판 (https://hospital-ai-lab.com/id/)
 

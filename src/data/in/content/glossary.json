@@ -1,0 +1,133 @@
+[
+  {
+    "id": "mdsw",
+    "term": "Medical Device Software (MDSW)",
+    "category": "Regulation and certification",
+    "definition": "The term CDSCO’s guidance uses for software that meets the definition of a medical device in the Medical Devices Rules, 2017. It says mobile apps, AI/ML-based software and cloud or network-based software that meet the definition are considered MDSW. Software merely for general wellness or fitness tracking is outside the document.",
+    "whyMatters": "The first question for any clinical AI proposal is whether the vendor treats the product as a medical device under the Rules. Ask for the answer and its basis in writing.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf"
+    ]
+  },
+  {
+    "id": "cdsco",
+    "term": "CDSCO",
+    "category": "Regulation and certification",
+    "definition": "The Central Drugs Standard Control Organisation, under the Ministry of Health and Family Welfare, which issues the guidance documents and public notices on medical devices that this site cites.",
+    "whyMatters": "Its website is where you check a vendor’s licence or permission and read its guidance on software.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf"
+    ]
+  },
+  {
+    "id": "mdr-2017",
+    "term": "Medical Devices Rules, 2017",
+    "category": "Regulation and certification",
+    "definition": "The rules, in force from 1 January 2018, under which medical devices, including software that meets the definition, are classified and licensed in India.",
+    "whyMatters": "They are the legal text. CDSCO’s guidance documents explain them but say they are not meant for legal use.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf"
+    ]
+  },
+  {
+    "id": "risk-class",
+    "term": "Risk class (A, B, C, D)",
+    "category": "Regulation and certification",
+    "definition": "Rule 4 sets four classes: A low risk, B low moderate, C moderate high, D high risk. For software, the class is fundamentally based on the intended use and the First Schedule.",
+    "whyMatters": "A higher class means a tougher approval path. Ask which class the vendor holds for the exact intended use you plan.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
+      "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf"
+    ]
+  },
+  {
+    "id": "intended-use",
+    "term": "Intended use",
+    "category": "Regulation and certification",
+    "definition": "What the manufacturer says the device is for, on its labelling, instructions for use or promotional material, as approved by the licensing authority.",
+    "whyMatters": "Using a tool for something outside its stated intended use is where most surprises come from. Compare the claim in the proposal with the approved intended use.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf"
+    ]
+  },
+  {
+    "id": "acp",
+    "term": "Algorithm Change Protocol (ACP)",
+    "category": "Regulation and certification",
+    "definition": "In CDSCO’s guidance, an overview of the procedures that keep changes to software from compromising its safety and intended use. It may include a data management plan, a performance monitoring plan, a retraining plan, a software update plan (including how updates are communicated to users) and a rollback plan.",
+    "whyMatters": "AI models change. Ask whether the vendor has such a plan and how you are told about changes.",
+    "sources": [
+      "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf"
+    ]
+  },
+  {
+    "id": "data-fiduciary",
+    "term": "Data fiduciary",
+    "category": "Data and privacy",
+    "definition": "Under the DPDP Act, any person who alone or with others decides the purpose and means of processing personal data. A hospital that decides why and how patient data is processed is one.",
+    "whyMatters": "The data fiduciary stays responsible even when a vendor processes the data for it.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "id": "data-processor",
+    "term": "Data processor",
+    "category": "Data and privacy",
+    "definition": "A person who processes personal data on behalf of a data fiduciary. A processor may be engaged only under a valid contract.",
+    "whyMatters": "An AI vendor that handles your patient data is usually a processor. Your contract with it is a legal requirement, not a formality.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "id": "data-principal",
+    "term": "Data principal",
+    "category": "Data and privacy",
+    "definition": "The individual to whom the personal data relates. Where that individual is a child, the term includes the parents or lawful guardian; for a person with a disability it includes the lawful guardian acting on her behalf.",
+    "whyMatters": "For a hospital the data principal is the patient, and also, for a child, the parent.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "id": "dpdp-notice",
+    "term": "Notice (DPDP Act)",
+    "category": "Data and privacy",
+    "definition": "The information a data fiduciary must give with or before a request for consent: the personal data and purpose, how to exercise rights, and how to complain to the Data Protection Board. It must be available in English or an Eighth Schedule language.",
+    "whyMatters": "A consent form without a proper notice is not enough under the Act.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "id": "personal-data-breach",
+    "term": "Personal data breach",
+    "category": "Data and privacy",
+    "definition": "Any unauthorised processing of personal data, or accidental disclosure, acquisition, sharing, use, alteration, destruction or loss of access to it, that compromises its confidentiality, integrity or availability.",
+    "whyMatters": "The data fiduciary must tell the Data Protection Board and each affected person. Settle internally who decides, and how fast, before it happens.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "id": "significant-data-fiduciary",
+    "term": "Significant Data Fiduciary",
+    "category": "Data and privacy",
+    "definition": "A data fiduciary or class of them that the Central Government notifies on factors including the volume and sensitivity of data and risk to the rights of data principals. It must appoint a Data Protection Officer and has further obligations.",
+    "whyMatters": "Check whether any notification covers hospitals; this site did not find or read one.",
+    "sources": [
+      "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
+    ]
+  },
+  {
+    "id": "icmr-guidelines",
+    "term": "ICMR AI guidelines",
+    "category": "Standards and terminology",
+    "definition": "The Ethical Guidelines for Application of Artificial Intelligence in Biomedical Research and Healthcare (2023) by the DHR-ICMR AI Cell: ten principles, guidance for development, validation and deployment, ethical review, informed consent and governance, with a checklist.",
+    "whyMatters": "A reference for ethics committees and for the questions a hospital puts to a vendor. They are guidelines, not a statute.",
+    "sources": [
+      "https://www.icmr.gov.in/icmrobject/uploads/Guidelines/1724842648_ethical_guidelines_application_artificial_intelligence_biomed_rsrch_2023.pdf"
+    ]
+  }
+]

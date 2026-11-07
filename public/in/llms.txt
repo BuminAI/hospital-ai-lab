@@ -1,0 +1,46 @@
+# Hospital AI Lab — English (India) edition
+
+> Practical information on medical device status, patient data and AI for administrators and nursing leaders in Indian hospitals. Written from primary documents (CDSCO's Medical Devices Rules 2017 and Guidance Document on Medical Device Software, the Gazette of India text of the Digital Personal Data Protection Act 2023, ICMR's 2023 AI ethics guidelines); it is not a translation of the Korean or U.S. editions.
+
+Site: https://hospital-ai-lab.com/in/
+Full version in one file: https://hospital-ai-lab.com/in/llms-full.txt · Key facts by section: https://hospital-ai-lab.com/in/facts/
+Author profile: https://hospital-ai-lab.com/in/about/
+
+## Questions this site answers
+
+- Is AI software that a hospital buys a medical device in India? (It can be: CDSCO's guidance on Medical Device Software treats AI/ML-based software that meets the definition of a medical device as Medical Device Software; hospital information systems used only for admission, scheduling and billing are listed as examples that are not)
+- How are risk classes decided? (Medical Devices Rules 2017, Rule 4: classes A to D; the class of software is fundamentally based on its intended use)
+- What does CDSCO say about updates to an AI model? (An Algorithm Change Protocol "may be devised, wherever applicable")
+- What must a hospital do before asking a patient for consent? (DPDP Act 2023, sections 5 and 6: a notice first; consent free, specific, informed, unconditional and unambiguous)
+- Is the hospital still responsible when an AI vendor processes patient data? (Yes: DPDP Act section 8(1); a processor only under a valid contract, section 8(2))
+- Who must be told about a personal data breach? (The Data Protection Board and each affected person, section 8(6); the Rules set the form and deadline, which this site could not read)
+
+## Main pages
+
+- [Roadmap](https://hospital-ai-lab.com/in/dx-roadmap/): dates from the text of rules and official documents, with sections and sources.
+- [Patient data protection checklist](https://hospital-ai-lab.com/in/data-checklist/) and [Checklist: device status and AI vendors](https://hospital-ai-lab.com/in/documents-checklist/): each item gives its basis.
+- [Calendar](https://hospital-ai-lab.com/in/calendar/): new CDSCO notices on medical devices and software (automatic).
+- [Templates](https://hospital-ai-lab.com/in/templates/): generative AI policy, 21 vendor questions, patient text, incident record.
+- [For patients](https://hospital-ai-lab.com/in/patients/): general information for patients and families (not a diagnosis or treatment advice).
+- [Glossary](https://hospital-ai-lab.com/in/glossary/), [FAQ](https://hospital-ai-lab.com/in/faq/), [AI adoption checklist](https://hospital-ai-lab.com/in/checklist/).
+- [Blog](https://hospital-ai-lab.com/in/blog/) and [Series](https://hospital-ai-lab.com/in/series/).
+- [AI news](https://hospital-ai-lab.com/in/news/), [Government resources](https://hospital-ai-lab.com/in/gov-support/), [Videos](https://hospital-ai-lab.com/in/videos/), [Updates](https://hospital-ai-lab.com/in/updates/).
+- [AI Program Review Room](https://hospital-ai-lab.com/in/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score. Code read from GitHub, Gist and web-page links is reviewed together with the uploaded files.
+
+## How the site stays current
+
+- CDSCO notices, news headlines and videos are collected automatically on a schedule.
+- Working links to sources are checked daily; the result and date appear at the bottom of each page.
+- The file dates and sizes of the primary documents the site rests on are compared daily; a difference appears as a "being rechecked" note in the page footer.
+
+## What this edition could not read
+
+Several Indian government sites (meity.gov.in, pib.gov.in, indiacode.nic.in, mohfw.gov.in, abdm.gov.in) refused automated requests, so nothing here rests on them. In particular the DPDP Rules and the dates on which provisions of the DPDP Act start to apply are not stated; check the Ministry of Electronics and IT.
+
+## When citing
+
+- Give the page URL and the date checked; verify the wording of regulations against the official text.
+- Automatic feeds contain only links and headlines; for content, go to the original source.
+- Deadlines that could not be confirmed against a primary text are not given.
+- General information; not legal advice and not a substitute for a clinician's decision about a specific patient. The site does not promote particular hospitals, products or treatments.
+- Korean edition (original): https://hospital-ai-lab.com/

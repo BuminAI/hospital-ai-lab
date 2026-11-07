@@ -318,3 +318,7 @@ UX['tw'] = dict(
   M2=dict(why="取了名字的小函式，比一長串程式碼更容易修改與重複使用。", fix="把程式拆成各自只做一件事的函式。"),
   P1=dict(why="含有您電腦上的路徑或私人試算表 ID，程式在別人的電腦上就跑不起來。", fix="把這類值移到程式開頭的設定區，或改成由輸入取得。"))
 )
+
+# English (India) edition: same wording as the U.S. edition (2026-11-07)
+import copy
+UX['in'] = copy.deepcopy(UX['en'])

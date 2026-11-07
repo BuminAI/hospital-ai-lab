@@ -725,6 +725,30 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - **서치 콘솔 실측(오너 제공, 2026-11-07 내보내기)**: 커버리지 — 구글 색인 279쪽(10-23 기준, 8/14 73쪽에서 꾸준히 증가), 미색인 36쪽(noindex 3·404 1·발견됨 19·크롤링됨 13; URL 목록은 미확인). 실적(최근 3개월, 11-04까지) — 클릭 204·노출 7,049·CTR 2.89%·평균 순위 7.7(1페이지권). 국가별 클릭 한국 107·일본 65(순위 9.8)·러시아 11·대만 9·인도네시아 5·미국 1(노출 1,338, CTR 0.07%). 최다 노출 검색어는 일본어 'ai 医療用語'(291)와 변형들, 최다 노출 페이지는 `/ja/glossary/`(756). 결론: **색인이 아니라 검색 수요(롱테일)와 클릭률이 한계**. 이에 맞춰 용어집 제목·설명을 검색어 어순('AI 医療用語', '의료 AI 용어·약어')에 맞춤. 노출이 큰 자동 목록(`/news/`·`/gov-support/`·`/youtube/`)은 순위 5~10인데 클릭 0~4 — 제목·설명은 이미 명확해 건드리지 않음.
 - 잡히지 않아도 되는 것: 구글·네이버 인증 파일(`/ja/googlefd…html`, `naver…html`)은 canonical·JSON-LD가 없는 게 정상(사이트맵 제외).
 
+## 5-17. 영어판(인도) `/in/` (2026-11-07 신설, 오너 지시: "인도판도 만들어줘" — 질문에 영어(인도)·전체 패리티로 답함)
+
+인도네시아판(`/id/`)이 아니라 **India** 판이다. 영어판(미국) `/en/`을 복제해 만든 **영어(인도)** 판이며(hreflang `en-IN`, `InLayout`, 컬렉션 `blogIn`, 글 폴더 `src/content/blog-in/`, 데이터 `src/data/in/`, 스타일 `src/styles/in-*.css`의 변수 접두어 `--in-`, 청록·사프란 팔레트), **번역도 미국판 복사도 아니다.** 글·사실은 인도 1차 문서에서 새로 썼다.
+
+**읽은 1차 문서(2026-11-07)**: CDSCO `Medical Devices Rules, 2017` PDF, CDSCO `Guidance Document on Medical Device Software`(Doc No. CDSCO/MD/GD/MDSW/01/2026, 62쪽; CDSCO 공지 목록에서 릴리스 날짜 2026-07-21), DPDP법 2023 관보 전문(PRS 호스팅 `Digital_Personal_Data_Protection_Act,_2023.pdf`, 관보 CG-DL-E-12082023-248045), ICMR AI 윤리지침 2023 PDF. 로컬 사본·정리는 세션 스크래치패드에 있었고 저장소에는 없다.
+
+**막혀서 쓰지 못한 것(우회 금지)**: meity.gov.in·pib.gov.in·indiacode.nic.in·legislative.gov.in·abdm.gov.in·mohfw.gov.in·niti.gov.in은 이 환경에서 HTTP 403, cert-in.org.in·main.mohfw.gov.in은 연결 불가. 그래서 **DPDP 규칙(2025)과 조항별 시행일, ABDM, CERT-In 지침, 원격의료 지침은 싣지 않았다.** 검색 결과에 나오는 시행 일정 숫자는 2차 출처라 쓰지 않았다. 규칙 본문을 읽을 수 있게 되면 `src/data/in/guides/{milestones,facts}.ts`의 'DPDP 시행일' 항목과 침해 신고 기한부터 채울 것.
+
+| 항목 | 위치 | 비고 |
+|---|---|---|
+| 레이아웃·UI | `src/layouts/InLayout.astro`, `src/i18n/in.json` | hreflang: 자기 `en-IN`, 미국판 `en` 상호 연결. 여섯 레이아웃 전부에 `inPath`·푸터 링크 추가 |
+| 실무 가이드 | `src/pages/in/{dx-roadmap,data-checklist,documents-checklist,templates,practice,facts,calendar,updates}` | 사실은 `src/data/in/guides/{milestones,facts}.ts` 한곳. 환자 코너는 `patients/`(기록 열람 페이지는 근거를 못 읽어 만들지 않음) |
+| 글 | `src/content/blog-in/` 6편(CDSCO 소프트웨어 지침 3·DPDP 2·ICMR 1), 시리즈 `device-status`·`data-and-ethics`(`src/data/series-locales.ts`의 `in`) | 분류 Research Review·AI Tools·Column·News |
+| 수집 | `scripts/fetch-in-news.mjs`(ET HealthWorld·Express Healthcare·Medical Dialogues RSS), `fetch-in-gov.mjs`(CDSCO 공개 공지 목록에서 의료기기·소프트웨어 관련), `fetch-in-videos.mjs`, `fetch-ai-digest.mjs in`(Analytics India Magazine·YourStory) | 워크플로 `update-in-*.yml`(분 오프셋을 미국판과 다르게) |
+| 점검 | `check-in-links.mjs`(출처 링크), `check-in-laws.mjs`(근거 문서 4건의 Last-Modified·길이·ETag 지문 비교 → 푸터) | HEAD가 403/405라 1바이트 Range GET으로 읽음 |
+| AI 심사실 | `scripts/ai-judge/lang/in.py`(루피 ₹, en 복제) + `ux*.py`의 `['in']` | `build.py` 재실행으로 `public/in/ai-judge/` 생성 |
+| 관리자 | `src/pages/admin-in.astro`(admin-en 복제), 다른 관리자 화면·`admin.astro` 카드에 연결 | |
+
+**주의할 점**
+- **cdsco.gov.in은 이 환경에서 IPv6로만 응답**했다(IPv4는 시간 초과, 연결에 7~10초). Node 기본 fetch는 10초에 포기하므로 수집·점검 스크립트는 `https.get`+`autoSelectFamily`+긴 시도 시간제한을 쓴다. **GitHub Actions 러너는 IPv4뿐일 수 있어** CDSCO 수집·지문 점검은 CI에서 실패하고 기존 파일을 유지할 수 있다(스크립트는 실패해도 기존 결과를 지킨다). 며칠 돌려 보고 계속 실패하면 오너에게 알릴 것.
+- **자동 발행 예외(CLAUDE.md)에 인도판은 없다.** 오너가 확대 지시하기 전엔 예약 작업(`daily-update-digest`)에 넣지 않는다. 이번 6편은 PR 머지로 발행된다.
+- 최종 지침 PDF는 **MDSW**(Medical Device Software)라는 용어를 쓰고 SaMD/SiMD 구분은 초안에만 있다. 초안 문구를 최종본 것처럼 옮기지 말 것(실제로 한번 고쳤다).
+- 새 자동화 `in`을 더했으므로 `audit-site.mjs`·`site-health-check.mjs`·`locale-sitemaps`·`git-lastmod`·`og/[...route].ts`·`locale.ts`에 `in`이 들어갔다. 언어판을 또 추가하면 이 목록을 따라갈 것.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

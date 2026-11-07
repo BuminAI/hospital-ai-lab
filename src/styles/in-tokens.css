@@ -1,0 +1,360 @@
+/* ── 영어판(인도) 디자인 토큰 (2026-11-07 신설, 영어판(미국) 토큰을 복제해 청록·사프란 팔레트로) ──────────────────
+   일본어판(ja-tokens.css)의 2컬럼·브레드크럼·상시 사이드바 구조를 그대로
+   가져왔다 — 의료(YMYL) 콘텐츠에서 저자 신뢰 신호를 상시 노출하는 것은
+   언어와 무관하게 유효한 설계라고 판단했다(HANDOFF.md 5-3절 참고).
+
+   ⚠️ 이 파일은 `[data-locale="in"]` 안에서만 적용된다. 한국어·일본어판
+      스타일에 영향을 주지 않도록 모든 선택자에 이 접두사를 붙일 것.
+
+   ⚠️ 일본어판과 달리 폰트 대체 로직이 없다. Pretendard 최신판이 키릴 문자를
+      이미 지원해서(공식 문서 확인) 한국어판이 쓰는 self-host 폰트를 그대로
+      쓸 수 있다 — 시스템 폰트로 전환할 필요가 없다. */
+
+[data-locale='in'] {
+  /* Color — 신뢰 블루 계열(ja와 같은 계통, 색조만 살짝 다르게) */
+  --in-base: #ffffff;
+  --in-surface: #f6f8fa;
+  --in-surface-2: #edf1f6;
+  --in-border: #dbe1e9;
+  --in-text: #1a1a1a;
+  --in-text-sub: #5a6270;
+  --in-primary: #0f5c4d;
+  --in-primary-dk: #0b4539;
+  /* 버튼 색은 별도 토큰으로 분리한다 — 다크모드에서 primary가 밝은
+     틴트로 바뀌는데 그 위에 흰 글자를 올리면 읽히지 않는다.
+     한국어판 global.css의 --btn-bg/--btn-fg와 같은 방식. */
+  --in-btn-bg: var(--in-primary);
+  --in-btn-bg-hover: var(--in-primary-dk);
+  --in-btn-fg: #ffffff;
+  --in-accent: #b8650a;
+  --in-badge-new: #c62828;
+  --in-badge-info: #15619f;
+  --in-badge-gov: #17663d;
+
+  /* Layout */
+  --in-max: 1120px;
+  --in-sidebar: 300px;
+  --in-gap: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-locale='in'] {
+    --in-base: #0e141d;
+    --in-surface: #161f2b;
+    --in-surface-2: #1d2836;
+    --in-border: #2b3646;
+    --in-text: #e8edf4;
+    --in-text-sub: #a2aebd;
+    --in-primary: #6fd3bd;
+    --in-primary-dk: #9ce7d6;
+    --in-btn-bg: #0f6a58;
+    --in-btn-bg-hover: #168269;
+    --in-btn-fg: #ffffff;
+    --in-accent: #f0955a;
+    --in-badge-new: #c0392f;
+    --in-badge-info: #6fb0e0;
+    --in-badge-gov: #64c799;
+  }
+}
+
+/* ── 본문 조판 ─────────────────────────────────────────── */
+/* ⚠️ 반드시 `[data-locale='in'] body`로 지정할 것 — html에만 걸면
+   global.css의 body{font-family 등} 규칙이 이긴다(일본어판이 2026-07-31에
+   실제로 겪은 버그, HANDOFF.md 6절 참고). 폰트는 global.css가 이미 지정한
+   Pretendard를 그대로 쓰므로 여기서 font-family를 재정의하지 않는다. */
+[data-locale='in'] body {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--in-text);
+  background: var(--in-base);
+}
+
+[data-locale='in'] h1,
+[data-locale='in'] h2,
+[data-locale='in'] h3 {
+  color: var(--in-text);
+}
+
+[data-locale='in'] h1 {
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+[data-locale='in'] h2 {
+  font-size: 21px;
+  line-height: 1.4;
+  border-left: 5px solid var(--in-primary);
+  padding: 6px 0 6px 12px;
+  background: var(--in-surface);
+  margin: 32px 0 16px;
+}
+
+[data-locale='in'] h3 {
+  font-size: 17px;
+  border-bottom: 2px solid var(--in-border);
+  padding-bottom: 6px;
+  margin: 24px 0 12px;
+}
+
+[data-locale='in'] a {
+  color: var(--in-primary);
+}
+
+/* ── 2컬럼 셸 ──────────────────────────────────────────── */
+[data-locale='in'] .en-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--in-sidebar);
+  gap: var(--in-gap);
+  max-width: var(--in-max);
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+@media (max-width: 860px) {
+  [data-locale='in'] .en-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ── 헤더 ──────────────────────────────────────────────── */
+[data-locale='in'] .en-header {
+  background: var(--in-base);
+  border-bottom: 3px solid var(--in-primary);
+}
+
+[data-locale='in'] .en-header-inner {
+  max-width: var(--in-max);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+[data-locale='in'] .en-brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--in-primary);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+[data-locale='in'] .en-brand-sub {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--in-text-sub);
+  letter-spacing: 0.03em;
+}
+
+[data-locale='in'] .en-nav {
+  background: var(--in-surface);
+  border-bottom: 1px solid var(--in-border);
+}
+
+[data-locale='in'] .en-nav ul {
+  max-width: var(--in-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+[data-locale='in'] .en-nav a {
+  display: block;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  color: var(--in-text);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+[data-locale='in'] .en-nav a:hover,
+[data-locale='in'] .en-nav a[aria-current='page'] {
+  color: var(--in-primary);
+  border-bottom-color: var(--in-primary);
+  background: var(--in-base);
+}
+
+/* ── 브레드크럼 ────────────────────────────────────────── */
+[data-locale='in'] .en-breadcrumb {
+  max-width: var(--in-max);
+  margin: 0 auto;
+  padding: 10px 20px 0;
+  font-size: 12.5px;
+  color: var(--in-text-sub);
+}
+
+[data-locale='in'] .en-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+[data-locale='in'] .en-breadcrumb li + li::before {
+  content: '›';
+  margin-right: 6px;
+  color: var(--in-border);
+}
+
+/* ── 사이드바 ──────────────────────────────────────────── */
+[data-locale='in'] .en-side section {
+  border: 1px solid var(--in-border);
+  border-radius: 4px;
+  background: var(--in-base);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+[data-locale='in'] .en-side h2 {
+  font-size: 14px;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--in-btn-bg);
+  color: var(--in-btn-fg);
+  border: 0;
+  letter-spacing: 0.02em;
+}
+
+[data-locale='in'] .en-side .en-side-body {
+  padding: 14px;
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+[data-locale='in'] .en-side dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+}
+
+[data-locale='in'] .en-side dt {
+  color: var(--in-text-sub);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+[data-locale='in'] .en-side dd {
+  margin: 0;
+}
+
+/* ── 뱃지·메타 ─────────────────────────────────────────── */
+[data-locale='in'] .en-badge {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 1px 7px;
+  border-radius: 3px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+
+[data-locale='in'] .en-badge-new {
+  background: var(--in-badge-new);
+}
+[data-locale='in'] .en-badge-gov {
+  background: var(--in-badge-gov);
+}
+[data-locale='in'] .en-badge-info {
+  background: var(--in-badge-info);
+}
+
+[data-locale='in'] .en-updated {
+  font-size: 12.5px;
+  color: var(--in-text-sub);
+}
+
+/* ── 목록 ──────────────────────────────────────────────── */
+[data-locale='in'] .en-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--in-border);
+}
+
+[data-locale='in'] .en-list > li {
+  border-bottom: 1px solid var(--in-border);
+  padding: 13px 2px;
+}
+
+[data-locale='in'] .en-list .en-item-title {
+  color: var(--in-text);
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+[data-locale='in'] .en-list .en-item-title:hover {
+  color: var(--in-primary);
+  text-decoration: underline;
+}
+
+[data-locale='in'] .en-list .en-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  font-size: 12.5px;
+  color: var(--in-text-sub);
+}
+
+/* ── 주의 박스 ─────────────────────────────────────────── */
+[data-locale='in'] .en-caution {
+  border: 1px solid var(--in-border);
+  border-left: 5px solid var(--in-accent);
+  background: var(--in-surface);
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  margin: 16px 0;
+}
+
+[data-locale='in'] .en-note {
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--in-text-sub);
+  border-top: 1px solid var(--in-border);
+  margin-top: 32px;
+  padding-top: 16px;
+}
+
+/* ── 푸터 ──────────────────────────────────────────────── */
+[data-locale='in'] .en-footer {
+  border-top: 3px solid var(--in-primary);
+  background: var(--in-surface);
+  font-size: 13px;
+}
+
+[data-locale='in'] .en-footer-inner {
+  max-width: var(--in-max);
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+}
+
+[data-locale='in'] .en-footer ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+/* 외부 링크 아이콘 */
+[data-locale='in'] .en-ext::after {
+  content: '↗';
+  font-size: 0.85em;
+  margin-left: 3px;
+  color: var(--in-text-sub);
+}
