@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-07T08:45:37.536Z",
+  "updatedAt": "2026-11-07T16:25:01.368Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Китайский ИИ почти догнал секретную модель OpenAI во взломе сетей — и оказался дешевле",
+      "link": "https://3dnews.ru/1150999/kitayskiy-ii-pochti-dognal-sekretnuyu-model-openai-vo-vzlome-setey-i-okazalsya-deshevle",
+      "source": "3DNews",
+      "pubDate": "2026-11-07T10:59:00.000Z"
+    },
+    {
+      "title": "Claude Code без Anthropic: заводим агента на GLM-5.3 и Qwen через свой шлюз и собираем грабли",
+      "link": "https://habr.com/ru/articles/1104826/?utm_campaign=1104826&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-07T09:17:00.000Z"
+    },
     {
       "title": "[Перевод] Знают ли модели ИИ, о чём они думают? Учёные пытаются это проверить",
       "link": "https://habr.com/ru/articles/1104758/?utm_campaign=1104758&utm_source=habrahabr&utm_medium=rss",
@@ -9,7 +21,7 @@
       "pubDate": "2026-11-07T08:44:38.000Z"
     },
     {
-      "title": "E-commerce и финтех: готовы ли российские сервисы к интеграции с ИИ-агентами? Исследование 424 компаний и продуктов",
+      "title": "E-com и финтех РФ: какие сервисы доступны ИИ-агентам? Обзор 424 продуктов",
       "link": "https://habr.com/ru/articles/1104816/?utm_campaign=1104816&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-07T08:12:00.000Z"
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-19_vebpraktik_zapustila_korporativnyj",
       "source": "CNews",
       "pubDate": "2026-10-19T07:00:00.000Z"
-    },
-    {
-      "title": "Возможности ИИ в СВЧ моделировании",
-      "link": "https://habr.com/ru/articles/1096042/?utm_campaign=1096042&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-19T06:57:02.000Z"
-    },
-    {
-      "title": "Радар спроса: ловим «ищу разработчика» в чатах, а ИИ-классификатор держит потолок $30 в месяц",
-      "link": "https://habr.com/ru/articles/1090944/?utm_campaign=1090944&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-19T06:40:33.000Z"
     }
   ]
 }
