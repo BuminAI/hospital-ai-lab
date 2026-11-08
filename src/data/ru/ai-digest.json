@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-08T08:58:18.310Z",
+  "updatedAt": "2026-11-08T16:39:38.565Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Как настроить ИИ-агентов в OpenCode со своим провайдером",
+      "link": "https://habr.com/ru/companies/bothub/articles/1105102/?utm_campaign=1105102&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-08T12:08:13.000Z"
+    },
+    {
+      "title": "Контекст ИИ-агентов: что хранить, что читать и чему доверять",
+      "link": "https://habr.com/ru/articles/1105078/?utm_campaign=1105078&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-08T10:59:12.000Z"
+    },
     {
       "title": "Зачем ИИ-моделям самореплицироваться. Или это нужно не им?",
       "link": "https://habr.com/ru/articles/1105028/?utm_campaign=1105028&utm_source=habrahabr&utm_medium=rss",
@@ -33,7 +45,7 @@
       "pubDate": "2026-11-07T08:44:38.000Z"
     },
     {
-      "title": "E-com и финтех РФ: какие сервисы доступны ИИ-агентам? Обзор 424 продуктов",
+      "title": "Готов ли российский e-com и финтех к ИИ-агентам? Обзор 424 рыночных продуктов",
       "link": "https://habr.com/ru/articles/1104816/?utm_campaign=1104816&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-07T08:12:00.000Z"
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-19_positive_technologies_predstavila",
       "source": "CNews",
       "pubDate": "2026-10-19T07:51:00.000Z"
-    },
-    {
-      "title": "Сбербанк представил первую операционную модель для управления жизненным циклом ПО в эпоху ИИ-агентов",
-      "link": "https://www.cnews.ru/news/line/2026-10-19_sberbank_predstavil_pervuyu",
-      "source": "CNews",
-      "pubDate": "2026-10-19T07:48:00.000Z"
-    },
-    {
-      "title": "ИИ-агенты и неприятные правовые последствия, от которых никто не умрёт",
-      "link": "https://habr.com/ru/articles/1095712/?utm_campaign=1095712&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-19T07:25:17.000Z"
     }
   ]
 }
