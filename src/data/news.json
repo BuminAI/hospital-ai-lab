@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-06T06:53:48.504Z",
+  "updatedAt": "2026-11-08T21:10:17.797Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "\"비전·음성·생체신호 융합 AI, 디지털 헬스케어 새 지평\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171661",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-08T20:30:00.000Z"
+    },
     {
       "title": "루닛 의료 AI 영역 확장…진료부터 보험 청구까지",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171672",
@@ -27,14 +33,14 @@
       "pubDate": "2026-11-06T01:58:31.000Z"
     },
     {
-      "title": "K-의료 AI 뉴로핏, 래피드AI 네트워크 타고 미국 본격 진출",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171653",
+      "title": "결과만 주고 끝내던 건강검진, AI 타고 '완벽 케어' 변신",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171657",
       "source": "메디칼타임즈",
       "pubDate": "2026-11-05T20:30:00.000Z"
     },
     {
-      "title": "결과만 주고 끝내던 건강검진, AI 타고 '완벽 케어' 변신",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171657",
+      "title": "K-의료 AI 뉴로핏, 래피드AI 네트워크 타고 미국 본격 진출",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171653",
       "source": "메디칼타임즈",
       "pubDate": "2026-11-05T20:30:00.000Z"
     },
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169546",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-01T02:57:59.000Z"
-    },
-    {
-      "title": "글로벌 시장 공략 속도내는 뷰노…중동 5개국 수출 계약 축포",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169535",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-01T02:57:38.000Z"
     }
   ]
 }
