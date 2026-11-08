@@ -1,0 +1,142 @@
+---
+// Digital health and AI roadmap for Indian hospitals (2026-11-07) — from primary sources.
+// The facts live in src/data/in/guides/milestones.ts; this page only handles layout.
+import '../../styles/in-guide.css';
+import InLayout from '../../layouts/InLayout.astro';
+import InGuideFoot from '../../components/InGuideFoot.astro';
+import InFaq from '../../components/InFaq.astro';
+import { guideSchema } from '../../utils/in-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/in/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+
+const title = 'Roadmap: CDSCO, DPDP Act and ICMR for hospital AI in India';
+const description =
+  'Key dates for hospital administrators and nurse leaders: the Medical Devices Rules, CDSCO’s software guidance, the DPDP Act and ICMR’s AI guidelines.';
+
+const sources = [SRC.mdr, SRC.mdsw, SRC.mdswDraft, SRC.dpdp, SRC.dpdpTrack, SRC.icmr];
+
+const faq = [
+  {
+    q: 'Is AI software that a hospital buys regulated as a medical device in India?',
+    a: 'It can be. CDSCO’s Guidance Document on Medical Device Software (CDSCO/MD/GD/MDSW/01/2026) treats mobile apps, AI/ML-based software and cloud-based software that meet the definition of a medical device in the Medical Devices Rules, 2017 as Medical Device Software. It lists hospital information systems used only for admission, scheduling, billing and similar functions as examples that are not. The guidance is for public awareness, not legal use.',
+  },
+  {
+    q: 'Does a hospital need a written contract before giving patient data to an AI vendor?',
+    a: 'Under the DPDP Act, a data fiduciary may engage a data processor to offer goods or services only under a valid contract (section 8(2)), and it stays responsible for the processing irrespective of any agreement to the contrary (section 8(1)).',
+  },
+  {
+    q: 'Who must be told when there is a personal data breach?',
+    a: 'The Data Protection Board and each affected person (section 8(6) of the DPDP Act), in the form and manner prescribed. We could not open the Rules, so this page states no deadline.',
+  },
+  {
+    q: 'Is the DPDP Act in force?',
+    a: 'Section 1(2) says it comes into force on the date the Central Government appoints by notification, and different dates may be appointed for different provisions. We could not open the notifications, so this page states no start date. Check the Ministry of Electronics and IT before planning around one.',
+  },
+  {
+    q: 'Are there confirmed upcoming deadlines for hospitals?',
+    a: 'This page lists only dates that appear in the text of an official document that we read. The only forward-looking item is that the DPDP Act’s provisions start on dates set by notification, which we could not read, so we list no date.',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/in/dx-roadmap/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-07',
+  modified: '2026-11-07',
+  audience: 'Hospital administration and nursing leadership',
+  faq,
+});
+---
+
+<InLayout title={title} description={description} crumb="Roadmap" standalone updated={new Date('2026-11-07T00:00:00+05:30')} schema={schema}>
+  <h1>Digital health and AI roadmap</h1>
+  <p class="tg-lead">
+    “What does our hospital have to do, and by when?” The more AI news there is, the harder that is to answer. This page collects dates that appear in the text of rules and official publications, with sections and links to the sources.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and nursing leadership</p>
+
+  <p class="tg-answer">
+    In short: the Medical Devices Rules, 2017 have applied since 1 January 2018 and classify devices, including software that meets the definition, into classes A to D; CDSCO’s 2026 guidance explains which software that covers; the DPDP Act, 2023 was published on 11 August 2023, with its provisions starting on dates set by notification; and ICMR’s 2023 guidelines set ten ethical principles for AI in healthcare.
+  </p>
+
+  <div class="tg-box">
+    <strong>How to read this page</strong><br />
+    Each item was written after the text of the document was opened and read. We do not add dates that circulate only in summaries. What applies to a particular hospital depends on its status and structure, so check the text and ask counsel or your compliance officer.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">What has already happened</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">Upcoming dates</h2>
+    {
+      ahead.length > 0 ? (
+        <ol class="tg-tl">
+          {ahead.map((m) => (
+            <li>
+              <div class="when">{m.when}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{THEMES[m.theme]}</span>
+                  {m.title}
+                </b>
+                <span>{m.body}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>We found no upcoming dates confirmed by a primary source, so this section is intentionally empty.</p>
+      )
+    }
+    <p>
+      New CDSCO notices on medical devices and software appear automatically in the <a href={withBase('/in/calendar/')}>CDSCO calendar</a>.
+    </p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Pages that complement this one</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/in/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>DPDP Act obligations, by section: notice, consent, vendors, security and breaches.</span>
+      </a>
+      <a class="tg-card" href={withBase('/in/documents-checklist/')}>
+        <b>Checklist: device status and AI vendors</b>
+        <span>Is it a medical device, which class, which permission, and questions for the vendor.</span>
+      </a>
+      <a class="tg-card" href={withBase('/in/templates/')}>
+        <b>Document templates</b>
+        <span>Generative AI policy, vendor questions, incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <InFaq items={faq} />
+
+  <InGuideFoot sources={sources} checked={CHECKED} />
+</InLayout>

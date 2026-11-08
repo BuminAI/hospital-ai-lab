@@ -1,0 +1,67 @@
+{
+  "_comment": "English edition (India) government resources. A hand-checked list: each URL was opened (HTTP 200) on 2026-11-07. meity.gov.in, pib.gov.in, indiacode.nic.in, mohfw.gov.in and abdm.gov.in returned 403 or no connection to automated requests, so they are not listed and no fact depends on them. cdscomdonline.gov.in did not connect.",
+  "meta": {
+    "title": "Official Indian resources for hospital AI decisions",
+    "description": "Official sources behind this site: CDSCO medical device pages and public notices, the National Single Window System, ICMR guidelines, the Gazette and the Medical Council.",
+    "pageTitle": "Government resources",
+    "lead": "This page collects the official sources behind the rest of this site, each one opened and checked."
+  },
+  "notice": "This list is not an endorsement and not complete. Pages and rules change; rely on the current text at each source.",
+  "checkedAt": "2026-11-07",
+  "programs": [
+    {
+      "name": "CDSCO — medical devices and diagnostics",
+      "org": "Central Drugs Standard Control Organisation",
+      "url": "https://cdsco.gov.in/opencms/opencms/en/Medical-Device-Diagnostics/",
+      "body": "CDSCO’s medical device section, with the Medical Devices Rules, classification lists and guidance documents, including the Guidance Document on Medical Device Software.",
+      "audience": "Procurement, clinical engineering and compliance staff.",
+      "sourceUrl": "https://cdsco.gov.in/opencms/opencms/en/Medical-Device-Diagnostics/",
+      "sourceLabel": "CDSCO — medical devices and diagnostics"
+    },
+    {
+      "name": "CDSCO — public notices",
+      "org": "Central Drugs Standard Control Organisation",
+      "url": "https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notices/",
+      "body": "The list of CDSCO’s public notices, including draft guidance documents posted for stakeholder comments. The Calendar page of this site lists the device-related notices from it.",
+      "audience": "Compliance and procurement staff.",
+      "sourceUrl": "https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notices/",
+      "sourceLabel": "CDSCO — public notices"
+    },
+    {
+      "name": "National Single Window System",
+      "org": "Government of India",
+      "url": "https://www.nsws.gov.in/",
+      "body": "The portal through which CDSCO’s guidance says applications for a test licence for medical device software are submitted.",
+      "audience": "Manufacturers and importers.",
+      "sourceUrl": "https://www.nsws.gov.in/",
+      "sourceLabel": "National Single Window System"
+    },
+    {
+      "name": "ICMR — guidelines",
+      "org": "Indian Council of Medical Research",
+      "url": "https://www.icmr.gov.in/guidelines",
+      "body": "ICMR’s guidelines page, which lists the 2023 ethical guidelines for the application of AI in biomedical research and healthcare and other ethics guidance.",
+      "audience": "Ethics committees, research and quality staff.",
+      "sourceUrl": "https://www.icmr.gov.in/guidelines",
+      "sourceLabel": "ICMR — guidelines"
+    },
+    {
+      "name": "e-Gazette of India",
+      "org": "Government of India",
+      "url": "https://egazette.gov.in/",
+      "body": "The Gazette of India, where Central Government rules and notifications are published. The DPDP Act itself was published in it (Extraordinary, 11 August 2023).",
+      "audience": "Compliance, privacy and legal staff.",
+      "sourceUrl": "https://egazette.gov.in/",
+      "sourceLabel": "e-Gazette of India"
+    },
+    {
+      "name": "National Medical Commission — rules and regulations",
+      "org": "National Medical Commission",
+      "url": "https://www.nmc.org.in/rules-regulations/",
+      "body": "The National Medical Commission’s page on its rules and regulations.",
+      "audience": "Medical administration and legal staff.",
+      "sourceUrl": "https://www.nmc.org.in/rules-regulations/",
+      "sourceLabel": "National Medical Commission — rules and regulations"
+    }
+  ]
+}

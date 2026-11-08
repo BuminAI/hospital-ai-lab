@@ -1,0 +1,116 @@
+---
+// Patient rights when a hospital uses AI (2026-11-07). Only sections whose text was opened: DPDP Act 2023 sections 5, 6, 7, 8, 9, 11, 12, 13.
+import '../../../styles/in-guide.css';
+import InLayout from '../../../layouts/InLayout.astro';
+import InGuideFoot from '../../../components/InGuideFoot.astro';
+import InFaq from '../../../components/InFaq.astro';
+import { guideSchema } from '../../../utils/in-guide';
+import { SRC } from '../../../data/in/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 7, 2026';
+const title = 'When your hospital uses AI: what the DPDP Act gives you';
+const description =
+  'Which rights do you have when a hospital processes your data, including with AI? Notice, consent, access, correction, complaint and breach notice, in plain language.';
+
+const rights = [
+  {
+    "h": "A notice before you are asked to consent",
+    "p": "Every request for your consent must be accompanied or preceded by a notice that tells you the personal data and purpose, how you can exercise your rights, and how to complain to the Data Protection Board. You can ask to read it in English or any language in the Eighth Schedule to the Constitution (DPDP Act 2023, sections 5 and 6)."
+  },
+  {
+    "h": "Withdrawing your consent",
+    "p": "You can withdraw consent at any time, and it must be as easy to withdraw as it was to give (section 6(4)). The hospital must then stop processing, and make its processors stop, within a reasonable time unless processing without consent is required or authorised by law (section 6(6))."
+  },
+  {
+    "h": "Finding out what is processed and who has it",
+    "p": "If you consented, you can ask the hospital for a summary of the personal data it processes and what it does with it, and for the identities of the other data fiduciaries and processors it has shared your data with, with a description of the data (section 11). The way to make the request is set in the Rules."
+  },
+  {
+    "h": "Correction and erasure",
+    "p": "You can ask for correction, completion, updating and erasure of personal data you consented to. The hospital must correct inaccurate or misleading data, complete incomplete data and update it. It must erase data on your request unless it needs to keep it for the specified purpose or to comply with a law (section 12)."
+  },
+  {
+    "h": "A way to complain",
+    "p": "The hospital must give you readily available means of grievance redressal (section 13) and must publish contact details of a Data Protection Officer, where applicable, or of a person who can answer your questions (section 8(9)). You must use that route before approaching the Data Protection Board (section 13(3))."
+  },
+  {
+    "h": "Being told about a breach",
+    "p": "If your personal data is breached, the hospital must give the Data Protection Board and each affected person an intimation, in the form and manner the Rules prescribe (section 8(6))."
+  },
+  {
+    "h": "If you are a child or have a lawful guardian",
+    "p": "Before processing the personal data of a child (under eighteen) or of a person with a disability who has a lawful guardian, the hospital must obtain verifiable consent of the parent or guardian (section 9(1))."
+  }
+];
+
+const faq = [
+  {
+    "q": "Must a hospital tell me when it uses AI on my data?",
+    "a": "The Act requires a notice with the personal data and purpose, the way to exercise your rights and the way to complain (section 5(1)). It does not use the words “AI”. If the purpose of the processing includes an AI tool, that is part of what the notice should say about the purpose; ask the hospital."
+  },
+  {
+    "q": "Can the hospital use my data without my consent in an emergency?",
+    "a": "Section 7 lists legitimate uses that do not depend on consent, including responding to a medical emergency involving a threat to life or an immediate threat to health (section 7(f))."
+  },
+  {
+    "q": "Which of these rights already apply?",
+    "a": "Section 1(2) leaves the start dates of the Act’s provisions to government notification, and different dates may be appointed for different provisions. This site could not read the notifications, so it states no date. Ask the hospital, or check the notifications of the Ministry of Electronics and IT."
+  }
+];
+
+const sources = [SRC.dpdp, SRC.dpdpTrack];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/in/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-07',
+  modified: '2026-11-07',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<InLayout title={title} description={description} crumb="Patient rights and AI" standalone updated={new Date('2026-11-07T00:00:00+05:30')} schema={schema}>
+  <h1>When your hospital uses AI: what the DPDP Act gives you</h1>
+  <p class="tg-lead">
+    Hospitals increasingly use tools that rely on AI. Which of your rights apply? Below are the rights the Digital Personal Data Protection Act, 2023 gives you over your digital personal data, in plain language, with the section for each. When each provision starts to apply is set by government notification.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organization that treats you. In an emergency, go to the nearest emergency department or call your local emergency number.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Rights written into the rules</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ask">
+    <h2 id="h-ask">What you can ask your hospital</h2>
+    <p>The author’s suggestion, not a legal requirement. The sections above do not give a specific right to be told whether AI is used, but you can ask:</p>
+    <ul class="tg-list">
+      <li>Are AI tools used in my care or my billing? For what?</li>
+      <li>Who makes the final decision: a clinician or the tool?</li>
+      <li>Where is my information stored, and who can see it?</li>
+      <li>If a voice or image is recorded, for what purpose and for how long?</li>
+    </ul>
+    <p>Before you ask an AI about your own health: <a href={withBase('/in/patients/ai-health-consult/')}>six things to know</a>.</p>
+  </section>
+
+  <InFaq items={faq} />
+
+  <InGuideFoot sources={sources} checked={CHECKED} patient />
+</InLayout>

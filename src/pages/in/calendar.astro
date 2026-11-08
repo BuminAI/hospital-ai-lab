@@ -1,0 +1,65 @@
+---
+// CDSCO notices calendar (2026-11-07)
+// New notices are collected automatically from CDSCO's public-notices page (scripts/fetch-in-gov.mjs): those whose title is about medical devices, diagnostics, software or AI.
+// ⚠️ These are NEW FEDERAL DOCUMENTS (proposed rules, final rules, notices), not grant programs. Date = publication date, not a deadline.
+import '../../styles/in-guide.css';
+import InLayout from '../../layouts/InLayout.astro';
+import InGuideFoot from '../../components/InGuideFoot.astro';
+import notices from '../../data/in/gov-notices.json';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = notices.items.slice(0, 20);
+
+const title = 'CDSCO calendar: new medical device notices';
+const description =
+'New CDSCO public notices on medical devices, diagnostics, software and AI, with their release dates. Updated automatically.';
+const sources = [{ label: 'CDSCO public notices (cdsco.gov.in)', url: 'https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notices/' }];
+---
+
+<InLayout title={title} description={description} crumb="Calendar" standalone updated={new Date(notices.updatedAt ?? Date.now())}>
+<h1>CDSCO calendar</h1>
+  <p class="tg-lead">
+Which regulator notices came out recently? New CDSCO public notices whose titles mention medical devices, diagnostics, software or AI appear here automatically.
+  </p>
+<p class="tg-meta">Shown: {fmtDay.format(new Date())} · Data updated: {notices.updatedAt ? fmtDay.format(new Date(notices.updatedAt)) : 'not yet'}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+<h2 id="h-notice">New notices from CDSCO</h2>
+    <div class="tg-box tg-warn">
+The date below is the <strong>publication date</strong>, not a compliance deadline. Read the document for its content, duties and effective date. Only the title, type, date and agency are copied.
+    </div>
+    {
+      recent.length > 0 ? (
+        <ol class="tg-tl">
+          {recent.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+<span class="sr-only">(opens in a new tab)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+<p>No matching documents yet.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+<h2 id="h-ms">Upcoming dates</h2>
+    <p>
+Confirmed upcoming dates are listed in the <a href={withBase('/in/dx-roadmap/')}>Roadmap</a> together with the milestones that have already passed.
+    </p>
+  </section>
+
+<InGuideFoot sources={sources} checked="November 6, 2026" />
+</InLayout>

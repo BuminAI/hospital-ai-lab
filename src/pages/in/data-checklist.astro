@@ -1,0 +1,225 @@
+---
+// Checklist: patient data protection under the DPDP Act, 2023 (2026-11-07)
+// ⚠️ Items rest on sections 2, 4–10 and 13 of the Act and its Schedule, read from the Gazette of India text (copy hosted by PRS). The Rules and the commencement
+//    notifications could not be opened from this site's systems (meity.gov.in refused automated requests), so no deadline or start date is stated.
+import '../../styles/in-guide.css';
+import InLayout from '../../layouts/InLayout.astro';
+import InGuideFoot from '../../components/InGuideFoot.astro';
+import InFaq from '../../components/InFaq.astro';
+import { guideSchema } from '../../utils/in-guide';
+import { SRC } from '../../data/in/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 7, 2026';
+const title = "Patient data checklist: DPDP Act, vendors, security, breaches";
+const description =
+  "A checklist for hospital administration and IT: notice and consent, vendors and processors, security safeguards and breach intimation under the DPDP Act, 2023.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    "id": "g1",
+    "head": "A. Notice and consent",
+    "lead": "The Digital Personal Data Protection Act, 2023 is read here only for the sections cited. The start dates of its provisions are set by notification; check them.",
+    "items": [
+      {
+        "no": "1",
+        "text": "Every request for consent is accompanied or preceded by a notice that states the personal data and purpose, how the person can exercise their rights, and how to complain to the Data Protection Board.",
+        "basis": "DPDP Act 2023, section 5(1)"
+      },
+      {
+        "no": "2",
+        "text": "The notice and the consent request can be read in English or any language in the Eighth Schedule to the Constitution.",
+        "basis": "DPDP Act 2023, sections 5(3) and 6(3)"
+      },
+      {
+        "no": "3",
+        "text": "Consent is free, specific, informed, unconditional and unambiguous, given by a clear affirmative action, and limited to the personal data necessary for the stated purpose.",
+        "basis": "DPDP Act 2023, section 6(1)"
+      },
+      {
+        "no": "4",
+        "text": "The consent request gives the contact details of a Data Protection Officer where applicable, or of another person authorised to respond.",
+        "basis": "DPDP Act 2023, section 6(3)"
+      },
+      {
+        "no": "5",
+        "text": "A patient can withdraw consent as easily as they gave it, and the hospital stops processing, and has its processors stop, within a reasonable time unless processing is required or authorised by law.",
+        "basis": "DPDP Act 2023, sections 6(4) and 6(6)"
+      },
+      {
+        "no": "6",
+        "text": "You can prove that notice was given and consent obtained in line with the Act if a question arises.",
+        "basis": "DPDP Act 2023, section 6(10)"
+      }
+    ]
+  },
+  {
+    "id": "g2",
+    "head": "B. Uses without consent and special cases",
+    "items": [
+      {
+        "no": "7",
+        "text": "Where you rely on a “legitimate use” rather than consent, you have named which paragraph of section 7 applies, for example responding to a medical emergency or providing health services during an epidemic.",
+        "basis": "DPDP Act 2023, section 7(f) and 7(g)"
+      },
+      {
+        "no": "8",
+        "text": "For a child (an individual under eighteen) or a person with a lawful guardian, verifiable consent of the parent or guardian is obtained before processing, and no tracking, behavioural monitoring or targeted advertising is directed at children.",
+        "basis": "DPDP Act 2023, sections 2(f) and 9"
+      }
+    ]
+  },
+  {
+    "id": "g3",
+    "head": "C. Vendors and processors",
+    "items": [
+      {
+        "no": "9",
+        "text": "For each AI or software vendor that handles patient data, you have decided that the hospital is the data fiduciary and the vendor a data processor, and a valid contract is in place before data is shared.",
+        "basis": "DPDP Act 2023, sections 2(i), 2(k) and 8(2)"
+      },
+      {
+        "no": "10",
+        "text": "You know the hospital stays responsible for processing done on its behalf by the vendor, whatever the contract says.",
+        "basis": "DPDP Act 2023, section 8(1)"
+      },
+      {
+        "no": "11",
+        "text": "Where data is used to make a decision that affects a patient, or disclosed to another data fiduciary, someone checks its completeness, accuracy and consistency.",
+        "basis": "DPDP Act 2023, section 8(3)"
+      }
+    ]
+  },
+  {
+    "id": "g4",
+    "head": "D. Security, breaches, erasure and complaints",
+    "items": [
+      {
+        "no": "12",
+        "text": "Reasonable security safeguards are in place to prevent a personal data breach, including for data a processor handles for you.",
+        "basis": "DPDP Act 2023, section 8(5)"
+      },
+      {
+        "no": "13",
+        "text": "The hospital’s incident record says who intimates the Data Protection Board and each affected patient. The form and deadline are set in the Rules; check the current Rules.",
+        "basis": "DPDP Act 2023, section 8(6)"
+      },
+      {
+        "no": "14",
+        "text": "Personal data is erased when consent is withdrawn or the purpose is no longer served, unless retention is needed to comply with a law, and your processors erase it too.",
+        "basis": "DPDP Act 2023, section 8(7)"
+      },
+      {
+        "no": "15",
+        "text": "The hospital publishes the contact of a Data Protection Officer or another person who can answer patients’ questions, and has a grievance redressal mechanism.",
+        "basis": "DPDP Act 2023, sections 8(9), 8(10) and 13"
+      }
+    ]
+  }
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    "q": "Who must be told about a personal data breach?",
+    "a": "The Data Protection Board and each affected person (section 8(6)), in the form and manner prescribed. We could not open the Rules, so this page states no deadline."
+  },
+  {
+    "q": "What is the penalty for failing to keep reasonable security safeguards?",
+    "a": "In the Schedule to the Act, a breach of the section 8(5) obligation carries a penalty that may extend to two hundred and fifty crore rupees. Failing to give notice of a breach under section 8(6) may carry up to two hundred crore rupees."
+  },
+  {
+    "q": "Can a vendor use our patient data to train its own model?",
+    "a": "The Act lets a data fiduciary process personal data only for a lawful purpose, for which the person consented or for a legitimate use (section 4), and consent must be limited to the data necessary for the specified purpose (section 6(1)). Whether a vendor’s training use fits that is a question for the contract and for counsel; ask for the vendor’s purposes in writing."
+  },
+  {
+    "q": "Is the Act already in force?",
+    "a": "Section 1(2) leaves the start dates to government notification, and different dates may be appointed for different provisions. We could not read the notifications, so we state no date."
+  }
+];
+
+const sources = [SRC.dpdp, SRC.dpdpTrack];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/in/data-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-07',
+  modified: '2026-11-07',
+  audience: "Hospital administration and IT",
+  faq,
+});
+---
+
+<InLayout title={title} description={description} crumb="Patient data protection" standalone updated={new Date('2026-11-07T00:00:00+05:30')} schema={guide}>
+  <h1>Patient data protection checklist</h1>
+  <p class="tg-lead">
+    The Digital Personal Data Protection Act, 2023 sets out what a hospital that processes patients’ digital personal data must do before, during and after processing. This page turns the sections that matter most into a checklist, each item with its section.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and IT</p>
+
+  <p class="tg-answer">
+    In short: a notice must come with or before each request for consent (section 5); consent must be free, specific, informed, unconditional and unambiguous (section 6); the hospital stays responsible for what a vendor processes for it (section 8(1)); reasonable security safeguards are required (section 8(5)); and a breach must be intimated to the Data Protection Board and each affected person (section 8(6)).
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from sections that were read; each item gives its basis, so check the text.</li>
+      <li>Whether your hospital is a data fiduciary of a particular kind, and which provisions already apply, are not decided here. Check the government’s notifications and ask your privacy officer or counsel.</li>
+      <li>Items marked “author’s recommendation” are not legal requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/in/documents-checklist/')}>
+        <b>Checklist: device status and AI vendors</b>
+        <span>Is it a medical device, which class, and how updates are handled.</span>
+      </a>
+      <a class="tg-card" href={withBase('/in/templates/')}>
+        <b>Document templates</b>
+        <span>Vendor questions, generative AI policy and an incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <InFaq items={faq} />
+
+  <InGuideFoot sources={sources} checked={CHECKED} />
+</InLayout>

@@ -14,6 +14,14 @@ export const checklistRelated: Record<Exclude<Loc, 'ko'>, Record<number, string[
     3: ['2026-11-06-hipaa-breach-60-day-clock-ai-vendors', '2026-11-06-hipaa-security-rule-proposal-status'],
     4: ['2026-11-06-hti-5-decision-support-rule'],
   },
+  in: {
+    0: ['2026-11-07-is-your-hospital-ai-a-medical-device-cdsco'],
+    1: ['2026-11-07-is-your-hospital-ai-a-medical-device-cdsco', '2026-11-07-hospital-information-systems-not-medical-devices-cdsco', '2026-11-07-ai-model-updates-algorithm-change-protocol-cdsco'],
+    2: ['2026-11-07-dpdp-act-consent-notice-hospital', '2026-11-07-dpdp-act-ai-vendor-processes-patient-data'],
+    3: ['2026-11-07-dpdp-act-ai-vendor-processes-patient-data'],
+    4: ['2026-11-07-icmr-ai-guidelines-ten-principles-for-administrators'],
+    5: ['2026-11-07-icmr-ai-guidelines-ten-principles-for-administrators'],
+  },
   ja: {
     0: ['2026-08-20-samd-idaten-review-body-reform'],
     1: [

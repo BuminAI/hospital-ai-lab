@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""AI 심사실 6개 언어판 생성기.
+"""AI 심사실 7개 언어판 생성기.
 
   python scripts/ai-judge/build.py
 
 template.html(+ style.css.part)에 lang/*.py의 문구표를 끼워 넣어
-public/ai-judge/index.html(ko)과 public/{ja,ru,id,tw,en}/ai-judge/index.html을 만든다.
+public/ai-judge/index.html(ko)과 public/{ja,ru,id,tw,en,in}/ai-judge/index.html을 만든다.
 화면·채점 로직은 template.html 한 곳에만 있으므로, 고칠 때는 여기를 고치고 다시 실행한다.
 생성된 public/**/ai-judge/index.html을 직접 고치지 말 것(다음 실행 때 덮어씀).
 """
@@ -13,9 +13,9 @@ import importlib.util, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SITE = 'https://hospital-ai-lab.com'
-CODES = ['ko', 'ja', 'ru', 'id', 'tw', 'en']
-HREFLANG = {'ko': 'ko', 'ja': 'ja', 'ru': 'ru', 'id': 'id', 'tw': 'zh-TW', 'en': 'en'}
-PATHS = {'ko': '/ai-judge/', 'ja': '/ja/ai-judge/', 'ru': '/ru/ai-judge/', 'id': '/id/ai-judge/', 'tw': '/tw/ai-judge/', 'en': '/en/ai-judge/'}
+CODES = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in']
+HREFLANG = {'ko': 'ko', 'ja': 'ja', 'ru': 'ru', 'id': 'id', 'tw': 'zh-TW', 'en': 'en', 'in': 'en-IN'}
+PATHS = {'ko': '/ai-judge/', 'ja': '/ja/ai-judge/', 'ru': '/ru/ai-judge/', 'id': '/id/ai-judge/', 'tw': '/tw/ai-judge/', 'en': '/en/ai-judge/', 'in': '/in/ai-judge/'}
 
 
 def load(code):

@@ -1,0 +1,213 @@
+---
+// Checklist: device status and AI vendors (2026-11-07)
+// ⚠️ These items were written by the author from the text of CDSCO's Guidance Document on Medical Device Software (CDSCO/MD/GD/MDSW/01/2026), the Medical Devices Rules, 2017 and section 8 of the DPDP Act, 2023.
+//    This is not an official checklist. The page does not claim what a specific vendor’s product does.
+import '../../styles/in-guide.css';
+import InLayout from '../../layouts/InLayout.astro';
+import InGuideFoot from '../../components/InGuideFoot.astro';
+import InFaq from '../../components/InFaq.astro';
+import { guideSchema } from '../../utils/in-guide';
+import { SRC } from '../../data/in/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 7, 2026';
+const title = "Checklist: device status and AI vendors";
+const description =
+  "What to check when a vendor offers AI software: is it a medical device, which class and permission, how updates are handled and what the tool touches.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    "id": "g1",
+    "head": "A. Is the product a medical device?",
+    "lead": "CDSCO’s Guidance Document on Medical Device Software treats mobile apps, AI/ML-based software and cloud-based software that meet the definition of a medical device in the Medical Devices Rules, 2017 as Medical Device Software. It is for public awareness and not for legal use.",
+    "items": [
+      {
+        "no": "1",
+        "text": "The vendor has given a written answer on whether it treats the product as a medical device under the Medical Devices Rules, 2017, and why.",
+        "basis": "CDSCO/MD/GD/MDSW/01/2026, sections 2.0 and 4"
+      },
+      {
+        "no": "2",
+        "text": "If the product is a hospital or clinical information system used only for admission, scheduling, billing, clinical communication or storing and transferring patient information, you know that CDSCO lists such systems as examples of software that is not Medical Device Software, and you ask separately about any AI function added to it.",
+        "basis": "CDSCO/MD/GD/MDSW/01/2026, section 5.2"
+      },
+      {
+        "no": "3",
+        "text": "You have read the intended use statement the vendor relies on, and compared it with how your staff will use the tool.",
+        "basis": "CDSCO/MD/GD/MDSW/01/2026, intended use (section 6.0); Author’s recommendation"
+      }
+    ]
+  },
+  {
+    "id": "g2",
+    "head": "B. Class and permission",
+    "lead": "Rule 4 sets four classes: A (low risk), B (low moderate), C (moderate high) and D (high risk).",
+    "items": [
+      {
+        "no": "4",
+        "text": "The vendor states the risk class (A, B, C or D) for this software and this intended use, and the licence or permission it holds.",
+        "basis": "Medical Devices Rules, 2017, Rule 4 and First Schedule; CDSCO/MD/GD/MDSW/01/2026, section 7.0"
+      },
+      {
+        "no": "5",
+        "text": "If the software controls or influences another device, you know it falls in the same class as that device.",
+        "basis": "Medical Devices Rules, 2017, First Schedule, implementation rules (iii)"
+      },
+      {
+        "no": "6",
+        "text": "You have asked the vendor to show the permission document, not only to say that it exists.",
+        "basis": "Author’s recommendation"
+      }
+    ]
+  },
+  {
+    "id": "g3",
+    "head": "C. Updates and monitoring of an AI model",
+    "lead": "The guidance says an Algorithm Change Protocol “may be devised, wherever applicable”. It is not stated as mandatory for every product.",
+    "items": [
+      {
+        "no": "7",
+        "text": "The vendor says whether it has an Algorithm Change Protocol and which changes it covers.",
+        "basis": "CDSCO/MD/GD/MDSW/01/2026, Algorithm Change Protocol (p. 43)"
+      },
+      {
+        "no": "8",
+        "text": "The contract says how you are told before an update reaches your wards, how updates are communicated to users, and how an update is rolled back.",
+        "basis": "CDSCO/MD/GD/MDSW/01/2026 (software update plan and rollback plan); Author’s recommendation for the contract wording"
+      },
+      {
+        "no": "9",
+        "text": "The vendor describes how performance is monitored after go-live, with metrics and how often they are assessed, and what it shares with you.",
+        "basis": "CDSCO/MD/GD/MDSW/01/2026 (performance evaluation and monitoring plan)"
+      },
+      {
+        "no": "10",
+        "text": "The vendor’s risk documentation addresses AI bias and cybersecurity risks, and you know who at the hospital will watch for biased output.",
+        "basis": "CDSCO/MD/GD/MDSW/01/2026 (risk management documentation)"
+      }
+    ]
+  },
+  {
+    "id": "g4",
+    "head": "D. Records and data the tool touches",
+    "lead": "The rules cited here say nothing about AI documentation tools as such. These items are the author’s conclusions.",
+    "items": [
+      {
+        "no": "11",
+        "text": "It is defined where AI drafts and request logs are stored, who can see them and how they are erased.",
+        "basis": "Author’s recommendation; DPDP Act 2023, section 8(7) on erasure"
+      },
+      {
+        "no": "12",
+        "text": "A person is named who checks that data used to make a decision about a patient is complete, accurate and consistent.",
+        "basis": "DPDP Act 2023, section 8(3)"
+      }
+    ]
+  }
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    "q": "Is every AI tool a hospital buys a medical device?",
+    "a": "No. It depends on whether the software meets the definition of a medical device in the Medical Devices Rules, 2017. CDSCO’s guidance lists examples that are not, including hospital information systems used only for admission, scheduling and billing. What decides it is the intended use the manufacturer states."
+  },
+  {
+    "q": "How is the risk class decided?",
+    "a": "Rule 4 sets classes A to D on the parameters in Part I of the First Schedule. CDSCO’s guidance says the class of Medical Device Software is fundamentally based on its intended use and the applicable rules in the First Schedule."
+  },
+  {
+    "q": "Must every AI product have an Algorithm Change Protocol?",
+    "a": "The guidance says one “may be devised, wherever applicable”, based on the nature and risks of the software. Ask the vendor whether it has one; the guidance does not state it as mandatory for every product."
+  },
+  {
+    "q": "Where do manufacturers file their applications?",
+    "a": "According to the guidance, test licences go through the National Single Window System (nsws.gov.in) and other applications through the Online System for Medical Devices (cdscomdonline.gov.in)."
+  }
+];
+
+const sources = [SRC.mdsw, SRC.mdr, SRC.mdswDraft, SRC.dpdp];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/in/documents-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-07',
+  modified: '2026-11-07',
+  audience: "Hospital administration and executives",
+  faq,
+});
+---
+
+<InLayout title={title} description={description} crumb="Device status and AI vendors" standalone updated={new Date('2026-11-07T00:00:00+05:30')} schema={guide}>
+  <h1>Checklist: device status and AI vendors</h1>
+  <p class="tg-lead">
+    When a vendor offers AI software, three questions come up together: is it a regulated medical device, what changes when the model is updated, and what happens to the data it touches. This page puts them in one place, each with its basis.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and executives</p>
+
+  <p class="tg-answer">
+    In short: software that meets the definition of a medical device is regulated under the Medical Devices Rules, 2017, in classes A to D; CDSCO’s 2026 guidance lists hospital information systems used only for admission, scheduling and billing as examples that are not; and it describes an optional Algorithm Change Protocol for AI updates. The guidance is for public awareness, not legal use.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from the documents cited; each item gives its basis.</li>
+      <li>The documents cited do not decide whether a particular product is a medical device. That depends on its intended use and the vendor’s licence; ask the vendor in writing.</li>
+      <li>Items marked “author’s recommendation” are not legal requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/in/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>DPDP Act obligations: notice, consent, vendors, security and breaches.</span>
+      </a>
+      <a class="tg-card" href={withBase('/in/templates/')}>
+        <b>Document templates</b>
+        <span>Vendor questions and a generative AI policy.</span>
+      </a>
+    </div>
+  </section>
+
+  <InFaq items={faq} />
+
+  <InGuideFoot sources={sources} checked={CHECKED} />
+</InLayout>

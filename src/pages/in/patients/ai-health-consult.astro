@@ -1,0 +1,101 @@
+---
+// Before you ask an AI about your health (2026-11-07). General cautions only; no diagnosis or treatment advice. Bases: DPDP Act 2023 section 2(i), 5, 6; Medical Devices Rules 2017; CDSCO software guidance.
+import '../../../styles/in-guide.css';
+import InLayout from '../../../layouts/InLayout.astro';
+import InGuideFoot from '../../../components/InGuideFoot.astro';
+import InFaq from '../../../components/InFaq.astro';
+import { guideSchema } from '../../../utils/in-guide';
+import { SRC } from '../../../data/in/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 7, 2026';
+const title = 'Before you ask an AI about your health: six things to know';
+const description =
+  'An AI answer is not a diagnosis. Six things to know before you type health questions into a chatbot: urgency, privacy, regulated software and your own records.';
+
+const rights = [
+  {
+    "h": "1. An AI answer is not a diagnosis",
+    "p": "A chatbot cannot examine you or see your full history, and it can sound sure when it is wrong. Use it, at most, to prepare questions for your own doctor or nurse."
+  },
+  {
+    "h": "2. Do not wait if it may be urgent",
+    "p": "If you think you or someone else may be having an emergency, go to the nearest emergency department or call your local emergency number. Do not wait for a chatbot reply."
+  },
+  {
+    "h": "3. Ask who is responsible for what you type",
+    "p": "A company that decides why and how your digital personal data is processed is what the DPDP Act, 2023 calls a data fiduciary (section 2(i)). Before you type health details, read what the service says about its purpose, where the data goes and how to withdraw. When each provision of the Act applies is set by government notification, which this site could not read, so do not assume a chatbot is covered."
+  },
+  {
+    "h": "4. Share less than you think you need to",
+    "p": "Leave out names, dates of birth, addresses, Aadhaar, phone and registration numbers, and photos that show your face or a document, unless you are sure the service is one you trust with them."
+  },
+  {
+    "h": "5. Some health software is regulated, some is not",
+    "p": "Under the Medical Devices Rules, 2017, software that meets the definition of a medical device is regulated by CDSCO. CDSCO’s guidance says mobile apps and AI/ML-based software that meet the definition are covered, and software merely for general wellness or fitness tracking is outside it. A claim such as “approved” should say by whom, for what intended use and under which licence."
+  },
+  {
+    "h": "6. Bring your own records to your doctor",
+    "p": "Keep your own reports, prescriptions and discharge summaries together. They help the doctor who treats you far more than a chatbot’s summary of them."
+  }
+];
+
+const faq = [
+  {
+    "q": "Is it safe to paste my test results into a chatbot?",
+    "a": "This page cannot say what a particular tool does with them. Consider what the service’s privacy notice says, and whether you would be comfortable if the text were stored or shared. Remove your name and identifiers first."
+  },
+  {
+    "q": "Does the DPDP Act protect what I tell a chatbot?",
+    "a": "The Act sets duties for those who decide why and how digital personal data is processed, such as giving a notice and asking for consent (sections 5 and 6). Which provisions apply to a particular service depends on the Act and on government notifications, which this site could not read. Check the service’s notice."
+  },
+  {
+    "q": "Can I rely on an AI that says it is “CDSCO approved”?",
+    "a": "Ask exactly what CDSCO permitted, for what intended use and in which risk class. CDSCO’s guidance on medical device software says its examples are illustrations and that it is not meant for legal use, so a claim should be checked against the licence or permission itself."
+  }
+];
+
+const sources = [SRC.dpdp, SRC.mdr, SRC.mdsw];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/in/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-07',
+  modified: '2026-11-07',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<InLayout title={title} description={description} crumb="Asking AI about health" standalone updated={new Date('2026-11-07T00:00:00+05:30')} schema={schema}>
+  <h1>Before you ask an AI about your health: six things to know</h1>
+  <p class="tg-lead">
+    Many people now ask AI chatbots about symptoms, test results and medicines. This page does not tell you what to do about any health condition. It explains a few facts that help you use such tools more carefully.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organization that treats you. In an emergency, go to the nearest emergency department or call your local emergency number.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Six things</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+
+  <InFaq items={faq} />
+
+  <InGuideFoot sources={sources} checked={CHECKED} patient />
+</InLayout>

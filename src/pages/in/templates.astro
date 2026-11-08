@@ -1,0 +1,211 @@
+---
+// Templates (2026-11-07): generative AI policy, 21 vendor questions, patient-facing text, incident record
+// ⚠️ Everything here is the author’s DRAFT, not legal advice. Legal bases are cited only to sections whose text was opened (DPDP Act 2023 Gazette text, Medical Devices Rules 2017, CDSCO guidance).
+import '../../styles/in-guide.css';
+import InLayout from '../../layouts/InLayout.astro';
+import InGuideFoot from '../../components/InGuideFoot.astro';
+import { SRC } from '../../data/in/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 7, 2026';
+const title = 'Templates: generative AI policy and 21 vendor questions';
+const description =
+  'Four copyable drafts: a generative AI use policy, 21 vendor questions, a short text for patients and an incident record for a personal data breach.';
+
+const policy = [
+  "GENERATIVE AI USE POLICY, \"__\" HOSPITAL (DRAFT)",
+  "",
+  "1. Purpose",
+  "   Sets rules for staff of \"__\" when they use generative AI tools (chatbots, summarising tools, translation tools).",
+  "",
+  "2. What must NOT be entered",
+  "   - Patient names, registration or UHID numbers, dates of birth, addresses, phone numbers, or the content of patient records.",
+  "   - Images or recordings that could identify a patient.",
+  "   - Contracts, or restricted financial and personnel data.",
+  "   Exception: a tool the data protection officer (or the person named in clause 5) has approved in writing, under a written contract with the vendor.",
+  "",
+  "3. Approved tools",
+  "   Only tools on the approved list kept by \"__\" (owner: __). Using an unapproved tool for work is not allowed.",
+  "",
+  "4. Review of output",
+  "   A person is responsible for every AI-generated text used in work. Check facts, numbers and names against the source before use.",
+  "   AI output is never entered in a patient record until the responsible clinician has reviewed and approved it.",
+  "",
+  "5. Reporting",
+  "   If patient information was entered into an unapproved tool, report it the same day to __ (name, phone __). Do not try to delete it yourself first.",
+  "",
+  "6. Training",
+  "   Staff who use AI tools are trained on this policy, and the training is recorded. Owner: __. Review date: __.",
+].join('\n');
+
+const questions = [
+  "TWENTY-ONE QUESTIONS FOR AN AI VENDOR (DRAFT)",
+  "Write the answers down and attach them to the contract.",
+  "",
+  "Device status",
+  "1. Do you treat this product as a medical device under the Medical Devices Rules, 2017? If not, why not?",
+  "2. If yes, which risk class (A, B, C or D), and which licence or permission do you hold for this software and this intended use? May we see it?",
+  "3. What is the intended use statement, and does our planned use match it?",
+  "4. Is the software a stand-alone product or part of another device? If part of a device, whose licence covers it?",
+  "5. Do you have an Algorithm Change Protocol, and which changes does it cover?",
+  "6. How will we be told before an update reaches our wards, and can we delay it?",
+  "7. How is an update rolled back, and who tells our staff?",
+  "",
+  "Performance and monitoring",
+  "8. On which patients was the tool tested, and how does that compare with ours, including languages and regions?",
+  "9. Which performance figures do you monitor after go-live, how often, and will you share them with us?",
+  "10. How do you address AI bias and cybersecurity risks, and what do you ask us to watch for?",
+  "",
+  "Patient data",
+  "11. For what purposes will you process our patient data, and nothing else? Will you use it to improve your own product?",
+  "12. Will you sign a written contract that makes you our data processor before any patient data is shared? May we see your standard form?",
+  "13. Which sub-processors (cloud, model providers) will touch the data, where is it processed, and are they bound to the same terms?",
+  "14. What security safeguards do you apply, described so that we can compare them with section 8(5) of the DPDP Act?",
+  "15. How and how fast do you tell us of a personal data breach, and who answers at night?",
+  "16. How is data erased when consent is withdrawn or the contract ends, including in logs, backups and by your sub-processors?",
+  "17. How does your tool support our notice and consent in English and in the patient’s language?",
+  "",
+  "Operations",
+  "18. Who at our hospital gets more work with this tool, and who reviews its output?",
+  "19. What does the exit plan look like, including return or erasure of data?",
+  "20. Which decisions affecting patients will the tool’s output feed into, and who checks the completeness, accuracy and consistency of the data it uses?",
+  "21. What is your support commitment and escalation path for safety issues?",
+].join('\n');
+
+const patient = [
+  "TEXT FOR PATIENTS: OUR USE OF AN AI TOOL (EXAMPLE)",
+  "",
+  "\"__\" hospital uses an AI tool for __ (for example: drafting discharge summaries, which a clinician then checks).",
+  "The tool does not make decisions about your treatment. A member of our staff reviews what it produces.",
+  "We process your personal data for this purpose only. Before we ask for your consent we give you a notice that says which data and why, how to exercise your rights and how to complain to the Data Protection Board.",
+  "You can read this notice in English or in __ (language). You can withdraw your consent at any time as easily as you gave it.",
+  "Questions: __ (name or office, phone, email).",
+].join('\n');
+
+const incident = [
+  "PERSONAL DATA INCIDENT RECORD (DRAFT)",
+  "",
+  "Date and time discovered: __   Discovered by: __   Reported to: __",
+  "What happened (one sentence, no patient names): __",
+  "Systems and data involved (type of data, approximate number of patients): __",
+  "Was it unauthorised processing, accidental disclosure, acquisition, sharing, use, alteration, destruction or loss of access? __",
+  "Did it compromise confidentiality, integrity or availability? __",
+  "",
+  "Containment done: __   By: __   Time: __",
+  "Who decides whether this is a personal data breach: __",
+  "Intimation to the Data Protection Board: who files: __   Form and deadline as set in the current Rules: __   Filed on: __",
+  "Intimation to each affected patient: who sends: __   Method: __   Sent on: __",
+  "Vendor involved: __   (contact: __, 24-hour line: __)",
+  "",
+  "Recorded: __ (who contacted whom, and when).",
+].join('\n');
+
+const items = [
+  {
+    id: 'policy',
+    head: '1. Generative AI use policy',
+    lead: 'A page you can hand to staff. Replace "__" with your hospital’s details.',
+    basis: [
+      'The ban on entering patient information into unapproved tools rests on the DPDP Act’s rules that the hospital is responsible for processing done on its behalf and may engage a processor only under a valid contract (sections 8(1) and 8(2)).',
+      'The rest is the author’s proposal.',
+    ],
+    text: policy,
+  },
+  {
+    id: 'vendor',
+    head: '2. Twenty-one questions for a vendor',
+    lead: 'Print it and take it to the vendor presentation. Write the answers down.',
+    basis: [
+      'Questions 1–7: CDSCO’s Guidance Document on Medical Device Software (CDSCO/MD/GD/MDSW/01/2026) and the Medical Devices Rules, 2017, Rule 4.',
+      'Questions 11–17 and 20: sections 4, 6, 8(1)–(7) of the DPDP Act, 2023.',
+      'The other questions are the author’s proposals, not legal requirements.',
+    ],
+    text: questions,
+  },
+  {
+    id: 'patient',
+    head: '3. Text for patients',
+    lead: 'A short example of how to tell a patient that the hospital uses an AI tool. Match it to your actual practice.',
+    basis: [
+      'The notice and consent content follows sections 5 and 6 of the DPDP Act, 2023.',
+      'The wording is the author’s example, not required language.',
+    ],
+    text: patient,
+  },
+  {
+    id: 'incident',
+    head: '4. Incident record',
+    lead: 'Turn the procedure into one fillable page and keep it where people will find it at night and on weekends.',
+    basis: ['DPDP Act 2023, section 2(u) (definition of a personal data breach) and section 8(6) (intimation to the Board and each affected person). The deadline and form are in the Rules, which this site could not open; fill them in from the current Rules.'],
+    text: incident,
+  },
+];
+
+const sources = [SRC.mdsw, SRC.mdr, SRC.dpdp];
+---
+
+<InLayout title={title} description={description} crumb="Templates" standalone updated={new Date('2026-11-07T00:00:00+05:30')}>
+  <h1>Templates: generative AI policy and 21 vendor questions</h1>
+  <p class="tg-lead">
+    “We don’t know where to start writing” is a common problem for hospitals. Here are four drafts: press the button, copy, and replace “__” with your own details.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and IT</p>
+
+  <div class="tg-box tg-warn">
+    <strong>Before you use these</strong><br />
+    These are the author’s <strong>drafts</strong>, not legal advice and not a version that is ready to copy as is. Adapt them to the size, systems and contracts of your hospital, and show them to counsel or your compliance office before they become documents.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-toc">
+    <h2 id="h-toc">Contents</h2>
+    <ul class="tg-list">
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.head}</a></li>)}
+    </ul>
+    <p>
+      Related pages: <a href={withBase('/in/dx-roadmap/')}>Roadmap</a>, <a href={withBase('/in/data-checklist/')}>Patient data checklist</a>, <a href={withBase('/in/documents-checklist/')}>Checklist: records and AI vendors</a>.
+    </p>
+  </section>
+
+  {
+    items.map((it) => (
+      <section class="tg-sec" id={it.id} aria-labelledby={`${it.id}-h`}>
+        <h2 id={`${it.id}-h`}>{it.head}</h2>
+        <p>{it.lead}</p>
+        <div class="tg-copy">
+          <button type="button" class="tg-btn" data-target={`${it.id}-text`}>
+            Copy
+          </button>
+          <pre id={`${it.id}-text`}>{it.text}</pre>
+        </div>
+        <h3>Basis of the template</h3>
+        <ul class="tg-list">
+          {it.basis.map((b) => <li>{b}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <InGuideFoot sources={sources} checked={CHECKED} />
+</InLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.tg-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = document.getElementById(btn.dataset.target ?? '');
+      if (!el) return;
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Copied';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = window.getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Selected (press Ctrl+C)';
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>

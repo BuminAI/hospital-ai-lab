@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-11-07T14:16:58.043Z",
+  "readOk": 4,
+  "total": 4,
+  "laws": [
+    {
+      "id": "mdr-2017",
+      "name": "Medical Devices Rules, 2017 (CDSCO PDF)",
+      "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
+      "baseline": "Thu, 11 Jul 2024 08:18:09 GMT | 3408590 | W/\"3408590-1720685889519\"",
+      "baselinePending": false,
+      "current": "Thu, 11 Jul 2024 08:18:09 GMT | 3408590 | W/\"3408590-1720685889519\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-07T14:16:41.807Z",
+      "error": null
+    },
+    {
+      "id": "mdsw-guidance",
+      "name": "CDSCO Guidance Document on Medical Device Software (CDSCO/MD/GD/MDSW/01/2026)",
+      "url": "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf",
+      "baseline": "Tue, 21 Jul 2026 12:20:32 GMT | 1626215 | W/\"1626215-1784636432546\"",
+      "baselinePending": false,
+      "current": "Tue, 21 Jul 2026 12:20:32 GMT | 1626215 | W/\"1626215-1784636432546\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-07T14:16:52.659Z",
+      "error": null
+    },
+    {
+      "id": "dpdp-act",
+      "name": "Digital Personal Data Protection Act, 2023 (Gazette copy hosted by PRS)",
+      "url": "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf",
+      "baseline": "Thu, 17 Aug 2023 10:55:08 GMT | 182082 | \"64ddfc8c-2c742\"",
+      "baselinePending": false,
+      "current": "Thu, 17 Aug 2023 10:55:08 GMT | 182082 | \"64ddfc8c-2c742\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-07T14:16:53.320Z",
+      "error": null
+    },
+    {
+      "id": "icmr-ai",
+      "name": "ICMR Ethical Guidelines for AI in Biomedical Research and Healthcare (2023)",
+      "url": "https://www.icmr.gov.in/icmrobject/uploads/Guidelines/1724842648_ethical_guidelines_application_artificial_intelligence_biomed_rsrch_2023.pdf",
+      "baseline": " | 30946063 | ",
+      "baselinePending": false,
+      "current": " | 30946063 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-07T14:16:58.043Z",
+      "error": null
+    }
+  ]
+}

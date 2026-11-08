@@ -90,4 +90,18 @@ const blogEn = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn };
+// 영어판(인도) 블로그 (2026-11-07 신설). 영어판(미국)과도 별개 컬렉션 — 인도 제도(CDSCO 의료기기 규칙·DPDP 법·ICMR 지침 등)를
+// 1차 출처로 읽어 쓰는 독립 집필이다.
+const blogIn = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-in' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Research Review', 'AI Tools', 'Column', 'News']),
+    draft: z.boolean().default(false),
+    series: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn };

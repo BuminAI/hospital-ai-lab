@@ -1,0 +1,85 @@
+---
+// Updates (2026-11-06) — what was recently added to the English edition, by date.
+// Dates: news publication, document date, date a video was added, article date — not the site build time.
+import '../../styles/in-guide.css';
+import InLayout from '../../layouts/InLayout.astro';
+import { getEnUpdates, KIND_LABEL } from '../../utils/in-updates';
+import { withBase } from '../../utils/site';
+
+const DAYS = 45;
+const items = await getEnUpdates(DAYS);
+const fmtDay = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+const dayKey = (iso: string) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Kolkata' }).format(new Date(iso));
+
+const groups: { key: string; label: string; list: typeof items }[] = [];
+for (const it of items) {
+  const k = dayKey(it.date);
+  let g = groups[groups.length - 1];
+  if (!g || g.key !== k) {
+    g = { key: k, label: fmtDay.format(new Date(it.date)), list: [] };
+    groups.push(g);
+  }
+  g.list.push(it);
+}
+const count = (kind: string) => items.filter((i) => i.kind === kind).length;
+
+const title = 'Updates: AI news, CDSCO notices, videos and articles';
+const description = `AI news, new CDSCO device notices, videos and articles added in the last ${DAYS} days, by date. Collected automatically and checked daily.`;
+const latest = items.length ? new Date(items[0].date) : undefined;
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${siteRoot}${withBase('/in/updates/')}#collection`,
+name: 'Updates',
+    inLanguage: 'en-IN',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 30).map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.title,
+        url: it.external ? it.href : `${siteRoot}${it.href}`,
+      })),
+    },
+  },
+];
+---
+
+<InLayout title={title} description={description} crumb="Updates" standalone updated={latest} schema={schema}>
+<h1>Updates</h1>
+  <p class="tg-lead">
+What was added to the English edition in the last {DAYS} days, by date. News is checked several times a day, and CDSCO notices and videos several times a day; articles are added when they are ready.
+  </p>
+  <p class="tg-meta">
+Last {DAYS} days: {KIND_LABEL.news} {count('news')} · {KIND_LABEL.notice} {count('notice')} · {KIND_LABEL.video} {count('video')} · {KIND_LABEL.blog} {count('blog')}
+  </p>
+  <div class="tg-box">
+The dates on screen are the news publication date, the document date, the date a video was added, or the article date, not the build time of the site. External links lead to pages of agencies and publishers.
+  </div>
+
+  {
+    groups.length > 0 ? (
+      groups.map((g) => (
+        <section class="tg-sec" aria-label={g.label}>
+          <h2>{g.label}</h2>
+          <ul class="tg-list">
+            {g.list.map((it) => (
+              <li>
+                <span class="tg-tag">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+{it.external && <span class="sr-only">(opens in a new tab)</span>}
+                </a>
+                {it.note && <small> · {it.note}</small>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    ) : (
+<p>Nothing new was added in this period.</p>
+    )
+  }
+</InLayout>

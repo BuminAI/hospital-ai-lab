@@ -21,7 +21,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
-export const SITEMAP_LOCALES = ['ja', 'ru', 'id', 'tw', 'en'];
+export const SITEMAP_LOCALES = ['ja', 'ru', 'id', 'tw', 'en', 'in'];
 
 // Astro 라우트가 아닌 정적 페이지(public/<언어>/…). 빌드 목록(pages)에 안 잡혀서 여기서 따로 넣는다.
 const STATIC_PAGES = (locale) => [`/${locale}/ai-judge/`];

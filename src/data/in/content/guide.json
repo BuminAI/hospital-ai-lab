@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Where to start with medical AI in an Indian hospital",
+    "description": "Five steps for administrators and nurse leaders with no technical background: the task, regulatory status, patient data, vendor answers and the staff.",
+    "pageTitle": "Where to start",
+    "lead": "You do not need to understand how a model works to review a proposal for one. You need to know what it is for, whether it is a regulated medical device, where patient data goes, and what changes for staff. Five steps, in order."
+  },
+  "sections": [
+    {
+      "heading": "1. Name the task before the technology",
+      "body": "Write one sentence: what job will this tool do, for whom, and what happens today without it? A tool that drafts discharge summaries, a tool that flags patients for review and a tool that schedules staff raise different questions. Vendors describe what the product can do; you need to describe what you need.",
+      "items": []
+    },
+    {
+      "heading": "2. Ask whether it is a medical device",
+      "body": "Under the Medical Devices Rules, 2017, software that meets the definition of a medical device is regulated by CDSCO. CDSCO’s Guidance Document on Medical Device Software treats AI/ML-based software that meets the definition as Medical Device Software and says that hospital information systems used only for admission, scheduling, billing and similar functions are not. Ask the vendor in writing whether it treats the product as a device, which class (A to D) and what permission it holds for this intended use.",
+      "items": []
+    },
+    {
+      "heading": "3. Follow the patient data",
+      "body": "Find out whether the tool receives patient data, where it goes, who else touches it and how it is erased. Under the Digital Personal Data Protection Act, 2023 the hospital that decides why and how data is processed is the data fiduciary, and it stays responsible when a vendor processes the data for it (section 8(1)). A processor may be engaged only under a valid contract (section 8(2)). The start dates of the Act’s provisions are set by notification, so check them before you plan.",
+      "items": []
+    },
+    {
+      "heading": "4. Get the answers in writing",
+      "body": "Use the vendor questions in the templates page. Put the answers into the contract or an attachment to it. Pay attention to security and breach notice: the Act expects reasonable security safeguards and an intimation to the Data Protection Board and each affected person, and a vendor that tells you late can use up your time.",
+      "items": []
+    },
+    {
+      "heading": "5. Plan for the people who will work with it",
+      "body": "Ask who gets more work, who reviews the tool’s output, who responds to its alerts, and how staff are trained. ICMR’s 2023 AI guidelines include accountability, trustworthiness and non-discrimination among their principles and give guidance for deployment. Nursing leaders should be in the review from the start, not after the contract is signed.",
+      "items": []
+    }
+  ]
+}
