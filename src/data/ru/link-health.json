@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-07T22:22:32.662Z",
-  "total": 98,
-  "ok": 84,
-  "unknown": 14,
+  "checkedAt": "2026-11-08T22:32:35.030Z",
+  "total": 100,
+  "ok": 83,
+  "unknown": 17,
   "unknownList": [
     {
       "url": "https://www.vademec.ru/news/2026/08/18/moskovskaya-oblast-zakupit-superkompyutery-dlya-uskoreniya-raboty-meditsinskikh-ii/",
@@ -15,6 +15,10 @@
     {
       "url": "https://www.vademec.ru/news/2026/08/24/spk-razrabotal-proekt-trudovoy-funktsii-medrabotnikov-po-ispolzovaniyu-ii/",
       "status": 0
+    },
+    {
+      "url": "https://www.mos.ru/news/item/175489073/",
+      "status": 403
     },
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
@@ -37,6 +41,10 @@
       "status": 0
     },
     {
+      "url": "https://www.mos.ru/mayor/themes/16042050/",
+      "status": 403
+    },
+    {
       "url": "https://www.vademec.ru/news/2026/10/01/molodye-lyudi-zadayushchie-ii-voprosy-o-zdorove-chashche-pokazyvayut-priznaki-trevogi-i-depressii/",
       "status": 0
     },
@@ -57,7 +65,11 @@
       "status": 0
     },
     {
-      "url": "https://minzdrav.gov.ru/",
+      "url": "https://www.pomph.ru/jour/article/view/244",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/11/02/analitiki-12-4-studentov-medikov-i-ordinatorov-zagruzhali-dannye-realnykh-patsientov-v-ii-servisy/",
       "status": 0
     }
   ],
