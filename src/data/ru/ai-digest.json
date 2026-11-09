@@ -1,7 +1,73 @@
 {
-  "updatedAt": "2026-11-09T01:43:31.530Z",
+  "updatedAt": "2026-11-09T09:46:39.715Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Apple бросилась догонять OpenAI и M**a: Тернус требует превратить Siri в мощного ИИ-агента",
+      "link": "https://3dnews.ru/1151037/apple-brosilas-dogonyat-openai-i-meta-ternus-trebuet-prevratit-siri-v-moshchnogo-iiagenta",
+      "source": "3DNews",
+      "pubDate": "2026-11-09T09:35:00.000Z"
+    },
+    {
+      "title": "MWS AI вывела на внешний рынок комплексное ИИ-решение для автоматизации контакт-центров",
+      "link": "https://www.cnews.ru/news/line/2026-11-09_mws_ai_vyvela_na_vneshnij_rynok",
+      "source": "CNews",
+      "pubDate": "2026-11-09T08:43:00.000Z"
+    },
+    {
+      "title": "ИИ для создания контента: как выстроить безопасный контур для распределённой команды",
+      "link": "https://habr.com/ru/articles/1105364/?utm_campaign=1105364&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-09T08:34:45.000Z"
+    },
+    {
+      "title": "CorpSoft24 запустила облачные сервисы для компаний, разрабатывающих собственный ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-11-09_corpsoft24_zapustila_oblachnye",
+      "source": "CNews",
+      "pubDate": "2026-11-09T08:05:00.000Z"
+    },
+    {
+      "title": "AI-агент с правами администратора: что уже умеют MCP-серверы в IAM",
+      "link": "https://habr.com/ru/articles/1105324/?utm_campaign=1105324&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-09T07:46:16.000Z"
+    },
+    {
+      "title": "Как расследовать косвенные промпт-инъекции в ИИ-агентах",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1101838/?utm_campaign=1101838&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-09T07:10:45.000Z"
+    },
+    {
+      "title": "«Корус Консалтинг» внедрил платформу Korus AI во внутренние бизнес-процессы для повышения личной и командной эффективности",
+      "link": "https://www.cnews.ru/news/line/2026-11-09_korus_konsalting_vnedril",
+      "source": "CNews",
+      "pubDate": "2026-11-09T06:48:00.000Z"
+    },
+    {
+      "title": "Как передать задачу от одного AI-агента другому и не потерять контекст",
+      "link": "https://habr.com/ru/articles/1105018/?utm_campaign=1105018&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-09T06:26:39.000Z"
+    },
+    {
+      "title": "Рой ИИ‑агентов против настоящих целей: уязвимости в OAuth‑библиотеке и две машины HackTheBox",
+      "link": "https://habr.com/ru/articles/1104506/?utm_campaign=1104506&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-09T06:02:38.000Z"
+    },
+    {
+      "title": "Почти каждый третий сотрудник передавал нейросетям рабочие доступы",
+      "link": "https://www.cnews.ru/news/line/2026-11-09_pochti_kazhdyj_tretij_sotrudnik",
+      "source": "CNews",
+      "pubDate": "2026-11-09T05:47:00.000Z"
+    },
+    {
+      "title": "Бот уже отвечает. А продукт где? История разработки сервиса с ИИ",
+      "link": "https://habr.com/ru/articles/1101952/?utm_campaign=1101952&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-08T21:55:25.000Z"
+    },
     {
       "title": "AI для PHP‑разработчиков. Часть 8: Свёрточные нейронные сети: ищем границы на изображениях с помощью чистого PHP",
       "link": "https://habr.com/ru/articles/1105232/?utm_campaign=1105232&utm_source=habrahabr&utm_medium=rss",
@@ -1735,72 +1801,6 @@
       "link": "https://habr.com/ru/companies/cloud_ru/articles/1094310/?utm_campaign=1094310&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-19T15:23:11.000Z"
-    },
-    {
-      "title": "АБД, Б1 и TAdviser выпустили второе исследование рынка Больших данных и ИИ в России",
-      "link": "https://www.tadviser.ru/a/973303",
-      "source": "TAdviser",
-      "pubDate": "2026-10-19T15:06:58.000Z"
-    },
-    {
-      "title": "Минобороны РФ запустило для разработчиков БПЛА сервис для обучения боевых нейросетей на реальных данных",
-      "link": "https://www.tadviser.ru/a/973524",
-      "source": "TAdviser",
-      "pubDate": "2026-10-19T14:38:30.000Z"
-    },
-    {
-      "title": "Цифровизация строительства, живые кейсы проектирования в российском ПО, передовые решения с ИИ: в Москве прошел инженерный форум «СИЛА ПЛАТФОРМЫ»",
-      "link": "https://www.cnews.ru/news/line/2026-10-19_tsifrovizatsiya_stroitelstva",
-      "source": "CNews",
-      "pubDate": "2026-10-19T13:28:00.000Z"
-    },
-    {
-      "title": "ИИ впервые прошёл Minecraft без помощи человека — пионером стала флагманская модель Gemini 4 Argon от Google",
-      "link": "https://3dnews.ru/1150125/ii-vpervie-proshyol-minecraft-bez-pomoshchi-cheloveka-pionerom-stala-flagmanskaya-model-gemini-4-argon-ot-google",
-      "source": "3DNews",
-      "pubDate": "2026-10-19T12:41:00.000Z"
-    },
-    {
-      "title": "Глава Konami считает разработчиков игр важнее ИИ — человеческий фактор остаётся ключевым для индустрии",
-      "link": "https://3dnews.ru/1150127/glava-konami-schitaet-razrabotchikov-igr-vagnee-ii-chelovecheskiy-faktor-ostayotsya-klyuchevim-dlya-industrii",
-      "source": "3DNews",
-      "pubDate": "2026-10-19T11:56:00.000Z"
-    },
-    {
-      "title": "Pets.com умер, Amazon выжил. Что пузырь 2000-го говорит об ИИ‑сервисах",
-      "link": "https://habr.com/ru/articles/1096224/?utm_campaign=1096224&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-19T10:34:29.000Z"
-    },
-    {
-      "title": "Генеративный ИИ в бизнес‑процессах: мышление, развитие и будущее",
-      "link": "https://habr.com/ru/companies/sminex_developer/articles/1094662/?utm_campaign=1094662&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-19T09:40:23.000Z"
-    },
-    {
-      "title": "«ХайТэк» и НГТУ НЭТИ будут развивать ИИ в компьютерном зрении, обработке данных и робототехнике",
-      "link": "https://www.cnews.ru/news/line/2026-10-19_hajtek_i_ngtu_neti_budut",
-      "source": "CNews",
-      "pubDate": "2026-10-19T09:21:00.000Z"
-    },
-    {
-      "title": "Что такое агрегатор нейросетей и по каким 8 критериям его выбирать: разбор от сервиса",
-      "link": "https://habr.com/ru/companies/syntx_ai/articles/1096092/?utm_campaign=1096092&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-19T09:19:01.000Z"
-    },
-    {
-      "title": "ИИ-ассистент «Ингосстраха» вдвое сократил время поиска медицинской информации при согласовании услуг по ДМС",
-      "link": "https://www.cnews.ru/news/line/2026-10-19_ii-assistent_ingosstraha",
-      "source": "CNews",
-      "pubDate": "2026-10-19T09:06:00.000Z"
-    },
-    {
-      "title": "Google отправила ИИ-агентов проходить Minecraft. Они умерли 605 раз, но не сдались",
-      "link": "https://habr.com/ru/articles/1096112/?utm_campaign=1096112&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-19T08:48:31.000Z"
     }
   ]
 }
