@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-08T21:10:17.797Z",
+  "updatedAt": "2026-11-09T07:58:09.457Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "최상지 교수, AI 시대 ‘외과 공공성’ 논문 국제학술지 게재",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252430",
+      "source": "병원신문",
+      "pubDate": "2026-11-09T04:24:00.000Z"
+    },
+    {
+      "title": "삼성전자 엑스레이 'GC85A Fit' 출시…촬영실 맞춤 설계",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171688",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-09T01:02:52.000Z"
+    },
     {
       "title": "\"비전·음성·생체신호 융합 AI, 디지털 헬스케어 새 지평\"",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171661",
@@ -2989,18 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169588",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-03T02:01:51.000Z"
-    },
-    {
-      "title": "케어랩스, 빅테크 출신 임원 영입…헬스케어 경쟁력 강화",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169548",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-01T03:43:15.000Z"
-    },
-    {
-      "title": "온코크로스, 온코마스터 합병 완료…환자 데이터 AI 플랫폼 탄력",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169546",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-01T02:57:59.000Z"
     }
   ]
 }
