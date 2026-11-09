@@ -54,9 +54,7 @@
   "profile": {
     "name": "Youngho Cho (조영호)",
     "role": "Director, Hospital AI Lab (병원 AI 연구소)",
-    "career": "17 years at a general hospital in South Korea, 7 of them in hospital planning.",
     "education": "Master's in statistics; PhD in economics.",
-    "careerShort": "17 years at a hospital (7 in planning)",
     "educationShort": "MS statistics, PhD economics",
     "youtube": "YouTube channel",
     "nameShort": "Youngho Cho"
@@ -65,7 +63,7 @@
     "metaTitle": "Hospital AI in India: CDSCO, DPDP Act and ICMR rules explained",
     "metaDescription": "Practice guides for Indian hospital administrators and nurse leaders: is AI software a medical device under CDSCO's rules, what the DPDP Act asks of a hospital, and what ICMR's AI guidelines say, each with its source.",
     "heroEyebrow": "MEDICAL AI FOR HOSPITAL ADMINISTRATION AND NURSING",
-    "heroTitle": "17 years in a hospital, 7 of them in strategic planning.",
+    "heroTitle": "Medical AI, seen from the hospital desk.",
     "heroTitle2": "I read medical AI in the language of the people who run hospitals.",
     "heroLead": "The question is not how new a technology is. It is whether your hospital can actually use it, and on what legal footing. These pages are written for administrators who decide on adoption, review vendor proposals and own budgets, and for nursing staff whose daily work changes when a system goes live.",
     "ctaAbout": "About the author",
@@ -104,9 +102,9 @@
   },
   "about": {
     "metaTitle": "About the author",
-    "metaDescription": "The author of Hospital AI Lab worked 17 years at a general hospital in South Korea, 7 of them in hospital planning. This edition covers India.",
+    "metaDescription": "The author of Hospital AI Lab, a hospital practitioner who reads medical AI from the side of administrators and nurse leaders. This edition covers India.",
     "pageTitle": "About the author",
-    "pageLead": "This site is run by someone who spent 17 years in the administration of a general hospital in South Korea. I am not a clinician. I look at medical AI from the side of the people who decide whether to adopt it.",
+    "pageLead": "This site is run by a hospital administration practitioner, not a clinician. I look at medical AI from the side of the people who decide whether to adopt it.",
     "whyTitle": "Why I run this site",
     "why": "When a hospital starts talking about AI, the first person to read the proposal is more often an administrator than a physician. Vendor material usually describes what the product can do and says little about what will actually change in the hospital's daily work. In hospital planning I often saw decisions that had to be made before all the information was in. I want to fill that gap a little at a time, not with a collection of impressive case studies but with material that helps you check whether a decision fits your own hospital.",
     "stanceTitle": "Whose point of view this site takes",
