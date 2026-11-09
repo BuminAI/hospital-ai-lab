@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-11-08T16:39:38.565Z",
+  "updatedAt": "2026-11-09T01:43:31.530Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "AI для PHP‑разработчиков. Часть 8: Свёрточные нейронные сети: ищем границы на изображениях с помощью чистого PHP",
+      "link": "https://habr.com/ru/articles/1105232/?utm_campaign=1105232&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-08T21:17:35.000Z"
+    },
+    {
+      "title": "От предложений LLM к управляемому исполнению: опыт разработки AI‑агента",
+      "link": "https://habr.com/ru/articles/1105178/?utm_campaign=1105178&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-08T17:47:13.000Z"
+    },
+    {
+      "title": "Как запустить OpenCode на сервере: автономные ИИ агенты",
+      "link": "https://habr.com/ru/companies/bothub/articles/1105176/?utm_campaign=1105176&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-08T17:43:55.000Z"
+    },
+    {
+      "title": "Акции ИИ‑компаний рухнули: помешает ли это масштабированию медицинского ИИ в России",
+      "link": "https://habr.com/ru/articles/1105162/?utm_campaign=1105162&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-08T16:52:06.000Z"
+    },
     {
       "title": "Как настроить ИИ-агентов в OpenCode со своим провайдером",
       "link": "https://habr.com/ru/companies/bothub/articles/1105102/?utm_campaign=1105102&utm_source=habrahabr&utm_medium=rss",
@@ -1777,30 +1801,6 @@
       "link": "https://habr.com/ru/articles/1096112/?utm_campaign=1096112&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-19T08:48:31.000Z"
-    },
-    {
-      "title": "Промпт — не творчество: кому принадлежит код, который написал ваш ИИ-агент",
-      "link": "https://habr.com/ru/articles/1096138/?utm_campaign=1096138&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-19T08:41:46.000Z"
-    },
-    {
-      "title": "Napoleon IT и ГК «Октябрьское» запустили ИИ-агентов на GigaCowork для ускорения подбора персонала",
-      "link": "https://www.cnews.ru/news/line/2026-10-19_napoleon_it_i_gk_oktyabrskoe",
-      "source": "CNews",
-      "pubDate": "2026-10-19T08:12:00.000Z"
-    },
-    {
-      "title": "McKinsey начала использовать ИИ-аватара, имитирующего клиентов, для собеседований с кандидатами на позиции бизнес-аналитиков",
-      "link": "https://www.tadviser.ru/a/108429",
-      "source": "TAdviser",
-      "pubDate": "2026-10-19T08:08:38.000Z"
-    },
-    {
-      "title": "Positive Technologies представила концепцию AI-driven-агента для защиты конечных устройств",
-      "link": "https://www.cnews.ru/news/line/2026-10-19_positive_technologies_predstavila",
-      "source": "CNews",
-      "pubDate": "2026-10-19T07:51:00.000Z"
     }
   ]
 }
