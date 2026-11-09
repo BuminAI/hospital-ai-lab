@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-09T07:58:09.457Z",
+  "updatedAt": "2026-11-09T18:47:30.669Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "귀 질환 진단에 AI 활용 시 전공의 진단 정확도 최대 32.2%p 향상",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252461",
+      "source": "병원신문",
+      "pubDate": "2026-11-09T11:47:00.000Z"
+    },
     {
       "title": "최상지 교수, AI 시대 ‘외과 공공성’ 논문 국제학술지 게재",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252430",
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169590",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-03T02:48:26.000Z"
-    },
-    {
-      "title": "휴이노, AI CDSS '바이탈 피카소' 식약처 제조인증 획득",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169588",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-03T02:01:51.000Z"
     }
   ]
 }
