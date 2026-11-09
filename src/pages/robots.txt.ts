@@ -16,6 +16,13 @@ import { BASE } from '../utils/site';
 //   그 경우 외부 링크만으로도 URL이 색인에 남을 수 있다(스니펫 없는 형태로).
 //   색인에서 빼는 목적이라면 "크롤 허용 + noindex"가 정답이고, Disallow는 넣지 않는다.
 //
+// ✅ 유일한 예외: /press/mohw/ (2026-11-09, 서치 콘솔 '찾을 수 없음(404)' 대응)
+//   보건복지부 보도자료 첨부파일(PDF·HWPX)이다. scripts/fetch-mohw-press.mjs가 최근 40건만
+//   남기고 밀려난 게시물의 파일을 지우므로, 구글이 /gov-support/의 다운로드 링크를 따라가
+//   색인 전에 파일이 사라지면 404로 집계된다. PDF·HWPX에는 noindex 메타를 넣을 수 없어
+//   (헤더 제어 불가) 위 원칙이 성립하지 않는다 — 그래서 이 경로만 Disallow한다.
+//   링크를 눌러 내려받는 사람에게는 영향이 없고, 보도자료 요약 본문은 /gov-support/ 페이지에 그대로 있다.
+//
 // ⚠️ 그룹 문법 주의
 //   robots.txt의 Allow/Disallow는 **바로 위 User-agent 그룹에만** 적용된다. 규칙을
 //   맨 아래 한 번만 적으면 마지막 그룹에만 걸린다. 그래서 아래처럼 그룹마다 규칙을
@@ -65,7 +72,8 @@ export const GET: APIRoute = ({ site }) => {
   // ⚠️ 페이지를 새로 만들거나 수집처를 바꾸면 public/llms.txt 도 함께 고칠 것.
   const llmsURL = new URL(`${BASE}/llms.txt`, site);
 
-  const block = (ua: string) => `User-agent: ${ua}\nAllow: /`;
+  // 수시로 지워지는 첨부파일 경로(위 주석 참고). Allow보다 구체적인 Disallow가 우선한다.
+  const block = (ua: string) => `User-agent: ${ua}\nAllow: /\nDisallow: /press/mohw/`;
 
   const sections = [
     block('*'),
