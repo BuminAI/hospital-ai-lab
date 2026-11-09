@@ -52,9 +52,7 @@
   "profile": {
     "name": "曺永熩（Youngho Cho / 조영호）",
     "role": "Hospital AI Lab 主持人（병원 AI 연구소）",
-    "career": "在韓國的綜合醫院工作 17 年，其中 7 年負責醫院策略規劃。",
     "education": "統計學碩士、經濟學博士。",
-    "careerShort": "綜合醫院 17 年（其中規劃 7 年）",
     "educationShort": "統計學碩士、經濟學博士",
     "youtube": "YouTube 頻道",
     "nameShort": "曺永熩"
@@ -121,7 +119,7 @@
   },
   "about": {
     "metaTitle": "關於作者｜曺永熩與 Hospital AI Lab",
-    "metaDescription": "Hospital AI Lab 由在韓國綜合醫院工作 17 年、其中 7 年負責策略規劃的實務工作者經營，從醫院行政與護理的角度整理醫療 AI 資訊。",
+    "metaDescription": "Hospital AI Lab 由在綜合醫院工作的實務工作者經營，從醫院行政與護理的角度整理醫療 AI 資訊。",
     "pageTitle": "關於作者",
     "lead": "本站由一位在醫院裡工作的人經營，不是科技廠商經營的網站。",
     "careerHeading": "經歷",
