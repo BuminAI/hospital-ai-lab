@@ -1,8 +1,27 @@
 {
-  "checkedAt": "2026-11-08T22:31:57.902Z",
-  "total": 67,
-  "ok": 67,
+  "checkedAt": "2026-11-10T01:47:08.633Z",
+  "total": 68,
+  "ok": 66,
   "unknown": 0,
   "unknownList": [],
-  "dead": []
+  "dead": [
+    {
+      "url": "https://uzone.id/sulit-diprediksi-komdigi-atur-peta-jalan-ai-cuma-berlaku-5-tahun-saja",
+      "status": 404,
+      "files": [
+        "src/content/blog-id/2026-09-20-perpres-peta-jalan-ai-belum-terbit-rumah-sakit.md"
+      ]
+    },
+    {
+      "url": "https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026",
+      "status": 404,
+      "files": [
+        "src/content/blog-id/2026-10-20-kepmenkes-951-2026-izin-edar-perangkat-lunak-ai.md",
+        "src/content/blog-id/2026-10-20-membaca-angka-akurasi-ai-pidato-pejabat-kemenkes.md",
+        "src/data/id/content/faq.json",
+        "src/data/id/content/glossary.json",
+        "src/data/id/guides/milestones.ts"
+      ]
+    }
+  ]
 }
