@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-08T22:32:35.030Z",
-  "total": 100,
-  "ok": 83,
-  "unknown": 17,
+  "checkedAt": "2026-11-10T01:48:49.280Z",
+  "total": 102,
+  "ok": 86,
+  "unknown": 16,
   "unknownList": [
     {
       "url": "https://www.vademec.ru/news/2026/08/18/moskovskaya-oblast-zakupit-superkompyutery-dlya-uskoreniya-raboty-meditsinskikh-ii/",
@@ -15,10 +15,6 @@
     {
       "url": "https://www.vademec.ru/news/2026/08/24/spk-razrabotal-proekt-trudovoy-funktsii-medrabotnikov-po-ispolzovaniyu-ii/",
       "status": 0
-    },
-    {
-      "url": "https://www.mos.ru/news/item/175489073/",
-      "status": 403
     },
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
@@ -41,10 +37,6 @@
       "status": 0
     },
     {
-      "url": "https://www.mos.ru/mayor/themes/16042050/",
-      "status": 403
-    },
-    {
       "url": "https://www.vademec.ru/news/2026/10/01/molodye-lyudi-zadayushchie-ii-voprosy-o-zdorove-chashche-pokazyvayut-priznaki-trevogi-i-depressii/",
       "status": 0
     },
@@ -57,11 +49,11 @@
       "status": 0
     },
     {
-      "url": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
+      "url": "https://www.vademec.ru/news/2026/10/26/meta-analiz-kontrol-vracha-za-klinicheskim-ii-ne-garantiruet-bezopasnost/",
       "status": 0
     },
     {
-      "url": "https://www.vademec.ru/news/2026/10/26/meta-analiz-kontrol-vracha-za-klinicheskim-ii-ne-garantiruet-bezopasnost/",
+      "url": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
       "status": 0
     },
     {
@@ -70,6 +62,10 @@
     },
     {
       "url": "https://www.vademec.ru/news/2026/11/02/analitiki-12-4-studentov-medikov-i-ordinatorov-zagruzhali-dannye-realnykh-patsientov-v-ii-servisy/",
+      "status": 0
+    },
+    {
+      "url": "https://www.vademec.ru/news/2026/11/05/uchenye-tochnost-i-ekonomiya-vremeni-ne-garantiruyut-bezopasnogo-vnedreniya-generativnogo-ii-v-klini/",
       "status": 0
     }
   ],
