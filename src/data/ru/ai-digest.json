@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-09T20:42:30.850Z",
+  "updatedAt": "2026-11-10T04:06:07.592Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Исследование: во сколько обходится AI‑разработка сайта в зависимости от используемых JavaScript‑фреймворков",
+      "link": "https://habr.com/ru/articles/1105740/?utm_campaign=1105740&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-10T03:57:32.000Z"
+    },
+    {
+      "title": "«ЮKassa» открыла доступ к профессиональным ИИ-агентам для малого и среднего бизнеса",
+      "link": "https://www.cnews.ru/news/line/2026-11-10_yukassa_otkryla_dostup_k_professionalnym",
+      "source": "CNews",
+      "pubDate": "2026-11-10T03:45:00.000Z"
+    },
     {
       "title": "AI-агент в проде для тех, кто вкатывается: инструменты, RAG, надёжность и проверки",
       "link": "https://habr.com/ru/articles/1105712/?utm_campaign=1105712&utm_source=habrahabr&utm_medium=rss",
@@ -31,12 +43,6 @@
       "link": "https://habr.com/ru/articles/1105608/?utm_campaign=1105608&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-09T15:48:05.000Z"
-    },
-    {
-      "title": "«ЮKassa» открыла доступ к профессиональным ИИ-агентам для малого и среднего бизнеса",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_yukassa_otkryla_dostup_k_professionalnym",
-      "source": "CNews",
-      "pubDate": "2026-11-09T15:32:00.000Z"
     },
     {
       "title": "Российская логистическая компания автоматизировала расчет сложных цепочек поставок с помощью собственной ИИ-платформы",
@@ -1795,12 +1801,6 @@
       "link": "https://habr.com/ru/articles/1096818/?utm_campaign=1096818&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-20T13:40:51.000Z"
-    },
-    {
-      "title": "Эксперты «Альфа-банка» разъяснили нюансы нового закона о регулировании ИИ для финтеха",
-      "link": "https://www.tadviser.ru/a/970220",
-      "source": "TAdviser",
-      "pubDate": "2026-10-20T12:51:15.000Z"
     }
   ]
 }

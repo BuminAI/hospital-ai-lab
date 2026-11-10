@@ -1,7 +1,55 @@
 {
-  "updatedAt": "2026-11-09T20:42:58.255Z",
+  "updatedAt": "2026-11-10T04:06:36.260Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "PERURI soroti pentingnya keamanan data di tengah adopsi AI",
+      "link": "https://www.antaranews.com/berita/5843207/peruri-soroti-pentingnya-keamanan-data-di-tengah-adopsi-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-11-10T03:23:50.000Z"
+    },
+    {
+      "title": "Laporan Cision Ungkap Tren Konsumen yang Tersembunyi di Balik Data Penelusuran, Media Sosial, dan AI",
+      "link": "https://www.antaranews.com/berita/5843203/laporan-cision-ungkap-tren-konsumen-yang-tersembunyi-di-balik-data-penelusuran-media-sosial-dan-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-11-10T03:22:07.000Z"
+    },
+    {
+      "title": "Donald Trump Dukung Batasan AI demi Bendung Dominasi Tiongkok",
+      "link": "https://mediaindonesia.com/internasional/954294/donald-trump-dukung-batasan-ai-demi-bendung-dominasi-tiongkok",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-10T03:22:00.000Z"
+    },
+    {
+      "title": "Qantas Pangkas 850 Karyawan Demi Adopsi AI dan Alihkan Operasional ke India",
+      "link": "https://mediaindonesia.com/ekonomi/954267/qantas-pangkas-850-karyawan-demi-adopsi-ai-dan-alihkan-operasional-ke-india",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-10T02:40:00.000Z"
+    },
+    {
+      "title": "Anthropic Rilis Fable 5.2 dan Mythos 5.2, Klaim 30 Persen Lebih Cepat",
+      "link": "https://www.liputan6.com/tekno/read/8332011/anthropic-rilis-fable-52-dan-mythos-52-klaim-30-persen-lebih-cepat",
+      "source": "Liputan6",
+      "pubDate": "2026-11-10T02:26:16.000Z"
+    },
+    {
+      "title": "AI Butuh Respons Cepat, Ini Peran Data Center di Tengah Kota",
+      "link": "https://inet.detik.com/cyberlife/d-8745973/ai-butuh-respons-cepat-ini-peran-data-center-di-tengah-kota",
+      "source": "detikINET",
+      "pubDate": "2026-11-10T01:45:14.000Z"
+    },
+    {
+      "title": "Waspada Disinformasi AI, Pengamat Tekankan Pentingnya Sikap Kritis dan Literasi Digital",
+      "link": "https://mediaindonesia.com/teknologi/954236/waspada-disinformasi-ai-pengamat-tekankan-pentingnya-sikap-kritis-dan-literasi-digital",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-10T01:02:00.000Z"
+    },
+    {
+      "title": "Cegah Kesalahan Keputusan AI, Perusahaan Perlu Integrasi Data Real-Time",
+      "link": "https://mediaindonesia.com/teknologi/954190/cegah-kesalahan-keputusan-ai-perusahaan-perlu-integrasi-data-real-time",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-09T21:35:00.000Z"
+    },
     {
       "title": "Pakar Teror Inggris Peringatkan Ancaman AI Tiongkok yang Manipulasi Sejarah",
       "link": "https://mediaindonesia.com/teknologi/954173/pakar-teror-inggris-peringatkan-ancaman-ai-tiongkok-yang-manipulasi-sejarah",
@@ -1753,54 +1801,6 @@
       "link": "https://inet.detik.com/security/d-8719720/mengenal-php2shell-celah-berbahaya-20-tahun-yang-bisa-di-hack-berkat-ai",
       "source": "detikINET",
       "pubDate": "2026-10-22T22:45:33.000Z"
-    },
-    {
-      "title": "HUAWEI nova 16s Series 5G Resmi Meluncur di Indonesia: Kamera 200MP AI dan Baterai 7.000 mAh",
-      "link": "https://mediaindonesia.com/teknologi/947700/huawei-nova-16s-series-5g-resmi-meluncur-di-indonesia-kamera-200mp-ai-dan-baterai-7000-mah",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-22T15:31:00.000Z"
-    },
-    {
-      "title": "Tanpa Sentuhan Manusia, Hasil Karya AI akan Seragam dan Hambar",
-      "link": "https://www.liputan6.com/tekno/read/8319336/tanpa-sentuhan-manusia-hasil-karya-ai-akan-seragam-dan-hambar",
-      "source": "Liputan6",
-      "pubDate": "2026-10-22T14:38:10.000Z"
-    },
-    {
-      "title": "Danantara Bakal Umumkan Investasi Data Center dan AI",
-      "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8719620/danantara-bakal-umumkan-investasi-data-center-dan-ai",
-      "source": "detikFinance",
-      "pubDate": "2026-10-22T14:30:01.000Z"
-    },
-    {
-      "title": "Laptop AI untuk Kreator Ini Miliki Ketahanan Standar Militer",
-      "link": "https://mediaindonesia.com/jabar/berita/947590/laptop-ai-untuk-kreator-ini-miliki-ketahanan-standar-militer",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-22T12:53:00.000Z"
-    },
-    {
-      "title": "Menkomdigi Tinjau Peran NeutraDC bagi Kedaulatan Ekosistem AI Data Center",
-      "link": "https://inet.detik.com/telecommunication/d-8719596/menkomdigi-tinjau-peran-neutradc-bagi-kedaulatan-ekosistem-ai-data-center",
-      "source": "detikINET",
-      "pubDate": "2026-10-22T11:59:01.000Z"
-    },
-    {
-      "title": "AI Ancam Peluang Kerja Generasi Muda, Begini Upaya Pemerintah",
-      "link": "https://www.liputan6.com/tekno/read/8319276/ai-ancam-peluang-kerja-generasi-muda-begini-upaya-pemerintah",
-      "source": "Liputan6",
-      "pubDate": "2026-10-22T11:39:59.000Z"
-    },
-    {
-      "title": "AI Gemini Google Ikut Bongkar Celah PHP2Shell, Jutaan Website Terancam",
-      "link": "https://inet.detik.com/security/d-8719343/ai-gemini-google-ikut-bongkar-celah-php2shell-jutaan-website-terancam",
-      "source": "detikINET",
-      "pubDate": "2026-10-22T10:45:11.000Z"
-    },
-    {
-      "title": "Couchbase Perbarui Platform Agen AI, Klaim Hemat Token hingga 45%",
-      "link": "https://inet.detik.com/business/d-8719279/couchbase-perbarui-platform-agen-ai-klaim-hemat-token-hingga-45",
-      "source": "detikINET",
-      "pubDate": "2026-10-22T09:22:11.000Z"
     }
   ]
 }
