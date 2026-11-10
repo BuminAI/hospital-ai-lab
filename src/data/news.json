@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-09T18:47:30.669Z",
+  "updatedAt": "2026-11-10T02:07:34.746Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "루닛 사우디 국가방위부에 의료 AI 공급…흉부·유방 영상 판독 지원",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171719",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-10T00:35:33.000Z"
+    },
+    {
+      "title": "피플앤드테크놀러지·SKT '모두의 AI'에 헬스케어 서비스 접목",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171716",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-10T00:08:38.000Z"
+    },
+    {
+      "title": "삼성전자 버즈·워치 의료기능 확대…ENT 진료 연계 주목",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171709",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-09T20:30:00.000Z"
+    },
     {
       "title": "귀 질환 진단에 AI 활용 시 전공의 진단 정확도 최대 32.2%p 향상",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252461",
@@ -2983,24 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169623",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-07T03:00:00.000Z"
-    },
-    {
-      "title": "JLK, 공공혁신 과제 선정…뇌졸중 환자 이송 플랫폼 개발",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169630",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-07T02:10:36.000Z"
-    },
-    {
-      "title": "GE헬스케어, 차세대 심혈관 초음파 비비드 파이오니어 출시",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169619",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-06T08:30:02.000Z"
-    },
-    {
-      "title": "딥노이드, 생성형 의료 AI 연구 ACL 게재…비용 절감·환각 억제",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169590",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-03T02:48:26.000Z"
     }
   ]
 }
