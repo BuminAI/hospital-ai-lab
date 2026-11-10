@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-10T02:07:34.746Z",
+  "updatedAt": "2026-11-10T09:48:45.997Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "대한의료정보학회, 의료AI의 미래 논한다",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252515",
+      "source": "병원신문",
+      "pubDate": "2026-11-10T08:39:00.000Z"
+    },
+    {
+      "title": "AI 재활 앱, 오십견 환자 어깨 측면 외회전 개선 가능",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252501",
+      "source": "병원신문",
+      "pubDate": "2026-11-10T08:03:00.000Z"
+    },
+    {
+      "title": "입원환자 상태악화 예측 AI…병원 비급여 청구 조사 '주목'",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171726",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-10T02:49:43.000Z"
+    },
     {
       "title": "루닛 사우디 국가방위부에 의료 AI 공급…흉부·유방 영상 판독 지원",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171719",
@@ -2983,24 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169637",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-07T03:12:29.000Z"
-    },
-    {
-      "title": "코어라인, 강남하트스캔에 '에이뷰 에이올타' 공급…검진센터 첫 도입",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169634",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-07T03:10:45.000Z"
-    },
-    {
-      "title": "뉴로핏, AAIC서 '아쿠아 AD 플러스' 공개…글로벌 파트너십 가속",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169635",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-07T03:10:07.000Z"
-    },
-    {
-      "title": "의료 AI로 앞당겨진 재택 모니터링 시대…문제는 통신인프라",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169623",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-07T03:00:00.000Z"
     }
   ]
 }
