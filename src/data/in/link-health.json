@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-07T14:40:38.376Z",
+  "checkedAt": "2026-11-10T01:47:35.394Z",
   "total": 12,
-  "ok": 7,
-  "unknown": 5,
+  "ok": 6,
+  "unknown": 6,
   "unknownList": [
     {
       "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
@@ -14,6 +14,10 @@
     },
     {
       "url": "https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notices/",
+      "status": 0
+    },
+    {
+      "url": "https://egazette.gov.in/",
       "status": 0
     },
     {
