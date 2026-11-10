@@ -1,7 +1,55 @@
 {
-  "updatedAt": "2026-11-10T04:06:36.260Z",
+  "updatedAt": "2026-11-10T14:51:59.534Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Hadapi Agen AI Nakal, Akamai Andalkan Agentic Sandbox",
+      "link": "https://inet.detik.com/business/d-8747201/hadapi-agen-ai-nakal-akamai-andalkan-agentic-sandbox",
+      "source": "detikINET",
+      "pubDate": "2026-11-10T14:20:36.000Z"
+    },
+    {
+      "title": "AI Jadi Peringatan bagi Universitas: Saatnya kembali ke Hakikat Pendidikan",
+      "link": "https://mediaindonesia.com/humaniora/954608/ai-jadi-peringatan-bagi-universitas-saatnya-kembali-ke-hakikat-pendidikan",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-10T14:08:00.000Z"
+    },
+    {
+      "title": "AI, Robotika Cerdas, dan Pengadaan Barang secara Langsung Jadi Tren di Ajang China Gift Fair Edisi Oktober",
+      "link": "https://www.antaranews.com/berita/5845043/ai-robotika-cerdas-dan-pengadaan-barang-secara-langsung-jadi-tren-di-ajang-china-gift-fair-edisi-oktober",
+      "source": "ANTARA",
+      "pubDate": "2026-11-10T13:54:07.000Z"
+    },
+    {
+      "title": "Menuju Keanggotaan OECD, Ditjen PP Kembangkan AI untuk Analisis Dampak Regulasi",
+      "link": "https://mediaindonesia.com/politik-dan-hukum/954577/menuju-keanggotaan-oecd-ditjen-pp-kembangkan-ai-untuk-analisis-dampak-regulasi",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-10T13:09:00.000Z"
+    },
+    {
+      "title": "Karier Mulai Terancam AI, 3 Profesi Ini Sulit Tergantikan",
+      "link": "https://www.liputan6.com/tekno/read/8332568/karier-mulai-terancam-ai-3-profesi-ini-sulit-tergantikan",
+      "source": "Liputan6",
+      "pubDate": "2026-11-10T12:02:20.000Z"
+    },
+    {
+      "title": "AI Bisa Bantu Kaum Tengah Naik Kelas dan Punya Double Income, Begini Caranya",
+      "link": "https://www.liputan6.com/tekno/read/8330033/ai-bisa-bantu-kaum-tengah-naik-kelas-dan-punya-double-income-begini-caranya",
+      "source": "Liputan6",
+      "pubDate": "2026-11-10T10:02:46.000Z"
+    },
+    {
+      "title": "Samsung Siapkan Langganan Galaxy AI Premium, Segini Harganya",
+      "link": "https://www.liputan6.com/tekno/read/8332023/samsung-siapkan-langganan-galaxy-ai-premium-segini-harganya",
+      "source": "Liputan6",
+      "pubDate": "2026-11-10T09:08:42.000Z"
+    },
+    {
+      "title": "Serangan Siber Agen AI Intai Dunia, Komdigi Tunggu Arahan BSSN",
+      "link": "https://inet.detik.com/security/d-8746360/serangan-siber-agen-ai-intai-dunia-komdigi-tunggu-arahan-bssn",
+      "source": "detikINET",
+      "pubDate": "2026-11-10T06:40:21.000Z"
+    },
     {
       "title": "PERURI soroti pentingnya keamanan data di tengah adopsi AI",
       "link": "https://www.antaranews.com/berita/5843207/peruri-soroti-pentingnya-keamanan-data-di-tengah-adopsi-ai",
@@ -1753,54 +1801,6 @@
       "link": "https://www.antaranews.com/berita/5807099/imf-soroti-pertumbuhan-didorong-ai-di-timur-tengah-dan-asia-tengah",
       "source": "ANTARA",
       "pubDate": "2026-10-23T07:17:05.000Z"
-    },
-    {
-      "title": "Google Suntikkan AI Gemini ke Chrome, Makin Jago Endus Situs Penipuan",
-      "link": "https://www.liputan6.com/tekno/read/8318676/google-suntikkan-ai-gemini-ke-chrome-makin-jago-endus-situs-penipuan",
-      "source": "Liputan6",
-      "pubDate": "2026-10-23T07:08:27.000Z"
-    },
-    {
-      "title": "Claude AI Temukan 493 Celah Keamanan Open Source dan Bug Berusia 21 Tahun",
-      "link": "https://mediaindonesia.com/teknologi/947850/claude-ai-temukan-493-celah-keamanan-open-source-dan-bug-berusia-21-tahun",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-23T06:42:00.000Z"
-    },
-    {
-      "title": "AI Korea Ini Bisa Bantu Guru, LG CNS Ingin Bawa ke Indonesia",
-      "link": "https://inet.detik.com/business/d-8720155/ai-korea-ini-bisa-bantu-guru-lg-cns-ingin-bawa-ke-indonesia",
-      "source": "detikINET",
-      "pubDate": "2026-10-23T04:00:03.000Z"
-    },
-    {
-      "title": "Komdigi Yakin AI Talent Factory Bisa Atasi Skill Mismatch Mahasiswa dan Industri",
-      "link": "https://katadata.co.id/digital/teknologi/6adacc72cd496/komdigi-yakin-ai-talent-factory-bisa-atasi-skill-mismatch-mahasiswa-dan-industri",
-      "source": "Katadata",
-      "pubDate": "2026-10-23T02:54:00.000Z"
-    },
-    {
-      "title": "Pemerintah Incar AI Jadi Mesin Ekonomi RI, Potensi Rp 7.221 Triliun",
-      "link": "https://katadata.co.id/berita/industri/6adab2306ee50/pemerintah-incar-ai-jadi-mesin-ekonomi-ri-potensi-rp-7221-triliun",
-      "source": "Katadata",
-      "pubDate": "2026-10-23T01:02:00.000Z"
-    },
-    {
-      "title": "AI Makan Korban, Bank Raksasa Ini Mau PHK 5.000 Karyawan",
-      "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8719992/ai-makan-korban-bank-raksasa-ini-mau-phk-5-000-karyawan",
-      "source": "detikFinance",
-      "pubDate": "2026-10-23T00:40:44.000Z"
-    },
-    {
-      "title": "Wall Street Lesu Imbas Kekhawatiran Capex Saham AI hingga Lonjakan Harga Minyak",
-      "link": "https://katadata.co.id/finansial/bursa/6adaa2936cfc6/wall-street-lesu-imbas-kekhawatiran-capex-saham-ai-hingga-lonjakan-harga-minyak",
-      "source": "Katadata",
-      "pubDate": "2026-10-22T23:56:00.000Z"
-    },
-    {
-      "title": "Mengenal PHP2Shell: Celah Berbahaya 20 Tahun yang Bisa Di-Hack Berkat AI",
-      "link": "https://inet.detik.com/security/d-8719720/mengenal-php2shell-celah-berbahaya-20-tahun-yang-bisa-di-hack-berkat-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-22T22:45:33.000Z"
     }
   ]
 }
