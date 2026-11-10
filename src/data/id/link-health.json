@@ -1,17 +1,10 @@
 {
-  "checkedAt": "2026-11-10T01:47:08.633Z",
+  "checkedAt": "2026-11-10T23:45:55.300Z",
   "total": 68,
-  "ok": 66,
+  "ok": 67,
   "unknown": 0,
   "unknownList": [],
   "dead": [
-    {
-      "url": "https://uzone.id/sulit-diprediksi-komdigi-atur-peta-jalan-ai-cuma-berlaku-5-tahun-saja",
-      "status": 404,
-      "files": [
-        "src/content/blog-id/2026-09-20-perpres-peta-jalan-ai-belum-terbit-rumah-sakit.md"
-      ]
-    },
     {
       "url": "https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026",
       "status": 404,
