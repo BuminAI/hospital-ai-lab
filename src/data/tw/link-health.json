@@ -1,24 +1,12 @@
 {
-  "checkedAt": "2026-11-08T22:31:02.068Z",
-  "total": 73,
-  "ok": 69,
-  "unknown": 4,
+  "checkedAt": "2026-11-10T01:46:58.956Z",
+  "total": 74,
+  "ok": 73,
+  "unknown": 1,
   "unknownList": [
     {
-      "url": "https://www.mohw.gov.tw/dl-100614-c7d35394-0a6b-448e-9d90-295294596d98.html",
-      "status": 0
-    },
-    {
-      "url": "https://www.mohw.gov.tw/cp-81-155-1.html",
-      "status": 0
-    },
-    {
-      "url": "https://www.mohw.gov.tw/lp-18-1.html",
-      "status": 0
-    },
-    {
       "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
-      "status": 0
+      "status": 403
     }
   ],
   "dead": []
