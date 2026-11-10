@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-07T14:16:58.043Z",
-  "readOk": 4,
+  "checkedAt": "2026-11-10T23:41:16.081Z",
+  "readOk": 2,
   "total": 4,
   "laws": [
     {
@@ -13,7 +13,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-07T14:16:41.807Z",
-      "error": null
+      "error": ""
     },
     {
       "id": "mdsw-guidance",
@@ -25,7 +25,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-07T14:16:52.659Z",
-      "error": null
+      "error": ""
     },
     {
       "id": "dpdp-act",
@@ -36,7 +36,7 @@
       "current": "Thu, 17 Aug 2023 10:55:08 GMT | 182082 | \"64ddfc8c-2c742\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-07T14:16:53.320Z",
+      "lastRead": "2026-11-10T23:41:13.207Z",
       "error": null
     },
     {
@@ -48,7 +48,7 @@
       "current": " | 30946063 | ",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-07T14:16:58.043Z",
+      "lastRead": "2026-11-10T23:41:16.081Z",
       "error": null
     }
   ]
