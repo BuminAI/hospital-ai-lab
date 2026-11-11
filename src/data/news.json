@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-11T06:16:30.119Z",
+  "updatedAt": "2026-11-11T14:29:09.747Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "화순전남대병원, AI 신약개발 협력 생태계 구축",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252593",
+      "source": "병원신문",
+      "pubDate": "2026-11-11T11:14:00.000Z"
+    },
     {
       "title": "‘공공의료 AI 고속도로’ 첫 개통",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252560",
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169642",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-08T02:55:49.000Z"
-    },
-    {
-      "title": "AI가 간암 치료 위험 예측까지…사망 위험 26% 낮춰",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169659",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-08T02:54:45.000Z"
     }
   ]
 }
