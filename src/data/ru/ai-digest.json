@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-11T01:55:31.646Z",
+  "updatedAt": "2026-11-11T09:22:08.530Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Пять решений для 1С: ИИ-агент, диагностика базы и согласование платежей",
+      "link": "https://habr.com/ru/companies/infostart/articles/1106460/?utm_campaign=1106460&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-11T09:09:03.000Z"
+    },
+    {
+      "title": "Кто подставил агента Роджера: онлайн-митап о безопасной работе с ИИ",
+      "link": "https://habr.com/ru/companies/lanit/articles/1106402/?utm_campaign=1106402&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-11T09:01:26.000Z"
+    },
+    {
+      "title": "OpenAI запустила Business Hub: компании увидят упоминания и клики из ChatGPT. Но не все",
+      "link": "https://habr.com/ru/articles/1106430/?utm_campaign=1106430&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-11T08:36:27.000Z"
+    },
+    {
+      "title": "Академия АйТи fabricaONE.AI открыла набор на курс по технологиям информационной безопасности",
+      "link": "https://www.cnews.ru/news/line/2026-11-11_akademiya_ajti_fabricaoneai_otkryla",
+      "source": "CNews",
+      "pubDate": "2026-11-11T07:38:00.000Z"
+    },
+    {
+      "title": "В АТС «Телфин.Офис» появился голосовой ИИ-агент",
+      "link": "https://www.cnews.ru/news/line/2026-11-11_v_ats_telfinofis_poyavilsya",
+      "source": "CNews",
+      "pubDate": "2026-11-11T07:10:00.000Z"
+    },
     {
       "title": "Атаки на ИИ-агентов: разбираем проект таксономии NIST",
       "link": "https://habr.com/ru/articles/1106012/?utm_campaign=1106012&utm_source=habrahabr&utm_medium=rss",
@@ -1771,36 +1801,6 @@
       "link": "https://3dnews.ru/1150267/ya-tebya-porodil-predstavlena-rekursivnaya-model-ii-kotoraya-obuchaet-sebya-sama",
       "source": "3DNews",
       "pubDate": "2026-10-22T05:46:00.000Z"
-    },
-    {
-      "title": "AMD и Intel объединились, чтобы упростить запуск ИИ-моделей на процессорах x86",
-      "link": "https://3dnews.ru/1150249/amd-i-intel-obedinilischtobi-uprostit-zapusk-iimodeley-na-protsessorah-x86",
-      "source": "3DNews",
-      "pubDate": "2026-10-21T16:39:00.000Z"
-    },
-    {
-      "title": "Где заканчивается самостоятельность ИИ-агента? Я дала ему банковскую карту, телефон, браузер и 200+ MCP: итоги теста",
-      "link": "https://habr.com/ru/articles/1097430/?utm_campaign=1097430&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-21T15:27:10.000Z"
-    },
-    {
-      "title": "Безопасность ИИ‑агента: больше контроля или специальная среда?",
-      "link": "https://habr.com/ru/articles/1097322/?utm_campaign=1097322&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-21T12:29:56.000Z"
-    },
-    {
-      "title": "Владимир Дрюков, Innostage: ИИ меняет скорость и плотность кибератак, но пока не правила игры",
-      "link": "https://www.tadviser.ru/a/973463",
-      "source": "TAdviser",
-      "pubDate": "2026-10-21T10:48:13.000Z"
-    },
-    {
-      "title": "ИИ-агенты OpenAI дважды за октябрь обошли систему, которая должна контролировать их поведение",
-      "link": "https://3dnews.ru/1150228/iiagenti-openai-dvagdi-za-oktyabr-oboshli-sistemu-kotoraya-dolgna-kontrolirovat-ih-povedenie",
-      "source": "3DNews",
-      "pubDate": "2026-10-21T10:27:00.000Z"
     }
   ]
 }
