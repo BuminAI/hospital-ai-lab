@@ -9,6 +9,7 @@ import {
   formatDate,
   SUPABASE_URL,
   SUPABASE_ANON_KEY,
+  GOATCOUNTER_CODE,
 } from '../utils/site';
 import news from '../data/news.json';
 import videos from '../data/recommended-videos.json';
@@ -258,6 +259,30 @@ const homeSeries = (await getResolvedSeries())
       </a>
     </div>
   </aside>
+  <script is:inline define:vars={{ GOATCOUNTER_CODE }}>
+    // 광고 배너 클릭 집계(2026-11-11): GoatCounter 이벤트 'ad-jageun-yeongto-banner'.
+    // 관리자 대시보드(/admin/)가 같은 이름으로 조회한다. 이름을 바꾸면 admin.astro도 함께 바꾼다.
+    (function () {
+      var link = document.querySelector('.ad-banner');
+      if (!link) return;
+      var sent = false;
+      function send() {
+        if (sent) return;
+        sent = true;
+        setTimeout(function () { sent = false; }, 1500);
+        try {
+          var gc = window.goatcounter;
+          if (gc && typeof gc.count === 'function') {
+            gc.count({ path: 'ad-jageun-yeongto-banner', title: '작은영토 광고 배너 클릭', event: true });
+          } else if (GOATCOUNTER_CODE) {
+            new Image().src = 'https://' + GOATCOUNTER_CODE + '.goatcounter.com/count?p=ad-jageun-yeongto-banner&e=true&t=' + encodeURIComponent('작은영토 광고 배너 클릭') + '&rnd=' + Math.random().toString(36).slice(2);
+          }
+        } catch (e) {}
+      }
+      link.addEventListener('click', send);
+      link.addEventListener('auxclick', send);
+    })();
+  </script>
 
   <!-- 입문 가이드 안내: 첫 방문자용 콘텐츠라 최상단에 배치 -->
   <section class="section">
