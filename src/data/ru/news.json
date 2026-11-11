@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-10T23:39:27.586Z",
+  "updatedAt": "2026-11-11T15:33:25.286Z",
   "source": "Медвестник·Vademecum",
   "items": [
+    {
+      "title": "Google запустила ИИ-агента для клиник и страховых компаний",
+      "link": "https://medvestnik.ru/content/news/google-zapustila-ii-agenta-dlya-klinik-i-strahovyh-kompanii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-11-11T09:00:00.000Z"
+    },
+    {
+      "title": "Расшифровка эхокардиограмм ИИ не уступает врачам и экономит 50% времени",
+      "link": "https://medvestnik.ru/content/articles/rasshifrovka-ehokardiogramm-ii-ne-ustupaet-vracham-i-ekonomit-50-vremeni.html",
+      "source": "Медвестник",
+      "pubDate": "2026-11-11T09:00:00.000Z"
+    },
     {
       "title": "Аналитики: самыми часто упоминаемыми в ответах ИИ-агентов фармкомпаниями стали «Фармстандарт», «Р-Фарм» и «Биокад»",
       "link": "https://www.vademec.ru/news/2026/11/10/analitiki-samymi-chasto-upominaemymi-v-otvetakh-ii-agentov-farmkompaniyami-stali-farmstandart-r-farm/",
