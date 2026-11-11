@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T06:05:00.957Z",
+  "updatedAt": "2026-11-11T16:04:27.971Z",
   "items": [
     {
       "id": "a0WJ200000CDKBZMA5",
@@ -24,6 +24,18 @@
       "area": "東京都",
       "startDate": "2026-04-14T15:00:00.000Z",
       "endDate": "2026-11-30T14:59:00.000Z"
+    },
+    {
+      "id": "a0WfQ000004BTqnUAG",
+      "title": "令和８年度在宅医療現場における防犯機器等導入支援事業",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000004BTqnUAG",
+      "usePurpose": "雇用・職場環境を改善したい / 設備整備・IT導入をしたい",
+      "catchPhrase": "【東京都令和８年度事業】東京都では、在宅医療の現場で医療従事者が患者やその家族から受けるハラスメントの対策として、防犯機器等の導入を支援",
+      "maxLimit": 50000,
+      "rate": "1/2",
+      "area": "東京都",
+      "startDate": "2026-11-11T15:00:00.000Z",
+      "endDate": "2026-12-31T00:00:00.000Z"
     },
     {
       "id": "a0WfQ000003Bf7lUAC",
