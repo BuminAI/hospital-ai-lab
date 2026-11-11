@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-10T09:48:45.997Z",
+  "updatedAt": "2026-11-11T06:16:30.119Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "‘공공의료 AI 고속도로’ 첫 개통",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252560",
+      "source": "병원신문",
+      "pubDate": "2026-11-11T05:00:00.000Z"
+    },
     {
       "title": "대한의료정보학회, 의료AI의 미래 논한다",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252515",
@@ -2995,12 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169659",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-08T02:54:45.000Z"
-    },
-    {
-      "title": "강원도의사회, 3년 만에 학회 개최…디지털헬스 방향 모색",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169637",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-07T03:12:29.000Z"
     }
   ]
 }
