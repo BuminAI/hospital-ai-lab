@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-11T14:29:09.747Z",
+  "updatedAt": "2026-11-11T21:57:02.815Z",
   "source": "메디칼타임즈·병원신문",
   "items": [
+    {
+      "title": "[한양대병원] AI 활용 자살예방 심포지엄 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252608",
+      "source": "병원신문",
+      "pubDate": "2026-11-11T15:06:00.000Z"
+    },
+    {
+      "title": "한림대강남성심병원·휴버, AI로 항생제 적정사용 관리 나서",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252599",
+      "source": "병원신문",
+      "pubDate": "2026-11-11T14:47:00.000Z"
+    },
     {
       "title": "화순전남대병원, AI 신약개발 협력 생태계 구축",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252593",
@@ -2989,18 +3001,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169667",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-08T20:30:00.000Z"
-    },
-    {
-      "title": "초고령사회 디지털헬스 뜨는데...기술로만 접근하면 필패",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169665",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-08T20:30:00.000Z"
-    },
-    {
-      "title": "국가 검진으로 활로 뚫린 의료 AI…안전성 논란 극복할까",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169642",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-08T02:55:49.000Z"
     }
   ]
 }
