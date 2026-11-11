@@ -364,6 +364,7 @@ const webPage = {
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    {GOATCOUNTER_CODE && !noindex && <link rel="preconnect" href="https://gc.zgo.at" />}
     {
       GOATCOUNTER_CODE && !noindex && (
         <script

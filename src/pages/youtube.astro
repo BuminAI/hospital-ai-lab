@@ -66,14 +66,15 @@ const ownVideos = allVideos
                   hidden={i >= VISIBLE_LIMIT}
                 >
                   <img
-                    src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
-                    alt=""
+                    src={`https://i.ytimg.com/vi_webp/${v.videoId}/hqdefault.webp`}
+                    onerror={`this.onerror=null;this.src='https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg'`}
+                    alt={`${v.title} (영상 썸네일)`}
                     loading="lazy"
                     width="480"
                     height="360"
                   />
                   <p class="video-title">
-                    {v.title}
+                    <span aria-hidden="true">{v.title}</span>
                     <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
                   </p>
                 </a>
@@ -127,14 +128,15 @@ const ownVideos = allVideos
                 hidden={i >= VISIBLE_LIMIT}
               >
                 <img
-                  src={`https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg`}
-                  alt=""
+                  src={`https://i.ytimg.com/vi_webp/${v.videoId}/hqdefault.webp`}
+                  onerror={`this.onerror=null;this.src='https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg'`}
+                  alt={`${v.title} (영상 썸네일)`}
                   loading="lazy"
                   width="480"
                   height="360"
                 />
                 <p class="video-title">
-                  {v.title}
+                  <span aria-hidden="true">{v.title}</span>
                   <span class="sr-only"> (유튜브, 새 탭으로 열림)</span>
                 </p>
               </a>

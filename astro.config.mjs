@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { lastModifiedForPath } from './src/utils/git-lastmod.mjs';
 import { localeSitemaps } from './src/utils/locale-sitemaps.mjs';
+import { copyFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 배포 주소(site / base) 설정
@@ -131,5 +133,19 @@ export default defineConfig({
       filter: sitemapFilter,
       lastmodFor: lastModifiedForPath,
     }),
+    // /sitemap.xml 별칭(2026-11-11): 사이트맵 본체는 /sitemap-index.xml이다(robots.txt·서치 콘솔 제출 주소).
+    // /sitemap.xml 주소만 확인하는 점검 도구가 '없음'으로 판정하길래, 같은 내용을 한 벌 더 둔다.
+    // ⚠️ 위 두 사이트맵 통합보다 **뒤에** 둔다(그래야 복사할 때 sitemap-index.xml이 이미 만들어져 있다).
+    {
+      name: 'sitemap-xml-alias',
+      hooks: {
+        'astro:build:done': async ({ dir, logger }) => {
+          const from = fileURLToPath(new URL('sitemap-index.xml', dir));
+          const to = fileURLToPath(new URL('sitemap.xml', dir));
+          await copyFile(from, to);
+          logger.info('sitemap.xml ← sitemap-index.xml 복사');
+        },
+      },
+    },
   ],
 });
