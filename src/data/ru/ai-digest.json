@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-11-10T14:51:14.471Z",
+  "updatedAt": "2026-11-11T01:55:31.646Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Атаки на ИИ-агентов: разбираем проект таксономии NIST",
+      "link": "https://habr.com/ru/articles/1106012/?utm_campaign=1106012&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-10T21:08:03.000Z"
+    },
+    {
+      "title": "OpenAI создала аварийный выключатель для особо опасных и непослушных ИИ-моделей",
+      "link": "https://3dnews.ru/1151120/openai-sozdala-avariyniy-viklyuchatel-dlya-osobo-opasnih-i-neposlushnih-iimodeley",
+      "source": "3DNews",
+      "pubDate": "2026-11-10T18:35:00.000Z"
+    },
+    {
+      "title": "Google открыла доступ к своему самому мощному ИИ и показала, как Gemini 4 Carbon управляет роем ИИ-агентов",
+      "link": "https://3dnews.ru/1151118/google-otkrila-dostup-k-svoemu-samomu-moshchnomu-ii-i-pokazala-kak-gemini-4-carbon-upravlyaet-roem-iiagentov",
+      "source": "3DNews",
+      "pubDate": "2026-11-10T18:22:00.000Z"
+    },
+    {
+      "title": "Как я научил ИИ-агента находить клиентов в госзакупках",
+      "link": "https://habr.com/ru/articles/1106272/?utm_campaign=1106272&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-10T17:58:10.000Z"
+    },
+    {
+      "title": "Сказка ложь, да в ней алерт. Как обмануть ИИ-агента SOC липовой заявкой",
+      "link": "https://habr.com/ru/articles/1106258/?utm_campaign=1106258&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-10T17:30:38.000Z"
+    },
+    {
+      "title": "Масштабное обновление продуктов Adobe: вездесущие ИИ-агенты и другие инструменты на базе ИИ",
+      "link": "https://3dnews.ru/1151109/masshtabnoe-obnovlenie-produktov-adobe-vezdesushchie-iiagenti-i-drugie-instrumenti-na-baze-ii",
+      "source": "3DNews",
+      "pubDate": "2026-11-10T15:50:00.000Z"
+    },
     {
       "title": "Сделали ИИ-бота для ежедневного анализа бизнес-метрик",
       "link": "https://habr.com/ru/companies/avito/articles/1101542/?utm_campaign=1101542&utm_source=habrahabr&utm_medium=rss",
@@ -1765,42 +1801,6 @@
       "link": "https://3dnews.ru/1150228/iiagenti-openai-dvagdi-za-oktyabr-oboshli-sistemu-kotoraya-dolgna-kontrolirovat-ih-povedenie",
       "source": "3DNews",
       "pubDate": "2026-10-21T10:27:00.000Z"
-    },
-    {
-      "title": "SIEM на двух ядрах для 150 хостов и 9B модель на триаже: как устроен самописный AI SOC",
-      "link": "https://habr.com/ru/articles/1097200/?utm_campaign=1097200&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-21T10:11:59.000Z"
-    },
-    {
-      "title": "Как ИИ‑агенты помогают на производстве",
-      "link": "https://habr.com/ru/articles/1097180/?utm_campaign=1097180&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-21T09:57:48.000Z"
-    },
-    {
-      "title": "Почти треть российских компаний тестируют промышленных роботов с применением ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-10-21_pochti_tret_rossijskih_kompanij",
-      "source": "CNews",
-      "pubDate": "2026-10-21T09:50:00.000Z"
-    },
-    {
-      "title": "Между Сциллой и Харибдой: как и зачем мы ограничиваем ИИ‑агентов",
-      "link": "https://habr.com/ru/companies/cloud_ru/articles/1096336/?utm_campaign=1096336&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-21T08:44:47.000Z"
-    },
-    {
-      "title": "Как я перестал относиться к ИИ как к человеку: опыт соло-разработки двух пет-проектов",
-      "link": "https://habr.com/ru/companies/alfa/articles/1096666/?utm_campaign=1096666&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-21T08:42:32.000Z"
-    },
-    {
-      "title": "ГК Swordfish Security привлекла инвестиции для развития направлений защиты ИИ-систем и безопасной разработки ПО",
-      "link": "https://www.cnews.ru/news/line/2026-10-21_gk_swordfish_security_privlekla_investitsii",
-      "source": "CNews",
-      "pubDate": "2026-10-21T08:42:00.000Z"
     }
   ]
 }
