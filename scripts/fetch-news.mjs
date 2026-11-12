@@ -20,7 +20,7 @@ const LIST_URL = 'https://www.medicaltimes.com/Main/News/List.html?MainCate=4';
 const ARTICLE_URL = (id) =>
   `https://www.medicaltimes.com/Main/News/NewsView.html?ID=${id}`;
 const PAGES = 3; // 목록 페이지 수 (최근 며칠치 + 과거 이력 시딩)
-const MAX_ITEMS = 500; // 누적 상한 (오래된 것부터, 이 수를 넘을 때만 잘라냄)
+const MAX_ITEMS = 1000; // 누적 상한 (오래된 것부터, 이 수를 넘을 때만 잘라냄)
 const SOURCE = '메디칼타임즈';
 
 // ── 병원신문 ──────────────────────────────────────────
