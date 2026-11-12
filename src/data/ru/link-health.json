@@ -1,9 +1,17 @@
 {
-  "checkedAt": "2026-11-12T01:04:22.898Z",
+  "checkedAt": "2026-11-12T23:55:08.879Z",
   "total": 102,
-  "ok": 99,
-  "unknown": 3,
+  "ok": 94,
+  "unknown": 8,
   "unknownList": [
+    {
+      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=507503",
+      "status": 0
+    },
+    {
+      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=500478",
+      "status": 0
+    },
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
       "status": 0
@@ -13,7 +21,19 @@
       "status": 403
     },
     {
+      "url": "https://cr.minzdrav.gov.ru/",
+      "status": 0
+    },
+    {
+      "url": "https://minzdrav.gov.ru/news/2026/10/20/33149-mihail-murashko-i-german-gref-predstavili-novoe-otechestvennoe-prilozhenie-hudeem-na-zdorovie",
+      "status": 0
+    },
+    {
       "url": "https://www.pomph.ru/jour/article/view/244",
+      "status": 0
+    },
+    {
+      "url": "https://minzdrav.gov.ru/",
       "status": 0
     }
   ],
