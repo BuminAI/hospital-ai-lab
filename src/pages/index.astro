@@ -237,53 +237,6 @@ const homeSeries = (await getResolvedSeries())
     </div>
   </section>
 
-  <!-- 광고 배너(2026-11-11 오너 지시: 한국어 홈에만 게시). 다른 언어판 홈에는 넣지 않는다.
-       광고임을 표시하고 rel=sponsored를 단다. 광고를 내릴 때는 이 블록과 public/ads/ 이미지를 함께 지운다. -->
-  <aside class="ad-banner-wrap" aria-label="광고">
-    <div class="container">
-      <a
-        class="ad-banner"
-        href="https://map.naver.com/p/entry/place/36004864"
-        target="_blank"
-        rel="sponsored nofollow noopener"
-      >
-        <img
-          src={withBase('/ads/jageun-yeongto-banner.webp')}
-          alt="광고: 부산 동래구 온천동 수제 돈까스 전문점 작은영토. 매일 아침 직접 만드는 수제돈까스"
-          width="2000"
-          height="621"
-          loading="lazy"
-          decoding="async"
-        />
-        <span class="ad-badge">광고</span>
-      </a>
-    </div>
-  </aside>
-  <script is:inline define:vars={{ GOATCOUNTER_CODE }}>
-    // 광고 배너 클릭 집계(2026-11-11): GoatCounter 이벤트 'ad-jageun-yeongto-banner'.
-    // 관리자 대시보드(/admin/)가 같은 이름으로 조회한다. 이름을 바꾸면 admin.astro도 함께 바꾼다.
-    (function () {
-      var link = document.querySelector('.ad-banner');
-      if (!link) return;
-      var sent = false;
-      function send() {
-        if (sent) return;
-        sent = true;
-        setTimeout(function () { sent = false; }, 1500);
-        try {
-          var gc = window.goatcounter;
-          if (gc && typeof gc.count === 'function') {
-            gc.count({ path: 'ad-jageun-yeongto-banner', title: '작은영토 광고 배너 클릭', event: true });
-          } else if (GOATCOUNTER_CODE) {
-            new Image().src = 'https://' + GOATCOUNTER_CODE + '.goatcounter.com/count?p=ad-jageun-yeongto-banner&e=true&t=' + encodeURIComponent('작은영토 광고 배너 클릭') + '&rnd=' + Math.random().toString(36).slice(2);
-          }
-        } catch (e) {}
-      }
-      link.addEventListener('click', send);
-      link.addEventListener('auxclick', send);
-    })();
-  </script>
-
   <!-- 입문 가이드 안내: 첫 방문자용 콘텐츠라 최상단에 배치 -->
   <section class="section">
     <div class="container">
@@ -786,34 +739,6 @@ const homeSeries = (await getResolvedSeries())
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-primary);
-  }
-
-  /* ── 광고 배너(한국어 홈 전용) ── */
-  .ad-banner-wrap {
-    margin-block-start: var(--space-section);
-  }
-  .ad-banner {
-    position: relative;
-    display: block;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-  }
-  .ad-banner img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  .ad-badge {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    font-size: 12px;
-    line-height: 1.5;
   }
 
   /* ── 섹션 공통 ── */

@@ -58,7 +58,6 @@ const editions = [
           <a class="item" href={withBase('/admin-ko/#member-panel')}><i>👥</i>회원<span class="badge" id="side-members" hidden></span></a>
           <a class="item" href={withBase('/admin-ko/#deploy-panel')}><i>🚀</i>사이트 반영 상태</a>
           <a class="item" href={withBase('/admin-ko/#stats-panel')}><i>📊</i>방문자 통계</a>
-          <a class="item" href="#ad-panel"><i>📣</i>광고 배너 클릭</a>
           <a class="item" href={withBase('/admin-ko/#token-panel')}><i>🔑</i>GitHub 연동</a>
           <a class="item" href={withBase('/')} target="_blank" rel="noopener"><i>🌐</i>사이트 보기</a>
         </nav>
@@ -75,7 +74,6 @@ const editions = [
         <section class="stats" aria-label="요약">
           <div class="stat"><span class="k">회원</span><span class="v" id="st-members">–</span></div>
           <div class="stat"><span class="k">AI 심사 제출</span><span class="v" id="st-judge">–</span><span class="sub" id="st-judge-sub"></span></div>
-          <div class="stat"><span class="k">광고 배너 클릭(작은영토)</span><span class="v" id="st-ad">–</span><span class="sub" id="st-ad-sub"></span></div>
           <div class="stat"><span class="k">언어판</span><span class="v">{editions.length}</span><span class="sub">한국어 · 일본어 · 러시아어 · 인도네시아어 · 대만어</span></div>
         </section>
 
@@ -91,26 +89,6 @@ const editions = [
               </div>
             </article>
           ))}
-        </section>
-
-        <h2 id="ad-panel">광고 배너 클릭 현황</h2>
-        <section class="card" aria-label="광고 배너 클릭 현황">
-          <div class="card-head"><span class="flag">📣</span><div><h3>작은영토 — 한국어 홈 배너</h3><span class="muted">게시 2026-11-11 · 집계: GoatCounter 이벤트 <code>ad-jageun-yeongto-banner</code></span></div></div>
-          <table class="adtable">
-            <tbody>
-              <tr><th>클릭한 사람 수</th><td id="ad-unique">–</td></tr>
-              <tr><th>총 클릭 수</th><td id="ad-total">–</td></tr>
-            </tbody>
-          </table>
-          <p class="muted" id="ad-note">불러오는 중…</p>
-          <div class="card-actions">
-            <button type="button" class="btn" id="ad-refresh">새로고침</button>
-            {GOATCOUNTER_CODE && <a class="btn ghost" href={`https://${GOATCOUNTER_CODE}.goatcounter.com`} target="_blank" rel="noopener">GoatCounter에서 날짜별로 보기</a>}
-          </div>
-          <p class="muted small">
-            ‘클릭한 사람 수’는 GoatCounter의 방문자 기준입니다. 쿠키를 쓰지 않는 방식이라 같은 사람이 날짜를 달리해 다시 누르면 다시 셀 수 있고,
-            광고 차단 프로그램을 쓰는 방문자의 클릭은 집계되지 않아 실제보다 적게 나올 수 있습니다. 숫자가 반영되기까지 몇 분 걸릴 수 있습니다.
-          </p>
         </section>
 
         <h2>공통 도구</h2>
@@ -143,47 +121,12 @@ const editions = [
       return error ? null : n;
     }
 
-    // GoatCounter 공개 카운터 API(/counter/<경로>.json, 인증 불필요). 이벤트 경로는 앞 슬래시 유무가
-    // 설정에 따라 다를 수 있어 두 형태를 모두 조회해 큰 값을 쓴다. 기록이 아직 없으면 404 → 0으로 본다.
-    async function gcCount(name) {
-      let best = null;
-      for (const p of [name, '/' + name]) {
-        try {
-          const r = await fetch(`https://${GOATCOUNTER_CODE}.goatcounter.com/counter/${encodeURIComponent(p)}.json`);
-          if (r.status === 404) { if (best === null) best = { count: 0, unique: 0 }; continue; }
-          if (!r.ok) continue;
-          const j = await r.json();
-          const num = (v) => parseInt(String(v).replace(/\D/g, ''), 10) || 0;
-          const cur = { count: num(j.count), unique: num(j.count_unique) };
-          if (!best || cur.count > best.count) best = cur;
-        } catch (e) { /* 다음 형태 시도 */ }
-      }
-      return best;
-    }
-    async function renderAd() {
-      if (!GOATCOUNTER_CODE) { $('ad-note').textContent = '방문자 통계(GoatCounter)가 연결되지 않았습니다.'; return; }
-      $('ad-note').textContent = '불러오는 중…';
-      const r = await gcCount('ad-jageun-yeongto-banner');
-      if (!r) {
-        $('st-ad').textContent = '–'; $('ad-unique').textContent = '–'; $('ad-total').textContent = '–';
-        $('ad-note').textContent = '집계 서버에 연결하지 못했습니다. 잠시 뒤 새로고침해 주세요.';
-        return;
-      }
-      $('st-ad').textContent = r.unique + '명';
-      $('st-ad-sub').textContent = '총 ' + r.count + '회 클릭';
-      $('ad-unique').textContent = r.unique + '명';
-      $('ad-total').textContent = r.count + '회';
-      $('ad-note').textContent = r.count === 0 ? '아직 기록된 클릭이 없습니다.' : '방금 조회: ' + new Date().toLocaleString('ko-KR');
-    }
-    $('ad-refresh').addEventListener('click', renderAd);
-
     async function render() {
       const { data: { session } } = await sb.auth.getSession();
       const ok = !!session && session.user.email === ADMIN_EMAIL;
       $('gate').hidden = ok;
       $('shell').hidden = !ok;
       if (!ok) return;
-      renderAd();
       // 체험용 샘플 제출은 집계에서 뺀다(2026-11-07). 예전 버전이 샘플도 올렸다.
       const SAMPLE_NAMES = ['연차 사용일수 계산기', '年次有給休暇の日数計算ツール', 'Калькулятор дней отпуска', 'Penghitung hari cuti', '特休天數計算器', 'Leave day counter'];
       const countJudge = async () => {
@@ -276,9 +219,6 @@ const editions = [
   .flag { font-size: 1.1rem; font-weight: 700; line-height: 1; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 8px; background: #e8f0f8; color: var(--a-accent); }
   .card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
   .small { font-size: 12px; }
-  .adtable { border-collapse: collapse; width: 100%; max-width: 28rem; }
-  .adtable th, .adtable td { text-align: left; padding: 6px 0; border-bottom: 1px solid var(--a-line); }
-  .adtable td { font-size: 1.25rem; font-weight: 600; }
 
   @media (max-width: 760px) {
     .shell { grid-template-columns: 1fr; }
