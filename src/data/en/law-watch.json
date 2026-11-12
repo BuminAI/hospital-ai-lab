@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-12T00:56:37.619Z",
+  "checkedAt": "2026-11-12T23:48:23.783Z",
   "readOk": 5,
   "total": 5,
   "laws": [
@@ -11,7 +11,7 @@
       "current": "2026-05-26",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-12T00:56:33.486Z",
+      "lastRead": "2026-11-12T23:48:19.275Z",
       "error": null
     },
     {
@@ -22,7 +22,7 @@
       "current": "2024-06-25",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-12T00:56:34.317Z",
+      "lastRead": "2026-11-12T23:48:20.170Z",
       "error": null
     },
     {
@@ -33,7 +33,7 @@
       "current": "2026-10-28",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-12T00:56:35.152Z",
+      "lastRead": "2026-11-12T23:48:21.137Z",
       "error": null
     },
     {
@@ -44,7 +44,7 @@
       "current": "2025-01-15",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-12T00:56:35.985Z",
+      "lastRead": "2026-11-12T23:48:22.031Z",
       "error": null
     },
     {
@@ -55,7 +55,7 @@
       "current": "2024-07-05",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-12T00:56:36.818Z",
+      "lastRead": "2026-11-12T23:48:22.984Z",
       "error": null
     }
   ]
