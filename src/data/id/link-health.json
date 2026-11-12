@@ -1,9 +1,14 @@
 {
-  "checkedAt": "2026-11-12T01:03:11.446Z",
+  "checkedAt": "2026-11-12T23:55:03.420Z",
   "total": 68,
-  "ok": 67,
-  "unknown": 0,
-  "unknownList": [],
+  "ok": 66,
+  "unknown": 1,
+  "unknownList": [
+    {
+      "url": "https://keslan.kemkes.go.id/read/3798/kemenkes-dorong-pengembangan-ekosistem-ai-kesehatan-yang-aman-adil-dan-bertanggung-jawab",
+      "status": 500
+    }
+  ],
   "dead": [
     {
       "url": "https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026",
