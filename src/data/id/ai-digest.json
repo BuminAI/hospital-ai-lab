@@ -1,7 +1,103 @@
 {
-  "updatedAt": "2026-11-13T02:37:47.054Z",
+  "updatedAt": "2026-11-13T14:32:51.737Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Saham Tokyo menguat di tengah optimisme industri AI",
+      "link": "https://www.antaranews.com/berita/5852659/saham-tokyo-menguat-di-tengah-optimisme-industri-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-11-13T14:07:20.000Z"
+    },
+    {
+      "title": "Akses Pelatihan AI Diperluas bagi Generasi Muda",
+      "link": "https://mediaindonesia.com/ekonomi/955978/akses-pelatihan-ai-diperluas-bagi-generasi-muda",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-13T13:48:00.000Z"
+    },
+    {
+      "title": "Gangguan Global Microsoft: Layanan Outlook, Teams, dan Copilot Lumpuh",
+      "link": "https://mediaindonesia.com/teknologi/955997/gangguan-global-microsoft-layanan-outlook-teams-dan-copilot-lumpuh",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-13T13:35:00.000Z"
+    },
+    {
+      "title": "Ada yang Coba-coba Foto Manipulasi AI untuk Registrasi SIM Biometrik",
+      "link": "https://inet.detik.com/law-and-policy/d-8751891/ada-yang-coba-coba-foto-manipulasi-ai-untuk-registrasi-sim-biometrik",
+      "source": "detikINET",
+      "pubDate": "2026-11-13T13:14:53.000Z"
+    },
+    {
+      "title": "Peringatan Geoffrey Hinton: AI Berisiko Musnahkan Manusia dalam 3 Tahun",
+      "link": "https://mediaindonesia.com/teknologi/955984/peringatan-geoffrey-hinton-ai-berisiko-musnahkan-manusia-dalam-3-tahun",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-13T13:14:00.000Z"
+    },
+    {
+      "title": "Lulusan Perguruan Tinggi Dituntut Adaptif dan Berintegritas Hadapi Era AI",
+      "link": "https://mediaindonesia.com/humaniora/955974/lulusan-perguruan-tinggi-dituntut-adaptif-dan-berintegritas-hadapi-era-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-13T13:00:00.000Z"
+    },
+    {
+      "title": "Foto KTP Dimodifikasi AI, Begini Modus Akali Registrasi Biometrik Simcard HP",
+      "link": "https://katadata.co.id/digital/teknologi/6af6f55f7448e/foto-ktp-dimodifikasi-ai-begini-modus-akali-registrasi-biometrik-simcard-hp",
+      "source": "Katadata",
+      "pubDate": "2026-11-13T11:32:00.000Z"
+    },
+    {
+      "title": "Cisco Gandeng Claude Mythos untuk Uji Keamanan Agen AI",
+      "link": "https://www.liputan6.com/tekno/read/8334647/cisco-gandeng-claude-mythos-untuk-uji-keamanan-agen-ai",
+      "source": "Liputan6",
+      "pubDate": "2026-11-13T10:16:50.000Z"
+    },
+    {
+      "title": "Vivo V80 Series Tawarkan Kamera ZEISS dan Fitur AI Canggih, Ini Detailnya",
+      "link": "https://www.liputan6.com/tekno/read/8334057/vivo-v80-series-tawarkan-kamera-zeiss-dan-fitur-ai-canggih-ini-detailnya",
+      "source": "Liputan6",
+      "pubDate": "2026-11-13T09:11:42.000Z"
+    },
+    {
+      "title": "AI Phone Bakal Ubah Cara Kita Pakai HP, Ini Kata Pakar",
+      "link": "https://inet.detik.com/consumer/d-8751560/ai-phone-bakal-ubah-cara-kita-pakai-hp-ini-kata-pakar",
+      "source": "detikINET",
+      "pubDate": "2026-11-13T07:44:22.000Z"
+    },
+    {
+      "title": "United Airlines Blokir Agen AI Pesan Tiket untuk Pengguna",
+      "link": "https://www.cnnindonesia.com/teknologi/20261112124838-185-1426316/united-airlines-blokir-agen-ai-pesan-tiket-untuk-pengguna",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-13T05:30:08.000Z"
+    },
+    {
+      "title": "Telkom University dan AirNav Kenalkan NOTAM Berbasis AI di AS, Dukung Akurasi Informasi Penerbangan",
+      "link": "https://www.liputan6.com/tekno/read/8334566/telkom-university-dan-airnav-kenalkan-notam-berbasis-ai-di-as-dukung-akurasi-informasi-penerbangan",
+      "source": "Liputan6",
+      "pubDate": "2026-11-13T05:17:47.000Z"
+    },
+    {
+      "title": "AMD Ungkap Prosesor Server Zen 6 Epyc Venice: Bawa 256 Core dan Efisiensi AI",
+      "link": "https://inet.detik.com/consumer/d-8750968/amd-ungkap-prosesor-server-zen-6-epyc-venice-bawa-256-core-dan-efisiensi-ai",
+      "source": "detikINET",
+      "pubDate": "2026-11-13T05:10:20.000Z"
+    },
+    {
+      "title": "Dukung Efektivitas DPR RI, Metranet Hadirkan Executive Dashboard Berbasis AI dan Big Data",
+      "link": "https://www.liputan6.com/tekno/read/8334518/dukung-efektivitas-dpr-ri-metranet-hadirkan-executive-dashboard-berbasis-ai-dan-big-data",
+      "source": "Liputan6",
+      "pubDate": "2026-11-13T04:36:34.000Z"
+    },
+    {
+      "title": "Penggunaan AI di Samsung Galaxy Tab Tembus 69%, Ini 3 Fitur Favoritnya",
+      "link": "https://inet.detik.com/consumer/d-8750962/penggunaan-ai-di-samsung-galaxy-tab-tembus-69-ini-3-fitur-favoritnya",
+      "source": "detikINET",
+      "pubDate": "2026-11-13T04:10:36.000Z"
+    },
+    {
+      "title": "Google Rilis Gemini 4 Hydrogen, Cek Deretan Fiturnya",
+      "link": "https://www.liputan6.com/tekno/read/8334415/google-rilis-gemini-4-hydrogen-cek-deretan-fiturnya",
+      "source": "Liputan6",
+      "pubDate": "2026-11-13T03:24:37.000Z"
+    },
     {
       "title": "Microsoft Outlook Down Massal, Pengguna Global dan Layanan ChatGPT Terdampak",
       "link": "https://www.liputan6.com/tekno/read/8334388/microsoft-outlook-down-massal-pengguna-global-dan-layanan-chatgpt-terdampak",
@@ -1705,102 +1801,6 @@
       "link": "https://katadata.co.id/finansial/bursa/6adfe614da321/wall-street-menguat-sp-500-naik-0-70-di-tengah-optimisme-saham-ai",
       "source": "Katadata",
       "pubDate": "2026-10-26T23:45:00.000Z"
-    },
-    {
-      "title": "Raksasa Desain Cip Arm Holdings Ungkap Strategi Bangun Ekosistem AI Indonesia",
-      "link": "https://katadata.co.id/digital/teknologi/6adf7093645dd/raksasa-desain-cip-arm-holdings-ungkap-strategi-bangun-ekosistem-ai-indonesia",
-      "source": "Katadata",
-      "pubDate": "2026-10-26T23:00:00.000Z"
-    },
-    {
-      "title": "Bos Nvidia Klaim Masa Pakai Chip AI Buatannya Awet: Lebih dari 8 Tahun",
-      "link": "https://inet.detik.com/business/d-8725056/bos-nvidia-klaim-masa-pakai-chip-ai-buatannya-awet-lebih-dari-8-tahun",
-      "source": "detikINET",
-      "pubDate": "2026-10-26T14:44:12.000Z"
-    },
-    {
-      "title": "Deretan Pemuda Drop Out Usia 20-an Penguasa AI, Duitnya Triliunan",
-      "link": "https://inet.detik.com/cyberlife/d-8724993/deretan-pemuda-drop-out-usia-20-an-penguasa-ai-duitnya-triliunan",
-      "source": "detikINET",
-      "pubDate": "2026-10-26T14:15:36.000Z"
-    },
-    {
-      "title": "Ancaman AI Doxing: Cara Kecerdasan Buatan Membongkar Identitas Anonim dan Tips Melindungi Diri",
-      "link": "https://mediaindonesia.com/teknologi/948938/ancaman-ai-doxing-cara-kecerdasan-buatan-membongkar-identitas-anonim-dan-tips-melindungi-diri",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-26T13:19:00.000Z"
-    },
-    {
-      "title": "Telkomsel 5G Powered by AI Optimalkan Jaringan Bagi Konten Kreator",
-      "link": "https://inet.detik.com/telecommunication/d-8724296/telkomsel-5g-powered-by-ai-optimalkan-jaringan-bagi-konten-kreator",
-      "source": "detikINET",
-      "pubDate": "2026-10-26T10:45:44.000Z"
-    },
-    {
-      "title": "PUSSIBERAD Tantang Inovator Siber Perkuat Pertahanan Siber Negara Lewat AI",
-      "link": "https://www.liputan6.com/tekno/read/8321614/pussiberad-tantang-inovator-siber-perkuat-pertahanan-siber-negara-lewat-ai",
-      "source": "Liputan6",
-      "pubDate": "2026-10-26T10:09:50.000Z"
-    },
-    {
-      "title": "Telkomsel Manfaatkan AI Deteksi Karakter User untuk Stabilitas Jaringan 5G",
-      "link": "https://inet.detik.com/telecommunication/d-8724293/telkomsel-manfaatkan-ai-deteksi-karakter-user-untuk-stabilitas-jaringan-5g",
-      "source": "detikINET",
-      "pubDate": "2026-10-26T08:45:31.000Z"
-    },
-    {
-      "title": "Danantara Siapkan Industri Semikonduktor untuk Perkuat Ekosistem AI Indonesia",
-      "link": "https://katadata.co.id/digital/teknologi/6adf0ea0e786c/danantara-siapkan-industri-semikonduktor-untuk-perkuat-ekosistem-ai-indonesia",
-      "source": "Katadata",
-      "pubDate": "2026-10-26T08:26:00.000Z"
-    },
-    {
-      "title": "Grok telah merilis episode pertama seri \"Odyssey\" versi AI",
-      "link": "https://www.antaranews.com/berita/5811959/grok-telah-merilis-episode-pertama-seri-odyssey-versi-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-10-26T07:40:02.000Z"
-    },
-    {
-      "title": "AI Bisa Prediksi Risiko Kematian Pasien Kanker Lewat Foto Wajah",
-      "link": "https://www.liputan6.com/tekno/read/8320462/ai-bisa-prediksi-risiko-kematian-pasien-kanker-lewat-foto-wajah",
-      "source": "Liputan6",
-      "pubDate": "2026-10-26T07:09:34.000Z"
-    },
-    {
-      "title": "Tolak AI Dipakai untuk Militer, Peneliti Google DeepMind Resign",
-      "link": "https://www.cnnindonesia.com/teknologi/20261026132629-192-1419697/tolak-ai-dipakai-untuk-militer-peneliti-google-deepmind-resign",
-      "source": "CNN Indonesia",
-      "pubDate": "2026-10-26T06:45:27.000Z"
-    },
-    {
-      "title": "Remaja Ajaib Usia 17 Tahun Tembus Jajaran Peneliti AI Elite Dunia",
-      "link": "https://inet.detik.com/cyberlife/d-8724337/remaja-ajaib-usia-17-tahun-tembus-jajaran-peneliti-ai-elite-dunia",
-      "source": "detikINET",
-      "pubDate": "2026-10-26T06:15:50.000Z"
-    },
-    {
-      "title": "Perang Konten AI dan Bot dalam Kampanye Pemilu Israel, Kubu Netanyahu Terbanyak",
-      "link": "https://katadata.co.id/digital/teknologi/6adeedde2aae4/perang-konten-ai-dan-bot-dalam-kampanye-pemilu-israel-kubu-netanyahu-terbanyak",
-      "source": "Katadata",
-      "pubDate": "2026-10-26T06:06:00.000Z"
-    },
-    {
-      "title": "Goldman Sachs: Yen Jepang Kian Efektif Lindungi Portofolio dari Guncangan AI",
-      "link": "https://katadata.co.id/finansial/keuangan/6adee54f95823/goldman-sachs-yen-jepang-kian-efektif-lindungi-portofolio-dari-guncangan-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-26T05:29:00.000Z"
-    },
-    {
-      "title": "PBB Ingatkan Risiko AI Perlebar Ketimpangan antara Negara Maju dan Berkembang",
-      "link": "https://katadata.co.id/digital/teknologi/6adee44339696/pbb-ingatkan-risiko-ai-perlebar-ketimpangan-antara-negara-maju-dan-berkembang",
-      "source": "Katadata",
-      "pubDate": "2026-10-26T05:25:00.000Z"
-    },
-    {
-      "title": "Platform Streaming Ini Bakal Saring Lagu AI dari Kuping Pendengar",
-      "link": "https://www.cnnindonesia.com/teknologi/20261021110000-192-1417864/platform-streaming-ini-bakal-saring-lagu-ai-dari-kuping-pendengar",
-      "source": "CNN Indonesia",
-      "pubDate": "2026-10-26T04:45:44.000Z"
     }
   ]
 }
