@@ -1,15 +1,19 @@
 {
-  "checkedAt": "2026-11-12T23:55:08.879Z",
+  "checkedAt": "2026-11-13T23:56:45.024Z",
   "total": 102,
-  "ok": 94,
-  "unknown": 8,
+  "ok": 96,
+  "unknown": 6,
   "unknownList": [
     {
-      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=507503",
-      "status": 0
+      "url": "https://www.gostinfo.ru/catalog/Details/?id=7968559",
+      "status": 400
     },
     {
-      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=500478",
+      "url": "https://www.gostinfo.ru/catalog/Details/?id=6902061",
+      "status": 400
+    },
+    {
+      "url": "https://medvestnik.ru/content/news/v-moskve-ii-obuchili-perevodit-s-medicinskogo-yazyka-na-pacientskii.html",
       "status": 0
     },
     {
@@ -22,18 +26,6 @@
     },
     {
       "url": "https://cr.minzdrav.gov.ru/",
-      "status": 0
-    },
-    {
-      "url": "https://minzdrav.gov.ru/news/2026/10/20/33149-mihail-murashko-i-german-gref-predstavili-novoe-otechestvennoe-prilozhenie-hudeem-na-zdorovie",
-      "status": 0
-    },
-    {
-      "url": "https://www.pomph.ru/jour/article/view/244",
-      "status": 0
-    },
-    {
-      "url": "https://minzdrav.gov.ru/",
       "status": 0
     }
   ],
