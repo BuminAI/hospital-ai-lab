@@ -1,9 +1,13 @@
 {
-  "checkedAt": "2026-11-12T23:54:21.541Z",
+  "checkedAt": "2026-11-13T23:54:42.922Z",
   "total": 74,
-  "ok": 73,
-  "unknown": 1,
+  "ok": 72,
+  "unknown": 2,
   "unknownList": [
+    {
+      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=I0050021&flno=6",
+      "status": 0
+    },
     {
       "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
       "status": 403
