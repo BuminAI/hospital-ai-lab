@@ -1,7 +1,61 @@
 {
-  "updatedAt": "2026-11-12T15:11:11.798Z",
+  "updatedAt": "2026-11-13T02:37:19.207Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Путь к локальному LLM — модель которую я наконец-то реально использую каждый день",
+      "link": "https://habr.com/ru/articles/1107310/?utm_campaign=1107310&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-12T21:36:21.000Z"
+    },
+    {
+      "title": "«Они могут погубить всех нас»: в США через суд потребовали запретить OpenAI, Google и другим обучать передовые ИИ-модели",
+      "link": "https://3dnews.ru/1151241/oni-mogut-pogubit-vseh-nas-v-ssha-cherez-sud-potrebovali-zapretit-openai-google-i-drugim-obuchat-peredovie-iimodeli",
+      "source": "3DNews",
+      "pubDate": "2026-11-12T21:33:00.000Z"
+    },
+    {
+      "title": "Microsoft показала, как превратить ИИ-агента в троян, изменив всего семь нейронов",
+      "link": "https://3dnews.ru/1151240/microsoft-pokazala-kak-prevratit-iiagenta-v-troyan-izmeniv-vsego-sem-neyronov",
+      "source": "3DNews",
+      "pubDate": "2026-11-12T21:23:00.000Z"
+    },
+    {
+      "title": "Google представила Gemini 4 Hydrogen — модель работает в 2,5 раза быстрее предшественницы и уже доступна всем",
+      "link": "https://3dnews.ru/1151236/google-predstavila-gemini-4-hydrogen-model-rabotaet-v-25-raza-bistree-predshestvennitsi-i-uge-dostupna-vsem",
+      "source": "3DNews",
+      "pubDate": "2026-11-12T20:01:00.000Z"
+    },
+    {
+      "title": "Профили критических сбоев ИИ-агентов с функцией вызова с реальным эффектом: DeepSeek V4 Pro и Gemini 3.8 Flash",
+      "link": "https://habr.com/ru/articles/1107288/?utm_campaign=1107288&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-12T19:54:25.000Z"
+    },
+    {
+      "title": "Увольнения, засилье ИИ и умершие надежды: исследование показало удручающее состояние игровой индустрии в 2026 году",
+      "link": "https://3dnews.ru/1151234/uvolneniya-zasile-ii-i-umershie-nadegdi-issledovanie-pokazalo-udruchayushchee-sostoyanie-igrovoy-industrii-v-2026-godu",
+      "source": "3DNews",
+      "pubDate": "2026-11-12T19:23:00.000Z"
+    },
+    {
+      "title": "Как работать с кодинг агентами (Claude Code, Codex, Gemini CLI, Antigravity CLI) через Telegram",
+      "link": "https://habr.com/ru/articles/1107278/?utm_campaign=1107278&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-12T19:08:08.000Z"
+    },
+    {
+      "title": "Skills + Code Mode MCP: как я научил ИИ‑агента пользоваться сотнями инструментов и не раздувать контекст",
+      "link": "https://habr.com/ru/articles/1107276/?utm_campaign=1107276&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-12T18:55:06.000Z"
+    },
+    {
+      "title": "Как я разрабатываю систему, которая не верит ИИ‑агенту на слово",
+      "link": "https://habr.com/ru/articles/1107022/?utm_campaign=1107022&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-12T16:44:39.000Z"
+    },
     {
       "title": "VK заподозрила подрядчиков в обучении ИИ на ее данных",
       "link": "https://www.cnews.ru/news/top/2026-11-10_vk_menyaet_it-partnera_dlya",
@@ -27,7 +81,7 @@
       "pubDate": "2026-11-12T11:24:24.000Z"
     },
     {
-      "title": "«А какой теперь смысл в грейдах?», или Где теперь ценность бизнес-аналитика, если часть работы делает AI",
+      "title": "«А какой теперь смысл в грейдах?», или Где теперь ценность бизнес‑аналитика, если часть работы делает AI",
       "link": "https://habr.com/ru/companies/svoi_ru/articles/1107012/?utm_campaign=1107012&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-12T10:54:34.000Z"
@@ -51,7 +105,7 @@
       "pubDate": "2026-11-12T10:48:50.000Z"
     },
     {
-      "title": "Вайбкодим конфигурацию MDM, а ядро — нет: три ИИ-агента, 100+ правил и подогнанные автотесты",
+      "title": "Вайбкодим конфигурацию MDM, а ядро — нет: три ИИ‑агента, 100+ правил и подогнанные автотесты",
       "link": "https://habr.com/ru/companies/datasapience/articles/1107056/?utm_campaign=1107056&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-12T10:41:22.000Z"
@@ -1747,60 +1801,6 @@
       "link": "https://habr.com/ru/articles/1099142/?utm_campaign=1099142&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-25T15:07:25.000Z"
-    },
-    {
-      "title": "Почему геймификация убьет разум в ИИ: скрытые риски коммерческого сбора данных и тупик Alignment",
-      "link": "https://habr.com/ru/articles/1099128/?utm_campaign=1099128&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-25T14:18:58.000Z"
-    },
-    {
-      "title": "Как не нарушить 152-ФЗ при проверке договора с помощью ИИ или обезличивание персональных данных c Docx Anonymizer",
-      "link": "https://habr.com/ru/articles/1099118/?utm_campaign=1099118&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-25T14:09:05.000Z"
-    },
-    {
-      "title": "ИИ-агент — сотрудник без права на последний клик. Как мы организовали разработку на ELMA 365 с ИИ-агентами",
-      "link": "https://habr.com/ru/articles/1099004/?utm_campaign=1099004&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-25T06:35:12.000Z"
-    },
-    {
-      "title": "[Перевод] Я запустил 100 ИИ‑агентов, чтобы они меня взломали. Пять раз у них получилось",
-      "link": "https://habr.com/ru/companies/otus/articles/1097872/?utm_campaign=1097872&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-24T13:05:20.000Z"
-    },
-    {
-      "title": "Как цензура в закрытых ИИ‑моделях меняет науку и разработку: кейс ДНК‑модели Carbon‑X и спор о «поверхностных фильтрах»",
-      "link": "https://habr.com/ru/articles/1098796/?utm_campaign=1098796&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-24T08:06:56.000Z"
-    },
-    {
-      "title": "От отдела к компании: как объединить ИИ-навыки",
-      "link": "https://habr.com/ru/articles/1098774/?utm_campaign=1098774&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-24T07:39:51.000Z"
-    },
-    {
-      "title": "Moonshot AI выпустила Kimi K3.1 Pro, которая обошла все модели OpenAI и почти догнала Claude Opus 5.5",
-      "link": "https://3dnews.ru/1150387/moonshot-ai-vipustila-kimi-k31-pro-kotoraya-oboshla-vse-modeli-openai-i-pochti-dognala-claude-opus-55",
-      "source": "3DNews",
-      "pubDate": "2026-10-24T07:17:00.000Z"
-    },
-    {
-      "title": "OpenAI возобновила обучение ИИ-моделей, но не пускает их в интернет",
-      "link": "https://3dnews.ru/1150384/openai-vozobnovila-obuchenie-iimodeley-no-poka-ne-puskaet-ih-v-internet",
-      "source": "3DNews",
-      "pubDate": "2026-10-24T06:03:00.000Z"
-    },
-    {
-      "title": "Эволюция личных ИИ‑агентов: от суммаризации до автономной организации",
-      "link": "https://habr.com/ru/articles/1098802/?utm_campaign=1098802&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-24T03:18:31.000Z"
     }
   ]
 }
