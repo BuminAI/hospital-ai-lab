@@ -5,7 +5,7 @@
 // ② Regulations that actually appear in the body are linked as Legislation nodes (mentions).
 //    Never add a regulation that is not in the body (mark up only what is visible on screen).
 
-const HEAD = /^##\s+(?:Key takeaways|Takeaways|Key points|Summary|Bottom line|In short|The short version)[^\r\n]*\r?\n/m;
+const HEAD = /^##\s+(?:Buod|Maikling buod|Pangunahing punto|Key takeaways|Takeaways|Key points|Summary|Bottom line|In short|The short version)[^\r\n]*\r?\n/m;
 
 /** Pull the bullets under a "## Key takeaways" style heading as plain text. Empty array if none. */
 export function extractSummary(markdown: string | undefined): string[] {
@@ -54,7 +54,7 @@ export function legislationMentions(text: string) {
     name: l.name,
     legislationIdentifier: l.id,
     url: l.url,
-    legislationJurisdiction: 'US',
+    legislationJurisdiction: 'PH',
     inLanguage: 'fil-PH',
   }));
 }

@@ -2,10 +2,11 @@
 // 의료 기술·논문 (2026-11-14, 오너 지시). 데이터는 scripts/fetch-research.mjs 가 수집한 src/data/research/id.json
 import IdLayout from '../../layouts/IdLayout.astro';
 import ResearchView from '../../components/ResearchView.astro';
-import { RESEARCH_STRINGS } from '../../data/research/strings';
+import { RESEARCH_STRINGS, researchSchema } from '../../data/research/strings';
 import data from '../../data/research/id.json';
 
 const t = RESEARCH_STRINGS.id;
+const schema = [researchSchema('id', data, t.metaTitle, t.metaDescription)];
 ---
 
 <IdLayout
@@ -21,6 +22,7 @@ const t = RESEARCH_STRINGS.id;
   sgPath="/sg/research/"
   phPath="/ph/research/"
   updated={new Date(data.updatedAt)}
+  schema={schema}
 >
   <h1>{t.h1}</h1>
   <ResearchView loc="id" />

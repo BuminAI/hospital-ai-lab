@@ -234,3 +234,25 @@ export const RESEARCH_STRINGS: Record<Loc, ResearchStrings> = {
 };
 
 export const researchPath = (loc: Loc) => (loc === 'ko' ? '/research/' : `/${loc}/research/`);
+
+// AEO (2026-11-14): 의료 기술·논문 페이지용 CollectionPage + ItemList. 화면에 보이는 항목(제목·링크)만 그대로 싣는다.
+const RESEARCH_LANG: Record<Loc, string> = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH' };
+export function researchSchema(loc: Loc, data: any, name: string, description: string) {
+  const origin = 'https://hospital-ai-lab.com';
+  const url = origin + researchPath(loc);
+  const items: any[] = ['surgery', 'drug', 'disease', 'trials'].flatMap((k) => data?.sections?.[k] ?? []);
+  return {
+    '@type': 'CollectionPage',
+    '@id': `${url}#collection`,
+    url,
+    name,
+    description,
+    inLanguage: RESEARCH_LANG[loc],
+    dateModified: data?.updatedAt,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.title, url: it.url })),
+    },
+  };
+}
