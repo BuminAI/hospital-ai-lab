@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-14T12:46:34.820Z",
-  "source": "Медвестник · Vademecum · Фармвестник · Zdrav.ru",
+  "updatedAt": "2026-11-14T13:15:01.554Z",
+  "source": "Медвестник · Vademecum · Фармвестник · Zdrav.ru · Хабр",
   "items": [
+    {
+      "title": "Как в ответы ИИ попасть медицинскому сайту с комплаенсом",
+      "link": "https://habr.com/ru/articles/1107862/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1107862",
+      "source": "Хабр",
+      "pubDate": "2026-11-14T13:06:31.000Z"
+    },
     {
       "title": "ИИ в здравоохранении. Дайджест Vademecum за 9–14 ноября 2026 года",
       "link": "https://vademec.ru/news/2026/11/14/ii-v-zdravookhranenii-daydzhest-vademecum-za-9-14-noyabrya-2026-goda/",
