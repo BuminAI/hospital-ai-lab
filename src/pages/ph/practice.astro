@@ -1,0 +1,40 @@
+---
+// Practice guides (for hospital staff) — overview page (2026-11-07)
+import '../../styles/ph-guide.css';
+import PhLayout from '../../layouts/PhLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = 'Mga gabay sa praktika: katayuan ng device, datos ng pasyente at AI';
+const description =
+  'Roadmap, mga checklist, kalendaryo ng FDA at DOH, mga template at pangunahing katotohanan mula sa mga pangunahing dokumento, para sa mga administrador at nurse leader ng ospital.';
+
+const cards = [
+{ href: '/ph/facts/', t: 'Mga pangunahing katotohanan', d: 'Maiikling sagot na may seksyon at link sa pangunahing sanggunian: katayuan ng device, datos ng pasyente, health information system, pamamahala ng AI.' },
+{ href: '/ph/dx-roadmap/', t: 'Roadmap', d: 'Ang FDA Act, Data Privacy Act, UHC Act at ASEAN Guide sa iisang timeline.' },
+{ href: '/ph/data-checklist/', t: 'Checklist sa proteksyon ng datos ng pasyente', d: 'Pahintulot, vendor, seguridad at breach.' },
+{ href: '/ph/documents-checklist/', t: 'Checklist: katayuan ng device at AI vendor', d: 'Medical device ba, may lisensya at rehistro ba, at paano ang mga update.' },
+{ href: '/ph/calendar/', t: 'Kalendaryo ng FDA at DOH', d: 'Mga bagong balita mula sa PhilHealth at WHO Philippines.' },
+{ href: '/ph/templates/', t: 'Mga template', d: 'Patakaran sa generative AI, 21 tanong sa vendor, teksto para sa pasyente, talaan ng insidente.' },
+{ href: '/ph/checklist/', t: 'Checklist sa pag-aampon ng AI', d: 'Listahan sa pagtatasa ng mga proposal ng AI vendor.' },
+];
+---
+
+<PhLayout title={title} description={description} crumb="Mga gabay sa praktika" standalone>
+<h1>Mga gabay sa praktika</h1>
+  <p class="tg-lead">
+Para sa administrasyon, planning at pamunuan ng nursing: materyal na magagamit ninyo bukas. Isinusulat ang mga patakaran matapos buksan at basahin ang mga dokumento (LawPhil, ASEAN); ipinapakita ng bawat pahina ang mga sanggunian at ang petsa ng pagsusuri.
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+Ang mga paliwanag para sa mga pasyente at kanilang pamilya ay nasa <a href={withBase('/ph/patients/')}>Para sa mga pasyente</a>; magagamit din ng mga front-desk staff.
+  </p>
+</PhLayout>

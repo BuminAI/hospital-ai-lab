@@ -1,0 +1,182 @@
+[
+  {
+    "id": "fda",
+    "term": "FDA (Food and Drug Administration)",
+    "category": "Regulation and certification",
+    "definition": "Ang ahensyang nagbibigay ng “license to operate” at nagpaparehistro ng mga health product, kasama ang mga device, ayon sa FDA Act of 2009 (RA 9711). Nag-iisyu rin ito ng mga cease and desist order para sa mga health product, nakarehistro man o hindi, ayon sa batas.",
+    "whyMatters": "Ito ang opisina kung saan itatanong ang lisensya at rehistro ng vendor.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html"
+    ]
+  },
+  {
+    "id": "medical-device",
+    "term": "Medical device",
+    "category": "Regulation and certification",
+    "definition": "Ayon sa FDA Act, anumang instrumento, aparato, makina, appliance, implant, in-vitro reagent o calibrator, software, materyal o katulad na bagay na nilalayon ng manufacturer na gamitin sa tao para sa diagnosis, pag-iwas, pagsubaybay, panggagamot o pagpapagaan ng sakit at iba pang tinukoy na layunin.",
+    "whyMatters": "Kasama ang “software” sa kahulugan, kaya posibleng medical device ang AI software depende sa layunin nito.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html"
+    ]
+  },
+  {
+    "id": "intended-use",
+    "term": "Layuning inilaan ng manufacturer (intended use)",
+    "category": "Regulation and certification",
+    "definition": "Sa kahulugan ng medical device sa FDA Act, ang mahalaga ay ang layuning “nilalayon ng manufacturer” (“intended by the manufacturer”) para sa produkto, na karaniwang nakasulat sa mga detalye at tagubilin nito.",
+    "whyMatters": "Ang magkaparehong modelo ay maaaring magkaiba ang katayuan dahil sa layuning sinasabi ng manufacturer. Ihambing ang nakasulat na layunin sa aktuwal ninyong gagawin.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html"
+    ]
+  },
+  {
+    "id": "license-to-operate",
+    "term": "License to operate (LTO)",
+    "category": "Regulation and certification",
+    "definition": "Pahintulot mula sa FDA na kailangan para sa paggawa, pag-angkat, pag-export, pagbebenta, pamamahagi, paglilipat o retail ng mga gamot, device o in-vitro diagnostic reagent. Ipinagbabawal ng FDA Act ang mga gawaing ito nang walang LTO.",
+    "whyMatters": "Itanong sa vendor kung may LTO ito at hingin ang patunay.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html"
+    ]
+  },
+  {
+    "id": "registration",
+    "term": "Rehistro ng health product (registration)",
+    "category": "Regulation and certification",
+    "definition": "Sa FDA Act, ang “registration” ay ang proseso ng pag-apruba ng aplikasyon para irehistro ang health product bago ang paggawa, pag-angkat, pagbebenta, pamamahagi at iba pang tinukoy na gawain. Ipinagbabawal ang pagbebenta at pamamahagi ng health product na kailangang irehistro pero hindi nakarehistro.",
+    "whyMatters": "Hindi sinasabi ng batas mismo kung aling software ang kailangang irehistro; itanong ito sa FDA at sa vendor.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html"
+    ]
+  },
+  {
+    "id": "personal-information",
+    "term": "Personal na impormasyon",
+    "category": "Data and privacy",
+    "definition": "Anumang impormasyon, nakatala man o hindi, na ang pagkakakilanlan ng isang indibidwal ay malinaw o makatwiran at tuwirang matutukoy ng may hawak ng impormasyon, o kapag isinama sa ibang impormasyon ay tiyak na makikilala ang tao.",
+    "whyMatters": "Kapag maaaring makilala ang pasyente mula sa datos na ipinapasok sa AI, personal na impormasyon ito.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "id": "sensitive-personal-information",
+    "term": "Sensitibong personal na impormasyon",
+    "category": "Data and privacy",
+    "definition": "Kasama rito ang impormasyon tungkol sa kalusugan, edukasyon, genetic o sekswal na buhay ng isang tao, at ang mga impormasyong inisyu ng mga ahensya ng gobyerno na natatangi sa indibidwal, kasama ang mga kasalukuyan o dating rekord pangkalusugan. Bawal itong iproseso maliban sa mga kasong nakalista sa batas.",
+    "whyMatters": "Sensitibo ang datos ng pasyente, kaya mas mahigpit ang kondisyon sa paggamit nito sa AI.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "id": "data-subject",
+    "term": "Data subject",
+    "category": "Data and privacy",
+    "definition": "Ang indibidwal na ang personal na impormasyon ay pinoproseso. Sa ospital, ang pasyente.",
+    "whyMatters": "Ang data subject ang may mga karapatan sa Sec. 16: malaman, ma-access, itama, harangin at magreklamo.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "id": "personal-information-controller",
+    "term": "Personal information controller",
+    "category": "Data and privacy",
+    "definition": "Ang tao o organisasyong kumokontrol sa pagkolekta, pag-iingat, pagproseso o paggamit ng personal na impormasyon, kasama ang nag-uutos sa iba na gawin ito para sa kanya. Hindi kasama ang gumaganap lamang ng mga tungkuling iyon ayon sa utos ng iba.",
+    "whyMatters": "Karaniwang ang ospital ang controller, at nananagot ito sa datos na ipinasa sa vendor (Sec. 21).",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "id": "personal-information-processor",
+    "term": "Personal information processor",
+    "category": "Data and privacy",
+    "definition": "Ang taong natural o juridical na kuwalipikadong kumilos bilang ganoon sa ilalim ng batas, kung kanino puwedeng i-outsource ng controller ang pagproseso ng personal na datos.",
+    "whyMatters": "Maaaring ganito ang katayuan ng AI vendor na nagpoproseso ng datos para sa ospital; itinatakda ng kontrata ang mga safeguard (Sec. 14).",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "id": "processing",
+    "term": "Pagproseso (processing)",
+    "category": "Data and privacy",
+    "definition": "Anumang operasyon o hanay ng mga operasyon sa personal na impormasyon, kasama ang pagkolekta, pagtatala, pag-oorganisa, pag-iimbak, pag-update, pagkuha, paggamit, pagsasama-sama, pagharang, pagbura o pagsira ng datos.",
+    "whyMatters": "Pagproseso na ang pagpasok ng datos ng pasyente sa AI tool, kaya kumakapit ang mga patakaran ng batas.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "id": "npc",
+    "term": "National Privacy Commission (NPC)",
+    "category": "Regulation and certification",
+    "definition": "Ang komisyong nilikha ng Data Privacy Act para pangasiwaan at ipatupad ang batas at tiyaking sumusunod ang bansa sa mga pamantayang pandaigdig sa proteksyon ng datos. Ito ang tatanggap ng abiso sa mga breach at ng mga reklamo.",
+    "whyMatters": "Hindi nabuksan ng site na ito ang website nito (HTTP 403); basahin ang mga advisory nito sa mismong site.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "id": "health-information-system",
+    "term": "Health information system",
+    "category": "Standards and terminology",
+    "definition": "Ayon sa Sec. 36 ng UHC Act, sistemang dapat panatilihin ng lahat ng health service provider at insurer, na binubuo ng enterprise resource planning, human resource information, electronic health records at electronic prescription log na naaayon sa pamantayan ng DOH, at regular na ina-upload nang elektroniko sa pamamagitan ng interoperable na sistema.",
+    "whyMatters": "Dito karaniwang kumakabit ang AI tool; dapat protektado ang privacy ng pasyente ayon sa Data Privacy Act.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2019/ra_11223_2019.html"
+    ]
+  },
+  {
+    "id": "asean-guide",
+    "term": "ASEAN Guide on AI Governance and Ethics",
+    "category": "Standards and terminology",
+    "definition": "Gabay ng ASEAN (2024) na may pitong prinsipyo at apat na pangunahing bahagi ng pamamahala ng AI. Boluntaryo ang pag-aampon ng balangkas ayon sa gabay.",
+    "whyMatters": "Hindi ito batas, pero praktikal na checklist para sa governance ng AI sa ospital.",
+    "sources": [
+      "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf"
+    ]
+  },
+  {
+    "id": "human-in-the-loop",
+    "term": "Human-in-the-loop, over-the-loop, out-of-the-loop",
+    "category": "Standards and terminology",
+    "definition": "Tatlong antas ng paglahok ng tao sa desisyong tinutulungan ng AI ayon sa ASEAN Guide. In-the-loop: rekomendasyon lamang ang AI at tao ang nagpapasya. Over-the-loop: ang tao ang nagbabantay at puwedeng makialam. Out-of-the-loop: wala nang tao sa desisyon. Dapat gumamit ng human-in-the-loop ang AI na mataas ang bigat at posibilidad ng pinsala.",
+    "whyMatters": "Isang simpleng paraan para ilarawan sa proposal kung sino talaga ang nagpapasya.",
+    "sources": [
+      "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf"
+    ]
+  },
+  {
+    "id": "automation-bias",
+    "term": "Automation bias (“rubber stamping”)",
+    "category": "Standards and terminology",
+    "definition": "Babala ng ASEAN Guide: kapag napakataas ng accuracy ng AI, nasasanay ang tao na aprubahan na lang ang output at hindi napapansin ang paminsan-minsang pagkakamali.",
+    "whyMatters": "Hindi sapat na may taong “nagsusuri”; kailangang may oras at kakayahan siyang magsuri nang tunay.",
+    "sources": [
+      "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf"
+    ]
+  },
+  {
+    "id": "ai-ethics-board",
+    "term": "AI Ethics Advisory Board",
+    "category": "Standards and terminology",
+    "definition": "Halimbawa ng multi-disciplinary na sentral na lupon na iminumungkahi ng ASEAN Guide para pangasiwaan ang mga pagsisikap sa AI governance sa organisasyon.",
+    "whyMatters": "Simula ng pamamahala ng AI sa ospital: may komite na may klinikal, teknikal, legal at operasyonal na kaalaman.",
+    "sources": [
+      "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf"
+    ]
+  },
+  {
+    "id": "transparency-explainability",
+    "term": "Transparency at explainability",
+    "category": "Standards and terminology",
+    "definition": "Ayon sa ASEAN Guide: transparency ang pagbubunyag kung kailan ginagamit ang AI, anong datos ang ginagamit at para saan; explainability ang kakayahang ipaliwanag nang maintindihan ang katwiran ng desisyon ng AI.",
+    "whyMatters": "Gabay sa pagtatanong sa vendor at sa pagpapaliwanag sa pasyente at staff.",
+    "sources": [
+      "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf"
+    ]
+  }
+]

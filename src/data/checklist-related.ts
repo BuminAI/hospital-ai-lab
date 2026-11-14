@@ -30,6 +30,14 @@ export const checklistRelated: Record<Exclude<Loc, 'ko'>, Record<number, string[
     4: ['2026-11-14-machine-learning-medical-device-what-hsa-expects-vendor'],
     5: ['2026-11-14-aihgle-2-hospital-ai-governance-before-go-live'],
   },
+  ph: {
+    0: ['2026-11-14-asean-guide-ai-governance-ospital-pitong-prinsipyo'],
+    1: ['2026-11-14-ai-software-medical-device-ba-fda-act-pilipinas', '2026-11-14-fda-license-to-operate-vendor-ai-ospital'],
+    2: ['2026-11-14-data-privacy-act-datos-pasyente-ai-ospital', '2026-11-14-ai-vendor-pananagutan-data-breach-sec-20-21'],
+    3: ['2026-11-14-ai-vendor-pananagutan-data-breach-sec-20-21'],
+    4: ['2026-11-14-asean-guide-ai-governance-ospital-pitong-prinsipyo'],
+    5: ['2026-11-14-uhc-act-section-36-ehr-ai-ospital'],
+  },
   ja: {
     0: ['2026-08-20-samd-idaten-review-body-reform'],
     1: [

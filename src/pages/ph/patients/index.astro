@@ -1,0 +1,47 @@
+---
+// For patients (patients and families) — overview page (2026-11-14)
+// ⚠️ No diagnosis or treatment advice. General information with links to official sources.
+import '../../../styles/ph-guide.css';
+import PhLayout from '../../../layouts/PhLayout.astro';
+import { withBase } from '../../../utils/site';
+
+const title = 'Para sa mga pasyente: AI, inyong datos at inyong mga karapatan';
+const description =
+  'Bago magtanong sa AI tungkol sa inyong kalusugan, at kung ano ang ibinibigay sa inyo ng Data Privacy Act kapag ginagamit ng ospital ang inyong datos. Payak na wika, may opisyal na sanggunian.';
+
+const cards = [
+  {
+    "href": "/ph/patients/ai-health-consult/",
+    "t": "Bago magtanong sa AI tungkol sa inyong kalusugan: anim na dapat malaman",
+    "d": "Hindi diagnosis ang sagot ng AI, hindi laging protektado ang tinype ninyo gaya ng akala, at kailan hindi dapat maghintay."
+  },
+  {
+    "href": "/ph/patients/ai-in-hospital/",
+    "t": "Kapag gumagamit ng AI ang ospital: ano ang ibinibigay sa inyo ng Data Privacy Act",
+    "d": "Impormasyon, access, pagwawasto, pagharang, danyos, reklamo at abiso sa breach."
+  }
+];
+---
+
+<PhLayout title={title} description={description} crumb="Para sa mga pasyente" standalone>
+  <h1>Para sa mga pasyente</h1>
+  <p class="tg-lead">
+    Maraming tanong ang mga tao tungkol sa mga ospital at AI na gusto nilang itanong pero hindi sigurado kung kanino. Galing sa mga opisyal na sanggunian ang mga sagot dito at kakaunti hangga’t maaari ang teknikal na termino.
+  </p>
+  <div class="tg-box tg-warn">
+    Pangkalahatang impormasyon ito, hindi diagnosis o rekomendasyon sa paggamot. Kung may alalahanin kayo sa kalusugan, makipag-ugnayan sa clinician o ospital na gumagamot sa inyo. Sa emergency, tumawag sa 911.
+  </div>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+    Para sa staff ng ospital, tingnan ang <a href={withBase('/ph/practice/')}>mga gabay sa praktika</a>.
+  </p>
+</PhLayout>

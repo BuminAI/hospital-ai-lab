@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Checklist sa pag-aampon ng AI para sa mga ospital sa Pilipinas",
+    "description": "Mga tanong na maitatanong ng mga administrador at nurse leader kapag may iminungkahing AI product ang vendor: layunin, katayuan sa FDA, datos ng pasyente, seguridad at operasyon.",
+    "pageTitle": "Checklist sa pag-aampon ng AI",
+    "lead": "Gamitin ito kapag may natanggap kayong partikular na proposal. I-tick ang bawat aytem kapag may nakasulat na kayong sagot. Listahan ito ng may-akda; ibinibigay ng dalawang checklist at ng pahina ng mga katotohanan ang mga seksyon ng mga dokumentong pinagbabatayan ng marami nito."
+  },
+  "sections": [
+    {
+      "heading": "Layunin at saklaw",
+      "body": "",
+      "items": [
+        "Ang gagawin ng tool ay inilarawan sa isang pangungusap at pinagkasunduan ng departamentong gagamit nito.",
+        "Nakalista kung sino ang gagamit at sino ang maaapektuhan ng output nito (kasama ang mga nurse at front-desk staff).",
+        "May komiteng namamahala sa AI sa ospital, o ang gumaganap sa papel na iyon, na pinasuri at pinaaprubahan ang tool bago bilhin."
+      ]
+    },
+    {
+      "heading": "Katayuan sa regulasyon",
+      "body": "",
+      "items": [
+        "Nagbigay ang vendor ng nakasulat na sagot kung itinuturing nitong medical device ang produkto sa Pilipinas, at bakit, batay sa layuning inilaan nito.",
+        "May license to operate ang kumpanyang nagbebenta o namamahagi, at nakita na ninyo ang patunay.",
+        "Kung kailangan ng rehistro ang produkto, nakasulat ang detalye ng rehistro, at sinuri ninyo ito sa FDA.",
+        "Isinulat ninyo na hindi pinapalitan ng lisensya o rehistro ang sarili ninyong pagsubok sa sarili ninyong workflow."
+      ]
+    },
+    {
+      "heading": "Datos ng pasyente",
+      "body": "",
+      "items": [
+        "Tinukoy kung anong datos ang puwedeng ipasok sa tool, at alam ng staff na sensitibo ang datos pangkalusugan.",
+        "Sinabi ng vendor kung ano ang gagawin nito sa datos, kung gagamitin ba ito sa pagsasanay ng modelo, at kung saan ito iniimbak at pinoproseso.",
+        "Pinangalanan ang mga sub-processor, gaya ng cloud at model provider.",
+        "May exit plan para sa pagbabalik o pagbura ng datos kapag natapos ang kontrata.",
+        "Alam ng staff kung ano ang hindi dapat itype sa generative AI tool."
+      ]
+    },
+    {
+      "heading": "Seguridad at insidente",
+      "body": "",
+      "items": [
+        "Nangako ang vendor na agad kayong aabisuhan sa data breach, at alam ninyo kung sino ang sasagot kahit gabi.",
+        "May proseso ang ospital na agad abisuhan ang National Privacy Commission at ang apektado sa mga tinukoy na breach.",
+        "Maaaring patayin ang tool at lumipat sa protokol na hindi kasama ito."
+      ]
+    },
+    {
+      "heading": "Performance at pagkakapantay-pantay",
+      "body": "",
+      "items": [
+        "Masasabi ng vendor kung sa anong mga pasyente sinubukan ang tool at kung paano sila ikinukumpara sa inyong mga pasyente.",
+        "Sinubukan ang tool sa sarili ninyong workflow bago ang go-live, may pilot para sa mas mataas na panganib.",
+        "Alam ninyo kung anong mga sukatan ng performance ang babantayan pagkatapos ng go-live at kung sino ang mag-uulat.",
+        "May regular na pagsusuri kung may bias ang resulta at pagtatama kapag nakumpirma."
+      ]
+    },
+    {
+      "heading": "Operasyon at mga tao",
+      "body": "",
+      "items": [
+        "Clinician ang gagawa ng huling desisyon saanman nakakaapekto ang output sa pangangalaga ng pasyente.",
+        "Nakaplano ang pagsasanay ng staff: mga limitasyon, pagbasa ng output, mga limitasyon sa datos at pag-uulat ng insidente.",
+        "Nakatala ang tool sa listahan ng ospital ng mga AI tool na ginagamit."
+      ]
+    }
+  ]
+}

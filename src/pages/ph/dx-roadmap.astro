@@ -1,0 +1,138 @@
+---
+// Roadmap ng digital health at AI para sa mga ospital sa Pilipinas (2026-11-14) — mula sa mga pangunahing sanggunian.
+// Nasa src/data/ph/guides/milestones.ts ang mga katotohanan; layout lamang ang hawak ng pahinang ito.
+import '../../styles/ph-guide.css';
+import PhLayout from '../../layouts/PhLayout.astro';
+import PhGuideFoot from '../../components/PhGuideFoot.astro';
+import PhFaq from '../../components/PhFaq.astro';
+import { guideSchema } from '../../utils/ph-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/ph/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+
+const title = 'Roadmap: FDA Act, Data Privacy Act at ASEAN Guide para sa AI sa ospital';
+const description =
+  'Mga mahahalagang petsa para sa mga administrador at nurse leader: ang FDA Act, ang Data Privacy Act, ang UHC Act at ang ASEAN Guide on AI Governance and Ethics.';
+
+const sources = [SRC.ra9711, SRC.ra10173, SRC.ra11223, SRC.ra10175, SRC.asean];
+
+const faq = [
+  {
+    "q": "Medical device ba ang AI software na binibili ng ospital sa Pilipinas?",
+    "a": "Puwede. Sa FDA Act of 2009 (RA 9711), kasama sa kahulugan ng “medical device” ang “software” na nilalayon ng manufacturer na gamitin sa tao para sa diagnosis, pag-iwas, pagsubaybay, panggagamot o pagpapagaan ng sakit, at iba pang tinukoy na layunin. Nakadepende ito sa layuning inilaan ng manufacturer, kaya humingi ng nakasulat na sagot sa vendor. Hindi nabuksan ang mga circular ng FDA, kaya hindi sakop dito ang detalye ng rehistro ng software."
+  },
+  {
+    "q": "Mananagot pa ba ang ospital kung vendor ang nagpoproseso ng datos?",
+    "a": "Oo. Ayon sa Data Privacy Act (Sec. 14 at 21), ang personal information controller ang responsable sa personal na impormasyong nasa kanyang kontrol, kasama ang ipinasa sa third party para iproseso, at dapat siyang magtiyak ng wastong safeguards."
+  },
+  {
+    "q": "Gaano kabilis mag-abiso kapag may breach?",
+    "a": "Ayon sa Sec. 20(f), kailangang agad (“promptly”) abisuhan ang National Privacy Commission at ang mga apektadong data subject sa mga tinukoy na kaso. Hindi binigyan ng bilang ng oras ang seksyon; ang takdang oras ay nasa mga patakaran ng Commission na hindi namin nabuksan, kaya wala kaming isinulat na deadline."
+  },
+  {
+    "q": "Mayroon bang kumpirmadong paparating na deadline para sa mga ospital?",
+    "a": "Inililista lamang ng pahinang ito ang mga petsang nasa teksto ng opisyal na dokumentong nabasa namin. Wala kaming nakitang paparating na petsa ng pagsunod sa mga dokumentong iyon, kaya sinadyang walang laman ang seksyon ng mga paparating na petsa."
+  }
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ph/dx-roadmap/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: 'Administrasyon at pamunuan ng nursing ng ospital',
+  faq,
+});
+---
+
+<PhLayout title={title} description={description} crumb="Roadmap" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={schema}>
+  <h1>Roadmap ng digital health at AI</h1>
+  <p class="tg-lead">
+    “Ano ang kailangang gawin ng ospital namin, at hanggang kailan?” Habang dumarami ang balita sa AI, lalong mahirap sagutin ito. Kinokolekta ng pahinang ito ang mga petsang nasa teksto ng mga batas at opisyal na publikasyon, kasama ang mga seksyon at link sa mga sanggunian.
+  </p>
+  <p class="tg-meta">Sinuri: {CHECKED} · Para sa: administrasyon at pamunuan ng nursing ng ospital</p>
+
+  <p class="tg-answer">
+    Sa madaling sabi: kasama ang “software” sa kahulugan ng medical device sa FDA Act of 2009 at ipinagbabawal ang pagbebenta o pamamahagi ng device nang walang license to operate; itinuturing ng Data Privacy Act of 2012 na sensitibo ang datos pangkalusugan at pinananagot ang ospital sa datos na ipinasa sa vendor; inuutusan ng UHC Act ang mga provider na magkaroon ng interoperable na health information system na may EHR; at nag-aalok ang ASEAN Guide ng pitong prinsipyo at apat na bahagi ng pamamahala ng AI, na boluntaryo.
+  </p>
+
+  <div class="tg-box">
+    <strong>Paano basahin ang pahinang ito</strong><br />
+    Isinulat ang bawat aytem matapos buksan at basahin ang teksto ng dokumento. Hindi kami nagdaragdag ng mga petsang umiikot lamang sa mga buod. Nakadepende sa katayuan at istruktura ng bawat ospital ang akma sa kanila, kaya suriin ang teksto at magtanong sa legal counsel o compliance officer.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">Ang mga nangyari na</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">Mga paparating na petsa</h2>
+    {
+      ahead.length > 0 ? (
+        <ol class="tg-tl">
+          {ahead.map((m) => (
+            <li>
+              <div class="when">{m.when}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{THEMES[m.theme]}</span>
+                  {m.title}
+                </b>
+                <span>{m.body}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>Wala kaming nakitang paparating na petsang kumpirmado ng pangunahing sanggunian, kaya sinadyang walang laman ang seksyong ito.</p>
+      )
+    }
+    <p>
+      Lumalabas nang awtomatiko sa <a href={withBase('/ph/calendar/')}>kalendaryo ng FDA at DOH</a> ang mga bagong balita mula sa mga ahensya ng kalusugan.
+    </p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Mga pahinang kaagapay nito</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ph/data-checklist/')}>
+        <b>Checklist sa proteksyon ng datos ng pasyente</b>
+        <span>Mga aytem mula sa Data Privacy Act at ASEAN Guide: pahintulot, vendor, seguridad at breach.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ph/documents-checklist/')}>
+        <b>Checklist: katayuan ng device at AI vendor</b>
+        <span>Medical device ba, may lisensya ba ang nagbebenta, at mga tanong sa vendor.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ph/templates/')}>
+        <b>Mga template ng dokumento</b>
+        <span>Patakaran sa generative AI, mga tanong sa vendor, incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <PhFaq items={faq} />
+
+  <PhGuideFoot sources={sources} checked={CHECKED} />
+</PhLayout>

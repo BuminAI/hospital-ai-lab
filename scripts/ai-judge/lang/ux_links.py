@@ -213,3 +213,4 @@ UXL['tw'] = dict(
 import copy
 UXL['in'] = copy.deepcopy(UXL['en'])
 UXL['sg'] = copy.deepcopy(UXL['en'])
+UXL['ph'] = copy.deepcopy(UXL['en'])

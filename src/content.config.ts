@@ -118,4 +118,18 @@ const blogSg = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg };
+// 필리핀어판 블로그 (2026-11-14 신설). 다른 판과 별개 컬렉션 — 필리핀 제도(개인정보법 RA 10173·FDA법 RA 9711·UHC법 RA 11223 등)를
+// 1차 출처로 읽어 필리핀어로 쓰는 독립 집필이다.
+const blogPh = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-ph' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Research Review', 'AI Tools', 'Column', 'News']),
+    draft: z.boolean().default(false),
+    series: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg, blogPh };

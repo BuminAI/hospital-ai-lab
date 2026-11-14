@@ -1,0 +1,119 @@
+---
+// AI news — automatically collected list from ET HealthWorld, Express Healthcare and Medical Dialogues (same pattern as ko news.astro).
+// hreflang을 걸지 않는다 — 자동 수집 목록은 언어판마다 완전히 다른 기사
+// 목록이라, 번역 관계가 아닌 페이지에 alternate를 걸면 검색엔진에 잘못된
+// 신호가 된다(ko news.astro도 jaPath가 없다 — 같은 원칙).
+import PhLayout from '../../layouts/PhLayout.astro';
+import en from '../../i18n/ph.json';
+import { withBase } from '../../utils/site';
+import news from '../../data/ph/news.json';
+
+const fmt = new Intl.DateTimeFormat('fil-PH', {
+  timeZone: 'Asia/Manila',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const items = news.items;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteUrl}${withBase('/ph/news/')}`;
+const collectionPage = {
+  '@type': 'CollectionPage',
+  '@id': `${pageUrl}#collection`,
+  url: pageUrl,
+  name: en.nav.news,
+  description:
+    'Mga headline tungkol sa artificial intelligence at kalusugan mula sa mga pahayagan sa Pilipinas, awtomatikong kinokolekta.',
+  inLanguage: 'fil-PH',
+  isPartOf: { '@id': `${siteUrl}/#website-ph` },
+  dateModified: news.updatedAt ?? new Date().toISOString(),
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.slice(0, 30).map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.title,
+      url: it.link,
+    })),
+  },
+};
+---
+
+<PhLayout
+  title="Balita sa AI para sa kalusugan sa Pilipinas"
+  description="Mga headline tungkol sa AI at kalusugan sa Pilipinas mula sa mga pahayagan, awtomatikong kinokolekta nang ilang beses sa isang araw."
+  crumb={en.nav.news}
+  koPath="/news/"
+  standalone
+  updated={new Date(news.updatedAt ?? Date.now())}
+  schema={[collectionPage]}
+>
+  <h1>{en.nav.news}</h1>
+  <p class="en-lead">
+    Ilang beses sa isang araw kinokolekta ang mga headline na may kinalaman sa artificial intelligence at kalusugan o teknolohiya mula sa mga pahayagan sa Pilipinas. Hindi binubura ang mga lumang aytem.
+  </p>
+
+  {
+    items.length > 0 ? (
+      <ul class="en-news-list">
+        {items.map((item) => (
+          <li>
+            <a href={item.link} target="_blank" rel="noopener">
+              {item.title}
+              <span class="sr-only"> ({en.ui.external})</span>
+            </a>
+            <span class="en-news-meta">
+              {item.source} · <time datetime={item.pubDate}>{fmt.format(new Date(item.pubDate))}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="en-empty">{en.ui.noItems}</p>
+    )
+  }
+
+  <div class="en-note">
+    <p>
+      Awtomatikong binubuo ang listahang ito mula sa mga artikulong nagbabanggit ng artificial intelligence. Hindi ito editoryal na pagpili: hindi pumipili o nagrerekomenda ang site ng mga partikular na aytem. Ang headline ay patungo sa orihinal na artikulo sa site ng publisher. Headline, petsa at link lamang ang kinokopya namin.
+    </p>
+  </div>
+</PhLayout>
+
+<style>
+  .en-lead {
+    color: var(--ph-text-sub);
+  }
+  .en-news-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--ph-border);
+  }
+  .en-news-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ph-border);
+  }
+  .en-news-list a {
+    color: var(--ph-text);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .en-news-list a:hover {
+    color: var(--ph-primary);
+  }
+  .en-news-meta {
+    font-size: 13px;
+    color: var(--ph-text-sub);
+  }
+  .en-empty {
+    margin-top: 20px;
+    color: var(--ph-text-sub);
+  }
+</style>

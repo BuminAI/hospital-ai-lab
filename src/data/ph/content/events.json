@@ -1,0 +1,103 @@
+{
+  "_comment": "Mga mapagkukunan ng pag-aaral para sa edisyong Filipino. Sinuri nang mano-mano: binuksan ang bawat URL noong 2026-11-14 (HTTP 200). Listahan ito ng mga tuluy-tuloy na opisyal na mapagkukunan, hindi kalendaryo ng mga event.",
+  "meta": {
+    "title": "Mga mapagkukunan ng pag-aaral sa pamamahala ng AI sa ospital sa Pilipinas",
+    "description": "Mga batas, gabay at pahina ng mga ahensya na ginagamit ng mga administrador at compliance team ng ospital para matuto tungkol sa AI governance at proteksyon ng datos.",
+    "pageTitle": "Mga mapagkukunan ng pag-aaral",
+    "lead": "Walang iisang opisyal na kalendaryo ng event para sa AI sa ospital. Narito ang mga tuluy-tuloy na mapagkukunan mula sa mga opisyal na sanggunian, bawat isa ay binuksan at sinuri."
+  },
+  "notice": "Mga tuluy-tuloy na mapagkukunan, hindi mga nakaiskedyul na event. Tingnan sa bawat pahina kung ano ang kasalukuyan nitong iniaalok.",
+  "checkedAt": "2026-11-14",
+  "items": [
+    {
+      "name": "Data Privacy Act of 2012 (RA 10173)",
+      "org": "LawPhil",
+      "url": "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html",
+      "body": "Buong teksto ng batas na nagtatakda ng mga prinsipyo, karapatan ng data subject, seguridad at pag-abiso sa breach.",
+      "audience": "Data Protection Officer, IT at legal.",
+      "sourceUrl": "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html",
+      "sourceLabel": "Data Privacy Act of 2012 (RA 10173)"
+    },
+    {
+      "name": "FDA Act of 2009 (RA 9711)",
+      "org": "LawPhil",
+      "url": "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html",
+      "body": "Buong teksto ng batas, kasama ang kahulugan ng medical device at mga ipinagbabawal na gawain.",
+      "audience": "Procurement at compliance.",
+      "sourceUrl": "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html",
+      "sourceLabel": "FDA Act of 2009 (RA 9711)"
+    },
+    {
+      "name": "Universal Health Care Act (RA 11223)",
+      "org": "LawPhil",
+      "url": "https://lawphil.net/statutes/repacts/ra2019/ra_11223_2019.html",
+      "body": "Buong teksto ng batas; tingnan ang Sec. 36 tungkol sa health information system.",
+      "audience": "Pamunuan ng ospital at IT.",
+      "sourceUrl": "https://lawphil.net/statutes/repacts/ra2019/ra_11223_2019.html",
+      "sourceLabel": "Universal Health Care Act (RA 11223)"
+    },
+    {
+      "name": "Cybercrime Prevention Act of 2012 (RA 10175)",
+      "org": "LawPhil",
+      "url": "https://lawphil.net/statutes/repacts/ra2012/ra_10175_2012.html",
+      "body": "Buong teksto ng batas laban sa cybercrime.",
+      "audience": "IT security at legal.",
+      "sourceUrl": "https://lawphil.net/statutes/repacts/ra2012/ra_10175_2012.html",
+      "sourceLabel": "Cybercrime Prevention Act of 2012 (RA 10175)"
+    },
+    {
+      "name": "ASEAN Guide on AI Governance and Ethics",
+      "org": "ASEAN",
+      "url": "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf",
+      "body": "Boluntaryong gabay na may pitong prinsipyo at apat na pangunahing bahagi ng pamamahala ng AI, kasama ang template ng AI risk impact assessment sa Annex A.",
+      "audience": "Mga komite sa AI governance.",
+      "sourceUrl": "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf",
+      "sourceLabel": "ASEAN Guide on AI Governance and Ethics"
+    },
+    {
+      "name": "WHO — Ethics and governance of artificial intelligence for health",
+      "org": "World Health Organization",
+      "url": "https://www.who.int/publications/i/item/9789240029200",
+      "body": "Pahina ng publikasyon ng WHO tungkol sa etika at pamamahala ng AI para sa kalusugan.",
+      "audience": "Pamunuan ng ospital at mga mananaliksik.",
+      "sourceUrl": "https://www.who.int/publications/i/item/9789240029200",
+      "sourceLabel": "WHO — Ethics and governance of artificial intelligence for health"
+    },
+    {
+      "name": "WHO Philippines — balita",
+      "org": "World Health Organization",
+      "url": "https://www.who.int/philippines/news",
+      "body": "Mga balita at ulat ng WHO tungkol sa kalusugan sa Pilipinas.",
+      "audience": "Public health at administrasyon.",
+      "sourceUrl": "https://www.who.int/philippines/news",
+      "sourceLabel": "WHO Philippines — balita"
+    },
+    {
+      "name": "PhilHealth — balita",
+      "org": "PhilHealth",
+      "url": "https://www.philhealth.gov.ph/news/",
+      "body": "Mga pinakabagong balita at anunsyo ng PhilHealth.",
+      "audience": "Billing, claims at administrasyon.",
+      "sourceUrl": "https://www.philhealth.gov.ph/news/",
+      "sourceLabel": "PhilHealth — balita"
+    },
+    {
+      "name": "PhilHealth — mga circular",
+      "org": "PhilHealth",
+      "url": "https://www.philhealth.gov.ph/circulars/",
+      "body": "Listahan ng mga circular ng PhilHealth ayon sa taon.",
+      "audience": "Billing at compliance.",
+      "sourceUrl": "https://www.philhealth.gov.ph/circulars/",
+      "sourceLabel": "PhilHealth — mga circular"
+    },
+    {
+      "name": "PCHRD — Philippine Council for Health Research and Development",
+      "org": "DOST-PCHRD",
+      "url": "https://pchrd.dost.gov.ph/",
+      "body": "Ang konseho ng DOST para sa pananaliksik pangkalusugan.",
+      "audience": "Mga mananaliksik at pamunuan ng ospital.",
+      "sourceUrl": "https://pchrd.dost.gov.ph/",
+      "sourceLabel": "PCHRD — Philippine Council for Health Research and Development"
+    }
+  ]
+}

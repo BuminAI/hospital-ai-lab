@@ -323,3 +323,4 @@ UX['tw'] = dict(
 import copy
 UX['in'] = copy.deepcopy(UX['en'])
 UX['sg'] = copy.deepcopy(UX['en'])
+UX['ph'] = copy.deepcopy(UX['en'])

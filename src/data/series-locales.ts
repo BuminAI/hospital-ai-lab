@@ -220,6 +220,36 @@ export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
       ],
     },
   ],
+  ph: [
+    {
+      slug: 'device-status',
+      title: 'Katayuan ng device at health information system',
+      description:
+        'Medical device ba ang AI software ayon sa FDA Act? Ano ang itatanong sa vendor tungkol sa lisensya, at paano kumakabit ang AI sa health information system ng UHC Act.',
+      checklist: { href: '/ph/documents-checklist/', label: 'Checklist: katayuan ng device at AI vendor' },
+      postIds: [
+        '2026-11-14-ai-software-medical-device-ba-fda-act-pilipinas',
+        '2026-11-14-fda-license-to-operate-vendor-ai-ospital',
+        '2026-11-14-uhc-act-section-36-ehr-ai-ospital',
+      ],
+    },
+    {
+      slug: 'data-and-governance',
+      title: 'Datos ng pasyente at pamamahala ng AI',
+      description:
+        'Ano ang sinasabi ng Data Privacy Act tungkol sa datos pangkalusugan, sa vendor at sa breach; at ano ang ibig sabihin ng ASEAN Guide sa AI governance para sa ospital.',
+      checklist: { href: '/ph/data-checklist/', label: 'Checklist sa proteksyon ng datos ng pasyente' },
+      postIds: [
+        '2026-11-14-data-privacy-act-datos-pasyente-ai-ospital',
+        '2026-11-14-ai-vendor-pananagutan-data-breach-sec-20-21',
+        '2026-11-14-asean-guide-ai-governance-ospital-pitong-prinsipyo',
+        '2026-11-14-karapatan-ng-pasyente-sec-16-data-privacy-act-ai',
+        '2026-11-14-seguridad-ng-datos-sec-20-checklist-it-ospital',
+        '2026-11-14-generative-ai-datos-pasyente-tatlong-tanong-bago-magpaste',
+        '2026-11-14-automation-bias-human-in-the-loop-asean-ospital',
+      ],
+    },
+  ],
   sg: [
     {
       slug: 'device-status',

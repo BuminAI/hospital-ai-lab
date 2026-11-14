@@ -39,7 +39,8 @@
     "ja": "Versi Jepang （日本語）",
     "ru": "Versi Rusia （Русский）",
     "tw": "Versi Tionghoa Tradisional （繁體中文）",
-    "sg": "Edisi Inggris (Singapura)"
+    "sg": "Edisi Inggris (Singapura)",
+    "ph": "Edisi Filipino"
   },
   "ui": {
     "updated": "Diperbarui",

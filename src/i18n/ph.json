@@ -1,0 +1,196 @@
+{
+  "_comment": "UI strings para sa edisyong Filipino (Pilipinas) (2026-11-14). HINDI ito salin ng Korean site at hindi kopya ng ibang edisyon: isinulat ito mula sa mga pangunahing dokumentong Pilipino na aktuwal na binuksan (RA 9711 FDA Act, RA 10173 Data Privacy Act, RA 11223 UHC Act mula sa LawPhil, at ang ASEAN Guide on AI Governance and Ethics). Istilo: payak at magalang na Filipino; ginagamit ang mga terminong Ingles na karaniwang ginagamit sa mga ospital at gobyerno (hal. data subject, controller, medical device) sa halip na pilit na isalin; walang pagmamalabis; 'AI' ang gamit pagkatapos ng unang banggit; Php ang sagisag ng piso. Hindi nabuksan ang mga website ng FDA Philippines, DOH, National Privacy Commission at DICT (HTTP 403), kaya huwag magsabi ng katotohanang nakasalalay lamang sa mga iyon.",
+  "nav": {
+    "home": "Home",
+    "about": "Tungkol sa amin",
+    "glossary": "Glosaryo",
+    "faq": "Mga tanong",
+    "checklist": "Checklist sa pag-aampon",
+    "guide": "Magsimula dito",
+    "tips": "Praktikal na tip",
+    "videos": "Mga video",
+    "news": "Balita sa AI",
+    "events": "Pagsasanay at event",
+    "govSupport": "Mga sanggunian ng gobyerno",
+    "blog": "Blog",
+    "aiDigest": "AI digest",
+    "aiJudge": "Pagsusuri ng AI program",
+    "practice": "Mga gabay sa praktika",
+    "patients": "Para sa mga pasyente",
+    "updates": "Mga update",
+    "dxRoadmap": "Roadmap",
+    "calendar": "Kalendaryo ng FDA at DOH",
+    "documentsChecklist": "Checklist ng device",
+    "dataChecklist": "Checklist ng datos",
+    "templates": "Mga template",
+    "series": "Serye ng artikulo"
+  },
+  "footer": {
+    "about": "Tungkol sa amin",
+    "privacy": "Patakaran sa privacy",
+    "contact": "Makipag-ugnayan",
+    "sitemap": "Sitemap",
+    "rss": "RSS feed"
+  },
+  "editions": {
+    "title": "Iba pang edisyon",
+    "ko": "Edisyong Korean （한국어）",
+    "ja": "Edisyong Japanese （日本語）",
+    "ru": "Edisyong Russian （Русский）",
+    "id": "Edisyong Indonesian （Indonesia）",
+    "tw": "Edisyong Traditional Chinese （繁體中文）",
+    "en": "Edisyong Ingles para sa Estados Unidos",
+    "in": "Edisyong Ingles para sa India",
+    "ph": "Edisyong Filipino para sa Pilipinas",
+    "sg": "Edisyong Ingles para sa Singapore"
+  },
+  "ui": {
+    "updated": "Na-update",
+    "new": "Bago",
+    "external": "Bubukas sa bagong tab",
+    "breadcrumbHome": "Home",
+    "readMore": "Magbasa pa",
+    "viewAll": "Tingnan lahat",
+    "source": "Sanggunian",
+    "deadline": "Deadline",
+    "noItems": "Wala pang laman ang seksyong ito.",
+    "langKo": "Edisyong Korean (한국어)",
+    "langJa": "Edisyong Japanese (日本語)",
+    "sidebarProfileTitle": "Tungkol sa may-akda",
+    "disclaimer": "Ang nilalaman ng site na ito ay pangkalahatang impormasyon para sa edukasyon. Hindi ito legal na payo at hindi nito pinapalitan ang payong medikal para sa isang partikular na pasyente.",
+    "underConstruction": "Unti-unting binubuo ang edisyong Filipino habang sinusuri ang bawat sanggunian."
+  },
+  "profile": {
+    "name": "Youngho Cho (조영호)",
+    "role": "Direktor, Hospital AI Lab (병원 AI 연구소)",
+    "education": "Master’s sa statistics; PhD sa economics.",
+    "educationShort": "MS statistics, PhD economics",
+    "youtube": "YouTube channel",
+    "nameShort": "Youngho Cho"
+  },
+  "home": {
+    "metaTitle": "AI sa ospital sa Pilipinas: FDA Act, Data Privacy Act, ASEAN",
+    "metaDescription": "Mga gabay sa praktika para sa mga administrador at nurse leader ng ospital sa Pilipinas: kailan itinuturing na medical device ang AI software ayon sa FDA Act, ano ang hinihingi ng Data Privacy Act sa ospital, at ano ang sinasabi ng ASEAN Guide sa AI governance, bawat isa ay may sanggunian.",
+    "heroEyebrow": "MEDICAL AI PARA SA ADMINISTRASYON AT NURSING NG OSPITAL",
+    "heroTitle": "Medical AI, mula sa mesa ng ospital.",
+    "heroTitle2": "Binabasa ko ang medical AI sa wika ng mga nagpapatakbo ng ospital.",
+    "heroLead": "Hindi ang tanong kung gaano kabago ang teknolohiya. Ang tanong ay kung talagang magagamit ito ng inyong ospital, at sa anong batayang legal. Isinulat ang mga pahinang ito para sa mga administrador na nagpapasya sa pag-aampon, sumusuri ng proposal ng vendor at may hawak ng budget, at para sa mga nurse na nagbabago ang araw-araw na trabaho kapag nagsimula ang isang sistema.",
+    "ctaAbout": "Tungkol sa may-akda",
+    "introTitle": "Tungkol sa site na ito",
+    "introBody": "Ang Hospital AI Lab ay site para sa mga nagpapasya kung mag-aampon ang ospital ng medical AI. Hindi ito teknikal na manwal para sa mga developer. Sinasagot ng mga pahina ang mga tanong na kinakaharap ng administrasyon at nursing: kung medical device ba ang produkto, paano puwedeng gamitin ang datos ng pasyente, at ano ang nagbabago sa araw-araw na trabaho. Pangkalahatang impormasyon ang nilalaman, hango sa mga opisyal na dokumento. Hindi ito legal na payo at hindi nito pinapalitan ang payo para sa isang partikular na pasyente.",
+    "koNoticeTitle": "Ang edisyong Korean",
+    "koNoticeBody": "Ang pangunahing edisyon ng site ay nasa wikang Korean at tumatakbo mula pa noong 2026. Bago pa ang edisyong Filipino para sa Pilipinas at mas kaunti ang mga pahina. Isinulat ito ng parehong may-akda, na nagtatrabaho mula sa South Korea, mula sa mga dokumentong Pilipino na binuksan at binasa; hindi ito salin.",
+    "resourcesTitle": "Sa site na ito",
+    "glossaryDesc": "Mga terminong medical AI na makakasalubong ninyo sa proposal ng vendor at sa mga pulong, ipinaliwanag nang payak.",
+    "faqDesc": "Mga sagot sa mga pinakamadalas itanong kapag pinag-iisipan ang AI sa isang ospital sa Pilipinas.",
+    "guideDesc": "Saan magsisimula kung wala kayong teknikal na background: limang hakbang nang sunud-sunod.",
+    "checklistDesc": "Mga tanong para sa vendor kapag may natanggap kayong partikular na proposal.",
+    "homeNewsTitle": "Pinakabagong balita sa AI",
+    "homeNewsMore": "Lahat ng balita sa AI →",
+    "homeFaqTitle": "Mga tanong tungkol sa site",
+    "homeFaqMore": "Mga tanong tungkol sa medical AI →",
+    "homeFaq": [
+      {
+        "q": "Para kanino ang site na ito?",
+        "a": "Pangunahin para sa mga nasa administrasyon at nursing ng ospital: planning at finance, IT, compliance, at mga nurse manager. Hindi ito site para lamang sa mga doktor. Ang pagpapasya sa pag-aampon, pagsusuri ng proposal at pamamahala ng budget ay trabaho ng administrasyon. Ang pagtugon sa mga alerto ng sistema at pag-aayos ng workflow ay trabaho ng nursing."
+      },
+      {
+        "q": "Saan galing ang impormasyon?",
+        "a": "Ang mga pahayag tungkol sa mga patakaran sa mga gabay sa praktika, glosaryo at checklist ay may sanggunian sa pangunahing dokumentong binuksan at binasa: ang buong teksto ng RA 9711 (FDA Act), RA 10173 (Data Privacy Act) at RA 11223 (UHC Act) mula sa LawPhil, at ang ASEAN Guide on AI Governance and Ethics. Awtomatikong kinokolekta ang mga headline ng balita sa AI mula sa mga pahayagan sa Pilipinas, at ang mga bagong balita mula sa PhilHealth at WHO Philippines ay inililista habang lumalabas. Hindi nabuksan ang mga website ng FDA Philippines, DOH at National Privacy Commission (HTTP 403 sa automated na request), kaya walang nakasulat dito na nakasalalay lamang sa mga iyon."
+      },
+      {
+        "q": "Gaano kadalas ina-update ang site?",
+        "a": "Ilang beses sa isang araw sinusuri ang balita at mga ulat ng ahensya, at araw-araw sinusuri ang mga link ng sanggunian. Nagbabago lamang ang pahina kapag may bago. Ipinapakita ng bawat gabay sa praktika ang petsa ng huling pagsusuri."
+      },
+      {
+        "q": "Salin ba ito ng edisyong Korean o ng edisyong Ingles?",
+        "a": "Hindi. Isinulat mula sa simula ang edisyong Filipino mula sa mga dokumentong Pilipino gaya ng FDA Act, Data Privacy Act, UHC Act at ASEAN Guide. Iba ang nilalaman sa edisyong Korean at sa mga edisyong Ingles para sa Estados Unidos, India at Singapore."
+      }
+    ],
+    "aiDigestDesc": "Balita sa AI mula sa mga pahayagan sa Pilipinas: regulasyon, datos, seguridad."
+  },
+  "about": {
+    "metaTitle": "Tungkol sa may-akda",
+    "metaDescription": "Ang may-akda ng Hospital AI Lab, isang practitioner sa ospital na tumitingin sa medical AI mula sa panig ng mga administrador at nurse leader. Sakop ng edisyong ito ang Pilipinas.",
+    "pageTitle": "Tungkol sa may-akda",
+    "pageLead": "Pinapatakbo ang site na ito ng isang practitioner sa administrasyon ng ospital, hindi ng clinician. Tinitingnan ko ang medical AI mula sa panig ng mga nagpapasya kung mag-aampon nito.",
+    "whyTitle": "Bakit ko pinapatakbo ang site na ito",
+    "why": "Kapag nagsimulang pag-usapan ng ospital ang AI, mas madalas na administrador ang unang nagbabasa ng proposal kaysa doktor. Karaniwang inilalarawan ng materyal ng vendor kung ano ang kaya ng produkto at kaunti ang sinasabi kung ano ang aktuwal na magbabago sa araw-araw na trabaho ng ospital. Sa planning ng ospital, madalas kong nakita ang mga desisyong kailangang gawin bago pa kumpleto ang impormasyon. Gusto kong punan nang paunti-unti ang puwang na iyon, hindi sa koleksyon ng mga kahanga-hangang case study kundi sa materyal na tumutulong suriin kung akma ang isang desisyon sa sarili ninyong ospital.",
+    "stanceTitle": "Kaninong pananaw ang kinukuha ng site na ito",
+    "stance": "Hindi isinulat ang site na ito para lamang sa mga doktor. Ang administrasyon ang nagpapasya sa pag-aampon at budget, at araw-araw na hinaharap ng mga nurse ang nagbagong workflow at mga alerto ng sistema. Kaya sa halip na mga numero ng accuracy lamang, unang tinatanong ng mga pahina kung sino ang madaragdagan ng trabaho at paano kumakabit ang bagong sistema sa EHR na ginagamit na. Ipinapaliwanag nang payak ang mga espesyalistang termino hangga’t maaari.",
+    "methodTitle": "Paano ginagawa ang site na ito",
+    "method": "Hindi ako programmer. Isa akong taong maraming taong nagtrabaho sa ospital. Ang materyal at ang teknikal na bahagi ng site na ito ay ginagawa sa pakikipag-usap sa generative AI, kaya hindi ko maipapaliwanag ang code linya por linya. Ang magagawa ko ay ipakita nang hayagan, sa site na ito at sa YouTube channel, kung bakit ginawa ang isang desisyon at paano sinuri ang mga katotohanan.",
+    "principlesTitle": "Paano isinusulat at sinusuri ang materyal",
+    "principlesLead": "Isinusulat ang materyal para masundan ng mga nasa administrasyon at nursing ng ospital ang mga link at masuri ang sinasabi. Ito ang mga patakaran.",
+    "principles": [
+      {
+        "title": "May sanggunian ang mga pahayag.",
+        "body": "Ang mga pahayag tungkol sa mga patakaran, numero at halimbawa ay may link sa mga pangunahing sanggunian: teksto ng batas, mga papel pananaliksik at ulat ng press."
+      },
+      {
+        "title": "Binubuksan ang sanggunian bago ilathala.",
+        "body": "Dapat gumagana ang link at dapat talagang sinusuportahan nito ang sinasabi ng pahina."
+      },
+      {
+        "title": "Hindi inilalathala ang hindi mapatutunayan.",
+        "body": "Binubura ang mga pahayag na hindi nakumpirma, at hindi isinasama ang medikal na impormasyong hindi kami sigurado."
+      },
+      {
+        "title": "Pangkalahatang impormasyon lamang.",
+        "body": "Walang payo sa pagdidiagnose o paggagamot ng isang partikular na pasyente, at walang pagpo-promote ng mga partikular na ospital o produkto. Nagtatapos sa disclaimer ang bawat pahina."
+      },
+      {
+        "title": "Itinatama ang mga pagkakamali at itinatago ang petsa ng pagtatama.",
+        "body": "Kung may lumitaw na pagkakamali o nawawalang sanggunian pagkatapos ilathala, itinatama ang pahina at lumalabas ang petsa ng pagbabago sa linyang Na-update. Kung may napansin kayong hindi tumpak, sumulat sa address sa ibaba ng pahina."
+      }
+    ],
+    "researchTitle": "Mga larangan ng pananaliksik",
+    "researchAreas": [
+      {
+        "title": "Datos ng operasyon ng ospital at AI",
+        "body": "Batay sa karanasan sa planning ng ospital, pinag-aaralan namin kung paano kunin ang mga senyales na kailangan sa pagpapasya mula sa klinikal at administratibong datos. Tinitingnan din namin ang mga panganib ng pag-aampon ng AI tool nang walang sapat na ebidensya."
+      },
+      {
+        "title": "Edukasyon sa AI para sa staff ng ospital",
+        "body": "Para sa mga administratibo at nursing staff na walang background sa coding, ipinapasa namin ang pinakamaliit na kaalamang kailangan para humusga sa pag-aampon ng AI, sa pamamagitan ng lecture notes at video lessons. Nakatuon sa pagbasa ng proposal at pagtatanong ng tamang tanong, hindi sa paggawa ng teknolohiya."
+      },
+      {
+        "title": "Pakikipagtulungan sa pananaliksik sa AI",
+        "body": "Naghahanap kami ng pakikipagtulungan sa mga practitioner sa administrasyon at nursing ng ospital at sa mga mananaliksik mula sa iba’t ibang larangan, para palawakin ang pananaliksik sa medical AI. Gusto naming bumuo ng mga bagong tanong kung saan nagtatagpo ang karanasan sa larangan at ang pananaliksik."
+      },
+      {
+        "title": "AI para sa mga hospital planner",
+        "body": "Hindi clinical data science, kundi mga AI tool at pamamaraang direktang magagamit ng mga staff sa planning at administrasyon ng ospital sa sarili nilang trabaho."
+      }
+    ],
+    "contactTitle": "Makipag-ugnayan",
+    "contact": "Kung may napansin kayong hindi tumpak, gustong magmungkahi ng paksa, o gustong pag-usapan ang pakikipagtulungan, sumulat sa email address sa ibaba. Makakatulong kung isasama ang inyong organisasyon at pangalan."
+  },
+  "glossary": {
+    "metaTitle": "Glosaryo ng medical AI para sa mga ospital sa Pilipinas",
+    "metaDescription": "Mga terminong medical AI mula sa proposal at pulong ng vendor, ipinaliwanag nang payak: mula sa medical device at FDA hanggang sa mga termino sa Data Privacy Act at ASEAN Guide.",
+    "pageTitle": "Glosaryo ng medical AI",
+    "pageLead": "Mga terminong medical AI na makakasalubong ninyo sa mga proposal at pulong, kinolekta hangga’t kailangan para sa praktikal na pagtatasa. Puwede kayong direktang tumalon sa isang termino sa pangalan nito.",
+    "caution": "Ang mga terminong may kaugnayan sa batas ay ibinibigay ayon sa panahon ng pagsulat, batay sa mga dokumentong Pilipino na binasa noon. Mga buod ito, hindi ang teksto ng batas. Bago magpasya, suriin ang pangunahing sanggunian at, kung kailangan, magtanong sa espesyalista.",
+    "notice": "Hindi salin ng edisyong Korean o Japanese ang glosaryong ito, at hindi kopya ng edisyong Ingles. Bawat entry tungkol sa regulasyon ay isinulat mula sa opisyal na dokumentong Pilipino na binuksan at binasa. Inalis ang anumang hindi namin makumpirma.",
+    "countLabel": "Bilang ng termino"
+  },
+  "faq": {
+    "metaTitle": "Mga tanong: pag-aampon ng AI sa ospital sa Pilipinas",
+    "metaDescription": "Mga sagot sa karaniwang tanong ng mga administrador at nursing staff tungkol sa pag-aampon ng AI: medical device ba ito, ano ang hinihingi ng Data Privacy Act, at ano ang itatanong sa vendor.",
+    "pageTitle": "Mga madalas itanong",
+    "pageLead": "Mga tanong na pinakamadalas lumabas kapag pinag-iisipan ng ospital ang medical AI. Pumili ng tanong para makita ang sagot.",
+    "notice": "Nagbabago ang mga regulasyon, kaya para sa mahahalagang desisyon, suriin ang pangunahing sanggunian na naka-link sa bawat sagot.",
+    "countLabel": "Bilang ng tanong"
+  },
+  "aiDigest": {
+    "pageTitle": "AI digest: teknolohiya lampas sa medisina",
+    "metaDescription": "Balita sa AI mula sa mga pahayagan sa Pilipinas: regulasyon, datos, seguridad at pag-aampon. Ina-update nang ilang beses sa isang araw.",
+    "lead": "Kinokolekta ng pahinang ito ang mga kuwento tungkol sa AI mula sa mga pahayagan sa Pilipinas, hindi lang sa medisina: regulasyon, datos, seguridad ng impormasyon, pag-aampon sa mga organisasyon. May link ang mga headline sa orihinal na pahina.",
+    "notice": "Listahan ito ng mga headline mula sa mga pampublikong RSS feed, hindi editoryal na nilalaman ng site na ito. Hindi namin kinokopya ang teksto ng artikulo, tanging headline, petsa at link sa pinagmulan. Nasa publisher ang katumpakan at pagkakumpleto.",
+    "why": "Bakit mahalaga ito sa administrasyon ng ospital",
+    "whyBody": "Mas mabilis magbago ang inaasahan sa privacy ng datos, ang praktika sa seguridad at ang paraan ng pag-aampon ng AI ng mga organisasyon kaysa maiulat ng espesyalistang medical press. Karamihan sa pinag-uusapan muna ng pangkalahatang media ng teknolohiya ay darating sa mga ospital makalipas ang ilang buwan bilang inaasahan ng regulator o linya sa kontrata ng vendor.",
+    "sourcesTitle": "Mga pinagmulan",
+    "empty": "Wala pang laman."
+  }
+}

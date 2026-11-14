@@ -1,0 +1,117 @@
+[
+  {
+    "href": "/ph/",
+    "key": "home",
+    "enabled": true
+  },
+  {
+    "href": "/ph/about/",
+    "key": "about",
+    "enabled": true
+  },
+  {
+    "href": "/ph/blog/",
+    "key": "blog",
+    "enabled": true
+  },
+  {
+    "href": "/ph/series/",
+    "key": "series",
+    "enabled": true
+  },
+  {
+    "href": "/ph/news/",
+    "key": "news",
+    "enabled": true
+  },
+  {
+    "href": "/ph/practice/",
+    "key": "practice",
+    "enabled": true
+  },
+  {
+    "href": "/ph/patients/",
+    "key": "patients",
+    "enabled": true
+  },
+  {
+    "href": "/ph/ai-digest/",
+    "key": "aiDigest",
+    "enabled": true
+  },
+  {
+    "href": "/ph/gov-support/",
+    "key": "govSupport",
+    "enabled": true
+  },
+  {
+    "href": "/ph/events/",
+    "key": "events",
+    "enabled": true
+  },
+  {
+    "href": "/ph/videos/",
+    "key": "videos",
+    "enabled": true
+  },
+  {
+    "href": "/ph/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/ph/guide/",
+    "key": "guide",
+    "enabled": true
+  },
+  {
+    "href": "/ph/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/ph/checklist/",
+    "key": "checklist",
+    "enabled": true
+  },
+  {
+    "href": "/ph/faq/",
+    "key": "faq",
+    "enabled": true
+  },
+  {
+    "href": "/ph/ai-judge/",
+    "key": "aiJudge",
+    "enabled": true
+  },
+  {
+    "href": "/ph/updates/",
+    "key": "updates",
+    "enabled": true
+  },
+  {
+    "href": "/ph/dx-roadmap/",
+    "key": "dxRoadmap",
+    "enabled": true
+  },
+  {
+    "href": "/ph/calendar/",
+    "key": "calendar",
+    "enabled": true
+  },
+  {
+    "href": "/ph/documents-checklist/",
+    "key": "documentsChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/ph/data-checklist/",
+    "key": "dataChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/ph/templates/",
+    "key": "templates",
+    "enabled": true
+  }
+]

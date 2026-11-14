@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Saan magsisimula sa medical AI sa isang ospital sa Pilipinas",
+    "description": "Limang hakbang para sa mga administrador at nurse leader ng ospital, hindi kailangan ng teknikal na background: ang gawain, katayuan ng device, datos ng pasyente, nakasulat na sagot ng vendor at ang mga tao.",
+    "pageTitle": "Saan magsisimula",
+    "lead": "Hindi ninyo kailangang maintindihan kung paano gumagana ang modelo para masuri ang proposal nito. Kailangan lang ninyong malaman kung para saan ito, kung regulated na medical device ito, saan napupunta ang datos ng pasyente, at ano ang nagbabago sa mga staff. Limang hakbang, nang sunud-sunod."
+  },
+  "sections": [
+    {
+      "heading": "1. Pangalanan ang gawain bago ang teknolohiya",
+      "body": "Sumulat ng isang pangungusap: anong trabaho ang gagawin ng tool na ito, para kanino, at ano ang nangyayari ngayon kung wala ito? Magkakaiba ang tanong sa tool na gumagawa ng draft ng discharge summary, sa tool na nagmamarka ng mga pasyenteng dapat suriin, at sa tool na nag-iiskedyul ng staff. Inilalarawan ng vendor ang kaya ng produkto; kayo ang naglalarawan ng kailangan ninyo.",
+      "items": []
+    },
+    {
+      "heading": "2. Itanong kung medical device ito",
+      "body": "Kasama ang “software” sa kahulugan ng medical device sa FDA Act kapag nilayon ito ng manufacturer na gamitin sa tao para sa diagnosis, pag-iwas, pagsubaybay o panggagamot ng sakit. Humingi ng nakasulat na sagot sa vendor at itanong ang license to operate at, kung kailangan, ang rehistro sa FDA.",
+      "items": []
+    },
+    {
+      "heading": "3. Sundan ang datos ng pasyente",
+      "body": "Alamin kung anong datos ang gagamitin ng tool, saan ito napupunta at ano ang gagawin ng vendor dito. Sensitibong personal na impormasyon ang datos pangkalusugan sa ilalim ng Data Privacy Act, at nananatiling responsable ang ospital sa datos na ipinasa sa vendor.",
+      "items": []
+    },
+    {
+      "heading": "4. Kunin ang mga sagot nang nakasulat",
+      "body": "Gamitin ang mga tanong sa vendor sa mga template at ilakip ang mga nakasulat na sagot sa kontrata. Isama kung paano hinahawakan ang mga update, ano ang binabantayan pagkatapos ng go-live at ano ang exit plan.",
+      "items": []
+    },
+    {
+      "heading": "5. Planuhin ang mga taong magtatrabaho kasama nito",
+      "body": "Iminumungkahi ng ASEAN Guide ang komiteng namamahala, malinaw na tungkulin, pagtatasa ng panganib para sa antas ng paglahok ng tao, at pagbubunyag kung kailan ginagamit ang AI. Isali nang maaga ang nursing, dahil ang mga nurse ang kadalasang unang nakakaranas ng mga alerto at pagbabago sa workflow.",
+      "items": []
+    }
+  ]
+}

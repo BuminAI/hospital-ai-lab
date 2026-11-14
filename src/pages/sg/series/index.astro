@@ -14,7 +14,7 @@ const list = await getResolvedSeries('sg');
   title={growth.sg.hub.title}
   description={seriesIndexDescription('sg')}
   crumb={growth.sg.seriesName}
-  koPath="/series/" jaPath="/ja/series/" idPath="/id/series/" ruPath="/ru/series/" twPath="/tw/series/" enPath="/en/series/" inPath="/in/series/"
+  koPath="/series/" jaPath="/ja/series/" idPath="/id/series/" ruPath="/ru/series/" twPath="/tw/series/" enPath="/en/series/" inPath="/in/series/" phPath="/ph/series/"
   schema={[seriesIndexSchema('sg', list, Astro.site)]}
 >
   <SeriesIndexView loc="sg" list={list} />

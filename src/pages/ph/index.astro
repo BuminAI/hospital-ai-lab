@@ -1,0 +1,326 @@
+---
+// Home page ng edisyong Filipino para sa Pilipinas (2026-11-14; kinopya mula sa edisyong Singapore, parehong istruktura ng ibang edisyon)
+//
+// Structure (top to bottom):
+//   1) Hero: one-sentence promise + two actions + "Latest updates" on the right (proof that the site is alive)
+//   2) Row of trust figures: only real data, nothing invented
+//   3) "When you face this": six entry points by task
+//   4) Mga update, balita mula sa mga ahensya, napiling artikulo, serye
+//   5) Principles, library, FAQ, about the site
+// ⚠️ The author's years of experience are not written in the home text or the meta description (the sidebar profile stays as is).
+// ⚠️ Figures are computed from the data, or are facts already on the site.
+import navConfig from '../../data/ph/content/nav.json';
+import '../../styles/ph-home.css';
+import { getCollection } from 'astro:content';
+import PhLayout from '../../layouts/PhLayout.astro';
+import en from '../../i18n/ph.json';
+import notices from '../../data/ph/gov-notices.json';
+import newsData from '../../data/ph/news.json';
+import linkHealth from '../../data/ph/link-health.json';
+import HomeSeries from '../../components/HomeSeries.astro';
+import { withBase } from '../../utils/site';
+import { getResolvedSeries } from '../../utils/series';
+import { getEnUpdates, KIND_LABEL } from '../../utils/ph-updates';
+
+const updated = notices.updatedAt ? new Date(notices.updatedAt) : undefined;
+const fmtMD = new Intl.DateTimeFormat('fil-PH', { timeZone: 'Asia/Manila', day: 'numeric', month: 'numeric' });
+const fmtYMD = new Intl.DateTimeFormat('fil-PH', { timeZone: 'Asia/Manila', year: 'numeric', month: 'long', day: 'numeric' });
+const short = (t: string, n = 150) => (t.length > n ? t.slice(0, n).replace(/\s+\S*$/, '') + '…' : t);
+
+const posts = (await getCollection('blogPh', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featured = posts.slice(0, 4);
+
+const feed = await getEnUpdates(30);
+const heroFeed = feed.slice(0, 4);
+const newsFeed = feed.slice(0, 8);
+const weekly = feed.filter((u) => Date.now() - new Date(u.date).getTime() <= 7 * 86400000);
+const weeklyCount = (k: 'news' | 'notice' | 'event' | 'video' | 'blog') => weekly.filter((u) => u.kind === k).length;
+
+// Pinakabagong balita mula sa mga ahensya ng kalusugan (PhilHealth, WHO Philippines)
+const topNotices = notices.items.slice(0, 5);
+
+// Trust figures (all from real data)
+const stats = [
+  { n: posts.length, unit: '', label: 'Nailathalang artikulo', href: '/ph/blog/' },
+  { n: linkHealth.total, unit: '', label: 'Link ng sanggunian na sinusuri araw-araw', href: '/ph/updates/' },
+  { n: notices.items.length, unit: '', label: 'Balita mula sa mga ahensya ng kalusugan na nakalista', href: '/ph/calendar/' },
+  { n: newsData.items.length, unit: '', label: 'Headline ng balita sa AI (sinusuri nang ilang beses isang araw)', href: '/ph/news/' },
+];
+const checkedDay = linkHealth.checkedAt ? fmtYMD.format(new Date(linkHealth.checkedAt)) : '';
+
+const tasks = [
+  { q: 'Anong mga petsa ang dapat kong malaman?', t: 'Roadmap: FDA Act, Data Privacy Act at ASEAN Guide', d: 'Ang FDA Act, Data Privacy Act, UHC Act at ASEAN Guide sa iisang timeline.', href: '/ph/dx-roadmap/' },
+  { q: 'Ano ang bagong lumabas mula sa mga ahensya?', t: 'Kalendaryo: pinakabagong balita mula sa mga ahensya ng kalusugan', d: 'Mga pinakabagong balita mula sa PhilHealth at WHO Philippines, awtomatiko.', href: '/ph/calendar/' },
+  { q: 'May alok na software o AI ang vendor?', t: 'Checklist: katayuan ng device at AI vendor', d: 'Medical device ba, may lisensya at rehistro ba, ano ang mangyayari sa mga update, may mga seksyon.', href: '/ph/documents-checklist/' },
+  { q: 'Protektado ba ang datos ng pasyente?', t: 'Checklist sa proteksyon ng datos ng pasyente', d: 'Pahintulot, vendor, seguridad at breach ayon sa Data Privacy Act, bawat aytem ay may seksyon.', href: '/ph/data-checklist/' },
+  { q: 'Bago mag-ampon ng AI', t: 'Mga template: patakaran at 21 tanong sa vendor', d: 'Mga draft na puwedeng kopyahin at iakma kapag dumating ang proposal.', href: '/ph/templates/' },
+  { q: 'Para sa mga pasyente at pamilya', t: 'Para sa mga pasyente', d: 'Bago magtanong sa AI tungkol sa inyong kalusugan, ano ang dapat malaman kapag gumagamit ng AI ang ospital, at tungkol sa inyong mga karapatan.', href: '/ph/patients/' },
+];
+
+const promises = [
+  { t: 'Batay sa mga pangunahing sanggunian', d: 'Isinusulat lamang namin ang galing sa mga opisyal na dokumentong binuksan at binasa (buong teksto ng RA 9711, RA 10173, RA 11223 at ang ASEAN Guide), may mga link.' },
+  { t: 'Nakikita ang petsa ng pagsusuri', d: 'Sa ibaba ng bawat gabay sa praktika at pahina para sa pasyente: “Mga sanggunian at petsa ng pagsusuri.” Nagbabago ang mga patakaran, kaya kailangan ang petsa.' },
+  { t: 'Sinusuri araw-araw ang mga link ng sanggunian', d: `May ${linkHealth.total} panlabas na link ang edisyong Filipino; awtomatiko itong sinusuri araw-araw, at ${linkHealth.dead.length} ang hindi natagpuan (404/410)${checkedDay ? ` (${checkedDay})` : ''}.` },
+  { t: 'Walang rekomendasyon sa partikular na produkto o ospital', d: 'Tinitingnan namin kung magagamit ang isang bagay sa inyong ospital at sa anong batayan, hindi ang mga brand o ang pagmamadali sa pag-aampon.' },
+];
+
+const library = [
+  { t: en.nav.guide, d: en.home.guideDesc, href: '/ph/guide/' },
+  { t: en.nav.glossary, d: en.home.glossaryDesc, href: '/ph/glossary/' },
+  { t: en.nav.faq, d: en.home.faqDesc, href: '/ph/faq/' },
+  { t: en.nav.checklist, d: en.home.checklistDesc, href: '/ph/checklist/' },
+  { t: en.nav.tips, d: 'Mga praktikal na tip sa paggamit ng mga serbisyong AI sa ospital.', href: '/ph/tips/' },
+  { t: en.nav.videos, d: 'Piling video tungkol sa AI sa pangangalagang pangkalusugan.', href: '/ph/videos/' },
+];
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/ph/')}`;
+const homeFaqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#home-faq`,
+  url: pageUrl,
+  inLanguage: 'fil-PH',
+  isPartOf: { '@id': `${siteRoot}/#website-ph` },
+  mainEntity: en.home.homeFaq.map((f, i) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#home-q${i + 1}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const homeSeries = (await getResolvedSeries('ph'))
+  .slice()
+  .sort((a, b) => b.posts.length - a.posts.length)
+  .slice(0, 3);
+// 메뉴(nav.json)의 모든 항목을 같은 순서로 홈에도 보여 준다. 메뉴에만/홈에만 있는 페이지가 없게 하려는 구역(2026-11-14).
+const navLabelsHome = en.nav as Record<string, string>;
+const allMenu = navConfig
+  .filter((n) => n.enabled && n.href !== '/ph/')
+  .map((n) => ({ href: n.href, label: navLabelsHome[n.key] ?? n.key }));
+
+---
+
+<PhLayout
+  title={en.home.metaTitle}
+  description={en.home.metaDescription}
+  koPath="/"
+  twPath="/tw/"
+  enPath="/en/"
+  inPath="/in/" sgPath="/sg/"
+  jaPath="/ja/"
+  idPath="/id/"
+  ruPath="/ru/"
+  updated={updated}
+  schema={[homeFaqLd]}
+>
+  <Fragment slot="hero">
+    <section class="th-hero">
+      <div class="th-hero-inner">
+        <div class="th-hero-copy">
+          <p class="th-eyebrow">Medical device, datos ng pasyente at AI — para sa administrasyon at nursing</p>
+          <h1>Ang desisyong mag-ampon ng AI sa ospital —<br />binasa mula sa mga batas ng Pilipinas at mga pangunahing sanggunian.</h1>
+          <p class="th-lead">
+            Medical device ba ang produkto, sa anong batayan puwedeng gamitin ang datos ng pasyente, saan ito napupunta, at sino ang dapat abisuhan kapag may breach. Kinolekta mula sa FDA Act, Data Privacy Act, UHC Act at ASEAN Guide sa AI governance; bawat aytem ay may seksyon at petsa ng pagsusuri.
+          </p>
+          <p class="th-cta">
+            <a class="th-btn th-btn-main" href={withBase('/ph/dx-roadmap/')}>Roadmap</a>
+            <a class="th-btn th-btn-sub" href={withBase('/ph/calendar/')}>Balita mula sa mga ahensya</a>
+          </p>
+        </div>
+        <aside class="th-hero-card" aria-labelledby="th-live-h">
+          <h2 id="th-live-h"><span class="th-dot" aria-hidden="true"></span>Pinakabagong update</h2>
+          <ul>
+            {heroFeed.map((it) => (
+              <li>
+                <time datetime={it.date}>{fmtMD.format(new Date(it.date))}</time>
+                <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only">({en.ui.external})</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="th-hero-more" href={withBase('/ph/updates/')}>Lahat ng update →</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="th-stats" aria-label="Katayuan ng site">
+      <ul>
+        {
+          stats.map((s) => (
+            <li>
+              <a href={withBase(s.href)}>
+                <span class="th-num">{s.n.toLocaleString('fil-PH')}<small>{s.unit}</small></span>
+                <span class="th-lab">{s.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </Fragment>
+
+  <section class="th-sec" aria-labelledby="th-tasks-h">
+    <h2 class="th-h" id="th-tasks-h"><span>Kapag ito ang kinakaharap ninyo</span><small>AYON SA LAYUNIN</small></h2>
+    <div class="th-tasks">
+      {
+        tasks.map((x) => (
+          <a class="th-task" href={withBase(x.href)}>
+            <span class="th-task-q">{x.q}</span>
+            <span class="th-task-t">{x.t}</span>
+            <span class="th-task-d">{x.d}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-feed-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-feed-h"><span>Updates</span><small>WHAT'S NEW</small></h2>
+      <a class="th-more" href={withBase('/ph/updates/')}>Tingnan lahat →</a>
+    </div>
+    <p class="th-note">
+      Last 7 days: {KIND_LABEL.news} {weeklyCount('news')} · {KIND_LABEL.notice} {weeklyCount('notice')} · {KIND_LABEL.event} {weeklyCount('event')} · {KIND_LABEL.video} {weeklyCount('video')}
+    </p>
+    <ul class="th-feed">
+      {
+        newsFeed.map((it) => (
+          <li>
+            <time datetime={it.date}>{fmtYMD.format(new Date(it.date))}</time>
+            <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+            <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+              {it.title}
+              {it.external && <span class="sr-only">({en.ui.external})</span>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-gov-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-gov-h"><span>Balita mula sa mga ahensya ng kalusugan</span><small>MGA AHENSYA</small></h2>
+      <a class="th-more" href={withBase('/ph/calendar/')}>Tingnan lahat →</a>
+    </div>
+    <p class="th-note">Ang petsa ay ang petsa ng balita o ulat, hindi deadline. Basahin ang orihinal para sa nilalaman at bisa nito; mula sa PhilHealth at WHO Philippines ang mga nakalista dahil bukas ang mga site na iyon sa awtomatikong pagbasa.</p>
+    <ul class="th-feed th-feed-sub">
+      {
+        topNotices.map((n) => (
+          <li>
+            <time datetime={n.pubDate}>{fmtYMD.format(new Date(n.pubDate))}</time>
+            <span class="th-chip th-chip-gov">{n.kind}</span>
+            <a href={n.link} target="_blank" rel="noopener">
+              {short(n.title)}
+              <span class="sr-only">({en.ui.external})</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-posts-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-posts-h"><span>Mga napiling artikulo</span><small>MGA ARTIKULO</small></h2>
+      <a class="th-more" href={withBase('/ph/blog/')}>Lahat ng artikulo →</a>
+    </div>
+    <div class="th-posts">
+      {
+        featured.map((p) => (
+          <article class="th-post">
+            <p class="th-post-meta">
+              <span class="th-chip">{p.data.category}</span>
+              <time datetime={p.data.pubDate.toISOString()}>{fmtYMD.format(p.data.pubDate)}</time>
+            </p>
+            <h3><a href={withBase(`/ph/blog/${p.id}/`)}>{p.data.title}</a></h3>
+            <p class="th-post-d">{p.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <HomeSeries loc="ph" list={homeSeries} />
+
+  <section class="th-sec th-promise" aria-labelledby="th-promise-h">
+    <h2 class="th-h" id="th-promise-h"><span>Ang aming mga prinsipyo</span><small>MGA PRINSIPYO</small></h2>
+    <ul>
+      {
+        promises.map((x, i) => (
+          <li>
+            <span class="th-no">{i + 1}</span>
+            <div>
+              <strong>{x.t}</strong>
+              <p>{x.d}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="th-note"><a href={withBase('/ph/about/#principles')}>Paano isinusulat at sinusuri ang materyal →</a></p>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-menu-h">
+    <h2 class="th-h" id="th-menu-h"><span>Lahat ng pahina sa isang tingin</span><small>LAHAT NG PAHINA</small></h2>
+    <ul class="th-lib">
+      {
+        allMenu.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.label}</strong>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-lib-h">
+    <h2 class="th-h" id="th-lib-h"><span>Materyal sa pag-aaral at sanggunian</span><small>LIBRARY</small></h2>
+    <ul class="th-lib">
+      {
+        library.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.t}</strong>
+              <span>{x.d}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-faq-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-faq-h"><span>{en.home.homeFaqTitle}</span><small>TUNGKOL SA SITE</small></h2>
+      <a class="th-more" href={withBase('/ph/faq/')}>{en.home.homeFaqMore}</a>
+    </div>
+    <dl class="th-faq">
+      {
+        en.home.homeFaq.map((f) => (
+          <>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-intro-h">
+    <h2 class="th-h" id="th-intro-h"><span>{en.home.introTitle}</span><small>TUNGKOL</small></h2>
+    <p>{en.home.introBody}</p>
+    <div class="en-note">
+      <p><strong>{en.home.koNoticeTitle}</strong></p>
+      <p style="margin-top:6px">{en.home.koNoticeBody}</p>
+      <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{en.ui.langKo} →</a></p>
+    </div>
+  </section>
+</PhLayout>

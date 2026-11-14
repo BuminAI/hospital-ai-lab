@@ -21,11 +21,11 @@ import path from 'node:path';
 const DIST = path.resolve('dist');
 const SITE = 'https://hospital-ai-lab.com';
 const JSON_OUT = process.argv.includes('--json');
-const LOCALES = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg'];
+const LOCALES = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph'];
 
-const HTML_LANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG' };
-const OG_LOCALE = { ko: 'ko_KR', ja: 'ja_JP', ru: 'ru_RU', id: 'id_ID', tw: 'zh_TW', en: 'en_US', in: 'en_IN', sg: 'en_SG' };
-const HREFLANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG' };
+const HTML_LANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH' };
+const OG_LOCALE = { ko: 'ko_KR', ja: 'ja_JP', ru: 'ru_RU', id: 'id_ID', tw: 'zh_TW', en: 'en_US', in: 'en_IN', sg: 'en_SG', ph: 'fil_PH' };
+const HREFLANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH' };
 
 // 언어판별 "이 문자가 본문에 보이면 이상하다" 판정
 const RE = {
@@ -43,6 +43,7 @@ const FOREIGN = {
   en: ['hangul', 'kana', 'cyrillic', 'han'],
   in: ['hangul', 'kana', 'cyrillic', 'han'],
   sg: ['hangul', 'kana', 'cyrillic', 'han'],
+  ph: ['hangul', 'kana', 'cyrillic', 'han'],
 };
 
 // 언어 전환 링크 등 모든 페이지에 있는 자국 밖 표기는 허용한다
@@ -74,7 +75,7 @@ async function walk(dir) {
 }
 
 const localeOf = (urlPath) => {
-  const m = /^\/(ja|ru|id|tw|en|in|sg)(\/|$)/.exec(urlPath);
+  const m = /^\/(ja|ru|id|tw|en|in|sg|ph)(\/|$)/.exec(urlPath);
   return m ? m[1] : 'ko';
 };
 // dist 경로 → URL 경로
@@ -256,6 +257,7 @@ const DISCLAIMER_HINT = {
   en: /not legal advice|does not replace|not a substitute/i,
   in: /not legal advice|does not replace|not a substitute/i,
   sg: /not legal advice|does not replace|not a substitute/i,
+  ph: /hindi legal na payo|hindi kapalit|hindi pamalit|hindi payong legal/i,
 };
 const HYPE = {
   ko: /완치|100\s?%|부작용\s?없|확실히\s?낫|(?<![가-힣])기적(?![가-힣]*적)/,
@@ -266,6 +268,7 @@ const HYPE = {
   en: /100\s?%|completely cure|no side effects|guaranteed (?:cure|results?)/i,
   in: /100\s?%|completely cure|no side effects|guaranteed (?:cure|results?)/i,
   sg: /100\s?%|completely cure|no side effects|guaranteed (?:cure|results?)/i,
+  ph: /100\s?%|garantisadong gamot|walang side effect|siguradong gagaling|lubos na gagaling/i,
 };
 for (const info of pages.values()) {
   if (!isPost(info.url)) continue;

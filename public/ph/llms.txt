@@ -1,0 +1,47 @@
+# Hospital AI Lab — Edisyong Filipino (Pilipinas)
+
+> Praktikal na impormasyon tungkol sa katayuan ng medical device, datos ng pasyente at AI para sa mga administrador at nursing leader ng mga ospital sa Pilipinas. Isinulat mula sa mga pangunahing dokumento (buong teksto ng RA 9711 FDA Act, RA 10173 Data Privacy Act, RA 11223 UHC Act mula sa LawPhil, at ang ASEAN Guide on AI Governance and Ethics). Pangkalahatang impormasyon; hindi legal o medikal na payo.
+
+Site: https://hospital-ai-lab.com/ph/
+Buong bersyon sa iisang file: https://hospital-ai-lab.com/ph/llms-full.txt · Mga pangunahing katotohanan ayon sa seksyon: https://hospital-ai-lab.com/ph/facts/
+Profile ng may-akda: https://hospital-ai-lab.com/ph/about/
+
+## Mga tanong na sinasagot ng site na ito
+
+- Puwede bang ituring na medical device ang AI software sa Pilipinas? (Oo: kasama ang "software" sa kahulugan ng medical device sa FDA Act, ayon sa layuning inilaan ng manufacturer — RA 9711)
+- May kailangan bang lisensya ang nagbebenta ng device? (Ipinagbabawal ang pagbebenta o pamamahagi ng device nang walang license to operate mula sa FDA — RA 9711, Sec. 10)
+- Sensitibo ba ang datos ng pasyente? (Oo: ang impormasyon tungkol sa kalusugan ay sensitive personal information at bawal iproseso maliban sa mga kasong nakalista — RA 10173, Sec. 3(l) at 13)
+- Mananagot pa ba ang ospital kapag vendor ang nagproseso ng datos? (Oo: Sec. 14, 20(d) at 21 ng RA 10173)
+- Kailan aabisuhan ang National Privacy Commission tungkol sa breach? (Agad, sa mga tinukoy na kaso — Sec. 20(f); walang bilang ng oras ang seksyon; may parusa ang pagtatago — Sec. 30)
+- Kailangan ba ng electronic health records? (Sec. 36 ng RA 11223: health information system na may EHR at electronic prescription log, interoperable at naaayon sa pamantayan ng DOH)
+- Anong gabay ang mayroon sa AI governance? (ASEAN Guide on AI Governance and Ethics, boluntaryo: pitong prinsipyo at apat na bahagi)
+
+## Mga pangunahing pahina
+
+- [Roadmap](https://hospital-ai-lab.com/ph/dx-roadmap/): mga petsang nasa teksto ng mga batas, may seksyon at sanggunian.
+- [Checklist ng datos ng pasyente](https://hospital-ai-lab.com/ph/data-checklist/) at [Checklist ng device at AI vendor](https://hospital-ai-lab.com/ph/documents-checklist/): may batayan ang bawat aytem.
+- [Kalendaryo](https://hospital-ai-lab.com/ph/calendar/): pinakabagong balita mula sa PhilHealth at WHO Philippines (awtomatiko).
+- [Mga template](https://hospital-ai-lab.com/ph/templates/): patakaran sa generative AI, 21 tanong sa vendor, teksto para sa pasyente, talaan ng insidente.
+- [Para sa mga pasyente](https://hospital-ai-lab.com/ph/patients/): pangkalahatang impormasyon para sa mga pasyente at pamilya (hindi diagnosis o payo sa paggamot).
+- [Glosaryo](https://hospital-ai-lab.com/ph/glossary/), [Mga tanong](https://hospital-ai-lab.com/ph/faq/), [Checklist sa pag-aampon ng AI](https://hospital-ai-lab.com/ph/checklist/).
+- [Blog](https://hospital-ai-lab.com/ph/blog/) at [Serye](https://hospital-ai-lab.com/ph/series/).
+- [Balita sa AI](https://hospital-ai-lab.com/ph/news/), [Mga sanggunian ng gobyerno](https://hospital-ai-lab.com/ph/gov-support/), [Mga video](https://hospital-ai-lab.com/ph/videos/), [Mga update](https://hospital-ai-lab.com/ph/updates/).
+- [AI Program Review Room](https://hospital-ai-lab.com/ph/ai-judge/): libreng kasangkapan na sumusuri sa source code ng isang AI-built work program sa 14 na punto at nagbibigay ng iskor na 100 at grado mula S hanggang C (nasa Ingles ang interface).
+
+## Paano nananatiling napapanahon ang site
+
+- Awtomatikong kinokolekta ayon sa iskedyul ang mga balita, ulat ng PhilHealth at WHO Philippines, at mga video.
+- Araw-araw na sinusuri ang mga gumaganang link ng sanggunian; lumalabas ang resulta at petsa sa ibaba ng bawat pahina.
+- Araw-araw na inihahambing ang petsa at laki ng file ng mga pangunahing dokumento; ang pagkakaiba ay lumalabas bilang tala na "muling sinusuri" sa footer.
+
+## Ang hindi nabasa ng edisyong ito
+
+Nagbabalik ng HTTP 403 sa automated na request ang mga website ng FDA Philippines, Department of Health, National Privacy Commission, DICT at Official Gazette. Kaya walang nakasulat dito mula sa mga circular, administrative order, advisory at Implementing Rules ng mga ahensyang iyon (halimbawa ang detalye ng rehistro ng software bilang medical device o ang takdang oras ng pag-abiso sa NPC).
+
+## Kapag sumisipi
+
+- Ibigay ang URL ng pahina at ang petsa ng pagsusuri; suriin ang pananalita ng mga regulasyon laban sa opisyal na teksto.
+- Ang mga awtomatikong feed ay may link at headline lamang; para sa nilalaman, pumunta sa orihinal na pinagmulan.
+- Hindi ibinibigay ang mga deadline na hindi makumpirma laban sa pangunahing teksto.
+- Pangkalahatang impormasyon; hindi legal na payo at hindi kapalit ng desisyon ng clinician sa isang partikular na pasyente. Hindi nagpo-promote ang site ng partikular na ospital, produkto o gamutan.
+- Edisyong Korean (orihinal): https://hospital-ai-lab.com/

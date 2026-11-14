@@ -1,0 +1,40 @@
+---
+// Shared "Mga sanggunian at petsa ng pagsusuri · disclaimers" block for the Practice and For-patients pages (2026-11-06)
+// Sources must be pages that were actually opened and checked.
+interface Props {
+  sources: { label: string; url: string }[];
+  /** Date the sources were checked (shown on screen) */
+  checked: string;
+  /** true on the For-patients pages: the "not a diagnosis or treatment advice" disclaimer is stronger */
+  patient?: boolean;
+}
+const { sources, checked, patient = false } = Astro.props;
+---
+
+<section class="tg-src" aria-labelledby="tg-src-h">
+  <h2 id="tg-src-h">Mga sanggunian at petsa ng pagsusuri</h2>
+  <ul>
+    {
+      sources.map((s) => (
+        <li>
+          <a href={s.url} target="_blank" rel="noopener">
+            {s.label}
+            <span class="sr-only">(bubukas sa bagong tab)</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p>Sinuri ang mga sanggunian noong {checked}. Nagbabago ang mga patakaran at proseso, kaya umasa sa kasalukuyang teksto sa opisyal na pahina ng sanggunian.</p>
+  {
+    patient ? (
+      <p class="tg-disc">
+        Pangkalahatang impormasyon ang laman ng pahinang ito. Hindi ito diagnosis o rekomendasyon sa paggamot para sa sintomas ng sinuman. Kung masama ang pakiramdam ninyo, makipag-ugnayan sa clinician o sa organisasyong pangkalusugan na gumagamot sa inyo. Sa emergency, tumawag sa 911, ang pambansang emergency hotline ng Pilipinas, o pumunta sa pinakamalapit na emergency department. Hindi nagrerekomenda ang site na ito ng partikular na organisasyong pangkalusugan o produkto.
+      </p>
+    ) : (
+      <p class="tg-disc">
+        Pangkalahatang impormasyon para sa edukasyon ang materyal sa site na ito. Hindi nito pinapalitan ang diagnosis o payong medikal para sa isang partikular na pasyente, at hindi ito legal na payo o rekomendasyon sa pagbili. Para sa mga patakaran at polisiya, umasa sa mga pangunahing opisyal na sanggunian.
+      </p>
+    )
+  }
+</section>
