@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-13T23:42:08.032Z",
-  "readOk": 3,
+  "checkedAt": "2026-11-14T22:35:31.169Z",
+  "readOk": 4,
   "total": 4,
   "laws": [
     {
@@ -10,7 +10,7 @@
       "baseline": "d2259c32f4fb",
       "current": "d2259c32f4fb",
       "changed": false,
-      "lastRead": "2026-11-13T23:42:01.479Z",
+      "lastRead": "2026-11-14T22:35:24.517Z",
       "error": null
     },
     {
@@ -20,7 +20,7 @@
       "baseline": "7cb6d94fbaae",
       "current": "7cb6d94fbaae",
       "changed": false,
-      "lastRead": "2026-11-13T23:42:03.220Z",
+      "lastRead": "2026-11-14T22:35:26.575Z",
       "error": null
     },
     {
@@ -30,7 +30,7 @@
       "baseline": "2aecc88dbf78",
       "current": "648278d3dc3e",
       "changed": true,
-      "lastRead": "2026-11-13T23:42:05.153Z",
+      "lastRead": "2026-11-14T22:35:28.206Z",
       "error": null
     },
     {
@@ -40,8 +40,8 @@
       "baseline": "2f54e97b1ac5",
       "current": "2f54e97b1ac5",
       "changed": false,
-      "lastRead": "2026-11-08T22:16:01.241Z",
-      "error": "HTTP 404"
+      "lastRead": "2026-11-14T22:35:29.968Z",
+      "error": null
     }
   ]
 }
