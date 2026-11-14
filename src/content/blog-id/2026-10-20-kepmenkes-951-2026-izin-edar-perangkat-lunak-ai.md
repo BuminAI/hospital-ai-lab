@@ -7,7 +7,7 @@ draft: false
 series: assessing-ai-and-technology
 ---
 
-Pada 7 September 2026, Menteri Kesehatan menetapkan Keputusan Menteri Kesehatan Nomor HK.01.07/MENKES/951/2026 tentang Pedoman Izin Edar Alat Kesehatan Berbasis Perangkat Lunak. Keputusan ini berlaku sejak tanggal ditetapkan, dan teks lengkapnya dapat dibaca di [JDIH Kemenkes](https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026). Pedoman ini menjawab pertanyaan "apakah perangkat lunak AI termasuk alat kesehatan yang perlu izin edar?" dengan teks resmi yang bisa dibaca langsung. Catatan ini merangkum isinya dari sisi rumah sakit sebagai pembeli.
+Pada 7 September 2026, Menteri Kesehatan menetapkan Keputusan Menteri Kesehatan Nomor HK.01.07/MENKES/951/2026 tentang Pedoman Izin Edar Alat Kesehatan Berbasis Perangkat Lunak. Keputusan ini berlaku sejak tanggal ditetapkan, dan teks lengkapnya dapat dibaca di [JDIH Kemenkes](https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-nomor-hk0107menkes9512026). Pedoman ini menjawab pertanyaan "apakah perangkat lunak AI termasuk alat kesehatan yang perlu izin edar?" dengan teks resmi yang bisa dibaca langsung. Catatan ini merangkum isinya dari sisi rumah sakit sebagai pembeli.
 
 ## Apa yang dicakup
 
@@ -49,7 +49,7 @@ Dokumen ini adalah pedoman izin edar, bukan aturan yang mengatur cara RS memakai
 - RS dapat memakai pedoman ini sebagai dasar daftar pertanyaan saat menilai tawaran perangkat lunak AI.
 
 **Sumber**
-- [JDIH Kemenkes, Keputusan Menteri Kesehatan Nomor HK.01.07/MENKES/951/2026](https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026)
+- [JDIH Kemenkes, Keputusan Menteri Kesehatan Nomor HK.01.07/MENKES/951/2026](https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-nomor-hk0107menkes9512026)
 - [JDIH Kemkomdigi, UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi](https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022)
 
 ---

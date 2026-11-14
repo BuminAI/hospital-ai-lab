@@ -44,7 +44,7 @@ const LAWS: Law[] = [
   { name: 'UU 27/2022 tentang Pelindungan Data Pribadi', id: 'UU 27/2022', url: 'https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022', test: /UU\s*(?:No\.?\s*)?(?:Nomor\s*)?27(?:\/| Tahun )2022|UU PDP|Pelindungan Data Pribadi|Perlindungan Data Pribadi/i },
   { name: 'UU 17/2023 tentang Kesehatan', id: 'UU 17/2023', url: 'https://jdih.kemkes.go.id/documents/undang-undang-nomor-17-tahun-2023', test: /UU\s*(?:No\.?\s*)?(?:Nomor\s*)?17(?:\/| Tahun )2023|Undang-Undang Nomor 17 Tahun 2023/i },
   { name: 'PP 28/2024 (pelaksanaan UU 17/2023)', id: 'PP 28/2024', url: 'https://jdih.kemkes.go.id/documents/peraturan-pemerintah-nomor-28-tahun-2024', test: /PP\s*(?:No\.?\s*)?(?:Nomor\s*)?28(?:\/| Tahun )2024|Peraturan Pemerintah Nomor 28 Tahun 2024/i },
-  { name: 'Kepmenkes HK.01.07/MENKES/951/2026 tentang Pedoman Izin Edar Alat Kesehatan Berbasis Perangkat Lunak', id: 'HK.01.07/MENKES/951/2026', url: 'https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026', test: /Kepmenkes[^.\n]{0,20}951\/2026|HK\.01\.07\/MENKES\/951\/2026|Keputusan Menteri Kesehatan[^.\n]{0,40}951/i },
+  { name: 'Kepmenkes HK.01.07/MENKES/951/2026 tentang Pedoman Izin Edar Alat Kesehatan Berbasis Perangkat Lunak', id: 'HK.01.07/MENKES/951/2026', url: 'https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-nomor-hk0107menkes9512026', test: /Kepmenkes[^.\n]{0,20}951\/2026|HK\.01\.07\/MENKES\/951\/2026|Keputusan Menteri Kesehatan[^.\n]{0,40}951/i },
 ];
 
 const TOPICS: [string, RegExp][] = [

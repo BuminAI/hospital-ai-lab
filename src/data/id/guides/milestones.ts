@@ -25,7 +25,7 @@ export const SRC = {
   },
   kepmenkes951: {
     label: 'JDIH Kemenkes — Kepmenkes HK.01.07/MENKES/951/2026 tentang Pedoman Izin Edar Alat Kesehatan Berbasis Perangkat Lunak',
-    url: 'https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026',
+    url: 'https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-nomor-hk0107menkes9512026',
   },
   satusehatRme: {
     label: 'Kemenkes — SATUSEHAT RME, rekam medis pasien terintegrasi secara nasional (1 September 2026)',

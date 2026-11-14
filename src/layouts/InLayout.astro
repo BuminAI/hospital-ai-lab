@@ -112,8 +112,12 @@ const canonical = `${siteRoot}${withBase(canonicalPath)}`;
 // 안팎이 한계라 TITLE_BUDGET=60(러시아어판은 키릴 문자 기준 65).
 // 브랜드는 og:site_name과 Organization 스키마로 따로 전달되므로 손실 없다.
 const TITLE_BUDGET = 60;
-const withSuffix = `${title} | ${SITE_EN}`;
-const pageTitle = withSuffix.length <= TITLE_BUDGET ? withSuffix : title;
+// 영어(미국)판과 같은 영어 제목이 겹치면 검색결과에서 두 판이 서로 같은 페이지처럼 보인다(2026-11-14 검수).
+// 그래서 인도판 제목에는 "India"를 붙인다: 접미사에 넣고, 길어서 안 되면 끝에 "(India)", 그래도 길면 원래 제목.
+const withSuffix = `${title} | ${SITE_EN} India`;
+const withTag = `${title} (India)`;
+const pageTitle =
+  withSuffix.length <= TITLE_BUDGET ? withSuffix : withTag.length <= TITLE_BUDGET ? withTag : title;
 
 // 갱신일: 페이지가 안 넘기면 이 경로의 실제 마지막 커밋일을 쓴다(빌드 시각이
 // 아님 — 뉴스 자동 수집으로 하루에도 여러 번 재빌드되는 사이트라, 안 그러면

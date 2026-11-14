@@ -26,7 +26,7 @@ Dalam [siaran pers 30 Desember 2024](https://kemkes.go.id/eng/penggunaan-ai-haru
 
 ## Dokumen di balik sebuah angka
 
-[Kepmenkes HK.01.07/MENKES/951/2026](https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026), yang ditetapkan 7 September 2026, mengatur izin edar perangkat lunak medis, termasuk yang memakai AI. Untuk produk yang terdaftar, pedoman itu meminta antara lain:
+[Kepmenkes HK.01.07/MENKES/951/2026](https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-nomor-hk0107menkes9512026), yang ditetapkan 7 September 2026, mengatur izin edar perangkat lunak medis, termasuk yang memakai AI. Untuk produk yang terdaftar, pedoman itu meminta antara lain:
 
 - evaluasi kinerja pada dataset pengujian yang independen dari dataset pelatihan, lengkap dengan metrik seperti akurasi, *confusion matrix*, atau AUC;
 - parameter kinerja seperti akurasi, sensitivitas, dan spesifisitas yang disertai bukti pengujian;
@@ -56,7 +56,7 @@ Daftar ini juga saran kami, bukan aturan.
 - [Kemenkes, Kemenkes Tekankan Pemanfaatan AI Kesehatan Harus Diiringi Tata Kelola Ketat dan Etika yang Kuat (8 Juni 2026)](https://kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat)
 - [Ditjen Kesehatan Lanjutan, Kemenkes Dorong Pengembangan Ekosistem AI Kesehatan yang Aman, Adil, dan Bertanggung Jawab (9 Juni 2026)](https://keslan.kemkes.go.id/read/3798/kemenkes-dorong-pengembangan-ekosistem-ai-kesehatan-yang-aman-adil-dan-bertanggung-jawab)
 - [Kemenkes, Penggunaan AI Harus Prioritaskan Keselamatan Pasien (30 Desember 2024)](https://kemkes.go.id/eng/penggunaan-ai-harus-prioritaskan-keselamatan-pasien)
-- [JDIH Kemenkes, Keputusan Menteri Kesehatan Nomor HK.01.07/MENKES/951/2026](https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026)
+- [JDIH Kemenkes, Keputusan Menteri Kesehatan Nomor HK.01.07/MENKES/951/2026](https://jdih.kemkes.go.id/documents/keputusan-menteri-kesehatan-nomor-hk0107menkes9512026)
 
 ---
 

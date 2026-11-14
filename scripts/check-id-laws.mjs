@@ -19,7 +19,7 @@ const LAWS = [
   { slug: 'undang-undang-nomor-17-tahun-2023', name: 'UU 17/2023 tentang Kesehatan' },
   { slug: 'peraturan-pemerintah-nomor-28-tahun-2024', name: 'PP 28/2024 (pelaksanaan UU Kesehatan)' },
   { slug: 'peraturan-menteri-kesehatan-nomor-24-tahun-2022', name: 'Permenkes 24/2022 tentang Rekam Medis' },
-  { slug: 'keputusan-menteri-kesehatan-republik-indonesia-nomor-hk0107menkes9512026', name: 'Kepmenkes HK.01.07/MENKES/951/2026 (izin edar alat kesehatan berbasis perangkat lunak)' },
+  { slug: 'keputusan-menteri-kesehatan-nomor-hk0107menkes9512026', name: 'Kepmenkes HK.01.07/MENKES/951/2026 (izin edar alat kesehatan berbasis perangkat lunak)' },
 ];
 
 let prev = {};
