@@ -80,6 +80,11 @@
     "enabled": true
   },
   {
+    "href": "/sg/research/",
+    "key": "research",
+    "enabled": true
+  },
+  {
     "href": "/sg/ai-judge/",
     "key": "aiJudge",
     "enabled": true

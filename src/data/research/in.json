@@ -1,0 +1,516 @@
+{
+  "updatedAt": "2026-11-14T13:19:54.408Z",
+  "country": "India",
+  "window": {
+    "from": "2025-11-14",
+    "to": "2026-11-14"
+  },
+  "totals": {
+    "surgery": 2703,
+    "drug": 477,
+    "disease": 7036,
+    "trials": 146
+  },
+  "sections": {
+    "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43017678",
+        "title": "Equipoise for Laminoplasty Versus Fusion for Cervical Spondylotic Myelopathy: Is a Randomized Trial Feasible?",
+        "source": "Neurosurg Pract",
+        "date": "2026-11-11",
+        "authors": "Ghogawala Z, Rizvi TZ, Liesching ME et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43017678/",
+        "doi": "10.1227/neuprac.0000000000000326"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43001519",
+        "title": "Early allograft dysfunction after liver transplant: approach to diagnosis and management",
+        "source": "Curr Opin Organ Transplant",
+        "date": "2026-11-04",
+        "authors": "Saigal S, Saxena H, Shukla S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43001519/",
+        "doi": "10.1097/MOT.0000000000001310"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42981817",
+        "title": "Evaluation of cross-cohort generalizability of machine learning-derived blood transcriptomic biomarkers for Parkinson's disease",
+        "source": "Biochem Biophys Res Commun",
+        "date": "2026-11-01",
+        "authors": "Kumar S",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42981817/",
+        "doi": "10.1016/j.bbrc.2026.154828"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42999582",
+        "title": "Regional and national variation in donor and recipient characteristics, transplant practice, and outcomes after liver transplantation (the IMPROVEMENT collaborative): a multicentre cohort study",
+        "source": "Lancet Reg Health Eur",
+        "date": "2026-10-28",
+        "authors": "Avolio AW, Pascale MM, Lai Q et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42999582/",
+        "doi": "10.1016/j.lanepe.2026.101889"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42960425",
+        "title": "Urological manifestations in obesity",
+        "source": "Curr Opin Endocrinol Diabetes Obes",
+        "date": "2026-10-28",
+        "authors": "Jayapal B, Kapoor N",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42960425/",
+        "doi": "10.1097/MED.0000000000000986"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43022679",
+        "title": "Direct anterior versus conventional approaches for hemiarthroplasty in femoral neck fractures: A systematic review and meta-analysis of functional outcomes",
+        "source": "J Clin Orthop Trauma",
+        "date": "2026-10-27",
+        "authors": "Sarkar MH, Maheshwari S, Vardhan S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43022679/",
+        "doi": "10.1016/j.jcot.2026.103643"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42992479",
+        "title": "Therapeutic plasma exchange improves survival in alcohol-related acute-on-chronic liver failure: a randomized controlled trial",
+        "source": "Eur J Gastroenterol Hepatol",
+        "date": "2026-10-27",
+        "authors": "Sareen M, Sharma PN, Maharshi S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42992479/",
+        "doi": "10.1097/MEG.0000000000003287"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43022455",
+        "title": "Effect of lung transplantation on biventricular function in pulmonary arterial hypertension: A systematic review",
+        "source": "JHLT Open",
+        "date": "2026-10-26",
+        "authors": "Mohammed AS, Gurram P, Mellacheruvu SP et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43022455/",
+        "doi": "10.1016/j.jhlto.2026.100715"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42925675",
+        "title": "Spatial transcriptomic profiling of indeterminate antibody-mediated rejection in liver allografts: A pilot study",
+        "source": "Pathol Res Pract",
+        "date": "2026-10-23",
+        "authors": "Khurram NA, Stanton K, Signore AP et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42925675/",
+        "doi": "10.1016/j.prp.2026.156721"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42912569",
+        "title": "Dynamic Tc-99m Sulfur Colloid Lymphoscintigraphy With SPECT/CT Revealing a Postrenal Transplant Lymphatic Leak Mimicking Urinoma",
+        "source": "Clin Nucl Med",
+        "date": "2026-10-19",
+        "authors": "Jamwal A, Ilangovan J, Singh P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42912569/",
+        "doi": "10.1097/RLU.0000000000006725"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42959998",
+        "title": "Direct anterior approach for femoral component revision: Surgical technique and pearls",
+        "source": "J Clin Orthop Trauma",
+        "date": "2026-10-14",
+        "authors": "Patel KD, Solanki PY, Patel HL",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42959998/",
+        "doi": "10.1016/j.jcot.2026.103631"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42999387",
+        "title": "Phenotypic Clustering as a Tool for Uncovering Hidden Risk Profiles in End-stage Liver Disease: An Exploratory Analysis of Sarcopenia and 1-Year Mortality",
+        "source": "J Clin Exp Hepatol",
+        "date": "2026-10-06",
+        "authors": "Dhami-Shah H, Pranesh G, Mogre D et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42999387/",
+        "doi": "10.1016/j.jceh.2026.103688"
+      }
+    ],
+    "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 43024802",
+        "title": "Comparing the Effectiveness of Atropine Sulfate and Acacia Catechu in Reducing Salivary Secretion During Dental Procedures: Protocol for a Randomized Controlled Trial",
+        "source": "JMIR Res Protoc",
+        "date": "2026-11-12",
+        "authors": "Pophali M, Dhamande M, Dubey S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43024802/",
+        "doi": "10.2196/78119"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43024398",
+        "title": "Efficacy and Safety of Intensive Continuous Theta Burst Stimulation Over the Right Dorsolateral Prefrontal Cortex in Insomnia Disorder:A Randomized Sham-Controlled Trial",
+        "source": "Prim Care Companion CNS Disord",
+        "date": "2026-11-11",
+        "authors": "Garg N, Garg S, Dhyani M",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43024398/",
+        "doi": "10.4088/PCC.26m04225"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43000950",
+        "title": "Modelling indirect protection from typhoid conjugate vaccines in the TyVAC-Bangladesh trial",
+        "source": "Epidemiol Infect",
+        "date": "2026-11-08",
+        "authors": "Walker J, Khanam F, Liu X et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43000950/",
+        "doi": "10.1017/S0950268826102337"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43030281",
+        "title": "Effect of a 3-Month Modified, High-Quality Take-Home Ration on Linear Growth and Body Composition in Rural South Indian Infants Aged 6-9 Months: A Cluster-Randomized Controlled Trial",
+        "source": "Nutrients",
+        "date": "2026-11-02",
+        "authors": "Kilpady CA, Kamath AA, Saji A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43030281/",
+        "doi": "10.3390/nu18213654"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42969981",
+        "title": "Comparison of the opioid-sparing effects of a combination of dexamethasone, paracetamol, and ketorolac versus paracetamol and ketorolac in patients undergoing total laparoscopic hysterectomy: A prospective double-blind randomized controlled trial",
+        "source": "Indian J Pharmacol",
+        "date": "2026-10-31",
+        "authors": "Nene I, Lalwani P, Khanna P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42969981/",
+        "doi": "10.4103/ijp.ijp_93_26"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42832931",
+        "title": "A phase III randomized study: Immunogenicity and safety of a quadrivalent meningococcal conjugate vaccine in healthy adults, adolescents, and children in India and healthy adolescents and children in South Africa",
+        "source": "Vaccine",
+        "date": "2026-10-04",
+        "authors": "Bavdekar A, Chansinghakul D, Dhati RM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42832931/",
+        "doi": "10.1016/j.vaccine.2026.129186"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42854397",
+        "title": "Inhibition of hIAPP amyloid aggregation by the polyherbal formulation NAMIG-5: a bench-to-bedside translational study",
+        "source": "Biophys Chem",
+        "date": "2026-10-01",
+        "authors": "Nama P, Roy D, Bhunia PK et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42854397/",
+        "doi": "10.1016/j.bpc.2026.107720"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42809435",
+        "title": "A Phase I, randomized, double-blind, placebo-controlled, dose escalation study to evaluate the safety, tolerability, and pharmacokinetics of intravenous ertapenem and zidebactam in combination (WCK 6777) in healthy adult subjects",
+        "source": "Antimicrob Agents Chemother",
+        "date": "2026-09-28",
+        "authors": "Lodise TP, Chavan R, Patel A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42809435/",
+        "doi": "10.1128/aac.00390-26"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42764399",
+        "title": "Effect of Semaglutide on Thigh Skeletal Muscle Volume, Fat Infiltration and Physical Function in People With Obesity: Secondary Analysis of STEP UP",
+        "source": "Diabetes Obes Metab",
+        "date": "2026-09-19",
+        "authors": "Hjelmesæth J, Bhat S, Garvey WT et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42764399/",
+        "doi": "10.1111/dom.71323"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42753710",
+        "title": "Wound-Only versus Weight-Based Rabies Immunoglobulin in Post-Exposure Prophylaxis: A Quasi-Randomized Asessor Blind Non-Inferiority Trial",
+        "source": "Am J Trop Med Hyg",
+        "date": "2026-09-16",
+        "authors": "Singh AD, Oberoi S, Ghosh S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42753710/",
+        "doi": "10.4269/ajtmh.26-0343"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42753563",
+        "title": "Efficacy of trans cervical Foley with or without extra amniotic saline infusion on induction delivery interval among women undergoing trial of labour after caesarean section at term: a randomized controlled trial",
+        "source": "Eur J Obstet Gynecol Reprod Biol",
+        "date": "2026-09-12",
+        "authors": "Suvarnna K, Jha N, Sagili H et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42753563/",
+        "doi": "10.1016/j.ejogrb.2026.115443"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42678522",
+        "title": "A 12-week, double-blind, quasi-randomized, placebo-controlled study to evaluate the efficacy and safety of Coleus forskohlii (Forcslim) on body weight loss",
+        "source": "J Int Soc Sports Nutr",
+        "date": "2026-08-31",
+        "authors": "Channangihalli Thimmegowda S, Hussain Mirza FH, Venkataraman R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42678522/",
+        "doi": "10.1080/15502783.2026.2725137"
+      }
+    ],
+    "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 42989480",
+        "title": "Respiratory syncytial virus (RSV) vaccine recommendations for adults: a review of available global, regional, and country level recommendations",
+        "source": "Expert Rev Vaccines",
+        "date": "2026-11-04",
+        "authors": "Cintra O, Phansalkar A, Laucho-Contreras M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42989480/",
+        "doi": "10.1080/14760584.2026.2755658"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42980466",
+        "title": "Population level immunity to measles and rubella 5 years before and after the MR campaign in urban Vellore, South India",
+        "source": "Hum Vaccin Immunother",
+        "date": "2026-11-03",
+        "authors": "Madhavan R, Eswaran A, Gandhi V et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42980466/",
+        "doi": "10.1080/21645515.2026.2750748"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43022793",
+        "title": "Quantitative expressions of putative biomarkers for hypocalcemia in buffaloes during the transition period",
+        "source": "Vet Anim Sci",
+        "date": "2026-10-30",
+        "authors": "Kour S, Sharma N, Kour S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43022793/",
+        "doi": "10.1016/j.vas.2026.100924"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42966286",
+        "title": "Fungal biofilm-associated infections in immunocompromised African populations: A narrative review of Candidozyma auris emergence, antifungal resistance mechanisms, and laboratory detection algorithms",
+        "source": "Diagn Microbiol Infect Dis",
+        "date": "2026-10-25",
+        "authors": "Ukolobi O, Jacob JN, Akpo MO et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42966286/",
+        "doi": "10.1016/j.diagmicrobio.2026.117711"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43022461",
+        "title": "Three decades of coronary intravascular ultrasound and optical coherence tomography: A structured narrative review of published bibliometric evidence and trial-driven research phases",
+        "source": "Am Heart J Plus",
+        "date": "2026-10-23",
+        "authors": "Raza SN",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43022461/",
+        "doi": "10.1016/j.ahjo.2026.100991"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42997638",
+        "title": "Unmasking the burden and risk factors of leptospirosis in low- and middle-income countries: a systematic review and meta-analysis",
+        "source": "One Health",
+        "date": "2026-10-23",
+        "authors": "Pradhan R, Ghosal S, Ghosal J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42997638/",
+        "doi": "10.1016/j.onehlt.2026.101632"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42999697",
+        "title": "Association between knee osteoarthritis and reproductive factors in Indian females: A case-control study",
+        "source": "J Clin Orthop Trauma",
+        "date": "2026-10-21",
+        "authors": "Das L, Sharma PK, Singh G et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42999697/",
+        "doi": "10.1016/j.jcot.2026.103644"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42925659",
+        "title": "Evaluation of Ceftriaxone-Sulbactam-EDTA against Carbapenem-resistant Enterobacterales and non-fermenters: correlating in vitro susceptibility with molecular detection of carbapenemase genes by Xpert Carba-R",
+        "source": "Diagn Microbiol Infect Dis",
+        "date": "2026-10-20",
+        "authors": "Kulkarni S, Gupta A, Patil NP et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42925659/",
+        "doi": "10.1016/j.diagmicrobio.2026.117702"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42858678",
+        "title": "Maternal and neonatal outcomes in The Gambia, 2022-2024: prospective pregnancy surveillance to strengthen maternal immunization safety monitoring",
+        "source": "Vaccine",
+        "date": "2026-10-09",
+        "authors": "Okomo U, Longley AT, Nkereuwem O et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42858678/",
+        "doi": "10.1016/j.vaccine.2026.129235"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42977434",
+        "title": "Integrating bacteriophage-mediated gene mobility into microbiological risk assessment: A framework for food safety",
+        "source": "Food Res Int",
+        "date": "2026-10-07",
+        "authors": "Padder SA, Khan BA, Manzoor N et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42977434/",
+        "doi": "10.1016/j.foodres.2026.120972"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42838146",
+        "title": "Early outcomes of the Octapro balloon-expandable transcatheter heart valve in an unrestricted cohort of patients with aortic valve stenosis: the MyPro registry",
+        "source": "Int J Cardiol",
+        "date": "2026-10-05",
+        "authors": "Ielasi A, Moscarella E, Verček G et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42838146/",
+        "doi": "10.1016/j.ijcard.2026.134967"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42801893",
+        "title": "CXR-LT 2026 challenge: Multi-center long-tailed and zero shot chest X-ray classification",
+        "source": "Med Image Anal",
+        "date": "2026-09-23",
+        "authors": "Dong H, Lin Y, Zhou P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42801893/",
+        "doi": "10.1016/j.media.2026.104340"
+      }
+    ],
+    "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT07931547",
+        "title": "A Research Study Investigating How Well Zenagamtide Lowers Blood Sugar and Body Weight Compared to Placebo in People With Type 2 Diabetes and Chronic Kidney Disease Treated With Once Daily Basal Insulin Alone or in Combination With Metformin, SGLT2i, or Both",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Type 2 Diabetes, Chronic Kidney Disease",
+        "intervention": "Placebo, Zenagamtide",
+        "url": "https://clinicaltrials.gov/study/NCT07931547"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07899307",
+        "title": "Metformin in Acute Ischemic Stroke",
+        "source": "All India Institute of Medical Sciences",
+        "date": "2026-11-01",
+        "phase": "Phase 3",
+        "conditions": "Acute Ischemic Stroke",
+        "intervention": "Placebo, Metfomin",
+        "url": "https://clinicaltrials.gov/study/NCT07899307"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07838155",
+        "title": "A Study of Donanemab (LY3002813) in Participants With Early Symptomatic Alzheimer's Disease",
+        "source": "Eli Lilly and Company",
+        "date": "2026-11-01",
+        "phase": "Phase 4",
+        "conditions": "Alzheimer Disease",
+        "intervention": "Donanemab",
+        "url": "https://clinicaltrials.gov/study/NCT07838155"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07825259",
+        "title": "A Study of Itraconazole and Posaconazole for Chronic Pulmonary Aspergillosis",
+        "source": "Post Graduate Institute of Medical Education and Research, Chandigarh",
+        "date": "2026-11-01",
+        "phase": "Phase 3",
+        "conditions": "Chronic Pulmonary Aspergillosis",
+        "intervention": "Posaconazole Delayed Release Oral Tablet, Itraconazole (ITZ)",
+        "url": "https://clinicaltrials.gov/study/NCT07825259"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07595042",
+        "title": "A Trial of Stratified Patient-Centered Treatment Regimens for Active TB (SPECTRA-TB)",
+        "source": "National Institute of Allergy and Infectious Diseases (NIAID)",
+        "date": "2026-10-30",
+        "phase": "Phase 2",
+        "conditions": "Tuberculosis",
+        "intervention": "Isoniazid, Rifampin",
+        "url": "https://clinicaltrials.gov/study/NCT07595042"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07907120",
+        "title": "Cost-Effectiveness of Upfront Supplemental Anaesthesia in Symptomatic Irreversible Pulpitis",
+        "source": "Jamia Millia Islamia",
+        "date": "2026-10-30",
+        "phase": "Phase 4",
+        "conditions": "Irreversible Pulpitis, Anesthesia, Local",
+        "intervention": "Inferior Alveolar Nerve Block With 2% Lidocaine With 1:80,000 Adrenaline, Upfront Buccal Infiltration With 4% Articaine With 1:100,000 Adrenaline",
+        "url": "https://clinicaltrials.gov/study/NCT07907120"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07885891",
+        "title": "Cefepime-Zidebactam Versus Ceftazidime-Avibactam With or Without Colistin for Hospital-Acquired or Ventilator-Associated Bacterial Pneumonia",
+        "source": "Wockhardt",
+        "date": "2026-10-28",
+        "phase": "Phase 3",
+        "conditions": "Hospital Acquired Bacterial Pneumonia (HABP), Ventilator Associated Bacterial Pneumonia (VABP)",
+        "intervention": "Cefepime-Zidebactam, Ceftazidime-avibactam with or without Colistin",
+        "url": "https://clinicaltrials.gov/study/NCT07885891"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07861100",
+        "title": "A Research Study to Look at How Well Zenagamtide Works Compared to Placebo in People With Established Atherosclerotic Cardiovascular Disease and Either Overweight or Obesity",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-10-26",
+        "phase": "Phase 3",
+        "conditions": "Cardiovascular Risk, Obesity",
+        "intervention": "Zenagamtide, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07861100"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07829653",
+        "title": "A Study to Confirm if Fezolinetant Helps to Reduce Hot Flashes in Indian Women Going Through Menopause",
+        "source": "Astellas Pharma Inc",
+        "date": "2026-10-23",
+        "phase": "Phase 3",
+        "conditions": "Hot Flashes",
+        "intervention": "Fezolinetant",
+        "url": "https://clinicaltrials.gov/study/NCT07829653"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07830732",
+        "title": "A Research Study Investigating Denecimig (Mim8) in Adults With Acquired Haemophilia A",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-10-16",
+        "phase": "Phase 3",
+        "conditions": "Haemophilia A",
+        "intervention": "Denecimig",
+        "url": "https://clinicaltrials.gov/study/NCT07830732"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07821944",
+        "title": "A Clinical Study of Enlicitide (MK-0616) in Adults With Hyperlipidemia in India (MK-0616-038)",
+        "source": "Merck Sharp & Dohme LLC",
+        "date": "2026-10-15",
+        "phase": "Phase 3",
+        "conditions": "Hyperlipidemia, Hypercholesterolemia",
+        "intervention": "Enlicitide Decanoate, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07821944"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07600723",
+        "title": "A Study of Sotatercept (MK-7962) in People With Pulmonary Arterial Hypertension (PAH) in India (MK-7962-037)",
+        "source": "Merck Sharp & Dohme LLC",
+        "date": "2026-10-08",
+        "phase": "Phase 4",
+        "conditions": "Pulmonary Arterial Hypertension",
+        "intervention": "Sotatercept, Background PAH Therapy",
+        "url": "https://clinicaltrials.gov/study/NCT07600723"
+      }
+    ]
+  }
+}

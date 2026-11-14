@@ -1,0 +1,516 @@
+{
+  "updatedAt": "2026-11-14T13:19:54.408Z",
+  "country": "Philippines",
+  "window": {
+    "from": "2025-11-14",
+    "to": "2026-11-14"
+  },
+  "totals": {
+    "surgery": 74,
+    "drug": 17,
+    "disease": 394,
+    "trials": 17
+  },
+  "sections": {
+    "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43007578",
+        "title": "Robotic and open repair of complex ventral and incisional hernias with the Tissue Approximating System (TAS): a pilot feasibility study",
+        "source": "J Robot Surg",
+        "date": "2026-11-09",
+        "authors": "Sawyer MAJ, Zucchini N, Koutentakis M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43007578/",
+        "doi": "10.1007/s11701-026-04161-3"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42777751",
+        "title": "Pre-hospital time and risk of perforation in patients with acute appendicitis in 112 countries (AlliGatOr): an international, prospective, observational cohort study",
+        "source": "Lancet Glob Health",
+        "date": "2026-09-22",
+        "authors": "Anyomih TTK, Aregawi AB, Calvache JA et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42777751/",
+        "doi": "10.1016/j.langlo.2026.104015"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42771177",
+        "title": "Learning curve for second-stage laparoscopic Fowler-Stephens orchidopexy: an exploratory CUSUM analysis with prospective ultrasonographic follow-up",
+        "source": "World J Urol",
+        "date": "2026-09-21",
+        "authors": "Kwok PPL, Wong M, Ming J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42771177/",
+        "doi": "10.1007/s00345-026-06773-8"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42785009",
+        "title": "Plasma ATR-FTIR spectroscopy combined with machine learning for nasopharyngeal carcinoma classification",
+        "source": "Spectrochim Acta A Mol Biomol Spectrosc",
+        "date": "2026-09-20",
+        "authors": "Tomas RC, Suzuki Y, Magno GM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42785009/",
+        "doi": "10.1016/j.saa.2026.128835"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42766181",
+        "title": "Technical feasibility and early outcomes of single-port robotic mediastinal mass resection through subxiphoid, intercostal, and subcostal approaches",
+        "source": "J Robot Surg",
+        "date": "2026-09-20",
+        "authors": "Yang YH, Dung NM, Jang DS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42766181/",
+        "doi": "10.1007/s11701-026-03833-4"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42751079",
+        "title": "A decade of survival in recurrent nonfunctioning oncocytic adrenocortical carcinoma in a young Filipina",
+        "source": "JCEM Case Rep",
+        "date": "2026-09-15",
+        "authors": "Jacobo RJ, de Leon QF, Lim PW et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42751079/",
+        "doi": "10.1210/jcemcr/luag254"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42717290",
+        "title": "International Travel for Organ Transplantation: 2024 Multinational Survey of Routes, Organs, and Donor Types",
+        "source": "Transplantation",
+        "date": "2026-09-09",
+        "authors": "Martin DE, Jiang Y, Lundgren A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42717290/",
+        "doi": "10.1097/TP.0000000000005893"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42722392",
+        "title": "Treatment of Mantle Cell Lymphoma in Asia: Updated Consensus from the Asian Lymphoma Study Group",
+        "source": "Cancer Res Treat",
+        "date": "2026-09-08",
+        "authors": "Chan JY, Lim ST, Ong CK et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42722392/",
+        "doi": "10.4143/crt.2026.0738"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42714791",
+        "title": "Low-pressure pneumoperitoneum in robot-assisted radical prostatectomy: a systematic review, meta-analysis and trial sequential analysis of randomized controlled trials",
+        "source": "Int Urol Nephrol",
+        "date": "2026-09-08",
+        "authors": "Ramirez-Paliza Y, Kasimieh O, Sanha V et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42714791/",
+        "doi": "10.1007/s11255-026-05383-y"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42750301",
+        "title": "Current status of fertility preservation for borderline ovarian tumor in Asian regions: results from ASGO-special task force for fertility preservation; part I. Fertility-sparing treatment for borderline ovarian tumor",
+        "source": "J Gynecol Oncol",
+        "date": "2026-09-06",
+        "authors": "Kuji S, Muhammad S, Kumari S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42750301/",
+        "doi": "10.3802/jgo.2027.38.e24"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42697451",
+        "title": "Preoperative Medial Proximal Tibial Angle of Less Than 84° Does Not Compromise Two-Year Clinical Outcomes After Unrestricted Kinematic Alignment Total Knee Arthroplasty: A Propensity Score-Matched Study",
+        "source": "J Arthroplasty",
+        "date": "2026-09-03",
+        "authors": "Ng Y, Lim WSR, Lam LZL et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42697451/",
+        "doi": "10.1016/j.arth.2026.08.061"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42707771",
+        "title": "Early Secondary Graft Failure After Complete Donor Chimerism with Autologous Recovery Following Haploidentical HSCT for Relapsed B-ALL",
+        "source": "Blood Cell Ther",
+        "date": "2026-08-24",
+        "authors": "Amadore RA Jr, Bonifacio LB",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42707771/",
+        "doi": "10.31547/bct-2026-026"
+      }
+    ],
+    "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 42906503",
+        "title": "Phase 2 trial to evaluate the safety and immunogenicity of a 25-valent pneumococcal conjugate vaccine (IVT-PCV25) in infants",
+        "source": "Vaccine",
+        "date": "2026-10-20",
+        "authors": "Bravo L, Bermal N, Alberto E et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42906503/",
+        "doi": "10.1016/j.vaccine.2026.129268"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42825942",
+        "title": "Therapeutic value of continuous subcutaneous insulin infusion with electrolyte supplementation for pediatric diabetic ketoacidosis",
+        "source": "Eur J Pediatr",
+        "date": "2026-10-01",
+        "authors": "Li W, Zhang H, Li Q et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42825942/",
+        "doi": "10.1007/s00431-026-07435-y"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42670965",
+        "title": "Milvexian with Antiplatelet Therapy after Acute Coronary Syndrome Event",
+        "source": "N Engl J Med",
+        "date": "2026-08-28",
+        "authors": "Gibson CM, Steg PG, Bahit MC et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42670965/",
+        "doi": "10.1056/NEJMoa2608717"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42497670",
+        "title": "Characterization of vaccine viremia, attenuation reversion, and safety: Combined results from the TAK-003 dengue vaccine clinical development program",
+        "source": "Vaccine",
+        "date": "2026-07-23",
+        "authors": "Tricou V, Saez-Llorens X, Kosalaraksa P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42497670/",
+        "doi": "10.1016/j.vaccine.2026.128917"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41410387",
+        "title": "Long-term safety and efficacy of voclosporin in Asian patients with lupus nephritis: A post hoc analysis of the AURORA 2 trial",
+        "source": "Mod Rheumatol",
+        "date": "2026-06-29",
+        "authors": "Atsumi T, Navarra S, Truman M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41410387/",
+        "doi": "10.1093/mr/roaf121"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42302249",
+        "title": "Web-Based Gamified Auditory-Cognitive Dual-Task Training for Older Adults With Age-Related Hearing Loss: Pilot Randomized Controlled Trial",
+        "source": "JMIR Aging",
+        "date": "2026-06-15",
+        "authors": "Zhao IY, Leung AYM, Li C et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42302249/",
+        "doi": "10.2196/84083"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42225690",
+        "title": "Efficacy and safety of photothermal biomodulated platelet-rich plasma versus standard platelet-rich plasma for facial rejuvenation: a prospective split-face randomized study",
+        "source": "Sci Rep",
+        "date": "2026-05-31",
+        "authors": "Wanitphakdeedecha R, Ollero MPGCR, Bhorntarakcharoen W et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42225690/",
+        "doi": "10.1038/s41598-026-54310-9"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42217458",
+        "title": "Tafasitamab plus lenalidomide and R-CHOP versus R-CHOP for first-line treatment of patients with high-risk diffuse large B-cell lymphoma (frontMIND): a global, phase 3, randomised, double-blind, placebo-controlled trial",
+        "source": "Lancet",
+        "date": "2026-05-29",
+        "authors": "Lenz G, Trněný M, Burke JM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42217458/",
+        "doi": "10.1016/S0140-6736(26)00866-4"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41962984",
+        "title": "Efficacy, immunogenicity, and safety of a cell culture-derived quadrivalent influenza vaccine compared with a non-influenza vaccine in infants and children across five influenza seasons: a phase 3, multinational, observer-blind, randomised controlled trial",
+        "source": "Lancet Child Adolesc Health",
+        "date": "2026-04-30",
+        "authors": "Põder A, Ong-Lim AL, Rivera Medina DM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41962984/",
+        "doi": "10.1016/S2352-4642(26)00009-X"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41895156",
+        "title": "Immunogenicity and safety of MF59-adjuvanted H5N1 pandemic influenza vaccine in healthy infants and children: a phase 2 randomized, observer-blind, multicenter study",
+        "source": "Vaccine",
+        "date": "2026-03-25",
+        "authors": "Põder A, Trinidad-Aseron M, Van Twuijver E et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41895156/",
+        "doi": "10.1016/j.vaccine.2026.128504"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 39879629",
+        "title": "Efficacy, Immunogenicity, and Safety of an Investigational Maternal Respiratory Syncytial Virus Prefusion F Protein-Based Vaccine",
+        "source": "Clin Infect Dis",
+        "date": "2026-02-08",
+        "authors": "Banooni P, Gonik B, Epalza C et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39879629/",
+        "doi": "10.1093/cid/ciaf033"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41130363",
+        "title": "Neoadjuvant trastuzumab deruxtecan alone or followed by paclitaxel, trastuzumab, and pertuzumab for high-risk HER2-positive early breast cancer (DESTINY-Breast11): a randomised, open-label, multicentre, phase III trial",
+        "source": "Ann Oncol",
+        "date": "2026-01-31",
+        "authors": "Harbeck N, Modi S, Pusztai L et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41130363/",
+        "doi": "10.1016/j.annonc.2025.10.019"
+      }
+    ],
+    "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43023415",
+        "title": "Estimated Usual Nutrient Intakes and Nutrient Inadequacy Among Schoolchildren in Rural Communities in the Philippines",
+        "source": "Food Nutr Bull",
+        "date": "2026-11-12",
+        "authors": "Chung YH, Calayo-Garvilles G, Reario MFD et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43023415/",
+        "doi": "10.1177/03795721261496727"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43012372",
+        "title": "Regimens of vitamin D supplementation for women during pregnancy",
+        "source": "Cochrane Database Syst Rev",
+        "date": "2026-11-10",
+        "authors": "Trak-Fellermeier MA, Palma Molina XE, Huey SL et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43012372/",
+        "doi": "10.1002/14651858.CD013446.pub2"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43009689",
+        "title": "Real-World Treatment Patterns and Unmet Needs of Patients with Locally Advanced Cervical Cancer in Mainland China",
+        "source": "Oncol Ther",
+        "date": "2026-11-09",
+        "authors": "Peng P, Goh JC, Domingo EJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43009689/",
+        "doi": "10.1007/s40487-026-00472-5"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42334936",
+        "title": "Germinate-to-Exterminate: Precrop Stimulation of Verticillium dahliae Microsclerotia Germination by Root Exudates as a Novel Strategy for Sustainable Control of Verticillium Wilt",
+        "source": "Plant Dis",
+        "date": "2026-11-06",
+        "authors": "Anand U, Ur Rehman F, Amponsah J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42334936/",
+        "doi": "10.1094/PDIS-01-26-0218-FE"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42985640",
+        "title": "Symptomatic Vertebral Artery Loop Formations: A Scoping Review of Epidemiology, Pathogenesis, and Treatment",
+        "source": "Neurosurg Pract",
+        "date": "2026-11-04",
+        "authors": "Tiangco DAL, Sih IMY",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42985640/",
+        "doi": "10.1227/neuprac.0000000000000322"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42841728",
+        "title": "Chronic inflammation and multiple dimensions of aging among women in the Philippines",
+        "source": "J Gerontol A Biol Sci Med Sci",
+        "date": "2026-11-04",
+        "authors": "McDade TW, Carrera S, Ryan CP et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42841728/",
+        "doi": "10.1093/gerona/glag246"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42980088",
+        "title": "Childhood and Adolescent Cancer Burden in 2024 and Projections to 2050",
+        "source": "Pediatr Blood Cancer",
+        "date": "2026-11-03",
+        "authors": "Tawfiles D, Jain U, Lam CG et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42980088/",
+        "doi": "10.1002/1545-5017.70744"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42974681",
+        "title": "Epidemiological Characteristics and Clinical Outcomes of Vaccine-associated Urticaria: A Retrospective Cross-sectional Analysis of the Vaccine Adverse Event Reporting System Database (1990-2025)",
+        "source": "Ann Afr Med",
+        "date": "2026-11-02",
+        "authors": "Chandrashekar C, Peachiappan PA, Jandwa H et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42974681/",
+        "doi": "10.4103/aam.aam_939_26"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42969862",
+        "title": "Burden and temporal trends of four major road traffic injuries in Asia-Pacific, 1990-2023: A GBD-based study",
+        "source": "Traffic Inj Prev",
+        "date": "2026-11-01",
+        "authors": "Xiang Y, Huang W, Palitnonkiat V et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42969862/",
+        "doi": "10.1080/15389588.2026.2750857"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42814432",
+        "title": "Global, Regional, and National Burden of Heart Failure, 1990-2023: A Systematic Analysis for the Global Burden of Disease Study 2023",
+        "source": "JAMA Cardiol",
+        "date": "2026-10-31",
+        "authors": "GBD 2023 Heart Failure Collaborators, Johnson CO, Abbasi M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42814432/",
+        "doi": "10.1001/jamacardio.2026.4068"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42970911",
+        "title": "Artificial intelligence-enabled interventions for smoking cessation: a systematic review and meta-analysis of randomised controlled trials",
+        "source": "Int J Med Inform",
+        "date": "2026-10-28",
+        "authors": "Adebisi YA, Alhur AA, Ogunkola IO et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42970911/",
+        "doi": "10.1016/j.ijmedinf.2026.106788"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42843514",
+        "title": "Complications of refractive lens exchange",
+        "source": "Arch Soc Esp Oftalmol (Engl Ed)",
+        "date": "2026-10-06",
+        "authors": "Medalle RS 2nd, Salmoral Lorenzo-Arroyo A, Alió Del Barrio JL",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42843514/",
+        "doi": "10.1016/j.oftale.2026.502690"
+      }
+    ],
+    "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT06800248",
+        "title": "Efficacy and Safety of Emodepside in Participants With Soil-transmitted Helminth Infections",
+        "source": "Swiss Tropical & Public Health Institute",
+        "date": "2026-11-06",
+        "phase": "Phase 3",
+        "conditions": "Trichuris Trichiura; Infection, Hookworm Infection, Ascaris Lumbricoides Infection",
+        "intervention": "emodepside (BAY 44-4400), Mebendazole 100 MG",
+        "url": "https://clinicaltrials.gov/study/NCT06800248"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07595042",
+        "title": "A Trial of Stratified Patient-Centered Treatment Regimens for Active TB (SPECTRA-TB)",
+        "source": "National Institute of Allergy and Infectious Diseases (NIAID)",
+        "date": "2026-10-30",
+        "phase": "Phase 2",
+        "conditions": "Tuberculosis",
+        "intervention": "Isoniazid, Rifampin",
+        "url": "https://clinicaltrials.gov/study/NCT07595042"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07172659",
+        "title": "Efficacy and Safety Study of Dovramilast in People With Leprosy Type 2 Reaction",
+        "source": "Medicines Development for Global Health",
+        "date": "2026-10-12",
+        "phase": "Phase 2",
+        "conditions": "Erythema Nodosum Leprosum",
+        "intervention": "Dovramilast, Prednisolone",
+        "url": "https://clinicaltrials.gov/study/NCT07172659"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07543458",
+        "title": "Therapeutics for Moderate and Severe Dengue",
+        "source": "Oxford University Clinical Research Unit, Vietnam",
+        "date": "2026-10-01",
+        "phase": "Phase 3",
+        "conditions": "Dengue, Severe Dengue, Mosquito-Borne Diseases",
+        "intervention": "Placebo, Dexamethasone",
+        "url": "https://clinicaltrials.gov/study/NCT07543458"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07851025",
+        "title": "Torvutatug Samrotecan Plus Bevacizumab as First-line Maintenance in Non-Homologous Recombination Deficiency (Non-HRD) Positive Advanced Epithelial Ovarian Cancer",
+        "source": "AstraZeneca",
+        "date": "2026-09-16",
+        "phase": "Phase 3",
+        "conditions": "Epithelial Ovarian Cancer",
+        "intervention": "Torvutatug samrotecan, Bevacizumab",
+        "url": "https://clinicaltrials.gov/study/NCT07851025"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07624305",
+        "title": "A Phase III Study to Evaluate the Effect of Balcinrenone/Dapagliflozin in Patients With CKD Stage 3b and 4 (BalanceD-CKD)",
+        "source": "AstraZeneca",
+        "date": "2026-09-01",
+        "phase": "Phase 3",
+        "conditions": "Renal Insufficiency, Chronic",
+        "intervention": "Balcinrenone/dapagliflozin, Dapagliflozin",
+        "url": "https://clinicaltrials.gov/study/NCT07624305"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07691970",
+        "title": "Rollover Study for Participants Who Have Completed a Previous Clinical Study With Anifrolumab (Saphnelo) and Clinically Benefited From Continued Treatment",
+        "source": "AstraZeneca",
+        "date": "2026-08-31",
+        "phase": "Phase 3",
+        "conditions": "Systemic Sclerosis Cutaneous Lupus E Myopathies Systemic Lupus Erythematosus",
+        "intervention": "Anifrolumab, Anifrolumab",
+        "url": "https://clinicaltrials.gov/study/NCT07691970"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07753993",
+        "title": "A Study to Investigate Outcomes With Elecoglipron Compared With Placebo in Adult Participants With Chronic Kidney Disease.",
+        "source": "AstraZeneca",
+        "date": "2026-08-21",
+        "phase": "Phase 3",
+        "conditions": "Chronic Kidney Disease",
+        "intervention": "Elecoglipron, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07753993"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07775404",
+        "title": "A Study to Investigate the Efficacy and Safety of Elecoglipron in Asian Participants With Obesity or Overweight With or Without Type 2 Diabetes Mellitus",
+        "source": "AstraZeneca",
+        "date": "2026-08-21",
+        "phase": "Phase 3",
+        "conditions": "Obesity, Overweight",
+        "intervention": "Elecoglipron, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07775404"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07562347",
+        "title": "Clinical Experience and Real-world Safety and Effectiveness of Envafolimab: Patient Access Program",
+        "source": "IR INNOVATE RESEARCH PRIVATE LIMITED",
+        "date": "2026-08-07",
+        "phase": "",
+        "conditions": "Advanced Solid Tumor",
+        "intervention": "Envafolimab",
+        "url": "https://clinicaltrials.gov/study/NCT07562347"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07497087",
+        "title": "A Study to Test Whether Nerandomilast Helps People With Systemic Sclerosis",
+        "source": "Boehringer Ingelheim",
+        "date": "2026-07-27",
+        "phase": "Phase 3",
+        "conditions": "Systemic Sclerosis",
+        "intervention": "Placebo matching nerandomilast formulation 1, Placebo matching nerandomilast formulation 2",
+        "url": "https://clinicaltrials.gov/study/NCT07497087"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT06705478",
+        "title": "Pramipexole Versus Escitalopram to Treat Major Depressive Disorder (MDD) and Comorbid MDD With Mild Neurocognitive Disorder (MND) in Persons With HIV",
+        "source": "National Institute of Allergy and Infectious Diseases (NIAID)",
+        "date": "2026-05-17",
+        "phase": "Phase 2",
+        "conditions": "Major Depressive Disorder, Mild Neurocognitive Disorder, HIV",
+        "intervention": "Pramipexole ER, Escitalopram",
+        "url": "https://clinicaltrials.gov/study/NCT06705478"
+      }
+    ]
+  }
+}

@@ -17,6 +17,7 @@ export const siteNav: SiteNavItem[] = [
   { href: '/events/', label: 'AI 교육·행사', desc: '의료 AI 교육과정·행사 소식' },
   { href: '/notes/', label: '강의노트', desc: '강의를 글로 풀어 정리한 노트' },
   { href: '/youtube/', label: '추천 영상', desc: '의료 AI를 쉽게 보여 주는 강의 영상' },
+  { href: '/research/', label: '의료 기술·논문', desc: '한국 의료진의 최근 1년 수술 술기·신약·질환 논문과 임상시험' },
   { href: '/tips/', label: '실무 팁', desc: '오늘 바로 써 보는 AI 활용 요령' },
   { href: '/guide/', label: '입문 가이드', desc: '처음 시작하는 분을 위한 의료 AI 안내' },
   { href: '/series/', label: '연재 시리즈', desc: '주제별로 이어 읽는 글 묶음' },

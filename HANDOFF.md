@@ -796,6 +796,15 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - 필리핀 의료·AI 영상은 적어 `RECENT_DAYS`를 3~4년으로, 조회수 하한을 50으로 낮췄다. 채널은 허용 목록(방송·보건 기관)만.
 - **자동 발행 예외(CLAUDE.md)에 필리핀어판은 없다.** 오너가 확대 지시하기 전엔 draft + PR.
 
+## 5-20. 전 언어판 '의료 기술·논문' 메뉴 (2026-11-14, 오너 지시: "각 언어판에 메뉴 추가, 해당 국가의 수술 술기·신약·질환 논문을 최근 1년 이내로 크롤링")
+
+9개 판(ko·ja·ru·id·tw·en·in·sg·ph) 모두에 `research` 메뉴·페이지를 더했다(한국어판 `/research/`, 나머지 `/<언어판>/research/`, 9개가 서로 hreflang 상호참조). 데이터는 `src/data/research/<언어판>.json`, 화면 문구는 `src/data/research/strings.ts`(9개 언어), 본문은 `src/components/ResearchView.astro`.
+
+- **수집기** `scripts/fetch-research.mjs`(워크플로 `update-research.yml`, 매주 월 UTC 03:23): PubMed E-utilities로 소속(Affiliation)에 그 나라가 들어간 논문 중 최근 365일을 수술 술기·신약 치료제(1~3상·무작위대조)·질환(전국 코호트·등록·유병률) 3갈래로 각 12건, ClinicalTrials.gov API v2로 그 나라에 시험 장소가 있고 최근 365일 안에 시작한 약물 시험 12건. 제목·저널·날짜·저자·링크만 복사(초록·본문 금지).
+- 함정: PubMed `sortpubdate`는 **인쇄본 호 날짜라 미래(2027-03 등)일 수 있어** 온라인 게재일(`epubdate`) 우선·오늘 이후 제외로 고쳤다. ClinicalTrials.gov의 한국 이름은 `Korea, Republic of`가 아니라 `South Korea`(3건 vs 489건). 아직 시작 안 한 시험(미래 시작일)은 제외.
+- 'standalone' 레이아웃은 hreflang을 내지 않아 상호참조 검수가 실패한다 — 이 페이지들은 standalone을 쓰지 않는다.
+- 소속 검색은 저자 한 명이라도 그 나라면 잡힌다("그 나라 논문" ≠ 전체 연구가 그 나라에서 수행). 화면에 명시했고, 효능·안전성 보증이 아니라는 문구를 넣었다.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

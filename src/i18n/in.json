@@ -22,7 +22,8 @@
     "calendar": "CDSCO calendar",
     "documentsChecklist": "Device checklist",
     "dataChecklist": "Data checklist",
-    "templates": "Templates"
+    "templates": "Templates",
+    "research": "Medical research"
   },
   "footer": {
     "about": "About",

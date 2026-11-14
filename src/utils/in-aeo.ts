@@ -54,7 +54,7 @@ export function legislationMentions(text: string) {
     name: l.name,
     legislationIdentifier: l.id,
     url: l.url,
-    legislationJurisdiction: 'US',
+    legislationJurisdiction: 'IN',
     inLanguage: 'en-IN',
   }));
 }
