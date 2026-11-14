@@ -36,12 +36,12 @@ const QUERIES = [
 
 const AI_SIGNAL =
   /(?<![A-Za-z])AI(?![A-Za-z])|artificial intelligence|machine learning|ChatGPT|generative|large language model|\bLLMs?\b|chatbot|algorithm|clinical decision support|health IT|interoperab/i;
-const MEDICAL = /hospital|health ?care|clinic|patient|physician|doctor|nurse|nursing|medical|medicine|ICMR|CDSCO|AIIMS|ABDM|Ayushman/i;
+const MEDICAL = /hospital|health ?care|clinic|patient|physician|doctor|nurse|nursing|medical|medicine|ICMR|CDSCO|AIIMS|\bABDM\b|Ayushman/i;
 const CLICKBAIT =
   /shocking|you won'?t believe|scandal|exposed|secret|\bad\b|sponsored|#shorts|discount|will die|deadly|[%％]|[0-9]+\s*x(?![a-z])|miracle|cure[sd]?\b/i; // titles with effect figures (x% / Nx) are excluded too (they can read as a guarantee of results)
 // only public agencies, public broadcasters, major news services and hospital associations
 const CHANNEL_ALLOW =
-  /Ministry of Health|MoHFW|ICMR|Indian Council of Medical Research|CDSCO|NITI|MeitY|Ministry of Electronics|AIIMS|DD News|Doordarshan|Prasar Bharati|WHO|World Health Organization|Press Information Bureau|PIB|Rajya Sabha|Sansad|NDTV|The Hindu|India Today|Hindustan Times|WION/i;
+  /Ministry of Health|\bMoHFW\b|\bICMR\b|Indian Council of Medical Research|\bCDSCO\b|\bNITI\b|\bMeitY\b|Ministry of Electronics|\bAIIMS\b|DD News|Doordarshan|Prasar Bharati|\bWHO\b|World Health Organization|Press Information Bureau|\bPIB\b|Rajya Sabha|Sansad|\bNDTV\b|The Hindu|India Today|Hindustan Times|\bWION\b/i;
 
 const channelOk = (ch) => CHANNEL_ALLOW.test(ch || '');
 const okTitle = (t) => AI_SIGNAL.test(t) && MEDICAL.test(t) && !CLICKBAIT.test(t) && [...t].length <= 110;
@@ -72,7 +72,7 @@ async function fetchRetry(url, opts = {}, tries = 3) {
 
 // "3 days ago" / "2mo ago" / "1y ago" / "5 hours ago" / "3w ago" (YouTube shows both long and abbreviated forms with hl=en)
 function daysAgo(pub) {
-  const m = /(\d+)\s*(minutes?|min|hours?|hr|h|days?|d|weeks?|w|months?|mo|years?|yr|y)/i.exec(pub || '');
+  const m = /(\d+)\s*(minutes?|min|hours?|hr|h|days?|d|weeks?|w|months?|mo|years?|yr|y)\b/i.exec(pub || '');
   if (!m) return 99999;
   const n = Number(m[1]);
   const u = m[2].toLowerCase();

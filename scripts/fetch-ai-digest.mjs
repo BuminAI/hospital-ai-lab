@@ -105,7 +105,7 @@ const CONFIG = {
     ai: /(?<![A-Za-z])AI(?![A-Za-z])|artificial\s+intelligence|machine\s+learning|deep\s+learning|large\s+language\s+model|\bLLMs?\b|generative|chatbot|ChatGPT|OpenAI|Anthropic|Gemini|Copilot|neural\s+network/i,
     noise:
       /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|nfl|nba/i,
-    pro: /MOH|HSA|PDPC|IMDA|Synapxe|CSA|law|legislat\w*|regulat\w*|congress|senate|white\s+house|\bFDA\b|\bFTC\b|\bHHS\b|\bNIST\b|policy|privacy|data\s+protection|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|research|study|benchmark|safety|audit|governance|compliance|procurement|government|federal|state\s+attorney/i,
+    pro: /\bMOH\b|\bHSA\b|\bPDPC\b|\bIMDA\b|Synapxe|\bCSA\b|law|legislat\w*|regulat\w*|congress|senate|white\s+house|\bFDA\b|\bFTC\b|\bHHS\b|\bNIST\b|policy|privacy|data\s+protection|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|research|study|benchmark|safety|audit|governance|compliance|procurement|government|federal|state\s+attorney/i,
   },
   id: {
     out: 'src/data/id/ai-digest.json',

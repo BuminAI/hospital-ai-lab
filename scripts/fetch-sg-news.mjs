@@ -18,7 +18,7 @@ const FEEDS = [
   { source: 'The Straits Times', url: 'https://www.straitstimes.com/news/singapore/rss.xml' },
   { source: 'CNA', url: 'https://www.channelnewsasia.com/rssfeeds/8395986' },
 ];
-const HEALTH = /health|hospital|clinic|patient|medical|nurse|nursing|doctor|MOH|HSA|Synapxe|SingHealth|NUHS|NHG|polyclinic|pharmac|disease|cancer|care/i;
+const HEALTH = /health|hospital|clinic|patient|medical|nurse|nursing|doctor|MOH\b|HSA\b|Synapxe|SingHealth|NUHS|NHG|polyclinic|pharmac|disease|cancer|care\b/i;
 
 // "AI" is matched case-sensitively as a whole word so that "said", "air" etc. do not match.
 const AI_WORD = /\bAI\b|\bA\.I\.|artificial intelligence|machine learning|generative|large language model|\bLLMs?\b|chatbot|agentic/i;

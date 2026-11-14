@@ -40,8 +40,8 @@ const LAWS: Law[] = [
 const TOPICS: [string, RegExp][] = [
   ['Personal data protection in healthcare', /PDPA|PDPC|personal data|consent/i],
   ['Data processors and AI vendors', /data processor|vendor|processor/i],
-  ['Electronic health records', /EHR|electronic health record|medical record|hospital information system/i],
-  ['Artificial intelligence in hospitals', /AI|artificial intelligence|machine learning|large language model/i],
+  ['Electronic health records', /\bEHR\b|electronic health record|medical record|hospital information system/i],
+  ['Artificial intelligence in hospitals', /\bAI\b|artificial intelligence|machine learning|large language model/i],
   ['Regulation of medical device software in Singapore', /HSA|medical device|SaMD|software medical device|GL-04|GL-07/i],
   ['Health information security', /cyber|ransomware|security safeguards|breach|phishing/i],
   ['Ethics of AI in healthcare', /AIHGle|ethic|fairness|bias|accountability/i],

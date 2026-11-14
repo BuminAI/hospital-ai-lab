@@ -70,7 +70,7 @@ async function fetchRetry(url, opts = {}, tries = 3) {
 
 // "3 days ago" / "2mo ago" / "1y ago" / "5 hours ago" / "3w ago" (YouTube shows both long and abbreviated forms with hl=en)
 function daysAgo(pub) {
-  const m = /(\d+)\s*(minutes?|min|hours?|hr|h|days?|d|weeks?|w|months?|mo|years?|yr|y)/i.exec(pub || '');
+  const m = /(\d+)\s*(minutes?|min|hours?|hr|h|days?|d|weeks?|w|months?|mo|years?|yr|y)\b/i.exec(pub || '');
   if (!m) return 99999;
   const n = Number(m[1]);
   const u = m[2].toLowerCase();
