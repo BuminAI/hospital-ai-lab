@@ -1,0 +1,65 @@
+---
+// HSA / MOH guidance calendar (2026-11-14)
+// New documents are collected from HSA's medical-device guidance-documents page (scripts/fetch-sg-gov.mjs): those whose title is about software, AI, telehealth or cybersecurity. The Ministry of Health's AI in Healthcare Guidelines are kept by hand.
+// ⚠️ These are NEW GUIDANCE DOCUMENTS from HSA and MOH, not grant programmes. Date = the date the document or its revision carries, not a deadline.
+import '../../styles/sg-guide.css';
+import SgLayout from '../../layouts/SgLayout.astro';
+import SgGuideFoot from '../../components/SgGuideFoot.astro';
+import notices from '../../data/sg/gov-notices.json';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('en-SG', { timeZone: 'Asia/Singapore', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = notices.items.slice(0, 20);
+
+const title = 'HSA and MOH calendar: new guidance on medical device software and AI';
+const description =
+'New HSA and MOH guidance documents on software medical devices, AI, telehealth and cybersecurity, with the date each carries. Updated automatically.';
+const sources = [{ label: 'HSA — Medical devices guidance documents', url: 'https://www.hsa.gov.sg/medical-devices/guidance-documents' }, { label: 'Ministry of Health — Emerging regulatory policy issues (AIHGle 2.0)', url: 'https://www.moh.gov.sg/others/health-regulation/emerging-regulatory-policy-issues/' }];
+---
+
+<SgLayout title={title} description={description} crumb="Calendar" standalone updated={new Date(notices.updatedAt ?? Date.now())}>
+<h1>HSA and MOH calendar</h1>
+  <p class="tg-lead">
+Which guidance came out recently? New HSA and MOH documents on software medical devices, AI, telehealth and cybersecurity appear here, newest first.
+  </p>
+<p class="tg-meta">Shown: {fmtDay.format(new Date())} · Data updated: {notices.updatedAt ? fmtDay.format(new Date(notices.updatedAt)) : 'not yet'}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+<h2 id="h-notice">Recent documents from HSA and MOH</h2>
+    <div class="tg-box tg-warn">
+The date below is the date the document or its revision carries, <strong>not a compliance deadline</strong>. Read the document for its content, duties and effective date. Only the title, type, date and agency are copied.
+    </div>
+    {
+      recent.length > 0 ? (
+        <ol class="tg-tl">
+          {recent.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+<span class="sr-only">(opens in a new tab)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+<p>No matching documents yet.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+<h2 id="h-ms">Upcoming dates</h2>
+    <p>
+Confirmed upcoming dates are listed in the <a href={withBase('/sg/dx-roadmap/')}>Roadmap</a> together with the milestones that have already passed.
+    </p>
+  </section>
+
+<SgGuideFoot sources={sources} checked="November 6, 2026" />
+</SgLayout>

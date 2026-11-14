@@ -64,10 +64,10 @@ export default defineConfig({
   // ⚠️ prefixDefaultLocale: false 가 핵심이다. 이게 true면 기존 한국어 URL이
   //    전부 /ko/ 아래로 밀려나 지금까지 쌓은 검색 자산이 통째로 날아간다.
   //    한국어는 루트(/about/)에 그대로 두고, 일본어는 /ja/, 러시아어는 /ru/,
-  //    인도네시아어는 /id/, 대만어(정체자)는 /tw/, 영어(미국)는 /en/, 영어(인도)는 /in/ 하위에 새로 만든다.
+  //    인도네시아어는 /id/, 대만어(정체자)는 /tw/, 영어(미국)는 /en/, 영어(인도)는 /in/, 영어(싱가포르)는 /sg/ 하위에 새로 만든다.
   i18n: {
     defaultLocale: 'ko',
-    locales: ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in'],
+    locales: ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg'],
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: false,
@@ -85,6 +85,7 @@ export default defineConfig({
         `${site}/tw/ai-judge/`,
         `${site}/en/ai-judge/`,
         `${site}/in/ai-judge/`,
+        `${site}/sg/ai-judge/`,
       ],
       // 페이지별 실제 수정일을 넣는다(src/utils/git-lastmod.mjs 참고).
       // 빌드 시각을 쓰면 뉴스 수집 배포마다 전 페이지가 "방금 수정됨"이 되어

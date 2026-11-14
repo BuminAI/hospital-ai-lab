@@ -43,6 +43,8 @@ interface Props {
   enPath?: string;
   /** English (India) edition path (added 2026-11-07). */
   inPath?: string;
+  /** 이 페이지의 영어(싱가포르)판 경로(hreflang용). */
+  sgPath?: string;
   /** 이 페이지의 일본어판 경로. 아직 일본어판이 없는 페이지는 넘기지 않는다. */
   jaPath?: string;
   /** 이 페이지의 인도네시아어판 경로(2026-09-05 추가). */
@@ -86,6 +88,7 @@ const {
   koPath = '/',
   enPath,
   inPath,
+  sgPath,
   jaPath,
   idPath,
   twPath,
@@ -129,6 +132,7 @@ const ogImage = Astro.site ? new URL(ogImageRel, Astro.site).href : ogImageRel;
 const koHref = `${siteRoot}${withBase(koPath)}`;
 const enHref = enPath ? `${siteRoot}${withBase(enPath)}` : undefined;
 const inHref = inPath ? `${siteRoot}${withBase(inPath)}` : undefined;
+const sgHref = sgPath ? `${siteRoot}${withBase(sgPath)}` : undefined;
 const jaHref = jaPath ? `${siteRoot}${withBase(jaPath)}` : undefined;
 const idHref = idPath ? `${siteRoot}${withBase(idPath)}` : undefined;
 const twHref = twPath ? `${siteRoot}${withBase(twPath)}` : undefined;
@@ -284,6 +288,7 @@ const year = new Date().getFullYear();
           <link rel="alternate" hreflang="ko" href={koHref} />
           {enHref && <link rel="alternate" hreflang="en" href={enHref} />}
           {inHref && <link rel="alternate" hreflang="en-IN" href={inHref} />}
+          {sgHref && <link rel="alternate" hreflang="en-SG" href={sgHref} />}
           {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
           {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
           <link rel="alternate" hreflang="ru" href={canonical} />
@@ -486,6 +491,9 @@ const year = new Date().getFullYear();
             </li>
             <li>
               <a href={withBase('/in/')} hreflang="en-IN" lang="en-IN">{ru.editions.in}</a>
+            </li>
+            <li>
+              <a href={withBase('/sg/')} hreflang="en-SG" lang="en-SG">{ru.editions.sg}</a>
             </li>
             <li>
               <a href={withBase('/ja/')} hreflang="ja" lang="ja">{ru.editions.ja}</a>

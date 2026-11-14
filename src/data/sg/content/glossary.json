@@ -1,0 +1,184 @@
+[
+  {
+    "id": "hsa",
+    "term": "HSA (Health Sciences Authority)",
+    "category": "Regulation and certification",
+    "definition": "The authority whose guidelines on software medical devices, risk classification and change management this site cites (GL-04, GL-07 and GN-37). It also receives reports of adverse events from the use of medical devices, as the Ministry of Health’s AI guidelines describe.",
+    "whyMatters": "Its guidance documents page is where to read the current text before you rely on a summary, including this one.",
+    "sources": [
+      "https://www.hsa.gov.sg/medical-devices/guidance-documents"
+    ]
+  },
+  {
+    "id": "samd",
+    "term": "SaMD (Software as a Medical Device)",
+    "category": "Regulation and certification",
+    "definition": "HSA’s GL-07 defines a standalone medical mobile application as software intended for one or more medical purposes that works by itself and is not meant to control or affect the operation of other hardware medical devices, and notes these are commonly called SaMD. It runs on general computing devices such as laptops, tablets and desktops.",
+    "whyMatters": "Ask a vendor whether its product is SaMD, and on what intended use it bases the answer.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/ae814059-a3ff-4ce3-8192-4534a43ddc6f/gl-07-r2-guidelines-risk-classification-samd-cdss-(2025-jul)-pub.pdf"
+    ]
+  },
+  {
+    "id": "aimd",
+    "term": "AI-enabled and ML-enabled medical device",
+    "category": "Regulation and certification",
+    "definition": "GL-04-R4 defines an artificial intelligence-enabled medical device (AIMD) as a medical device that uses AI technology to achieve its intended medical purpose, and a machine learning-enabled medical device (MLMD) as one that uses machine learning, in part or in whole, to achieve its intended medical purpose.",
+    "whyMatters": "These are the products to which the extra ML requirements in GL-04 section 9 apply, such as documentation of the model and monitoring after deployment.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/26808a93-6a7a-4551-8c66-13046c6124c5/gl-04-r4-regulatory-guidelines-for-software-medical-devices---a-life-cycle-approach-(2025-dec)-pub.pdf"
+    ]
+  },
+  {
+    "id": "intended-use",
+    "term": "Intended use",
+    "category": "Regulation and certification",
+    "definition": "As defined in the Health Products (Medical Devices) Regulations 2010 and quoted in GL-07: the objective intended use or purpose of a medical device, as reflected in the specifications, instructions and information provided by the product owner.",
+    "whyMatters": "Whether software is a medical device turns on its intended use, so compare the vendor’s written intended use with what your staff will actually do with it.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/ae814059-a3ff-4ce3-8192-4534a43ddc6f/gl-07-r2-guidelines-risk-classification-samd-cdss-(2025-jul)-pub.pdf"
+    ]
+  },
+  {
+    "id": "risk-class",
+    "term": "Risk class (A to D)",
+    "category": "Regulation and certification",
+    "definition": "GL-07-R2 sets the class of a SaMD from the significance of its information (treat or diagnose, drive, or inform clinical management) and the state of the patient’s situation (critical, serious or non-serious). GL-04-R4 says Class B, C and D software medical devices require product registration.",
+    "whyMatters": "The class tells you how closely a product is regulated, so ask for it with the reasoning.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/ae814059-a3ff-4ce3-8192-4534a43ddc6f/gl-07-r2-guidelines-risk-classification-samd-cdss-(2025-jul)-pub.pdf",
+      "https://isomer-user-content.by.gov.sg/409/26808a93-6a7a-4551-8c66-13046c6124c5/gl-04-r4-regulatory-guidelines-for-software-medical-devices---a-life-cycle-approach-(2025-dec)-pub.pdf"
+    ]
+  },
+  {
+    "id": "cdss",
+    "term": "Clinical decision support software (CDSS)",
+    "category": "Regulation and certification",
+    "definition": "Software that supports clinical decisions. GL-07 provides clarity on when CDSS qualifies as a regulated medical device and when it does not.",
+    "whyMatters": "A vendor’s statement that its tool is “only decision support” is a claim to test against GL-07, not a reason to skip the device question.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/ae814059-a3ff-4ce3-8192-4534a43ddc6f/gl-07-r2-guidelines-risk-classification-samd-cdss-(2025-jul)-pub.pdf"
+    ]
+  },
+  {
+    "id": "change-notification",
+    "term": "Change notification",
+    "category": "Regulation and certification",
+    "definition": "HSA’s process for changes to a registered device. GL-04-R4 says a change notification is required for any change to a registered ML-enabled device, and the category of change (technical, review or notification) follows GN-21.",
+    "whyMatters": "Ask the vendor how it handles model updates before one reaches your wards.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/26808a93-6a7a-4551-8c66-13046c6124c5/gl-04-r4-regulatory-guidelines-for-software-medical-devices---a-life-cycle-approach-(2025-dec)-pub.pdf"
+    ]
+  },
+  {
+    "id": "cmp",
+    "term": "Change Management Program (CMP)",
+    "category": "Regulation and certification",
+    "definition": "An optional HSA pathway for SaMD, including machine-learning enabled SaMD, introduced in GN-37-R1 (December 2024). It lets a manufacturer have anticipated “pre-specified changes” approved in advance. The guidance excludes continuous learning and generative AI.",
+    "whyMatters": "If a vendor says its updates are pre-approved, ask whether it means a CMP and which changes are covered.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/4e8620d9-267f-41f5-adc3-cc35456d3731/gn-37-r1-guidance-on-change-management-program-(cmp)-for-samd-including-machine-learning-enabled-samd.pdf"
+    ]
+  },
+  {
+    "id": "aihgle",
+    "term": "AIHGle 2.0",
+    "category": "Regulation and certification",
+    "definition": "The Artificial Intelligence in Healthcare Guidelines, version 2.0, published by the Ministry of Health and HSA in March 2026. It sets out responsibilities for developers, deployers and users and adds chapters on continuous-learning, generative and direct-to-consumer AI.",
+    "whyMatters": "It is guidance, not a statute, but it is the clearest statement of what Singapore’s health authorities expect of a hospital that deploys AI.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf",
+      "https://www.moh.gov.sg/others/health-regulation/emerging-regulatory-policy-issues/"
+    ]
+  },
+  {
+    "id": "deployer",
+    "term": "Deployer",
+    "category": "Standards and terminology",
+    "definition": "In AIHGle 2.0, the healthcare organisation that deploys an AI solution, as distinct from the developer (for example a manufacturer) and the user (a healthcare professional).",
+    "whyMatters": "Most readers of this site are deployers. The guidelines give deployers duties on governance, testing, training, monitoring and incident response.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "id": "human-in-the-loop",
+    "term": "Human-in-the-loop, over-the-loop, out-of-the-loop",
+    "category": "Standards and terminology",
+    "definition": "AIHGle 2.0 Table 4 distinguishes three levels of human oversight: in the loop (the human decides and the AI only recommends), over the loop (the human monitors and can take over) and out of the loop (no human oversight of execution). For clinical use it says deployers should not deploy AI that makes clinical decisions independently without a human making the final decision.",
+    "whyMatters": "It is a simple way to describe, in a proposal, who really makes the decision.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "id": "ai-registry",
+    "term": "AI registry",
+    "category": "Standards and terminology",
+    "definition": "AIHGle 2.0 says a hospital’s governance platform should maintain a registry of all AI solutions deployed in the organisation, including each solution’s risk classification.",
+    "whyMatters": "You cannot monitor tools you do not know about. The registry is the first list to create.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "id": "hallucination",
+    "term": "Hallucination",
+    "category": "Standards and terminology",
+    "definition": "AIHGle 2.0 uses the word for generative AI models that generate and present incomplete or fictitious content as facts, where users may not notice the inaccuracies.",
+    "whyMatters": "It is why AI drafts need a fact-checking step before they are used or entered into a record.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "id": "model-drift",
+    "term": "Model drift",
+    "category": "Standards and terminology",
+    "definition": "AIHGle 2.0 lists model drift among the performance indicators a hospital’s monitoring process should track after deployment.",
+    "whyMatters": "Ask the vendor how drift is detected and who tells you when performance changes.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "id": "pdpc",
+    "term": "PDPC (Personal Data Protection Commission)",
+    "category": "Data and privacy",
+    "definition": "The commission that publishes the Guide on Managing and Notifying Data Breaches under the PDPA cited on this site, and to which notifiable breaches are reported. AIHGle 2.0 names it as the authority for data-related incidents.",
+    "whyMatters": "Its guide sets the clock for breach assessment and notification, so read the current revision.",
+    "sources": [
+      "https://www.pdpc.gov.sg/-/media/files/pdpc/pdf-files/other-guides/guide-on-managing-and-notifying-data-breaches-under-the-pdpa-15-mar-2021.pdf"
+    ]
+  },
+  {
+    "id": "notifiable-breach",
+    "term": "Notifiable data breach",
+    "category": "Data and privacy",
+    "definition": "According to the PDPC guide (revised 15 March 2021), an organisation must assess within 30 calendar days of having credible grounds to believe a breach occurred whether it is notifiable, and notify the PDPC within 3 calendar days after determining that it is. A breach is notifiable when it is likely to cause significant harm to affected individuals or is of significant scale, meaning the personal data of 500 or more individuals.",
+    "whyMatters": "It tells you what to prepare in advance: a named assessor, documented steps and a way to file within days.",
+    "sources": [
+      "https://www.pdpc.gov.sg/-/media/files/pdpc/pdf-files/other-guides/guide-on-managing-and-notifying-data-breaches-under-the-pdpa-15-mar-2021.pdf"
+    ]
+  },
+  {
+    "id": "iso-13485",
+    "term": "ISO 13485 quality management system",
+    "category": "Standards and terminology",
+    "definition": "GL-04-R4 says all activities for designing, developing, training, validating, retraining and deploying a machine-learning-enabled medical device must be managed under an ISO 13485 based quality management system.",
+    "whyMatters": "It is a reasonable thing to ask a vendor about: whether its development of the product follows such a system.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/26808a93-6a7a-4551-8c66-13046c6124c5/gl-04-r4-regulatory-guidelines-for-software-medical-devices---a-life-cycle-approach-(2025-dec)-pub.pdf"
+    ]
+  },
+  {
+    "id": "ai-md-sandbox",
+    "term": "AI-MD Exemption Sandbox",
+    "category": "Regulation and certification",
+    "definition": "A sandbox launched by MOH and HSA in February 2026, according to AIHGle 2.0, that lets selected public healthcare entities deploy low-to-moderately-low-risk AI medical devices across multiple institutions without full licensing and registration requirements.",
+    "whyMatters": "It does not mean AI medical devices are generally exempt. It is for selected public healthcare entities.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  }
+]

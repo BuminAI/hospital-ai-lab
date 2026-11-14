@@ -212,3 +212,4 @@ UXL['tw'] = dict(
 # English (India) edition: same wording as the U.S. edition (2026-11-07)
 import copy
 UXL['in'] = copy.deepcopy(UXL['en'])
+UXL['sg'] = copy.deepcopy(UXL['en'])

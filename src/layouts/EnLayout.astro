@@ -47,6 +47,8 @@ interface Props {
   twPath?: string;
   /** English (India) edition path (added 2026-11-07). */
   inPath?: string;
+  /** 이 페이지의 영어(싱가포르)판 경로(hreflang용). */
+  sgPath?: string;
   /** 이 페이지의 러시아어판 경로(2026-11-06 추가). */
   ruPath?: string;
   /**
@@ -88,6 +90,7 @@ const {
   idPath,
   twPath,
   inPath,
+  sgPath,
   ruPath,
   standalone = false,
   updated,
@@ -130,6 +133,7 @@ const jaHref = jaPath ? `${siteRoot}${withBase(jaPath)}` : undefined;
 const idHref = idPath ? `${siteRoot}${withBase(idPath)}` : undefined;
 const twHref = twPath ? `${siteRoot}${withBase(twPath)}` : undefined;
 const inHref = inPath ? `${siteRoot}${withBase(inPath)}` : undefined;
+const sgHref = sgPath ? `${siteRoot}${withBase(sgPath)}` : undefined;
 const ruHref = ruPath ? `${siteRoot}${withBase(ruPath)}` : undefined;
 
 // 메뉴 표시·비표시는 src/data/en/content/nav.json에서 관리한다
@@ -286,6 +290,7 @@ const year = new Date().getFullYear();
           <link rel="alternate" hreflang="en" href={canonical} />
           {twHref && <link rel="alternate" hreflang="zh-TW" href={twHref} />}
           {inHref && <link rel="alternate" hreflang="en-IN" href={inHref} />}
+          {sgHref && <link rel="alternate" hreflang="en-SG" href={sgHref} />}
           <link rel="alternate" hreflang="x-default" href={koHref} />
         </>
       )
@@ -493,6 +498,9 @@ const year = new Date().getFullYear();
             </li>
             <li>
               <a href={withBase('/in/')} hreflang="en-IN" lang="en-IN">{en.editions.in}</a>
+            </li>
+            <li>
+              <a href={withBase('/sg/')} hreflang="en-SG" lang="en-SG">{en.editions.sg}</a>
             </li>
         </ul>
         {

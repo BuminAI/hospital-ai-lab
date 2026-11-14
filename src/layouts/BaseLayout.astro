@@ -305,6 +305,15 @@ const webPage = {
               />
             )
           }
+          {
+            alternates.sg && (
+              <link
+                rel="alternate"
+                hreflang="en-SG"
+                href={`${siteRoot}${withBase(alternates.sg)}`}
+              />
+            )
+          }
           <link rel="alternate" hreflang="x-default" href={canonical} />
         </>
       )
@@ -497,6 +506,9 @@ const webPage = {
             </li>
             <li>
               <a href={withBase('/in/')} hreflang="en-IN" lang="en-IN">English (India)</a>
+            </li>
+            <li>
+              <a href={withBase('/sg/')} hreflang="en-SG" lang="en-SG">English (Singapore)</a>
             </li>
           </ul>
         </nav>

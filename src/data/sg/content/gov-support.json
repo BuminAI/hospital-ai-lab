@@ -1,0 +1,67 @@
+{
+  "_comment": "English edition (Singapore) government resources. A hand-checked list: each URL was opened (HTTP 200) on 2026-11-14. Singapore Statutes Online (sso.agc.gov.sg) returned HTTP 403 to automated requests, so it is not listed and no fact depends on it.",
+  "meta": {
+    "title": "Official Singapore resources for hospital AI decisions",
+    "description": "Official sources behind this site: HSA’s medical device pages, the Ministry of Health’s AI guidelines, the PDPC and the Cyber Security Agency of Singapore.",
+    "pageTitle": "Government resources",
+    "lead": "This page collects the official sources behind the rest of this site, each one opened and checked."
+  },
+  "notice": "This list is not an endorsement and not complete. Pages and rules change; rely on the current text at each source.",
+  "checkedAt": "2026-11-14",
+  "programs": [
+    {
+      "name": "HSA — medical devices",
+      "org": "Health Sciences Authority",
+      "url": "https://www.hsa.gov.sg/medical-devices",
+      "body": "HSA’s medical device section, from which the guidance documents on software, AI and risk classification are reached.",
+      "audience": "Procurement and compliance staff.",
+      "sourceUrl": "https://www.hsa.gov.sg/medical-devices",
+      "sourceLabel": "HSA — medical devices"
+    },
+    {
+      "name": "HSA — guidance documents",
+      "org": "Health Sciences Authority",
+      "url": "https://www.hsa.gov.sg/medical-devices/guidance-documents",
+      "body": "The guidance-documents list, including GL-04, GL-07, GN-37 and the telehealth products guidelines.",
+      "audience": "Compliance and clinical engineering staff.",
+      "sourceUrl": "https://www.hsa.gov.sg/medical-devices/guidance-documents",
+      "sourceLabel": "HSA — guidance documents"
+    },
+    {
+      "name": "MOH — AI in Healthcare Guidelines 2.0",
+      "org": "Ministry of Health",
+      "url": "https://www.moh.gov.sg/others/health-regulation/emerging-regulatory-policy-issues/",
+      "body": "The Ministry of Health’s page for AIHGle 2.0, with the guidelines, a roles and responsibilities infographic and a toolkit for deployers.",
+      "audience": "Hospital leadership and governance committees.",
+      "sourceUrl": "https://www.moh.gov.sg/others/health-regulation/emerging-regulatory-policy-issues/",
+      "sourceLabel": "MOH — AI in Healthcare Guidelines 2.0"
+    },
+    {
+      "name": "PDPC — report a data breach",
+      "org": "Personal Data Protection Commission",
+      "url": "https://www.pdpc.gov.sg/organisations/e-services/report-your-organisations-data-breach",
+      "body": "The PDPC’s breach notification page and self-assessment tool.",
+      "audience": "Data protection officers.",
+      "sourceUrl": "https://www.pdpc.gov.sg/organisations/e-services/report-your-organisations-data-breach",
+      "sourceLabel": "PDPC — report a data breach"
+    },
+    {
+      "name": "CSA — Cyber Security Agency of Singapore",
+      "org": "Cyber Security Agency of Singapore",
+      "url": "https://www.csa.gov.sg/",
+      "body": "The agency AIHGle 2.0 names for reporting critical cybersecurity incidents.",
+      "audience": "IT security staff.",
+      "sourceUrl": "https://www.csa.gov.sg/",
+      "sourceLabel": "CSA — Cyber Security Agency of Singapore"
+    },
+    {
+      "name": "Ministry of Health",
+      "org": "Ministry of Health",
+      "url": "https://www.moh.gov.sg/",
+      "body": "The ministry’s home page.",
+      "audience": "Hospital administrators.",
+      "sourceUrl": "https://www.moh.gov.sg/",
+      "sourceLabel": "Ministry of Health"
+    }
+  ]
+}

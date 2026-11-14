@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Practical tips for working with AI tools in a Singapore hospital",
+    "description": "Plain advice for hospital administrators and nursing staff: unapproved tools, checking AI drafts, vendor answers, incident cards and telling patients about AI.",
+    "pageTitle": "Practical tips",
+    "lead": "These are the author’s practical suggestions, not legal requirements. Where a guideline applies, the page says so and names the document."
+  },
+  "sections": [
+    {
+      "heading": "Do not paste patient information into tools you have not approved",
+      "body": "Names, NRIC or FIN numbers, dates of birth, addresses, phone numbers and the contents of records should stay out of consumer chatbots. The Ministry of Health’s guidelines warn that generative AI models could leak sensitive data that users submit, and ask hospitals to specify which data types may go into each tool. Use only tools your hospital has approved.",
+      "items": []
+    },
+    {
+      "heading": "Treat every AI draft as a draft",
+      "body": "Generative AI can present made-up content as fact. Check facts, numbers and names against the source before you use a draft, and never enter AI output in a patient record before the responsible clinician has reviewed it.",
+      "items": []
+    },
+    {
+      "heading": "Keep a list of the AI tools in use",
+      "body": "AIHGle 2.0 recommends a registry of all AI solutions deployed in the organisation, with each solution’s risk classification. Start with a simple table: tool, owner, what it is used for, what data goes in.",
+      "items": []
+    },
+    {
+      "heading": "Read the vendor’s answers, not the brochure",
+      "body": "Ask whether the product is a medical device, which class, whether it is registered with HSA, how updates are handled and what is monitored after go-live. Put the answers in writing.",
+      "items": []
+    },
+    {
+      "heading": "Write the incident card before you need it",
+      "body": "Decide who assesses a suspected breach, who files with the PDPC and how to switch an AI tool off. The PDPC’s guide says to notify within 3 calendar days once a breach is determined to be notifiable.",
+      "items": []
+    },
+    {
+      "heading": "Tell patients when AI matters to their care",
+      "body": "AIHGle 2.0 encourages hospitals to communicate AI use that has a significant impact on medical management, focusing on benefits, limitations, material risks and alternatives rather than technical detail. It does not expect every tool in a workflow to be mentioned.",
+      "items": []
+    },
+    {
+      "heading": "Involve nursing early",
+      "body": "Alerts, handover notes and scheduling tools change nurses’ work first. Ask nurse leaders to test the tool in their own workflow before go-live and to join the training.",
+      "items": []
+    }
+  ]
+}

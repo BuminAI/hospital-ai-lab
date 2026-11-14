@@ -1,0 +1,60 @@
+[
+  {
+    "question": "Is AI software that a hospital buys a medical device in Singapore?",
+    "answer": "It can be. HSA’s guidelines apply to software whose intended use meets the definition of a medical device under the Health Products Act 2007, which includes software intended to investigate, detect, diagnose, monitor, treat or manage a medical condition. GL-04-R4 says Class B, C and D software medical devices require product registration. Ask the vendor in writing whether it treats the product as a medical device and why.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/26808a93-6a7a-4551-8c66-13046c6124c5/gl-04-r4-regulatory-guidelines-for-software-medical-devices---a-life-cycle-approach-(2025-dec)-pub.pdf",
+      "https://isomer-user-content.by.gov.sg/409/ae814059-a3ff-4ce3-8192-4534a43ddc6f/gl-07-r2-guidelines-risk-classification-samd-cdss-(2025-jul)-pub.pdf"
+    ]
+  },
+  {
+    "question": "What should a hospital’s AI governance look like?",
+    "answer": "The Ministry of Health’s AIHGle 2.0 recommends a governance platform that assesses and approves AI solutions, keeps a registry of every deployed solution with its risk classification, gives guidance on safe deployment and checks cybersecurity and data protection. It also recommends keeping three functions distinct: governance, day-to-day implementation and monitoring, and compliance audit.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "question": "Can an AI tool make clinical decisions on its own?",
+    "answer": "For clinical use, AIHGle 2.0 says deployers should not deploy AI solutions that make clinical decisions independently without a human making the final decision, and that healthcare professionals remain in charge of patient care outcomes.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "question": "What testing should we do before going live?",
+    "answer": "AIHGle 2.0 says the implementing organisation usually tests and validates the tool in its own context and workflows, may run a pilot with a smaller patient population for higher-risk solutions, and should measure clinical outcomes as well as algorithm performance.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "question": "Does a vendor have to tell HSA when it changes a registered AI model?",
+    "answer": "GL-04-R4 says a change notification is required for any change made to a registered machine-learning-enabled medical device. HSA’s optional Change Management Program lets a manufacturer have anticipated pre-specified changes approved in advance.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/409/26808a93-6a7a-4551-8c66-13046c6124c5/gl-04-r4-regulatory-guidelines-for-software-medical-devices---a-life-cycle-approach-(2025-dec)-pub.pdf",
+      "https://isomer-user-content.by.gov.sg/409/4e8620d9-267f-41f5-adc3-cc35456d3731/gn-37-r1-guidance-on-change-management-program-(cmp)-for-samd-including-machine-learning-enabled-samd.pdf"
+    ]
+  },
+  {
+    "question": "How fast must we report a personal data breach?",
+    "answer": "According to the PDPC’s guide (revised 15 March 2021), assess within 30 calendar days whether the breach is notifiable and notify the PDPC within 3 calendar days after determining that it is. A breach involving the personal data of 500 or more individuals is of significant scale.",
+    "sources": [
+      "https://www.pdpc.gov.sg/-/media/files/pdpc/pdf-files/other-guides/guide-on-managing-and-notifying-data-breaches-under-the-pdpa-15-mar-2021.pdf"
+    ]
+  },
+  {
+    "question": "Which authorities do we report AI incidents to?",
+    "answer": "AIHGle 2.0 names the PDPC for data-related incidents, HSA for adverse events from the use of medical devices, and the Cyber Security Agency of Singapore for critical cybersecurity incidents, in addition to internal reporting.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  },
+  {
+    "question": "What does the Ministry of Health say about generative AI?",
+    "answer": "AIHGle 2.0 names four amplified risks: hallucination, undesirable content, data disclosure and vulnerability to adversarial prompts. It says deployers should design workflows that support fact-checking, train professionals on responsible use, support patient communication and label AI-generated content where possible.",
+    "sources": [
+      "https://isomer-user-content.by.gov.sg/3/6636a140-7986-43f6-9861-096333138d59/AIHGle_2.0.pdf"
+    ]
+  }
+]

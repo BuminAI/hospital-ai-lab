@@ -1,0 +1,40 @@
+---
+// Practice guides (for hospital staff) — overview page (2026-11-07)
+import '../../styles/sg-guide.css';
+import SgLayout from '../../layouts/SgLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = 'Practice guides: device status, patient data and AI';
+const description =
+  'A roadmap, checklists, an HSA and MOH calendar, templates and key facts from primary documents, for hospital administrators and nurse leaders.';
+
+const cards = [
+{ href: '/sg/facts/', t: 'Key facts', d: 'Short answers with the section and a link to the primary source: device status, hospital AI governance, generative AI, data breaches.' },
+{ href: '/sg/dx-roadmap/', t: 'Roadmap', d: 'HSA’s software guidelines, the Ministry of Health’s AI in Healthcare Guidelines 2.0 and the PDPC’s breach guide on one timeline.' },
+{ href: '/sg/data-checklist/', t: 'Patient data protection checklist', d: 'What data may enter an AI tool, vendors, breaches and incidents.' },
+{ href: '/sg/documents-checklist/', t: 'Checklist: device status and AI vendors', d: 'Is it a medical device, which class, is it registered with HSA, and how updates are handled.' },
+{ href: '/sg/calendar/', t: 'HSA and MOH calendar', d: 'New HSA and MOH guidance on software, AI, telehealth and cybersecurity.' },
+{ href: '/sg/templates/', t: 'Templates', d: 'Generative AI policy, 21 vendor questions, patient text, incident record.' },
+{ href: '/sg/checklist/', t: 'AI adoption checklist', d: 'A list for assessing proposals from AI vendors.' },
+];
+---
+
+<SgLayout title={title} description={description} crumb="Practice guides" standalone>
+<h1>Practice guides</h1>
+  <p class="tg-lead">
+For administration, planning and nursing leadership: material you can use tomorrow. Rules are written after the documents were opened and read (HSA, the Ministry of Health, the PDPC); each page shows its sources and the date they were checked.
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+Explanations for patients and their families are in <a href={withBase('/sg/patients/')}>For patients</a>; front-desk staff can use them too.
+  </p>
+</SgLayout>

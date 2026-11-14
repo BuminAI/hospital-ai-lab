@@ -46,11 +46,14 @@ jobs:
       - name: 인도판(영어) 수집
         run: node scripts/fetch-ai-digest.mjs in || echo "인도(영어) 수집 건너뜀(기존 목록 유지)"
 
+      - name: AI 일반 동향 수집 (싱가포르판 영어)
+        run: node scripts/fetch-ai-digest.mjs sg || echo "싱가포르(영어) 수집 건너뜀(기존 목록 유지)"
+
       - name: 변경 있을 때만 커밋
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/ru/ai-digest.json src/data/id/ai-digest.json src/data/en/ai-digest.json src/data/in/ai-digest.json
+          git add src/data/ru/ai-digest.json src/data/id/ai-digest.json src/data/en/ai-digest.json src/data/in/ai-digest.json src/data/sg/ai-digest.json
           if git diff --cached --quiet; then
             echo "새 기사 없음 — 커밋·배포 생략"
           else

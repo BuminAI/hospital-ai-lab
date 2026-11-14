@@ -78,6 +78,15 @@
 - [Article series](https://hospital-ai-lab.com/in/series/) · [AI news](https://hospital-ai-lab.com/in/news/): ET HealthWorld·Express Healthcare·Medical Dialogues에서 AI 관련 헤드라인 자동 수집
 - [AI Program Review Room](https://hospital-ai-lab.com/in/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score. Code read from GitHub, Gist and web-page links is reviewed together with the uploaded files.
 
+## 영어판 (싱가포르, https://hospital-ai-lab.com/sg/)
+
+- 번역본이 아니라 싱가포르 제도를 1차 문서로 새로 조사해 쓴 판입니다(HSA 소프트웨어 의료기기 지침 GL-04·GL-07·GN-37, 보건부 AI 의료 지침 AIHGle 2.0, PDPC 개인정보 유출 지침). 법령 본문(SSO)은 자동 접속이 막혀 직접 인용하지 않았습니다.
+- 영어 전용 안내문: [llms.txt (English)](https://hospital-ai-lab.com/sg/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/sg/llms-full.txt) · 인용용 사실 허브 [/sg/facts/](https://hospital-ai-lab.com/sg/facts/)
+- 실무 가이드(`/sg/dx-roadmap/`·`/sg/data-checklist/`·`/sg/documents-checklist/`·`/sg/templates/`)·환자 코너(`/sg/patients/`)·HSA·MOH 지침 캘린더(`/sg/calendar/`)·갱신 정보(`/sg/updates/`).
+- [홈](https://hospital-ai-lab.com/sg/) · [Glossary](https://hospital-ai-lab.com/sg/glossary/) · [FAQ](https://hospital-ai-lab.com/sg/faq/) · [Checklist](https://hospital-ai-lab.com/sg/checklist/)
+- [Article series](https://hospital-ai-lab.com/sg/series/) · [AI news](https://hospital-ai-lab.com/sg/news/): The Straits Times·CNA에서 AI·보건 관련 헤드라인 자동 수집
+- [AI Program Review Room](https://hospital-ai-lab.com/sg/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
+
 ## 인도네시아어판 (https://hospital-ai-lab.com/id/)
 
 인도네시아 제도 기준으로 따로 집필. 전자의무기록(RME) 의무화, SATUSEHAT 연동, 알케스 인증,

@@ -220,4 +220,30 @@ export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
       ],
     },
   ],
+  sg: [
+    {
+      slug: 'device-status',
+      title: 'HSA status and software as a device',
+      description:
+        'Is AI software a medical device under HSA’s guidelines? Which class, and what a vendor must do when it updates a registered model.',
+      checklist: { href: '/sg/documents-checklist/', label: 'Checklist: device status and AI vendors' },
+      postIds: [
+        '2026-11-14-is-hospital-ai-a-medical-device-singapore-hsa',
+        '2026-11-14-ai-model-updates-hsa-change-notification-singapore',
+        '2026-11-14-machine-learning-medical-device-what-hsa-expects-vendor',
+      ],
+    },
+    {
+      slug: 'governance-and-data',
+      title: 'AI governance and patient data',
+      description:
+        'What the Ministry of Health’s AIHGle 2.0 asks a hospital to set up before AI goes live, and the PDPC clocks that apply when a vendor has a data incident.',
+      checklist: { href: '/sg/data-checklist/', label: 'Patient data checklist' },
+      postIds: [
+        '2026-11-14-aihgle-2-hospital-ai-governance-before-go-live',
+        '2026-11-14-ai-vendor-data-breach-pdpc-30-day-3-day-clocks',
+        '2026-11-14-generative-ai-hospital-singapore-aihgle-risks-redlines',
+      ],
+    },
+  ],
 };

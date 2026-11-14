@@ -1,0 +1,212 @@
+---
+// Templates (2026-11-14): generative AI policy, 21 vendor questions, patient-facing text, incident record
+// ⚠️ Everything here is the author’s DRAFT, not legal advice. Cited only to documents that were read in full (AIHGle 2.0, HSA GL-04-R4 and GL-07-R2, the PDPC data breach guide).
+import '../../styles/sg-guide.css';
+import SgLayout from '../../layouts/SgLayout.astro';
+import SgGuideFoot from '../../components/SgGuideFoot.astro';
+import { SRC } from '../../data/sg/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 14, 2026';
+const title = 'Templates: generative AI policy and 21 vendor questions';
+const description =
+  'Four copyable drafts: a generative AI use policy, 21 vendor questions, a short text for patients and an incident record for a personal data breach.';
+
+const policy = [
+  "GENERATIVE AI USE POLICY, \"__\" HOSPITAL (DRAFT)",
+  "",
+  "1. Purpose",
+  "   Sets rules for staff of \"__\" when they use generative AI tools (chatbots, summarising tools, translation tools).",
+  "",
+  "2. What must NOT be entered",
+  "   - Patient names, NRIC or FIN numbers, medical record numbers, dates of birth, addresses, phone numbers, or the content of patient records.",
+  "   - Images or recordings that could identify a patient.",
+  "   - Contracts, or restricted financial and personnel data.",
+  "   Exception: a tool that \"__\" has approved in writing for that data type (see clause 3).",
+  "",
+  "3. Approved tools and permitted data",
+  "   Only tools on the approved list kept by \"__\" (owner: __). For each approved tool the list states which data types may be entered, following our data security classification. Using an unapproved tool for work is not allowed.",
+  "",
+  "4. Review of output",
+  "   A person is responsible for every AI-generated text used in work. Generative AI can state fictitious content as fact, so check facts, numbers and names against the source before use.",
+  "   AI output is never entered in a patient record until the responsible clinician has reviewed and approved it. Where AI-generated content is shown to others, label it as AI-generated.",
+  "",
+  "5. Reporting",
+  "   If patient information was entered into an unapproved tool, report it the same day to __ (name, phone __). Do not try to delete it yourself first.",
+  "",
+  "6. Training",
+  "   Staff who use AI tools are trained on this policy, including the data input restrictions and how to report an incident, and are re-trained after significant updates. Owner: __. Review date: __.",
+].join('\n');
+
+const questions = [
+  "TWENTY-ONE QUESTIONS FOR AN AI VENDOR (DRAFT)",
+  "Write the answers down and attach them to the contract.",
+  "",
+  "Device status",
+  "1. Do you treat this product as a medical device in Singapore? If not, why not, based on its intended use?",
+  "2. If yes, which risk class, and is it registered with HSA? May we see the registration details?",
+  "3. What is the intended use statement, and does our planned use match it?",
+  "4. Is the software a stand-alone product or part of another device? If part of a device, which registration covers it?",
+  "5. Does the product contain machine learning, and where do the instructions for use say so, with the model’s inputs and outputs?",
+  "6. How will we be told before an update reaches our wards, and can we delay it?",
+  "7. How is an update rolled back, and who tells our staff?",
+  "",
+  "Performance and monitoring",
+  "8. On which patients was the tool tested, and how does that compare with ours, including age groups, ethnic groups and languages?",
+  "9. Which real-world performance figures do you monitor after go-live, how often, and will you share them with us?",
+  "10. Does the model keep learning after deployment? If so, what stops its performance from drifting, and can we revert to an earlier version?",
+  "",
+  "Patient data",
+  "11. For what purposes will you process our patient data, and nothing else? Will you use it to improve your own product?",
+  "12. Where is our data stored and processed, and which sub-processors (cloud, model providers) touch it?",
+  "13. Can you trace the data used for training or learning to a software version and to the output we see?",
+  "14. What security safeguards do you apply, and how do they fit our data security classification?",
+  "15. How and how fast do you tell us of a personal data breach, and who answers at night?",
+  "16. How is data erased when the contract ends, including in logs, backups and by your sub-processors?",
+  "17. How does your tool let us label AI-generated content for staff and patients?",
+  "",
+  "Operations",
+  "18. Who at our hospital gets more work with this tool, and who reviews its output?",
+  "19. What does the exit plan look like, including return or erasure of data?",
+  "20. Which decisions affecting patients will the tool’s output feed into, and does a clinician make the final decision?",
+  "21. What is your support commitment and escalation path for safety issues?",
+].join('\n');
+
+const patient = [
+  "TEXT FOR PATIENTS: OUR USE OF AN AI TOOL (EXAMPLE)",
+  "",
+  "\"__\" hospital uses an AI tool for __ (for example: drafting discharge summaries, which a clinician then checks).",
+  "The tool does not make the final decision about your treatment. A member of our staff reviews what it produces.",
+  "We tell you which of your information the tool uses and why. You can ask us about it and about alternatives.",
+  "Questions: __ (name or office, phone, email).",
+].join('\n');
+
+const incident = [
+  "PERSONAL DATA INCIDENT RECORD (DRAFT)",
+  "",
+  "Date and time discovered: __   Discovered by: __   Reported to: __",
+  "What happened (one sentence, no patient names): __",
+  "Systems and data involved (type of data, approximate number of individuals): __",
+  "Credible grounds to believe a data breach occurred from (date): __   Assessment must be completed within 30 calendar days.",
+  "Who assesses whether the breach is notifiable: __   Steps taken in the assessment (document all): __",
+  "Likely significant harm to individuals? __   500 or more individuals affected (or believed to be)? __",
+  "",
+  "Containment done: __   By: __   Time: __",
+  "Determined notifiable on (date and time): __   PDPC notified (within 3 calendar days): who files: __   Filed on: __",
+  "Affected individuals notified: who sends: __   Method: __   Sent on: __",
+  "Other authorities, if relevant: HSA (adverse event from a medical device) __   CSA (critical cybersecurity incident) __",
+  "Vendor involved: __   (contact: __, 24-hour line: __)",
+  "",
+  "Recorded: __ (who contacted whom, and when).",
+].join('\n');
+
+const items = [
+  {
+    id: 'policy',
+    head: '1. Generative AI use policy',
+    lead: 'A page you can hand to staff. Replace "__" with your hospital’s details.',
+    basis: [
+      'The data input rules follow AIHGle 2.0: organisations specify permissible data types per AI solution (section 6.1.1(d)), train staff on data input restrictions (section 6.5.2), and manage generative AI risks such as hallucination and data disclosure, fact-checking workflows and AI labels (sections 8.2.1 and 8.2.2(d)).',
+      'The rest is the author’s proposal.',
+    ],
+    text: policy,
+  },
+  {
+    id: 'vendor',
+    head: '2. Twenty-one questions for a vendor',
+    lead: 'Print it and take it to the vendor presentation. Write the answers down.',
+    basis: [
+      'Questions 1–7: HSA’s GL-04-R4 (sections 1.3, 3, 9.1, 9.4) and GL-07-R2 (intended use, risk classification).',
+      'Questions 8–10 and 13: GL-04-R4, sections 9.1 to 9.3 (model description, continuous learning, post-market monitoring, traceability).',
+      'Questions 11, 12 and 14–16: AIHGle 2.0, sections 6.1.1(d) and 6.7.1, and the PDPC breach guide (revised 15 March 2021).',
+      'The other questions are the author’s proposals, not legal requirements.',
+    ],
+    text: questions,
+  },
+  {
+    id: 'patient',
+    head: '3. Text for patients',
+    lead: 'A short example of how to tell a patient that the hospital uses an AI tool. Match it to your actual practice.',
+    basis: [
+      'AIHGle 2.0, section 6.9, says patients should receive accurate and sufficient information to make informed decisions about their care, and that not all AI use is relevant to a patient’s medical management (for example billing or scheduling).',
+      'The wording is the author’s example, not required language.',
+    ],
+    text: patient,
+  },
+  {
+    id: 'incident',
+    head: '4. Incident record',
+    lead: 'Turn the procedure into one fillable page and keep it where people will find it at night and on weekends.',
+    basis: ['The 30-day assessment, the 3-day notification and the 500-individual threshold come from the PDPC’s Guide on Managing and Notifying Data Breaches (revised 15 March 2021). The reporting routes to HSA and CSA come from AIHGle 2.0, section 6.7.1. Check the PDPC website for any later revision.'],
+    text: incident,
+  },
+];
+
+const sources = [SRC.aihgle, SRC.gl04, SRC.gl07, SRC.pdpcBreach];
+---
+
+<SgLayout title={title} description={description} crumb="Templates" standalone updated={new Date('2026-11-14T00:00:00+08:00')}>
+  <h1>Templates: generative AI policy and 21 vendor questions</h1>
+  <p class="tg-lead">
+    “We don’t know where to start writing” is a common problem for hospitals. Here are four drafts: press the button, copy, and replace “__” with your own details.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and IT</p>
+
+  <div class="tg-box tg-warn">
+    <strong>Before you use these</strong><br />
+    These are the author’s <strong>drafts</strong>, not legal advice and not a version that is ready to copy as is. Adapt them to the size, systems and contracts of your hospital, and show them to counsel or your compliance office before they become documents.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-toc">
+    <h2 id="h-toc">Contents</h2>
+    <ul class="tg-list">
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.head}</a></li>)}
+    </ul>
+    <p>
+      Related pages: <a href={withBase('/sg/dx-roadmap/')}>Roadmap</a>, <a href={withBase('/sg/data-checklist/')}>Patient data checklist</a>, <a href={withBase('/sg/documents-checklist/')}>Checklist: records and AI vendors</a>.
+    </p>
+  </section>
+
+  {
+    items.map((it) => (
+      <section class="tg-sec" id={it.id} aria-labelledby={`${it.id}-h`}>
+        <h2 id={`${it.id}-h`}>{it.head}</h2>
+        <p>{it.lead}</p>
+        <div class="tg-copy">
+          <button type="button" class="tg-btn" data-target={`${it.id}-text`}>
+            Copy
+          </button>
+          <pre id={`${it.id}-text`}>{it.text}</pre>
+        </div>
+        <h3>Basis of the template</h3>
+        <ul class="tg-list">
+          {it.basis.map((b) => <li>{b}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <SgGuideFoot sources={sources} checked={CHECKED} />
+</SgLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.tg-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = document.getElementById(btn.dataset.target ?? '');
+      if (!el) return;
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Copied';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = window.getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Selected (press Ctrl+C)';
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>

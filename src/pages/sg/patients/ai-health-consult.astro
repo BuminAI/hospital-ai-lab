@@ -1,0 +1,101 @@
+---
+// Before you ask an AI about your health (2026-11-14). General cautions only; no diagnosis or treatment advice. Bases: MOH AIHGle 2.0 (sections 8.2, 8.3, 7), MHA notice on 995.
+import '../../../styles/sg-guide.css';
+import SgLayout from '../../../layouts/SgLayout.astro';
+import SgGuideFoot from '../../../components/SgGuideFoot.astro';
+import SgFaq from '../../../components/SgFaq.astro';
+import { guideSchema } from '../../../utils/sg-guide';
+import { SRC } from '../../../data/sg/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 14, 2026';
+const title = 'Asking an AI about your health in Singapore: six things to know';
+const description =
+  'An AI answer is not a diagnosis. Six things to know before you type health questions into a chatbot: urgency, privacy, registered software and your own records.';
+
+const rights = [
+  {
+    "h": "1. An AI answer is not a diagnosis",
+    "p": "A chatbot cannot examine you or see your full history, and it can sound sure when it is wrong. The Ministry of Health’s guidelines list hallucination, meaning incomplete or made-up content presented as fact, as a known risk of generative AI. Use it, at most, to prepare questions for your own doctor or nurse."
+  },
+  {
+    "h": "2. Do not wait if it may be urgent",
+    "p": "If you think you or someone else may be having a life-threatening emergency, call 995. The Ministry of Home Affairs says the public should call 995 only for life-threatening emergencies. Do not wait for a chatbot reply."
+  },
+  {
+    "h": "3. What you type may leave your control",
+    "p": "The Ministry of Health’s guidelines warn that generative AI models could leak sensitive data that users submit. Before you type health details into a service, read what it says about where the data goes, and ask whether you need to type them at all."
+  },
+  {
+    "h": "4. Share less than you think you need to",
+    "p": "Leave out names, NRIC or FIN numbers, dates of birth, addresses, phone numbers, and photos that show your face or a document, unless you are sure the service is one you trust with them."
+  },
+  {
+    "h": "5. Some health apps are regulated, some are not",
+    "p": "The Ministry of Health’s guidelines say that a consumer-facing AI application that falls under the definition of an AI medical device or software as a medical device must be registered with the Health Sciences Authority (HSA). They also say such applications should not produce outputs that need clinical expertise to interpret safely, even with a disclaimer. If an app makes medical claims, ask which HSA registration it holds."
+  },
+  {
+    "h": "6. Bring your own records to your doctor",
+    "p": "Keep your own reports, prescriptions and discharge summaries together. They help the doctor who treats you far more than a chatbot’s summary of them. If a clinician recommends an app to you, the guidelines say they should explain how to use it and advise you to seek professional advice when unclear."
+  }
+];
+
+const faq = [
+  {
+    "q": "Is it safe to paste my test results into a chatbot?",
+    "a": "This page cannot say what a particular tool does with them. The Ministry of Health’s guidelines name data disclosure as a generative AI risk, so consider what the service’s privacy notice says, and remove your name and identifiers first."
+  },
+  {
+    "q": "Does a health app need to be registered with HSA?",
+    "a": "The Ministry of Health’s guidelines say that all consumer-facing applications that fall under the definition of an AI medical device or software as a medical device must be registered with HSA. Whether a particular app falls under that definition depends on its intended use."
+  },
+  {
+    "q": "Can I rely on an AI that says it is “HSA approved”?",
+    "a": "Ask exactly what is registered and for what intended use. A claim on an app store page is not the registration itself, so check the registration details rather than the claim."
+  }
+];
+
+const sources = [SRC.aihgle, SRC.mha995];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/sg/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<SgLayout title={title} description={description} crumb="Asking AI about health" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={schema}>
+  <h1>Asking an AI about your health in Singapore: six things to know</h1>
+  <p class="tg-lead">
+    Many people now ask AI chatbots about symptoms, test results and medicines. This page does not tell you what to do about any health condition. It explains a few facts that help you use such tools more carefully.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organization that treats you. In an emergency, call 995 (the Singapore Civil Defence Force’s number for life-threatening emergencies, per the Ministry of Home Affairs).
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Six things</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+
+  <SgFaq items={faq} />
+
+  <SgGuideFoot sources={sources} checked={CHECKED} patient />
+</SgLayout>

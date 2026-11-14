@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "AI adoption review checklist for Singapore hospitals",
+    "description": "Questions administrators and nurse leaders can ask when a vendor proposes an AI product: purpose, HSA status, patient data, security and operations.",
+    "pageTitle": "AI adoption review checklist",
+    "lead": "Use this when you receive a specific proposal. Tick each item when you have a written answer. The items are the author’s list; the two checklists and the facts page give the sections of the documents behind many of them."
+  },
+  "sections": [
+    {
+      "heading": "Purpose and scope",
+      "body": "",
+      "items": [
+        "The job the tool will do is described in one sentence and agreed by the department that will use it.",
+        "Who will use it, and who will be affected by its output, is listed (including nurses and front-desk staff).",
+        "The hospital’s AI governance platform, or whoever fills that role, has been asked to assess and approve the tool before purchase."
+      ]
+    },
+    {
+      "heading": "Regulatory status",
+      "body": "",
+      "items": [
+        "The vendor states in writing whether it treats the product as a medical device in Singapore and why, based on its intended use.",
+        "If it is a medical device, the risk class and the HSA registration details are written down, and you have checked that your planned use matches the intended use.",
+        "The vendor explains how model updates are handled, including whether it uses HSA’s change notification and its optional Change Management Program.",
+        "You have noted that registration with HSA does not replace the hospital’s own testing in its own workflows."
+      ]
+    },
+    {
+      "heading": "Patient data",
+      "body": "",
+      "items": [
+        "The data types that may be entered into the tool are specified, in line with the hospital’s data security classification.",
+        "The vendor says what it does with your data, whether it is used to train or improve its models, and where it is stored and processed.",
+        "Sub-processors, such as cloud and model providers, are named.",
+        "An exit plan covers the return or erasure of data when the contract ends.",
+        "Staff know what must never be typed into a generative AI tool."
+      ]
+    },
+    {
+      "heading": "Security and incidents",
+      "body": "",
+      "items": [
+        "The vendor commits to telling you quickly about a data breach, and you know who answers at night.",
+        "You can shut the tool down and switch to a protocol that does not involve it.",
+        "Internal reporting routes exist for the PDPC (data), HSA (device adverse events) and the Cyber Security Agency of Singapore (critical cybersecurity incidents)."
+      ]
+    },
+    {
+      "heading": "Performance and fairness",
+      "body": "",
+      "items": [
+        "The vendor can say on which patients the tool was tested and how they compare with yours.",
+        "The tool has been tested in your own workflows before go-live, with a pilot for higher-risk uses.",
+        "You know which performance figures will be monitored after go-live and who reports them.",
+        "For a tool that keeps learning, the vendor can show how it detects anomalies and rolls back."
+      ]
+    },
+    {
+      "heading": "Operations and people",
+      "body": "",
+      "items": [
+        "A clinician makes the final decision wherever the output affects patient care.",
+        "Staff training is planned and covers limitations, output interpretation, data input restrictions and incident reporting.",
+        "The tool is entered in the hospital’s registry of AI solutions with its risk classification."
+      ]
+    }
+  ]
+}

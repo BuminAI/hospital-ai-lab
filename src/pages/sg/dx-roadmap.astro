@@ -1,0 +1,138 @@
+---
+// Digital health and AI roadmap for Singapore hospitals (2026-11-14) — from primary sources.
+// The facts live in src/data/sg/guides/milestones.ts; this page only handles layout.
+import '../../styles/sg-guide.css';
+import SgLayout from '../../layouts/SgLayout.astro';
+import SgGuideFoot from '../../components/SgGuideFoot.astro';
+import SgFaq from '../../components/SgFaq.astro';
+import { guideSchema } from '../../utils/sg-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/sg/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+
+const title = 'Roadmap: HSA, MOH and PDPC guidance for hospital AI in Singapore';
+const description =
+  'Key dates for hospital administrators and nurse leaders: HSA’s software medical device guidelines, MOH’s AI in Healthcare Guidelines 2.0 and the PDPC’s data breach guide.';
+
+const sources = [SRC.gl04, SRC.gl07, SRC.gn37, SRC.aihgle, SRC.pdpcBreach];
+
+const faq = [
+  {
+    q: 'Is AI software that a hospital buys regulated as a medical device in Singapore?',
+    a: 'It can be. HSA’s guidelines apply to software whose intended use meets the definition of a medical device under the Health Products Act 2007, which includes software intended to investigate, detect, diagnose, monitor, treat or manage a condition. GL-04-R4 says Class B, C and D software medical devices require product registration. Whether a given product is a device depends on its intended use, so ask the vendor for its HSA status in writing.',
+  },
+  {
+    q: 'Who is responsible for an AI tool inside the hospital?',
+    a: 'AIHGle 2.0 splits responsibilities between developers, deployers (healthcare organisations) and users (healthcare professionals). For deployers it recommends an internal governance platform, a registry of every deployed AI solution with its risk classification, pre-deployment testing, staff training, monitoring and an adverse-event process.',
+  },
+  {
+    q: 'How fast must a hospital report a personal data breach?',
+    a: 'The PDPC’s guide (revised 15 March 2021) says an organisation must assess within 30 calendar days whether a breach is notifiable and, once it decides that it is, notify the PDPC within 3 calendar days. A breach involving 500 or more individuals is of significant scale.',
+  },
+  {
+    q: 'Are there confirmed upcoming deadlines for hospitals?',
+    a: 'This page lists only dates that appear in the text of an official document that we read. We found no future compliance date in those documents, so the upcoming section is intentionally empty. HSA and MOH say their guidelines are reviewed and updated periodically.',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/sg/dx-roadmap/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: 'Hospital administration and nursing leadership',
+  faq,
+});
+---
+
+<SgLayout title={title} description={description} crumb="Roadmap" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={schema}>
+  <h1>Digital health and AI roadmap</h1>
+  <p class="tg-lead">
+    “What does our hospital have to do, and by when?” The more AI news there is, the harder that is to answer. This page collects dates that appear in the text of rules and official publications, with sections and links to the sources.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and nursing leadership</p>
+
+  <p class="tg-answer">
+    In short: HSA’s life-cycle guidelines for software medical devices (GL-04, revision 4 effective 31 December 2025) treat Class B, C and D software as needing product registration and set extra expectations for machine-learning devices; GL-07 explains how risk class follows the significance of the software’s information and the patient’s situation; the Ministry of Health’s AIHGle 2.0 (March 2026) tells hospitals to run AI under governance, risk assessment, testing, training and monitoring; and the PDPC’s breach guide sets a 30-day assessment and a 3-day notification clock.
+  </p>
+
+  <div class="tg-box">
+    <strong>How to read this page</strong><br />
+    Each item was written after the text of the document was opened and read. We do not add dates that circulate only in summaries. What applies to a particular hospital depends on its status and structure, so check the text and ask counsel or your compliance officer.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">What has already happened</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">Upcoming dates</h2>
+    {
+      ahead.length > 0 ? (
+        <ol class="tg-tl">
+          {ahead.map((m) => (
+            <li>
+              <div class="when">{m.when}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{THEMES[m.theme]}</span>
+                  {m.title}
+                </b>
+                <span>{m.body}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>We found no upcoming dates confirmed by a primary source, so this section is intentionally empty.</p>
+      )
+    }
+    <p>
+      New HSA guidance documents on medical devices and software appear automatically in the <a href={withBase('/sg/calendar/')}>HSA calendar</a>.
+    </p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Pages that complement this one</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/sg/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>Data protection items from the PDPC guide and AIHGle 2.0: purpose, vendors, security and breaches.</span>
+      </a>
+      <a class="tg-card" href={withBase('/sg/documents-checklist/')}>
+        <b>Checklist: device status and AI vendors</b>
+        <span>Is it a medical device, which class, is it registered with HSA, and questions for the vendor.</span>
+      </a>
+      <a class="tg-card" href={withBase('/sg/templates/')}>
+        <b>Document templates</b>
+        <span>Generative AI policy, vendor questions, incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <SgFaq items={faq} />
+
+  <SgGuideFoot sources={sources} checked={CHECKED} />
+</SgLayout>
