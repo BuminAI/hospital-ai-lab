@@ -7,6 +7,42 @@
   },
   "sections": [
     {
+      "heading": "TIP 03 — 多補一句「為什麼需要」",
+      "body": "告訴 AI 原因，它更容易依照您的目的來回答。",
+      "items": []
+    },
+    {
+      "heading": "您說「寫短一點」，重要內容卻不見了",
+      "body": "請 AI 把公告寫短一點，結果必須保留的日期反而被刪掉，您是否遇過這種情況？因為 AI 不知道您為什麼要縮短，所以無法自行判斷可以刪到什麼程度。",
+      "items": []
+    },
+    {
+      "heading": "做法：多補一行原因",
+      "body": "開發 Claude 的 Anthropic 官方指南說明，若告知指示背後的背景或動機，例如為什麼這樣做很重要，AI 就能更了解您的目標，給出更貼近需求的回答。OpenAI 官方指南也提到，在提問中加入 AI 可參考的額外背景資訊是有幫助的。請在指示最後補上「為什麼」，括號內請依實際情況修改。",
+      "items": [
+        "請把這則公告縮短到三行以內。原因是：（它會貼在護理站的公布欄，大家路過時快速閱讀）。日期和地點請不要刪掉。"
+      ]
+    },
+    {
+      "heading": "再補一點：「請這樣做」勝過「不要那樣」",
+      "body": "同一份指南建議，與其列出不能做的事，不如直接說明想要的樣子。例如「請用連貫的文字寫」，比「不要用表格」更有效。",
+      "items": []
+    },
+    {
+      "heading": "需要注意的地方",
+      "body": "即使說明了原因，內容仍可能出錯，日期和數字請自行確認。病人姓名、病歷等足以辨識個人的資訊，請勿輸入 AI 服務，說明原因時也一樣。請先確認貴院的資訊安全規範。",
+      "items": []
+    },
+    {
+      "heading": "出處",
+      "body": "",
+      "items": [
+        "Anthropic，〈Prompting best practices〉（官方文件） https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "OpenAI，〈Prompt engineering〉（官方文件） https://developers.openai.com/api/docs/guides/prompt-engineering",
+        "出處確認日：2026 年 11 月 14 日"
+      ]
+    },
+    {
       "heading": "TIP 01 — 讓 AI 可以回答「不知道」",
       "body": "一句話就能減少聽起來合理卻錯誤的回答。",
       "items": []

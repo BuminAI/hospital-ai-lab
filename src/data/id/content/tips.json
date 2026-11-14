@@ -7,6 +7,42 @@
   },
   "sections": [
     {
+      "heading": "TIP 03 — Tambahkan satu baris: mengapa Anda memintanya",
+      "body": "Dengan menyebut alasan, AI lebih mudah menjawab sesuai tujuan Anda.",
+      "items": []
+    },
+    {
+      "heading": "Anda minta «singkat», tetapi hal penting ikut hilang",
+      "body": "Pernahkah Anda meminta AI memperpendek pengumuman, lalu tanggal yang wajib ada malah terhapus? AI tidak tahu mengapa Anda ingin tulisan singkat, sehingga ia tidak bisa menilai sendiri sampai di mana boleh dipangkas.",
+      "items": []
+    },
+    {
+      "heading": "Solusinya: satu baris alasan",
+      "body": "Panduan resmi Anthropic (pembuat Claude) menjelaskan bahwa memberi konteks atau motivasi di balik instruksi, misalnya mengapa hal itu penting, membantu AI memahami tujuan Anda dan memberi jawaban yang lebih tepat sasaran. Panduan resmi OpenAI juga menyebut bahwa menambahkan informasi konteks tambahan pada permintaan berguna bagi AI. Tambahkan «mengapa» di akhir instruksi. Ganti isi dalam tanda kurung sesuai situasi Anda.",
+      "items": [
+        "Persingkat pengumuman ini menjadi maksimal tiga baris. Alasannya: (pengumuman ditempel di papan ruang perawat dan dibaca sambil lewat). Jangan hapus tanggal dan tempat."
+      ]
+    },
+    {
+      "heading": "Satu hal lagi: «lakukan begini», bukan «jangan begitu»",
+      "body": "Panduan yang sama menyarankan agar Anda menyebutkan hasil yang diinginkan secara langsung, bukan menyusun daftar larangan. Misalnya, «tulis dalam kalimat yang mengalir» lebih baik daripada «jangan pakai tabel».",
+      "items": []
+    },
+    {
+      "heading": "Yang perlu diingat",
+      "body": "Meski sudah diberi alasan, isi jawaban tetap bisa keliru, jadi periksa sendiri tanggal dan angkanya. Jangan memasukkan informasi yang dapat mengenali pasien, seperti nama atau catatan medis, ke layanan AI, termasuk dalam penjelasan alasan. Periksa dahulu kebijakan keamanan informasi rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, «Prompting best practices» (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "OpenAI, «Prompt engineering» (dokumentasi resmi) https://developers.openai.com/api/docs/guides/prompt-engineering",
+        "Tanggal pemeriksaan sumber: 14 November 2026"
+      ]
+    },
+    {
       "heading": "TIP 01 — Beri AI izin untuk berkata tidak tahu",
       "body": "Satu kalimat mengurangi jawaban keliru yang terdengar meyakinkan.",
       "items": []
