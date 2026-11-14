@@ -14,17 +14,17 @@ export const BLOG_CATEGORIES: BlogCategory[] = [
   {
     label: '논문리뷰',
     slug: 'paper-review',
-    description: '의료 AI 관련 연구·논문을 병원 행정·간호 실무자가 이해할 수 있는 말로 풀어 리뷰합니다.',
+    description: '의료 AI 관련 연구·논문을 병원 행정·간호 실무자가 이해할 수 있는 말로 풀어 리뷰합니다. 논문이 무엇을 확인했고 어디까지만 말할 수 있는지를 함께 정리합니다.',
   },
   {
     label: 'AI도구',
     slug: 'ai-tools',
-    description: '병원 업무에 바로 활용할 수 있는 AI 도구와 실제 사례를 정리합니다.',
+    description: '병원 업무에 바로 활용할 수 있는 AI 도구와 실제 사례를 정리합니다. 병원 행정·간호 실무자가 오늘 써 볼 수 있는 활용법과 확인할 점을 담았습니다.',
   },
   {
     label: '칼럼',
     slug: 'column',
-    description: '의료 AI 규제·개인정보·저작권 등 병원 현장에서 마주치는 주제를 다룹니다.',
+    description: '의료 AI 규제·개인정보·저작권 등 병원 현장에서 마주치는 주제를 다룹니다. 병원 행정·간호 실무자가 도입 판단 때 무엇을 확인해야 하는지에 초점을 둡니다.',
   },
   {
     label: '소식',
