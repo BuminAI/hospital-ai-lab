@@ -1,0 +1,212 @@
+---
+// Checklist: katayuan ng device at AI vendor (2026-11-14) — batay sa RA 9711, RA 11223 Sec. 36 at ASEAN Guide; hindi nabuksan ang mga circular ng FDA.
+import '../../styles/ph-guide.css';
+import PhLayout from '../../layouts/PhLayout.astro';
+import PhGuideFoot from '../../components/PhGuideFoot.astro';
+import PhFaq from '../../components/PhFaq.astro';
+import { guideSchema } from '../../utils/ph-guide';
+import { SRC } from '../../data/ph/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'Nobyembre 14, 2026';
+const title = "Checklist: katayuan ng device at AI vendor sa Pilipinas";
+const description =
+  "Ano ang susuriin kapag may alok na AI software: medical device ba, may lisensya at rehistro ba, paano ang mga update, at ano ang gagawin ng ospital mismo.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    "id": "g1",
+    "head": "A. Medical device ba ang produkto?",
+    "lead": "Kasama ang “software” sa kahulugan ng medical device sa FDA Act, at nakadepende ito sa layuning inilaan ng manufacturer.",
+    "items": [
+      {
+        "no": "1",
+        "text": "Nagbigay ang vendor ng nakasulat na sagot kung itinuturing nitong medical device ang produkto sa Pilipinas, at bakit.",
+        "basis": "RA 9711, kahulugan ng “medical device”"
+      },
+      {
+        "no": "2",
+        "text": "Nabasa ninyo ang nakasulat na layuning inilaan ng manufacturer at ikinumpara sa aktuwal na paggamit ng inyong staff.",
+        "basis": "RA 9711, “intended by the manufacturer”; mungkahi ng may-akda"
+      },
+      {
+        "no": "3",
+        "text": "Kung ang produkto ay para sa diagnosis, pagsubaybay, pag-iwas o panggagamot ng sakit o pinsala, itinanong ninyo nang tahasan kung paano ito inuri ng vendor.",
+        "basis": "RA 9711, kahulugan ng “medical device”"
+      }
+    ]
+  },
+  {
+    "id": "g2",
+    "head": "B. Lisensya at rehistro",
+    "lead": "Ipinagbabawal ang pagbebenta at pamamahagi ng device nang walang lisensya, at ng health product na kailangang irehistro pero hindi nakarehistro.",
+    "items": [
+      {
+        "no": "4",
+        "text": "May license to operate mula sa FDA ang kumpanyang nagbebenta o namamahagi sa Pilipinas, at nakita na ninyo ang patunay.",
+        "basis": "RA 9711, Sec. 10, bawal na gawain (k)"
+      },
+      {
+        "no": "5",
+        "text": "Kung kailangan ng rehistro ang produkto, may detalye ng rehistro ang vendor, at sinuri ninyo ito sa FDA. (Ang pagsusuri sa FDA ay mungkahi ng may-akda.)",
+        "basis": "RA 9711, Sec. 10, bawal na gawain (j)"
+      },
+      {
+        "no": "6",
+        "text": "Alam ninyong hindi sinasabi ng batas mismo kung aling software ang kailangang irehistro; tinanong ninyo ito sa FDA o sa compliance officer, dahil hindi nabuksan ng pahinang ito ang mga circular ng FDA.",
+        "basis": "Hangganan ng pahinang ito"
+      }
+    ]
+  },
+  {
+    "id": "g3",
+    "head": "C. Mga update at monitoring",
+    "lead": "Mga mungkahi mula sa ASEAN Guide at ng may-akda; hindi legal na kinakailangan.",
+    "items": [
+      {
+        "no": "7",
+        "text": "Ipinaliwanag ng vendor kung paano hinahawakan ang mga update ng modelo at kung paano kayo aabisuhan bago ito umabot sa inyong mga ward.",
+        "basis": "Mungkahi ng may-akda"
+      },
+      {
+        "no": "8",
+        "text": "May dokumentasyon ng repeatability, traceability at auditability (audit trail ng pag-develop at paggawa ng desisyon ng sistema) o katumbas na patunay ng kalidad ng sistema.",
+        "basis": "ASEAN Guide, transparency at explainability"
+      },
+      {
+        "no": "9",
+        "text": "Sinabi ng vendor kung ang datos na ginamit sa pagsasanay at pagsubok ay sapat na kinatawan ng mga pasyenteng pagsisilbihan ninyo.",
+        "basis": "ASEAN Guide, operations management"
+      }
+    ]
+  },
+  {
+    "id": "g4",
+    "head": "D. Panig ng ospital",
+    "lead": "Hindi pinapalitan ng lisensya ng vendor ang sariling pamamahala ng ospital.",
+    "items": [
+      {
+        "no": "10",
+        "text": "Kumakabit ang tool sa health information system at EHR ng ospital na naaayon sa pamantayan ng DOH at interoperable, at protektado ang privacy ng pasyente ayon sa Data Privacy Act.",
+        "basis": "RA 11223, Sec. 36"
+      },
+      {
+        "no": "11",
+        "text": "May tinukoy na antas ng paglahok ng tao sa bawat gamit; nananatiling taong nagpapasya sa mga desisyong may mataas na panganib.",
+        "basis": "ASEAN Guide, antas ng paglahok ng tao"
+      },
+      {
+        "no": "12",
+        "text": "May komiteng namamahala sa AI sa ospital at may talaan ng lahat ng AI tool na ginagamit. (Ang talaan ay mungkahi ng may-akda.)",
+        "basis": "ASEAN Guide, internal governance"
+      },
+      {
+        "no": "13",
+        "text": "May plano para ipaalam sa pasyente at staff kung kailan ginagamit ang AI.",
+        "basis": "ASEAN Guide, komunikasyon sa stakeholders"
+      }
+    ]
+  }
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    "q": "Kung may lisensya ang vendor, tama na ba ang tool para sa ospital namin?",
+    "a": "Hindi. Hindi sinasabi ng lisensya o rehistro kung akma ang tool sa daloy ng trabaho at mga pasyente ninyo. Subukan ito sa sarili ninyong konteksto bago ang pangkalahatang paggamit, at panatilihing ang taong nagpapasya sa mga desisyong may mataas na panganib (ASEAN Guide)."
+  },
+  {
+    "q": "Sinabi ng vendor na hindi ito medical device. Ano ang gagawin namin?",
+    "a": "Humingi ng paliwanag na nakasulat, nakabatay sa layuning inilaan ng manufacturer. Kasama ang “software” sa kahulugan ng medical device sa FDA Act at nakadepende ito sa nilalayon ng manufacturer. Itanong din sa FDA o sa compliance officer, dahil hindi nabuksan ng pahinang ito ang mga circular ng FDA."
+  },
+  {
+    "q": "Kailangan bang pahintulutan ng FDA ang bawat pagbabago ng AI model?",
+    "a": "Hindi masasabi ng pahinang ito. Walang detalye ang FDA Act tungkol sa pagbabago ng software, at hindi nabuksan ang mga circular ng FDA. Itanong sa vendor at sa FDA kung paano hinahawakan ang mga update."
+  }
+];
+
+const sources = [SRC.ra9711, SRC.ra11223, SRC.asean];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ph/documents-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: "Administrasyon at pamunuan ng ospital",
+  faq,
+});
+---
+
+<PhLayout title={title} description={description} crumb="Katayuan ng device at AI vendor" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={guide}>
+  <h1>Checklist: katayuan ng device at AI vendor</h1>
+  <p class="tg-lead">
+    Kapag may alok na AI software ang vendor, tatlong tanong ang sabay na lumilitaw: regulated medical device ba ito, ano ang nagbabago kapag ina-update ang modelo, at ano ang nangyayari sa datos na hinahawakan nito. Pinagsasama ng pahinang ito ang mga iyon, bawat isa ay may batayan.
+  </p>
+  <p class="tg-meta">Sinuri: {CHECKED} · {total} aytem · Para sa: administrasyon at pamunuan ng ospital</p>
+
+  <p class="tg-answer">
+    Sa madaling sabi: kasama ang “software” sa kahulugan ng medical device sa FDA Act at nakadepende ito sa layuning inilaan ng manufacturer; ipinagbabawal ang pagbebenta o pamamahagi ng device nang walang license to operate at ng produktong kailangang irehistro pero hindi nakarehistro; kailangang kumabit ang tool sa interoperable na health information system na naaayon sa pamantayan ng DOH; at nag-aalok ang ASEAN Guide ng boluntaryong gabay sa pamamahala ng AI.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Basahin muna ito</strong>
+    <ul class="tg-list">
+      <li>Hindi ito <strong>opisyal na checklist</strong>. Listahan ito ng may-akda mula sa mga dokumentong binasa nang buo; may batayan ang bawat aytem, kaya suriin ang teksto.</li>
+      <li>Hindi sinasabi ng mga dokumentong binanggit kung medical device ang isang partikular na produkto o kung kailangan nitong irehistro. Nakadepende iyon sa layunin nito at sa mga circular ng FDA na hindi namin nabuksan; magtanong sa vendor nang nakasulat at sa FDA.</li>
+      <li>Ang mga aytem na may markang “mungkahi ng may-akda” ay hindi legal na kinakailangan.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>Blg.</th>
+              <th>Ano ang susuriin</th>
+              <th>Batayan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Susunod</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ph/data-checklist/')}>
+        <b>Checklist sa proteksyon ng datos ng pasyente</b>
+        <span>Aling datos ang puwedeng pumasok sa AI tool, mga tanong sa vendor at breach.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ph/templates/')}>
+        <b>Mga template ng dokumento</b>
+        <span>Mga tanong sa vendor, patakaran sa generative AI at incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <PhFaq items={faq} />
+
+  <PhGuideFoot sources={sources} checked={CHECKED} />
+</PhLayout>

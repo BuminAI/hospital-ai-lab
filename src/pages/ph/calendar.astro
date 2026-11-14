@@ -1,0 +1,65 @@
+---
+// Kalendaryo ng mga balita mula sa mga ahensya ng kalusugan (2026-11-14)
+// Kinokolekta nang awtomatiko ang mga balita mula sa PhilHealth at WHO Philippines (scripts/fetch-ph-gov.mjs).
+// ⚠️ Mga ulat at balita ito, hindi mga takdang panahon ng pagsunod. Petsa = petsa ng balita.
+import '../../styles/ph-guide.css';
+import PhLayout from '../../layouts/PhLayout.astro';
+import PhGuideFoot from '../../components/PhGuideFoot.astro';
+import notices from '../../data/ph/gov-notices.json';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('fil-PH', { timeZone: 'Asia/Manila', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = notices.items.slice(0, 20);
+
+const title = 'Kalendaryo: bagong balita mula sa PhilHealth at WHO';
+const description =
+'Mga pinakabagong balita mula sa PhilHealth at WHO Philippines tungkol sa kalusugan at mga programa, kasama ang petsa ng bawat isa. Awtomatikong ina-update.';
+const sources = [{ label: 'PhilHealth — Balita', url: 'https://www.philhealth.gov.ph/news/' }, { label: 'WHO Philippines — Balita', url: 'https://www.who.int/philippines/news' }];
+---
+
+<PhLayout title={title} description={description} crumb="Kalendaryo" standalone updated={new Date(notices.updatedAt ?? Date.now())}>
+<h1>Kalendaryo ng FDA at DOH</h1>
+  <p class="tg-lead">
+Ano ang mga bagong lumabas na ulat mula sa mga ahensya ng kalusugan? Lumalabas dito ang mga pinakabagong balita mula sa PhilHealth at WHO Philippines, mula sa pinakabago.
+  </p>
+<p class="tg-meta">Shown: {fmtDay.format(new Date())} · Data updated: {notices.updatedAt ? fmtDay.format(new Date(notices.updatedAt)) : 'not yet'}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+<h2 id="h-notice">Mga pinakabagong ulat mula sa mga ahensya ng kalusugan</h2>
+    <div class="tg-box tg-warn">
+Ang petsa sa ibaba ay ang petsa ng balita o ulat, <strong>hindi deadline ng pagsunod</strong>. Basahin ang orihinal para sa nilalaman at bisa nito. Ang pamagat, uri, petsa at ahensya lamang ang kinokopya. Hindi nabubuksan ng pahinang ito ang mga site ng DOH at FDA Philippines (HTTP 403), kaya wala ang mga ito sa listahan.
+    </div>
+    {
+      recent.length > 0 ? (
+        <ol class="tg-tl">
+          {recent.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+<span class="sr-only">(bubukas sa bagong tab)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+<p>Wala pang tumutugmang dokumento.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+<h2 id="h-ms">Mga paparating na petsa</h2>
+    <p>
+Nasa <a href={withBase('/ph/dx-roadmap/')}>Roadmap</a> ang mga kumpirmadong paparating na petsa kasama ng mga milestone na nakalipas na.
+    </p>
+  </section>
+
+<PhGuideFoot sources={sources} checked="November 6, 2026" />
+</PhLayout>

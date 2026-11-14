@@ -1,0 +1,112 @@
+---
+// Key facts for citation (2026-11-06) — a page for AEO/GEO.
+// One item = question + short answer + section + primary source. Data: src/data/ph/guides/facts.ts.
+// Each item has an anchor (#id) for direct linking.
+import '../../../styles/ph-guide.css';
+import PhLayout from '../../../layouts/PhLayout.astro';
+import PhGuideFoot from '../../../components/PhGuideFoot.astro';
+import { FACTS, FACT_TOPICS, FACTS_CHECKED } from '../../../data/ph/guides/facts';
+import { SRC } from '../../../data/ph/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const title = 'Mga pangunahing katotohanan: device, datos at AI sa ospital';
+const description = `${FACTS.length} maiikling sagot na maaaring sipiin tungkol sa FDA Act at medical device, Data Privacy Act, health information system ng UHC Act at ASEAN Guide sa AI governance.`;
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/ph/facts/')}`;
+
+const faqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'fil-PH',
+  isPartOf: { '@id': `${siteRoot}/#website-ph` },
+  mainEntity: FACTS.map((f) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#${f.id}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: `${f.a} (Basis: ${f.basis}.)`, citation: SRC[f.src].url },
+  })),
+};
+const articleLd = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: title,
+  description,
+  inLanguage: 'fil-PH',
+  author: { '@id': `${siteRoot}/#person` },
+  publisher: { '@id': `${siteRoot}/#organization` },
+  isPartOf: { '@id': `${siteRoot}/#website-ph` },
+  mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  datePublished: '2026-11-07T00:00:00+08:00',
+  dateModified: '2026-11-07T00:00:00+08:00',
+  isAccessibleForFree: true,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.tg-answer', 'h1'] },
+  citation: Object.values(SRC).map((s) => ({ '@type': 'CreativeWork', name: s.label, url: s.url })),
+};
+
+const sources = [SRC.ra9711, SRC.ra10173, SRC.ra11223, SRC.asean];
+---
+
+<PhLayout title={title} description={description} crumb="Mga pangunahing katotohanan" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={[articleLd, faqLd]}>
+  <h1>Mga pangunahing katotohanan: device, datos ng pasyente at AI sa mga ospital sa Pilipinas</h1>
+  <p class="tg-lead">
+    Maiikling sagot sa mga tanong na pinakamadalas lumabas sa mga pulong sa pagbili at compliance. Isinulat ang bawat sagot matapos buksan ang teksto ng dokumento, at ibinibigay ang seksyon at link sa pangunahing sanggunian.
+  </p>
+  <p class="tg-meta">Sinuri: {FACTS_CHECKED} · {FACTS.length} aytem · Para sa: mga administrador, nurse at pasyente</p>
+
+  <p class="tg-answer">
+    Sa madaling sabi: kasama ang “software” sa kahulugan ng medical device sa FDA Act at ipinagbabawal ang pagbebenta o pamamahagi ng device nang walang license to operate; sensitibong impormasyon ang datos pangkalusugan sa ilalim ng Data Privacy Act at nananatiling responsable ang ospital sa datos na ipinasa sa vendor; inuutusan ng UHC Act ang mga provider na magkaroon ng interoperable na health information system; at boluntaryo ang pitong prinsipyo ng ASEAN Guide sa AI governance.
+  </p>
+
+  <div class="tg-box">
+    <strong>Paano gamitin ang pahinang ito</strong><br />
+    Kopyahin ang sagot kasama ang seksyon nito, at suriin ang teksto ng patakaran sa pangunahing sanggunian. Walang mga deadline o patakaran dito na ang teksto ay hindi namin nabasa; hindi ito legal na payo.
+    <br />
+    {
+      FACT_TOPICS.map((t, i) => (
+        <>
+          <a href={`#t-${i}`}>{t}</a>
+          {i < FACT_TOPICS.length - 1 ? ' · ' : ''}
+        </>
+      ))
+    }
+  </div>
+
+  {
+    FACT_TOPICS.map((topic, i) => (
+      <section class="tg-sec" aria-labelledby={`t-${i}`}>
+        <h2 id={`t-${i}`}>{topic}</h2>
+        <dl class="tg-facts">
+          {FACTS.filter((f) => f.topic === topic).map((f) => (
+            <>
+              <dt id={f.id}>
+                <a href={`#${f.id}`}>{f.q}</a>
+              </dt>
+              <dd>
+                <p>{f.a}</p>
+                <p class="tg-basis">
+                  Batayan: {f.basis} ·{' '}
+                  <a href={SRC[f.src].url} target="_blank" rel="noopener">
+                    pangunahing sanggunian<span class="sr-only"> (bubukas sa bagong tab)</span>
+                  </a>
+                </p>
+              </dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Susunod</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ph/dx-roadmap/')}><b>Roadmap</b><span>Mga pangunahing batas sa iisang timeline.</span></a>
+      <a class="tg-card" href={withBase('/ph/data-checklist/')}><b>Checklist sa proteksyon ng datos ng pasyente</b><span>Mga aytem mula sa Data Privacy Act at ASEAN Guide.</span></a>
+      <a class="tg-card" href={withBase('/ph/glossary/')}><b>Glosaryo</b><span>Mga terminong medical AI sa payak na wika.</span></a>
+    </div>
+  </section>
+
+  <PhGuideFoot sources={sources} checked={FACTS_CHECKED} />
+</PhLayout>

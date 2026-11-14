@@ -1,0 +1,100 @@
+---
+// Bago magtanong sa AI tungkol sa kalusugan (2026-11-14). Pangkalahatang babala lamang; walang diagnosis o payo sa paggamot. Batayan: RA 10173 Sec. 3(l), 13, 16; RA 9711; ulat tungkol sa 911.
+import '../../../styles/ph-guide.css';
+import PhLayout from '../../../layouts/PhLayout.astro';
+import PhGuideFoot from '../../../components/PhGuideFoot.astro';
+import PhFaq from '../../../components/PhFaq.astro';
+import { guideSchema } from '../../../utils/ph-guide';
+import { SRC } from '../../../data/ph/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'Nobyembre 14, 2026';
+const title = "Magtanong sa AI tungkol sa kalusugan sa Pilipinas: anim na dapat malaman";
+const description =
+  "Hindi diagnosis ang sagot ng AI. Anim na dapat malaman bago magtanong sa chatbot tungkol sa kalusugan: pagiging madalian, privacy, rehistradong software at sarili ninyong rekord.";
+
+const rights = [
+  {
+    "h": "1. Hindi diagnosis ang sagot ng AI",
+    "p": "Hindi kayo maeeksamen ng chatbot at hindi nito nakikita ang buo ninyong kasaysayan, at maaari itong magmukhang sigurado kahit mali. Gamitin ito, sa pinakamarami, para maghanda ng mga tanong para sa sarili ninyong doktor o nurse."
+  },
+  {
+    "h": "2. Huwag maghintay kung maaaring madalian",
+    "p": "Kung sa tingin ninyo ay may emergency kayo o ang ibang tao, tumawag sa 911, ang pambansang emergency hotline ng Pilipinas ayon sa mga ulat ng The Manila Times, o pumunta sa pinakamalapit na emergency department. Huwag maghintay ng sagot ng chatbot."
+  },
+  {
+    "h": "3. Sensitibo ang datos pangkalusugan",
+    "p": "Itinuturing ng Data Privacy Act of 2012 na “sensitive personal information” ang impormasyon tungkol sa inyong kalusugan (Sec. 3(l)), at bawal itong iproseso maliban sa mga kasong nakalista, gaya ng pahintulot na tiyak sa layunin (Sec. 13). Bago kayo magtype ng detalye ng kalusugan sa isang serbisyo, basahin kung ano ang sinasabi nito tungkol sa layunin, kung saan napupunta ang datos at paano ito iuurong."
+  },
+  {
+    "h": "4. Magbahagi ng mas kaunti kaysa sa akala ninyong kailangan",
+    "p": "Iwasan ang pangalan, petsa ng kapanganakan, address, numero ng telepono, PhilHealth ID at ibang numero ng pagkakakilanlan, at larawang nagpapakita ng inyong mukha o dokumento, maliban kung sigurado kayong pinagkakatiwalaan ninyo ang serbisyo."
+  },
+  {
+    "h": "5. May regulated na health software, may hindi",
+    "p": "Sa FDA Act of 2009, kasama ang “software” sa kahulugan ng medical device kapag nilayon ng manufacturer na gamitin ito sa tao para sa diagnosis, pagsubaybay, pag-iwas o panggagamot ng sakit. Kung nagsasabi ang isang app na nagdidiagnose o gumagamot, magtanong kung nakarehistro ito at kung sino ang may lisensya ng FDA na nagbebenta nito. Hindi namin masasabi kung alin sa mga app ang nasa saklaw; hindi nabuksan ang mga circular ng FDA."
+  },
+  {
+    "h": "6. Dalhin ang sarili ninyong rekord sa doktor",
+    "p": "Ipunin ang inyong mga resulta, reseta at discharge summary. Mas nakakatulong ang mga ito sa doktor na gumagamot sa inyo kaysa sa buod ng chatbot tungkol sa mga iyon."
+  }
+];
+
+const faq = [
+  {
+    "q": "Ligtas ba ang pagpaste ng resulta ng pagsusuri ko sa chatbot?",
+    "a": "Hindi masasabi ng pahinang ito kung ano ang ginagawa ng isang partikular na tool sa mga iyon. Isaalang-alang kung ano ang sinasabi ng patakaran sa privacy ng serbisyo, at alisin muna ang inyong pangalan at mga identifier."
+  },
+  {
+    "q": "Pinoprotektahan ba ng Data Privacy Act ang sinasabi ko sa chatbot?",
+    "a": "Sinasaklaw ng Data Privacy Act ang pagproseso ng lahat ng uri ng personal na impormasyon (Sec. 4), at sensitibo ang datos pangkalusugan. Kung aling mga tungkulin ang eksaktong kumakapit sa isang partikular na serbisyo ay nangangailangan ng legal na pagsusuri na hindi saklaw ng pahinang ito. Puwede kayong magreklamo sa National Privacy Commission (Sec. 16)."
+  },
+  {
+    "q": "Mapagkakatiwalaan ko ba ang AI na nagsasabing “aprubado ng FDA”?",
+    "a": "Itanong kung ano mismo ang nakarehistro at para sa anong layunin. Hindi ang pahayag sa pahina ng app store ang rehistro mismo, kaya suriin ang detalye ng rehistro, hindi ang pahayag."
+  }
+];
+
+const sources = [SRC.ra10173, SRC.ra9711, SRC.hotline911];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ph/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: 'Mga pasyente at kanilang pamilya',
+  faq,
+});
+---
+
+<PhLayout title={title} description={description} crumb="Pagtatanong sa AI tungkol sa kalusugan" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={schema}>
+  <h1>Magtanong sa AI tungkol sa kalusugan sa Pilipinas: anim na dapat malaman</h1>
+  <p class="tg-lead">
+    Maraming tao ngayon ang nagtatanong sa mga AI chatbot tungkol sa sintomas, resulta ng pagsusuri at gamot. Hindi sinasabi ng pahinang ito kung ano ang gagawin sa anumang kondisyong pangkalusugan. Ipinapaliwanag nito ang ilang katotohanang makakatulong para mas maingat ninyong magamit ang mga ganoong tool.
+  </p>
+  <p class="tg-meta">Sinuri: {CHECKED} · Para sa: mga pasyente at kanilang pamilya</p>
+
+  <div class="tg-box tg-warn">
+    Pangkalahatang impormasyon ito. Hindi ito legal na payo at hindi payong medikal para sa inyong sitwasyon. Kung may alalahanin kayo sa kalusugan, makipag-ugnayan sa sarili ninyong clinician o sa organisasyong pangkalusugan na gumagamot sa inyo. Sa emergency, tumawag sa 911, ang pambansang emergency hotline ng Pilipinas.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Anim na bagay</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <PhFaq items={faq} />
+
+  <PhGuideFoot sources={sources} checked={CHECKED} patient />
+</PhLayout>

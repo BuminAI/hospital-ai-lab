@@ -149,6 +149,38 @@ export const growth: Record<Loc, GrowthStrings> = {
     home: { title: 'Read by topic', more: 'All series →' },
   },
 
+  ph: {
+    seriesName: 'Serye ng artikulo',
+    hub: {
+      title: 'Serye ng artikulo',
+      lead: 'Puwedeng basahin nang paisa-isa ang mga artikulo, pero mas malinaw ang mga pamantayan kapag binasa ayon sa paksa. Pinagsama-sama namin ang mga tanong na pinakamadalas harapin ng mga administrador at nursing leader ng ospital sa Pilipinas kapag sinusuri ang AI. Sa loob ng bawat serye, sunud-sunod ang pagkakaayos ng mga artikulo.',
+      metaDescription:
+        'Mga artikulo tungkol sa AI sa mga ospital sa Pilipinas para sa mga administrador at nursing leader, pinagsama ayon sa paksa: katayuan ng device at health information system, at datos ng pasyente at pamamahala ng AI.',
+      count: (n) => `${n} ${n === 1 ? 'artikulo' : 'artikulo'}`,
+      latest: 'Pinakabago',
+      firstPost: 'Simulan sa unang artikulo',
+      viewList: 'Tingnan ang listahan',
+    },
+    detail: {
+      back: '← Serye ng artikulo',
+      order: (n) => `${n} artikulo · iminumungkahi naming basahin ayon sa pagkakasunod sa ibaba.`,
+      relatedChecklist: 'Checklist na magagamit sa susunod:',
+      metaSuffix: (n) => `${n} artikulo ayon sa pagkakasunod ng pagbasa.`,
+    },
+    box: { heading: 'Bahagi ng serye ang artikulong ito', prev: '← Nakaraan', next: 'Susunod →', all: 'Lahat ng serye' },
+    subscribe: {
+      title: (c = 'mga bagong artikulo') => `Paano makasubaybay sa ${c}`,
+      body: 'Regular kaming naglalathala ng materyal tungkol sa AI sa medisina para sa mga administrador at nursing leader ng ospital. Idagdag ang RSS feed sa isang reader at darating ang mga bagong artikulo kapag nailathala.',
+      rss: 'Mag-subscribe sa RSS',
+    },
+    checklist: {
+      progress: (d, t) => `${d} sa ${t} ang natsek`,
+      reset: 'Magsimulang muli',
+      print: 'I-print / i-save bilang PDF',
+      related: 'Basahin sunod',
+    },
+    home: { title: 'Basahin ayon sa paksa', more: 'Lahat ng serye →' },
+  },
   ko: {
     seriesName: '연재 시리즈',
     hub: {

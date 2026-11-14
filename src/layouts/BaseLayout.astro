@@ -314,6 +314,15 @@ const webPage = {
               />
             )
           }
+          {
+            alternates.ph && (
+              <link
+                rel="alternate"
+                hreflang="fil-PH"
+                href={`${siteRoot}${withBase(alternates.ph)}`}
+              />
+            )
+          }
           <link rel="alternate" hreflang="x-default" href={canonical} />
         </>
       )
@@ -509,6 +518,9 @@ const webPage = {
             </li>
             <li>
               <a href={withBase('/sg/')} hreflang="en-SG" lang="en-SG">English (Singapore)</a>
+            </li>
+            <li>
+              <a href={withBase('/ph/')} hreflang="fil-PH" lang="fil-PH">Filipino (Pilipinas)</a>
             </li>
           </ul>
         </nav>

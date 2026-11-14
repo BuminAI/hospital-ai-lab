@@ -87,6 +87,15 @@
 - [Article series](https://hospital-ai-lab.com/sg/series/) · [AI news](https://hospital-ai-lab.com/sg/news/): The Straits Times·CNA·Business Times·Mothership·e27에서 AI·보건 관련 헤드라인 자동 수집
 - [AI Program Review Room](https://hospital-ai-lab.com/sg/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
 
+## 필리핀어판 (필리핀어, https://hospital-ai-lab.com/ph/)
+
+- 번역본이 아니라 필리핀 제도를 1차 문서로 새로 조사해 필리핀어로 쓴 판입니다(RA 9711 FDA법·RA 10173 개인정보법·RA 11223 UHC법 전문(LawPhil), ASEAN AI 거버넌스 가이드). FDA 필리핀·보건부·국가개인정보위원회 사이트는 자동 접속이 403이라 그곳의 고시·권고는 쓰지 않았습니다.
+- 영어 아님 — 필리핀어 안내문: [llms.txt](https://hospital-ai-lab.com/ph/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/ph/llms-full.txt) · 인용용 사실 허브 [/ph/facts/](https://hospital-ai-lab.com/ph/facts/)
+- 실무 가이드(`/ph/dx-roadmap/`·`/ph/data-checklist/`·`/ph/documents-checklist/`·`/ph/templates/`)·환자 코너(`/ph/patients/`)·보건 기관 소식 캘린더(`/ph/calendar/`)·갱신 정보(`/ph/updates/`).
+- [홈](https://hospital-ai-lab.com/ph/) · [Glosaryo](https://hospital-ai-lab.com/ph/glossary/) · [Mga tanong](https://hospital-ai-lab.com/ph/faq/) · [Checklist](https://hospital-ai-lab.com/ph/checklist/)
+- [Serye](https://hospital-ai-lab.com/ph/series/) · [Balita sa AI](https://hospital-ai-lab.com/ph/news/): 필리핀 매체의 AI·보건 헤드라인 자동 수집
+- [AI Program Review Room](https://hospital-ai-lab.com/ph/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points (English interface).
+
 ## 인도네시아어판 (https://hospital-ai-lab.com/id/)
 
 인도네시아 제도 기준으로 따로 집필. 전자의무기록(RME) 의무화, SATUSEHAT 연동, 알케스 인증,

@@ -1,0 +1,23 @@
+---
+// Shared FAQ block for the Practice and For-patients pages of the English edition (2026-11-06)
+// Pass the same array to guideSchema(faq) from en-guide.ts so the screen and the structured data match.
+interface Props {
+  items: { q: string; a: string }[];
+  heading?: string;
+}
+const { items, heading = 'Mga madalas itanong' } = Astro.props;
+---
+
+<section class="tg-sec tg-faq" aria-labelledby="tg-faq-h">
+  <h2 id="tg-faq-h">{heading}</h2>
+  <dl>
+    {
+      items.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+</section>

@@ -1,0 +1,210 @@
+---
+// Templates (2026-11-14): generative AI policy, 21 vendor questions, patient-facing text, incident record
+// ⚠️ Everything here is the author’s DRAFT, not legal advice. Cited only to documents that were read in full (RA 9711, RA 10173, ASEAN Guide).
+import '../../styles/ph-guide.css';
+import PhLayout from '../../layouts/PhLayout.astro';
+import PhGuideFoot from '../../components/PhGuideFoot.astro';
+import { SRC } from '../../data/ph/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'Nobyembre 14, 2026';
+const title = 'Mga template: patakaran sa generative AI at 21 tanong sa vendor';
+const description =
+  'Apat na kopyahing draft: patakaran sa paggamit ng generative AI, 21 tanong sa vendor, maikling teksto para sa pasyente at talaan ng insidente sa personal na datos.';
+
+const policy = [
+  "PATAKARAN SA PAGGAMIT NG GENERATIVE AI, OSPITAL NG \"__\" (DRAFT)",
+  "",
+  "1. Layunin",
+  "   Nagtatakda ng mga patakaran para sa staff ng \"__\" kapag gumagamit ng mga generative AI tool (chatbot, summarizer, translation tool).",
+  "",
+  "2. Ano ang HINDI dapat ipasok",
+  "   - Pangalan ng pasyente, numero ng rekord o hospital number, PhilHealth ID number, petsa ng kapanganakan, address, numero ng telepono, o nilalaman ng rekord ng pasyente.",
+  "   - Mga larawan o recording na maaaring makakilala sa pasyente.",
+  "   - Mga kontrata, o limitadong datos pampinansya at personnel.",
+  "   Eksepsiyon: tool na inaprubahan nang nakasulat ng \"__\" para sa ganoong uri ng datos (tingnan ang bahagi 3).",
+  "",
+  "3. Mga aprubadong tool at pinahihintulutang datos",
+  "   Mga tool lamang sa aprubadong listahang hawak ng \"__\" (may-ari: __). Para sa bawat aprubadong tool, nakasaad sa listahan kung anong uri ng datos ang puwedeng ipasok. Bawal gumamit ng hindi aprubadong tool sa trabaho.",
+  "",
+  "4. Pagsusuri ng output",
+  "   May taong responsable sa bawat tekstong gawa ng AI na ginagamit sa trabaho. Maaaring maglahad ang generative AI ng gawa-gawang nilalaman na parang totoo, kaya suriin ang mga katotohanan, numero at pangalan laban sa pinagmulan bago gamitin.",
+  "   Hindi kailanman ipinapasok sa rekord ng pasyente ang output ng AI hangga’t hindi ito nasusuri at naaprubahan ng responsableng clinician. Kung ipinapakita sa iba ang nilalamang gawa ng AI, lagyan ito ng tatak na gawa ng AI.",
+  "",
+  "5. Pag-uulat",
+  "   Kung may impormasyon ng pasyenteng naipasok sa hindi aprubadong tool, iulat sa araw ding iyon kay __ (pangalan, telepono __). Huwag subukang burahin muna ito nang mag-isa.",
+  "",
+  "6. Pagsasanay",
+  "   Sinasanay ang mga staff na gumagamit ng AI tool sa patakarang ito, kasama ang mga limitasyon sa datos at kung paano mag-ulat ng insidente, at muling sinasanay kapag may malaking pagbabago. May-ari: __. Petsa ng rebyu: __.",
+].join('\n');
+
+const questions = [
+  "DALAWAMPUT ISANG TANONG PARA SA AI VENDOR (DRAFT)",
+  "Isulat ang mga sagot at ilakip sa kontrata.",
+  "",
+  "Katayuan ng device",
+  "1. Itinuturing ba ninyong medical device ang produktong ito sa Pilipinas? Kung hindi, bakit hindi, batay sa nakasulat na layunin nito?",
+  "2. Kung oo, may rehistro ba ito sa FDA at may license to operate ba ang kumpanyang nagbebenta at namamahagi? Puwede ba naming makita ang patunay?",
+  "3. Ano ang nakasulat na layunin ng produkto, at tugma ba ito sa plano naming paggamit?",
+  "4. Hiwalay na produkto ba ang software o bahagi ng ibang device? Kung bahagi, alin ang rehistro na sumasaklaw dito?",
+  "5. Gumagamit ba ng machine learning ang produkto, at nasaan sa dokumentasyon ang paliwanag ng mga input at output nito?",
+  "6. Paano kami aabisuhan bago umabot ang update sa aming mga ward, at puwede ba naming ipagpaliban?",
+  "7. Paano ibinabalik ang update sa dating bersyon, at sino ang magsasabi sa aming staff?",
+  "",
+  "Performance at monitoring",
+  "8. Sa anong mga pasyente sinubukan ang tool, at paano ito ikinukumpara sa aming mga pasyente, kasama ang edad, rehiyon at wika?",
+  "9. Anong mga sukatan ng performance ang binabantayan ninyo pagkatapos ng go-live, gaano kadalas, at ibabahagi ba ninyo sa amin?",
+  "10. Patuloy bang natututo ang modelo pagkatapos ng deployment? Kung oo, paano maiiwasang bumaba ang performance nito, at maibabalik ba sa naunang bersyon?",
+  "",
+  "Datos ng pasyente",
+  "11. Para sa anong mga layunin ninyo ipoproseso ang datos ng aming pasyente, at wala nang iba? Gagamitin ba ninyo ito para pagbutihin ang sarili ninyong produkto?",
+  "12. Saan iniimbak at pinoproseso ang datos, at sinu-sino ang mga sub-processor (cloud, model provider) na hahawak nito, sa loob man o labas ng bansa?",
+  "13. Masusundan ba ninyo ang datos na ginamit sa pagsasanay o pagkatuto hanggang sa bersyon ng software at sa output na nakikita namin?",
+  "14. Anong mga security safeguard ang inyong ipinapatupad, at paano ito kumakapit sa aming sariling security policy?",
+  "15. Paano at gaano kabilis ninyo kaming aabisuhan kapag may data breach, at sino ang sasagot kahit gabi?",
+  "16. Paano binubura ang datos sa pagtatapos ng kontrata, kasama ang logs, backup at mga sub-processor?",
+  "17. Paano nakakatulong ang tool para malagyan namin ng tatak ang nilalamang gawa ng AI para sa staff at pasyente?",
+  "",
+  "Operasyon",
+  "18. Sino sa aming ospital ang madaragdagan ng trabaho dahil sa tool na ito, at sino ang susuri ng output nito?",
+  "19. Ano ang hitsura ng exit plan, kasama ang pagbabalik o pagbura ng datos?",
+  "20. Aling mga desisyong nakakaapekto sa pasyente ang pagbabatayan ng output ng tool, at clinician ba ang gagawa ng huling desisyon?",
+  "21. Ano ang inyong suporta at escalation path para sa mga isyung pangkaligtasan?",
+].join('\n');
+
+const patient = [
+  "TEKSTO PARA SA MGA PASYENTE: ANG PAGGAMIT NAMIN NG AI TOOL (HALIMBAWA)",
+  "",
+  "Gumagamit ang ospital ng \"__\" ng AI tool para sa __ (halimbawa: paggawa ng draft ng discharge summary, na sinusuri pa ng clinician).",
+  "Hindi ang tool ang gumagawa ng huling desisyon tungkol sa inyong gamutan. May miyembro ng aming staff na sumusuri sa nilalabas nito.",
+  "Sasabihin namin sa inyo kung aling impormasyon ninyo ang ginagamit ng tool at bakit. Puwede ninyo kaming tanungin tungkol dito at tungkol sa mga alternatibo.",
+  "Mga tanong: __ (pangalan o tanggapan, telepono, email).",
+].join('\n');
+
+const incident = [
+  "TALAAN NG INSIDENTE SA PERSONAL NA DATOS (DRAFT)",
+  "",
+  "Petsa at oras na natuklasan: __   Natuklasan ni: __   Iniulat kay: __",
+  "Ano ang nangyari (isang pangungusap, walang pangalan ng pasyente): __",
+  "Mga sistema at datos na sangkot (uri ng datos, tinatayang bilang ng tao): __",
+  "Sensitibong impormasyon ba o impormasyong magagamit sa identity fraud ang maaaring nakuha ng hindi awtorisadong tao? __",
+  "Sino ang magpapasya kung kailangang abisuhan ang National Privacy Commission at ang mga apektado: __   Mga hakbang na ginawa sa pagtatasa (itala lahat): __",
+  "May makatwirang paniniwala bang malamang itong magdulot ng tunay na panganib ng malubhang pinsala sa apektado? __",
+  "",
+  "Mga hakbang sa pagpigil na ginawa: __   Ni: __   Oras: __",
+  "Abiso sa National Privacy Commission: sino ang maghahain: __   Takdang oras ayon sa kasalukuyang patakaran ng Commission: __   Naihain noong: __",
+  "Abiso sa bawat apektadong pasyente: sino ang magpapadala: __   Paraan: __   Naipadala noong: __",
+  "Vendor na sangkot: __   (contact: __, 24-oras na linya: __)",
+  "",
+  "Itinala: __ (sino ang kumontak kanino, at kailan).",
+].join('\n');
+
+const items = [
+  {
+    id: 'policy',
+    head: '1. Patakaran sa paggamit ng generative AI',
+    lead: 'Isang pahinang maibibigay sa staff. Palitan ang "__" ng mga detalye ng inyong ospital.',
+    basis: [
+      'Sinusunod ng mga tuntunin sa datos ang Data Privacy Act: sensitibong personal na impormasyon ang datos pangkalusugan at bawal itong iproseso maliban sa mga kasong nakalista (Sec. 13), at nananatiling responsable ang controller sa datos na ipinasa sa third party (Sec. 21).',
+      'Ang babala sa gawa-gawang nilalaman at ang tatak na “gawa ng AI” ay mungkahi ng may-akda, kaayon ng prinsipyo ng transparency sa ASEAN Guide.',
+    ],
+    text: policy,
+  },
+  {
+    id: 'vendor',
+    head: '2. Dalawampu’t isang tanong para sa vendor',
+    lead: 'I-print at dalhin sa presentasyon ng vendor. Isulat ang mga sagot.',
+    basis: [
+      'Mga tanong 1–7: ang kahulugan ng “medical device” (kasama ang “software”) at ang mga ipinagbabawal na gawain sa Sec. 10 ng FDA Act (RA 9711).',
+      'Mga tanong 11–16: Sec. 14, 20 at 21 ng Data Privacy Act (RA 10173).',
+      'Mga tanong 8–10, 13, 17–21: mungkahi ng may-akda, hango sa mga prinsipyo ng ASEAN Guide; hindi legal na kinakailangan.',
+    ],
+    text: questions,
+  },
+  {
+    id: 'patient',
+    head: '3. Teksto para sa mga pasyente',
+    lead: 'Isang maikling halimbawa kung paano sasabihin sa pasyente na gumagamit ang ospital ng AI tool. Iakma sa aktuwal ninyong gawain.',
+    basis: [
+      'Kaayon ng karapatan ng data subject na mabigyan ng impormasyon (Sec. 16 ng Data Privacy Act) at ng prinsipyo ng transparency ng ASEAN Guide.',
+      'Halimbawa lamang ng may-akda ang pananalita, hindi kinakailangang wika.',
+    ],
+    text: patient,
+  },
+  {
+    id: 'incident',
+    head: '4. Talaan ng insidente',
+    lead: 'Gawing isang pahinang pupunan ang pamamaraan at ilagay kung saan makikita ito ng mga tao sa gabi at weekend.',
+    basis: ['Hango sa Sec. 20(f) at Sec. 30 ng Data Privacy Act: tungkuling mag-abiso sa Commission at sa apektado sa mga tinukoy na kaso, at parusa sa pagtatago. Hindi nabuksan ang mga patakaran ng National Privacy Commission, kaya ang takdang oras at paraan ng paghahain ay dapat punan mula sa kasalukuyang patakaran.'],
+    text: incident,
+  },
+];
+
+const sources = [SRC.ra9711, SRC.ra10173, SRC.asean];
+---
+
+<PhLayout title={title} description={description} crumb="Templates" standalone updated={new Date('2026-11-14T00:00:00+08:00')}>
+  <h1>Mga template: patakaran sa generative AI at 21 tanong sa vendor</h1>
+  <p class="tg-lead">
+    “Hindi namin alam kung paano sisimulan ang pagsulat” ang karaniwang problema ng mga ospital. Narito ang apat na draft: pindutin ang button, kopyahin, at palitan ang “__” ng sarili ninyong detalye.
+  </p>
+  <p class="tg-meta">Sinuri: {CHECKED} · Para sa: administrasyon at IT ng ospital</p>
+
+  <div class="tg-box tg-warn">
+    <strong>Bago gamitin ang mga ito</strong><br />
+    Mga <strong>draft</strong> ito ng may-akda, hindi legal na payo at hindi bersyong handa nang kopyahin nang buo. Iakma ang mga ito sa laki, sistema at kontrata ng inyong ospital, at ipakita sa legal counsel o compliance office bago gawing opisyal na patakaran.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-toc">
+    <h2 id="h-toc">Nilalaman</h2>
+    <ul class="tg-list">
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.head}</a></li>)}
+    </ul>
+    <p>
+      Mga kaugnay na pahina: <a href={withBase('/ph/dx-roadmap/')}>Roadmap</a>, <a href={withBase('/ph/data-checklist/')}>Checklist ng datos</a>, <a href={withBase('/ph/documents-checklist/')}>Checklist ng device</a>.
+    </p>
+  </section>
+
+  {
+    items.map((it) => (
+      <section class="tg-sec" id={it.id} aria-labelledby={`${it.id}-h`}>
+        <h2 id={`${it.id}-h`}>{it.head}</h2>
+        <p>{it.lead}</p>
+        <div class="tg-copy">
+          <button type="button" class="tg-btn" data-target={`${it.id}-text`}>
+            Kopyahin
+          </button>
+          <pre id={`${it.id}-text`}>{it.text}</pre>
+        </div>
+        <h3>Batayan ng template</h3>
+        <ul class="tg-list">
+          {it.basis.map((b) => <li>{b}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <PhGuideFoot sources={sources} checked={CHECKED} />
+</PhLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.tg-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = document.getElementById(btn.dataset.target ?? '');
+      if (!el) return;
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Nakopya na';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = window.getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Napili na (pindutin ang Ctrl+C)';
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>

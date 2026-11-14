@@ -1,0 +1,236 @@
+---
+// Checklist: datos ng pasyente at AI sa Pilipinas (2026-11-14) — batay sa RA 10173 at sa ASEAN Guide; hindi nabuksan ang mga patakaran ng NPC.
+import '../../styles/ph-guide.css';
+import PhLayout from '../../layouts/PhLayout.astro';
+import PhGuideFoot from '../../components/PhGuideFoot.astro';
+import PhFaq from '../../components/PhFaq.astro';
+import { guideSchema } from '../../utils/ph-guide';
+import { SRC } from '../../data/ph/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'Nobyembre 14, 2026';
+const title = "Checklist ng datos ng pasyente: Data Privacy Act, vendor, breach";
+const description =
+  "Checklist para sa administrasyon at IT ng ospital: pahintulot at sensitibong datos, vendor at pananagutan, seguridad at breach, ayon sa Data Privacy Act at ASEAN Guide.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    "id": "g1",
+    "head": "A. Pahintulot at pagproseso ng sensitibong datos",
+    "lead": "Sensitive personal information ang impormasyon tungkol sa kalusugan; mas mahigpit ang kondisyon sa pagproseso nito.",
+    "items": [
+      {
+        "no": "1",
+        "text": "May tiyak na layunin ang bawat gamit ng datos ng pasyente sa AI tool, at napapaloob ito sa isa sa mga kasong pinapayagan ng batas, gaya ng pahintulot na tiyak sa layunin bago ang pagproseso o medical treatment na isinasagawa ng medical practitioner o treatment institution na may sapat na proteksyon.",
+        "basis": "RA 10173, Sec. 13(a) at (e)"
+      },
+      {
+        "no": "2",
+        "text": "Tinukoy at ipinahayag ang layunin bago o sa lalong madaling panahon pagkatapos kolektahin ang datos, at ipoproseso lamang ito sa paraang tugma sa layuning iyon.",
+        "basis": "RA 10173, Sec. 11(a)"
+      },
+      {
+        "no": "3",
+        "text": "Sapat at hindi labis ang datos na kinukuha para sa AI tool kaugnay ng layunin, at itinatago lamang hangga’t kailangan.",
+        "basis": "RA 10173, Sec. 11(d) hanggang (f)"
+      },
+      {
+        "no": "4",
+        "text": "May naibibigay sa pasyente, bago pumasok ang datos sa sistema o sa susunod na praktikal na pagkakataon, na paglalarawan ng datos, mga layunin, saklaw at paraan, mga tatanggap, pagkakakilanlan ng controller, tagal ng pag-iimbak at ang kanyang mga karapatan, kasama ang karapatang magreklamo sa Commission.",
+        "basis": "RA 10173, Sec. 16(b)"
+      },
+      {
+        "no": "5",
+        "text": "Kung ang datos ay gagawing o malamang na gagawing nag-iisang batayan ng desisyong may malaking epekto sa pasyente, alam ng ospital na may karapatan ang pasyente sa impormasyon tungkol sa automated processes.",
+        "basis": "RA 10173, Sec. 16(c)(6)"
+      }
+    ]
+  },
+  {
+    "id": "g2",
+    "head": "B. Vendor at pananagutan",
+    "lead": "Hindi nawawala ang pananagutan ng ospital kapag ibinigay ang pagproseso sa vendor.",
+    "items": [
+      {
+        "no": "6",
+        "text": "May kasulatan sa vendor na nagtitiyak ng safeguards para sa confidentiality at laban sa paggamit sa hindi awtorisadong layunin.",
+        "basis": "RA 10173, Sec. 14"
+      },
+      {
+        "no": "7",
+        "text": "Tiniyak ng ospital na ang vendor at iba pang third party na nagpoproseso para sa kanya ay nagpapatupad ng mga kinakailangang security measure.",
+        "basis": "RA 10173, Sec. 20(d)"
+      },
+      {
+        "no": "8",
+        "text": "Alam ng ospital na responsable pa rin ito sa datos na ipinasa sa third party, sa loob man o labas ng bansa. (Mungkahi ng may-akda: itanong sa vendor kung saan iniimbak at pinoproseso ang datos at kung sino ang mga sub-processor.)",
+        "basis": "RA 10173, Sec. 21"
+      },
+      {
+        "no": "9",
+        "text": "May plano sa paglabas sa kontrata (exit plan) na sumasaklaw sa pagbabalik o pagbura ng datos, kasama ang logs at backup. (Mungkahi ng may-akda.)",
+        "basis": "Mungkahi ng may-akda"
+      }
+    ]
+  },
+  {
+    "id": "g3",
+    "head": "C. Seguridad at breach",
+    "lead": "Walang bilang ng oras ang Sec. 20(f); ang mga takdang oras ay nasa mga patakaran ng Commission na hindi namin nabuksan.",
+    "items": [
+      {
+        "no": "10",
+        "text": "May makatwiran at naaangkop na organizational, physical at technical measures, na isinasaalang-alang ang uri ng impormasyon, panganib, laki ng organisasyon at gastos.",
+        "basis": "RA 10173, Sec. 20(a) at (c)"
+      },
+      {
+        "no": "11",
+        "text": "May proteksyon sa computer network at isang security policy sa pagproseso ng personal na impormasyon.",
+        "basis": "RA 10173, Sec. 20(c)(1) at (2)"
+      },
+      {
+        "no": "12",
+        "text": "May proseso sa pagtukoy at pagtugon sa mga vulnerability, at regular na pagbabantay sa mga security breach.",
+        "basis": "RA 10173, Sec. 20(c)(3) at (4)"
+      },
+      {
+        "no": "13",
+        "text": "May proseso para agad abisuhan ang Commission at ang mga apektadong tao kapag may makatwirang paniniwalang nakuha ng hindi awtorisadong tao ang sensitibong impormasyon at malamang itong magdulot ng tunay na panganib ng malubhang pinsala.",
+        "basis": "RA 10173, Sec. 20(f)"
+      },
+      {
+        "no": "14",
+        "text": "Alam ng mga namamahala na may parusang pagkakulong at multa ang sadyang pagtatago ng breach o pagpapabaya sa tungkuling mag-abiso.",
+        "basis": "RA 10173, Sec. 30"
+      }
+    ]
+  },
+  {
+    "id": "g4",
+    "head": "D. Pamamahala ng AI (boluntaryong gabay ng ASEAN)",
+    "lead": "Hindi ito legal na kinakailangan; mga mungkahi ito mula sa gabay.",
+    "items": [
+      {
+        "no": "15",
+        "text": "May multi-disciplinary na sentral na lupon (halimbawa, AI Ethics Advisory Board) na nangangasiwa sa AI governance, at malinaw ang tungkulin ng bawat sangkot.",
+        "basis": "ASEAN Guide, internal governance"
+      },
+      {
+        "no": "16",
+        "text": "May pagtatasa ng panganib para tukuyin ang antas ng paglahok ng tao (human-in-the-loop, over-the-loop o out-of-the-loop); mataas ang bigat at posibilidad ng pinsala ay gumagamit ng human-in-the-loop.",
+        "basis": "ASEAN Guide, antas ng paglahok ng tao"
+      },
+      {
+        "no": "17",
+        "text": "Ipinapaalam sa mga stakeholder, kasama ang pasyente at staff, kung kailan ginagamit ang AI sa serbisyo.",
+        "basis": "ASEAN Guide, komunikasyon sa stakeholders"
+      }
+    ]
+  }
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    "q": "Gaano kabilis mag-abiso ng breach sa National Privacy Commission?",
+    "a": "Ayon sa Sec. 20(f) ng Data Privacy Act, “agad” (promptly) at sa mga tinukoy na kaso lamang. Hindi nagbibigay ng bilang ng oras ang seksyon. Ang mga eksaktong takdang oras ay nasa mga patakaran ng Commission, na hindi nabuksan ng pahinang ito (HTTP 403), kaya kumonsulta sa inyong Data Protection Officer."
+  },
+  {
+    "q": "Puwede bang magpaste ng impormasyon ng pasyente sa chatbot?",
+    "a": "Walang pangkalahatang sagot dito. Ang datos pangkalusugan ay sensitibong personal na impormasyon at bawal itong iproseso maliban sa mga kasong nakalista sa Sec. 13, at nananatiling responsable ang ospital sa datos na ipinasa sa third party (Sec. 21). Sundin ang patakaran ng inyong ospital at magtanong sa Data Protection Officer kung nagdududa."
+  },
+  {
+    "q": "Kumpleto na bang checklist sa Data Privacy Act ito?",
+    "a": "Hindi. Binasa ang buong teksto ng RA 10173, pero hindi nabuksan ang mga advisory, circular at Implementing Rules and Regulations ng National Privacy Commission. Hindi rin ito legal na payo."
+  },
+  {
+    "q": "Sakop ba ng batas ang AI na ginagamit sa loob ng ospital?",
+    "a": "Sinasaklaw ng Data Privacy Act ang pagproseso ng lahat ng uri ng personal na impormasyon at ang sinumang sangkot dito (Sec. 4), anuman ang teknolohiyang ginamit. Hindi ito partikular na batas sa AI. May mga eksepsiyon ang batas, na dapat suriin ng legal counsel."
+  }
+];
+
+const sources = [SRC.ra10173, SRC.ra11223, SRC.asean];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ph/data-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: "Administrasyon at IT ng ospital",
+  faq,
+});
+---
+
+<PhLayout title={title} description={description} crumb="Proteksyon ng datos ng pasyente" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={guide}>
+  <h1>Checklist sa proteksyon ng datos ng pasyente</h1>
+  <p class="tg-lead">
+    Nagdadala ang mga AI tool ng datos ng pasyente sa mga bagong lugar: ang server ng vendor, ang pagsasanay ng modelo, ang window ng chatbot. Ginagawang checklist ng pahinang ito ang Data Privacy Act of 2012 at ang ASEAN Guide para sa mga nag-aapruba ng mga tool na iyon, bawat aytem ay may seksyong pinagbabatayan.
+  </p>
+  <p class="tg-meta">Sinuri: {CHECKED} · {total} aytem · Para sa: administrasyon at IT ng ospital</p>
+
+  <p class="tg-answer">
+    Sa madaling sabi: sensitibong impormasyon ang datos pangkalusugan at may mahigpit na kondisyon ang pagproseso nito (Sec. 13); sundin ang transparency, legitimate purpose at proportionality (Sec. 11); nananatiling responsable ang ospital sa datos na ipinasa sa vendor (Sec. 14, 20(d), 21); at agad abisuhan ang Commission at ang apektado sa mga tinukoy na breach (Sec. 20(f)), dahil may parusa ang pagtatago (Sec. 30).
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Basahin muna ito</strong>
+    <ul class="tg-list">
+      <li>Hindi ito <strong>opisyal na checklist</strong>. Listahan ito ng may-akda mula sa mga dokumentong binasa nang buo; may batayan ang bawat aytem, kaya suriin ang teksto.</li>
+      <li>Hindi nabuksan ang mga advisory, circular at IRR ng National Privacy Commission (HTTP 403), kaya hindi sinasabi ng listahang ito ang eksaktong takdang oras ng pag-abiso o iba pang detalyeng nasa mga iyon. Magtanong sa inyong Data Protection Officer o legal counsel.</li>
+      <li>Ang mga aytem na may markang “mungkahi ng may-akda” ay hindi legal na kinakailangan.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>Blg.</th>
+              <th>Ano ang susuriin</th>
+              <th>Batayan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Susunod</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ph/documents-checklist/')}>
+        <b>Checklist: katayuan ng device at AI vendor</b>
+        <span>Medical device ba, may lisensya ba, at paano hinahawakan ang mga update.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ph/templates/')}>
+        <b>Mga template ng dokumento</b>
+        <span>Mga tanong sa vendor, patakaran sa generative AI at incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <PhFaq items={faq} />
+
+  <PhGuideFoot sources={sources} checked={CHECKED} />
+</PhLayout>

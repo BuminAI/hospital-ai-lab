@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-14T12:50:50.973Z",
+  "total": 18,
+  "ok": 15,
+  "unknown": 3,
+  "unknownList": [
+    {
+      "url": "https://isomer-user-content.by.gov.sg/409/26808a93-6a7a-4551-8c66-13046c6124c5/gl-04-r4-regulatory-guidelines-for-software-medical-devices---a-life-cycle-approach-(2025-dec",
+      "status": 403
+    },
+    {
+      "url": "https://isomer-user-content.by.gov.sg/409/ae814059-a3ff-4ce3-8192-4534a43ddc6f/gl-07-r2-guidelines-risk-classification-samd-cdss-(2025-jul",
+      "status": 403
+    },
+    {
+      "url": "https://isomer-user-content.by.gov.sg/409/4e8620d9-267f-41f5-adc3-cc35456d3731/gn-37-r1-guidance-on-change-management-program-(cmp",
+      "status": 403
+    }
+  ],
+  "dead": []
+}

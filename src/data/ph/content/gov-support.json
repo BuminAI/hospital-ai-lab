@@ -1,0 +1,121 @@
+{
+  "_comment": "Mga sanggunian ng gobyerno para sa edisyong Filipino. Sinuring listahan: binuksan ang bawat URL noong 2026-11-14. Ang mga website ng FDA Philippines, DOH, National Privacy Commission at DICT ay nagbabalik ng HTTP 403 sa automated na request, kaya nakalista sila bilang mga opisyal na pahinang bubuksan sa browser at walang katotohanang nakasalalay sa mga iyon.",
+  "meta": {
+    "title": "Mga opisyal na sanggunian para sa mga desisyon sa AI ng ospital sa Pilipinas",
+    "description": "Mga opisyal na pinagmulan sa likod ng site na ito: mga batas sa LawPhil, ang ASEAN Guide, PhilHealth, WHO Philippines at mga pahina ng mga ahensyang bubuksan sa browser.",
+    "pageTitle": "Mga sanggunian ng gobyerno",
+    "lead": "Kinokolekta ng pahinang ito ang mga opisyal na pinagmulan sa likod ng natitirang bahagi ng site, bawat isa ay binuksan at sinuri maliban sa mga tinukoy na nagbabalik ng HTTP 403."
+  },
+  "notice": "Hindi ito endorsement at hindi kumpleto ang listahang ito. Nagbabago ang mga pahina at patakaran; umasa sa kasalukuyang teksto sa bawat pinagmulan.",
+  "checkedAt": "2026-11-14",
+  "programs": [
+    {
+      "name": "LawPhil — mga Republic Act",
+      "org": "Arellano Law Foundation",
+      "url": "https://lawphil.net/statutes/repacts/repacts.html",
+      "body": "Indeks ng mga Republic Act kung saan makikita ang buong teksto ng mga batas na binabanggit dito.",
+      "audience": "Legal at compliance.",
+      "sourceUrl": "https://lawphil.net/statutes/repacts/repacts.html",
+      "sourceLabel": "LawPhil — mga Republic Act"
+    },
+    {
+      "name": "Data Privacy Act of 2012 (RA 10173)",
+      "org": "LawPhil",
+      "url": "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html",
+      "body": "Buong teksto ng Data Privacy Act.",
+      "audience": "Data Protection Officer.",
+      "sourceUrl": "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html",
+      "sourceLabel": "Data Privacy Act of 2012 (RA 10173)"
+    },
+    {
+      "name": "FDA Act of 2009 (RA 9711)",
+      "org": "LawPhil",
+      "url": "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html",
+      "body": "Buong teksto ng FDA Act.",
+      "audience": "Procurement at compliance.",
+      "sourceUrl": "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html",
+      "sourceLabel": "FDA Act of 2009 (RA 9711)"
+    },
+    {
+      "name": "Universal Health Care Act (RA 11223)",
+      "org": "LawPhil",
+      "url": "https://lawphil.net/statutes/repacts/ra2019/ra_11223_2019.html",
+      "body": "Buong teksto ng UHC Act.",
+      "audience": "Pamunuan ng ospital.",
+      "sourceUrl": "https://lawphil.net/statutes/repacts/ra2019/ra_11223_2019.html",
+      "sourceLabel": "Universal Health Care Act (RA 11223)"
+    },
+    {
+      "name": "ASEAN Guide on AI Governance and Ethics",
+      "org": "ASEAN",
+      "url": "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf",
+      "body": "Boluntaryong gabay sa pamamahala ng AI.",
+      "audience": "Mga komite sa AI governance.",
+      "sourceUrl": "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf",
+      "sourceLabel": "ASEAN Guide on AI Governance and Ethics"
+    },
+    {
+      "name": "PhilHealth",
+      "org": "Philippine Health Insurance Corporation",
+      "url": "https://www.philhealth.gov.ph/",
+      "body": "Opisyal na site ng PhilHealth.",
+      "audience": "Billing at claims.",
+      "sourceUrl": "https://www.philhealth.gov.ph/",
+      "sourceLabel": "PhilHealth"
+    },
+    {
+      "name": "PhilHealth — mga circular",
+      "org": "PhilHealth",
+      "url": "https://www.philhealth.gov.ph/circulars/",
+      "body": "Mga circular ng PhilHealth ayon sa taon.",
+      "audience": "Billing at compliance.",
+      "sourceUrl": "https://www.philhealth.gov.ph/circulars/",
+      "sourceLabel": "PhilHealth — mga circular"
+    },
+    {
+      "name": "WHO Philippines",
+      "org": "World Health Organization",
+      "url": "https://www.who.int/philippines",
+      "body": "Pahina ng WHO para sa Pilipinas.",
+      "audience": "Public health.",
+      "sourceUrl": "https://www.who.int/philippines",
+      "sourceLabel": "WHO Philippines"
+    },
+    {
+      "name": "DOST-PCHRD",
+      "org": "Department of Science and Technology",
+      "url": "https://pchrd.dost.gov.ph/",
+      "body": "Konseho para sa pananaliksik pangkalusugan.",
+      "audience": "Mga mananaliksik.",
+      "sourceUrl": "https://pchrd.dost.gov.ph/",
+      "sourceLabel": "DOST-PCHRD"
+    },
+    {
+      "name": "Department of Health (DOH) — buksan sa browser",
+      "org": "Department of Health",
+      "url": "https://doh.gov.ph/",
+      "body": "Opisyal na site ng DOH. Nagbabalik ng HTTP 403 sa automated na request, kaya hindi nabasa ng aming tool; buksan sa browser.",
+      "audience": "Pamunuan ng ospital.",
+      "sourceUrl": "https://doh.gov.ph/",
+      "sourceLabel": "Department of Health (DOH) — buksan sa browser"
+    },
+    {
+      "name": "FDA Philippines — buksan sa browser",
+      "org": "Food and Drug Administration",
+      "url": "https://www.fda.gov.ph/",
+      "body": "Opisyal na site ng FDA. Nagbabalik ng HTTP 403 sa automated na request; buksan sa browser para sa mga circular at rehistro.",
+      "audience": "Procurement at compliance.",
+      "sourceUrl": "https://www.fda.gov.ph/",
+      "sourceLabel": "FDA Philippines — buksan sa browser"
+    },
+    {
+      "name": "National Privacy Commission — buksan sa browser",
+      "org": "National Privacy Commission",
+      "url": "https://privacy.gov.ph/",
+      "body": "Opisyal na site ng NPC. Nagbabalik ng HTTP 403 sa automated na request; buksan sa browser para sa mga advisory at proseso ng pag-abiso.",
+      "audience": "Data Protection Officer.",
+      "sourceUrl": "https://privacy.gov.ph/",
+      "sourceLabel": "National Privacy Commission — buksan sa browser"
+    }
+  ]
+}

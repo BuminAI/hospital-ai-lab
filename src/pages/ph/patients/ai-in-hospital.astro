@@ -1,0 +1,120 @@
+---
+// Mga karapatan ng pasyente kapag gumagamit ng AI ang ospital (2026-11-14). Mga seksyon lamang na binuksan ang teksto: RA 10173 Sec. 3, 4, 13, 16, 18, 20(f); ASEAN Guide (transparency).
+import '../../../styles/ph-guide.css';
+import PhLayout from '../../../layouts/PhLayout.astro';
+import PhGuideFoot from '../../../components/PhGuideFoot.astro';
+import PhFaq from '../../../components/PhFaq.astro';
+import { guideSchema } from '../../../utils/ph-guide';
+import { SRC } from '../../../data/ph/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'Nobyembre 14, 2026';
+const title = "Gumagamit ng AI ang ospital: ano ang ibinibigay ng Data Privacy Act";
+const description =
+  "Anong mga karapatan ang mayroon kayo kapag pinoproseso ng ospital ang inyong datos, kasama ang gamit ng AI? Impormasyon, access, pagwawasto, pagharang, danyos at reklamo, sa payak na wika.";
+
+const rights = [
+  {
+    "h": "Malaman kung pinoproseso ang inyong datos at kung paano",
+    "p": "May karapatan kayong malaman kung ang inyong personal na impormasyon ay pinoproseso o napoproseso na, at, bago pumasok ang datos sa sistema o sa susunod na praktikal na pagkakataon, makatanggap ng: paglalarawan ng datos, mga layunin, saklaw at paraan ng pagproseso, mga tatanggap, pagkakakilanlan at contact ng controller, tagal ng pag-iimbak, at ang inyong mga karapatan, kasama ang karapatang magreklamo sa Commission (Sec. 16(a) at (b))."
+  },
+  {
+    "h": "Makatwirang access sa inyong impormasyon",
+    "p": "Kapag hiniling, puwede kayong makakuha ng nilalaman ng inyong impormasyong pinroseso, mga pinagmulan nito, mga pangalan at address ng mga tumanggap, paraan ng pagproseso, mga dahilan ng pagsisiwalat, at petsa ng huling pag-access at pagbabago (Sec. 16(c))."
+  },
+  {
+    "h": "Impormasyon tungkol sa automated processes",
+    "p": "Kasama sa karapatan sa access ang impormasyon tungkol sa automated processes kung ang inyong datos ay gagawing o malamang na gagawing nag-iisang batayan ng desisyong may malaking epekto sa inyo (Sec. 16(c)(6))."
+  },
+  {
+    "h": "Pagwawasto ng mali",
+    "p": "Puwede ninyong tutulan ang kamalian sa inyong personal na impormasyon at ipaayos ito sa controller agad, maliban kung walang saysay o hindi makatwiran ang hiling (Sec. 16(d))."
+  },
+  {
+    "h": "Pagsuspinde, pag-withdraw, pagharang o pagbura",
+    "p": "Kapag may natuklasang sapat na patunay na ang impormasyon ay hindi kumpleto, luma, mali, nakuha nang labag sa batas, ginamit sa hindi awtorisadong layunin o hindi na kailangan, puwede ninyong hilingin ang pagsuspinde, pag-withdraw, pagharang o pagbura nito (Sec. 16(e))."
+  },
+  {
+    "h": "Danyos at pagreklamo",
+    "p": "May karapatan kayong mabayaran ng danyos dahil sa hindi tumpak, hindi kumpleto, luma, mali, nakuha nang labag sa batas o hindi awtorisadong paggamit ng inyong impormasyon (Sec. 16(f)). Puwede rin kayong magreklamo sa National Privacy Commission."
+  },
+  {
+    "h": "Kopya ng inyong datos",
+    "p": "Kapag pinoproseso nang elektroniko ang inyong impormasyon sa istrukturadong format, may karapatan kayong kumuha ng kopya nito sa elektroniko o istrukturadong format na maaaring gamitin muli (Sec. 18, data portability)."
+  },
+  {
+    "h": "Kapag may breach",
+    "p": "Kapag may makatwirang paniniwalang nakuha ng hindi awtorisadong tao ang sensitibong impormasyon at malamang itong magdulot ng tunay na panganib ng malubhang pinsala, kailangang agad abisuhan ng controller ang Commission at ang mga apektadong tao (Sec. 20(f))."
+  }
+];
+
+const faq = [
+  {
+    "q": "Kailangan bang sabihin ng ospital kung gumagamit ito ng AI?",
+    "a": "Hindi tahasang sinasabi iyon ng mga seksyong binasa namin. Ang ASEAN Guide on AI Governance and Ethics, na boluntaryo, ay nagmumungkahi ng transparency: ang pagbubunyag kung kailan ginagamit ang AI. Kung gusto ninyong malaman, magtanong."
+  },
+  {
+    "q": "Kanino ako magrereklamo?",
+    "a": "Ayon sa Data Privacy Act, may karapatan kayong magreklamo sa National Privacy Commission. Hindi nabuksan ng pahinang ito ang website ng Commission, kaya hindi namin matitiyak ang kasalukuyang proseso ng paghahain."
+  },
+  {
+    "q": "Sakop ba ng mga karapatang ito ang lahat ng kaso?",
+    "a": "Hindi. May mga eksepsiyon, halimbawa sa Sec. 19 para sa ilang pananaliksik at estadistika, at sa Sec. 16 mismo para sa ilang kaso. Kumonsulta sa legal counsel para sa inyong sitwasyon."
+  }
+];
+
+const sources = [SRC.ra10173, SRC.asean];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ph/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: 'Mga pasyente at kanilang pamilya',
+  faq,
+});
+---
+
+<PhLayout title={title} description={description} crumb="Mga karapatan ng pasyente at AI" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={schema}>
+  <h1>Kapag gumagamit ng AI ang ospital: ano ang ibinibigay sa inyo ng Data Privacy Act</h1>
+  <p class="tg-lead">
+    Parami nang parami ang mga tool na umaasa sa AI sa mga ospital. Aling mga karapatan ninyo ang kumakapit? Narito ang mga karapatang ibinibigay sa inyo ng Data Privacy Act of 2012 (RA 10173) sa inyong personal na datos, sa payak na wika, na may seksyon para sa bawat isa. May mga eksepsiyon ang batas, at hindi sakop ng pahinang ito ang mga patakaran ng National Privacy Commission.
+  </p>
+  <p class="tg-meta">Sinuri: {CHECKED} · Para sa: mga pasyente at kanilang pamilya</p>
+
+  <div class="tg-box tg-warn">
+    Pangkalahatang impormasyon ito. Hindi ito legal na payo at hindi payong medikal para sa inyong sitwasyon. Kung may alalahanin kayo sa kalusugan, makipag-ugnayan sa sarili ninyong clinician o sa organisasyong pangkalusugan na gumagamot sa inyo. Sa emergency, tumawag sa 911, ang pambansang emergency hotline ng Pilipinas.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Mga karapatang nakasulat sa batas</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ask">
+    <h2 id="h-ask">Ano ang puwede ninyong itanong sa ospital</h2>
+    <p>Mungkahi ito ng may-akda, hindi legal na kinakailangan. Palagi kayong puwedeng magtanong:</p>
+    <ul class="tg-list">
+      <li>Gumagamit ba ng AI tool sa aking gamutan o sa aking billing? Para saan?</li>
+      <li>Sino ang gagawa ng huling desisyon: clinician o ang tool?</li>
+      <li>Saan nakaimbak ang aking impormasyon, at sino ang makakakita nito?</li>
+      <li>Kung may boses o larawang nire-record, para saan at gaano katagal?</li>
+    </ul>
+    <p>Bago magtanong sa AI tungkol sa sarili ninyong kalusugan: <a href={withBase('/ph/patients/ai-health-consult/')}>anim na dapat malaman</a>.</p>
+  </section>
+
+  <PhFaq items={faq} />
+
+  <PhGuideFoot sources={sources} checked={CHECKED} patient />
+</PhLayout>

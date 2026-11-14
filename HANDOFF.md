@@ -773,6 +773,29 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - JS `String.replace`의 치환 문자열에 `$'`가 있으면 "일치 뒤 나머지"로 해석돼 파일이 망가진다(`'S$'` 때 실제 발생). 통화 기호는 `split/join`으로 바꿀 것.
 - 새 자동화 `sg`를 더했으므로 `audit-site.mjs`·`site-health-check.mjs`·`locale-sitemaps`·`og/[...route].ts`·`locale.ts`에 `sg`가 들어갔다.
 
+## 5-19. 필리핀어판 `/ph/` (2026-11-14 신설, 오너 지시: "필리핀어판을 만들어줘. 한국어판과 가장 유사하게 메뉴, 각 메뉴 항목을 비우지 말고 최대한 크롤링해 최소 10개는 최신으로")
+
+싱가포르판 `/sg/`을 복제한 **필리핀어(Filipino)** 판이다(hreflang·html lang `fil-PH`, `PhLayout`, 컬렉션 `blogPh`, 글 폴더 `src/content/blog-ph/`, 데이터 `src/data/ph/`, 스타일 `src/styles/ph-*.css`의 `--ph-`). UI·본문·데이터는 전부 필리핀어(영어 기술용어 병용)로 새로 썼다. **예외: AI 심사실(`public/ph/ai-judge/`)은 영어 UI**(번역 분량 때문; 통화만 ₱).
+
+**읽은 1차 문서(2026-11-14)**: LawPhil 전문 — RA 9711(FDA법: 의료기기 정의에 "software" 포함, 제10조 금지행위 (j)·(k)), RA 10173(개인정보법: 제3·11·12·13·14·16·18·20·21·30조), RA 10175(사이버범죄법, 승인일만), RA 11223(UHC법 제36조 건강정보시스템); ASEAN Guide on AI Governance and Ethics(2024, PDF; 7원칙·4개 구성요소·human-in-the-loop·automation bias). 911 번호는 The Manila Times 보도.
+
+**막혀서 쓰지 못한 것(우회 금지)**: fda.gov.ph·doh.gov.ph·privacy.gov.ph(NPC)·dict.gov.ph·officialgazette·senate/congress·psa·pia.gov.ph·undp — 전부 이 환경에서 HTTP 403(또는 연결 불가). **그래서 FDA 고시(SaMD 등록 범위), NPC 권고·IRR(유출 통지 시한 72시간 등), DOH 행정명령은 싣지 않았다.** 제20조(f)는 "promptly"만 있고 시한이 없다고 그대로 썼다.
+
+| 항목 | 위치 | 비고 |
+|---|---|---|
+| 레이아웃·UI | `PhLayout.astro`, `src/i18n/ph.json`, `growth.ts`의 `ph` | 아홉 레이아웃 전부에 `phPath`·푸터 링크(`fil-PH`), 한국어판은 `alternates.ph` |
+| 실무 가이드 | `src/pages/ph/{dx-roadmap,data-checklist,documents-checklist,templates,practice,facts,calendar,updates}` | 사실은 `src/data/ph/guides/{milestones,facts}.ts` 한곳 |
+| 글 | `blog-ph/` 10편(FDA법 2·UHC법 1·개인정보법 5·ASEAN 가이드 2), 시리즈 `device-status`(3)·`data-and-governance`(7) | 시리즈는 3편 이상 |
+| 수집 | `scripts/fetch-ph-news.mjs`(Google News RSS+Rappler·Philstar·BusinessWorld, 인자 `digest`면 일반 AI 동향), `fetch-ph-gov.mjs`(PhilHealth·WHO Philippines 소식), `fetch-ph-videos.mjs` | 워크플로 `update-ph-*.yml`(분 오프셋 다름). 2026-11-14 시드: 뉴스 19·digest 74·소식 14·영상 10 |
+| 점검 | `check-ph-links.mjs`, `check-ph-laws.mjs`(근거 문서 5건 지문) | |
+| 관리자 | `admin-ph.astro` + 다른 관리자 화면 연결 | |
+
+**함정(이번에 겪은 것)**
+- **Bash 도구 안의 `node - <<'EOF'`에서 `\b`가 백스페이스 문자(0x08)로 바뀌어 정규식이 조용히 깨졌다**(영상 수집기가 `daysAgo`를 못 읽어 후보 0건). 정규식을 고칠 땐 Write 도구로 스크립트 파일을 만들고 `String.fromCharCode(92)`로 역슬래시를 넣거나, 고친 뒤 0x08이 남았는지 검사할 것.
+- YouTube 검색 헤더에 `Accept-Language: fil-PH`를 주면 조회수·게시일이 필리핀어로 와서 파싱이 실패한다(`en-PH` 사용).
+- 필리핀 의료·AI 영상은 적어 `RECENT_DAYS`를 3~4년으로, 조회수 하한을 50으로 낮췄다. 채널은 허용 목록(방송·보건 기관)만.
+- **자동 발행 예외(CLAUDE.md)에 필리핀어판은 없다.** 오너가 확대 지시하기 전엔 draft + PR.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

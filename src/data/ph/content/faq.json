@@ -1,0 +1,80 @@
+[
+  {
+    "question": "Medical device ba ang AI software na binibili ng ospital?",
+    "answer": "Puwede. Kasama ang “software” sa kahulugan ng medical device sa FDA Act kapag nilayon ito ng manufacturer na gamitin sa tao para sa diagnosis, pag-iwas, pagsubaybay, panggagamot o pagpapagaan ng sakit, at iba pa. Humingi ng nakasulat na sagot sa vendor at itanong ang detalye ng rehistro sa FDA.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html"
+    ]
+  },
+  {
+    "question": "May kailangan bang lisensya ang nagbebenta ng medical device?",
+    "answer": "Ayon sa FDA Act, ipinagbabawal ang pagbebenta, pamamahagi o retail ng device nang walang license to operate mula sa FDA, at ng health product na kailangang irehistro pero hindi nakarehistro.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html"
+    ]
+  },
+  {
+    "question": "Sensitibo ba ang datos ng pasyente?",
+    "answer": "Oo. Ang impormasyon tungkol sa kalusugan at ang mga rekord pangkalusugan na inisyu ng ahensya ng gobyerno ay “sensitive personal information” sa ilalim ng Data Privacy Act, at bawal itong iproseso maliban sa mga kasong nakalista, gaya ng pahintulot na tiyak sa layunin o medical treatment.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "question": "Mananagot pa ba ang ospital kung vendor ang nagpoproseso ng datos?",
+    "answer": "Oo. Ayon sa Sec. 14 at 21, ang controller ang responsable sa datos na ipinasa sa third party at dapat siyang magtiyak ng wastong safeguards; ayon sa Sec. 20(d), dapat ding magpatupad ng security measures ang third party.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "question": "Ano ang dapat sabihin sa pasyente bago pumasok ang datos niya sa AI tool?",
+    "answer": "Ayon sa Sec. 16, ang paglalarawan ng datos, mga layunin, saklaw at paraan ng pagproseso, mga tatanggap, pagkakakilanlan ng controller, tagal ng pag-iimbak at ang kanyang mga karapatan, kasama ang karapatang magreklamo sa National Privacy Commission, bago pumasok ang datos o sa susunod na praktikal na pagkakataon. May mga eksepsiyon ang batas.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "question": "Kailan kailangang abisuhan ang National Privacy Commission tungkol sa breach?",
+    "answer": "Ayon sa Sec. 20(f), agad (promptly), kapag may makatwirang paniniwalang nakuha ng hindi awtorisadong tao ang sensitibong impormasyon o impormasyong magagamit sa identity fraud at malamang itong magdulot ng tunay na panganib ng malubhang pinsala. Hindi nagbibigay ng bilang ng oras ang seksyon; nasa mga patakaran ng Commission ang mga takdang oras.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "question": "May parusa ba ang pagtatago ng breach?",
+    "answer": "Mayroon. Ayon sa Sec. 30, pagkakulong na 1 taon at 6 na buwan hanggang 5 taon at multang hindi bababa sa Php500,000 ngunit hindi hihigit sa Php1,000,000 para sa sadyang nagtago o nagpabaya sa pag-aabiso matapos malamang may breach.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "question": "Kailangan bang may electronic health records ang mga ospital?",
+    "answer": "Ayon sa Sec. 36 ng UHC Act, kailangang magkaroon ang lahat ng health service provider at insurer ng health information system na may electronic health records at electronic prescription log na naaayon sa pamantayan ng DOH, at regular na ina-upload nang elektroniko sa pamamagitan ng interoperable na sistema.",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2019/ra_11223_2019.html"
+    ]
+  },
+  {
+    "question": "May batas ba sa Pilipinas na partikular sa AI?",
+    "answer": "Wala kaming nabasang batas na partikular sa AI sa mga pinagkukunang bukas sa publiko. May boluntaryong gabay ang ASEAN, ang ASEAN Guide on AI Governance and Ethics (2024). Nakasalalay pa rin ang paggamit ng AI sa ospital sa mga umiiral na batas gaya ng FDA Act at Data Privacy Act. Hindi nabuksan ang mga site ng DOH, FDA at NPC, kaya posibleng may mga issuance doon na hindi namin nabasa.",
+    "sources": [
+      "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf",
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  },
+  {
+    "question": "Gaano dapat kalaki ang papel ng tao sa desisyong tinutulungan ng AI?",
+    "answer": "Ayon sa ASEAN Guide, depende sa panganib; ang AI na mataas ang bigat at posibilidad ng pinsala ay dapat gumamit ng human-in-the-loop, kung saan tao ang nagpapasya at rekomendasyon lamang ang AI. Nagbabala rin ito sa automation bias.",
+    "sources": [
+      "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf"
+    ]
+  },
+  {
+    "question": "Anong mga hakbang sa seguridad ang hinihingi ng Data Privacy Act?",
+    "answer": "Makatwiran at naaangkop na organizational, physical at technical measures; kasama ang proteksyon sa computer network, security policy, proseso sa pagtukoy at pagtugon sa mga vulnerability, at regular na pagbabantay sa mga security breach (Sec. 20).",
+    "sources": [
+      "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html"
+    ]
+  }
+]

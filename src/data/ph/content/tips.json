@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "Mga praktikal na tip sa paggamit ng AI tool sa ospital sa Pilipinas",
+    "description": "Payak na payo para sa mga administrador at nursing staff: mga hindi aprubadong tool, pagsusuri ng draft ng AI, sagot ng vendor, incident card at pagsasabi sa pasyente tungkol sa AI.",
+    "pageTitle": "Mga praktikal na tip",
+    "lead": "Mga praktikal na mungkahi ng may-akda ang mga ito, hindi legal na kinakailangan. Kung may batas na kumakapit, sinasabi ng pahina at ibinibigay ang seksyon."
+  },
+  "sections": [
+    {
+      "heading": "Huwag magpaste ng impormasyon ng pasyente sa mga tool na hindi ninyo inaprubahan",
+      "body": "Ang pangalan, numero ng rekord, petsa ng kapanganakan, address, numero ng telepono at nilalaman ng rekord ay dapat manatili sa labas ng mga consumer chatbot. Sensitibong personal na impormasyon ang datos pangkalusugan sa ilalim ng Data Privacy Act. Gumamit lamang ng mga tool na inaprubahan ng inyong ospital.",
+      "items": []
+    },
+    {
+      "heading": "Ituring na draft ang bawat sagot ng AI",
+      "body": "Maaaring maglahad ang generative AI ng gawa-gawang nilalaman na parang totoo. Suriin ang mga katotohanan, numero at pangalan laban sa pinagmulan bago gamitin, at huwag ipasok ang output ng AI sa rekord ng pasyente bago ito masuri ng responsableng clinician.",
+      "items": []
+    },
+    {
+      "heading": "Magtago ng listahan ng mga AI tool na ginagamit",
+      "body": "Magsimula sa simpleng talahanayan: tool, may-ari, ginagamit para saan, anong datos ang pumapasok. Hindi mo mababantayan ang mga tool na hindi mo alam na ginagamit.",
+      "items": []
+    },
+    {
+      "heading": "Basahin ang sagot ng vendor, hindi ang brochure",
+      "body": "Itanong kung medical device ito, may license to operate ba ang nagbebenta, kailangan ba ng rehistro, paano hinahawakan ang mga update at ano ang binabantayan pagkatapos ng go-live. Isulat ang mga sagot.",
+      "items": []
+    },
+    {
+      "heading": "Isulat ang incident card bago ninyo kailanganin",
+      "body": "Magpasya kung sino ang tatasa ng pinaghihinalaang breach, sino ang mag-aabiso sa National Privacy Commission at paano papatayin ang isang AI tool. Ayon sa Data Privacy Act, may parusa ang pagtatago ng breach.",
+      "items": []
+    },
+    {
+      "heading": "Sabihin sa pasyente kapag mahalaga ang AI sa kanyang gamutan",
+      "body": "Iminumungkahi ng ASEAN Guide ang transparency: ang pagbubunyag kung kailan ginagamit ang AI. Pinakamainam na ipaliwanag ang mga benepisyo, limitasyon at alternatibo sa halip na teknikal na detalye.",
+      "items": []
+    },
+    {
+      "heading": "Isali nang maaga ang nursing",
+      "body": "Ang mga alerto, handover notes at scheduling tool ang unang nagbabago sa trabaho ng mga nurse. Hilingin sa mga nurse leader na subukan ang tool sa sarili nilang workflow bago ang go-live at sumali sa pagsasanay.",
+      "items": []
+    },
+    {
+      "heading": "Panatilihing tao ang nagpapasya sa mga mataas na panganib",
+      "body": "Ayon sa ASEAN Guide, ang AI na mataas ang bigat at posibilidad ng pinsala ay dapat gumamit ng human-in-the-loop. Bigyan ng oras at kakayahan ang taong nagsusuri para hindi ito maging “rubber stamping”.",
+      "items": []
+    },
+    {
+      "heading": "Humingi ng exit plan bago pumirma",
+      "body": "Itanong kung paano ibabalik o buburahin ang datos at kung ano ang mangyayari sa mga log at backup kapag natapos ang kontrata o nagpalit kayo ng vendor.",
+      "items": []
+    },
+    {
+      "heading": "Magtakda ng iisang kontak para sa mga insidente",
+      "body": "Isulat kung sino ang tatawagan sa ospital at sa vendor, at ilagay ito kung saan makikita ng mga tao sa gabi at weekend.",
+      "items": []
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-11-14T12:50:14.132Z",
+  "readOk": 5,
+  "total": 5,
+  "laws": [
+    {
+      "id": "ra9711",
+      "name": "RA 9711 — FDA Act of 2009 (LawPhil)",
+      "url": "https://lawphil.net/statutes/repacts/ra2009/ra_9711_2009.html",
+      "baseline": "Tue, 23 Nov 2021 09:11:12 GMT | 52448 | \"619cb030-cce0\"",
+      "baselinePending": false,
+      "current": "Tue, 23 Nov 2021 09:11:12 GMT | 52448 | \"619cb030-cce0\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-14T12:50:12.461Z",
+      "error": null
+    },
+    {
+      "id": "ra10173",
+      "name": "RA 10173 — Data Privacy Act of 2012 (LawPhil)",
+      "url": "https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html",
+      "baseline": "Mon, 22 Nov 2021 04:32:32 GMT | 56745 | \"619b1d60-dda9\"",
+      "baselinePending": false,
+      "current": "Mon, 22 Nov 2021 04:32:32 GMT | 56745 | \"619b1d60-dda9\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-14T12:50:12.675Z",
+      "error": null
+    },
+    {
+      "id": "ra10175",
+      "name": "RA 10175 — Cybercrime Prevention Act of 2012 (LawPhil)",
+      "url": "https://lawphil.net/statutes/repacts/ra2012/ra_10175_2012.html",
+      "baseline": "Mon, 22 Nov 2021 04:44:00 GMT | 36392 | \"619b2010-8e28\"",
+      "baselinePending": false,
+      "current": "Mon, 22 Nov 2021 04:44:00 GMT | 36392 | \"619b2010-8e28\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-14T12:50:12.901Z",
+      "error": null
+    },
+    {
+      "id": "ra11223",
+      "name": "RA 11223 — Universal Health Care Act (LawPhil)",
+      "url": "https://lawphil.net/statutes/repacts/ra2019/ra_11223_2019.html",
+      "baseline": "Tue, 06 Jul 2021 08:57:10 GMT | 74366 | \"60e41ae6-1227e\"",
+      "baselinePending": false,
+      "current": "Tue, 06 Jul 2021 08:57:10 GMT | 74366 | \"60e41ae6-1227e\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-14T12:50:13.128Z",
+      "error": null
+    },
+    {
+      "id": "asean-ai",
+      "name": "ASEAN Guide on AI Governance and Ethics (2024)",
+      "url": "https://asean.org/wp-content/uploads/2024/02/ASEAN-Guide-on-AI-Governance-and-Ethics_beautified_201223_v2.pdf",
+      "baseline": "Fri, 02 Feb 2024 09:44:51 GMT | 4233765 | \"409a25-61062f6b1753d\"",
+      "baselinePending": false,
+      "current": "Fri, 02 Feb 2024 09:44:51 GMT | 4233765 | \"409a25-61062f6b1753d\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-14T12:50:14.132Z",
+      "error": null
+    }
+  ]
+}
