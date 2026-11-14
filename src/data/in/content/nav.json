@@ -78,5 +78,35 @@
     "href": "/in/ai-judge/",
     "key": "aiJudge",
     "enabled": true
+  },
+  {
+    "href": "/in/updates/",
+    "key": "updates",
+    "enabled": true
+  },
+  {
+    "href": "/in/dx-roadmap/",
+    "key": "dxRoadmap",
+    "enabled": true
+  },
+  {
+    "href": "/in/calendar/",
+    "key": "calendar",
+    "enabled": true
+  },
+  {
+    "href": "/in/documents-checklist/",
+    "key": "documentsChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/in/data-checklist/",
+    "key": "dataChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/in/templates/",
+    "key": "templates",
+    "enabled": true
   }
 ]

@@ -17,7 +17,13 @@
     "notes": "講義ノート",
     "aiJudge": "AIプログラム審査",
     "practice": "実務ガイド",
-    "patients": "患者さん向け"
+    "patients": "患者さん向け",
+    "updates": "更新情報",
+    "dxRoadmap": "医療DX年表",
+    "calendar": "制度カレンダー",
+    "mynumberReception": "マイナ保険証 窓口対応",
+    "cyberChecklist": "サイバー自己点検",
+    "templates": "院内ルール雛形"
   },
   "footer": {
     "about": "運営者について",

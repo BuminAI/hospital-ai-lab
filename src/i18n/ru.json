@@ -16,7 +16,13 @@
     "aiDigest": "ИИ-дайджест",
     "aiJudge": "Экспертиза ИИ-программ",
     "practice": "Практикум",
-    "patients": "Для пациентов"
+    "patients": "Для пациентов",
+    "updates": "Обновления",
+    "dxRoadmap": "Дорожная карта",
+    "calendar": "Календарь актов",
+    "documentsChecklist": "Чек-лист: документы и ИИ",
+    "dataChecklist": "Чек-лист: данные пациентов",
+    "templates": "Шаблоны"
   },
   "footer": {
     "about": "Об авторе",

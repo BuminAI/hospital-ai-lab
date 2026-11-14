@@ -73,5 +73,35 @@
     "href": "/tw/ai-judge/",
     "key": "aiJudge",
     "enabled": true
+  },
+  {
+    "href": "/tw/updates/",
+    "key": "updates",
+    "enabled": true
+  },
+  {
+    "href": "/tw/dx-roadmap/",
+    "key": "dxRoadmap",
+    "enabled": true
+  },
+  {
+    "href": "/tw/calendar/",
+    "key": "calendar",
+    "enabled": true
+  },
+  {
+    "href": "/tw/nhi-card-reception/",
+    "key": "nhiCardReception",
+    "enabled": true
+  },
+  {
+    "href": "/tw/cyber-checklist/",
+    "key": "cyberChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/tw/templates/",
+    "key": "templates",
+    "enabled": true
   }
 ]

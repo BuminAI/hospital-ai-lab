@@ -9,6 +9,7 @@
 //   5) Принципы, библиотека, частые вопросы, о сайте
 // ⚠️ Стаж автора не пишется в тексте главной и мета-описании (профиль в боковой колонке остаётся прежним).
 // ⚠️ Цифры считаются из данных либо это факты, уже имеющиеся на сайте.
+import navConfig from '../../data/ru/content/nav.json';
 import '../../styles/ru-home.css';
 import { getCollection } from 'astro:content';
 import RuLayout from '../../layouts/RuLayout.astro';
@@ -93,6 +94,12 @@ const homeSeries = (await getResolvedSeries('ru'))
   .slice()
   .sort((a, b) => b.posts.length - a.posts.length)
   .slice(0, 3);
+// 메뉴(nav.json)의 모든 항목을 같은 순서로 홈에도 보여 준다. 메뉴에만/홈에만 있는 페이지가 없게 하려는 구역(2026-11-14).
+const navLabelsHome = ru.nav as Record<string, string>;
+const allMenu = navConfig
+  .filter((n) => n.enabled && n.href !== '/ru/')
+  .map((n) => ({ href: n.href, label: navLabelsHome[n.key] ?? n.key }));
+
 ---
 
 <RuLayout
@@ -254,6 +261,21 @@ const homeSeries = (await getResolvedSeries('ru'))
       }
     </ul>
     <p class="th-note"><a href={withBase('/ru/about/#principles')}>Принципы написания и проверки →</a></p>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-menu-h">
+    <h2 class="th-h" id="th-menu-h"><span>Все разделы сайта</span><small>ALL PAGES</small></h2>
+    <ul class="th-lib">
+      {
+        allMenu.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.label}</strong>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <section class="th-sec" aria-labelledby="th-lib-h">

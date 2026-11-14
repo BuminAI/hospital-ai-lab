@@ -9,6 +9,7 @@
 //   5) 本站的承諾 → 資料 → 常見問題 → 本站說明
 // ⚠️ 경력 연수는 2026-11-09 오너 지시로 사이트 전체에서 삭제했다(홈 본문·메타·사이드바 모두).
 // ⚠️ 수치·문구는 데이터에서 계산하거나, 이미 사이트에 있는 사실만 쓴다.
+import navConfig from '../../data/tw/content/nav.json';
 import '../../styles/tw-home.css';
 import { getCollection } from 'astro:content';
 import TwLayout from '../../layouts/TwLayout.astro';
@@ -92,6 +93,12 @@ const homeSeries = (await getResolvedSeries('tw'))
   .slice()
   .sort((a, b) => b.posts.length - a.posts.length)
   .slice(0, 3);
+// 메뉴(nav.json)의 모든 항목을 같은 순서로 홈에도 보여 준다. 메뉴에만/홈에만 있는 페이지가 없게 하려는 구역(2026-11-14).
+const navLabelsHome = tw.nav as Record<string, string>;
+const allMenu = navConfig
+  .filter((n) => n.enabled && n.href !== '/tw/')
+  .map((n) => ({ href: n.href, label: navLabelsHome[n.key] ?? n.key }));
+
 ---
 
 <TwLayout
@@ -253,6 +260,21 @@ const homeSeries = (await getResolvedSeries('tw'))
       }
     </ul>
     <p class="th-note"><a href={withBase('/tw/about/#principles')}>看寫作與查證的原則 →</a></p>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-menu-h">
+    <h2 class="th-h" id="th-menu-h"><span>全部頁面一覽</span><small>ALL PAGES</small></h2>
+    <ul class="th-lib">
+      {
+        allMenu.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.label}</strong>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <section class="th-sec" aria-labelledby="th-lib-h">

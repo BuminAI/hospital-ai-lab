@@ -9,6 +9,7 @@
 //   5) Principles, library, FAQ, about the site
 // ⚠️ The author's years of experience are not written in the home text or the meta description (the sidebar profile stays as is).
 // ⚠️ Figures are computed from the data, or are facts already on the site.
+import navConfig from '../../data/in/content/nav.json';
 import '../../styles/in-home.css';
 import { getCollection } from 'astro:content';
 import InLayout from '../../layouts/InLayout.astro';
@@ -93,6 +94,12 @@ const homeSeries = (await getResolvedSeries('in'))
   .slice()
   .sort((a, b) => b.posts.length - a.posts.length)
   .slice(0, 3);
+// 메뉴(nav.json)의 모든 항목을 같은 순서로 홈에도 보여 준다. 메뉴에만/홈에만 있는 페이지가 없게 하려는 구역(2026-11-14).
+const navLabelsHome = en.nav as Record<string, string>;
+const allMenu = navConfig
+  .filter((n) => n.enabled && n.href !== '/in/')
+  .map((n) => ({ href: n.href, label: navLabelsHome[n.key] ?? n.key }));
+
 ---
 
 <InLayout
@@ -256,6 +263,21 @@ const homeSeries = (await getResolvedSeries('in'))
       }
     </ul>
     <p class="th-note"><a href={withBase('/in/about/#principles')}>How material is written and checked →</a></p>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-menu-h">
+    <h2 class="th-h" id="th-menu-h"><span>All pages at a glance</span><small>ALL PAGES</small></h2>
+    <ul class="th-lib">
+      {
+        allMenu.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.label}</strong>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <section class="th-sec" aria-labelledby="th-lib-h">

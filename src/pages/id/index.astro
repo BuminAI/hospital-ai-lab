@@ -9,6 +9,7 @@
 //   5) Prinsip situs, pustaka, pertanyaan umum, tentang situs
 // ⚠️ Masa kerja penulis tidak ditulis di badan beranda dan deskripsi meta (profil di sidebar tetap seperti semula).
 // ⚠️ Angka dihitung dari data, atau hanya fakta yang sudah ada di situs.
+import navConfig from '../../data/id/content/nav.json';
 import '../../styles/id-home.css';
 import { getCollection } from 'astro:content';
 import IdLayout from '../../layouts/IdLayout.astro';
@@ -92,6 +93,12 @@ const homeSeries = (await getResolvedSeries('id'))
   .slice()
   .sort((a, b) => b.posts.length - a.posts.length)
   .slice(0, 3);
+// 메뉴(nav.json)의 모든 항목을 같은 순서로 홈에도 보여 준다. 메뉴에만/홈에만 있는 페이지가 없게 하려는 구역(2026-11-14).
+const navLabelsHome = id.nav as Record<string, string>;
+const allMenu = navConfig
+  .filter((n) => n.enabled && n.href !== '/id/')
+  .map((n) => ({ href: n.href, label: navLabelsHome[n.key] ?? n.key }));
+
 ---
 
 <IdLayout
@@ -253,6 +260,21 @@ const homeSeries = (await getResolvedSeries('id'))
       }
     </ul>
     <p class="th-note"><a href={withBase('/id/about/#principles')}>Prinsip penulisan dan verifikasi →</a></p>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-menu-h">
+    <h2 class="th-h" id="th-menu-h"><span>Semua halaman sekilas</span><small>ALL PAGES</small></h2>
+    <ul class="th-lib">
+      {
+        allMenu.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.label}</strong>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <section class="th-sec" aria-labelledby="th-lib-h">

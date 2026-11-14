@@ -78,5 +78,35 @@
     "href": "/id/ai-judge/",
     "key": "aiJudge",
     "enabled": true
+  },
+  {
+    "href": "/id/updates/",
+    "key": "updates",
+    "enabled": true
+  },
+  {
+    "href": "/id/dx-roadmap/",
+    "key": "dxRoadmap",
+    "enabled": true
+  },
+  {
+    "href": "/id/calendar/",
+    "key": "calendar",
+    "enabled": true
+  },
+  {
+    "href": "/id/rme-checklist/",
+    "key": "rmeChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/id/cyber-checklist/",
+    "key": "cyberChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/id/templates/",
+    "key": "templates",
+    "enabled": true
   }
 ]

@@ -16,7 +16,13 @@
     "aiDigest": "Sorotan AI",
     "aiJudge": "Penilaian Program AI",
     "practice": "Panduan praktis",
-    "patients": "Sudut pasien"
+    "patients": "Sudut pasien",
+    "updates": "Pembaruan",
+    "dxRoadmap": "Peta waktu",
+    "calendar": "Kalender regulasi",
+    "rmeChecklist": "Daftar periksa RME",
+    "cyberChecklist": "Daftar periksa keamanan data",
+    "templates": "Contoh kebijakan"
   },
   "footer": {
     "about": "Tentang Penulis",

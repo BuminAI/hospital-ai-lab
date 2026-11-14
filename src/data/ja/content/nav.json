@@ -73,5 +73,35 @@
     "href": "/ja/ai-judge/",
     "key": "aiJudge",
     "enabled": true
+  },
+  {
+    "href": "/ja/updates/",
+    "key": "updates",
+    "enabled": true
+  },
+  {
+    "href": "/ja/dx-roadmap/",
+    "key": "dxRoadmap",
+    "enabled": true
+  },
+  {
+    "href": "/ja/calendar/",
+    "key": "calendar",
+    "enabled": true
+  },
+  {
+    "href": "/ja/mynumber-reception/",
+    "key": "mynumberReception",
+    "enabled": true
+  },
+  {
+    "href": "/ja/cyber-checklist/",
+    "key": "cyberChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/ja/templates/",
+    "key": "templates",
+    "enabled": true
   }
 ]

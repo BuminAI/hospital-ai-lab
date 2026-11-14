@@ -9,6 +9,7 @@
 //   5) このサイトの約束(편집 원칙) → 資料ライブラリ → よくあるご質問 → 運営の趣旨
 // ⚠️ 경력 연수는 2026-11-09 오너 지시로 사이트 전체에서 삭제했다(홈 본문·사이드바 모두).
 // ⚠️ 수치·문구는 데이터에서 계산하거나, 이미 사이트에 있는 사실만 쓴다.
+import navConfig from '../../data/ja/content/nav.json';
 import '../../styles/ja-home.css';
 import { getCollection } from 'astro:content';
 import JaLayout from '../../layouts/JaLayout.astro';
@@ -98,6 +99,12 @@ const homeSeries = (await getResolvedSeries('ja'))
   .slice()
   .sort((a, b) => b.posts.length - a.posts.length)
   .slice(0, 3);
+// 메뉴(nav.json)의 모든 항목을 같은 순서로 홈에도 보여 준다. 메뉴에만/홈에만 있는 페이지가 없게 하려는 구역(2026-11-14).
+const navLabelsHome = ja.nav as Record<string, string>;
+const allMenu = navConfig
+  .filter((n) => n.enabled && n.href !== '/ja/')
+  .map((n) => ({ href: n.href, label: navLabelsHome[n.key] ?? n.key }));
+
 ---
 
 <JaLayout
@@ -259,6 +266,21 @@ const homeSeries = (await getResolvedSeries('ja'))
       }
     </ul>
     <p class="jh-note"><a href={withBase('/ja/about/#principles')}>記事を書く・確かめるときの原則を読む →</a></p>
+  </section>
+
+  <section class="jh-sec" aria-labelledby="jh-menu-h">
+    <h2 class="jh-h" id="jh-menu-h"><span>全ページ一覧</span><small>ALL PAGES</small></h2>
+    <ul class="jh-lib">
+      {
+        allMenu.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.label}</strong>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <section class="jh-sec" aria-labelledby="jh-lib-h">

@@ -16,7 +16,13 @@
     "aiDigest": "AI digest",
     "aiJudge": "AI program review",
     "practice": "Practice guides",
-    "patients": "For patients"
+    "patients": "For patients",
+    "updates": "Updates",
+    "dxRoadmap": "Roadmap",
+    "calendar": "CDSCO calendar",
+    "documentsChecklist": "Device checklist",
+    "dataChecklist": "Data checklist",
+    "templates": "Templates"
   },
   "footer": {
     "about": "About",
