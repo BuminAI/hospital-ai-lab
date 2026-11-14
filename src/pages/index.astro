@@ -20,6 +20,7 @@ import { getResolvedSeries } from '../utils/series';
 import { siteNav } from '../data/site-nav';
 import { tips } from '../data/tips';
 import { faqItems } from '../data/faq';
+import ViewCounts from '../components/ViewCounts.astro';
 
 // 마지막 업데이트일 = 마지막 커밋 날짜(빌드 시 자동 계산, 수동 갱신 불필요).
 // git 정보를 못 구하는 예외적 빌드 환경 대비 폴백만 둔다.
@@ -43,6 +44,8 @@ const blogFeedSeed = allPosts.slice(0, 10).map((post) => ({
   title: post.data.title,
   dateIso: post.data.pubDate.toISOString(),
   href: withBase(`/blog/${post.id}/`),
+  // 조회수(GoatCounter)를 붙이는 경로 — 칼럼 글만 있다(뉴스·영상 등 외부 링크는 우리 집계가 아님)
+  viewPath: withBase(`/blog/${post.id}/`),
 }));
 
 // 피드에 합칠 AI 뉴스·추천 영상.
@@ -245,6 +248,7 @@ const homeSeries = (await getResolvedSeries())
                 rel={item.external ? 'noopener' : undefined}
               >{item.title}{item.external && <span class="sr-only"> (새 탭으로 열림)</span>}</a>
               <time class="feed-date" datetime={item.dateIso}>{formatDate(new Date(item.dateIso))}</time>
+              {item.viewPath && <span class="views feed-date" data-view-path={item.viewPath} hidden />}
             </li>
           ))}
         </ul>
@@ -324,6 +328,7 @@ const homeSeries = (await getResolvedSeries())
                   rel={item.external ? 'noopener' : undefined}
                 >{item.title}{item.external && <span class="sr-only"> (새 탭으로 열림)</span>}</a>
                 <time class="feed-date" datetime={item.dateIso}>{formatDate(new Date(item.dateIso))}</time>
+              {item.viewPath && <span class="views feed-date" data-view-path={item.viewPath} hidden />}
               </li>
             ))}
           </ul>
@@ -484,6 +489,7 @@ const homeSeries = (await getResolvedSeries())
   <p class="dev-status">
     이 홈페이지는 계속 업데이트되고 있습니다 · 마지막 업데이트 {lastUpdated}
   </p>
+  <ViewCounts loc="ko" />
 </BaseLayout>
 
 <script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, feedSeed }}>
@@ -504,7 +510,7 @@ const homeSeries = (await getResolvedSeries())
         day: 'numeric',
       });
 
-    function makeRow({ badgeClass, badgeLabel, title, dateIso, href, external }) {
+    function makeRow({ badgeClass, badgeLabel, title, dateIso, href, external, viewPath }) {
       const li = document.createElement('li');
       li.className = 'feed-row';
       li.dataset.date = dateIso;
@@ -533,6 +539,13 @@ const homeSeries = (await getResolvedSeries())
       dateEl.textContent = fmt(dateIso);
 
       li.append(badge, titleEl, dateEl);
+      if (viewPath) {
+        const viewsEl = document.createElement('span');
+        viewsEl.className = 'views feed-date';
+        viewsEl.dataset.viewPath = viewPath;
+        viewsEl.hidden = true;
+        li.append(viewsEl);
+      }
       return li;
     }
 
@@ -578,6 +591,8 @@ const homeSeries = (await getResolvedSeries())
     // (두 목록이 같은 항목을 두 번 보여주지 않게).
     render(heroFeed, items.slice(0, 4));
     render(mainFeed, items.slice(4, 10));
+    // 다시 그린 행의 조회수도 채운다(ViewCounts.astro가 만든 함수)
+    if (window.__fillViews) window.__fillViews();
   })();
 </script>
 

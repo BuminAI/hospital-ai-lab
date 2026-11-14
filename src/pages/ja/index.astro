@@ -19,6 +19,7 @@ import newsData from '../../data/ja/news.json';
 import linkHealth from '../../data/ja/link-health.json';
 import HomeSeries from '../../components/HomeSeries.astro';
 import { withBase } from '../../utils/site';
+import ViewCounts from '../../components/ViewCounts.astro';
 import { getResolvedSeries } from '../../utils/series';
 import { getJaUpdates, KIND_LABEL } from '../../utils/ja-updates';
 
@@ -239,6 +240,7 @@ const allMenu = navConfig
             <p class="jh-post-meta">
               <span class="jh-chip">{p.data.category}</span>
               <time datetime={p.data.pubDate.toISOString()}>{fmtYMD.format(p.data.pubDate)}</time>
+              <span class="views" data-view-path={withBase(`/ja/blog/${p.id}/`)} hidden></span>
             </p>
             <h3><a href={withBase(`/ja/blog/${p.id}/`)}>{p.data.title}</a></h3>
             <p class="jh-post-d">{p.data.description}</p>
@@ -325,4 +327,5 @@ const allMenu = navConfig
       <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{ja.ui.langKo} →</a></p>
     </div>
   </section>
+  <ViewCounts loc="ja" />
 </JaLayout>

@@ -19,6 +19,7 @@ import newsData from '../../data/in/news.json';
 import linkHealth from '../../data/in/link-health.json';
 import HomeSeries from '../../components/HomeSeries.astro';
 import { withBase } from '../../utils/site';
+import ViewCounts from '../../components/ViewCounts.astro';
 import { getResolvedSeries } from '../../utils/series';
 import { getEnUpdates, KIND_LABEL } from '../../utils/in-updates';
 
@@ -236,6 +237,7 @@ const allMenu = navConfig
             <p class="th-post-meta">
               <span class="th-chip">{p.data.category}</span>
               <time datetime={p.data.pubDate.toISOString()}>{fmtYMD.format(p.data.pubDate)}</time>
+              <span class="views" data-view-path={withBase(`/in/blog/${p.id}/`)} hidden></span>
             </p>
             <h3><a href={withBase(`/in/blog/${p.id}/`)}>{p.data.title}</a></h3>
             <p class="th-post-d">{p.data.description}</p>
@@ -322,4 +324,5 @@ const allMenu = navConfig
       <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{en.ui.langKo} →</a></p>
     </div>
   </section>
+  <ViewCounts loc="in" />
 </InLayout>

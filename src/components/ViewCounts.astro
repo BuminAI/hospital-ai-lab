@@ -1,0 +1,56 @@
+---
+// 홈의 글 카드에 조회수를 채워 넣는다(2026-11-14 오너 지시: 모든 언어판 홈의 글에 조회수·업로드 일자 표시).
+//
+// 글 카드마다 `<span class="views" data-view-path="/ja/blog/<id>/" hidden></span>`를 두면,
+// 이 스크립트가 GoatCounter 공개 카운터(/counter/<경로>.json, 인증 불필요)에서 숫자를 받아
+// 해당 언어의 문구로 채우고 보이게 한다. 통계 서비스에 닿지 않으면 조용히 숨긴 채로 둔다
+// (조회수 때문에 레이아웃이 깨지거나 "0"이 거짓으로 보이지 않게).
+//
+// 경로는 글 페이지가 실제로 집계되는 경로(언어 접두어 포함)와 같아야 한다.
+// 클라이언트에서 그려지는 목록(한국어 홈 피드)은 그린 뒤 window.__fillViews()를 부른다.
+import { GOATCOUNTER_CODE } from '../utils/site';
+
+interface Props {
+  loc: 'ko' | 'ja' | 'ru' | 'id' | 'tw' | 'en' | 'in';
+}
+const { loc } = Astro.props;
+
+const LABEL = {
+  ko: { tpl: '조회 {n}회', lang: 'ko-KR' },
+  ja: { tpl: '閲覧 {n}回', lang: 'ja-JP' },
+  ru: { tpl: 'Просмотры: {n}', lang: 'ru-RU' },
+  id: { tpl: 'Dilihat {n} kali', lang: 'id-ID' },
+  tw: { tpl: '瀏覽 {n} 次', lang: 'zh-TW' },
+  en: { tpl: '{n} views', one: '{n} view', lang: 'en-US' },
+  in: { tpl: '{n} views', one: '{n} view', lang: 'en-IN' },
+}[loc];
+---
+
+{
+  GOATCOUNTER_CODE && (
+    <script is:inline define:vars={{ GC: GOATCOUNTER_CODE, TPL: LABEL.tpl, ONE: LABEL.one ?? null, LANG: LABEL.lang }}>
+      (function () {
+        function fill(root) {
+          (root || document).querySelectorAll('.views[data-view-path]:not([data-done])').forEach(function (el) {
+            el.setAttribute('data-done', '1');
+            var p = el.getAttribute('data-view-path');
+            fetch('https://' + GC + '.goatcounter.com/counter/' + encodeURIComponent(p) + '.json')
+              .then(function (r) { return r.json(); })
+              .then(function (d) {
+                var n = Number(d.count || 0);
+                el.textContent = (n === 1 && ONE ? ONE : TPL).replace('{n}', n.toLocaleString(LANG));
+                el.hidden = false;
+              })
+              .catch(function () {});
+          });
+        }
+        window.__fillViews = fill;
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function () { fill(); }, { once: true });
+        } else {
+          fill();
+        }
+      })();
+    </script>
+  )
+}
