@@ -30,12 +30,22 @@ process.stdin.on('end', () => {
     const target = norm(filePath);
     if (target.split('/').includes('..')) return;
     const dirs = ['blog', 'blog-ru', 'blog-ja', 'blog-id', 'blog-tw', 'blog-en'];
-    const ok = dirs.some((d) => {
-      const prefix = `${root}/src/content/${d}/`;
-      if (!target.startsWith(prefix)) return false;
-      const rest = target.slice(prefix.length);
-      return /^\d{4}-\d{2}-\d{2}-[a-z0-9-]+\.md$/.test(rest);
-    });
+    // 2026-11-14 오너 승인: 작업 지침(0단계 실무 팁·1-6단계 FAQ)이 매일 고치라고 한 데이터 파일만 추가.
+    // 이 목록에 없는 src/data 파일은 여전히 승인이 필요하다. (되돌리려면 dataFiles 검사를 지운다)
+    const dataFiles = new Set([
+      'src/data/tips.ts',
+      'src/data/faq.ts',
+      ...['ja', 'ru', 'id', 'tw'].map((l) => `src/data/${l}/content/tips.json`),
+      ...['ja', 'ru', 'en', 'in', 'id', 'tw'].map((l) => `src/data/${l}/content/faq.json`),
+    ]);
+    const ok =
+      dataFiles.has(target.startsWith(`${root}/`) ? target.slice(root.length + 1) : '') ||
+      dirs.some((d) => {
+        const prefix = `${root}/src/content/${d}/`;
+        if (!target.startsWith(prefix)) return false;
+        const rest = target.slice(prefix.length);
+        return /^\d{4}-\d{2}-\d{2}-[a-z0-9-]+\.md$/.test(rest);
+      });
     if (!ok) return;
     process.stdout.write(
       JSON.stringify({
