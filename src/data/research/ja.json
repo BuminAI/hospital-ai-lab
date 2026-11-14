@@ -1,0 +1,516 @@
+{
+  "updatedAt": "2026-11-14T13:19:54.408Z",
+  "country": "Japan",
+  "window": {
+    "from": "2025-11-14",
+    "to": "2026-11-14"
+  },
+  "totals": {
+    "surgery": 4536,
+    "drug": 776,
+    "disease": 8859,
+    "trials": 437
+  },
+  "sections": {
+    "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43011506",
+        "title": "Prospective Multicenter Evaluation of a Novel Low-Axial-Force Colonic Stent for Malignant Colorectal Obstruction",
+        "source": "DEN Open",
+        "date": "2026-11-08",
+        "authors": "Otsuka R, Saito S, Fujimoto N et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43011506/",
+        "doi": "10.1002/deo2.70466"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42985707",
+        "title": "Improved Visualization of the Internal Branch of the Superior Laryngeal Nerve during Pharyngeal Endoscopic Subepithelial Dissection with Use of Red Dichromatic Imaging",
+        "source": "DEN Open",
+        "date": "2026-11-03",
+        "authors": "Fujinaga Y, Tamada Y, Yamaguchi Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42985707/",
+        "doi": "10.1002/deo2.70460"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42979178",
+        "title": "Acute Pancreatitis Caused by Impaction of Migrated Surgical Staples in the Duodenal Papilla After Distal Pancreatectomy",
+        "source": "DEN Open",
+        "date": "2026-11-02",
+        "authors": "Inaba K, Motomura M, Azuma Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42979178/",
+        "doi": "10.1002/deo2.70465"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42914899",
+        "title": "Time-delay deformation cytometry reveals a Piezo1-dependent viscomechanical transition driving glioblastoma invasion",
+        "source": "Biosens Bioelectron",
+        "date": "2026-10-20",
+        "authors": "Zeng C, Xu C, Shao C et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42914899/",
+        "doi": "10.1016/j.bios.2026.119355"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42898351",
+        "title": "Capitate Reconstruction Using the Second Metatarsal Head for Avascular Necrosis: Long-Term Clinical Validation of an Anatomically Matched Osteochondral Reconstruction",
+        "source": "J Hand Surg Glob Online",
+        "date": "2026-10-09",
+        "authors": "Kuno H",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42898351/",
+        "doi": "10.1016/j.jhsg.2026.101160"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42846368",
+        "title": "Gel Immersion Endoscopic Mucosal Resection With Submucosal Injection for Superficial Esophageal Squamous Neoplasms (With Video)",
+        "source": "DEN Open",
+        "date": "2026-10-06",
+        "authors": "Uda T, Urabe Y, Gurita T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42846368/",
+        "doi": "10.1002/deo2.70444"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43001223",
+        "title": "Endovascular repair of iatrogenic popliteal artery injury with acute limb ischemia during unicompartmental knee arthroplasty",
+        "source": "J Vasc Surg Cases Innov Tech",
+        "date": "2026-10-05",
+        "authors": "Asano K, Nakama T, Obunai K",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43001223/",
+        "doi": "10.1016/j.jvscit.2026.102543"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42843117",
+        "title": "Laparoscopic transfer of in vitro fertilized gene-edited embryos in pigs",
+        "source": "Theriogenology",
+        "date": "2026-10-04",
+        "authors": "Nagahara M, Namula Z, Hirata M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42843117/",
+        "doi": "10.1016/j.theriogenology.2026.118244"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42812748",
+        "title": "Endoscopic Ultrasound-Guided Gallbladder Drainage as a Bridge to Surgery for Acute Cholecystitis: A Comparative Study",
+        "source": "DEN Open",
+        "date": "2026-09-28",
+        "authors": "Nagai K, Fujita Y, Uechi H et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42812748/",
+        "doi": "10.1002/deo2.70436"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42720070",
+        "title": "Impact of defibrotide on survival in sinusoidal obstruction syndrome / veno-occlusive disease: a retrospective cohort study comparing two sequential treatment eras",
+        "source": "Hematology",
+        "date": "2026-09-09",
+        "authors": "Katsuki K, Tachibana T, Izumi A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42720070/",
+        "doi": "10.1080/16078454.2026.2721241"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42893202",
+        "title": "Clavicular tunnel position is associated with reduction loss after arthroscopic coracoclavicular ligament reconstruction: a computed tomography-based analysis",
+        "source": "JSES Rev Rep Tech",
+        "date": "2026-09-03",
+        "authors": "Inagaki K, Ochiai N, Sasaki Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42893202/",
+        "doi": "10.1016/j.xrrt.2026.100873"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42694982",
+        "title": "Duodenal Laparoscopy and Endoscopy Cooperative Surgery Combined With Endoscopic Nasopancreatic Drainage and Endoscopic Nasobiliary Drainage for a Duodenal Adenoma Near the Papilla of Vater: A Case Report",
+        "source": "DEN Open",
+        "date": "2026-09-02",
+        "authors": "Manaka K, Harada H, Wada T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42694982/",
+        "doi": "10.1002/deo2.70390"
+      }
+    ],
+    "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 43026212",
+        "title": "AS01(E)-adjuvanted RSV pre-F protein vaccine in adults with lung or kidney transplant: a phase 2b randomized trial",
+        "source": "Nat Commun",
+        "date": "2026-11-12",
+        "authors": "Small C, Kumar D, Abbas A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43026212/",
+        "doi": "10.1038/s41467-026-78584-9"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42632050",
+        "title": "A Bayesian reanalysis of the THOR trial cohort 1 using reconstructed individual patient data: interval-specific effects and clinically interpretable estimands under non-proportional hazards",
+        "source": "Jpn J Clin Oncol",
+        "date": "2026-11-12",
+        "authors": "Okumura G, Yoshida S, Hirose K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42632050/",
+        "doi": "10.1093/jjco/hyag133"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42981428",
+        "title": "Longitudinal remodeling of the tumor-immune microenvironment during regorafenib, nivolumab, and chemotherapy in advanced gastric cancer",
+        "source": "Sci Transl Med",
+        "date": "2026-11-03",
+        "authors": "Itahashi K, Kawazoe A, Hashimoto T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42981428/",
+        "doi": "10.1126/scitranslmed.aec7235"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42981165",
+        "title": "Adjuvant mFOLFOXIRI after curative-intent resection of oligometastatic colorectal cancer: phase II FANTASTIC trial",
+        "source": "BJS Open",
+        "date": "2026-11-02",
+        "authors": "Kataoka K, Yamada T, Yamazaki K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42981165/",
+        "doi": "10.1093/bjsopen/zrag144"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42658188",
+        "title": "A Phase I First-Time-in-Human, Open-label Study of Nelistotug Administered to Patients with Advanced Solid Tumors",
+        "source": "Clin Cancer Res",
+        "date": "2026-11-01",
+        "authors": "Siu LL, Hamid O, Schneider R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42658188/",
+        "doi": "10.1158/1078-0432.CCR-25-4374"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42933458",
+        "title": "First-line pembrolizumab versus carboplatin plus paclitaxel in participants with mismatch repair-deficient advanced or recurrent endometrial cancer (KEYNOTE-C93/GOG-3064/ENGOT-en15): interim analysis of a multicentre, open-label, randomised, active-comparator controlled, phase 3 trial",
+        "source": "Lancet",
+        "date": "2026-10-25",
+        "authors": "Slomovitz BM, Zhu J, Yin R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42933458/",
+        "doi": "10.1016/S0140-6736(26)02095-7"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42887497",
+        "title": "Firmonertinib in advanced non-small cell lung cancer with epidermal growth factor receptor P-loop and αC-helix compressing mutations",
+        "source": "Cancer Cell",
+        "date": "2026-10-15",
+        "authors": "Le X, Wang J, Yu Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42887497/",
+        "doi": "10.1016/j.ccell.2026.09.011"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43020535",
+        "title": "Dynamic trajectories of electrolytes and bone metabolism with tofogliflozin and glimepiride: A post-hoc analysis",
+        "source": "J Pharmacol Sci",
+        "date": "2026-10-14",
+        "authors": "Tokuno S, Takeshita Y, Matsubara D et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43020535/",
+        "doi": "10.1016/j.jphs.2026.10.002"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42855100",
+        "title": "Impact of prior antithrombotic therapy on safety and outcomes of endovascular therapy in large-core acute ischemic stroke",
+        "source": "J Stroke Cerebrovasc Dis",
+        "date": "2026-10-08",
+        "authors": "Ikenouchi H, Kawabata Y, Saito T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42855100/",
+        "doi": "10.1016/j.jstrokecerebrovasdis.2026.108765"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42848984",
+        "title": "Astrocytic and Axonal Injury Biomarkers in AQP4 Antibody-Positive NMOSD: Insights From PREVENT and CHAMPION-NMOSD",
+        "source": "Neurol Neuroimmunol Neuroinflamm",
+        "date": "2026-10-07",
+        "authors": "Wingerchuk DM, Bennett JL, Berthele A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42848984/",
+        "doi": "10.1212/NXI.0000000000200661"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42801438",
+        "title": "Impact of resolved hepatitis B virus infection on clinical outcomes in patients with diffuse large B-cell lymphoma: a supplementary analysis of JCOG0601",
+        "source": "Int J Hematol",
+        "date": "2026-09-26",
+        "authors": "Hagiwara S, Kusumoto S, Machida R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42801438/",
+        "doi": "10.1007/s12185-026-04292-1"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42810153",
+        "title": "Low-dose versus standard-dose antipsychotic treatment in first-episode schizophrenia: A secondary analysis of EUFEST data",
+        "source": "Schizophr Res",
+        "date": "2026-09-21",
+        "authors": "Nomura N, Kikuchi Y, Takeuchi H",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42810153/",
+        "doi": "10.1016/j.schres.2026.09.027"
+      }
+    ],
+    "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 42968792",
+        "title": "Persistent prefectural ordering of billed urinary albumin quantification in Japan: a nationwide longitudinal ecological study",
+        "source": "Diabetol Int",
+        "date": "2026-10-30",
+        "authors": "Furuto Y",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42968792/",
+        "doi": "10.1007/s13340-026-00944-z"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42944855",
+        "title": "The rise in prevalence of autoantibodies neutralizing type I interferons reaches a plateau in centenarians",
+        "source": "J Hum Immun",
+        "date": "2026-10-26",
+        "authors": "Mørk N, Jensen JA, Bastard P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42944855/",
+        "doi": "10.70962/jhi.20260143"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42948259",
+        "title": "Prevalence and Clinical Significance of Gastric-Type Mucosal Lesions in Non-Ampullary Duodenal Epithelial Tumors Based on Mucin Phenotype",
+        "source": "DEN Open",
+        "date": "2026-10-25",
+        "authors": "Ohno K, Nakatani E, Kurokami T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42948259/",
+        "doi": "10.1002/deo2.70443"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42906821",
+        "title": "Multimodality imaging for predicting regional wall motion recovery after percutaneous coronary intervention for chronic total occlusion",
+        "source": "Int J Cardiol",
+        "date": "2026-10-20",
+        "authors": "Kawai H, Yamada A, Ishikawa M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42906821/",
+        "doi": "10.1016/j.ijcard.2026.135009"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42921383",
+        "title": "Oropouche virus attack rate in an urban setting outside the Amazon Basin: findings from a post-outbreak seroprevalence survey",
+        "source": "Lancet Reg Health Am",
+        "date": "2026-10-13",
+        "authors": "Cavalcanti LPG, Barreto FKA, Lima Neto AS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42921383/",
+        "doi": "10.1016/j.lana.2026.101662"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42871195",
+        "title": "The Resection Ability of Low-power Pure-cut Hot Snare Polypectomy for Nonpedunculated Colorectal Polyps Smaller Than 10 mm: A Single-center Prospective Study",
+        "source": "DEN Open",
+        "date": "2026-10-11",
+        "authors": "Mizuno R, Kimura H, Kushima R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42871195/",
+        "doi": "10.1002/deo2.70450"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42871153",
+        "title": "Evaluating a Modified American Society of Anesthesiologists Physical Status-Based Sedation Management System for Pancreatobiliary Endoscopy: A Prospective Feasibility Study",
+        "source": "DEN Open",
+        "date": "2026-10-11",
+        "authors": "Hanaoka T, Okuwaki K, Watanabe M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42871153/",
+        "doi": "10.1002/deo2.70445"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42898130",
+        "title": "Current role of boron neutron capture therapy in head and neck cancer: insights from 4 years of clinical experience",
+        "source": "Clin Transl Radiat Oncol",
+        "date": "2026-10-06",
+        "authors": "Takeno S, Yoshino Y, Aihara T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42898130/",
+        "doi": "10.1016/j.ctro.2026.101316"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42826443",
+        "title": "Singleton freemartinism in cattle: A structured narrative review and historical case reappraisal",
+        "source": "Theriogenology",
+        "date": "2026-09-30",
+        "authors": "Kadokawa H",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42826443/",
+        "doi": "10.1016/j.theriogenology.2026.118225"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42812640",
+        "title": "Clinical Outcomes of Double Half-Pigtail Versus Straight Plastic Stents for Endoscopic Biliary Drainage of Malignant Distal Biliary Obstruction",
+        "source": "DEN Open",
+        "date": "2026-09-28",
+        "authors": "Yoshioka W, Tasaki M, Tasaki H et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42812640/",
+        "doi": "10.1002/deo2.70446"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42732135",
+        "title": "Intensive Endoscopic Resection for Downstaging of Superficial Non-ampullary Duodenal Epithelial Tumor Burden in Familial Adenomatous Polyposis: A Single-center Retrospective Study on Long-term Clinical Outcome",
+        "source": "DEN Open",
+        "date": "2026-09-10",
+        "authors": "Kawamura R, Yamada M, Takamaru H et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42732135/",
+        "doi": "10.1002/deo2.70419"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42729693",
+        "title": "Current Status and Unmet Needs of EUS Education in Japan: A Nationwide Survey Focusing on Screening EUS, EUS-Guided Sampling, and Interventional EUS",
+        "source": "DEN Open",
+        "date": "2026-09-09",
+        "authors": "Hijioka S, Yasuda I, Irisawa A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42729693/",
+        "doi": "10.1002/deo2.70430"
+      }
+    ],
+    "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT07881991",
+        "title": "Phase 2 Study of SYH2066 Tablets Compared With Placebo in Chinese Adult Patients With Respiratory Syncytial Virus Infection.",
+        "source": "CSPC Ouyi Pharmaceutical Co., Ltd.",
+        "date": "2026-11-13",
+        "phase": "Phase 2",
+        "conditions": "Respiratory Syncytial Virus Infections",
+        "intervention": "SYH2066, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07881991"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07919405",
+        "title": "A Research Study to Investigate How Well the Medicine CagriSema Lowers High Blood Pressure in People Living With High Blood Pressure and Obesity",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-11",
+        "phase": "Phase 3",
+        "conditions": "Hypertension, Obesity",
+        "intervention": "CagriSema, Semaglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07919405"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07931599",
+        "title": "A Research Study Investigating How Well Zenagamtide at Lower Dose Levels Lowers Blood Sugar and Body Weight Compared to Semaglutide at Lower Dose Levels in People With Type 2 Diabetes Treated With Metformin, Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2i), or Both",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Diabetes Mellitus, Type 2",
+        "intervention": "Zenagamtide, Semaglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07931599"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07931495",
+        "title": "A Research Study Investigating How Well Zenagamtide Lowers Blood Sugar and Body Weight Compared to Placebo in People With Type 2 Diabetes Treated With Diet and Exercise",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Diabetes Mellitus, Type 2",
+        "intervention": "Zenagamtide, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07931495"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07851103",
+        "title": "A Study to Test Different Doses of BI 3968621 When Given Alone or With Ezabenlimab in Patients With Advanced Cancer",
+        "source": "Boehringer Ingelheim",
+        "date": "2026-11-10",
+        "phase": "Phase 1",
+        "conditions": "Advanced Solid Tumour",
+        "intervention": "BI 3968621, ezabenlimab",
+        "url": "https://clinicaltrials.gov/study/NCT07851103"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07931547",
+        "title": "A Research Study Investigating How Well Zenagamtide Lowers Blood Sugar and Body Weight Compared to Placebo in People With Type 2 Diabetes and Chronic Kidney Disease Treated With Once Daily Basal Insulin Alone or in Combination With Metformin, SGLT2i, or Both",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Type 2 Diabetes, Chronic Kidney Disease",
+        "intervention": "Placebo, Zenagamtide",
+        "url": "https://clinicaltrials.gov/study/NCT07931547"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07730346",
+        "title": "Study to Assess the Prophylactic Efficacy and Safety of Sebaloxavir Marboxil Tablets/Oral Suspension for Influenza Prevention in Household Contacts Aged ≥2 Years.",
+        "source": "Nanjing Zenshine Pharmaceuticals",
+        "date": "2026-11-07",
+        "phase": "Phase 3",
+        "conditions": "Influenza Prevention",
+        "intervention": "Sebaloxavir marboxil, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07730346"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07855692",
+        "title": "The Clinical Trial of Tamibarotene for Patients With HFpEF (RELIEF Trial)",
+        "source": "Nagoya University",
+        "date": "2026-11-05",
+        "phase": "Phase 2",
+        "conditions": "HFpEF - Heart Failure With Preserved Ejection Fraction",
+        "intervention": "Tamibarotene, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07855692"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07707895",
+        "title": "DAREON®-36: A Study to Test Obrixtamig in Combination With ZL-1310 in People With Advanced Small Cell Lung Cancer or Other Neuroendocrine Cancers",
+        "source": "Boehringer Ingelheim",
+        "date": "2026-11-03",
+        "phase": "Phase 1 / Phase 2",
+        "conditions": "Small Cell Lung Cancer, Large Cell Neuroendocrine Lung Carcinoma, Extrapulmonary Neuroendocrine Carcinoma of Small Cell Histology",
+        "intervention": "Obrixtamig, ZL-1310",
+        "url": "https://clinicaltrials.gov/study/NCT07707895"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07521670",
+        "title": "Sacituzumab Tirumotecan in Recurrent/Metastatic Adenoid Cystic Carcinoma and Papillary Thyroid Carcinoma (STRAP)",
+        "source": "National Cancer Centre, Singapore",
+        "date": "2026-11-01",
+        "phase": "Phase 2",
+        "conditions": "Recurrent Adenoid Cystic Carcinoma, Adenoid Cystic Carcinoma Metastatic, Papillary Thyroid Carcinoma",
+        "intervention": "Sacituzumab Tirumotecan",
+        "url": "https://clinicaltrials.gov/study/NCT07521670"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07917078",
+        "title": "Reduced-Dose Thrombolysis in Intermediate-Risk Pulmonary Embolism With High-Risk Features",
+        "source": "China National Center for Cardiovascular Diseases",
+        "date": "2026-11-01",
+        "phase": "Phase 3",
+        "conditions": "Pulmonary Embolism",
+        "intervention": "Alteplase, Standard Anticoagulation",
+        "url": "https://clinicaltrials.gov/study/NCT07917078"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07832747",
+        "title": "A Study of DCC-3014 to Evaluate the Efficacy, Safety, and Pharmacokinetics in Subjects With TGCT",
+        "source": "Ono Pharmaceutical Co., Ltd.",
+        "date": "2026-10-31",
+        "phase": "Phase 2",
+        "conditions": "Tenosynovial Giant Cell Tumor",
+        "intervention": "DCC-3014",
+        "url": "https://clinicaltrials.gov/study/NCT07832747"
+      }
+    ]
+  }
+}

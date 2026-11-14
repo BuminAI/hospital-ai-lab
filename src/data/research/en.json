@@ -1,0 +1,516 @@
+{
+  "updatedAt": "2026-11-14T13:19:54.408Z",
+  "country": "United States",
+  "window": {
+    "from": "2025-11-14",
+    "to": "2026-11-14"
+  },
+  "totals": {
+    "surgery": 11236,
+    "drug": 2778,
+    "disease": 31528,
+    "trials": 3613
+  },
+  "sections": {
+    "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 42929781",
+        "title": "Colorectal cancers with distinct metastatic potential trigger divergent early T cell responses",
+        "source": "J Exp Med",
+        "date": "2026-10-25",
+        "authors": "Saad M, Thoms A, Yin YS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42929781/",
+        "doi": "10.1084/jem.20261199"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42959279",
+        "title": "Trans-endplate delivery of arginine-based poly (ester amide) for structure-preserving therapy of intervertebral disc degeneration",
+        "source": "Bioact Mater",
+        "date": "2026-10-21",
+        "authors": "Ling Z, Guo Q, Tong T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42959279/",
+        "doi": "10.1016/j.bioactmat.2026.09.039"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42878707",
+        "title": "Hematopoietic cell transplantation using treosulfan-based conditioning for IL-10 receptor deficiency",
+        "source": "J Hum Immun",
+        "date": "2026-10-14",
+        "authors": "Lakkaraja M, Schmitt EG, Sood AK et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42878707/",
+        "doi": "10.70962/jhi.20260123"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42892195",
+        "title": "Machine learning-based detection and area quantification of mechanical and corrosion damage in femoral stem tapers",
+        "source": "J Mech Behav Biomed Mater",
+        "date": "2026-10-11",
+        "authors": "Upadhayay L, Bandyopadhyay A",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42892195/",
+        "doi": "10.1016/j.jmbbm.2026.107680"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42843061",
+        "title": "In vitro comparison of resin cement bond strength to milled and 3D-printed resins",
+        "source": "J Mech Behav Biomed Mater",
+        "date": "2026-10-02",
+        "authors": "Tupper J, Tantbirojn D, Hollis W et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42843061/",
+        "doi": "10.1016/j.jmbbm.2026.107661"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42826485",
+        "title": "Rapid quantification of environmental pollutant metals in dried blood spots via direct microextraction coupled to ICP-MS (μEx-ICP-MS)",
+        "source": "Talanta",
+        "date": "2026-09-29",
+        "authors": "Stouffer CJ, Marcus RK",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42826485/",
+        "doi": "10.1016/j.talanta.2026.130714"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43003551",
+        "title": "Contemporary Arthroscopic Management of Volar and Dorsal Ganglia, Addressing the Problem from Inside-Out",
+        "source": "Hand Clin",
+        "date": "2026-09-24",
+        "authors": "Chambers SB, Wagner ER",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43003551/",
+        "doi": "10.1016/j.hcl.2026.08.002"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43009231",
+        "title": "Radical Cystectomy: Perioperative Complications",
+        "source": "Urol Clin North Am",
+        "date": "2026-09-20",
+        "authors": "Hudson C, Nguyen M, Ostergar A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43009231/",
+        "doi": "10.1016/j.ucl.2026.08.005"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42926853",
+        "title": "Comparing outcomes of onlay humeral stem designs in reverse total shoulder arthroplasty: a systematic review",
+        "source": "JSES Rev Rep Tech",
+        "date": "2026-09-17",
+        "authors": "Daher N, Mazeh M, Castle JP et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42926853/",
+        "doi": "10.1016/j.xrrt.2026.100882"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42772082",
+        "title": "Nanoparticle-mediated magnetic hyperthermia for ectopic pregnancy treatment",
+        "source": "Biomaterials",
+        "date": "2026-09-16",
+        "authors": "Duraisamy K, Singh P, Vyawahare A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42772082/",
+        "doi": "10.1016/j.biomaterials.2026.124639"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43009227",
+        "title": "Complications of Percutaneous Nephrolithotomy",
+        "source": "Urol Clin North Am",
+        "date": "2026-09-16",
+        "authors": "Vaughn CM, Borofsky MS",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43009227/",
+        "doi": "10.1016/j.ucl.2026.08.002"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42908885",
+        "title": "Stemmed versus stemless humeral implants in anatomic total shoulder arthroplasty: a systematic review and meta-analysis",
+        "source": "JSES Rev Rep Tech",
+        "date": "2026-09-10",
+        "authors": "Dieu V, Puga TB, Haechten T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42908885/",
+        "doi": "10.1016/j.xrrt.2026.100881"
+      }
+    ],
+    "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 43001460",
+        "title": "Novel creatine formulation exhibits similar serum creatine concentrations and pharmacokinetics to creatine monohydrate in healthy adults",
+        "source": "J Int Soc Sports Nutr",
+        "date": "2026-11-08",
+        "authors": "DelBiondo GM, Gottlieb CW, Baker PA et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43001460/",
+        "doi": "10.1080/15502783.2026.2745618"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42989979",
+        "title": "Cost-effectiveness of onabotulinumtoxinA versus topiramate in chronic migraine in the US: an economic analysis of the FORWARD randomized trial",
+        "source": "J Med Econ",
+        "date": "2026-11-05",
+        "authors": "Ronquest N, Zhang Y, Park TJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42989979/",
+        "doi": "10.1080/13696998.2026.2755187"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42962721",
+        "title": "Effects of psilocybin with psychological support on anhedonia in treatment-resistant depression: A randomized controlled pilot trial",
+        "source": "J Affect Disord",
+        "date": "2026-10-29",
+        "authors": "Novick AM, Love TM, Johnson RL et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42962721/",
+        "doi": "10.1016/j.jad.2026.122676"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42952181",
+        "title": "Sustained Psychosocial Benefits of Telehealth Occupational Therapy for Young Adults With Type 1 Diabetes: Long-Term Follow-Up of the Resilient, Empowered, Active Living-Telehealth (REAL-T) Randomized Controlled Trial",
+        "source": "Sci Diabetes Self Manag Care",
+        "date": "2026-10-27",
+        "authors": "Pyatak EA, Nnoli ND, Mo Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42952181/",
+        "doi": "10.1177/26350106261490587"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42945702",
+        "title": "Hemagglutinin- and neuraminidase-targeting antibody responses after receipt of egg-based inactivated or recombinant influenza vaccines among adults aged 18-64 years",
+        "source": "Vaccine",
+        "date": "2026-10-26",
+        "authors": "Mishin VP, Patel MC, Gao R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42945702/",
+        "doi": "10.1016/j.vaccine.2026.129281"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42906503",
+        "title": "Phase 2 trial to evaluate the safety and immunogenicity of a 25-valent pneumococcal conjugate vaccine (IVT-PCV25) in infants",
+        "source": "Vaccine",
+        "date": "2026-10-20",
+        "authors": "Bravo L, Bermal N, Alberto E et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42906503/",
+        "doi": "10.1016/j.vaccine.2026.129268"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42895209",
+        "title": "Long-term efficacy of lebrikizumab in treating head, neck and face involvement in patients with moderate-to-severe atopic dermatitis",
+        "source": "J Dermatolog Treat",
+        "date": "2026-10-18",
+        "authors": "Chovatiya R, de Bruin-Weller M, Alexis A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42895209/",
+        "doi": "10.1080/09546634.2026.2713286"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42887787",
+        "title": "Aberrant amygdala subregion volumes in youth at high risk for bipolar disorder predict antidepressant-induced adverse events",
+        "source": "J Affect Disord",
+        "date": "2026-10-15",
+        "authors": "Tang B, Patino LR, Blom TJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42887787/",
+        "doi": "10.1016/j.jad.2026.122644"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42869875",
+        "title": "Safety and immunogenicity of Thailand Government Pharmaceutical Organization (GPO) produced, COVID-19 vaccine, 10 μg HXP-GPOVac: A Phase III, double-blind, randomized trial in comparison with VAXZEVRIA",
+        "source": "Vaccine",
+        "date": "2026-10-12",
+        "authors": "Prasert K, Nakphook S, Kittiwatanachod J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42869875/",
+        "doi": "10.1016/j.vaccine.2026.129230"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42857927",
+        "title": "Testing peripheral and central therapies for provoked vestibulodynia: results from the UPDATe trial",
+        "source": "Ann Med",
+        "date": "2026-10-09",
+        "authors": "Shudt C, Carey ET, Geller EJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42857927/",
+        "doi": "10.1080/07853890.2026.2732293"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42838065",
+        "title": "Safety, antiviral activity, and pharmacokinetics of long-acting cabotegravir plus long-acting rilpivirine in virologically suppressed adolescents living with HIV-1 (IMPAACT 2017/MOCHA): week 96 and end-of-study results from a multinational, phase 1/2, single-arm trial",
+        "source": "Lancet Child Adolesc Health",
+        "date": "2026-10-05",
+        "authors": "Moore CB, Baltrusaitis K, Capparelli EV et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42838065/",
+        "doi": "10.1016/S2352-4642(26)00221-X"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42826224",
+        "title": "Participant experiences of stopping ART as part of a clinical trial; findings from a qualitative study within the RIO trial in the United Kingdom",
+        "source": "HIV Res Clin Pract",
+        "date": "2026-10-01",
+        "authors": "Gohil J, Molina M, Ahmed A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42826224/",
+        "doi": "10.1080/25787489.2026.2739700"
+      }
+    ],
+    "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 42944855",
+        "title": "The rise in prevalence of autoantibodies neutralizing type I interferons reaches a plateau in centenarians",
+        "source": "J Hum Immun",
+        "date": "2026-10-26",
+        "authors": "Mørk N, Jensen JA, Bastard P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42944855/",
+        "doi": "10.70962/jhi.20260143"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42933241",
+        "title": "Monitoring of adverse events following 2024-2025 BNT162b2 KP.2 COVID-19 vaccination in the United States",
+        "source": "Vaccine",
+        "date": "2026-10-25",
+        "authors": "Sun JW, Dodge LE, Cai S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42933241/",
+        "doi": "10.1016/j.vaccine.2026.129296"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42929758",
+        "title": "Characterizing hypertension in activated PI3K delta syndrome: Findings from Epic Cosmos",
+        "source": "J Hum Immun",
+        "date": "2026-10-25",
+        "authors": "Santiago B, Keelin J, Sun X et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42929758/",
+        "doi": "10.70962/jhi.20250263"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42990948",
+        "title": "Incidence of medically attended Lyme borreliosis across endemic regions of six European countries (BOLD): a prospective multicentre active surveillance study",
+        "source": "Lancet Reg Health Eur",
+        "date": "2026-10-25",
+        "authors": "Halsby K, Loew-Baselli A, Moniuszko-Malinowska A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42990948/",
+        "doi": "10.1016/j.lanepe.2026.101907"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43025936",
+        "title": "Emerging Skin and Soft Tissue Infections",
+        "source": "Dermatol Clin",
+        "date": "2026-10-22",
+        "authors": "Mueller K, Williams AS, Drake L et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43025936/",
+        "doi": "10.1016/j.det.2026.09.001"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42960173",
+        "title": "Prevalence and mortality of chronic extracellular matrix dysregulated diseases: a nationwide register-based study",
+        "source": "Lancet Reg Health Eur",
+        "date": "2026-10-22",
+        "authors": "Christiansen RC, Bager CL, Heinz A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42960173/",
+        "doi": "10.1016/j.lanepe.2026.101901"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42920888",
+        "title": "Liver fibrosis risk, missed follow-up, and inequitable specialist referral in the All of Us Research Program: a retrospective cohort study",
+        "source": "Lancet Reg Health Am",
+        "date": "2026-10-18",
+        "authors": "Sellers K, White TM, Manolas MI et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42920888/",
+        "doi": "10.1016/j.lana.2026.101676"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42997473",
+        "title": "Temporal trends in radiation-induced optic neuropathy: a meta-analysis",
+        "source": "Clin Transl Radiat Oncol",
+        "date": "2026-10-17",
+        "authors": "Thariat J, Pham TN, Sochacki T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42997473/",
+        "doi": "10.1016/j.ctro.2026.101327"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42935795",
+        "title": "Primary care effectiveness, multimorbidity, and hospital use in public and private health-care systems in Brazil: a cross-sectional analysis of data from the 2019-2021 Brazilian longitudinal study of aging",
+        "source": "Lancet Reg Health Am",
+        "date": "2026-10-16",
+        "authors": "Oliveira GM, Nunes BP, Lam K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42935795/",
+        "doi": "10.1016/j.lana.2026.101680"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42927255",
+        "title": "Suicide mortality and suicide method trends in the Region of the Americas, 2015-2021: a population-based time-series analysis of progress toward a one-third reduction target",
+        "source": "Lancet Reg Health Am",
+        "date": "2026-10-14",
+        "authors": "Lange S, Martinez R, Guo K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42927255/",
+        "doi": "10.1016/j.lana.2026.101671"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42869735",
+        "title": "Thyroid Disease in the Era of Obesity and Glucagon-Like-Peptide-1 Agonists",
+        "source": "Otolaryngol Clin North Am",
+        "date": "2026-10-13",
+        "authors": "Coblens O, Dunmire A, Maldonado-Chapa F",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42869735/",
+        "doi": "10.1016/j.otc.2026.06.002"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42921383",
+        "title": "Oropouche virus attack rate in an urban setting outside the Amazon Basin: findings from a post-outbreak seroprevalence survey",
+        "source": "Lancet Reg Health Am",
+        "date": "2026-10-13",
+        "authors": "Cavalcanti LPG, Barreto FKA, Lima Neto AS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42921383/",
+        "doi": "10.1016/j.lana.2026.101662"
+      }
+    ],
+    "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT07436611",
+        "title": "Rapamycin Dose-Ranging Efficacy Study in Port Wine Stains",
+        "source": "AFT Pharmaceuticals, Ltd.",
+        "date": "2026-11-13",
+        "phase": "Phase 2",
+        "conditions": "Port Wine Stains",
+        "intervention": "Rapamycin cream, Pulsed dyed laser",
+        "url": "https://clinicaltrials.gov/study/NCT07436611"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07874841",
+        "title": "Varenicline for Smoking Cessation in Pancreatitis",
+        "source": "Mayo Clinic",
+        "date": "2026-11-13",
+        "phase": "Phase 4",
+        "conditions": "Pancreatitis, Chronic Pancreatitis, Acute Pancreatitis (AP)",
+        "intervention": "Varenicline (VAR)",
+        "url": "https://clinicaltrials.gov/study/NCT07874841"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07908316",
+        "title": "Comparing the Extent to Which Maridebart Cafraglutide is Made Available in the Body of Participants Living With Overweight or Obesity After Switching From Glucagon-like Peptide-1 Receptor Agonists (GLP-1RA)",
+        "source": "Amgen",
+        "date": "2026-11-13",
+        "phase": "Phase 1",
+        "conditions": "Obesity, Overweight",
+        "intervention": "Maridebart cafraglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07908316"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07839819",
+        "title": "Study of PM54 in Combination With Cytotoxic and Targeted Agents in Adult Participants With Advanced Malignancies",
+        "source": "PharmaMar",
+        "date": "2026-11-12",
+        "phase": "Phase 1 / Phase 2",
+        "conditions": "Advanced Solid Tumor",
+        "intervention": "PM54, Irinotecan",
+        "url": "https://clinicaltrials.gov/study/NCT07839819"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07931703",
+        "title": "Safety, Tolerability and Efficacy of RGH-202 in Social Anxiety Disorder (STAGE)",
+        "source": "Gedeon Richter Plc.",
+        "date": "2026-11-12",
+        "phase": "Phase 2",
+        "conditions": "Social Anxiety Disorder",
+        "intervention": "RGH-202, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07931703"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07721922",
+        "title": "Efficacy of Nebulized Long-Acting Bronchodilators (Formoterol and Revefenacin) vs. Short-Acting Bronchodilators (Albuterol and Ipratropium) in Patients Presenting to the Emergency Department With Acute Exacerbation of COPD (ECOPD)",
+        "source": "University of Tennessee Graduate School of Medicine",
+        "date": "2026-11-12",
+        "phase": "Phase 4",
+        "conditions": "COPD Exacerbation",
+        "intervention": "Revefenacin, formoterol fumarate",
+        "url": "https://clinicaltrials.gov/study/NCT07721922"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07919405",
+        "title": "A Research Study to Investigate How Well the Medicine CagriSema Lowers High Blood Pressure in People Living With High Blood Pressure and Obesity",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-11",
+        "phase": "Phase 3",
+        "conditions": "Hypertension, Obesity",
+        "intervention": "CagriSema, Semaglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07919405"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07931599",
+        "title": "A Research Study Investigating How Well Zenagamtide at Lower Dose Levels Lowers Blood Sugar and Body Weight Compared to Semaglutide at Lower Dose Levels in People With Type 2 Diabetes Treated With Metformin, Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2i), or Both",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Diabetes Mellitus, Type 2",
+        "intervention": "Zenagamtide, Semaglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07931599"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07935564",
+        "title": "A Study to Assess the Adverse Events and How Oral ABBV-1606 Moves Through the Body of Healthy Adult Participants.",
+        "source": "AbbVie",
+        "date": "2026-11-10",
+        "phase": "Phase 1",
+        "conditions": "Healthy Volunteer",
+        "intervention": "ABBV-1606, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07935564"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07931495",
+        "title": "A Research Study Investigating How Well Zenagamtide Lowers Blood Sugar and Body Weight Compared to Placebo in People With Type 2 Diabetes Treated With Diet and Exercise",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Diabetes Mellitus, Type 2",
+        "intervention": "Zenagamtide, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07931495"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07632157",
+        "title": "MAGNEsium With meToprolol for Rate Control In Atrial Fibrillation",
+        "source": "Wake Forest University Health Sciences",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Atrial Flutter With Rapid Ventricular Response",
+        "intervention": "Magnesium Sulfate 2g, Magnesium Sulfate 4g",
+        "url": "https://clinicaltrials.gov/study/NCT07632157"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07781644",
+        "title": "Study to Test Effects and Safety of RO7568282 in Early Parkinson's Disease",
+        "source": "Hoffmann-La Roche",
+        "date": "2026-11-10",
+        "phase": "Phase 2",
+        "conditions": "Parkinson's Disease",
+        "intervention": "RO7568282, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07781644"
+      }
+    ]
+  }
+}

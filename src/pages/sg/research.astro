@@ -1,0 +1,27 @@
+---
+// 의료 기술·논문 (2026-11-14, 오너 지시). 데이터는 scripts/fetch-research.mjs 가 수집한 src/data/research/sg.json
+import SgLayout from '../../layouts/SgLayout.astro';
+import ResearchView from '../../components/ResearchView.astro';
+import { RESEARCH_STRINGS } from '../../data/research/strings';
+import data from '../../data/research/sg.json';
+
+const t = RESEARCH_STRINGS.sg;
+---
+
+<SgLayout
+  title={t.metaTitle}
+  description={t.metaDescription}
+  crumb={t.nav}
+  koPath="/research/"
+  jaPath="/ja/research/"
+  ruPath="/ru/research/"
+  idPath="/id/research/"
+  twPath="/tw/research/"
+  enPath="/en/research/"
+  inPath="/in/research/"
+  phPath="/ph/research/"
+  updated={new Date(data.updatedAt)}
+>
+  <h1>{t.h1}</h1>
+  <ResearchView loc="sg" />
+</SgLayout>

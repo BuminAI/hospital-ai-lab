@@ -1,0 +1,516 @@
+{
+  "updatedAt": "2026-11-14T13:19:54.408Z",
+  "country": "Korea",
+  "window": {
+    "from": "2025-11-14",
+    "to": "2026-11-14"
+  },
+  "totals": {
+    "surgery": 1900,
+    "drug": 579,
+    "disease": 5616,
+    "trials": 468
+  },
+  "sections": {
+    "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 42886170",
+        "title": "Schizophrenia-associated gut microbiota are linked to reduced colonic PRODH expression and behavioral changes in mice",
+        "source": "Gut Microbes",
+        "date": "2026-10-15",
+        "authors": "Park K, Joo MK, Lee IH et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42886170/",
+        "doi": "10.1080/19490976.2026.2748081"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42860119",
+        "title": "Inflammation-anchored injectable hydrogel integrating pathological nitric oxide scavenging and on-demand drug release for localized inflammatory bowel disease therapy",
+        "source": "Biomaterials",
+        "date": "2026-10-08",
+        "authors": "Eom S, Lee S, Boo Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42860119/",
+        "doi": "10.1016/j.biomaterials.2026.124684"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42839202",
+        "title": "Cause-specific outcomes in systemic sclerosis-associated, systemic lupus erythematosus-associated, and idiopathic pulmonary hypertension with significant pre-capillary components: a competing risk analysis",
+        "source": "Clin Rheumatol",
+        "date": "2026-10-05",
+        "authors": "Yoon J, Lee SW, Park YB et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42839202/",
+        "doi": "10.1007/s10067-026-08464-6"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42903855",
+        "title": "Outcome-Gap Analysis of High-MELD Deceased-donor Liver Transplantation Using Institutional Reference Values from Living-donor Liver Transplantation",
+        "source": "J Clin Exp Hepatol",
+        "date": "2026-09-20",
+        "authors": "Park H, Gil E, Oh N et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42903855/",
+        "doi": "10.1016/j.jceh.2026.103672"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42753900",
+        "title": "Acupotomy alleviates perineural fibrosis, adhesion, and inflammation in experimental sciatic and vagus nerve adhesion models",
+        "source": "Exp Neurol",
+        "date": "2026-09-16",
+        "authors": "Chae H, Valappil AK, Kang IH et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42753900/",
+        "doi": "10.1016/j.expneurol.2026.116027"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42780908",
+        "title": "Click chemistry-modified cardiomyocytes enhance cardiac contractility and prevent remodeling in ischemia-reperfusion injured hearts",
+        "source": "Bioact Mater",
+        "date": "2026-09-15",
+        "authors": "Lee D, Sim WS, Park JH et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42780908/",
+        "doi": "10.1016/j.bioactmat.2026.08.016"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43022826",
+        "title": "Distinct Hemoglobin Trajectories and Their Prognostic Implications in Chronic Kidney Disease: Findings From the KNOW-CKD Cohort",
+        "source": "Kidney Med",
+        "date": "2026-09-15",
+        "authors": "Cho S, Chung W, Hyun YY et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43022826/",
+        "doi": "10.1016/j.xkme.2026.101532"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42781296",
+        "title": "A self-crosslinkable, adhesive intestine-derived extracellular matrix hydrogel enhances organoid retention and restores intestinal barrier integrity",
+        "source": "Bioact Mater",
+        "date": "2026-09-14",
+        "authors": "Kim YS, Han SY, An S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42781296/",
+        "doi": "10.1016/j.bioactmat.2026.09.006"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42914214",
+        "title": "Algae-derived bioactive components ameliorate alcoholic liver injury and underlying mechanisms",
+        "source": "Food Res Int",
+        "date": "2026-09-14",
+        "authors": "Chen Y, Ryu B, Su H et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42914214/",
+        "doi": "10.1016/j.foodres.2026.120692"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42731133",
+        "title": "Macromolecule-based hydrogels for meniscus regeneration: Natural, synthetic and hybrid systems",
+        "source": "Colloids Surf B Biointerfaces",
+        "date": "2026-09-08",
+        "authors": "Wang W, Wu J, Wang Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42731133/",
+        "doi": "10.1016/j.colsurfb.2026.116170"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42674129",
+        "title": "Risk factors for management failure following incidental durotomy: insights from 24,438 consecutive spinal surgeries",
+        "source": "Spine J",
+        "date": "2026-08-30",
+        "authors": "Jang HJ, Woo J, Kim DK et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42674129/",
+        "doi": "10.1016/j.spinee.2026.08.018"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42665688",
+        "title": "Trends in periacetabular osteotomy for dysplastic hip in South Korea: a ten year analysis of national health insurance data",
+        "source": "Int Orthop",
+        "date": "2026-08-27",
+        "authors": "Park JY, Chang JS, Kim YJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42665688/",
+        "doi": "10.1007/s00264-026-07007-7"
+      }
+    ],
+    "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 43026212",
+        "title": "AS01(E)-adjuvanted RSV pre-F protein vaccine in adults with lung or kidney transplant: a phase 2b randomized trial",
+        "source": "Nat Commun",
+        "date": "2026-11-12",
+        "authors": "Small C, Kumar D, Abbas A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43026212/",
+        "doi": "10.1038/s41467-026-78584-9"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43024326",
+        "title": "Efficacy and safety of fexuprazan versus esomeprazole for healing of endoscopic submucosal dissection-induced artificial gastric ulcers: A multicenter, randomized, open-label, active-controlled trial",
+        "source": "Medicine (Baltimore)",
+        "date": "2026-11-12",
+        "authors": "Seo GS, Seo SY, Cho JW",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43024326/",
+        "doi": "10.1097/MD.0000000000051530"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43024291",
+        "title": "Quantitative evaluation of muscle relaxation efficacy of moving cupping therapy for chronic low back pain by shear wave elastography: A randomized controlled trial",
+        "source": "Medicine (Baltimore)",
+        "date": "2026-11-12",
+        "authors": "Kim Y, Park YC, Seo BK et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43024291/",
+        "doi": "10.1097/MD.0000000000051486"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43000950",
+        "title": "Modelling indirect protection from typhoid conjugate vaccines in the TyVAC-Bangladesh trial",
+        "source": "Epidemiol Infect",
+        "date": "2026-11-08",
+        "authors": "Walker J, Khanam F, Liu X et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43000950/",
+        "doi": "10.1017/S0950268826102337"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42658188",
+        "title": "A Phase I First-Time-in-Human, Open-label Study of Nelistotug Administered to Patients with Advanced Solid Tumors",
+        "source": "Clin Cancer Res",
+        "date": "2026-11-01",
+        "authors": "Siu LL, Hamid O, Schneider R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42658188/",
+        "doi": "10.1158/1078-0432.CCR-25-4374"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42951875",
+        "title": "Phase 1 Study of Safety and PK With A Combination of Omeprazole and Trimetazidine for Fatty Acid Oxidation Inhibition in Patients With Advanced Solid Tumors",
+        "source": "Clin Transl Sci",
+        "date": "2026-10-31",
+        "authors": "Choi W, Chun JW, Sim SH et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42951875/",
+        "doi": "10.1111/cts.70752"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42933458",
+        "title": "First-line pembrolizumab versus carboplatin plus paclitaxel in participants with mismatch repair-deficient advanced or recurrent endometrial cancer (KEYNOTE-C93/GOG-3064/ENGOT-en15): interim analysis of a multicentre, open-label, randomised, active-comparator controlled, phase 3 trial",
+        "source": "Lancet",
+        "date": "2026-10-25",
+        "authors": "Slomovitz BM, Zhu J, Yin R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42933458/",
+        "doi": "10.1016/S0140-6736(26)02095-7"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42912700",
+        "title": "Ravulizumab in IgA Nephropathy - Interim Analysis of a Phase 3 Trial",
+        "source": "N Engl J Med",
+        "date": "2026-10-22",
+        "authors": "Barratt J, Farag YMK, Rice K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42912700/",
+        "doi": "10.1056/NEJMoa2607544"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42912669",
+        "title": "Interim Analysis of a Phase 3 Trial of Povetacicept in IgA Nephropathy",
+        "source": "N Engl J Med",
+        "date": "2026-10-22",
+        "authors": "Barratt J, Zhang H, Han SH et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42912669/",
+        "doi": "10.1056/NEJMoa2608682"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42906705",
+        "title": "Efficacy and safety of interactive digital therapeutics with cognitive behavioral therapy for depressive symptoms in patients with major depressive disorder: A multicenter, randomized, assessor-blinded trial versus an active mood diary control",
+        "source": "J Affect Disord",
+        "date": "2026-10-20",
+        "authors": "Jang YJ, Myung W, Park CHK et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42906705/",
+        "doi": "10.1016/j.jad.2026.122653"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42887461",
+        "title": "Lazertinib plus pemetrexed and carboplatin in patients with EGFR-mutant advanced non-small cell lung cancer after progression on lazertinib",
+        "source": "Eur J Cancer",
+        "date": "2026-10-07",
+        "authors": "Hong MH, Shim BY, Kim CG et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42887461/",
+        "doi": "10.1016/j.ejca.2026.117774"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42848980",
+        "title": "RINGSIDE Phase II Study of Varegacestat for Treatment of Desmoid Tumors: A Randomized Dose-Finding Clinical Trial",
+        "source": "J Clin Oncol",
+        "date": "2026-10-07",
+        "authors": "Chugh R, Singh A, Andelkovic V et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42848980/",
+        "doi": "10.1200/JCO-26-00725"
+      }
+    ],
+    "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43022793",
+        "title": "Quantitative expressions of putative biomarkers for hypocalcemia in buffaloes during the transition period",
+        "source": "Vet Anim Sci",
+        "date": "2026-10-30",
+        "authors": "Kour S, Sharma N, Kour S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43022793/",
+        "doi": "10.1016/j.vas.2026.100924"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42963440",
+        "title": "JAK inhibitor retention and adverse event-related discontinuation in elderly patients with rheumatoid arthritis: a real-world cohort study",
+        "source": "Clin Rheumatol",
+        "date": "2026-10-30",
+        "authors": "Baek IW, Choi JH, Jung SM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42963440/",
+        "doi": "10.1007/s10067-026-08499-9"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42944789",
+        "title": "Baseline neutrophil-to-HDL cholesterol ratio is associated with subsequent cerebrovascular accident in patients with microscopic polyangiitis or granulomatosis with polyangiitis",
+        "source": "Clin Rheumatol",
+        "date": "2026-10-26",
+        "authors": "Chung J, Lee LE, Ha JW et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42944789/",
+        "doi": "10.1007/s10067-026-08498-w"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42933148",
+        "title": "FOLFIRINOX vs. gemcitabine/nab-paclitaxel for metastatic pancreatic cancer: A real-world study",
+        "source": "Transl Oncol",
+        "date": "2026-10-25",
+        "authors": "Kim JH, Lee SY, Leem G et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42933148/",
+        "doi": "10.1016/j.tranon.2026.103085"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42908170",
+        "title": "MRI-Derived Muscle Fat Fraction Reflects Disease Severity and Functional Impairment in Charcot-Marie-Tooth Disease Type 1A",
+        "source": "Muscle Nerve",
+        "date": "2026-10-20",
+        "authors": "Kim JH, Lee JH, Yoon YC et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42908170/",
+        "doi": "10.1002/mus.70430"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42895612",
+        "title": "Increased risk of cancer in patients with mixed connective tissue disease: a population-based cohort study in Korea",
+        "source": "Clin Rheumatol",
+        "date": "2026-10-18",
+        "authors": "Choi SJ, Park S, Park M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42895612/",
+        "doi": "10.1007/s10067-026-08483-3"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42879902",
+        "title": "Waning immunity, an age shift, and rising adult burden of varicella after two decades of single-dose vaccination in South Korea",
+        "source": "Vaccine",
+        "date": "2026-10-14",
+        "authors": "Park SY, Huh HJ, Choi S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42879902/",
+        "doi": "10.1016/j.vaccine.2026.129240"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42920978",
+        "title": "Nationwide surveillance, mitochondrial genetic diversity, and associated microorganisms of Lipoptena fortisetosa collected from cervids in the Republic of Korea",
+        "source": "Int J Parasitol Parasites Wildl",
+        "date": "2026-10-14",
+        "authors": "Jeong JU, Kim JM, Kang HE et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42920978/",
+        "doi": "10.1016/j.ijppaw.2026.101304"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42899136",
+        "title": "Unraveling the Genotype-Phenotype Landscape of Kleefstra Syndrome Through EHMT1 Variant Analysis",
+        "source": "Neurol Genet",
+        "date": "2026-10-14",
+        "authors": "Kim JM, Cha JH, Kim W et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42899136/",
+        "doi": "10.1212/NXG.0000000000200445"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42927316",
+        "title": "Mediation of physical activity and sedentary behavior on the relationship between neighborhood greenness and cardiovascular outcomes",
+        "source": "Public Health Pract (Oxf)",
+        "date": "2026-10-09",
+        "authors": "Yang D, Lee JM, Shen J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42927316/",
+        "doi": "10.1016/j.puhip.2026.100873"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43022085",
+        "title": "Progression to Advanced Age-Related Macular Degeneration in Drusen-Driven and Pachychoroid-Driven Disease: The Korean Age-Related Maculopathy Study",
+        "source": "Ophthalmol Sci",
+        "date": "2026-10-04",
+        "authors": "Hwang S, Kang SW, Kim SJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43022085/",
+        "doi": "10.1016/j.xops.2026.101430"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42822542",
+        "title": "Cardiovascular-Kidney-Metabolic syndrome and suicidal death in a nationwide cohort study",
+        "source": "J Affect Disord",
+        "date": "2026-09-30",
+        "authors": "Huh H, Kang MW, Lee J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42822542/",
+        "doi": "10.1016/j.jad.2026.122581"
+      }
+    ],
+    "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT07919405",
+        "title": "A Research Study to Investigate How Well the Medicine CagriSema Lowers High Blood Pressure in People Living With High Blood Pressure and Obesity",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-11",
+        "phase": "Phase 3",
+        "conditions": "Hypertension, Obesity",
+        "intervention": "CagriSema, Semaglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07919405"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07931599",
+        "title": "A Research Study Investigating How Well Zenagamtide at Lower Dose Levels Lowers Blood Sugar and Body Weight Compared to Semaglutide at Lower Dose Levels in People With Type 2 Diabetes Treated With Metformin, Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2i), or Both",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Diabetes Mellitus, Type 2",
+        "intervention": "Zenagamtide, Semaglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07931599"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07871604",
+        "title": "Feasibility of Combination Therapy With Low-dose Statin and Ezetimibe in Patients With Minimal Subclinical Atherosclerosis",
+        "source": "Yonsei University",
+        "date": "2026-11-10",
+        "phase": "Phase 4",
+        "conditions": "Atherosclerosis Cardiovascular Disease",
+        "intervention": "Crezet 2.5/10mg, Litorvazet 5/10mg",
+        "url": "https://clinicaltrials.gov/study/NCT07871604"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07931547",
+        "title": "A Research Study Investigating How Well Zenagamtide Lowers Blood Sugar and Body Weight Compared to Placebo in People With Type 2 Diabetes and Chronic Kidney Disease Treated With Once Daily Basal Insulin Alone or in Combination With Metformin, SGLT2i, or Both",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Type 2 Diabetes, Chronic Kidney Disease",
+        "intervention": "Placebo, Zenagamtide",
+        "url": "https://clinicaltrials.gov/study/NCT07931547"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07325214",
+        "title": "Chemotherapy With or Without IMD10 (Focused Ultrasound) in the Treatment of Borderline Resectable or Locally Advanced Pancreatic Cancer",
+        "source": "IMGT Co., Ltd.",
+        "date": "2026-11-04",
+        "phase": "N/A",
+        "conditions": "Pancreatic Cancer, Borderline Resectable Pancreatic Cancer, Locally Advanced Pancreatic Cancer",
+        "intervention": "IMD10, chemotherapy regimen [irinotecan hydrochloride, oxaliplatin, fluorouracil (5-FU) and leucovorin]",
+        "url": "https://clinicaltrials.gov/study/NCT07325214"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07521670",
+        "title": "Sacituzumab Tirumotecan in Recurrent/Metastatic Adenoid Cystic Carcinoma and Papillary Thyroid Carcinoma (STRAP)",
+        "source": "National Cancer Centre, Singapore",
+        "date": "2026-11-01",
+        "phase": "Phase 2",
+        "conditions": "Recurrent Adenoid Cystic Carcinoma, Adenoid Cystic Carcinoma Metastatic, Papillary Thyroid Carcinoma",
+        "intervention": "Sacituzumab Tirumotecan",
+        "url": "https://clinicaltrials.gov/study/NCT07521670"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07764874",
+        "title": "Unilateral and Staged Bilateral Pallidothalamic Tractotomy Using Exablate MRgFUS in Advanced Parkinson's Disease.",
+        "source": "InSightec",
+        "date": "2026-11-01",
+        "phase": "N/A",
+        "conditions": "Parkinson Disease",
+        "intervention": "Unilateral Exablate MRgFUS Pallidothalamic Tractotomy, Staged Bilateral Exablate Pallidothalamic Tractotomy",
+        "url": "https://clinicaltrials.gov/study/NCT07764874"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07901088",
+        "title": "A Bioequivalence and Safety Study of AJU-B718 and B718R in Healthy Adult Volunteers Under Fasting Conditions",
+        "source": "AJU Pharm Co., Ltd.",
+        "date": "2026-11-01",
+        "phase": "Phase 1",
+        "conditions": "Peripheral Arterial Disease",
+        "intervention": "Test Drug, Reference Drug",
+        "url": "https://clinicaltrials.gov/study/NCT07901088"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07901114",
+        "title": "A Bioequivalence and Safety Study of AJU-C719 and C719R in Healthy Adult Volunteers",
+        "source": "AJU Pharm Co., Ltd.",
+        "date": "2026-11-01",
+        "phase": "Phase 1",
+        "conditions": "Hypertension",
+        "intervention": "Test Drug, Reference Drug",
+        "url": "https://clinicaltrials.gov/study/NCT07901114"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07640932",
+        "title": "Lurbinectedin Plus Paclitaxel Versus Paclitaxel in Patients With Previously Treated Small Cell Lung Cancer",
+        "source": "Yonsei University",
+        "date": "2026-11-01",
+        "phase": "Phase 2",
+        "conditions": "Carcinoma, Small Cell Lung",
+        "intervention": "Lurbinectedin, Paclitaxel",
+        "url": "https://clinicaltrials.gov/study/NCT07640932"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07852637",
+        "title": "Edoxaban Versus Apixaban in Cancer-Associated Venous Thromboembolism",
+        "source": "Samsung Medical Center",
+        "date": "2026-11-01",
+        "phase": "Phase 4",
+        "conditions": "Venous Thromboembolism, Active Cancer",
+        "intervention": "edoxaban, Apixaban",
+        "url": "https://clinicaltrials.gov/study/NCT07852637"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07816068",
+        "title": "Effects of Remimazolam on Postoperative Cognitive Dysfunction and Neuroinflammatory Biomarkers in Patients Undergoing Aortic Arch Surgery",
+        "source": "Seoul National University Hospital",
+        "date": "2026-11-01",
+        "phase": "Phase 4",
+        "conditions": "Aortic Aneurysm of the Proximal Arch, Aortic Aneurysms Arch, Aortic Arch Disease",
+        "intervention": "Remimazolam Besylate, propofol",
+        "url": "https://clinicaltrials.gov/study/NCT07816068"
+      }
+    ]
+  }
+}

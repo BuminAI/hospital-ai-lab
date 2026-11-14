@@ -1,0 +1,21 @@
+---
+// 한국 의료 기술·논문 (2026-11-14, 오너 지시). 데이터는 scripts/fetch-research.mjs 가 수집한 src/data/research/ko.json
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ResearchView from '../components/ResearchView.astro';
+import { RESEARCH_STRINGS } from '../data/research/strings';
+import ko from '../data/research/ko.json';
+
+const t = RESEARCH_STRINGS.ko;
+---
+
+<BaseLayout
+  alternates={{ ja: '/ja/research/', ru: '/ru/research/', id: '/id/research/', tw: '/tw/research/', en: '/en/research/', in: '/in/research/', sg: '/sg/research/', ph: '/ph/research/' }}
+  title={t.metaTitle}
+  description={t.metaDescription}
+  updated={new Date(ko.updatedAt)}
+>
+  <section class="container" style="padding:2rem 0 3rem">
+    <h1>{t.h1}</h1>
+    <ResearchView loc="ko" />
+  </section>
+</BaseLayout>

@@ -1,0 +1,54 @@
+name: Update Research (medical research by country)
+
+on:
+  schedule:
+    # 매주 월요일 UTC 03:23(KST 12:23). 9개 언어판의 '의료 기술·논문' 목록(최근 365일 PubMed 논문·ClinicalTrials.gov 약물 시험)을
+    # scripts/fetch-research.mjs 로 다시 수집한다. 논문은 하루에도 여러 편 나오지만 목록은 주 1회면 충분하다.
+    - cron: '23 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: update-research
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 수집 실패는 오류로 남기지 않는다 — 파일이 안 바뀌므로 아래 커밋 단계가 '변경 없음'으로 끝난다.
+      - name: 의료 기술·논문 수집 (9개 언어판)
+        run: node scripts/fetch-research.mjs || echo "수집 건너뜀(기존 목록 유지)"
+
+      - name: research/*.json 커밋 (변경 있을 때만)
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/research/*.json
+          if git diff --cached --quiet; then
+            echo "변경 없음 — 커밋·배포 생략"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "유지보수: 의료 기술·논문 목록 자동 업데이트"
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 배포 트리거 (deploy.yml)
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml

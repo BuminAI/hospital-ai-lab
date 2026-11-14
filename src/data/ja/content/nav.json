@@ -70,6 +70,11 @@
     "enabled": true
   },
   {
+    "href": "/ja/research/",
+    "key": "research",
+    "enabled": true
+  },
+  {
     "href": "/ja/ai-judge/",
     "key": "aiJudge",
     "enabled": true

@@ -75,6 +75,11 @@
     "enabled": true
   },
   {
+    "href": "/en/research/",
+    "key": "research",
+    "enabled": true
+  },
+  {
     "href": "/en/ai-judge/",
     "key": "aiJudge",
     "enabled": true

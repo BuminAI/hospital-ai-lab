@@ -70,6 +70,11 @@
     "enabled": true
   },
   {
+    "href": "/tw/research/",
+    "key": "research",
+    "enabled": true
+  },
+  {
     "href": "/tw/ai-judge/",
     "key": "aiJudge",
     "enabled": true

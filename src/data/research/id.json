@@ -1,0 +1,516 @@
+{
+  "updatedAt": "2026-11-14T13:19:54.408Z",
+  "country": "Indonesia",
+  "window": {
+    "from": "2025-11-14",
+    "to": "2026-11-14"
+  },
+  "totals": {
+    "surgery": 221,
+    "drug": 33,
+    "disease": 996,
+    "trials": 36
+  },
+  "sections": {
+    "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43023403",
+        "title": "Redefining injectable PMMA bone cement: Beta-tricalcium phosphate integration for bioactive and osteoconductive performance for minimally invasive applications",
+        "source": "Biomed Mater Eng",
+        "date": "2026-11-12",
+        "authors": "Wu CC, Yeh L, Chiang CY et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43023403/",
+        "doi": "10.1177/09592989261487245"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42975631",
+        "title": "A Mortality Risk Prediction Score for Dilated Cardiomyopathy",
+        "source": "Pediatr Cardiol",
+        "date": "2026-11-02",
+        "authors": "Wirawan MT, Arafuri N, Martelina Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42975631/",
+        "doi": "10.1007/s00246-026-04517-4"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42725629",
+        "title": "Concurrent Long Thoracic and Lateral Cutaneous Intercostal Nerve Entrapment After Chest Tube Thoracostomy Causing Scapular Winging and Chest Wall Pain: Diagnosis With Ultrasound and Treatment With Hydrodissection",
+        "source": "Pain Pract",
+        "date": "2026-10-31",
+        "authors": "Yoon Y, Lam KHS, Su DC et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42725629/",
+        "doi": "10.1111/papr.70195"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42892359",
+        "title": "Current and emerging trends in the teaching of direct posterior resin composites in Indonesian dental schools: a cross-sectional study",
+        "source": "J Dent",
+        "date": "2026-10-16",
+        "authors": "Daood U, Malik NA, Sidhu P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42892359/",
+        "doi": "10.1016/j.jdent.2026.107120"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42880437",
+        "title": "Optical biosensors for cancer diagnosis and monitoring",
+        "source": "Clin Chim Acta",
+        "date": "2026-10-14",
+        "authors": "Saputra HA, Sahin MAZ, Hartati YW",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42880437/",
+        "doi": "10.1016/j.cca.2026.122895"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42869182",
+        "title": "Emergence of linezolid resistance associated with 23S rRNA G2576T mutations in vancomycin-resistant Enterococcus faecium during oxazolidinone therapy",
+        "source": "J Infect Chemother",
+        "date": "2026-10-12",
+        "authors": "Urakami I, Fukushima S, Tsuji S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42869182/",
+        "doi": "10.1016/j.jiac.2026.103103"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42867933",
+        "title": "Expanding Resectability in Bilobar Colorectal Liver Metastases: Hepatic Venous Deprivation as Part of Contemporary Staged Hepatectomy",
+        "source": "Am Surg",
+        "date": "2026-10-12",
+        "authors": "Younos M, Christodoulou M, Sucandy I",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42867933/",
+        "doi": "10.1177/00031348261495989"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42825648",
+        "title": "Primary Amenorrhea due to Mayer-Rokitansky-Küster-Hauser Syndrome Managed with Laparoscopic Davydov Procedure: A Case Report",
+        "source": "JBRA Assist Reprod",
+        "date": "2026-10-01",
+        "authors": "Silvana R, Effendi Y, Fauzi A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42825648/",
+        "doi": "10.5935/1518-0557.20260085"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43006038",
+        "title": "Robot-assisted retrograde intrarenal surgery for residual superior calyceal stone after multiple endourological interventions: a case report",
+        "source": "Int J Surg Case Rep",
+        "date": "2026-09-30",
+        "authors": "Wicaksono A, Parikesit D, Atmoko W et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43006038/",
+        "doi": "10.1097/RC9.0000000000000954"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42878557",
+        "title": "Antibiotic-Loaded Hydrogel, Calcium Bead, and Cement in Periprosthetic Joint Infection Following Hip-Knee Arthroplasty: A Systematic Review and Meta-Analysis of Commercially Available Products",
+        "source": "J Am Acad Orthop Surg Glob Res Rev",
+        "date": "2026-09-30",
+        "authors": "Novriansyah R, Respati DRP, Sadjidah ZF et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42878557/",
+        "doi": "10.5435/JAAOSGlobal-D-25-00304"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43000805",
+        "title": "Endoscopic Decompression Versus Fusion for Degenerative Lumbar Spondylolisthesis: A Structured Debate and International Practice Patterns",
+        "source": "Neurospine",
+        "date": "2026-09-30",
+        "authors": "Ambrosio L, Auron M, Farshad M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43000805/",
+        "doi": "10.14245/ns.26521628.0814"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43000804",
+        "title": "Uniportal Endoscopic Versus Biportal Endoscopic Versus Microscopic/Tubular Posterior Cervical Foraminotomy: A Structured Debate and International Practice Patterns",
+        "source": "Neurospine",
+        "date": "2026-09-30",
+        "authors": "Giordan E, Chavalparit P, Fournier JY et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43000804/",
+        "doi": "10.14245/ns.26521630.0815"
+      }
+    ],
+    "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 42748641",
+        "title": "Effectiveness of a school-based multicomponent intervention on parental HPV knowledge, vaccination attitudes, and children's HPV vaccine completion: A mixed-methods cluster randomized controlled trial",
+        "source": "Patient Educ Couns",
+        "date": "2026-09-05",
+        "authors": "Sandi YDL, Wu LM, Andarini E et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42748641/",
+        "doi": "10.1016/j.pec.2026.109861"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42809760",
+        "title": "Efficacy of topical polypeptide gel in accelerating early healing of diabetic ulcers: a randomized controlled trial",
+        "source": "Acta Dermatovenerol Alp Pannonica Adriat",
+        "date": "2026-08-31",
+        "authors": "Octarica SG, Widhiati S, Ellistasari EY et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42809760/",
+        "doi": ""
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42669381",
+        "title": "Glycemic and safety outcomes of the insulin-only bionic pancreas in older adults and individuals with impaired awareness of Hypoglycemia: a post hoc analysis of a randomized pivotal trial",
+        "source": "Diabetes Res Clin Pract",
+        "date": "2026-08-29",
+        "authors": "Oktavian P, Kencono Wungu CD, Amin IM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42669381/",
+        "doi": "10.1016/j.diabres.2026.113542"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42557878",
+        "title": "The efficacy of needleless connector designs (split septum vs mechanical valve) on preventing central line-associated bloodstream infection (CLABSI) in very preterm or very low-birth-weight neonates: a randomized clinical trial",
+        "source": "Infect Control Hosp Epidemiol",
+        "date": "2026-08-05",
+        "authors": "Marsubrin PMT, Sjahrullah MAR, Widyasari NF et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42557878/",
+        "doi": "10.1017/ice.2026.10447"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42546085",
+        "title": "Longitudinal performance of the ENLIST ENL severity scale in individuals with severe erythema nodosum leprosum: Responsiveness, trajectories and clinical features - a secondary analysis of the Methotrexate and Prednisolone study - MaPs in ENL",
+        "source": "PLoS Negl Trop Dis",
+        "date": "2026-07-31",
+        "authors": "de Barros B, Hamza A, Getachew A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42546085/",
+        "doi": "10.1371/journal.pntd.0014410"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42414855",
+        "title": "Clinical Trial: Lemborexant Efficacy and Safety in Liver Cirrhosis-Randomized, Double-Blind, Crossover Clinical Trial",
+        "source": "Aliment Pharmacol Ther",
+        "date": "2026-07-06",
+        "authors": "Gani RA, Akbar P, Hasan I et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42414855/",
+        "doi": "10.1111/apt.70811"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42391887",
+        "title": "Electric vs Manual Toothbrushing Effects on QLF-Assessed Plaque in Smokers and Non-Smokers: A 24-Week RCT",
+        "source": "Int Dent J",
+        "date": "2026-07-01",
+        "authors": "Di Stefano A, Gangi D, La Rosa GRM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42391887/",
+        "doi": "10.1016/j.identj.2026.109716"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42845083",
+        "title": "Sofosbuvir/Daclatasvir versus Grazoprevir/Elbasvir in Patients with Chronic Hepatitis C on Haemodialysis: A Multicentre, Single-Blind, Randomised Controlled Trial",
+        "source": "Acta Med Indones",
+        "date": "2026-06-30",
+        "authors": "Sulaiman AS, Nugroho P, Bestari MB et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42845083/",
+        "doi": ""
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42342682",
+        "title": "Effectiveness of the BALatrine intervention on soil-transmitted helminth infections in Central Java, Indonesia: a cluster-randomised controlled trial",
+        "source": "Nat Commun",
+        "date": "2026-06-23",
+        "authors": "Gray DJ, Laksono B, Mationg ML et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42342682/",
+        "doi": "10.1038/s41467-026-74732-3"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42309188",
+        "title": "A randomised comparison of management strategies for drug-induced liver injury associated with tuberculous meningitis treatment",
+        "source": "J Infect",
+        "date": "2026-06-16",
+        "authors": "Donovan J, Hung TT, Hiep NTT et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42309188/",
+        "doi": "10.1016/j.jinf.2026.106796"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42160742",
+        "title": "Efficacy of a World Health Organization-Guided Self-Help Intervention for Reducing Psychological Distress in Afghan Refugees: Randomized Controlled Trial",
+        "source": "JMIR Ment Health",
+        "date": "2026-05-19",
+        "authors": "Nickerson A, Kurt G, Specker P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42160742/",
+        "doi": "10.2196/89928"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42116025",
+        "title": "Effect of vitamin D administration on sepsis score and C-reactive protein (CRP) levels in preterm infants with neonatal sepsis: a randomized controlled trial",
+        "source": "BMC Pediatr",
+        "date": "2026-05-10",
+        "authors": "Wijaya MA, Kadi FA, Ghrahani R",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42116025/",
+        "doi": "10.1186/s12887-026-06844-0"
+      }
+    ],
+    "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43025813",
+        "title": "Longitudinal associations of anemia and iron status on early learning and memory: Evidence from eye-tracking assessments",
+        "source": "Am J Clin Nutr",
+        "date": "2026-11-12",
+        "authors": "Rianda D, Oakes LM, Arnold CD et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43025813/",
+        "doi": "10.1016/j.ajcnut.2026.101630"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43023352",
+        "title": "Association of subjective workload on burnout in village midwives: A NASA TLX-based investigation",
+        "source": "Work",
+        "date": "2026-11-12",
+        "authors": "Ernawaty, Binendra OV, Putri NK et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43023352/",
+        "doi": "10.1177/10519815261504745"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43011078",
+        "title": "Warm, ventilate, stabilize: Clinical feasibility and non-inferiority study of MINAR™ infant warmer resuscitator",
+        "source": "J Intensive Care Soc",
+        "date": "2026-11-07",
+        "authors": "Sudjud RW, Aviani JK, Abdullah LN",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43011078/",
+        "doi": "10.1177/17511437261497940"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43001082",
+        "title": "Prevalence of Undernutrition and Its Associated Factors Among Pregnant Women Attending a Healthcare Facility in Kabul, Afghanistan",
+        "source": "Public Health Chall",
+        "date": "2026-11-06",
+        "authors": "Ezadi Z, Mohaqiq M, Fitriangga A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43001082/",
+        "doi": "10.1002/puh2.70453"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42954795",
+        "title": "Divergent temporal patterns in adolescent behavioural risk factors across sex, age, and region in Indonesia: a national repeated cross-sectional study, 2007-2023",
+        "source": "Glob Health Action",
+        "date": "2026-10-28",
+        "authors": "Maba AP, Edwards E, Khan A",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42954795/",
+        "doi": "10.1080/16549716.2026.2752484"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42936366",
+        "title": "Understanding lymphatic filariasis risk in endemic regions: Associations with preventive behaviours, environmental factors, and other mosquito-borne diseases",
+        "source": "One Health",
+        "date": "2026-10-14",
+        "authors": "Saputra YA, Siregar RUP",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42936366/",
+        "doi": "10.1016/j.onehlt.2026.101614"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42778012",
+        "title": "Classroom dust microbiome-metabolome signatures and ocular health in students: Cross-sectional associations with putative pollutant-transformation and microbial functional profiles",
+        "source": "Environ Pollut",
+        "date": "2026-09-22",
+        "authors": "Fu X, He H, Li C et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42778012/",
+        "doi": "10.1016/j.envpol.2026.129217"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42831209",
+        "title": "Willingness to contribute monetarily for hereditary breast cancer risk testing and the influencing factors: The first Indonesian exploration in the province with the highest prevalence",
+        "source": "Explor Res Clin Soc Pharm",
+        "date": "2026-09-20",
+        "authors": "Putri ARA, Hermansyah A, Kristina SA et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42831209/",
+        "doi": "10.1016/j.rcsop.2026.100854"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42831052",
+        "title": "The influence of virtual reality on anxiety and pain in breast cancer patients: A systematic review",
+        "source": "Tech Innov Patient Support Radiat Oncol",
+        "date": "2026-09-15",
+        "authors": "Kundarti FI, Triwiyanto T, Titisari I et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42831052/",
+        "doi": "10.1016/j.tipsro.2026.100436"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42735847",
+        "title": "Cardiac disease in pregnancy in Eastern Indonesia: a prospective regional registry from a tertiary referral center",
+        "source": "Int J Cardiol",
+        "date": "2026-09-13",
+        "authors": "Pintaningrum Y, Danianto A, Indrayana Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42735847/",
+        "doi": "10.1016/j.ijcard.2026.134782"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42840380",
+        "title": "Workplace physical environmental factors associated with pulmonary tuberculosis among workers: a scoping review",
+        "source": "IJID Reg",
+        "date": "2026-09-09",
+        "authors": "Sholehhudin M, Nuraidah LF, Fajar A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42840380/",
+        "doi": "10.1016/j.ijregi.2026.101010"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42705912",
+        "title": "First-trimester uterine artery doppler in pregnancies with reactive hypoglycaemia or low 2-hour oral glucose tolerance test value: a retrospective study",
+        "source": "J Matern Fetal Neonatal Med",
+        "date": "2026-09-06",
+        "authors": "Mahindra MP, Mapindra MP, Al-Fattah AN et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42705912/",
+        "doi": "10.1080/14767058.2026.2721948"
+      }
+    ],
+    "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT07908030",
+        "title": "Curcumin Extract Added to Ciprofloxacin for Typhoid Carriers Among Food Handlers of the Free Nutritious Meal Program",
+        "source": "Universitas Sebelas Maret",
+        "date": "2026-11-02",
+        "phase": "Phase 2",
+        "conditions": "Typhoid Carrier, Typhoid Fever, Salmonella Typhi Infection",
+        "intervention": "Curcumin extract, Ciprofloxacin",
+        "url": "https://clinicaltrials.gov/study/NCT07908030"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07874269",
+        "title": "MSC Secretome and rTMS for Motor Recovery After Subacute Ischemic Stroke",
+        "source": "Jumraini Tammasse",
+        "date": "2026-11-01",
+        "phase": "N/A",
+        "conditions": "Ischemic Stroke",
+        "intervention": "Mesenchymal Stem Cell-Derived Secretome, Active Repetitive Transcranial Magnetic Stimulation",
+        "url": "https://clinicaltrials.gov/study/NCT07874269"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07730138",
+        "title": "Phase 3 to Evaluate the Efficacy and Safety of DWP14012 in Patients With Gastric Ulcer",
+        "source": "Daewoong Pharmaceutical Co. LTD.",
+        "date": "2026-10-15",
+        "phase": "Phase 3",
+        "conditions": "Gastric Ulcer",
+        "intervention": "DWP14012 40mg (Fexuprazan), Lansoprazole 30mg",
+        "url": "https://clinicaltrials.gov/study/NCT07730138"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07172659",
+        "title": "Efficacy and Safety Study of Dovramilast in People With Leprosy Type 2 Reaction",
+        "source": "Medicines Development for Global Health",
+        "date": "2026-10-12",
+        "phase": "Phase 2",
+        "conditions": "Erythema Nodosum Leprosum",
+        "intervention": "Dovramilast, Prednisolone",
+        "url": "https://clinicaltrials.gov/study/NCT07172659"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07543458",
+        "title": "Therapeutics for Moderate and Severe Dengue",
+        "source": "Oxford University Clinical Research Unit, Vietnam",
+        "date": "2026-10-01",
+        "phase": "Phase 3",
+        "conditions": "Dengue, Severe Dengue, Mosquito-Borne Diseases",
+        "intervention": "Placebo, Dexamethasone",
+        "url": "https://clinicaltrials.gov/study/NCT07543458"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07337863",
+        "title": "Phase II/III Randomized Trial of UC-MSC Secretome vs Sodium Hyaluronate in Knee Osteoarthritis",
+        "source": "Universitas Sriwijaya",
+        "date": "2026-08-30",
+        "phase": "Phase 2 / Phase 3",
+        "conditions": "Knee Osteoarthritis (Knee OA)",
+        "intervention": "UC-MSC-Derived Secretome, Sodium Hyaluronate (Hyalein)",
+        "url": "https://clinicaltrials.gov/study/NCT07337863"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07762105",
+        "title": "Study of Atorvastatin and Its Effects in Clinical and Radiological Aspects in Patients With Moderate-to-Severe Thyroid Eye Disease",
+        "source": "Banu Aji Dibyasakti",
+        "date": "2026-08-30",
+        "phase": "Phase 1",
+        "conditions": "Thyroid Eye Disease, Graves Ophthalmopathy, Graves Orbitopathy",
+        "intervention": "Atorvastatin, methylprednisolone (IVMP)",
+        "url": "https://clinicaltrials.gov/study/NCT07762105"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07919340",
+        "title": "Comparison of the Effectiveness of the Longitudinal Subcostal Versus Anterior Approach to Quadratus Lumborum Block for Post-Cesarean Analgesia",
+        "source": "Universitas Indonesia",
+        "date": "2026-08-28",
+        "phase": "N/A",
+        "conditions": "Cesarean Section",
+        "intervention": "Ultrasound-guided Quadratus Lumborum Block, Longitudinal Subcostal Approach, Ultrasound-guided Quadratus Lumborum Block, Anterior Approach",
+        "url": "https://clinicaltrials.gov/study/NCT07919340"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07753993",
+        "title": "A Study to Investigate Outcomes With Elecoglipron Compared With Placebo in Adult Participants With Chronic Kidney Disease.",
+        "source": "AstraZeneca",
+        "date": "2026-08-21",
+        "phase": "Phase 3",
+        "conditions": "Chronic Kidney Disease",
+        "intervention": "Elecoglipron, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07753993"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07708545",
+        "title": "Tegoprazan Versus Lansoprazole for Endoscopic Ulcer Healing in Bleeding Peptic Ulcers",
+        "source": "Universitas Indonesia",
+        "date": "2026-08-06",
+        "phase": "Phase 2",
+        "conditions": "Peptic Ulcer Bleeding",
+        "intervention": "Tegoprazan tablet, Lansoprazole capsules",
+        "url": "https://clinicaltrials.gov/study/NCT07708545"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07928661",
+        "title": "Effect of Proliverenol on Liver Fat and Insulin Resistance in Type 2 Diabetes",
+        "source": "Universitas Sriwijaya",
+        "date": "2026-07-29",
+        "phase": "Phase 2",
+        "conditions": "Diabetes Mellitus, Type 2",
+        "intervention": "Proliverenol",
+        "url": "https://clinicaltrials.gov/study/NCT07928661"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07922889",
+        "title": "Mesenchymal Stem Cell Exosomes Alone or Combined With HUVEC Exosomes in Non-Dialysis Chronic Kidney Disease",
+        "source": "Nurhasan Agung Prabowo",
+        "date": "2026-07-01",
+        "phase": "Phase 1 / Phase 2",
+        "conditions": "Chronic Kidney Disease Stage 3, Chronic Kidney Disease Stage 4, Chronic Kidney Disease",
+        "intervention": "Human Wharton's jelly mesenchymal stem cell (HWJ-MSC) exosomes, Human umbilical vein endothelial cell (HUVEC) exosomes",
+        "url": "https://clinicaltrials.gov/study/NCT07922889"
+      }
+    ]
+  }
+}
