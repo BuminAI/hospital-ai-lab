@@ -1,7 +1,61 @@
 {
-  "updatedAt": "2026-11-14T02:26:19.043Z",
+  "updatedAt": "2026-11-14T13:29:28.509Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "AI Bisa Salah Ambil Keputusan Gegara Data Kedaluwarsa",
+      "link": "https://inet.detik.com/business/d-8753304/ai-bisa-salah-ambil-keputusan-gegara-data-kedaluwarsa",
+      "source": "detikINET",
+      "pubDate": "2026-11-14T13:21:41.000Z"
+    },
+    {
+      "title": "Menaker minta mahasiswa tidak hanya andalkan ijazah di era disrupsi AI",
+      "link": "https://www.antaranews.com/berita/5854551/menaker-minta-mahasiswa-tidak-hanya-andalkan-ijazah-di-era-disrupsi-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-11-14T12:54:55.000Z"
+    },
+    {
+      "title": "AI Jadi Teknologi Paling Menjanjikan, Industri Keuangan RI Masih Keteteran",
+      "link": "https://inet.detik.com/business/d-8753242/ai-jadi-teknologi-paling-menjanjikan-industri-keuangan-ri-masih-keteteran",
+      "source": "detikINET",
+      "pubDate": "2026-11-14T12:28:15.000Z"
+    },
+    {
+      "title": "Bukan Sekadar Fisik, AI Kini Jadi Pelatih Mental di Lintasan Maraton Dunia",
+      "link": "https://mediaindonesia.com/teknologi/956171/bukan-sekadar-fisik-ai-kini-jadi-pelatih-mental-di-lintasan-maraton-dunia",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-14T11:00:00.000Z"
+    },
+    {
+      "title": "Tim Cook Gantikan Jensen Huang? Investor Nvidia: Dia Tak Paham AI",
+      "link": "https://inet.detik.com/business/d-8753093/tim-cook-gantikan-jensen-huang-investor-nvidia-dia-tak-paham-ai",
+      "source": "detikINET",
+      "pubDate": "2026-11-14T10:35:51.000Z"
+    },
+    {
+      "title": "Trump Bantah Serangan Siber dan AI di Balik Penangguhan Penerbangan Massal AS",
+      "link": "https://mediaindonesia.com/internasional/956158/trump-bantah-serangan-siber-dan-ai-di-balik-penangguhan-penerbangan-massal-as",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-14T06:58:00.000Z"
+    },
+    {
+      "title": "Microsoft Siapkan Fitur Sewa Komputer Nganggur untuk Latih AI",
+      "link": "https://mediaindonesia.com/teknologi/956150/microsoft-siapkan-fitur-sewa-komputer-nganggur-untuk-latih-ai",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-14T06:23:00.000Z"
+    },
+    {
+      "title": "Bos OpenAI Kunjungi Samsung, Bahas Gadget Pengganti Smartphone",
+      "link": "https://inet.detik.com/consumer/d-8752617/bos-openai-kunjungi-samsung-bahas-gadget-pengganti-smartphone",
+      "source": "detikINET",
+      "pubDate": "2026-11-14T06:00:11.000Z"
+    },
+    {
+      "title": "Samsung Ungkap 3 Kemampuan Manusia yang Tak Tergantikan AI",
+      "link": "https://inet.detik.com/consumer/d-8752419/samsung-ungkap-3-kemampuan-manusia-yang-tak-tergantikan-ai",
+      "source": "detikINET",
+      "pubDate": "2026-11-14T02:50:36.000Z"
+    },
     {
       "title": "SK Innovation E&S Kembali Menjaring Wirausahawan Muda di Bidang Transformasi Kecerdasan Buatan / AX dan Energi di Indonesia",
       "link": "https://www.antaranews.com/berita/5853343/sk-innovation-es-kembali-menjaring-wirausahawan-muda-di-bidang-transformasi-kecerdasan-buatan-ax-dan-energi-di-indonesia",
@@ -1747,60 +1801,6 @@
       "link": "https://inet.detik.com/consumer/d-8726927/macbook-pro-m6-dirilis-makin-kencang-untuk-ai-dan-kerja-kreatif",
       "source": "detikINET",
       "pubDate": "2026-10-27T13:25:26.000Z"
-    },
-    {
-      "title": "Strategi APTISI Akselerasi Adopsi AI dan Kode Etik di Perguruan Tinggi Swasta",
-      "link": "https://mediaindonesia.com/humaniora/949362/strategi-aptisi-akselerasi-adopsi-ai-dan-kode-etik-di-perguruan-tinggi-swasta",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-27T13:16:00.000Z"
-    },
-    {
-      "title": "OpenAI Latih Model AI Tanpa Internet Agar Tak Serang Website Lain",
-      "link": "https://inet.detik.com/cyberlife/d-8724967/openai-latih-model-ai-tanpa-internet-agar-tak-serang-website-lain",
-      "source": "detikINET",
-      "pubDate": "2026-10-27T13:14:59.000Z"
-    },
-    {
-      "title": "Dorong Penggunaan Agentic AI dan Avatar di Perguruan Tinggi Swasta",
-      "link": "https://mediaindonesia.com/humaniora/949356/dorong-penggunaan-agentic-ai-dan-avatar-di-perguruan-tinggi-swasta",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-27T13:06:00.000Z"
-    },
-    {
-      "title": "GPT-6.1 Terra, AI Baru yang 3 Kali Lebih Cepat dari Astra",
-      "link": "https://www.liputan6.com/tekno/read/8321912/gpt-61-terra-ai-baru-yang-3-kali-lebih-cepat-dari-astra",
-      "source": "Liputan6",
-      "pubDate": "2026-10-27T11:12:08.000Z"
-    },
-    {
-      "title": "BI Ingatkan Risiko AI di Perbankan: Penipuan hingga Ancaman Tarik Uang Massal",
-      "link": "https://katadata.co.id/digital/fintech/6ae06cfd314ed/bi-ingatkan-risiko-ai-di-perbankan-penipuan-hingga-ancaman-tarik-uang-massal",
-      "source": "Katadata",
-      "pubDate": "2026-10-27T09:21:00.000Z"
-    },
-    {
-      "title": "Mayoritas Organisasi di Indonesia Berani Serahkan Keputusan ke AI",
-      "link": "https://uzone.id/mayoritas-organisasi-di-indonesia-berani-serahkan-keputusan-ke-ai",
-      "source": "Uzone",
-      "pubDate": "2026-10-27T09:20:00.000Z"
-    },
-    {
-      "title": "AI Acak-acak Keamanan Siber, Jadi Pedang Bermata Dua",
-      "link": "https://inet.detik.com/security/d-8726081/ai-acak-acak-keamanan-siber-jadi-pedang-bermata-dua",
-      "source": "detikINET",
-      "pubDate": "2026-10-27T08:17:33.000Z"
-    },
-    {
-      "title": "Lagi-lagi Demi AI, Microsoft Minta 60 Ribu Karyawan Pensiun Dini",
-      "link": "https://uzone.id/lagi-lagi-demi-ai-microsoft-minta-60-ribu-karyawan-pensiun-dini",
-      "source": "Uzone",
-      "pubDate": "2026-10-27T08:00:00.000Z"
-    },
-    {
-      "title": "SpaceX Sebut AI dan Starlink Bisa Perkuat Layanan Kesehatan Daerah Terpencil RI",
-      "link": "https://katadata.co.id/digital/teknologi/6ae055b3e9234/spacex-sebut-ai-dan-starlink-bisa-perkuat-layanan-kesehatan-daerah-terpencil-ri",
-      "source": "Katadata",
-      "pubDate": "2026-10-27T07:41:00.000Z"
     }
   ]
 }

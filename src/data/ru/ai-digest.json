@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-11-14T02:25:52.087Z",
+  "updatedAt": "2026-11-14T13:29:01.332Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Тринадцать LLM на русских отзывах: как я выбирал модель и почему не поверил судье",
+      "link": "https://habr.com/ru/articles/1107856/?utm_campaign=1107856&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-14T12:50:45.000Z"
+    },
+    {
+      "title": "Живое ТЗ и храповик: как заставить ИИ-агента не ломать то, что работает",
+      "link": "https://habr.com/ru/articles/1107842/?utm_campaign=1107842&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-14T11:45:47.000Z"
+    },
+    {
+      "title": "Как запереть ИИ‑агента и не дать ему уронить кластер — обзор CNCF-новинки OpenShell",
+      "link": "https://habr.com/ru/companies/selectel/articles/1107766/?utm_campaign=1107766&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-14T11:00:31.000Z"
+    },
+    {
+      "title": "Нейросеть сделала 3D‑модель по фото. Почему принтер с ней совсем не согласен",
+      "link": "https://habr.com/ru/articles/1107774/?utm_campaign=1107774&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-14T07:18:11.000Z"
+    },
     {
       "title": "От чата до тёмной фабрики: шесть уровней ИИ в разработке и почему мы остановились на L4",
       "link": "https://habr.com/ru/articles/1106718/?utm_campaign=1106718&utm_source=habrahabr&utm_medium=rss",
@@ -1777,30 +1801,6 @@
       "link": "https://habr.com/ru/companies/yadro/articles/1099914/?utm_campaign=1099914&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-27T13:36:56.000Z"
-    },
-    {
-      "title": "Новейшая ИИ-модель DeepSeek стала безопаснее, но недостаточно",
-      "link": "https://3dnews.ru/1150491/noveyshaya-iimodel-deepseek-stala-bezopasnee-no-nedostatochno",
-      "source": "3DNews",
-      "pubDate": "2026-10-27T13:10:00.000Z"
-    },
-    {
-      "title": "Как мы строим безопасную on-prem AI-платформу для корпоративных AI-агентов",
-      "link": "https://habr.com/ru/companies/agima/articles/1100006/?utm_campaign=1100006&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T10:22:39.000Z"
-    },
-    {
-      "title": "ИИ-пузырь лопнул в Китае. Начался обвал акций ИТ-компаний",
-      "link": "https://www.cnews.ru/news/top/2026-10-27_ii-puzyr_lopnul_v_kitae",
-      "source": "CNews",
-      "pubDate": "2026-10-27T09:38:00.000Z"
-    },
-    {
-      "title": "125 токенов в секунду на RTX 4070 Ti SUPER: как я заставил локальную LLM работать полноценным кодинг-агентом",
-      "link": "https://habr.com/ru/articles/1099962/?utm_campaign=1099962&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T09:20:01.000Z"
     }
   ]
 }
