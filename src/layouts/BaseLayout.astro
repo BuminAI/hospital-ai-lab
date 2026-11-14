@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SchemaOrg from '../components/SchemaOrg.astro';
+import { siteNav } from '../data/site-nav';
 import {
   withBase,
   stripBase,
@@ -98,22 +99,10 @@ const currentPath = stripBase(Astro.url.pathname);
 
 // "문의"는 상단에서 빼고 푸터·홈 하단 밴드로 옮겼다(메뉴 밀도 완화, 2026-07-12).
 // 페이지(/contact/)와 주소는 그대로 유지된다.
-const nav = [
-  { href: '/', label: '홈' },
-  { href: '/about/', label: '소개' },
-  { href: '/blog/', label: '블로그' },
-  { href: '/news/', label: 'AI 뉴스' },
-  { href: '/gov-support/', label: '정부 지원사업' },
-  { href: '/events/', label: 'AI 교육·행사' },
-  { href: '/notes/', label: '강의노트' },
-  { href: '/youtube/', label: '추천 영상' },
-  { href: '/tips/', label: '실무 팁' },
-  { href: '/guide/', label: '입문 가이드' },
-  { href: '/ai-judge/', label: 'AI 프로그램 심사' },
-];
+const nav = siteNav;
 
-// 푸터 사이트맵 — 상단 메뉴에 없는 진입로를 보강한다
-const footerNav = [
+// 푸터 사이트맵 - 상단 메뉴(siteNav)에 없는 진입로만 보강한다(중복은 아래에서 걸러낸다)
+const footerNavAll = [
   { href: '/series/', label: '연재 시리즈' },
   { href: '/guide/', label: '입문 가이드' },
   { href: '/glossary/', label: '의료 AI 용어 사전' },
@@ -138,7 +127,8 @@ const year = new Date().getFullYear();
 const siteRoot = Astro.site
   ? Astro.site.href.replace(/\/$/, '')
   : 'https://hospital-ai-lab.com';
-const allNav = [...nav, ...footerNav];
+const footerNav = footerNavAll.filter((f) => !nav.some((n) => n.href === f.href));
+const allNav = [...nav, ...footerNavAll];
 
 // 메뉴에 없고 마지막 조각도 아닌 경로 세그먼트(예: /blog/category/ai-tools/의
 // 'category')는 그대로 두면 영어 원문이 빵부스러기에 노출된다. 이런 순수

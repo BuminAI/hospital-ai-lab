@@ -17,6 +17,9 @@ import govPrograms from '../data/gov-programs.json';
 import events from '../data/events.json';
 import press from '../data/press.json';
 import { getResolvedSeries } from '../utils/series';
+import { siteNav } from '../data/site-nav';
+import { tips } from '../data/tips';
+import { faqItems } from '../data/faq';
 
 // 마지막 업데이트일 = 마지막 커밋 날짜(빌드 시 자동 계산, 수동 갱신 불필요).
 // git 정보를 못 구하는 예외적 빌드 환경 대비 폴백만 둔다.
@@ -101,6 +104,19 @@ const feedSeed = [
   ...eventFeedSeed,
 ].sort((a, b) => new Date(b.dateIso).valueOf() - new Date(a.dateIso).valueOf());
 
+// 홈 '전체 메뉴' 구역: 상단 메뉴(siteNav)의 모든 항목을 같은 순서로 보여 주고,
+// 자주 바뀌는 메뉴는 가장 최근 항목을 한 줄 덧붙인다. (메뉴와 홈이 따로 놀지 않게, 2026-11-14)
+const newest = (arr, key) => [...arr].sort((x, y) => new Date(y[key]).valueOf() - new Date(x[key]).valueOf())[0];
+const latestByHref = {
+  '/blog/': allPosts[0] ? { title: allPosts[0].data.title, date: allPosts[0].data.pubDate } : null,
+  '/news/': news.items[0] ? { title: news.items[0].title, date: news.items[0].pubDate } : null,
+  '/gov-support/': newest(govPrograms.items, 'pubDate') ? { title: newest(govPrograms.items, 'pubDate').title, date: newest(govPrograms.items, 'pubDate').pubDate } : null,
+  '/events/': newest(events.items, 'pubDate') ? { title: newest(events.items, 'pubDate').title, date: newest(events.items, 'pubDate').pubDate } : null,
+  '/youtube/': newest(videos, 'addedAt') ? { title: newest(videos, 'addedAt').title, date: newest(videos, 'addedAt').addedAt } : null,
+  '/tips/': tips.length ? { title: tips[tips.length - 1].title, date: tips[tips.length - 1].checked } : null,
+  '/faq/': faqItems.length ? { title: faqItems[faqItems.length - 1].question, date: null } : null,
+};
+const homeMenu = siteNav.filter((m) => m.href !== '/');
 const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 5);
 // 홈의 "추천 강의 영상"에는 연구소장이 직접 만든 영상 1편 + 다른 채널
@@ -402,6 +418,28 @@ const homeSeries = (await getResolvedSeries())
   </section>
 
   <!-- 연구 분야 (소개 성격이라 콘텐츠 아래에 배치) -->
+  <!-- 전체 메뉴: 상단 메뉴와 같은 목록(src/data/site-nav.ts)에서 만든다. 메뉴에만/홈에만 있는 항목이 없게 하려는 구역 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>전체 메뉴 한눈에 보기</h2>
+      </div>
+      <ul class="home-menu">
+        {homeMenu.map((m) => (
+          <li>
+            <a class="card home-menu-card" href={withBase(m.href)}>
+              <h3>{m.label}</h3>
+              <p>{m.desc}</p>
+              {latestByHref[m.href] && (
+                <p class="home-menu-latest"><span>최근</span> {latestByHref[m.href].title}</p>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -544,6 +582,44 @@ const homeSeries = (await getResolvedSeries())
 </script>
 
 <style>
+  .home-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 0.9rem;
+  }
+  .home-menu-card {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+  }
+  .home-menu-card h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.02rem;
+  }
+  .home-menu-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+  .home-menu-card .home-menu-latest {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--color-border);
+    color: var(--color-text);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .home-menu-latest span {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-right: 0.25rem;
+  }
+
   /* ── 히어로 ── */
   .hero {
     position: relative;
