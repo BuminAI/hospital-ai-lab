@@ -1,9 +1,33 @@
 {
-  "updatedAt": "2026-11-13T14:32:23.779Z",
+  "updatedAt": "2026-11-14T02:25:52.087Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
     {
-      "title": "Сто комментариев на пул-реквест: почему ИИ-агент пишет слоп и что с этим делать",
+      "title": "От чата до тёмной фабрики: шесть уровней ИИ в разработке и почему мы остановились на L4",
+      "link": "https://habr.com/ru/articles/1106718/?utm_campaign=1106718&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-14T02:20:32.000Z"
+    },
+    {
+      "title": "У ChatGPT появился «Кошелёк» — теперь ИИ-агенты смогут совершать покупки от имени пользователя",
+      "link": "https://3dnews.ru/1151279/u-chatgpt-poyavilsya-koshelyok-teper-iiagenti-smogut-sovershat-pokupki-ot-imeni-polzovatelya",
+      "source": "3DNews",
+      "pubDate": "2026-11-13T17:02:00.000Z"
+    },
+    {
+      "title": "Google выпустила Gemini 4 Hydrogen для агентов",
+      "link": "https://habr.com/ru/companies/selectel/articles/1107582/?utm_campaign=1107582&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-13T15:40:12.000Z"
+    },
+    {
+      "title": "Вышла ИИ-модель для вашего ноутбука",
+      "link": "https://habr.com/ru/companies/selectel/articles/1107498/?utm_campaign=1107498&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-13T15:18:38.000Z"
+    },
+    {
+      "title": "Сто комментариев на пул‑реквест: почему ИИ‑агент пишет слоп и что с этим делать",
       "link": "https://habr.com/ru/articles/1107616/?utm_campaign=1107616&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-13T14:20:35.000Z"
@@ -1777,30 +1801,6 @@
       "link": "https://habr.com/ru/articles/1099962/?utm_campaign=1099962&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-27T09:20:01.000Z"
-    },
-    {
-      "title": "ИИ-модель Alibaba Qwen уличили в попытке отправить данные на китайский сервер, хотя её об этом не просили",
-      "link": "https://3dnews.ru/1150478/iimodel-alibaba-qwen-ulichili-v-popitke-otpravit-dannie-na-kitayskiy-server-hotya-eyo-ob-etom-ne-prosili",
-      "source": "3DNews",
-      "pubDate": "2026-10-27T09:16:00.000Z"
-    },
-    {
-      "title": "ИИ-бум обогатил лишь семерых: остальные 493 компании S&P 500 пока не видят отдачи от инвестиций",
-      "link": "https://3dnews.ru/1150475/iibum-obogatil-lish-semerih-ostalnie-493-kompanii-sp-500-poka-ne-vidyat-otdachi-ot-investitsiy",
-      "source": "3DNews",
-      "pubDate": "2026-10-27T08:55:00.000Z"
-    },
-    {
-      "title": "Вредоносный ИИ-агент Skynet захватывает других агентов и заставляет жертв оплачивать свою работу",
-      "link": "https://3dnews.ru/1150474/vredonosniy-iiagent-skynet-zahvativaet-drugih-agentov-i-zastavlyaet-gertv-oplachivat-svoyu-rabotu",
-      "source": "3DNews",
-      "pubDate": "2026-10-27T08:51:00.000Z"
-    },
-    {
-      "title": "Keystone 1.0: LLM‑шлюз, который не хардкодит модели, держит свои GPU и не теряет ключи",
-      "link": "https://habr.com/ru/articles/1099790/?utm_campaign=1099790&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T08:31:02.000Z"
     }
   ]
 }
