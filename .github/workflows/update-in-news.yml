@@ -38,6 +38,9 @@ jobs:
       - name: 인도판(영어) 뉴스 수집 (신규 기사 누적)
         run: node scripts/fetch-in-news.mjs || echo "수집 건너뜀(기존 목록 유지)"
 
+      - name: 광폭 수집 (뉴스 — 각 나라 유명 매체 RSS 누적)
+        run: node scripts/wide-collect.mjs in news || echo "광폭 수집 건너뜀(기존 목록 유지)"
+
       - name: en/news.json 커밋 (변경 있을 때만)
         id: commit
         run: |

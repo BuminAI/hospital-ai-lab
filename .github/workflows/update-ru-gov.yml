@@ -36,6 +36,9 @@ jobs:
       - name: 러시아어판 신규 규정 수집 (publication.pravo.gov.ru)
         run: node scripts/fetch-ru-gov.mjs || echo "수집 건너뜀(기존 목록 유지)"
 
+      - name: 광폭 수집 (정부 지원사업·공고 — 각 나라 유명 매체 RSS 누적)
+        run: node scripts/wide-collect.mjs ru gov || echo "광폭 수집 건너뜀(기존 목록 유지)"
+
       - name: ru/gov-notices.json 커밋 (변경 있을 때만)
         id: commit
         run: |

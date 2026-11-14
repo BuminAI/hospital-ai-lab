@@ -15,7 +15,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) hospital-ai-lab news fetcher';
-const MAX_ITEMS = 300;
+const MAX_ITEMS = 1000; // 2026-11-14: 광폭 수집기(wide-collect)와 같은 상한
 
 const MV_URL = 'https://medvestnik.ru/content/tags/19780.html';
 const MV_SOURCE = 'Медвестник';

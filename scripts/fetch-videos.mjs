@@ -16,8 +16,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/recommended-videos.json', import.meta.url);
-const MAX_NEW = 3; // 실행 1회당 새로 추가할 최대 개수
-const MAX_TOTAL = 200; // 누적 상한 (넘으면 가장 오래된 자동 항목부터 정리)
+const MAX_NEW = 8; // 실행 1회당 새로 추가할 최대 개수(2026-11-14: 3 → 8, 오너 지시 "매일 충분히")
+const MAX_TOTAL = 600; // 누적 상한 (넘으면 가장 오래된 자동 항목부터 정리)
 const RECENT_DAYS = 95; // "최근 3개월" 허용치(여유 며칠)
 // 조회수 기준: 2026-07-20 오너 지시로 5만 → 2.5만(절반)으로 낮췄다.
 // 기존 기준으로는 통과하는 영상이 거의 다 이미 수집돼 새 영상이 나오지
@@ -47,6 +47,27 @@ const QUERIES = [
   '의료진 챗GPT',
   '병원 챗GPT 활용',
   '간호 기록 AI',
+  // 2026-11-14 확대(후보 소진 대응)
+  '병원 DX',
+  '디지털 헬스케어',
+  '인공지능 의사',
+  '의료 AI 규제',
+  '식약처 AI 의료기기',
+  '건강보험 AI',
+  '병원 AI 도입',
+  '간호사 인공지능',
+  'AI 진단',
+  '메디컬 인공지능',
+  '스마트병원',
+  '헬스케어 인공지능 전망',
+  '의료 데이터 AI',
+  '챗GPT 의사',
+  '의료 AI 뉴스',
+  '병원 행정 AI',
+  '생성형 AI 병원',
+  'AI 의료기기',
+  '원격의료 AI',
+  'AI 간호',
 ];
 
 // 유튜브 업로드 기간 필터(sp)는 쓰지 않는다.
@@ -250,7 +271,7 @@ async function main() {
   const now = new Date().toISOString();
   async function pick(candidates, limit) {
     const out = [];
-    for (const p of candidates.slice(0, 24)) {
+    for (const p of candidates.slice(0, 120)) {
       if (out.length >= limit) break;
       if (existingIds.has(p.videoId)) continue;
       const title = await verify(p.videoId);
@@ -284,9 +305,12 @@ async function main() {
   // 하루 한 번은 새 링크가 걸리도록 하기 위한 장치다(워크플로가 매일 실행,
   // 24시간 중복 방지 창이 있어 하루 한 번을 넘지 않는다).
   let byFallback = false;
-  if (fresh.length === 0) {
-    fresh.push(...(await pick(loose, 1)));
-    byFallback = fresh.length > 0;
+  // 2026-11-14: 하루 목표(MAX_NEW)에 못 미치면, 모자란 만큼을 조회수순 보충 후보(loose)로 채운다.
+  // 주제·한국어·낚시성 배제 규칙은 그대로다. "내용이 없어서 못 가져오는 날"이 없도록 하는 장치.
+  if (fresh.length < MAX_NEW) {
+    const before = fresh.length;
+    fresh.push(...(await pick(loose, MAX_NEW - fresh.length)));
+    byFallback = fresh.length > before;
   }
 
   if (fresh.length === 0) {

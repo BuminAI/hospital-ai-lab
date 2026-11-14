@@ -21,7 +21,7 @@ const items = news.items;
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteUrl}${withBase('/id/news/')}`;
 const DESC =
-  'Berita tentang AI dan digitalisasi layanan kesehatan dari PERSI dan ANTARA, dikumpulkan secara otomatis.';
+  'Berita tentang AI dan digitalisasi layanan kesehatan dari PERSI, ANTARA, CNN Indonesia, CNBC Indonesia, Katadata, Liputan6, Tempo, Republika, Media Indonesia, Okezone, BBC Indonesia, dan media lain, dikumpulkan secara otomatis.';
 
 const collectionPage = {
   '@type': 'CollectionPage',
@@ -56,9 +56,10 @@ const collectionPage = {
 >
   <h1>{idI18n.nav.news}</h1>
   <p class="id-lead">
-    Berita dari PERSI (Perhimpunan Rumah Sakit Seluruh Indonesia) dan kantor berita
-    ANTARA yang menyinggung AI serta digitalisasi layanan kesehatan, dikumpulkan
-    otomatis beberapa kali sehari. Berita lama tidak dihapus.
+    Berita dari PERSI (Perhimpunan Rumah Sakit Seluruh Indonesia), kantor berita ANTARA, serta media
+    nasional seperti CNN Indonesia, CNBC Indonesia, Katadata, Liputan6, Tempo, Republika, Media Indonesia,
+    Okezone, BBC Indonesia, Sindonews, JPNN, dan Viva yang menyinggung AI serta digitalisasi layanan
+    kesehatan, dikumpulkan otomatis beberapa kali sehari. Berita lama tidak dihapus.
   </p>
 
   {

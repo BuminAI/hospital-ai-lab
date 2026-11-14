@@ -94,7 +94,7 @@
       },
       {
         "q": "Where does the information come from?",
-        "a": "Statements about rules in the practice guides, glossary and checklists cite a primary document that was opened and read: CDSCO's Medical Devices Rules 2017 and its Guidance Document on Medical Device Software, the Gazette of India text of the Digital Personal Data Protection Act 2023, and ICMR's 2023 guidelines on AI. AI news headlines are collected automatically from Indian health-sector publications (ET HealthWorld, Express Healthcare and Medical Dialogues) and CDSCO's device-related public notices are listed as they appear. Several government sites (for example MeitY, PIB and the Ayushman Bharat Digital Mission) did not answer automated requests, so nothing here depends on them."
+        "a": "Statements about rules in the practice guides, glossary and checklists cite a primary document that was opened and read: CDSCO's Medical Devices Rules 2017 and its Guidance Document on Medical Device Software, the Gazette of India text of the Digital Personal Data Protection Act 2023, and ICMR's 2023 guidelines on AI. AI news headlines are collected automatically from Indian health-sector and national publications (ET HealthWorld, Express Healthcare, Medical Dialogues, The Economic Times, The Hindu, Hindustan Times, The Indian Express, Mint, Analytics India Magazine, YourStory, Inc42, MediaNama and Scroll.in) and CDSCO's device-related public notices are listed as they appear. Several government sites (for example MeitY, PIB and the Ayushman Bharat Digital Mission) did not answer automated requests, so nothing here depends on them."
       },
       {
         "q": "How often is the site updated?",

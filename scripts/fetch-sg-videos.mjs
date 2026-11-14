@@ -16,10 +16,12 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/sg/content/videos-local.json', import.meta.url);
-const MAX_NEW = 2;
-const MAX_AUTO = 60;
+const MAX_NEW = 8; // 실행 1회당 최대 추가(2026-11-14: 2 → 8, 오너 지시 "매일 충분히")
+const MAX_AUTO = 500; // 자동 추가분 누적 상한(2026-11-14: 60 → 500)
 const RECENT_DAYS = 365;
 const MIN_VIEWS = 1000;
+const RELAX_DAYS = 730; // 후보가 모자랄 때만 쓰는 완화 기준(제목·채널 규칙은 그대로)
+const RELAX_VIEWS = 300;
 
 const QUERIES = [
   'artificial intelligence in healthcare Singapore',
@@ -30,6 +32,18 @@ const QUERIES = [
   'AI nurses hospital Singapore',
   'generative AI healthcare Singapore',
   'AI radiology Singapore hospital',
+  // 2026-11-14 확대
+  "Singapore AI healthcare",
+  "MOH Singapore AI",
+  "Synapxe AI",
+  "SingHealth AI",
+  "NUH AI",
+  "Healthier SG technology",
+  "HSA medical device software",
+  "AI health coach Singapore",
+  "Singapore hospital robots",
+  "IMDA AI health",
+  "Smart Nation healthcare AI",
 ];
 
 const AI_SIGNAL =
@@ -39,7 +53,7 @@ const CLICKBAIT =
   /shocking|you won'?t believe|scandal|exposed|secret|\bad\b|sponsored|#shorts|discount|will die|deadly|[%％]|[0-9]+\s*x(?![a-z])|miracle|cure[sd]?\b/i; // titles with effect figures (x% / Nx) are excluded too (they can read as a guarantee of results)
 // only public agencies, public broadcasters, major news services and hospital associations
 const CHANNEL_ALLOW =
-  /Ministry of Health|MOH Singapore|Health Sciences Authority|Synapxe|IMDA|Infocomm Media|Smart Nation|Singapore Government|CNA|Channel NewsAsia|Straits Times|Mediacorp|WHO|World Health Organization/i;
+  /Ministry of Health|MOH Singapore|Health Sciences Authority|Synapxe|IMDA|Infocomm Media|Smart Nation|Singapore Government|CNA|Channel NewsAsia|Straits Times|Mediacorp|WHO|World Health Organization|Mediacorp|CNA Insider|CNA Lifestyle|Business Times|TODAY|Ministry of Health|MOH|\bHSA\b|Synapxe|IMDA|Smart Nation|GovTech|8world|Suria|Vasantham|SPH Media|Lianhe Zaobao|Zaobao|Prime Minister|Singapore Parliament|Ministry of Communications|MCI Singapore/i;
 
 const channelOk = (ch) => CHANNEL_ALLOW.test(ch || '');
 const okTitle = (t) => AI_SIGNAL.test(t) && MEDICAL.test(t) && !CLICKBAIT.test(t) && [...t].length <= 110;
@@ -157,14 +171,13 @@ async function main() {
     return;
   }
 
-  const cand = new Map();
+  const pool = new Map();
   let okQueries = 0;
   for (const q of QUERIES) {
     try {
       for (const it of await search(q)) {
         if (!okTitle(it.title) || !channelOk(it.channel)) continue;
-        if (daysAgo(it.pub) > RECENT_DAYS || it.views < MIN_VIEWS) continue;
-        if (!cand.has(it.videoId)) cand.set(it.videoId, it);
+        if (!pool.has(it.videoId)) pool.set(it.videoId, it);
       }
       okQueries++;
     } catch (e) {
@@ -176,10 +189,19 @@ async function main() {
     process.exit(1);
   }
 
+  // 엄격 기준(최근 RECENT_DAYS일·조회 MIN_VIEWS 이상)으로 먼저 거르고, 후보가 MAX_NEW*2보다 적으면
+  // 기간·조회수 기준을 완화해 채운다. 제목(AI+의료 신호, 낚시 제외)과 허용 채널 규칙은 완화하지 않는다.
+  const cand = new Map();
+  for (const it of pool.values()) if (daysAgo(it.pub) <= RECENT_DAYS && it.views >= MIN_VIEWS) cand.set(it.videoId, it);
+  if (cand.size < MAX_NEW * 2) {
+    for (const it of pool.values()) {
+      if (!cand.has(it.videoId) && daysAgo(it.pub) <= RELAX_DAYS && it.views >= RELAX_VIEWS) cand.set(it.videoId, it);
+    }
+  }
   const sorted = [...cand.values()].sort((a, b) => b.views - a.views);
   const now = new Date().toISOString();
   const fresh = [];
-  for (const p of sorted.slice(0, 30)) {
+  for (const p of sorted.slice(0, 80)) {
     if (fresh.length >= MAX_NEW) break;
     if (ids.has(p.videoId)) continue;
     const v = await verify(p.videoId);

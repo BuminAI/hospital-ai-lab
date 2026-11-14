@@ -35,6 +35,9 @@ jobs:
       - name: 인도네시아어판 교육·행사 수집 (신규 기사 누적)
         run: node scripts/fetch-id-events.mjs || echo "수집 건너뜀(기존 목록 유지)"
 
+      - name: 광폭 수집 (교육·행사 — 각 나라 유명 매체 RSS 누적)
+        run: node scripts/wide-collect.mjs id events || echo "광폭 수집 건너뜀(기존 목록 유지)"
+
       - name: id/events.json 커밋 (변경 있을 때만)
         id: commit
         run: |

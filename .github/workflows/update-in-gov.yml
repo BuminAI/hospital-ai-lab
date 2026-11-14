@@ -36,6 +36,9 @@ jobs:
       - name: 인도판(영어) CDSCO 의료기기 공지 수집 (공개 공지 목록)
         run: node scripts/fetch-in-gov.mjs || echo "수집 건너뜀(기존 목록 유지)"
 
+      - name: 광폭 수집 (정부 지원사업·공고 — 각 나라 유명 매체 RSS 누적)
+        run: node scripts/wide-collect.mjs in gov || echo "광폭 수집 건너뜀(기존 목록 유지)"
+
       - name: en/gov-notices.json 커밋 (변경 있을 때만)
         id: commit
         run: |

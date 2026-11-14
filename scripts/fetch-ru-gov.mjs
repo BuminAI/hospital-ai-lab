@@ -12,7 +12,7 @@ const OUT = new URL('../src/data/ru/gov-notices.json', import.meta.url);
 const API = 'http://publication.pravo.gov.ru/api/Documents';
 const UA = 'Mozilla/5.0 (compatible; hospital-ai-lab ru regulation watcher)';
 const KEEP_DAYS = 540;
-const MAX_ITEMS = 80;
+const MAX_ITEMS = 400; // 2026-11-14: 광폭 수집기와 같은 상한
 
 const AUTHORITIES = [
   ['a2b99d08-29c7-4a3f-901a-d1a7174428f8', 'Минздрав России'],

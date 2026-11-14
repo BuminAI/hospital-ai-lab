@@ -17,7 +17,7 @@ const PAGE = 'https://cdsco.gov.in/opencms/opencms/en/Notifications/Public-Notic
 const ORIGIN = 'https://cdsco.gov.in';
 const UA = 'hospital-ai-lab regulation watcher (+https://hospital-ai-lab.com)';
 const KEEP_DAYS = 730;
-const MAX_ITEMS = 80;
+const MAX_ITEMS = 400; // 2026-11-14: 광폭 수집기와 같은 상한
 
 // The title must contain one of these words — public notices are mostly about drugs and cosmetics, which this site does not cover.
 const TOPIC = /medical device|\bMDR\b|in vitro|\bIVD\b|software|artificial intelligence|\bAI\b|digital|cyber|data protection|SaMD|device software|diagnostic/i;

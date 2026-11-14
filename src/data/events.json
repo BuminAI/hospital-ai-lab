@@ -1,11 +1,55 @@
 {
-  "updatedAt": "2026-11-13T07:07:44.247Z",
+  "updatedAt": "2026-11-14T12:46:02.014Z",
   "items": [
+    {
+      "title": "“AI가 쓴 논문, 실제로 누가 만든 것인가”…JKMS 편집장의 질문",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044536",
+      "source": "청년의사",
+      "pubDate": "2026-11-13T21:35:35.000Z"
+    },
+    {
+      "title": "DHP 최윤섭 대표 “AI, 이미 의사 대체 중\"",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259300",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-13T20:54:00.000Z"
+    },
     {
       "title": "성빈센트병원, 제3회 스마트의료 심포지엄 개최",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252684",
       "source": "병원신문",
       "pubDate": "2026-11-13T06:22:00.000Z"
+    },
+    {
+      "title": "병원마다 다른 의료데이터, AI로 표준화…복지부, 자동화 기술 시제품 공개",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242441",
+      "source": "라포르시안",
+      "pubDate": "2026-11-13T05:57:46.000Z",
+      "popular": true,
+      "rank": 4
+    },
+    {
+      "title": "AI 기반 의료데이터 표준화로 기관 간 정보 연계·활용 확대",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421774",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-13T05:35:52.000Z"
+    },
+    {
+      "title": "성빈센트병원, 스마트의료 심포지엄 개최",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016397",
+      "source": "의학신문",
+      "pubDate": "2026-11-13T05:00:32.000Z"
+    },
+    {
+      "title": "분당차병원 \"AI·데이터 기반 환자 중심 스마트병원 만든다\"",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=548904",
+      "source": "약사공론",
+      "pubDate": "2026-11-13T04:58:00.000Z"
+    },
+    {
+      "title": "파마브로스, 글로벌 약사 크리에이터 아카데미 1기 발대식",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80754",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-13T03:02:32.000Z"
     },
     {
       "title": "분당차병원, AI·데이터 활용 경진대회 개최",
@@ -14,16 +58,92 @@
       "pubDate": "2026-11-13T02:54:00.000Z"
     },
     {
+      "title": "성빈센트병원, 제3회 스마트의료 심포지엄 성료",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415421",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-13T02:53:40.000Z"
+    },
+    {
+      "title": "뉴지엄랩, 지역사회영양학회서 임상 영양 AI 검증 기준 제시",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242412",
+      "source": "라포르시안",
+      "pubDate": "2026-11-13T01:30:00.000Z",
+      "popular": true,
+      "rank": 5
+    },
+    {
+      "title": "감염병 치료제 연구 가속화…다부처 성과교류 심포지엄",
+      "link": "https://www.newsis.com/view/NISX20261113_0003866691",
+      "source": "뉴시스",
+      "pubDate": "2026-11-13T00:55:33.000Z"
+    },
+    {
+      "title": "중국이 노리는 바이오굴기, 中 VC가 분석한 '차이나 스피드'의 정체",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80741",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-12T21:08:00.000Z"
+    },
+    {
+      "title": "K-헬스케어, CES 2027 혁신상 휩쓸며 글로벌 무대 ‘주도권’ 입증",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016333",
+      "source": "의학신문",
+      "pubDate": "2026-11-12T20:50:00.000Z",
+      "popular": true,
+      "rank": 1
+    },
+    {
+      "title": "의료 정보보호 강화 위한 민관 협력기반 마련, 의료기관 보안 현황 점검 및 개선방안 논의",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492526&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-12T07:07:00.000Z"
+    },
+    {
       "title": "[한양대병원] AI 활용 자살예방 심포지엄 개최",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252608",
       "source": "병원신문",
       "pubDate": "2026-11-11T15:06:00.000Z"
     },
     {
+      "title": "정부·정보통신서비스 제공자·전문가 등 모여 온라인 유통 자살유발정보 차단 방안 논의",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492512&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-11T05:05:00.000Z"
+    },
+    {
+      "title": "‘공공의료 AI 고속도로’ 첫 개통",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252560",
+      "source": "병원신문",
+      "pubDate": "2026-11-11T05:00:00.000Z"
+    },
+    {
+      "title": "영월의료원, 의료 AI로 필수의료 공백 해소",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252549",
+      "source": "병원신문",
+      "pubDate": "2026-11-11T02:13:54.000Z"
+    },
+    {
+      "title": "영월의료원, 의료 AI로 진료 부담 덜고 '분만·소아' 등 필수의료 공백 해소",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492509&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-11T01:26:00.000Z"
+    },
+    {
+      "title": "알고케어, ‘CES 2027 혁신상’ 2개 부문 수상",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252546",
+      "source": "병원신문",
+      "pubDate": "2026-11-11T00:23:16.000Z"
+    },
+    {
       "title": "[한국보건복지인재원] 「2026년 의료AI 강사워크숍(3차)」 참가자 모집 안내 (선착순)",
       "link": "https://www.kha.or.kr/kha_home/notice_list.do?mode=view&articleNo=47741",
       "source": "대한병원협회",
       "pubDate": "2026-11-10T15:00:00.000Z"
+    },
+    {
+      "title": "국제 공동연구 추진 및 연구자 교류 확대 등 한·중 전통의학 글로벌 협력 강화",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492455&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-05T06:05:00.000Z"
     },
     {
       "title": "NMC, 공공보건의료사업 담당자 AI 활용 교육 마쳐",
@@ -379,5 +499,6 @@
       "source": "메디칼타임즈",
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
-  ]
+  ],
+  "source": "청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 보건복지부 · 뉴시스"
 }

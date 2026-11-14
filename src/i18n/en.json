@@ -93,7 +93,7 @@
       },
       {
         "q": "Where does the information come from?",
-        "a": "AI news headlines are collected automatically from trade publications (Fierce Healthcare, Healthcare Dive and Becker's Hospital Review), and new federal rules come from the Federal Register. Statements about regulations in the practice guides, glossary and checklists carry a citation to the primary text: the eCFR, the Federal Register, HHS, FDA, ASTP/ONC and CMS."
+        "a": "AI news headlines are collected automatically from trade and national outlets (Fierce Healthcare, Healthcare Dive, Becker’s Hospital Review, STAT, MedCity News, HIT Consultant, Radiology Business, Health Affairs, KFF Health News, NEJM AI, JAMA Network, Healthcare Business Today, TechCrunch, The Verge, Ars Technica, WIRED, MIT Technology Review, The New York Times, NPR, BBC News and The Guardian), and new federal rules come from the Federal Register. Statements about regulations in the practice guides, glossary and checklists carry a citation to the primary text: the eCFR, the Federal Register, HHS, FDA, ASTP/ONC and CMS."
       },
       {
         "q": "How often is the site updated?",

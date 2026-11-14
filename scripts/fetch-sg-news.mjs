@@ -12,7 +12,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
 const UA = 'hospital-ai-lab news fetcher (+https://hospital-ai-lab.com)';
-const MAX_ITEMS = 300;
+const MAX_ITEMS = 1000; // 2026-11-14: 광폭 수집기(wide-collect)와 같은 상한
 
 const FEEDS = [
   { source: 'The Straits Times', url: 'https://www.straitstimes.com/news/singapore/rss.xml' },

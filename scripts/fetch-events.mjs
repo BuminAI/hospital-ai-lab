@@ -24,7 +24,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/events.json', import.meta.url);
 const NEWS = new URL('../src/data/news.json', import.meta.url);
-const MAX_ITEMS = 200;
+const MAX_ITEMS = 300; // 2026-11-14: 광폭 수집기와 같은 상한
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) hospital-ai-lab event fetcher';
 

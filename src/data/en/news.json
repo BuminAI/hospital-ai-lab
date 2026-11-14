@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-13T23:51:04.926Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review",
+  "updatedAt": "2026-11-14T12:46:52.642Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · HIT Consultant · STAT · MedCity News · NEJM AI · Radiology Business · Healthcare Business Today · JAMA Network · Federal Register",
   "items": [
     {
       "title": "Mayo Clinic appoints AI leader as next CEO",
@@ -15,16 +15,82 @@
       "pubDate": "2026-11-13T18:15:44.000Z"
     },
     {
+      "title": "Wolters Kluwer Acquires AgileMD for Up to $100M to Embed UpToDate Expert AI and FDA-Cleared eCART Surveillance Inside EHR Workflows",
+      "link": "https://hitconsultant.net/2026/11/13/wolters-kluwer-to-acquire-ai-clinical-decision-support-platform-agilemd/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-13T17:00:00.000Z"
+    },
+    {
       "title": "Patient comfort with AI’s clinical decisions tied to provider oversight: Gallup",
       "link": "https://www.healthcaredive.com/news/patient-comfort-with-ais-clinical-decisions-tied-to-provider-oversight-ga/874623/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-13T15:39:35.000Z"
     },
     {
+      "title": "Redesign Health Launches Dedicated Growth Equity Practice to Back Series A-to-Pre-IPO Healthcare AI Leaders",
+      "link": "https://hitconsultant.net/2026/11/13/redesign-health-launches-growth-equity-practice-series-a-pre-ipo-healthcare-ai/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-13T15:00:00.000Z"
+    },
+    {
+      "title": "Why AI-Assisted 100% Registry Review Is Essential for Clinical Data Integrity",
+      "link": "https://hitconsultant.net/2026/11/13/what-your-registry-audit-doesnt-tell-you-brent-dover-carta-healthcare/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-13T14:00:00.000Z"
+    },
+    {
+      "title": "XpertDox Raises $20M to Scale Neuro-Symbolic AI Medical Coding Across Thin-Margin Providers",
+      "link": "https://hitconsultant.net/2026/11/13/xpertdox-raises-20m-series-a-savant-growth-ai-medical-coding/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-13T13:00:00.000Z"
+    },
+    {
+      "title": "R1 Expands Phare OS with Six Connected AI Modules Across $275B in Net Patient Revenue",
+      "link": "https://hitconsultant.net/2026/11/13/r1-expands-phare-os-six-connected-ai-modules-phare-denials/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-13T06:00:00.000Z"
+    },
+    {
       "title": "Despite concerns, AI becomes daily fixture in physician workflows",
       "link": "https://www.healthcaredive.com/news/despite-concerns-ai-becomes-daily-fixture-in-physician-workflows/874541/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-12T18:46:46.000Z"
+    },
+    {
+      "title": "Is AI Really Saving Hospitals Money? A New Study Raises Questions About the Cost of AI-Driven Care",
+      "link": "https://medcitynews.com/2026/11/is-ai-really-saving-hospitals-money-a-new-study-raises-questions-about-the-cost-of-ai-driven-care/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-12T17:54:03.000Z"
+    },
+    {
+      "title": "M&A: Elligint Health Acquires Laguna Health to Embed Conversational AI Across 13 Million Managed Lives",
+      "link": "https://hitconsultant.net/2026/11/12/elligint-health-acquires-laguna-health-conversational-ai-care-management-helios/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-12T17:00:00.000Z"
+    },
+    {
+      "title": "Orakl Oncology Raises $34M to Predict Cancer Clinical Trial Outcomes with 90% Accuracy",
+      "link": "https://hitconsultant.net/2026/11/12/orakl-oncology-raises-34-million-series-a-predict-cancer-clinical-trial-outcomes/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-12T16:15:00.000Z"
+    },
+    {
+      "title": "STAT+: New documents raise more questions about Medicare’s AI prior-authorization experiment",
+      "link": "https://www.statnews.com/2026/11/12/new-documents-raise-more-questions-about-medicares-ai-prior-authorization-experiment/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-12T14:49:02.000Z"
+    },
+    {
+      "title": "How to Use AI Agents for Dental Practices | Build Workflows for Your Team",
+      "link": "https://www.healthcarebusinesstoday.com/how-to-use-ai-agents-for-dental-practices-build-workflows-for-your-team/",
+      "source": "Healthcare Business Today",
+      "pubDate": "2026-11-12T12:25:49.000Z"
+    },
+    {
+      "title": "AI-derived inflammation score improves cardiovascular risk prediction beyond CAC",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/ai-derived-inflammation-score-improves-cardiovascular-risk-prediction-beyond-cac",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-11T22:09:57.000Z"
     },
     {
       "title": "Oura makes bet on AI in healthcare with $625M Counsel Health buy",
@@ -39,10 +105,58 @@
       "pubDate": "2026-11-11T15:25:57.000Z"
     },
     {
+      "title": "STAT+: Why this former ER doc thinks giving AI less information is sometimes better",
+      "link": "https://www.statnews.com/2026/11/11/mdcalc-cofounder-graham-walker-on-crosscover-ai-prognosis/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-11T15:20:23.000Z"
+    },
+    {
       "title": "Google Cloud debuts Gemini for healthcare",
       "link": "https://www.healthcaredive.com/news/google-cloud-debuts-gemini-for-healthcare/874371/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-11T14:55:28.000Z"
+    },
+    {
+      "title": "WittKieffer 2026 Healthcare CIO Survey: 82% Sit on Executive Teams, Yet Only 36% Have Formal Succession Plans",
+      "link": "https://hitconsultant.net/2026/11/11/wittkieffer-2026-healthcare-cio-insights-ai-mandates-succession-planning/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-11T11:39:00.000Z"
+    },
+    {
+      "title": "STAT+: MDCalc launches a ‘rumble strip’ for doctors using generative AI tools",
+      "link": "https://www.statnews.com/2026/11/11/mdcalc-launches-crosscover-rumble-strip-for-clinical-ai-chatbots/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-11T09:30:00.000Z"
+    },
+    {
+      "title": "TigerConnect Smart Room Suite: Integrating Epic, Cloud Alarm Management, and Bedside AI",
+      "link": "https://hitconsultant.net/2026/11/11/tigerconnect-launches-smart-room-suite-bedside-alarms-virtual-care-lee-health/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-11T06:00:00.000Z"
+    },
+    {
+      "title": "Oura Buys Counsel for $625M, But Will Payers and Consumers Get on Board?",
+      "link": "https://medcitynews.com/2026/11/ouras-buys-counsel-for-625m-but-will-payers-and-consumers-get-on-board/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-11T00:12:49.000Z"
+    },
+    {
+      "title": "Charta Health Raises $55M to Establish Pre-Claim Ground Truth Across Providers and Payers",
+      "link": "https://hitconsultant.net/2026/11/10/charta-health-raises-55-million-series-b-ai-medical-chart-review-insight-partners/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-10T17:28:00.000Z"
+    },
+    {
+      "title": "STAT+: Men’s use of chatbots for therapy, and earnings season highlights",
+      "link": "https://www.statnews.com/2026/11/10/chatbots-for-men-and-earnings-highlights-health-tech/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-10T17:18:42.000Z"
+    },
+    {
+      "title": "STAT+: Oura to acquire Counsel Health for $625 million, placing a big bet on AI care",
+      "link": "https://www.statnews.com/2026/11/10/oura-acquires-counsel-health-big-bet-ai-care/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-10T17:14:42.000Z"
     },
     {
       "title": "Physicians underestimate patient comfort with AI by 20 points: Gallup",
@@ -63,6 +177,36 @@
       "pubDate": "2026-11-10T16:50:23.000Z"
     },
     {
+      "title": "New Campaign Wants AI Applications To Look Beyond Speed",
+      "link": "https://medcitynews.com/2026/11/new-campaign-wants-ai-applications-to-look-beyond-speed/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-10T16:32:38.000Z"
+    },
+    {
+      "title": "Zus Health Secures $33M to Scale AI-Native Health Data Infrastructure Beyond Legacy EHR Silos",
+      "link": "https://hitconsultant.net/2026/11/10/zus-health-raises-33-million-series-b-connected-healthcare-ai-platform/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-10T16:11:00.000Z"
+    },
+    {
+      "title": "Opinion: AI’s health advice can be accurate and still make us sicker",
+      "link": "https://www.statnews.com/2026/11/10/ai-health-advice-accuracy-messaging-risk-behavioral-benchmarking/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-10T09:30:00.000Z"
+    },
+    {
+      "title": "Large language models show potential in MRI protocoling",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/large-language-models-show-potential-mri-protocoling",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-10T00:10:55.000Z"
+    },
+    {
+      "title": "Physician Training for the AI Era",
+      "link": "https://jamanetwork.com/journals/jama/fullarticle/2855358",
+      "source": "JAMA Network",
+      "pubDate": "2026-11-10T00:00:00.000Z"
+    },
+    {
       "title": "Ardent Health’s chief consumer officer departs after 5 years",
       "link": "https://www.beckershospitalreview.com/hospital-executive-moves/ardent-healths-chief-consumer-officer-departs-after-5-years/",
       "source": "Becker's Hospital Review",
@@ -73,6 +217,12 @@
       "link": "https://www.healthcaredive.com/news/hospitals-write-off-132b-ai-fails-to-move-needle-with-finances/874161/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-09T19:30:52.000Z"
+    },
+    {
+      "title": "AWS Launches $100M Health Impact Initiative to Scale Agentic and Cloud Tech in Underserved Global Care",
+      "link": "https://hitconsultant.net/2026/11/09/aws-commits-100-million-health-impact-initiative-cloud-ai-underserved-communities/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-09T17:00:00.000Z"
     },
     {
       "title": "AWS pledges $100M in cloud, AI credits to close health equity gaps",
@@ -99,10 +249,64 @@
       "pubDate": "2026-11-09T10:00:00.000Z"
     },
     {
+      "title": "AI chatbots aren’t therapists. But can they finally get men to open up?",
+      "link": "https://www.statnews.com/2026/11/09/ai-chatbots-can-overcome-mental-health-barriers-in-men/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-09T09:30:00.000Z"
+    },
+    {
+      "title": "Patient info improperly used in radiology AI research, academic institution says",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/patient-info-improperly-used-radiology-ai-research-academic-institution-says",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-08T18:09:02.000Z"
+    },
+    {
+      "title": "Missing the Point: Isolation Alone Will Not Build AI Safety",
+      "link": "https://medcitynews.com/2026/11/imprivata-ceo-is-missing-the-point-isolation-alone-will-not-build-ai-safety/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-08T14:17:00.000Z"
+    },
+    {
+      "title": "STAT+: Why the latest heart drug failures should make us all more skeptical of AI hype",
+      "link": "https://www.statnews.com/2026/11/08/heart-drug-failures-lessons-for-artificial-intelligence-from-aha-conference/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-08T09:30:00.000Z"
+    },
+    {
       "title": "Nursing students are using AI faster than schools can govern it: Survey",
       "link": "https://www.beckershospitalreview.com/quality/nursing/nursing-students-are-using-ai-faster-than-schools-can-govern-it-survey/",
       "source": "Becker's Hospital Review",
       "pubDate": "2026-11-06T21:26:09.000Z"
+    },
+    {
+      "title": "Opinion: AI depends on medical records that don’t always tell the full truth about women",
+      "link": "https://www.statnews.com/2026/11/06/women-medical-records-artificial-intelligence-diagnosis-mental-health-pain/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-06T09:30:00.000Z"
+    },
+    {
+      "title": "Why Healthcare Can’t Skip Steps on the Way to Conversational AI",
+      "link": "https://hitconsultant.net/2026/11/06/healthcare-cant-skip-steps-to-conversational-ai-dan-engel-corti/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-06T07:38:00.000Z"
+    },
+    {
+      "title": "FDA clears AI-powered intravascular ultrasound imaging platform",
+      "link": "https://radiologybusiness.com/topics/medical-imaging/interventional-radiology/fda-clears-ai-powered-intravascular-ultrasound-imaging-platform",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-06T07:14:14.000Z"
+    },
+    {
+      "title": "Randomized Evaluation of an Autoimmune Disease Prediction Model — AURA (AUtoimmune Risk Assessment)",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIoa2600112?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-11-06T06:00:00.000Z"
+    },
+    {
+      "title": "Design is Everything",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIe2601363?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-11-06T06:00:00.000Z"
     },
     {
       "title": "‘When you do not act like a system, you’re ripe for disruption’: 12 quotes from Becker’s CEO + CFO Roundtable",
@@ -135,16 +339,286 @@
       "pubDate": "2026-11-05T18:04:39.000Z"
     },
     {
+      "title": "Wolters Kluwer Survey Exposes the Chasm Between Enterprise AI Acceleration and Consumer Drug Safety Trust",
+      "link": "https://hitconsultant.net/2026/11/05/wolters-kluwer-survey-ai-medication-workflows-consumer-trust-medi-span-expert-ai/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-05T16:18:52.000Z"
+    },
+    {
+      "title": "STAT+: As more doctors consult chatbots, health systems can block them — or buy in",
+      "link": "https://www.statnews.com/2026/11/05/doctors-use-ai-chatbots-hipaa-compliance-questions/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-05T09:30:00.000Z"
+    },
+    {
+      "title": "STAT+: What the midterms could mean for the future of health AI",
+      "link": "https://www.statnews.com/2026/11/05/midterms-shape-future-ai-in-health-care-fda/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-05T09:30:00.000Z"
+    },
+    {
+      "title": "Medical Devices; Hematology and Pathology Devices; Classification of the Digital Cervical Cytology Slide Imaging System With Artificial Intelligence Algorithm",
+      "link": "https://www.federalregister.gov/documents/2026/11/05/2026-22593/medical-devices-hematology-and-pathology-devices-classification-of-the-digital-cervical-cytology",
+      "source": "Federal Register",
+      "pubDate": "2026-11-05T05:00:00.000Z"
+    },
+    {
+      "title": "State sues radiologist claiming he ran ‘Ponzi-like’ AI scheme to bilk $5M from physicians and family",
+      "link": "https://radiologybusiness.com/topics/healthcare-management/legal-news/state-sues-radiologist-claiming-he-ran-ponzi-ai-scheme-bilk-5m-physicians-and-family",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-05T04:38:22.000Z"
+    },
+    {
       "title": "Patients want a human in the loop for AI healthcare tools",
       "link": "https://www.healthcaredive.com/news/patients-want-human-in-loop-ai-healthcare-tools/873704/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-04T14:24:08.000Z"
     },
     {
+      "title": "STAT+: The biotech startups skipping AI for drug discovery",
+      "link": "https://www.statnews.com/2026/11/04/the-biotech-startups-skipping-ai-for-drug-discovery-ai-prognosis/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-04T13:01:33.000Z"
+    },
+    {
+      "title": "Vibe Coding versus Clinical Reality",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIp2600342?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-11-04T06:00:00.000Z"
+    },
+    {
+      "title": "Physical Limits to AI Substitution across Physician Specialties — Implications for the Physician Workforce",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIp2600957?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-11-04T06:00:00.000Z"
+    },
+    {
       "title": "How should the FDA regulate generative AI in medtech? Here are 5 takes",
       "link": "https://www.healthcaredive.com/news/how-should-the-fda-regulate-generative-ai-in-medtech-here-are-5-takes/873708/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-03T17:09:14.000Z"
+    },
+    {
+      "title": "M&A: LeanTaaS Acquires LookDeep Health to Connect In-Room Vision AI with Hospital Operations",
+      "link": "https://hitconsultant.net/2026/11/03/leantaas-brings-ambient-intelligence-iqueue-acquires-lookdeep-health-virtual-care/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-03T16:59:04.000Z"
+    },
+    {
+      "title": "STAT+: FDA, CMS look to collaborate with states on health AI",
+      "link": "https://www.statnews.com/2026/11/03/fda-cms-collaborate-with-states-on-ai-heath-tech/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-03T14:51:12.000Z"
+    },
+    {
+      "title": "How Imaging Centers Are Using AI to Book Appointments Days Sooner",
+      "link": "https://radiologybusiness.com/sponsored/58176/abbadox/how-imaging-centers-are-using-ai-book-appointments-days-sooner",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-03T14:00:00.000Z"
+    },
+    {
+      "title": "Hippocratic AI Unveils Polaris 6 Ultra to Deliver Real-Time Bedside Intuition in Autonomous Voice Care",
+      "link": "https://hitconsultant.net/2026/11/02/hippocratic-ai-unveils-polaris-6-ultra-bedside-intuition-healthcare-model/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-02T15:00:00.000Z"
+    },
+    {
+      "title": "STAT+: FDA, CMS scramble to avoid regulatory logjam as more states look to test AI in clinical settings",
+      "link": "https://www.statnews.com/2026/10/30/fda-cms-health-ai-regulation-state-sandboxes-run-into-federal-rules/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-10-30T08:30:00.000Z"
+    },
+    {
+      "title": "Meta to fund radiology AI research at Ohio State",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/meta-fund-radiology-ai-research-ohio-state",
+      "source": "Radiology Business",
+      "pubDate": "2026-10-29T18:04:01.000Z"
+    },
+    {
+      "title": "STAT+: The EPIC investigation, and a Teladoc surprise",
+      "link": "https://www.statnews.com/2026/10/29/epic-investigation-teladoc-surprise-ai-payment-model-health-tech/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-10-29T16:15:20.000Z"
+    },
+    {
+      "title": "Opinion: STAT+: Is AI more a partner, competitor, or crutch for biomedical scientists?",
+      "link": "https://www.statnews.com/2026/10/29/ai-science-biology-dependence-ethics-research/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-10-29T08:30:00.000Z"
+    },
+    {
+      "title": "STAT+: Why every health care AI company must face Epic",
+      "link": "https://www.statnews.com/2026/10/28/health-care-ai-innovation-challenge-epic-ai-prognosis/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-10-28T14:52:17.000Z"
+    },
+    {
+      "title": "Health Data, Technology, and Interoperability: ONC Deregulatory Actions To Unleash Prosperity",
+      "link": "https://www.federalregister.gov/documents/2026/10/28/2026-21943/health-data-technology-and-interoperability-onc-deregulatory-actions-to-unleash-prosperity",
+      "source": "Federal Register",
+      "pubDate": "2026-10-28T04:00:00.000Z"
+    },
+    {
+      "title": "Vera Health Raises $28.5M for Clinical AI Search Engine: Surpasses 800,000 Global Physician Users",
+      "link": "https://hitconsultant.net/2026/10/27/vera-health-raises-28m-series-a-threshold-ventures-evidence-graded-clinical-ai/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-10-27T19:49:55.000Z"
+    },
+    {
+      "title": "Radiology residents miss more findings after night shifts, even with AI assistance",
+      "link": "https://radiologybusiness.com/topics/healthcare-management/healthcare-quality/radiology-residents-miss-more-findings-after-night-shifts-even-ai-assistance",
+      "source": "Radiology Business",
+      "pubDate": "2026-10-27T19:27:07.000Z"
+    },
+    {
+      "title": "MDX Hawai’i Partners with Innovaccer to Deploy Atlas Across 6,000 Independent Clinicians",
+      "link": "https://hitconsultant.net/2026/10/27/mdx-hawaii-selects-innovaccer-atlas-unify-population-health-provider-network/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-10-27T15:11:00.000Z"
+    },
+    {
+      "title": "Pennsylvania House passes bill requiring AI disclosure in healthcare",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/pennsylvania-house-passes-bill-requiring-ai-disclosure-healthcare",
+      "source": "Radiology Business",
+      "pubDate": "2026-10-26T20:18:53.000Z"
+    },
+    {
+      "title": "Opinion: Could long-term AI use lead to isolation? We need to find out — but researchers need better access to data",
+      "link": "https://www.statnews.com/2026/10/26/cumulative-ai-use-isolation-research-data-missing/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-10-26T08:30:00.000Z"
+    },
+    {
+      "title": "Radiology societies weigh in on FDA’s push to regulate generative AI",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/radiology-societies-weigh-fdas-push-regulate-generative-ai",
+      "source": "Radiology Business",
+      "pubDate": "2026-10-23T09:43:18.000Z"
+    },
+    {
+      "title": "Does AI-Powered Clinical Documentation Enhance Clinician Efficiency? A Longitudinal Study",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIx2601335?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-23T07:00:00.000Z"
+    },
+    {
+      "title": "M&A: Sagility Acquires Chirok Health to Anchor AI-Driven CDI and Revenue Integrity Across Enterprise Providers",
+      "link": "https://hitconsultant.net/2026/10/22/sagility-acquires-chirok-health-clinical-documentation-improvement-medical-coding-revenue-integrity/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-10-22T15:45:00.000Z"
+    },
+    {
+      "title": "Radiologist FDA leader believes generative AI should be evaluated like human docs",
+      "link": "https://radiologybusiness.com/topics/healthcare-management/healthcare-policy/radiologist-fda-leader-believes-generative-ai-should-be-evaluated-human-docs",
+      "source": "Radiology Business",
+      "pubDate": "2026-10-22T08:15:33.000Z"
+    },
+    {
+      "title": "How We Do It: A Framework for Scaling Clinical AI Across Health Systems: Lessons from the Cleveland Clinic AI Summit for Healthcare Professionals",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AI-S2601250%4010.1056/ai_2026.3.issue-11?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-22T04:00:00.000Z"
+    },
+    {
+      "title": "Automation Bias and the Erosion of Physicians’ Cognitive Sovereignty",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIltr2600987?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-22T04:00:00.000Z"
+    },
+    {
+      "title": "Can Personalized Generative AI Bridge Cultural Distance?",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIltr2601017?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-22T04:00:00.000Z"
+    },
+    {
+      "title": "Preserving Clinical Judgment in AI-Assisted Diagnosis",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIltr2601100?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-22T04:00:00.000Z"
+    },
+    {
+      "title": "Integrating Cultural Context into Personalized AI Mental Health Support",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIltr2601137?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-22T04:00:00.000Z"
+    },
+    {
+      "title": "Artificial intelligence checks the trustworthiness of breast cancer AI models",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/artificial-intelligence-checks-trustworthiness-breast-cancer-ai-models",
+      "source": "Radiology Business",
+      "pubDate": "2026-10-21T22:16:44.000Z"
+    },
+    {
+      "title": "STAT+: What’s the deal with Isomorphic Labs?",
+      "link": "https://www.statnews.com/2026/10/21/whats-the-deal-with-isomorphic-labs-ai-prognosis/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-10-21T17:49:31.000Z"
+    },
+    {
+      "title": "Why AI Must Contextualize, Not Automate, Crisis Hotlines",
+      "link": "https://hitconsultant.net/2026/10/21/time-for-crisis-hotline-to-change-jeremy-kreyling-neuroflow-ai-context-suicide-prevention/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-10-21T17:43:45.000Z"
+    },
+    {
+      "title": "FDA clears AI tool for assessing breast cancer recurrence risk via MRI",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/fda-clears-ai-tool-assessing-breast-cancer-recurrence-risk-mri",
+      "source": "Radiology Business",
+      "pubDate": "2026-10-19T10:07:01.000Z"
+    },
+    {
+      "title": "AI-Assisted Molecular Review Refines SMO Inhibitor Candidacy in SHH Medulloblastoma",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIcs2600997?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-16T05:00:00.000Z"
+    },
+    {
+      "title": "Clinical AI in 2025–2026 — Six Themes from the SAIL Year in Review",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIp2600817?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-16T05:00:00.000Z"
+    },
+    {
+      "title": "AI Biotech Iambic Gets $150M in IPO Cash for ‘Molecular Superintelligence’ Drug R&D",
+      "link": "https://medcitynews.com/2026/10/iambic-ipo-techbio-ai-drug-discovery-cancer-her2-kif18a-cdk2-cdk4-iam/",
+      "source": "MedCity News",
+      "pubDate": "2026-10-15T19:18:43.000Z"
+    },
+    {
+      "title": "Effect of Previsit AI-Generated Document Summaries on Consultation Time and Patient–Physician Communication — The AI-INFOCARE Randomized Controlled Trial",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIoa2600136?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-15T05:00:00.000Z"
+    },
+    {
+      "title": "Artificial Intelligence–Enhanced Auscultation to Identify Left Ventricular Dysfunction — Development and External Validation in Prospective Multicenter Studies",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIoa2600258?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-15T05:00:00.000Z"
+    },
+    {
+      "title": "Comparative Cost of Care Recommended by Large Language Models versus Treating Physicians",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIoa2600537?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-15T05:00:00.000Z"
+    },
+    {
+      "title": "Comprehensive or Wasteful? Clinical AI and the Up-front Workup",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIe2601260?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-15T05:00:00.000Z"
+    },
+    {
+      "title": "No Mastery without the Machine — Medical Education in the Age of Clinical AI",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIp2600773?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-10-13T05:00:00.000Z"
+    },
+    {
+      "title": "Immunology Startup ai3Bio Aims to Redefine What It Means to Reset the Immune System",
+      "link": "https://medcitynews.com/2026/10/immune-reset-startup-ai3bio-immunology-inflammation-autoimmune-liver-disease-t-cell-th17-il-17-cgas-sting/",
+      "source": "MedCity News",
+      "pubDate": "2026-10-04T23:43:54.000Z"
     }
   ]
 }

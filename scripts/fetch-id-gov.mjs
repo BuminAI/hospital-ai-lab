@@ -14,7 +14,7 @@ const OUT = new URL('../src/data/id/gov-notices.json', import.meta.url);
 const BASE = 'https://jdih.kemkes.go.id/documents';
 const UA = 'Mozilla/5.0 (compatible; hospital-ai-lab id regulation watcher)';
 const KEEP_DAYS = 540;
-const MAX_ITEMS = 80;
+const MAX_ITEMS = 400; // 2026-11-14: 광폭 수집기와 같은 상한
 
 const QUERIES = [
   'rekam medis',

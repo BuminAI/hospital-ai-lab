@@ -73,7 +73,7 @@
     "heroLead": "Situs ini membahas kecerdasan artifisial (AI) di rumah sakit dari sudut pandang tenaga administrasi dan keperawatan — bukan dari sudut pandang klinis semata. Yang dibahas adalah hal yang benar-benar muncul dalam pekerjaan: menilai proposal vendor, memeriksa aspek data pribadi, dan menyiapkan alur kerja sebelum sebuah sistem dipakai.",
     "glossaryDesc": "Istilah AI kesehatan yang muncul di proposal vendor dan rapat, dijelaskan dengan bahasa sehari-hari.",
     "faqDesc": "Pertanyaan yang biasa muncul saat rumah sakit mulai mempertimbangkan AI.",
-    "newsDesc": "Berita AI dan digitalisasi kesehatan dari PERSI dan ANTARA, dikumpulkan otomatis.",
+    "newsDesc": "Berita AI dan digitalisasi kesehatan dari PERSI, ANTARA, CNN Indonesia, CNBC Indonesia, Katadata, Liputan6, Tempo, dan media nasional lain, dikumpulkan otomatis.",
     "eventsDesc": "Info pelatihan PERSI soal RME, koding, dan AI.",
     "govSupportDesc": "Peraturan baru dari JDIH Kemenkes serta program dan platform resmi pemerintah, dirangkum dari halaman resminya.",
     "videosDesc": "Seri 12 video pengantar penerapan AI dalam pekerjaan rumah sakit.",
@@ -98,7 +98,7 @@
       },
       {
         "q": "Dari mana informasinya?",
-        "a": "Berita AI dikumpulkan otomatis dari PERSI dan ANTARA. Peraturan baru dikumpulkan dari JDIH Kemenkes. Info pelatihan dan acara berasal dari PERSI, rilis berita Kemenkes, dan PORMIKI. Penjelasan aturan di panduan praktis, kamus istilah, pertanyaan umum, dan daftar periksa ditulis setelah membuka naskah resminya dan disertai tautan serta tanggal verifikasi."
+        "a": "Berita AI dikumpulkan otomatis dari PERSI, ANTARA, CNN Indonesia, CNBC Indonesia, Katadata, Liputan6, Tempo, Republika, Media Indonesia, Okezone, BBC Indonesia, Sindonews, JPNN, dan Viva. Peraturan baru dikumpulkan dari JDIH Kemenkes. Info pelatihan dan acara berasal dari PERSI, rilis berita Kemenkes, dan PORMIKI. Penjelasan aturan di panduan praktis, kamus istilah, pertanyaan umum, dan daftar periksa ditulis setelah membuka naskah resminya dan disertai tautan serta tanggal verifikasi."
       },
       {
         "q": "Seberapa sering diperbarui?",

@@ -21,7 +21,7 @@ const items = news.items;
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
 const pageUrl = `${siteUrl}${withBase('/ja/news/')}`;
 const DESC =
-  'CBnews・厚生労働省・デジタル庁から、医療DX・医療AI・電子カルテ・マイナ保険証・サイバーセキュリティに関する発表と記事を自動で集めています。1日数回更新し、過去分も残します。';
+  'CBnews・ITmedia・日経クロステック・日経ビジネス・朝日新聞・Yahoo!ニュースなどのメディアと、厚生労働省・デジタル庁の発表から、医療DX・医療AI・電子カルテ・マイナ保険証・サイバーセキュリティに関する記事を自動で集めています。1日数回更新し、過去分も残します。';
 
 const collectionPage = {
   '@type': 'CollectionPage',
@@ -56,8 +56,9 @@ const collectionPage = {
 >
   <h1>{ja.nav.news}</h1>
   <p class="ja-lead">
-    病院経営・医療行政の専門メディアCBnewsの医療・介護・社会面、厚生労働省の報道発表、
-    デジタル庁の新着情報から、医療DX・医療AIに関する見出しを自動で集めています。
+    病院経営・医療行政の専門メディアCBnewsをはじめ、ITmedia・日経クロステック・日経ビジネス・Impress Watch・GIGAZINE・
+    東洋経済オンライン・現代ビジネス・PRESIDENT Online・Engadget 日本版・朝日新聞・Yahoo!ニュースの記事、
+    厚生労働省の報道発表、デジタル庁の新着情報から、医療DX・医療AIに関する見出しを自動で集めています。
     1日数回更新し、過去分も残します。見出しを押すと元のページに移動します。
   </p>
 

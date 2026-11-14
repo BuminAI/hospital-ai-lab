@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-13T09:55:43.242Z",
-  "source": "ET HealthWorld · Express Healthcare · Medical Dialogues",
+  "updatedAt": "2026-11-14T12:47:04.235Z",
+  "source": "ET HealthWorld · Express Healthcare · Medical Dialogues · The Hindu · The Economic Times · The Indian Express · Hindustan Times · Analytics India Magazine · AIM",
   "items": [
+    {
+      "title": "Simplify Alpha™ opens AI engineering and innovation center in Hyderabad, joined by Simplify Healthcare® and SimplifyX™",
+      "link": "https://economictimes.indiatimes.com/tech/technology/simplify-alpha-opens-ai-engineering-and-innovation-center-in-hyderabad-joined-by-simplify-healthcare-and-simplifyx/articleshow/135798924.cms",
+      "source": "The Economic Times",
+      "pubDate": "2026-11-13T10:30:16.000Z"
+    },
     {
       "title": "Prudential Health India wins AI Excellence honour at 2026 ISG Paragon Awards Asia",
       "link": "https://www.expresshealthcare.in/news/prudential-health-india-wins-ai-excellence-honour-at-2026-isg-paragon-awards-asia/455828/",
@@ -15,10 +21,88 @@
       "pubDate": "2026-11-13T07:06:44.000Z"
     },
     {
+      "title": "Is health tracking your priority, or is battery life? Samsung Galaxy Watch 9 and Google Pixel Watch 5 offer different answers",
+      "link": "https://www.hindustantimes.com/technology/is-health-tracking-your-priority-or-is-battery-life-samsung-galaxy-watch-9-and-google-pixel-watch-5-offer-different-answers-101794500064147.html",
+      "source": "Hindustan Times",
+      "pubDate": "2026-11-12T16:28:10.000Z"
+    },
+    {
+      "title": "Diabetes linked with 53% higher risk of Alzheimer's, review finds",
+      "link": "https://health.economictimes.indiatimes.com/news/industry/diabetes-linked-with-53-higher-risk-of-alzheimers-review-finds/135768155",
+      "source": "ET HealthWorld",
+      "pubDate": "2026-11-12T11:46:51.000Z"
+    },
+    {
+      "title": "NHA Selects EkaCare for AI Voice Scribe in Public Health Facilities",
+      "link": "https://analyticsindiamag.com/ai-news/nha-selects-ekacare-for-ai-voice-scribe-in-public-health-facilities",
+      "source": "Analytics India Magazine",
+      "pubDate": "2026-11-11T08:43:45.000Z"
+    },
+    {
+      "title": "Froncort.AI Gets $2.3M From Google.org to Expand AI-Based Disease Screening in India",
+      "link": "https://analyticsindiamag.com/ai-news/froncortai-gets-23m-from-googleorg-to-expand-ai-based-disease-screening-in-india",
+      "source": "Analytics India Magazine",
+      "pubDate": "2026-11-10T11:42:42.000Z"
+    },
+    {
+      "title": "Cyber bullying affects one in ten students worldwide; AI fuels new threat: UNESCO",
+      "link": "https://www.thehindu.com/sci-tech/health/cyber-bullying-affects-one-in-ten-students-worldwide-ai-fuels-new-threat-unesco/article71682385.ece",
+      "source": "The Hindu",
+      "pubDate": "2026-11-09T11:45:46.000Z"
+    },
+    {
+      "title": "AI may improve patient discharge summaries, study shows",
+      "link": "https://health.economictimes.indiatimes.com/news/health-it/ai-may-improve-patient-discharge-summaries-study-shows/135537593",
+      "source": "ET HealthWorld",
+      "pubDate": "2026-11-04T11:23:40.000Z"
+    },
+    {
+      "title": "Clinics on Cloud raises $12.5 Mn in Series A funding",
+      "link": "https://health.economictimes.indiatimes.com/news/health-it/clinics-on-cloud-raises-12-5-mn-in-series-a-funding/135501140",
+      "source": "ET HealthWorld",
+      "pubDate": "2026-11-03T13:15:00.000Z"
+    },
+    {
       "title": "Seven medical associations join UN:BLOC to discuss AI adoption in clinical practice",
       "link": "https://www.expresshealthcare.in/news/seven-medical-associations-join-unbloc-to-discuss-ai-adoption-in-clinical-practice/455751/",
       "source": "Express Healthcare",
       "pubDate": "2026-11-03T12:12:03.000Z"
+    },
+    {
+      "title": "When ChatGPT’s medical advice led to tragedy",
+      "link": "https://indianexpress.com/article/technology/artificial-intelligence/when-chatgpts-medical-advice-led-to-tragedy-10941764/",
+      "source": "The Indian Express",
+      "pubDate": "2026-10-29T08:23:12.000Z"
+    },
+    {
+      "title": "AI model uses face photos to estimate biological age, predict survival risk in cancer patients",
+      "link": "https://health.economictimes.indiatimes.com/news/health-it/ai-model-uses-face-photos-to-estimate-biological-age-predict-survival-risk-in-cancer-patients/135208681",
+      "source": "ET HealthWorld",
+      "pubDate": "2026-10-26T10:05:59.000Z"
+    },
+    {
+      "title": "Microsoft AI tool outperforms doctors in complex diagnostic tests, study finds",
+      "link": "https://indianexpress.com/article/technology/artificial-intelligence/microsoft-ai-tool-outperforms-doctors-in-complex-diagnostic-tests-study-finds-10933081/",
+      "source": "The Indian Express",
+      "pubDate": "2026-10-23T02:16:01.000Z"
+    },
+    {
+      "title": "Microsoft develops AI tool that can diagnose 'sequentially' like a doctor",
+      "link": "https://health.economictimes.indiatimes.com/news/health-it/microsoft-develops-ai-tool-that-can-diagnose-sequentially-like-a-doctor/135131585",
+      "source": "ET HealthWorld",
+      "pubDate": "2026-10-23T02:07:13.000Z"
+    },
+    {
+      "title": "Former Apple employee wants AI to predict health problems and book doctor visits",
+      "link": "https://indianexpress.com/article/technology/artificial-intelligence/praneeta-pujari-ex-apple-employee-unique-human-ai-agent-10930535/",
+      "source": "The Indian Express",
+      "pubDate": "2026-10-21T08:33:06.000Z"
+    },
+    {
+      "title": "We build AI tools to detect oral and breast cancer: IISc Professor Phaneendra",
+      "link": "https://indianexpress.com/article/technology/iisc-tanuh-healthcare-ai-cancer-screening-indineurofm-10914540/",
+      "source": "The Indian Express",
+      "pubDate": "2026-10-10T02:00:09.000Z"
     }
   ]
 }

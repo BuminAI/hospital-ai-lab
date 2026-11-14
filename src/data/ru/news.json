@@ -1,7 +1,32 @@
 {
-  "updatedAt": "2026-11-12T11:44:19.261Z",
-  "source": "Медвестник·Vademecum",
+  "updatedAt": "2026-11-14T12:46:34.820Z",
+  "source": "Медвестник · Vademecum · Фармвестник · Zdrav.ru",
   "items": [
+    {
+      "title": "ИИ в здравоохранении. Дайджест Vademecum за 9–14 ноября 2026 года",
+      "link": "https://vademec.ru/news/2026/11/14/ii-v-zdravookhranenii-daydzhest-vademecum-za-9-14-noyabrya-2026-goda/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-14T05:00:00.000Z"
+    },
+    {
+      "title": "В Казахстане предложили усилить контроль за продажей лекарств и медизделий",
+      "link": "https://vademec.ru/news/2026/11/13/v-kazakhstane-predlozhili-usilit-kontrol-za-prodazhey-lekarstv-i-medizdeliy/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-13T06:29:00.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "Картина дня: дайджест главных новостей от 12 ноября 2026 года",
+      "link": "https://vademec.ru/news/2026/11/12/kartina-dnya-daydzhest-glavnykh-novostey-ot-12-noyabrya-2026-goda/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-12T19:30:00.000Z"
+    },
+    {
+      "title": "Как фармпроизводителям подготовиться к изменению основных требований правил GMP",
+      "link": "https://pharmvestnik.ru/content/articles/kak-farmproizvoditelyam-podgotovitsya-k-izmeneniu-osnovnyh-trebovanii-pravil-gmp.html",
+      "source": "Фармвестник",
+      "pubDate": "2026-11-12T11:25:20.000Z"
+    },
     {
       "title": "Лишь 55% врачей амбулаторного звена сообщили о готовности к практическому использованию ИИ",
       "link": "https://medvestnik.ru/content/news/lish-55-vrachei-ambulatornogo-zvena-soobshili-o-gotovnosti-k-prakticheskomu-ispolzovaniu-ii.html",
@@ -49,6 +74,13 @@
       "link": "https://medvestnik.ru/content/news/mirovoi-rynok-sistem-komputernoi-hirurgii-mojet-vyrasti-pochti-vtroe-k-2034-godu.html",
       "source": "Медвестник",
       "pubDate": "2026-11-09T09:00:00.000Z"
+    },
+    {
+      "title": "Кибератаки на медорганизации: алгоритм действий медработника и защита данных пациентов",
+      "link": "https://www.zdrav.ru/articles/4293671463-kiberataki-na-medorganizacii-algoritm-deystviy-medrabotnika",
+      "source": "Zdrav.ru",
+      "pubDate": "2026-11-08T04:00:00.000Z",
+      "tier": "B"
     },
     {
       "title": "Аналитики: на запрос пользователей о препаратах нейросети в 60,4% случаев опираются на официальные страницы сервисов заказа",

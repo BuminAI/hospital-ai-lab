@@ -36,6 +36,9 @@ jobs:
       - name: AI 교육·행사 수집
         run: node scripts/fetch-events.mjs || echo "수집 건너뜀(기존 목록 유지)"
 
+      - name: 광폭 수집 (교육·행사 — 각 나라 유명 매체 RSS 누적)
+        run: node scripts/wide-collect.mjs ko events || echo "광폭 수집 건너뜀(기존 목록 유지)"
+
       - name: events.json 커밋 (변경 있을 때만)
         id: commit
         run: |

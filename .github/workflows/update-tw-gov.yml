@@ -36,6 +36,9 @@ jobs:
       - name: 대만어판 정부 지원·공고 수집 (신규 공고 누적)
         run: node scripts/fetch-tw-gov.mjs || echo "수집 건너뜀(기존 목록 유지)"
 
+      - name: 광폭 수집 (정부 지원사업·공고 — 각 나라 유명 매체 RSS 누적)
+        run: node scripts/wide-collect.mjs tw gov || echo "광폭 수집 건너뜀(기존 목록 유지)"
+
       - name: tw/gov-notices.json 커밋 (변경 있을 때만)
         id: commit
         run: |

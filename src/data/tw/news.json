@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-14T01:53:27.261Z",
-  "source": "中央社·科技新報·健康醫療網·衛生福利部·食品藥物管理署",
+  "updatedAt": "2026-11-14T12:46:46.463Z",
+  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · ETtoday · 醫療新聞網 · 公視新聞網",
   "items": [
+    {
+      "title": "探討AI時代如何守住真實 學者籲平台監管、國際合作",
+      "link": "https://news.pts.org.tw/article/835767",
+      "source": "公視新聞網",
+      "pubDate": "2026-11-14T11:51:18.000Z"
+    },
+    {
+      "title": "AI拖鞋測長者跌倒 宜蘭高中奪創意賽首獎",
+      "link": "https://www.mdnkids.com/content.asp?Link_String_=24BE00000DFSMLI&utm_source=RSS&utm_campaign=RSS",
+      "source": "醫療新聞網",
+      "pubDate": "2026-11-13T15:00:00.000Z"
+    },
     {
       "title": "光麗旗下宸曜啟動 AI 醫療雙引擎！董座王嘉瑋喊第四季轉盈迎收穫期",
       "link": "https://finance.technews.tw/2026/11/13/g-clinic/",
@@ -15,16 +27,34 @@
       "pubDate": "2026-11-13T04:00:00.000Z"
     },
     {
+      "title": "男大生「陰莖長硬塊」問AI要全切嚇哭 醫揭真相：20年沒清潔",
+      "link": "https://health.ettoday.net/news/3270833",
+      "source": "ETtoday",
+      "pubDate": "2026-11-12T04:13:00.000Z"
+    },
+    {
       "title": "健保攜手中彰投公所推動智慧數位化 服務品質再升級",
       "link": "https://www.mohw.gov.tw/cp-16-88456-1.html",
       "source": "衛生福利部",
       "pubDate": "2026-11-11T06:30:00.000Z"
     },
     {
+      "title": "立法院首度用AI宣讀法條 《失智症基本法》3.5萬字1小時讀完",
+      "link": "https://health.ettoday.net/news/3270153",
+      "source": "ETtoday",
+      "pubDate": "2026-11-11T03:45:00.000Z"
+    },
+    {
       "title": "兼顧資安與實務 今年12月起實施長照資訊系統強化身分驗證機制",
       "link": "https://www.mohw.gov.tw/cp-16-88432-1.html",
       "source": "衛生福利部",
       "pubDate": "2026-11-10T11:12:00.000Z"
+    },
+    {
+      "title": "台灣睽違20年再辦世界內科醫學會 將發表AI醫療台北聲明",
+      "link": "https://health.ettoday.net/news/3269789",
+      "source": "ETtoday",
+      "pubDate": "2026-11-10T10:34:00.000Z"
     },
     {
       "title": "華碩跨足醫療碳管理，攜手臺大醫院導入 AI 技術",
@@ -73,6 +103,12 @@
       "link": "https://www.mohw.gov.tw/cp-16-88404-1.html",
       "source": "衛生福利部",
       "pubDate": "2026-11-06T03:03:00.000Z"
+    },
+    {
+      "title": "矽谷喊 AI 十年就能治百病，藥廠執行長直言生物學太複雜是真正難關",
+      "link": "https://technews.tw/2026/11/04/silicon-valley-promises-ai-will-cure-disease-drugmaker-ceos-arent-buying-it/",
+      "source": "科技新報",
+      "pubDate": "2026-11-04T07:00:21.000Z"
     },
     {
       "title": "雲林在宅急症智慧照護平台啟用 導入AI語音轉檔功能",

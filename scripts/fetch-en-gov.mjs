@@ -14,7 +14,7 @@ const OUT = new URL('../src/data/en/gov-notices.json', import.meta.url);
 const API = 'https://www.federalregister.gov/api/v1/documents.json';
 const UA = 'hospital-ai-lab regulation watcher (+https://hospital-ai-lab.com)';
 const KEEP_DAYS = 540;
-const MAX_ITEMS = 80;
+const MAX_ITEMS = 400; // 2026-11-14: 광폭 수집기와 같은 상한
 
 const AGENCIES = [
   ['health-and-human-services-department', 'HHS'],

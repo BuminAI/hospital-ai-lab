@@ -15,10 +15,12 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/ja/content/videos-local.json', import.meta.url);
-const MAX_NEW = 2;
-const MAX_AUTO = 60; // 자동 추가분 누적 상한(넘으면 오래된 자동 항목부터 정리)
+const MAX_NEW = 8; // 실행 1회당 최대 추가(2026-11-14: 2 → 8, 오너 지시 "매일 충분히")
+const MAX_AUTO = 500; // 자동 추가분 누적 상한(2026-11-14: 60 → 500)
 const RECENT_DAYS = 365;
 const MIN_VIEWS = 3000;
+const RELAX_DAYS = 730; // 후보가 모자랄 때만 쓰는 완화 기준(제목·채널 규칙은 그대로)
+const RELAX_VIEWS = 900;
 
 const QUERIES = [
   '医療AI',
@@ -33,6 +35,19 @@ const QUERIES = [
   '医療事務 AI',
   '看護師 生成AI',
   '医療 AI 入門',
+  // 2026-11-14 확대
+  "AI 病院 導入",
+  "AI 診断 医師 ニュース",
+  "医療DX 厚労省",
+  "生成AI 病院 ガイドライン",
+  "マイナ保険証 医療機関",
+  "電子カルテ 標準化",
+  "医療 サイバーセキュリティ",
+  "AI 画像診断",
+  "看護 DX",
+  "介護 AI テクノロジー",
+  "創薬 AI",
+  "オンライン診療 AI",
 ];
 
 const AI_SIGNAL =
@@ -134,7 +149,7 @@ async function verify(videoId) {
 // 個人や企業・クリニックのチャンネルは、特定の製品・医療機関の宣伝になりやすい(医療広告の観点)ため、
 // 自動では載せない。載せたいチャンネルがあれば、オーナーの確認のうえでこの一覧に足す。
 const CHANNEL_ALLOW =
-  /厚生労働省|デジタル庁|首相官邸|経済産業省|総務省|日本医師会|日本病院会|NHK|日テレNEWS|日本テレビ|TBS NEWS|テレ朝news|ANNnewsCH|FNN|ニュースJAPAN|日経|東洋経済|読売新聞|朝日新聞|毎日新聞|共同通信|時事通信|南海放送|メディアドゥ|CBnews/i;
+  /厚生労働省|デジタル庁|首相官邸|経済産業省|総務省|日本医師会|日本病院会|NHK|日テレNEWS|日本テレビ|TBS NEWS|テレ朝news|ANNnewsCH|FNN|ニュースJAPAN|日経|東洋経済|読売新聞|朝日新聞|毎日新聞|共同通信|時事通信|南海放送|メディアドゥ|CBnews|日本テレビ|JNN|TBS|テレ東|テレビ東京|ABEMA|NewsPicks|関西テレビ|MBS毎日放送|読売テレビ|CBCニュース|日本経済新聞|時事ドットコム|Yahoo!ニュース|日本看護協会|日本薬剤師会|国立がん研究センター|AMED|PMDA|日本医学会/i;
 const channelOk = (ch) => CHANNEL_ALLOW.test(ch || '');
 
 const hasKana = (s) => /[぀-ヿ]/.test(s); // 히라가나·가타카나가 있어야 일본어 영상
@@ -169,14 +184,13 @@ async function main() {
     return;
   }
 
-  const cand = new Map();
+  const pool = new Map();
   let okQueries = 0;
   for (const q of QUERIES) {
     try {
       for (const it of await search(q)) {
         if (!okTitle(it.title) || !channelOk(it.channel)) continue;
-        if (daysAgo(it.pub) > RECENT_DAYS || it.views < MIN_VIEWS) continue;
-        if (!cand.has(it.videoId)) cand.set(it.videoId, it);
+        if (!pool.has(it.videoId)) pool.set(it.videoId, it);
       }
       okQueries++;
     } catch (e) {
@@ -188,10 +202,19 @@ async function main() {
     process.exit(1);
   }
 
+  // 엄격 기준(최근 RECENT_DAYS일·조회 MIN_VIEWS 이상)으로 먼저 거르고, 후보가 MAX_NEW*2보다 적으면
+  // 기간·조회수 기준을 완화해 채운다. 제목(AI+의료 신호, 낚시 제외)과 허용 채널 규칙은 완화하지 않는다.
+  const cand = new Map();
+  for (const it of pool.values()) if (daysAgo(it.pub) <= RECENT_DAYS && it.views >= MIN_VIEWS) cand.set(it.videoId, it);
+  if (cand.size < MAX_NEW * 2) {
+    for (const it of pool.values()) {
+      if (!cand.has(it.videoId) && daysAgo(it.pub) <= RELAX_DAYS && it.views >= RELAX_VIEWS) cand.set(it.videoId, it);
+    }
+  }
   const sorted = [...cand.values()].sort((a, b) => b.views - a.views);
   const now = new Date().toISOString();
   const fresh = [];
-  for (const p of sorted.slice(0, 30)) {
+  for (const p of sorted.slice(0, 80)) {
     if (fresh.length >= MAX_NEW) break;
     if (ids.has(p.videoId)) continue;
     const v = await verify(p.videoId);

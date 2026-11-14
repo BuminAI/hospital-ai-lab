@@ -21,7 +21,7 @@
 - [연재 시리즈](https://hospital-ai-lab.com/series/): 발행한 글을 주제별 읽는 순서로 묶음(제안서 검토 기준, 환자정보·개인정보, AI 도구 활용, 제도 소식 등)
 - [AI 입문 가이드](https://hospital-ai-lab.com/guide/): 단계별 입문
 - [실무 팁](https://hospital-ai-lab.com/tips/): 병원 업무에 바로 쓰는 AI 활용법
-- [AI 뉴스](https://hospital-ai-lab.com/news/): 메디칼타임즈(의료기기·AI 지면)와 병원신문에서 자동 수집. 매시간 확인
+- [AI 뉴스](https://hospital-ai-lab.com/news/): 메디칼타임즈(의료기기·AI 지면)와 병원신문을 비롯해 청년의사·의협신문·히트뉴스·의학신문 등 국내 의료·IT 매체의 AI 기사를 자동 수집. 매시간 확인
 - [정부 지원사업](https://hospital-ai-lab.com/gov-support/): 보건복지부·한국보건산업진흥원·대한병원협회 공고
 - [보건복지부 보도자료](https://hospital-ai-lab.com/gov-support/): 정부 지원사업 공고와 날짜순으로 섞어 보여 주는 보건복지부 보도자료의 본문과 원문 파일(PDF·hwpx), 공공누리 제1·3유형만. 3시간마다 확인
 - [교육·행사](https://hospital-ai-lab.com/events/)
@@ -38,7 +38,7 @@
 - [홈](https://hospital-ai-lab.com/ja/) · [用語集](https://hospital-ai-lab.com/ja/glossary/) · [よくある質問](https://hospital-ai-lab.com/ja/faq/) · [チェックリスト](https://hospital-ai-lab.com/ja/checklist/)
 - [連載シリーズ](https://hospital-ai-lab.com/ja/series/): 公開済みの記事をテーマ別に読む順で束ねたもの(AI医療機器と制度・医療情報の取り扱い・補助金など)
 - [補助金・助成金](https://hospital-ai-lab.com/ja/subsidies/): jGrants 공개 API에서 자동 수집
-- [医療AIニュース](https://hospital-ai-lab.com/ja/news/): CBnews·厚生労働省·デジタル庁에서 자동 수집
+- [医療AIニュース](https://hospital-ai-lab.com/ja/news/): CBnews·ITmedia·日経クロステック 등 매체와 厚生労働省·デジタル庁 발표에서 자동 수집
 - [医療DX年表](https://hospital-ai-lab.com/ja/dx-roadmap/): 厚生労働省告示「医療情報化推進方針」などの一次資料に基づく、病院が備える節目の年表(出典・確認日つき)
 - [制度カレンダー](https://hospital-ai-lab.com/ja/calendar/): 補助金の締切・年度の節目・検討会や公募の案内を近い順に
 - [実務ガイド](https://hospital-ai-lab.com/ja/practice/): マイナ保険証の窓口対応、サイバーセキュリティ自己点検(令和8年度チェックリスト)、院内AI利用ルールの雛形
@@ -56,7 +56,7 @@
 - 실무 가이드(`/ru/dx-roadmap/`·`/ru/data-checklist/`·`/ru/documents-checklist/`·`/ru/templates/`)·환자 코너(`/ru/patients/`)·규정 캘린더(`/ru/calendar/`, 공식 법령 공개 포털 신규 문서 자동 수집)·갱신 정보(`/ru/updates/`). 핵심 법령 5건의 КонсультантПлюс 개정일을 매일 대조한다.
 - [홈](https://hospital-ai-lab.com/ru/) · [Словарь терминов](https://hospital-ai-lab.com/ru/glossary/) · [Частые вопросы](https://hospital-ai-lab.com/ru/faq/) · [Чек-лист](https://hospital-ai-lab.com/ru/checklist/)
 - [Серии статей](https://hospital-ai-lab.com/ru/series/): 발행한 글을 주제별 읽는 순서로 묶음(규제·등록, 데이터·보안, 러시아 현장 사례)
-- [Новости об ИИ](https://hospital-ai-lab.com/ru/news/): «Медвестник»과 Vademecum에서 자동 수집 (의료 AI 전용)
+- [Новости об ИИ](https://hospital-ai-lab.com/ru/news/): «Медвестник»·Vademecum·Zdrav.ru·РИА Новости·ТАСС 등 러시아 매체에서 자동 수집 (의료 AI 전용)
 - [ИИ-дайджест](https://hospital-ai-lab.com/ru/ai-digest/): Хабр·CNews·TAdviser·3DNews의 AI 기사 — 의료에 한정하지 않은 일반 동향. 하루 여러 번 갱신
 - [Экспертиза ИИ-программ](https://hospital-ai-lab.com/ru/ai-judge/): бесплатный инструмент — по исходному коду рабочей программы, созданной с ИИ, проверяет 14 пунктов и даёт балл из 100 и уровень S–C. Правила оценки открыты, одинаковый код — одинаковый балл Код по ссылкам на GitHub, Gist и веб-страницы проверяется вместе с загруженными файлами.
 
@@ -66,7 +66,7 @@
 - 영어 전용 안내문: [llms.txt (English)](https://hospital-ai-lab.com/en/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/en/llms-full.txt) · 인용용 사실 허브 [/en/facts/](https://hospital-ai-lab.com/en/facts/)
 - 실무 가이드(`/en/dx-roadmap/`·`/en/data-checklist/`·`/en/documents-checklist/`·`/en/templates/`)·환자 코너(`/en/patients/`)·연방 관보 캘린더(`/en/calendar/`, HHS·FDA·CMS·FTC 신규 규칙 자동 수집)·갱신 정보(`/en/updates/`). 45 CFR 160·164·170·171·92의 eCFR 개정일을 매일 대조한다.
 - [홈](https://hospital-ai-lab.com/en/) · [Glossary](https://hospital-ai-lab.com/en/glossary/) · [FAQ](https://hospital-ai-lab.com/en/faq/) · [Checklist](https://hospital-ai-lab.com/en/checklist/)
-- [Article series](https://hospital-ai-lab.com/en/series/) · [AI news](https://hospital-ai-lab.com/en/news/): Fierce Healthcare·Healthcare Dive·Becker's Hospital Review에서 AI 관련 헤드라인 자동 수집 · [AI digest](https://hospital-ai-lab.com/en/ai-digest/)
+- [Article series](https://hospital-ai-lab.com/en/series/) · [AI news](https://hospital-ai-lab.com/en/news/): Fierce Healthcare·Healthcare Dive·Becker's Hospital Review·STAT·MedCity News·The New York Times 등에서 AI 관련 헤드라인 자동 수집 · [AI digest](https://hospital-ai-lab.com/en/ai-digest/)
 - [AI Program Review Room](https://hospital-ai-lab.com/en/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score Code behind GitHub, Gist and web-page links is reviewed together with the uploaded files.
 
 ## 영어판 (인도, https://hospital-ai-lab.com/in/)
@@ -75,7 +75,7 @@
 - 영어 전용 안내문: [llms.txt (English)](https://hospital-ai-lab.com/in/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/in/llms-full.txt) · 인용용 사실 허브 [/in/facts/](https://hospital-ai-lab.com/in/facts/)
 - 실무 가이드(`/in/dx-roadmap/`·`/in/data-checklist/`·`/in/documents-checklist/`·`/in/templates/`)·환자 코너(`/in/patients/`)·CDSCO 공지 캘린더(`/in/calendar/`, 의료기기·소프트웨어 관련 공지 자동 수집)·갱신 정보(`/in/updates/`).
 - [홈](https://hospital-ai-lab.com/in/) · [Glossary](https://hospital-ai-lab.com/in/glossary/) · [FAQ](https://hospital-ai-lab.com/in/faq/) · [Checklist](https://hospital-ai-lab.com/in/checklist/)
-- [Article series](https://hospital-ai-lab.com/in/series/) · [AI news](https://hospital-ai-lab.com/in/news/): ET HealthWorld·Express Healthcare·Medical Dialogues에서 AI 관련 헤드라인 자동 수집
+- [Article series](https://hospital-ai-lab.com/in/series/) · [AI news](https://hospital-ai-lab.com/in/news/): ET HealthWorld·Express Healthcare·The Economic Times·The Hindu 등에서 AI 관련 헤드라인 자동 수집
 - [AI Program Review Room](https://hospital-ai-lab.com/in/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score. Code read from GitHub, Gist and web-page links is reviewed together with the uploaded files.
 
 ## 영어판 (싱가포르, https://hospital-ai-lab.com/sg/)
@@ -84,7 +84,7 @@
 - 영어 전용 안내문: [llms.txt (English)](https://hospital-ai-lab.com/sg/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/sg/llms-full.txt) · 인용용 사실 허브 [/sg/facts/](https://hospital-ai-lab.com/sg/facts/)
 - 실무 가이드(`/sg/dx-roadmap/`·`/sg/data-checklist/`·`/sg/documents-checklist/`·`/sg/templates/`)·환자 코너(`/sg/patients/`)·HSA·MOH 지침 캘린더(`/sg/calendar/`)·갱신 정보(`/sg/updates/`).
 - [홈](https://hospital-ai-lab.com/sg/) · [Glossary](https://hospital-ai-lab.com/sg/glossary/) · [FAQ](https://hospital-ai-lab.com/sg/faq/) · [Checklist](https://hospital-ai-lab.com/sg/checklist/)
-- [Article series](https://hospital-ai-lab.com/sg/series/) · [AI news](https://hospital-ai-lab.com/sg/news/): The Straits Times·CNA에서 AI·보건 관련 헤드라인 자동 수집
+- [Article series](https://hospital-ai-lab.com/sg/series/) · [AI news](https://hospital-ai-lab.com/sg/news/): The Straits Times·CNA·Business Times·Mothership·e27에서 AI·보건 관련 헤드라인 자동 수집
 - [AI Program Review Room](https://hospital-ai-lab.com/sg/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
 
 ## 인도네시아어판 (https://hospital-ai-lab.com/id/)
@@ -94,7 +94,7 @@
 
 - [홈](https://hospital-ai-lab.com/id/) · [Kamus istilah](https://hospital-ai-lab.com/id/glossary/) · [Pertanyaan umum](https://hospital-ai-lab.com/id/faq/) · [Daftar periksa](https://hospital-ai-lab.com/id/checklist/)
 - [Seri Artikel](https://hospital-ai-lab.com/id/series/): 발행한 글을 주제별 읽는 순서로 묶음(SATUSEHAT·RME, AI·기술 평가)
-- [Berita AI](https://hospital-ai-lab.com/id/news/): PERSI와 ANTARA에서 자동 수집 (의료 AI 전용)
+- [Berita AI](https://hospital-ai-lab.com/id/news/): PERSI·ANTARA·CNN Indonesia·CNBC Indonesia·Katadata·Liputan6 등에서 자동 수집 (의료 AI 전용)
 - [Sorotan AI](https://hospital-ai-lab.com/id/ai-digest/): CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6의 AI 기사 — 의료에 한정하지 않은 일반 동향. 하루 여러 번 갱신
 - [Pelatihan & Acara](https://hospital-ai-lab.com/id/events/): PERSI·Kemenkes·PORMIKI
 - 인도네시아어 전용 안내문: [llms.txt (Bahasa Indonesia)](https://hospital-ai-lab.com/id/llms.txt)
@@ -111,7 +111,7 @@
 
 - [홈](https://hospital-ai-lab.com/tw/) · [醫療 AI 詞彙](https://hospital-ai-lab.com/tw/glossary/) · [常見問題](https://hospital-ai-lab.com/tw/faq/) · [檢核表](https://hospital-ai-lab.com/tw/checklist/)
 - [系列專欄](https://hospital-ai-lab.com/tw/series/): 발행한 글을 주제별 읽는 순서로 묶음(의료기기 법규, 병력·환자 자료, 도입 전 평가)
-- [AI 新聞](https://hospital-ai-lab.com/tw/news/): 中央社·科技新報·健康醫療網·衛生福利部·食品藥物管理署에서 자동 수집
+- [AI 新聞](https://hospital-ai-lab.com/tw/news/): 中央社·自由時報·ETtoday·科技新報·iThome·衛生福利部 등에서 자동 수집
 - [教育與活動](https://hospital-ai-lab.com/tw/events/): 中央社 보도와 衛生福利部 공고
 - [智慧醫療與 AI 規範年表](https://hospital-ai-lab.com/tw/dx-roadmap/): 人工智慧基本法·資通安全管理法·個資法 修正·衛福部 생성형 AI 지침·病歷 互通(FHIR) 등을 1차 자료로 확인한 연표(출처·확인일 표기, 보도 기반 항목은 「報導」로 구분)
 - [制度日曆](https://hospital-ai-lab.com/tw/calendar/): 衛福部 보조·신청·설명회 공고(자동 수집)와 제도 시점

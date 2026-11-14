@@ -1,5 +1,5 @@
 ---
-// AI news — automatically collected list from ET HealthWorld, Express Healthcare and Medical Dialogues (same pattern as ko news.astro).
+// AI news — automatically collected list from Indian health-sector and national outlets (see scripts/wide-sources.mjs; same pattern as ko news.astro).
 // hreflang을 걸지 않는다 — 자동 수집 목록은 언어판마다 완전히 다른 기사
 // 목록이라, 번역 관계가 아닌 페이지에 alternate를 걸면 검색엔진에 잘못된
 // 신호가 된다(ko news.astro도 jaPath가 없다 — 같은 원칙).
@@ -25,7 +25,7 @@ const collectionPage = {
   url: pageUrl,
   name: en.nav.news,
   description:
-    'Headlines about artificial intelligence in health care from ET HealthWorld, Express Healthcare and Medical Dialogues, collected automatically.',
+    'Headlines about artificial intelligence in health care from ET HealthWorld, Express Healthcare, The Economic Times, The Hindu, The Indian Express and other outlets, collected automatically.',
   inLanguage: 'en-IN',
   isPartOf: { '@id': `${siteUrl}/#website-in` },
   dateModified: news.updatedAt ?? new Date().toISOString(),
@@ -44,7 +44,7 @@ const collectionPage = {
 
 <InLayout
   title="AI news for Indian health care"
-  description="Headlines about AI in Indian health care from ET HealthWorld, Express Healthcare and Medical Dialogues, collected automatically several times a day."
+  description="Headlines about AI in Indian health care from ET HealthWorld, Express Healthcare, The Economic Times, The Hindu, The Indian Express and other outlets, collected automatically several times a day."
   crumb={en.nav.news}
   koPath="/news/"
   standalone
@@ -53,7 +53,7 @@ const collectionPage = {
 >
   <h1>{en.nav.news}</h1>
   <p class="en-lead">
-    Headlines that mention artificial intelligence are collected from ET HealthWorld, Express Healthcare and Medical Dialogues several times a day. Older items are not deleted.
+    Headlines that mention artificial intelligence are collected several times a day from ET HealthWorld, Express Healthcare, Medical Dialogues, The Economic Times, The Hindu, Hindustan Times, The Indian Express, Mint, Analytics India Magazine, YourStory, Inc42, MediaNama and Scroll.in. Older items are not deleted.
   </p>
 
   {
@@ -78,8 +78,7 @@ const collectionPage = {
 
   <div class="en-note">
     <p>
-      This list is built automatically from articles of ET HealthWorld, Express Healthcare and Medical Dialogues
-      Hospital Review that mention artificial intelligence. It is not an editorial selection: the site
+      This list is built automatically from articles of the outlets named above that mention artificial intelligence. It is not an editorial selection: the site
       does not choose or recommend particular items. A headline leads to the original article on the
       publisher’s site. We copy only the headline, date and link.
     </p>

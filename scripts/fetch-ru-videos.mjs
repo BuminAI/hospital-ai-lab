@@ -15,10 +15,12 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/ru/content/videos-local.json', import.meta.url);
-const MAX_NEW = 2;
-const MAX_AUTO = 60;
+const MAX_NEW = 8; // 실행 1회당 최대 추가(2026-11-14: 2 → 8, 오너 지시 "매일 충분히")
+const MAX_AUTO = 500; // 자동 추가분 누적 상한(2026-11-14: 60 → 500)
 const RECENT_DAYS = 365;
 const MIN_VIEWS = 1000;
+const RELAX_DAYS = 730; // 후보가 모자랄 때만 쓰는 완화 기준(제목·채널 규칙은 그대로)
+const RELAX_VIEWS = 300;
 
 const QUERIES = [
   'искусственный интеллект в медицине',
@@ -40,6 +42,18 @@ const QUERIES = [
   'цифровизация здравоохранения Узбекистан',
   'искусственный интеллект медицина Кыргызстан',
   'ИИ в медицине Армения',
+  // 2026-11-14 확대
+  "нейросети в медицине врачи",
+  "ИИ в диагностике рак Россия",
+  "Минздрав искусственный интеллект приказ",
+  "телемедицина закон",
+  "цифровой профиль пациента",
+  "ИИ рентген описание снимков",
+  "нейросеть поликлиника запись",
+  "персональные данные медицинских организаций",
+  "ИИ-помощник врача",
+  "Сеченовский университет искусственный интеллект",
+  "Москва ИИ поликлиники эксперимент",
 ];
 
 const AI_SIGNAL =
@@ -49,7 +63,7 @@ const CLICKBAIT =
   /шок|сенсаци|скандал|взорвал|тайн|разоблач|заработ|\bреклама\b|#shorts|акци[яи]|скидк|умрут|смертельн|[%％]|[0-9]+\s*(?:раз(?:а)?|x)(?![а-я])/i; // заголовки с цифрами эффекта (○% / ○ раз) тоже исключаем (могут читаться как гарантия результата)
 // 공적 기관·공영·통신사·탐사 비영리 매체만
 const CHANNEL_ALLOW =
-  /Минздрав|Министерство здравоохранения|Росздравнадзор|ФФОМС|Роскомнадзор|ТАСС|РИА Новости|Россия 24|Первый канал|РБК|Известия|Москва 24|Мэр Москвы|Правительство Москвы|ВЦИОМ|Медвестник|Интерфакс|Вести|НТВ|ТВ Центр|Минцифры|Правительство России|Департамент здравоохранения|Первый медицинский канал|Телеканал «Доктор»|Высшая школа экономики|Euronews по-русски|Министерство здравоохранения Республики|Министерство здравоохранения РК|Республиканский центр электронного здравоохранения|Қазақстан Республикасы Денсаулық|Казинформ|Хабар|Qazaqstan|Телеканал 24kz|Almaty TV|Aqparat|БЕЛТА|Беларусь 1|Белтелерадиокомпания|ОНТ|СТВ|Кабар|Raqamli texnologiyalar vazirligi|Sog.liqni saqlash vazirligi|Минздрав Узбекистана|Узбекистан 24|Armenpress|АРМЕНПРЕСС|Sputnik/i;
+  /Минздрав|Министерство здравоохранения|Росздравнадзор|ФФОМС|Роскомнадзор|ТАСС|РИА Новости|Россия 24|Первый канал|РБК|Известия|Москва 24|Мэр Москвы|Правительство Москвы|ВЦИОМ|Медвестник|Интерфакс|Вести|НТВ|ТВ Центр|Минцифры|Правительство России|Департамент здравоохранения|Первый медицинский канал|Телеканал «Доктор»|Высшая школа экономики|Euronews по-русски|Министерство здравоохранения Республики|Министерство здравоохранения РК|Республиканский центр электронного здравоохранения|Қазақстан Республикасы Денсаулық|Казинформ|Хабар|Qazaqstan|Телеканал 24kz|Almaty TV|Aqparat|БЕЛТА|Беларусь 1|Белтелерадиокомпания|ОНТ|СТВ|Кабар|Raqamli texnologiyalar vazirligi|Sog.liqni saqlash vazirligi|Минздрав Узбекистана|Узбекистан 24|Armenpress|АРМЕНПРЕСС|Sputnik|RT на русском|Россия-1|Звезда|Роспотребнадзор|Минпромторг|Сеченовский|РАН|Коммерсантъ|Ведомости|Lenta|Газета\.Ru|Life|Mash|Рен ТВ|СТС|ОТР|Общественное телевидение/i;
 const channelOk = (ch) => CHANNEL_ALLOW.test(ch || '');
 const okTitle = (t) => AI_SIGNAL.test(t) && MEDICAL.test(t) && !CLICKBAIT.test(t) && [...t].length <= 110;
 
@@ -165,14 +179,13 @@ async function main() {
     return;
   }
 
-  const cand = new Map();
+  const pool = new Map();
   let okQueries = 0;
   for (const q of QUERIES) {
     try {
       for (const it of await search(q)) {
         if (!okTitle(it.title) || !channelOk(it.channel)) continue;
-        if (daysAgo(it.pub) > RECENT_DAYS || it.views < MIN_VIEWS) continue;
-        if (!cand.has(it.videoId)) cand.set(it.videoId, it);
+        if (!pool.has(it.videoId)) pool.set(it.videoId, it);
       }
       okQueries++;
     } catch (e) {
@@ -184,10 +197,19 @@ async function main() {
     process.exit(1);
   }
 
+  // 엄격 기준(최근 RECENT_DAYS일·조회 MIN_VIEWS 이상)으로 먼저 거르고, 후보가 MAX_NEW*2보다 적으면
+  // 기간·조회수 기준을 완화해 채운다. 제목(AI+의료 신호, 낚시 제외)과 허용 채널 규칙은 완화하지 않는다.
+  const cand = new Map();
+  for (const it of pool.values()) if (daysAgo(it.pub) <= RECENT_DAYS && it.views >= MIN_VIEWS) cand.set(it.videoId, it);
+  if (cand.size < MAX_NEW * 2) {
+    for (const it of pool.values()) {
+      if (!cand.has(it.videoId) && daysAgo(it.pub) <= RELAX_DAYS && it.views >= RELAX_VIEWS) cand.set(it.videoId, it);
+    }
+  }
   const sorted = [...cand.values()].sort((a, b) => b.views - a.views);
   const now = new Date().toISOString();
   const fresh = [];
-  for (const p of sorted.slice(0, 30)) {
+  for (const p of sorted.slice(0, 80)) {
     if (fresh.length >= MAX_NEW) break;
     if (ids.has(p.videoId)) continue;
     const v = await verify(p.videoId);

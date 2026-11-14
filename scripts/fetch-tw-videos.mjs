@@ -15,10 +15,12 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/tw/content/videos-local.json', import.meta.url);
-const MAX_NEW = 2;
-const MAX_AUTO = 60;
+const MAX_NEW = 8; // 실행 1회당 최대 추가(2026-11-14: 2 → 8, 오너 지시 "매일 충분히")
+const MAX_AUTO = 500; // 자동 추가분 누적 상한(2026-11-14: 60 → 500)
 const RECENT_DAYS = 365;
 const MIN_VIEWS = 1000;
+const RELAX_DAYS = 730; // 후보가 모자랄 때만 쓰는 완화 기준(제목·채널 규칙은 그대로)
+const RELAX_VIEWS = 300;
 
 const QUERIES = [
   '智慧醫療',
@@ -31,6 +33,18 @@ const QUERIES = [
   '護理 AI',
   '醫療器材 AI',
   '遠距醫療',
+  // 2026-11-14 확대
+  "AI 診斷",
+  "智慧病房",
+  "台灣 醫療 AI 新創",
+  "健保署 AI",
+  "電子病歷 資安",
+  "長照 AI",
+  "醫院 生成式AI",
+  "衛福部 AI 指引",
+  "台大醫院 AI",
+  "AI 影像判讀",
+  "醫材 查驗 AI",
 ];
 
 const AI_SIGNAL =
@@ -40,7 +54,7 @@ const CLICKBAIT =
   /震驚|驚人|爆紅|秒殺|賺錢|副業|內幕|曝光|害命|喪命|致命|恐怖|慘|崩潰|暴雷|必看|不看會後悔|#shorts|PR\b|業配|廣告|[%％]|[0-9]+\s*倍/i; // 효과 수치(○%·○倍)가 든 제목도 뺀다(효과 보장으로 읽힐 수 있음)
 // 공적 기관·공영·통신사·탐사 비영리 매체만
 const CHANNEL_ALLOW =
-  /衛生福利部|衛福部|疾病管制署|食品藥物管理署|國民健康署|全民健康保險署|健保署|國家衛生研究院|數位發展部|國家科學及技術委員會|公視|公共電視|PNN|中央通訊社|CNA|報導者|台視新聞|華視新聞|TVBS NEWS/i;
+  /衛生福利部|衛福部|疾病管制署|食品藥物管理署|國民健康署|全民健康保險署|健保署|國家衛生研究院|數位發展部|國家科學及技術委員會|公視|公共電視|PNN|中央通訊社|CNA|報導者|台視新聞|華視新聞|TVBS NEWS|東森|三立|民視|中天|年代|壹電視|聯合新聞網|udn|自由時報|ETtoday|中時|鏡新聞|Mirror|大愛|台灣大哥大|國家發展委員會|行政院|立法院|台大醫院|醫策會|台灣醫療科技展|TAIWAN EXCELLENCE/i;
 const channelOk = (ch) => CHANNEL_ALLOW.test(ch || '');
 // 간체자 표지(제목에 하나라도 있으면 정체자 영상이 아니다)
 const SIMPLIFIED = /[医药疗术网软务护险诊录实验际]/;
@@ -158,14 +172,13 @@ async function main() {
     return;
   }
 
-  const cand = new Map();
+  const pool = new Map();
   let okQueries = 0;
   for (const q of QUERIES) {
     try {
       for (const it of await search(q)) {
         if (!okTitle(it.title) || !channelOk(it.channel)) continue;
-        if (daysAgo(it.pub) > RECENT_DAYS || it.views < MIN_VIEWS) continue;
-        if (!cand.has(it.videoId)) cand.set(it.videoId, it);
+        if (!pool.has(it.videoId)) pool.set(it.videoId, it);
       }
       okQueries++;
     } catch (e) {
@@ -177,10 +190,19 @@ async function main() {
     process.exit(1);
   }
 
+  // 엄격 기준(최근 RECENT_DAYS일·조회 MIN_VIEWS 이상)으로 먼저 거르고, 후보가 MAX_NEW*2보다 적으면
+  // 기간·조회수 기준을 완화해 채운다. 제목(AI+의료 신호, 낚시 제외)과 허용 채널 규칙은 완화하지 않는다.
+  const cand = new Map();
+  for (const it of pool.values()) if (daysAgo(it.pub) <= RECENT_DAYS && it.views >= MIN_VIEWS) cand.set(it.videoId, it);
+  if (cand.size < MAX_NEW * 2) {
+    for (const it of pool.values()) {
+      if (!cand.has(it.videoId) && daysAgo(it.pub) <= RELAX_DAYS && it.views >= RELAX_VIEWS) cand.set(it.videoId, it);
+    }
+  }
   const sorted = [...cand.values()].sort((a, b) => b.views - a.views);
   const now = new Date().toISOString();
   const fresh = [];
-  for (const p of sorted.slice(0, 30)) {
+  for (const p of sorted.slice(0, 80)) {
     if (fresh.length >= MAX_NEW) break;
     if (ids.has(p.videoId)) continue;
     const v = await verify(p.videoId);

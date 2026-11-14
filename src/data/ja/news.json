@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-13T11:37:58.929Z",
-  "source": "CBnews・厚生労働省・デジタル庁",
+  "updatedAt": "2026-11-14T12:46:04.611Z",
+  "source": "CBnews・厚生労働省・デジタル庁 · ITmedia · CBnews · 厚生労働省 · デジタル庁",
   "items": [
     {
       "title": "自治体が実施する健康・医療・介護分野の事業のデジタル化（PMH）ー医療費助成に関するダッシュボードを更新しました",
@@ -15,16 +15,74 @@
       "pubDate": "2026-11-13T06:00:00.000Z"
     },
     {
+      "title": "AIに書かせたkintoneのコード、そのまま使って大丈夫？ 無料診断の提供始まる",
+      "link": "https://kn.itmedia.co.jp/kn/article/2611/13/2000003159/",
+      "source": "ITmedia",
+      "pubDate": "2026-11-12T21:00:00.000Z"
+    },
+    {
       "title": "一般競争入札：令和8年度AIを活用した情報システム調達の評価に係る調査等業務を掲載しました",
       "link": "https://www.digital.go.jp/procurement",
       "source": "デジタル庁",
       "pubDate": "2026-11-12T06:00:00.000Z"
     },
     {
+      "title": "Google DeepMind、「AlphaGenome 2」発表 細胞の種類ごとにDNA変異の影響を予測するAI",
+      "link": "https://www.itmedia.co.jp/news/article/2611/12/2000003132/",
+      "source": "ITmedia",
+      "pubDate": "2026-11-12T02:29:43.000Z"
+    },
+    {
+      "title": "介護被保険者の預貯金把握で「マイナンバー付番を」-厚労省・中間まとめ",
+      "link": "https://www.cbnews.jp/news/entry/20261111175022",
+      "source": "CBnews",
+      "pubDate": "2026-11-11T09:05:00.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "電子カルテ普及 財務省案は「全く容認できず」日医-関連加算の廃止に「断固反対」",
+      "link": "https://www.cbnews.jp/news/entry/20261111172254",
+      "source": "CBnews",
+      "pubDate": "2026-11-11T08:56:00.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "薬事審議会 医療機器・体外診断薬部会を開催します",
+      "link": "https://www.mhlw.go.jp/stf/newpage_77330.html",
+      "source": "厚生労働省",
+      "pubDate": "2026-11-11T05:00:00.000Z"
+    },
+    {
+      "title": "「盗撮」→「法律で規制」が話題のAI眼鏡 海外では大ヒットなのに、日本での普及は限定的 ビジネスでの活用事例を探る",
+      "link": "https://www.itmedia.co.jp/news/article/2611/11/2000002913/",
+      "source": "ITmedia",
+      "pubDate": "2026-11-10T20:00:00.000Z"
+    },
+    {
+      "title": "情報漏えい対策でAI活用を促す-アプリの設計・開発、委託先管理の徹底も 厚労省",
+      "link": "https://www.cbnews.jp/news/entry/20261109171720",
+      "source": "CBnews",
+      "pubDate": "2026-11-09T08:29:00.000Z"
+    },
+    {
       "title": "「自治体からの照会事務の自動化などの国・地方AI共通サービスに関する実証事業」に関する自治体版バイバインシステム導通確認手順書を掲載しました",
       "link": "https://www.digital.go.jp/policies/genai/0ef07948-2f5d-4b45-8ebe-ea974c20a3ac",
       "source": "デジタル庁",
       "pubDate": "2026-11-09T06:00:00.000Z"
+    },
+    {
+      "title": "サイバー攻撃で緊急対策を決定 政府-医療機関への防衛支援、人材育成を急ぐ",
+      "link": "https://www.cbnews.jp/news/entry/20261106152012",
+      "source": "CBnews",
+      "pubDate": "2026-11-06T09:02:00.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "地域連携薬局や調剤外部委託の要件示す-改正薬機法の施行通知",
+      "link": "https://www.cbnews.jp/news/entry/20261106122614",
+      "source": "CBnews",
+      "pubDate": "2026-11-06T04:00:00.000Z",
+      "tier": "B"
     },
     {
       "title": "ガバメントAI 源内に関する「行政実務用RAG」の解説動画を掲載しました",
@@ -45,10 +103,24 @@
       "pubDate": "2026-11-02T08:16:27.000Z"
     },
     {
+      "title": "約8.8万人分の患者情報入りHDDを紛失 佐久総合病院-管理規程守られず",
+      "link": "https://www.cbnews.jp/news/entry/20261102144944",
+      "source": "CBnews",
+      "pubDate": "2026-11-02T08:00:00.000Z",
+      "tier": "B"
+    },
+    {
       "title": "自治体・医療機関等をつなぐ情報連携システム（Public Medical Hub：PMH）に係る「先行実施事業の実施状況」「自治体・自治体システムベンダー向けの情報」「医療機関・薬局システムベンダー向けの情報」の資料を更新しました",
       "link": "https://www.digital.go.jp/policies/health/public-medical-hub",
       "source": "デジタル庁",
       "pubDate": "2026-10-30T06:00:00.000Z"
+    },
+    {
+      "title": "オンライン診療の不正ログイン、対策強化を要請-多要素認証などの徹底求める 厚労省",
+      "link": "https://www.cbnews.jp/news/entry/20261030132022",
+      "source": "CBnews",
+      "pubDate": "2026-10-30T04:30:00.000Z",
+      "tier": "B"
     },
     {
       "title": "令和８年度（令和７年度からの繰越分）医療提供体制施設整備交付金（２次募集）の交付額の内示について",
@@ -67,6 +139,12 @@
       "link": "https://www.digital.go.jp/policies/genai/b736d2d7-b03b-43f0-9932-eba7da7f8142",
       "source": "デジタル庁",
       "pubDate": "2026-10-29T23:48:18.000Z"
+    },
+    {
+      "title": "製造業のAIネイティブ化の道筋は？ 将来のAIの役割から「逆算」で診断するサービスが登場",
+      "link": "https://www.itmedia.co.jp/enterprise/articles/2610/29/news011.html",
+      "source": "ITmedia",
+      "pubDate": "2026-10-28T23:00:00.000Z"
     },
     {
       "title": "第6回先進的AI利活用アドバイザリーボードの議事要旨を掲載しました",
