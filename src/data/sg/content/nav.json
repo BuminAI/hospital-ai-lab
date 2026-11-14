@@ -1,0 +1,117 @@
+[
+  {
+    "href": "/sg/",
+    "key": "home",
+    "enabled": true
+  },
+  {
+    "href": "/sg/about/",
+    "key": "about",
+    "enabled": true
+  },
+  {
+    "href": "/sg/blog/",
+    "key": "blog",
+    "enabled": true
+  },
+  {
+    "href": "/sg/series/",
+    "key": "series",
+    "enabled": true
+  },
+  {
+    "href": "/sg/news/",
+    "key": "news",
+    "enabled": true
+  },
+  {
+    "href": "/sg/practice/",
+    "key": "practice",
+    "enabled": true
+  },
+  {
+    "href": "/sg/patients/",
+    "key": "patients",
+    "enabled": true
+  },
+  {
+    "href": "/sg/ai-digest/",
+    "key": "aiDigest",
+    "enabled": true
+  },
+  {
+    "href": "/sg/gov-support/",
+    "key": "govSupport",
+    "enabled": true
+  },
+  {
+    "href": "/sg/events/",
+    "key": "events",
+    "enabled": true
+  },
+  {
+    "href": "/sg/videos/",
+    "key": "videos",
+    "enabled": true
+  },
+  {
+    "href": "/sg/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/sg/guide/",
+    "key": "guide",
+    "enabled": true
+  },
+  {
+    "href": "/sg/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/sg/checklist/",
+    "key": "checklist",
+    "enabled": true
+  },
+  {
+    "href": "/sg/faq/",
+    "key": "faq",
+    "enabled": true
+  },
+  {
+    "href": "/sg/ai-judge/",
+    "key": "aiJudge",
+    "enabled": true
+  },
+  {
+    "href": "/sg/updates/",
+    "key": "updates",
+    "enabled": true
+  },
+  {
+    "href": "/sg/dx-roadmap/",
+    "key": "dxRoadmap",
+    "enabled": true
+  },
+  {
+    "href": "/sg/calendar/",
+    "key": "calendar",
+    "enabled": true
+  },
+  {
+    "href": "/sg/documents-checklist/",
+    "key": "documentsChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/sg/data-checklist/",
+    "key": "dataChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/sg/templates/",
+    "key": "templates",
+    "enabled": true
+  }
+]

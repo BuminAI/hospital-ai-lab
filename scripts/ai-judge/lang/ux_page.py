@@ -176,3 +176,4 @@ UXP['tw'] = dict(
 # English (India) edition: same wording as the U.S. edition (2026-11-07)
 import copy
 UXP['in'] = copy.deepcopy(UXP['en'])
+UXP['sg'] = copy.deepcopy(UXP['en'])

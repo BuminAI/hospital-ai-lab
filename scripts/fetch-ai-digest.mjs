@@ -93,6 +93,20 @@ const CONFIG = {
       /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|nfl|nba/i,
     pro: /law|legislat\w*|regulat\w*|congress|senate|white\s+house|\bFDA\b|\bFTC\b|\bHHS\b|\bNIST\b|policy|privacy|data\s+protection|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|research|study|benchmark|safety|audit|governance|compliance|procurement|government|federal|state\s+attorney/i,
   },
+  sg: {
+    out: 'src/data/sg/ai-digest.json',
+    // Singapore news outlets (RSS verified reachable on 2026-11-14); a practical-signal filter (policy, regulation,
+    // organisations, security, health) is required so the list stays relevant to a hospital reader.
+    requirePro: true,
+    feeds: [
+      ['The Straits Times', 'https://www.straitstimes.com/news/singapore/rss.xml'],
+      ['CNA', 'https://www.channelnewsasia.com/rssfeeds/8395986'],
+    ],
+    ai: /(?<![A-Za-z])AI(?![A-Za-z])|artificial\s+intelligence|machine\s+learning|deep\s+learning|large\s+language\s+model|\bLLMs?\b|generative|chatbot|ChatGPT|OpenAI|Anthropic|Gemini|Copilot|neural\s+network/i,
+    noise:
+      /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|nfl|nba/i,
+    pro: /MOH|HSA|PDPC|IMDA|Synapxe|CSA|law|legislat\w*|regulat\w*|congress|senate|white\s+house|\bFDA\b|\bFTC\b|\bHHS\b|\bNIST\b|policy|privacy|data\s+protection|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|research|study|benchmark|safety|audit|governance|compliance|procurement|government|federal|state\s+attorney/i,
+  },
   id: {
     out: 'src/data/id/ai-digest.json',
     // 인도네시아 일반 매체는 AI 기사 자체가 적어(325건 중 25건) 실무 신호까지

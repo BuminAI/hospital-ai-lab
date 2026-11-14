@@ -1,0 +1,195 @@
+{
+  "_comment": "UI strings for the English (Singapore) edition (2026-11-14). The content is NOT a translation of the Korean site or a copy of the U.S. or India edition: it is written from Singaporean primary documents that were actually opened (HSA's GL-04-R4, GL-07-R2 and GN-37-R1, the Ministry of Health's AI in Healthcare Guidelines 2.0, the PDPC's Guide on Managing and Notifying Data Breaches). Style: plain, polite Singapore-international English with British spelling as the source documents use it ('organisation', 'licence' for the noun); second person is fine; no hype; use 'AI' after the first mention; write amounts as S$. Singapore Statutes Online refused automated requests, so no section of an Act is cited from the Act itself; do not state facts that rest only on it or on secondary summaries.",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "glossary": "Glossary",
+    "faq": "FAQ",
+    "checklist": "Adoption checklist",
+    "guide": "Start here",
+    "tips": "Practical tips",
+    "videos": "Videos",
+    "news": "AI news",
+    "events": "Training & events",
+    "govSupport": "Government resources",
+    "blog": "Blog",
+    "aiDigest": "AI digest",
+    "aiJudge": "AI program review",
+    "practice": "Practice guides",
+    "patients": "For patients",
+    "updates": "Updates",
+    "dxRoadmap": "Roadmap",
+    "calendar": "HSA and MOH calendar",
+    "documentsChecklist": "Device checklist",
+    "dataChecklist": "Data checklist",
+    "templates": "Templates",
+    "series": "Article series"
+  },
+  "footer": {
+    "about": "About",
+    "privacy": "Privacy policy",
+    "contact": "Contact",
+    "sitemap": "Sitemap",
+    "rss": "RSS feed"
+  },
+  "editions": {
+    "title": "Other language editions",
+    "ko": "Korean edition （한국어）",
+    "ja": "Japanese edition （日本語）",
+    "ru": "Russian edition （Русский）",
+    "id": "Indonesian edition （Indonesia）",
+    "tw": "Traditional Chinese edition （繁體中文）",
+    "en": "English edition for the United States",
+    "in": "English edition for India",
+    "sg": "English edition for Singapore"
+  },
+  "ui": {
+    "updated": "Updated",
+    "new": "New",
+    "external": "Opens in a new tab",
+    "breadcrumbHome": "Home",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "source": "Source",
+    "deadline": "Deadline",
+    "noItems": "There is nothing in this section yet.",
+    "langKo": "Korean edition (한국어)",
+    "langJa": "Japanese edition (日本語)",
+    "sidebarProfileTitle": "About the author",
+    "disclaimer": "The material on this site is general information for education. It is not legal advice, and it does not replace medical advice about a specific patient.",
+    "underConstruction": "The Singapore edition is being built in stages as each source is checked."
+  },
+  "profile": {
+    "name": "Youngho Cho (조영호)",
+    "role": "Director, Hospital AI Lab (병원 AI 연구소)",
+    "education": "Master's in statistics; PhD in economics.",
+    "educationShort": "MS statistics, PhD economics",
+    "youtube": "YouTube channel",
+    "nameShort": "Youngho Cho"
+  },
+  "home": {
+    "metaTitle": "Hospital AI in Singapore: HSA, MOH and PDPC guidance explained",
+    "metaDescription": "Practice guides for Singapore hospital administrators and nurse leaders: when AI software is a medical device under HSA's guidelines, what the Ministry of Health's AI guidelines ask of a hospital, and how fast to report a data breach, each with its source.",
+    "heroEyebrow": "MEDICAL AI FOR HOSPITAL ADMINISTRATION AND NURSING",
+    "heroTitle": "Medical AI, seen from the hospital desk.",
+    "heroTitle2": "I read medical AI in the language of the people who run hospitals.",
+    "heroLead": "The question is not how new a technology is. It is whether your hospital can actually use it, and on what legal footing. These pages are written for administrators who decide on adoption, review vendor proposals and own budgets, and for nursing staff whose daily work changes when a system goes live.",
+    "ctaAbout": "About the author",
+    "introTitle": "About this site",
+    "introBody": "Hospital AI Lab is a site for people who decide whether a hospital adopts medical AI. It is not a technical manual for developers. The pages cover the questions that administration and nursing run into: whether a product counts as a medical device, how patient data may be used, and what changes in daily work. The content is general information drawn from official documents. It is not legal advice and it does not replace advice about a specific patient.",
+    "koNoticeTitle": "The Korean edition",
+    "koNoticeBody": "The main edition of the site is in Korean and has been running since 2026. This English edition for Singapore is new and has fewer pages. It is written by the same author, who works from South Korea, from Singaporean documents that were opened and read; it is not a translation.",
+    "resourcesTitle": "On this site",
+    "glossaryDesc": "Medical AI terms you meet in vendor proposals and meetings, explained in plain language.",
+    "faqDesc": "Answers to the questions people ask most when they consider AI in a Singapore hospital.",
+    "guideDesc": "Where to start if you have no technical background: five steps in order.",
+    "checklistDesc": "Questions to put to a vendor when you receive a specific proposal.",
+    "homeNewsTitle": "Latest AI news",
+    "homeNewsMore": "All AI news →",
+    "homeFaqTitle": "Questions about this site",
+    "homeFaqMore": "Questions about medical AI →",
+    "homeFaq": [
+      {
+        "q": "Who is this site for?",
+        "a": "Mainly people in hospital administration and nursing: planning and finance, IT, compliance, and nurse managers. It is not a site only for physicians. Deciding on adoption, reviewing a proposal and managing the budget are administrative work. Responding to system alerts and adjusting workflows is nursing work."
+      },
+      {
+        "q": "Where does the information come from?",
+        "a": "Statements about rules in the practice guides, glossary and checklists cite a primary document that was opened and read: HSA's guidelines on software medical devices (GL-04-R4, GL-07-R2, GN-37-R1), the Ministry of Health's AI in Healthcare Guidelines 2.0 and the PDPC's guide on data breaches. AI news headlines are collected automatically from The Straits Times and CNA, and new HSA guidance documents are listed as they appear. Singapore Statutes Online did not answer automated requests, so no section of an Act is quoted from the Act itself."
+      },
+      {
+        "q": "How often is the site updated?",
+        "a": "News and HSA guidance are checked several times a day, and the links to sources are checked daily. A page changes only when something new appears. Each practice guide shows the date it was last checked."
+      },
+      {
+        "q": "Is this a translation of the Korean edition or the U.S. edition?",
+        "a": "No. The Singapore edition is written from scratch from Singaporean documents such as HSA's software guidelines, the Ministry of Health's AI guidelines and the PDPC's breach guide. The content differs from the Korean edition and from the English editions for the United States and India."
+      }
+    ],
+    "aiDigestDesc": "AI news from Singapore news outlets: regulation, data, security."
+  },
+  "about": {
+    "metaTitle": "About the author",
+    "metaDescription": "The author of Hospital AI Lab, a hospital practitioner who reads medical AI from the side of administrators and nurse leaders. This edition covers Singapore.",
+    "pageTitle": "About the author",
+    "pageLead": "This site is run by a hospital administration practitioner, not a clinician. I look at medical AI from the side of the people who decide whether to adopt it.",
+    "whyTitle": "Why I run this site",
+    "why": "When a hospital starts talking about AI, the first person to read the proposal is more often an administrator than a physician. Vendor material usually describes what the product can do and says little about what will actually change in the hospital's daily work. In hospital planning I often saw decisions that had to be made before all the information was in. I want to fill that gap a little at a time, not with a collection of impressive case studies but with material that helps you check whether a decision fits your own hospital.",
+    "stanceTitle": "Whose point of view this site takes",
+    "stance": "This site is not written only for physicians. Administration decides on adoption and budget, and nursing staff deal every day with changed workflows and system alerts. So instead of accuracy figures alone, the pages ask first who gets more work and how a new system connects to the EHR already in use. Specialist terms are explained in plain words where possible.",
+    "methodTitle": "How this site is made",
+    "method": "I am not a programmer. I am someone who spent many years in a hospital. The material and the technical side of this site are produced in dialogue with generative AI, so I cannot explain the code line by line. What I can do is show openly, on this site and on the YouTube channel, why a decision was made and how facts were checked.",
+    "principlesTitle": "How material is written and checked",
+    "principlesLead": "Material is written so that people in hospital administration and nursing can follow the links and check what is said. These are the rules.",
+    "principles": [
+      {
+        "title": "Claims are backed by sources.",
+        "body": "Statements about rules, figures and examples link to primary sources: agency texts, research papers and press reports."
+      },
+      {
+        "title": "Sources are opened before publication.",
+        "body": "The link must work and must actually support what the page says."
+      },
+      {
+        "title": "What cannot be verified is not published.",
+        "body": "Unconfirmed statements are deleted, and medical information we are not sure about is left out."
+      },
+      {
+        "title": "General information only.",
+        "body": "No advice on diagnosing or treating a specific patient, and no promotion of particular hospitals or products. Every page ends with a disclaimer."
+      },
+      {
+        "title": "Errors are fixed and the date of the fix is kept.",
+        "body": "If an error or a missing source turns up after publication, the page is corrected and the change date shows in the Updated line. If you notice an inaccuracy, write to the address at the bottom of the page."
+      }
+    ],
+    "researchTitle": "Research areas",
+    "researchAreas": [
+      {
+        "title": "Hospital operations data and AI",
+        "body": "Drawing on hospital planning experience, we study how to pull the signals needed for decisions out of clinical and administrative data. We also look at the risks of adopting AI tools without enough evidence."
+      },
+      {
+        "title": "AI education for hospital staff",
+        "body": "For administrative and nursing staff with no coding background, we pass on the minimum knowledge needed to judge an AI adoption, through lecture notes and video lessons. The focus is on reading a proposal and asking the right questions, not on building the technology."
+      },
+      {
+        "title": "AI research collaboration",
+        "body": "We look for collaboration with practitioners in hospital administration and nursing and with researchers from many fields, to widen research on medical AI. We want to form new questions where field experience meets research."
+      },
+      {
+        "title": "AI for hospital planners",
+        "body": "Not clinical data science, but AI tools and methods that hospital planning and administration staff can use directly in their own work."
+      }
+    ],
+    "contactTitle": "Contact",
+    "contact": "If you notice an inaccuracy, want to suggest a topic, or want to discuss collaboration, write to the email address below. It helps if you include your organization and name."
+  },
+  "glossary": {
+    "metaTitle": "Medical AI glossary for Singapore hospitals",
+    "metaDescription": "Medical AI terms from vendor proposals and meetings in plain language, from software as a medical device and HSA risk classes to the terms in the Ministry of Health’s AI guidelines.",
+    "pageTitle": "Medical AI glossary",
+    "pageLead": "Medical AI terms you meet in proposals and meetings, collected to the extent needed for a practical assessment. You can jump straight to a term by its name.",
+    "caution": "Terms tied to regulation are given as of the time of writing, based on the Singaporean documents read then. They are summaries, not the text of the law. Before you decide, check the primary source and, where needed, ask a specialist.",
+    "notice": "This glossary is not a translation of the Korean or Japanese edition, and not a copy of the U.S. or India edition. Each regulatory entry is written from a Singaporean official document that was opened and read. Anything we could not confirm is left out.",
+    "countLabel": "Number of terms"
+  },
+  "faq": {
+    "metaTitle": "FAQ: adopting AI in a Singapore hospital",
+    "metaDescription": "Answers to common questions from administrators and nursing staff about adopting AI: is it a medical device, what the Ministry of Health expects, and what to ask a vendor.",
+    "pageTitle": "Frequently asked questions",
+    "pageLead": "Questions that come up most often when a hospital considers medical AI. Select a question to see the answer.",
+    "notice": "Regulation changes, so for important decisions check the primary source linked in each answer.",
+    "countLabel": "Number of questions"
+  },
+  "aiDigest": {
+    "pageTitle": "AI digest: technology beyond medicine",
+    "metaDescription": "AI news from Singapore news outlets: regulation, data, security and adoption. Updated several times a day.",
+    "lead": "This page collects AI stories from Singapore news outlets, not only medicine: regulation, data, information security, adoption in organisations. Headlines link to the original page.",
+    "notice": "This is a list of headlines from public RSS feeds, not editorial content of this site. We do not copy article text, only the headline, the date and a link to the source. Accuracy and completeness stay with the publisher.",
+    "why": "Why this matters to hospital administration",
+    "whyBody": "Data privacy expectations, security practice and the way organisations adopt AI change faster than the specialist medical press can report. Much of what general technology media discuss first reaches hospitals a few months later as a regulator's expectation or a line in a vendor contract.",
+    "sourcesTitle": "Sources",
+    "empty": "Nothing here yet."
+  }
+}

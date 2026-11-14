@@ -1,0 +1,58 @@
+{
+  "_comment": "English edition (Singapore) learning resources. Hand-checked: each URL was opened on 2026-11-14. This is a list of standing official resources, not a calendar of events.",
+  "meta": {
+    "title": "Learning resources for hospital AI governance in Singapore",
+    "description": "Official guidance, a toolkit and breach-reporting pages from MOH, HSA and the PDPC that hospital administrators and compliance teams use to learn about AI governance and data protection.",
+    "pageTitle": "Learning resources",
+    "lead": "There is no single official events calendar for hospital AI. Here are standing resources from official sources, each opened and checked."
+  },
+  "notice": "Standing resources, not scheduled events. Check each page for what it currently offers.",
+  "checkedAt": "2026-11-14",
+  "items": [
+    {
+      "name": "AIHGle 2.0 deployers’ toolkit",
+      "org": "Ministry of Health",
+      "url": "https://isomer-user-content.by.gov.sg/3/08399f12-7e70-4b1c-a303-418bad6b5485/AIHGle%202.0%20Toolkit%20for%20Deployers.pdf",
+      "body": "A toolkit for deployers, listed on MOH’s AIHGle 2.0 page alongside the guidelines and an infographic on roles and responsibilities.",
+      "audience": "Hospital administrators, quality and compliance staff.",
+      "sourceUrl": "https://isomer-user-content.by.gov.sg/3/08399f12-7e70-4b1c-a303-418bad6b5485/AIHGle%202.0%20Toolkit%20for%20Deployers.pdf",
+      "sourceLabel": "AIHGle 2.0 deployers’ toolkit"
+    },
+    {
+      "name": "AIHGle 2.0 roles and responsibilities infographic",
+      "org": "Ministry of Health",
+      "url": "https://isomer-user-content.by.gov.sg/3/3fc4754d-ada6-4fe1-a207-7fb1ad7921b3/AIHGle%202.0%20Infographic.pdf",
+      "body": "A one-page picture of who does what between developers, deployers and users.",
+      "audience": "Anyone briefing a committee on AI governance.",
+      "sourceUrl": "https://isomer-user-content.by.gov.sg/3/3fc4754d-ada6-4fe1-a207-7fb1ad7921b3/AIHGle%202.0%20Infographic.pdf",
+      "sourceLabel": "AIHGle 2.0 roles and responsibilities infographic"
+    },
+    {
+      "name": "HSA medical device guidance documents",
+      "org": "Health Sciences Authority",
+      "url": "https://www.hsa.gov.sg/medical-devices/guidance-documents",
+      "body": "The list of HSA guidance on software medical devices, risk classification, change management, telehealth products and cybersecurity.",
+      "audience": "Procurement, clinical engineering and compliance staff.",
+      "sourceUrl": "https://www.hsa.gov.sg/medical-devices/guidance-documents",
+      "sourceLabel": "HSA medical device guidance documents"
+    },
+    {
+      "name": "How to report a data breach",
+      "org": "Personal Data Protection Commission",
+      "url": "https://www.pdpc.gov.sg/organisations/e-services/report-your-organisations-data-breach",
+      "body": "The PDPC’s page on notifying a data breach, with a self-assessment tool to decide whether a breach is notifiable.",
+      "audience": "Data protection officers and IT security staff.",
+      "sourceUrl": "https://www.pdpc.gov.sg/organisations/e-services/report-your-organisations-data-breach",
+      "sourceLabel": "How to report a data breach"
+    },
+    {
+      "name": "Guide on Managing and Notifying Data Breaches",
+      "org": "Personal Data Protection Commission",
+      "url": "https://www.pdpc.gov.sg/-/media/files/pdpc/pdf-files/other-guides/guide-on-managing-and-notifying-data-breaches-under-the-pdpa-15-mar-2021.pdf",
+      "body": "The guide whose timelines this site cites: assess within 30 calendar days, notify within 3 calendar days once notifiable.",
+      "audience": "Data protection officers, IT and legal staff.",
+      "sourceUrl": "https://www.pdpc.gov.sg/-/media/files/pdpc/pdf-files/other-guides/guide-on-managing-and-notifying-data-breaches-under-the-pdpa-15-mar-2021.pdf",
+      "sourceLabel": "Guide on Managing and Notifying Data Breaches"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+---
+// Key facts for citation (2026-11-06) — a page for AEO/GEO.
+// One item = question + short answer + section + primary source. Data: src/data/sg/guides/facts.ts.
+// Each item has an anchor (#id) for direct linking.
+import '../../../styles/sg-guide.css';
+import SgLayout from '../../../layouts/SgLayout.astro';
+import SgGuideFoot from '../../../components/SgGuideFoot.astro';
+import { FACTS, FACT_TOPICS, FACTS_CHECKED } from '../../../data/sg/guides/facts';
+import { SRC } from '../../../data/sg/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const title = 'Key facts: device status, hospital AI governance and breaches in Singapore';
+const description = `${FACTS.length} short answers you can cite on HSA’s software medical device guidelines, the Ministry of Health’s AI in Healthcare Guidelines 2.0, generative AI and PDPC breach timelines.`;
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/sg/facts/')}`;
+
+const faqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'en-SG',
+  isPartOf: { '@id': `${siteRoot}/#website-sg` },
+  mainEntity: FACTS.map((f) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#${f.id}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: `${f.a} (Basis: ${f.basis}.)`, citation: SRC[f.src].url },
+  })),
+};
+const articleLd = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: title,
+  description,
+  inLanguage: 'en-SG',
+  author: { '@id': `${siteRoot}/#person` },
+  publisher: { '@id': `${siteRoot}/#organization` },
+  isPartOf: { '@id': `${siteRoot}/#website-sg` },
+  mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  datePublished: '2026-11-07T00:00:00+08:00',
+  dateModified: '2026-11-07T00:00:00+08:00',
+  isAccessibleForFree: true,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.tg-answer', 'h1'] },
+  citation: Object.values(SRC).map((s) => ({ '@type': 'CreativeWork', name: s.label, url: s.url })),
+};
+
+const sources = [SRC.gl04, SRC.gl07, SRC.gn37, SRC.aihgle, SRC.pdpcBreach];
+---
+
+<SgLayout title={title} description={description} crumb="Key facts" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={[articleLd, faqLd]}>
+  <h1>Key facts: device status, hospital AI governance and breaches in Singapore</h1>
+  <p class="tg-lead">
+    Short answers to the questions that come up most in purchasing and compliance meetings. Each answer was written after the text of the document was opened, and gives the section and a link to the primary source.
+  </p>
+  <p class="tg-meta">Checked: {FACTS_CHECKED} · {FACTS.length} items · For: administrators, nurses and patients</p>
+
+  <p class="tg-answer">
+    In short: software whose intended use meets the definition of a medical device falls under HSA’s guidelines, and Class B, C and D software medical devices require product registration (GL-04-R4); the Ministry of Health’s AIHGle 2.0 asks hospitals to run AI under governance, a registry, risk assessment, testing, training and monitoring, with a human making the final clinical decision; and the PDPC’s breach guide sets a 30-calendar-day assessment and a 3-calendar-day notification once a breach is notifiable.
+  </p>
+
+  <div class="tg-box">
+    <strong>How to use this page</strong><br />
+    Copy an answer together with its section, and check the text of the rule at the primary source. There are no deadlines or rules here whose text we did not read; this is not legal advice.
+    <br />
+    {
+      FACT_TOPICS.map((t, i) => (
+        <>
+          <a href={`#t-${i}`}>{t}</a>
+          {i < FACT_TOPICS.length - 1 ? ' · ' : ''}
+        </>
+      ))
+    }
+  </div>
+
+  {
+    FACT_TOPICS.map((topic, i) => (
+      <section class="tg-sec" aria-labelledby={`t-${i}`}>
+        <h2 id={`t-${i}`}>{topic}</h2>
+        <dl class="tg-facts">
+          {FACTS.filter((f) => f.topic === topic).map((f) => (
+            <>
+              <dt id={f.id}>
+                <a href={`#${f.id}`}>{f.q}</a>
+              </dt>
+              <dd>
+                <p>{f.a}</p>
+                <p class="tg-basis">
+                  Basis: {f.basis} ·{' '}
+                  <a href={SRC[f.src].url} target="_blank" rel="noopener">
+                    primary source<span class="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </p>
+              </dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/sg/dx-roadmap/')}><b>Roadmap</b><span>Key rules on one timeline.</span></a>
+      <a class="tg-card" href={withBase('/sg/data-checklist/')}><b>Patient data protection checklist</b><span>Items from AIHGle 2.0, HSA and the PDPC guide.</span></a>
+      <a class="tg-card" href={withBase('/sg/glossary/')}><b>Glossary</b><span>Medical AI terms in plain language.</span></a>
+    </div>
+  </section>
+
+  <SgGuideFoot sources={sources} checked={FACTS_CHECKED} />
+</SgLayout>

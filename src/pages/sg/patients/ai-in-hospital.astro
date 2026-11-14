@@ -1,0 +1,112 @@
+---
+// What patients can expect when a hospital uses AI (2026-11-14). Only sections whose text was opened: MOH AIHGle 2.0, sections 6.2, 6.9, 7.1.
+import '../../../styles/sg-guide.css';
+import SgLayout from '../../../layouts/SgLayout.astro';
+import SgGuideFoot from '../../../components/SgGuideFoot.astro';
+import SgFaq from '../../../components/SgFaq.astro';
+import { guideSchema } from '../../../utils/sg-guide';
+import { SRC } from '../../../data/sg/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 14, 2026';
+const title = 'When your hospital uses AI: what the Ministry of Health’s guidelines say';
+const description =
+  'What can you expect to be told when a hospital uses AI in your care? The Ministry of Health’s AI in Healthcare Guidelines on patient communication, in plain language.';
+
+const rights = [
+  {
+    "h": "You should get enough information to make your own decision",
+    "p": "The Ministry of Health’s guidelines say patient autonomy must be respected and that patients should be given accurate and sufficient information to make informed decisions about their care, including the purpose of tests or treatments, their potential implications and the alternatives available (AIHGle 2.0, section 6.9.1)."
+  },
+  {
+    "h": "Not every use of AI is something you need to be told about",
+    "p": "The guidelines say AI used for things like billing or scheduling staff time off is not relevant to a patient’s medical management. Where AI use has a significant impact on your care, they encourage hospitals to set up a communication process (section 6.9.2 to 6.9.4)."
+  },
+  {
+    "h": "What a hospital is encouraged to tell you",
+    "p": "The information should focus on the benefits (for example, compared with missing early warning signs), significant limitations, material risks relevant to you, possible complications and the alternatives, rather than on the technical details of the AI (section 6.9.4)."
+  },
+  {
+    "h": "You will not be told about every tool",
+    "p": "The guidelines say several AI solutions may be used in one workflow and there is no expectation that each one is communicated to patients, because that would not be meaningful. Hospitals decide how to inform patients, for example by written information, pamphlets or websites (section 6.9.5)."
+  },
+  {
+    "h": "A clinician stays responsible",
+    "p": "The guidelines say healthcare professionals remain responsible for safe patient care whether or not AI is used, and must evaluate AI output before using it (section 7.1.1). For clinical use, hospitals should not deploy AI that makes clinical decisions independently without a human making the final decision (section 6.2)."
+  },
+  {
+    "h": "AI apps you use on your own",
+    "p": "If a hospital offers an AI application for your independent use outside usual care, the guidelines say you must be clearly told that you are interacting with AI, with instructions for responsible use, its limitations and what to do if you need more help (section 6.9.6)."
+  }
+];
+
+const faq = [
+  {
+    "q": "Does my hospital have to tell me when AI is used?",
+    "a": "The Ministry of Health’s guidelines are guidance, not a law. They encourage hospitals to communicate AI use that has a significant impact on medical management, and say there is no expectation to tell patients about every individual solution. If you want to know, ask."
+  },
+  {
+    "q": "Who do I report a problem to?",
+    "a": "Start with the hospital’s patient relations or the clinician who treats you. This page does not cover complaints procedures, which we did not read."
+  },
+  {
+    "q": "Where are my data protection rights explained?",
+    "a": "The Personal Data Protection Act 2012 governs personal data in Singapore, and the Personal Data Protection Commission (PDPC) is the regulator. We did not read the Act itself, so this page does not describe your rights under it. Check the PDPC’s website."
+  }
+];
+
+const sources = [SRC.aihgle];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/sg/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<SgLayout title={title} description={description} crumb="Patient rights and AI" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={schema}>
+  <h1>When your hospital uses AI: what the Ministry of Health’s guidelines say</h1>
+  <p class="tg-lead">
+    Hospitals increasingly use tools that rely on AI. What can you expect to be told? Below is what the Ministry of Health’s AI in Healthcare Guidelines 2.0 say about patients, in plain language, with the section for each. These are guidelines for hospitals, not rules that give you legal rights.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organization that treats you. In an emergency, call 995 (the Singapore Civil Defence Force’s number for life-threatening emergencies, per the Ministry of Home Affairs).
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">What the guidelines say</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ask">
+    <h2 id="h-ask">What you can ask your hospital</h2>
+    <p>The author’s suggestion, not a legal requirement. You can always ask:</p>
+    <ul class="tg-list">
+      <li>Are AI tools used in my care or my billing? For what?</li>
+      <li>Who makes the final decision: a clinician or the tool?</li>
+      <li>Where is my information stored, and who can see it?</li>
+      <li>If a voice or image is recorded, for what purpose and for how long?</li>
+    </ul>
+    <p>Before you ask an AI about your own health: <a href={withBase('/sg/patients/ai-health-consult/')}>six things to know</a>.</p>
+  </section>
+
+  <SgFaq items={faq} />
+
+  <SgGuideFoot sources={sources} checked={CHECKED} patient />
+</SgLayout>

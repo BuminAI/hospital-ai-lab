@@ -22,6 +22,14 @@ export const checklistRelated: Record<Exclude<Loc, 'ko'>, Record<number, string[
     4: ['2026-11-07-icmr-ai-guidelines-ten-principles-for-administrators'],
     5: ['2026-11-07-icmr-ai-guidelines-ten-principles-for-administrators'],
   },
+  sg: {
+    0: ['2026-11-14-aihgle-2-hospital-ai-governance-before-go-live'],
+    1: ['2026-11-14-is-hospital-ai-a-medical-device-singapore-hsa', '2026-11-14-ai-model-updates-hsa-change-notification-singapore', '2026-11-14-machine-learning-medical-device-what-hsa-expects-vendor'],
+    2: ['2026-11-14-generative-ai-hospital-singapore-aihgle-risks-redlines'],
+    3: ['2026-11-14-ai-vendor-data-breach-pdpc-30-day-3-day-clocks'],
+    4: ['2026-11-14-machine-learning-medical-device-what-hsa-expects-vendor'],
+    5: ['2026-11-14-aihgle-2-hospital-ai-governance-before-go-live'],
+  },
   ja: {
     0: ['2026-08-20-samd-idaten-review-body-reform'],
     1: [

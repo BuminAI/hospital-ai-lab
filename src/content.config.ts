@@ -104,4 +104,18 @@ const blogIn = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn };
+// 영어판(싱가포르) 블로그 (2026-11-14 신설). 영어판(미국)·인도판과 별개 컬렉션 — 싱가포르 제도(HSA 의료기기 지침·MOH AI 지침·PDPA 등)를
+// 1차 출처로 읽어 쓰는 독립 집필이다.
+const blogSg = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-sg' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Research Review', 'AI Tools', 'Column', 'News']),
+    draft: z.boolean().default(false),
+    series: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg };

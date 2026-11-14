@@ -1,0 +1,224 @@
+---
+// Checklist: device status and AI vendors in Singapore (2026-11-14)
+// ⚠️ These items were written by the author from the text of HSA's GL-04-R4, GL-07-R2 and GN-37-R1 and the Ministry of Health's AIHGle 2.0.
+//    This is not an official checklist. The page does not claim what a specific vendor’s product does.
+import '../../styles/sg-guide.css';
+import SgLayout from '../../layouts/SgLayout.astro';
+import SgGuideFoot from '../../components/SgGuideFoot.astro';
+import SgFaq from '../../components/SgFaq.astro';
+import { guideSchema } from '../../utils/sg-guide';
+import { SRC } from '../../data/sg/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 14, 2026';
+const title = "Checklist: device status and AI vendors in Singapore";
+const description =
+  "What to check when a vendor offers AI software: is it a medical device, which class, is it registered with HSA, how model updates are handled, and what the hospital does itself.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    "id": "g1",
+    "head": "A. Is the product a medical device?",
+    "lead": "HSA’s guidelines apply to software whose intended use meets the definition of a medical device under the Health Products Act 2007.",
+    "items": [
+      {
+        "no": "1",
+        "text": "The vendor has given a written answer on whether it treats the product as a medical device in Singapore, and why.",
+        "basis": "GL-04-R4, section 1.3"
+      },
+      {
+        "no": "2",
+        "text": "You have read the intended use the vendor relies on (the objective purpose reflected in its specifications, instructions and information) and compared it with how your staff will actually use the tool.",
+        "basis": "GL-07-R2, definitions; Author’s recommendation"
+      },
+      {
+        "no": "3",
+        "text": "If the product gives clinical decision support, you know that GL-07 sets out how such software qualifies as a regulated medical device or not, and you have asked the vendor which side it says it falls on.",
+        "basis": "GL-07-R2, section 3"
+      }
+    ]
+  },
+  {
+    "id": "g2",
+    "head": "B. Class and registration",
+    "lead": "GL-07 takes the IMDRF approach: the class follows how significant the software’s information is for care and how serious the patient’s situation is.",
+    "items": [
+      {
+        "no": "4",
+        "text": "The vendor states the risk class and the reasoning (significance of the information: treat or diagnose, drive, or inform; situation: critical, serious or non-serious).",
+        "basis": "GL-07-R2, risk classification framework and table"
+      },
+      {
+        "no": "5",
+        "text": "If the product is Class B, C or D software, it is registered with HSA; you have asked for the registration details and checked them against HSA’s register. (The checking step is the author’s recommendation.)",
+        "basis": "GL-04-R4, Table 5 note"
+      },
+      {
+        "no": "6",
+        "text": "The local company that supplies the software holds the dealer’s licences and quality system GL-04 describes for its supply scenario.",
+        "basis": "GL-04-R4, section 4 and Table 5"
+      }
+    ]
+  },
+  {
+    "id": "g3",
+    "head": "C. Machine learning and updates",
+    "lead": "These items apply when the product uses machine learning to achieve its medical purpose.",
+    "items": [
+      {
+        "no": "7",
+        "text": "The vendor’s documentation says that the device contains machine learning, what the ML function does (its inputs and outputs) and the clinical workflow including any human intervention.",
+        "basis": "GL-04-R4, section 9.1"
+      },
+      {
+        "no": "8",
+        "text": "The documentation states the risks and limitations of the ML function and any exclusion criteria in the training and validation data.",
+        "basis": "GL-04-R4, section 9.1"
+      },
+      {
+        "no": "9",
+        "text": "If the model keeps learning after deployment, the vendor can show its safety mechanism for detecting anomalies and rolling back to a previous version, and its version control.",
+        "basis": "GL-04-R4, section 9.2"
+      },
+      {
+        "no": "10",
+        "text": "You know how model or software changes are handled: HSA requires change notification for any change to a registered ML-enabled device, and a manufacturer may use the optional Change Management Program for pre-specified changes.",
+        "basis": "GL-04-R4, section 9.4; GN-37-R1, section 1"
+      },
+      {
+        "no": "11",
+        "text": "The vendor monitors the real-world performance of the device after deployment and has a route for your feedback and incidents.",
+        "basis": "GL-04-R4, section 9.3"
+      }
+    ]
+  },
+  {
+    "id": "g4",
+    "head": "D. What the hospital does itself",
+    "lead": "Registration with HSA does not replace the hospital’s own governance. AIHGle 2.0 sets out the deployer’s part.",
+    "items": [
+      {
+        "no": "12",
+        "text": "The AI solution is entered in the hospital’s registry of deployed AI solutions with its risk classification.",
+        "basis": "AIHGle 2.0, section 6.1.1(b)"
+      },
+      {
+        "no": "13",
+        "text": "The hospital has tested the tool in its own workflows before going live, with a pilot phase for higher-risk solutions.",
+        "basis": "AIHGle 2.0, section 6.3.1"
+      },
+      {
+        "no": "14",
+        "text": "Healthcare professionals stay in charge: the tool does not make clinical decisions independently without a human making the final decision.",
+        "basis": "AIHGle 2.0, section 6.2.1 and Table 4"
+      },
+      {
+        "no": "15",
+        "text": "Adverse events from the use of a medical device are reported to HSA, in addition to internal reporting.",
+        "basis": "AIHGle 2.0, section 6.7.1 and footnote 25"
+      }
+    ]
+  }
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    "q": "Does HSA registration mean the tool is right for our hospital?",
+    "a": "No. AIHGle 2.0 says the implementing organisation usually tests and validates the tool in its own context and clinical workflows, unlike the developer’s own validation, and that it should at minimum ensure patients and professionals maintain current care standards."
+  },
+  {
+    "q": "A vendor says its product is not a medical device. What do we do?",
+    "a": "Ask for the reasoning in writing, tied to the intended use. GL-07 explains how clinical decision support software does or does not qualify as a medical device. Do not assume a exemption: the AI-MD Exemption Sandbox that AIHGle 2.0 describes is for selected public healthcare entities and low-to-moderately-low-risk AI medical devices."
+  },
+  {
+    "q": "Does every change to the AI model need HSA’s approval?",
+    "a": "GL-04-R4 says a change notification is required for any change to a registered machine-learning-enabled device, and the category of change (technical, review or notification) follows GN-21. HSA’s optional Change Management Program lets a manufacturer have anticipated “pre-specified changes” approved in advance."
+  }
+];
+
+const sources = [SRC.gl04, SRC.gl07, SRC.gn37, SRC.aihgle];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/sg/documents-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: "Hospital administration and executives",
+  faq,
+});
+---
+
+<SgLayout title={title} description={description} crumb="Device status and AI vendors" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={guide}>
+  <h1>Checklist: device status and AI vendors</h1>
+  <p class="tg-lead">
+    When a vendor offers AI software, three questions come up together: is it a regulated medical device, what changes when the model is updated, and what happens to the data it touches. This page puts them in one place, each with its basis.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and executives</p>
+
+  <p class="tg-answer">
+    In short: software whose intended use meets the definition of a medical device falls under HSA’s guidelines; Class B, C and D software medical devices require product registration (GL-04-R4); machine-learning devices carry extra documentation and monitoring expectations; and the hospital’s own governance, testing and incident process still applies under the Ministry of Health’s AIHGle 2.0.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from the documents cited; each item gives its basis.</li>
+      <li>The documents cited do not decide whether a particular product is a medical device. That depends on its intended use and the vendor’s licence; ask the vendor in writing.</li>
+      <li>Items marked “author’s recommendation” are not legal requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/sg/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>Which data may go into an AI tool, vendor questions and breach timelines.</span>
+      </a>
+      <a class="tg-card" href={withBase('/sg/templates/')}>
+        <b>Document templates</b>
+        <span>Vendor questions, a generative AI policy and an incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <SgFaq items={faq} />
+
+  <SgGuideFoot sources={sources} checked={CHECKED} />
+</SgLayout>

@@ -1,0 +1,47 @@
+{
+  "updatedAt": "2026-11-14T11:26:57.157Z",
+  "items": [
+    {
+      "title": "Telehealth Products R2.1",
+      "link": "https://isomer-user-content.by.gov.sg/409/6cd97330-bf07-4251-bb4c-1bc1eaae0edb/regulatory-guidelines-for-telehealth-products-rev-2-1.pdf",
+      "pubDate": "2026-11-14",
+      "kind": "HSA",
+      "status": "Guidance (first listed)"
+    },
+    {
+      "title": "FAQ Telehealth Products R2.0",
+      "link": "https://isomer-user-content.by.gov.sg/409/7a82ab76-e8c9-43d6-ac55-ca655c074294/faq-regulatory-guidelines-for-telehealth-products-rev-2-0.pdf",
+      "pubDate": "2026-11-14",
+      "kind": "HSA",
+      "status": "Guidance (first listed)"
+    },
+    {
+      "title": "Artificial Intelligence in Healthcare Guidelines (AIHGle 2.0)",
+      "link": "https://www.moh.gov.sg/others/health-regulation/emerging-regulatory-policy-issues/",
+      "pubDate": "2026-03-01",
+      "kind": "MOH",
+      "status": "Guidelines (March 2026)"
+    },
+    {
+      "title": "GL-04-R4 Regulatory Guidelines for Software Medical Devices including Machine Learning-Enabled Medical Devices: A Life Cycle Approach (Revision 4)",
+      "link": "https://isomer-user-content.by.gov.sg/409/26808a93-6a7a-4551-8c66-13046c6124c5/gl-04-r4-regulatory-guidelines-for-software-medical-devices---a-life-cycle-approach-(2025-dec)-pub.pdf",
+      "pubDate": "2025-12-31",
+      "kind": "HSA",
+      "status": "Guidelines"
+    },
+    {
+      "title": "GL-07-R2 Guidelines on Risk Classification of SaMD and Qualification of Clinical Decision Support Software (Revision 2)",
+      "link": "https://isomer-user-content.by.gov.sg/409/ae814059-a3ff-4ce3-8192-4534a43ddc6f/gl-07-r2-guidelines-risk-classification-samd-cdss-(2025-jul)-pub.pdf",
+      "pubDate": "2025-07-21",
+      "kind": "HSA",
+      "status": "Guidelines"
+    },
+    {
+      "title": "GN-37-R1 Guidance on Change Management Program (CMP) for SaMD, including machine-learning enabled SaMD",
+      "link": "https://isomer-user-content.by.gov.sg/409/4e8620d9-267f-41f5-adc3-cc35456d3731/gn-37-r1-guidance-on-change-management-program-(cmp)-for-samd-including-machine-learning-enabled-samd.pdf",
+      "pubDate": "2024-12-04",
+      "kind": "HSA",
+      "status": "Guidance"
+    }
+  ]
+}

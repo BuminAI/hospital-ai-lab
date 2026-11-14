@@ -749,6 +749,30 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - 최종 지침 PDF는 **MDSW**(Medical Device Software)라는 용어를 쓰고 SaMD/SiMD 구분은 초안에만 있다. 초안 문구를 최종본 것처럼 옮기지 말 것(실제로 한번 고쳤다).
 - 새 자동화 `in`을 더했으므로 `audit-site.mjs`·`site-health-check.mjs`·`locale-sitemaps`·`git-lastmod`·`og/[...route].ts`·`locale.ts`에 `in`이 들어갔다. 언어판을 또 추가하면 이 목록을 따라갈 것.
 
+## 5-18. 영어판(싱가포르) `/sg/` (2026-11-14 신설, 오너 지시: "싱가포르판을 만들어줘. 가능한한 한국어판과 가장 유사하게 메뉴를 넣으면 돼")
+
+인도판 `/in/`을 복제한 **영어(싱가포르)** 판이다(hreflang `en-SG`, `SgLayout`, 컬렉션 `blogSg`, 글 폴더 `src/content/blog-sg/`, 데이터 `src/data/sg/`, 스타일 `src/styles/sg-*.css`의 변수 접두어 `--sg-`, 인도판과 같은 팔레트). 번역도 인도판 복사도 아니다. **인도 내용은 전부 싱가포르 1차 문서로 새로 썼다.** 메뉴는 한국어판에 가깝게 연재 시리즈·용어 사전·FAQ·체크리스트·AI 프로그램 심사까지 넣었다(`src/data/sg/content/nav.json`; 강의노트는 다른 언어판처럼 없다).
+
+**읽은 1차 문서(2026-11-14, 전문 다운로드 후 pdftotext)**: HSA GL-04-R4(소프트웨어 의료기기 생애주기 지침, 2025-12), GL-07-R2(SaMD 위험 분류·CDSS, 2025-07), GN-37-R1(변경관리 프로그램, 2024-12), 보건부 AIHGle 2.0(2026-03), PDPC 데이터 유출 지침(2021-03-15 개정본), MHA 995 안내. 사실은 `src/data/sg/guides/{milestones,facts}.ts` 한곳.
+
+**읽지 못해 쓰지 않은 것(우회 금지)**: Singapore Statutes Online(sso.agc.gov.sg)이 자동 요청에 HTTP 403 — **PDPA·Health Products Act·Healthcare Services Act의 조문 번호는 법에서 직접 인용하지 않았다**(가이드가 말하는 만큼만). PDPC AI 자문 지침, HSA 사이버보안 지침 GL-10, Synapxe(403), Healthcare IT News·OpenGov Asia(403). 검색 결과·법무법인 요약의 숫자는 쓰지 않았다.
+
+| 항목 | 위치 | 비고 |
+|---|---|---|
+| 레이아웃·UI | `src/layouts/SgLayout.astro`, `src/i18n/sg.json`, `src/i18n/growth.ts`의 `sg` | 일곱 레이아웃 전부에 `sgPath`·푸터 링크, 한국어판은 `alternates.sg` |
+| 실무 가이드 | `src/pages/sg/{dx-roadmap,data-checklist,documents-checklist,templates,practice,facts,calendar,updates}` | 환자 코너는 AIHGle 6.9·8.3을 근거로(PDPA 권리 페이지는 근거를 못 읽어 만들지 않음) |
+| 글 | `src/content/blog-sg/` 6편, 시리즈 `device-status`·`governance-and-data`(`src/data/series-locales.ts`의 `sg`) | 시리즈는 글 3편 이상이어야 빌드가 통과한다 |
+| 수집 | `scripts/fetch-sg-news.mjs`(Straits Times·CNA RSS에서 AI+보건), `fetch-sg-gov.mjs`(HSA 지침 문서 목록), `fetch-sg-videos.mjs`, `fetch-ai-digest.mjs sg` | 워크플로 `update-sg-*.yml`(분 오프셋을 인도판과 다르게). 뉴스는 AI+보건 조건이라 비는 날이 많다 |
+| 점검 | `check-sg-links.mjs`, `check-sg-laws.mjs`(근거 문서 5건의 Last-Modified·길이·ETag 지문) | `link-health.json` 일부가 '확인 불가'로 나오면 동시 접속 4개 때문일 수 있다 |
+| AI 심사실 | `scripts/ai-judge/lang/sg.py`(S$) + `build.py`의 `CODES`, `ux*.py`의 `['sg']` | `python build.py`로 `public/sg/ai-judge/` 생성 |
+| 관리자 | `src/pages/admin-sg.astro`, 다른 관리자 화면·`admin.astro` 카드에 연결 | |
+
+**주의할 점**
+- **자동 발행 예외(CLAUDE.md)에 싱가포르판은 없다.** 오너가 확대 지시하기 전엔 예약 작업(`daily-update-digest`)에 넣지 않는다. 이번 6편은 PR 머지로 발행된다.
+- 복제 스크립트의 `'in'` → `'sg'` 치환이 `"in"` JSON 키(예: `editions.in`)와 `growth.in`·`COLLECTION.in` 같은 **점 접근자**를 건드리거나 놓쳤다. 새 언어판을 또 만들면 `audit-site.mjs`의 `localeOf` 정규식과 `og:locale`, `checklist-related.ts`, `growth.ts`부터 확인할 것.
+- JS `String.replace`의 치환 문자열에 `$'`가 있으면 "일치 뒤 나머지"로 해석돼 파일이 망가진다(`'S$'` 때 실제 발생). 통화 기호는 `split/join`으로 바꿀 것.
+- 새 자동화 `sg`를 더했으므로 `audit-site.mjs`·`site-health-check.mjs`·`locale-sitemaps`·`og/[...route].ts`·`locale.ts`에 `sg`가 들어갔다.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

@@ -29,7 +29,7 @@ const SUPABASE_ANON_KEY =
 const PAGES = [
   '/', '/blog/', '/news/', '/youtube/', '/glossary/', '/faq/', '/checklist/',
   '/guide/', '/ai-apps/', '/login/', '/signup/', '/admin/', '/rss.xml', '/sitemap-index.xml',
-  '/ja/', '/ru/', '/id/', '/tw/', '/en/', '/in/',
+  '/ja/', '/ru/', '/id/', '/tw/', '/en/', '/in/', '/sg/',
 ];
 
 const LOCALES = [
@@ -37,6 +37,7 @@ const LOCALES = [
   { code: 'ru', label: '러시아어', blogDir: 'src/content/blog-ru', newsJson: 'src/data/ru/news.json' },
   { code: 'en', label: '영어', blogDir: 'src/content/blog-en', newsJson: 'src/data/en/news.json' },
   { code: 'in', label: '인도(영어)', blogDir: 'src/content/blog-in', newsJson: 'src/data/in/news.json' },
+  { code: 'sg', label: '싱가포르(영어)', blogDir: 'src/content/blog-sg', newsJson: 'src/data/sg/news.json' },
   { code: 'ja', label: '일본어', blogDir: 'src/content/blog-ja', newsJson: 'src/data/ja/news.json' },
   { code: 'id', label: '인도네시아어', blogDir: 'src/content/blog-id', newsJson: 'src/data/id/news.json' },
   { code: 'tw', label: '대만어', blogDir: 'src/content/blog-tw', newsJson: 'src/data/tw/news.json' },

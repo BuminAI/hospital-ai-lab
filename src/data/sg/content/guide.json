@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Where to start with medical AI in a Singapore hospital",
+    "description": "Five steps for hospital administrators and nurse leaders, no technical background needed: the task, medical-device status, patient data, written vendor answers and the staff.",
+    "pageTitle": "Where to start",
+    "lead": "You do not need to understand how a model works to review a proposal for one. You need to know what it is for, whether it is a regulated medical device, where patient data goes, and what changes for staff. Five steps, in order."
+  },
+  "sections": [
+    {
+      "heading": "1. Name the task before the technology",
+      "body": "Write one sentence: what job will this tool do, for whom, and what happens today without it? A tool that drafts discharge summaries, a tool that flags patients for review and a tool that schedules staff raise different questions. The Ministry of Health’s guidelines ask hospitals to judge risk by the potential harm to the patient and its probability, so the task comes first.",
+      "items": []
+    },
+    {
+      "heading": "2. Ask whether it is a medical device",
+      "body": "HSA’s guidelines apply to software whose intended use meets the definition of a medical device under the Health Products Act 2007. Ask the vendor in writing whether it treats the product as one and why. If it does, ask for the risk class and its HSA registration details. Class B, C and D software medical devices require product registration.",
+      "items": []
+    },
+    {
+      "heading": "3. Follow the patient data",
+      "body": "Find out which data the tool uses, where it goes and what the vendor does with it. The Ministry of Health’s guidelines ask hospitals to specify which data types may be entered into each AI solution. Prepare for the other side too: the PDPC’s guide gives 30 calendar days to assess a suspected breach and 3 calendar days to notify once it is notifiable.",
+      "items": []
+    },
+    {
+      "heading": "4. Get the answers in writing",
+      "body": "Use the vendor questions in the templates and attach the written answers to the contract. Include how updates are handled, what is monitored after go-live and what the exit plan is.",
+      "items": []
+    },
+    {
+      "heading": "5. Plan for the people who will work with it",
+      "body": "AIHGle 2.0 says successful deployment needs change management, training for all relevant staff, a pilot for higher-risk tools, monitoring against current practice and a way to switch the tool off. Involve nursing early, since nurses often meet the alerts and workflow changes first.",
+      "items": []
+    }
+  ]
+}

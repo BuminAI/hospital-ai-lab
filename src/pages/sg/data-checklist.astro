@@ -1,0 +1,216 @@
+---
+// Checklist: patient data and AI tools in Singapore (2026-11-14)
+// ⚠️ Items rest on the Ministry of Health's AIHGle 2.0, HSA's GL-04-R4 and the PDPC's data breach guide (revised 15 March 2021), all read in full text.
+//    The Personal Data Protection Act 2012 itself was not read (Singapore Statutes Online refused automated requests), so no section of the Act is cited.
+import '../../styles/sg-guide.css';
+import SgLayout from '../../layouts/SgLayout.astro';
+import SgGuideFoot from '../../components/SgGuideFoot.astro';
+import SgFaq from '../../components/SgFaq.astro';
+import { guideSchema } from '../../utils/sg-guide';
+import { SRC } from '../../data/sg/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 14, 2026';
+const title = "Patient data checklist: AI tools, vendors, breaches in Singapore";
+const description =
+  "A checklist for hospital administration and IT: what data may enter an AI tool, what to ask vendors, and how fast to assess and report a breach, from MOH, HSA and PDPC documents.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    "id": "g1",
+    "head": "A. What data may go into an AI tool",
+    "lead": "Ministry of Health guidance asks hospitals to decide this per tool, not to leave it to each user.",
+    "items": [
+      {
+        "no": "1",
+        "text": "For each AI solution, the hospital has specified which data types may be entered, taking into account its data security classification and sensitivity framework.",
+        "basis": "AIHGle 2.0, section 6.1.1(d)"
+      },
+      {
+        "no": "2",
+        "text": "The governance platform checks that the deployment meets prevailing cybersecurity and data protection requirements before it approves an AI solution.",
+        "basis": "AIHGle 2.0, section 6.1.1(d)"
+      },
+      {
+        "no": "3",
+        "text": "Staff training covers data input restrictions, including data security classification, and incident reporting.",
+        "basis": "AIHGle 2.0, section 6.5.2"
+      },
+      {
+        "no": "4",
+        "text": "Staff know that a generative AI model could leak sensitive data they submit, and the hospital has told them what may not be typed into such tools. (Author’s recommendation based on the risk the guidelines name.)",
+        "basis": "AIHGle 2.0, section 8.2.1(c)"
+      }
+    ]
+  },
+  {
+    "id": "g2",
+    "head": "B. Vendors and developers",
+    "lead": "Whether the hospital buys, builds or co-develops, it remains accountable for appropriate use.",
+    "items": [
+      {
+        "no": "5",
+        "text": "Whether the hospital buys, builds or co-develops, it has checked that the solution meets prevailing regulatory requirements and is used within the intended use in the instructions for use.",
+        "basis": "AIHGle 2.0, section 6.1.4"
+      },
+      {
+        "no": "6",
+        "text": "For a device that keeps learning after deployment, the vendor can describe the data source, the data type collected and the controls on the integrity and validity of the new data.",
+        "basis": "GL-04-R4, section 9.2"
+      },
+      {
+        "no": "7",
+        "text": "The vendor can trace the real-world data used for training or learning to the software version and the output seen in clinical use.",
+        "basis": "GL-04-R4, section 9.2"
+      },
+      {
+        "no": "8",
+        "text": "An exit management plan exists, agreed with the developer, before the AI solution is decommissioned or the provider is changed.",
+        "basis": "AIHGle 2.0, section 6.8.1"
+      }
+    ]
+  },
+  {
+    "id": "g3",
+    "head": "C. Breaches and incidents",
+    "lead": "The PDPC guide below is the revision dated 15 March 2021. Check the PDPC website for later revisions.",
+    "items": [
+      {
+        "no": "9",
+        "text": "Someone is named to assess whether a suspected breach is notifiable, and the assessment is completed within 30 calendar days of having credible grounds to believe a breach occurred.",
+        "basis": "PDPC breach guide (15 March 2021), Part III"
+      },
+      {
+        "no": "10",
+        "text": "All steps taken in the assessment are documented, so the hospital can show it acted reasonably and expeditiously.",
+        "basis": "PDPC breach guide (15 March 2021), Part III"
+      },
+      {
+        "no": "11",
+        "text": "Once a breach is determined to be notifiable, the PDPC is notified within 3 calendar days.",
+        "basis": "PDPC breach guide (15 March 2021), Part III"
+      },
+      {
+        "no": "12",
+        "text": "A breach involving the personal data of 500 or more individuals (or reasonably believed to) is treated as notifiable even if no prescribed personal data is involved.",
+        "basis": "PDPC breach guide (15 March 2021), Part III"
+      },
+      {
+        "no": "13",
+        "text": "Internal reporting routes exist for the three authorities AIHGle 2.0 names: the PDPC for data incidents, HSA for adverse events from medical devices, and the Cyber Security Agency of Singapore for critical cybersecurity incidents.",
+        "basis": "AIHGle 2.0, section 6.7.1 and footnotes 24 to 26"
+      },
+      {
+        "no": "14",
+        "text": "A contingency plan lets the hospital shut down an AI solution and switch to a protocol that does not involve it.",
+        "basis": "AIHGle 2.0, section 6.7.1(a)"
+      }
+    ]
+  }
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    "q": "How fast must a hospital report a personal data breach to the PDPC?",
+    "a": "According to the PDPC’s guide (revised 15 March 2021), an organisation must assess within 30 calendar days of having credible grounds to believe a breach occurred whether it is notifiable, and must notify the PDPC within 3 calendar days after it determines that it is. Check the PDPC website for any later revision."
+  },
+  {
+    "q": "Whom does the Ministry of Health tell hospitals to report AI incidents to?",
+    "a": "AIHGle 2.0 names the PDPC for data-related incidents, HSA for adverse events from the use of medical devices, and the Cyber Security Agency of Singapore for critical cybersecurity incidents, and tells organisations to set up internal reporting as well."
+  },
+  {
+    "q": "Can staff paste patient information into a chatbot?",
+    "a": "There is no blanket answer here. AIHGle 2.0 asks hospitals to specify the permissible data types for each AI solution and warns that generative AI models could leak sensitive data users submit. Follow your hospital’s rule, and ask your data protection officer when in doubt."
+  },
+  {
+    "q": "Is this a complete PDPA compliance checklist?",
+    "a": "No. We did not read the Personal Data Protection Act 2012 itself (Singapore Statutes Online refused automated requests), so this list rests on the Ministry of Health’s AI guidelines, HSA’s software guidelines and the PDPC’s breach guide only."
+  }
+];
+
+const sources = [SRC.aihgle, SRC.pdpcBreach, SRC.gl04];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/sg/data-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-14',
+  modified: '2026-11-14',
+  audience: "Hospital administration and IT",
+  faq,
+});
+---
+
+<SgLayout title={title} description={description} crumb="Patient data protection" standalone updated={new Date('2026-11-14T00:00:00+08:00')} schema={guide}>
+  <h1>Patient data protection checklist</h1>
+  <p class="tg-lead">
+    AI tools bring patient data into new places: a vendor’s servers, a model’s training, a chatbot window. This page turns Ministry of Health, HSA and PDPC guidance into a checklist for the people who approve those tools, each item with its source section.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and IT</p>
+
+  <p class="tg-answer">
+    In short: decide per tool what data may go in (AIHGle 2.0, section 6.1.1(d)); hold vendors to the intended use and ask how a learning device controls its data (GL-04-R4); and know the PDPC clock: assess within 30 calendar days, notify within 3 calendar days once a breach is notifiable, and treat breaches of 500 or more individuals as significant.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from documents that were read in full; each item gives its basis, so check the text.</li>
+      <li>We did not read the Personal Data Protection Act 2012 itself, so this list does not state what the Act requires beyond what the PDPC guide says. Ask your data protection officer or counsel.</li>
+      <li>Items marked “author’s recommendation” are not requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/sg/documents-checklist/')}>
+        <b>Checklist: device status and AI vendors</b>
+        <span>Is it a medical device, which class, is it registered with HSA, and how updates are handled.</span>
+      </a>
+      <a class="tg-card" href={withBase('/sg/templates/')}>
+        <b>Document templates</b>
+        <span>Vendor questions, generative AI policy and an incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <SgFaq items={faq} />
+
+  <SgGuideFoot sources={sources} checked={CHECKED} />
+</SgLayout>
