@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-15T10:29:07.706Z",
+  "checkedAt": "2026-11-15T13:31:24.294Z",
   "readOk": 2,
   "total": 2,
   "laws": [
@@ -12,7 +12,7 @@
       "current": "Thu, 22 Jan 2026 12:14:18 GMT | 701772 | W/\"6972149a-ab54c\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-15T10:29:06.440Z",
+      "lastRead": "2026-11-15T13:31:23.568Z",
       "error": null
     },
     {
@@ -24,7 +24,7 @@
       "current": "Sun, 28 Jun 2026 10:34:31 GMT | 6436914 | c76543fc9a244516ae4eb0c6a1ea2c18",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-15T10:29:07.706Z",
+      "lastRead": "2026-11-15T13:31:24.294Z",
       "error": null
     }
   ]
