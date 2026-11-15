@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Par où commencer avec l’IA médicale dans un hôpital français",
+    "description": "Cinq étapes pour les directions et les cadres de santé, sans bagage technique : la tâche, les règles applicables, les données des patients, des réponses écrites des fournisseurs et les équipes.",
+    "pageTitle": "Par où commencer",
+    "lead": "Vous n’avez pas besoin de comprendre le fonctionnement d’un modèle pour examiner une offre. Il faut savoir à quoi il sert, quelles règles s’appliquent, où vont les données des patients et ce qui change pour les équipes. Cinq étapes, dans l’ordre."
+  },
+  "sections": [
+    {
+      "heading": "1. Nommer la tâche avant la technologie",
+      "body": "Écrivez une phrase : quel travail l’outil fera-t-il, pour qui, et que se passe-t-il aujourd’hui sans lui ? Un outil qui rédige des comptes rendus, un outil qui signale des patients à revoir et un outil qui planifie les équipes soulèvent des questions différentes. Le projet de guide HAS-CNIL distingue des rôles supplétif, substitutif et palliatif : nommez la personne qui reste responsable de la décision.",
+      "items": []
+    },
+    {
+      "heading": "2. Trouver les règles applicables",
+      "body": "Trois ensembles comptent surtout : le règlement européen sur l’IA (votre hôpital est un déployeur quand il utilise le système d’un fournisseur), le RGPD (les données de patients sont des données de santé) et, si le logiciel est un dispositif médical, le règlement relatif aux dispositifs médicaux. Le projet de guide HAS-CNIL en résume les obligations pour les établissements. Demandez à vos juristes lesquels votre projet touche.",
+      "items": []
+    },
+    {
+      "heading": "3. Suivre les données des patients",
+      "body": "Cherchez quelles données l’outil utilise, où elles vont, si le fournisseur les conserve ou les réutilise, qui est responsable de traitement et qui est sous-traitant. La fiche « IA et santé » de la CNIL donne les questions à se poser. Un usage à grande échelle de données de santé appelle le plus souvent une analyse d’impact avant la mise en service. Demandez au fournisseur de répondre par écrit.",
+      "items": []
+    },
+    {
+      "heading": "4. Obtenir les réponses par écrit",
+      "body": "Demandez si le fournisseur considère le produit comme un dispositif médical et pourquoi, ce que dit sa notice d’utilisation sur le contrôle humain et les journaux, comment les mises à jour vous parviennent et comment il vous préviendra d’un incident. Conservez les réponses avec le contrat.",
+      "items": []
+    },
+    {
+      "heading": "5. Préparer les personnes qui travailleront avec l’outil",
+      "body": "Décidez qui est formé avant la mise en service (le règlement sur l’IA demande aux déployeurs de garantir la maîtrise de l’IA), qui peut passer outre l’outil, qui tient la liste des outils d’IA et qui déclare les incidents. Impliquez tôt les soignants : ce sont eux qui verront les premiers problèmes.",
+      "items": []
+    }
+  ]
+}

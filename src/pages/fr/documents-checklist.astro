@@ -1,0 +1,233 @@
+---
+// Liste de contrôle : rôle de déployeur, statut de dispositif médical et fournisseurs d'IA dans les hôpitaux français (2026-11-15)
+// ⚠️ Ces points ont été écrits par l'auteur à partir du règlement sur l'IA et du RDM (versions françaises du JO de l'UE) et du projet de guide HAS-CNIL
+//    (document de travail du 16 février 2026, toujours signalé comme projet). Ce n'est pas une liste officielle. La page n'affirme rien sur un
+//    produit précis. Le code de la santé publique, le site de la HAS et les pages de l'ANSM n'ont pas été lus.
+import '../../styles/fr-guide.css';
+import FrLayout from '../../layouts/FrLayout.astro';
+import FrGuideFoot from '../../components/FrGuideFoot.astro';
+import FrFaq from '../../components/FrFaq.astro';
+import { guideSchema } from '../../utils/fr-guide';
+import { SRC } from '../../data/fr/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = '15 novembre 2026';
+const title = 'Liste « fournisseurs » : IA, dispositif médical et documents en France';
+const description =
+  'Ce qu’il faut demander quand un fournisseur propose un logiciel d’IA à un hôpital français : sommes-nous déployeur, est-ce un dispositif médical, est-ce à haut risque, que doit montrer le fournisseur, comment gérer mises à jour et incidents.';
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. Quelles règles s’appliquent à cet hôpital ?',
+    lead: 'Plusieurs ensembles de règles se rencontrent dans un projet d’IA hospitalier. Notez lesquels votre outil touche.',
+    items: [
+      {
+        no: '1',
+        text: 'Vous avez noté que l’établissement est déployeur : une personne ou un organisme qui utilise un système d’IA sous son autorité. Les déployeurs ont leurs propres obligations au titre du règlement sur l’IA, distinctes de celles du fournisseur.',
+        basis: 'Règlement sur l’IA, article 26 ; projet de guide HAS-CNIL, fiche 1',
+      },
+      {
+        no: '2',
+        text: 'Vous avez demandé si un développement interne ferait de l’hôpital un fournisseur de système d’IA ou le fabricant d’un dispositif médical. Le RDM prévoit un régime particulier pour les dispositifs fabriqués et utilisés dans les établissements de santé.',
+        basis: 'RDM, article 5, paragraphe 5',
+      },
+      {
+        no: '3',
+        text: 'Vous avez vérifié les dates : le règlement sur l’IA s’applique en général à partir du 2 août 2026, et son article 6, paragraphe 1 (IA dans des produits comme les dispositifs médicaux) à partir du 2 août 2027, tel que publié. Vérifiez si des modifications européennes les ont changées.',
+        basis: 'Règlement sur l’IA, article 113',
+      },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Est-ce un dispositif médical, et est-ce à haut risque ?',
+    lead: 'Le marquage CE ne dispense pas de vigilance locale : le projet de guide le rappelle. La preuve doit venir du fournisseur.',
+    items: [
+      {
+        no: '4',
+        text: 'Le fournisseur a dit par écrit s’il considère le produit comme un dispositif médical et pourquoi. La définition du RDM cite le logiciel destiné par le fabricant à des fins médicales comme le diagnostic, la prédiction, le pronostic ou le traitement.',
+        basis: 'RDM, article 2, point 1',
+      },
+      {
+        no: '5',
+        text: 'S’il s’agit d’un dispositif, le fournisseur indique la classe et son raisonnement. La règle 11 classe en IIa les logiciels qui informent des décisions diagnostiques ou thérapeutiques, et en IIb ou III si la décision peut causer une détérioration grave ou irréversible.',
+        basis: 'RDM, annexe VIII, règle 11 (texte tel que publié en 2017)',
+      },
+      {
+        no: '6',
+        text: 'Vous avez demandé comment le fournisseur voit l’article 6, paragraphe 1, du règlement sur l’IA : un système d’IA est à haut risque lorsqu’il est un produit (ou un composant de sécurité) relevant de la législation de l’annexe I, comme le RDM, et soumis à une évaluation de conformité par un tiers.',
+        basis: 'Règlement sur l’IA, article 6, paragraphe 1, annexe I section A points 11 et 12',
+      },
+      {
+        no: '7',
+        text: 'Pour les usages hors dispositifs, vous avez vérifié si l’outil figure à l’annexe III, par exemple l’évaluation de l’éligibilité aux services de soins publics ou le tri des patients aux urgences.',
+        basis: 'Règlement sur l’IA, annexe III, point 5 a) et d)',
+      },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. Ce que le fournisseur doit montrer',
+    lead: 'Demandez-le par écrit et conservez les réponses avec le contrat.',
+    items: [
+      {
+        no: '8',
+        text: 'La notice d’utilisation précise comment le contrôle humain doit fonctionner, et vous pouvez le confier à des personnes ayant la compétence, la formation, l’autorité et le soutien que demande le règlement sur l’IA.',
+        basis: 'Règlement sur l’IA, article 26, paragraphes 1 et 2',
+      },
+      {
+        no: '9',
+        text: 'Le fournisseur indique comment son système informe les personnes qu’elles interagissent avec une IA, lorsqu’il s’adresse directement aux patients, sauf si cela est évident.',
+        basis: 'Règlement sur l’IA, article 50, paragraphe 1',
+      },
+      {
+        no: '10',
+        text: 'Le fournisseur décrit par écrit la validation, les jeux de données et les limites de l’outil. (Recommandation de l’auteur ; le projet de guide consacre aussi une fiche à la vérification de l’adéquation au contexte local.)',
+        basis: 'Projet de guide HAS-CNIL, sommaire (fiches 2 et 3) ; recommandation de l’auteur',
+      },
+    ],
+  },
+  {
+    id: 'g4',
+    head: 'D. Mises à jour, incidents et déclaration',
+    lead: 'Les mises à jour modifient un outil après que vous l’avez validé. Demandez comment elles vous parviennent avant de signer.',
+    items: [
+      {
+        no: '11',
+        text: 'Il existe un processus documenté pour recevoir les avis de sécurité du fabricant et les transmettre aux équipes cliniques, techniques et aux achats, y compris pour les mises à jour logicielles. (Recommandation de l’auteur.)',
+        basis: 'Recommandation de l’auteur ; projet de guide HAS-CNIL, fiche 10 (vigilance, mises à jour)',
+      },
+      {
+        no: '12',
+        text: 'La carte d’incident dit qui déclare les incidents graves liés à un dispositif, et qui prévient le fournisseur. Le projet de guide cite l’obligation de déclarer à l’agence, dans les meilleurs délais, tout incident grave dont un professionnel a connaissance (article L. 5212-2 du code de la santé publique, tel que rappelé) ; passez par votre correspondant de matériovigilance.',
+        basis: 'Projet de guide HAS-CNIL, fiche 10 (rappel du cadre ; code non lu)',
+      },
+      {
+        no: '13',
+        text: 'Pour les systèmes d’IA à haut risque, le déployeur surveille le fonctionnement, informe le fournisseur et l’autorité de surveillance du marché des risques, suspend l’utilisation si besoin, signale les incidents graves et conserve au moins six mois les journaux qu’il contrôle.',
+        basis: 'Règlement sur l’IA, article 26, paragraphes 5 et 6',
+      },
+    ],
+  },
+  {
+    id: 'g5',
+    head: 'E. Ce que fait l’hôpital lui-même',
+    lead: 'Les documents d’un fournisseur ne remplacent pas la gouvernance de l’hôpital.',
+    items: [
+      {
+        no: '14',
+        text: 'Une gouvernance associe direction, professionnels de santé, ingénieurs biomédicaux, informaticiens, juristes, délégué à la protection des données, responsable de la sécurité des systèmes d’information et représentants des usagers ; les outils d’IA sont cartographiés. (Projet de guide ; le texte final peut différer.)',
+        basis: 'Projet de guide HAS-CNIL, fiche 1 et fiche 7 (actions préalables)',
+      },
+      {
+        no: '15',
+        text: 'Les personnes qui utilisent l’outil sont formées avant la mise en service, limites comprises, et les travailleurs sont informés lorsque le règlement sur l’IA l’exige.',
+        basis: 'Règlement sur l’IA, articles 4 et 26, paragraphe 7',
+      },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'Le marquage CE d’un fournisseur signifie-t-il que l’outil convient à notre hôpital ?',
+    a: 'Non. Le projet de guide HAS-CNIL rappelle que le marquage CE ne dispense pas le déployeur d’un devoir de vigilance sur place, et le règlement sur l’IA fixe des obligations au déployeur : contrôle humain, surveillance, journaux, information des travailleurs. La validation du fournisseur est un point de départ pour vos propres tests.',
+  },
+  {
+    q: 'Un fournisseur dit que son produit n’est pas un dispositif médical. Que faire ?',
+    a: 'Demandez le raisonnement par écrit, rattaché à la destination indiquée par le fabricant. La définition du RDM repose sur cette destination médicale. Demandez ensuite si le produit pourrait malgré tout être à haut risque au titre de l’annexe III du règlement sur l’IA. Portez les réponses à vos juristes.',
+  },
+  {
+    q: 'Quelles dates comptent pour l’IA dans les dispositifs médicaux ?',
+    a: 'Selon le texte publié au Journal officiel, le règlement sur l’IA s’applique en général à partir du 2 août 2026, et l’article 6, paragraphe 1 (IA dans des produits relevant du RDM ou du RDIV soumis à une évaluation de conformité par un tiers), avec les obligations correspondantes, à partir du 2 août 2027. Nous n’avons pas lu les modifications européennes ultérieures : vérifiez le texte en vigueur.',
+  },
+];
+
+const sources = [SRC.aiAct, SRC.rdm, SRC.guideHasCnil, SRC.cnilConsult];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/fr/documents-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Direction et cadres des hôpitaux',
+  faq,
+});
+---
+
+<FrLayout title={title} description={description} crumb="Fournisseurs et documents" standalone updated={new Date('2026-11-15T00:00:00+01:00')} schema={guide}>
+  <h1>Liste de contrôle : fournisseurs d’IA et documents</h1>
+  <p class="tg-lead">
+    Quand un fournisseur propose un logiciel d’IA, trois questions arrivent ensemble : sommes-nous un déployeur avec nos propres obligations, est-ce un dispositif médical ou un système d’IA à haut risque, et que change une mise à jour de l’outil. Cette page les réunit, chacune avec sa base.
+  </p>
+  <p class="tg-meta">Vérifié le {CHECKED} · {total} points · Pour : direction et cadres des hôpitaux</p>
+
+  <p class="tg-answer">
+    En bref : un hôpital qui utilise un système d’IA est un déployeur au sens du règlement européen sur l’IA ; un logiciel peut être un dispositif médical au sens du RDM ; et le projet de guide HAS-CNIL (document de travail) demande une gouvernance, de la transparence envers les patients, un contrôle humain et une cartographie des outils d’IA.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>À lire d’abord</strong>
+    <ul class="tg-list">
+      <li>Ceci n’est <strong>pas une liste officielle</strong>. C’est la liste de l’auteur, construite à partir des documents cités ; chaque point donne sa base.</li>
+      <li>Les documents cités ne décident pas si un produit précis est un dispositif médical ou un système d’IA à haut risque. Cela dépend de sa destination ; demandez au fournisseur par écrit.</li>
+      <li>Le guide HAS-CNIL est un <strong>projet</strong> (février 2026) ; nous n’avons pas trouvé de version finale. Les articles du code de la santé publique ne sont cités que tels que le projet les rappelle.</li>
+      <li>Les points marqués « recommandation de l’auteur » ne sont pas des obligations.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>Ce qu’il faut vérifier</th>
+              <th>Base</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">À lire ensuite</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/fr/data-checklist/')}>
+        <b>Liste « données des patients »</b>
+        <span>Analyse d’impact, responsable de traitement et sous-traitant, décisions automatisées et délais en cas de violation.</span>
+      </a>
+      <a class="tg-card" href={withBase('/fr/templates/')}>
+        <b>Modèles de documents</b>
+        <span>Questions aux fournisseurs, charte d’usage de l’IA générative et fiche d’incident.</span>
+      </a>
+    </div>
+  </section>
+
+  <FrFaq items={faq} />
+
+  <FrGuideFoot sources={sources} checked={CHECKED} />
+</FrLayout>

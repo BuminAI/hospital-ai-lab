@@ -855,6 +855,30 @@ UAE판 `/ae/`을 복제한 **영어(아일랜드)** 판이다(hreflang·html lan
 - UAE판 `ae.json` 홈 FAQ가 실제 수집처와 다른 매체명을 적고 있던 것을 같은 날 바로잡았다(CLAUDE.md '수집처 문구' 규정).
 - **자동 발행(오너 지시 2026-11-15)**: CLAUDE.md 예외에 `blogIe`·FAQ를 넣었고 예약 작업 `daily-update-digest`에 1-4-4단계(아일랜드)를 더했다. 훅 `allow-content-write.cjs`에도 `blog-ie/`·`ie/content/faq.json`을 추가했다.
 
+## 5-23. 프랑스어판 `/fr/` (2026-11-15 신설, 오너 지시: "프랑스어판 페이지를 만들어보자. 빠뜨리지 말고, 지금까지 지시한 대로 … main에 반영하고, 자동발행도 포함해줘")
+
+아일랜드판 `/ie/`를 복제한 **프랑스어** 판이다(hreflang·html lang `fr-FR`, `FrLayout`, 컬렉션 `blogFr`, 글 폴더 `src/content/blog-fr/`, 데이터 `src/data/fr/`, 스타일 `src/styles/fr-*.css`의 `--fr-`, 시간대 Europe/Paris, 통화 €). 번역도 복사도 아니다. **아일랜드 내용은 전부 프랑스·EU 1차 문서로 새로 썼다.** 프랑스어 조판: `: ; ? ! »` 앞·`«` 뒤는 줄바꿈 없는 공백(NBSP; 생성 스크립트가 처리하고 .astro/.ts 코드 안은 일반 공백).
+
+**읽은 1차 문서(2026-11-15)**: CNIL 'IA et santé : développer et évaluer des systèmes d'IA en conformité avec la réglementation'(2026-03-05)·CNIL 공개협의 안내 페이지(2026-03-05, 협의는 2026-04-16 종료)·**HAS–CNIL 공동 지침 초안 PDF**(작업 문서 2026-02-16, 12 fiches, 권고 3단계)·CNIL 2025-07-22 페이지, EU AI 법·RGPD·의료기기 규정(RDM)의 **프랑스어 관보 원문**(EU 출판청 CELLAR에서 `Accept: application/pdf`/`application/xhtml+xml` + `Accept-Language: fra`; EUR-Lex 본 사이트는 봇 확인이라 우회하지 않음).
+
+**읽지 못해 쓰지 않은 것(우회 금지)**: **HAS–CNIL 최종 지침**(찾지 못함 — 초안 내용은 항상 '작업 문서(초안)'로 표시), **Légifrance**(건강공중보건법·정보와 자유 법; 건강공중보건법 L.1111-4·L.4001-3·L.5212-2는 지침 초안이 '그렇게 인용한 대로'만 적음), **HAS·ANSM 페이지**, 2024 이후 EU 개정. 법률·규제 해설은 일반 정보이며 법률 자문이 아니다.
+
+| 항목 | 위치 | 비고 |
+|---|---|---|
+| 레이아웃·UI | `FrLayout.astro`, `src/i18n/fr.json`, `growth.ts`의 프랑스어 블록 | 열두 개 레이아웃 전부에 `frPath`·푸터 링크(`fr-FR`), 한국어판은 `alternates.fr`; og:locale `fr_FR` |
+| 실무 가이드 | `src/pages/fr/{dx-roadmap,data-checklist,documents-checklist,templates,practice,facts,calendar,updates}` + 환자 코너 | 항목마다 근거 조항 표기. '캘린더'는 CNIL 소식(RSS) |
+| 글 | `blog-fr/` 8편, 시리즈 `gouvernance-et-regles`(4)·`donnees-dispositifs-incidents`(4) | 카테고리 Outils IA 위주 |
+| 수집 | 광폭 수집기 `fr`(`wide-sources.mjs`: **구글 뉴스 검색 RSS를 프랑스 매체 허용 목록(`FR_OUTLETS`: Le Monde·Le Figaro·franceinfo·Les Echos·Le Parisien·Libération·Numerama·ZDNet France·Le Quotidien du Médecin·DSIH·Infirmiers.com 등)으로 거른 것**), `fetch-fr-gov.mjs`(CNIL RSS), `fetch-fr-news.mjs`, `fetch-fr-videos.mjs`(유튜브 검색, 채널 허용 목록, 영어 라벨 파서 때문에 `hl=en`) | 뉴스 37·AI 동향 43·CNIL 10·영상 16건으로 시작 |
+| 점검 | `check-fr-links.mjs`, `check-fr-laws.mjs` | 지문은 안정적인 **HAS–CNIL 초안 PDF**만(웹페이지는 요청마다 ETag가 달라 거짓 '변경'이 난다) |
+| AI 심사실 | `scripts/ai-judge/lang/fr.py`(€, UI는 영어 — 필리핀판 선례) + `build.py` | `py scripts/ai-judge/build.py`; html lang은 audit 기준상 `fr-FR` |
+| 워크플로 | `check-fr-laws`·`check-fr-links`·`update-fr-gov`·`update-fr-news`·`update-fr-videos` + `update-ai-digest.yml`의 fr | cron 분 단위를 다른 판과 겹치지 않게 분산 |
+| 관리자 | `admin-fr.astro` + 다른 관리자 화면 연결 | |
+
+**주의할 점**
+- 복제 후 일괄 치환 사고: 도메인 `.ie`가 `.fr`로 바뀌어 존재하지 않는 도메인이 생기고(hiqa.fr 등), `en-IE`→`en-FR`가 남았다. 새 판을 또 만들 때는 치환 뒤 **잔재 검색(국가명·기관명·도메인·`en-XX`)**과 `facts/index.astro`의 `SRC` 키(아일랜드 키가 남아 빌드 실패)를 확인할 것.
+- `audit-site.mjs`가 og:locale·html lang·제목 폭(78)을 잡아 줬다. 프랑스어 제목은 길어지기 쉬워 78 이내로 줄여야 한다.
+- **자동 발행(오너 지시 2026-11-15)**: CLAUDE.md 예외에 `blogFr`·FAQ를 넣었고 예약 작업 `daily-update-digest`에 1-4-5단계(프랑스어)를 더했다. 훅 `allow-content-write.cjs`에도 `blog-fr/`·`fr/content/faq.json`을 추가했다.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

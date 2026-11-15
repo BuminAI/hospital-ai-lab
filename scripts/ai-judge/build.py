@@ -13,9 +13,9 @@ import importlib.util, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SITE = 'https://hospital-ai-lab.com'
-CODES = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph', 'ae', 'ie']
-HREFLANG = {'ko': 'ko', 'ja': 'ja', 'ru': 'ru', 'id': 'id', 'tw': 'zh-TW', 'en': 'en', 'in': 'en-IN', 'sg': 'en-SG', 'ph': 'fil-PH', 'ae': 'en-AE', 'ie': 'en-IE'}
-PATHS = {'ko': '/ai-judge/', 'ja': '/ja/ai-judge/', 'ru': '/ru/ai-judge/', 'id': '/id/ai-judge/', 'tw': '/tw/ai-judge/', 'en': '/en/ai-judge/', 'in': '/in/ai-judge/', 'sg': '/sg/ai-judge/', 'ph': '/ph/ai-judge/', 'ae': '/ae/ai-judge/', 'ie': '/ie/ai-judge/'}
+CODES = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph', 'ae', 'ie', 'fr']
+HREFLANG = {'ko': 'ko', 'ja': 'ja', 'ru': 'ru', 'id': 'id', 'tw': 'zh-TW', 'en': 'en', 'in': 'en-IN', 'sg': 'en-SG', 'ph': 'fil-PH', 'ae': 'en-AE', 'ie': 'en-IE', 'fr': 'fr-FR'}
+PATHS = {'ko': '/ai-judge/', 'ja': '/ja/ai-judge/', 'ru': '/ru/ai-judge/', 'id': '/id/ai-judge/', 'tw': '/tw/ai-judge/', 'en': '/en/ai-judge/', 'in': '/in/ai-judge/', 'sg': '/sg/ai-judge/', 'ph': '/ph/ai-judge/', 'ae': '/ae/ai-judge/', 'ie': '/ie/ai-judge/', 'fr': '/fr/ai-judge/'}
 
 
 def load(code):

@@ -204,6 +204,35 @@ export const RESEARCH_STRINGS: Record<Loc, ResearchStrings> = {
   sg: en('Singapore', 'Singapore-based'),
   ae: en('the United Arab Emirates', 'UAE-based'),
   ie: en('Ireland', 'Ireland-based'),
+  fr: {
+    nav: 'Recherche médicale',
+    metaTitle: 'Recherche médicale en France : les 12 derniers mois',
+    h1: 'Technologie médicale et recherche en France',
+    metaDescription: 'Articles et essais cliniques récents dont les auteurs ou les sites sont en France, sur les 12 derniers mois : techniques chirurgicales, nouveaux médicaments et traitements, études sur les maladies, collectés automatiquement depuis PubMed et ClinicalTrials.gov.',
+    lead: 'Que publie et que teste la France en médecine en ce moment ? Cette page réunit les articles dont les affiliations d’auteurs mentionnent la France et les essais de médicaments dont des sites sont en France, tous sur les 12 derniers mois, en trois groupes : techniques chirurgicales, nouveaux médicaments et traitements, études sur les maladies.',
+    window: (from, to) => `Période : du ${from} au ${to} · mise à jour automatique chaque semaine`,
+    noteTitle: 'Comment lire cette page',
+    note: [
+      'Il s’agit d’une liste automatique de titres, de revues, de dates et de liens issus de PubMed et de ClinicalTrials.gov. Nous ne copions ni les résumés ni le texte des articles, et nous n’avons pas vérifié les résultats.',
+      'L’existence d’un article ou d’un essai ne prouve pas qu’un traitement est efficace ou sûr, et ce n’est pas un avis médical. Interrogez votre médecin sur tout traitement.',
+      '« Articles de France » signifie qu’au moins une affiliation d’auteur mentionne le pays ; cela ne veut pas dire que toute l’étude a été menée en France.',
+    ],
+    sections: {
+      surgery: { title: 'Techniques chirurgicales', desc: 'Articles sur la chirurgie mini-invasive, assistée par robot, endoscopique, les prothèses articulaires et les greffes.' },
+      drug: { title: 'Nouveaux médicaments et traitements (articles)', desc: 'Essais de phase 1 à 3 et essais randomisés de médicaments, d’anticorps, de vaccins et de nouveaux traitements.' },
+      trials: { title: 'Essais de médicaments débutés cette année', desc: 'Études de médicaments enregistrées sur ClinicalTrials.gov avec un site dans ce pays, les plus récentes d’abord.' },
+      disease: { title: 'Maladies et études en population', desc: 'Cohortes nationales, registres et études en population sur l’incidence et la prévalence.' },
+    },
+    count: (shown, total) => `Affichage des ${shown} derniers sur ${total.toLocaleString('fr-FR')} résultats`,
+    phase: 'Phase',
+    sponsor: 'Promoteur',
+    started: 'Début',
+    conditions: 'Affections',
+    intervention: 'Médicament / intervention',
+    empty: 'Rien trouvé pour cette période pour l’instant.',
+    source: 'Source',
+    titlesNote: 'Les titres sont affichés dans leur langue d’origine (le plus souvent l’anglais).',
+  },
   ph: {
     nav: 'Medical research',
     metaTitle: 'Pananaliksik medikal ng Pilipinas: nakaraang taon',
@@ -238,7 +267,7 @@ export const RESEARCH_STRINGS: Record<Loc, ResearchStrings> = {
 export const researchPath = (loc: Loc) => (loc === 'ko' ? '/research/' : `/${loc}/research/`);
 
 // AEO (2026-11-14): 의료 기술·논문 페이지용 CollectionPage + ItemList. 화면에 보이는 항목(제목·링크)만 그대로 싣는다.
-const RESEARCH_LANG: Record<Loc, string> = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH', ae: 'en-AE', ie: 'en-IE' };
+const RESEARCH_LANG: Record<Loc, string> = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH', ae: 'en-AE', ie: 'en-IE', fr: 'fr-FR' };
 export function researchSchema(loc: Loc, data: any, name: string, description: string) {
   const origin = 'https://hospital-ai-lab.com';
   const url = origin + researchPath(loc);

@@ -1,0 +1,113 @@
+---
+// Ce que les patients peuvent attendre quand un hôpital utilise l'IA (2026-11-15). Seules les sections dont le texte a été ouvert : projet de guide HAS-CNIL
+// (document de travail du 16 février 2026, signalé comme projet), fiche CNIL « IA et santé », règlement sur l'IA articles 26 et 50, RGPD articles 9, 22, 33-34.
+import '../../../styles/fr-guide.css';
+import FrLayout from '../../../layouts/FrLayout.astro';
+import FrGuideFoot from '../../../components/FrGuideFoot.astro';
+import FrFaq from '../../../components/FrFaq.astro';
+import { guideSchema } from '../../../utils/fr-guide';
+import { SRC } from '../../../data/fr/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = '15 novembre 2026';
+const title = 'Quand votre hôpital utilise l’IA : ce que disent la HAS, la CNIL et l’UE';
+const description =
+  'À quoi s’attendre quand un hôpital utilise l’IA dans vos soins ? Ce que demandent à l’hôpital le projet de guide HAS-CNIL, la CNIL et le droit européen, en langage simple.';
+
+const rights = [
+  {
+    h: 'Un projet de guide national existe, et il vous concerne aussi',
+    p: 'La HAS et la CNIL ont élaboré un projet de guide « Accompagner le bon usage des systèmes d’intelligence artificielle en contexte de soins » (document de travail du 16 février 2026), soumis à consultation jusqu’au 16 avril 2026. Il s’adresse aux établissements et professionnels de santé et a deux objectifs : clarifier le cadre légal et proposer des bonnes pratiques. C’est une version provisoire ; nous n’avons pas trouvé de version finale.',
+  },
+  {
+    h: 'Une personne reste responsable',
+    p: 'Selon le projet de guide, le contrôle humain est une supervision active par un professionnel capable de comprendre, vérifier, corriger ou contredire le résultat de l’IA, et il permet de s’assurer que toute décision médicale est prise sous la responsabilité du professionnel de santé. Le guide ajoute qu’aucun régime de responsabilité spécifique n’a été établi à ce jour pour les professionnels utilisateurs d’IA.',
+  },
+  {
+    h: 'Vous devez être informé de l’usage de l’IA et de vos données',
+    p: 'Le projet de guide distingue l’information générale sur l’usage de systèmes d’IA dans les soins, celle sur l’utilisation de données personnelles, celle sur leurs réutilisations secondaires et la transparence sur vos droits (accès, opposition). Il rappelle l’obligation d’information sur l’usage d’un système d’IA qualifié de dispositif médical (article L. 4001-3 du code de la santé publique, tel que rappelé ; code non lu) et l’information prévue aux articles 13 et 14 du RGPD. Lorsqu’un système d’IA interagit directement avec vous, le règlement européen sur l’IA demande au fournisseur de le concevoir de manière que vous sachiez que vous avez affaire à une IA, sauf évidence (article 50, paragraphe 1).',
+  },
+  {
+    h: 'Vos données de santé sont particulièrement protégées',
+    p: 'Au sens du RGPD, les données concernant votre santé sont une catégorie particulière de données, qui ne peuvent être traitées que si une condition listée s’applique (article 9), par exemple pour la prise en charge sanitaire. En cas de violation de données susceptible d’engendrer un risque élevé pour vous, l’organisme doit vous en informer dans les meilleurs délais (article 34).',
+  },
+  {
+    h: 'Les décisions prises seulement par une machine',
+    p: 'L’article 22 du RGPD vous donne le droit de ne pas faire l’objet d’une décision fondée exclusivement sur un traitement automatisé qui produit des effets juridiques vous concernant ou vous affecte de manière significative, avec des exceptions et des garanties dont au moins le droit à une intervention humaine. Le projet de guide la dit interdite par défaut. Comment cela s’applique à un outil précis relève du délégué à la protection des données de l’hôpital.',
+  },
+  {
+    h: 'Les problèmes avec des dispositifs et de l’IA peuvent être signalés',
+    p: 'Le projet de guide rappelle que les systèmes d’IA ayant le statut de dispositif médical sont soumis à la matériovigilance comme les autres dispositifs. Selon le règlement sur l’IA, un hôpital qui utilise un système à haut risque doit informer le fournisseur et les autorités des risques et des incidents graves (article 26).',
+  },
+];
+
+const faq = [
+  {
+    q: 'Mon hôpital doit-il me dire quand l’IA est utilisée ?',
+    a: 'Le projet de guide rappelle des obligations d’information, dont l’une vise les systèmes d’IA qualifiés de dispositifs médicaux (code de la santé publique, tel que rappelé), mais il ne dit pas que chaque outil doit être annoncé à chaque patient. Nous n’avons pas lu le code lui-même ni de version finale du guide. Si vous voulez savoir, demandez.',
+  },
+  {
+    q: 'À qui signaler un problème ?',
+    a: 'Commencez par la direction ou la commission des usagers de l’établissement, ou par le professionnel qui vous soigne. Cette page ne traite pas des procédures de réclamation, que nous n’avons pas lues. Les incidents de dispositifs médicaux sont déclarés par les professionnels via la matériovigilance.',
+  },
+  {
+    q: 'Où mes droits en matière de données personnelles sont-ils expliqués ?',
+    a: 'La CNIL explique la protection des données en France. Nous avons lu le texte du RGPD et plusieurs documents de la CNIL sur l’IA, mais pas la loi « Informatique et libertés » ni le code de la santé publique : cette page ne décrit donc pas les droits qu’ils ajoutent. Consultez le site de la CNIL.',
+  },
+];
+
+const sources = [SRC.guideHasCnil, SRC.cnilConsult, SRC.cnilSante, SRC.aiAct, SRC.rgpd];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/fr/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Patients et leurs proches',
+  faq,
+});
+---
+
+<FrLayout title={title} description={description} crumb="Droits des patients et IA" standalone updated={new Date('2026-11-15T00:00:00+01:00')} schema={schema}>
+  <h1>Quand votre hôpital utilise l’IA : ce que disent le projet de guide HAS-CNIL et le droit européen</h1>
+  <p class="tg-lead">
+    Les hôpitaux utilisent de plus en plus d’outils qui reposent sur l’IA. À quoi pouvez-vous vous attendre ? Voici, en langage simple et avec la source de chaque point, ce que disent la CNIL, la HAS (par le projet de guide commun) et le droit européen. Ce sont des règles et des recommandations pour les hôpitaux ; cette page n’énonce pas vos droits légaux.
+  </p>
+  <p class="tg-meta">Vérifié le {CHECKED} · Pour : patients et proches</p>
+
+  <div class="tg-box tg-warn">
+    Ce sont des informations générales. Elles ne constituent ni un avis juridique ni un avis médical pour votre situation. Si vous avez un problème de santé, contactez votre professionnel de santé ou l’établissement qui vous suit. En cas d’urgence, appelez le numéro d’urgence ou rendez-vous aux urgences les plus proches.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Ce que disent les documents</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ask">
+    <h2 id="h-ask">Ce que vous pouvez demander à votre hôpital</h2>
+    <p>Suggestion de l’auteur, pas une exigence légale. Vous pouvez toujours demander :</p>
+    <ul class="tg-list">
+      <li>Des outils d’IA sont-ils utilisés dans mes soins ou ma facturation ? Pour quoi faire ?</li>
+      <li>Qui décide en dernier ressort : un professionnel ou l’outil ?</li>
+      <li>Où mes informations sont-elles stockées, et qui peut les voir ?</li>
+      <li>Mes données serviront-elles à construire ou améliorer un outil d’IA, et puis-je m’y opposer ?</li>
+    </ul>
+    <p>Avant d’interroger une IA sur votre propre santé : <a href={withBase('/fr/patients/ai-health-consult/')}>six choses à savoir</a>.</p>
+  </section>
+
+  <FrFaq items={faq} />
+
+  <FrGuideFoot sources={sources} checked={CHECKED} patient />
+</FrLayout>

@@ -45,7 +45,8 @@
     "sg": "English edition for Singapore",
     "ph": "Filipino edition for the Philippines",
     "ae": "English edition for the UAE",
-    "ie": "English edition for Ireland"
+    "ie": "English edition for Ireland",
+    "fr": "French edition for France"
   },
   "ui": {
     "updated": "Updated",

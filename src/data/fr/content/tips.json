@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "title": "Conseils pratiques pour travailler avec l’IA dans un hôpital français",
+    "description": "Des conseils simples pour les directions et les soignants : outils non validés, vérification des brouillons d’IA, réponses des fournisseurs, cartes d’incident et information des patients.",
+    "pageTitle": "Conseils pratiques",
+    "lead": "Ce sont des suggestions pratiques de l’auteur, pas des obligations légales. Quand un document s’applique, la page le dit et le nomme."
+  },
+  "sections": [
+    {
+      "heading": "Ne collez pas d’informations de patients dans des outils non validés",
+      "body": "Noms, numéros de sécurité sociale, dates de naissance, numéros de téléphone et contenu des dossiers doivent rester hors des agents conversationnels grand public. Les recommandations de la CNIL rappellent que le RGPD s’applique souvent aux modèles d’IA entraînés sur des données personnelles, du fait de leur capacité de mémorisation. Dites clairement quels outils sont validés.",
+      "items": []
+    },
+    {
+      "heading": "Tenez une liste des outils d’IA, avec un nom en face de chacun",
+      "body": "Le projet de guide HAS-CNIL recommande de cartographier les systèmes d’IA utilisés dans l’établissement, leurs cas d’usage et les données personnelles qu’ils traitent. Un tableur partagé est un bon début.",
+      "items": []
+    },
+    {
+      "heading": "Relisez un brouillon d’IA comme celui d’un stagiaire",
+      "body": "Une IA peut affirmer des choses fausses avec aplomb. Vérifiez faits, chiffres et noms à la source avant que quoi que ce soit n’entre dans un dossier.",
+      "items": []
+    },
+    {
+      "heading": "Posez trois questions écrites à vos fournisseurs",
+      "body": "Est-ce un dispositif médical, et pourquoi ou pourquoi pas ? Où vont nos données et sont-elles réutilisées ? Comment nous préviendrez-vous d’une panne ou d’une mise à jour ? Gardez les réponses avec le contrat.",
+      "items": []
+    },
+    {
+      "heading": "Mettez les délais sur une seule carte",
+      "body": "Une violation de données personnelles : 72 heures pour le responsable de traitement (RGPD, article 33). Un incident grave avec un dispositif : déclaration à l’agence dans les meilleurs délais, d’après le projet de guide qui cite le code de la santé publique. Un incident grave avec un système d’IA à haut risque : au fournisseur d’abord, puis aux autorités (RIA, article 26). Écrivez qui fait quoi sur une page.",
+      "items": []
+    },
+    {
+      "heading": "Dites aux patients quand l’IA fait partie de leurs soins",
+      "body": "Le projet de guide distingue l’information générale sur l’usage de l’IA dans les soins, l’information sur les données personnelles et la transparence sur les droits. Décidez à l’avance qui explique et quelle est la réponse courte.",
+      "items": []
+    }
+  ]
+}

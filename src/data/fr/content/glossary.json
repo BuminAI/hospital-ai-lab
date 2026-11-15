@@ -1,0 +1,244 @@
+[
+  {
+    "id": "cnil",
+    "term": "CNIL (Commission nationale de l’informatique et des libertés)",
+    "category": "Réglementation et certification",
+    "definition": "L’autorité française de protection des données. Elle publie des fiches pratiques sur l’IA, une fiche « IA et santé » (5 mars 2026) et a copiloté avec la HAS le projet de guide sur l’IA en contexte de soins.",
+    "whyMatters": "Ses documents sont la référence pratique pour toute question de données personnelles dans un projet d’IA, notamment de santé.",
+    "sources": [
+      "https://www.cnil.fr/fr/ia-et-sante-developper-et-evaluer-des-systemes-dia-en-conformite-avec-la-reglementation",
+      "https://cnil.fr/fr/les-fiches-pratiques-ia"
+    ]
+  },
+  {
+    "id": "has",
+    "term": "HAS (Haute Autorité de santé)",
+    "category": "Réglementation et certification",
+    "definition": "L’autorité qui a copiloté avec la CNIL le projet de guide « Accompagner le bon usage des systèmes d’intelligence artificielle en contexte de soins ». Selon la CNIL, des critères dédiés à l’IA ont été ajoutés au 6e cycle de certification des établissements de santé.",
+    "whyMatters": "Le site de la HAS a refusé les requêtes automatiques ; consultez-le directement pour le référentiel de certification et pour une éventuelle version finale du guide.",
+    "sources": [
+      "https://www.cnil.fr/fr/ia-et-sante-la-has-et-la-cnil-lancent-une-consultation-publique-sur-un-projet-de-guide",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "guide-has-cnil",
+    "term": "Projet de guide HAS-CNIL",
+    "category": "Normes et terminologie",
+    "definition": "Document de travail du 16 février 2026 : douze fiches, de l’acquisition à la désinstallation d’un système d’IA, plus la gouvernance et l’IA générative, avec des recommandations « standard », « avancées » et des « réflexes ». Il a été soumis à consultation jusqu’au 16 avril 2026.",
+    "whyMatters": "C’est un projet provisoire, pas une règle. Il sert à structurer vos questions ; nous n’avons pas trouvé de version finale.",
+    "sources": [
+      "https://www.cnil.fr/fr/ia-et-sante-la-has-et-la-cnil-lancent-une-consultation-publique-sur-un-projet-de-guide",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "ria",
+    "term": "Règlement sur l’IA (RIA)",
+    "category": "Réglementation et certification",
+    "definition": "Le règlement (UE) 2024/1689, texte de l’Union qui classe les systèmes d’IA par niveau de risque et fixe des obligations aux fournisseurs, aux déployeurs et à d’autres acteurs. L’essentiel s’applique à partir du 2 août 2026, l’article 6, paragraphe 1, à partir du 2 août 2027, d’après le texte publié.",
+    "whyMatters": "Il s’applique directement en France. Un hôpital qui utilise un système d’IA est un déployeur, avec ses propres obligations.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra"
+    ]
+  },
+  {
+    "id": "sia",
+    "term": "SIA (système d’intelligence artificielle)",
+    "category": "Normes et terminologie",
+    "definition": "Le sigle utilisé par le projet de guide HAS-CNIL pour désigner un système d’IA utilisé en soins, quel que soit son rôle : supplétif, substitutif ou palliatif.",
+    "whyMatters": "Certains SIA sont clairement identifiables, d’autres sont intégrés plus discrètement à des dispositifs ou à des outils numériques : cartographiez-les.",
+    "sources": [
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "deployeur",
+    "term": "Déployeur",
+    "category": "Réglementation et certification",
+    "definition": "Toute personne physique ou morale, y compris une autorité publique, qui utilise un système d’IA sous sa propre autorité, sauf à titre personnel non professionnel. Un hôpital qui utilise le produit d’un fournisseur est un déployeur.",
+    "whyMatters": "Les déployeurs, pas seulement les fournisseurs, ont des obligations : contrôle humain, surveillance, journaux, information des travailleurs.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "fournisseur",
+    "term": "Fournisseur (RIA)",
+    "category": "Réglementation et certification",
+    "definition": "La personne ou l’organisme qui développe un système d’IA, ou le fait développer, et le met sur le marché ou en service sous son propre nom. Le projet de guide rappelle qu’un hôpital qui développe son propre logiciel peut assumer des obligations de fournisseur et de fabricant.",
+    "whyMatters": "Demandez si un outil construit par votre propre équipe ferait de vous un fournisseur.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "haut-risque",
+    "term": "Système d’IA à haut risque",
+    "category": "Réglementation et certification",
+    "definition": "Un système que le RIA traite comme à haut risque, soit parce qu’il est un produit (ou un composant de sécurité) relevant de lois européennes sur les produits comme le RDM et soumis à une évaluation de conformité par un tiers (article 6, paragraphe 1), soit parce qu’il relève d’un usage de l’annexe III.",
+    "whyMatters": "Le haut risque entraîne les obligations de l’article 26 pour le déployeur. Pour l’IA dans les dispositifs médicaux, l’article 6, paragraphe 1, s’applique à partir du 2 août 2027, tel que publié.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra"
+    ]
+  },
+  {
+    "id": "maitrise-ia",
+    "term": "Maîtrise de l’IA",
+    "category": "Réglementation et certification",
+    "definition": "Le terme de l’article 4 du RIA pour un niveau suffisant de compréhension du personnel et des autres personnes qui font fonctionner ou utilisent des systèmes d’IA pour votre compte, selon leurs connaissances, leur formation et le contexte.",
+    "whyMatters": "Prévoyez la formation de tous ceux qui touchent l’outil, pas seulement des médecins.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra"
+    ]
+  },
+  {
+    "id": "aidf",
+    "term": "Analyse d’impact sur les droits fondamentaux (AIDF)",
+    "category": "Réglementation et certification",
+    "definition": "Une analyse que l’article 27 du RIA demande à certains déployeurs avant d’utiliser certains systèmes à haut risque : organismes de droit public, entités privées fournissant des services publics et déployeurs de certains systèmes de crédit et d’assurance.",
+    "whyMatters": "Savoir si votre établissement doit en faire une dépend de son statut et de l’outil. Demandez conseil avant de supposer l’un ou l’autre.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "controle-humain",
+    "term": "Contrôle humain",
+    "category": "Normes et terminologie",
+    "definition": "Supervision humaine active par une personne compétente, formée et dotée de l’autorité nécessaire. Le projet de guide le distingue de la décision automatisée et le rattache à l’article 14 du RIA pour les systèmes à haut risque.",
+    "whyMatters": "Désignez qui supervise chaque outil et assurez-vous qu’il peut vraiment l’arrêter.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "rdm",
+    "term": "Règlement relatif aux dispositifs médicaux (RDM)",
+    "category": "Réglementation et certification",
+    "definition": "Le règlement (UE) 2017/745. Il cite le logiciel parmi les dispositifs médicaux et classe les logiciels d’aide à la décision diagnostique ou thérapeutique en classe IIa ou supérieure (règle 11).",
+    "whyMatters": "Si un fournisseur affirme que son produit n’est pas un dispositif médical, demandez par écrit le raisonnement sur la destination.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra"
+    ]
+  },
+  {
+    "id": "logiciel-dm",
+    "term": "Logiciel dispositif médical",
+    "category": "Normes et terminologie",
+    "definition": "Un logiciel qui est un dispositif médical à lui seul parce que son fabricant le destine à des fins médicales (diagnostic, prédiction, pronostic, traitement), selon la définition du RDM.",
+    "whyMatters": "La destination déclarée par le fabricant décide : comparez-la à l’usage réel qu’en feront vos équipes.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra"
+    ]
+  },
+  {
+    "id": "dispositif-interne",
+    "term": "Dispositif fabriqué en interne",
+    "category": "Réglementation et certification",
+    "definition": "Un dispositif fabriqué et utilisé uniquement au sein d’un établissement de santé. L’article 5, paragraphe 5, du RDM l’exempte de la plupart des exigences sous conditions : justification, déclaration publique, documentation.",
+    "whyMatters": "Concerne votre DSI ou votre ingénierie biomédicale si elle développe des logiciels à usage clinique.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra"
+    ]
+  },
+  {
+    "id": "incident-grave",
+    "term": "Incident grave",
+    "category": "Normes et terminologie",
+    "definition": "Un incident ayant entraîné, pu entraîner ou pouvant entraîner le décès, une grave détérioration de l’état de santé ou une menace grave pour la santé publique, dans la logique du RDM. Le projet de guide cite l’obligation de le déclarer à l’agence dans les meilleurs délais (article L. 5212-2 du code de la santé publique, tel que rappelé).",
+    "whyMatters": "Le code lui-même n’a pas été lu pour ce site : confirmez l’obligation avec votre correspondant de matériovigilance.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "materiovigilance",
+    "term": "Matériovigilance",
+    "category": "Normes et terminologie",
+    "definition": "La surveillance des incidents liés aux dispositifs médicaux. Le projet de guide indique que les systèmes d’IA ayant le statut de dispositif médical sont concernés comme les autres dispositifs, et que le circuit pour les SIA sans ce statut « reste à clarifier ».",
+    "whyMatters": "Mettez la voie de déclaration sur une carte unique : qui déclare, à qui, et qui prévient le fournisseur.",
+    "sources": [
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "donnees-sante",
+    "term": "Données concernant la santé",
+    "category": "Données et vie privée",
+    "definition": "Au sens du RGPD, article 9, une catégorie particulière de données dont le traitement est interdit sauf si une condition listée s’applique.",
+    "whyMatters": "Les données de vos patients entrent dans cette catégorie : c’est pourquoi les projets d’IA de santé appellent le plus souvent une analyse d’impact.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra"
+    ]
+  },
+  {
+    "id": "aipd",
+    "term": "AIPD (analyse d’impact relative à la protection des données)",
+    "category": "Données et vie privée",
+    "definition": "Une analyse exigée par l’article 35 du RGPD avant un traitement susceptible d’engendrer un risque élevé, y compris le traitement à grande échelle de catégories particulières de données. Le projet de guide HAS-CNIL la range parmi les obligations du déployeur.",
+    "whyMatters": "Faites-la avant la mise en service, avec votre délégué à la protection des données. La documentation du fournisseur aide mais ne la remplace pas.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "rt-st",
+    "term": "Responsable de traitement et sous-traitant",
+    "category": "Données et vie privée",
+    "definition": "Le responsable de traitement décide des finalités et des moyens essentiels ; le sous-traitant traite des données pour son compte. Selon le projet de guide, le déployeur sera dans la majorité des cas le responsable de traitement pour les données liées à l’usage du système.",
+    "whyMatters": "Réglez qui est qui dans le contrat : les obligations en cas de violation diffèrent.",
+    "sources": [
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
+      "https://www.cnil.fr/fr/ia-et-sante-developper-et-evaluer-des-systemes-dia-en-conformite-avec-la-reglementation"
+    ]
+  },
+  {
+    "id": "entrepot",
+    "term": "Entrepôt de données de santé",
+    "category": "Données et vie privée",
+    "definition": "Une base rassemblant des données de santé en vue d’utilisations ultérieures, notamment le développement d’IA. D’après la fiche de la CNIL, sa création suppose le consentement explicite de chaque personne ou une formalité préalable auprès de la CNIL.",
+    "whyMatters": "À vérifier avant d’accepter qu’un partenaire « réutilise » vos données pour entraîner un modèle.",
+    "sources": [
+      "https://www.cnil.fr/fr/ia-et-sante-developper-et-evaluer-des-systemes-dia-en-conformite-avec-la-reglementation"
+    ]
+  },
+  {
+    "id": "decision-automatisee",
+    "term": "Décision individuelle automatisée",
+    "category": "Données et vie privée",
+    "definition": "Une décision fondée exclusivement sur un traitement automatisé produisant des effets juridiques ou affectant la personne de manière significative. L’article 22 du RGPD donne le droit de ne pas y être soumis, avec des exceptions et des garanties.",
+    "whyMatters": "Gardez une personne dans la boucle et demandez à votre délégué à la protection des données comment l’article 22 s’applique à un outil précis.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "id": "violation-72h",
+    "term": "Violation de données : notification sous 72 heures",
+    "category": "Données et vie privée",
+    "definition": "L’article 33 du RGPD demande au responsable de traitement de notifier l’autorité de contrôle dans les meilleurs délais et, si possible, dans les 72 heures après en avoir pris connaissance, sauf risque improbable. L’article 34 traite de l’information des personnes quand le risque est élevé.",
+    "whyMatters": "Mettez l’horloge de 72 heures sur la carte d’incident et exigez des fournisseurs une alerte rapide.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra"
+    ]
+  },
+  {
+    "id": "transparence",
+    "term": "Information des patients",
+    "category": "Normes et terminologie",
+    "definition": "Dire aux personnes quand et pourquoi une IA intervient dans leurs soins. Le projet de guide distingue l’information générale, celle sur les données personnelles, sur les réutilisations secondaires et sur les droits, et rappelle l’obligation d’information prévue pour les systèmes d’IA qualifiés de dispositifs médicaux.",
+    "whyMatters": "Décidez à l’avance qui explique, comment et avec quels mots.",
+    "sources": [
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra"
+    ]
+  }
+]

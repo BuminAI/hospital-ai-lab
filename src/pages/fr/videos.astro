@@ -1,0 +1,224 @@
+---
+import FrLayout from '../../layouts/FrLayout.astro';
+import { videosEn, videosMetaEn, videosLocalEn } from '../../data/fr/pages';
+import en from '../../i18n/fr.json';
+import { YOUTUBE_CHANNEL_URL } from '../../utils/site';
+
+const p = videosMetaEn;
+
+// ⚠️ VideoObject는 쓰지 않는다. uploadDate·duration을 정확히 모르기 때문이다
+//    (recommended-videos.json의 addedAt은 사이트 추가일이지 유튜브 공개일이 아님).
+//    화면에 보이는 목록 순서를 ItemList로만 전달한다.
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.pageTitle,
+    numberOfItems: videosEn.length,
+    itemListElement: videosEn.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.titleEn,
+      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    })),
+  },
+  {
+    '@type': 'ItemList',
+    name: 'Vidéos d’autres chaînes',
+    numberOfItems: videosLocalEn.length,
+    itemListElement: videosLocalEn.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.title,
+      url: `https://www.youtube.com/watch?v=${v.videoId}`,
+    })),
+  },
+];
+---
+
+<FrLayout
+  title={p.title}
+  description={p.description}
+  crumb={en.nav.videos}
+  koPath="/youtube/"
+  twPath="/tw/videos/"
+  enPath="/en/videos/"
+  inPath="/in/videos/" phPath="/ph/videos/" sgPath="/sg/videos/" aePath="/ae/videos/" iePath="/ie/videos/"
+  jaPath="/ja/videos/"
+  idPath="/id/videos/"
+  ruPath="/ru/videos/"
+  schema={schema}
+>
+  <h1>{p.pageTitle}</h1>
+  <p class="en-lead">{p.lead}</p>
+
+  {/* Language/context notice before playback — telling people after they watch hurts trust */}
+  <p class="en-notice">{p.notice}</p>
+
+  {videosEn.length > 0 && <p class="en-count">Vidéos : {videosEn.length}</p>}
+
+  {videosEn.length > 0 && <h2 class="en-vsec">Vidéos de notre laboratoire</h2>}
+  <ul class="en-videos">
+    {
+      videosEn.map((v) => (
+        <li>
+          <a href={`https://www.youtube.com/watch?v=${v.videoId}`} target="_blank" rel="noopener">
+            <img
+              src={`https://i.ytimg.com/vi_webp/${v.videoId}/hqdefault.webp`}
+              onerror={`this.onerror=null;this.src='https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg'`}
+              alt=""
+              loading="lazy"
+              width="320"
+              height="180"
+            />
+            <div class="en-video-text">
+              <span class="en-video-title">{v.titleEn}</span>
+              {v.note && <span class="en-video-note">{v.note}</span>}
+              <span class="en-video-ext">
+                Voir sur YouTube<span class="sr-only"> ({en.ui.external})</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+
+  <h2 class="en-vsec">Vidéos d’autres chaînes</h2>
+  <p class="en-lead">Une sélection de vidéos sur l’IA à l’hôpital et en médecine, et sur le travail réel avec des outils d’IA comme ChatGPT, Gemini et Claude, issues de médias, d’organismes publics et de créateurs indépendants. Nous n’avons pas réalisé ces vidéos. Les règles et les affirmations qu’elles contiennent peuvent être celles d’un autre pays ou d’une date antérieure, et les tutoriels ne sont ni un avis médical ni un avis juridique.</p>
+  {/* 제휴가 아니라는 안내를 반드시 함께 낸다 — 지우지 말 것.
+      영상 내용은 각 제작자의 것이고 이 사이트가 검증한 주장이 아니다. */}
+  <p class="en-notice">Toutes les vidéos listées appartiennent à leurs créateurs. L’inclusion signifie seulement que nous l’avons sélectionnée ; il n’y a ni partenariat ni parrainage. Les affirmations des vidéos sont celles de leurs créateurs et n’ont pas été vérifiées par nous.</p>
+
+  <ul class="en-videos">
+    {
+      videosLocalEn.map((v) => (
+        <li>
+          <a href={`https://www.youtube.com/watch?v=${v.videoId}`} target="_blank" rel="noopener">
+            <img
+              src={`https://i.ytimg.com/vi_webp/${v.videoId}/hqdefault.webp`}
+              onerror={`this.onerror=null;this.src='https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg'`}
+              alt=""
+              loading="lazy"
+              width="320"
+              height="180"
+            />
+            <div class="en-video-text">
+              <span class="en-video-title">{v.title}</span>
+              <span class="en-video-ch">{v.channel}</span>
+              {v.note && <span class="en-video-note">{v.note}</span>}
+              <span class="en-video-ext">
+                Voir sur YouTube<span class="sr-only"> ({en.ui.external})</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="en-channel">
+    <a href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noopener">
+      {en.profile.youtube}<span class="sr-only"> ({en.ui.external})</span>
+    </a>
+  </p>
+</FrLayout>
+
+<style>
+  .en-lead {
+    color: var(--fr-text-sub);
+  }
+  .en-notice {
+    border: 1px solid var(--fr-border);
+    border-left: 4px solid var(--fr-primary);
+    background: var(--fr-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 18px;
+  }
+  .en-count {
+    font-size: 13px;
+    color: var(--fr-text-sub);
+    margin-bottom: 16px;
+  }
+  .en-videos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .en-videos a {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border: 1px solid var(--fr-border);
+    background: var(--fr-base);
+    padding: 12px;
+    text-decoration: none;
+    color: var(--fr-text);
+  }
+  .en-videos a:hover {
+    background: var(--fr-surface);
+    border-color: var(--fr-primary);
+  }
+  .en-videos img {
+    width: 160px;
+    height: 90px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--fr-surface);
+  }
+  .en-video-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+  }
+  .en-video-title {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--fr-primary);
+  }
+  .en-video-note {
+    font-size: 13px;
+    color: var(--fr-text-sub);
+    line-height: 1.8;
+  }
+  .en-video-ext {
+    font-size: 12px;
+    color: var(--fr-text-sub);
+  }
+  .en-channel {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--fr-border);
+    font-size: 14px;
+  }
+
+  @media (max-width: 560px) {
+    .en-videos a {
+      flex-direction: column;
+    }
+    .en-videos img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+  }
+  .en-vsec {
+    font-size: 16px;
+    margin: 30px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid var(--fr-primary);
+  }
+  .en-vsec:first-of-type {
+    margin-top: 18px;
+  }
+  .en-video-ch {
+    font-size: 12.5px;
+    color: var(--fr-text-sub);
+  }
+</style>

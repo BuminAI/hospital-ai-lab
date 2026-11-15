@@ -167,6 +167,12 @@ TERMS.in = TERMS.en;
 TERMS.sg = TERMS.en;
 TERMS.ae = TERMS.en;
 TERMS.ie = TERMS.en;
+// 2026-11-15 프랑스어판: 프랑스어 AI·의료·디지털 단어(악센트가 있는 글자는 \b가 듣지 않으므로 lookaround를 쓴다).
+TERMS.fr = {
+  ai: /(?<![A-Za-z])(IA|AI)(?![A-Za-z])|intelligence artificielle|apprentissage (automatique|profond)|\bChatGPT\b|\bLLM\b|grand(s)? mod[eè]les? de langage|agent(s)? conversationnel|chatbot|IA g[ée]n[ée]rative|\bMistral\b|\bGemini\b|\bCopilot\b/i,
+  health: /sant[ée]|h[ôo]pita|clinique|patient|m[ée]decin|soignant|infirmi|m[ée]dical|m[ée]dicament|\bCHU\b|\bAP-HP\b|\bHAS\b|\bARS\b|ANSM|Assurance maladie|diagnosti|radiolog|cancer|urgences|pharmaci/i,
+  digital: /num[ée]rique en sant[ée]|dossier (m[ée]dical|patient)|Mon espace sant[ée]|t[ée]l[ée]m[ée]decine|dispositif(s)? m[ée]dica|donn[ée]es de sant[ée]|cyberattaque|cybers[ée]curit[ée]|ran[cç]ongiciel|RGPD|\bCNIL\b|\bHDS\b|fuite de donn[ée]es|piratage/i,
+};
 
 // 지원사업·공모(정부 카테고리)와 교육·행사(이벤트 카테고리) 단어
 export const GRANT = {
@@ -176,6 +182,7 @@ export const GRANT = {
   ja: /補助金|助成|公募|募集|支援事業|採択|交付|委託事業|実証事業|給付/,
   ru: /грант\p{L}*|субсиди\p{L}*|конкурсн\p{L}* (отбор|приём)|финансирован\p{L}*|тендер\p{L}*|закупк\p{L}*/iu,
   id: /hibah|pendanaan|subsidi|pendaftaran|seleksi|insentif|beasiswa|tender|pengadaan/i,
+  fr: /appels? (à|a) (projets?|candidatures?|manifestations?)|subvention|financement|aide(s)? (à|a) l[’']innovation|\bAMI\b|bourse|France 2030|\bPIA\b|march[ée] public|appel d[’']offres/i,
   tw: /補助|補\(捐\)助|徵件|徵求|獎勵|招標/,
 };
 export const EVENT = {
@@ -184,6 +191,7 @@ export const EVENT = {
   ja: /セミナー|シンポジウム|ウェビナー|カンファレンス|フォーラム|学術大会|展示会|研修|ワークショップ|講座|開催|大会/,
   ru: /конференци\p{L}*|форум\p{L}*|вебинар\p{L}*|семинар\p{L}*|симпозиум\p{L}*|выставк\p{L}*|хакатон\p{L}*|курс\p{L}*|обучени\p{L}*|мастер-класс\p{L}*|саммит\p{L}*/iu,
   id: /seminar|webinar|pelatihan|workshop|konferensi|simposium|kongres|lokakarya|forum|pameran|rakernas|diklat/i,
+  fr: /colloque|congr[eè]s|webinaire|conf[ée]rence|salon\b|formation|journ[ée]e|s[ée]minaire|atelier|symposium|master ?class|hackathon|Sant[ée]expo|H[ôo]pital Expo/i,
   tw: /研討會|論壇|講座|工作坊|培訓|課程|展覽|大會|座談|黑客松|說明會|高峰會/,
 };
 
@@ -194,6 +202,7 @@ export const NOT_AI = {
   ja: /鳥インフル/,
   ru: /птичь\p{L}* грипп\p{L}*/iu,
   id: /flu burung|avian influenza/i,
+  fr: /grippe aviaire|\bH5N1\b|\bH5N5\b/i,
   tw: /禽流感/,
   en: /avian (influenza|flu)|bird flu|\bH5N1\b|\bH5N5\b/i,
 };

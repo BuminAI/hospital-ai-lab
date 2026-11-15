@@ -1,0 +1,103 @@
+{
+  "_comment": "Édition française — ressources de formation. Vérifiées à la main le 2026-11-15. Liste de ressources officielles permanentes, pas un calendrier d’événements.",
+  "meta": {
+    "title": "Ressources de formation sur la gouvernance de l’IA à l’hôpital en France",
+    "description": "Documents officiels que les directions et les équipes de conformité utilisent pour se former à la gouvernance de l’IA, aux données et à la vigilance en France.",
+    "pageTitle": "Ressources de formation",
+    "lead": "Il n’existe pas de calendrier officiel unique d’événements sur l’IA hospitalière en France. Voici des ressources permanentes issues de sources officielles, chacune ouverte et lue."
+  },
+  "notice": "Ressources permanentes, pas des événements programmés. Consultez chaque page pour ce qu’elle propose actuellement.",
+  "checkedAt": "2026-11-15",
+  "items": [
+    {
+      "name": "Projet de guide HAS-CNIL : « Accompagner le bon usage des SIA en contexte de soins »",
+      "org": "HAS et CNIL",
+      "url": "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
+      "body": "Douze fiches opérationnelles : gouvernance, acquisition, formation, information des personnes, contrôle humain, vigilance, IA générative. Document de travail.",
+      "audience": "Directions et cadres de santé.",
+      "sourceUrl": "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
+      "sourceLabel": "Projet de guide (PDF)"
+    },
+    {
+      "name": "Page de consultation HAS-CNIL",
+      "org": "CNIL",
+      "url": "https://www.cnil.fr/fr/ia-et-sante-la-has-et-la-cnil-lancent-une-consultation-publique-sur-un-projet-de-guide",
+      "body": "Une présentation courte du périmètre et de la logique en trois niveaux de recommandations.",
+      "audience": "Gouvernance.",
+      "sourceUrl": "https://www.cnil.fr/fr/ia-et-sante-la-has-et-la-cnil-lancent-une-consultation-publique-sur-un-projet-de-guide",
+      "sourceLabel": "CNIL, consultation"
+    },
+    {
+      "name": "Fiche CNIL « IA et santé »",
+      "org": "CNIL",
+      "url": "https://www.cnil.fr/fr/ia-et-sante-developper-et-evaluer-des-systemes-dia-en-conformite-avec-la-reglementation",
+      "body": "Les quatre étapes du cycle de vie et les trois cas d’usage, avec les formalités préalables.",
+      "audience": "DPO et chefs de projet.",
+      "sourceUrl": "https://www.cnil.fr/fr/ia-et-sante-developper-et-evaluer-des-systemes-dia-en-conformite-avec-la-reglementation",
+      "sourceLabel": "CNIL, fiche"
+    },
+    {
+      "name": "Fiches pratiques IA de la CNIL",
+      "org": "CNIL",
+      "url": "https://cnil.fr/fr/les-fiches-pratiques-ia",
+      "body": "Une série de fiches sur le RGPD et le développement des systèmes d’IA.",
+      "audience": "DSI et juristes.",
+      "sourceUrl": "https://cnil.fr/fr/les-fiches-pratiques-ia",
+      "sourceLabel": "CNIL, fiches IA"
+    },
+    {
+      "name": "Recommandations CNIL de juillet 2025",
+      "org": "CNIL",
+      "url": "https://cnil.fr/fr/ia-finalisation-recommandations-developpement-des-systemes-ia",
+      "body": "Applicabilité du RGPD aux modèles, annotation des données et sécurité.",
+      "audience": "Juristes.",
+      "sourceUrl": "https://cnil.fr/fr/ia-finalisation-recommandations-developpement-des-systemes-ia",
+      "sourceLabel": "CNIL, juillet 2025"
+    },
+    {
+      "name": "Règlement sur l’IA (texte intégral)",
+      "org": "Union européenne",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "body": "Les articles 4, 6, 26, 27 et 50 et les annexes I et III sont les plus utiles aux hôpitaux.",
+      "audience": "Conformité.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "RGPD (texte intégral)",
+      "org": "Union européenne",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra",
+      "body": "Les articles 9, 22, 33, 34 et 35 sont les plus utiles à l’IA hospitalière.",
+      "audience": "DPO.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "Règlement relatif aux dispositifs médicaux",
+      "org": "Union européenne",
+      "url": "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra",
+      "body": "L’article 2, l’article 5, paragraphe 5, l’article 87 et l’annexe VIII, règle 11.",
+      "audience": "Biomédical et achats.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "Flux des actualités de la CNIL",
+      "org": "CNIL",
+      "url": "https://www.cnil.fr/fr/rss.xml",
+      "body": "Ajoutez le flux à un lecteur pour voir les nouveautés ; ce site les liste aussi.",
+      "audience": "Conformité.",
+      "sourceUrl": "https://www.cnil.fr/fr/rss.xml",
+      "sourceLabel": "Flux CNIL"
+    },
+    {
+      "name": "Ressources officielles de ce site",
+      "org": "Hospital AI Lab",
+      "url": "https://hospital-ai-lab.com/fr/gov-support/",
+      "body": "La liste complète des sources officielles vérifiées de cette édition.",
+      "audience": "Tous.",
+      "sourceUrl": "https://hospital-ai-lab.com/fr/gov-support/",
+      "sourceLabel": "Ressources officielles"
+    }
+  ]
+}

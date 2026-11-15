@@ -1,0 +1,40 @@
+---
+// Guides pratiques (pour le personnel hospitalier) — page d'aperçu (2026-11-15)
+import '../../styles/fr-guide.css';
+import FrLayout from '../../layouts/FrLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = 'Guides pratiques : règles de l’IA, données des patients et fournisseurs';
+const description =
+  'Une feuille de route, des listes de contrôle, les actualités de la CNIL, des modèles et des faits clés tirés de documents primaires, pour les directions et les cadres de santé en France.';
+
+const cards = [
+  { href: '/fr/facts/', t: 'Faits clés', d: 'Des réponses courtes avec l’article ou la section et un lien vers la source primaire : guide HAS-CNIL, règlement sur l’IA, dispositifs médicaux, RGPD.' },
+  { href: '/fr/dx-roadmap/', t: 'Feuille de route', d: 'Le RGPD, le RDM, les dates du règlement sur l’IA, les recommandations de la CNIL et le projet de guide HAS-CNIL sur une seule frise.' },
+  { href: '/fr/data-checklist/', t: 'Liste « données des patients »', d: 'Rôles de responsable de traitement et de sous-traitant, analyse d’impact, décisions automatisées et délai de 72 heures en cas de violation.' },
+  { href: '/fr/documents-checklist/', t: 'Liste « fournisseurs et documents »', d: 'Rôle de déployeur, dispositif médical, haut risque, ce que le fournisseur doit montrer, mises à jour et incidents.' },
+  { href: '/fr/calendar/', t: 'Actualités CNIL', d: 'Les nouvelles publications de la CNIL, dont celles sur l’IA, la santé et les données.' },
+  { href: '/fr/templates/', t: 'Modèles', d: 'Charte d’usage de l’IA générative, 20 questions aux fournisseurs, texte pour les patients, fiche d’incident.' },
+  { href: '/fr/checklist/', t: 'Liste d’adoption d’une IA', d: 'Une liste pour évaluer les propositions des fournisseurs d’IA.' },
+];
+---
+
+<FrLayout title={title} description={description} crumb="Guides pratiques" standalone>
+<h1>Guides pratiques</h1>
+  <p class="tg-lead">
+Pour la direction, la planification et l’encadrement des soins : des contenus utilisables dès demain. Les règles sont rédigées après ouverture et lecture des documents (CNIL, HAS-CNIL, textes européens en français) ; chaque page indique ses sources et la date de vérification.
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+Les explications destinées aux patients et à leurs proches sont dans <a href={withBase('/fr/patients/')}>Pour les patients</a> ; les agents d’accueil peuvent aussi les utiliser.
+  </p>
+</FrLayout>

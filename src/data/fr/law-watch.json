@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-15T14:03:31.924Z",
+  "readOk": 1,
+  "total": 1,
+  "laws": [
+    {
+      "id": "guide-has-cnil",
+      "name": "Projet de guide HAS-CNIL « Accompagner le bon usage des systèmes d’intelligence artificielle en contexte de soins » (document de travail, 16 février 2026, PDF)",
+      "url": "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
+      "baseline": "Thu, 05 Mar 2026 08:13:53 GMT | 4763935 | \"48b11f-64c428467989e\"",
+      "baselinePending": false,
+      "current": "Thu, 05 Mar 2026 08:13:53 GMT | 4763935 | \"48b11f-64c428467989e\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T14:03:31.921Z",
+      "error": null
+    }
+  ]
+}

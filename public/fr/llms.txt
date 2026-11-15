@@ -1,0 +1,45 @@
+# Hospital AI Lab — édition française (France)
+
+> Informations pratiques sur les règles de l’IA, les données de patients et la sécurité des dispositifs médicaux, pour les directions, les services administratifs et les cadres de santé des hôpitaux français. Rédigé à partir de documents primaires : la fiche « IA et santé » de la CNIL (5 mars 2026), le projet de guide HAS–CNIL « Accompagner le bon usage des systèmes d’intelligence artificielle en contexte de soins » (document de travail du 16 février 2026), le règlement européen sur l’IA, le RGPD et le règlement relatif aux dispositifs médicaux (RDM) dans leur texte officiel en français. Informations générales ; ni avis juridique ni avis médical.
+
+Site : https://hospital-ai-lab.com/fr/
+Version complète en un seul fichier : https://hospital-ai-lab.com/fr/llms-full.txt · Faits clés par thème : https://hospital-ai-lab.com/fr/facts/
+Profil de l’auteur : https://hospital-ai-lab.com/fr/about/
+
+## Questions auxquelles ce site répond
+
+- Existe-t-il un guide français sur l’IA en soins ? (La HAS et la CNIL ont mis en consultation un projet de guide, document de travail du 16 février 2026, 12 fiches, trois niveaux de recommandation ; la consultation s’est close le 16 avril 2026 ; aucune version finale n’a été trouvée)
+- Un hôpital qui utilise l’IA d’un fournisseur est-il un « déployeur » ? (Règlement sur l’IA : oui, s’il l’utilise sous sa propre autorité ; l’article 26 fixe les obligations des déployeurs de systèmes à haut risque)
+- Faut-il former le personnel à l’IA ? (Article 4 du règlement sur l’IA, applicable depuis le 2 février 2025 tel que publié)
+- Peut-on réutiliser des données de patients pour développer une IA ? (Fiche CNIL « IA et santé » : formalités préalables dans la majorité des cas ; entrepôt, développement et évaluation sont distingués)
+- Faut-il une analyse d’impact (AIPD) pour un outil d’IA sur des données de santé ? (RGPD, article 35, qui cite le traitement à grande échelle de catégories particulières de données)
+- Quel délai pour notifier une violation de données ? (RGPD, article 33 : dans les meilleurs délais et, si possible, 72 heures au plus tard)
+- Un logiciel d’IA peut-il être un dispositif médical ? (RDM, article 2, point 1 : le logiciel est cité ; annexe VIII, règle 11, fixe la classe)
+
+## Pages principales
+
+- [Feuille de route](https://hospital-ai-lab.com/fr/dx-roadmap/) : dates tirées des textes officiels, avec sources.
+- [Checklist données de patients](https://hospital-ai-lab.com/fr/data-checklist/) et [Checklist fournisseurs d’IA et documents](https://hospital-ai-lab.com/fr/documents-checklist/) : chaque point indique son fondement.
+- [Actualités CNIL](https://hospital-ai-lab.com/fr/calendar/) : nouvelles publications de la CNIL (automatique).
+- [Modèles](https://hospital-ai-lab.com/fr/templates/) · [Pour les patients](https://hospital-ai-lab.com/fr/patients/) · [Glossaire](https://hospital-ai-lab.com/fr/glossary/) · [FAQ](https://hospital-ai-lab.com/fr/faq/) · [Checklist d’adoption de l’IA](https://hospital-ai-lab.com/fr/checklist/).
+- [Blog](https://hospital-ai-lab.com/fr/blog/) et [Séries](https://hospital-ai-lab.com/fr/series/).
+- [Actualités IA](https://hospital-ai-lab.com/fr/news/), [Ressources publiques](https://hospital-ai-lab.com/fr/gov-support/), [Vidéos](https://hospital-ai-lab.com/fr/videos/), [Mises à jour](https://hospital-ai-lab.com/fr/updates/).
+- [AI Program Review Room](https://hospital-ai-lab.com/fr/ai-judge/) : free tool (English interface) that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
+
+## Comment le site reste à jour
+
+- Les publications de la CNIL, les titres d’actualité et les vidéos sont collectés automatiquement à intervalles réguliers.
+- Les liens vers les sources sont vérifiés chaque jour ; le résultat et la date figurent en bas de chaque page.
+- La date et la taille du PDF du projet de guide HAS–CNIL sont comparées chaque jour ; une différence apparaît comme une mention « en cours de vérification » en pied de page.
+
+## Ce que cette édition n’a pas pu lire
+
+Aucune version finale du guide HAS–CNIL n’a été trouvée : le contenu cité est celui du document de travail du 16 février 2026. Légifrance (code de la santé publique, loi « Informatique et libertés »), les pages de la HAS et de l’ANSM, et toute modification européenne postérieure aux textes d’origine n’ont pas été lus ; le code de la santé publique n’est cité que tel que le projet de guide le rappelle. Le site EUR-Lex proprement dit impose une vérification anti-robot, non contournée : les textes européens ont été lus via l’Office des publications de l’UE.
+
+## Pour citer
+
+- Indiquez l’URL de la page et la date de consultation ; vérifiez la formulation des textes sur la version officielle.
+- Les flux automatiques ne contiennent que des liens et des titres ; pour le contenu, consultez la source d’origine.
+- Les échéances non confirmées par un texte primaire ne sont pas indiquées.
+- Informations générales ; ni avis juridique ni substitut à la décision d’un soignant pour un patient précis. Le site ne promeut aucun hôpital, produit ou traitement particulier.
+- Édition coréenne (originale) : https://hospital-ai-lab.com/

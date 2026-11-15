@@ -54,6 +54,14 @@ export const checklistRelated: Record<Exclude<Loc, 'ko'>, Record<number, string[
     4: ['2026-11-15-hpra-device-incident-reporting-software-update-field-safety-notice'],
     5: ['2026-11-15-dpc-ai-llm-guidance-questions-before-using-ai-product', '2026-11-15-eu-ai-act-ai-literacy-article-4-hospital-staff-training'],
   },
+  fr: {
+    0: ['2026-11-15-guide-has-cnil-ia-soins-gouvernance-hopital-projet', '2026-11-15-reglement-europeen-ia-hopital-deployeur-article-26'],
+    1: ['2026-11-15-reglement-europeen-ia-hopital-deployeur-article-26', '2026-11-15-logiciel-ia-dispositif-medical-rdm-regle-11'],
+    2: ['2026-11-15-logiciel-ia-dispositif-medical-rdm-regle-11'],
+    3: ['2026-11-15-incident-dispositif-medical-ia-declarer-materiovigilance', '2026-11-15-rgpd-aipd-outil-ia-donnees-patients-72-heures'],
+    4: ['2026-11-15-incident-dispositif-medical-ia-declarer-materiovigilance'],
+    5: ['2026-11-15-cnil-ia-sante-formalites-entrepot-donnees-developpement', '2026-11-15-guide-has-cnil-information-patients-consentement-ia'],
+  },
   ja: {
     0: ['2026-08-20-samd-idaten-review-body-reform'],
     1: [

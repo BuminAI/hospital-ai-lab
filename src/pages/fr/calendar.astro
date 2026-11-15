@@ -1,0 +1,68 @@
+---
+// Calendrier des actualités de la CNIL (2026-11-15)
+// Les nouveautés sont collectées dans le flux RSS public de la CNIL (scripts/fetch-fr-gov.mjs).
+// ⚠️ Ce sont de NOUVELLES PUBLICATIONS ET ANNONCES de la CNIL, pas des appels à projets ni des échéances. Date = celle que donne le flux.
+import '../../styles/fr-guide.css';
+import FrLayout from '../../layouts/FrLayout.astro';
+import FrGuideFoot from '../../components/FrGuideFoot.astro';
+import notices from '../../data/fr/gov-notices.json';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = notices.items.slice(0, 20);
+
+const title = 'Actualités CNIL : nouvelles publications sur les données, l’IA et la santé';
+const description =
+  'Les nouvelles publications et annonces de la CNIL, dont ses travaux sur l’IA et les données de santé, avec la date de chacune. Mise à jour automatique.';
+const sources = [
+  { label: 'CNIL — flux RSS des actualités', url: 'https://www.cnil.fr/fr/rss.xml' },
+  { label: 'CNIL — intelligence artificielle', url: 'https://cnil.fr/fr/les-fiches-pratiques-ia' },
+];
+---
+
+<FrLayout title={title} description={description} crumb="Actualités CNIL" standalone updated={new Date(notices.updatedAt ?? Date.now())}>
+<h1>Actualités CNIL</h1>
+  <p class="tg-lead">
+Qu’a publié la CNIL récemment ? Les nouvelles publications et annonces apparaissent ici, les plus récentes d’abord. Celles qui concernent l’IA, la santé ou les données sont étiquetées « IA, santé et données » ; les autres sont étiquetées « Actualité CNIL ».
+  </p>
+<p class="tg-meta">Affiché le {fmtDay.format(new Date())} · Données mises à jour le {notices.updatedAt ? fmtDay.format(new Date(notices.updatedAt)) : 'pas encore'}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+<h2 id="h-notice">Publications récentes de la CNIL</h2>
+    <div class="tg-box tg-warn">
+La date ci-dessous est celle que donne le flux, <strong>pas une échéance de conformité</strong>. Lisez la publication pour son contenu. Seuls le titre, la date et l’organisme sont copiés.
+    </div>
+    {
+      recent.length > 0 ? (
+        <ol class="tg-tl">
+          {recent.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+<span class="sr-only">(s’ouvre dans un nouvel onglet)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+<p>Aucune publication correspondante pour le moment.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+<h2 id="h-ms">Dates à venir</h2>
+    <p>
+Les dates à venir confirmées figurent dans la <a href={withBase('/fr/dx-roadmap/')}>Feuille de route</a>, avec les jalons déjà passés.
+    </p>
+  </section>
+
+<FrGuideFoot sources={sources} checked="15 novembre 2026" />
+</FrLayout>

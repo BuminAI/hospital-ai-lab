@@ -1,0 +1,329 @@
+---
+// Home page of the French edition (2026-11-15; cloned from the Ireland edition, same structure as the other editions)
+//
+// Structure (top to bottom):
+//   1) Hero: one-sentence promise + two actions + "Latest updates" on the right (proof that the site is alive)
+//   2) Row of trust figures: only real data, nothing invented
+//   3) "When you face this": six entry points by task
+//   4) Updates, new CNIL items, featured articles, series
+//   5) Principles, library, FAQ, about the site
+// ⚠️ The author's years of experience are not written in the home text or the meta description (the sidebar profile stays as is).
+// ⚠️ Figures are computed from the data, or are facts already on the site.
+import navConfig from '../../data/fr/content/nav.json';
+import '../../styles/fr-home.css';
+import { getCollection } from 'astro:content';
+import FrLayout from '../../layouts/FrLayout.astro';
+import en from '../../i18n/fr.json';
+import notices from '../../data/fr/gov-notices.json';
+import newsData from '../../data/fr/news.json';
+import linkHealth from '../../data/fr/link-health.json';
+import HomeSeries from '../../components/HomeSeries.astro';
+import ViewCounts from '../../components/ViewCounts.astro';
+import { withBase } from '../../utils/site';
+import { getResolvedSeries } from '../../utils/series';
+import { getEnUpdates, KIND_LABEL } from '../../utils/fr-updates';
+
+const updated = notices.updatedAt ? new Date(notices.updatedAt) : undefined;
+const fmtMD = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', day: 'numeric', month: 'numeric' });
+const fmtYMD = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', year: 'numeric', month: 'long', day: 'numeric' });
+const short = (t: string, n = 150) => (t.length > n ? t.slice(0, n).replace(/\s+\S*$/, '') + '…' : t);
+
+const posts = (await getCollection('blogFr', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featured = posts.slice(0, 4);
+
+const feed = await getEnUpdates(30);
+const heroFeed = feed.slice(0, 4);
+const newsFeed = feed.slice(0, 8);
+const weekly = feed.filter((u) => Date.now() - new Date(u.date).getTime() <= 7 * 86400000);
+const weeklyCount = (k: 'news' | 'notice' | 'event' | 'video' | 'blog') => weekly.filter((u) => u.kind === k).length;
+
+// Nouvelles publications et annonces de la CNIL (les plus récentes d'abord)
+const topNotices = notices.items.slice(0, 5);
+
+// Trust figures (all from real data)
+const stats = [
+  { n: posts.length, unit: '', label: 'Articles publiés', href: '/fr/blog/' },
+  { n: linkHealth.total, unit: '', label: 'Liens vers les sources vérifiés chaque jour', href: '/fr/updates/' },
+  { n: notices.items.length, unit: '', label: 'Actualités de la CNIL listées', href: '/fr/calendar/' },
+  { n: newsData.items.length, unit: '', label: 'Titres d’actualité IA (vérifiés plusieurs fois par jour)', href: '/fr/news/' },
+];
+const checkedDay = linkHealth.checkedAt ? fmtYMD.format(new Date(linkHealth.checkedAt)) : '';
+
+const tasks = [
+  { q: 'Quelles dates connaître ?', t: 'Feuille de route : RGPD, RDM, règlement IA et guide HAS-CNIL', d: 'Le RGPD et le RDM, les dates d’application du règlement sur l’IA, les recommandations de la CNIL et le projet de guide HAS-CNIL sur une seule frise.', href: '/fr/dx-roadmap/' },
+  { q: 'Qu’a publié la CNIL récemment ?', t: 'Actualités CNIL', d: 'Les nouvelles publications et annonces de la CNIL, étiquetées par thème, issues de son flux, automatiquement.', href: '/fr/calendar/' },
+  { q: 'Un fournisseur propose un logiciel ou une IA ?', t: 'Liste « fournisseurs et documents »', d: 'Rôle de déployeur, dispositif médical, haut risque, ce que le fournisseur doit montrer et ce qui se passe aux mises à jour, avec les sources.', href: '/fr/documents-checklist/' },
+  { q: 'Les données des patients sont-elles protégées ?', t: 'Liste « données des patients »', d: 'Rôles, analyse d’impact, décisions automatisées et horloge de 72 heures en cas de violation, article par article.', href: '/fr/data-checklist/' },
+  { q: 'Avant d’adopter une IA', t: 'Modèles : charte et 20 questions aux fournisseurs', d: 'Des brouillons à copier et à adapter quand une proposition arrive.', href: '/fr/templates/' },
+  { q: 'Pour les patients et leurs proches', t: 'Pour les patients', d: 'Avant d’interroger une IA sur votre santé, ce qu’il faut savoir quand un hôpital utilise l’IA, et vos documents.', href: '/fr/patients/' },
+];
+
+const promises = [
+  { t: 'Fondé sur des sources primaires', d: 'Nous n’écrivons que ce qui provient de documents officiels ouverts et lus (CNIL, projet de guide HAS-CNIL, textes européens en français), avec les liens.' },
+  { t: 'La date de vérification est visible', d: 'En bas de chaque page pratique et patient : « Sources et date de vérification ». Les règles changent, la date est donc indispensable.' },
+  { t: 'Les liens vers les sources sont vérifiés chaque jour', d: `L’édition française compte ${linkHealth.total} liens externes ; ils sont vérifiés automatiquement chaque jour, et ${linkHealth.dead.length} sont introuvables (404/410)${checkedDay ? ` (${checkedDay})` : ''}.` },
+  { t: 'Aucune recommandation de produit ou d’hôpital en particulier', d: 'Nous regardons si une chose peut être utilisée dans votre hôpital et sur quel fondement, pas les marques ni l’incitation à adopter vite.' },
+];
+
+const library = [
+  { t: en.nav.guide, d: en.home.guideDesc, href: '/fr/guide/' },
+  { t: en.nav.glossary, d: en.home.glossaryDesc, href: '/fr/glossary/' },
+  { t: en.nav.faq, d: en.home.faqDesc, href: '/fr/faq/' },
+  { t: en.nav.checklist, d: en.home.checklistDesc, href: '/fr/checklist/' },
+  { t: en.nav.tips, d: 'Des conseils pratiques pour travailler avec des services d’IA à l’hôpital.', href: '/fr/tips/' },
+  { t: en.nav.videos, d: 'Une sélection de vidéos sur l’IA en santé.', href: '/fr/videos/' },
+];
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/fr/')}`;
+const homeFaqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#home-faq`,
+  url: pageUrl,
+  inLanguage: 'fr-FR',
+  isPartOf: { '@id': `${siteRoot}/#website-fr` },
+  mainEntity: en.home.homeFaq.map((f, i) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#home-q${i + 1}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const homeSeries = (await getResolvedSeries('fr'))
+  .slice()
+  .sort((a, b) => b.posts.length - a.posts.length)
+  .slice(0, 3);
+// 메뉴(nav.json)의 모든 항목을 같은 순서로 홈에도 보여 준다. 메뉴에만/홈에만 있는 페이지가 없게 하려는 구역(2026-11-14).
+const navLabelsHome = en.nav as Record<string, string>;
+const allMenu = navConfig
+  .filter((n) => n.enabled && n.href !== '/fr/')
+  .map((n) => ({ href: n.href, label: navLabelsHome[n.key] ?? n.key }));
+
+---
+
+<FrLayout
+  title={en.home.metaTitle}
+  description={en.home.metaDescription}
+  koPath="/"
+  twPath="/tw/"
+  enPath="/en/"
+  inPath="/in/" phPath="/ph/" sgPath="/sg/" aePath="/ae/" iePath="/ie/"
+  jaPath="/ja/"
+  idPath="/id/"
+  ruPath="/ru/"
+  updated={updated}
+  schema={[homeFaqLd]}
+>
+  <Fragment slot="hero">
+    <section class="th-hero">
+      <div class="th-hero-inner">
+        <div class="th-hero-copy">
+          <p class="th-eyebrow">Règles de l’IA, données des patients et dispositifs — pour la direction et les soins</p>
+          <h1>La décision d’adopter une IA à l’hôpital —<br />lue dans les sources primaires françaises et européennes.</h1>
+          <p class="th-lead">
+            Sommes-nous déployeur au sens du règlement européen sur l’IA, le produit est-il un dispositif médical, sur quel fondement utiliser les données des patients, et qui faut-il prévenir en cas de violation. Réunies à partir de documents de la CNIL, du projet de guide HAS-CNIL et des textes européens ; chaque point donne sa source et la date de vérification.
+          </p>
+          <p class="th-cta">
+            <a class="th-btn th-btn-main" href={withBase('/fr/dx-roadmap/')}>Feuille de route</a>
+            <a class="th-btn th-btn-sub" href={withBase('/fr/calendar/')}>Actualités CNIL</a>
+          </p>
+        </div>
+        <aside class="th-hero-card" aria-labelledby="th-live-h">
+          <h2 id="th-live-h"><span class="th-dot" aria-hidden="true"></span>Dernières mises à jour</h2>
+          <ul>
+            {heroFeed.map((it) => (
+              <li>
+                <time datetime={it.date}>{fmtMD.format(new Date(it.date))}</time>
+                <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+                  {it.external && <span class="sr-only">({en.ui.external})</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="th-hero-more" href={withBase('/fr/updates/')}>Toutes les mises à jour →</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="th-stats" aria-label="État du site">
+      <ul>
+        {
+          stats.map((s) => (
+            <li>
+              <a href={withBase(s.href)}>
+                <span class="th-num">{s.n.toLocaleString('fr-FR')}<small>{s.unit}</small></span>
+                <span class="th-lab">{s.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </Fragment>
+
+  <section class="th-sec" aria-labelledby="th-tasks-h">
+    <h2 class="th-h" id="th-tasks-h"><span>Face à cette situation</span><small>PAR OBJECTIF</small></h2>
+    <div class="th-tasks">
+      {
+        tasks.map((x) => (
+          <a class="th-task" href={withBase(x.href)}>
+            <span class="th-task-q">{x.q}</span>
+            <span class="th-task-t">{x.t}</span>
+            <span class="th-task-d">{x.d}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-feed-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-feed-h"><span>Mises à jour</span><small>CE QUI EST NOUVEAU</small></h2>
+      <a class="th-more" href={withBase('/fr/updates/')}>Tout voir →</a>
+    </div>
+    <p class="th-note">
+      7 derniers jours : {KIND_LABEL.news} {weeklyCount('news')} · {KIND_LABEL.notice} {weeklyCount('notice')} · {KIND_LABEL.event} {weeklyCount('event')} · {KIND_LABEL.video} {weeklyCount('video')}
+    </p>
+    <ul class="th-feed">
+      {
+        newsFeed.map((it) => (
+          <li>
+            <time datetime={it.date}>{fmtYMD.format(new Date(it.date))}</time>
+            <span class="th-chip">{KIND_LABEL[it.kind]}</span>
+            <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+              {it.title}
+              {it.external && <span class="sr-only">({en.ui.external})</span>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-gov-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-gov-h"><span>Nouveau à la CNIL</span><small>ACTUALITÉS DU RÉGULATEUR</small></h2>
+      <a class="th-more" href={withBase('/fr/calendar/')}>Tout voir →</a>
+    </div>
+    <p class="th-note">La date est celle que donne le flux de la CNIL, pas une échéance. Lisez la publication elle-même pour son contenu. La liste montre les dernières actualités de la CNIL et étiquette celles qui concernent l’IA, la santé et les données.</p>
+    <ul class="th-feed th-feed-sub">
+      {
+        topNotices.map((n) => (
+          <li>
+            <time datetime={n.pubDate}>{fmtYMD.format(new Date(n.pubDate))}</time>
+            <span class="th-chip th-chip-gov">{n.kind}</span>
+            <a href={n.link} target="_blank" rel="noopener">
+              {short(n.title)}
+              <span class="sr-only">({en.ui.external})</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-posts-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-posts-h"><span>Articles à la une</span><small>ARTICLES</small></h2>
+      <a class="th-more" href={withBase('/fr/blog/')}>Tous les articles →</a>
+    </div>
+    <div class="th-posts">
+      {
+        featured.map((p) => (
+          <article class="th-post">
+            <p class="th-post-meta">
+              <span class="th-chip">{p.data.category}</span>
+              <time datetime={p.data.pubDate.toISOString()}>{fmtYMD.format(p.data.pubDate)}</time>
+              <span class="views" data-view-path={withBase(`/fr/blog/${p.id}/`)} hidden></span>
+            </p>
+            <h3><a href={withBase(`/fr/blog/${p.id}/`)}>{p.data.title}</a></h3>
+            <p class="th-post-d">{p.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <HomeSeries loc="fr" list={homeSeries} />
+
+  <section class="th-sec th-promise" aria-labelledby="th-promise-h">
+    <h2 class="th-h" id="th-promise-h"><span>Nos principes</span><small>NOS PRINCIPES</small></h2>
+    <ul>
+      {
+        promises.map((x, i) => (
+          <li>
+            <span class="th-no">{i + 1}</span>
+            <div>
+              <strong>{x.t}</strong>
+              <p>{x.d}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="th-note"><a href={withBase('/fr/about/#principles')}>Comment les contenus sont rédigés et vérifiés →</a></p>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-menu-h">
+    <h2 class="th-h" id="th-menu-h"><span>Toutes les pages en un coup d’œil</span><small>TOUTES LES PAGES</small></h2>
+    <ul class="th-lib">
+      {
+        allMenu.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.label}</strong>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-lib-h">
+    <h2 class="th-h" id="th-lib-h"><span>Ressources de formation et de référence</span><small>BIBLIOTHÈQUE</small></h2>
+    <ul class="th-lib">
+      {
+        library.map((x) => (
+          <li>
+            <a href={withBase(x.href)}>
+              <strong>{x.t}</strong>
+              <span>{x.d}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-faq-h">
+    <div class="th-head-row">
+      <h2 class="th-h" id="th-faq-h"><span>{en.home.homeFaqTitle}</span><small>À PROPOS DE CE SITE</small></h2>
+      <a class="th-more" href={withBase('/fr/faq/')}>{en.home.homeFaqMore}</a>
+    </div>
+    <dl class="th-faq">
+      {
+        en.home.homeFaq.map((f) => (
+          <>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="th-sec" aria-labelledby="th-intro-h">
+    <h2 class="th-h" id="th-intro-h"><span>{en.home.introTitle}</span><small>À PROPOS</small></h2>
+    <p>{en.home.introBody}</p>
+    <div class="en-note">
+      <p><strong>{en.home.koNoticeTitle}</strong></p>
+      <p style="margin-top:6px">{en.home.koNoticeBody}</p>
+      <p style="margin-top:8px"><a href={withBase('/')} hreflang="ko">{en.ui.langKo} →</a></p>
+    </div>
+  </section>
+  <ViewCounts loc="fr" />
+</FrLayout>

@@ -1,4 +1,4 @@
-// 광폭 수집기 출처 목록 (2026-11-14, ae·ie 2026-11-15). 전부 2026-11-14에 이 저장소 환경에서 응답을 확인한 공개 RSS/Atom/RDF다.
+// 광폭 수집기 출처 목록 (2026-11-14, ae·ie·fr 2026-11-15). 전부 2026-11-14에 이 저장소 환경에서 응답을 확인한 공개 RSS/Atom/RDF다.
 //
 // topic
 //   health  — 의료 전문 매체. 제목·요약에 AI 단어만 있으면 통과(의료 맥락은 매체가 보장).
@@ -234,6 +234,32 @@ export const EDITIONS = {
       rss('Irish Tech News', 'https://irishtechnews.ie/feed/', 'tech'),
     ],
   },
+  // 2026-11-15 프랑스어판. 전부 이 환경에서 응답을 확인한 공개 RSS다(Le Monde·Le Figaro·franceinfo·20 Minutes·Ouest-France·Sud Ouest·Numerama·Les Numériques·ZDNet France·Le Quotidien du Médecin·Le Quotidien du Pharmacien·Infirmiers.com·DSIH·CNIL).
+  fr: {
+    lang: 'fr',
+    files: { news: 'src/data/fr/news.json', gov: 'src/data/fr/gov-notices.json', events: null },
+    sources: [
+      rss('Le Monde', 'https://www.lemonde.fr/sante/rss_full.xml', 'general'),
+      rss('Le Monde', 'https://www.lemonde.fr/pixels/rss_full.xml', 'general'),
+      rss('Le Monde', 'https://www.lemonde.fr/sciences/rss_full.xml', 'general'),
+      rss('Le Monde', 'https://www.lemonde.fr/rss/une.xml', 'general'),
+      rss('Le Figaro', 'https://www.lefigaro.fr/rss/figaro_sante.xml', 'general'),
+      rss('franceinfo', 'https://www.francetvinfo.fr/sante.rss', 'general'),
+      rss('franceinfo', 'https://www.francetvinfo.fr/titres.rss', 'general'),
+      rss('20 Minutes', 'https://www.20minutes.fr/feeds/rss-sante.xml', 'general'),
+      rss('Ouest-France', 'https://www.ouest-france.fr/rss/une', 'general'),
+      rss('Sud Ouest', 'https://www.sudouest.fr/rss.xml', 'general'),
+      rss('Numerama', 'https://www.numerama.com/feed/', 'tech'),
+      rss('Les Numériques', 'https://www.lesnumeriques.com/rss.xml', 'tech'),
+      rss('ZDNet France', 'https://www.zdnet.fr/feeds/rss/actualites/', 'tech'),
+      rss('Le Quotidien du Médecin', 'https://www.lequotidiendumedecin.fr/rss.xml', 'health', { maxAgeDays: 400 }),
+      rss('Le Quotidien du Pharmacien', 'https://www.lequotidiendupharmacien.fr/rss.xml', 'health', { maxAgeDays: 400 }),
+      rss('Infirmiers.com', 'https://www.infirmiers.com/rss.xml', 'health', { maxAgeDays: 400 }),
+      rss('DSIH', 'https://www.dsih.fr/rss', 'health', { maxAgeDays: 400 }),
+      rss('Egora', 'https://www.egora.fr/rss.xml', 'health', { maxAgeDays: 400 }),
+      rss('What’s up doc', 'https://www.whatsupdoc-lemag.fr/rss.xml', 'health', { maxAgeDays: 400 }),
+    ],
+  },
 };
 
 // ── 2026-11-15 UAE: 구글 뉴스 검색 RSS로 UAE 매체(Khaleej Times·Gulf News·Arabian Business·WAM 등)의 의료 AI 기사를 모은다.
@@ -283,6 +309,32 @@ EDITIONS.ie.sources.push(
   gnewsIe('Ireland AI Act health'),
   gnewsIe('Ireland digital health AI strategy'),
   gnewsIe('Ireland medical AI HPRA'),
+);
+
+// ── 2026-11-15 프랑스: 구글 뉴스 검색 RSS를 프랑스 매체 허용 목록으로 거른다 ──
+const FR_OUTLETS = /^(Le Monde|Le Figaro|franceinfo|France Info|Les Echos|Les Échos|Le Parisien|Libération|La Croix|Ouest-France|Sud Ouest|20 Minutes|La Tribune|L’Usine Nouvelle|L'Usine Nouvelle|Usine Digitale|Le Quotidien du Médecin|Le Quotidien du Pharmacien|Hospimedia|DSIH|Egora|What’s up doc|TICsanté|Décision Santé|Infirmiers\.com|Actusoins|Techniques Hospitalières|Numerama|Les Numériques|ZDNet France|01net|Sciences et Avenir|Challenges|BFM TV|BFMTV|RTL\.fr|Europe 1|France 24|Public Sénat|Vie publique|CNIL|Mediapart|Le Journal du Dimanche|La Gazette des communes|Banque des Territoires|Maddyness|FrenchWeb|L’Informaticien|LeMagIT|Silicon\.fr|Journal du Net|Industrie Pharma|Mind Health|Pharmaceutiques)$/;
+const gnewsFr = (q) => ({
+  name: 'Google News',
+  url: `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=fr&gl=FR&ceid=FR:fr`,
+  topic: 'general',
+  gnews: true,
+  allow: FR_OUTLETS,
+  rename: { 'France Info': 'franceinfo', 'Les Echos': 'Les Échos', 'BFMTV': 'BFM TV', 'L\'Usine Nouvelle': 'L’Usine Nouvelle' },
+  maxAgeDays: 120,
+});
+EDITIONS.fr.sources.push(
+  gnewsFr('intelligence artificielle hôpital'),
+  gnewsFr('intelligence artificielle santé CNIL'),
+  gnewsFr('IA établissements de santé HAS'),
+  gnewsFr('IA hôpitaux patients soignants'),
+  gnewsFr('intelligence artificielle santé when:30d'),
+  gnewsFr('IA infirmiers hôpital'),
+  gnewsFr('CNIL IA données de santé'),
+  gnewsFr('règlement européen IA santé'),
+  gnewsFr('numérique en santé IA stratégie'),
+  gnewsFr('ANSM dispositif médical intelligence artificielle'),
+  gnewsFr('CHU intelligence artificielle'),
+  gnewsFr('AP-HP intelligence artificielle'),
 );
 
 // ── 2026-11-14 추가: 건강·기술 섹션 피드(응답 확인) ─────────────────────

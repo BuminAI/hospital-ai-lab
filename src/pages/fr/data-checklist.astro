@@ -1,0 +1,224 @@
+---
+// Liste de contrôle : données des patients et outils d'IA dans les hôpitaux français (2026-11-15)
+// ⚠️ Les points reposent sur des documents lus en texte intégral : le RGPD et le règlement sur l'IA (versions françaises du JO de l'UE), la fiche de la CNIL
+//    « IA et santé » (5 mars 2026) et le projet de guide HAS-CNIL (document de travail du 16 février 2026, toujours signalé comme projet).
+//    Le code de la santé publique et la loi « Informatique et libertés » n'ont pas été lus (Légifrance : HTTP 403) : aucun de leurs articles n'est cité
+//    d'après le code lui-même.
+import '../../styles/fr-guide.css';
+import FrLayout from '../../layouts/FrLayout.astro';
+import FrGuideFoot from '../../components/FrGuideFoot.astro';
+import FrFaq from '../../components/FrFaq.astro';
+import { guideSchema } from '../../utils/fr-guide';
+import { SRC } from '../../data/fr/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = '15 novembre 2026';
+const title = 'Liste « données des patients » : IA, fournisseurs et violations';
+const description =
+  'Une liste pour la direction et la DSI : ce que le RGPD et la CNIL impliquent pour les données de patients dans un outil d’IA, quand faire une analyse d’impact, et quels délais courent en cas de violation.';
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. Quelles données voit un outil d’IA, et qui en est responsable ?',
+    lead: 'Les données de patients sont des données de santé. Commencez par savoir ce qui entre, où cela va, et qui décide.',
+    items: [
+      {
+        no: '1',
+        text: 'Vous avez listé, pour chaque outil d’IA, les données personnelles utilisées et les flux de données, ainsi que les organismes qui interviennent. Le projet de guide recommande de cartographier les systèmes d’IA de l’établissement, leurs cas d’usage et les données personnelles traitées.',
+        basis: 'Projet de guide HAS-CNIL (document de travail), fiche 7, actions préalables',
+      },
+      {
+        no: '2',
+        text: 'Vous avez fixé qui est responsable de traitement et qui est sous-traitant, et le contrat le dit. Selon le projet de guide, le responsable de traitement sera dans la majorité des cas le déployeur ; la CNIL demande de formaliser les rôles dans un contrat.',
+        basis: 'Projet de guide HAS-CNIL, fiche 1 ; CNIL, fiche « IA et santé »',
+      },
+      {
+        no: '3',
+        text: 'Le fournisseur indique s’il réutilise vos données, par exemple pour entraîner ou améliorer un modèle. La CNIL rappelle que les réutilisations secondaires sont des traitements distincts, qui doivent eux aussi être conformes au RGPD.',
+        basis: 'Projet de guide HAS-CNIL, fiche 7 (rappel de la CNIL)',
+      },
+      {
+        no: '4',
+        text: 'La base légale du traitement de données de santé est consignée. L’article 9 du RGPD interdit le traitement de données concernant la santé sauf si une condition du paragraphe 2 s’applique, par exemple le point h) pour la prise en charge sanitaire ou la gestion des systèmes de soins. Le projet de guide rapporte l’avis de la CNIL : le consentement n’est ni la base légale ni l’exception pour ces traitements.',
+        basis: 'RGPD, article 9, paragraphes 1 et 2 h) ; projet de guide HAS-CNIL, fiche 7',
+      },
+      {
+        no: '5',
+        text: 'Les équipes savent quelles données ne doivent pas être saisies dans des agents conversationnels grand public, et l’hôpital a dit quels outils sont validés. (Recommandation de l’auteur.)',
+        basis: 'Recommandation de l’auteur',
+      },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Analyse d’impact et décisions automatisées',
+    lead: 'Deux articles du RGPD décident de la plupart des formalités d’un projet d’IA.',
+    items: [
+      {
+        no: '6',
+        text: 'Une analyse d’impact relative à la protection des données (AIPD) est faite avant la mise en service lorsque le traitement est susceptible d’engendrer un risque élevé, en particulier en cas de nouvelles technologies. Le traitement à grande échelle de catégories particulières de données, dont les données de santé, est cité comme cas où elle est requise.',
+        basis: 'RGPD, article 35, paragraphes 1 et 3 b)',
+      },
+      {
+        no: '7',
+        text: 'L’avis du délégué à la protection des données a été sollicité pour réaliser l’analyse.',
+        basis: 'RGPD, article 35, paragraphe 2',
+      },
+      {
+        no: '8',
+        text: 'Pour un système d’IA à haut risque, vous utilisez les informations de la notice d’utilisation du fournisseur pour réaliser l’analyse le cas échéant.',
+        basis: 'Règlement sur l’IA, article 26, paragraphe 9',
+      },
+      {
+        no: '9',
+        text: 'Aucune décision concernant un patient n’est fondée exclusivement sur un traitement automatisé lorsqu’elle produit des effets juridiques ou l’affecte de manière significative, sauf exception avec garanties, dont au moins une intervention humaine, la possibilité d’exprimer son point de vue et de contester la décision. Le projet de guide la dit interdite par défaut.',
+        basis: 'RGPD, article 22, paragraphes 1 à 3 ; projet de guide HAS-CNIL, fiche 8',
+      },
+      {
+        no: '10',
+        text: 'Les patients reçoivent l’information prévue aux articles 13 ou 14 du RGPD (objectif, catégories de données, destinataires, durée de conservation, droits), y compris pour la réutilisation secondaire des données.',
+        basis: 'Projet de guide HAS-CNIL, fiche 7 (rappel du cadre)',
+      },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. Violations et incidents',
+    lead: 'Des documents différents fixent des délais différents. Mettez-les sur une seule carte.',
+    items: [
+      {
+        no: '11',
+        text: 'Une violation de données personnelles est notifiée à l’autorité de contrôle dans les meilleurs délais et, si possible, 72 heures au plus tard après en avoir pris connaissance, à moins qu’elle ne soit pas susceptible d’engendrer un risque pour les droits et libertés.',
+        basis: 'RGPD, article 33, paragraphe 1',
+      },
+      {
+        no: '12',
+        text: 'Le fournisseur, en tant que sous-traitant, doit vous notifier dans les meilleurs délais. Le contrat fixe un nombre d’heures, pas « rapidement ». (Recommandation de l’auteur pour le nombre d’heures.)',
+        basis: 'RGPD, article 33, paragraphe 2',
+      },
+      {
+        no: '13',
+        text: 'Lorsqu’une violation est susceptible d’engendrer un risque élevé, les personnes concernées sont informées dans les meilleurs délais, en des termes clairs et simples, sauf exception comme un chiffrement qui rend les données incompréhensibles.',
+        basis: 'RGPD, article 34, paragraphes 1 à 3',
+      },
+      {
+        no: '14',
+        text: 'Pour un système d’IA à haut risque, un incident grave est signalé immédiatement, d’abord au fournisseur, puis à l’importateur ou au distributeur et aux autorités de surveillance du marché ; en cas de risque, l’utilisation est suspendue. Les journaux sous votre contrôle sont conservés au moins six mois, sauf autre disposition du droit.',
+        basis: 'Règlement sur l’IA, article 26, paragraphes 5 et 6',
+      },
+      {
+        no: '15',
+        text: 'Le projet de guide consacre une fiche à la traçabilité des usages ; consignez qui utilise quel outil, quand et avec quel résultat. (Recommandation de l’auteur ; nous n’avons pas détaillé cette fiche.)',
+        basis: 'Projet de guide HAS-CNIL, sommaire (fiche 9) ; recommandation de l’auteur',
+      },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'Faut-il toujours une analyse d’impact pour un outil d’IA ?',
+    a: 'Pas toujours, mais l’article 35 du RGPD l’exige avant un traitement susceptible d’engendrer un risque élevé et cite le traitement à grande échelle de données de santé. Le projet de guide HAS-CNIL range l’AIPD parmi les obligations du déployeur. Demandez l’avis de votre délégué à la protection des données.',
+  },
+  {
+    q: 'Quel est le délai pour signaler une violation de données impliquant un fournisseur d’IA ?',
+    a: 'Le responsable de traitement notifie l’autorité de contrôle dans les meilleurs délais et, si possible, dans les 72 heures après en avoir pris connaissance, sauf risque improbable (RGPD, article 33). Le sous-traitant prévient le responsable de traitement dans les meilleurs délais : inscrivez l’heure d’alerte du fournisseur dans le contrat.',
+  },
+  {
+    q: 'Peut-on utiliser des données de patients pour entraîner un modèle d’IA ?',
+    a: 'Cette page ne peut pas répondre pour un projet précis. La fiche de la CNIL du 5 mars 2026 indique que le développement d’un système d’IA destiné à la santé est assimilé à une recherche, étude ou évaluation dans le domaine de la santé, qui nécessite dans la majorité des cas des formalités préalables auprès de la CNIL, et qu’un entrepôt de données de santé suppose le consentement explicite des personnes ou une formalité préalable. Interrogez votre délégué à la protection des données.',
+  },
+  {
+    q: 'Cette liste est-elle une liste complète de conformité « données » ?',
+    a: 'Non. Elle repose sur le texte du RGPD, sur celui du règlement sur l’IA, sur la fiche de la CNIL et sur un projet de guide. Nous n’avons pas lu le code de la santé publique ni la loi « Informatique et libertés » (Légifrance a refusé les requêtes automatiques), ni de version finale du guide HAS-CNIL. Interrogez votre délégué à la protection des données ou un juriste.',
+  },
+];
+
+const sources = [SRC.rgpd, SRC.aiAct, SRC.cnilSante, SRC.cnilConsult, SRC.guideHasCnil];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/fr/data-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Direction et DSI des hôpitaux',
+  faq,
+});
+---
+
+<FrLayout title={title} description={description} crumb="Protection des données des patients" standalone updated={new Date('2026-11-15T00:00:00+01:00')} schema={guide}>
+  <h1>Liste de contrôle : protection des données des patients</h1>
+  <p class="tg-lead">
+    Les outils d’IA amènent les données des patients à de nouveaux endroits : les serveurs d’un fournisseur, l’entraînement d’un modèle, la fenêtre d’un agent conversationnel. Cette page transforme le RGPD, les fiches de la CNIL et un projet de guide en une liste pour ceux qui valident ces outils, chaque point avec sa source.
+  </p>
+  <p class="tg-meta">Vérifié le {CHECKED} · {total} points · Pour : direction et DSI des hôpitaux</p>
+
+  <p class="tg-answer">
+    En bref : les données de patients sont des données de santé au sens du RGPD ; un usage à grande échelle dans un nouvel outil appelle le plus souvent une analyse d’impact avant la mise en service ; les décisions prises exclusivement par un traitement automatisé sont encadrées ; et une violation de données personnelles a une horloge de 72 heures pour notifier l’autorité de contrôle.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>À lire d’abord</strong>
+    <ul class="tg-list">
+      <li>Ceci n’est <strong>pas une liste officielle</strong>. C’est la liste de l’auteur, construite à partir de documents lus en texte intégral ; chaque point donne sa base, vérifiez donc le texte.</li>
+      <li>Nous n’avons pas lu le code de la santé publique ni la loi « Informatique et libertés » : cette liste n’indique pas ce que le droit français ajoute au RGPD. Interrogez votre délégué à la protection des données ou un juriste.</li>
+      <li>Le guide HAS-CNIL cité est un <strong>projet</strong> (document de travail du 16 février 2026) ; nous n’avons pas trouvé de version finale.</li>
+      <li>Les points marqués « recommandation de l’auteur » ne sont pas des obligations.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>Ce qu’il faut vérifier</th>
+              <th>Base</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">À lire ensuite</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/fr/documents-checklist/')}>
+        <b>Liste « fournisseurs et documents »</b>
+        <span>Rôle de déployeur, statut de dispositif médical, haut risque, ce que le fournisseur doit montrer, mises à jour et incidents.</span>
+      </a>
+      <a class="tg-card" href={withBase('/fr/templates/')}>
+        <b>Modèles de documents</b>
+        <span>Questions aux fournisseurs, charte d’usage de l’IA générative et fiche d’incident.</span>
+      </a>
+    </div>
+  </section>
+
+  <FrFaq items={faq} />
+
+  <FrGuideFoot sources={sources} checked={CHECKED} />
+</FrLayout>

@@ -212,6 +212,38 @@ export const growth: Record<Loc, GrowthStrings> = {
     },
     home: { title: 'Read by topic', more: 'All series →' },
   },
+  fr: {
+    seriesName: 'Séries d’articles',
+    hub: {
+      title: 'Séries d’articles',
+      lead: 'Vous pouvez lire les articles un par un, mais les lire par thème rend les critères plus clairs. Nous avons regroupé les questions que les directions et les cadres de santé des hôpitaux français rencontrent le plus souvent quand ils évaluent une IA. Dans chaque série, les articles suivent un ordre de lecture.',
+      metaDescription:
+        'Articles sur l’IA dans les hôpitaux français pour les directions et les cadres de santé, regroupés par thème : gouvernance de l’IA et règles applicables (projet de guide HAS-CNIL, règlement européen sur l’IA), et données des patients, dispositifs et incidents.',
+      count: (n) => `${n} ${n === 1 ? 'article' : 'articles'}`,
+      latest: 'Dernier',
+      firstPost: 'Commencer par le premier article',
+      viewList: 'Voir la liste',
+    },
+    detail: {
+      back: '← Séries d’articles',
+      order: (n) => `${n} ${n === 1 ? 'article' : 'articles'} · nous suggérons de les lire dans l’ordre ci-dessous.`,
+      relatedChecklist: 'Une liste de contrôle à utiliser ensuite :',
+      metaSuffix: (n) => `${n} ${n === 1 ? 'article' : 'articles'} dans l’ordre de lecture.`,
+    },
+    box: { heading: 'Cet article fait partie d’une série', prev: '← Précédent', next: 'Suivant →', all: 'Toutes les séries' },
+    subscribe: {
+      title: (c = 'les nouveaux articles') => `Comment suivre ${c}`,
+      body: 'Nous publions régulièrement des contenus sur l’IA en médecine pour les directions et les cadres de santé des hôpitaux. Ajoutez le flux RSS à un lecteur et les nouveaux articles vous parviendront dès leur publication.',
+      rss: 'S’abonner par RSS',
+    },
+    checklist: {
+      progress: (d, t) => `${d} sur ${t} cochés`,
+      reset: 'Recommencer',
+      print: 'Imprimer / enregistrer en PDF',
+      related: 'À lire ensuite',
+    },
+    home: { title: 'Lire par thème', more: 'Toutes les séries →' },
+  },
 
   ph: {
     seriesName: 'Serye ng artikulo',

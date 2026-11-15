@@ -105,6 +105,15 @@
 - [Article series](https://hospital-ai-lab.com/ie/series/) · [AI news](https://hospital-ai-lab.com/ie/news/): The Irish Times·RTÉ·Irish Independent·Irish Examiner·TheJournal.ie·Medical Independent·Irish Medical Times 등에서 AI·보건 관련 헤드라인 자동 수집
 - [AI Program Review Room](https://hospital-ai-lab.com/ie/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
 
+## 프랑스어판 (프랑스어, https://hospital-ai-lab.com/fr/)
+
+- 번역본이 아니라 프랑스·EU 제도를 1차 문서로 새로 조사해 프랑스어로 쓴 판입니다(CNIL 'IA et santé' 안내문(2026-03-05), HAS–CNIL 공동 지침 초안(작업 문서 2026-02-16, 최종본 미확인), EU AI 법·GDPR·의료기기 규정(MDR)의 프랑스어 공식 원문). Légifrance·HAS·ANSM 페이지는 읽지 못해 직접 인용하지 않았고, 건강공중보건법은 지침 초안이 인용한 대로만 적었습니다.
+- 프랑스어 전용 안내문: [llms.txt (Français)](https://hospital-ai-lab.com/fr/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/fr/llms-full.txt) · 인용용 사실 허브 [/fr/facts/](https://hospital-ai-lab.com/fr/facts/)
+- 실무 가이드(`/fr/dx-roadmap/`·`/fr/data-checklist/`·`/fr/documents-checklist/`·`/fr/templates/`)·환자 코너(`/fr/patients/`)·CNIL 소식(`/fr/calendar/`)·갱신 정보(`/fr/updates/`).
+- [홈](https://hospital-ai-lab.com/fr/) · [Glossaire](https://hospital-ai-lab.com/fr/glossary/) · [FAQ](https://hospital-ai-lab.com/fr/faq/) · [Checklist](https://hospital-ai-lab.com/fr/checklist/)
+- [Séries](https://hospital-ai-lab.com/fr/series/) · [Actualités IA](https://hospital-ai-lab.com/fr/news/): Le Monde·Le Figaro·franceinfo·Le Quotidien du Médecin·DSIH·Numerama 등에서 AI·보건 관련 헤드라인 자동 수집
+- [AI Program Review Room](https://hospital-ai-lab.com/fr/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
+
 ## 필리핀어판 (필리핀어, https://hospital-ai-lab.com/ph/)
 
 - 번역본이 아니라 필리핀 제도를 1차 문서로 새로 조사해 필리핀어로 쓴 판입니다(RA 9711 FDA법·RA 10173 개인정보법·RA 11223 UHC법 전문(LawPhil), ASEAN AI 거버넌스 가이드). FDA 필리핀·보건부·국가개인정보위원회 사이트는 자동 접속이 403이라 그곳의 고시·권고는 쓰지 않았습니다.

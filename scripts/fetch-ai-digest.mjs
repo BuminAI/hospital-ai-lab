@@ -186,6 +186,47 @@ const CONFIG = {
       /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|gaa\b|rugby|soccer|nfl|nba/i,
     pro: /\bHSE\b|\bHIQA\b|\bHPRA\b|\bDPC\b|Data\s+Protection|\bGDPR\b|AI\s+Act|law|legislat\w*|regulat\w*|Oireachtas|Dáil|Seanad|policy|privacy|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|labour|research|study|benchmark|safety|audit|governance|compliance|procurement|government|public\s+sector|state\s+attorney/i,
   },
+  fr: {
+    out: 'src/data/fr/ai-digest.json',
+    gnewsAllow: /^(Le Monde|Le Figaro|franceinfo|France Info|Les Echos|Les Échos|Le Parisien|Libération|La Croix|Ouest-France|Sud Ouest|20 Minutes|La Tribune|L’Usine Nouvelle|Usine Digitale|Numerama|Les Numériques|ZDNet France|01net|Sciences et Avenir|Challenges|BFM TV|BFMTV|RTL\.fr|Europe 1|France 24|Public Sénat|Vie publique|CNIL|LeMagIT|Silicon\.fr|Journal du Net|Le Quotidien du Médecin|DSIH|Infirmiers\.com|Hospimedia|L’Informaticien|Maddyness|FrenchWeb)$/,
+    gnewsRename: { 'France Info': 'franceinfo', 'Les Echos': 'Les Échos', 'BFMTV': 'BFM TV' },
+    // Médias français (RSS vérifiés le 2026-11-15) + recherches Google Actualités limitées aux médias français ; un filtre de signal pratique
+    // (régulation, organisations, sécurité, santé) garde la liste utile pour un lecteur hospitalier.
+    requirePro: true,
+    feeds: [
+      ['Le Monde', 'https://www.lemonde.fr/pixels/rss_full.xml'],
+      ['Le Monde', 'https://www.lemonde.fr/sciences/rss_full.xml'],
+      ['Le Monde', 'https://www.lemonde.fr/rss/une.xml'],
+      ['Le Figaro', 'https://www.lefigaro.fr/rss/figaro_sante.xml'],
+      ['franceinfo', 'https://www.francetvinfo.fr/titres.rss'],
+      ['Numerama', 'https://www.numerama.com/feed/'],
+      ['Les Numériques', 'https://www.lesnumeriques.com/rss.xml'],
+      ['ZDNet France', 'https://www.zdnet.fr/feeds/rss/actualites/'],
+      ['Ouest-France', 'https://www.ouest-france.fr/rss/une'],
+      ['Sud Ouest', 'https://www.sudouest.fr/rss.xml'],
+      ['DSIH', 'https://www.dsih.fr/rss'],
+      ...[
+        'intelligence artificielle réglementation',
+        'règlement européen IA entreprises',
+        'IA politique publique gouvernement France',
+        'intelligence artificielle emploi travail',
+        'IA cybersécurité',
+        'IA données personnelles CNIL',
+        'IA générative entreprises',
+        'intelligence artificielle hôpital',
+        'IA fonction publique administration',
+        'stratégie nationale intelligence artificielle',
+      ].map((q) => [
+        'Google News',
+        `https://news.google.com/rss/search?q=${encodeURIComponent(q + ' when:60d')}&hl=fr&gl=FR&ceid=FR:fr`,
+        { gnews: true },
+      ]),
+    ],
+    ai: /(?<![A-Za-z])(IA|AI)(?![A-Za-z])|intelligence\s+artificielle|apprentissage\s+(automatique|profond)|grands?\s+mod[eè]les?\s+de\s+langage|\bLLMs?\b|g[ée]n[ée]rative|chatbot|ChatGPT|OpenAI|Anthropic|Mistral|Gemini|Copilot|r[ée]seaux?\s+de\s+neurones/i,
+    noise:
+      /\bjeux?\b|gaming|gamer|console|casque|netflix|film\b|c[ée]l[ée]brit[ée]|influenceu|m[èe]me\b|crypto|bitcoin|promo|soldes|bon plan|test\s*:|d[ée]ballage|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|football|rugby|ligue\s*1|tennis|pr[ée]sidentielle|municipales/i,
+    pro: /\bCNIL\b|\bHAS\b|\bANSM\b|\bARS\b|RGPD|AI\s+Act|loi\b|l[ée]gislat|r[ée]glement|r[ée]gulat|Assembl[ée]e|S[ée]nat|politique|vie priv[ée]e|donn[ée]es|s[ée]curit[ée]|cyber|fuite|violation|proc[èe]s|tribunal|justice|norme|h[ôo]pita|sant[ée]|m[ée]dic|patient|clinique|m[ée]decin|soignant|entreprise|emploi|travail|salari|recherche|[ée]tude|audit|gouvernance|conformit[ée]|march[ée] public|gouvernement|administration|fonction publique|souverain/i,
+  },
   id: {
     out: 'src/data/id/ai-digest.json',
     // 인도네시아 일반 매체는 AI 기사 자체가 적어(325건 중 25건) 실무 신호까지

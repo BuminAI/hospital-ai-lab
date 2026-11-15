@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Liste de contrôle pour l’adoption d’une IA dans un hôpital français",
+    "description": "Des questions pour les directions et les cadres de santé quand un fournisseur propose un produit d’IA : finalité, règles applicables, données des patients, sécurité et organisation.",
+    "pageTitle": "Liste d’adoption d’une IA",
+    "lead": "Utilisez-la quand vous recevez une proposition précise. Cochez chaque point quand vous avez une réponse écrite. Les points sont la liste de l’auteur ; les autres listes et la page des faits donnent les sources."
+  },
+  "sections": [
+    {
+      "heading": "Finalité et périmètre",
+      "body": "",
+      "items": [
+        "La tâche de l’outil est décrite en une phrase et validée par le service qui l’utilisera.",
+        "Les utilisateurs et les personnes touchées par ses résultats sont listés (soignants et agents d’accueil compris).",
+        "L’endroit où l’IA intervient dans le processus et la personne qui décide en dernier ressort sont notés."
+      ]
+    },
+    {
+      "heading": "Règles et statut réglementaire",
+      "body": "",
+      "items": [
+        "Vous avez noté si l’établissement est déployeur au sens du règlement sur l’IA et si l’outil est, ou pourrait devenir, à haut risque.",
+        "Le fournisseur indique par écrit s’il considère le produit comme un dispositif médical et la voie de conformité suivie ; demandez les éléments de marquage CE.",
+        "Vous avez demandé qui est le fournisseur et si un développement interne ferait de l’hôpital un fournisseur ou un fabricant.",
+        "Vous avez lu le projet de guide HAS-CNIL (ou sa version finale s’il paraît) et noté ce qu’il demande à votre établissement."
+      ]
+    },
+    {
+      "heading": "Données des patients",
+      "body": "",
+      "items": [
+        "Le fournisseur indique où les données sont stockées et traitées, si elles sont réutilisées, et qui est responsable de traitement et sous-traitant.",
+        "Une analyse d’impact (AIPD) a été faite avec le délégué à la protection des données avant la mise en service.",
+        "L’outil ne prend pas de décision concernant un patient par des moyens exclusivement automatisés, sans personne pouvant intervenir.",
+        "L’information des patients sur l’outil est arrêtée."
+      ]
+    },
+    {
+      "heading": "Sécurité et incidents",
+      "body": "",
+      "items": [
+        "La carte d’incident dit qui déclare à l’agence, qui prévient le fournisseur et rappelle l’horloge de 72 heures du RGPD.",
+        "Vous savez comment les mises à jour logicielles et les avis de sécurité vous parviennent et qui agit.",
+        "Le fournisseur vous préviendra rapidement d’une violation, par écrit."
+      ]
+    },
+    {
+      "heading": "Performance et contrôle",
+      "body": "",
+      "items": [
+        "La validation du fournisseur est décrite par écrit, jeux de données et limites compris.",
+        "Une personne compétente, formée et dotée de l’autorité nécessaire peut superviser et passer outre l’outil.",
+        "Les journaux sous votre contrôle sont conservés pendant une durée adaptée (le RIA prévoit au moins six mois pour les systèmes à haut risque)."
+      ]
+    },
+    {
+      "heading": "Organisation et équipes",
+      "body": "",
+      "items": [
+        "Les personnes qui utiliseront l’outil sont formées avant la mise en service, limites comprises (maîtrise de l’IA).",
+        "L’outil figure sur votre liste d’outils d’IA avec un responsable nommé.",
+        "Un audit ou un point de revue est planifié, et les travailleurs ont été informés lorsque le RIA l’exige."
+      ]
+    }
+  ]
+}

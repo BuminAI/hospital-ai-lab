@@ -1,0 +1,47 @@
+---
+// Pour les patients (patients et proches) — page d'aperçu (2026-11-15)
+// ⚠️ No diagnosis or treatment advice. General information with links to official sources.
+import '../../../styles/fr-guide.css';
+import FrLayout from '../../../layouts/FrLayout.astro';
+import { withBase } from '../../../utils/site';
+
+const title = 'Pour les patients : l’IA, vos données et vos droits';
+const description =
+  'Avant d’interroger une IA sur votre santé, et à quoi s’attendre quand un hôpital utilise l’IA dans vos soins. En langage simple, avec des sources officielles.';
+
+const cards = [
+  {
+    "href": "/fr/patients/ai-health-consult/",
+    "t": "Avant d’interroger une IA sur votre santé : six choses",
+    "d": "Une réponse d’IA n’est pas un diagnostic, ce que vous saisissez peut ne pas être protégé comme vous le croyez, et quand ne pas attendre."
+  },
+  {
+    "href": "/fr/patients/ai-in-hospital/",
+    "t": "Quand votre hôpital utilise l’IA : ce que disent le projet de guide HAS-CNIL et le droit européen",
+    "d": "Ce que vous pouvez attendre qu’on vous dise, qui reste responsable, et ce que vous pouvez demander."
+  }
+];
+---
+
+<FrLayout title={title} description={description} crumb="Pour les patients" standalone>
+  <h1>Pour les patients</h1>
+  <p class="tg-lead">
+    Beaucoup de gens se posent des questions sur les hôpitaux et l’IA sans savoir à qui les poser. Les réponses ici viennent de sources officielles et emploient le moins de termes techniques possible.
+  </p>
+  <div class="tg-box tg-warn">
+    Ce sont des informations générales, pas un diagnostic ni une recommandation de traitement. Pour un problème de santé, contactez le professionnel ou l’établissement qui vous soigne. En cas d’urgence, appelez le numéro d’urgence ou rendez-vous aux urgences les plus proches.
+  </div>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+    Pour le personnel hospitalier, voir les <a href={withBase('/fr/practice/')}>Guides pratiques</a>.
+  </p>
+</FrLayout>

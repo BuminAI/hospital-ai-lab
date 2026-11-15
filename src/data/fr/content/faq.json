@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Quelles règles s’appliquent à l’IA dans un hôpital français ?",
+    "answer": "Le règlement européen sur l’IA s’applique directement (l’essentiel à partir du 2 août 2026, tel que publié), le RGPD encadre les données des patients et le RDM encadre les logiciels qui sont des dispositifs médicaux. Le projet de guide HAS-CNIL (document de travail, février 2026) rappelle le cadre et propose des bonnes pratiques ; il n’est pas final. Nous n’avons pas lu le code de la santé publique lui-même.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "question": "Le guide HAS-CNIL est-il obligatoire ?",
+    "answer": "Ce n’est pas une règle : le projet est présenté comme une version provisoire ne revêtant aucun caractère définitif, et la consultation s’est terminée le 16 avril 2026. Il vise à clarifier le cadre applicable et à proposer des recommandations de bonnes pratiques. Nous n’avons pas trouvé de version finale ; vérifiez auprès de la HAS et de la CNIL.",
+    "sources": [
+      "https://www.cnil.fr/fr/ia-et-sante-la-has-et-la-cnil-lancent-une-consultation-publique-sur-un-projet-de-guide",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "question": "Un logiciel d’IA acheté par l’hôpital est-il un dispositif médical ?",
+    "answer": "Il peut l’être. La définition du RDM cite le logiciel et dépend de la destination que lui donne le fabricant. Demandez par écrit au fournisseur s’il le considère comme un dispositif médical et pourquoi, et demandez les éléments de marquage CE.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "question": "Faut-il former le personnel à l’IA ?",
+    "answer": "L’article 4 du règlement sur l’IA demande aux fournisseurs et aux déployeurs de prendre des mesures pour garantir un niveau suffisant de maîtrise de l’IA pour le personnel et les autres personnes qui utilisent les systèmes pour leur compte. Il s’applique depuis le 2 février 2025. Le projet de guide HAS-CNIL consacre aussi une fiche à la formation et à l’acculturation des professionnels.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "question": "Faut-il une analyse d’impact (AIPD) avant d’utiliser une IA sur des données de patients ?",
+    "answer": "L’article 35 du RGPD l’exige avant un traitement susceptible d’engendrer un risque élevé et cite le traitement à grande échelle de données de santé. Le projet de guide HAS-CNIL range l’AIPD parmi les obligations du déployeur. Demandez l’avis de votre délégué à la protection des données.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra",
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf"
+    ]
+  },
+  {
+    "question": "En combien de temps faut-il signaler une violation de données impliquant un fournisseur d’IA ?",
+    "answer": "Le responsable de traitement notifie la CNIL dans les meilleurs délais et, si possible, dans les 72 heures après en avoir pris connaissance, sauf risque improbable (RGPD, article 33). Le sous-traitant doit prévenir le responsable de traitement dans les meilleurs délais : inscrivez l’heure d’alerte du fournisseur dans le contrat.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra"
+    ]
+  },
+  {
+    "question": "Qui prévenir en cas de problème avec un dispositif médical contenant de l’IA ?",
+    "answer": "Le projet de guide HAS-CNIL rappelle que les systèmes d’IA ayant le statut de dispositif médical sont soumis à la matériovigilance, et cite l’obligation pour un professionnel ayant connaissance d’un incident grave de le déclarer à l’agence dans les meilleurs délais (article L. 5212-2 du code de la santé publique, tel que rappelé). Nous n’avons pas lu le code ni la page de l’ANSM : passez par votre correspondant local de matériovigilance.",
+    "sources": [
+      "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra"
+    ]
+  }
+]

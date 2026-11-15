@@ -55,6 +55,8 @@ interface Props {
   sgPath?: string;
   /** 이 페이지의 영어(UAE)판 경로(hreflang용). */
   aePath?: string;
+  /** 이 페이지의 프랑스어판 경로(hreflang용). */
+  frPath?: string;
   /** 이 페이지의 러시아어판 경로(2026-11-06 추가). */
   ruPath?: string;
   /**
@@ -100,6 +102,7 @@ const {
   phPath,
   sgPath,
   aePath,
+  frPath,
   ruPath,
   standalone = false,
   updated,
@@ -150,6 +153,7 @@ const inHref = inPath ? `${siteRoot}${withBase(inPath)}` : undefined;
 const phHref = phPath ? `${siteRoot}${withBase(phPath)}` : undefined;
 const sgHref = sgPath ? `${siteRoot}${withBase(sgPath)}` : undefined;
 const aeHref = aePath ? `${siteRoot}${withBase(aePath)}` : undefined;
+const frHref = frPath ? `${siteRoot}${withBase(frPath)}` : undefined;
 const ruHref = ruPath ? `${siteRoot}${withBase(ruPath)}` : undefined;
 
 // 메뉴 표시·비표시는 src/data/ie/content/nav.json에서 관리한다
@@ -308,6 +312,7 @@ const year = new Date().getFullYear();
           {phHref && <link rel="alternate" hreflang="fil-PH" href={phHref} />}
           {sgHref && <link rel="alternate" hreflang="en-SG" href={sgHref} />}
           {aeHref && <link rel="alternate" hreflang="en-AE" href={aeHref} />}
+          {frHref && <link rel="alternate" hreflang="fr-FR" href={frHref} />}
           <link rel="alternate" hreflang="en-IE" href={canonical} />
           {twHref && <link rel="alternate" hreflang="zh-TW" href={twHref} />}
           <link rel="alternate" hreflang="x-default" href={koHref} />
@@ -517,6 +522,9 @@ const year = new Date().getFullYear();
             </li>
             <li>
               <a href={withBase('/ae/')} hreflang="en-AE" lang="en-AE">English (UAE)</a>
+            </li>
+            <li>
+              <a href={withBase('/fr/')} hreflang="fr-FR" lang="fr-FR">Français (France)</a>
             </li>
             <li>
               <a href={withBase('/ja/')} hreflang="ja" lang="ja">{en.editions.ja}</a>

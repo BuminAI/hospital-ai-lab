@@ -1,0 +1,112 @@
+---
+// Key facts for citation (2026-11-15) — a page for AEO/GEO.
+// One item = question + short answer + section + primary source. Data: src/data/fr/guides/facts.ts.
+// Each item has an anchor (#id) for direct linking.
+import '../../../styles/fr-guide.css';
+import FrLayout from '../../../layouts/FrLayout.astro';
+import FrGuideFoot from '../../../components/FrGuideFoot.astro';
+import { FACTS, FACT_TOPICS, FACTS_CHECKED } from '../../../data/fr/guides/facts';
+import { SRC } from '../../../data/fr/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const title = 'Faits clés : règles de l’IA, données de patients et dispositifs';
+const description = `${FACTS.length} réponses courtes à citer sur le projet de guide HAS-CNIL, la fiche CNIL « IA et santé », le règlement européen sur l’IA, les dispositifs médicaux et le RGPD.`;
+
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const pageUrl = `${siteRoot}${withBase('/fr/facts/')}`;
+
+const faqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'fr-FR',
+  isPartOf: { '@id': `${siteRoot}/#website-fr` },
+  mainEntity: FACTS.map((f) => ({
+    '@type': 'Question',
+    '@id': `${pageUrl}#${f.id}`,
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: `${f.a} (Base : ${f.basis}.)`, citation: SRC[f.src].url },
+  })),
+};
+const articleLd = {
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: title,
+  description,
+  inLanguage: 'fr-FR',
+  author: { '@id': `${siteRoot}/#person` },
+  publisher: { '@id': `${siteRoot}/#organization` },
+  isPartOf: { '@id': `${siteRoot}/#website-fr` },
+  mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+  datePublished: '2026-11-15T00:00:00+01:00',
+  dateModified: '2026-11-15T00:00:00+01:00',
+  isAccessibleForFree: true,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.tg-answer', 'h1'] },
+  citation: Object.values(SRC).map((s) => ({ '@type': 'CreativeWork', name: s.label, url: s.url })),
+};
+
+const sources = [SRC.cnilSante, SRC.cnilConsult, SRC.guideHasCnil, SRC.cnilFiches, SRC.aiAct, SRC.rgpd, SRC.rdm];
+---
+
+<FrLayout title={title} description={description} crumb="Faits clés" standalone updated={new Date('2026-11-15T00:00:00+01:00')} schema={[articleLd, faqLd]}>
+  <h1>Faits clés : règles de l’IA, données des patients et dispositifs médicaux en France</h1>
+  <p class="tg-lead">
+    Des réponses courtes aux questions qui reviennent le plus dans les réunions d’achat et de conformité. Chaque réponse a été rédigée après ouverture du texte du document, et indique la section et un lien vers la source primaire.
+  </p>
+  <p class="tg-meta">Vérifié le {FACTS_CHECKED} · {FACTS.length} éléments · Pour : directions, soignants et patients</p>
+
+  <p class="tg-answer">
+    En bref : la HAS et la CNIL ont soumis à consultation un projet de guide sur l’IA en contexte de soins (document de travail de février 2026, sans version finale trouvée) ; le règlement européen sur l’IA fait d’un hôpital qui utilise un système d’IA un déployeur, avec des obligations échelonnées (l’essentiel à partir du 2 août 2026, tel que publié) ; un logiciel d’IA peut être un dispositif médical au sens du RDM ; et les données des patients sont des données de santé au sens du RGPD, avec une horloge de 72 heures pour les violations.
+  </p>
+
+  <div class="tg-box">
+    <strong>Comment utiliser cette page</strong><br />
+    Copiez une réponse avec sa section et vérifiez le texte de la règle à la source primaire. Aucune échéance ni règle de cette page n’est tirée d’un texte que nous n’aurions pas lu ; ce n’est pas un avis juridique.
+    <br />
+    {
+      FACT_TOPICS.map((t, i) => (
+        <>
+          <a href={`#t-${i}`}>{t}</a>
+          {i < FACT_TOPICS.length - 1 ? ' · ' : ''}
+        </>
+      ))
+    }
+  </div>
+
+  {
+    FACT_TOPICS.map((topic, i) => (
+      <section class="tg-sec" aria-labelledby={`t-${i}`}>
+        <h2 id={`t-${i}`}>{topic}</h2>
+        <dl class="tg-facts">
+          {FACTS.filter((f) => f.topic === topic).map((f) => (
+            <>
+              <dt id={f.id}>
+                <a href={`#${f.id}`}>{f.q}</a>
+              </dt>
+              <dd>
+                <p>{f.a}</p>
+                <p class="tg-basis">
+                  Base : {f.basis} ·{' '}
+                  <a href={SRC[f.src].url} target="_blank" rel="noopener">
+                    source primaire<span class="sr-only"> (s’ouvre dans un nouvel onglet)</span>
+                  </a>
+                </p>
+              </dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">À lire ensuite</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/fr/dx-roadmap/')}><b>Feuille de route</b><span>Les règles clés sur une seule frise.</span></a>
+      <a class="tg-card" href={withBase('/fr/data-checklist/')}><b>Liste « données des patients »</b><span>Les points du RGPD et des fiches de la CNIL sur l’IA.</span></a>
+      <a class="tg-card" href={withBase('/fr/glossary/')}><b>Glossaire</b><span>Les termes de l’IA médicale en langage simple.</span></a>
+    </div>
+  </section>
+
+  <FrGuideFoot sources={sources} checked={FACTS_CHECKED} />
+</FrLayout>

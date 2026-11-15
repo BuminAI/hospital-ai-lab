@@ -146,7 +146,7 @@ const blogAe = defineCollection({
   }),
 });
 
-// DoH 표준·지침 등 UAE 제도를 1차 출처로 읽어 쓰는 독립 집필이다.
+// 영어판(아일랜드) 블로그 (2026-11-15 신설). HIQA·보건부·DPC·HPRA 문서와 EU 법(AI 법·GDPR·MDR)을 1차 출처로 읽어 쓰는 독립 집필이다.
 const blogIe = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog-ie' }),
   schema: z.object({
@@ -159,4 +159,17 @@ const blogIe = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg, blogPh, blogAe, blogIe };
+// 프랑스어판 블로그 (2026-11-15 신설). CNIL·HAS·ANSM 문서와 EU 법(AI 법·RGPD·MDR)의 관보 원문을 1차 출처로 읽어 쓰는 독립 집필이다(프랑스어).
+const blogFr = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-fr' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Revue de recherche', 'Outils IA', 'Chronique', 'Actualités']),
+    draft: z.boolean().default(false),
+    series: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg, blogPh, blogAe, blogIe, blogFr };

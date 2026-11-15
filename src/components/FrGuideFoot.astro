@@ -1,0 +1,40 @@
+---
+// Shared "Sources et date de vérification · disclaimers" block for the Practice and For-patients pages (2026-11-06)
+// Sources must be pages that were actually opened and checked.
+interface Props {
+  sources: { label: string; url: string }[];
+  /** Date the sources were checked (shown on screen) */
+  checked: string;
+  /** true on the For-patients pages: the "not a diagnosis or treatment advice" disclaimer is stronger */
+  patient?: boolean;
+}
+const { sources, checked, patient = false } = Astro.props;
+---
+
+<section class="tg-src" aria-labelledby="tg-src-h">
+  <h2 id="tg-src-h">Sources et date de vérification</h2>
+  <ul>
+    {
+      sources.map((s) => (
+        <li>
+          <a href={s.url} target="_blank" rel="noopener">
+            {s.label}
+            <span class="sr-only">(s’ouvre dans un nouvel onglet)</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p>Sources vérifiées le {checked}. Les règles et les procédures évoluent : fiez-vous au texte en vigueur sur la page officielle de la source.</p>
+  {
+    patient ? (
+      <p class="tg-disc">
+        Cette page contient des informations générales. Elle ne constitue ni un diagnostic ni une recommandation de traitement pour vos symptômes. Si vous vous sentez mal, contactez le professionnel de santé ou l’établissement qui vous suit. En cas d’urgence, rendez-vous aux urgences les plus proches ou appelez le numéro d’urgence. Ce site ne recommande aucun établissement ni produit de santé en particulier.
+      </p>
+    ) : (
+      <p class="tg-disc">
+        Le contenu de ce site est une information générale à visée pédagogique. Il ne remplace pas un diagnostic ou un avis médical pour un patient précis, et ce n’est pas un avis juridique ni une recommandation d’achat. Pour les règles et les politiques, fiez-vous aux sources officielles primaires.
+      </p>
+    )
+  }
+</section>

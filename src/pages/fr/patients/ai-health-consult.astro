@@ -1,0 +1,104 @@
+---
+// Avant d'interroger une IA sur votre santé (2026-11-15). Précautions générales seulement ; aucun conseil de diagnostic ou de traitement.
+// Bases : fiche CNIL « IA et santé » et recommandations de la CNIL sur l'IA, RGPD article 9, projet de guide HAS-CNIL (document de travail, signalé comme projet).
+// Aucun numéro d'urgence n'est donné faute de source primaire lue.
+import '../../../styles/fr-guide.css';
+import FrLayout from '../../../layouts/FrLayout.astro';
+import FrGuideFoot from '../../../components/FrGuideFoot.astro';
+import FrFaq from '../../../components/FrFaq.astro';
+import { guideSchema } from '../../../utils/fr-guide';
+import { SRC } from '../../../data/fr/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = '15 novembre 2026';
+const title = 'Interroger une IA sur sa santé en France : six choses à savoir';
+const description =
+  'Une réponse d’IA n’est pas un diagnostic. Six choses à savoir avant de saisir des questions de santé dans un agent conversationnel : urgence, vie privée, destination de vos données et vos propres documents.';
+
+const rights = [
+  {
+    h: '1. Une réponse d’IA n’est pas un diagnostic',
+    p: 'Un agent conversationnel ne peut ni vous examiner ni connaître tout votre historique, et il peut paraître sûr de lui alors qu’il se trompe. Le projet de guide HAS-CNIL rappelle qu’un système d’IA peut être utilisé de façon subtile dans les soins et que la décision médicale reste sous la responsabilité du professionnel. Servez-vous d’un agent conversationnel, au mieux, pour préparer vos questions à votre médecin ou à votre infirmier.',
+  },
+  {
+    h: '2. N’attendez pas si cela peut être urgent',
+    p: 'Si vous pensez que vous-même ou une autre personne pouvez être en situation d’urgence vitale, appelez le numéro d’urgence ou rendez-vous aux urgences les plus proches. N’attendez pas la réponse d’un agent conversationnel.',
+  },
+  {
+    h: '3. Ce que vous saisissez peut échapper à votre contrôle',
+    p: 'Les recommandations de la CNIL rappellent que le RGPD s’applique, dans de nombreux cas, aux modèles d’IA entraînés sur des données personnelles, en raison de leurs capacités de mémorisation. Avant de saisir des informations de santé dans un service, lisez ce qu’il dit sur la destination des données et demandez-vous si vous avez besoin de les saisir.',
+  },
+  {
+    h: '4. Partagez moins que ce que vous croyez devoir partager',
+    p: 'Laissez de côté votre nom, votre numéro de sécurité sociale, votre date de naissance, votre adresse, votre numéro de téléphone et les photos où l’on voit votre visage ou un document, sauf si vous êtes sûr de pouvoir faire confiance au service. Au sens du RGPD (article 9), les données concernant votre santé sont une catégorie particulière, mieux protégée ; mais un service que vous utilisez vous-même n’est pas forcément géré par un hôpital.',
+  },
+  {
+    h: '5. Vous pouvez demander à un hôpital comment il utilise l’IA',
+    p: 'Le projet de guide HAS-CNIL distingue plusieurs informations dues aux personnes : l’usage de systèmes d’IA dans les soins en général, l’utilisation de vos données personnelles, les réutilisations secondaires de ces données et vos droits (accès, opposition). Si vous voulez savoir, demandez.',
+  },
+  {
+    h: '6. Apportez vos propres documents à votre médecin',
+    p: 'Gardez ensemble vos comptes rendus, vos ordonnances et vos lettres de sortie. Ils aident le médecin qui vous soigne bien plus que le résumé qu’en ferait un agent conversationnel.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Puis-je coller mes résultats d’analyses dans un agent conversationnel ?',
+    a: 'Cette page ne peut pas dire ce que fait un outil précis de ces données. Lisez la politique de confidentialité du service et retirez d’abord votre nom et vos identifiants. Les recommandations de la CNIL rappellent que le RGPD s’applique souvent aux modèles entraînés sur des données personnelles.',
+  },
+  {
+    q: 'Un hôpital doit-il me dire quand l’IA intervient dans mes soins ?',
+    a: 'Le projet de guide HAS-CNIL rappelle des obligations d’information : sur l’état de santé et les soins proposés, sur l’utilisation d’un système d’IA qualifié de dispositif médical (article L. 4001-3 du code de la santé publique, tel que rappelé ; code non lu) et sur l’usage des données personnelles. Nous n’avons pas trouvé de version finale du guide. Si vous voulez savoir, demandez.',
+  },
+  {
+    q: 'Puis-je me fier à une application d’IA qui se dit « validée » ?',
+    a: 'Demandez ce qui est validé, par qui et pour quel usage. Une mention sur une boutique d’applications n’est pas la validation elle-même. Un logiciel peut être un dispositif médical selon la destination que lui donne son fabricant ; le fournisseur doit alors pouvoir montrer les éléments de marquage CE.',
+  },
+];
+
+const sources = [SRC.cnilSante, SRC.cnilFinal, SRC.rgpd, SRC.guideHasCnil, SRC.rdm];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/fr/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Patients et leurs proches',
+  faq,
+});
+---
+
+<FrLayout title={title} description={description} crumb="Interroger l’IA sur sa santé" standalone updated={new Date('2026-11-15T00:00:00+01:00')} schema={schema}>
+  <h1>Interroger une IA sur sa santé en France : six choses à savoir</h1>
+  <p class="tg-lead">
+    Beaucoup de personnes interrogent aujourd’hui des agents conversationnels sur des symptômes, des résultats d’analyses et des médicaments. Cette page ne vous dit pas quoi faire face à un problème de santé. Elle explique quelques faits qui aident à utiliser ces outils avec plus de prudence.
+  </p>
+  <p class="tg-meta">Vérifié le {CHECKED} · Pour : patients et proches</p>
+
+  <div class="tg-box tg-warn">
+    Ce sont des informations générales. Elles ne constituent ni un avis juridique ni un avis médical pour votre situation. Si vous avez un problème de santé, contactez votre professionnel de santé ou l’établissement qui vous suit. En cas d’urgence, appelez le numéro d’urgence ou rendez-vous aux urgences les plus proches.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Six choses</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <p class="tg-meta">À quoi s’attendre quand un hôpital utilise l’IA dans vos soins : <a href={withBase('/fr/patients/ai-in-hospital/')}>ce que disent le projet de guide HAS-CNIL et le droit européen</a>.</p>
+
+  <FrFaq items={faq} />
+
+  <FrGuideFoot sources={sources} checked={CHECKED} patient />
+</FrLayout>

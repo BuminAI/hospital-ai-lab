@@ -1,0 +1,94 @@
+{
+  "_comment": "Édition française — ressources officielles. Liste vérifiée à la main : chaque URL a été ouverte le 2026-11-15. Légifrance et le site de la HAS ont répondu HTTP 403 aux requêtes automatiques ; ils ne sont pas listés et aucun fait n’en dépend.",
+  "meta": {
+    "title": "Ressources officielles pour décider d’une IA à l’hôpital en France",
+    "description": "Les sources officielles de ce site : fiche CNIL « IA et santé », projet de guide HAS-CNIL, recommandations de la CNIL sur l’IA et textes européens (règlement sur l’IA, RGPD, RDM).",
+    "pageTitle": "Ressources officielles",
+    "lead": "Cette page rassemble les sources officielles qui fondent le reste du site, chacune ouverte et vérifiée."
+  },
+  "notice": "Cette liste n’est ni un label ni exhaustive. Les pages et les règles changent ; fiez-vous au texte en vigueur à chaque source.",
+  "checkedAt": "2026-11-15",
+  "programs": [
+    {
+      "name": "CNIL — IA et santé : développer et évaluer des systèmes d’IA",
+      "org": "CNIL",
+      "url": "https://www.cnil.fr/fr/ia-et-sante-developper-et-evaluer-des-systemes-dia-en-conformite-avec-la-reglementation",
+      "body": "La fiche du 5 mars 2026 : étapes du cycle de vie, trois cas d’usage, formalités préalables et tableau d’actions.",
+      "audience": "Délégués à la protection des données, chefs de projet.",
+      "sourceUrl": "https://www.cnil.fr/fr/ia-et-sante-developper-et-evaluer-des-systemes-dia-en-conformite-avec-la-reglementation",
+      "sourceLabel": "CNIL, fiche IA et santé"
+    },
+    {
+      "name": "CNIL — consultation HAS-CNIL sur le projet de guide",
+      "org": "CNIL",
+      "url": "https://www.cnil.fr/fr/ia-et-sante-la-has-et-la-cnil-lancent-une-consultation-publique-sur-un-projet-de-guide",
+      "body": "La page de présentation du projet de guide « IA en contexte de soins » : objectifs, périmètre, trois niveaux de recommandations (page marquée « clôturée »).",
+      "audience": "Directions et cadres de santé.",
+      "sourceUrl": "https://www.cnil.fr/fr/ia-et-sante-la-has-et-la-cnil-lancent-une-consultation-publique-sur-un-projet-de-guide",
+      "sourceLabel": "CNIL, consultation"
+    },
+    {
+      "name": "Projet de guide HAS-CNIL (PDF)",
+      "org": "HAS et CNIL",
+      "url": "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
+      "body": "Le document de travail du 16 février 2026 : douze fiches, du pilotage de la gouvernance à la désinstallation, avec l’IA générative. C’est un projet ; la version finale n’a pas été trouvée.",
+      "audience": "Établissements de santé et professionnels.",
+      "sourceUrl": "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
+      "sourceLabel": "Projet de guide (PDF)"
+    },
+    {
+      "name": "CNIL — fiches pratiques IA",
+      "org": "CNIL",
+      "url": "https://cnil.fr/fr/les-fiches-pratiques-ia",
+      "body": "Les fiches de la CNIL sur l’application du RGPD au développement des systèmes d’IA, de la détermination du régime juridique à la sécurité.",
+      "audience": "Délégués à la protection des données et DSI.",
+      "sourceUrl": "https://cnil.fr/fr/les-fiches-pratiques-ia",
+      "sourceLabel": "CNIL, fiches IA"
+    },
+    {
+      "name": "CNIL — recommandations finalisées sur le développement des systèmes d’IA",
+      "org": "CNIL",
+      "url": "https://cnil.fr/fr/ia-finalisation-recommandations-developpement-des-systemes-ia",
+      "body": "La page du 22 juillet 2025 : applicabilité du RGPD aux modèles, annotation, sécurité.",
+      "audience": "Juristes et DSI.",
+      "sourceUrl": "https://cnil.fr/fr/ia-finalisation-recommandations-developpement-des-systemes-ia",
+      "sourceLabel": "CNIL, juillet 2025"
+    },
+    {
+      "name": "Règlement (UE) 2024/1689 sur l’IA",
+      "org": "Union européenne",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "body": "Le texte intégral du règlement au Journal officiel, en français.",
+      "audience": "Juristes et conformité.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/fra",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "RGPD — règlement (UE) 2016/679",
+      "org": "Union européenne",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra",
+      "body": "Le texte du règlement général sur la protection des données.",
+      "audience": "Délégués à la protection des données.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/fra",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "Règlement (UE) 2017/745 relatif aux dispositifs médicaux",
+      "org": "Union européenne",
+      "url": "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra",
+      "body": "Le texte du RDM tel que publié en 2017 ; consultez la version consolidée pour les modifications ultérieures.",
+      "audience": "Services biomédicaux et achats.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "CNIL — actualités (flux RSS)",
+      "org": "CNIL",
+      "url": "https://www.cnil.fr/fr/rss.xml",
+      "body": "Le flux des actualités de la CNIL ; ce site liste les nouveautés sous « Actualités CNIL ».",
+      "audience": "Tous.",
+      "sourceUrl": "https://www.cnil.fr/fr/rss.xml",
+      "sourceLabel": "Flux CNIL"
+    }
+  ]
+}

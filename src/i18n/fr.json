@@ -1,0 +1,199 @@
+{
+  "_comment": "Chaînes d'interface de l'édition française (2026-11-15). Le contenu n'est PAS une traduction du site coréen ni une copie des autres éditions : il est rédigé à partir de documents primaires français et européens réellement ouverts (la fiche CNIL « IA et santé » du 5 mars 2026, la page de consultation HAS-CNIL du 5 mars 2026 et le projet de guide « Accompagner le bon usage des systèmes d'intelligence artificielle en contexte de soins » du 16 février 2026, les recommandations CNIL sur l'IA, et les textes officiels en français du règlement sur l'IA, du RGPD et du règlement relatif aux dispositifs médicaux publiés au Journal officiel de l'Union européenne). Style : français clair et courtois, vouvoiement, sans emphase ; typographie française (guillemets « », espace insécable avant : ; ? !) ; sigles développés à la première occurrence (SIA, AIPD, RIA, RDM). Légifrance, la HAS et l'ANSM ont refusé les requêtes automatiques ou n'ont pas pu être lus : aucun article du code de la santé publique n'est cité d'après le code lui-même, seulement tel que le projet de guide HAS-CNIL le rappelle, et toujours signalé comme tel. Ne rien affirmer qui ne repose que sur des résumés de cabinets d'avocats.",
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "glossary": "Glossaire",
+    "faq": "FAQ",
+    "checklist": "Liste d'adoption",
+    "guide": "Par où commencer",
+    "tips": "Conseils pratiques",
+    "videos": "Vidéos",
+    "news": "Actualités IA",
+    "events": "Formations et événements",
+    "govSupport": "Ressources officielles",
+    "blog": "Blog",
+    "aiDigest": "Veille IA",
+    "aiJudge": "Revue de programmes IA",
+    "practice": "Guides pratiques",
+    "patients": "Pour les patients",
+    "updates": "Mises à jour",
+    "dxRoadmap": "Feuille de route",
+    "calendar": "Actualités CNIL",
+    "documentsChecklist": "Liste fournisseurs",
+    "dataChecklist": "Liste données",
+    "templates": "Modèles",
+    "series": "Séries d'articles",
+    "research": "Recherche médicale"
+  },
+  "footer": {
+    "about": "À propos",
+    "privacy": "Politique de confidentialité",
+    "contact": "Contact",
+    "sitemap": "Plan du site",
+    "rss": "Flux RSS"
+  },
+  "editions": {
+    "title": "Autres éditions linguistiques",
+    "ko": "Édition coréenne （한국어）",
+    "ja": "Édition japonaise （日本語）",
+    "ru": "Édition russe （Русский）",
+    "id": "Édition indonésienne （Indonesia）",
+    "tw": "Édition en chinois traditionnel （繁體中文）",
+    "en": "Édition en anglais pour les États-Unis",
+    "in": "Édition en anglais pour l’Inde",
+    "ae": "Édition en anglais pour les Émirats arabes unis",
+    "ie": "Édition en anglais pour l’Irlande",
+    "ph": "Édition en filipino pour les Philippines",
+    "sg": "Édition en anglais pour Singapour"
+  },
+  "ui": {
+    "updated": "Mis à jour",
+    "new": "Nouveau",
+    "external": "S’ouvre dans un nouvel onglet",
+    "breadcrumbHome": "Accueil",
+    "readMore": "En savoir plus",
+    "viewAll": "Tout voir",
+    "source": "Source",
+    "deadline": "Échéance",
+    "noItems": "Cette rubrique est encore vide.",
+    "langKo": "Édition coréenne (한국어)",
+    "langJa": "Édition japonaise (日本語)",
+    "sidebarProfileTitle": "À propos de l’auteur",
+    "disclaimer": "Le contenu de ce site est une information générale à visée pédagogique. Ce n’est pas un avis juridique et il ne remplace pas un avis médical pour un patient précis.",
+    "underConstruction": "L’édition française est construite par étapes, à mesure que chaque source est vérifiée."
+  },
+  "profile": {
+    "name": "Youngho Cho (조영호)",
+    "role": "Directeur, Hospital AI Lab (병원 AI 연구소)",
+    "education": "Master en statistiques ; doctorat en économie.",
+    "educationShort": "Master statistiques, doctorat économie",
+    "youtube": "Chaîne YouTube",
+    "nameShort": "Youngho Cho"
+  },
+  "home": {
+    "metaTitle": "IA à l’hôpital en France : règlement IA, RGPD et guide HAS-CNIL",
+    "metaDescription": "Guides pratiques pour les directions et les cadres de santé en France : ce que le règlement européen sur l’IA, le RGPD et le projet de guide HAS-CNIL demandent à un établissement, et que faire en cas d’incident avec un dispositif médical, chacun avec sa source.",
+    "heroEyebrow": "L’IA MÉDICALE POUR LA DIRECTION ET LES SOINS",
+    "heroTitle": "L’IA médicale, vue depuis le bureau de l’hôpital.",
+    "heroTitle2": "Je lis l’IA médicale dans la langue de ceux qui font tourner les hôpitaux.",
+    "heroLead": "La question n’est pas de savoir si une technologie est récente. C’est de savoir si votre établissement peut vraiment l’utiliser, et sur quel fondement juridique. Ces pages s’adressent aux directions qui décident d’un achat, examinent les offres des fournisseurs et pilotent un budget, et aux équipes soignantes dont le travail change quand un système entre en service.",
+    "ctaAbout": "À propos de l’auteur",
+    "introTitle": "À propos de ce site",
+    "introBody": "Hospital AI Lab s’adresse à ceux qui décident si un hôpital adopte une IA médicale. Ce n’est pas un manuel technique pour développeurs. Les pages traitent des questions que rencontrent la direction et les soins : un produit est-il un dispositif médical, comment utiliser les données des patients, qu’est-ce qui change dans le travail quotidien. Le contenu est une information générale tirée de documents officiels. Ce n’est pas un avis juridique et il ne remplace pas un avis pour un patient précis.",
+    "koNoticeTitle": "L’édition coréenne",
+    "koNoticeBody": "L’édition principale du site est en coréen et existe depuis 2026. Cette édition française est récente et compte moins de pages. Elle est rédigée par le même auteur, qui travaille depuis la Corée du Sud, à partir de documents français et européens ouverts et lus ; ce n’est pas une traduction.",
+    "resourcesTitle": "Sur ce site",
+    "glossaryDesc": "Les termes de l’IA médicale que vous croisez dans les offres et les réunions, expliqués simplement.",
+    "faqDesc": "Réponses aux questions les plus fréquentes quand on envisage l’IA dans un hôpital français.",
+    "guideDesc": "Par où commencer sans bagage technique : cinq étapes dans l’ordre.",
+    "checklistDesc": "Les questions à poser à un fournisseur quand vous recevez une proposition précise.",
+    "homeNewsTitle": "Dernières actualités IA",
+    "homeNewsMore": "Toutes les actualités IA →",
+    "homeFaqTitle": "Questions sur ce site",
+    "homeFaqMore": "Questions sur l’IA médicale →",
+    "homeFaq": [
+      {
+        "q": "À qui s’adresse ce site ?",
+        "a": "Surtout aux personnes de la direction et des soins : directions, finances, DSI, juristes et délégués à la protection des données, cadres de santé. Ce n’est pas un site réservé aux médecins. Décider d’un achat, examiner une offre et gérer le budget relèvent de l’administration ; répondre aux alertes d’un système et adapter les organisations relèvent des soins."
+      },
+      {
+        "q": "D’où viennent les informations ?",
+        "a": "Les énoncés sur les règles, dans les guides pratiques, le glossaire et les listes de contrôle, citent un document primaire ouvert et lu : la fiche « IA et santé » de la CNIL (5 mars 2026), la page de consultation HAS-CNIL et le projet de guide « Accompagner le bon usage des systèmes d’intelligence artificielle en contexte de soins » (document de travail du 16 février 2026, présenté comme provisoire), les recommandations de la CNIL sur l’IA, et les textes officiels en français du règlement sur l’IA, du RGPD et du règlement relatif aux dispositifs médicaux publiés au Journal officiel de l’Union européenne. Les titres de l’actualité IA sont collectés automatiquement auprès de Le Monde, Le Figaro, franceinfo, 20 Minutes, Ouest-France, Sud Ouest, Numerama, Les Numériques, ZDNet France, Le Quotidien du Médecin, Le Quotidien du Pharmacien, Infirmiers.com, DSIH et d’autres médias français, et les actualités de la CNIL sont listées à mesure qu’elles paraissent. Légifrance, la HAS et l’ANSM ont refusé les requêtes automatiques ou n’ont pas pu être lus : ce site ne cite donc pas le code de la santé publique d’après le code lui-même, seulement tel que le projet de guide le rappelle."
+      },
+      {
+        "q": "À quelle fréquence le site est-il mis à jour ?",
+        "a": "Les actualités et les nouveautés de la CNIL sont vérifiées plusieurs fois par jour, et les liens vers les sources chaque jour. Une page ne change que lorsque quelque chose de nouveau paraît. Chaque guide pratique indique la date de sa dernière vérification."
+      },
+      {
+        "q": "Est-ce une traduction de l’édition coréenne ou de l’édition américaine ?",
+        "a": "Non. L’édition française est rédigée à partir de zéro, à partir de documents français et européens tels que la fiche CNIL « IA et santé », le projet de guide HAS-CNIL, le règlement sur l’IA et le RGPD. Le contenu diffère de l’édition coréenne et des éditions en anglais pour les États-Unis, l’Inde, Singapour, les Émirats arabes unis et l’Irlande."
+      }
+    ],
+    "aiDigestDesc": "L’actualité de l’IA dans les médias français : réglementation, données, sécurité."
+  },
+  "about": {
+    "metaTitle": "À propos de l’auteur",
+    "metaDescription": "L’auteur de Hospital AI Lab, un praticien hospitalier qui lit l’IA médicale du côté des directions et des cadres de santé. Cette édition porte sur la France.",
+    "pageTitle": "À propos de l’auteur",
+    "pageLead": "Ce site est tenu par un praticien de l’administration hospitalière, pas par un clinicien. Je regarde l’IA médicale du côté de ceux qui décident de l’adopter.",
+    "whyTitle": "Pourquoi je tiens ce site",
+    "why": "Quand un hôpital se met à parler d’IA, le premier à lire l’offre est plus souvent un gestionnaire qu’un médecin. La documentation des fournisseurs décrit ce que le produit sait faire et dit peu de ce qui changera vraiment dans le quotidien de l’établissement. En planification hospitalière, j’ai souvent vu des décisions à prendre avant que toutes les informations soient réunies. Je veux combler peu à peu cet écart, non par une collection de cas spectaculaires, mais par des contenus qui aident à vérifier si une décision convient à son propre hôpital.",
+    "stanceTitle": "Le point de vue de ce site",
+    "stance": "Ce site n’est pas écrit pour les seuls médecins. La direction décide de l’adoption et du budget, et les soignants affrontent chaque jour des organisations modifiées et des alertes de système. Plutôt que les seuls chiffres de précision, les pages demandent d’abord à qui échoit le surcroît de travail et comment un nouveau système se raccorde au dossier patient déjà en place. Les termes spécialisés sont expliqués en mots simples autant que possible.",
+    "methodTitle": "Comment ce site est fabriqué",
+    "method": "Je ne suis pas programmeur. Je suis quelqu’un qui a passé de longues années à l’hôpital. Les contenus et la partie technique de ce site sont produits en dialogue avec une IA générative ; je ne peux donc pas expliquer le code ligne par ligne. Ce que je peux faire, c’est montrer ouvertement, sur ce site et sur la chaîne YouTube, pourquoi une décision a été prise et comment les faits ont été vérifiés.",
+    "principlesTitle": "Comment les contenus sont rédigés et vérifiés",
+    "principlesLead": "Les contenus sont écrits pour que les personnes de la direction et des soins puissent suivre les liens et vérifier ce qui est dit. Voici les règles.",
+    "principles": [
+      {
+        "title": "Les affirmations s’appuient sur des sources.",
+        "body": "Les énoncés sur les règles, les chiffres et les exemples renvoient à des sources primaires : textes d’autorités, travaux de recherche et articles de presse."
+      },
+      {
+        "title": "Les sources sont ouvertes avant publication.",
+        "body": "Le lien doit fonctionner et soutenir réellement ce que dit la page."
+      },
+      {
+        "title": "Ce qui ne peut pas être vérifié n’est pas publié.",
+        "body": "Les énoncés non confirmés sont supprimés, et les informations médicales dont nous ne sommes pas sûrs sont omises."
+      },
+      {
+        "title": "Information générale uniquement.",
+        "body": "Aucun conseil de diagnostic ou de traitement pour un patient précis, aucune promotion d’établissements ou de produits. Chaque page se termine par une mention de précaution."
+      },
+      {
+        "title": "Les erreurs sont corrigées et la date de correction est conservée.",
+        "body": "Si une erreur ou une source manquante apparaît après publication, la page est corrigée et la date de modification s’affiche sur la ligne « Mis à jour ». Si vous remarquez une inexactitude, écrivez à l’adresse en bas de page."
+      }
+    ],
+    "researchTitle": "Domaines de recherche",
+    "researchAreas": [
+      {
+        "title": "Données hospitalières et IA",
+        "body": "À partir de l’expérience de la planification hospitalière, nous étudions comment extraire des données cliniques et administratives les signaux utiles aux décisions. Nous regardons aussi les risques d’adopter des outils d’IA sans preuves suffisantes."
+      },
+      {
+        "title": "Formation des équipes hospitalières à l’IA",
+        "body": "Pour le personnel administratif et soignant sans bagage en programmation, nous transmettons le minimum nécessaire pour juger d’une adoption d’IA, par des notes de cours et des leçons vidéo. L’accent est mis sur la lecture d’une offre et les bonnes questions, non sur la fabrication de la technologie."
+      },
+      {
+        "title": "Collaboration de recherche sur l’IA",
+        "body": "Nous cherchons des collaborations avec des praticiens de l’administration et des soins hospitaliers et avec des chercheurs de plusieurs disciplines, pour élargir la recherche sur l’IA médicale."
+      },
+      {
+        "title": "L’IA pour les planificateurs hospitaliers",
+        "body": "Pas de la science des données clinique, mais des outils et des méthodes d’IA que le personnel de planification et d’administration peut utiliser directement dans son travail."
+      }
+    ],
+    "contactTitle": "Contact",
+    "contact": "Si vous remarquez une inexactitude, souhaitez proposer un sujet ou discuter d’une collaboration, écrivez à l’adresse ci-dessous. Il est utile d’indiquer votre organisation et votre nom."
+  },
+  "glossary": {
+    "metaTitle": "Glossaire de l’IA médicale pour les hôpitaux français",
+    "metaDescription": "Les termes de l’IA médicale des offres et des réunions, en langage simple : système d’IA à haut risque, déployeur, AIPD, données de santé, incident grave.",
+    "pageTitle": "Glossaire de l’IA médicale",
+    "pageLead": "Les termes d’IA médicale que l’on croise dans les offres et les réunions, réunis dans la mesure utile à une évaluation pratique. Vous pouvez accéder directement à un terme par son nom.",
+    "caution": "Les termes liés à la réglementation sont donnés à la date de rédaction, d’après les documents français et européens lus alors. Ce sont des résumés, pas le texte de la loi. Avant de décider, vérifiez la source primaire et, au besoin, interrogez un spécialiste.",
+    "notice": "Ce glossaire n’est pas une traduction de l’édition coréenne ou japonaise, ni une copie d’une édition anglaise. Chaque entrée réglementaire est rédigée à partir d’un document officiel ouvert et lu. Ce que nous n’avons pas pu confirmer est laissé de côté.",
+    "countLabel": "Nombre de termes"
+  },
+  "faq": {
+    "metaTitle": "FAQ : adopter l’IA dans un hôpital français",
+    "metaDescription": "Réponses aux questions courantes des directions et des soignants sur l’adoption de l’IA : quelles règles s’appliquent, ce que les autorités attendent, et quoi demander à un fournisseur.",
+    "pageTitle": "Questions fréquentes",
+    "pageLead": "Les questions qui reviennent le plus quand un hôpital envisage une IA médicale. Sélectionnez une question pour voir la réponse.",
+    "notice": "La réglementation évolue : pour les décisions importantes, vérifiez la source primaire citée dans chaque réponse.",
+    "countLabel": "Nombre de questions"
+  },
+  "aiDigest": {
+    "pageTitle": "Veille IA : la technologie au-delà de la médecine",
+    "metaDescription": "L’actualité de l’IA dans les médias français : réglementation, données, sécurité et adoption. Mise à jour plusieurs fois par jour.",
+    "lead": "Cette page rassemble des articles sur l’IA dans les médias français, pas seulement en médecine : réglementation, données, sécurité de l’information, adoption dans les organisations. Les titres renvoient à la page d’origine.",
+    "notice": "Il s’agit d’une liste de titres issus de flux RSS publics, non d’un contenu éditorial de ce site. Nous ne copions pas le texte des articles, seulement le titre, la date et un lien vers la source. L’exactitude et l’exhaustivité relèvent de l’éditeur.",
+    "why": "Pourquoi cela compte pour la direction d’un hôpital",
+    "whyBody": "Les attentes en matière de vie privée, les pratiques de sécurité et la façon dont les organisations adoptent l’IA évoluent plus vite que la presse médicale spécialisée ne peut le rapporter. Une grande partie de ce dont discutent d’abord les médias technologiques généralistes parvient aux hôpitaux quelques mois plus tard sous la forme d’une attente d’un régulateur ou d’une ligne d’un contrat fournisseur.",
+    "sourcesTitle": "Sources",
+    "empty": "Rien ici pour le moment."
+  }
+}

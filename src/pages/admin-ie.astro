@@ -1,5 +1,6 @@
 ---
 // 아일랜드판(Hospital AI Lab) 전용 관리자 대시보드 — /admin-ie/
+// 아일랜드판(Hospital AI Lab) 전용 관리자 대시보드 — /admin-fr/
 //
 // ⚠️ 한국어판 관리자(src/pages/admin.astro)·일본어판 관리자(admin-ja.astro)는
 //    절대 수정하지 않는다. 이 페이지는 인증 방식(Supabase 로그인 +
@@ -12,6 +13,7 @@
 //
 // ⚠️ 경로를 바꾸지 말 것. astro.config.mjs의 사이트맵 필터가
 //    page.includes('/admin')으로 제외하므로 '/admin-ie/'여야 빠진다.
+//    page.includes('/admin')으로 제외하므로 '/admin-fr/'여야 빠진다.
 //
 // 편집 대상 데이터(GitHub Contents API로 커밋 → Actions 재빌드):
 //    src/data/ie/content/nav.json         상단 메뉴 표시/비표시
@@ -169,6 +171,7 @@ const navRows = navConfig.map((n) => ({
         <a href={withBase('/admin-sg/')}>싱가포르판(영어)</a>
         <a href={withBase('/admin-ae/')}>UAE판(영어)</a>
         <a class="cur" aria-current="page" href={withBase('/admin-ie/')}>아일랜드판(영어)</a>
+        <a class="cur" aria-current="page" href={withBase('/admin-fr/')}>프랑스어판</a>
         <div class="side-group">사이트</div>
         <a href={withBase('/ie/')} target="_blank" rel="noopener">🌐 사이트 보기</a>
       </nav>

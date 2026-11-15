@@ -1,0 +1,85 @@
+---
+// Updates (2026-11-06) — what was recently added to the English edition, by date.
+// Dates: news publication, document date, date a video was added, article date — not the site build time.
+import '../../styles/fr-guide.css';
+import FrLayout from '../../layouts/FrLayout.astro';
+import { getEnUpdates, KIND_LABEL } from '../../utils/fr-updates';
+import { withBase } from '../../utils/site';
+
+const DAYS = 45;
+const items = await getEnUpdates(DAYS);
+const fmtDay = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+const dayKey = (iso: string) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Paris' }).format(new Date(iso));
+
+const groups: { key: string; label: string; list: typeof items }[] = [];
+for (const it of items) {
+  const k = dayKey(it.date);
+  let g = groups[groups.length - 1];
+  if (!g || g.key !== k) {
+    g = { key: k, label: fmtDay.format(new Date(it.date)), list: [] };
+    groups.push(g);
+  }
+  g.list.push(it);
+}
+const count = (kind: string) => items.filter((i) => i.kind === kind).length;
+
+const title = 'Mises à jour : actualités IA, actualités CNIL, vidéos et articles';
+const description = `Actualités IA, nouveautés de la CNIL, vidéos et articles ajoutés ces ${DAYS} derniers jours, par date. Collectés automatiquement et vérifiés chaque jour.`;
+const latest = items.length ? new Date(items[0].date) : undefined;
+const siteRoot = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${siteRoot}${withBase('/fr/updates/')}#collection`,
+name: 'Mises à jour',
+    inLanguage: 'fr-FR',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 30).map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.title,
+        url: it.external ? it.href : `${siteRoot}${it.href}`,
+      })),
+    },
+  },
+];
+---
+
+<FrLayout title={title} description={description} crumb="Mises à jour" standalone updated={latest} schema={schema}>
+<h1>Mises à jour</h1>
+  <p class="tg-lead">
+Ce qui a été ajouté à l’édition française ces {DAYS} derniers jours, par date. Les actualités sont vérifiées plusieurs fois par jour, de même que les nouveautés de la CNIL et les vidéos ; les articles sont ajoutés quand ils sont prêts.
+  </p>
+  <p class="tg-meta">
+{DAYS} derniers jours : {KIND_LABEL.news} {count('news')} · {KIND_LABEL.notice} {count('notice')} · {KIND_LABEL.video} {count('video')} · {KIND_LABEL.blog} {count('blog')}
+  </p>
+  <div class="tg-box">
+Les dates affichées sont la date de publication de l’actualité, la date du document, la date d’ajout d’une vidéo ou la date de l’article, pas l’heure de construction du site. Les liens externes mènent à des pages d’organismes et d’éditeurs.
+  </div>
+
+  {
+    groups.length > 0 ? (
+      groups.map((g) => (
+        <section class="tg-sec" aria-label={g.label}>
+          <h2>{g.label}</h2>
+          <ul class="tg-list">
+            {g.list.map((it) => (
+              <li>
+                <span class="tg-tag">{KIND_LABEL[it.kind]}</span>
+                <a href={it.href} {...(it.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {it.title}
+{it.external && <span class="sr-only">(opens in a new tab)</span>}
+                </a>
+                {it.note && <small> · {it.note}</small>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    ) : (
+<p>Rien de nouveau n’a été ajouté sur cette période.</p>
+    )
+  }
+</FrLayout>

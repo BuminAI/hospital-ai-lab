@@ -1,0 +1,138 @@
+---
+// Feuille de route du numérique et de l'IA pour les hôpitaux français (2026-11-15) — à partir de sources primaires.
+// Les faits sont dans src/data/fr/guides/milestones.ts ; cette page ne gère que la mise en page.
+import '../../styles/fr-guide.css';
+import FrLayout from '../../layouts/FrLayout.astro';
+import FrGuideFoot from '../../components/FrGuideFoot.astro';
+import FrFaq from '../../components/FrFaq.astro';
+import { guideSchema } from '../../utils/fr-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/fr/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+
+const title = 'Feuille de route : règlement IA, RGPD et guide HAS-CNIL pour l’IA à l’hôpital';
+const description =
+  'Les dates clés pour les directions et les cadres de santé : RGPD, règlement européen sur l’IA, recommandations de la CNIL et projet de guide HAS-CNIL sur l’IA en contexte de soins.';
+
+const sources = [SRC.cnilSante, SRC.cnilConsult, SRC.guideHasCnil, SRC.cnilFinal, SRC.aiAct, SRC.rgpd, SRC.rdm];
+
+const faq = [
+  {
+    q: 'Quelles règles s’appliquent à l’IA dans un hôpital en France ?',
+    a: 'Le règlement européen sur l’IA s’applique directement (l’essentiel à partir du 2 août 2026, tel que publié), le RGPD encadre les données des patients et le RDM encadre les logiciels qui sont des dispositifs médicaux. Le projet de guide HAS-CNIL (document de travail du 16 février 2026) rappelle le cadre et propose des bonnes pratiques pour les soins ; il est provisoire. Nous n’avons pas lu le code de la santé publique ni de version finale du guide.',
+  },
+  {
+    q: 'Qui est responsable d’un outil d’IA au sein de l’hôpital ?',
+    a: 'Un hôpital qui utilise un système d’IA sous son autorité est un déployeur au sens du règlement, avec ses propres obligations. Le projet de guide dit que chaque déployeur doit assumer la responsabilité de la conformité et de la sécurité de l’utilisation, en associant direction, professionnels de santé, ingénieurs biomédicaux, informaticiens, juristes, délégué à la protection des données et représentants des usagers.',
+  },
+  {
+    q: 'En combien de temps faut-il signaler une violation de données ou un incident de dispositif ?',
+    a: 'Une violation de données personnelles est notifiée par le responsable de traitement à l’autorité de contrôle dans les meilleurs délais et, si possible, dans les 72 heures (RGPD, article 33). Pour les incidents graves de dispositifs, le projet de guide cite l’obligation de déclaration à l’agence dans les meilleurs délais (code de la santé publique, tel que rappelé ; code non lu). Pour les systèmes d’IA à haut risque, un incident grave est signalé immédiatement, d’abord au fournisseur (règlement sur l’IA, article 26).',
+  },
+  {
+    q: 'Y a-t-il des échéances à venir confirmées pour les hôpitaux ?',
+    a: 'Cette page ne liste que des dates figurant dans le texte d’un document officiel que nous avons lu. La seule échéance à venir trouvée est le 2 août 2027, date à laquelle l’article 6, paragraphe 1, du règlement sur l’IA (IA dans des produits comme les dispositifs médicaux) s’applique, tel que publié. Les textes européens peuvent être modifiés : vérifiez la version en vigueur.',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/fr/dx-roadmap/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Direction et cadres de santé des hôpitaux',
+  faq,
+});
+---
+
+<FrLayout title={title} description={description} crumb="Feuille de route" standalone updated={new Date('2026-11-15T00:00:00+01:00')} schema={schema}>
+  <h1>Feuille de route du numérique et de l’IA</h1>
+  <p class="tg-lead">
+    « Que doit faire notre hôpital, et pour quand ? » Plus l’actualité de l’IA est riche, plus la réponse est difficile. Cette page réunit des dates qui figurent dans le texte de règles et de publications officielles, avec les sections et les liens vers les sources.
+  </p>
+  <p class="tg-meta">Vérifié le {CHECKED} · Pour : direction et cadres de santé des hôpitaux</p>
+
+  <p class="tg-answer">
+    En bref : le RGPD s’applique depuis 2018 et traite les données de santé comme des données particulières ; le règlement européen sur l’IA s’applique par étapes (l’essentiel à partir du 2 août 2026, l’article 6, paragraphe 1, à partir du 2 août 2027, tel que publié) ; la CNIL a publié sa fiche « IA et santé » le 5 mars 2026 ; et la HAS et la CNIL ont soumis à consultation un projet de guide sur l’IA en contexte de soins, dont nous n’avons pas trouvé de version finale.
+  </p>
+
+  <div class="tg-box">
+    <strong>Comment lire cette page</strong><br />
+    Chaque point a été écrit après ouverture et lecture du texte du document. Nous n’ajoutons pas de dates qui ne circulent que dans des résumés. Ce qui s’applique à un hôpital donné dépend de son statut et de son organisation : vérifiez le texte et interrogez un juriste ou votre délégué à la protection des données.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">Ce qui s’est déjà passé</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">Dates à venir</h2>
+    {
+      ahead.length > 0 ? (
+        <ol class="tg-tl">
+          {ahead.map((m) => (
+            <li>
+              <div class="when">{m.when}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{THEMES[m.theme]}</span>
+                  {m.title}
+                </b>
+                <span>{m.body}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>Nous n’avons trouvé aucune date à venir confirmée par une source primaire : cette rubrique est donc volontairement vide.</p>
+      )
+    }
+    <p>
+      Les nouvelles publications de la CNIL figurent automatiquement sous <a href={withBase('/fr/calendar/')}>Actualités CNIL</a>.
+    </p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Pages complémentaires</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/fr/data-checklist/')}>
+        <b>Liste « données des patients »</b>
+        <span>Les points du RGPD et de la CNIL : rôles, analyse d’impact, décisions automatisées et violations.</span>
+      </a>
+      <a class="tg-card" href={withBase('/fr/documents-checklist/')}>
+        <b>Liste « fournisseurs et documents »</b>
+        <span>Rôle de déployeur, dispositif médical, haut risque, ce que le fournisseur doit montrer, mises à jour et incidents.</span>
+      </a>
+      <a class="tg-card" href={withBase('/fr/templates/')}>
+        <b>Modèles de documents</b>
+        <span>Charte d’usage de l’IA générative, questions aux fournisseurs, fiche d’incident.</span>
+      </a>
+    </div>
+  </section>
+
+  <FrFaq items={faq} />
+
+  <FrGuideFoot sources={sources} checked={CHECKED} />
+</FrLayout>

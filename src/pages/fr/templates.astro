@@ -1,0 +1,214 @@
+---
+// Modèles (2026-11-15) : charte d'usage de l'IA générative, 20 questions aux fournisseurs, texte pour les patients, fiche d'incident
+// ⚠️ Tout ce qui suit est un BROUILLON de l'auteur, pas un avis juridique. Cité seulement d'après des documents lus en texte intégral (règlement sur l'IA, RGPD, RDM,
+//    fiche CNIL « IA et santé », projet de guide HAS-CNIL — document de travail, toujours signalé comme projet).
+import '../../styles/fr-guide.css';
+import FrLayout from '../../layouts/FrLayout.astro';
+import FrGuideFoot from '../../components/FrGuideFoot.astro';
+import { SRC } from '../../data/fr/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = '15 novembre 2026';
+const title = 'Modèles : charte d’usage de l’IA générative et 20 questions aux fournisseurs';
+const description =
+  'Quatre brouillons à copier pour les hôpitaux français : une charte d’usage de l’IA générative, 20 questions aux fournisseurs, un texte pour les patients et une fiche d’incident avec les délais.';
+
+const policy = [
+  "CHARTE D'USAGE DE L'IA GÉNÉRATIVE, HÔPITAL « __ » (BROUILLON)",
+  "",
+  "1. Objet",
+  "   Fixe les règles pour les agents de « __ » qui utilisent des outils d'IA générative (agents conversationnels, outils de synthèse, de traduction).",
+  "",
+  "2. Ce qui ne doit PAS être saisi",
+  "   - Noms de patients, numéros de sécurité sociale, numéros de dossier, dates de naissance, adresses, numéros de téléphone ou contenu de dossiers.",
+  "   - Images ou enregistrements permettant d'identifier un patient.",
+  "   - Contrats, données financières ou de personnel à diffusion restreinte.",
+  "   Exception : un outil que « __ » a validé par écrit pour ce type de données (voir article 3).",
+  "",
+  "3. Outils validés et données autorisées",
+  "   Seuls les outils de la liste tenue par « __ » (responsable : __). Pour chaque outil validé, la liste indique quels types de données peuvent être saisis, selon notre classification des données, où l'outil stocke et traite les données, et si le fournisseur les conserve ou les réutilise. L'usage d'un outil non validé pour le travail est interdit.",
+  "",
+  "4. Relecture des productions",
+  "   Une personne est responsable de chaque texte généré par IA utilisé dans le travail. L'IA générative peut présenter comme vrais des contenus fictifs : vérifiez faits, chiffres et noms à la source avant tout usage.",
+  "   Aucune production d'IA n'entre dans un dossier patient avant relecture et validation par le professionnel responsable. Lorsqu'un contenu généré par IA est montré à d'autres personnes, indiquez-le.",
+  "",
+  "5. Signalement",
+  "   Si des informations de patients ont été saisies dans un outil non validé, signalez-le le jour même à __ (nom, téléphone __). N'essayez pas de les supprimer vous-même d'abord.",
+  "",
+  "6. Formation",
+  "   Les agents qui utilisent des outils d'IA sont formés à cette charte, y compris aux restrictions de saisie et au signalement des incidents, et reformés après toute évolution importante. Responsable : __. Date de revue : __.",
+].join('\n');
+
+const questions = [
+  "VINGT QUESTIONS À POSER À UN FOURNISSEUR D'IA (BROUILLON)",
+  "Notez les réponses par écrit et annexez-les au contrat.",
+  "",
+  "Statut et règles",
+  "1. Considérez-vous ce produit comme un dispositif médical ? Quelle voie de conformité suivez-vous, et pouvons-nous voir les éléments de marquage CE ?",
+  "2. Quelle est la destination déclarée du produit, et notre usage prévu y correspond-il ?",
+  "3. Considérez-vous le produit comme un système d'IA à haut risque au sens du règlement sur l'IA (article 6, paragraphe 1, ou annexe III) ? Pourquoi ou pourquoi pas ?",
+  "4. Quelles fonctions reposent sur l'IA, et quel type de modèle est utilisé ?",
+  "5. Comment la solution a-t-elle été validée, sur quels jeux de données, et quelles sont ses limites ?",
+  "6. Le produit interagit-il directement avec des patients ? Comment leur indique-t-il qu'ils parlent à un système d'IA ?",
+  "",
+  "Contrôle et mises à jour",
+  "7. Que dit votre notice d'utilisation sur le contrôle humain, et quelle formation faut-il pour l'exercer ?",
+  "8. Comment serons-nous prévenus avant qu'une mise à jour arrive dans nos services, et pouvons-nous la différer ?",
+  "9. Comment revient-on à la version précédente, et qui prévient nos équipes ?",
+  "10. Quels journaux le système conserve-t-il, qui les contrôle et pendant combien de temps ?",
+  "",
+  "Données des patients",
+  "11. Quelles données personnelles le système utilise-t-il, où vont-elles et qui peut les voir, sous-traitants et hébergeurs compris ?",
+  "12. Conservez-vous nos données ou les réutilisez-vous pour entraîner ou affiner un modèle ? Sur quel fondement ?",
+  "13. Qui est responsable de traitement et qui est sous-traitant pour ce service, et où cela figure-t-il au contrat ?",
+  "14. Le système permet-il de répondre aux demandes d'accès et d'effacement de données personnelles qu'il contient ?",
+  "15. En combien d'heures nous prévenez-vous d'une violation de données, et qui répond la nuit ?",
+  "16. Comment les données sont-elles effacées en fin de contrat, journaux, sauvegardes et sous-traitants compris ?",
+  "",
+  "Organisation",
+  "17. Nous aiderez-vous pour notre analyse d'impact relative à la protection des données, avec la documentation nécessaire ?",
+  "18. Quelles décisions concernant des patients s'appuieront sur la sortie de l'outil, et une personne décide-t-elle en dernier ressort ?",
+  "19. À quoi ressemble le plan de sortie, retour ou effacement des données compris ?",
+  "20. Quel est votre engagement de support et votre circuit d'escalade pour les problèmes de sécurité ?",
+].join('\n');
+
+const patient = [
+  "TEXTE POUR LES PATIENTS : NOTRE USAGE D'UN OUTIL D'IA (EXEMPLE)",
+  "",
+  "L'hôpital « __ » utilise un outil d'IA pour __ (par exemple : préparer des comptes rendus de sortie, qu'un professionnel relit ensuite).",
+  "L'outil ne décide pas de votre traitement. Un membre de notre équipe vérifie ce qu'il produit.",
+  "Nous vous disons quelles informations vous concernant l'outil utilise et pourquoi. Vous pouvez nous interroger à ce sujet et sur les alternatives.",
+  "Questions : __ (nom ou service, téléphone, courriel).",
+].join('\n');
+
+const incident = [
+  "FICHE D'INCIDENT IA / DONNÉES / DISPOSITIF (BROUILLON)",
+  "",
+  "Date et heure de la découverte : __   Découvert par : __   Signalé à : __",
+  "Ce qui s'est passé (une phrase, sans nom de patient) : __",
+  "Systèmes, dispositifs et données concernés (type de données, nombre approximatif de personnes) : __",
+  "Nature de l'incident (cocher) : erreur ou problème de sécurité d'un outil d'IA __   incident avec un dispositif médical __   violation de données personnelles __   problème lié à une mise à jour logicielle __",
+  "",
+  "Mesures de confinement : __   Par : __   Heure : __",
+  "Délais (vérifiez le texte en vigueur de chaque document ; gardez les lignes utiles) :",
+  "  - Violation de données personnelles : le responsable de traitement notifie l'autorité de contrôle dans les meilleurs délais et, si possible, 72 heures au plus tard après en avoir pris connaissance, sauf risque improbable (RGPD, article 33). Notifié le : __",
+  "  - Violation susceptible d'engendrer un risque élevé : informer les personnes concernées dans les meilleurs délais (RGPD, article 34). Fait le : __",
+  "  - Incident grave avec un dispositif médical : déclaration à l'agence dans les meilleurs délais, d'après le projet de guide HAS-CNIL qui cite l'article L. 5212-2 du code de la santé publique (code non lu : confirmer avec le correspondant de matériovigilance). Déclaré le : __",
+  "  - Incident grave avec un système d'IA à haut risque : informer d'abord le fournisseur, puis l'importateur ou le distributeur et les autorités de surveillance du marché ; suspendre l'utilisation en cas de risque (règlement sur l'IA, article 26, paragraphe 5). Fait le : __",
+  "Personnes concernées informées : qui envoie : __   Moyen : __   Envoyé le : __",
+  "Fournisseur concerné : __   (contact : __, ligne 24 h/24 : __)",
+  "",
+  "Consigné : __ (qui a contacté qui, et quand).",
+].join('\n');
+
+const items = [
+  {
+    id: 'policy',
+    head: '1. Charte d’usage de l’IA générative',
+    lead: 'Une page à remettre aux équipes. Remplacez « __ » par les informations de votre hôpital.',
+    basis: [
+      'Les règles de saisie des données s’appuient sur l’article 9 du RGPD (les données de santé sont des données particulières) et sur la fiche de la CNIL « IA et santé » : savoir où vont les données, si elles sont conservées ou réutilisées, et pourquoi.',
+      'La relecture des productions s’appuie sur le projet de guide HAS-CNIL (document de travail) : le contrôle humain est une supervision active par un professionnel capable de comprendre, vérifier, corriger ou contredire le résultat, et la décision médicale reste sous la responsabilité du professionnel.',
+      'Le reste est une proposition de l’auteur.',
+    ],
+    text: policy,
+  },
+  {
+    id: 'vendor',
+    head: '2. Vingt questions à poser à un fournisseur',
+    lead: 'Imprimez-les et emportez-les à la présentation du fournisseur. Notez les réponses.',
+    basis: [
+      'Questions 1 à 6 : RDM, article 2, point 1, et annexe VIII, règle 11 ; règlement sur l’IA, articles 6 et 50, paragraphe 1.',
+      'Questions 7 à 10 : règlement sur l’IA, article 26, paragraphes 1, 2, 5 et 6 ; projet de guide HAS-CNIL (vigilance, mises à jour, traçabilité).',
+      'Questions 11 à 17 : fiche CNIL « IA et santé », RGPD, articles 33 et 35.',
+      'Les autres questions sont des propositions de l’auteur, pas des obligations légales.',
+    ],
+    text: questions,
+  },
+  {
+    id: 'patient',
+    head: '3. Texte pour les patients',
+    lead: 'Un court exemple pour dire à un patient que l’hôpital utilise un outil d’IA. Adaptez-le à votre pratique réelle.',
+    basis: [
+      'Le projet de guide HAS-CNIL distingue l’information générale sur l’usage de l’IA dans les soins, l’information sur les données personnelles, sur les réutilisations secondaires et sur les droits.',
+      'La formulation est un exemple de l’auteur, pas un texte imposé.',
+    ],
+    text: patient,
+  },
+  {
+    id: 'incident',
+    head: '4. Fiche d’incident',
+    lead: 'Transformez la procédure en une page à remplir et gardez-la là où l’on la trouvera la nuit et le week-end.',
+    basis: ['Les délais viennent du RGPD (articles 33 et 34), du règlement sur l’IA (article 26, paragraphe 5) et du projet de guide HAS-CNIL pour la déclaration des incidents de dispositifs. Vérifiez chaque document ; cette page ne cite pas le code de la santé publique d’après le code lui-même, qui n’a pas été lu.'],
+    text: incident,
+  },
+];
+
+const sources = [SRC.aiAct, SRC.rgpd, SRC.rdm, SRC.cnilSante, SRC.guideHasCnil];
+---
+
+<FrLayout title={title} description={description} crumb="Modèles" standalone updated={new Date('2026-11-15T00:00:00+01:00')}>
+  <h1>Modèles : charte d’usage de l’IA générative et 20 questions aux fournisseurs</h1>
+  <p class="tg-lead">
+    « Nous ne savons pas par où commencer à rédiger » : c’est un problème courant dans les hôpitaux. Voici quatre brouillons : cliquez, copiez et remplacez « __ » par vos informations.
+  </p>
+  <p class="tg-meta">Vérifié le {CHECKED} · Pour : direction et DSI des hôpitaux</p>
+
+  <div class="tg-box tg-warn">
+    <strong>Avant de les utiliser</strong><br />
+    Ce sont des <strong>brouillons</strong> de l’auteur, pas un avis juridique ni une version prête à copier telle quelle. Adaptez-les à la taille, aux systèmes et aux contrats de votre hôpital, et montrez-les à un juriste ou à votre service de conformité avant d’en faire des documents.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-toc">
+    <h2 id="h-toc">Sommaire</h2>
+    <ul class="tg-list">
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.head}</a></li>)}
+    </ul>
+    <p>
+      Pages liées : <a href={withBase('/fr/dx-roadmap/')}>Feuille de route</a>, <a href={withBase('/fr/data-checklist/')}>Liste « données des patients »</a>, <a href={withBase('/fr/documents-checklist/')}>Liste « fournisseurs et documents »</a>.
+    </p>
+  </section>
+
+  {
+    items.map((it) => (
+      <section class="tg-sec" id={it.id} aria-labelledby={`${it.id}-h`}>
+        <h2 id={`${it.id}-h`}>{it.head}</h2>
+        <p>{it.lead}</p>
+        <div class="tg-copy">
+          <button type="button" class="tg-btn" data-target={`${it.id}-text`}>
+            Copier
+          </button>
+          <pre id={`${it.id}-text`}>{it.text}</pre>
+        </div>
+        <h3>Base du modèle</h3>
+        <ul class="tg-list">
+          {it.basis.map((b) => <li>{b}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <FrGuideFoot sources={sources} checked={CHECKED} />
+</FrLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.tg-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = document.getElementById(btn.dataset.target ?? '');
+      if (!el) return;
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Copié';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = window.getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Sélectionné (Ctrl+C)';
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>

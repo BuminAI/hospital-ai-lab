@@ -21,11 +21,11 @@ import path from 'node:path';
 const DIST = path.resolve('dist');
 const SITE = 'https://hospital-ai-lab.com';
 const JSON_OUT = process.argv.includes('--json');
-const LOCALES = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph', 'ae', 'ie'];
+const LOCALES = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph', 'ae', 'ie', 'fr'];
 
-const HTML_LANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH', ae: 'en-AE', ie: 'en-IE' };
-const OG_LOCALE = { ko: 'ko_KR', ja: 'ja_JP', ru: 'ru_RU', id: 'id_ID', tw: 'zh_TW', en: 'en_US', in: 'en_IN', sg: 'en_SG', ph: 'fil_PH', ae: 'en_AE', ie: 'en_IE' };
-const HREFLANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH', ae: 'en-AE', ie: 'en-IE' };
+const HTML_LANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH', ae: 'en-AE', ie: 'en-IE', fr: 'fr-FR' };
+const OG_LOCALE = { ko: 'ko_KR', ja: 'ja_JP', ru: 'ru_RU', id: 'id_ID', tw: 'zh_TW', en: 'en_US', in: 'en_IN', sg: 'en_SG', ph: 'fil_PH', ae: 'en_AE', ie: 'en_IE', fr: 'fr_FR' };
+const HREFLANG = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH', ae: 'en-AE', ie: 'en-IE', fr: 'fr-FR' };
 
 // 언어판별 "이 문자가 본문에 보이면 이상하다" 판정
 const RE = {
@@ -46,6 +46,7 @@ const FOREIGN = {
   ph: ['hangul', 'kana', 'cyrillic', 'han'],
   ae: ['hangul', 'kana', 'cyrillic', 'han'],
   ie: ['hangul', 'kana', 'cyrillic', 'han'],
+  fr: ['hangul', 'kana', 'cyrillic', 'han'],
 };
 
 // 언어 전환 링크 등 모든 페이지에 있는 자국 밖 표기는 허용한다
@@ -77,7 +78,7 @@ async function walk(dir) {
 }
 
 const localeOf = (urlPath) => {
-  const m = /^\/(ja|ru|id|tw|en|in|sg|ph|ae|ie)(\/|$)/.exec(urlPath);
+  const m = /^\/(ja|ru|id|tw|en|in|sg|ph|ae|ie|fr)(\/|$)/.exec(urlPath);
   return m ? m[1] : 'ko';
 };
 // dist 경로 → URL 경로
@@ -261,6 +262,7 @@ const DISCLAIMER_HINT = {
   sg: /not legal advice|does not replace|not a substitute/i,
   ae: /not legal advice|does not replace|not a substitute/i,
   ie: /not legal advice|does not replace|not a substitute/i,
+  fr: /pas un avis juridique|ne remplace pas|ne se substitue pas/i,
   ph: /hindi legal na payo|hindi kapalit|hindi pamalit|hindi payong legal/i,
 };
 const HYPE = {
@@ -274,6 +276,7 @@ const HYPE = {
   sg: /100\s?%|completely cure|no side effects|guaranteed (?:cure|results?)/i,
   ae: /100\s?%|completely cure|no side effects|guaranteed (?:cure|results?)/i,
   ie: /100\s?%|completely cure|no side effects|guaranteed (?:cure|results?)/i,
+  fr: /100\s?%|guérison garantie|aucun effet secondaire|résultats? garantis?/i,
   ph: /100\s?%|garantisadong gamot|walang side effect|siguradong gagaling|lubos na gagaling/i,
 };
 for (const info of pages.values()) {

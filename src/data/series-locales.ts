@@ -332,4 +332,32 @@ export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
       ],
     },
   ],
+  fr: [
+    {
+      slug: 'gouvernance-et-regles',
+      title: 'Gouvernance de l’IA et règles applicables',
+      description:
+        'Ce que le projet de guide HAS-CNIL attend d’un hôpital, ce que le règlement européen sur l’IA demande à un déployeur, et pourquoi la maîtrise de l’IA est une obligation autant qu’une bonne pratique.',
+      checklist: { href: '/fr/documents-checklist/', label: 'Checklist : fournisseurs d’IA et documents' },
+      postIds: [
+        '2026-11-15-guide-has-cnil-ia-soins-gouvernance-hopital-projet',
+        '2026-11-15-guide-has-cnil-information-patients-consentement-ia',
+        '2026-11-15-reglement-europeen-ia-hopital-deployeur-article-26',
+        '2026-11-15-reglement-europeen-ia-maitrise-ia-article-4-formation-personnel',
+      ],
+    },
+    {
+      slug: 'donnees-dispositifs-incidents',
+      title: 'Données de patients, dispositifs et incidents',
+      description:
+        'Ce que la CNIL demande pour développer ou évaluer une IA de santé, quand une analyse d’impact s’impose, si un logiciel est un dispositif médical, et comment signaler un incident.',
+      checklist: { href: '/fr/data-checklist/', label: 'Checklist : données de patients' },
+      postIds: [
+        '2026-11-15-cnil-ia-sante-formalites-entrepot-donnees-developpement',
+        '2026-11-15-rgpd-aipd-outil-ia-donnees-patients-72-heures',
+        '2026-11-15-logiciel-ia-dispositif-medical-rdm-regle-11',
+        '2026-11-15-incident-dispositif-medical-ia-declarer-materiovigilance',
+      ],
+    },
+  ],
 };
