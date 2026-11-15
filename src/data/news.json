@@ -1,12 +1,36 @@
 {
-  "updatedAt": "2026-11-15T01:54:39.371Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · AI타임스 · 한국경제 · 디지털투데이 · 연합뉴스 · 보건복지부 · 뉴시스",
+  "updatedAt": "2026-11-15T09:24:20.715Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · AI타임스 · 한국경제 · 디지털투데이 · 연합뉴스 · 보건복지부 · 뉴시스 · 의협신문 · ZDNet Korea",
   "items": [
+    {
+      "title": "의학교육, 과잉교육을 개혁하고 평생교육 혁신해야 한다",
+      "link": "http://www.doctorsnews.co.kr/news/articleView.html?idxno=167300",
+      "source": "의협신문",
+      "pubDate": "2026-11-15T16:07:18.000Z"
+    },
+    {
+      "title": "5초마다 찰칵, 귀로 듣는 정답…초소형 AI 커닝 기기의 습격",
+      "link": "https://www.newsis.com/view/NISX20261115_0003868666",
+      "source": "뉴시스",
+      "pubDate": "2026-11-15T07:27:45.000Z"
+    },
     {
       "title": "\"인공지능(AI)이라는 이름표가 신약의 가치를 결정해서는 안 된다\"",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80762",
       "source": "히트뉴스",
       "pubDate": "2026-11-15T06:00:00.000Z"
+    },
+    {
+      "title": "\"AI 추천한 식단, 믿어도 될까\"…검증 방법 논의",
+      "link": "https://www.newsis.com/view/NISX20261113_0003867797",
+      "source": "뉴시스",
+      "pubDate": "2026-11-15T04:01:00.000Z"
+    },
+    {
+      "title": "두산에너빌리티, 발전사들과 AI 기반 운영기술 공유",
+      "link": "https://zdnet.co.kr/view/?no=20261115105258",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-15T01:52:58.000Z"
     },
     {
       "title": "\"동료 치과의사 신고부터 AI 활용 경쟁까지\"…살벌한 치과업계 현실",
