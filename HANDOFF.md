@@ -974,3 +974,11 @@ src/assets/fonts/            # 통짜 Pretendard — OG 이미지 생성 전용(
 - 일본어·한국어·대만어판에는 `ai-digest`(일반 AI 동향) 페이지가 없다. 일반 AI 기사가 풍부한 나라이므로 신설을 검토할 만하다.
 - 교육·행사 자동 수집은 한국어·인도네시아어·대만어판에만 데이터 파일이 있다. 일본어·러시아어·영어(미국·인도·싱가포르)판은 `content/events.json`이 손으로 쓴 목록이라 자동 항목을 받을 자리가 없다(페이지 개편이 필요).
 - 정부 지원사업은 부처 RSS가 있는 곳(한국 복지부, 대만 위생복리부, 미국 FDA·Federal Register, 러시아 Росздравнадзор)에서만 광폭 수집으로 더해진다. 나머지는 기존 전용 수집기(jGrants·JDIH·KHIDI 등)가 맡는다.
+
+### 광폭 수집기 2차 확대 (2026-11-15, 오너 지시: 인도네시아·싱가포르·대만에 출처 추가)
+- 출처 수: id 24→71, sg 17→28, tw 21→43. 하루 통과(오늘 한 번 실행 기준): id 2→7(detikHealth 5), sg 3→13(Healthcare Asia 9), tw 정부 공고 7→8(엄격화 후), 뉴스는 ≈14.
+- **`pageTitle: true` 출처 옵션 신설**: RSS의 `<title>`이 헤드라인이 아닌 부제 문장인 매체(Healthcare Asia). 판정은 부제+주소 슬러그로 하고, 통과한 항목만 `resolveTitles()`가 기사 페이지의 og:title을 읽어 제목으로 쓴다(못 읽으면 버림, 이미 가진 링크는 다시 읽지 않음, 1회 최대 40건, 요청 간 0.7초).
+- **인도네시아**: detik 계열은 `*.detik.com/rss`(섹션별 100건, 정직한 UA로 응답)이고 `rss.detik.com/index.php/…`는 연결이 끊긴다. 건강 섹션 `health.detik.com/rss`가 의료 전문 출처로 가장 효과가 컸다. ANTARA는 `/rss`에 섹션 목록이 있다(kesehatan·tekno-terkini는 없음). 의료 단체 RSS는 KARS·PORMIKI·PERSI만 살아 있다(IDI·PPNI·BPJS·Kemenkes는 404/없음).
+- **싱가포르**: CNA는 `rssfeeds/<번호>`와 `api/v1/rss-outbound-feed?category=<번호>` 두 형식이 있고 서로 겹친다. 보건 전용 피드는 없다(ST 태그 `healthcare`·`hospitals`는 1건짜리). Healthcare Asia는 아시아·중동 의료 AI 소식이라 싱가포르 외 지역 기사도 섞인다(페이지 설명에 'Asia-Pacific'를 밝힘). 응답 없음: Today·OpenGov(403), GovInsider·SBR 섹션·MOH·HSA·IMDA(RSS 없음).
+- **대만**: 중앙사는 feedburner 섹션별(`rsscna/*`), 자유시보는 `news.ltn.com.tw/rss/<섹션>.xml`, 위복부는 `mohw.gov.tw/rss-<번호>-1.html`(16 뉴스, 17 해명·알림, 18 공고·보조 징구). **`udn.com/rssfeed/…`는 봇에게 빈 항목을 준다(쓸 수 없음)**, `money.udn.com/rssfeed/…`는 된다. Heho健康이 의료 전문 출처로 쓸 만하다.
+- **지원사업 단어를 좁혔다**(`GRANT`): '공고'·'계획'·'program'·'award' 같은 흔한 말만으로 정부 항목이 통과하던 것을 고쳤다(대만 위복부가 주차장 공청회까지, 영어는 FDA "Grants accelerated approval"의 동사 grant까지 걸렸다). 도입 이후 들어온 gov 항목 17건을 새 기준으로 다시 걸러 제거했다(한국 4·대만 6·러시아 1·영어 6).

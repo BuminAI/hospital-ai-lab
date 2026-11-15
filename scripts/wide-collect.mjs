@@ -7,7 +7,7 @@
 // 출처 목록은 scripts/wide-sources.mjs, 판정·병합은 scripts/lib/wide.mjs.
 //
 // 종료 코드: 0 정상(변경 없음 포함) / 1 모든 출처가 응답하지 않음(기존 파일은 그대로 둔다)
-import { fetchAll, select, mergeItems, readJson, writeJson } from './lib/wide.mjs';
+import { fetchAll, select, mergeItems, readJson, writeJson, resolveTitles, canonLink } from './lib/wide.mjs';
 import { EDITIONS } from './wide-sources.mjs';
 
 const args = process.argv.slice(2);
@@ -40,7 +40,11 @@ for (const ed of eds) {
     if (!file) continue;
     const url = new URL(file, root);
     const prev = (await readJson(url)) ?? { updatedAt: null, source: '', items: [] };
-    const picked = select(cfg.lang, rows, cat);
+    let picked = select(cfg.lang, rows, cat);
+    if (picked.some((p) => p._needTitle)) {
+      const known = new Set((prev.items ?? []).map((x) => canonLink(x.link)));
+      picked = await resolveTitles(picked, known);
+    }
     // 빈 목록 방지 안전장치(뉴스만): 최근 7일에 쌓인 항목(기존+이번 후보)이 MIN_RECENT보다 적으면,
     // 의료 전문 매체의 '디지털 헬스' 기사(AI 단어는 없지만 의료정보·보안·규제 소식)를 보조 등급(tier:'B')으로 채운다.
     // B 등급 항목에는 tier 표시가 남아 나중에 걸러낼 수 있다.
@@ -50,7 +54,7 @@ for (const ed of eds) {
         [...(prev.items ?? []), ...picked].filter((x) => Date.parse(x.pubDate) >= weekAgo).map((x) => x.link)
       );
       if (have.size < MIN_RECENT) {
-        const extra = select(cfg.lang, rows, cat, { allowB: true }).filter((x) => x._tier === 'B');
+        const extra = select(cfg.lang, rows, cat, { allowB: true }).filter((x) => x._tier === 'B' && !x._needTitle);
         for (const x of extra) picked.push({ ...x, tier: 'B' });
         console.log(`  news: 최근 7일 ${have.size}건 < ${MIN_RECENT} → 디지털헬스 보조 등급 ${extra.length}건 추가 후보`);
       }

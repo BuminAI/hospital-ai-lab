@@ -167,12 +167,13 @@ TERMS.sg = TERMS.en;
 
 // 지원사업·공모(정부 카테고리)와 교육·행사(이벤트 카테고리) 단어
 export const GRANT = {
-  en: /grant|funding|subsid|call for (proposals|applications)|\bRFP\b|tender|scheme|programme|program\b|sandbox|incentive|apply (now|by)|applications? (open|invited)|fellowship|award/i,
-  ko: /지원사업|공모|모집|보조금|지원금|사업\s?공고|공고|바우처|과제|참가기업|신청|선정|펀드/,
+  // 2026-11-15: '공고'·'계획'·'program' 같은 흔한 단어만으로 통과하던 것을 좁혔다(대만 정부 공고가 주차장 공청회까지 걸렸다).
+  en: /\bgrants? (for|to|program|opportunit|funding)|funding opportunit|notice of funding|\bNOFO\b|call for (proposals|applications)|\bRFP\b|tender|applications? (open|invited)|fellowship/i,
+  ko: /지원사업|공모|모집|보조금|지원금|사업\s?공고|바우처|참가기업|펀드/,
   ja: /補助金|助成|公募|募集|支援事業|採択|交付|委託事業|実証事業|給付/,
-  ru: /грант\p{L}*|субсиди\p{L}*|конкурс\p{L}*|финансирован\p{L}*|поддержк\p{L}*|тендер\p{L}*|закупк\p{L}*|программ\p{L}*/iu,
-  id: /hibah|pendanaan|subsidi|pendaftaran|seleksi|insentif|program|beasiswa|tender|pengadaan/i,
-  tw: /補助|計畫|徵件|公告|申請|獎勵|徵求|招標|輔導|專案/,
+  ru: /грант\p{L}*|субсиди\p{L}*|конкурсн\p{L}* (отбор|приём)|финансирован\p{L}*|тендер\p{L}*|закупк\p{L}*/iu,
+  id: /hibah|pendanaan|subsidi|pendaftaran|seleksi|insentif|beasiswa|tender|pengadaan/i,
+  tw: /補助|補\(捐\)助|徵件|徵求|獎勵|招標/,
 };
 export const EVENT = {
   en: /conference|summit|symposium|webinar|workshop|seminar|forum|expo\b|congress|bootcamp|hackathon|training|course\b|masterclass|roundtable|meetup|exhibition|\bHIMSS\b|register (now|today)|call for (papers|abstracts)/i,
@@ -225,14 +226,23 @@ export async function fetchAll(sources, { concurrency = 6, log = console.log } =
         rec.ok = parsed.length > 0;
         if (!rec.ok) rec.error = 'no items';
         parsed.forEach((r, i) => {
-          rows.push({
+          const row = {
             ...r,
             source: s.sourceLabel || s.name,
             topic: s.topic,
             popular: !!s.popular,
             rank: s.popular ? i + 1 : undefined,
             maxAgeDays: s.maxAgeDays,
-          });
+          };
+          if (s.pageTitle) {
+            // RSS의 <title>이 헤드라인이 아니라 부제 문장인 매체(예: Healthcare Asia). 주소 말미(슬러그)가 헤드라인을
+            // 담고 있으므로 판정에는 부제+슬러그를 쓰고, 통과한 항목만 resolveTitles()가 페이지에서 진짜 제목을 읽는다.
+            const slug = decodeURIComponent(new URL(r.link).pathname.split('/').filter(Boolean).pop() || '').replace(/[-_]+/g, ' ');
+            row.desc = `${r.title} ${r.desc || ''}`;
+            row.title = slug;
+            row.pageTitle = true;
+          }
+          rows.push(row);
         });
       } catch (e) {
         rec.error = String(e.cause?.code || e.message || e).slice(0, 80);
@@ -282,8 +292,41 @@ export function select(lang, rows, cat, { maxAgeDays = 45, allowB = false } = {}
       row.popular = true;
       row.rank = r.rank;
     }
+    if (r.pageTitle) row._needTitle = true;
     row._tier = tier;
     out.push(row);
+  }
+  return out;
+}
+
+// ── 페이지 제목 읽기 ─────────────────────────────────
+// pageTitle 출처에서 통과한 항목에 대해, 기사 페이지의 og:title(없으면 <title>)을 읽어 제목으로 쓴다.
+// 읽지 못하면 그 항목은 버린다(부제 문장을 제목으로 내보내지 않는다). 이미 가진 링크는 다시 읽지 않는다.
+export async function resolveTitles(rows, knownLinks = new Set(), { max = 40, delayMs = 700, log = console.log } = {}) {
+  const out = [];
+  let n = 0;
+  for (const r of rows) {
+    if (!r._needTitle) {
+      out.push(r);
+      continue;
+    }
+    if (knownLinks.has(canonLink(r.link))) continue; // 이미 있는 항목
+    if (n >= max) continue;
+    n++;
+    try {
+      const html = await fetchText(r.link, { tries: 2, headers: { accept: 'text/html,*/*' } });
+      const m =
+        /<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i.exec(html) ||
+        /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i.exec(html) ||
+        /<title>([^<]+)<\/title>/i.exec(html);
+      let t = m ? clean(m[1]) : '';
+      t = t.replace(/\s*[|｜–—-]\s*[^|｜–—-]{2,40}$/, (x) => (/(magazine|news|times|online|asia)/i.test(x) ? '' : x)).trim();
+      if (t.length >= 8) out.push({ ...r, title: t });
+      else log(`    제목 읽기 실패(너무 짧음): ${r.link}`);
+    } catch (e) {
+      log(`    제목 읽기 실패: ${r.link} (${String(e.message).slice(0, 40)})`);
+    }
+    await new Promise((res) => setTimeout(res, delayMs));
   }
   return out;
 }
@@ -314,7 +357,7 @@ export function mergeItems(existing, incoming, { max = 1000 } = {}) {
       }
       continue;
     }
-    const { _tier, _topic, ...clean } = r;
+    const { _tier, _topic, _needTitle, ...clean } = r;
     items.push(clean);
     byLink.set(canonLink(clean.link), clean);
     byTitle.set(normTitle(clean.title), clean);

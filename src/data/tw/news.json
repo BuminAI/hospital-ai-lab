@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-15T07:16:37.218Z",
-  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · ETtoday · 醫療新聞網 · 公視新聞網 · 經濟日報",
+  "updatedAt": "2026-11-15T08:46:14.062Z",
+  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · ETtoday · 醫療新聞網 · 公視新聞網 · 經濟日報 · Heho健康 · 中央廣播電臺",
   "items": [
+    {
+      "title": "[政治] 久違醫界活動 柯文哲低調出席台灣醫學週",
+      "link": "https://www.rti.org.tw/news?uid=3&pid=1051592",
+      "source": "中央廣播電臺",
+      "pubDate": "2026-11-15T06:04:00.000Z"
+    },
     {
       "title": "黃仁勳辭輝達執行長 專家：AI發展趨健康、台產業鏈不受影響",
       "link": "https://money.udn.com/money/story/5612/9879744",
@@ -27,6 +33,12 @@
       "pubDate": "2026-11-14T11:51:18.000Z"
     },
     {
+      "title": "台股上周血崩、本周狂彈連破紀錄！ 法人點名4大AI族群有戲",
+      "link": "https://finance.ettoday.net/news/3271910",
+      "source": "ETtoday",
+      "pubDate": "2026-11-13T22:12:00.000Z"
+    },
+    {
       "title": "AI拖鞋測長者跌倒 宜蘭高中奪創意賽首獎",
       "link": "https://www.mdnkids.com/content.asp?Link_String_=24BE00000DFSMLI&utm_source=RSS&utm_campaign=RSS",
       "source": "醫療新聞網",
@@ -43,6 +55,12 @@
       "link": "https://www.cna.com.tw/news/ahel/202611130132.aspx",
       "source": "中央社",
       "pubDate": "2026-11-13T04:00:00.000Z"
+    },
+    {
+      "title": "男大生摸到硬塊，問 AI 說陰莖得全切？竟是包皮垢惹禍！醫建議 5 症狀快就醫",
+      "link": "https://heho.com.tw/archives/389153",
+      "source": "Heho健康",
+      "pubDate": "2026-11-13T01:57:06.000Z"
     },
     {
       "title": "男大生「陰莖長硬塊」問AI要全切嚇哭 醫揭真相：20年沒清潔",
