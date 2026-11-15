@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-15T09:46:01.531Z",
-  "readOk": 10,
+  "checkedAt": "2026-11-15T10:04:30.482Z",
+  "readOk": 1,
   "total": 10,
   "laws": [
     {
@@ -13,7 +13,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:52.220Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     },
     {
       "id": "dha-ai",
@@ -24,7 +24,7 @@
       "current": "Mon, 09 Sep 2024 08:09:45 GMT | 276863 | W/\"4397f-191d5d4e528\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-15T09:45:54.008Z",
+      "lastRead": "2026-11-15T10:02:39.586Z",
       "error": null
     },
     {
@@ -37,7 +37,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:54.908Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     },
     {
       "id": "doh-data-access",
@@ -49,7 +49,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:55.666Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     },
     {
       "id": "doh-dsii",
@@ -61,7 +61,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:56.520Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     },
     {
       "id": "doh-retention",
@@ -73,7 +73,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:57.306Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     },
     {
       "id": "doh-analytics",
@@ -85,7 +85,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:59.005Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     },
     {
       "id": "doh-mdr",
@@ -97,7 +97,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:59.897Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     },
     {
       "id": "doh-cyber",
@@ -109,7 +109,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:46:00.711Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     },
     {
       "id": "doh-hie",
@@ -121,7 +121,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:46:01.531Z",
-      "error": null
+      "error": "unable to verify the first certificate"
     }
   ]
 }
