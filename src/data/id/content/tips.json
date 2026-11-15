@@ -7,7 +7,42 @@
   },
   "sections": [
     {
-      "heading": "TIP 03 — Tambahkan satu baris: mengapa Anda memintanya",
+      "heading": "TIP 04 — Tempel dokumen panjang dulu, tulis pertanyaan di bagian akhir",
+      "body": "Cukup mengubah urutan, AI lebih mudah membaca materi Anda.",
+      "items": []
+    },
+    {
+      "heading": "Pertanyaan ditulis lebih dulu, lalu dokumen ditempel — jawabannya meleset",
+      "body": "Pernahkah Anda menulis «Rangkum isi proposal ini yang terkait keamanan», lalu menempelkan seluruh proposal yang panjang di bawahnya? Semakin panjang materinya, semakin sering jawaban AI melenceng dari inti atau hanya membahas sebagian.",
+      "items": []
+    },
+    {
+      "heading": "Solusinya adalah urutan: materi di atas, pertanyaan di bawah",
+      "body": "Panduan resmi Anthropic (perusahaan pembuat Claude) menyarankan agar dokumen panjang dan data masukan ditaruh di bagian atas prompt, sedangkan pertanyaan dan instruksi di bawahnya. Panduan yang sama menyebut bahwa menaruh pertanyaan di akhir dapat meningkatkan kualitas jawaban hingga 30 persen dalam pengujian, terutama untuk banyak dokumen yang rumit. Angka itu adalah hasil pengujian menurut panduan, bukan jaminan peningkatan yang sama dalam pekerjaan Anda. Di kolom obrolan, tempel materi lebih dulu, lalu tulis kerangka berikut pada baris berikutnya; ganti isi tanda kurung sesuai keadaan.",
+      "items": [
+        "(Setelah membaca materi di atas) jawab pertanyaan berikut. Jika sesuatu tidak ada dalam materi, tulis «tidak dapat dipastikan dari materi».\nPertanyaan: (contoh: rangkum dalam tiga poin isi tentang perlindungan data pribadi dan keamanan)"
+      ]
+    },
+    {
+      "heading": "Satu hal lagi: beri label bila dokumennya banyak",
+      "body": "Panduan menyarankan agar setiap dokumen dibungkus dengan tag bila jumlahnya lebih dari satu. Di obrolan, cukup beri judul seperti «[Materi 1: proposal perusahaan A]» dan «[Materi 2: proposal perusahaan B]» agar AI dan Anda mudah melacak asal isinya.",
+      "items": []
+    },
+    {
+      "heading": "Hal yang perlu diingat",
+      "body": "Meski urutannya sudah benar, AI tetap bisa keliru, jadi periksa sendiri angka, tanggal, dan ketentuan kontrak pada dokumen aslinya. Jika dokumen memuat data pribadi pasien, periksa dahulu aturan keamanan informasi di rumah sakit Anda sebelum menempelkannya ke layanan AI.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, «Prompting best practices», bagian «Long context prompting» (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Tanggal pemeriksaan sumber: 15 November 2026"
+      ]
+    },
+    {
+      "heading": "TIP 03— Tambahkan satu baris: mengapa Anda memintanya",
       "body": "Dengan menyebut alasan, AI lebih mudah menjawab sesuai tujuan Anda.",
       "items": []
     },
