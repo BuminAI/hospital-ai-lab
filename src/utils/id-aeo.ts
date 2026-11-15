@@ -8,7 +8,7 @@
 /** 「## Rangkuman」(또는 Ringkasan/Intinya) 아래 불릿을 평문으로 뽑는다. 없으면 빈 배열. */
 export function extractSummary(markdown: string | undefined): string[] {
   if (!markdown) return [];
-  const head = markdown.match(/^##\s+(?:Rangkuman|Ringkasan|Intinya|Kesimpulan)[^\r\n]*\r?\n/m);
+  const head = markdown.match(/^##\s+(?:Rangkuman|Ringkasan|Intinya|Kesimpulan|Poin penting|Poin utama)[^\r\n]*\r?\n/m);
   if (!head || head.index === undefined) return [];
   let rest = markdown.slice(head.index + head[0].length);
   const stop = rest.search(/^(?:##\s|\*\*Sumber|\*Sumber|---)/m);

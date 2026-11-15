@@ -1,4 +1,5 @@
 ---
+import { fitDescription } from '../utils/meta';
 // 영어판(미국) 전용 레이아웃 (2026-11-06 신설 — 러시아어판 RuLayout을 바탕으로 복제)
 //
 // 한국어판 BaseLayout, 일본어판 JaLayout과 완전히 분리했다 — 언어판 하나를
@@ -276,7 +277,7 @@ const year = new Date().getFullYear();
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={fitDescription(description)} />
     {/* 검색결과 스니펫·이미지 크기를 제한하지 않는다(2026-09-27, ko판과 통일).
         구글 기본값은 스니펫·이미지 미리보기를 줄여서 보여줄 수 있는데, 이 지시자를
         주면 구글이 임의로 줄이지 않는다(https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag). */}
@@ -339,7 +340,7 @@ const year = new Date().getFullYear();
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE_EN} />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={fitDescription(description)} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="en_IN" />
     <meta property="og:locale:alternate" content="ko_KR" />
@@ -362,7 +363,7 @@ const year = new Date().getFullYear();
     )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={fitDescription(description)} />
     <meta name="twitter:image" content={ogImage} />
 
     {

@@ -1,4 +1,5 @@
 ---
+import { fitDescription } from '../utils/meta';
 import '../styles/global.css';
 import SchemaOrg from '../components/SchemaOrg.astro';
 import { siteNav } from '../data/site-nav';
@@ -200,7 +201,7 @@ const webPage = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={fitDescription(description)} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {
       /* 검색결과 스니펫·이미지 크기를 제한하지 않는다(2026-09-27). 구글 기본값은
@@ -367,7 +368,7 @@ const webPage = {
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE_TITLE} />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={fitDescription(description)} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="ko_KR" />
     {alternates.ja && <meta property="og:locale:alternate" content="ja_JP" />}
@@ -397,7 +398,7 @@ const webPage = {
     )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={fitDescription(description)} />
     <meta name="twitter:image" content={ogImage} />
     {GOATCOUNTER_CODE && !noindex && <link rel="preconnect" href="https://gc.zgo.at" />}
     {

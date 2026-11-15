@@ -85,7 +85,7 @@ export const GET: APIRoute = ({ site }) => {
   const body =
     `${sections.join('\n\n')}\n\nSitemap: ${sitemapURL.href}\n` +
     // 언어판별 사이트맵(2026-11-14): 검색엔진이 언어판마다 색인 현황을 따로 보게 한다.
-    ['ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph']
+    ['ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph', 'ae', 'ie', 'fr']
       .map((l) => `Sitemap: ${new URL(`/${l}/sitemap-index.xml`, sitemapURL).href}\n`)
       .join('') +
     `\n# 사이트 구성 안내 (llms.txt)\nLLM-Content: ${llmsURL.href}\n`;

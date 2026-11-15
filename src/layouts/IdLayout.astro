@@ -1,4 +1,5 @@
 ---
+import { fitDescription } from '../utils/meta';
 // 인도네시아어판 전용 레이아웃 (2026-09-05 신설, RuLayout 구조 복제)
 //
 // 한국어판 BaseLayout, 일본어판 JaLayout, 러시아어판 RuLayout과 완전히
@@ -268,7 +269,7 @@ const year = new Date().getFullYear();
         구글 기본값은 스니펫·이미지 미리보기를 줄여서 보여줄 수 있는데, 이 지시자를
         주면 구글이 임의로 줄이지 않는다(https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag). */}
     <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="description" content={description} />
+    <meta name="description" content={fitDescription(description)} />
     <link rel="canonical" href={canonical} />
     {
       ADSENSE_CLIENT && (
@@ -325,7 +326,7 @@ const year = new Date().getFullYear();
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE_ID} />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={fitDescription(description)} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:locale:alternate" content="ko_KR" />
@@ -348,7 +349,7 @@ const year = new Date().getFullYear();
     )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={fitDescription(description)} />
     <meta name="twitter:image" content={ogImage} />
 
     {

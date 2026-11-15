@@ -44,6 +44,17 @@ export function extractSummary(markdown: string | undefined, loc: Loc): string[]
         .trim()
     );
   }
+  if (out.length === 0) {
+    // 요약이 불릿이 아니라 한 문단인 글: 이미 화면에 있는 그 문단을 그대로 올린다(420자 이하일 때만 — 문장 중간을 자르지 않는다).
+    const para = rest
+      .split(/\r?\n\s*\r?\n/)
+      .map((t) => t.trim())
+      .find((t) => t && !/^(?:[-*]\s|\*|<|\||>|#)/.test(t));
+    if (para) {
+      const plain = para.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\s+/g, ' ').trim();
+      if ([...plain].length <= 420) out.push(plain);
+    }
+  }
   return out.slice(0, 6);
 }
 

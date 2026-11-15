@@ -1,0 +1,27 @@
+# Hospital AI Lab（病院AI研究所）— 日本語版
+
+> 病院の事務・看護の立場から、医療AIの導入判断・提案書の確認・院内ルールづくりに役立つ情報をまとめた日本語版です。日本の制度（薬機法の承認と保険適用、個人情報保護法、医療情報システムの安全管理ガイドライン）を基準に、翻訳ではなく別に書き下ろしています。一般的な情報であり、法律・医療上の助言ではありません。
+
+サイト: https://hospital-ai-lab.com/ja/
+運営者プロフィール: https://hospital-ai-lab.com/ja/about/
+韓国語版（原本）: https://hospital-ai-lab.com/
+
+## 主なページ
+
+- [用語集](https://hospital-ai-lab.com/ja/glossary/) · [よくある質問](https://hospital-ai-lab.com/ja/faq/) · [チェックリスト](https://hospital-ai-lab.com/ja/checklist/)
+- [連載シリーズ](https://hospital-ai-lab.com/ja/series/): 公開済みの記事をテーマ別に読む順で束ねたもの（AI医療機器と制度・医療情報の取り扱い・補助金など）
+- [補助金・助成金](https://hospital-ai-lab.com/ja/subsidies/): jGrants 公開APIから自動収集
+- [医療AIニュース](https://hospital-ai-lab.com/ja/news/): CBnews・ITmedia・日経クロステックなどの媒体と、厚生労働省・デジタル庁の発表から自動収集（見出しとリンクのみ。内容は元の記事で確認）
+- [医療DX年表](https://hospital-ai-lab.com/ja/dx-roadmap/): 厚生労働省告示「医療情報化推進方針」などの一次資料に基づく年表（出典・確認日つき）
+- [制度カレンダー](https://hospital-ai-lab.com/ja/calendar/): 補助金の締切・年度の節目・検討会や公募の案内を近い順に
+- [実務ガイド](https://hospital-ai-lab.com/ja/practice/): マイナ保険証の窓口対応、サイバーセキュリティ自己点検、院内AI利用ルールの雛形
+- [患者さん向け](https://hospital-ai-lab.com/ja/patients/): 一般情報・公的資料に基づく案内（診断や治療の助言ではありません）
+- [更新情報](https://hospital-ai-lab.com/ja/updates/): 直近45日間に追加されたニュース・補助金・動画・記事
+- [AIプログラム審査室](https://hospital-ai-lab.com/ja/ai-judge/): 自作のAI業務プログラムのソースコードを14項目で自動点検し、100点満点とS〜C等級を示す無料ツール。採点規則はすべて公開。
+
+## 引用するときは
+
+- 各解説ページの下部に「出典と確認日」があります。出典リンクは毎日自動で確認し、フッターに確認日を表示しています。ページのURLと確認日を併記してください。
+- 「めど」「目指す」は原文が目標として使った表現で、確定ではありません。法令の文言は必ず公式の原文で確認してください。
+- 自動収集のニュース・補助金は見出しとリンクのみです。内容は元の資料で確認してください。
+- 一般情報であり、特定の患者への診断・治療の助言ではありません。特定の病院・製品・治療の宣伝は行いません。

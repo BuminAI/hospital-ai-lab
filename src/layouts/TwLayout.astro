@@ -1,4 +1,5 @@
 ---
+import { fitDescription } from '../utils/meta';
 // 대만어판(정체자) 전용 레이아웃 (2026-09-06 신설, IdLayout 구조 복제)
 //
 // ⚠️ 폰트는 tw-tokens.css에서 시스템 폰트로 지정한다. Pretendard는 한자
@@ -262,7 +263,7 @@ const year = new Date().getFullYear();
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={fitDescription(description)} />
     {/* 不限制搜尋結果摘要與圖片大小(2026-09-27，與韓文版一致)。
         Google 預設可能縮小摘要或圖片預覽，加上這個指示詞後就不會縮小
         (https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag)。 */}
@@ -323,7 +324,7 @@ const year = new Date().getFullYear();
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE_TW} />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={fitDescription(description)} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:locale:alternate" content="ko_KR" />
@@ -346,7 +347,7 @@ const year = new Date().getFullYear();
     )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={fitDescription(description)} />
     <meta name="twitter:image" content={`${siteRoot}${withBase('/og-default.png')}`} />
 
     {
