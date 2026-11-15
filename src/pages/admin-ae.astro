@@ -1,5 +1,5 @@
 ---
-// 싱가포르판(영어, Hospital AI Lab) 전용 관리자 대시보드 — /admin-ae/
+// UAE판(Hospital AI Lab) 전용 관리자 대시보드 — /admin-ae/
 //
 // ⚠️ 한국어판 관리자(src/pages/admin.astro)·일본어판 관리자(admin-ja.astro)는
 //    절대 수정하지 않는다. 이 페이지는 인증 방식(Supabase 로그인 +
@@ -94,6 +94,8 @@ const navRows = navConfig.map((n) => ({
         <li><a href={withBase('/admin-tw/')}>대만어판 관리자</a></li>
         <li><a href={withBase('/admin-in/')}>인도판 관리자</a></li>
         <li><a href={withBase('/admin-ph/')}>필리핀어판 관리자</a></li>
+        <li><a href={withBase('/admin-sg/')}>싱가포르판 관리자</a></li>
+        <li><a href={withBase('/admin-ie/')}>아일랜드판(영어) 관리자</a></li>
       </ul>
     </header>
 
@@ -144,7 +146,7 @@ const navRows = navConfig.map((n) => ({
         <button class="btn ghost" id="admin-logout">로그아웃</button>
       </div>
 
-      <nav class="admin-nav" aria-label="싱가포르판 관리 메뉴">
+      <nav class="admin-nav" aria-label="UAE판 관리 메뉴">
         <a href="#rg-panel" data-tab="rg-panel">📘 용어집</a>
         <a href="#rf-panel" data-tab="rf-panel">❓ 자주 묻는 질문</a>
         <a href="#rp-panel" data-tab="rp-panel">📄 본문 페이지</a>
@@ -164,7 +166,9 @@ const navRows = navConfig.map((n) => ({
         <a href={withBase('/admin-en/')}>영어판(미국)</a>
         <a href={withBase('/admin-in/')}>인도판(영어)</a>
         <a href={withBase('/admin-ph/')}>필리핀어판</a>
-        <a class="cur" aria-current="page" href={withBase('/admin-ae/')}>싱가포르판(영어)</a>
+        <a href={withBase('/admin-sg/')}>싱가포르판(영어)</a>
+        <a href={withBase('/admin-ie/')}>아일랜드판(영어)</a>
+        <a class="cur" aria-current="page" href={withBase('/admin-ae/')}>UAE판(영어)</a>
         <div class="side-group">사이트</div>
         <a href={withBase('/ae/')} target="_blank" rel="noopener">🌐 사이트 보기</a>
       </nav>

@@ -46,6 +46,14 @@ export const checklistRelated: Record<Exclude<Loc, 'ko'>, Record<number, string[
     4: ['2026-11-15-doh-medical-device-cybersecurity-guideline-ai-vendor-questions'],
     5: ['2026-11-15-uae-health-data-stay-in-country-doh-data-access-standard-ai-cloud', '2026-11-15-doh-analytics-standard-secondary-use-patient-data-ai-consent'],
   },
+  ie: {
+    0: ['2026-11-15-hiqa-national-ai-guidance-hospital-governance-checklist', '2026-11-15-ai-for-care-strategy-six-principles-hospital-leaders'],
+    1: ['2026-11-15-eu-ai-act-hospital-deployer-duties-article-26', '2026-11-15-is-hospital-ai-software-a-medical-device-mdr-rule-11-hpra'],
+    2: ['2026-11-15-is-hospital-ai-software-a-medical-device-mdr-rule-11-hpra'],
+    3: ['2026-11-15-hpra-device-incident-reporting-software-update-field-safety-notice', '2026-11-15-gdpr-impact-assessment-ai-tool-patient-data'],
+    4: ['2026-11-15-hpra-device-incident-reporting-software-update-field-safety-notice'],
+    5: ['2026-11-15-dpc-ai-llm-guidance-questions-before-using-ai-product', '2026-11-15-eu-ai-act-ai-literacy-article-4-hospital-staff-training'],
+  },
   ja: {
     0: ['2026-08-20-samd-idaten-review-body-reform'],
     1: [

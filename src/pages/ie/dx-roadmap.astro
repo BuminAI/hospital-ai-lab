@@ -1,0 +1,138 @@
+---
+// Digital health and AI roadmap for Irish hospitals (2026-11-15) — from primary sources.
+// The facts live in src/data/ie/guides/milestones.ts; this page only handles layout.
+import '../../styles/ie-guide.css';
+import IeLayout from '../../layouts/IeLayout.astro';
+import IeGuideFoot from '../../components/IeGuideFoot.astro';
+import IeFaq from '../../components/IeFaq.astro';
+import { guideSchema } from '../../utils/ie-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/ie/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+
+const title = 'Roadmap: HIQA, the EU AI Act and GDPR for hospital AI in Ireland';
+const description =
+  'Key dates for hospital administrators and nurse leaders: the GDPR and the Medical Device Regulation, the EU AI Act’s application dates, and Ireland’s AI for Care strategy and HIQA guidance.';
+
+const sources = [SRC.hiqaRelease, SRC.hiqaDraft, SRC.aiForCare, SRC.aiAct, SRC.gdpr, SRC.dpcAi, SRC.mdr, SRC.hpraOverview];
+
+const faq = [
+  {
+    q: 'Which AI rules apply to a hospital in Ireland?',
+    a: 'The EU AI Act applies directly (as published, most of it from 2 August 2026), the GDPR governs patient data, and the Medical Device Regulation governs AI software that is a medical device, with HPRA as Ireland’s competent authority. HIQA’s national guidance (29 July 2026) and the Department of Health’s AI for Care strategy set expectations for health services. We did not read Irish statutes or the final HIQA PDF.',
+  },
+  {
+    q: 'Who is responsible for an AI tool inside the hospital?',
+    a: 'A hospital that uses an AI system under its authority is a deployer under the AI Act, with its own duties. HIQA’s draft says management is responsible for decisions on the use and monitoring of AI tools, staff for interpreting outputs, and clinical staff stay responsible for clinical decisions. The draft suggests a list of authorised tools and someone assigned to keep an inventory.',
+  },
+  {
+    q: 'How fast must a hospital report a data breach or a device incident?',
+    a: 'A personal data breach is notified by the controller to the supervisory authority without undue delay and, where feasible, within 72 hours (GDPR Article 33). HPRA says hospitals should report serious device incidents but sets no deadline on its page. For high-risk AI systems, a serious incident is reported immediately, first to the provider (AI Act Article 26).',
+  },
+  {
+    q: 'Are there confirmed upcoming deadlines for hospitals?',
+    a: 'This page lists only dates that appear in the text of an official document that we read. The one upcoming date we found is 2 August 2027, when Article 6(1) of the AI Act (AI in products such as medical devices) applies as published. EU texts can be amended, so check the current version.',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ie/dx-roadmap/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Hospital administration and nursing leadership',
+  faq,
+});
+---
+
+<IeLayout title={title} description={description} crumb="Roadmap" standalone updated={new Date('2026-11-15T00:00:00+00:00')} schema={schema}>
+  <h1>Digital health and AI roadmap</h1>
+  <p class="tg-lead">
+    “What does our hospital have to do, and by when?” The more AI news there is, the harder that is to answer. This page collects dates that appear in the text of rules and official publications, with sections and links to the sources.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and nursing leadership</p>
+
+  <p class="tg-answer">
+    In short: the GDPR has applied since 2018 and treats health data as special category data; the EU AI Act applies in stages (most of it from 2 August 2026, Article 6(1) from 2 August 2027, as published); HIQA published Ireland’s first national AI guidance for health and social care on 29 July 2026; and HPRA applies the Medical Device Regulation without approving products.
+  </p>
+
+  <div class="tg-box">
+    <strong>How to read this page</strong><br />
+    Each item was written after the text of the document was opened and read. We do not add dates that circulate only in summaries. What applies to a particular hospital depends on its status and structure, so check the text and ask counsel or your compliance officer.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">What has already happened</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">Upcoming dates</h2>
+    {
+      ahead.length > 0 ? (
+        <ol class="tg-tl">
+          {ahead.map((m) => (
+            <li>
+              <div class="when">{m.when}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{THEMES[m.theme]}</span>
+                  {m.title}
+                </b>
+                <span>{m.body}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>We found no upcoming dates confirmed by a primary source, so this section is intentionally empty.</p>
+      )
+    }
+    <p>
+      New HIQA publications and announcements appear automatically under <a href={withBase('/ie/calendar/')}>HIQA news</a>.
+    </p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Pages that complement this one</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ie/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>Data items from the GDPR and the DPC’s AI guidance: roles, impact assessments, automated decisions and breaches.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ie/documents-checklist/')}>
+        <b>Checklist: AI vendors and documents</b>
+        <span>Deployer role, device status, high-risk check, what the vendor must show, and how updates and incidents are handled.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ie/templates/')}>
+        <b>Document templates</b>
+        <span>Generative AI policy, vendor questions, incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <IeFaq items={faq} />
+
+  <IeGuideFoot sources={sources} checked={CHECKED} />
+</IeLayout>

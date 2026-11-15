@@ -203,6 +203,7 @@ export const RESEARCH_STRINGS: Record<Loc, ResearchStrings> = {
   in: en('India', 'Indian'),
   sg: en('Singapore', 'Singapore-based'),
   ae: en('the United Arab Emirates', 'UAE-based'),
+  ie: en('Ireland', 'Ireland-based'),
   ph: {
     nav: 'Medical research',
     metaTitle: 'Pananaliksik medikal ng Pilipinas: nakaraang taon',
@@ -237,7 +238,7 @@ export const RESEARCH_STRINGS: Record<Loc, ResearchStrings> = {
 export const researchPath = (loc: Loc) => (loc === 'ko' ? '/research/' : `/${loc}/research/`);
 
 // AEO (2026-11-14): 의료 기술·논문 페이지용 CollectionPage + ItemList. 화면에 보이는 항목(제목·링크)만 그대로 싣는다.
-const RESEARCH_LANG: Record<Loc, string> = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH', ae: 'en-AE' };
+const RESEARCH_LANG: Record<Loc, string> = { ko: 'ko', ja: 'ja', ru: 'ru', id: 'id', tw: 'zh-TW', en: 'en', in: 'en-IN', sg: 'en-SG', ph: 'fil-PH', ae: 'en-AE', ie: 'en-IE' };
 export function researchSchema(loc: Loc, data: any, name: string, description: string) {
   const origin = 'https://hospital-ai-lab.com';
   const url = origin + researchPath(loc);

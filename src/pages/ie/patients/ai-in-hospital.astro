@@ -1,0 +1,113 @@
+---
+// What patients can expect when a hospital uses AI (2026-11-15). Only sections whose text was opened: HIQA press release (29 July 2026) and
+// January 2026 consultation draft (labelled as a draft), AI for Care strategy, EU AI Act Articles 26 and 50, GDPR Articles 9, 22 and 33-34.
+import '../../../styles/ie-guide.css';
+import IeLayout from '../../../layouts/IeLayout.astro';
+import IeGuideFoot from '../../../components/IeGuideFoot.astro';
+import IeFaq from '../../../components/IeFaq.astro';
+import { guideSchema } from '../../../utils/ie-guide';
+import { SRC } from '../../../data/ie/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = 'When your Irish hospital uses AI: what HIQA’s guidance and EU rules say';
+const description =
+  'What can you expect when a hospital uses AI in your care? What HIQA, the Department of Health and EU law ask of hospitals, in plain language.';
+
+const rights = [
+  {
+    h: 'National guidance exists, and it is meant for you too',
+    p: 'HIQA published Ireland’s first National Guidance for the Responsible and Safe Use of AI in Health and Social Care Services on 29 July 2026. HIQA says it is for all services providing health and social care and is also designed to educate and empower people using services about what to expect when AI is used in their care. It is guidance, not a set of legal rights.',
+  },
+  {
+    h: 'A person stays responsible',
+    p: 'HIQA’s January 2026 draft (the final text may differ) says AI tools should augment, not replace, human judgement, that clinical staff remain responsible for their clinical decisions, and that staff should be able to override an AI output. The Department of Health’s AI for Care strategy has a “human in the loop” principle in the same spirit.',
+  },
+  {
+    h: 'You should be told when, where and why AI is used',
+    p: 'Transparency is a theme in both the HIQA draft and the AI for Care strategy: informing people about when, where and for what purpose AI tools are used in their care, how they support decisions and what impact they might have. Where an AI system interacts directly with you, the EU AI Act asks the provider to design it so that you are informed you are dealing with AI, unless that is obvious (Article 50(1)).',
+  },
+  {
+    h: 'Your health data has extra protection',
+    p: 'Under the GDPR, data about your health is a special category of personal data that may only be processed if a listed condition applies (Article 9), for example for the provision of health care. If there is a personal data breach likely to result in a high risk to you, the organisation has to tell you without undue delay (Article 34).',
+  },
+  {
+    h: 'Decisions made only by a machine',
+    p: 'GDPR Article 22 gives you the right not to be subject to a decision based solely on automated processing that produces legal effects or similarly significantly affects you, with exceptions and safeguards that include at least the right to human intervention. How it applies to a particular hospital tool is a question for the hospital’s data protection officer.',
+  },
+  {
+    h: 'Problems with devices and AI can be reported',
+    p: 'HPRA says anyone can report a device safety issue, and that hospitals should report serious incidents. Under the AI Act, hospitals using high-risk AI systems must inform the provider and the authorities of risks and serious incidents (Article 26).',
+  },
+];
+
+const faq = [
+  {
+    q: 'Does my hospital have to tell me when AI is used?',
+    a: 'The documents we read stress transparency but do not say every tool must be announced to every patient. We did not read the final HIQA guidance or Irish statutes. If you want to know, ask.',
+  },
+  {
+    q: 'Who do I report a problem to?',
+    a: 'Start with the hospital’s patient advice or liaison service or the clinician who treats you. This page does not cover complaints procedures, which we did not read. Device safety issues can be reported to HPRA.',
+  },
+  {
+    q: 'Where are my data protection rights explained?',
+    a: 'The Data Protection Commission explains data protection law in Ireland. We read the GDPR text and the DPC’s AI guidance, but not Irish statutes such as the Data Protection Act 2018, so this page does not describe the rights they add. Check the DPC’s website.',
+  },
+];
+
+const sources = [SRC.hiqaRelease, SRC.hiqaDraft, SRC.aiForCare, SRC.aiAct, SRC.gdpr, SRC.hpraReporting];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ie/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<IeLayout title={title} description={description} crumb="Patient rights and AI" standalone updated={new Date('2026-11-15T00:00:00+00:00')} schema={schema}>
+  <h1>When your Irish hospital uses AI: what HIQA’s guidance and EU rules say</h1>
+  <p class="tg-lead">
+    Hospitals increasingly use tools that rely on AI. What can you expect? Below is what HIQA, the Department of Health and EU law say, in plain language, with the source for each. These are guidance and rules for hospitals; this page does not set out your legal rights.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organisation that treats you. In an emergency, call your local emergency number or go to the nearest emergency department.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">What the documents say</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ask">
+    <h2 id="h-ask">What you can ask your hospital</h2>
+    <p>The author’s suggestion, not a legal requirement. You can always ask:</p>
+    <ul class="tg-list">
+      <li>Are AI tools used in my care or my billing? For what?</li>
+      <li>Who makes the final decision: a clinician or the tool?</li>
+      <li>Where is my information stored, and who can see it?</li>
+      <li>Will my records be used to build or improve an AI tool, and can I say no?</li>
+    </ul>
+    <p>Before you ask an AI about your own health: <a href={withBase('/ie/patients/ai-health-consult/')}>six things to know</a>.</p>
+  </section>
+
+  <IeFaq items={faq} />
+
+  <IeGuideFoot sources={sources} checked={CHECKED} patient />
+</IeLayout>

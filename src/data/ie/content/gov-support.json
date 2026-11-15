@@ -1,0 +1,112 @@
+{
+  "_comment": "English edition (Ireland) official resources. A hand-checked list: each URL was opened on 2026-11-15. gov.ie answered automated requests with HTTP 403, so it is not listed and no fact depends on it.",
+  "meta": {
+    "title": "Official resources for hospital AI decisions in Ireland",
+    "description": "Official sources behind this site: HIQA’s AI guidance, the Department of Health’s AI for Care strategy, HPRA’s pages for hospitals, the Data Protection Commission’s AI guidance and the EU texts.",
+    "pageTitle": "Government resources",
+    "lead": "This page collects the official sources behind the rest of this site, each one opened and checked."
+  },
+  "notice": "This list is not an endorsement and not complete. Pages and rules change; rely on the current text at each source.",
+  "checkedAt": "2026-11-15",
+  "programs": [
+    {
+      "name": "HIQA — AI in health and social care (press release, 29 July 2026)",
+      "org": "Health Information and Quality Authority",
+      "url": "https://www.hiqa.ie/ga/node/74973",
+      "body": "HIQA’s announcement of Ireland’s first national guidance on the responsible and safe use of AI in health and social care, with the structure of the guidance and the context of the Regulation of Artificial Intelligence Bill 2026.",
+      "audience": "Hospital administrators and governance groups.",
+      "sourceUrl": "https://www.hiqa.ie/ga/node/74973",
+      "sourceLabel": "HIQA press release"
+    },
+    {
+      "name": "HIQA — Draft national guidance for consultation (January 2026)",
+      "org": "Health Information and Quality Authority",
+      "url": "https://www.hiqa.ie/sites/default/files/2026-01/Draft-National-Guidance-for-the-Responsible-and-Safe-Use-of-Artificial-Intelligence-in-Health-and-Social-Care-Services-for-public-consultation.pdf",
+      "body": "The 55-page consultation draft: principles, examples of how services and staff can uphold them, and information for people using services. It is a draft; the final text may differ.",
+      "audience": "Hospital administrators and compliance staff.",
+      "sourceUrl": "https://www.hiqa.ie/sites/default/files/2026-01/Draft-National-Guidance-for-the-Responsible-and-Safe-Use-of-Artificial-Intelligence-in-Health-and-Social-Care-Services-for-public-consultation.pdf",
+      "sourceLabel": "HIQA draft guidance (PDF)"
+    },
+    {
+      "name": "AI for Care 2026-2030",
+      "org": "Department of Health (Ireland)",
+      "url": "https://www.drugsandalcohol.ie/46031/1/AI_for_Care_2026-2030.pdf",
+      "body": "The national AI strategy for healthcare: vision, six guiding principles, four strategic pillars and a roadmap to 2030.",
+      "audience": "Hospital leaders and planners.",
+      "sourceUrl": "https://www.drugsandalcohol.ie/46031/1/AI_for_Care_2026-2030.pdf",
+      "sourceLabel": "AI for Care (PDF)"
+    },
+    {
+      "name": "HPRA — Medical devices for hospitals",
+      "org": "Health Products Regulatory Authority",
+      "url": "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/overview-of-medical-device---ivd-regulation-for-hospitals",
+      "body": "How devices and IVDs are regulated, what HPRA does and does not do, and the key considerations for hospitals.",
+      "audience": "Clinical engineering, quality and procurement staff.",
+      "sourceUrl": "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/overview-of-medical-device---ivd-regulation-for-hospitals",
+      "sourceLabel": "HPRA overview"
+    },
+    {
+      "name": "HPRA — Reporting device safety issues",
+      "org": "Health Products Regulatory Authority",
+      "url": "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/reporting-medical-device---ivd-safety-issues",
+      "body": "When and how hospitals and healthcare professionals report serious incidents involving devices.",
+      "audience": "Nurse managers and quality staff.",
+      "sourceUrl": "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/reporting-medical-device---ivd-safety-issues",
+      "sourceLabel": "HPRA reporting page"
+    },
+    {
+      "name": "HPRA — Managing field safety corrective actions",
+      "org": "Health Products Regulatory Authority",
+      "url": "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/managing-field-safety-corrective-actions",
+      "body": "A practical six-step process for notices that can include software updates.",
+      "audience": "Clinical engineering and IT staff.",
+      "sourceUrl": "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/managing-field-safety-corrective-actions",
+      "sourceLabel": "HPRA FSCA page"
+    },
+    {
+      "name": "Data Protection Commission — AI, Large Language Models and Data Protection",
+      "org": "Data Protection Commission",
+      "url": "https://www.dataprotection.ie/en/dpc-guidance/blogs/AI-LLMs-and-Data-Protection",
+      "body": "Guidance (18 July 2024) on risks and questions for organisations using AI products and for developers.",
+      "audience": "Data protection officers and IT.",
+      "sourceUrl": "https://www.dataprotection.ie/en/dpc-guidance/blogs/AI-LLMs-and-Data-Protection",
+      "sourceLabel": "DPC guidance"
+    },
+    {
+      "name": "EU AI Act — Regulation (EU) 2024/1689",
+      "org": "European Union",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "body": "The full text of the AI Act in the Official Journal.",
+      "audience": "Legal and compliance staff.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "GDPR — Regulation (EU) 2016/679",
+      "org": "European Union",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "body": "The text of the General Data Protection Regulation.",
+      "audience": "Data protection officers.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "Medical Device Regulation — Regulation (EU) 2017/745",
+      "org": "European Union",
+      "url": "https://eur-lex.europa.eu/eli/reg/2017/745/oj",
+      "body": "The text of the MDR as published in 2017; check the consolidated version for later amendments.",
+      "audience": "Regulatory and procurement staff.",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2017/745/oj",
+      "sourceLabel": "EUR-Lex"
+    },
+    {
+      "name": "HIQA — news and publications (RSS)",
+      "org": "Health Information and Quality Authority",
+      "url": "https://www.hiqa.ie/rss.xml",
+      "body": "HIQA’s feed of news and publications; this site lists new items under HIQA news.",
+      "audience": "Everyone.",
+      "sourceUrl": "https://www.hiqa.ie/rss.xml",
+      "sourceLabel": "HIQA feed"
+    }
+  ]
+}

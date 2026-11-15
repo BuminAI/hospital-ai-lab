@@ -149,6 +149,43 @@ const CONFIG = {
       /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|nfl|nba/i,
     pro: /\bDoH\b|\bDHA\b|\bMOHAP\b|\bTDRA\b|\bADHICS\b|Malaffi|NABIDH|\bCSC\b|law|legislat\w*|regulat\w*|congress|senate|white\s+house|\bFDA\b|\bFTC\b|\bHHS\b|\bNIST\b|policy|privacy|data\s+protection|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|research|study|benchmark|safety|audit|governance|compliance|procurement|government|federal|state\s+attorney/i,
   },
+  ie: {
+    out: 'src/data/ie/ai-digest.json',
+    gnewsAllow: /^(The Irish Times|RTÉ|RTE\.ie|Irish Independent|Independent\.ie|Irish Examiner|TheJournal\.ie|The Journal|Silicon Republic|Business Post|The Sunday Business Post|Medical Independent|Irish Medical Times|Hospital Professional News|Irish Tech News|Pulse IT|Pulse\+IT News|Irish Legal News|Newstalk|BreakingNews\.ie|Gript)$/,
+    gnewsRename: { 'The Journal': 'TheJournal.ie', 'RTE.ie': 'RTÉ', 'Independent.ie': 'Irish Independent', 'Pulse+IT News': 'Pulse IT', 'The Sunday Business Post': 'Business Post' },
+    // Irish news outlets (RSS verified reachable on 2026-11-15) plus Google News searches limited to Irish outlets;
+    // a practical-signal filter (policy, regulation, organisations, security, health) keeps the list relevant to a hospital reader.
+    requirePro: true,
+    feeds: [
+      ['Irish Independent', 'https://www.independent.ie/rss'],
+      ['Irish Independent', 'https://www.independent.ie/irish-news/health/rss/'],
+      ['TheJournal.ie', 'https://www.thejournal.ie/feed/'],
+      ['RTÉ', 'https://www.rte.ie/news/rss/news-headlines.xml'],
+      ['Irish Tech News', 'https://irishtechnews.ie/feed/'],
+      ['Medical Independent', 'https://www.medicalindependent.ie/feed/'],
+      ['Irish Medical Times', 'https://www.imt.ie/feed/'],
+      ...[
+        'Ireland artificial intelligence regulation',
+        'Ireland AI Act',
+        'Ireland AI policy government',
+        'Irish artificial intelligence strategy',
+        'Ireland generative AI',
+        'Ireland AI jobs workforce',
+        'Ireland AI cybersecurity',
+        'Ireland AI data protection privacy',
+        'Ireland AI hospital',
+        'Irish public sector AI guidelines',
+      ].map((q) => [
+        'Google News',
+        `https://news.google.com/rss/search?q=${encodeURIComponent(q + ' when:60d')}&hl=en-IE&gl=IE&ceid=IE:en`,
+        { gnews: true },
+      ]),
+    ],
+    ai: /(?<![A-Za-z])AI(?![A-Za-z])|artificial\s+intelligence|machine\s+learning|deep\s+learning|large\s+language\s+model|\bLLMs?\b|generative|chatbot|ChatGPT|OpenAI|Anthropic|Gemini|Copilot|neural\s+network/i,
+    noise:
+      /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|gaa\b|rugby|soccer|nfl|nba/i,
+    pro: /\bHSE\b|\bHIQA\b|\bHPRA\b|\bDPC\b|Data\s+Protection|\bGDPR\b|AI\s+Act|law|legislat\w*|regulat\w*|Oireachtas|Dáil|Seanad|policy|privacy|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|labour|research|study|benchmark|safety|audit|governance|compliance|procurement|government|public\s+sector|state\s+attorney/i,
+  },
   id: {
     out: 'src/data/id/ai-digest.json',
     // 인도네시아 일반 매체는 AI 기사 자체가 적어(325건 중 25건) 실무 신호까지
@@ -255,10 +292,11 @@ async function fetchRetry(url, tries = 3) {
 // Google News search RSS: keep only items whose <source> is a UAE outlet, label them with that outlet, and cut the ' - Outlet' title suffix.
 const UAE_OUTLETS = /^(Khaleej Times|Gulf News|The National|Arabian Business|Gulf Business|www\.wam\.ae|Emirates 24\|7|Gulf Today|Zawya|Fast Company Middle East|Arab News|AGBI|Tahawul Tech|Tbreak UAE)$/;
 function parseGnews(xml) {
+  const allow = cfg.gnewsAllow || UAE_OUTLETS;
   const rows = [];
   for (const block of xml.split('<item>').slice(1)) {
     const src = stripTags(block.match(/<source[^>]*>([\s\S]*?)<\/source>/)?.[1] ?? '');
-    if (!UAE_OUTLETS.test(src)) continue;
+    if (!allow.test(src)) continue;
     let title = stripTags(block.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '');
     const cut = title.lastIndexOf(' - ');
     if (cut > 0) title = title.slice(0, cut).trim();
@@ -266,7 +304,7 @@ function parseGnews(xml) {
     const dRaw = block.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1]?.trim();
     const d = dRaw ? new Date(decodeEntities(dRaw)) : null;
     if (!title || !link || !d || Number.isNaN(d.getTime())) continue;
-    rows.push({ title, link, source: src === 'www.wam.ae' ? 'WAM' : src, pubDate: d.toISOString() });
+    rows.push({ title, link, source: (cfg.gnewsRename && cfg.gnewsRename[src]) || (src === 'www.wam.ae' ? 'WAM' : src), pubDate: d.toISOString() });
   }
   return rows;
 }

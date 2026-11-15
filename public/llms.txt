@@ -96,6 +96,15 @@
 - [Article series](https://hospital-ai-lab.com/ae/series/) · [AI news](https://hospital-ai-lab.com/ae/news/): Gulf News·Khaleej Times·The National·WAM·Gulf Business·Emirates 24|7 등에서 AI·보건 관련 헤드라인 자동 수집
 - [AI Program Review Room](https://hospital-ai-lab.com/ae/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
 
+## 영어판 (아일랜드, https://hospital-ai-lab.com/ie/)
+
+- 번역본이 아니라 아일랜드·EU 제도를 1차 문서로 새로 조사해 쓴 판입니다(HIQA의 AI 국가 지침 보도자료·2026년 1월 의견수렴 초안, 보건부 AI for Care 전략 2026-2030, EU AI 법, GDPR, 의료기기 규정(MDR)의 관보 원문, DPC의 AI 지침, HPRA 병원 안내). HIQA 최종 지침 PDF와 아일랜드 법률은 읽지 못해 직접 인용하지 않았고, 초안 내용에는 '초안'임을 표시했습니다.
+- 영어 전용 안내문: [llms.txt (English)](https://hospital-ai-lab.com/ie/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/ie/llms-full.txt) · 인용용 사실 허브 [/ie/facts/](https://hospital-ai-lab.com/ie/facts/)
+- 실무 가이드(`/ie/dx-roadmap/`·`/ie/data-checklist/`·`/ie/documents-checklist/`·`/ie/templates/`)·환자 코너(`/ie/patients/`)·HIQA 소식 캘린더(`/ie/calendar/`)·갱신 정보(`/ie/updates/`).
+- [홈](https://hospital-ai-lab.com/ie/) · [Glossary](https://hospital-ai-lab.com/ie/glossary/) · [FAQ](https://hospital-ai-lab.com/ie/faq/) · [Checklist](https://hospital-ai-lab.com/ie/checklist/)
+- [Article series](https://hospital-ai-lab.com/ie/series/) · [AI news](https://hospital-ai-lab.com/ie/news/): The Irish Times·RTÉ·Irish Independent·Irish Examiner·TheJournal.ie·Medical Independent·Irish Medical Times 등에서 AI·보건 관련 헤드라인 자동 수집
+- [AI Program Review Room](https://hospital-ai-lab.com/ie/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
+
 ## 필리핀어판 (필리핀어, https://hospital-ai-lab.com/ph/)
 
 - 번역본이 아니라 필리핀 제도를 1차 문서로 새로 조사해 필리핀어로 쓴 판입니다(RA 9711 FDA법·RA 10173 개인정보법·RA 11223 UHC법 전문(LawPhil), ASEAN AI 거버넌스 가이드). FDA 필리핀·보건부·국가개인정보위원회 사이트는 자동 접속이 403이라 그곳의 고시·권고는 쓰지 않았습니다.

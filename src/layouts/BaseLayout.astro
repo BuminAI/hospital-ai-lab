@@ -332,6 +332,15 @@ const webPage = {
               />
             )
           }
+          {
+            alternates.ie && (
+              <link
+                rel="alternate"
+                hreflang="en-IE"
+                href={`${siteRoot}${withBase(alternates.ie)}`}
+              />
+            )
+          }
           <link rel="alternate" hreflang="x-default" href={canonical} />
         </>
       )
@@ -533,6 +542,9 @@ const webPage = {
             </li>
             <li>
               <a href={withBase('/ae/')} hreflang="en-AE" lang="en-AE">English (UAE)</a>
+            </li>
+            <li>
+              <a href={withBase('/ie/')} hreflang="en-IE" lang="en-IE">English (Ireland)</a>
             </li>
           </ul>
         </nav>

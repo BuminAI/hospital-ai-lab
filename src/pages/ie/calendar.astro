@@ -1,0 +1,68 @@
+---
+// HIQA news calendar (2026-11-15)
+// New items are collected from HIQA's RSS feed and public news listing (scripts/fetch-ie-gov.mjs).
+// ⚠️ These are NEW PUBLICATIONS AND ANNOUNCEMENTS from HIQA, not grant programmes or deadlines. Date = the date the feed or listing gives.
+import '../../styles/ie-guide.css';
+import IeLayout from '../../layouts/IeLayout.astro';
+import IeGuideFoot from '../../components/IeGuideFoot.astro';
+import notices from '../../data/ie/gov-notices.json';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('en-IE', { timeZone: 'Europe/Dublin', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = notices.items.slice(0, 20);
+
+const title = 'HIQA news: new publications on health information, data and AI';
+const description =
+  'New HIQA publications and announcements, including its work on AI, health information and data, with the date each carries. Updated automatically.';
+const sources = [
+  { label: 'HIQA — news and publications feed (RSS)', url: 'https://www.hiqa.ie/rss.xml' },
+  { label: 'HIQA — news and updates', url: 'https://www.hiqa.ie/hiqa-news-updates' },
+];
+---
+
+<IeLayout title={title} description={description} crumb="Calendar" standalone updated={new Date(notices.updatedAt ?? Date.now())}>
+<h1>HIQA news</h1>
+  <p class="tg-lead">
+    What has HIQA published lately? New publications and announcements appear here, newest first. Items about AI, data and digital health are tagged “AI, data & digital”; the rest are tagged “HIQA publication”.
+  </p>
+  <p class="tg-meta">Shown: {fmtDay.format(new Date())} · Data updated: {notices.updatedAt ? fmtDay.format(new Date(notices.updatedAt)) : 'not yet'}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+    <h2 id="h-notice">Recent items from HIQA</h2>
+    <div class="tg-box tg-warn">
+      The date below is the date the feed or listing gives, <strong>not a compliance deadline</strong>. Read the item for its content. Only the title, date and agency are copied.
+    </div>
+    {
+      recent.length > 0 ? (
+        <ol class="tg-tl">
+          {recent.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+                    <span class="sr-only">(opens in a new tab)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>No matching documents yet.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+<h2 id="h-ms">Upcoming dates</h2>
+    <p>
+Confirmed upcoming dates are listed in the <a href={withBase('/ie/dx-roadmap/')}>Roadmap</a> together with the milestones that have already passed.
+    </p>
+  </section>
+
+<IeGuideFoot sources={sources} checked="November 15, 2026" />
+</IeLayout>

@@ -11,7 +11,7 @@
 import { GOATCOUNTER_CODE } from '../utils/site';
 
 interface Props {
-  loc: 'ko' | 'ja' | 'ru' | 'id' | 'tw' | 'en' | 'in' | 'sg' | 'ph' | 'ae';
+  loc: 'ko' | 'ja' | 'ru' | 'id' | 'tw' | 'en' | 'in' | 'sg' | 'ph' | 'ae' | 'ie';
 }
 const { loc } = Astro.props;
 
@@ -26,6 +26,7 @@ const LABEL = {
   sg: { tpl: '{n} views', one: '{n} view', lang: 'en-SG' },
   ph: { tpl: '{n} views', one: '{n} view', lang: 'en-PH' },
   ae: { tpl: '{n} views', one: '{n} view', lang: 'en-AE' },
+  ie: { tpl: '{n} views', one: '{n} view', lang: 'en-IE' },
 }[loc];
 ---
 

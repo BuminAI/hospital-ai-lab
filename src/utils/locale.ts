@@ -3,13 +3,13 @@
 // 한곳에서 읽도록 모았다. 새 언어판을 만들면 여기에 한 줄씩 더한다.
 import { withBase } from './site';
 
-export type Loc = 'ko' | 'ja' | 'ru' | 'id' | 'tw' | 'en' | 'in' | 'sg' | 'ph' | 'ae';
-export const ALL_LOCALES: Loc[] = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph', 'ae'];
+export type Loc = 'ko' | 'ja' | 'ru' | 'id' | 'tw' | 'en' | 'in' | 'sg' | 'ph' | 'ae' | 'ie';
+export const ALL_LOCALES: Loc[] = ['ko', 'ja', 'ru', 'id', 'tw', 'en', 'in', 'sg', 'ph', 'ae', 'ie'];
 
 /** src/content.config.ts의 컬렉션 이름 */
-export const COLLECTION = { ko: 'blog', ja: 'blogJa', ru: 'blogRu', id: 'blogId', tw: 'blogTw', en: 'blogEn', in: 'blogIn', sg: 'blogSg', ph: 'blogPh', ae: 'blogAe' } as const;
+export const COLLECTION = { ko: 'blog', ja: 'blogJa', ru: 'blogRu', id: 'blogId', tw: 'blogTw', en: 'blogEn', in: 'blogIn', sg: 'blogSg', ph: 'blogPh', ae: 'blogAe', ie: 'blogIe' } as const;
 
-export const PREFIX: Record<Loc, string> = { ko: '', ja: '/ja', ru: '/ru', id: '/id', tw: '/tw', en: '/en', in: '/in', sg: '/sg', ph: '/ph', ae: '/ae' };
+export const PREFIX: Record<Loc, string> = { ko: '', ja: '/ja', ru: '/ru', id: '/id', tw: '/tw', en: '/en', in: '/in', sg: '/sg', ph: '/ph', ae: '/ae', ie: '/ie' };
 export const IN_LANGUAGE: Record<Loc, string> = {
   ko: 'ko-KR',
   ja: 'ja-JP',
@@ -21,6 +21,7 @@ export const IN_LANGUAGE: Record<Loc, string> = {
   sg: 'en-SG',
   ph: 'fil-PH',
   ae: 'en-AE',
+  ie: 'en-IE',
 };
 
 export const postHref = (loc: Loc, id: string) => withBase(`${PREFIX[loc]}/blog/${id}/`);

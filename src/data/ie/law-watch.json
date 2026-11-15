@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-11-15T10:29:07.706Z",
+  "readOk": 2,
+  "total": 2,
+  "laws": [
+    {
+      "id": "hiqa-draft",
+      "name": "HIQA draft national guidance on AI for consultation (January 2026, PDF)",
+      "url": "https://www.hiqa.ie/sites/default/files/2026-01/Draft-National-Guidance-for-the-Responsible-and-Safe-Use-of-Artificial-Intelligence-in-Health-and-Social-Care-Services-for-public-consultation.pdf",
+      "baseline": "Thu, 22 Jan 2026 12:14:18 GMT | 701772 | W/\"6972149a-ab54c\"",
+      "baselinePending": false,
+      "current": "Thu, 22 Jan 2026 12:14:18 GMT | 701772 | W/\"6972149a-ab54c\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T10:29:06.440Z",
+      "error": null
+    },
+    {
+      "id": "ai-for-care",
+      "name": "Department of Health: AI for Care 2026-2030 (PDF)",
+      "url": "https://www.drugsandalcohol.ie/46031/1/AI_for_Care_2026-2030.pdf",
+      "baseline": "Sun, 28 Jun 2026 10:34:31 GMT | 6436914 | c76543fc9a244516ae4eb0c6a1ea2c18",
+      "baselinePending": false,
+      "current": "Sun, 28 Jun 2026 10:34:31 GMT | 6436914 | c76543fc9a244516ae4eb0c6a1ea2c18",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T10:29:07.706Z",
+      "error": null
+    }
+  ]
+}

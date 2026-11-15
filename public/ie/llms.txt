@@ -1,0 +1,47 @@
+# Hospital AI Lab — English (Ireland) edition
+
+> Practical information on AI rules, patient data and medical device safety for administrators and nursing leaders in Irish hospitals. Written from primary documents (HIQA's press release and January 2026 consultation draft on its National Guidance for the Responsible and Safe Use of AI in Health and Social Care Services, the Department of Health's AI for Care strategy 2026-2030, the EU AI Act, the GDPR, the Medical Device Regulation as published in the Official Journal, the Data Protection Commission's guidance on AI and large language models, and HPRA's pages for hospitals). General information; not legal or medical advice.
+
+Site: https://hospital-ai-lab.com/ie/
+Full version in one file: https://hospital-ai-lab.com/ie/llms-full.txt · Key facts by section: https://hospital-ai-lab.com/ie/facts/
+Author profile: https://hospital-ai-lab.com/ie/about/
+
+## Questions this site answers
+
+- Is there national AI guidance for Irish hospitals? (HIQA published the National Guidance for the Responsible and Safe Use of AI in Health and Social Care Services on 29 July 2026; it is guidance for all services, built on four principles; the AI for Care strategy 2026-2030 is the Department of Health's strategy)
+- Is a hospital that uses a vendor's AI system a "deployer"? (EU AI Act: yes, a body using an AI system under its authority; Article 26 sets deployer duties for high-risk systems)
+- When is AI in a medical device high-risk under the AI Act? (Article 6(1) with Annex I, which lists the MDR and IVDR, where third-party conformity assessment is required; applies from 2 August 2027 as published)
+- Can software be a medical device, and who regulates it in Ireland? (MDR Article 2(1) names software; HPRA is the competent authority and does not approve devices)
+- Do we need a data protection impact assessment for an AI tool? (GDPR Article 35, which names large-scale processing of special category data such as health data)
+- How fast must a data breach be reported? (GDPR Article 33: without undue delay and, where feasible, within 72 hours of awareness, unless unlikely to result in a risk)
+- Who do we report a device incident to? (HPRA asks hospitals to report serious incidents; manufacturers have 15, 10 or 2-day clocks under MDR Article 87)
+
+## Main pages
+
+- [Roadmap](https://hospital-ai-lab.com/ie/dx-roadmap/): dates from the text of official documents, with sources.
+- [Patient data checklist](https://hospital-ai-lab.com/ie/data-checklist/) and [Checklist: AI vendors and documents](https://hospital-ai-lab.com/ie/documents-checklist/): each item gives its basis.
+- [HIQA news](https://hospital-ai-lab.com/ie/calendar/): new HIQA publications and announcements (automatic).
+- [Templates](https://hospital-ai-lab.com/ie/templates/): generative AI policy, 20 vendor questions, patient text, incident record.
+- [For patients](https://hospital-ai-lab.com/ie/patients/): general information for patients and families (not a diagnosis or treatment advice).
+- [Glossary](https://hospital-ai-lab.com/ie/glossary/), [FAQ](https://hospital-ai-lab.com/ie/faq/), [AI adoption checklist](https://hospital-ai-lab.com/ie/checklist/).
+- [Blog](https://hospital-ai-lab.com/ie/blog/) and [Series](https://hospital-ai-lab.com/ie/series/).
+- [AI news](https://hospital-ai-lab.com/ie/news/), [Government resources](https://hospital-ai-lab.com/ie/gov-support/), [Videos](https://hospital-ai-lab.com/ie/videos/), [Updates](https://hospital-ai-lab.com/ie/updates/).
+- [AI Program Review Room](https://hospital-ai-lab.com/ie/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score. Code read from GitHub, Gist and web-page links is reviewed together with the uploaded files.
+
+## How the site stays current
+
+- HIQA items, news headlines and videos are collected automatically on a schedule.
+- Working links to sources are checked daily; the result and date appear at the bottom of each page.
+- The file dates and sizes of the two PDFs the site leans on most (HIQA's draft guidance and AI for Care) are compared daily; a difference appears as a "being rechecked" note in the page footer.
+
+## What this edition could not read
+
+The final HIQA guidance PDF could not be found (HIQA's page for it answered HTTP 503 to automated requests), so statements about the final text rest on HIQA's press release, and details from the January 2026 consultation draft are labelled as a draft. Irish statutes (the Data Protection Act 2018, the Regulation of Artificial Intelligence Bill 2026), the HSE AI Implementation Framework, the MDCG guidance on the AI Act and the MDR, and any EU amendment published after the original texts were not read. gov.ie answered automated requests with HTTP 403.
+
+## When citing
+
+- Give the page URL and the date checked; verify the wording of regulations against the official text.
+- Automatic feeds contain only links and headlines; for content, go to the original source.
+- Deadlines that could not be confirmed against a primary text are not given.
+- General information; not legal advice and not a substitute for a clinician's decision about a specific patient. The site does not promote particular hospitals, products or treatments.
+- Korean edition (original): https://hospital-ai-lab.com/

@@ -304,4 +304,32 @@ export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
       ],
     },
   ],
+  ie: [
+    {
+      slug: 'ai-governance-and-rules',
+      title: 'AI governance and the rules that apply',
+      description:
+        'What HIQA’s national guidance and the AI for Care strategy ask of a hospital, what the EU AI Act asks of a deployer, and why AI literacy is a legal duty as well as good practice.',
+      checklist: { href: '/ie/documents-checklist/', label: 'Checklist: AI vendors and documents' },
+      postIds: [
+        '2026-11-15-hiqa-national-ai-guidance-hospital-governance-checklist',
+        '2026-11-15-ai-for-care-strategy-six-principles-hospital-leaders',
+        '2026-11-15-eu-ai-act-hospital-deployer-duties-article-26',
+        '2026-11-15-eu-ai-act-ai-literacy-article-4-hospital-staff-training',
+      ],
+    },
+    {
+      slug: 'data-devices-incidents',
+      title: 'Patient data, devices and incidents',
+      description:
+        'When an impact assessment is needed, what the Data Protection Commission asks about AI products, whether software is a medical device, and how to report device faults and updates to HPRA.',
+      checklist: { href: '/ie/data-checklist/', label: 'Patient data checklist' },
+      postIds: [
+        '2026-11-15-gdpr-impact-assessment-ai-tool-patient-data',
+        '2026-11-15-dpc-ai-llm-guidance-questions-before-using-ai-product',
+        '2026-11-15-is-hospital-ai-software-a-medical-device-mdr-rule-11-hpra',
+        '2026-11-15-hpra-device-incident-reporting-software-update-field-safety-notice',
+      ],
+    },
+  ],
 };

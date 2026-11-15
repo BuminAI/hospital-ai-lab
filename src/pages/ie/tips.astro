@@ -1,0 +1,60 @@
+---
+import IeLayout from '../../layouts/IeLayout.astro';
+import IeSections from '../../components/IeSections.astro';
+import { tipsEn } from '../../data/ie/pages';
+import en from '../../i18n/ie.json';
+
+const p = tipsEn;
+
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: p.meta.pageTitle,
+    numberOfItems: p.sections.length,
+    itemListElement: p.sections.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.heading,
+    })),
+  },
+];
+---
+
+<IeLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  crumb={en.nav.tips}
+  koPath="/tips/"
+  idPath="/id/tips/"
+  ruPath="/ru/tips/"
+  twPath="/tw/tips/"
+  enPath="/en/tips/"
+  inPath="/in/tips/" phPath="/ph/tips/" sgPath="/sg/tips/" aePath="/ae/tips/"
+  jaPath="/ja/tips/"
+  schema={schema}
+>
+  <h1>{p.meta.pageTitle}</h1>
+  <p class="en-lead">{p.meta.lead}</p>
+
+  {/* 원내 규정 확인을 도구 소개보다 먼저 안내 */}
+  <p class="en-caution">
+Before using any of the tools listed here for work, make sure your hospital’s information security policy allows it. Do not enter patient or staff data into outside services: that is the general rule for every tool.
+  </p>
+
+  <IeSections sections={p.sections} />
+</IeLayout>
+
+<style>
+  .en-lead {
+    color: var(--ie-text-sub);
+  }
+  .en-caution {
+    border: 1px solid var(--ie-border);
+    border-left: 4px solid var(--ie-accent);
+    background: var(--ie-surface);
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    margin-bottom: 26px;
+  }
+</style>

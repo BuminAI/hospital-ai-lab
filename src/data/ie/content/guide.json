@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Where to start with medical AI in an Irish hospital",
+    "description": "Five steps for hospital administrators and nurse leaders, no technical background needed: the task, the rules that apply, patient data, written vendor answers and the staff.",
+    "pageTitle": "Where to start",
+    "lead": "You do not need to understand how a model works to review a proposal for one. You need to know what it is for, which rules apply, where patient data goes, and what changes for staff. Five steps, in order."
+  },
+  "sections": [
+    {
+      "heading": "1. Name the task before the technology",
+      "body": "Write one sentence: what job will this tool do, for whom, and what happens today without it? A tool that drafts discharge summaries, one that flags patients for review and one that schedules staff raise different questions. Both HIQA’s draft guidance and the AI for Care strategy keep a person in charge, so name who still makes the final decision.",
+      "items": []
+    },
+    {
+      "heading": "2. Find the rules that apply",
+      "body": "Three sets matter most: the EU AI Act (your hospital is a deployer when it uses a vendor’s AI system), the GDPR (patient data is special category data) and, if the software is a medical device, the Medical Device Regulation, which HPRA applies. HIQA’s national guidance and the Department of Health’s AI for Care strategy tell you what Irish health services are expected to do. Ask your compliance team which of these your project touches.",
+      "items": []
+    },
+    {
+      "heading": "3. Follow the patient data",
+      "body": "Find out which data the tool uses, where it goes, whether the provider keeps or re-uses it, and who is controller and who is processor. The Data Protection Commission’s AI guidance lists these questions. Large-scale use of health data usually calls for a data protection impact assessment before go-live. Ask the vendor to put the answers in writing.",
+      "items": []
+    },
+    {
+      "heading": "4. Get the answers in writing",
+      "body": "Ask whether the vendor treats the product as a medical device and why, what its instructions for use say about oversight and logs, how updates reach you, and how it will tell you of an incident. HPRA’s guidance on field safety notices describes how software updates can arrive as corrective actions. Keep the answers with the contract.",
+      "items": []
+    },
+    {
+      "heading": "5. Plan for the people who will work with it",
+      "body": "Decide who is trained before go-live (the AI Act asks deployers to ensure AI literacy), who can override the tool, who keeps the list of AI tools, and who reports incidents to HPRA or to the vendor. Involve nursing early, because they will see the first problems.",
+      "items": []
+    }
+  ]
+}

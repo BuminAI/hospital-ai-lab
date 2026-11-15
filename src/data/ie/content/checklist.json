@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "AI adoption review checklist for Irish hospitals",
+    "description": "Questions administrators and nurse leaders can ask when a vendor proposes an AI product: purpose, applicable rules, patient data, security and operations.",
+    "pageTitle": "AI adoption review checklist",
+    "lead": "Use this when you receive a specific proposal. Tick each item when you have a written answer. The items are the author’s list; the checklists and the facts page give the sources behind many of them."
+  },
+  "sections": [
+    {
+      "heading": "Purpose and scope",
+      "body": "",
+      "items": [
+        "The job the tool will do is described in one sentence and agreed by the department that will use it.",
+        "Who will use it, and who will be affected by its output, is listed (including nurses and front-desk staff).",
+        "Where the AI enters the process and who makes the final decision are written down."
+      ]
+    },
+    {
+      "heading": "Rules and regulatory status",
+      "body": "",
+      "items": [
+        "You have noted whether your hospital is a deployer of the AI system under the EU AI Act and whether the tool is, or may become, high-risk.",
+        "The vendor states in writing whether it treats the product as a medical device and which conformity route applies; HPRA does not approve devices, so ask for the CE-marking details.",
+        "You have asked who is the provider and whether any in-house development makes your hospital a provider or manufacturer.",
+        "You have read HIQA’s national guidance (final text) and noted what it asks of your service."
+      ]
+    },
+    {
+      "heading": "Patient data",
+      "body": "",
+      "items": [
+        "The vendor states where data is stored and processed, whether it is re-used, and who is controller and processor.",
+        "A data protection impact assessment has been done with your data protection officer before go-live.",
+        "The tool does not make decisions about patients solely by automated means without a person who can intervene.",
+        "The patient-facing explanation of the tool is agreed."
+      ]
+    },
+    {
+      "heading": "Security and incidents",
+      "body": "",
+      "items": [
+        "The incident card lists who reports to HPRA, who tells the vendor, and the 72-hour GDPR clock for personal data breaches.",
+        "You know how software updates and field safety notices reach you and who acts on them.",
+        "The vendor will tell you promptly about a breach, in writing."
+      ]
+    },
+    {
+      "heading": "Performance and oversight",
+      "body": "",
+      "items": [
+        "The vendor’s validation is described in writing, including data sets used and limits.",
+        "Someone with competence, training and authority can oversee and override the tool.",
+        "Logs under your control are kept for an appropriate period (the AI Act sets at least six months for high-risk systems)."
+      ]
+    },
+    {
+      "heading": "Operations and people",
+      "body": "",
+      "items": [
+        "Staff who will use the tool are trained before go-live, including its limits (AI literacy).",
+        "The tool is on your list of AI tools with a named owner.",
+        "An audit or review is scheduled, and workers have been informed where the AI Act requires it."
+      ]
+    }
+  ]
+}

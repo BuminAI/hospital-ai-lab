@@ -166,6 +166,7 @@ export const TERMS = {
 TERMS.in = TERMS.en;
 TERMS.sg = TERMS.en;
 TERMS.ae = TERMS.en;
+TERMS.ie = TERMS.en;
 
 // 지원사업·공모(정부 카테고리)와 교육·행사(이벤트 카테고리) 단어
 export const GRANT = {

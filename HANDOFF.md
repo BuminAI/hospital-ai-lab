@@ -831,6 +831,30 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - **자동 발행(오너 지시 2026-11-15)**: CLAUDE.md 예외에 `blogAe`·FAQ를 넣었고 예약 작업 `daily-update-digest`에 1-4-3단계(UAE)를 더했다. 훅 `allow-content-write.cjs`에도 `blog-ae/`·`blog-in/`·`ae/content/faq.json`을 추가했다(blog-in은 인도 단계가 이미 있었는데 훅에 빠져 있었다).
 - 새 자동화 `ae`를 더했으므로 `audit-site.mjs`·`site-health-check.mjs`·`locale-sitemaps`·`og/[...route].ts`·`locale.ts`·`ViewCounts.astro`(`sg`·`ph`·`ae` 조회수 표시 추가)에 `ae`가 들어갔다.
 
+## 5-22. 영어판(아일랜드) `/ie/` (2026-11-15 신설, 오너 지시: "아일랜드판 페이지를 만들어보자. 빠뜨리지 말고, 지금까지 지시한 대로")
+
+UAE판 `/ae/`을 복제한 **영어(아일랜드)** 판이다(hreflang·html lang `en-IE`, `IeLayout`, 컬렉션 `blogIe`, 글 폴더 `src/content/blog-ie/`, 데이터 `src/data/ie/`, 스타일 `src/styles/ie-*.css`의 `--ie-`, 시간대 Europe/Dublin, 통화 €). 번역도 복사도 아니다. **UAE 내용은 전부 아일랜드·EU 1차 문서로 새로 썼다.** 메뉴는 한국어판에 가깝게(`src/data/ie/content/nav.json`).
+
+**읽은 1차 문서(2026-11-15, 전문)**: HIQA 보도자료 'HIQA publishes first National Guidance…'(2026-07-29)와 2026-01 의견수렴 초안 PDF(55쪽), 보건부 AI for Care 2026-2030 PDF(drugsandalcohol.ie 사본; 문서에 발행일 없음), EU AI 법·GDPR·MDR의 **관보 원문(EU 출판청 CELLAR에서 `Accept: application/pdf|xhtml+xml`로 받음 — EUR-Lex 본 사이트는 봇 확인 화면(HTTP 202)이라 우회하지 않고, 공식 기계 접근 경로인 CELLAR를 썼다)**, DPC 'AI, Large Language Models and Data Protection'(2024-07-18), HPRA 병원용 페이지 3종(개요·보고·현장 안전 시정조치). 사실은 `src/data/ie/guides/{milestones,facts}.ts` 한곳.
+
+**읽지 못해 쓰지 않은 것(우회 금지)**: **HIQA 최종 지침 PDF**(안내 페이지가 HTTP 503, 파일 주소 미확인 — 최종 내용은 보도자료로만, 세부는 초안이라고 표시), 아일랜드 법률(Data Protection Act 2018, Regulation of AI Bill 2026 — 하원·상원 통과 여부는 HIQA 보도자료의 '상원 7월 15일 통과'만 인용하고 제정 여부는 미확인), HSE AI Implementation Framework, MDCG 지침, HPRA 독립형 소프트웨어 가이드, gov.ie(403). MDR은 2017년 관보 원문이므로 이후 개정·통합본은 미확인(글에 명시). EU AI 법의 적용일(2026-08-02, 제6조(1)은 2027-08-02)은 '관보 게재 기준'이며 디지털 옴니버스 등 이후 개정은 읽지 않았다.
+
+| 항목 | 위치 | 비고 |
+|---|---|---|
+| 레이아웃·UI | `IeLayout.astro`, `src/i18n/ie.json`, `growth.ts`의 `ie` | 열한 개 레이아웃 전부에 `iePath`·푸터 링크(`en-IE`), 한국어판은 `alternates.ie`; IeLayout은 `aePath`로 UAE판 연결 |
+| 실무 가이드 | `src/pages/ie/{dx-roadmap,data-checklist,documents-checklist,templates,practice,facts,calendar,updates}` + 환자 코너 | 항목마다 근거 조항 표기. '캘린더'는 HIQA 소식(RSS+뉴스 목록) |
+| 글 | `blog-ie/` 8편, 시리즈 `ai-governance-and-rules`(4)·`data-devices-incidents`(4) | AI Tools 75% |
+| 수집 | 광폭 수집기 `ie`(`wide-sources.mjs`: Irish Independent·TheJournal.ie·RTÉ·Medical Independent·IMT·Hospital Professional News·Irish Tech News RSS + **구글 뉴스 검색 RSS를 아일랜드 매체 허용 목록으로 거른 것, 기간 400일**), `fetch-ie-gov.mjs`(HIQA RSS 10건 + 공개 뉴스 목록 2쪽), `fetch-ie-videos.mjs`, `fetch-ai-digest.mjs ie`(구글 뉴스 허용 목록을 판별 설정 `gnewsAllow`로 분리) | 워크플로 `update-ie-*.yml`(분 오프셋 다름). 2026-11-15 시드: 뉴스 20·digest 42·HIQA 27·영상 11·논문 12×4 |
+| 점검 | `check-ie-links.mjs`, `check-ie-laws.mjs` | **지문은 안정적인 PDF 2건(HIQA 초안·AI for Care)만**. HIQA·DPC·HPRA 웹페이지는 요청마다 ETag·길이가 달라 거짓 '변경' 표시가 나서 뺐다 |
+| AI 심사실 | `scripts/ai-judge/lang/ie.py`(€) + `build.py` | `py scripts/ai-judge/build.py` |
+| 관리자 | `admin-ie.astro` + 다른 관리자 화면 연결(admin-ae·admin-ie는 sg·ph 링크도 보강) | |
+
+**주의할 점**
+- 아일랜드는 병원 AI 보도가 적어 90일 기준으로는 뉴스 10건이 안 찼다 → 구글 뉴스·의료 매체의 `maxAgeDays`를 400일로 늘렸다(페이지 문구에 '약 1년'을 밝힘). 같은 수집기에서 `HSE`가 러시아 HSE University·건강안전환경(HSE)으로 오염되는 질의가 있어 매체 허용 목록으로 거른다(영상은 `HSE` 단독 일치를 허용하지 않음).
+- 복제 후 일괄 치환에서 `en-AE`→`en-IE`가 IeLayout의 UAE 링크까지 바꿨다. 새 판을 또 만들면 레이아웃의 상대 판 링크 hreflang을 반드시 확인할 것.
+- UAE판 `ae.json` 홈 FAQ가 실제 수집처와 다른 매체명을 적고 있던 것을 같은 날 바로잡았다(CLAUDE.md '수집처 문구' 규정).
+- **자동 발행 예외(CLAUDE.md)에 아일랜드판은 아직 없다.** 오너가 지시하기 전엔 예약 작업(`daily-update-digest`)·훅(`allow-content-write.cjs`)에 넣지 않는다.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

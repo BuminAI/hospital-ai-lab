@@ -1,0 +1,233 @@
+---
+// Checklist: deployer role, device status and AI vendors in Irish hospitals (2026-11-15)
+// ⚠️ These items were written by the author from the text of the EU AI Act, the Medical Device Regulation (Official Journal texts), HPRA's pages
+//    for hospitals, and HIQA's press release and January 2026 consultation draft (always labelled as a draft). This is not an official
+//    checklist. The page does not claim what a specific vendor's product does. Irish statutes and the final HIQA guidance were not read.
+import '../../styles/ie-guide.css';
+import IeLayout from '../../layouts/IeLayout.astro';
+import IeGuideFoot from '../../components/IeGuideFoot.astro';
+import IeFaq from '../../components/IeFaq.astro';
+import { guideSchema } from '../../utils/ie-guide';
+import { SRC } from '../../data/ie/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = "Checklist: AI vendors, device status and documents in Ireland";
+const description =
+  "What to ask when a vendor offers AI software to an Irish hospital: are we a deployer, is it a medical device, is it high-risk under the AI Act, what must the vendor show, and how are updates and incidents handled.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. Which rules apply to this hospital?',
+    lead: 'Three sets of rules meet in a hospital AI project. Write down which of them your tool touches.',
+    items: [
+      {
+        no: '1',
+        text: 'You have recorded that the hospital is a deployer: a person or body using an AI system under its authority. Deployers have their own duties under the AI Act, separate from the vendor’s.',
+        basis: 'AI Act Article 3 (definition of deployer, as quoted in HIQA’s draft); HIQA draft guidance (January 2026), Principle 1',
+      },
+      {
+        no: '2',
+        text: 'You have asked whether any in-house development makes the hospital a provider of an AI system or the manufacturer of a medical device. HIQA’s draft says it would then carry provider obligations under the AI Act and manufacturer obligations under the MDR or IVDR.',
+        basis: 'HIQA draft guidance (January 2026), Principle 1; MDR Article 5(5)',
+      },
+      {
+        no: '3',
+        text: 'You have checked the dates: the AI Act applies from 2 August 2026 in general, and Article 6(1) (AI in products such as medical devices) from 2 August 2027, as published. Check whether EU amendments changed them.',
+        basis: 'AI Act Article 113',
+      },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Is it a medical device, and is it high-risk?',
+    lead: 'HPRA monitors devices in Ireland but does not approve them, so the evidence has to come from the vendor.',
+    items: [
+      {
+        no: '4',
+        text: 'The vendor has said in writing whether it treats the product as a medical device and why. The MDR’s definition names software intended by the manufacturer for a medical purpose such as diagnosis, prediction, prognosis or treatment.',
+        basis: 'MDR Article 2(1); HPRA overview for hospitals',
+      },
+      {
+        no: '5',
+        text: 'If it is a device, the vendor states the class and its reasoning. Rule 11 puts software that informs diagnostic or therapeutic decisions in class IIa, and in IIb or III if the decision could cause serious or irreversible harm.',
+        basis: 'MDR Annex VIII, rule 11 (text as published in 2017)',
+      },
+      {
+        no: '6',
+        text: 'You have asked how the vendor sees Article 6(1) of the AI Act: an AI system is high-risk when it is a product (or safety component) covered by Annex I legislation such as the MDR and must undergo third-party conformity assessment.',
+        basis: 'AI Act Article 6(1), Annex I Section A points 11 and 12',
+      },
+      {
+        no: '7',
+        text: 'For uses outside devices, you have checked whether the tool is in Annex III, for example evaluating eligibility for public healthcare services or emergency healthcare patient triage.',
+        basis: 'AI Act Annex III point 5(a) and (d)',
+      },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. What the vendor must show',
+    lead: 'Ask for these in writing and keep the answers with the contract.',
+    items: [
+      {
+        no: '8',
+        text: 'The instructions for use say how human oversight is meant to work, and you can assign it to people with the competence, training, authority and support the AI Act asks for.',
+        basis: 'AI Act Article 26(1) and (2)',
+      },
+      {
+        no: '9',
+        text: 'The vendor tells you how its system informs people that they are interacting with AI, where it talks to patients directly, unless that is obvious.',
+        basis: 'AI Act Article 50(1)',
+      },
+      {
+        no: '10',
+        text: 'The vendor describes validation, data sets and the limits of the tool in writing. (Author’s recommendation; HIQA’s draft also stresses documentation for explainability, traceability and auditability.)',
+        basis: 'HIQA draft guidance (January 2026), Principle 1 (author’s recommendation)',
+      },
+    ],
+  },
+  {
+    id: 'g4',
+    head: 'D. Updates, incidents and reporting',
+    lead: 'Updates change a tool after you approved it. Ask how they reach you before signing.',
+    items: [
+      {
+        no: '11',
+        text: 'There is a documented process to receive, review and pass on manufacturer field safety notices to clinical, technical and procurement staff, including notices that involve software updates.',
+        basis: 'HPRA, Managing field safety corrective actions',
+      },
+      {
+        no: '12',
+        text: 'The incident card says who reports serious device incidents to HPRA (death, serious deterioration in health or a serious public health threat), by online form, email, post or phone, and who tells the vendor. HPRA sets no hospital deadline.',
+        basis: 'HPRA, Reporting medical device & IVD safety issues',
+      },
+      {
+        no: '13',
+        text: 'For high-risk AI systems, the deployer monitors operation, informs the provider and the market surveillance authority of risks, suspends use if needed, reports serious incidents, and keeps logs it controls for at least six months.',
+        basis: 'AI Act Article 26(5) and (6)',
+      },
+    ],
+  },
+  {
+    id: 'g5',
+    head: 'E. What the hospital does itself',
+    lead: 'A vendor’s paperwork does not replace the hospital’s own governance.',
+    items: [
+      {
+        no: '14',
+        text: 'A list of authorised AI tools is kept, someone is assigned to maintain the inventory, and risk assessments follow existing risk management procedures. (HIQA’s January 2026 draft gives these as examples; the final text may differ.)',
+        basis: 'HIQA draft guidance (January 2026), Principle 1',
+      },
+      {
+        no: '15',
+        text: 'Staff who use the tool are trained before go-live, including its limits, and workers have been told where the AI Act requires it.',
+        basis: 'AI Act Articles 4 and 26(7)',
+      },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'Does a vendor’s CE mark mean the tool is right for our hospital?',
+    a: 'No. HPRA says it monitors devices on the Irish market and does not approve them, and the AI Act and HIQA’s draft both put duties on the hospital as deployer: oversight, monitoring, logs, training and transparency to patients. The vendor’s validation is a starting point for your own testing.',
+  },
+  {
+    q: 'A vendor says its product is not a medical device. What do we do?',
+    a: 'Ask for the reasoning in writing, tied to the intended purpose the manufacturer states. The MDR’s definition turns on that intended medical purpose. Then ask whether the product could still be high-risk under Annex III of the AI Act. Take the answers to your regulatory team.',
+  },
+  {
+    q: 'Which dates matter for AI in medical devices?',
+    a: 'As published in the Official Journal, the AI Act applies generally from 2 August 2026, and Article 6(1) (AI in products covered by the MDR or IVDR that need third-party conformity assessment) with its corresponding obligations from 2 August 2027. We did not read later EU amendments, so check the current text.',
+  },
+];
+
+const sources = [SRC.aiAct, SRC.mdr, SRC.hpraOverview, SRC.hpraReporting, SRC.hpraFsca, SRC.hiqaDraft];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ie/documents-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: "Hospital administration and executives",
+  faq,
+});
+---
+
+<IeLayout title={title} description={description} crumb="AI vendors and documents" standalone updated={new Date('2026-11-15T00:00:00+00:00')} schema={guide}>
+  <h1>Checklist: AI vendors and documents</h1>
+  <p class="tg-lead">
+    When a vendor offers AI software, three questions come up together: are we a deployer with our own duties, is it a regulated medical device or a high-risk AI system, and what changes when the tool is updated. This page puts them in one place, each with its basis.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and executives</p>
+
+  <p class="tg-answer">
+    In short: a hospital that uses an AI system is a deployer under the EU AI Act; software can be a medical device under the MDR, which HPRA applies in Ireland without approving products; and HIQA’s guidance and the Department of Health’s strategy keep a person in charge and ask for governance, transparency and an inventory of AI tools.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from the documents cited; each item gives its basis.</li>
+      <li>The documents cited do not decide whether a particular product is a medical device or a high-risk AI system. That depends on its intended purpose; ask the vendor in writing.</li>
+      <li>HIQA’s final guidance PDF could not be opened; its January 2026 draft is cited and marked as a draft.</li>
+      <li>Items marked “author’s recommendation” are not requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ie/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>Impact assessments, controller and processor roles, automated decisions and breach timelines.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ie/templates/')}>
+        <b>Document templates</b>
+        <span>Vendor questions, a generative AI policy and an incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <IeFaq items={faq} />
+
+  <IeGuideFoot sources={sources} checked={CHECKED} />
+</IeLayout>

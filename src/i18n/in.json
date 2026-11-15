@@ -43,7 +43,8 @@
     "in": "English edition for India",
     "sg": "English edition for Singapore",
     "ph": "Filipino edition for the Philippines",
-    "ae": "English edition for the UAE"
+    "ae": "English edition for the UAE",
+    "ie": "English edition for Ireland"
   },
   "ui": {
     "updated": "Updated",

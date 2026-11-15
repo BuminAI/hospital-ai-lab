@@ -1,0 +1,224 @@
+---
+// Checklist: patient data and AI tools in Irish hospitals (2026-11-15)
+// ⚠️ Items rest on documents read in full text: the GDPR (Regulation (EU) 2016/679, Official Journal text), the EU AI Act (Regulation (EU)
+//    2024/1689), the Data Protection Commission's guidance "AI, Large Language Models and Data Protection" (18 July 2024), and HIQA's
+//    January 2026 consultation draft of its national AI guidance (always labelled as a draft). Irish statutes (the Data Protection Act 2018
+//    and its health research regulations) were not read, so no section of them is cited.
+import '../../styles/ie-guide.css';
+import IeLayout from '../../layouts/IeLayout.astro';
+import IeGuideFoot from '../../components/IeGuideFoot.astro';
+import IeFaq from '../../components/IeFaq.astro';
+import { guideSchema } from '../../utils/ie-guide';
+import { SRC } from '../../data/ie/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = "Patient data checklist: AI tools, vendors and breaches in Ireland";
+const description =
+  "A checklist for hospital administration and IT: what the GDPR and the DPC’s AI guidance mean for patient data in an AI tool, when to do an impact assessment, and which clocks apply to a breach.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. What data an AI tool sees, and who is responsible for it',
+    lead: 'Patient data is special category data. Start by knowing what goes in, where it goes, and who decides.',
+    items: [
+      {
+        no: '1',
+        text: 'You have listed what personal data each AI tool uses, how it uses it, and where the data goes when a third party is involved. The vendor’s documentation tells you this in an understandable form.',
+        basis: 'DPC guidance (18 July 2024), section on risks to the organisation using AI systems',
+      },
+      {
+        no: '2',
+        text: 'You have settled who is controller and who is processor for the tool, and the contract says so. The DPC says an organisation using an AI product could be a controller, and a product provider may be a controller or processor.',
+        basis: 'DPC guidance (18 July 2024)',
+      },
+      {
+        no: '3',
+        text: 'The vendor says whether it retains your data or re-uses it, for example to train or fine-tune a model, and on what basis.',
+        basis: 'DPC guidance (18 July 2024)',
+      },
+      {
+        no: '4',
+        text: 'The legal basis for processing health data is recorded. GDPR Article 9 prohibits processing of data concerning health unless a condition in Article 9(2) applies, for example (h) for the provision of health care or the management of health care systems on the basis of Union or Member State law.',
+        basis: 'GDPR Article 9(1) and (2)(h)',
+      },
+      {
+        no: '5',
+        text: 'Staff know which data may not be typed into consumer chatbots, and the hospital has said which tools are approved. (Author’s recommendation.)',
+        basis: 'DPC guidance (18 July 2024) (author’s recommendation)',
+      },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Impact assessment and automated decisions',
+    lead: 'Two GDPR articles decide most AI project paperwork.',
+    items: [
+      {
+        no: '6',
+        text: 'A data protection impact assessment is done before go-live where the processing is likely to result in a high risk, in particular when using new technologies. Large-scale processing of special categories of data, including health data, is named as a case where one is required.',
+        basis: 'GDPR Article 35(1) and (3)(b)',
+      },
+      {
+        no: '7',
+        text: 'The data protection officer was asked for advice when carrying out the assessment.',
+        basis: 'GDPR Article 35(2)',
+      },
+      {
+        no: '8',
+        text: 'For a high-risk AI system, you use the information from the provider’s instructions to help carry out the assessment where applicable.',
+        basis: 'AI Act Article 26(9)',
+      },
+      {
+        no: '9',
+        text: 'No decision about a patient is based solely on automated processing where it produces legal effects or similarly significantly affects them, unless an exception applies with safeguards, including at least human intervention, a way to express a view and to contest the decision.',
+        basis: 'GDPR Article 22(1)-(3)',
+      },
+      {
+        no: '10',
+        text: 'Someone can answer access and deletion requests that touch the AI system: the DPC asks whether you could do it if a person asked for their data in the system.',
+        basis: 'DPC guidance (18 July 2024)',
+      },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. Breaches and incidents',
+    lead: 'Different documents set different clocks. Put them on one card.',
+    items: [
+      {
+        no: '11',
+        text: 'A personal data breach is notified to the supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware, unless it is unlikely to result in a risk to people’s rights and freedoms.',
+        basis: 'GDPR Article 33(1)',
+      },
+      {
+        no: '12',
+        text: 'The vendor, as processor, must notify you without undue delay after becoming aware of a breach. The contract states the hours, not “promptly”. (Author’s recommendation for the hours.)',
+        basis: 'GDPR Article 33(2)',
+      },
+      {
+        no: '13',
+        text: 'Where a breach is likely to result in a high risk, the people affected are told without undue delay, in clear plain language, unless an exception such as encryption that makes the data unintelligible applies.',
+        basis: 'GDPR Article 34(1)-(3)',
+      },
+      {
+        no: '14',
+        text: 'For high-risk AI systems, a serious incident is reported immediately, first to the provider, then to the importer or distributor and the market surveillance authorities; where there is a risk, use is suspended. Logs under your control are kept for at least six months unless other law says otherwise.',
+        basis: 'AI Act Article 26(5) and (6)',
+      },
+      {
+        no: '15',
+        text: 'A retention schedule exists for data held in or generated by the tool, because the DPC warns that without one the organisation risks non-compliance with the principle of storage limitation.',
+        basis: 'DPC guidance (18 July 2024)',
+      },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'Do we always need a data protection impact assessment for an AI tool?',
+    a: 'Not always, but GDPR Article 35 requires one before processing likely to result in a high risk, and names large-scale processing of special categories of data such as health data. The Data Protection Commission’s AI guidance says an assessment may be needed, especially where technology or processing is new to the organisation, and that it can be good practice anyway.',
+  },
+  {
+    q: 'What is the deadline for reporting a data breach involving an AI vendor?',
+    a: 'The controller notifies the Data Protection Commission without undue delay and, where feasible, within 72 hours of becoming aware, unless the breach is unlikely to result in a risk (GDPR Article 33). A processor notifies the controller without undue delay, so write the vendor’s alert time into the contract.',
+  },
+  {
+    q: 'May patient data be used to train an AI model?',
+    a: 'This page cannot answer that for a specific project. GDPR Article 9 restricts processing of health data, and the DPC’s guidance asks organisations to check whether new purposes fall within the legal basis they already have and to consider an impact assessment. Irish rules on health research were not read for this page. Ask your data protection officer.',
+  },
+  {
+    q: 'Is this a complete data protection compliance checklist?',
+    a: 'No. It rests on the GDPR text, the AI Act text and the DPC’s AI guidance. We did not read Irish statutes such as the Data Protection Act 2018, nor the final HIQA guidance. Ask your data protection officer or counsel.',
+  },
+];
+
+const sources = [SRC.gdpr, SRC.dpcAi, SRC.aiAct, SRC.hiqaDraft];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ie/data-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Hospital administration and IT',
+  faq,
+});
+---
+
+<IeLayout title={title} description={description} crumb="Patient data protection" standalone updated={new Date('2026-11-15T00:00:00+00:00')} schema={guide}>
+  <h1>Patient data protection checklist</h1>
+  <p class="tg-lead">
+    AI tools bring patient data into new places: a vendor’s servers, a model’s training, a chatbot window. This page turns the GDPR and the Data Protection Commission’s AI guidance into a checklist for the people who approve those tools, each item with its source.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and IT</p>
+
+  <p class="tg-answer">
+    In short: patient data is special category data under the GDPR; large-scale use of it in a new tool usually calls for a data protection impact assessment before go-live; decisions made solely by automated means have safeguards; and a personal data breach has a 72-hour clock for notifying the supervisory authority.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from documents that were read in full; each item gives its basis, so check the text.</li>
+      <li>We did not read Irish statutes (such as the Data Protection Act 2018), so this list does not state what Irish law adds to the GDPR. Ask your data protection officer or counsel.</li>
+      <li>The final HIQA guidance PDF could not be opened, so HIQA’s draft is cited only where useful and is marked as a draft.</li>
+      <li>Items marked “author’s recommendation” are not requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ie/documents-checklist/')}>
+        <b>Checklist: AI vendors and documents</b>
+        <span>Deployer role, device status, what the vendor must show, and how updates and incidents are handled.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ie/templates/')}>
+        <b>Document templates</b>
+        <span>Vendor questions, generative AI policy and an incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <IeFaq items={faq} />
+
+  <IeGuideFoot sources={sources} checked={CHECKED} />
+</IeLayout>

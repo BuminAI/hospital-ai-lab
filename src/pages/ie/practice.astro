@@ -1,0 +1,40 @@
+---
+// Practice guides (for hospital staff) — overview page (2026-11-15)
+import '../../styles/ie-guide.css';
+import IeLayout from '../../layouts/IeLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = 'Practice guides: AI rules, patient data and vendors in Ireland';
+const description =
+  'A roadmap, checklists, HIQA news, templates and key facts from primary documents, for hospital administrators and nurse leaders in Ireland.';
+
+const cards = [
+  { href: '/ie/facts/', t: 'Key facts', d: 'Short answers with the article or section and a link to the primary source: HIQA guidance, the AI Act, device rules, GDPR.' },
+  { href: '/ie/dx-roadmap/', t: 'Roadmap', d: 'The GDPR, MDR and AI Act dates, the AI for Care strategy and HIQA’s guidance on one timeline.' },
+  { href: '/ie/data-checklist/', t: 'Patient data protection checklist', d: 'Controller and processor roles, impact assessments, automated decisions and the 72-hour breach clock.' },
+  { href: '/ie/documents-checklist/', t: 'Checklist: AI vendors and documents', d: 'Deployer role, device status, high-risk check, what the vendor must show, and how updates and incidents are handled.' },
+  { href: '/ie/calendar/', t: 'HIQA news', d: 'New HIQA publications and announcements, including on AI, data and digital health.' },
+  { href: '/ie/templates/', t: 'Templates', d: 'Generative AI policy, 20 vendor questions, patient text, incident record.' },
+  { href: '/ie/checklist/', t: 'AI adoption checklist', d: 'A list for assessing proposals from AI vendors.' },
+];
+---
+
+<IeLayout title={title} description={description} crumb="Practice guides" standalone>
+<h1>Practice guides</h1>
+  <p class="tg-lead">
+For administration, planning and nursing leadership: material you can use tomorrow. Rules are written after the documents were opened and read (HIQA, the Department of Health, the DPC, HPRA and the EU texts); each page shows its sources and the date they were checked.
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+Explanations for patients and their families are in <a href={withBase('/ie/patients/')}>For patients</a>; front-desk staff can use them too.
+  </p>
+</IeLayout>

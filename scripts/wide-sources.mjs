@@ -1,4 +1,4 @@
-// 광폭 수집기 출처 목록 (2026-11-14, ae 2026-11-15). 전부 2026-11-14에 이 저장소 환경에서 응답을 확인한 공개 RSS/Atom/RDF다.
+// 광폭 수집기 출처 목록 (2026-11-14, ae·ie 2026-11-15). 전부 2026-11-14에 이 저장소 환경에서 응답을 확인한 공개 RSS/Atom/RDF다.
 //
 // topic
 //   health  — 의료 전문 매체. 제목·요약에 AI 단어만 있으면 통과(의료 맥락은 매체가 보장).
@@ -219,6 +219,21 @@ export const EDITIONS = {
       rss('Tahawul Tech', 'https://www.tahawultech.com/feed/', 'tech'),
     ],
   },
+  // 2026-11-15 아일랜드판. 전부 이 환경에서 응답을 확인한 공개 RSS다(Irish Independent·TheJournal.ie·Medical Independent·Irish Medical Times·Hospital Professional News·Irish Tech News·RTÉ).
+  ie: {
+    lang: 'ie',
+    files: { news: 'src/data/ie/news.json', gov: 'src/data/ie/gov-notices.json', events: null },
+    sources: [
+      rss('Irish Independent', 'https://www.independent.ie/irish-news/health/rss/', 'general'),
+      rss('Irish Independent', 'https://www.independent.ie/rss', 'general'),
+      rss('TheJournal.ie', 'https://www.thejournal.ie/feed/', 'general'),
+      rss('RTÉ', 'https://www.rte.ie/news/rss/news-headlines.xml', 'general'),
+      rss('Medical Independent', 'https://www.medicalindependent.ie/feed/', 'health', { maxAgeDays: 400 }),
+      rss('Irish Medical Times', 'https://www.imt.ie/feed/', 'health', { maxAgeDays: 400 }),
+      rss('Hospital Professional News', 'https://hospitalprofessionalnews.ie/feed/', 'health', { maxAgeDays: 180 }),
+      rss('Irish Tech News', 'https://irishtechnews.ie/feed/', 'tech'),
+    ],
+  },
 };
 
 // ── 2026-11-15 UAE: 구글 뉴스 검색 RSS로 UAE 매체(Khaleej Times·Gulf News·Arabian Business·WAM 등)의 의료 AI 기사를 모은다.
@@ -244,6 +259,30 @@ EDITIONS.ae.sources.push(
   gnews('Abu Dhabi hospital AI doctors'),
   gnews('UAE medical AI nurses'),
   gnews('UAE digital health AI regulation'),
+);
+
+// ── 2026-11-15 아일랜드: 구글 뉴스 검색 RSS를 아일랜드 매체 허용 목록으로 거른다(자체 RSS에는 AI+의료 기사가 드물다) ──
+const IE_OUTLETS = /^(The Irish Times|RTÉ|RTE\.ie|Irish Independent|Independent\.ie|Irish Examiner|TheJournal\.ie|The Journal|Silicon Republic|Business Post|The Sunday Business Post|Medical Independent|Irish Medical Times|Hospital Professional News|Irish Tech News|Pulse IT|Pulse+IT News|Irish Legal News|Newstalk|BreakingNews\.ie|HIQA|Health Information and Quality Authority|HSE|Health Service Executive|Data Protection Commission|Dublin Live|Irish Mirror|Gript)$/;
+const gnewsIe = (q) => ({
+  name: 'Google News',
+  url: `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-IE&gl=IE&ceid=IE:en`,
+  topic: 'general',
+  gnews: true,
+  allow: IE_OUTLETS,
+  rename: { "Pulse+IT News": "Pulse IT", "The Journal": "TheJournal.ie", 'RTE.ie': 'RTÉ', 'Independent.ie': 'Irish Independent', 'Health Service Executive': 'HSE', 'Health Information and Quality Authority': 'HIQA', 'The Sunday Business Post': 'Business Post' },
+  maxAgeDays: 400, // 아일랜드 의료 AI 보도는 드물어 90일로는 10건이 안 찬다(2026-11-15 실측)
+});
+EDITIONS.ie.sources.push(
+  gnewsIe('Ireland hospital artificial intelligence'),
+  gnewsIe('HSE artificial intelligence'),
+  gnewsIe('HIQA artificial intelligence guidance'),
+  gnewsIe('Irish hospitals AI patients'),
+  gnewsIe('Ireland healthcare AI when:30d'),
+  gnewsIe('Ireland nurses AI'),
+  gnewsIe('Data Protection Commission AI health data'),
+  gnewsIe('Ireland AI Act health'),
+  gnewsIe('Ireland digital health AI strategy'),
+  gnewsIe('Ireland medical AI HPRA'),
 );
 
 // ── 2026-11-14 추가: 건강·기술 섹션 피드(응답 확인) ─────────────────────

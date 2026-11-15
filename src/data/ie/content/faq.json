@@ -1,0 +1,56 @@
+[
+  {
+    "question": "Which AI rules apply to an Irish hospital?",
+    "answer": "There is no single Irish AI code for hospitals. The EU AI Act applies directly in Ireland (most of it from 2 August 2026 as published), the GDPR governs patient data, the MDR governs AI software that is a medical device, and HIQA’s national guidance and the Department of Health’s AI for Care strategy set expectations for health services. HIQA’s press release says a Bill to implement the AI Act nationally passed the Seanad on 15 July 2026; we have not confirmed whether it has been enacted.",
+    "sources": [
+      "https://www.hiqa.ie/ga/node/74973",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    ]
+  },
+  {
+    "question": "Does HIQA’s guidance bind hospitals?",
+    "answer": "HIQA describes it as guidance meant to promote awareness and build good practice among services and staff. It builds on HIQA’s existing national standards. We could not open the final PDF, so check it directly for what it says about your service.",
+    "sources": [
+      "https://www.hiqa.ie/ga/node/74973"
+    ]
+  },
+  {
+    "question": "Is AI software that a hospital buys a medical device in Ireland?",
+    "answer": "It can be. The MDR’s definition of a medical device names software, and HPRA applies the MDR in Ireland. Whether a product is a device depends on the purpose its manufacturer intends, so ask the vendor in writing. HPRA says it does not approve devices; ask for the CE-marking and conformity details instead.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj",
+      "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/overview-of-medical-device---ivd-regulation-for-hospitals"
+    ]
+  },
+  {
+    "question": "Do we have to train staff on AI?",
+    "answer": "The AI Act’s Article 4 asks providers and deployers to take measures to ensure a sufficient level of AI literacy among staff and others who operate or use AI systems for them. It has applied since 2 February 2025. The Department of Health’s strategy also commits to building AI literacy.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "https://www.drugsandalcohol.ie/46031/1/AI_for_Care_2026-2030.pdf"
+    ]
+  },
+  {
+    "question": "Do we need a data protection impact assessment before using an AI tool on patient data?",
+    "answer": "GDPR Article 35 requires one before processing likely to result in a high risk, and names large-scale processing of special category data such as health data. The Data Protection Commission’s AI guidance also says an assessment may be needed, especially for new technology. Ask your data protection officer.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "https://www.dataprotection.ie/en/dpc-guidance/blogs/AI-LLMs-and-Data-Protection"
+    ]
+  },
+  {
+    "question": "How fast must we report a data breach involving an AI vendor?",
+    "answer": "GDPR Article 33 asks the controller to notify the Data Protection Commission without undue delay and, where feasible, within 72 hours of becoming aware, unless the breach is unlikely to result in a risk. A processor must tell the controller without undue delay, so write the vendor’s alert time into the contract.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    ]
+  },
+  {
+    "question": "Who do we report a device problem to?",
+    "answer": "HPRA says hospitals and healthcare professionals should report serious incidents through its online report form, or by email, post or phone. It encourages reporting when in doubt. The AI Act separately asks deployers of high-risk AI systems to inform the provider and the market surveillance authority of risks and serious incidents.",
+    "sources": [
+      "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/reporting-medical-device---ivd-safety-issues",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    ]
+  }
+]

@@ -98,7 +98,7 @@
       },
       {
         "q": "Where does the information come from?",
-        "a": "Statements about rules in the practice guides, glossary and checklists cite a primary document that was opened and read: the Abu Dhabi Department of Health's Policy on Use of AI and its standards on digital products governance, data access, data storage and retention, analytics and reporting, medical device reporting and device cybersecurity, the Dubai Health Authority's AI policy and DoH's Health Information Exchange policy. AI news headlines are collected automatically from The National, Khaleej Times, Emirates 24|7, Healthcare Middle East, Hospital Management Asia, Healthcare Asia, Khalifa University and the Dubai Future Foundation, and new DoH standards are listed as they appear. The federal legislation portal did not answer automated requests, so no article of a federal law is quoted from the law itself."
+        "a": "Statements about rules in the practice guides, glossary and checklists cite a primary document that was opened and read: the Abu Dhabi Department of Health's Policy on Use of AI and its standards on digital products governance, data access, data storage and retention, analytics and reporting, medical device reporting and device cybersecurity, the Dubai Health Authority's AI policy and DoH's Health Information Exchange policy. AI news headlines are collected automatically from Gulf News, Khaleej Times, The National, WAM, Gulf Business, Emirates 24|7, Arab News, Fast Company Middle East, Tbreak UAE and the Department of Health – Abu Dhabi, and new DoH standards are listed as they appear. The federal legislation portal did not answer automated requests, so no article of a federal law is quoted from the law itself."
       },
       {
         "q": "How often is the site updated?",
@@ -106,7 +106,7 @@
       },
       {
         "q": "Is this a translation of the Korean edition or the U.S. edition?",
-        "a": "No. The UAE edition is written from scratch from UAE documents such as the Abu Dhabi DoH's AI policy, the Dubai Health Authority's AI policy and the DoH standards on digital products and data. The content differs from the Korean edition and from the English editions for the United States, India and the UAE."
+        "a": "No. The UAE edition is written from scratch from UAE documents such as the Abu Dhabi DoH's AI policy, the Dubai Health Authority's AI policy and the DoH standards on digital products and data. The content differs from the Korean edition and from the English editions for the United States, India and Singapore."
       }
     ],
     "aiDigestDesc": "AI news from the UAE news outlets: regulation, data, security."

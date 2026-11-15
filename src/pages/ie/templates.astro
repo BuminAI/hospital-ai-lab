@@ -1,0 +1,213 @@
+---
+// Templates (2026-11-15): generative AI policy, 20 vendor questions, patient-facing text, incident record
+// ⚠️ Everything here is the author's DRAFT, not legal advice. Cited only to documents that were read in full (EU AI Act, GDPR, MDR as published in the Official Journal, the DPC's AI guidance, HPRA's pages for hospitals, and HIQA's January 2026 consultation draft, labelled as a draft).
+import '../../styles/ie-guide.css';
+import IeLayout from '../../layouts/IeLayout.astro';
+import IeGuideFoot from '../../components/IeGuideFoot.astro';
+import { SRC } from '../../data/ie/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = 'Templates: generative AI policy and 20 vendor questions';
+const description =
+  'Four copyable drafts for Irish hospitals: a generative AI use policy, 20 vendor questions, a short text for patients and an incident record with the reporting clocks.';
+
+const policy = [
+  "GENERATIVE AI USE POLICY, \"__\" HOSPITAL (DRAFT)",
+  "",
+  "1. Purpose",
+  "   Sets rules for staff of \"__\" when they use generative AI tools (chatbots, summarising tools, translation tools).",
+  "",
+  "2. What must NOT be entered",
+  "   - Patient names, PPS numbers, medical record numbers, dates of birth, addresses, phone numbers, or the content of patient records.",
+  "   - Images or recordings that could identify a patient.",
+  "   - Contracts, or restricted financial and personnel data.",
+  "   Exception: a tool that \"__\" has approved in writing for that data type (see clause 3).",
+  "",
+  "3. Approved tools and permitted data",
+  "   Only tools on the approved list kept by \"__\" (owner: __). For each approved tool the list states which data types may be entered, following our data classification, and states where the tool stores and processes data and whether the provider keeps or re-uses it. Using an unapproved tool for work is not allowed.",
+  "",
+  "4. Review of output",
+  "   A person is responsible for every AI-generated text used in work. Generative AI can state fictitious content as fact, so check facts, numbers and names against the source before use.",
+  "   AI output is never entered in a patient record until the responsible clinician has reviewed and approved it. Where AI-generated content is shown to others, label it as AI-generated.",
+  "",
+  "5. Reporting",
+  "   If patient information was entered into an unapproved tool, report it the same day to __ (name, phone __). Do not try to delete it yourself first.",
+  "",
+  "6. Training",
+  "   Staff who use AI tools are trained on this policy, including the data input restrictions and how to report an incident, and are re-trained after significant updates. Owner: __. Review date: __.",
+].join('\n');
+
+const questions = [
+  "TWENTY QUESTIONS FOR AN AI VENDOR (DRAFT)",
+  "Write the answers down and attach them to the contract.",
+  "",
+  "Status and rules",
+  "1. Do you treat this product as a medical device? Which conformity route applies, and may we see the CE-marking details?",
+  "2. What is the intended purpose statement, and does our planned use match it?",
+  "3. Do you see the product as a high-risk AI system under the EU AI Act (Article 6(1) or Annex III)? Why or why not?",
+  "4. Which functions are AI-enabled, and what type of model is used?",
+  "5. How was the solution validated, on which data sets, and what are its limits?",
+  "6. Does your product interact directly with patients? How does it tell them they are talking to an AI system?",
+  "",
+  "Oversight and updates",
+  "7. What do your instructions for use say about human oversight, and what training does an overseer need?",
+  "8. How will we be told before an update reaches our wards, and can we delay it?",
+  "9. How is an update rolled back, and who tells our staff?",
+  "10. What logs does the system keep, who controls them, and for how long?",
+  "",
+  "Patient data",
+  "11. What personal data does the system use, where does it go and who can see it, including sub-processors and cloud providers?",
+  "12. Do you retain our data or re-use it to train or fine-tune a model? On what basis?",
+  "13. Who is controller and who is processor for this service, and where is that written in the contract?",
+  "14. Can the system support access and deletion requests for personal data held in it?",
+  "15. How many hours until you tell us of a breach, and who answers at night?",
+  "16. How is data erased when the contract ends, including logs, backups and sub-processors?",
+  "",
+  "Operations",
+  "17. Will you help us with our data protection impact assessment, with the documentation we need?",
+  "18. Which decisions affecting patients will the output feed into, and does a person make the final decision?",
+  "19. What does the exit plan look like, including return or erasure of data?",
+  "20. What is your support commitment and escalation path for safety issues?",
+].join('\n');
+
+const patient = [
+  "TEXT FOR PATIENTS: OUR USE OF AN AI TOOL (EXAMPLE)",
+  "",
+  "\"__\" hospital uses an AI tool for __ (for example: drafting discharge summaries, which a clinician then checks).",
+  "The tool does not make the final decision about your treatment. A member of our staff reviews what it produces.",
+  "We tell you which of your information the tool uses and why. You can ask us about it and about alternatives.",
+  "Questions: __ (name or office, phone, email).",
+].join('\n');
+
+const incident = [
+  "AI / DATA / DEVICE INCIDENT RECORD (DRAFT)",
+  "",
+  "Date and time discovered: __   Discovered by: __   Reported to: __",
+  "What happened (one sentence, no patient names): __",
+  "Systems, devices and data involved (type of data, approximate number of individuals): __",
+  "Kind of incident (tick): AI tool error or safety issue __   Medical device event __   Personal data breach __   Software update problem __",
+  "",
+  "Containment done: __   By: __   Time: __",
+  "Reporting clocks (check the current text of each document; keep the rows that apply):",
+  "  - Personal data breach: controller notifies the Data Protection Commission without undue delay and, where feasible, within 72 hours of becoming aware, unless unlikely to result in a risk (GDPR Article 33). Notified on: __",
+  "  - Breach likely to result in a high risk to people: tell the people affected without undue delay (GDPR Article 34). Done on: __",
+  "  - Serious incident with a device (death, serious deterioration in health, serious public health threat): report to HPRA (online form, devicesafety@hpra.ie, post or phone). HPRA sets no hospital deadline; our own target: __ . Reported on: __",
+  "  - Serious incident with a high-risk AI system: inform the provider first, then the importer or distributor and the market surveillance authorities; suspend use if there is a risk (AI Act Article 26(5)). Done on: __",
+  "Affected individuals notified: who sends: __   Method: __   Sent on: __",
+  "Vendor involved: __   (contact: __, 24-hour line: __)",
+  "",
+  "Recorded: __ (who contacted whom, and when).",
+].join('\n');
+
+const items = [
+  {
+    id: 'policy',
+    head: '1. Generative AI use policy',
+    lead: 'A page you can hand to staff. Replace "__" with your hospital\u2019s details.',
+    basis: [
+      'The data input rules follow the Data Protection Commission\u2019s AI guidance (personal data typed into AI tools can raise security and data protection risks; know where it goes and whether it is retained or re-used) and GDPR Article 9 (health data is special category data).',
+      'Human review of output follows HIQA\u2019s January 2026 draft (AI should augment, not replace, human judgement; clinical staff remain responsible) and the AI for Care strategy\u2019s \u201chuman in the loop\u201d principle.',
+      'The rest is the author\u2019s proposal.',
+    ],
+    text: policy,
+  },
+  {
+    id: 'vendor',
+    head: '2. Twenty questions for a vendor',
+    lead: 'Print it and take it to the vendor presentation. Write the answers down.',
+    basis: [
+      'Questions 1\u20136: MDR Article 2(1) and Annex VIII rule 11, AI Act Articles 6 and 50(1).',
+      'Questions 7\u201310: AI Act Article 26(1), (2), (5) and (6); HPRA\u2019s page on field safety corrective actions (software updates).',
+      'Questions 11\u201317: the DPC\u2019s AI guidance and GDPR Articles 33 and 35.',
+      'The other questions are the author\u2019s proposals, not legal requirements.',
+    ],
+    text: questions,
+  },
+  {
+    id: 'patient',
+    head: '3. Text for patients',
+    lead: 'A short example of how to tell a patient that the hospital uses an AI tool. Match it to your actual practice.',
+    basis: [
+      'HIQA\u2019s draft and the AI for Care strategy stress transparency about when, where and why AI is used in care; the draft also says the service should explain the tool\u2019s role.',
+      'The wording is the author\u2019s example, not required language.',
+    ],
+    text: patient,
+  },
+  {
+    id: 'incident',
+    head: '4. Incident record',
+    lead: 'Turn the procedure into one fillable page and keep it where people will find it at night and on weekends.',
+    basis: ['The clocks come from GDPR Articles 33 and 34, HPRA\u2019s reporting page and AI Act Article 26(5). Check each document for later revisions; this page does not state Irish statutes, which were not read.'],
+    text: incident,
+  },
+];
+
+const sources = [SRC.aiAct, SRC.gdpr, SRC.mdr, SRC.dpcAi, SRC.hpraReporting, SRC.hpraFsca, SRC.hiqaDraft];
+---
+
+<IeLayout title={title} description={description} crumb="Templates" standalone updated={new Date('2026-11-15T00:00:00+00:00')}>
+  <h1>Templates: generative AI policy and 20 vendor questions</h1>
+  <p class="tg-lead">
+    “We don’t know where to start writing” is a common problem for hospitals. Here are four drafts: press the button, copy, and replace “__” with your own details.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and IT</p>
+
+  <div class="tg-box tg-warn">
+    <strong>Before you use these</strong><br />
+    These are the author’s <strong>drafts</strong>, not legal advice and not a version that is ready to copy as is. Adapt them to the size, systems and contracts of your hospital, and show them to counsel or your compliance office before they become documents.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-toc">
+    <h2 id="h-toc">Contents</h2>
+    <ul class="tg-list">
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.head}</a></li>)}
+    </ul>
+    <p>
+      Related pages: <a href={withBase('/ie/dx-roadmap/')}>Roadmap</a>, <a href={withBase('/ie/data-checklist/')}>Patient data checklist</a>, <a href={withBase('/ie/documents-checklist/')}>Checklist: AI vendors and documents</a>.
+    </p>
+  </section>
+
+  {
+    items.map((it) => (
+      <section class="tg-sec" id={it.id} aria-labelledby={`${it.id}-h`}>
+        <h2 id={`${it.id}-h`}>{it.head}</h2>
+        <p>{it.lead}</p>
+        <div class="tg-copy">
+          <button type="button" class="tg-btn" data-target={`${it.id}-text`}>
+            Copy
+          </button>
+          <pre id={`${it.id}-text`}>{it.text}</pre>
+        </div>
+        <h3>Basis of the template</h3>
+        <ul class="tg-list">
+          {it.basis.map((b) => <li>{b}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <IeGuideFoot sources={sources} checked={CHECKED} />
+</IeLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.tg-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = document.getElementById(btn.dataset.target ?? '');
+      if (!el) return;
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Copied';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = window.getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Selected (press Ctrl+C)';
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>

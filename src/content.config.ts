@@ -146,4 +146,17 @@ const blogAe = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg, blogPh, blogAe };
+// DoH 표준·지침 등 UAE 제도를 1차 출처로 읽어 쓰는 독립 집필이다.
+const blogIe = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-ie' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Research Review', 'AI Tools', 'Column', 'News']),
+    draft: z.boolean().default(false),
+    series: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg, blogPh, blogAe, blogIe };

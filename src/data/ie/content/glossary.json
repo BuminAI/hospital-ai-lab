@@ -1,0 +1,252 @@
+[
+  {
+    "id": "hiqa",
+    "term": "HIQA (Health Information and Quality Authority)",
+    "category": "Regulation and certification",
+    "definition": "An independent statutory body that promotes safety and quality in health and social care. It sets national standards, and it developed Ireland’s National Guidance for the Responsible and Safe Use of Artificial Intelligence in Health and Social Care Services, published on 29 July 2026.",
+    "whyMatters": "The guidance is written for all services providing health and social care, from acute hospitals to GP surgeries. It is guidance, not a statute; read it with the rules that do bind you.",
+    "sources": [
+      "https://www.hiqa.ie/ga/node/74973"
+    ]
+  },
+  {
+    "id": "hpra",
+    "term": "HPRA (Health Products Regulatory Authority)",
+    "category": "Regulation and certification",
+    "definition": "Ireland’s National Competent Authority for the Medical Device Regulation (MDR) and the In Vitro Diagnostic Regulation (IVDR). HPRA says it monitors devices on the Irish market and does not authorise or approve them.",
+    "whyMatters": "It is where hospitals report serious device incidents, including incidents involving software.",
+    "sources": [
+      "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/overview-of-medical-device---ivd-regulation-for-hospitals"
+    ]
+  },
+  {
+    "id": "ai-for-care",
+    "term": "AI for Care",
+    "category": "Standards and terminology",
+    "definition": "The Department of Health’s AI strategy for healthcare in Ireland for 2026-2030, with four pillars (clinical care, operations, research and innovation, public health) and six guiding principles.",
+    "whyMatters": "It tells you the direction of national policy. It is a strategy, not a set of rules, so use it to frame a proposal, not to prove compliance.",
+    "sources": [
+      "https://www.drugsandalcohol.ie/46031/1/AI_for_Care_2026-2030.pdf"
+    ]
+  },
+  {
+    "id": "eu-ai-act",
+    "term": "EU AI Act",
+    "category": "Regulation and certification",
+    "definition": "Regulation (EU) 2024/1689, a Union-wide law that sorts AI systems by risk and sets duties for providers, deployers and others. Most of it applies from 2 August 2026, with Article 6(1) following on 2 August 2027, as published.",
+    "whyMatters": "It applies directly in Ireland. Hospitals that use AI systems are deployers, which carries its own duties.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    ]
+  },
+  {
+    "id": "deployer",
+    "term": "Deployer",
+    "category": "Regulation and certification",
+    "definition": "Under the AI Act, any natural or legal person, including a public authority, using an AI system under its authority, except in a personal non-professional activity. A hospital using a vendor’s AI product is a deployer.",
+    "whyMatters": "Deployers, not only vendors, have duties: oversight, monitoring, logs, informing workers and others.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "https://www.hiqa.ie/sites/default/files/2026-01/Draft-National-Guidance-for-the-Responsible-and-Safe-Use-of-Artificial-Intelligence-in-Health-and-Social-Care-Services-for-public-consultation.pdf"
+    ]
+  },
+  {
+    "id": "provider",
+    "term": "Provider (AI Act)",
+    "category": "Regulation and certification",
+    "definition": "The party that develops an AI system, or has one developed, and places it on the market or puts it into service under its own name. HIQA’s draft says a hospital that builds its own medical device software takes on provider and manufacturer obligations.",
+    "whyMatters": "Ask whether a tool built by your own team could make you a provider.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "https://www.hiqa.ie/sites/default/files/2026-01/Draft-National-Guidance-for-the-Responsible-and-Safe-Use-of-Artificial-Intelligence-in-Health-and-Social-Care-Services-for-public-consultation.pdf"
+    ]
+  },
+  {
+    "id": "high-risk-ai",
+    "term": "High-risk AI system",
+    "category": "Regulation and certification",
+    "definition": "An AI system the AI Act treats as high-risk, either because it is a product (or safety component) under listed EU product laws such as the MDR and needs third-party conformity assessment (Article 6(1)), or because it falls in a use listed in Annex III.",
+    "whyMatters": "High-risk status brings the deployer duties in Article 26. For AI in medical devices, Article 6(1) applies from 2 August 2027 as published.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    ]
+  },
+  {
+    "id": "ai-literacy",
+    "term": "AI literacy",
+    "category": "Regulation and certification",
+    "definition": "The AI Act’s term (Article 4) for a sufficient level of understanding among staff and others who operate or use AI systems for you, taking into account their knowledge, training and the context of use. The Department of Health’s strategy also commits to building AI literacy.",
+    "whyMatters": "Plan training for everyone who will touch the tool, not only the clinicians.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "https://www.drugsandalcohol.ie/46031/1/AI_for_Care_2026-2030.pdf"
+    ]
+  },
+  {
+    "id": "fria",
+    "term": "Fundamental rights impact assessment",
+    "category": "Regulation and certification",
+    "definition": "An assessment the AI Act (Article 27) asks certain deployers to do before using certain high-risk AI systems: bodies governed by public law, private entities providing public services, and deployers of some credit and insurance systems.",
+    "whyMatters": "Whether your hospital must do one depends on its status and the tool. Ask counsel before you assume either way.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    ]
+  },
+  {
+    "id": "human-oversight",
+    "term": "Human oversight",
+    "category": "Standards and terminology",
+    "definition": "People with competence, training and authority who can oversee how an AI system is used. HIQA’s draft describes “human in the loop” (overseeing in real time) and “human on the loop” (able to override), and says staff should be able to override an output.",
+    "whyMatters": "Name who oversees each tool and make sure they can actually stop it.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "https://www.hiqa.ie/sites/default/files/2026-01/Draft-National-Guidance-for-the-Responsible-and-Safe-Use-of-Artificial-Intelligence-in-Health-and-Social-Care-Services-for-public-consultation.pdf"
+    ]
+  },
+  {
+    "id": "mdr",
+    "term": "Medical Device Regulation (MDR)",
+    "category": "Regulation and certification",
+    "definition": "Regulation (EU) 2017/745. It names software among medical devices and classifies diagnostic or therapeutic decision software in class IIa or higher (rule 11). HPRA applies it in Ireland.",
+    "whyMatters": "If a vendor says its product is not a medical device, ask for the intended-purpose reasoning in writing.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj",
+      "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/overview-of-medical-device---ivd-regulation-for-hospitals"
+    ]
+  },
+  {
+    "id": "samd",
+    "term": "Medical device software",
+    "category": "Standards and terminology",
+    "definition": "Software that is a medical device on its own because its manufacturer intends it for a medical purpose, such as diagnosis, prediction, prognosis or treatment, as the MDR’s definition says.",
+    "whyMatters": "The manufacturer’s stated intended purpose drives the answer, so compare it with how your staff will use the tool.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj"
+    ]
+  },
+  {
+    "id": "in-house-device",
+    "term": "In-house device",
+    "category": "Regulation and certification",
+    "definition": "A device made and used only within a health institution. MDR Article 5(5) exempts such devices from most requirements if conditions are met, including a justification, a public declaration and documentation.",
+    "whyMatters": "Relevant if your IT or clinical engineering team builds software for clinical use.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2017/745/oj",
+      "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/overview-of-medical-device---ivd-regulation-for-hospitals"
+    ]
+  },
+  {
+    "id": "serious-incident",
+    "term": "Serious incident",
+    "category": "Standards and terminology",
+    "definition": "HPRA’s wording: an incident that directly or indirectly led, might have led or might lead to death, a temporary or permanent serious deterioration in health, or a serious public health threat.",
+    "whyMatters": "HPRA says hospitals should report these, and encourages reporting if you are in doubt.",
+    "sources": [
+      "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/reporting-medical-device---ivd-safety-issues"
+    ]
+  },
+  {
+    "id": "fsn",
+    "term": "Field safety notice (FSN) and corrective action (FSCA)",
+    "category": "Standards and terminology",
+    "definition": "A manufacturer’s formal notice to users about a corrective action for a device already in use. Examples HPRA lists include software updates, changes to instructions for use, repair, recall or replacement.",
+    "whyMatters": "Have a documented route for notices to reach clinical, technical and procurement staff, including for software.",
+    "sources": [
+      "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/managing-field-safety-corrective-actions"
+    ]
+  },
+  {
+    "id": "special-category",
+    "term": "Special category data",
+    "category": "Data and privacy",
+    "definition": "Under GDPR Article 9, data concerning health, and certain other sensitive data, whose processing is prohibited unless a listed condition applies.",
+    "whyMatters": "Patient data is in this category, which is why health AI projects usually need an impact assessment.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    ]
+  },
+  {
+    "id": "dpia",
+    "term": "Data protection impact assessment (DPIA)",
+    "category": "Data and privacy",
+    "definition": "An assessment required by GDPR Article 35 before processing likely to result in a high risk, including large-scale processing of special category data. The Data Protection Commission’s AI guidance says one may be needed.",
+    "whyMatters": "Do it before go-live, with your data protection officer. A vendor’s paperwork helps but does not replace it.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "https://www.dataprotection.ie/en/dpc-guidance/blogs/AI-LLMs-and-Data-Protection"
+    ]
+  },
+  {
+    "id": "controller-processor",
+    "term": "Controller and processor",
+    "category": "Data and privacy",
+    "definition": "The controller decides why and how personal data is processed; a processor processes it on the controller’s behalf. The DPC says an organisation using an AI product could be a controller, and a product provider may be a controller or processor.",
+    "whyMatters": "Settle who is which in the contract, because the breach duties differ.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "https://www.dataprotection.ie/en/dpc-guidance/blogs/AI-LLMs-and-Data-Protection"
+    ]
+  },
+  {
+    "id": "dpc",
+    "term": "DPC (Data Protection Commission)",
+    "category": "Regulation and certification",
+    "definition": "Ireland’s data protection supervisory authority. It published guidance on AI, large language models and data protection on 18 July 2024.",
+    "whyMatters": "Its guidance is a good source for questions to put to an AI vendor about personal data.",
+    "sources": [
+      "https://www.dataprotection.ie/en/dpc-guidance/blogs/AI-LLMs-and-Data-Protection"
+    ]
+  },
+  {
+    "id": "automated-decision",
+    "term": "Automated individual decision-making",
+    "category": "Data and privacy",
+    "definition": "A decision based solely on automated processing that produces legal effects or similarly significantly affects a person. GDPR Article 22 gives people the right not to be subject to one, with exceptions and safeguards.",
+    "whyMatters": "Keep a person in the loop and ask your data protection officer how Article 22 applies to a particular tool.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    ]
+  },
+  {
+    "id": "breach-72h",
+    "term": "Personal data breach notification",
+    "category": "Data and privacy",
+    "definition": "GDPR Article 33 asks a controller to notify the supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware of a breach, unless it is unlikely to result in a risk. Article 34 covers telling affected people where the risk is high.",
+    "whyMatters": "Put the 72-hour clock on the incident card and require vendors to alert you fast.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    ]
+  },
+  {
+    "id": "transparency",
+    "term": "Transparency to patients",
+    "category": "Standards and terminology",
+    "definition": "Telling people when, where and why AI is used in their care. HIQA’s draft and the AI for Care strategy both stress it, and the AI Act requires providers to ensure people know they are interacting with an AI system unless obvious (Article 50(1)).",
+    "whyMatters": "Decide in advance how your hospital will explain its AI tools to patients.",
+    "sources": [
+      "https://www.hiqa.ie/sites/default/files/2026-01/Draft-National-Guidance-for-the-Responsible-and-Safe-Use-of-Artificial-Intelligence-in-Health-and-Social-Care-Services-for-public-consultation.pdf",
+      "https://www.drugsandalcohol.ie/46031/1/AI_for_Care_2026-2030.pdf",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    ]
+  },
+  {
+    "id": "inventory",
+    "term": "AI inventory",
+    "category": "Standards and terminology",
+    "definition": "A list of AI tools in use, with an assigned owner. HIQA’s January 2026 draft gives it as an example of good practice.",
+    "whyMatters": "You cannot govern what you cannot list. Start here.",
+    "sources": [
+      "https://www.hiqa.ie/sites/default/files/2026-01/Draft-National-Guidance-for-the-Responsible-and-Safe-Use-of-Artificial-Intelligence-in-Health-and-Social-Care-Services-for-public-consultation.pdf"
+    ]
+  },
+  {
+    "id": "memorisation",
+    "term": "Memorisation and prompt data",
+    "category": "Data and privacy",
+    "definition": "The DPC notes some AI models can unintentionally reproduce passages of training data, and that personal data typed into an AI tool can raise security and data protection risks.",
+    "whyMatters": "Tell staff what must never be typed into a tool you have not approved.",
+    "sources": [
+      "https://www.dataprotection.ie/en/dpc-guidance/blogs/AI-LLMs-and-Data-Protection"
+    ]
+  }
+]

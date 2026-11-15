@@ -28,6 +28,7 @@ const COUNTRIES = {
   sg: { name: 'Singapore', affil: '"Singapore"[Affiliation]', ct: 'Singapore' },
   ph: { name: 'Philippines', affil: '"Philippines"[Affiliation]', ct: 'Philippines' },
   ae: { name: 'United Arab Emirates', affil: '"United Arab Emirates"[Affiliation]', ct: 'United Arab Emirates' },
+  ie: { name: 'Ireland', affil: '"Ireland"[Affiliation]', ct: 'Ireland' },
 };
 
 const TOPICS = {
