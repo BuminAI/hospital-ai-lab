@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-14T12:46:02.014Z",
+  "updatedAt": "2026-11-15T07:04:01.082Z",
   "items": [
+    {
+      "title": "靑, 민·관·군 IT 자산 관리 체계 점검… AI 사이버 공격 대응",
+      "link": "https://www.newsis.com/view/NISX20261115_0003868621",
+      "source": "뉴시스",
+      "pubDate": "2026-11-15T06:06:07.000Z"
+    },
+    {
+      "title": "두산에너빌리티, 발전사들과 AI 기반 운영기술 공유",
+      "link": "https://zdnet.co.kr/view/?no=20261115105258",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-15T01:52:58.000Z"
+    },
     {
       "title": "“AI가 쓴 논문, 실제로 누가 만든 것인가”…JKMS 편집장의 질문",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044536",
@@ -500,5 +512,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 보건복지부 · 뉴시스"
+  "source": "청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 보건복지부 · 뉴시스 · ZDNet Korea"
 }
