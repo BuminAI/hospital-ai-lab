@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-15T13:55:27.456Z",
+  "updatedAt": "2026-11-15T14:17:22.321Z",
   "source": "Le Figaro · 20 Minutes · ZDNet France · Infirmiers.com · Le Quotidien du Médecin · Le Quotidien du Pharmacien · franceinfo · Libération · Les Échos · DSIH · Les Numériques",
   "items": [
+    {
+      "title": "Présidentielle 2027 : « J’ai écouté, j’ai noté »… Teddy Riner fait sa première visite de candidat dans un hôpital",
+      "link": "https://www.20minutes.fr/politique/4262734-20261113-presidentielle-2027-ecoute-note-teddy-riner-fait-premiere-visite-candidat-hopital?at_medium=display&at_campaign=149",
+      "source": "20 Minutes",
+      "pubDate": "2026-11-13T14:57:38.000Z"
+    },
     {
       "title": "Dispositifs grand public d’enregistrement du sommeil : quelle fiabilité ?",
       "link": "http://www.lequotidiendumedecin.fr/actu-medicale/congres/dispositifs-grand-public-denregistrement-du-sommeil-quelle-fiabilite",
@@ -96,6 +102,13 @@
       "tier": "B"
     },
     {
+      "title": "La HAS annonce six nominations au sein de ses directions, services et missions stratégiques",
+      "link": "https://dsih.fr/articles/6456/la-has-annonce-six-nominations-au-sein-de-ses-directions-services-et-missions-strategiques",
+      "source": "DSIH",
+      "pubDate": "2026-11-04T00:00:00.000Z",
+      "tier": "B"
+    },
+    {
       "title": "Faire du numérique un levier d'amélioration de la qualité des soins à l'hôpital",
       "link": "https://dsih.fr/articles/6454/faire-du-numerique-un-levier-damelioration-de-la-qualite-des-soins-a-lhopital",
       "source": "DSIH",
@@ -187,6 +200,13 @@
       "link": "http://www.infirmiers.com/services/cadre-de-sante/repondez-au-barometre-des-cadres-de-sante-2026",
       "source": "Infirmiers.com",
       "pubDate": "2026-10-20T15:02:53.000Z"
+    },
+    {
+      "title": "Ce qu’il y a d’étonnant dans l’affaire des frigos d’Intermarché",
+      "link": "https://dsih.fr/articles/6439/ce-quil-y-a-detonnant-dans-laffaire-des-frigos-dintermarche",
+      "source": "DSIH",
+      "pubDate": "2026-10-20T00:00:00.000Z",
+      "tier": "B"
     },
     {
       "title": "IA médicales : Galeon fait de la souveraineté une condition, pas une option",
