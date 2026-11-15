@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-14T22:47:30.136Z",
-  "total": 105,
-  "ok": 95,
-  "unknown": 10,
+  "checkedAt": "2026-11-15T23:12:50.950Z",
+  "total": 108,
+  "ok": 102,
+  "unknown": 6,
   "unknownList": [
     {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=7968559",
@@ -13,10 +13,6 @@
       "status": 400
     },
     {
-      "url": "https://minzdrav.gov.ru/poleznye-resursy/natsionalnye-proekty-rossii-prodolzhitelnaya-i-aktivnaya-zhizn-novye-tehnologii-sberezheniya-zdorovya",
-      "status": 0
-    },
-    {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
       "status": 0
     },
@@ -25,24 +21,12 @@
       "status": 0
     },
     {
+      "url": "https://cr.minzdrav.gov.ru/",
+      "status": 503
+    },
+    {
       "url": "https://habr.com/ru/articles/1099004/",
       "status": 403
-    },
-    {
-      "url": "https://cr.minzdrav.gov.ru/",
-      "status": 0
-    },
-    {
-      "url": "https://minzdrav.gov.ru/news/2026/10/20/33149-mihail-murashko-i-german-gref-predstavili-novoe-otechestvennoe-prilozhenie-hudeem-na-zdorovie",
-      "status": 0
-    },
-    {
-      "url": "https://www.pomph.ru/jour/article/view/244",
-      "status": 0
-    },
-    {
-      "url": "https://minzdrav.gov.ru/",
-      "status": 0
     }
   ],
   "dead": []
