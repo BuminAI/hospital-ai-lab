@@ -63,5 +63,12 @@
     "sources": [
       "https://www.icmr.gov.in/icmrobject/uploads/Guidelines/1724842648_ethical_guidelines_application_artificial_intelligence_biomed_rsrch_2023.pdf"
     ]
+  },
+  {
+    "question": "Does Indian guidance say anything about watching an AI tool after it goes live?",
+    "answer": "Yes. In its section on safety and risk minimization, the ICMR ethical guidelines (2023) say a robust, explicitly stated mechanism should be in place to continuously monitor the performance, vulnerabilities and safety standards of an AI technology. They also say that, like phase 4 trials, rare and new technology-related unintended harm should be monitored and documented after introduction, and that new evidence of harm should be reported to the ethics committee. These are ethical guidelines, not a statute. This is general information, not legal advice.",
+    "sources": [
+      "https://www.icmr.gov.in/icmrobject/uploads/Guidelines/1724842648_ethical_guidelines_application_artificial_intelligence_biomed_rsrch_2023.pdf"
+    ]
   }
 ]

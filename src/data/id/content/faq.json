@@ -51,5 +51,13 @@
     "sources": [
       "https://www.kemkes.go.id/id/kemenkes-tekankan-pemanfaatan-ai-kesehatan-harus-diiringi-tata-kelola-ketat-dan-etika-yang-kuat"
     ]
+  },
+  {
+    "id": "pengawasan-setelah-beredar",
+    "question": "Setelah AI medis mendapat izin edar, siapa yang melaporkan keluhan dan kejadian tidak diinginkan?",
+    "answer": "Menurut Bab V Kepmenkes HK.01.07/MENKES/951/2026, pengawasan rutin dilakukan lewat pemeriksaan laporan pelaku usaha, yaitu laporan penanganan keluhan (termasuk Kejadian Tidak Diinginkan), monitoring teknis, dan validasi kinerja klinis pascapemasaran, ditambah inspeksi lapangan rutin satu tahun sekali. Kewajiban pelaporan itu ada pada pelaku usaha. Teks yang dibaca tidak menyebut kewajiban lapor tertentu bagi rumah sakit, tetapi catatan keluhan dari rumah sakit dapat menjadi bahan laporan tersebut. Ini informasi umum, bukan nasihat hukum.",
+    "sources": [
+      "https://jdih.kemkes.go.id/storage/documents/pdfs/2026kepmenkes951.pdf"
+    ]
   }
 ]

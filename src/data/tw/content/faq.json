@@ -50,5 +50,14 @@
     "sources": [
       "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020121"
     ]
+  },
+  {
+    "id": "buliang-shijian-tongbao",
+    "question": "AI 軟體若屬醫療器材，院內發現嚴重不良事件要在幾天內通報？",
+    "answer": "醫療器材管理法第 48 條規定，醫事機構發現醫療器材嚴重不良事件應通報中央主管機關。依《醫療器材嚴重不良事件通報辦法》第 5 條，醫事機構遇到死亡或危及生命的情形，應自發現之日起七日內通報；永久性殘疾、胎嬰兒先天性畸形、需住院或延長住院等其他情形，則為十五日內。是否屬於嚴重不良事件，請依院內規範與主管機關說明確認；本文為一般資訊，不是法律意見。",
+    "sources": [
+      "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030124",
+      "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030106"
+    ]
   }
 ]
