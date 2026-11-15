@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-14T13:29:01.332Z",
+  "updatedAt": "2026-11-15T13:31:37.251Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Ускоряем AI модель на процессоре Qwen3.8-Flash-Next Gyro",
+      "link": "https://habr.com/ru/articles/1108016/?utm_campaign=1108016&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-15T10:57:30.000Z"
+    },
+    {
+      "title": "Cloudflare открыла исходный код Kitesurf — браузерного движка для AI‑агентов",
+      "link": "https://habr.com/ru/articles/1107996/?utm_campaign=1107996&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-15T09:23:52.000Z"
+    },
     {
       "title": "Тринадцать LLM на русских отзывах: как я выбирал модель и почему не поверил судье",
       "link": "https://habr.com/ru/articles/1107856/?utm_campaign=1107856&utm_source=habrahabr&utm_medium=rss",
@@ -1789,18 +1801,6 @@
       "link": "https://habr.com/ru/articles/1099374/?utm_campaign=1099374&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-27T14:29:17.000Z"
-    },
-    {
-      "title": "MWS AI выпустила универсального ИИ-агента для решения офисных задач в периметре компании",
-      "link": "https://www.cnews.ru/news/line/2026-10-27_mws_ai_vypustila_universalnogo",
-      "source": "CNews",
-      "pubDate": "2026-10-27T14:15:00.000Z"
-    },
-    {
-      "title": "Код считает, модель описывает: как мы встроили LLM в отчетность и не дали ей трогать цифры",
-      "link": "https://habr.com/ru/companies/yadro/articles/1099914/?utm_campaign=1099914&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T13:36:56.000Z"
     }
   ]
 }
