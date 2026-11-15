@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-11-14T22:45:40.937Z",
-  "total": 77,
-  "ok": 75,
+  "checkedAt": "2026-11-15T23:11:49.863Z",
+  "total": 78,
+  "ok": 76,
   "unknown": 2,
   "unknownList": [
     {
-      "url": "https://www.fda.gov/news-events/press-announcements/fda-seeks-public-feedback-inform-regulatory-approach-generative-ai-enabled-medical-devices",
-      "status": 0
+      "url": "https://www.pewresearch.org/short-reads/2026/08/25/americans-want-transparency-when-ai-is-used-in-their-healthcare/",
+      "status": 403
     },
     {
       "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
