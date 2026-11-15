@@ -11,7 +11,7 @@
 //   이 훅이 같은 범위(글 폴더)를 실제로 허용한다.
 //
 // 허용하는 것 (전부 만족해야 한다)
-//   - 프로젝트 안 `src/content/blog/`, `blog-ru/`, `blog-ja/`, `blog-id/`, `blog-tw/`, `blog-en/`, `blog-in/`, `blog-ae/` 바로 아래
+//   - 프로젝트 안 `src/content/blog/`, `blog-ru/`, `blog-ja/`, `blog-id/`, `blog-tw/`, `blog-en/`, `blog-in/`, `blog-ae/`, `blog-ie/` 바로 아래
 //   - 파일 이름이 `YYYY-MM-DD-영문슬러그.md` 형식 (CLAUDE.md의 글 파일명 규칙)
 //   - 경로에 `..`가 없음
 // 그 밖의 경로는 아무 말도 하지 않는다 → 기존 승인 절차 그대로(다른 파일은 여전히 승인이 필요하다).
@@ -29,14 +29,14 @@ process.stdin.on('end', () => {
     const root = norm(process.env.CLAUDE_PROJECT_DIR || process.cwd()).replace(/\/$/, '');
     const target = norm(filePath);
     if (target.split('/').includes('..')) return;
-    const dirs = ['blog', 'blog-ru', 'blog-ja', 'blog-id', 'blog-tw', 'blog-en', 'blog-in', 'blog-ae'];
+    const dirs = ['blog', 'blog-ru', 'blog-ja', 'blog-id', 'blog-tw', 'blog-en', 'blog-in', 'blog-ae', 'blog-ie'];
     // 2026-11-14 오너 승인: 작업 지침(0단계 실무 팁·1-6단계 FAQ)이 매일 고치라고 한 데이터 파일만 추가.
     // 이 목록에 없는 src/data 파일은 여전히 승인이 필요하다. (되돌리려면 dataFiles 검사를 지운다)
     const dataFiles = new Set([
       'src/data/tips.ts',
       'src/data/faq.ts',
       ...['ja', 'ru', 'id', 'tw'].map((l) => `src/data/${l}/content/tips.json`),
-      ...['ja', 'ru', 'en', 'in', 'id', 'tw', 'ae'].map((l) => `src/data/${l}/content/faq.json`),
+      ...['ja', 'ru', 'en', 'in', 'id', 'tw', 'ae', 'ie'].map((l) => `src/data/${l}/content/faq.json`),
     ]);
     const ok =
       dataFiles.has(target.startsWith(`${root}/`) ? target.slice(root.length + 1) : '') ||

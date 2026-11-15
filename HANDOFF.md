@@ -853,7 +853,7 @@ UAE판 `/ae/`을 복제한 **영어(아일랜드)** 판이다(hreflang·html lan
 - 아일랜드는 병원 AI 보도가 적어 90일 기준으로는 뉴스 10건이 안 찼다 → 구글 뉴스·의료 매체의 `maxAgeDays`를 400일로 늘렸다(페이지 문구에 '약 1년'을 밝힘). 같은 수집기에서 `HSE`가 러시아 HSE University·건강안전환경(HSE)으로 오염되는 질의가 있어 매체 허용 목록으로 거른다(영상은 `HSE` 단독 일치를 허용하지 않음).
 - 복제 후 일괄 치환에서 `en-AE`→`en-IE`가 IeLayout의 UAE 링크까지 바꿨다. 새 판을 또 만들면 레이아웃의 상대 판 링크 hreflang을 반드시 확인할 것.
 - UAE판 `ae.json` 홈 FAQ가 실제 수집처와 다른 매체명을 적고 있던 것을 같은 날 바로잡았다(CLAUDE.md '수집처 문구' 규정).
-- **자동 발행 예외(CLAUDE.md)에 아일랜드판은 아직 없다.** 오너가 지시하기 전엔 예약 작업(`daily-update-digest`)·훅(`allow-content-write.cjs`)에 넣지 않는다.
+- **자동 발행(오너 지시 2026-11-15)**: CLAUDE.md 예외에 `blogIe`·FAQ를 넣었고 예약 작업 `daily-update-digest`에 1-4-4단계(아일랜드)를 더했다. 훅 `allow-content-write.cjs`에도 `blog-ie/`·`ie/content/faq.json`을 추가했다.
 
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
