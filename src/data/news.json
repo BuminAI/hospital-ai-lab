@@ -1,12 +1,102 @@
 {
-  "updatedAt": "2026-11-15T17:09:19.328Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · AI타임스 · 한국경제 · 디지털투데이 · 연합뉴스 · 보건복지부 · 뉴시스 · 의협신문 · ZDNet Korea",
+  "updatedAt": "2026-11-15T21:48:31.131Z",
+  "source": "메디칼타임즈 · 병원신문 · 의협신문 · 청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 한국경제 · 메디파나뉴스 · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "모니터 대신 환자 눈 맞춘다…정신과·소청과 호평 AI 차팅 ‘니어닥’",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044563",
+      "source": "청년의사",
+      "pubDate": "2026-11-16T06:18:17.000Z"
+    },
+    {
+      "title": "AI 보정값도 비급여 청구되나…'바이탈케어' 고시 해석 쟁점",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80788",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-16T06:01:00.000Z",
+      "popular": true,
+      "rank": 5
+    },
+    {
+      "title": "'말귀 못알아듣는 진료실 AI 답답했다면...' 현직의사가 만든 '이것'",
+      "link": "http://www.doctorsnews.co.kr/news/articleView.html?idxno=167306",
+      "source": "의협신문",
+      "pubDate": "2026-11-16T06:00:00.000Z",
+      "popular": true,
+      "rank": 6
+    },
+    {
+      "title": "AI 차팅 경쟁 본격화…니어닥, '진료실' 승부",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421816",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-16T06:00:00.000Z"
+    },
+    {
+      "title": "“의사를 환자 곁으로, 진료실 풍경 바꾸는 초개인화 AI 차팅”",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016432",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T05:50:00.000Z"
+    },
+    {
+      "title": "“AI 자동진료기록 솔루션 ‘니어닥’, 현장 만족도 최고 자부”",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252754",
+      "source": "병원신문",
+      "pubDate": "2026-11-15T21:30:00.000Z"
+    },
+    {
+      "title": "[AppEx Networks] AI로 사이버 위협 탐지·대응·차단",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252762",
+      "source": "병원신문",
+      "pubDate": "2026-11-15T21:00:00.000Z"
+    },
+    {
+      "title": "[라온시큐어] 디지털 인증 넘어 AI 보안으로",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252757",
+      "source": "병원신문",
+      "pubDate": "2026-11-15T21:00:00.000Z"
+    },
+    {
+      "title": "[로그프레소] AI 기반 통합 보안관제 강화",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252753",
+      "source": "병원신문",
+      "pubDate": "2026-11-15T21:00:00.000Z"
+    },
+    {
+      "title": "[비테크놀러지] AI 보안 솔루션으로 사이버 보안 앞장",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252746",
+      "source": "병원신문",
+      "pubDate": "2026-11-15T21:00:00.000Z"
+    },
+    {
+      "title": "[사이퍼데이터] AI가 직접 수행하는 차세대 보안관제",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252745",
+      "source": "병원신문",
+      "pubDate": "2026-11-15T21:00:00.000Z"
+    },
+    {
+      "title": "[소만사] 병원이 안전하게 AI 활용할 수 있도록 도와",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252744",
+      "source": "병원신문",
+      "pubDate": "2026-11-15T21:00:00.000Z"
+    },
+    {
+      "title": "\"AI로 의무기록 부담 줄여…환자와 눈 맞추는 진료실\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171833",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-15T20:30:00.000Z"
+    },
+    {
+      "title": "니어닥 AI 차팅 승부수…의사 기록 습관까지 맞춘다",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171829",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-15T20:20:00.000Z"
+    },
     {
       "title": "[기고] 채점이 편한 시험은 AI에도 편하다",
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217423",
       "source": "AI타임스",
-      "pubDate": "2026-11-15T18:59:15.000Z"
+      "pubDate": "2026-11-15T18:59:15.000Z",
+      "popular": true,
+      "rank": 1
     },
     {
       "title": "홍승권 심평원장 “호스피스 현장 의견 경청… 합당한 보상 체계 마련”",
@@ -393,6 +483,12 @@
       "pubDate": "2026-11-12T20:50:00.000Z",
       "popular": true,
       "rank": 1
+    },
+    {
+      "title": "지멘스 경쟁력 낮은 초음파 장비 뺀다...부품공급 8년뒤 종료",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171807",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-12T20:30:00.000Z"
     },
     {
       "title": "희귀 신장암 진단 보조 AI, 환자 선별에 실질적 도움 가능",
