@@ -57,5 +57,12 @@
       "https://www.ecfr.gov/current/title-45/section-164.502",
       "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software"
     ]
+  },
+  {
+    "question": "If heart-alert software stays silent, can staff skip their usual assessment?",
+    "answer": "The FDA rule for machine learning-based cardiovascular notification software (21 CFR 870.2380) requires labeling that warns users not to rely on a negative result to rule out follow-up, and states that the output does not replace a full clinical evaluation. Check how your own policy treats a silent alert, and confirm details with compliance staff. This is general information, not legal advice.",
+    "sources": [
+      "https://www.federalregister.gov/documents/full_text/text/2026/09/11/2026-18612.txt"
+    ]
   }
 ]
