@@ -1,0 +1,40 @@
+---
+// Practice guides (for hospital staff) — overview page (2026-11-15)
+import '../../styles/ae-guide.css';
+import AeLayout from '../../layouts/AeLayout.astro';
+import { withBase } from '../../utils/site';
+
+const title = 'Practice guides: AI policies, patient data and vendors';
+const description =
+  'A roadmap, checklists, a DoH calendar, templates and key facts from primary documents, for hospital administrators and nurse leaders in the UAE.';
+
+const cards = [
+  { href: '/ae/facts/', t: 'Key facts', d: 'Short answers with the section and a link to the primary source: AI policies, patient data, device reporting, breaches.' },
+  { href: '/ae/dx-roadmap/', t: 'Roadmap', d: 'Abu Dhabi’s AI policy and 2026 standards, Dubai’s AI policy and the device documents on one timeline.' },
+  { href: '/ae/data-checklist/', t: 'Patient data protection checklist', d: 'What data may enter an AI tool, where it may live, reuse of records and breach clocks.' },
+  { href: '/ae/documents-checklist/', t: 'Checklist: AI vendors and documents', d: 'Which policy applies, risk tier, what the vendor must disclose, and how updates and incidents are handled.' },
+  { href: '/ae/calendar/', t: 'DoH calendar', d: 'New Abu Dhabi DoH standards and guidelines on digital products, data, devices and cybersecurity.' },
+  { href: '/ae/templates/', t: 'Templates', d: 'Generative AI policy, 20 vendor questions, patient text, incident record.' },
+  { href: '/ae/checklist/', t: 'AI adoption checklist', d: 'A list for assessing proposals from AI vendors.' },
+];
+---
+
+<AeLayout title={title} description={description} crumb="Practice guides" standalone>
+<h1>Practice guides</h1>
+  <p class="tg-lead">
+For administration, planning and nursing leadership: material you can use tomorrow. Rules are written after the documents were opened and read (Abu Dhabi DoH and Dubai DHA); each page shows its sources and the date they were checked.
+  </p>
+  <div class="tg-cards">
+    {
+      cards.map((c) => (
+        <a class="tg-card" href={withBase(c.href)}>
+          <b>{c.t}</b>
+          <span>{c.d}</span>
+        </a>
+      ))
+    }
+  </div>
+  <p class="tg-meta" style="margin-top:22px">
+Explanations for patients and their families are in <a href={withBase('/ae/patients/')}>For patients</a>; front-desk staff can use them too.
+  </p>
+</AeLayout>

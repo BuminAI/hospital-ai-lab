@@ -1,0 +1,138 @@
+---
+// Digital health and AI roadmap for UAE hospitals (2026-11-15) — from primary sources.
+// The facts live in src/data/ae/guides/milestones.ts; this page only handles layout.
+import '../../styles/ae-guide.css';
+import AeLayout from '../../layouts/AeLayout.astro';
+import AeGuideFoot from '../../components/AeGuideFoot.astro';
+import AeFaq from '../../components/AeFaq.astro';
+import { guideSchema } from '../../utils/ae-guide';
+import { MILESTONES, THEMES, SRC, CHECKED } from '../../data/ae/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const done = MILESTONES.filter((m) => m.status === 'done').sort((a, b) => b.sort.localeCompare(a.sort));
+const ahead = MILESTONES.filter((m) => m.status === 'ahead').sort((a, b) => a.sort.localeCompare(b.sort));
+
+const title = 'Roadmap: DoH and DHA rules for hospital AI in the UAE';
+const description =
+  'Key dates for hospital administrators and nurse leaders: Abu Dhabi’s AI policy and 2026 data standards, Dubai’s AI policy, and the device reporting and cybersecurity documents.';
+
+const sources = [SRC.dohAi, SRC.dhaAi, SRC.hie, SRC.dpgs, SRC.dataAccess, SRC.analytics, SRC.mdr, SRC.cyber];
+
+const faq = [
+  {
+    q: 'Which AI rules apply to a hospital in the UAE?',
+    a: 'It depends on the licensing emirate. The Department of Health’s Policy on Use of AI applies to DoH-licensed providers in Abu Dhabi, and the Dubai Health Authority’s policy “Artificial Intelligence in the Healthcare” applies to DHA-licensed facilities in Dubai. Abu Dhabi facilities also follow the 2026 digital products, data access, and analytics standards. We did not read the federal laws themselves or the Ministry of Health and Prevention’s rules.',
+  },
+  {
+    q: 'Who is responsible for an AI tool inside the hospital?',
+    a: 'The DoH policy asks healthcare end-users to have clear governance on AI use, to state where AI enters the process and the role of the practitioner, to set boundaries on access to patient information, to educate everyone involved, and to audit regularly. The Abu Dhabi digital products standard also requires a named Digital Product Owner and Digital Product Architect for each product.',
+  },
+  {
+    q: 'How fast must a hospital report a device incident or a breach?',
+    a: 'It depends on the document. DoH’s medical device reporting standard (effective October 2026) says deaths, serious injuries and malfunctions are reported as soon as possible and not later than five days from awareness. The cybersecurity guideline says connected-device cyber incidents go to the Abu Dhabi Healthcare Cybersecurity Emergency Response Team immediately upon discovery. The health information exchange policy sets 60 days for notifying affected patients of a breach.',
+  },
+  {
+    q: 'Are there confirmed upcoming deadlines for hospitals?',
+    a: 'This page lists only dates that appear in the text of an official document that we read. The one upcoming date we found is January 2027, when DoH’s medical device cybersecurity guideline takes effect. DoH and DHA can publish new documents at any time; this site lists new DoH standards under Updates.',
+  },
+];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ae/dx-roadmap/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Hospital administration and nursing leadership',
+  faq,
+});
+---
+
+<AeLayout title={title} description={description} crumb="Roadmap" standalone updated={new Date('2026-11-15T00:00:00+04:00')} schema={schema}>
+  <h1>Digital health and AI roadmap</h1>
+  <p class="tg-lead">
+    “What does our hospital have to do, and by when?” The more AI news there is, the harder that is to answer. This page collects dates that appear in the text of rules and official publications, with sections and links to the sources.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and nursing leadership</p>
+
+  <p class="tg-answer">
+    In short: Abu Dhabi’s DoH has an AI policy (2018) and, since 2026, standards on digital products, data access, data sharing, retention, analytics and device reporting; Dubai’s DHA has its own AI policy asking for vendor disclosure and independent validation; and DoH’s device cybersecurity guideline takes effect in January 2027.
+  </p>
+
+  <div class="tg-box">
+    <strong>How to read this page</strong><br />
+    Each item was written after the text of the document was opened and read. We do not add dates that circulate only in summaries. What applies to a particular hospital depends on its status and structure, so check the text and ask counsel or your compliance officer.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-done">
+    <h2 id="h-done">What has already happened</h2>
+    <ol class="tg-tl">
+      {
+        done.map((m) => (
+          <li>
+            <div class="when">{m.when}</div>
+            <div class="what">
+              <b>
+                <span class="tg-tag">{THEMES[m.theme]}</span>
+                {m.title}
+              </b>
+              <span>{m.body}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ahead">
+    <h2 id="h-ahead">Upcoming dates</h2>
+    {
+      ahead.length > 0 ? (
+        <ol class="tg-tl">
+          {ahead.map((m) => (
+            <li>
+              <div class="when">{m.when}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{THEMES[m.theme]}</span>
+                  {m.title}
+                </b>
+                <span>{m.body}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>We found no upcoming dates confirmed by a primary source, so this section is intentionally empty.</p>
+      )
+    }
+    <p>
+      New DoH standards and guidelines appear automatically in the <a href={withBase('/ae/calendar/')}>DoH calendar</a>.
+    </p>
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Pages that complement this one</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ae/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>Data items from the DoH standards and the AI policies: location, secondary use, retention and breaches.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ae/documents-checklist/')}>
+        <b>Checklist: AI vendors and documents</b>
+        <span>Which policy applies, risk tier, what the vendor must disclose, and how updates and incidents are handled.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ae/templates/')}>
+        <b>Document templates</b>
+        <span>Generative AI policy, vendor questions, incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <AeFaq items={faq} />
+
+  <AeGuideFoot sources={sources} checked={CHECKED} />
+</AeLayout>

@@ -276,4 +276,32 @@ export const seriesLocales: Record<Exclude<Loc, 'ko'>, SeriesDef[]> = {
       ],
     },
   ],
+  ae: [
+    {
+      slug: 'ai-policy-and-risk',
+      title: 'AI policies and risk tiers',
+      description:
+        'What Abu Dhabi’s Department of Health and the Dubai Health Authority ask of a hospital that uses AI: the principles, what a vendor must disclose and who validates it, and the four risk tiers in the DoH digital products standard.',
+      checklist: { href: '/ae/documents-checklist/', label: 'Checklist: AI vendors and documents' },
+      postIds: [
+        '2026-11-15-abu-dhabi-doh-ai-policy-six-principles-hospital-checklist',
+        '2026-11-15-dubai-dha-ai-policy-vendor-disclosure-independent-validation',
+        '2026-11-15-doh-digital-products-standard-four-risk-tiers-hospital-ai',
+      ],
+    },
+    {
+      slug: 'data-devices-incidents',
+      title: 'Health data, devices and incidents',
+      description:
+        'Where health data may be stored and processed, when patient data may be reused for analytics, and the reporting clocks for device incidents, cyber incidents and data breaches in Abu Dhabi.',
+      checklist: { href: '/ae/data-checklist/', label: 'Patient data checklist' },
+      postIds: [
+        '2026-11-15-uae-health-data-stay-in-country-doh-data-access-standard-ai-cloud',
+        '2026-11-15-doh-analytics-standard-secondary-use-patient-data-ai-consent',
+        '2026-11-15-medical-device-software-incident-5-15-90-day-clock-abu-dhabi',
+        '2026-11-15-doh-medical-device-cybersecurity-guideline-ai-vendor-questions',
+        '2026-11-15-malaffi-health-information-exchange-consent-60-day-breach-notice',
+      ],
+    },
+  ],
 };

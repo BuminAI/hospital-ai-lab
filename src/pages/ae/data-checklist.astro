@@ -1,0 +1,224 @@
+---
+// Checklist: patient data and AI tools in UAE hospitals (2026-11-15)
+// ⚠️ Items rest on Abu Dhabi DoH documents read in full text (AI policy, Data Access Standard, Data Sharing standard, Data Storage and
+//    Retention Standard, Analytics and Reporting Standard, Digital Products Governance Standard, Health Information Exchange policy,
+//    medical device cybersecurity guideline) and the Dubai Health Authority's AI policy. The federal laws themselves were not read
+//    (the federal legislation portal refused automated requests), so no article of a federal law is cited.
+import '../../styles/ae-guide.css';
+import AeLayout from '../../layouts/AeLayout.astro';
+import AeGuideFoot from '../../components/AeGuideFoot.astro';
+import AeFaq from '../../components/AeFaq.astro';
+import { guideSchema } from '../../utils/ae-guide';
+import { SRC } from '../../data/ae/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = "Patient data checklist: AI tools, vendors and breaches in the UAE";
+const description =
+  "A checklist for hospital administration and IT: what data may enter an AI tool and where it may live, how patient data may be reused, and which reporting clocks apply, from Abu Dhabi DoH and Dubai DHA documents.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. What data may go into an AI tool, and where it may live',
+    lead: 'Abu Dhabi’s rules treat location as part of the data decision, not a technical detail.',
+    items: [
+      {
+        no: '1',
+        text: 'For each AI tool, the hospital has set clear boundaries on access to and sharing of patient information, to protect confidentiality and ownership of that information.',
+        basis: 'DoH AI policy (Policy/AI/0.9), section 7.2',
+      },
+      {
+        no: '2',
+        text: 'The vendor states in writing where data is stored and processed, including logs and backups, and nothing is stored, replicated or transferred outside the UAE without explicit DoH authorisation.',
+        basis: 'DoH Data Access Standard, section 3.2.1.2',
+      },
+      {
+        no: '3',
+        text: 'Remote access to systems or data from outside the UAE (for example vendor support) is exceptional and has prior written DoH approval.',
+        basis: 'DoH Data Access Standard, section 3.2.1.2',
+      },
+      {
+        no: '4',
+        text: 'Contracts with external or cloud providers keep data residency in the UAE and include contractual and technical safeguards against unauthorised cross-border transfer or access.',
+        basis: 'DoH Data Access Standard, section 3.2.1.2',
+      },
+      {
+        no: '5',
+        text: 'Staff know which data may not be typed into consumer chatbots, and the hospital has said which tools are approved. (Author’s recommendation based on the rules above.)',
+        basis: 'DoH Data Access Standard, section 3.2.1.2 (author’s recommendation)',
+      },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Reuse of patient data and retention',
+    lead: 'Training or tuning a model on hospital records is secondary use. The 2026 analytics standard sets the conditions.',
+    items: [
+      {
+        no: '6',
+        text: 'The vendor says whether your data is used to train or improve its models. If it is, the data is anonymised or de-identified unless the patient explicitly permits otherwise or the law requires it.',
+        basis: 'DoH Analytics and Reporting Standard, section 3.2.6',
+      },
+      {
+        no: '7',
+        text: 'Patients give explicit informed consent before secondary use, are told the specific use, risks and benefits, may opt out without any effect on their care, and may withdraw consent at any time.',
+        basis: 'DoH Analytics and Reporting Standard, section 3.2.6.3',
+      },
+      {
+        no: '8',
+        text: 'Nobody tries to re-identify anonymised data, and secondary use is not used to deny or limit insurance, employment or other essential services.',
+        basis: 'DoH Analytics and Reporting Standard, section 3.2.6',
+      },
+      {
+        no: '9',
+        text: 'Where a patient-facing product asks for consent to share data for a specific purpose, it uses a separate affirmative consent that names the recipients and purposes, and the hospital keeps records of consents.',
+        basis: 'DoH Digital Products Governance Standard, section 3.2.6',
+      },
+      {
+        no: '10',
+        text: 'The retention period for health data held in the tool matches DoH’s minimum of 25 years, which the standard attributes to Federal Law No. 2 of 2019.',
+        basis: 'DoH Data Storage and Retention Standard, section 3.2.2.1',
+      },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. Breaches and incidents',
+    lead: 'Different documents set different clocks. Put them on one card.',
+    items: [
+      {
+        no: '11',
+        text: 'If a breach involves data in the Abu Dhabi health information exchange, affected patients are notified without undue delay and in no event later than 60 days from discovery.',
+        basis: 'DoH HIE policy (DOH/POL/STR/HIE/1.1/2020), section 4.3.17',
+      },
+      {
+        no: '12',
+        text: 'The exchange side notifies DoH of a breach as soon as reasonably practicable after determining it occurred, and in any event within 5 business days.',
+        basis: 'DoH HIE policy, section 4.3.17',
+      },
+      {
+        no: '13',
+        text: 'Any cybersecurity incident or vulnerability involving a connected medical device is reported immediately to the Abu Dhabi Healthcare Cybersecurity Emergency Response Team upon discovery.',
+        basis: 'DoH Medical Device Cybersecurity Guideline, sections 3.5 and 3.6',
+      },
+      {
+        no: '14',
+        text: 'Known or suspected AI incidents and any implementation issue that could affect patient safety are reported to DoH (Abu Dhabi) or to DHA’s Health Regulation Sector (Dubai).',
+        basis: 'DoH AI policy, sections 9.2 and 9.3; DHA policy DHA/HISHD/PP-09, sections 4.8.1 and 4.8.2',
+      },
+      {
+        no: '15',
+        text: 'A contingency plan lets the hospital stop using an AI tool and switch to a protocol that does not involve it, and the vendor explains what the tool does when its service is down.',
+        basis: 'DoH AI policy, section 7.1.2 (graceful degradation); author’s recommendation for the fallback',
+      },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'Can an Abu Dhabi hospital use an AI service that runs outside the UAE?',
+    a: 'Not without DoH’s authorisation. The Data Access Standard says no storage, replication or transfer of healthcare data outside the UAE may occur without explicit DoH authorisation, and that entities using external or cloud providers must keep data residency within the UAE.',
+  },
+  {
+    q: 'May patient records be used to train an AI tool?',
+    a: 'DoH’s Analytics and Reporting Standard treats that as secondary use: anonymised or de-identified unless the patient explicitly permits otherwise or the law requires it, with explicit informed consent, a right to withdraw without any effect on care, and a ban on re-identification.',
+  },
+  {
+    q: 'What deadlines apply if a connected device is attacked or data is breached?',
+    a: 'Connected-device cyber incidents go to the Abu Dhabi Healthcare Cybersecurity Emergency Response Team immediately upon discovery. For the health information exchange, patients must be notified within 60 days of discovery and the exchange side must notify DoH within 5 business days of determining a breach occurred.',
+  },
+  {
+    q: 'Is this a complete data protection compliance checklist?',
+    a: 'No. We did not read the federal laws themselves (the federal legislation portal refused automated requests), so this list rests on DoH and DHA documents only. Dubai’s own data rules, such as its health information exchange policy, were not read either. Ask your data protection officer or counsel.',
+  },
+];
+
+const sources = [SRC.dataAccess, SRC.analytics, SRC.retention, SRC.hie, SRC.cyber, SRC.dpgs, SRC.dohAi, SRC.dhaAi];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ae/data-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Hospital administration and IT',
+  faq,
+});
+---
+
+<AeLayout title={title} description={description} crumb="Patient data protection" standalone updated={new Date('2026-11-15T00:00:00+04:00')} schema={guide}>
+  <h1>Patient data protection checklist</h1>
+  <p class="tg-lead">
+    AI tools bring patient data into new places: a vendor’s servers, a model’s training, a chatbot window. This page turns Abu Dhabi DoH and Dubai DHA documents into a checklist for the people who approve those tools, each item with its source section.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and IT</p>
+
+  <p class="tg-answer">
+    In short: keep health data in the UAE unless DoH authorises otherwise (Data Access Standard); anonymise or get explicit consent before reusing patient data to train an AI tool (Analytics and Reporting Standard); and know the clocks: connected-device cyber incidents immediately, exchange breaches within 60 days for patients and 5 business days for DoH.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from documents that were read in full; each item gives its basis, so check the text.</li>
+      <li>Most of it applies to <strong>Abu Dhabi</strong> (DoH-licensed entities). Dubai’s AI policy is cited where it says the same or something different; Dubai’s data rules were not read.</li>
+      <li>We did not read the federal laws themselves, so this list does not state what they require beyond what the DoH and DHA documents say. Ask your data protection officer or counsel.</li>
+      <li>Items marked “author’s recommendation” are not requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ae/documents-checklist/')}>
+        <b>Checklist: AI vendors and documents</b>
+        <span>Which policy applies, device status, risk tier, what a vendor must disclose and how updates are handled.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ae/templates/')}>
+        <b>Document templates</b>
+        <span>Vendor questions, generative AI policy and an incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <AeFaq items={faq} />
+
+  <AeGuideFoot sources={sources} checked={CHECKED} />
+</AeLayout>

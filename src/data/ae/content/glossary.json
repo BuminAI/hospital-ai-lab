@@ -1,0 +1,194 @@
+[
+  {
+    "id": "doh",
+    "term": "DoH (Department of Health – Abu Dhabi)",
+    "category": "Regulation and certification",
+    "definition": "The regulator of the health system in the Emirate of Abu Dhabi. Its AI policy, standards and guidelines apply to DoH-licensed providers, and its documents say it shapes the regulatory framework, inspects and enforces. Most of the rules summarised on this site come from DoH documents.",
+    "whyMatters": "If your hospital is licensed in Abu Dhabi, the DoH text is the one that binds you. Read the current document before relying on a summary, including this one.",
+    "sources": ["https://www.doh.gov.ae/en/resources/standards", "https://www.doh.gov.ae/en/resources/policies"]
+  },
+  {
+    "id": "dha",
+    "term": "DHA (Dubai Health Authority)",
+    "category": "Regulation and certification",
+    "definition": "The authority that licenses healthcare facilities and professionals in the Emirate of Dubai. Its policy “Artificial Intelligence in the Healthcare” sets ethical and regulatory requirements for AI solutions used in Dubai.",
+    "whyMatters": "A group with hospitals in both emirates has to read two sets of rules. The two AI policies share ideas but differ in detail, for example DHA asks for independent third-party validation.",
+    "sources": ["https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf"]
+  },
+  {
+    "id": "mohap",
+    "term": "MOHAP (Ministry of Health and Prevention)",
+    "category": "Regulation and certification",
+    "definition": "The federal health ministry. The UAE Government portal says Federal Law No. 2 of 2019 enables it to collect, analyse and keep health information at the national level, and the Dubai AI policy says AI tools must meet its requirements on pharmaceuticals, medical devices and medical advertisement.",
+    "whyMatters": "Emirate-level rules sit on top of federal ones. This site has not read MOHAP’s own device rules, so ask your regulatory team which federal requirements apply to a given product.",
+    "sources": ["https://u.ae/en/about-the-uae/digital-uae/whole-of-government-approach/digital-health/ict-in-the-health-sector", "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf"]
+  },
+  {
+    "id": "doh-ai-policy",
+    "term": "DoH Policy on Use of AI",
+    "category": "Regulation and certification",
+    "definition": "The Abu Dhabi policy (Policy/AI/0.9, version 0.9, 30 April 2018) on AI in the healthcare sector. It sets six guiding principles, minimum requirements for AI tools such as certification, auditable validation statements and graceful degradation, duties for end-users such as governance, education and audits, and a duty to report known or suspected AI incidents to DoH.",
+    "whyMatters": "It is short, readable and still the base text for hospital AI in Abu Dhabi. It also says AI should support, not replace, a human decision.",
+    "sources": ["https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx"]
+  },
+  {
+    "id": "dha-ai-policy",
+    "term": "DHA policy on AI in healthcare",
+    "category": "Regulation and certification",
+    "definition": "The Dubai policy (DHA/HISHD/PP-09, issue date 1 July 2021, revision date 1 July 2026) on AI solutions. It asks for disclosure of how a solution was validated, independent third-party validation, the ability to override or reverse significant decisions, monitoring of real-world performance against validation results, and reporting of incidents to DHA.",
+    "whyMatters": "It is the most concrete UAE text on what to ask a vendor. The listed revision date has passed, so check DHA for a newer version.",
+    "sources": ["https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf"]
+  },
+  {
+    "id": "hta-evaluation",
+    "term": "HTA evaluation (Health Technology Assessment)",
+    "category": "Regulation and certification",
+    "definition": "The DoH medical device cybersecurity guideline says any new medical device, or an existing one with cybersecurity considerations, intended for use in Abu Dhabi healthcare facilities must be evaluated by DoH’s Health Technology Assessment department before implementation, to assess clinical efficacy and effectiveness.",
+    "whyMatters": "For a vendor demo that turns into a purchase, this review comes before go-live. Ask the vendor whether it has been done and by whom.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx"]
+  },
+  {
+    "id": "mdr",
+    "term": "MDR (medical device reporting)",
+    "category": "Regulation and certification",
+    "definition": "The DoH standard (DoH/ST/HLS/SMDR/V2/26, published July 2026, effective October 2026) on reporting medical device adverse events and incidents. Deaths, serious injuries and malfunctions are reported as soon as possible and not later than five days from awareness; follow-up reports within 15 days; other reports within 90 days of receiving the related reports. Facilities with access to the Malaffi platform use it as the primary route.",
+    "whyMatters": "The standard’s definition of a device includes software, so an AI tool that behaves badly can be a reportable event. Put the clock in your incident procedure.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/18826-Medical-Device-Reporting-Standard-MDR.ashx"]
+  },
+  {
+    "id": "ict-health-law",
+    "term": "Federal Law No. 2 of 2019 (ICT in health fields)",
+    "category": "Regulation and certification",
+    "definition": "The UAE Government portal describes it as regulating the use of information and communication technology in health fields, including free zones. Providers must keep health data confidential, ensure its validity and protect it from unauthorised change, and keep it available to authorised parties. DoH’s retention standard says the law mandates a minimum retention period of 25 years for health data.",
+    "whyMatters": "Several DoH and DHA documents point back to this law. This site has not read the law’s own text, only how the portal and the DoH and DHA documents describe it.",
+    "sources": ["https://u.ae/en/about-the-uae/digital-uae/whole-of-government-approach/digital-health/ict-in-the-health-sector", "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2025/Data-Storage-and-Retention_Standard.ashx"]
+  },
+  {
+    "id": "pdpl",
+    "term": "PDPL (Personal Data Protection Law)",
+    "category": "Data and privacy",
+    "definition": "Federal Decree-Law No. 45 of 2021, in force since 2 January 2022 according to the UAE Government portal. It applies to processing of personal data in whole or in part through electronic systems, inside or outside the country, bans processing without the owner’s consent except in listed cases, gives the owner rights to correction and to restrict or stop processing, and sets requirements for cross-border transfer.",
+    "whyMatters": "For health data, emirate-level DoH and DHA rules and the health data law also apply. Ask your legal team how they fit together for your facility.",
+    "sources": ["https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws"]
+  },
+  {
+    "id": "malaffi",
+    "term": "Malaffi (Abu Dhabi Health Information Exchange)",
+    "category": "Data and privacy",
+    "definition": "Abu Dhabi’s health information exchange. DoH’s policy requires facilities to seek patient consent for sharing data through it and says DoH authorises sharing where consent is unavailable, for example legacy data. The medical device reporting standard names the Malaffi platform as the primary reporting route for facilities with access.",
+    "whyMatters": "An AI tool that reads or writes patient data usually touches the exchange. The DoH AI policy asks AI tools to comply with the exchange policy, especially on privacy and transparency.",
+    "sources": ["https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx"]
+  },
+  {
+    "id": "data-localization",
+    "term": "Data residency (keeping health data in the UAE)",
+    "category": "Data and privacy",
+    "definition": "DoH’s Data Access Standard says no storage, replication or transfer of healthcare data outside the UAE may occur without explicit DoH authorisation, and that entities using cloud providers must keep data residency in the UAE with contractual and technical safeguards. The data sharing standard says classified data must not be transferred, stored, processed or disseminated outside the UAE unless DoH issues a valid and specific exemption.",
+    "whyMatters": "It decides where an AI vendor may run its model on your data. A cloud region outside the UAE is not an option unless DoH has authorised it.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/11126_Data_Access_Standard.ashx", "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Data-Sharing-Integration-and-Interoperability-Standard.ashx"]
+  },
+  {
+    "id": "secondary-use",
+    "term": "Secondary use of patient data",
+    "category": "Data and privacy",
+    "definition": "Using patient data for a purpose other than the patient’s care, such as analytics, research, training or building AI. DoH’s Analytics and Reporting Standard requires such data to be anonymised or de-identified unless the patient permits otherwise or the law requires it, requires explicit informed consent, lets patients withdraw consent without any effect on their care, and bans re-identification attempts.",
+    "whyMatters": "Training or tuning an AI tool on your hospital’s records is secondary use. Ask what data a vendor wants and on what consent basis.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx"]
+  },
+  {
+    "id": "anonymised-data",
+    "term": "Anonymised and de-identified data",
+    "category": "Data and privacy",
+    "definition": "Data stripped of identifiers so a person cannot be recognised. DoH’s standards use it as the default for secondary use and say attempting to re-identify individuals from anonymised or de-identified data is prohibited.",
+    "whyMatters": "“We only use anonymised data” is a claim to test: ask how it was anonymised and who checked.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx"]
+  },
+  {
+    "id": "pii-phi",
+    "term": "PII and PHI",
+    "category": "Data and privacy",
+    "definition": "Personally identifiable information is data that can identify a person alone or combined with other data. Protected health information is information about health status, provision of care or payment that can be linked to a person. The DoH cybersecurity guideline uses both terms for what attackers target.",
+    "whyMatters": "Both are in scope when a device or an AI tool processes patient data, so both belong in a vendor’s security answers.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx"]
+  },
+  {
+    "id": "uae-pass",
+    "term": "UAE Pass",
+    "category": "Data and privacy",
+    "definition": "The federal digital identity named in the DoH Digital Products Governance Standard as the standardised access protocol for authentication and identity verification. Digital products developed by DoH, marked by DoH for government use, or owned by DoH must integrate it.",
+    "whyMatters": "If your AI tool has a patient-facing login linked to a DoH service, the sign-in route is already defined.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx"]
+  },
+  {
+    "id": "digital-product",
+    "term": "Digital product (DoH definition)",
+    "category": "Standards and terminology",
+    "definition": "Systems, applications, collaborative platforms, electronic health records, telemedicine and wearable devices powered by digital technologies such as robotics, IoT, 5G, blockchain, artificial intelligence, augmented reality and virtual reality. In the DoH standard it covers any software, application, platform or technology used in Abu Dhabi healthcare to manage records, support clinical decisions or provide telehealth.",
+    "whyMatters": "A clinical AI tool, an AI scribe and a chatbot all fit the definition, so the standard’s governance steps apply to them.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx"]
+  },
+  {
+    "id": "risk-tiers",
+    "term": "Risk tiers in the DoH digital products standard",
+    "category": "Standards and terminology",
+    "definition": "Very high risk: prohibited from deployment. High risk: conformity assessments before and after deployment. Medium risk: governance policies, standards and risk reporting. Low and very low risk: exempt from formal risk reporting but monitored. Risks are documented in a risk register with defined ownership.",
+    "whyMatters": "Ask a vendor which tier it expects for its product in your setting and why. The standard does not give a ready answer for every product.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx"]
+  },
+  {
+    "id": "dpo-dpa",
+    "term": "Digital Product Owner and Digital Product Architect",
+    "category": "Standards and terminology",
+    "definition": "The two roles the DoH standard says each digital product must have: an owner responsible for end-to-end management and alignment with user needs, and an architect responsible for the technical design, security and interoperability. They may be dedicated or added to existing duties.",
+    "whyMatters": "Name them before go-live. A tool with no named owner has no one to answer an incident report.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx"]
+  },
+  {
+    "id": "supportive-technology",
+    "term": "Supportive technology",
+    "category": "Standards and terminology",
+    "definition": "The Abu Dhabi and Dubai AI policies describe AI used as supportive technology: used by a human to assist in making a final decision without replacing human decision-making, so a human makes the final decision and is responsible for any action taken.",
+    "whyMatters": "It is the policies’ answer to “who is responsible when the AI is wrong”: the person who acted on it.",
+    "sources": ["https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx", "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf"]
+  },
+  {
+    "id": "graceful-degradation",
+    "term": "Graceful degradation",
+    "category": "Standards and terminology",
+    "definition": "In both AI policies, the ability of a system to keep limited function when part of it fails, with automatic alerts and gradual cessation of operation if hardware or software malfunctions, so failure is not sudden or silent.",
+    "whyMatters": "Ask a vendor what the tool does when its model service is down. A good answer is an alert and a safe fallback, not silence.",
+    "sources": ["https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx", "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf"]
+  },
+  {
+    "id": "adhccert",
+    "term": "ADHCCERT (Abu Dhabi Healthcare Cybersecurity Emergency Response Team)",
+    "category": "Standards and terminology",
+    "definition": "The DoH team that the medical device cybersecurity guideline names for reporting any cybersecurity information or incident involving connected medical devices, including vulnerabilities or breaches, immediately upon discovery and without delay.",
+    "whyMatters": "Put its contact route in your incident plan so the person on duty does not have to look for it.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx"]
+  },
+  {
+    "id": "mds2",
+    "term": "MDS2 (Manufacturer Disclosure Statement for Medical Device Security)",
+    "category": "Standards and terminology",
+    "definition": "A voluntary standard form manufacturers use to tell healthcare organisations about a device’s security and privacy features. The DoH guideline says manufacturers, distributors and vendors must provide transparent documentation, including MDS2.",
+    "whyMatters": "Request it in procurement. A vendor that cannot supply one has told you something about its security process.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx"]
+  },
+  {
+    "id": "iomt",
+    "term": "IoMT (Internet of Medical Things)",
+    "category": "Standards and terminology",
+    "definition": "Medical devices and systems connected to networks or the internet. The DoH guideline scopes in implantable, mobile, software-only and network-connected devices and tells facilities to keep an inventory with software and firmware versions, operating system, IP and MAC addresses and network configuration.",
+    "whyMatters": "AI tools that run on bedside or imaging equipment live in this inventory. If it is not listed, nobody patches it.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx"]
+  },
+  {
+    "id": "stride",
+    "term": "STRIDE",
+    "category": "Standards and terminology",
+    "definition": "A threat-modelling method named in the DoH guideline: Spoofing, Tampering, Repudiation, Information disclosure, Denial of service and Elevation of privilege. The guideline asks facilities to use it to assess threats and vulnerabilities of medical devices and systems.",
+    "whyMatters": "A shared checklist of threat types helps clinical engineers and IT talk about the same risks.",
+    "sources": ["https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx"]
+  }
+]

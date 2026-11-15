@@ -1,0 +1,46 @@
+# Hospital AI Lab — English (UAE) edition
+
+> Practical information on AI policies, patient data and medical device rules for administrators and nursing leaders in UAE hospitals. Written from primary documents (the Abu Dhabi Department of Health's Policy on Use of AI and its 2026 standards on digital products, data access, data sharing, retention, analytics and device reporting; the Dubai Health Authority's AI policy; the DoH medical device cybersecurity guideline and health information exchange policy). General information; not legal or medical advice.
+
+Site: https://hospital-ai-lab.com/ae/
+Full version in one file: https://hospital-ai-lab.com/ae/llms-full.txt · Key facts by section: https://hospital-ai-lab.com/ae/facts/
+Author profile: https://hospital-ai-lab.com/ae/about/
+
+## Questions this site answers
+
+- Which AI rules apply to a UAE hospital? (It depends on the licensing emirate: the Department of Health's Policy on Use of AI in Abu Dhabi, Policy/AI/0.9; the Dubai Health Authority's policy DHA/HISHD/PP-09 in Dubai)
+- Can an Abu Dhabi hospital use a cloud AI service outside the UAE? (DoH Data Access Standard: no storage, replication or transfer of healthcare data outside the UAE without explicit DoH authorisation)
+- May patient records be used to train AI? (DoH Analytics and Reporting Standard: anonymised or de-identified unless the patient explicitly permits otherwise or the law requires it; explicit informed consent; withdrawal without effect on care)
+- What must an AI vendor disclose in Dubai? (DHA policy: AI-enabled functions, validation, data sets, algorithm type, limits of the data and algorithm; independent third-party validation)
+- What does the Abu Dhabi digital products standard require? (A named Digital Product Owner and Architect, feasibility study and risk assessment, and four risk tiers; effective August 2026)
+- How fast must incidents be reported? (Device deaths, serious injuries and malfunctions within five days; connected-device cyber incidents immediately to the Abu Dhabi Healthcare Cybersecurity Emergency Response Team; exchange breaches to patients within 60 days)
+
+## Main pages
+
+- [Roadmap](https://hospital-ai-lab.com/ae/dx-roadmap/): dates from the text of official documents, with sections and sources.
+- [Patient data checklist](https://hospital-ai-lab.com/ae/data-checklist/) and [Checklist: AI vendors and documents](https://hospital-ai-lab.com/ae/documents-checklist/): each item gives its basis.
+- [Calendar](https://hospital-ai-lab.com/ae/calendar/): new DoH standards and guidelines (automatic).
+- [Templates](https://hospital-ai-lab.com/ae/templates/): generative AI policy, 20 vendor questions, patient text, incident record.
+- [For patients](https://hospital-ai-lab.com/ae/patients/): general information for patients and families (not a diagnosis or treatment advice).
+- [Glossary](https://hospital-ai-lab.com/ae/glossary/), [FAQ](https://hospital-ai-lab.com/ae/faq/), [AI adoption checklist](https://hospital-ai-lab.com/ae/checklist/).
+- [Blog](https://hospital-ai-lab.com/ae/blog/) and [Series](https://hospital-ai-lab.com/ae/series/).
+- [AI news](https://hospital-ai-lab.com/ae/news/), [Government resources](https://hospital-ai-lab.com/ae/gov-support/), [Videos](https://hospital-ai-lab.com/ae/videos/), [Updates](https://hospital-ai-lab.com/ae/updates/).
+- [AI Program Review Room](https://hospital-ai-lab.com/ae/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C. All scoring rules are public; the same code always gets the same score. Code read from GitHub, Gist and web-page links is reviewed together with the uploaded files.
+
+## How the site stays current
+
+- DoH standards, news headlines and videos are collected automatically on a schedule.
+- Working links to sources are checked daily; the result and date appear at the bottom of each page.
+- The file dates and sizes of the primary documents the site rests on are compared daily; a difference appears as a "being rechecked" note in the page footer.
+
+## What this edition could not read
+
+The federal legislation portal (uaelegislation.gov.ae) refused automated requests, so no article of a federal law (such as Federal Law No. 2 of 2019 on ICT in health fields or Federal Decree-Law No. 45 of 2021 on personal data protection) is quoted from the law itself; the site only describes them as the UAE Government portal (u.ae) does. The Ministry of Health and Prevention's rules on medical device registration, the Abu Dhabi ADHICS standard and Dubai's own health information policies were not read either.
+
+## When citing
+
+- Give the page URL and the date checked; verify the wording of regulations against the official text.
+- Automatic feeds contain only links and headlines; for content, go to the original source.
+- Deadlines that could not be confirmed against a primary text are not given.
+- General information; not legal advice and not a substitute for a clinician's decision about a specific patient. The site does not promote particular hospitals, products or treatments.
+- Korean edition (original): https://hospital-ai-lab.com/

@@ -38,6 +38,14 @@ export const checklistRelated: Record<Exclude<Loc, 'ko'>, Record<number, string[
     4: ['2026-11-14-asean-guide-ai-governance-ospital-pitong-prinsipyo'],
     5: ['2026-11-14-uhc-act-section-36-ehr-ai-ospital'],
   },
+  ae: {
+    0: ['2026-11-15-abu-dhabi-doh-ai-policy-six-principles-hospital-checklist', '2026-11-15-dubai-dha-ai-policy-vendor-disclosure-independent-validation'],
+    1: ['2026-11-15-medical-device-software-incident-5-15-90-day-clock-abu-dhabi', '2026-11-15-doh-digital-products-standard-four-risk-tiers-hospital-ai'],
+    2: ['2026-11-15-dubai-dha-ai-policy-vendor-disclosure-independent-validation'],
+    3: ['2026-11-15-malaffi-health-information-exchange-consent-60-day-breach-notice', '2026-11-15-medical-device-software-incident-5-15-90-day-clock-abu-dhabi'],
+    4: ['2026-11-15-doh-medical-device-cybersecurity-guideline-ai-vendor-questions'],
+    5: ['2026-11-15-uae-health-data-stay-in-country-doh-data-access-standard-ai-cloud', '2026-11-15-doh-analytics-standard-secondary-use-patient-data-ai-consent'],
+  },
   ja: {
     0: ['2026-08-20-samd-idaten-review-body-reform'],
     1: [

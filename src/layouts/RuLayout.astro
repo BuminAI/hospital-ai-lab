@@ -47,6 +47,8 @@ interface Props {
   sgPath?: string;
   /** 이 페이지의 필리핀어판 경로(hreflang용). */
   phPath?: string;
+  /** 이 페이지의 영어(UAE)판 경로(hreflang용). */
+  aePath?: string;
   /** 이 페이지의 일본어판 경로. 아직 일본어판이 없는 페이지는 넘기지 않는다. */
   jaPath?: string;
   /** 이 페이지의 인도네시아어판 경로(2026-09-05 추가). */
@@ -92,6 +94,7 @@ const {
   inPath,
   sgPath,
   phPath,
+  aePath,
   jaPath,
   idPath,
   twPath,
@@ -137,6 +140,7 @@ const enHref = enPath ? `${siteRoot}${withBase(enPath)}` : undefined;
 const inHref = inPath ? `${siteRoot}${withBase(inPath)}` : undefined;
 const sgHref = sgPath ? `${siteRoot}${withBase(sgPath)}` : undefined;
 const phHref = phPath ? `${siteRoot}${withBase(phPath)}` : undefined;
+const aeHref = aePath ? `${siteRoot}${withBase(aePath)}` : undefined;
 const jaHref = jaPath ? `${siteRoot}${withBase(jaPath)}` : undefined;
 const idHref = idPath ? `${siteRoot}${withBase(idPath)}` : undefined;
 const twHref = twPath ? `${siteRoot}${withBase(twPath)}` : undefined;
@@ -294,6 +298,7 @@ const year = new Date().getFullYear();
           {inHref && <link rel="alternate" hreflang="en-IN" href={inHref} />}
           {sgHref && <link rel="alternate" hreflang="en-SG" href={sgHref} />}
           {phHref && <link rel="alternate" hreflang="fil-PH" href={phHref} />}
+          {aeHref && <link rel="alternate" hreflang="en-AE" href={aeHref} />}
           {jaHref && <link rel="alternate" hreflang="ja" href={jaHref} />}
           {idHref && <link rel="alternate" hreflang="id" href={idHref} />}
           <link rel="alternate" hreflang="ru" href={canonical} />
@@ -502,6 +507,9 @@ const year = new Date().getFullYear();
             </li>
             <li>
               <a href={withBase('/ph/')} hreflang="fil-PH" lang="fil-PH">{ru.editions.ph}</a>
+            </li>
+            <li>
+              <a href={withBase('/ae/')} hreflang="en-AE" lang="en-AE">English (UAE)</a>
             </li>
             <li>
               <a href={withBase('/ja/')} hreflang="ja" lang="ja">{ru.editions.ja}</a>

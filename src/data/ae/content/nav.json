@@ -1,0 +1,122 @@
+[
+  {
+    "href": "/ae/",
+    "key": "home",
+    "enabled": true
+  },
+  {
+    "href": "/ae/about/",
+    "key": "about",
+    "enabled": true
+  },
+  {
+    "href": "/ae/blog/",
+    "key": "blog",
+    "enabled": true
+  },
+  {
+    "href": "/ae/series/",
+    "key": "series",
+    "enabled": true
+  },
+  {
+    "href": "/ae/news/",
+    "key": "news",
+    "enabled": true
+  },
+  {
+    "href": "/ae/practice/",
+    "key": "practice",
+    "enabled": true
+  },
+  {
+    "href": "/ae/patients/",
+    "key": "patients",
+    "enabled": true
+  },
+  {
+    "href": "/ae/ai-digest/",
+    "key": "aiDigest",
+    "enabled": true
+  },
+  {
+    "href": "/ae/gov-support/",
+    "key": "govSupport",
+    "enabled": true
+  },
+  {
+    "href": "/ae/events/",
+    "key": "events",
+    "enabled": true
+  },
+  {
+    "href": "/ae/videos/",
+    "key": "videos",
+    "enabled": true
+  },
+  {
+    "href": "/ae/tips/",
+    "key": "tips",
+    "enabled": true
+  },
+  {
+    "href": "/ae/guide/",
+    "key": "guide",
+    "enabled": true
+  },
+  {
+    "href": "/ae/glossary/",
+    "key": "glossary",
+    "enabled": true
+  },
+  {
+    "href": "/ae/checklist/",
+    "key": "checklist",
+    "enabled": true
+  },
+  {
+    "href": "/ae/faq/",
+    "key": "faq",
+    "enabled": true
+  },
+  {
+    "href": "/ae/research/",
+    "key": "research",
+    "enabled": true
+  },
+  {
+    "href": "/ae/ai-judge/",
+    "key": "aiJudge",
+    "enabled": true
+  },
+  {
+    "href": "/ae/updates/",
+    "key": "updates",
+    "enabled": true
+  },
+  {
+    "href": "/ae/dx-roadmap/",
+    "key": "dxRoadmap",
+    "enabled": true
+  },
+  {
+    "href": "/ae/calendar/",
+    "key": "calendar",
+    "enabled": true
+  },
+  {
+    "href": "/ae/documents-checklist/",
+    "key": "documentsChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/ae/data-checklist/",
+    "key": "dataChecklist",
+    "enabled": true
+  },
+  {
+    "href": "/ae/templates/",
+    "key": "templates",
+    "enabled": true
+  }
+]

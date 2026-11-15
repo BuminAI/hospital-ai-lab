@@ -1,0 +1,516 @@
+{
+  "updatedAt": "2026-11-15T09:49:07.744Z",
+  "country": "United Arab Emirates",
+  "window": {
+    "from": "2025-11-15",
+    "to": "2026-11-15"
+  },
+  "totals": {
+    "surgery": 185,
+    "drug": 16,
+    "disease": 674,
+    "trials": 17
+  },
+  "sections": {
+    "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43023807",
+        "title": "Predicting Motor Recovery in the Subacute Phase of Stroke: The Role of Passive Motor Task and Electroencephalogram Brain Networks",
+        "source": "Brain Connect",
+        "date": "2026-11-12",
+        "authors": "Kim DH, Kwon GH, Park W et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43023807/",
+        "doi": "10.1177/21580014261491423"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43003361",
+        "title": "Total Hip Arthroplasty versus Hemiarthroplasty for Displaced Fragility Femoral Neck Fractures in Older Adults: A Systematic Review and Meta-Analysis of Mortality, Reoperation, and Surgical Complications",
+        "source": "J Arthroplasty",
+        "date": "2026-11-08",
+        "authors": "Pierce TP, Badawi JM, Alhammadi H et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43003361/",
+        "doi": "10.1016/j.arth.2026.11.037"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42972640",
+        "title": "Subtype-Specific Treatment of Autoimmune Myocarditis: Current Evidence and Clinical Approach",
+        "source": "Cardiol Rev",
+        "date": "2026-11-02",
+        "authors": "Goh ZY, Ahmad R, Chadalavada B et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42972640/",
+        "doi": "10.1097/CRD.0000000000001507"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42956019",
+        "title": "Game-Based Learning and Gamification in Laparoscopic Skills Education: Meta-Analysis and Systematic Review",
+        "source": "JMIR Serious Games",
+        "date": "2026-10-28",
+        "authors": "Meng X, Wan Z, Li W et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42956019/",
+        "doi": "10.2196/81331"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42892357",
+        "title": "Repair versus replacement of defective composite restorations: Teaching in dental schools in Canada",
+        "source": "J Dent",
+        "date": "2026-10-16",
+        "authors": "Daood U, Malik NA, Sidhu P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42892357/",
+        "doi": "10.1016/j.jdent.2026.107119"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42881311",
+        "title": "Six-month comparative outcomes of endoscopic sleeve gastroplasty versus laparoscopic sleeve gastrectomy: an MBSAQIP analysis",
+        "source": "Surg Endosc",
+        "date": "2026-10-14",
+        "authors": "Mocanu V, Wills MV, Zhu X et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42881311/",
+        "doi": "10.1007/s00464-026-13489-8"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42942637",
+        "title": "Insights on Novel Dental Resin Composites: A Scoping Review",
+        "source": "Polymers (Basel)",
+        "date": "2026-10-13",
+        "authors": "Ping LK, Al-Rawas M, Abuhijleh E et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42942637/",
+        "doi": "10.3390/polym18202516"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42903887",
+        "title": "Ultrasound-guided percutaneous rotator interval approach for simulated adhesiolysis: A proof-of-concept feasibility and anatomical safety study",
+        "source": "J Anesth Transl Med",
+        "date": "2026-10-11",
+        "authors": "Rodríguez-Maruri G, Álvarez-Hornia E, Ciftci HB et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42903887/",
+        "doi": "10.1016/j.jatmed.2026.09.002"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42882929",
+        "title": "Multi-Omics and Liquid Biopsy Integration for Precision Stratification of Breast Cancer",
+        "source": "Cancers (Basel)",
+        "date": "2026-10-07",
+        "authors": "Sharma D, Srivastava S, Sridhar SB et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42882929/",
+        "doi": "10.3390/cancers18193235"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42838072",
+        "title": "Future-proofing thalassaemia care: harnessing scalable therapies, artificial intelligence, and global collaboration",
+        "source": "Lancet Haematol",
+        "date": "2026-10-05",
+        "authors": "Al-Samkari H, Aboobacker F, Andemariam B et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42838072/",
+        "doi": "10.1016/S2352-3026(26)00197-3"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42838069",
+        "title": "The expanding therapeutic landscape of β-thalassaemia",
+        "source": "Lancet Haematol",
+        "date": "2026-10-05",
+        "authors": "Musallam KM, Sheth S, Locatelli F et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42838069/",
+        "doi": "10.1016/S2352-3026(26)00173-0"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42744193",
+        "title": "Potential contribution of the microbiota-gut-brain axis to doxorubicin-associated cognitive impairment: Mechanisms, evidence, and therapeutic opportunities",
+        "source": "Pharmacol Res",
+        "date": "2026-09-14",
+        "authors": "Madkoor M, Ahmed R, Hany R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42744193/",
+        "doi": "10.1016/j.phrs.2026.108455"
+      }
+    ],
+    "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 42815410",
+        "title": "Full enrollment results from cohort 1 of the phase III randomized THOR trial of erdafitinib versus chemotherapy in FGFR-altered advanced urothelial carcinoma",
+        "source": "ESMO Open",
+        "date": "2026-09-29",
+        "authors": "Loriot Y, Matsubara N, Park SH et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42815410/",
+        "doi": "10.1016/j.esmoop.2026.108583"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42721980",
+        "title": "Efficacy and safety of mitapivat in adults with transfusion-dependent α-thalassaemia or β-thalassaemia (ENERGIZE-T): a double-blind, randomised, multicentre, placebo-controlled, phase 3 trial",
+        "source": "Lancet",
+        "date": "2026-09-11",
+        "authors": "Cappellini MD, Sheth S, Taher A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42721980/",
+        "doi": "10.1016/S0140-6736(26)00874-3"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42743423",
+        "title": "SBUF-SMUF: On the path to the optimum hemofiltration technique in pediatric cardiopulmonary bypass: A randomized clinical trial",
+        "source": "J Extra Corpor Technol",
+        "date": "2026-08-31",
+        "authors": "Shadmehr M, Ali B, Abdollahzadeh R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42743423/",
+        "doi": "10.1051/ject/2026020"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42470201",
+        "title": "Adapting mHealth Interventions to Improve Self-Management of HIV and Reduce Substance Use Among Emerging Adults in Zambia: Protocol for a Randomized Controlled Trial",
+        "source": "JMIR Res Protoc",
+        "date": "2026-07-16",
+        "authors": "Wang B, MacDonell K, Zulu J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42470201/",
+        "doi": "10.2196/99714"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42520344",
+        "title": "L-citrulline treatment of nitric oxide deficiency in MELAS a phase I dose-finding and safety study",
+        "source": "Mol Genet Metab",
+        "date": "2026-07-13",
+        "authors": "Almannai M, Duong J, El-Hattab AW et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42520344/",
+        "doi": "10.1016/j.ymgme.2026.110209"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41231755",
+        "title": "Effects of online content-focused coaching on reducing the risk of professional burnout among elementary school teachers: The example of educational leadership in the United Arab Emirates",
+        "source": "J Gen Psychol",
+        "date": "2026-07-01",
+        "authors": "Abdallah AK",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41231755/",
+        "doi": "10.1080/00221309.2025.2587892"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42394542",
+        "title": "Electromagnetic stimulation for overactive bladder in myelomeningocele children: randomized controlled trial",
+        "source": "Eur J Phys Rehabil Med",
+        "date": "2026-05-31",
+        "authors": "Khalifa HA, Heneidy WE, Abdelrazek M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42394542/",
+        "doi": "10.23736/S1973-9087.26.09398-6"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42155424",
+        "title": "Plant-dominant low-protein diet versus standard care in adults with chronic kidney disease stages 3-5: A randomized controlled trial protocol",
+        "source": "Nutr Res",
+        "date": "2026-04-21",
+        "authors": "Kharma JA, Sultan R, Rizk R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42155424/",
+        "doi": "10.1016/j.nutres.2026.04.004"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41987188",
+        "title": "Clinical, radiographic and histomorphometric assessment of the effects of melatonin gel mixed with a xenograft in augmentation of the maxillary sinus: a randomized controlled clinical trial",
+        "source": "BMC Oral Health",
+        "date": "2026-04-15",
+        "authors": "ElSholkamy M, Makawi DM, ElKhateeb SM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41987188/",
+        "doi": "10.1186/s12903-026-08201-0"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41945624",
+        "title": "Effectiveness of the mobile learning HiSense Taxi App for improving taxi drivers' services for individuals with disabilities: a randomized controlled trial",
+        "source": "Disabil Rehabil Assist Technol",
+        "date": "2026-04-06",
+        "authors": "Buist-Brink PNP, Vacaru VSS, Sterkenburg PSP",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41945624/",
+        "doi": "10.1080/17483107.2026.2653074"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41587946",
+        "title": "Mechanistic insights into fecal microbiota transplantation for the treatment of ulcerative colitis: analysis of the STOP-Colitis trial",
+        "source": "J Crohns Colitis",
+        "date": "2026-03-09",
+        "authors": "Quraishi MN, Moakes CA, Yalchin M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41587946/",
+        "doi": "10.1093/ecco-jcc/jjag006"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 41159983",
+        "title": "Atrial Fibrillation Screening According to Genetic Risk: A Secondary Analysis of the Randomized LOOP Study",
+        "source": "J Am Coll Cardiol",
+        "date": "2026-01-19",
+        "authors": "Vad OB, Diederichsen SZ, Xing LY et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41159983/",
+        "doi": "10.1016/j.jacc.2025.09.024"
+      }
+    ],
+    "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43020195",
+        "title": "Dynamics of a vector-host epidemic model with generalized nonlinear incidence functions and distinct dispersal kernels",
+        "source": "Math Biosci",
+        "date": "2026-11-11",
+        "authors": "Dey S, Kumar Kar T, Tridane A",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43020195/",
+        "doi": "10.1016/j.mbs.2026.109856"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43015025",
+        "title": "Association between psoriatic disease and dyslipidaemia: a chart-based observational study in the United Arab Emirates",
+        "source": "BMJ Open",
+        "date": "2026-11-10",
+        "authors": "Almarzooqi K, Almarzooqi N, Alghefari A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43015025/",
+        "doi": "10.1136/bmjopen-2026-122453"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43005928",
+        "title": "The synthetic biology frontier: engineered oncolytic viruses and viral vectors for next-generation cancer therapy and gene delivery",
+        "source": "RSC Adv",
+        "date": "2026-11-08",
+        "authors": "Alsharedeh RH, Aljabali AAA, Obeid MA et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43005928/",
+        "doi": "10.1039/d6ra09938f"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43002586",
+        "title": "Development and validation of the Arabic international index of erectile Function-5 (IIEF-5): a population-based assessment of erectile dysfunction severity and its associated factors among Arabic-speaking older men",
+        "source": "J Sex Med",
+        "date": "2026-11-05",
+        "authors": "Jairoun AA, Shahwan M, El-Dahiyat F et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43002586/",
+        "doi": "10.1093/jsxmed/qdag341"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42993445",
+        "title": "Guillain-Barré Syndrome Following Bariatric Surgery: A Systematic Literature Review",
+        "source": "Obes Surg",
+        "date": "2026-11-05",
+        "authors": "Aljaberi A, Nair SC, Kamrul-Hasan ABM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42993445/",
+        "doi": "10.1007/s11695-026-08996-5"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42992834",
+        "title": "Industrialization restructures the domestic dog gut microbiome while preserving host specificity",
+        "source": "mSystems",
+        "date": "2026-11-05",
+        "authors": "Gautam A, Bhandari D, Gurung K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42992834/",
+        "doi": "10.1128/msystems.00864-26"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42988188",
+        "title": "Pharmacogenomics positively impacts polypharmacy-related toxicity and clinical outcomes in psychiatric patients",
+        "source": "Pharmacol Res",
+        "date": "2026-11-04",
+        "authors": "Pandi MT, Koufaki MI, Skokou M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42988188/",
+        "doi": "10.1016/j.phrs.2026.109735"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42982068",
+        "title": "Global, regional, and national burden of gallbladder and biliary diseases in 204 countries and territories, 1990-2023: a systematic analysis for the Global Burden of Disease Study 2023",
+        "source": "Lancet Gastroenterol Hepatol",
+        "date": "2026-11-03",
+        "authors": "GBD 2023 Gallbladder and Biliary Disease Collaborators",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42982068/",
+        "doi": "10.1016/S2468-1253(26)00259-1"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42975985",
+        "title": "Prior Coronary Artery Bypass Grafting and Its Impact on Lesion Complexity, Procedural Characteristics, and Outcomes in Chronic Total Occlusion Percutaneous Coronary Intervention: A Systematic Review and Meta-Analysis",
+        "source": "Cardiol Rev",
+        "date": "2026-11-02",
+        "authors": "Azam H, Alam B, Javaid SS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42975985/",
+        "doi": "10.1097/CRD.0000000000001499"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42971260",
+        "title": "Dupilumab in Pediatric Eosinophilic Esophagitis",
+        "source": "Pediatrics",
+        "date": "2026-11-02",
+        "authors": "Russo G, Alsarhan A, Slae M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42971260/",
+        "doi": "10.1542/peds.2026-076556"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43023793",
+        "title": "Prevalence and Association of Undiagnosed Obstructive Sleep Apnea with Perioperative Neurocognitive Disorders, and Quality of Life After Brain Surgery",
+        "source": "Neurol India",
+        "date": "2026-10-31",
+        "authors": "Akula S, Kandiraju SR, Rao S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43023793/",
+        "doi": "10.4103/neurol-india.Neurol-India-D-26-00510"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42967511",
+        "title": "Prevalence and cardiometabolic determinants of subclinical albuminuria in strictly normotensive US adults with prediabetes: an NHANES 2013-2018 analysis",
+        "source": "Diabetes Res Clin Pract",
+        "date": "2026-10-31",
+        "authors": "Subramanian J",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42967511/",
+        "doi": "10.1016/j.diabres.2026.113637"
+      }
+    ],
+    "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT07932041",
+        "title": "A Phase 1, Evaluate the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of ISM9528",
+        "source": "InSilico Medicine Hong Kong Limited",
+        "date": "2026-10-29",
+        "phase": "Phase 1",
+        "conditions": "Healthy Subjects (HS)",
+        "intervention": "ISM9528 capsules",
+        "url": "https://clinicaltrials.gov/study/NCT07932041"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07898371",
+        "title": "A Study to Describe Multiple Sclerosis Patients Treated With Tolebrutinib as Per Label in a Real-world Setting",
+        "source": "Sanofi",
+        "date": "2026-10-01",
+        "phase": "",
+        "conditions": "Multiple Sclerosis",
+        "intervention": "Tolebrutinib",
+        "url": "https://clinicaltrials.gov/study/NCT07898371"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07850765",
+        "title": "Real-World Patient and Physician Experience With Semaglutide Across Six Emerging Markets",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-08-28",
+        "phase": "",
+        "conditions": "Overweight, Obesity",
+        "intervention": "Semaglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07850765"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07761117",
+        "title": "A Study to Investigate CV Outcomes With Elecoglipron Compared With Placebo in Adult Participants With HFpEF or HFmrEF",
+        "source": "AstraZeneca",
+        "date": "2026-08-24",
+        "phase": "Phase 3",
+        "conditions": "Heart Failure With Preserved Ejection Fraction (HFpEF), Heart Failure With Mildly Reduced Ejection Fraction (HFmrEF)",
+        "intervention": "Elecoglipron, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07761117"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07753993",
+        "title": "A Study to Investigate Outcomes With Elecoglipron Compared With Placebo in Adult Participants With Chronic Kidney Disease.",
+        "source": "AstraZeneca",
+        "date": "2026-08-21",
+        "phase": "Phase 3",
+        "conditions": "Chronic Kidney Disease",
+        "intervention": "Elecoglipron, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07753993"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT06593392",
+        "title": "Safety and Tolerability of Difelikefalin in Adolescents on Haemodialysis With Moderate-to-Severe Pruritus",
+        "source": "Vifor Fresenius Medical Care Renal Pharma",
+        "date": "2026-08-04",
+        "phase": "Phase 2",
+        "conditions": "Pruritus, Chronic Kidney Diseases",
+        "intervention": "Difelikefalin",
+        "url": "https://clinicaltrials.gov/study/NCT06593392"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07613307",
+        "title": "A Study of Orforglipron (LY3502970) in Participants With Type 2 Diabetes Who Observe Ramadan Fasting",
+        "source": "Eli Lilly and Company",
+        "date": "2026-07-15",
+        "phase": "Phase 3",
+        "conditions": "Diabetes Mellitus, Type 2, Diabetes Melletus, Glucose Metabolism Disorders",
+        "intervention": "Orforglipron",
+        "url": "https://clinicaltrials.gov/study/NCT07613307"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07597993",
+        "title": "BEYOND Study: A Multicentre, Prospective, Observational Study of Real-world Treatment Patterns and Outcomes of Trastuzumab Deruxtecan in Patients With HR Positive, HER2-low or Ultra-low Metastatic Breast Cancer Previously Treated With Endocrine Therapy",
+        "source": "AstraZeneca",
+        "date": "2026-07-12",
+        "phase": "",
+        "conditions": "Breast Cancer",
+        "intervention": "TDxd",
+        "url": "https://clinicaltrials.gov/study/NCT07597993"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07724405",
+        "title": "Efficacy of Recombinant Human G-CSF in Women With Unexplained Recurrent Miscarriage",
+        "source": "Fakih IVF Fertility Center",
+        "date": "2026-07-10",
+        "phase": "Phase 2",
+        "conditions": "Recurrent Pregnancy Loss, Recurrent Miscarriages",
+        "intervention": "Placebo control, Recombinant G-CSF",
+        "url": "https://clinicaltrials.gov/study/NCT07724405"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07215975",
+        "title": "A Real-World Study to Evaluate Luspatercept in Adults With Transfusion-Dependent Beta-Thalassemia in the Middle East",
+        "source": "Bristol-Myers Squibb",
+        "date": "2026-06-26",
+        "phase": "",
+        "conditions": "β-thalassemia",
+        "intervention": "Luspatercept",
+        "url": "https://clinicaltrials.gov/study/NCT07215975"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07647328",
+        "title": "A Phase IIIb Study to Evaluate Camizestrant Plus Ribociclib in ER-positive, HER2-negative Advanced Breast Cancer",
+        "source": "AstraZeneca",
+        "date": "2026-06-15",
+        "phase": "Phase 3",
+        "conditions": "ER-Positive HER2-Negative Breast Cancer",
+        "intervention": "Camizestrant, Ribociclib",
+        "url": "https://clinicaltrials.gov/study/NCT07647328"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07399171",
+        "title": "Study to Evaluate the Effect of HT-4253 for the Prevention of Alzheimer's Disease in APOE4 Carriers",
+        "source": "Halia Therapeutics, Inc.",
+        "date": "2026-05-12",
+        "phase": "Phase 2",
+        "conditions": "Alzheimers Disease",
+        "intervention": "HT-4253, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07399171"
+      }
+    ]
+  }
+}

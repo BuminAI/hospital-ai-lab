@@ -1,4 +1,4 @@
-// 광폭 수집기 출처 목록 (2026-11-14). 전부 2026-11-14에 이 저장소 환경에서 응답을 확인한 공개 RSS/Atom/RDF다.
+// 광폭 수집기 출처 목록 (2026-11-14, ae 2026-11-15). 전부 2026-11-14에 이 저장소 환경에서 응답을 확인한 공개 RSS/Atom/RDF다.
 //
 // topic
 //   health  — 의료 전문 매체. 제목·요약에 AI 단어만 있으면 통과(의료 맥락은 매체가 보장).
@@ -202,7 +202,49 @@ export const EDITIONS = {
       rss('Singapore Business Review', 'https://sbr.com.sg/rss.xml', 'general'),
     ],
   },
+  // 2026-11-15 UAE판. 전부 이 환경에서 응답을 확인한 공개 RSS다(The National·Gulf News·Arab News·Tahawul Tech).
+  ae: {
+    lang: 'ae',
+    files: { news: 'src/data/ae/news.json', gov: 'src/data/ae/gov-notices.json', events: null },
+    sources: [
+      rss('The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/?outputType=xml', 'general'),
+      rss('The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/news/uae/?outputType=xml', 'general'),
+      rss('The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/news/mena/?outputType=xml', 'general'),
+      rss('The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/news/gulf/?outputType=xml', 'general'),
+      rss('The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/business/?outputType=xml', 'general'),
+      rss('The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/opinion/?outputType=xml', 'general'),
+      rss('Gulf News', 'https://gulfnews.com/feed', 'general'),
+      rss('Arab News', 'https://www.arabnews.com/rss.xml', 'general'),
+      rss('Arab News', 'https://www.arabnews.com/taxonomy/term/1/feed', 'general'),
+      rss('Tahawul Tech', 'https://www.tahawultech.com/feed/', 'tech'),
+    ],
+  },
 };
+
+// ── 2026-11-15 UAE: 구글 뉴스 검색 RSS로 UAE 매체(Khaleej Times·Gulf News·Arabian Business·WAM 등)의 의료 AI 기사를 모은다.
+//    UAE 매체 자체 피드는 AI+의료 기사가 드물어 주 단위로 10건을 못 채운다(2026-11-15 실측). <source>가 허용 목록에 있는 것만 받는다.
+const UAE_OUTLETS = /^(Khaleej Times|Gulf News|The National|Arabian Business|Gulf Business|www\.wam\.ae|Emirates 24\|7|Gulf Today|Zawya|Fast Company Middle East|Arab News|AGBI|Middle East Health|Tahawul Tech|Tbreak UAE|Dubai Eye|Cleveland Clinic Abu Dhabi|Department of Health Abu Dhabi|Abu Dhabi Media Office|Digital Watch Observatory)$/;
+const UAE_RENAME = { 'www.wam.ae': 'WAM', 'Department of Health Abu Dhabi': 'Department of Health – Abu Dhabi' };
+const gnews = (q) => ({
+  name: 'Google News',
+  url: `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-AE&gl=AE&ceid=AE:en`,
+  topic: 'general',
+  gnews: true,
+  allow: UAE_OUTLETS,
+  rename: UAE_RENAME,
+  maxAgeDays: 90,
+});
+EDITIONS.ae.sources.push(
+  gnews('UAE hospital artificial intelligence'),
+  gnews('Abu Dhabi Department of Health AI'),
+  gnews('Dubai Health Authority AI'),
+  gnews('UAE healthcare AI when:30d'),
+  gnews('Malaffi AI health'),
+  gnews('Dubai hospital AI patients'),
+  gnews('Abu Dhabi hospital AI doctors'),
+  gnews('UAE medical AI nurses'),
+  gnews('UAE digital health AI regulation'),
+);
 
 // ── 2026-11-14 추가: 건강·기술 섹션 피드(응답 확인) ─────────────────────
 const more = (ed, list) => EDITIONS[ed].sources.push(...list.map(([n, u, t, x]) => rss(n, u, t, x || {})));

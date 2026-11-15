@@ -1,0 +1,360 @@
+/* ── 영어판(인도) 디자인 토큰 (2026-11-07 신설, 영어판(미국) 토큰을 복제해 청록·사프란 팔레트로) ──────────────────
+   일본어판(ja-tokens.css)의 2컬럼·브레드크럼·상시 사이드바 구조를 그대로
+   가져왔다 — 의료(YMYL) 콘텐츠에서 저자 신뢰 신호를 상시 노출하는 것은
+   언어와 무관하게 유효한 설계라고 판단했다(HANDOFF.md 5-3절 참고).
+
+   ⚠️ 이 파일은 `[data-locale="ae"]` 안에서만 적용된다. 한국어·일본어판
+      스타일에 영향을 주지 않도록 모든 선택자에 이 접두사를 붙일 것.
+
+   ⚠️ 일본어판과 달리 폰트 대체 로직이 없다. Pretendard 최신판이 키릴 문자를
+      이미 지원해서(공식 문서 확인) 한국어판이 쓰는 self-host 폰트를 그대로
+      쓸 수 있다 — 시스템 폰트로 전환할 필요가 없다. */
+
+[data-locale='ae'] {
+  /* Color — 신뢰 블루 계열(ja와 같은 계통, 색조만 살짝 다르게) */
+  --ae-base: #ffffff;
+  --ae-surface: #f6f8fa;
+  --ae-surface-2: #edf1f6;
+  --ae-border: #dbe1e9;
+  --ae-text: #1a1a1a;
+  --ae-text-sub: #5a6270;
+  --ae-primary: #0f5c4d;
+  --ae-primary-dk: #0b4539;
+  /* 버튼 색은 별도 토큰으로 분리한다 — 다크모드에서 primary가 밝은
+     틴트로 바뀌는데 그 위에 흰 글자를 올리면 읽히지 않는다.
+     한국어판 global.css의 --btn-bg/--btn-fg와 같은 방식. */
+  --ae-btn-bg: var(--ae-primary);
+  --ae-btn-bg-hover: var(--ae-primary-dk);
+  --ae-btn-fg: #ffffff;
+  --ae-accent: #b8650a;
+  --ae-badge-new: #c62828;
+  --ae-badge-info: #15619f;
+  --ae-badge-gov: #17663d;
+
+  /* Layout */
+  --ae-max: 1120px;
+  --ae-sidebar: 300px;
+  --ae-gap: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-locale='ae'] {
+    --ae-base: #0e141d;
+    --ae-surface: #161f2b;
+    --ae-surface-2: #1d2836;
+    --ae-border: #2b3646;
+    --ae-text: #e8edf4;
+    --ae-text-sub: #a2aebd;
+    --ae-primary: #6fd3bd;
+    --ae-primary-dk: #9ce7d6;
+    --ae-btn-bg: #0f6a58;
+    --ae-btn-bg-hover: #168269;
+    --ae-btn-fg: #ffffff;
+    --ae-accent: #f0955a;
+    --ae-badge-new: #c0392f;
+    --ae-badge-info: #6fb0e0;
+    --ae-badge-gov: #64c799;
+  }
+}
+
+/* ── 본문 조판 ─────────────────────────────────────────── */
+/* ⚠️ 반드시 `[data-locale='ae'] body`로 지정할 것 — html에만 걸면
+   global.css의 body{font-family 등} 규칙이 이긴다(일본어판이 2026-07-31에
+   실제로 겪은 버그, HANDOFF.md 6절 참고). 폰트는 global.css가 이미 지정한
+   Pretendard를 그대로 쓰므로 여기서 font-family를 재정의하지 않는다. */
+[data-locale='ae'] body {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--ae-text);
+  background: var(--ae-base);
+}
+
+[data-locale='ae'] h1,
+[data-locale='ae'] h2,
+[data-locale='ae'] h3 {
+  color: var(--ae-text);
+}
+
+[data-locale='ae'] h1 {
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+[data-locale='ae'] h2 {
+  font-size: 21px;
+  line-height: 1.4;
+  border-left: 5px solid var(--ae-primary);
+  padding: 6px 0 6px 12px;
+  background: var(--ae-surface);
+  margin: 32px 0 16px;
+}
+
+[data-locale='ae'] h3 {
+  font-size: 17px;
+  border-bottom: 2px solid var(--ae-border);
+  padding-bottom: 6px;
+  margin: 24px 0 12px;
+}
+
+[data-locale='ae'] a {
+  color: var(--ae-primary);
+}
+
+/* ── 2컬럼 셸 ──────────────────────────────────────────── */
+[data-locale='ae'] .en-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--ae-sidebar);
+  gap: var(--ae-gap);
+  max-width: var(--ae-max);
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+@media (max-width: 860px) {
+  [data-locale='ae'] .en-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ── 헤더 ──────────────────────────────────────────────── */
+[data-locale='ae'] .en-header {
+  background: var(--ae-base);
+  border-bottom: 3px solid var(--ae-primary);
+}
+
+[data-locale='ae'] .en-header-inner {
+  max-width: var(--ae-max);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+[data-locale='ae'] .en-brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ae-primary);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+[data-locale='ae'] .en-brand-sub {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--ae-text-sub);
+  letter-spacing: 0.03em;
+}
+
+[data-locale='ae'] .en-nav {
+  background: var(--ae-surface);
+  border-bottom: 1px solid var(--ae-border);
+}
+
+[data-locale='ae'] .en-nav ul {
+  max-width: var(--ae-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+[data-locale='ae'] .en-nav a {
+  display: block;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  color: var(--ae-text);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+[data-locale='ae'] .en-nav a:hover,
+[data-locale='ae'] .en-nav a[aria-current='page'] {
+  color: var(--ae-primary);
+  border-bottom-color: var(--ae-primary);
+  background: var(--ae-base);
+}
+
+/* ── 브레드크럼 ────────────────────────────────────────── */
+[data-locale='ae'] .en-breadcrumb {
+  max-width: var(--ae-max);
+  margin: 0 auto;
+  padding: 10px 20px 0;
+  font-size: 12.5px;
+  color: var(--ae-text-sub);
+}
+
+[data-locale='ae'] .en-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+[data-locale='ae'] .en-breadcrumb li + li::before {
+  content: '›';
+  margin-right: 6px;
+  color: var(--ae-border);
+}
+
+/* ── 사이드바 ──────────────────────────────────────────── */
+[data-locale='ae'] .en-side section {
+  border: 1px solid var(--ae-border);
+  border-radius: 4px;
+  background: var(--ae-base);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+[data-locale='ae'] .en-side h2 {
+  font-size: 14px;
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--ae-btn-bg);
+  color: var(--ae-btn-fg);
+  border: 0;
+  letter-spacing: 0.02em;
+}
+
+[data-locale='ae'] .en-side .en-side-body {
+  padding: 14px;
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+[data-locale='ae'] .en-side dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+}
+
+[data-locale='ae'] .en-side dt {
+  color: var(--ae-text-sub);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+[data-locale='ae'] .en-side dd {
+  margin: 0;
+}
+
+/* ── 뱃지·메타 ─────────────────────────────────────────── */
+[data-locale='ae'] .en-badge {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 1px 7px;
+  border-radius: 3px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+
+[data-locale='ae'] .en-badge-new {
+  background: var(--ae-badge-new);
+}
+[data-locale='ae'] .en-badge-gov {
+  background: var(--ae-badge-gov);
+}
+[data-locale='ae'] .en-badge-info {
+  background: var(--ae-badge-info);
+}
+
+[data-locale='ae'] .en-updated {
+  font-size: 12.5px;
+  color: var(--ae-text-sub);
+}
+
+/* ── 목록 ──────────────────────────────────────────────── */
+[data-locale='ae'] .en-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ae-border);
+}
+
+[data-locale='ae'] .en-list > li {
+  border-bottom: 1px solid var(--ae-border);
+  padding: 13px 2px;
+}
+
+[data-locale='ae'] .en-list .en-item-title {
+  color: var(--ae-text);
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+[data-locale='ae'] .en-list .en-item-title:hover {
+  color: var(--ae-primary);
+  text-decoration: underline;
+}
+
+[data-locale='ae'] .en-list .en-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  font-size: 12.5px;
+  color: var(--ae-text-sub);
+}
+
+/* ── 주의 박스 ─────────────────────────────────────────── */
+[data-locale='ae'] .en-caution {
+  border: 1px solid var(--ae-border);
+  border-left: 5px solid var(--ae-accent);
+  background: var(--ae-surface);
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  margin: 16px 0;
+}
+
+[data-locale='ae'] .en-note {
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--ae-text-sub);
+  border-top: 1px solid var(--ae-border);
+  margin-top: 32px;
+  padding-top: 16px;
+}
+
+/* ── 푸터 ──────────────────────────────────────────────── */
+[data-locale='ae'] .en-footer {
+  border-top: 3px solid var(--ae-primary);
+  background: var(--ae-surface);
+  font-size: 13px;
+}
+
+[data-locale='ae'] .en-footer-inner {
+  max-width: var(--ae-max);
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+}
+
+[data-locale='ae'] .en-footer ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+/* 외부 링크 아이콘 */
+[data-locale='ae'] .en-ext::after {
+  content: '↗';
+  font-size: 0.85em;
+  margin-left: 3px;
+  color: var(--ae-text-sub);
+}

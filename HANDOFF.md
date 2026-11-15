@@ -805,6 +805,32 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - 'standalone' 레이아웃은 hreflang을 내지 않아 상호참조 검수가 실패한다 — 이 페이지들은 standalone을 쓰지 않는다.
 - 소속 검색은 저자 한 명이라도 그 나라면 잡힌다("그 나라 논문" ≠ 전체 연구가 그 나라에서 수행). 화면에 명시했고, 효능·안전성 보증이 아니라는 문구를 넣었다.
 
+## 5-21. 영어판(UAE) `/ae/` (2026-11-15 신설, 오너 지시: "UAE 판 페이지를 만들어보자. 빠뜨리지 말고, 지금까지 지시한 대로 한 번에 완벽하게")
+
+싱가포르판 `/sg/`을 복제한 **영어(UAE)** 판이다(hreflang·html lang `en-AE`, `AeLayout`, 컬렉션 `blogAe`, 글 폴더 `src/content/blog-ae/`, 데이터 `src/data/ae/`, 스타일 `src/styles/ae-*.css`의 `--ae-`, 시간대 +04:00, 통화 AED). 번역도 복사도 아니다. **싱가포르 내용은 전부 UAE 1차 문서로 새로 썼다.** 메뉴는 한국어판에 가깝게(`src/data/ae/content/nav.json`).
+
+**읽은 1차 문서(2026-11-15, 전문)**: 아부다비 보건부(DoH) AI 정책(Policy/AI/0.9, 2018), 두바이보건청(DHA) AI 정책(DHA/HISHD/PP-09), DoH 보건정보교환(Malaffi) 정책(2020), DoH 표준·지침 — 디지털 제품 거버넌스(2026-03), 데이터 접근(2026-01), 데이터 공유·상호운용(2025-12), 데이터 보관·유지(2025-12), 분석·보고(2026-04), 의료기기 보고 v2(2026-07), 의료기기 사이버보안 지침(2026-11). 사실은 `src/data/ae/guides/{milestones,facts}.ts` 한곳.
+
+**읽지 못해 쓰지 않은 것(우회 금지)**: 연방 법령 포털 uaelegislation.gov.ae(자동 요청에 HTTP 403) — **연방법 제2호/2019(보건 ICT)·연방 법령 제45호/2021(개인정보 보호법)의 조문은 직접 인용하지 않고 u.ae 포털이 설명하는 만큼만**(DoH 문서가 "연방법이 정한다"고 한 것은 '문서가 말한다'로 표기). 보건예방부(MOHAP) 의료기기 등록 규정, ADHICS, 두바이 NABIDH 정책은 읽지 못해 싣지 않았다. **응급 전화번호는 1차 출처를 못 읽어 싣지 않았다**('지역 응급 번호로 전화').
+
+| 항목 | 위치 | 비고 |
+|---|---|---|
+| 레이아웃·UI | `src/layouts/AeLayout.astro`, `src/i18n/ae.json`, `growth.ts`의 `ae` | 열 개 레이아웃 전부에 `aePath`·푸터 링크, 한국어판은 `alternates.ae` |
+| 실무 가이드 | `src/pages/ae/{dx-roadmap,data-checklist,documents-checklist,templates,practice,facts,calendar,updates}` + 환자 코너 | 항목마다 근거 조항 표기. 조항 번호는 읽은 만큼만(하위 번호를 모르면 상위 절까지) |
+| 글 | `blog-ae/` 8편, 시리즈 `ai-policy-and-risk`(3)·`data-devices-incidents`(5) | 카테고리 AI Tools 75% |
+| 수집 | `scripts/fetch-ae-news.mjs`(보조), **광폭 수집기 `ae`**(`wide-sources.mjs`: The National·Gulf News·Arab News·Tahawul Tech RSS + **구글 뉴스 검색 RSS를 UAE 매체 허용 목록으로 거른 것**), `fetch-ae-gov.mjs`(**DoH 표준 RSS** 50건, 제목·코드·날짜·링크만), `fetch-ae-videos.mjs`, `fetch-ai-digest.mjs ae` | 워크플로 `update-ae-*.yml`(분 오프셋 다름). 2026-11-15 시드: 뉴스 27·digest 56·DoH 표준 50·영상 11·논문 12×4 |
+| 점검 | `check-ae-links.mjs`, `check-ae-laws.mjs`(근거 문서 10건의 Last-Modified·길이·ETag 지문) | |
+| AI 심사실 | `scripts/ai-judge/lang/ae.py`(AED) + `build.py`, `public/ae/ai-judge/` | `py scripts/ai-judge/build.py`로 전 언어 재생성(hreflang 줄이 바뀐다) |
+| 관리자 | `admin-ae.astro` + 다른 관리자 화면 연결 | |
+
+**주의할 점**
+- **구글 뉴스 검색 RSS 지원을 `wide.mjs`(`gnews: true`·`allow`·`rename`)와 `fetch-ai-digest.mjs`에 넣었다.** UAE 매체 자체 RSS에는 AI+의료 기사가 주간 10건에 못 미쳐서다. 항목마다 `<source>`가 원 매체이고 허용 목록(`UAE_OUTLETS`)에 있는 것만 받는다. 링크는 구글 뉴스 주소(클릭하면 원문). 뉴스 페이지 문구에 "구글 뉴스 검색을 거쳐 모은다"고 밝혔다.
+- DoH 서버는 연속 접속 뒤 TLS를 끊는다(ECONNRESET·schannel 핸드셰이크 실패) — 수집기에 재시도(4회, 점증 대기)를 넣었다. 몇 분 뒤엔 다시 된다. 사이트 RSS의 날짜는 `+0400` 자정이라 UTC로 바꾸면 하루 앞당겨지므로 +4시간을 더해 날짜만 자른다.
+- Healthcare Asia·Hospital Management는 UAE 한정 매체가 아니라 `ae` 출처에서 뺐다(아시아·세계 기사가 섞임).
+- 영상은 YouTube 검색(`gl=AE`)에서 허용 채널(보건 당국·방송·통신사·DoH 주최 행사 채널 등)만 받는다. UAE 의료 AI 영상은 조회수가 낮아 완화 기준(1100일·100회)으로 11건을 채웠다. 병원·기업 채널은 광고 위험으로 제외.
+- **자동 발행 예외(CLAUDE.md)에 UAE판은 없다.** 오너가 확대 지시하기 전엔 예약 작업(`daily-update-digest`)에 넣지 않는다.
+- 새 자동화 `ae`를 더했으므로 `audit-site.mjs`·`site-health-check.mjs`·`locale-sitemaps`·`og/[...route].ts`·`locale.ts`·`ViewCounts.astro`(`sg`·`ph`·`ae` 조회수 표시 추가)에 `ae`가 들어갔다.
+
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
 
 - **언어판 토큰 CSS를 복제할 때 클래스 이름까지 바꿀 것 (2026-09-06).** `tw-tokens.css`를 `id-tokens.css`에서 복제하면서 변수(`--id-` → `--tw-`)와 로케일(`[data-locale='id']` → `'tw'`)만 바꾸고 **클래스 이름(`.id-shell`·`.id-nav`·`.id-header` 등 43곳)을 그대로 두었다.** 레이아웃 마크업은 `.tw-*`를 쓰는데 CSS는 `.id-*`를 겨냥해, **대만어판 전 페이지가 헤더·메뉴줄·2단 레이아웃 없이 글머리표 목록으로만 나왔다.** 신설 이후 계속 그 상태였고 오너가 화면을 보고 알려 줘서 발견했다.

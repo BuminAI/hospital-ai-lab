@@ -107,6 +107,48 @@ const CONFIG = {
       /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|nfl|nba/i,
     pro: /\bMOH\b|\bHSA\b|\bPDPC\b|\bIMDA\b|Synapxe|\bCSA\b|law|legislat\w*|regulat\w*|congress|senate|white\s+house|\bFDA\b|\bFTC\b|\bHHS\b|\bNIST\b|policy|privacy|data\s+protection|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|research|study|benchmark|safety|audit|governance|compliance|procurement|government|federal|state\s+attorney/i,
   },
+  ae: {
+    out: 'src/data/ae/ai-digest.json',
+    // UAE news outlets (RSS verified reachable on 2026-11-15); a practical-signal filter (policy, regulation,
+    // organisations, security, health) is required so the list stays relevant to a hospital reader.
+    requirePro: true,
+    feeds: [
+      ['The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/business/technology/?outputType=xml'],
+      ['The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/news/uae/?outputType=xml'],
+      ['Khaleej Times', 'https://www.khaleejtimes.com/api/v1/collections/uae.rss'],
+      ['Khaleej Times', 'https://www.khaleejtimes.com/api/v1/collections/business.rss'],
+      ['Emirates 24|7', 'https://www.emirates247.com/rss/mobile/v2/technology.rss'],
+      ['Emirates 24|7', 'https://www.emirates247.com/rss/mobile/v2/uae.rss'],
+      ['The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/?outputType=xml'],
+      ['The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/news/mena/?outputType=xml'],
+      ['The National', 'https://www.thenationalnews.com/arc/outboundfeeds/rss/category/business/?outputType=xml'],
+      ['Gulf News', 'https://gulfnews.com/feed'],
+      ['Arab News', 'https://www.arabnews.com/rss.xml'],
+      ['Arab News', 'https://www.arabnews.com/taxonomy/term/1/feed'],
+      ['Tahawul Tech', 'https://www.tahawultech.com/feed/'],
+      // Google News searches limited to UAE outlets (see UAE_OUTLETS below): the RSS <source> of each item is the real outlet.
+      ...[
+        'UAE artificial intelligence regulation',
+        'UAE AI law',
+        'UAE AI policy government',
+        'Abu Dhabi artificial intelligence',
+        'Dubai artificial intelligence',
+        'UAE generative AI',
+        'UAE AI jobs workforce',
+        'UAE AI cybersecurity',
+        'UAE AI data protection privacy',
+        'UAE AI hospital',
+      ].map((q) => [
+        'Google News',
+        `https://news.google.com/rss/search?q=${encodeURIComponent(q + ' when:30d')}&hl=en-AE&gl=AE&ceid=AE:en`,
+        { gnews: true },
+      ]),
+    ],
+    ai: /(?<![A-Za-z])AI(?![A-Za-z])|artificial\s+intelligence|machine\s+learning|deep\s+learning|large\s+language\s+model|\bLLMs?\b|generative|chatbot|ChatGPT|OpenAI|Anthropic|Gemini|Copilot|neural\s+network/i,
+    noise:
+      /\bgames?\b|gaming|gamer|console|headphones?|netflix|movie|film|celebrit\w*|influencer|meme|crypto\w*|bitcoin|discount|deal\b|coupon|review:|unboxing|iphone\s+\d|pixel\s+\d|galaxy\s+s\d|sports?|nfl|nba/i,
+    pro: /\bDoH\b|\bDHA\b|\bMOHAP\b|\bTDRA\b|\bADHICS\b|Malaffi|NABIDH|\bCSC\b|law|legislat\w*|regulat\w*|congress|senate|white\s+house|\bFDA\b|\bFTC\b|\bHHS\b|\bNIST\b|policy|privacy|data\s+protection|security|cyber\w*|breach|lawsuit|court|standard\w*|hospital|health\w*|medical|patient|clinical|doctor|nurse|enterprise|workforce|jobs?\b|labor|research|study|benchmark|safety|audit|governance|compliance|procurement|government|federal|state\s+attorney/i,
+  },
   id: {
     out: 'src/data/id/ai-digest.json',
     // 인도네시아 일반 매체는 AI 기사 자체가 적어(325건 중 25건) 실무 신호까지
@@ -210,6 +252,25 @@ async function fetchRetry(url, tries = 3) {
   throw last;
 }
 
+// Google News search RSS: keep only items whose <source> is a UAE outlet, label them with that outlet, and cut the ' - Outlet' title suffix.
+const UAE_OUTLETS = /^(Khaleej Times|Gulf News|The National|Arabian Business|Gulf Business|www\.wam\.ae|Emirates 24\|7|Gulf Today|Zawya|Fast Company Middle East|Arab News|AGBI|Tahawul Tech|Tbreak UAE)$/;
+function parseGnews(xml) {
+  const rows = [];
+  for (const block of xml.split('<item>').slice(1)) {
+    const src = stripTags(block.match(/<source[^>]*>([\s\S]*?)<\/source>/)?.[1] ?? '');
+    if (!UAE_OUTLETS.test(src)) continue;
+    let title = stripTags(block.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '');
+    const cut = title.lastIndexOf(' - ');
+    if (cut > 0) title = title.slice(0, cut).trim();
+    const link = decodeEntities(block.match(/<link>([\s\S]*?)<\/link>/)?.[1] ?? '');
+    const dRaw = block.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1]?.trim();
+    const d = dRaw ? new Date(decodeEntities(dRaw)) : null;
+    if (!title || !link || !d || Number.isNaN(d.getTime())) continue;
+    rows.push({ title, link, source: src === 'www.wam.ae' ? 'WAM' : src, pubDate: d.toISOString() });
+  }
+  return rows;
+}
+
 function parseFeed(xml, source) {
   const rows = [];
   for (const block of xml.split(/<item[\s>]/).slice(1)) {
@@ -238,11 +299,11 @@ const isKept = (title) => {
 const collected = [];
 let okFeeds = 0;
 
-for (const [i, [source, url]] of cfg.feeds.entries()) {
+for (const [i, [source, url, opt]] of cfg.feeds.entries()) {
   if (i > 0) await sleep(1200);
   try {
     const xml = await (await fetchRetry(url)).text();
-    const rows = parseFeed(xml, source);
+    const rows = opt?.gnews ? parseGnews(xml) : parseFeed(xml, source);
     const kept = rows.filter((r) => isKept(r.title));
     collected.push(...kept);
     okFeeds++;
@@ -288,7 +349,9 @@ if (JSON.stringify(items) === JSON.stringify(existing)) {
   process.exit(0);
 }
 
-const sources = [...new Set(cfg.feeds.map(([s]) => s))].join('·');
+const sources = cfg.feeds.some((f) => f[2]?.gnews)
+  ? [...new Set(items.map((i) => i.source))].join('·')
+  : [...new Set(cfg.feeds.map(([s]) => s))].join('·');
 await writeFile(
   cfg.out,
   JSON.stringify({ updatedAt: new Date().toISOString(), source: sources, items }, null, 2) + '\n',

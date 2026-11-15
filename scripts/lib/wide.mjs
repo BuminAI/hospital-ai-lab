@@ -99,7 +99,8 @@ export function parseFeed(xml, baseUrl = '') {
     if (d && Number.isNaN(d.getTime())) d = null;
     const desc = clean(tag('description') || tag('summary') || tag('content:encoded') || tag('content')).slice(0, 300);
     if (!title || !/^https?:\/\//.test(link)) continue;
-    rows.push({ title, link, desc, pubDate: d ? d.toISOString() : null });
+    const src = clean(tag('source'));
+    rows.push({ title, link, desc, pubDate: d ? d.toISOString() : null, ...(src ? { src } : {}) });
   }
   return rows;
 }
@@ -164,6 +165,7 @@ export const TERMS = {
 };
 TERMS.in = TERMS.en;
 TERMS.sg = TERMS.en;
+TERMS.ae = TERMS.en;
 
 // 지원사업·공모(정부 카테고리)와 교육·행사(이벤트 카테고리) 단어
 export const GRANT = {
@@ -226,9 +228,18 @@ export async function fetchAll(sources, { concurrency = 6, log = console.log } =
         rec.ok = parsed.length > 0;
         if (!rec.ok) rec.error = 'no items';
         parsed.forEach((r, i) => {
+          // Google News 검색 RSS(s.gnews): 항목마다 <source>가 원 매체다. 허용 매체 목록(s.allow)에 있는 것만 받고,
+          // 제목 끝의 ' - 매체명'을 떼며, 출처 표기는 매체 이름으로 한다. 링크는 구글 뉴스 주소 그대로(클릭하면 원문으로 간다).
+          if (s.gnews) {
+            if (!r.src || !(s.allow && s.allow.test(r.src))) return;
+            const label = (s.rename && s.rename[r.src]) || r.src;
+            const cut = r.title.lastIndexOf(' - ');
+            if (cut > 0) r = { ...r, title: r.title.slice(0, cut).trim() };
+            r = { ...r, desc: '', _label: label };
+          }
           const row = {
             ...r,
-            source: s.sourceLabel || s.name,
+            source: r._label || s.sourceLabel || s.name,
             topic: s.topic,
             popular: !!s.popular,
             rank: s.popular ? i + 1 : undefined,

@@ -1,0 +1,214 @@
+---
+// Templates (2026-11-15): generative AI policy, 20 vendor questions, patient-facing text, incident record
+// ⚠️ Everything here is the author's DRAFT, not legal advice. Cited only to documents that were read in full (Abu Dhabi DoH AI policy, Digital Products Governance Standard, Data Access Standard, Analytics and Reporting Standard, MDR standard, cybersecurity guideline, HIE policy, and the Dubai Health Authority AI policy).
+import '../../styles/ae-guide.css';
+import AeLayout from '../../layouts/AeLayout.astro';
+import AeGuideFoot from '../../components/AeGuideFoot.astro';
+import { SRC } from '../../data/ae/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = 'Templates: generative AI policy and 20 vendor questions';
+const description =
+  'Four copyable drafts for UAE hospitals: a generative AI use policy, 20 vendor questions, a short text for patients and an incident record with the reporting clocks.';
+
+const policy = [
+  "GENERATIVE AI USE POLICY, \"__\" HOSPITAL (DRAFT)",
+  "",
+  "1. Purpose",
+  "   Sets rules for staff of \"__\" when they use generative AI tools (chatbots, summarising tools, translation tools).",
+  "",
+  "2. What must NOT be entered",
+  "   - Patient names, Emirates ID numbers, medical record numbers, dates of birth, addresses, phone numbers, or the content of patient records.",
+  "   - Images or recordings that could identify a patient.",
+  "   - Contracts, or restricted financial and personnel data.",
+  "   Exception: a tool that \"__\" has approved in writing for that data type (see clause 3).",
+  "",
+  "3. Approved tools and permitted data",
+  "   Only tools on the approved list kept by \"__\" (owner: __). For each approved tool the list states which data types may be entered, following our data classification, and states where the tool stores and processes data (inside the UAE unless DoH has authorised otherwise). Using an unapproved tool for work is not allowed.",
+  "",
+  "4. Review of output",
+  "   A person is responsible for every AI-generated text used in work. Generative AI can state fictitious content as fact, so check facts, numbers and names against the source before use.",
+  "   AI output is never entered in a patient record until the responsible clinician has reviewed and approved it. Where AI-generated content is shown to others, label it as AI-generated.",
+  "",
+  "5. Reporting",
+  "   If patient information was entered into an unapproved tool, report it the same day to __ (name, phone __). Do not try to delete it yourself first.",
+  "",
+  "6. Training",
+  "   Staff who use AI tools are trained on this policy, including the data input restrictions and how to report an incident, and are re-trained after significant updates. Owner: __. Review date: __.",
+].join('\n');
+
+const questions = [
+  "TWENTY QUESTIONS FOR AN AI VENDOR (DRAFT)",
+  "Write the answers down and attach them to the contract.",
+  "",
+  "Status and rules",
+  "1. Which emirate's rules do you design for (Abu Dhabi DoH, Dubai DHA, or both), and which policy documents do you say you meet?",
+  "2. Do you treat this product as a medical device? Which registration do you hold, and may we see it?",
+  "3. What is the intended use statement, and does our planned use match it?",
+  "4. Which functions are AI-enabled, and what type of algorithm is used?",
+  "5. How was the solution validated, on which data sets, and has a competent third party validated it independently?",
+  "6. What are the limits of the data and the algorithm, and what outcomes should we expect?",
+  "",
+  "Performance and updates",
+  "7. How will we be told before an update reaches our wards, and can we delay it?",
+  "8. How is an update rolled back, and who tells our staff?",
+  "9. Which real-world performance figures do you monitor after go-live, and will you share them with us so we can compare them with your validation results?",
+  "10. What does the tool do when its service or hardware fails (graceful degradation), and what is our fallback?",
+  "",
+  "Patient data",
+  "11. Where is our data stored and processed, including logs and backups? Does anything leave the UAE, and with whose authorisation?",
+  "12. Do you use our data to train or improve your models? If so, is it anonymised or de-identified, and on what consent basis?",
+  "13. Which sub-processors (cloud, model providers) touch our data, and where are they located?",
+  "14. How and how fast do you tell us of a breach, and who answers at night?",
+  "15. How is data erased when the contract ends, including logs, backups and sub-processors?",
+  "",
+  "Security and operations",
+  "16. Will you give us your MDS2 security disclosure, and how do patches, security alerts and recalls reach us?",
+  "17. Who can override the tool's decisions, and how can an affected person appeal?",
+  "18. Which decisions affecting patients will the output feed into, and does a clinician make the final decision?",
+  "19. What does the exit plan look like, including return or erasure of data?",
+  "20. What is your support commitment and escalation path for safety issues?",
+].join('\n');
+
+const patient = [
+  "TEXT FOR PATIENTS: OUR USE OF AN AI TOOL (EXAMPLE)",
+  "",
+  "\"__\" hospital uses an AI tool for __ (for example: drafting discharge summaries, which a clinician then checks).",
+  "The tool does not make the final decision about your treatment. A member of our staff reviews what it produces.",
+  "We tell you which of your information the tool uses and why. You can ask us about it and about alternatives.",
+  "Questions: __ (name or office, phone, email).",
+].join('\n');
+
+const incident = [
+  "AI / DATA / DEVICE INCIDENT RECORD (DRAFT)",
+  "",
+  "Date and time discovered: __   Discovered by: __   Reported to: __",
+  "What happened (one sentence, no patient names): __",
+  "Systems, devices and data involved (type of data, approximate number of individuals): __",
+  "Kind of incident (tick): AI tool error or safety issue __   Medical device event __   Connected-device cyber incident __   Data breach __",
+  "",
+  "Containment done: __   By: __   Time: __",
+  "Reporting clocks (check the current text of each document; keep the rows that apply):",
+  "  - Connected medical device cyber incident: report to the Abu Dhabi Healthcare Cybersecurity Emergency Response Team immediately upon discovery. Reported on: __",
+  "  - Death, serious injury or malfunction involving a device: as soon as possible and not later than 5 days from awareness (follow-up within 15 days). Via Malaffi where you have access. Reported on: __",
+  "  - Breach of data in the Abu Dhabi health information exchange: affected patients notified without undue delay and within 60 days of discovery; DoH notified by the exchange side within 5 business days of determining it occurred. Done on: __",
+  "  - Known or suspected AI incident or implementation issue affecting patient safety: report to DoH (Abu Dhabi) or DHA Health Regulation Sector (Dubai). Reported on: __",
+  "Affected individuals notified: who sends: __   Method: __   Sent on: __",
+  "Vendor involved: __   (contact: __, 24-hour line: __)",
+  "",
+  "Recorded: __ (who contacted whom, and when).",
+].join('\n');
+
+const items = [
+  {
+    id: 'policy',
+    head: '1. Generative AI use policy',
+    lead: 'A page you can hand to staff. Replace "__" with your hospital’s details.',
+    basis: [
+      'The data input rules follow the Abu Dhabi Data Access Standard (no storage, replication or transfer of healthcare data outside the UAE without explicit DoH authorisation, section 3.2.1.2) and the DoH AI policy (boundaries on access to and sharing of patient information, section 7.2).',
+      'Human review of output follows both AI policies, which describe AI as supportive technology where a human makes the final decision.',
+      'The rest is the author’s proposal.',
+    ],
+    text: policy,
+  },
+  {
+    id: 'vendor',
+    head: '2. Twenty questions for a vendor',
+    lead: 'Print it and take it to the vendor presentation. Write the answers down.',
+    basis: [
+      'Questions 4–6 and 17–18: the Dubai policy’s disclosure and validation duties (DHA/HISHD/PP-09, sections 4.2.3, 4.3.2 and 4.3.3).',
+      'Questions 9–10: DHA/HISHD/PP-09, section 4.6.11, and the DoH AI policy’s graceful degradation (section 7.1.2).',
+      'Questions 11–13 and 15: Data Access Standard section 3.2.1.2 and Analytics and Reporting Standard section 3.2.6.',
+      'Question 16: DoH device cybersecurity guideline, section 3.6.',
+      'The other questions are the author’s proposals, not legal requirements.',
+    ],
+    text: questions,
+  },
+  {
+    id: 'patient',
+    head: '3. Text for patients',
+    lead: 'A short example of how to tell a patient that the hospital uses an AI tool. Match it to your actual practice.',
+    basis: [
+      'The DoH AI policy asks end-users to educate everyone involved, including patients (section 7.2); the Digital Products Governance Standard asks patient-facing products for a privacy notice and records of consent (section 3.2.6).',
+      'The wording is the author’s example, not required language.',
+    ],
+    text: patient,
+  },
+  {
+    id: 'incident',
+    head: '4. Incident record',
+    lead: 'Turn the procedure into one fillable page and keep it where people will find it at night and on weekends.',
+    basis: ['The clocks come from the DoH device cybersecurity guideline (sections 3.5 and 3.6), the medical device reporting standard (section 3.1), the HIE policy (section 4.3.17) and the two AI policies. Check each document for later revisions; this page does not state the federal laws’ own breach rules, which were not read.'],
+    text: incident,
+  },
+];
+
+const sources = [SRC.dohAi, SRC.dhaAi, SRC.dataAccess, SRC.dpgs, SRC.mdr, SRC.cyber, SRC.hie];
+---
+
+<AeLayout title={title} description={description} crumb="Templates" standalone updated={new Date('2026-11-15T00:00:00+04:00')}>
+  <h1>Templates: generative AI policy and 20 vendor questions</h1>
+  <p class="tg-lead">
+    “We don’t know where to start writing” is a common problem for hospitals. Here are four drafts: press the button, copy, and replace “__” with your own details.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: hospital administration and IT</p>
+
+  <div class="tg-box tg-warn">
+    <strong>Before you use these</strong><br />
+    These are the author’s <strong>drafts</strong>, not legal advice and not a version that is ready to copy as is. Adapt them to the size, systems and contracts of your hospital, and show them to counsel or your compliance office before they become documents.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-toc">
+    <h2 id="h-toc">Contents</h2>
+    <ul class="tg-list">
+      {items.map((it) => <li><a href={`#${it.id}`}>{it.head}</a></li>)}
+    </ul>
+    <p>
+      Related pages: <a href={withBase('/ae/dx-roadmap/')}>Roadmap</a>, <a href={withBase('/ae/data-checklist/')}>Patient data checklist</a>, <a href={withBase('/ae/documents-checklist/')}>Checklist: AI vendors and documents</a>.
+    </p>
+  </section>
+
+  {
+    items.map((it) => (
+      <section class="tg-sec" id={it.id} aria-labelledby={`${it.id}-h`}>
+        <h2 id={`${it.id}-h`}>{it.head}</h2>
+        <p>{it.lead}</p>
+        <div class="tg-copy">
+          <button type="button" class="tg-btn" data-target={`${it.id}-text`}>
+            Copy
+          </button>
+          <pre id={`${it.id}-text`}>{it.text}</pre>
+        </div>
+        <h3>Basis of the template</h3>
+        <ul class="tg-list">
+          {it.basis.map((b) => <li>{b}</li>)}
+        </ul>
+      </section>
+    ))
+  }
+
+  <AeGuideFoot sources={sources} checked={CHECKED} />
+</AeLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.tg-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const el = document.getElementById(btn.dataset.target ?? '');
+      if (!el) return;
+      const label = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(el.textContent ?? '');
+        btn.textContent = 'Copied';
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(el);
+        const s = window.getSelection();
+        s?.removeAllRanges();
+        s?.addRange(r);
+        btn.textContent = 'Selected (press Ctrl+C)';
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>

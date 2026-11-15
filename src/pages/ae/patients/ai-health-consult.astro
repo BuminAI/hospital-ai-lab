@@ -1,0 +1,103 @@
+---
+// Before you ask an AI about your health (2026-11-15). General cautions only; no diagnosis or treatment advice.
+// Bases: Abu Dhabi DoH AI policy (sections 2 and 5.3), Data Access Standard (section 3.2.1.2), Analytics and Reporting Standard (section 3.2.6), Dubai Health Authority AI policy. No emergency phone number is given because none was read in a primary source.
+import '../../../styles/ae-guide.css';
+import AeLayout from '../../../layouts/AeLayout.astro';
+import AeGuideFoot from '../../../components/AeGuideFoot.astro';
+import AeFaq from '../../../components/AeFaq.astro';
+import { guideSchema } from '../../../utils/ae-guide';
+import { SRC } from '../../../data/ae/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = 'Asking an AI about your health in the UAE: six things to know';
+const description =
+  'An AI answer is not a diagnosis. Six things to know before you type health questions into a chatbot: urgency, privacy, where your data goes and your own records.';
+
+const rights = [
+  {
+    h: '1. An AI answer is not a diagnosis',
+    p: 'A chatbot cannot examine you or see your full history, and it can sound sure when it is wrong. Both the Abu Dhabi and the Dubai AI policies describe AI as supportive technology: it offers suggestions and a human makes the decision. Use a chatbot, at most, to prepare questions for your own doctor or nurse.',
+  },
+  {
+    h: '2. Do not wait if it may be urgent',
+    p: 'If you think you or someone else may be having a life-threatening emergency, call your local emergency number or go to the nearest emergency department. Do not wait for a chatbot reply.',
+  },
+  {
+    h: '3. What you type may leave your control',
+    p: 'Hospitals in Abu Dhabi are not allowed to send healthcare data outside the UAE without explicit authorisation from the Department of Health, but a consumer chatbot you use yourself is not a hospital system. Before you type health details into a service, read what it says about where the data goes, and ask whether you need to type them at all.',
+  },
+  {
+    h: '4. Share less than you think you need to',
+    p: 'Leave out your name, Emirates ID number, date of birth, address and phone number, and photos that show your face or a document, unless you are sure the service is one you trust with them.',
+  },
+  {
+    h: '5. If your records are reused to build AI, you have a say',
+    p: 'Abu Dhabi’s Analytics and Reporting Standard says patient data used for secondary purposes must be anonymised or de-identified unless the patient explicitly permits otherwise or the law requires it, and that patients may withdraw consent at any time without any effect on their care. If a hospital asks you to agree to such use, you can ask what it is for.',
+  },
+  {
+    h: '6. Bring your own records to your doctor',
+    p: 'Keep your own reports, prescriptions and discharge summaries together. They help the doctor who treats you far more than a chatbot’s summary of them.',
+  },
+];
+
+const faq = [
+  {
+    q: 'Is it safe to paste my test results into a chatbot?',
+    a: 'This page cannot say what a particular tool does with them. Consider what the service’s privacy notice says, and remove your name and identifiers first.',
+  },
+  {
+    q: 'Does a hospital in the UAE need my permission to use my records to train AI?',
+    a: 'In Abu Dhabi, DoH’s Analytics and Reporting Standard requires explicit informed consent before secondary use of patient data, and says it must be anonymised or de-identified unless the patient explicitly permits otherwise or the law requires it. We did not read the federal laws, so we cannot describe your rights under them.',
+  },
+  {
+    q: 'Can I rely on an AI app that says it is approved?',
+    a: 'Ask exactly what is approved, by whom and for what use. A claim on an app store page is not the approval itself. This site has not read the Ministry of Health and Prevention’s device rules, so it cannot say how a particular app is classified.',
+  },
+];
+
+const sources = [SRC.dohAi, SRC.dhaAi, SRC.analytics, SRC.dataAccess];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ae/patients/ai-health-consult/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<AeLayout title={title} description={description} crumb="Asking AI about health" standalone updated={new Date('2026-11-15T00:00:00+04:00')} schema={schema}>
+  <h1>Asking an AI about your health in the UAE: six things to know</h1>
+  <p class="tg-lead">
+    Many people now ask AI chatbots about symptoms, test results and medicines. This page does not tell you what to do about any health condition. It explains a few facts that help you use such tools more carefully.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organisation that treats you. In an emergency, call your local emergency number or go to the nearest emergency department.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">Six things</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <p class="tg-meta">What to expect when a hospital uses AI in your care: <a href={withBase('/ae/patients/ai-in-hospital/')}>what the DoH and DHA policies say</a>.</p>
+
+  <AeFaq items={faq} />
+
+  <AeGuideFoot sources={sources} checked={CHECKED} patient />
+</AeLayout>

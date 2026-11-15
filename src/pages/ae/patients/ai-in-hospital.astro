@@ -1,0 +1,112 @@
+---
+// What patients can expect when a hospital uses AI (2026-11-15). Only sections whose text was opened: Abu Dhabi DoH AI policy (sections 5.3, 7.2), Digital Products Governance Standard (3.2.6), HIE policy (4.2), Dubai DHA AI policy (4.2.3, 4.8).
+import '../../../styles/ae-guide.css';
+import AeLayout from '../../../layouts/AeLayout.astro';
+import AeGuideFoot from '../../../components/AeGuideFoot.astro';
+import AeFaq from '../../../components/AeFaq.astro';
+import { guideSchema } from '../../../utils/ae-guide';
+import { SRC } from '../../../data/ae/guides/milestones';
+import { withBase } from '../../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = 'When your UAE hospital uses AI: what the DoH and DHA policies say';
+const description =
+  'What can you expect when a hospital uses AI in your care? What Abu Dhabi’s and Dubai’s health regulators ask of hospitals, in plain language.';
+
+const rights = [
+  {
+    h: 'A person stays responsible for decisions',
+    p: 'The Abu Dhabi policy defines AI as supportive technology: it assists a human decision and does not replace it, so a human makes the final decision and is responsible for the action taken (Policy/AI/0.9, section 5.3). Dubai’s policy asks that AI with a significant effect on people’s lives can be overridden or reversed by designated end users (DHA/HISHD/PP-09, section 4.2.3).',
+  },
+  {
+    h: 'Hospitals are asked to educate the people involved, patients included',
+    p: 'Abu Dhabi’s policy asks healthcare end-users to educate all the stakeholders involved, including patients, about AI use, and to state where AI enters the process and what the role of the physician or practitioner is (section 7.2).',
+  },
+  {
+    h: 'Sharing your records through the Abu Dhabi exchange',
+    p: 'DoH requires facilities to seek patient consent for sharing patient data through the Abu Dhabi health information exchange (Malaffi) and to tell patients that sharing relevant health information with the exchange is part of their treatment. Where consent is unavailable, for example for legacy data, DoH requires and authorises sharing as set out in its instructions (HIE policy, section 4.2).',
+  },
+  {
+    h: 'If your data is reused to build AI',
+    p: 'Abu Dhabi’s Analytics and Reporting Standard says secondary use of patient data needs explicit informed consent, requires the data to be anonymised or de-identified unless you explicitly permit otherwise or the law requires it, and says you may withdraw consent at any time without any effect on your care (section 3.2.6).',
+  },
+  {
+    h: 'Patient-facing apps must tell you how your data is handled',
+    p: 'For patient-facing digital products in Abu Dhabi, DoH’s digital products standard asks for a privacy notice at registration, a separate consent for sharing data for a specific purpose that names the recipients and purposes, published breach procedures and instructions to opt out or withdraw consent (section 3.2.6).',
+  },
+  {
+    h: 'Problems with AI are meant to be reported',
+    p: 'Both policies ask hospitals to report AI incidents that could affect patient safety to the regulator: DoH in Abu Dhabi (sections 9.2 and 9.3) and the Health Regulation Sector of DHA in Dubai (sections 4.8.1 and 4.8.2).',
+  },
+];
+
+const faq = [
+  {
+    q: 'Does my hospital have to tell me when AI is used?',
+    a: 'The documents we read ask hospitals to educate patients about AI use and to be clear about where AI enters the process, but they do not say every tool must be announced to every patient. If you want to know, ask.',
+  },
+  {
+    q: 'Who do I report a problem to?',
+    a: 'Start with the hospital’s patient relations or the clinician who treats you. This page does not cover complaints procedures, which we did not read.',
+  },
+  {
+    q: 'Where are my data protection rights explained?',
+    a: 'The UAE Government portal (u.ae) describes the federal Personal Data Protection Law (Federal Decree-Law No. 45 of 2021) and the federal law on ICT in health fields (Federal Law No. 2 of 2019). We did not read the laws themselves, so this page does not describe your rights under them.',
+  },
+];
+
+const sources = [SRC.dohAi, SRC.dhaAi, SRC.hie, SRC.analytics, SRC.dpgs, SRC.uaePdpl];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const schema = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ae/patients/ai-in-hospital/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: 'Patients and their families',
+  faq,
+});
+---
+
+<AeLayout title={title} description={description} crumb="Patient rights and AI" standalone updated={new Date('2026-11-15T00:00:00+04:00')} schema={schema}>
+  <h1>When your UAE hospital uses AI: what the DoH and DHA policies say</h1>
+  <p class="tg-lead">
+    Hospitals increasingly use tools that rely on AI. What can you expect? Below is what the Abu Dhabi Department of Health and the Dubai Health Authority ask of hospitals, in plain language, with the section for each. These are rules and policies for hospitals; this page does not set out legal rights.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · For: patients and their families</p>
+
+  <div class="tg-box tg-warn">
+    This is general information. It is not legal advice and not medical advice for your situation. If you have a health concern, contact your own clinician or the health care organisation that treats you. In an emergency, call your local emergency number or go to the nearest emergency department.
+  </div>
+
+  <section class="tg-sec" aria-labelledby="h-rights">
+    <h2 id="h-rights">What the documents say</h2>
+    {
+      rights.map((r) => (
+        <>
+          <h3>{r.h}</h3>
+          <p>{r.p}</p>
+        </>
+      ))
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ask">
+    <h2 id="h-ask">What you can ask your hospital</h2>
+    <p>The author’s suggestion, not a legal requirement. You can always ask:</p>
+    <ul class="tg-list">
+      <li>Are AI tools used in my care or my billing? For what?</li>
+      <li>Who makes the final decision: a clinician or the tool?</li>
+      <li>Where is my information stored, and who can see it?</li>
+      <li>Will my records be used to build or improve an AI tool, and can I say no?</li>
+    </ul>
+    <p>Before you ask an AI about your own health: <a href={withBase('/ae/patients/ai-health-consult/')}>six things to know</a>.</p>
+  </section>
+
+  <AeFaq items={faq} />
+
+  <AeGuideFoot sources={sources} checked={CHECKED} patient />
+</AeLayout>

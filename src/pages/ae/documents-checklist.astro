@@ -1,0 +1,233 @@
+---
+// Checklist: which policy applies, digital product status and AI vendors in the UAE (2026-11-15)
+// ⚠️ These items were written by the author from the text of the Abu Dhabi DoH AI policy and Digital Products Governance Standard, the Dubai
+//    Health Authority AI policy, and the DoH medical device reporting standard and cybersecurity guideline, all opened and read on 2026-11-15.
+//    This is not an official checklist. The page does not claim what a specific vendor’s product does. Ministry of Health and Prevention
+//    device registration rules were not read, so no item states them.
+import '../../styles/ae-guide.css';
+import AeLayout from '../../layouts/AeLayout.astro';
+import AeGuideFoot from '../../components/AeGuideFoot.astro';
+import AeFaq from '../../components/AeFaq.astro';
+import { guideSchema } from '../../utils/ae-guide';
+import { SRC } from '../../data/ae/guides/milestones';
+import { withBase } from '../../utils/site';
+
+const CHECKED = 'November 15, 2026';
+const title = "Checklist: AI vendors, device status and documents in the UAE";
+const description =
+  "What to ask when a vendor offers AI software to a UAE hospital: which emirate's policy applies, risk tier, what the vendor must disclose, how updates and incidents are handled, and what the hospital does itself.";
+
+type Item = { no: string; text: string; basis: string };
+type Group = { id: string; head: string; lead?: string; items: Item[] };
+
+const groups: Group[] = [
+  {
+    id: 'g1',
+    head: 'A. Which rules apply to this hospital?',
+    lead: 'Abu Dhabi and Dubai have separate AI policies. Start by writing down which one binds you.',
+    items: [
+      {
+        no: '1',
+        text: 'You have recorded which regulator licenses the facility (DoH in Abu Dhabi, DHA in Dubai) and therefore which AI policy applies. A group with hospitals in both emirates keeps one checklist for each.',
+        basis: 'DoH AI policy (Policy/AI/0.9), section 4; DHA policy DHA/HISHD/PP-09, sections 1 and 2',
+      },
+      {
+        no: '2',
+        text: 'You have checked the DHA policy’s current version: its control table lists a revision date of 1 July 2026, so a newer text may exist.',
+        basis: 'DHA/HISHD/PP-09, control table',
+      },
+      {
+        no: '3',
+        text: 'The vendor has said in writing whether it treats the product as a medical device and which registration it holds. You have asked your regulatory team about the Ministry of Health and Prevention’s requirements, which this site has not read.',
+        basis: 'Author’s recommendation',
+      },
+    ],
+  },
+  {
+    id: 'g2',
+    head: 'B. Digital product status and risk tier (Abu Dhabi)',
+    lead: 'Since August 2026 the Digital Products Governance Standard treats AI-powered software as a digital product with named owners.',
+    items: [
+      {
+        no: '4',
+        text: 'The product has a named Digital Product Owner and a Digital Product Architect (or equivalents), and a feasibility study and risk assessment were done before it started.',
+        basis: 'DoH/ST/DHS/DPGS/V1/26, sections 3.2.3.2 and 3.2.4.1',
+      },
+      {
+        no: '5',
+        text: 'The risk tier is recorded in a risk register with an owner: very high risk is prohibited, high risk needs conformity assessments before and after deployment, medium risk needs governance and risk reporting, low risk needs monitoring.',
+        basis: 'DoH/ST/DHS/DPGS/V1/26, sections 3.2.8.2.1 and 3.2.8.2.2',
+      },
+      {
+        no: '6',
+        text: 'A new medical device, or an existing one with cybersecurity considerations, is evaluated by DoH’s Health Technology Assessment department before implementation.',
+        basis: 'DoH device cybersecurity guideline, section 3.6',
+      },
+    ],
+  },
+  {
+    id: 'g3',
+    head: 'C. What the vendor must show',
+    lead: 'The Dubai policy has the most specific disclosure list. Abu Dhabi’s policy asks for certification and validation statements.',
+    items: [
+      {
+        no: '7',
+        text: 'The vendor’s disclosure covers which functions are AI-enabled, how the solution was validated, the data sets used, expected outcomes, the professional’s role in the final decision, the type of algorithm, the limits of the data and algorithms, and how it is integrated into care.',
+        basis: 'DHA/HISHD/PP-09, section 4.3.2',
+      },
+      {
+        no: '8',
+        text: 'Independent validation by a competent third party exists, or the governance group has recorded why it accepts the risk.',
+        basis: 'DHA/HISHD/PP-09, section 4.3.3 (the policy requires it); the recorded decision is the author’s recommendation',
+      },
+      {
+        no: '9',
+        text: 'For Abu Dhabi, the tool shows certification of the software and of major upgrades from recognised agencies, compliance with ADSSSA regulations, and auditable validation statements.',
+        basis: 'DoH AI policy, section 7.1.2',
+      },
+      {
+        no: '10',
+        text: 'Designated users can override or reverse the tool’s significant decisions, and the tool has a way to appeal them.',
+        basis: 'DHA/HISHD/PP-09, section 4.2.3',
+      },
+    ],
+  },
+  {
+    id: 'g4',
+    head: 'D. Security, updates and incidents',
+    lead: 'Updates change a tool after you approved it. Ask how they reach you before signing.',
+    items: [
+      {
+        no: '11',
+        text: 'For connected devices and software you hold the vendor’s MDS2 security disclosure and know how patches, security alerts and recalls are communicated.',
+        basis: 'DoH device cybersecurity guideline, section 3.6',
+      },
+      {
+        no: '12',
+        text: 'The device is in an inventory with its software and firmware version, operating system and network configuration.',
+        basis: 'DoH device cybersecurity guideline, section 3.4',
+      },
+      {
+        no: '13',
+        text: 'The incident card lists the clocks: deaths, serious injuries and malfunctions as soon as possible and within five days; follow-up within 15 days; other reports within 90 days; connected-device cyber incidents immediately to the Abu Dhabi Healthcare Cybersecurity Emergency Response Team.',
+        basis: 'DoH/ST/HLS/SMDR/V2/26, section 3.1; DoH device cybersecurity guideline, sections 3.5 and 3.6',
+      },
+    ],
+  },
+  {
+    id: 'g5',
+    head: 'E. What the hospital does itself',
+    lead: 'A vendor’s paperwork does not replace the hospital’s own governance.',
+    items: [
+      {
+        no: '14',
+        text: 'The hospital has clear governance on AI use, has stated where AI enters the process and the role of the physician or practitioner, and audits AI functionality regularly.',
+        basis: 'DoH AI policy, section 7.2',
+      },
+      {
+        no: '15',
+        text: 'Real-world results are compared with the vendor’s validation results and significant gaps trigger further inspection. Someone is named to report incidents to DoH or DHA.',
+        basis: 'DHA/HISHD/PP-09, sections 4.6.11 and 4.8.1; DoH AI policy, sections 9.2 and 9.3',
+      },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+
+const faq = [
+  {
+    q: 'Does a vendor’s validation mean the tool is right for our hospital?',
+    a: 'No. Both policies treat AI as supportive technology: a human makes the final decision. The Dubai policy asks that actual outcomes in clinical practice be compared with those from training and validation, with significant gaps leading to further inspection.',
+  },
+  {
+    q: 'A vendor says its product is not a medical device. What do we do?',
+    a: 'Ask for the reasoning in writing and take it to your regulatory team. This site has not read the Ministry of Health and Prevention’s device rules, so it cannot say how a product is classified. The Abu Dhabi digital products standard still treats AI-powered software as a digital product with an owner, an architect and a risk tier.',
+  },
+  {
+    q: 'Which deadlines apply if an AI-enabled device has a serious event?',
+    a: 'Under DoH’s medical device reporting standard (effective October 2026), deaths, serious injuries and malfunctions are reported as soon as possible and not later than five days from awareness, with follow-up reports within 15 days. Other reports are due within 90 days. Facilities with access to Malaffi use it as the primary route.',
+  },
+];
+
+const sources = [SRC.dohAi, SRC.dhaAi, SRC.dpgs, SRC.mdr, SRC.cyber];
+
+const siteRootG = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://hospital-ai-lab.com';
+const guide = guideSchema({
+  siteRoot: siteRootG,
+  path: '/ae/documents-checklist/',
+  headline: title,
+  description,
+  sources,
+  published: '2026-11-15',
+  modified: '2026-11-15',
+  audience: "Hospital administration and executives",
+  faq,
+});
+---
+
+<AeLayout title={title} description={description} crumb="AI vendors and documents" standalone updated={new Date('2026-11-15T00:00:00+04:00')} schema={guide}>
+  <h1>Checklist: AI vendors and documents</h1>
+  <p class="tg-lead">
+    When a vendor offers AI software, three questions come up together: which emirate’s rules bind us, what must the vendor show, and what changes when the tool is updated. This page puts them in one place, each with its basis.
+  </p>
+  <p class="tg-meta">Checked: {CHECKED} · {total} items · For: hospital administration and executives</p>
+
+  <p class="tg-answer">
+    In short: Abu Dhabi hospitals follow DoH’s AI policy and, since August 2026, its digital products standard; Dubai hospitals follow the DHA policy, which asks for a detailed vendor disclosure and independent third-party validation; and device security and incident clocks come from DoH’s reporting standard and cybersecurity guideline.
+  </p>
+
+  <div class="tg-box tg-warn">
+    <strong>Read this first</strong>
+    <ul class="tg-list">
+      <li>This is <strong>not an official checklist</strong>. It is the author’s list built from the documents cited; each item gives its basis.</li>
+      <li>The documents cited do not decide whether a particular product is a medical device. That depends on its intended use and the vendor’s registration; ask the vendor in writing.</li>
+      <li>Items marked “author’s recommendation” are not requirements.</li>
+    </ul>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="tg-sec" id={g.id} aria-labelledby={`${g.id}-h`}>
+        <h2 id={`${g.id}-h`}>{g.head}</h2>
+        {g.lead && <p>{g.lead}</p>}
+        <table class="tg-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>What to check</th>
+              <th>Basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.items.map((it) => (
+              <tr>
+                <th>{it.no}</th>
+                <td>{it.text}</td>
+                <td>{it.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section class="tg-sec" aria-labelledby="h-next">
+    <h2 id="h-next">Next</h2>
+    <div class="tg-cards">
+      <a class="tg-card" href={withBase('/ae/data-checklist/')}>
+        <b>Patient data protection checklist</b>
+        <span>Which data may go into an AI tool, vendor questions and breach timelines.</span>
+      </a>
+      <a class="tg-card" href={withBase('/ae/templates/')}>
+        <b>Document templates</b>
+        <span>Vendor questions, a generative AI policy and an incident record.</span>
+      </a>
+    </div>
+  </section>
+
+  <AeFaq items={faq} />
+
+  <AeGuideFoot sources={sources} checked={CHECKED} />
+</AeLayout>

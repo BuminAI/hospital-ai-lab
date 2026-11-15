@@ -178,3 +178,4 @@ import copy
 UXP['in'] = copy.deepcopy(UXP['en'])
 UXP['sg'] = copy.deepcopy(UXP['en'])
 UXP['ph'] = copy.deepcopy(UXP['en'])
+UXP['ae'] = copy.deepcopy(UXP['en'])

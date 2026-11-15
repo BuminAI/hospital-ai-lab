@@ -1,0 +1,112 @@
+{
+  "_comment": "English edition (UAE) government resources. A hand-checked list: each URL was opened on 2026-11-15 and the document or page was read. The federal legislation portal (uaelegislation.gov.ae) returned HTTP 403 to automated requests and the Ministry of Health and Prevention site could not be reached, so they are not listed and no fact depends on them.",
+  "meta": {
+    "title": "Official UAE resources for hospital AI decisions",
+    "description": "Official sources behind this site: the Abu Dhabi Department of Health’s standards and policies, the Dubai Health Authority’s AI policy, the health information exchange and the UAE Government portal.",
+    "pageTitle": "Government resources",
+    "lead": "This page collects the official sources behind the rest of this site, each one opened and checked."
+  },
+  "notice": "This list is not an endorsement and not complete. Pages and rules change; rely on the current text at each source.",
+  "checkedAt": "2026-11-15",
+  "programs": [
+    {
+      "name": "DoH — Standards",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/en/resources/standards",
+      "body": "The list of DoH standards, with an RSS feed of new documents. It includes the digital products, data access, data sharing, data retention, analytics, medical device reporting and device cybersecurity documents summarised on this site.",
+      "audience": "Compliance, IT and clinical engineering staff in Abu Dhabi.",
+      "sourceUrl": "https://www.doh.gov.ae/en/resources/standards",
+      "sourceLabel": "DoH — Standards"
+    },
+    {
+      "name": "DoH — Policies",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/en/resources/policies",
+      "body": "The list of DoH policies, including the Policy on Use of Artificial Intelligence in the healthcare sector and the Policy on the Health Information Exchange.",
+      "audience": "Hospital administrators and governance groups in Abu Dhabi.",
+      "sourceUrl": "https://www.doh.gov.ae/en/resources/policies",
+      "sourceLabel": "DoH — Policies"
+    },
+    {
+      "name": "DoH — Policy on Use of Artificial Intelligence (AI)",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "body": "The Abu Dhabi AI policy in healthcare (Policy/AI/0.9, 30 April 2018): six guiding principles, minimum requirements for AI tools and duties for end-users.",
+      "audience": "Hospital administrators, quality and compliance staff.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "sourceLabel": "DoH AI policy (PDF)"
+    },
+    {
+      "name": "DHA — Artificial Intelligence in the Healthcare",
+      "org": "Dubai Health Authority",
+      "url": "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf",
+      "body": "The Dubai AI policy (DHA/HISHD/PP-09): ethics, accountability, transparency and disclosure, independent validation, safety and the duties of developers, end users and insurers.",
+      "audience": "Hospital administrators and vendors working in Dubai.",
+      "sourceUrl": "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf",
+      "sourceLabel": "DHA AI policy (PDF)"
+    },
+    {
+      "name": "DoH — Policy on the Abu Dhabi Health Information Exchange",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx",
+      "body": "The rules for sharing patient data through the exchange: consent, legacy data, participation duties and breach notification.",
+      "audience": "Health information managers, compliance and IT staff.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx",
+      "sourceLabel": "DoH HIE policy (PDF)"
+    },
+    {
+      "name": "Malaffi",
+      "org": "Abu Dhabi Health Information Exchange",
+      "url": "https://www.malaffi.ae/",
+      "body": "The exchange’s own site (page title “About Malaffi”). The DoH medical device reporting standard names the Malaffi platform as the primary reporting route for facilities with access.",
+      "audience": "Facilities connected to the exchange.",
+      "sourceUrl": "https://www.malaffi.ae/",
+      "sourceLabel": "Malaffi"
+    },
+    {
+      "name": "UAE Government portal — ICT in the health sector",
+      "org": "UAE Government (u.ae)",
+      "url": "https://u.ae/en/about-the-uae/digital-uae/whole-of-government-approach/digital-health/ict-in-the-health-sector",
+      "body": "The portal’s description of Federal Law No. 2 of 2019 on the use of ICT in health fields and its data protection duties.",
+      "audience": "Legal, compliance and IT staff.",
+      "sourceUrl": "https://u.ae/en/about-the-uae/digital-uae/whole-of-government-approach/digital-health/ict-in-the-health-sector",
+      "sourceLabel": "u.ae — ICT in the health sector"
+    },
+    {
+      "name": "UAE Government portal — Data protection laws",
+      "org": "UAE Government (u.ae)",
+      "url": "https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws",
+      "body": "A summary of Federal Decree-Law No. 45 of 2021 (Personal Data Protection Law, in force since 2 January 2022) and related laws.",
+      "audience": "Legal and compliance staff.",
+      "sourceUrl": "https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws",
+      "sourceLabel": "u.ae — Data protection laws"
+    },
+    {
+      "name": "UAE Government portal — Health and fitness",
+      "org": "UAE Government (u.ae)",
+      "url": "https://u.ae/en/information-and-services/health-and-fitness",
+      "body": "The government portal’s hub for health services and information.",
+      "audience": "Everyone.",
+      "sourceUrl": "https://u.ae/en/information-and-services/health-and-fitness",
+      "sourceLabel": "u.ae — Health and fitness"
+    },
+    {
+      "name": "Dubai Digital Authority",
+      "org": "Government of Dubai",
+      "url": "https://digitaldubai.ae",
+      "body": "The authority formed to establish Dubai as a safe digital city; its page lists the Smart Dubai Government Establishment, Dubai Data Establishment and Dubai Electronic Security Center among the bodies it brings together. The DHA AI policy asks AI tools to meet requirements from the Dubai Electronic Security Centre and Smart Dubai.",
+      "audience": "IT and security staff in Dubai.",
+      "sourceUrl": "https://digitaldubai.ae",
+      "sourceLabel": "Dubai Digital Authority"
+    },
+    {
+      "name": "Dubai Health Authority",
+      "org": "Dubai Health Authority",
+      "url": "https://dha.gov.ae/en",
+      "body": "The DHA home page, from which its regulation and licensing pages are reached.",
+      "audience": "Facilities and professionals licensed in Dubai.",
+      "sourceUrl": "https://dha.gov.ae/en",
+      "sourceLabel": "DHA"
+    }
+  ]
+}

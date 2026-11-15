@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Practical tips for working with AI tools in a UAE hospital",
+    "description": "Plain advice for hospital administrators and nursing staff: unapproved tools, checking AI drafts, vendor answers, incident cards and telling patients about AI.",
+    "pageTitle": "Practical tips",
+    "lead": "These are the author’s practical suggestions, not legal requirements. Where a policy or standard applies, the page says so and names the document."
+  },
+  "sections": [
+    {
+      "heading": "Do not paste patient information into tools you have not approved",
+      "body": "Names, Emirates ID numbers, dates of birth, phone numbers and the contents of records should stay out of consumer chatbots. In Abu Dhabi, DoH’s Data Access Standard says healthcare data must not be stored, replicated or transferred outside the UAE without explicit DoH authorisation. Use only tools your hospital has approved.",
+      "items": []
+    },
+    {
+      "heading": "Treat every AI draft as a draft",
+      "body": "Generative AI can present made-up content as fact. Check facts, numbers and names against the source before you use a draft, and never enter AI output in a patient record before the responsible clinician has reviewed it. Both emirates’ AI policies describe AI as supportive technology: a human makes the final decision and is responsible for the action taken.",
+      "items": []
+    },
+    {
+      "heading": "Keep a list of the AI tools in use",
+      "body": "Write down each tool, who owns it, what data it touches, where it runs and who approved it. The DoH digital products standard asks for a named Digital Product Owner and Digital Product Architect for each product, and the cybersecurity guideline asks for an inventory of connected devices with software versions. One shared sheet covers both.",
+      "items": []
+    },
+    {
+      "heading": "Read the vendor’s answers, not the brochure",
+      "body": "Ask for written answers to the disclosure list in Dubai’s AI policy: which functions are AI-enabled, how the solution was validated, which data was used, what the professional’s role is and what the limits are. If the answer to “who validated it independently?” is “we did”, note it and ask the governance group to decide.",
+      "items": []
+    },
+    {
+      "heading": "Write the incident card before you need it",
+      "body": "One page: who to call for a device event (the DoH Pharmacovigilance team and the Malaffi reporting route), who to call for a connected-device cyber incident (the Abu Dhabi Healthcare Cybersecurity Emergency Response Team) and who tells patients if a breach involves the health information exchange. Put the clocks on the card: five days, immediately and 60 days.",
+      "items": []
+    },
+    {
+      "heading": "Tell patients when AI is involved",
+      "body": "The DoH AI policy asks hospitals to educate everyone involved in AI use, including patients. A short notice at registration or in the consent form is a good start, and DoH’s digital products standard already expects a privacy notice and affirmative consent for patient-facing products.",
+      "items": []
+    },
+    {
+      "heading": "Involve nursing early",
+      "body": "Nurses will see alerts, workflow changes and wrong outputs first. Ask a nurse leader to review the pilot plan, the alert wording and the override steps before go-live, and to help write the training.",
+      "items": []
+    }
+  ]
+}

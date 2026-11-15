@@ -1,0 +1,112 @@
+{
+  "_comment": "English edition (UAE) learning resources. Hand-checked: each document was opened and read on 2026-11-15. This is a list of standing official resources, not a calendar of events. Auto-collected event and training headlines from news outlets are listed on the same page from src/data/ae/events.json when it exists.",
+  "meta": {
+    "title": "Learning resources for hospital AI governance in the UAE",
+    "description": "Official policies, standards and guidelines from the Abu Dhabi Department of Health and the Dubai Health Authority that hospital administrators and compliance teams use to learn about AI governance, data and device security.",
+    "pageTitle": "Learning resources",
+    "lead": "There is no single official events calendar for hospital AI in the UAE. Here are standing resources from official sources, each opened and read."
+  },
+  "notice": "Standing resources, not scheduled events. Check each page for what it currently offers.",
+  "checkedAt": "2026-11-15",
+  "items": [
+    {
+      "name": "Policy on Use of Artificial Intelligence in the Healthcare Sector (Abu Dhabi)",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "body": "Eleven pages: vision, six guiding principles, minimum requirements for AI tools, end-user duties and monitoring. A good first reading for a governance group.",
+      "audience": "Hospital administrators, quality and compliance staff.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "sourceLabel": "DoH AI policy (PDF)"
+    },
+    {
+      "name": "Artificial Intelligence in the Healthcare (Dubai)",
+      "org": "Dubai Health Authority",
+      "url": "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf",
+      "body": "The Dubai policy, with the vendor disclosure list and the duties of developers, end users, insurers and the regulator.",
+      "audience": "Hospital administrators and vendors working in Dubai.",
+      "sourceUrl": "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf",
+      "sourceLabel": "DHA AI policy (PDF)"
+    },
+    {
+      "name": "Digital Products Governance Standard",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx",
+      "body": "Roles, feasibility and risk assessment, privacy requirements, ethical considerations for AI and the four risk tiers. Published March 2026, effective August 2026.",
+      "audience": "Product owners, IT and compliance staff in Abu Dhabi.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx",
+      "sourceLabel": "DoH digital products standard (PDF)"
+    },
+    {
+      "name": "Data Access Standard",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/11126_Data_Access_Standard.ashx",
+      "body": "Access controls, data sovereignty and localisation: no storage, replication or transfer of healthcare data outside the UAE without DoH authorisation.",
+      "audience": "IT, security and compliance staff in Abu Dhabi.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/11126_Data_Access_Standard.ashx",
+      "sourceLabel": "DoH Data Access Standard (PDF)"
+    },
+    {
+      "name": "Data Sharing, Integration and Interoperability Standard",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Data-Sharing-Integration-and-Interoperability-Standard.ashx",
+      "body": "How data is shared with the exchange and with third parties, data sharing agreements, anonymisation by default and the rule on transfers outside the UAE.",
+      "audience": "Health information and compliance staff in Abu Dhabi.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Data-Sharing-Integration-and-Interoperability-Standard.ashx",
+      "sourceLabel": "DoH data sharing standard (PDF)"
+    },
+    {
+      "name": "Data Storage and Retention Standard",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2025/Data-Storage-and-Retention_Standard.ashx",
+      "body": "Retention periods and archiving criteria, including the 25-year minimum for health data the standard attributes to Federal Law No. 2 of 2019.",
+      "audience": "Records, IT and compliance staff in Abu Dhabi.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2025/Data-Storage-and-Retention_Standard.ashx",
+      "sourceLabel": "DoH retention standard (PDF)"
+    },
+    {
+      "name": "Analytics and Reporting Standard",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
+      "body": "Rules for secondary use of patient data: anonymisation, explicit informed consent, withdrawal and prohibited uses. Published April 2026, effective May 2026.",
+      "audience": "Data science, AI and compliance teams in Abu Dhabi.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
+      "sourceLabel": "DoH analytics standard (PDF)"
+    },
+    {
+      "name": "Standard on Medical Device Reporting (MDR)",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/18826-Medical-Device-Reporting-Standard-MDR.ashx",
+      "body": "Who reports, what, when and how, including the five-day, 15-day and 90-day timeframes and the Malaffi reporting route. Version 2, published July 2026, effective October 2026.",
+      "audience": "Clinical engineering, quality and pharmacovigilance staff.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/18826-Medical-Device-Reporting-Standard-MDR.ashx",
+      "sourceLabel": "DoH MDR standard (PDF)"
+    },
+    {
+      "name": "Medical Device Cybersecurity in Healthcare Facilities Guideline",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
+      "body": "Threats, best practices, incident reporting and the roles of facilities, IT departments and manufacturers. Published November 2026, effective January 2027.",
+      "audience": "IT, biomedical engineering and procurement staff.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
+      "sourceLabel": "DoH device cybersecurity guideline (PDF)"
+    },
+    {
+      "name": "Policy on the Abu Dhabi Health Information Exchange",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx",
+      "body": "Forty-four pages on participation, consent, legacy data, security and breach notification. Effective 16 April 2020.",
+      "audience": "Health information managers and compliance staff.",
+      "sourceUrl": "https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx",
+      "sourceLabel": "DoH HIE policy (PDF)"
+    },
+    {
+      "name": "DoH standards RSS feed",
+      "org": "Department of Health – Abu Dhabi",
+      "url": "https://www.doh.gov.ae/en/resources/standards-rss-feed",
+      "body": "A feed of the 50 most recent DoH standards and guidelines. Add it to a reader to see new documents as they are published; this site also lists them under Updates.",
+      "audience": "Compliance and governance staff.",
+      "sourceUrl": "https://www.doh.gov.ae/en/resources/standards-rss-feed",
+      "sourceLabel": "DoH standards RSS"
+    }
+  ]
+}

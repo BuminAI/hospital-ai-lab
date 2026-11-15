@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "AI adoption review checklist for UAE hospitals",
+    "description": "Questions administrators and nurse leaders can ask when a vendor proposes an AI product: purpose, applicable policy, patient data, security and operations.",
+    "pageTitle": "AI adoption review checklist",
+    "lead": "Use this when you receive a specific proposal. Tick each item when you have a written answer. The items are the author’s list; the two checklists and the facts page give the sections of the documents behind many of them."
+  },
+  "sections": [
+    {
+      "heading": "Purpose and scope",
+      "body": "",
+      "items": [
+        "The job the tool will do is described in one sentence and agreed by the department that will use it.",
+        "Who will use it, and who will be affected by its output, is listed (including nurses and front-desk staff).",
+        "The point where AI enters the process and the role of the physician or practitioner are written down, as the Abu Dhabi AI policy asks."
+      ]
+    },
+    {
+      "heading": "Regulatory status",
+      "body": "",
+      "items": [
+        "You have noted which emirate licenses the facility, and therefore whether DoH’s or DHA’s AI policy applies (or both).",
+        "The vendor states in writing whether it treats the product as a medical device and which registration it holds; you have asked your regulatory team about the Ministry of Health and Prevention’s requirements.",
+        "In Abu Dhabi, the digital product has a named Digital Product Owner and Digital Product Architect, a feasibility study and risk assessment, and a risk tier agreed with the governance group.",
+        "A new medical device, or an existing one with cybersecurity considerations, has been or will be evaluated by DoH’s Health Technology Assessment department before implementation."
+      ]
+    },
+    {
+      "heading": "Patient data",
+      "body": "",
+      "items": [
+        "The vendor states where data is stored and processed, including logs and backups, and confirms nothing leaves the UAE without DoH authorisation.",
+        "The vendor says whether your data is used to train or improve its models, and if so, in what form (anonymised or de-identified) and on what consent basis.",
+        "The patient-facing privacy notice, consent wording and withdrawal route are reviewed, including separate consent for sharing data for a specific purpose.",
+        "If the tool reads or writes data through the Abu Dhabi health information exchange, the consent clause and the breach clock have been checked against the exchange policy.",
+        "The retention period for health data in the tool matches the DoH retention standard, which states a 25-year minimum."
+      ]
+    },
+    {
+      "heading": "Security and incidents",
+      "body": "",
+      "items": [
+        "For connected devices and software, you hold the vendor’s MDS2 security disclosure and know how patches and recalls reach you.",
+        "The incident card lists the clocks: serious device events within five days, connected-device cyber incidents immediately to the Abu Dhabi Healthcare Cybersecurity Emergency Response Team, and 60 days for patient notice of an exchange breach.",
+        "The device is on the connected-device inventory with its software and firmware version."
+      ]
+    },
+    {
+      "heading": "Performance and fairness",
+      "body": "",
+      "items": [
+        "The vendor’s validation is described in writing, including data sets used and the limits of the data and algorithm, as Dubai’s policy asks.",
+        "Independent third-party validation exists, or the governance group has recorded why it accepts the risk.",
+        "You will compare real-world results with the validation results and have agreed what difference triggers a review.",
+        "Possible bias is discussed with the vendor, since Dubai’s policy asks for AI that is fair and free of bias."
+      ]
+    },
+    {
+      "heading": "Operations and people",
+      "body": "",
+      "items": [
+        "Staff who will use the tool are trained before go-live, including its limits and how to override it.",
+        "The tool has a safe fallback, and the vendor explains what happens when its service is down (graceful degradation).",
+        "An audit is scheduled, and someone is named to report incidents to DoH or DHA and to the vendor."
+      ]
+    }
+  ]
+}

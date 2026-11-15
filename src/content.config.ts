@@ -132,4 +132,18 @@ const blogPh = defineCollection({
   }),
 });
 
-export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg, blogPh };
+// 영어판(UAE) 블로그 (2026-11-15 신설). 다른 영어판과 별개 컬렉션 — 아부다비 보건부(DoH)·두바이 보건청(DHA)의 AI 정책과
+// DoH 표준·지침 등 UAE 제도를 1차 출처로 읽어 쓰는 독립 집필이다.
+const blogAe = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-ae' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    category: z.enum(['Research Review', 'AI Tools', 'Column', 'News']),
+    draft: z.boolean().default(false),
+    series: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, blogRu, blogJa, blogId, blogTw, blogEn, blogIn, blogSg, blogPh, blogAe };

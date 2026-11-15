@@ -1,0 +1,68 @@
+[
+  {
+    "question": "Is AI software that a hospital buys a medical device in the UAE?",
+    "answer": "It can be. The DoH medical device reporting standard counts software among medical devices, and its cybersecurity guideline covers standalone medical device software and software embedded in hardware. In Abu Dhabi, any new medical device must be evaluated by DoH’s Health Technology Assessment department before implementation. Dubai’s AI policy says AI tools must meet the Ministry of Health and Prevention’s requirements on medical devices. This site has not read the ministry’s own registration rules, so ask the vendor in writing whether it treats the product as a medical device and which registration it holds.",
+    "sources": [
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/18826-Medical-Device-Reporting-Standard-MDR.ashx",
+      "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf"
+    ]
+  },
+  {
+    "question": "Which AI policy applies to my hospital: Abu Dhabi’s or Dubai’s?",
+    "answer": "The one for the emirate that licenses you. The Department of Health’s policy applies to DoH-licensed providers and to anyone who uses Abu Dhabi population or patient data in AI work. The Dubai Health Authority’s policy applies to DHA-licensed facilities and professionals and to AI developers that use Dubai data. A group with hospitals in both emirates has to follow both, and the two differ in detail: for example, Dubai asks for independent third-party validation and disclosure of how a solution was validated.",
+    "sources": [
+      "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf"
+    ]
+  },
+  {
+    "question": "What should an Abu Dhabi hospital have in place before an AI tool goes live?",
+    "answer": "The DoH AI policy asks hospitals to have clear governance on AI use, to state where AI enters the process and what the physician’s role is, to set boundaries on access to and sharing of patient information, to educate everyone involved including patients, and to audit and report. The 2026 digital products standard adds a named Digital Product Owner and Digital Product Architect for each product, a feasibility study and risk assessment before it starts, and a risk tier (very high risk is prohibited; high risk needs conformity assessments before and after deployment).",
+    "sources": [
+      "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx"
+    ]
+  },
+  {
+    "question": "Can a hospital use an AI service that runs on a cloud outside the UAE?",
+    "answer": "In Abu Dhabi, not without DoH’s authorisation. The Data Access Standard says no storage, replication or transfer of healthcare data outside the UAE may occur without explicit DoH authorisation, remote access from outside the UAE needs prior written approval and is for exceptional circumstances, and cloud providers must keep data residency within the UAE with contractual and technical safeguards. Ask the vendor where the model runs and where logs and backups are kept.",
+    "sources": [
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/11126_Data_Access_Standard.ashx",
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Data-Sharing-Integration-and-Interoperability-Standard.ashx"
+    ]
+  },
+  {
+    "question": "Can patient records be used to train or tune an AI tool?",
+    "answer": "DoH’s Analytics and Reporting Standard calls that secondary use. Patient data used for secondary purposes must be anonymised or de-identified unless the patient explicitly permits otherwise or the law requires it, explicit informed consent is required, patients can withdraw consent at any time without any effect on their care, and attempts to re-identify anonymised data are prohibited. Ask the vendor what data it wants, in what form, and on what consent basis.",
+    "sources": [
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx"
+    ]
+  },
+  {
+    "question": "What must be reported when an AI tool or a connected device goes wrong?",
+    "answer": "Several things can apply at once. DoH’s AI policy and Dubai’s AI policy ask users to report known or suspected AI incidents and patient-safety issues to the regulator. For medical device events, deaths, serious injuries and malfunctions are reported as soon as possible and not later than five days from awareness under the DoH reporting standard, with follow-up within 15 days. A cybersecurity incident involving a connected medical device goes to the Abu Dhabi Healthcare Cybersecurity Emergency Response Team immediately upon discovery. A breach involving the health information exchange has a 60-day patient notice limit and a 5-business-day notice to DoH.",
+    "sources": [
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/18826-Medical-Device-Reporting-Standard-MDR.ashx",
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
+      "https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx"
+    ]
+  },
+  {
+    "question": "What should we ask an AI vendor in writing?",
+    "answer": "Dubai’s policy gives a ready list: which functions are AI-enabled, how the solution was validated, which data sets were used, the expected outcomes, the professional’s role in the final decision, the type of algorithm, how data use was ethically examined, how performance must be validated, how it integrates into care, and the limits of the data and algorithm. Add three from the Abu Dhabi documents: a security disclosure (MDS2) and patching and recall communication, certification of the software and each major upgrade, and where the data is stored and processed.",
+    "sources": [
+      "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf",
+      "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx"
+    ]
+  },
+  {
+    "question": "Do the federal laws on health data and personal data apply too?",
+    "answer": "The UAE Government portal describes Federal Law No. 2 of 2019 as regulating the use of ICT in health fields, including free zones, with duties on providers to keep health data confidential, valid and available to authorised parties, and Federal Decree-Law No. 45 of 2021 as the Personal Data Protection Law, in force since 2 January 2022. Several DoH and DHA documents also require compliance with the federal health data law. This site has not read the laws’ own text, so ask your legal team how they apply to your facility.",
+    "sources": [
+      "https://u.ae/en/about-the-uae/digital-uae/whole-of-government-approach/digital-health/ict-in-the-health-sector",
+      "https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws"
+    ]
+  }
+]

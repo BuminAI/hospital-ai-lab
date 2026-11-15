@@ -1,0 +1,127 @@
+{
+  "checkedAt": "2026-11-15T09:46:01.531Z",
+  "readOk": 10,
+  "total": 10,
+  "laws": [
+    {
+      "id": "doh-ai",
+      "name": "Abu Dhabi DoH Policy on Use of Artificial Intelligence (Policy/AI/0.9, 2018)",
+      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "baseline": "Wed, 13 Mar 2019 11:06:46 GMT | 276924 | ",
+      "baselinePending": false,
+      "current": "Wed, 13 Mar 2019 11:06:46 GMT | 276924 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:45:52.220Z",
+      "error": null
+    },
+    {
+      "id": "dha-ai",
+      "name": "Dubai Health Authority policy Artificial Intelligence in the Healthcare (DHA/HISHD/PP-09)",
+      "url": "https://www.dha.gov.ae/uploads/082022/Artificial%20Intelligence%20Policy20228457.pdf",
+      "baseline": "Mon, 09 Sep 2024 08:09:45 GMT | 276863 | W/\"4397f-191d5d4e528\"",
+      "baselinePending": false,
+      "current": "Mon, 09 Sep 2024 08:09:45 GMT | 276863 | W/\"4397f-191d5d4e528\"",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:45:54.008Z",
+      "error": null
+    },
+    {
+      "id": "doh-dpgs",
+      "name": "DoH Digital Products Governance Standard (March 2026)",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx",
+      "baseline": "Tue, 31 Mar 2026 09:23:34 GMT | 728557 | ",
+      "baselinePending": false,
+      "current": "Tue, 31 Mar 2026 09:23:34 GMT | 728557 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:45:54.908Z",
+      "error": null
+    },
+    {
+      "id": "doh-data-access",
+      "name": "DoH Data Access Standard (January 2026)",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/11126_Data_Access_Standard.ashx",
+      "baseline": "Tue, 20 Jan 2026 11:34:15 GMT | 834926 | ",
+      "baselinePending": false,
+      "current": "Tue, 20 Jan 2026 11:34:15 GMT | 834926 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:45:55.666Z",
+      "error": null
+    },
+    {
+      "id": "doh-dsii",
+      "name": "DoH Data Sharing, Integration and Interoperability Standard (December 2025)",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Data-Sharing-Integration-and-Interoperability-Standard.ashx",
+      "baseline": "Mon, 12 Jan 2026 09:18:15 GMT | 474047 | ",
+      "baselinePending": false,
+      "current": "Mon, 12 Jan 2026 09:18:15 GMT | 474047 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:45:56.520Z",
+      "error": null
+    },
+    {
+      "id": "doh-retention",
+      "name": "DoH Data Storage and Retention Standard (December 2025)",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2025/Data-Storage-and-Retention_Standard.ashx",
+      "baseline": "Mon, 29 Dec 2025 12:37:00 GMT | 615184 | ",
+      "baselinePending": false,
+      "current": "Mon, 29 Dec 2025 12:37:00 GMT | 615184 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:45:57.306Z",
+      "error": null
+    },
+    {
+      "id": "doh-analytics",
+      "name": "DoH Analytics and Reporting Standard (April 2026)",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
+      "baseline": "Thu, 09 Apr 2026 08:15:15 GMT | 973011 | ",
+      "baselinePending": false,
+      "current": "Thu, 09 Apr 2026 08:15:15 GMT | 973011 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:45:59.005Z",
+      "error": null
+    },
+    {
+      "id": "doh-mdr",
+      "name": "DoH Standard on Medical Device Reporting v2 (July 2026)",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/18826-Medical-Device-Reporting-Standard-MDR.ashx",
+      "baseline": "Thu, 27 Aug 2026 08:24:47 GMT | 869676 | ",
+      "baselinePending": false,
+      "current": "Thu, 27 Aug 2026 08:24:47 GMT | 869676 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:45:59.897Z",
+      "error": null
+    },
+    {
+      "id": "doh-cyber",
+      "name": "DoH Medical Device Cybersecurity in Healthcare Facilities Guideline (November 2026)",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
+      "baseline": "Wed, 04 Nov 2026 12:01:04 GMT | 547901 | ",
+      "baselinePending": false,
+      "current": "Wed, 04 Nov 2026 12:01:04 GMT | 547901 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:46:00.711Z",
+      "error": null
+    },
+    {
+      "id": "doh-hie",
+      "name": "DoH Policy on the Abu Dhabi Health Information Exchange (2020)",
+      "url": "https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx",
+      "baseline": "Mon, 20 Apr 2020 04:37:45 GMT | 1022559 | ",
+      "baselinePending": false,
+      "current": "Mon, 20 Apr 2020 04:37:45 GMT | 1022559 | ",
+      "pending": false,
+      "changed": false,
+      "lastRead": "2026-11-15T09:46:01.531Z",
+      "error": null
+    }
+  ]
+}

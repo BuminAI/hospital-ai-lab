@@ -87,6 +87,15 @@
 - [Article series](https://hospital-ai-lab.com/sg/series/) · [AI news](https://hospital-ai-lab.com/sg/news/): The Straits Times·CNA·Business Times·Healthcare Asia·Asian Scientist Magazine·Mothership·e27에서 AI·보건 관련 헤드라인 자동 수집
 - [AI Program Review Room](https://hospital-ai-lab.com/sg/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
 
+## 영어판 (UAE, https://hospital-ai-lab.com/ae/)
+
+- 번역본이 아니라 UAE 제도를 1차 문서로 새로 조사해 쓴 판입니다(아부다비 보건부(DoH) AI 정책과 2026년 표준 — 디지털 제품 거버넌스·데이터 접근·분석·의료기기 보고·사이버보안 지침, 두바이보건청(DHA) AI 정책, 보건정보교환(Malaffi) 정책). 연방 법령 본문은 자동 접속이 막혀(HTTP 403) 직접 인용하지 않았습니다.
+- 영어 전용 안내문: [llms.txt (English)](https://hospital-ai-lab.com/ae/llms.txt) · [llms-full.txt](https://hospital-ai-lab.com/ae/llms-full.txt) · 인용용 사실 허브 [/ae/facts/](https://hospital-ai-lab.com/ae/facts/)
+- 실무 가이드(`/ae/dx-roadmap/`·`/ae/data-checklist/`·`/ae/documents-checklist/`·`/ae/templates/`)·환자 코너(`/ae/patients/`)·DoH 표준 캘린더(`/ae/calendar/`)·갱신 정보(`/ae/updates/`).
+- [홈](https://hospital-ai-lab.com/ae/) · [Glossary](https://hospital-ai-lab.com/ae/glossary/) · [FAQ](https://hospital-ai-lab.com/ae/faq/) · [Checklist](https://hospital-ai-lab.com/ae/checklist/)
+- [Article series](https://hospital-ai-lab.com/ae/series/) · [AI news](https://hospital-ai-lab.com/ae/news/): Gulf News·Khaleej Times·The National·WAM·Gulf Business·Emirates 24|7 등에서 AI·보건 관련 헤드라인 자동 수집
+- [AI Program Review Room](https://hospital-ai-lab.com/ae/ai-judge/): free tool that checks the source code of an AI-built work program on 14 points and gives a score out of 100 and a grade from S to C.
+
 ## 필리핀어판 (필리핀어, https://hospital-ai-lab.com/ph/)
 
 - 번역본이 아니라 필리핀 제도를 1차 문서로 새로 조사해 필리핀어로 쓴 판입니다(RA 9711 FDA법·RA 10173 개인정보법·RA 11223 UHC법 전문(LawPhil), ASEAN AI 거버넌스 가이드). FDA 필리핀·보건부·국가개인정보위원회 사이트는 자동 접속이 403이라 그곳의 고시·권고는 쓰지 않았습니다.

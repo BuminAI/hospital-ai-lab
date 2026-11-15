@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Where to start with medical AI in a UAE hospital",
+    "description": "Five steps for hospital administrators and nurse leaders, no technical background needed: the task, the policy that applies, patient data, written vendor answers and the staff.",
+    "pageTitle": "Where to start",
+    "lead": "You do not need to understand how a model works to review a proposal for one. You need to know what it is for, which emirate’s rules apply, where patient data goes, and what changes for staff. Five steps, in order."
+  },
+  "sections": [
+    {
+      "heading": "1. Name the task before the technology",
+      "body": "Write one sentence: what job will this tool do, for whom, and what happens today without it? A tool that drafts discharge summaries, a tool that flags patients for review and a tool that schedules staff raise different questions. Both the Abu Dhabi and the Dubai AI policies describe AI as supportive technology, so name the person who still makes the final decision.",
+      "items": []
+    },
+    {
+      "heading": "2. Find the policy that applies",
+      "body": "A DoH-licensed facility in Abu Dhabi follows the Department of Health’s AI policy and, since August 2026, its digital products standard. A DHA-licensed facility in Dubai follows the Dubai Health Authority’s AI policy. Both expect compliance with national rules, and the Dubai policy names the federal health data law. If your group runs hospitals in both emirates, keep one checklist per emirate.",
+      "items": []
+    },
+    {
+      "heading": "3. Follow the patient data",
+      "body": "Find out which data the tool uses, where it is stored and processed, and whether it is reused to train or improve a model. In Abu Dhabi, storing, replicating or transferring healthcare data outside the UAE needs explicit DoH authorisation, and using patient data for secondary purposes needs anonymisation or explicit informed consent. Ask the vendor to put the answers in writing.",
+      "items": []
+    },
+    {
+      "heading": "4. Get the answers in writing",
+      "body": "Dubai’s policy lists what a vendor must disclose about an AI solution, including how it was validated and the limits of its data and algorithm, and it asks for independent third-party validation. For connected devices and software, ask for the security disclosure (MDS2) and for how patches and recalls reach you. Keep the answers with the contract.",
+      "items": []
+    },
+    {
+      "heading": "5. Plan for the people who will work with it",
+      "body": "Decide who is trained before go-live, who can override the tool, who audits it and who reports an incident, and by when. The reporting clocks differ: five days for serious device events in Abu Dhabi, immediate reporting of connected-device cyber incidents, and 60 days for patient notice of an exchange breach. Involve nursing early, because they will see the first problems.",
+      "items": []
+    }
+  ]
+}

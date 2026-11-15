@@ -1,0 +1,68 @@
+---
+// DoH standards calendar (2026-11-15)
+// New documents are collected from the Abu Dhabi Department of Health standards RSS feed (scripts/fetch-ae-gov.mjs): those whose title is about AI, digital, data, devices, cybersecurity or interoperability.
+// ⚠️ These are NEW STANDARDS AND GUIDELINES from DoH, not grant programmes. Date = the date the feed gives, not a deadline.
+import '../../styles/ae-guide.css';
+import AeLayout from '../../layouts/AeLayout.astro';
+import AeGuideFoot from '../../components/AeGuideFoot.astro';
+import notices from '../../data/ae/gov-notices.json';
+import { withBase } from '../../utils/site';
+
+const fmtDay = new Intl.DateTimeFormat('en-AE', { timeZone: 'Asia/Dubai', year: 'numeric', month: 'long', day: 'numeric' });
+const recent = notices.items.slice(0, 20);
+
+const title = 'DoH calendar: new Abu Dhabi standards on AI, data and medical devices';
+const description =
+  'New Abu Dhabi Department of Health standards and guidelines on digital products, data, medical devices and cybersecurity, with the date each carries. Updated automatically.';
+const sources = [
+  { label: 'Abu Dhabi DoH — Standards RSS feed', url: 'https://www.doh.gov.ae/en/resources/standards-rss-feed' },
+  { label: 'Abu Dhabi DoH — Standards', url: 'https://www.doh.gov.ae/en/resources/standards' },
+];
+---
+
+<AeLayout title={title} description={description} crumb="Calendar" standalone updated={new Date(notices.updatedAt ?? Date.now())}>
+<h1>DoH calendar</h1>
+  <p class="tg-lead">
+    Which standards came out recently? New Abu Dhabi Department of Health documents on digital products, data, medical devices and cybersecurity appear here, newest first. Other DoH standards from the same feed are listed too and tagged “Other DoH standard”.
+  </p>
+  <p class="tg-meta">Shown: {fmtDay.format(new Date())} · Data updated: {notices.updatedAt ? fmtDay.format(new Date(notices.updatedAt)) : 'not yet'}</p>
+
+  <section class="tg-sec" aria-labelledby="h-notice">
+    <h2 id="h-notice">Recent documents from DoH</h2>
+    <div class="tg-box tg-warn">
+      The date below is the date the feed gives, <strong>not a compliance deadline</strong>. Read the document for its content, duties and effective date. Only the title, date and agency are copied.
+    </div>
+    {
+      recent.length > 0 ? (
+        <ol class="tg-tl">
+          {recent.map((n) => (
+            <li>
+              <div class="when">{fmtDay.format(new Date(n.pubDate))}</div>
+              <div class="what">
+                <b>
+                  <span class="tg-tag">{n.kind}</span>
+                  {n.status && <span class="tg-tag">{n.status}</span>}
+                  <a href={n.link} target="_blank" rel="noopener">
+                    {n.title}
+                    <span class="sr-only">(opens in a new tab)</span>
+                  </a>
+                </b>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p>No matching documents yet.</p>
+      )
+    }
+  </section>
+
+  <section class="tg-sec" aria-labelledby="h-ms">
+<h2 id="h-ms">Upcoming dates</h2>
+    <p>
+Confirmed upcoming dates are listed in the <a href={withBase('/ae/dx-roadmap/')}>Roadmap</a> together with the milestones that have already passed.
+    </p>
+  </section>
+
+<AeGuideFoot sources={sources} checked="November 15, 2026" />
+</AeLayout>
