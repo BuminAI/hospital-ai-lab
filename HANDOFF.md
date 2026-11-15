@@ -828,7 +828,7 @@ TwLayout을 IdLayout에서 복제할 때 헤더 표어가 **인도네시아어 �
 - DoH 서버는 연속 접속 뒤 TLS를 끊는다(ECONNRESET·schannel 핸드셰이크 실패) — 수집기에 재시도(4회, 점증 대기)를 넣었다. 몇 분 뒤엔 다시 된다. 사이트 RSS의 날짜는 `+0400` 자정이라 UTC로 바꾸면 하루 앞당겨지므로 +4시간을 더해 날짜만 자른다.
 - Healthcare Asia·Hospital Management는 UAE 한정 매체가 아니라 `ae` 출처에서 뺐다(아시아·세계 기사가 섞임).
 - 영상은 YouTube 검색(`gl=AE`)에서 허용 채널(보건 당국·방송·통신사·DoH 주최 행사 채널 등)만 받는다. UAE 의료 AI 영상은 조회수가 낮아 완화 기준(1100일·100회)으로 11건을 채웠다. 병원·기업 채널은 광고 위험으로 제외.
-- **자동 발행 예외(CLAUDE.md)에 UAE판은 없다.** 오너가 확대 지시하기 전엔 예약 작업(`daily-update-digest`)에 넣지 않는다.
+- **자동 발행(오너 지시 2026-11-15)**: CLAUDE.md 예외에 `blogAe`·FAQ를 넣었고 예약 작업 `daily-update-digest`에 1-4-3단계(UAE)를 더했다. 훅 `allow-content-write.cjs`에도 `blog-ae/`·`blog-in/`·`ae/content/faq.json`을 추가했다(blog-in은 인도 단계가 이미 있었는데 훅에 빠져 있었다).
 - 새 자동화 `ae`를 더했으므로 `audit-site.mjs`·`site-health-check.mjs`·`locale-sitemaps`·`og/[...route].ts`·`locale.ts`·`ViewCounts.astro`(`sg`·`ph`·`ae` 조회수 표시 추가)에 `ae`가 들어갔다.
 
 ## 6. 이 프로젝트에서 배운 것들 (반복하지 않으려고 적어 둠)
