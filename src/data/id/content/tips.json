@@ -7,7 +7,42 @@
   },
   "sections": [
     {
-      "heading": "TIP 04 — Tempel dokumen panjang dulu, tulis pertanyaan di bagian akhir",
+      "heading": "TIP 05 — Ganti \"jangan begini\" dengan \"tolong tulis begini\"",
+      "body": "Menjelaskan bentuk jawaban yang Anda mau lebih efektif daripada daftar larangan.",
+      "items": []
+    },
+    {
+      "heading": "Anda minta \"tanpa tabel\", tetapi tabel tetap muncul",
+      "body": "Anda meminta draf pengumuman untuk staf dan menulis \"jangan pakai poin-poin\", tetapi jawabannya tetap berupa daftar. Hal ini terjadi karena kata \"jangan\" tidak memberi tahu AI seperti apa bentuk jawaban yang Anda inginkan.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: ubah larangan menjadi bentuk yang diinginkan",
+      "body": "Panduan resmi Anthropic (perusahaan pembuat Claude) menyebut salah satu cara mengatur format jawaban: katakan apa yang harus dilakukan, bukan apa yang tidak boleh dilakukan. Contoh dalam panduan: alih-alih \"jangan gunakan markdown dalam jawaban\", tulis \"jawaban harus berupa paragraf prosa yang mengalir\". Di rumah sakit, bentuknya bisa seperti ini; isi dalam tanda kurung sesuaikan dengan kebutuhan.",
+      "items": [
+        "(isi permintaan Anda) Tulis jawaban tanpa daftar atau tabel, seperti pengumuman untuk seluruh staf, dalam tiga sampai empat paragraf singkat yang saling bersambung."
+      ]
+    },
+    {
+      "heading": "Satu lagi: tambahkan alasan dalam satu kalimat",
+      "body": "Panduan yang sama menjelaskan bahwa konteks atau alasan di balik instruksi membantu AI memahami tujuan Anda dan menjawab lebih tepat. Cukup satu kalimat, misalnya: \"Teks ini akan langsung ditempel di papan pengumuman internal, jadi saya butuh teks tanpa format.\"",
+      "items": []
+    },
+    {
+      "heading": "Hal yang perlu diingat",
+      "body": "Meski kalimat diubah, tidak ada jaminan AI mengikuti semua instruksi, jadi baca sendiri jawabannya. Jangan memasukkan nama pasien atau data pribadi lain ke layanan AI, dan periksa dulu kebijakan keamanan informasi rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, \"Prompting best practices\": pengaturan format jawaban dan bagian \"Add context\" (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Tanggal pengecekan sumber: 16 November 2026"
+      ]
+    },
+    {
+      "heading": "TIP 04 —Tempel dokumen panjang dulu, tulis pertanyaan di bagian akhir",
       "body": "Cukup mengubah urutan, AI lebih mudah membaca materi Anda.",
       "items": []
     },
