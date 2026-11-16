@@ -1,6 +1,66 @@
 {
-  "updatedAt": "2026-11-15T15:50:34.915Z",
+  "updatedAt": "2026-11-16T07:10:53.473Z",
   "items": [
+    {
+      "title": "헝셩그룹, 12월 24일 임시주주총회 소집 결의",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=715749",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-16T14:50:01.000Z"
+    },
+    {
+      "title": "KDDW 2026, 국내외 소화기질환 최신 지견 한자리에",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016524",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T14:07:20.000Z"
+    },
+    {
+      "title": "로소타, 수술기구 조작 데이터로 AI 수술 로봇 학습 가능성 제시",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242482",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T13:29:20.000Z"
+    },
+    {
+      "title": "부산부민병원, 의료현장 개선활동 성과 공유...QI 경진대회",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016506",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T13:04:30.000Z"
+    },
+    {
+      "title": "건양대병원, ‘미개방 의료데이터 활용 경진대회’ 성료",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016501",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T11:20:54.000Z"
+    },
+    {
+      "title": "충남약사회, 미이수 회원 연수교육 성료…560여 명 참석",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549035",
+      "source": "약사공론",
+      "pubDate": "2026-11-16T11:16:28.000Z"
+    },
+    {
+      "title": "AI 심전도로 추정한 좌심실 수축기능으로 장기간 예후 예측",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415384",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-16T10:41:47.000Z"
+    },
+    {
+      "title": "식약처, 혁신의료기기 정책 포럼 개최…시장 진입 지원 논의",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421890",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-16T09:30:28.000Z"
+    },
+    {
+      "title": "[AMD] 의료 IT 인프라 효율·보안 강화",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252763",
+      "source": "병원신문",
+      "pubDate": "2026-11-16T06:00:00.000Z"
+    },
+    {
+      "title": "인구 대전환 시대 '변화와 공존’ 해법 찾다",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492558&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-16T05:03:00.000Z"
+    },
     {
       "title": "홍승권 심평원장 “호스피스 현장 의견 경청… 합당한 보상 체계 마련”",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242451",
@@ -82,6 +142,12 @@
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415421",
       "source": "메디칼업저버",
       "pubDate": "2026-11-13T02:53:40.000Z"
+    },
+    {
+      "title": "디지털헬스학회 추계학술대회 개최 \"AI, 병원 밖으로\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171816",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-13T01:50:52.000Z"
     },
     {
       "title": "뉴지엄랩, 지역사회영양학회서 임상 영양 AI 검증 기준 제시",
@@ -520,5 +586,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 보건복지부 · 뉴시스 · ZDNet Korea"
+  "source": "청년의사 · 의학신문 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 디지털투데이 · 뉴시스 · 보건복지부"
 }
