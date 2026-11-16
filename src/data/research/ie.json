@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-11-15T10:28:49.477Z",
+  "updatedAt": "2026-11-16T11:44:16.553Z",
   "country": "Ireland",
   "window": {
-    "from": "2025-11-15",
-    "to": "2026-11-15"
+    "from": "2025-11-16",
+    "to": "2026-11-16"
   },
   "totals": {
     "surgery": 450,
     "drug": 121,
-    "disease": 1546,
+    "disease": 1548,
     "trials": 39
   },
   "sections": {
@@ -18,7 +18,7 @@
         "id": "PMID 43003361",
         "title": "Total Hip Arthroplasty versus Hemiarthroplasty for Displaced Fragility Femoral Neck Fractures in Older Adults: A Systematic Review and Meta-Analysis of Mortality, Reoperation, and Surgical Complications",
         "source": "J Arthroplasty",
-        "date": "2026-11-08",
+        "date": "2026-11-09",
         "authors": "Pierce TP, Badawi JM, Alhammadi H et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43003361/",
         "doi": "10.1016/j.arth.2026.11.037"
@@ -28,7 +28,7 @@
         "id": "PMID 42998952",
         "title": "Validation of Ontario criteria for patients transplanted with hepatocellular carcinoma",
         "source": "HPB (Oxford)",
-        "date": "2026-11-06",
+        "date": "2026-11-07",
         "authors": "Magyar CTJ, Aceituno L, Zorigtbaatar A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42998952/",
         "doi": "10.1016/j.hpb.2026.10.003"
@@ -38,7 +38,7 @@
         "id": "PMID 42989037",
         "title": "Pin-related complications in robotic-assisted total knee arthroplasty: a systematic review and meta-analysis of 15,874 knees",
         "source": "J Robot Surg",
-        "date": "2026-11-05",
+        "date": "2026-11-06",
         "authors": "Ade-Conde M, Dhanoa D, Wolfstadt JI et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42989037/",
         "doi": "10.1007/s11701-026-04134-6"
@@ -48,7 +48,7 @@
         "id": "PMID 43019931",
         "title": "OSS: Open suturing skills vision-based assessment challenge 2024-2025",
         "source": "Med Image Anal",
-        "date": "2026-11-04",
+        "date": "2026-11-05",
         "authors": "Hoffmann H, Bady S, Boer C et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43019931/",
         "doi": "10.1016/j.media.2026.104359"
@@ -58,7 +58,7 @@
         "id": "PMID 42988962",
         "title": "Effective and ineffective teamwork in robotic-assisted surgery: operating room professionals' accounts",
         "source": "Surg Endosc",
-        "date": "2026-11-04",
+        "date": "2026-11-05",
         "authors": "Nyein KP, Canady KM, Bingea DR et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42988962/",
         "doi": "10.1007/s00464-026-13449-2"
@@ -68,7 +68,7 @@
         "id": "PMID 42986224",
         "title": "BK polyomavirus viraemia after kidney transplantation: incidence, graft survival and its association with urinary tract malignancies",
         "source": "J Nephrol",
-        "date": "2026-11-04",
+        "date": "2026-11-05",
         "authors": "Clince M, O'Donoghue D, Sandys V et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42986224/",
         "doi": "10.1093/joneph/aajag154"
@@ -78,7 +78,7 @@
         "id": "PMID 42971445",
         "title": "Inflammatory Markers Following Robotic-Assisted Versus Manual Total Knee Arthroplasty: A Systematic Review and Meta-Analysis",
         "source": "J Arthroplasty",
-        "date": "2026-11-01",
+        "date": "2026-11-02",
         "authors": "Ade-Conde M, Son H, Lanting BA et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42971445/",
         "doi": "10.1016/j.arth.2026.10.035"
@@ -88,7 +88,7 @@
         "id": "PMID 43022055",
         "title": "Frontiers in Biophotonics",
         "source": "J Biomed Opt",
-        "date": "2026-10-31",
+        "date": "2026-11-01",
         "authors": "Komolibus K, Untracht GR, Andersson-Engels S et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43022055/",
         "doi": "10.1117/1.JBO.31.11.113501"
@@ -98,7 +98,7 @@
         "id": "PMID 42929496",
         "title": "Investigation of Torque Teno Virus Loads as a Marker of Immunosuppression in Pediatric Chronic Renal Failure: A Pilot Study",
         "source": "Pediatr Transplant",
-        "date": "2026-10-31",
+        "date": "2026-11-01",
         "authors": "Kelly E, Awan A, Wildes D et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42929496/",
         "doi": "10.1111/petr.70491"
@@ -108,7 +108,7 @@
         "id": "PMID 42901279",
         "title": "Selective NRF2 target induction despite falling NFE2L2 transcription across the MASLD spectrum: implications for marginal donor grafts and KEAP1-targeted therapy",
         "source": "Free Radic Biol Med",
-        "date": "2026-10-19",
+        "date": "2026-10-20",
         "authors": "Campbell S, O'Reilly R, Ahmed O et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42901279/",
         "doi": "10.1016/j.freeradbiomed.2026.10.038"
@@ -118,7 +118,7 @@
         "id": "PMID 43032239",
         "title": "Performance evaluation of a novel size-based microfluidic platform for rare cell detection in blood and malignant effusions",
         "source": "J Liq Biopsy",
-        "date": "2026-10-15",
+        "date": "2026-10-16",
         "authors": "Saini VM, Oner E, Cahill C et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43032239/",
         "doi": "10.1016/j.jlb.2026.100678"
@@ -128,7 +128,7 @@
         "id": "PMID 42914721",
         "title": "How have management and outcomes of periprosthetic proximal femoral fractures changed? A comparison of two 8 year time periods in a high volume centre",
         "source": "Injury",
-        "date": "2026-10-14",
+        "date": "2026-10-15",
         "authors": "Toner E, Madden-McKee C, Goodland C et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42914721/",
         "doi": "10.1016/j.injury.2026.113785"
@@ -140,7 +140,7 @@
         "id": "PMID 42663536",
         "title": "Extended Follow-up of Botensilimab plus Balstilimab in an Expanded Cohort of Microsatellite-Stable Metastatic Colorectal Cancer without Active Liver Metastases",
         "source": "Clin Cancer Res",
-        "date": "2026-11-01",
+        "date": "2026-11-02",
         "authors": "Schlechter BL, Fakih MG, Tsimberidou AM et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42663536/",
         "doi": "10.1158/1078-0432.CCR-26-1610"
@@ -150,7 +150,7 @@
         "id": "PMID 42528312",
         "title": "An Internet-Based Cognitive-Behavioral Program, With Telephone Support, Improves Pain, Disability and Emotional Well-Being in Adults With Chronic Pain: Randomized Controlled Trial of the Pain Course With 2-Year Follow-Up",
         "source": "Clin J Pain",
-        "date": "2026-10-31",
+        "date": "2026-11-01",
         "authors": "Navin C, Dear BF, Bisby MA et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42528312/",
         "doi": "10.1097/AJP.0000000000001409"
@@ -160,7 +160,7 @@
         "id": "PMID 42933458",
         "title": "First-line pembrolizumab versus carboplatin plus paclitaxel in participants with mismatch repair-deficient advanced or recurrent endometrial cancer (KEYNOTE-C93/GOG-3064/ENGOT-en15): interim analysis of a multicentre, open-label, randomised, active-comparator controlled, phase 3 trial",
         "source": "Lancet",
-        "date": "2026-10-25",
+        "date": "2026-10-26",
         "authors": "Slomovitz BM, Zhu J, Yin R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42933458/",
         "doi": "10.1016/S0140-6736(26)02095-7"
@@ -170,7 +170,7 @@
         "id": "PMID 42830132",
         "title": "Stepwise dual antiplatelet therapy de-escalation versus standard therapy for 12 months in patients with bifurcation lesions undergoing drug-coated balloon angioplasty: Insights from the REC-CAGEFREE II trial",
         "source": "Int J Cardiol",
-        "date": "2026-10-03",
+        "date": "2026-10-04",
         "authors": "Yan Y, Wang Q, Liu Y et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42830132/",
         "doi": "10.1016/j.ijcard.2026.134961"
@@ -180,7 +180,7 @@
         "id": "PMID 42850922",
         "title": "Population Pharmacokinetics and Exposure-Response Analysis of Arpraziquantel Supporting Dose in Preschool-Aged Children Infected with Schistosoma",
         "source": "Clin Pharmacol Drug Dev",
-        "date": "2026-09-30",
+        "date": "2026-10-01",
         "authors": "Brockhaus B, Mills R, Milenković-Grišić AM et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42850922/",
         "doi": "10.1002/cpdd.70106"
@@ -190,7 +190,7 @@
         "id": "PMID 42810355",
         "title": "Petrelintide, a human amylin analogue for the treatment of obesity (ZUPREME 1): a randomised, double-blind, placebo-controlled, phase 2 trial",
         "source": "Lancet Diabetes Endocrinol",
-        "date": "2026-09-28",
+        "date": "2026-09-29",
         "authors": "Garvey WT, Ard J, Connery L et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42810355/",
         "doi": "10.1016/S2213-8587(26)00213-5"
@@ -200,7 +200,7 @@
         "id": "PMID 42810372",
         "title": "Retatrutide in adults with obesity and type 2 diabetes (TRIUMPH-2): a double-blind, parallel-group, randomised, placebo-controlled, phase 3 trial",
         "source": "Lancet",
-        "date": "2026-09-28",
+        "date": "2026-09-29",
         "authors": "Bellido V, le Roux CW, Ekinci EI et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42810372/",
         "doi": "10.1016/S0140-6736(26)01861-1"
@@ -210,7 +210,7 @@
         "id": "PMID 42777083",
         "title": "Preclinical and clinical evaluation of systemic danegaptide for the treatment of nonproliferative diabetic retinopathy",
         "source": "Sci Transl Med",
-        "date": "2026-09-22",
+        "date": "2026-09-23",
         "authors": "Hudson N, Porkoláb G, O'Callaghan J et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42777083/",
         "doi": "10.1126/scitranslmed.aed8692"
@@ -220,7 +220,7 @@
         "id": "PMID 42748509",
         "title": "Pembrolizumab plus chemotherapy as first-line therapy for advanced HER2-negative gastric or gastroesophageal junction adenocarcinoma: 4.5-year follow-up from the randomized phase III KEYNOTE-859 study",
         "source": "ESMO Open",
-        "date": "2026-09-15",
+        "date": "2026-09-16",
         "authors": "Rha SY, Wyrwicz LS, Yañez P et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42748509/",
         "doi": "10.1016/j.esmoop.2026.108536"
@@ -230,7 +230,7 @@
         "id": "PMID 42804311",
         "title": "Prolozone M Therapy's Analgesic Efficacy for Managing Moderate-to-Severe Knee Osteoarthritis: A Randomized, Double-Blind, Placebo-Controlled Trial",
         "source": "Pain Physician",
-        "date": "2026-08-31",
+        "date": "2026-09-01",
         "authors": "Niraj G, Charan N, Prabhu M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42804311/",
         "doi": ""
@@ -240,7 +240,7 @@
         "id": "PMID 42636832",
         "title": "Durvalumab and tremelimumab, with or without lenvatinib, combined with transarterial chemoembolisation in participants with embolisation-eligible hepatocellular carcinoma (EMERALD-3): a global, randomised, open-label, sponsor-blinded, phase 3 study",
         "source": "Lancet Oncol",
-        "date": "2026-08-31",
+        "date": "2026-09-01",
         "authors": "Kudo M, Abou-Alfa GK, Ren Z et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42636832/",
         "doi": "10.1016/S1470-2045(26)00278-0"
@@ -250,7 +250,7 @@
         "id": "PMID 42636977",
         "title": "Sustained benefit of adjuvant olaparib in women with germline BRCA1- and BRCA2-associated high-risk HER2-negative early breast cancer: updated results from the OlympiA phase III trial",
         "source": "Ann Oncol",
-        "date": "2026-08-23",
+        "date": "2026-08-24",
         "authors": "Garber JE, Cameron D, Campbell C et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42636977/",
         "doi": "10.1016/j.annonc.2026.08.002"
@@ -262,7 +262,7 @@
         "id": "PMID 43032774",
         "title": "Community-acquired pneumonia in Europe: heterogeneity, evidence gaps, and priorities for care",
         "source": "Lancet Reg Health Eur",
-        "date": "2026-11-06",
+        "date": "2026-11-07",
         "authors": "Martin-Loeches I, Torres A",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43032774/",
         "doi": "10.1016/j.lanepe.2026.101910"
@@ -272,7 +272,7 @@
         "id": "PMID 42970911",
         "title": "Artificial intelligence-enabled interventions for smoking cessation: a systematic review and meta-analysis of randomised controlled trials",
         "source": "Int J Med Inform",
-        "date": "2026-10-28",
+        "date": "2026-10-29",
         "authors": "Adebisi YA, Alhur AA, Ogunkola IO et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42970911/",
         "doi": "10.1016/j.ijmedinf.2026.106788"
@@ -282,7 +282,7 @@
         "id": "PMID 42990948",
         "title": "Incidence of medically attended Lyme borreliosis across endemic regions of six European countries (BOLD): a prospective multicentre active surveillance study",
         "source": "Lancet Reg Health Eur",
-        "date": "2026-10-25",
+        "date": "2026-10-26",
         "authors": "Halsby K, Loew-Baselli A, Moniuszko-Malinowska A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42990948/",
         "doi": "10.1016/j.lanepe.2026.101907"
@@ -292,7 +292,7 @@
         "id": "PMID 42959617",
         "title": "Mucopolysaccharidosis (MPS) type VI: A case series to assess the efficacy of enzyme replacement therapy and to guide precision-based medicine in the IRISH paediatric cohort",
         "source": "Mol Genet Metab Rep",
-        "date": "2026-10-20",
+        "date": "2026-10-21",
         "authors": "Mathew C, Carey N, Losty E et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42959617/",
         "doi": "10.1016/j.ymgmr.2026.101377"
@@ -302,7 +302,7 @@
         "id": "PMID 42960025",
         "title": "Standardisation of stage information collected by European population-based cancer registries: an application to breast cancer survival",
         "source": "ESMO Real World Data Digit Oncol",
-        "date": "2026-10-19",
+        "date": "2026-10-20",
         "authors": "Rossi S, Cerza F, Bennett D et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42960025/",
         "doi": "10.1016/j.esmorw.2026.100794"
@@ -312,7 +312,7 @@
         "id": "PMID 42880518",
         "title": "Residual risk in coronary artery disease: Identification of cardio-reno-metabolic and psychosocial phenotypes in a Latin American cohort of the INTERASPIRE registry",
         "source": "Curr Probl Cardiol",
-        "date": "2026-10-14",
+        "date": "2026-10-15",
         "authors": "Perea J, Villarreal R, Elfman M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42880518/",
         "doi": "10.1016/j.cpcardiol.2026.103485"
@@ -322,7 +322,7 @@
         "id": "PMID 42953707",
         "title": "Morphological and molecular characterisation of pathogenic helminths in common dolphins (Delphinus delphis) stranded along the Irish coast",
         "source": "Int J Parasitol Parasites Wildl",
-        "date": "2026-10-12",
+        "date": "2026-10-13",
         "authors": "Guthruf S, Zintl A, Lawlor A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42953707/",
         "doi": "10.1016/j.ijppaw.2026.101302"
@@ -332,7 +332,7 @@
         "id": "PMID 42903606",
         "title": "Cardiometabolic diseases and prescription patterns in a Kuwait tertiary-care hospital: A retrospective cross-sectional chart review",
         "source": "J Taibah Univ Med Sci",
-        "date": "2026-10-11",
+        "date": "2026-10-12",
         "authors": "Shehab M, AlSayegh A, AlOmar H et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42903606/",
         "doi": "10.1016/j.jtumed.2026.09.009"
@@ -342,7 +342,7 @@
         "id": "PMID 42811668",
         "title": "A systematic and critical review of measurement scales for evaluating gastrointestinal symptoms during exercise",
         "source": "J Int Soc Sports Nutr",
-        "date": "2026-09-28",
+        "date": "2026-09-29",
         "authors": "Aitkenhead R, Waldron M, Conway GE et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42811668/",
         "doi": "10.1080/15502783.2026.2735563"
@@ -352,7 +352,7 @@
         "id": "PMID 42801398",
         "title": "Helicobacter pylori eradication treatment dispensing in the Irish General Medical Services population from 2012 to 2022: a repeated cross-sectional analysis",
         "source": "Int J Clin Pharm",
-        "date": "2026-09-26",
+        "date": "2026-09-27",
         "authors": "Dobrić M, Medina C, Bennett K et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42801398/",
         "doi": "10.1007/s11096-026-02229-6"
@@ -362,7 +362,7 @@
         "id": "PMID 42790392",
         "title": "The relationship between product-based creativity and ADHD traits in children and the associations with later well-being",
         "source": "J Exp Child Psychol",
-        "date": "2026-09-24",
+        "date": "2026-09-25",
         "authors": "Fang H, Toivainen T, Greven CU et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42790392/",
         "doi": "10.1016/j.jecp.2026.106670"
@@ -372,7 +372,7 @@
         "id": "PMID 42830857",
         "title": "Mapping population-based cancer registries in Europe: coverage, data availability, and capacity for real-world data generation",
         "source": "ESMO Real World Data Digit Oncol",
-        "date": "2026-09-21",
+        "date": "2026-09-22",
         "authors": "Zadnik V, Duratović Konjević A, Jurtela M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42830857/",
         "doi": "10.1016/j.esmorw.2026.100785"

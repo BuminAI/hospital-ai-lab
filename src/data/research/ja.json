@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-11-14T13:19:54.408Z",
+  "updatedAt": "2026-11-16T11:44:16.553Z",
   "country": "Japan",
   "window": {
-    "from": "2025-11-14",
-    "to": "2026-11-14"
+    "from": "2025-11-16",
+    "to": "2026-11-16"
   },
   "totals": {
     "surgery": 4536,
     "drug": 776,
-    "disease": 8859,
+    "disease": 8868,
     "trials": 437
   },
   "sections": {
@@ -18,7 +18,7 @@
         "id": "PMID 43011506",
         "title": "Prospective Multicenter Evaluation of a Novel Low-Axial-Force Colonic Stent for Malignant Colorectal Obstruction",
         "source": "DEN Open",
-        "date": "2026-11-08",
+        "date": "2026-11-09",
         "authors": "Otsuka R, Saito S, Fujimoto N et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43011506/",
         "doi": "10.1002/deo2.70466"
@@ -28,7 +28,7 @@
         "id": "PMID 42985707",
         "title": "Improved Visualization of the Internal Branch of the Superior Laryngeal Nerve during Pharyngeal Endoscopic Subepithelial Dissection with Use of Red Dichromatic Imaging",
         "source": "DEN Open",
-        "date": "2026-11-03",
+        "date": "2026-11-04",
         "authors": "Fujinaga Y, Tamada Y, Yamaguchi Y et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42985707/",
         "doi": "10.1002/deo2.70460"
@@ -38,7 +38,7 @@
         "id": "PMID 42979178",
         "title": "Acute Pancreatitis Caused by Impaction of Migrated Surgical Staples in the Duodenal Papilla After Distal Pancreatectomy",
         "source": "DEN Open",
-        "date": "2026-11-02",
+        "date": "2026-11-03",
         "authors": "Inaba K, Motomura M, Azuma Y et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42979178/",
         "doi": "10.1002/deo2.70465"
@@ -48,7 +48,7 @@
         "id": "PMID 42914899",
         "title": "Time-delay deformation cytometry reveals a Piezo1-dependent viscomechanical transition driving glioblastoma invasion",
         "source": "Biosens Bioelectron",
-        "date": "2026-10-20",
+        "date": "2026-10-21",
         "authors": "Zeng C, Xu C, Shao C et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42914899/",
         "doi": "10.1016/j.bios.2026.119355"
@@ -58,7 +58,7 @@
         "id": "PMID 42898351",
         "title": "Capitate Reconstruction Using the Second Metatarsal Head for Avascular Necrosis: Long-Term Clinical Validation of an Anatomically Matched Osteochondral Reconstruction",
         "source": "J Hand Surg Glob Online",
-        "date": "2026-10-09",
+        "date": "2026-10-10",
         "authors": "Kuno H",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42898351/",
         "doi": "10.1016/j.jhsg.2026.101160"
@@ -68,7 +68,7 @@
         "id": "PMID 42846368",
         "title": "Gel Immersion Endoscopic Mucosal Resection With Submucosal Injection for Superficial Esophageal Squamous Neoplasms (With Video)",
         "source": "DEN Open",
-        "date": "2026-10-06",
+        "date": "2026-10-07",
         "authors": "Uda T, Urabe Y, Gurita T et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42846368/",
         "doi": "10.1002/deo2.70444"
@@ -78,7 +78,7 @@
         "id": "PMID 43001223",
         "title": "Endovascular repair of iatrogenic popliteal artery injury with acute limb ischemia during unicompartmental knee arthroplasty",
         "source": "J Vasc Surg Cases Innov Tech",
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "authors": "Asano K, Nakama T, Obunai K",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43001223/",
         "doi": "10.1016/j.jvscit.2026.102543"
@@ -88,17 +88,27 @@
         "id": "PMID 42843117",
         "title": "Laparoscopic transfer of in vitro fertilized gene-edited embryos in pigs",
         "source": "Theriogenology",
-        "date": "2026-10-04",
+        "date": "2026-10-05",
         "authors": "Nagahara M, Namula Z, Hirata M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42843117/",
         "doi": "10.1016/j.theriogenology.2026.118244"
       },
       {
         "kind": "paper",
+        "id": "PMID 43036349",
+        "title": "Association between prior corrective spinal alignment surgery and post-operative range of motion following reverse total shoulder arthroplasty",
+        "source": "JSES Rev Rep Tech",
+        "date": "2026-10-03",
+        "authors": "Takayama K, Ito H",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43036349/",
+        "doi": "10.1016/j.xrrt.2026.100893"
+      },
+      {
+        "kind": "paper",
         "id": "PMID 42812748",
         "title": "Endoscopic Ultrasound-Guided Gallbladder Drainage as a Bridge to Surgery for Acute Cholecystitis: A Comparative Study",
         "source": "DEN Open",
-        "date": "2026-09-28",
+        "date": "2026-09-29",
         "authors": "Nagai K, Fujita Y, Uechi H et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42812748/",
         "doi": "10.1002/deo2.70436"
@@ -108,7 +118,7 @@
         "id": "PMID 42720070",
         "title": "Impact of defibrotide on survival in sinusoidal obstruction syndrome / veno-occlusive disease: a retrospective cohort study comparing two sequential treatment eras",
         "source": "Hematology",
-        "date": "2026-09-09",
+        "date": "2026-09-10",
         "authors": "Katsuki K, Tachibana T, Izumi A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42720070/",
         "doi": "10.1080/16078454.2026.2721241"
@@ -118,20 +128,10 @@
         "id": "PMID 42893202",
         "title": "Clavicular tunnel position is associated with reduction loss after arthroscopic coracoclavicular ligament reconstruction: a computed tomography-based analysis",
         "source": "JSES Rev Rep Tech",
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "authors": "Inagaki K, Ochiai N, Sasaki Y et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42893202/",
         "doi": "10.1016/j.xrrt.2026.100873"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42694982",
-        "title": "Duodenal Laparoscopy and Endoscopy Cooperative Surgery Combined With Endoscopic Nasopancreatic Drainage and Endoscopic Nasobiliary Drainage for a Duodenal Adenoma Near the Papilla of Vater: A Case Report",
-        "source": "DEN Open",
-        "date": "2026-09-02",
-        "authors": "Manaka K, Harada H, Wada T et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42694982/",
-        "doi": "10.1002/deo2.70390"
       }
     ],
     "drug": [
@@ -140,7 +140,7 @@
         "id": "PMID 43026212",
         "title": "AS01(E)-adjuvanted RSV pre-F protein vaccine in adults with lung or kidney transplant: a phase 2b randomized trial",
         "source": "Nat Commun",
-        "date": "2026-11-12",
+        "date": "2026-11-13",
         "authors": "Small C, Kumar D, Abbas A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43026212/",
         "doi": "10.1038/s41467-026-78584-9"
@@ -150,7 +150,7 @@
         "id": "PMID 42632050",
         "title": "A Bayesian reanalysis of the THOR trial cohort 1 using reconstructed individual patient data: interval-specific effects and clinically interpretable estimands under non-proportional hazards",
         "source": "Jpn J Clin Oncol",
-        "date": "2026-11-12",
+        "date": "2026-11-13",
         "authors": "Okumura G, Yoshida S, Hirose K et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42632050/",
         "doi": "10.1093/jjco/hyag133"
@@ -160,7 +160,7 @@
         "id": "PMID 42981428",
         "title": "Longitudinal remodeling of the tumor-immune microenvironment during regorafenib, nivolumab, and chemotherapy in advanced gastric cancer",
         "source": "Sci Transl Med",
-        "date": "2026-11-03",
+        "date": "2026-11-04",
         "authors": "Itahashi K, Kawazoe A, Hashimoto T et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42981428/",
         "doi": "10.1126/scitranslmed.aec7235"
@@ -170,7 +170,7 @@
         "id": "PMID 42981165",
         "title": "Adjuvant mFOLFOXIRI after curative-intent resection of oligometastatic colorectal cancer: phase II FANTASTIC trial",
         "source": "BJS Open",
-        "date": "2026-11-02",
+        "date": "2026-11-03",
         "authors": "Kataoka K, Yamada T, Yamazaki K et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42981165/",
         "doi": "10.1093/bjsopen/zrag144"
@@ -180,7 +180,7 @@
         "id": "PMID 42658188",
         "title": "A Phase I First-Time-in-Human, Open-label Study of Nelistotug Administered to Patients with Advanced Solid Tumors",
         "source": "Clin Cancer Res",
-        "date": "2026-11-01",
+        "date": "2026-11-02",
         "authors": "Siu LL, Hamid O, Schneider R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42658188/",
         "doi": "10.1158/1078-0432.CCR-25-4374"
@@ -190,7 +190,7 @@
         "id": "PMID 42933458",
         "title": "First-line pembrolizumab versus carboplatin plus paclitaxel in participants with mismatch repair-deficient advanced or recurrent endometrial cancer (KEYNOTE-C93/GOG-3064/ENGOT-en15): interim analysis of a multicentre, open-label, randomised, active-comparator controlled, phase 3 trial",
         "source": "Lancet",
-        "date": "2026-10-25",
+        "date": "2026-10-26",
         "authors": "Slomovitz BM, Zhu J, Yin R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42933458/",
         "doi": "10.1016/S0140-6736(26)02095-7"
@@ -200,7 +200,7 @@
         "id": "PMID 42887497",
         "title": "Firmonertinib in advanced non-small cell lung cancer with epidermal growth factor receptor P-loop and αC-helix compressing mutations",
         "source": "Cancer Cell",
-        "date": "2026-10-15",
+        "date": "2026-10-16",
         "authors": "Le X, Wang J, Yu Y et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42887497/",
         "doi": "10.1016/j.ccell.2026.09.011"
@@ -210,7 +210,7 @@
         "id": "PMID 43020535",
         "title": "Dynamic trajectories of electrolytes and bone metabolism with tofogliflozin and glimepiride: A post-hoc analysis",
         "source": "J Pharmacol Sci",
-        "date": "2026-10-14",
+        "date": "2026-10-15",
         "authors": "Tokuno S, Takeshita Y, Matsubara D et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43020535/",
         "doi": "10.1016/j.jphs.2026.10.002"
@@ -220,7 +220,7 @@
         "id": "PMID 42855100",
         "title": "Impact of prior antithrombotic therapy on safety and outcomes of endovascular therapy in large-core acute ischemic stroke",
         "source": "J Stroke Cerebrovasc Dis",
-        "date": "2026-10-08",
+        "date": "2026-10-09",
         "authors": "Ikenouchi H, Kawabata Y, Saito T et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42855100/",
         "doi": "10.1016/j.jstrokecerebrovasdis.2026.108765"
@@ -230,7 +230,7 @@
         "id": "PMID 42848984",
         "title": "Astrocytic and Axonal Injury Biomarkers in AQP4 Antibody-Positive NMOSD: Insights From PREVENT and CHAMPION-NMOSD",
         "source": "Neurol Neuroimmunol Neuroinflamm",
-        "date": "2026-10-07",
+        "date": "2026-10-08",
         "authors": "Wingerchuk DM, Bennett JL, Berthele A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42848984/",
         "doi": "10.1212/NXI.0000000000200661"
@@ -240,7 +240,7 @@
         "id": "PMID 42801438",
         "title": "Impact of resolved hepatitis B virus infection on clinical outcomes in patients with diffuse large B-cell lymphoma: a supplementary analysis of JCOG0601",
         "source": "Int J Hematol",
-        "date": "2026-09-26",
+        "date": "2026-09-27",
         "authors": "Hagiwara S, Kusumoto S, Machida R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42801438/",
         "doi": "10.1007/s12185-026-04292-1"
@@ -250,7 +250,7 @@
         "id": "PMID 42810153",
         "title": "Low-dose versus standard-dose antipsychotic treatment in first-episode schizophrenia: A secondary analysis of EUFEST data",
         "source": "Schizophr Res",
-        "date": "2026-09-21",
+        "date": "2026-09-22",
         "authors": "Nomura N, Kikuchi Y, Takeuchi H",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42810153/",
         "doi": "10.1016/j.schres.2026.09.027"
@@ -262,7 +262,7 @@
         "id": "PMID 42968792",
         "title": "Persistent prefectural ordering of billed urinary albumin quantification in Japan: a nationwide longitudinal ecological study",
         "source": "Diabetol Int",
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "authors": "Furuto Y",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42968792/",
         "doi": "10.1007/s13340-026-00944-z"
@@ -272,7 +272,7 @@
         "id": "PMID 42944855",
         "title": "The rise in prevalence of autoantibodies neutralizing type I interferons reaches a plateau in centenarians",
         "source": "J Hum Immun",
-        "date": "2026-10-26",
+        "date": "2026-10-27",
         "authors": "Mørk N, Jensen JA, Bastard P et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42944855/",
         "doi": "10.70962/jhi.20260143"
@@ -282,37 +282,17 @@
         "id": "PMID 42948259",
         "title": "Prevalence and Clinical Significance of Gastric-Type Mucosal Lesions in Non-Ampullary Duodenal Epithelial Tumors Based on Mucin Phenotype",
         "source": "DEN Open",
-        "date": "2026-10-25",
+        "date": "2026-10-26",
         "authors": "Ohno K, Nakatani E, Kurokami T et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42948259/",
         "doi": "10.1002/deo2.70443"
       },
       {
         "kind": "paper",
-        "id": "PMID 42906821",
-        "title": "Multimodality imaging for predicting regional wall motion recovery after percutaneous coronary intervention for chronic total occlusion",
-        "source": "Int J Cardiol",
-        "date": "2026-10-20",
-        "authors": "Kawai H, Yamada A, Ishikawa M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42906821/",
-        "doi": "10.1016/j.ijcard.2026.135009"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42921383",
-        "title": "Oropouche virus attack rate in an urban setting outside the Amazon Basin: findings from a post-outbreak seroprevalence survey",
-        "source": "Lancet Reg Health Am",
-        "date": "2026-10-13",
-        "authors": "Cavalcanti LPG, Barreto FKA, Lima Neto AS et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42921383/",
-        "doi": "10.1016/j.lana.2026.101662"
-      },
-      {
-        "kind": "paper",
         "id": "PMID 42871195",
         "title": "The Resection Ability of Low-power Pure-cut Hot Snare Polypectomy for Nonpedunculated Colorectal Polyps Smaller Than 10 mm: A Single-center Prospective Study",
         "source": "DEN Open",
-        "date": "2026-10-11",
+        "date": "2026-10-12",
         "authors": "Mizuno R, Kimura H, Kushima R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42871195/",
         "doi": "10.1002/deo2.70450"
@@ -322,27 +302,27 @@
         "id": "PMID 42871153",
         "title": "Evaluating a Modified American Society of Anesthesiologists Physical Status-Based Sedation Management System for Pancreatobiliary Endoscopy: A Prospective Feasibility Study",
         "source": "DEN Open",
-        "date": "2026-10-11",
+        "date": "2026-10-12",
         "authors": "Hanaoka T, Okuwaki K, Watanabe M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42871153/",
         "doi": "10.1002/deo2.70445"
       },
       {
         "kind": "paper",
-        "id": "PMID 42898130",
-        "title": "Current role of boron neutron capture therapy in head and neck cancer: insights from 4 years of clinical experience",
-        "source": "Clin Transl Radiat Oncol",
-        "date": "2026-10-06",
-        "authors": "Takeno S, Yoshino Y, Aihara T et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42898130/",
-        "doi": "10.1016/j.ctro.2026.101316"
+        "id": "PMID 43032486",
+        "title": "Impact of the 2018 Japan floods on asthma prescriptions: A longitudinal analysis",
+        "source": "J Allergy Clin Immunol Glob",
+        "date": "2026-10-05",
+        "authors": "Konishi H, Yoshida S, Iwamoto H et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43032486/",
+        "doi": "10.1016/j.jacig.2026.100792"
       },
       {
         "kind": "paper",
         "id": "PMID 42826443",
         "title": "Singleton freemartinism in cattle: A structured narrative review and historical case reappraisal",
         "source": "Theriogenology",
-        "date": "2026-09-30",
+        "date": "2026-10-01",
         "authors": "Kadokawa H",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42826443/",
         "doi": "10.1016/j.theriogenology.2026.118225"
@@ -352,27 +332,47 @@
         "id": "PMID 42812640",
         "title": "Clinical Outcomes of Double Half-Pigtail Versus Straight Plastic Stents for Endoscopic Biliary Drainage of Malignant Distal Biliary Obstruction",
         "source": "DEN Open",
-        "date": "2026-09-28",
+        "date": "2026-09-29",
         "authors": "Yoshioka W, Tasaki M, Tasaki H et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42812640/",
         "doi": "10.1002/deo2.70446"
       },
       {
         "kind": "paper",
+        "id": "PMID 42762877",
+        "title": "Efficacy and safety of Suhuang Zhike Capsule for post-infectious cough: A multicenter, single-arm, open-label phase IV study",
+        "source": "J Ethnopharmacol",
+        "date": "2026-09-19",
+        "authors": "Guo J, Ren Z, Li Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42762877/",
+        "doi": "10.1016/j.jep.2026.122401"
+      },
+      {
+        "kind": "paper",
         "id": "PMID 42732135",
         "title": "Intensive Endoscopic Resection for Downstaging of Superficial Non-ampullary Duodenal Epithelial Tumor Burden in Familial Adenomatous Polyposis: A Single-center Retrospective Study on Long-term Clinical Outcome",
         "source": "DEN Open",
-        "date": "2026-09-10",
+        "date": "2026-09-11",
         "authors": "Kawamura R, Yamada M, Takamaru H et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42732135/",
         "doi": "10.1002/deo2.70419"
       },
       {
         "kind": "paper",
+        "id": "PMID 43034822",
+        "title": "Clinical outcomes of glenoid fractures following manipulation under anesthesia for frozen shoulder",
+        "source": "JSES Int",
+        "date": "2026-09-11",
+        "authors": "Osawa S, Mitani M, Fujibayashi I et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43034822/",
+        "doi": "10.1016/j.jseint.2026.101796"
+      },
+      {
+        "kind": "paper",
         "id": "PMID 42729693",
         "title": "Current Status and Unmet Needs of EUS Education in Japan: A Nationwide Survey Focusing on Screening EUS, EUS-Guided Sampling, and Interventional EUS",
         "source": "DEN Open",
-        "date": "2026-09-09",
+        "date": "2026-09-10",
         "authors": "Hijioka S, Yasuda I, Irisawa A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42729693/",
         "doi": "10.1002/deo2.70430"

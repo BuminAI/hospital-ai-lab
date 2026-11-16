@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-11-15T13:53:31.338Z",
+  "updatedAt": "2026-11-16T11:44:16.553Z",
   "country": "France",
   "window": {
-    "from": "2025-11-15",
-    "to": "2026-11-15"
+    "from": "2025-11-16",
+    "to": "2026-11-16"
   },
   "totals": {
-    "surgery": 2498,
-    "drug": 784,
-    "disease": 5666,
+    "surgery": 2501,
+    "drug": 782,
+    "disease": 5664,
     "trials": 601
   },
   "sections": {
@@ -18,7 +18,7 @@
         "id": "PMID 43013735",
         "title": "Predictors and prognostic impact of spontaneous portal vein thrombosis recanalization in cirrhosis: An individual patient data meta-analysis",
         "source": "Hepatol Commun",
-        "date": "2026-11-10",
+        "date": "2026-11-11",
         "authors": "Guerrero A, Del Campo L, Luca A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43013735/",
         "doi": "10.1097/HC9.0000000000001070"
@@ -28,7 +28,7 @@
         "id": "PMID 42968844",
         "title": "Identification of a Novel KRAS::ETNK1 Fusion Transcript in a Myelodysplastic/Myeloproliferative Overlap Syndrome With Eosinophilia: A Case Report",
         "source": "EJHaem",
-        "date": "2026-10-31",
+        "date": "2026-11-01",
         "authors": "Caledec M, Labussière-Wallet H, Fontaine J et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42968844/",
         "doi": "10.1002/jha2.70450"
@@ -38,7 +38,7 @@
         "id": "PMID 42999582",
         "title": "Regional and national variation in donor and recipient characteristics, transplant practice, and outcomes after liver transplantation (the IMPROVEMENT collaborative): a multicentre cohort study",
         "source": "Lancet Reg Health Eur",
-        "date": "2026-10-28",
+        "date": "2026-10-29",
         "authors": "Avolio AW, Pascale MM, Lai Q et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42999582/",
         "doi": "10.1016/j.lanepe.2026.101889"
@@ -48,7 +48,7 @@
         "id": "PMID 42990960",
         "title": "Patient preference for intraoperative opioid strategy and early postoperative recovery after noncardiac surgery: a prospective partially randomised patient-preference trial (the PERFECT trial)",
         "source": "BJA Open",
-        "date": "2026-10-25",
+        "date": "2026-10-26",
         "authors": "Gricourt Y, Boulos NM, Delaporte A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42990960/",
         "doi": "10.1016/j.bjao.2026.100867"
@@ -58,7 +58,7 @@
         "id": "PMID 42997735",
         "title": "Neurosurgical scalp incisions should preserve at least one vascular axis: Two case reports",
         "source": "JPRAS Open",
-        "date": "2026-10-22",
+        "date": "2026-10-23",
         "authors": "Lupon E, Hertzog B, Njessi P et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42997735/",
         "doi": "10.1016/j.jpra.2026.10.007"
@@ -68,7 +68,7 @@
         "id": "PMID 42925769",
         "title": "A multivariate plasma biomarker model for glioblastoma exclusion: a retrospective case-control study",
         "source": "Transl Oncol",
-        "date": "2026-10-22",
+        "date": "2026-10-23",
         "authors": "Decarpentrie J, David C, Donis N et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42925769/",
         "doi": "10.1016/j.tranon.2026.103079"
@@ -78,7 +78,7 @@
         "id": "PMID 43016986",
         "title": "Aortic dilatation and gastrointestinal disease: expansion of the hyperinsulinism-polycystic kidney disease phenotype",
         "source": "J Endocr Soc",
-        "date": "2026-10-20",
+        "date": "2026-10-21",
         "authors": "Yau D, Diaz-Moreno U, Cervi E et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43016986/",
         "doi": "10.1210/jendso/bvag243"
@@ -88,7 +88,7 @@
         "id": "PMID 42914615",
         "title": "Maternal and neonatal outcomes in pregnancies with cystic fibrosis after lung transplantation or during elexacaftor/tezacaftor/ivacaftor (ETI) therapy: a single-center descriptive cohort",
         "source": "Eur J Obstet Gynecol Reprod Biol",
-        "date": "2026-10-18",
+        "date": "2026-10-19",
         "authors": "Le Bars S, Tissot A, Danner-Boucher I et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42914615/",
         "doi": "10.1016/j.ejogrb.2026.115506"
@@ -98,7 +98,7 @@
         "id": "PMID 42999535",
         "title": "Preliminary experience with controlled hypothermic storage of donor heart in combined heart transplantation",
         "source": "JHLT Open",
-        "date": "2026-10-13",
+        "date": "2026-10-14",
         "authors": "Argaw ST, Lora Ronco L, Frering A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42999535/",
         "doi": "10.1016/j.jhlto.2026.100707"
@@ -108,7 +108,7 @@
         "id": "PMID 42874625",
         "title": "Outcomes of hepatic artery thrombosis after paediatric liver transplantation (HEPATIC): an international, multicentre, retrospective registry study",
         "source": "Lancet Child Adolesc Health",
-        "date": "2026-10-13",
+        "date": "2026-10-14",
         "authors": "Li W, Hartog H, Minetto J et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42874625/",
         "doi": "10.1016/S2352-4642(26)00218-X"
@@ -118,7 +118,7 @@
         "id": "PMID 42869993",
         "title": "The Kerboull cross-plate: from the birth of a concept to the current indications",
         "source": "Int Orthop",
-        "date": "2026-10-13",
+        "date": "2026-10-14",
         "authors": "Wegrzyn J, Kerboull L, Béjui-Hugues J et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42869993/",
         "doi": "10.1007/s00264-026-07059-9"
@@ -128,7 +128,7 @@
         "id": "PMID 42869696",
         "title": "One-year outcomes of hepatic artery stenosis after pediatric liver transplantation: Results from the international, multicenter HEPATIC registry",
         "source": "Dig Liver Dis",
-        "date": "2026-10-12",
+        "date": "2026-10-13",
         "authors": "HEPATIC Study Group",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42869696/",
         "doi": "10.1016/j.dld.2026.09.015"
@@ -140,7 +140,7 @@
         "id": "PMID 43024019",
         "title": "Association of sex and age on outcomes of maintenance treatment in pati​ents with advanced esophagogastric adenocarcinoma: an exploratory analysis of the randomized AIO-YMO-0111-MATEO trial",
         "source": "J Cancer Res Clin Oncol",
-        "date": "2026-11-12",
+        "date": "2026-11-13",
         "authors": "Stocker G, Stelmach R, Lorenzen S et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43024019/",
         "doi": "10.1007/s00432-026-06662-y"
@@ -150,7 +150,7 @@
         "id": "PMID 42772753",
         "title": "Coated or chewable aspirin and a hybrid air pollution mitigation strategy in patients with atherosclerotic disease: rationale and design of the COATED-AIR randomized trial",
         "source": "Eur Heart J Cardiovasc Pharmacother",
-        "date": "2026-11-03",
+        "date": "2026-11-04",
         "authors": "Bikdeli B, Talasaz AH, Bakhshandeh H et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42772753/",
         "doi": "10.1093/ehjcvp/pvag071"
@@ -160,7 +160,7 @@
         "id": "PMID 43018972",
         "title": "Hand-Arm Bimanual Intensive Therapy Including Lower Extremities in Preschoolers With Bilateral Cerebral Palsy: A Randomized Clinical Trial",
         "source": "JAMA Netw Open",
-        "date": "2026-11-01",
+        "date": "2026-11-02",
         "authors": "Araneda R, Ebner-Karestinos D, Paradis J et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43018972/",
         "doi": "10.1001/jamanetworkopen.2026.43492"
@@ -170,7 +170,7 @@
         "id": "PMID 42972108",
         "title": "Neoadjuvant botensilimab with or without balstilimab in pMMR and dMMR colon cancer: the phase 2 UNICORN trial",
         "source": "Nat Med",
-        "date": "2026-10-31",
+        "date": "2026-11-01",
         "authors": "Ghelardi F, Ambrosini M, Raimondi A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42972108/",
         "doi": "10.1038/s41591-026-04710-1"
@@ -180,7 +180,7 @@
         "id": "PMID 42934895",
         "title": "A Randomized, Double-Blind, Placebo-Controlled Study of the PD-1 Inhibitor Cetrelimab in Chronic Hepatitis B",
         "source": "J Viral Hepat",
-        "date": "2026-10-31",
+        "date": "2026-11-01",
         "authors": "Asselah T, Kakuda TN, Kulke S et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42934895/",
         "doi": "10.1111/jvh.70246"
@@ -190,7 +190,7 @@
         "id": "PMID 42933440",
         "title": "Zamtocabtagene autoleucel, a tandem CD20-CD19-directed CAR T-cell therapy, for second line treatment of large B-cell lymphoma in patients ineligible for transplantation (DALY 2-EU): primary analysis of an open-label, multicentre, randomised phase 2 study",
         "source": "Lancet Oncol",
-        "date": "2026-10-31",
+        "date": "2026-11-01",
         "authors": "Borchmann P, van Meerten T, Iacoboni G et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42933440/",
         "doi": "10.1016/S1470-2045(26)00290-1"
@@ -200,7 +200,7 @@
         "id": "PMID 42832215",
         "title": "Ten Years of Ocrelizumab in Relapsing Multiple Sclerosis: The OPERA I and II Randomized Clinical Trials",
         "source": "JAMA Neurol",
-        "date": "2026-10-31",
+        "date": "2026-11-01",
         "authors": "Hauser SL, Bar-Or A, Giovannoni G et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42832215/",
         "doi": "10.1001/jamaneurol.2026.3507"
@@ -210,7 +210,7 @@
         "id": "PMID 42895209",
         "title": "Long-term efficacy of lebrikizumab in treating head, neck and face involvement in patients with moderate-to-severe atopic dermatitis",
         "source": "J Dermatolog Treat",
-        "date": "2026-10-18",
+        "date": "2026-10-19",
         "authors": "Chovatiya R, de Bruin-Weller M, Alexis A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42895209/",
         "doi": "10.1080/09546634.2026.2713286"
@@ -220,7 +220,7 @@
         "id": "PMID 42887497",
         "title": "Firmonertinib in advanced non-small cell lung cancer with epidermal growth factor receptor P-loop and αC-helix compressing mutations",
         "source": "Cancer Cell",
-        "date": "2026-10-15",
+        "date": "2026-10-16",
         "authors": "Le X, Wang J, Yu Y et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42887497/",
         "doi": "10.1016/j.ccell.2026.09.011"
@@ -230,7 +230,7 @@
         "id": "PMID 42850173",
         "title": "Postoperative chemotherapy reintroduction in good responders after colorectal liver metastases resection: A French randomized phase III trial - IRIMAD",
         "source": "Dig Liver Dis",
-        "date": "2026-10-08",
+        "date": "2026-10-09",
         "authors": "Labiad C, Brouquet A, Bachet JB et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42850173/",
         "doi": "10.1016/j.dld.2026.09.014"
@@ -240,7 +240,7 @@
         "id": "PMID 42848984",
         "title": "Astrocytic and Axonal Injury Biomarkers in AQP4 Antibody-Positive NMOSD: Insights From PREVENT and CHAMPION-NMOSD",
         "source": "Neurol Neuroimmunol Neuroinflamm",
-        "date": "2026-10-07",
+        "date": "2026-10-08",
         "authors": "Wingerchuk DM, Bennett JL, Berthele A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42848984/",
         "doi": "10.1212/NXI.0000000000200661"
@@ -250,7 +250,7 @@
         "id": "PMID 42832931",
         "title": "A phase III randomized study: Immunogenicity and safety of a quadrivalent meningococcal conjugate vaccine in healthy adults, adolescents, and children in India and healthy adolescents and children in South Africa",
         "source": "Vaccine",
-        "date": "2026-10-04",
+        "date": "2026-10-05",
         "authors": "Bavdekar A, Chansinghakul D, Dhati RM et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42832931/",
         "doi": "10.1016/j.vaccine.2026.129186"
@@ -259,10 +259,20 @@
     "disease": [
       {
         "kind": "paper",
+        "id": "PMID 43036817",
+        "title": "Implementation of the Toronto guidelines for childhood cancer staging: experience from 65 population-based cancer registries participating in the BENCHISTA project",
+        "source": "ESMO Real World Data Digit Oncol",
+        "date": "2026-11-09",
+        "authors": "Lopez-Cortes A, Burns D, Botta L et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43036817/",
+        "doi": "10.1016/j.esmorw.2026.101185"
+      },
+      {
+        "kind": "paper",
         "id": "PMID 43034791",
         "title": "Oral and anal detection of Treponema pallidum DNA among transgender women and travestis with high-titre syphilis in Brazil: findings from the MyTTrA study",
         "source": "Lancet Reg Health Am",
-        "date": "2026-11-04",
+        "date": "2026-11-05",
         "authors": "Salle R, McCartney DJ, Grange PA et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43034791/",
         "doi": "10.1016/j.lana.2026.101691"
@@ -272,7 +282,7 @@
         "id": "PMID 43017178",
         "title": "Corrigendum to 'Maternal RSVpreF Immunisation Against Infant RSV Hospitalisation: nationwide population-based effectiveness and durability study' [The Lancet Regional Health - Europe Volume 67 (2026) 101756]",
         "source": "Lancet Reg Health Eur",
-        "date": "2026-11-04",
+        "date": "2026-11-05",
         "authors": "Jabagi MJ, Bertrand M, Gabet A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43017178/",
         "doi": "10.1016/j.lanepe.2026.101930"
@@ -282,7 +292,7 @@
         "id": "PMID 42970741",
         "title": "Patient-Reported Experiences of Long-Term Recovery and Persistent Psychosocial Burden in NMDAR Encephalitis",
         "source": "Neurol Neuroimmunol Neuroinflamm",
-        "date": "2026-11-01",
+        "date": "2026-11-02",
         "authors": "Boeken OJ, Patricio V, Duda-Sikula M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42970741/",
         "doi": "10.1212/NXI.0000000000200672"
@@ -292,7 +302,7 @@
         "id": "PMID 42969147",
         "title": "Factors associated with self-reported health status among older adults in the Greater Kampala Metropolitan Area, Uganda: a cross-sectional survey",
         "source": "Glob Health Action",
-        "date": "2026-11-01",
+        "date": "2026-11-02",
         "authors": "Otim J, Golaz V, Ojiambo Wandera S et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42969147/",
         "doi": "10.1080/16549716.2026.2748751"
@@ -302,7 +312,7 @@
         "id": "PMID 42999578",
         "title": "Health-care burden of metabolic dysfunction-associated steatotic liver disease in European tertiary-care outpatient clinics (CONSTANS): a prospective multicentre cohort study",
         "source": "Lancet Reg Health Eur",
-        "date": "2026-10-28",
+        "date": "2026-10-29",
         "authors": "Ratziu V, Dufour JF, Ponnaiah M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42999578/",
         "doi": "10.1016/j.lanepe.2026.101893"
@@ -312,7 +322,7 @@
         "id": "PMID 42944855",
         "title": "The rise in prevalence of autoantibodies neutralizing type I interferons reaches a plateau in centenarians",
         "source": "J Hum Immun",
-        "date": "2026-10-26",
+        "date": "2026-10-27",
         "authors": "Mørk N, Jensen JA, Bastard P et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42944855/",
         "doi": "10.70962/jhi.20260143"
@@ -322,7 +332,7 @@
         "id": "PMID 42966939",
         "title": "From black plates to backyard animals: Chigger communities associated with wild and domestic hosts and the environment in a rural village setting",
         "source": "Int J Parasitol Parasites Wildl",
-        "date": "2026-10-22",
+        "date": "2026-10-23",
         "authors": "Chaisiri K, Koosakulnirand S, Thinphovong C et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42966939/",
         "doi": "10.1016/j.ijppaw.2026.101309"
@@ -332,7 +342,7 @@
         "id": "PMID 42997473",
         "title": "Temporal trends in radiation-induced optic neuropathy: a meta-analysis",
         "source": "Clin Transl Radiat Oncol",
-        "date": "2026-10-17",
+        "date": "2026-10-18",
         "authors": "Thariat J, Pham TN, Sochacki T et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42997473/",
         "doi": "10.1016/j.ctro.2026.101327"
@@ -342,7 +352,7 @@
         "id": "PMID 43001209",
         "title": "Timing of outbreak-triggered unit-wide screening and COVID-19 outbreak size in long-term care and related social welfare facilities in Okinawa, Japan",
         "source": "IJID Reg",
-        "date": "2026-10-12",
+        "date": "2026-10-13",
         "authors": "Xu YS, Takahashi K, Shimakawa Y et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43001209/",
         "doi": "10.1016/j.ijregi.2026.101042"
@@ -352,7 +362,7 @@
         "id": "PMID 42838146",
         "title": "Early outcomes of the Octapro balloon-expandable transcatheter heart valve in an unrestricted cohort of patients with aortic valve stenosis: the MyPro registry",
         "source": "Int J Cardiol",
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "authors": "Ielasi A, Moscarella E, Verček G et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42838146/",
         "doi": "10.1016/j.ijcard.2026.134967"
@@ -362,20 +372,10 @@
         "id": "PMID 43017096",
         "title": "Association of the ANCA Kidney Risk Score With Kidney Failure in Anti-Glomerular Basement Membrane Disease",
         "source": "Kidney Int Rep",
-        "date": "2026-10-05",
+        "date": "2026-10-06",
         "authors": "Caillard P, Vigneau C, Halimi JM et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43017096/",
         "doi": "10.1016/j.ekir.2026.107130"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42967716",
-        "title": "Effects of Saccharomyces cerevisiae CNCM I-3856 and vitamin K2 on the gut microbiota of patients with osteoporosis and healthy controls using in vitro short-term colonic simulations",
-        "source": "Food Res Int",
-        "date": "2026-09-26",
-        "authors": "Koper JEB, Ghyselinck J, Van Meulebroek L et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42967716/",
-        "doi": "10.1016/j.foodres.2026.120894"
       }
     ],
     "trials": [
