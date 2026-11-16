@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-14T12:46:52.642Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · HIT Consultant · STAT · MedCity News · NEJM AI · Radiology Business · Healthcare Business Today · JAMA Network · Federal Register",
+  "updatedAt": "2026-11-16T03:04:36.468Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · HIT Consultant · STAT · MedCity News · NEJM AI · Radiology Business · Healthcare Business Today · JAMA Network · Federal Register · TechCrunch · The Verge",
   "items": [
+    {
+      "title": "Apple launches new app to study how people use AI for health",
+      "link": "https://techcrunch.com/2026/11/15/apple-launches-new-app-to-study-how-people-use-ai-for-health/",
+      "source": "TechCrunch",
+      "pubDate": "2026-11-16T01:30:00.000Z"
+    },
+    {
+      "title": "Apple’s new study looks to improve the effectiveness of AI health tools",
+      "link": "https://www.theverge.com/tech/1033355/apples-new-study-looks-to-improve-the-effectiveness-of-ai-health-tools",
+      "source": "The Verge",
+      "pubDate": "2026-11-16T01:26:56.000Z"
+    },
+    {
+      "title": "STAT+: Apple and OpenEvidence launch experimental health chat app",
+      "link": "https://www.statnews.com/2026/11/15/apple-openevidence-launch-health-chat-app-experiment-ai/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-16T01:25:43.000Z"
+    },
     {
       "title": "Mayo Clinic appoints AI leader as next CEO",
       "link": "https://www.beckershospitalreview.com/hospital-executive-moves/mayo-clinic-appoints-ai-leader-as-next-ceo/",
