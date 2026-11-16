@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-11-16T12:00:34.840Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · HIT Consultant · STAT · MedCity News · NEJM AI · Radiology Business · Healthcare Business Today · JAMA Network · Federal Register · TechCrunch · The Verge",
+  "updatedAt": "2026-11-16T22:29:30.304Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · Federal Register · JAMA Network",
   "items": [
+    {
+      "title": "Cook Children’s names chief data, analytics officer",
+      "link": "https://www.beckershospitalreview.com/hospital-executive-moves/cook-childrens-names-chief-data-analytics-officer/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-16T21:59:18.000Z"
+    },
+    {
+      "title": "‘We’re seeing it now’: Providence CEO on the AI productivity boom",
+      "link": "https://www.beckershospitalreview.com/finance/were-seeing-it-now-providence-ceo-on-the-ai-productivity-boom/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-16T21:39:55.000Z"
+    },
+    {
+      "title": "Health AI spend doubles as providers invest in clinical copilots, front-office AI",
+      "link": "https://www.healthcaredive.com/news/health-ai-spend-doubles-as-providers-invest-in-clinical-copilots-front-off/874752/",
+      "source": "Healthcare Dive",
+      "pubDate": "2026-11-16T15:57:01.000Z"
+    },
+    {
+      "title": "Safety and Regulation Must Lead the Way in Healthcare AI Innovation",
+      "link": "https://medcitynews.com/2026/11/safety-and-regulation-must-lead-the-way-in-healthcare-ai-innovation/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-16T14:47:00.000Z"
+    },
+    {
+      "title": "Apple, OpenEvidence launch conversational health AI study and app",
+      "link": "https://www.healthcaredive.com/news/apple-openevidence-conversational-health-ai-study-app/874714/",
+      "source": "Healthcare Dive",
+      "pubDate": "2026-11-16T14:32:50.000Z"
+    },
+    {
+      "title": "Healthcare struggles to scale AI past pilot stage: Google report",
+      "link": "https://www.healthcaredive.com/news/healthcare-struggles-to-scale-ai-past-pilot-stage-google-report/874609/",
+      "source": "Healthcare Dive",
+      "pubDate": "2026-11-16T14:03:00.000Z"
+    },
     {
       "title": "STAT+: Venture capitalist John Doerr says AI company, named for his late brother, could help fix primary care",
       "link": "https://www.statnews.com/2026/11/16/ai-company-tom-health-fix-primary-care-new-tool/?utm_campaign=rss",
