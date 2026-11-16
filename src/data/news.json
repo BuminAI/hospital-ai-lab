@@ -1,7 +1,91 @@
 {
-  "updatedAt": "2026-11-16T02:05:42.675Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · AI타임스 · 뉴시스 · 디지털투데이 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-16T09:41:59.155Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · 의학신문 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · ZDNet Korea · AI타임스 · 매일경제 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "뷰노, 3분기 누적 매출 178억원…의료 AI 사업 확대",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421928",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-16T18:19:22.000Z"
+    },
+    {
+      "title": "구급차에서 AI로 심근경색 조기 발견…병원 도착 전 '골든타임' 확보",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421926",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-16T18:17:03.000Z"
+    },
+    {
+      "title": "수주잔고 100배 폭증… 국내 AI 인프라 업계, 3분기 실적 '약진'",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217462",
+      "source": "AI타임스",
+      "pubDate": "2026-11-16T17:38:33.000Z"
+    },
+    {
+      "title": "뷰노, 3분기 누적 매출 178억…“하티브 산업 현장 보급 확대”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242504",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T17:01:30.000Z"
+    },
+    {
+      "title": "건양대병원 '미개방 의료데이터 활용 경진대회' 6개 팀 수상",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044590",
+      "source": "청년의사",
+      "pubDate": "2026-11-16T16:59:41.000Z"
+    },
+    {
+      "title": "신경외과병원協, 제9차 척추신경주사치료 연수강좌 성료",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415486",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-16T16:25:14.000Z"
+    },
+    {
+      "title": "[실적] 뷰노, 3분기 매출액 178억… '딥카스' 87% 비중 차지",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80816",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-16T16:24:39.000Z"
+    },
+    {
+      "title": "대한신경외과병원협의회, 척추신경주사치료 연수강좌 성료...첫 핸즈온 실습 도입",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242507",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T16:10:00.000Z"
+    },
+    {
+      "title": "KDDW 2026, 국내외 소화기질환 최신 지견 한자리에",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016524",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T14:07:20.000Z"
+    },
+    {
+      "title": "로소타, 수술기구 조작 데이터로 AI 수술 로봇 학습 가능성 제시",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242482",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T13:29:20.000Z"
+    },
+    {
+      "title": "부산부민병원, 의료현장 개선활동 성과 공유...QI 경진대회",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016506",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T13:04:30.000Z"
+    },
+    {
+      "title": "루닛, 적자 절반 줄였다…항암 AI 글로벌 협력 확대",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421896",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-16T11:33:38.000Z"
+    },
+    {
+      "title": "건양대병원, ‘미개방 의료데이터 활용 경진대회’ 성료",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016501",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T11:20:54.000Z"
+    },
+    {
+      "title": "충남약사회, 미이수 회원 연수교육 성료…560여 명 참석",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549035",
+      "source": "약사공론",
+      "pubDate": "2026-11-16T11:16:28.000Z"
+    },
     {
       "title": "씨어스, UAE VPS와 ‘스마트 병동·심장 진단센터’ 구축 추진",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242466",
@@ -32,7 +116,9 @@
       "title": "급성 무릎 외상, AI로 90일 내 수술 가능성 예측",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98903",
       "source": "e-의료정보",
-      "pubDate": "2026-11-16T10:32:35.000Z"
+      "pubDate": "2026-11-16T10:32:35.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "씨어스, UAE 의료그룹과 스마트병동·심장센터 구축 '협업'",
@@ -51,6 +137,12 @@
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242459",
       "source": "라포르시안",
       "pubDate": "2026-11-16T10:12:20.000Z"
+    },
+    {
+      "title": "“인공지능으로 인슐린 최적 용량 추천”…식약처, 디지털융합의약품 개발 지원",
+      "link": "https://www.mk.co.kr/news/it/12210257",
+      "source": "매일경제",
+      "pubDate": "2026-11-16T09:34:37.000Z"
     },
     {
       "title": "식약처, 혁신의료기기 정책 포럼 개최…시장 진입 지원 논의",
@@ -85,6 +177,12 @@
       "rank": 4
     },
     {
+      "title": "로킷헬스, 이노피아테크 품나 \"美 스마트병원 공략\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171880",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-16T08:55:59.000Z"
+    },
+    {
       "title": "[실적]셀바스AI, 3분기 영업익 80% 증가…의료기기 사업 성장",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80796",
       "source": "히트뉴스",
@@ -97,16 +195,52 @@
       "pubDate": "2026-11-16T08:20:59.000Z"
     },
     {
+      "title": "구급차 안에서 AI로 심근경색 조기 발견",
+      "link": "https://zdnet.co.kr/view/?no=20261116165136",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-16T07:51:36.000Z"
+    },
+    {
+      "title": "뷰노, 3분기 누적 매출 178억…심전도계 시장 안착",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171873",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-16T07:47:11.000Z"
+    },
+    {
       "title": "[헬스인·싸] 병원 해킹 피해, 의료데이터 손실 비용도 산정해야",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242440",
       "source": "라포르시안",
       "pubDate": "2026-11-16T07:35:00.000Z"
     },
     {
+      "title": "로킷헬스케어, 이노피아테크 70억원에 인수 추진…美 AI 스마트병원 진출",
+      "link": "https://www.hankyung.com/article/202611169689i",
+      "source": "한국경제",
+      "pubDate": "2026-11-16T07:19:22.000Z"
+    },
+    {
+      "title": "로킷헬스케어 \"디지털기업 이노피아테크 인수추진\"",
+      "link": "https://www.newsis.com/view/NISX20261116_0003870067",
+      "source": "뉴시스",
+      "pubDate": "2026-11-16T06:45:38.000Z"
+    },
+    {
+      "title": "기보, 중소벤처기업 대상 AX혁신지수 자가진단 서비스",
+      "link": "https://www.yna.co.kr/view/AKR20261116125800051",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-16T06:28:50.000Z"
+    },
+    {
       "title": "모니터 대신 환자 눈 맞춘다…정신과·소청과 호평 AI 차팅 ‘니어닥’",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044563",
       "source": "청년의사",
       "pubDate": "2026-11-16T06:18:17.000Z"
+    },
+    {
+      "title": "계명대 동산병원 \"다낭콩팥병 환자 건강관리 플랫폼 구축\"",
+      "link": "https://www.newsis.com/view/NISX20261116_0003869956",
+      "source": "뉴시스",
+      "pubDate": "2026-11-16T06:01:18.000Z"
     },
     {
       "title": "AI 보정값도 비급여 청구되나…'바이탈케어' 고시 해석 쟁점",
@@ -151,6 +285,30 @@
       "pubDate": "2026-11-16T05:50:00.000Z"
     },
     {
+      "title": "\"UAE 병원에 의료AI 확대\"…씨어스, VPS와 '맞손'",
+      "link": "https://www.newsis.com/view/NISX20261116_0003869794",
+      "source": "뉴시스",
+      "pubDate": "2026-11-16T05:16:20.000Z"
+    },
+    {
+      "title": "인구 대전환 시대 '변화와 공존’ 해법 찾다",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492558&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-16T05:03:00.000Z"
+    },
+    {
+      "title": "GE헬스케어·동탄시티병원, 영상의학 커맨드센터 구축",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171858",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-16T02:16:27.000Z"
+    },
+    {
+      "title": "셀바스AI 3분기 영업익 19억 원…의료·AI 쌍끌이 성장",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171857",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-16T02:06:13.000Z"
+    },
+    {
       "title": "구급차 안에서 AI 판독…한림대동탄성심병원, 골든타임 확보",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252775",
       "source": "병원신문",
@@ -168,7 +326,7 @@
       "source": "병원신문",
       "pubDate": "2026-11-15T21:30:00.000Z",
       "popular": true,
-      "rank": 4
+      "rank": 3
     },
     {
       "title": "[AppEx Networks] AI로 사이버 위협 탐지·대응·차단",
@@ -182,7 +340,9 @@
       "title": "[라온시큐어] 디지털 인증 넘어 AI 보안으로",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252757",
       "source": "병원신문",
-      "pubDate": "2026-11-15T21:00:00.000Z"
+      "pubDate": "2026-11-15T21:00:00.000Z",
+      "popular": true,
+      "rank": 6
     },
     {
       "title": "[로그프레소] AI 기반 통합 보안관제 강화",
