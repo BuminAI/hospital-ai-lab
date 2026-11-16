@@ -76,9 +76,9 @@
 - 새 글은 draft: true로 작성 → 브랜치 + PR 생성 → 오너가 머지해야 발행
   - 예외(오너 지시 2026-07-08, 2026-08-20에 러시아어판 blogRu·일본어판
     blogJa로, 2026-09-06에 인도네시아어판 blogId·대만어판 blogTw로,
-    2026-11-06에 영어판(미국) blogEn으로, 2026-11-15에 UAE판 blogAe·아일랜드판 blogIe·프랑스어판 blogFr로 확대):
+    2026-11-06에 영어판(미국) blogEn으로, 2026-11-15에 UAE판 blogAe·아일랜드판 blogIe·프랑스어판 blogFr로, 2026-11-16에 싱가포르판 blogSg·필리핀어판 blogPh로 확대):
     루틴(정기 예약)으로 자동 생성하는 블로그 글(한국어 blog, 러시아어 blogRu,
-    일본어 blogJa, 인도네시아어 blogId, 대만어 blogTw, 영어 blogEn, UAE(영어) blogAe, 아일랜드(영어) blogIe, 프랑스어 blogFr **아홉 가지 전부 해당**)은
+    일본어 blogJa, 인도네시아어 blogId, 대만어 blogTw, 영어 blogEn, UAE(영어) blogAe, 아일랜드(영어) blogIe, 프랑스어 blogFr, 싱가포르(영어) blogSg, 필리핀어 blogPh **열한 가지 전부 해당**)은
     오너 승인 없이 main에 바로 발행한다. 조건은 하나뿐이다 — 모든 사실 주장에
     객관적 출처가 있고, "사실 검증" 절대 원칙을 완전히 통과해야 한다. 출처를
     확인 못 했거나 의심되는 문장이 하나라도 있으면 그 글은 draft: true로만
@@ -103,6 +103,11 @@
     EU 원문은 EU 출판청 CELLAR(`publications.europa.eu/resource/celex/<CELEX>`, Accept 헤더, `Accept-Language: fra`)로 받는다 —
     EUR-Lex 본 사이트의 봇 확인은 우회하지 않는다. 문체는 프랑스어 담백한 존댓말체(vous), 콜론·세미콜론·물음표·느낌표 앞 줄바꿈 없는 공백(NBSP),
     « » 따옴표. 법률·규제 해설은 일반 정보이며 법률 자문이 아니다. 문체는 src/i18n/fr.json의 _comment 참고.
+  - ⚠️ 싱가포르판(영어)은 MOH·HSA의 AIHGle 2.0, HSA 의료기기·소프트웨어 지침, PDPC 지침을 1차 출처로 직접 열어 읽은 것만 쓴다.
+    싱가포르 법령 사이트(SSO)는 403이라 조문은 직접 인용하지 않는다. 문체는 src/i18n/sg.json의 _comment 참고(법률 자문 아님).
+  - ⚠️ 필리핀어판은 LawPhil의 법 전문(RA 9711·10173·11223)과 ASEAN AI 거버넌스 가이드를 1차 출처로 직접 열어 읽은 것만 쓴다.
+    FDA 필리핀·DOH·NPC 사이트와 Official Gazette는 자동 접속이 403이라 우회하지 않으며, 못 읽은 고시·권고·행정명령 본문은
+    쓰지 않는다(언론 보도를 근거로 쓸 때는 보도임을 밝히고 원문을 못 읽었다고 적는다). 문체는 src/i18n/ph.json의 _comment 참고(법률 자문 아님).
   - ⚠️ 대만어판은 정체자(zh-TW)로 쓴다. 간체자를 섞지 말고 대만 표기를
     쓴다(軟體·資訊·資料·人工智慧). 자세한 문체 규칙은 src/i18n/tw.json의
     _comment 참고.
