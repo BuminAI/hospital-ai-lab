@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-15T17:10:04.916Z",
-  "source": "Le Figaro·Challenges·Ouest-France·ZDNet France·Les Échos·La Tribune·DSIH·Public Sénat·Le Parisien·France 24·CNIL·franceinfo·Sud Ouest·La Croix",
+  "updatedAt": "2026-11-16T02:07:10.166Z",
+  "source": "Numerama·Le Figaro·Challenges·Ouest-France·ZDNet France·Les Échos·La Tribune·DSIH·Public Sénat·Le Parisien·France 24·CNIL·franceinfo·Sud Ouest·La Croix",
   "items": [
+    {
+      "title": "Microsoft bloque des mails sans prévenir, Google fait prouver la sécurité de Signal par 80 agents, OpenAI installe un bouton stop sur ses IA : on vous raconte la semaine Cyberguerre",
+      "link": "https://www.numerama.com/tech/2374157-microsoft-bloque-des-mails-sans-prevenir-google-fait-prouver-la-securite-de-signal-par-80-agents-openai-installe-un-bouton-stop-sur-ses-ia-on-vous-raconte-la-semaine-cyberguerre.html",
+      "source": "Numerama",
+      "pubDate": "2026-11-15T17:10:00.000Z"
+    },
     {
       "title": "L’IA va-t-elle supprimer nos emplois ? La réponse n’est pas si simple",
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQRnBMOFJCVjZKZU5HSko0QTlqZGZHVnBRMWl6QlpUVWdxZlo4QnFLR3BJRlBKcVlnTlNLNDhydnA5ZklPX2FNSzBvQ3R5UmVuNU1UUlJVU1BqQkhnQlpCRUNITkNCQ0s2QW40SUpnbWUya2hneWgzLVVtSHBsaEdoN2FfZHR2NUQtMVlCS29ablB4M1BDYXFhOWRYQkluc2R6ZnFOZ0R4X29jeFE0WTJzZXh2YzlMT0tT?oc=5",
@@ -105,9 +111,9 @@
       "pubDate": "2026-10-27T00:00:00.000Z"
     },
     {
-      "title": "Le gouvernement néerlandais veut supprimer 25 000 agents publics et les remplacer par de l’intelligence artificielle",
-      "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQa1RPWHNReVFnYUdPWXNjbFM3UzRfRUo0ellKOU1BQ256eTlBaEl0cmdfVHJPc0d0N2RBSkpRc3VaMDdmZTJmQ19ULUJFZHhRLWlUaWZxRDIycFB6Y2drRGtibVcyOTF4Qm96eW9TcEtzeUJrbnFGRWptYmdUREswZFRNWFc0RzBJMXU4NE5GZ0NTSS01aTdzQkpTLVdNV3dqRlNJM2pxNDY2eDFLRjhJMVJ2YXNFSHR5WUlBbDIwUkprOVkzejBoeW9BaG52QTZFeVc2UDRNUzRIVTF6VDhtbTc0dkpnS1JlaGJ3d2FTSGV1dEkwaEJpbVRGcG1HQ3NCdlpkaTRJRy05RmFFQ1U2R2p3R0dIMTBRaWQ5VXpIdXRYWDg?oc=5",
-      "source": "Le Parisien",
+      "title": "L'intelligence artificielle, nouveau défi pour les experts de la cybersécurité",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPajBRRG1nQUJMVE5xZlNPYVFxNFdCeVFuaE5RR1kxMVNjbDBrdU1YanF3cXV5TVNSaEt5eC11NUl6Skg4NXNRdk5rcUdCSzluVE9LbG9YNWhBMXdDN2dJbVZsRWh6TUViZ21JeFZ0bjlTUWlySDdSbXNXS01DbmxJV1NvZkljNGFNa1UyNVpwT2Q1TkpVZmZ0Q3pmT3BtUGY5MDQ2VnZlSWVFRk1GcWhHTURlbl9yY2JudGxGNnl0Wkw?oc=5",
+      "source": "Les Échos",
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
@@ -117,9 +123,9 @@
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
-      "title": "L'intelligence artificielle, nouveau défi pour les experts de la cybersécurité",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPajBRRG1nQUJMVE5xZlNPYVFxNFdCeVFuaE5RR1kxMVNjbDBrdU1YanF3cXV5TVNSaEt5eC11NUl6Skg4NXNRdk5rcUdCSzluVE9LbG9YNWhBMXdDN2dJbVZsRWh6TUViZ21JeFZ0bjlTUWlySDdSbXNXS01DbmxJV1NvZkljNGFNa1UyNVpwT2Q1TkpVZmZ0Q3pmT3BtUGY5MDQ2VnZlSWVFRk1GcWhHTURlbl9yY2JudGxGNnl0Wkw?oc=5",
-      "source": "Les Échos",
+      "title": "Le gouvernement néerlandais veut supprimer 25 000 agents publics et les remplacer par de l’intelligence artificielle",
+      "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQa1RPWHNReVFnYUdPWXNjbFM3UzRfRUo0ellKOU1BQ256eTlBaEl0cmdfVHJPc0d0N2RBSkpRc3VaMDdmZTJmQ19ULUJFZHhRLWlUaWZxRDIycFB6Y2drRGtibVcyOTF4Qm96eW9TcEtzeUJrbnFGRWptYmdUREswZFRNWFc0RzBJMXU4NE5GZ0NTSS01aTdzQkpTLVdNV3dqRlNJM2pxNDY2eDFLRjhJMVJ2YXNFSHR5WUlBbDIwUkprOVkzejBoeW9BaG52QTZFeVc2UDRNUzRIVTF6VDhtbTc0dkpnS1JlaGJ3d2FTSGV1dEkwaEJpbVRGcG1HQ3NCdlpkaTRJRy05RmFFQ1U2R2p3R0dIMTBRaWQ5VXpIdXRYWDg?oc=5",
+      "source": "Le Parisien",
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
