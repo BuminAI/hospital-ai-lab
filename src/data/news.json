@@ -1,7 +1,107 @@
 {
-  "updatedAt": "2026-11-15T21:48:31.131Z",
-  "source": "메디칼타임즈 · 병원신문 · 의협신문 · 청년의사 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 한국경제 · 메디파나뉴스 · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-16T02:05:42.675Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · AI타임스 · 뉴시스 · 디지털투데이 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "씨어스, UAE VPS와 ‘스마트 병동·심장 진단센터’ 구축 추진",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242466",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T10:51:56.000Z"
+    },
+    {
+      "title": "GE헬스케어, 동탄시티병원과 영상의학 특화 '커맨드센터' 구축 협약",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415468",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-16T10:43:01.000Z"
+    },
+    {
+      "title": "AI 활용한 급성 무릎 외상 환자 수술 예측모델 성능 검증",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415458",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-16T10:41:57.000Z",
+      "popular": true,
+      "rank": 10
+    },
+    {
+      "title": "AI 심전도로 추정한 좌심실 수축기능으로 장기간 예후 예측",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415384",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-16T10:41:47.000Z"
+    },
+    {
+      "title": "급성 무릎 외상, AI로 90일 내 수술 가능성 예측",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98903",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-16T10:32:35.000Z"
+    },
+    {
+      "title": "씨어스, UAE 의료그룹과 스마트병동·심장센터 구축 '협업'",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80801",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-16T10:29:11.000Z"
+    },
+    {
+      "title": "원스글로벌, 더웨이헬스케어와 약물 안전 솔루션 개발 추진",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242465",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T10:25:00.000Z"
+    },
+    {
+      "title": "GE 헬스케어, 동탄시티병원과 영상의학 특화형 커맨드센터 구축 협약",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242459",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T10:12:20.000Z"
+    },
+    {
+      "title": "식약처, 혁신의료기기 정책 포럼 개최…시장 진입 지원 논의",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421890",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-16T09:30:28.000Z"
+    },
+    {
+      "title": "AI가 의학논문 쓰는 시대…연구자의 지적 기여란 무엇인가",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242464",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T09:25:00.000Z"
+    },
+    {
+      "title": "웹케시, 하나은행 기업 자금관리에 AI 공급…금융정보 분석 실증",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=715598",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-16T09:21:00.000Z"
+    },
+    {
+      "title": "혁신의료기기 정책 포럼 열리다",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016467",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T09:10:26.000Z"
+    },
+    {
+      "title": "한림대동탄성심병원, 급성 심혈관질환 병원 전 AI 심전도 시범사업 성과",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415453",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-16T09:06:24.000Z",
+      "popular": true,
+      "rank": 4
+    },
+    {
+      "title": "[실적]셀바스AI, 3분기 영업익 80% 증가…의료기기 사업 성장",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80796",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-16T08:21:06.000Z"
+    },
+    {
+      "title": "셀바스AI, 3분기 영업이익 18.6억원…전년 대비 80% 증가",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421874",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-16T08:20:59.000Z"
+    },
+    {
+      "title": "[헬스인·싸] 병원 해킹 피해, 의료데이터 손실 비용도 산정해야",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242440",
+      "source": "라포르시안",
+      "pubDate": "2026-11-16T07:35:00.000Z"
+    },
     {
       "title": "모니터 대신 환자 눈 맞춘다…정신과·소청과 호평 AI 차팅 ‘니어닥’",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044563",
@@ -14,7 +114,7 @@
       "source": "히트뉴스",
       "pubDate": "2026-11-16T06:01:00.000Z",
       "popular": true,
-      "rank": 5
+      "rank": 3
     },
     {
       "title": "'말귀 못알아듣는 진료실 AI 답답했다면...' 현직의사가 만든 '이것'",
@@ -22,12 +122,26 @@
       "source": "의협신문",
       "pubDate": "2026-11-16T06:00:00.000Z",
       "popular": true,
-      "rank": 6
+      "rank": 2
     },
     {
       "title": "AI 차팅 경쟁 본격화…니어닥, '진료실' 승부",
       "link": "https://www.medipana.com/news/articleView.html?idxno=421816",
       "source": "메디파나뉴스",
+      "pubDate": "2026-11-16T06:00:00.000Z"
+    },
+    {
+      "title": "[AMD] 의료 IT 인프라 효율·보안 강화",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252763",
+      "source": "병원신문",
+      "pubDate": "2026-11-16T06:00:00.000Z",
+      "popular": true,
+      "rank": 9
+    },
+    {
+      "title": "[한컴위드] 대한민국 정보보안 1세대 기업",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252759",
+      "source": "병원신문",
       "pubDate": "2026-11-16T06:00:00.000Z"
     },
     {
@@ -37,16 +151,32 @@
       "pubDate": "2026-11-16T05:50:00.000Z"
     },
     {
+      "title": "구급차 안에서 AI 판독…한림대동탄성심병원, 골든타임 확보",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252775",
+      "source": "병원신문",
+      "pubDate": "2026-11-16T01:30:00.000Z"
+    },
+    {
+      "title": "\"영상의학 커맨드센터\"…GE헬스·동탄시티 '맞손'",
+      "link": "https://www.newsis.com/view/NISX20261116_0003869260",
+      "source": "뉴시스",
+      "pubDate": "2026-11-16T01:06:23.000Z"
+    },
+    {
       "title": "“AI 자동진료기록 솔루션 ‘니어닥’, 현장 만족도 최고 자부”",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252754",
       "source": "병원신문",
-      "pubDate": "2026-11-15T21:30:00.000Z"
+      "pubDate": "2026-11-15T21:30:00.000Z",
+      "popular": true,
+      "rank": 4
     },
     {
       "title": "[AppEx Networks] AI로 사이버 위협 탐지·대응·차단",
       "link": "https://www.khanews.com/news/articleView.html?idxno=252762",
       "source": "병원신문",
-      "pubDate": "2026-11-15T21:00:00.000Z"
+      "pubDate": "2026-11-15T21:00:00.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "[라온시큐어] 디지털 인증 넘어 AI 보안으로",
