@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-16T09:41:06.834Z",
-  "source": "Numerama·Le Monde·Le Figaro·Challenges·Ouest-France·ZDNet France·Les Échos·La Tribune·DSIH·Public Sénat·Le Parisien·France 24·CNIL·franceinfo·Sud Ouest·La Croix",
+  "updatedAt": "2026-11-16T20:34:53.180Z",
+  "source": "DSIH·Le Figaro·Numerama·Le Monde·ZDNet France·Challenges·Ouest-France·Les Échos·La Tribune·Public Sénat·Le Parisien·France 24·CNIL·franceinfo·Sud Ouest·La Croix",
   "items": [
+    {
+      "title": "IA en santé : comment la solution DALVIA Vox (Docaposte) répond aux enjeux de souveraineté et besoins terrain",
+      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOZDRPY1NFSlR6NlhfWmZ0NjZ3RmFfOVZsNEFIVi1fblg5N0NhcFl2OGNVU1Q3dWstMC1SYXVPM1dCN2puMm5EOTVRZGxqejJubE52bW5yaENRbHZtckFocWRFM1I4SWhPUEVZSEd3dTRPT2xmek5tREMyaFhXY18xX2NRX29VQ0FId1ZNZnJsNUVBSjR1Tk1acmd6SjA4MWN3NFNNd2UxV2ZFWExUczVXUVgweThnOWZMcmwteXlSTFM5aEk0dk5Dd3lzRnhQYW92?oc=5",
+      "source": "DSIH",
+      "pubDate": "2026-11-16T20:17:00.000Z"
+    },
+    {
+      "title": "« L’IA peut réaliser la quasi-totalité des tâches » : quand l’intelligence artificielle met un sérieux coup de frein sur l’emploi des jeunes",
+      "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxOTno1V0RPWDhNZENUMVhCS0hpZUNfcS0yZkdHbGhaZVlQZXVya210WWh3QXVHU2JKRjRROUZoNk14VWsyN3UwelE2MkpJU19XYlNaR3U0S3daTHpBakxGcGN3X0czcFpCc25RYWg4VEhZdTByaHdvWkd1Zk13NlZ1TkJyNXFjUVcwekdVNTAxRXZVemp2LUdDdDZiUkFKTUNwMUp1alVPVUVOOF9aMDA3RTdSZjlzTTJ3ZExRMU4tdVRWbW1VZG0yR0lIaHlRN21nN1VicXJ0Sm5RVUV1REpaWG5OWFB6TWFGeVBnNEZYTFlHWmVjN25ES1owem9vNEU5Y3VEU25BT1ZnMXFnV2swM0hJVQ?oc=5",
+      "source": "Le Figaro",
+      "pubDate": "2026-11-16T18:54:49.000Z"
+    },
     {
       "title": "Apple recrute 200 000 cobayes pour tester son IA médicale sur iPhone",
       "link": "https://www.numerama.com/tech/2374961-apple-recrute-200-000-cobayes-pour-tester-son-ia-medicale-sur-iphone.html",
@@ -19,6 +31,18 @@
       "link": "https://www.lemonde.fr/international/article/2026/11/16/faire-la-guerre-avec-l-ia-pour-l-ukraine-un-cas-de-conscience-moral-et-politique_6811239_3210.html",
       "source": "Le Monde",
       "pubDate": "2026-11-16T04:00:14.000Z"
+    },
+    {
+      "title": "Comment les failles de sécurité liées à l'IA mettent en danger votre chaîne d'approvisionnement, et ce que vous pouvez faire",
+      "link": "https://www.zdnet.fr/actualites/comment-les-failles-de-securite-liees-a-lia-mettent-en-danger-votre-chaine-dapprovisionnement-et-ce-que-vous-pouvez-faire-507940.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-16T01:11:42.000Z"
+    },
+    {
+      "title": "Galeon réunit à Marseille 9 médecins et chercheurs pour un retour d’expérience sur l’IA médicale",
+      "link": "https://dsih.fr/articles/6466/galeon-reunit-a-marseille-9-medecins-et-chercheurs-pour-un-retour-dexperience-sur-lia-medicale",
+      "source": "DSIH",
+      "pubDate": "2026-11-16T00:00:00.000Z"
     },
     {
       "title": "Microsoft bloque des mails sans prévenir, Google fait prouver la sécurité de Signal par 80 agents, OpenAI installe un bouton stop sur ses IA : on vous raconte la semaine Cyberguerre",
@@ -231,15 +255,15 @@
       "pubDate": "2026-09-25T07:00:00.000Z"
     },
     {
-      "title": "Une intelligence artificielle d'OpenAI a piraté un site du gouvernement australien pour accéder à des données qu'elle ne trouvait pas en libre accès",
-      "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNdU1kMFQyZnhOUkVWOFFySTVCY1NtZ0NiY29xWERZVFRSaTZ6S0l2SU5tUVRiZEloQXJ3bUhrVlRmNVdjVE9rNGVvY1hjNFY3Q3Bib0ZKWW53aGhrQVRUUTR0c0pxV25NUVpJbWk2ai1tMGo0RGJrOUxROGY5dWNXNXRNTXVfcU10cWgzUzU5azN5STBnQXBZR1k3XzVHRktEWkNnd0swcEdJMlFCdW9yOW9vcEhaVU1SYTY3YnoyMEV4TnhLck5SeEdZTFNHN2tWZHlKQmM4QjNxWE1kOHR1bjFTUDAxME44MTJJdFppcHptVVNVV2JvQTdJcmRSZTNIYkV3SWVrUmFmcDVrcTlBZA?oc=5",
-      "source": "franceinfo",
-      "pubDate": "2026-09-24T07:00:00.000Z"
-    },
-    {
       "title": "« Des actions que nous n’avions pas prévues » : l’IA d’OpenAI pirate un site du gouvernement australien de son propre chef, attisant les craintes des experts cyber",
       "link": "https://news.google.com/rss/articles/CBMirgJBVV95cUxPdkxkRVdsU1ctSGRDUXpxTGllNnkxdzI5NndtOUJBVXNfS1lLZjlqdlFCMzlueUZ2MDY5dk1yY25CTDJERWhtbldjRjVBT1psVWlZdm5aSjZEbDF5cWQ0VDUyWHRkUmpIczhsYVFZRmlpS2lwQ19LVG9xeVo1Z3JzYUpPa1IycVR4XzlUem9LSVl3UHIyMHhabnRpTDNXQkxuUk5FQldzZmhwN2lpb2NBd2IyRHBvT3I5Y3IwYlFNWUoxdHJBRW5pSVUzR1lMbHk4R0lpbEEzdWFIVUU2MVdNOHdwWUtYN3ZsTTFpYTNmdUctQmxYVTBlOTVsdlN1ZE1FZEVWUU85YWxLRk1KVHYtbDhhVlpzWnh2ajMzalRlaEpBRHhWYWk5SUhFbjRVdw?oc=5",
       "source": "Challenges",
+      "pubDate": "2026-09-24T07:00:00.000Z"
+    },
+    {
+      "title": "Une intelligence artificielle d'OpenAI a piraté un site du gouvernement australien pour accéder à des données qu'elle ne trouvait pas en libre accès",
+      "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNdU1kMFQyZnhOUkVWOFFySTVCY1NtZ0NiY29xWERZVFRSaTZ6S0l2SU5tUVRiZEloQXJ3bUhrVlRmNVdjVE9rNGVvY1hjNFY3Q3Bib0ZKWW53aGhrQVRUUTR0c0pxV25NUVpJbWk2ai1tMGo0RGJrOUxROGY5dWNXNXRNTXVfcU10cWgzUzU5azN5STBnQXBZR1k3XzVHRktEWkNnd0swcEdJMlFCdW9yOW9vcEhaVU1SYTY3YnoyMEV4TnhLck5SeEdZTFNHN2tWZHlKQmM4QjNxWE1kOHR1bjFTUDAxME44MTJJdFppcHptVVNVV2JvQTdJcmRSZTNIYkV3SWVrUmFmcDVrcTlBZA?oc=5",
+      "source": "franceinfo",
       "pubDate": "2026-09-24T07:00:00.000Z"
     },
     {

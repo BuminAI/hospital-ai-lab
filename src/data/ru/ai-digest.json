@@ -1,7 +1,91 @@
 {
-  "updatedAt": "2026-11-16T09:38:49.911Z",
+  "updatedAt": "2026-11-16T20:27:36.266Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Легкие LLM на CPU, часть 2: какую модель ставить на VPS без видеокарты",
+      "link": "https://habr.com/ru/articles/1108600/?utm_campaign=1108600&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T19:24:01.000Z"
+    },
+    {
+      "title": "Почему 94% ИИ-ответов игнорируют сайты самих компаний",
+      "link": "https://habr.com/ru/articles/1108582/?utm_campaign=1108582&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T17:54:23.000Z"
+    },
+    {
+      "title": "Alibaba представила Qwen4-Max — флагманскую ИИ-модель с 2,4 трлн параметров и запретом на кибератаки",
+      "link": "https://3dnews.ru/1151354/alibaba-predstavila-qwen4max-flagmanskuyu-iimodel-s-24-trln-parametrov-i-zapretom-na-kiberataki",
+      "source": "3DNews",
+      "pubDate": "2026-11-16T15:02:00.000Z"
+    },
+    {
+      "title": "Harness² — новое поколение ИИ-агентов от Google Research",
+      "link": "https://habr.com/ru/companies/bothub/articles/1108490/?utm_campaign=1108490&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T14:20:08.000Z"
+    },
+    {
+      "title": "Как накормить ИИ-агента кодом и не разориться на контексте: мой опыт без векторной магии",
+      "link": "https://habr.com/ru/companies/alfastrah/articles/1108468/?utm_campaign=1108468&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T13:39:42.000Z"
+    },
+    {
+      "title": "Локальная LLM для кодинга в 2026: Mellum, OpenCode и AI-агенты прямо в IDE",
+      "link": "https://habr.com/ru/companies/haulmont/articles/1108400/?utm_campaign=1108400&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T12:30:54.000Z"
+    },
+    {
+      "title": "AI повсюду: зачем нужен QA, если всё может делать агент?",
+      "link": "https://habr.com/ru/companies/avito/articles/1108376/?utm_campaign=1108376&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T10:58:59.000Z"
+    },
+    {
+      "title": "ИБ-компания «Авилликс» выпустила решение для проверки защищенности от ИИ-атак",
+      "link": "https://www.cnews.ru/news/line/2026-11-16_ib-kompaniya_avilliks_vypustila",
+      "source": "CNews",
+      "pubDate": "2026-11-16T10:53:00.000Z"
+    },
+    {
+      "title": "МТС Ads и «Альянс в сфере ИИ»: 88% специалистов и предпринимателей используют нейросети в работе, но только треть компаний имеют формальные регламенты",
+      "link": "https://www.cnews.ru/news/line/2026-11-16_mts_ads_i_alyans_v_sfere_ii",
+      "source": "CNews",
+      "pubDate": "2026-11-16T10:46:00.000Z"
+    },
+    {
+      "title": "MCP: «USB-порт» для ИИ-агентов и почему его нужно охранять",
+      "link": "https://habr.com/ru/companies/itglobalcom/articles/1108366/?utm_campaign=1108366&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T10:44:21.000Z"
+    },
+    {
+      "title": "Австралийский конкурс по разработке видеоигр в сфере STEM отменили из‑за ИИ",
+      "link": "https://habr.com/ru/articles/1108346/?utm_campaign=1108346&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T10:37:42.000Z"
+    },
+    {
+      "title": "«Т-Банк Инвестиции» добавили «Алису AI» для анализа инвестиционного портфеля",
+      "link": "https://www.cnews.ru/news/line/2026-11-16_t-bank_investitsii_dobavili",
+      "source": "CNews",
+      "pubDate": "2026-11-16T10:28:00.000Z"
+    },
+    {
+      "title": "Агент сделал задачу. А откатить сможет? Разбор 5 докладов о надёжности AI агентов",
+      "link": "https://habr.com/ru/articles/1108290/?utm_campaign=1108290&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T10:23:41.000Z"
+    },
+    {
+      "title": "ELMA показала работу ИИ-агентов в бизнес-процессах клиентов на ELMA DAY'26",
+      "link": "https://www.cnews.ru/news/line/2026-11-16_elma_pokazala_rabotu_ii-agentov",
+      "source": "CNews",
+      "pubDate": "2026-11-16T10:06:00.000Z"
+    },
     {
       "title": "Девелоперы используют ИИ в продажах, но системно внедрили его лишь 12% компаний — отчет KTS",
       "link": "https://www.cnews.ru/news/line/2026-11-16_developery_ispolzuyut_ii",
@@ -1717,90 +1801,6 @@
       "link": "https://3dnews.ru/1150553/ii-moget-vzlomat-to-chto-desyatiletiyami-zashchishchalo-bankovskie-scheta-i-dannie-predupredili-matematiki",
       "source": "3DNews",
       "pubDate": "2026-10-28T11:00:00.000Z"
-    },
-    {
-      "title": "AIDA tech запустила SamurAI Platform для создания и управления корпоративными ИИ-агентами",
-      "link": "https://www.cnews.ru/news/line/2026-10-28_aida_tech_zapustila_samurai_platform",
-      "source": "CNews",
-      "pubDate": "2026-10-28T10:49:00.000Z"
-    },
-    {
-      "title": "OSiO и Uncom представили ИИ-комплекс для безопасной работы с данными",
-      "link": "https://www.cnews.ru/news/line/2026-10-28_osio_i_uncom_predstavili_ii-kompleks",
-      "source": "CNews",
-      "pubDate": "2026-10-28T10:48:00.000Z"
-    },
-    {
-      "title": "Владычеству Nvidia на рынке чипов грозит крах. Разработчики ИИ Claude нашли противоядие от ее тотальной монополии",
-      "link": "https://www.cnews.ru/news/top/2026-10-28_monopolii_nvidia_na_rynke_chipov",
-      "source": "CNews",
-      "pubDate": "2026-10-28T09:56:00.000Z"
-    },
-    {
-      "title": "«Черный октябрь», рои боевых агентов, ИИ‑апокалипсис, или Как натянуть сову на глобус в информационном пространстве",
-      "link": "https://habr.com/ru/companies/aurorium/articles/1100530/?utm_campaign=1100530&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-28T09:51:21.000Z"
-    },
-    {
-      "title": "В «ПланФиксе» появился ИИ-чат для анализа данных, документов и управления задачами",
-      "link": "https://www.cnews.ru/news/line/2026-10-28_v_planfikse_poyavilsya_ii-chat",
-      "source": "CNews",
-      "pubDate": "2026-10-28T09:26:00.000Z"
-    },
-    {
-      "title": "«Турбо Облако» расширило инструменты для разработки и запуска ИИ-решений",
-      "link": "https://www.cnews.ru/news/line/2026-10-28_turbo_oblako_rasshirilo",
-      "source": "CNews",
-      "pubDate": "2026-10-28T09:25:00.000Z"
-    },
-    {
-      "title": "Вайб‑кодинг вместо унылых ТЗ: как автономные ИИ‑агенты ускоряют разработку игр",
-      "link": "https://habr.com/ru/companies/magnus-tech/articles/1097928/?utm_campaign=1097928&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-28T09:12:14.000Z"
-    },
-    {
-      "title": "Внедрение ИИ буксует не из-за модели, главный тормоз — интеграция",
-      "link": "https://habr.com/ru/companies/diasoft_company/articles/1100442/?utm_campaign=1100442&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-28T08:07:12.000Z"
-    },
-    {
-      "title": "AI-adoption: где спрятан буст к разработке, что делать, когда агенты дерутся, и как изменится работа мясных девелоперов",
-      "link": "https://habr.com/ru/companies/cloud_ru/articles/1085100/?utm_campaign=1085100&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-28T08:02:11.000Z"
-    },
-    {
-      "title": "Вызываем паранойю у ИИ-агентов: заменит ли MCP AppSec?",
-      "link": "https://habr.com/ru/articles/1099840/?utm_campaign=1099840&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-28T07:23:45.000Z"
-    },
-    {
-      "title": "AI-менеджер для WB, Ozon и Маркета: отдали решения агенту и сразу его ограничили",
-      "link": "https://habr.com/ru/articles/1100298/?utm_campaign=1100298&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-28T07:08:57.000Z"
-    },
-    {
-      "title": "Опрос «Корус Консалтинг»: половина предприятий АПК планирует внедрять и развивать ИИ-решения для прогнозов и аналитики",
-      "link": "https://www.cnews.ru/news/line/2026-10-28_opros_korus_konsalting",
-      "source": "CNews",
-      "pubDate": "2026-10-28T06:55:00.000Z"
-    },
-    {
-      "title": "Нейросети под контролем: «Солар» представил решение для безопасной работы с ИИ – Solar AI Firewall",
-      "link": "https://www.cnews.ru/news/line/2026-10-28_nejroseti_pod_kontrolem",
-      "source": "CNews",
-      "pubDate": "2026-10-28T06:04:00.000Z"
-    },
-    {
-      "title": "На каком языке ИИ-агенту искать по своей памяти: SQL или SPARQL?",
-      "link": "https://habr.com/ru/articles/1100348/?utm_campaign=1100348&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-28T06:00:40.000Z"
     }
   ]
 }
