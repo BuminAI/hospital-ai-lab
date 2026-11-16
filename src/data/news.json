@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-16T09:41:59.155Z",
+  "updatedAt": "2026-11-16T20:28:11.225Z",
   "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · 의학신문 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · ZDNet Korea · AI타임스 · 매일경제 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "[건강포커스] \"베트남전서 고엽제 직접 다룬 미군, 파킨슨병 위험 99% 높아\"",
+      "link": "https://www.yna.co.kr/view/AKR20261116136100017",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-16T20:00:00.000Z"
+    },
     {
       "title": "뷰노, 3분기 누적 매출 178억원…의료 AI 사업 확대",
       "link": "https://www.medipana.com/news/articleView.html?idxno=421928",
@@ -18,7 +24,9 @@
       "title": "수주잔고 100배 폭증… 국내 AI 인프라 업계, 3분기 실적 '약진'",
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217462",
       "source": "AI타임스",
-      "pubDate": "2026-11-16T17:38:33.000Z"
+      "pubDate": "2026-11-16T17:38:33.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "뷰노, 3분기 누적 매출 178억…“하티브 산업 현장 보급 확대”",
@@ -49,6 +57,24 @@
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242507",
       "source": "라포르시안",
       "pubDate": "2026-11-16T16:10:00.000Z"
+    },
+    {
+      "title": "로소타, '서지로거'로 외과 명의의 암묵지 캔다…수술 데이터 혁신 가속",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016540",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T15:47:45.000Z"
+    },
+    {
+      "title": "삼성서울병원, 글로벌 AI '하이디'와 맞손",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016541",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T15:47:31.000Z"
+    },
+    {
+      "title": "현장 중심 실전 신경주사치료 기법과 최신 술기 공유",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016532",
+      "source": "의학신문",
+      "pubDate": "2026-11-16T14:56:06.000Z"
     },
     {
       "title": "KDDW 2026, 국내외 소화기질환 최신 지견 한자리에",
