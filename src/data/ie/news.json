@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-15T23:31:20.122Z",
+  "updatedAt": "2026-11-16T12:04:35.649Z",
   "source": "TheJournal.ie · The Irish Times · Irish Medical Times · Business Post · RTÉ · Irish Examiner · Irish Independent · BreakingNews.ie · Medical Independent · Irish Tech News · Silicon Republic",
   "items": [
+    {
+      "title": "NeuroAI: Can a digital health display explain human intelligence?",
+      "link": "https://irishtechnews.ie/neuroai-can-digital-health-explain-intelligence/",
+      "source": "Irish Tech News",
+      "pubDate": "2026-11-16T10:30:06.000Z"
+    },
     {
       "title": "Akara raises $5.5m to bring privacy-preserving AI to hospitals",
       "link": "https://irishtechnews.ie/akara-raises-5-5m-to-bring-privacy-preserving-ai-to-hospitals/",
@@ -139,6 +145,12 @@
       "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQbm51VE9FUlFiYThmYUJmX1FJSHdyRU1ibzB2MlhFNFFEMTVTLUkyMjlpRldERVA2cTZDZE5JcjJCYWpmRkk5ZUV6VjVmWkUzLXViQlpGa1Q0V1VXTmFtYkJTOC1KbEhwZU1RRUlkYmktLUVyOFltRTg1Y084RjQ4bjhnVnZaSVJYd293dTVSSzE0LUNSNlBqNlFFbUVJNnhsajF4R3lfMkJTQ0pJcFVvT0lqd0t3ZVFqUktUMzFLUTdOQ3R5NFhfRTI4T09TRVM5eGE2S2paT2tiemdHUHo0SA?oc=5",
       "source": "Irish Independent",
       "pubDate": "2025-12-20T08:00:00.000Z"
+    },
+    {
+      "title": "From a dark car-park to the clinic: how gardening leave, pandemic, and a son’s illness turned me into an AI advocate for Irish healthcare",
+      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNTEV4aHZSV0ZXTGVBekRLZGdYNTY3alpDNkJCWDFXOWt2REFRbnNsY24tRmpYN2ZtYnNCMkFlVW1MdGlwOVhHV3VHbnpWQkx4RFNWYXdqbi1PQ09oTkE4MEF1bVFvS0FCMExFaElIMTFUaXNBclZuUFZRd2VFVDdHU0l1OGNvcFN4bkF5ekYtRGF3VEVpb0FvbDlwdGszamVQdVV3d1ZhejVuUmVTUTZ2bWM3emcwVzdicktBVzE4d2xFeEpwVU9aTThrSXBIX2JJZnZGXzM5WHNnRXBzUU54dmNvdGE4c0Y2VTZvSkVMMmlTN2p0ci1JQ0ZCekxSUDBDTFE?oc=5",
+      "source": "Irish Medical Times",
+      "pubDate": "2025-12-02T08:00:00.000Z"
     }
   ]
 }
