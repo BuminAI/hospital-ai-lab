@@ -7,6 +7,41 @@
   },
   "sections": [
     {
+      "heading": "TIP 06 — Beri AI \"kriteria pemeriksaan\" untuk draf, lalu minta diperbaiki",
+      "body": "Coba bagi permintaan menjadi tiga langkah: draf, pemeriksaan sesuai kriteria, lalu perbaikan.",
+      "items": []
+    },
+    {
+      "heading": "Meminta hasil final sekali jalan sering menyisakan kekurangan",
+      "body": "Saat Anda meminta draf pengumuman kepada AI, hasilnya tampak meyakinkan. Namun tanggal yang terlewat, kontak yang tidak ada, atau nada tulisan yang tidak seragam sering baru disadari pembaca belakangan.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: setelah draf jadi, beri kriteria dan minta AI memeriksanya",
+      "body": "Panduan resmi Anthropic (perusahaan pembuat Claude) menyebut pemeriksaan mandiri sebagai pola rangkaian yang paling umum: buat draf, tinjau draf itu berdasarkan kriteria, lalu perbaiki berdasarkan hasil tinjauan. Panduan menjelaskannya sebagai cara bagi pengembang yang memecah tugas menjadi beberapa panggilan API, tetapi urutan yang sama bisa Anda coba di layar obrolan dengan tiga pesan. Setelah draf muncul, kirim pesan berikut; isi dalam tanda kurung sesuaikan dengan kebutuhan.",
+      "items": [
+        "Periksa draf yang baru Anda tulis dengan kriteria berikut satu per satu, lalu sebutkan bagian yang masih kurang. Kriteria: (1) tanggal dan tempat tercantum; (2) ada kontak untuk pertanyaan; (3) nada tulisan sama dari awal sampai akhir. Perbaikannya nanti saya minta setelah saya baca hasil pemeriksaan."
+      ]
+    },
+    {
+      "heading": "Satu lagi: minta perbaikan setelah membaca hasil pemeriksaan",
+      "body": "Dengan membaca hasil pemeriksaan lebih dulu, Anda bisa melihat apa yang dianggap AI sebagai masalah dan memilih sendiri, misalnya: \"Terapkan hanya poin 1 dan 3, lalu tulis ulang.\" Panduan yang sama juga menyebut manfaat memecah langkah, yaitu hasil di tengah proses dapat diperiksa.",
+      "items": []
+    },
+    {
+      "heading": "Hal yang perlu diingat",
+      "body": "Pemeriksaan oleh AI tidak menjamin semua kesalahan ditemukan. Cocokkan sendiri tanggal, jumlah uang, dan isi peraturan dengan dokumen aslinya. Jangan memasukkan nama pasien atau data pribadi lain ke layanan AI, dan periksa dulu kebijakan keamanan informasi rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, \"Prompting best practices\": bagian \"Chain complex prompts\" (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Tanggal pengecekan sumber: 17 November 2026"
+      ]
+    },
+    {
       "heading": "TIP 05 — Ganti \"jangan begini\" dengan \"tolong tulis begini\"",
       "body": "Menjelaskan bentuk jawaban yang Anda mau lebih efektif daripada daftar larangan.",
       "items": []
