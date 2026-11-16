@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-11-16T02:03:47.823Z",
+  "updatedAt": "2026-11-16T09:38:49.911Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Девелоперы используют ИИ в продажах, но системно внедрили его лишь 12% компаний — отчет KTS",
+      "link": "https://www.cnews.ru/news/line/2026-11-16_developery_ispolzuyut_ii",
+      "source": "CNews",
+      "pubDate": "2026-11-16T08:51:00.000Z"
+    },
+    {
+      "title": "Google представила два новых TPU для ИИ-агентов и защищенных вычислений",
+      "link": "https://habr.com/ru/companies/selectel/articles/1108192/?utm_campaign=1108192&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T08:00:30.000Z"
+    },
+    {
+      "title": "AI-агент для разработки интеграций на DATAREON Platform: практика внедрения dtrn-mcp в «УралАгроГрупп»",
+      "link": "https://habr.com/ru/companies/w_code/articles/1108222/?utm_campaign=1108222&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T07:38:07.000Z"
+    },
+    {
+      "title": "В «Контур.Диадоке» с помощью ИИ обработано около миллиона документов",
+      "link": "https://www.cnews.ru/news/line/2026-11-16_v_konturdiadoke_s_pomoshchyu",
+      "source": "CNews",
+      "pubDate": "2026-11-16T07:01:00.000Z"
+    },
+    {
+      "title": "У SOC отобрали время: ИИ-агент оставил защите вдвое меньше времени на реакцию",
+      "link": "https://habr.com/ru/articles/1108186/?utm_campaign=1108186&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T06:28:57.000Z"
+    },
+    {
+      "title": "Браузерный онлайн-шутер «руками» ИИ-агента",
+      "link": "https://habr.com/ru/companies/raft/articles/1108052/?utm_campaign=1108052&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T06:03:19.000Z"
+    },
+    {
+      "title": "Дообучать LLM или дать ей документы: сначала выясните, что сломалось",
+      "link": "https://habr.com/ru/articles/1107846/?utm_campaign=1107846&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-16T05:00:14.000Z"
+    },
     {
       "title": "Ускоряем AI модель на процессоре Qwen3.8-Flash‑Next Gyro",
       "link": "https://habr.com/ru/articles/1108016/?utm_campaign=1108016&utm_source=habrahabr&utm_medium=rss",
@@ -1759,48 +1801,6 @@
       "link": "https://habr.com/ru/articles/1100348/?utm_campaign=1100348&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-28T06:00:40.000Z"
-    },
-    {
-      "title": "ИИ не только пишет тесты: как ручной QA использовал агента для аудита автотестов",
-      "link": "https://habr.com/ru/articles/1099782/?utm_campaign=1099782&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T19:45:45.000Z"
-    },
-    {
-      "title": "Условия, в которых рождаются системы. Средовой подход для ИИ‑агентов",
-      "link": "https://habr.com/ru/articles/1100302/?utm_campaign=1100302&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T19:42:08.000Z"
-    },
-    {
-      "title": "[Перевод] Фаззер против ИИ-агента на V8: 37 и 45 уязвимостей за полгода, общих — четверть",
-      "link": "https://habr.com/ru/articles/1100292/?utm_campaign=1100292&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T19:13:24.000Z"
-    },
-    {
-      "title": "Google представила Genie 4: ИИ-модель создаёт интерактивные виртуальные миры, которые теперь живут до двух минут",
-      "link": "https://3dnews.ru/1150511/google-predstavila-genie-4-iimodel-sozdayot-interaktivnie-virtualnie-miri-kotorie-teper-givut-do-dvuh-minut",
-      "source": "3DNews",
-      "pubDate": "2026-10-27T17:08:00.000Z"
-    },
-    {
-      "title": "«У тебя агент ронял прод?» Что ИИ-пентест умеет в 2026 году и где он до сих пор плох",
-      "link": "https://habr.com/ru/articles/1097210/?utm_campaign=1097210&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T16:12:53.000Z"
-    },
-    {
-      "title": "Как я закрыл от ИИ-агента часть кода и проверил это кодом, а не промптом",
-      "link": "https://habr.com/ru/articles/1100200/?utm_campaign=1100200&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T15:16:50.000Z"
-    },
-    {
-      "title": "ИИ-агенты в QA: как я выстроил процесс от анализа требований до CI",
-      "link": "https://habr.com/ru/articles/1099374/?utm_campaign=1099374&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-27T14:29:17.000Z"
     }
   ]
 }
