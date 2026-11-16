@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T16:04:27.971Z",
+  "updatedAt": "2026-11-16T06:11:06.582Z",
   "items": [
     {
       "id": "a0WJ200000CDKBZMA5",
@@ -24,6 +24,18 @@
       "area": "東京都",
       "startDate": "2026-04-14T15:00:00.000Z",
       "endDate": "2026-11-30T14:59:00.000Z"
+    },
+    {
+      "id": "a0WfQ000003qLZhUAM",
+      "title": "「ポスト５Ｇ情報通信システム基盤強化研究開発事業／記録レス介護実現のための介護特化モデル等に関する研究開発（委託）」の公募",
+      "link": "https://www.jgrants-portal.go.jp/subsidy/a0WfQ000003qLZhUAM",
+      "usePurpose": "研究開発・実証事業を行いたい",
+      "catchPhrase": "",
+      "maxLimit": 0,
+      "rate": "",
+      "area": "全国",
+      "startDate": "2026-11-16T01:00:00.000Z",
+      "endDate": "2026-12-16T03:00:00.000Z"
     },
     {
       "id": "a0WfQ000004BTqnUAG",
