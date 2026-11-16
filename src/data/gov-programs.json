@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-11-14T13:14:37.294Z",
+  "updatedAt": "2026-11-16T06:13:07.509Z",
   "items": [
+    {
+      "title": "[안내] 복막투석 환자 재택관리 시범사업 참여기관 5차 모집 연장 안내",
+      "link": "https://www.kha.or.kr/kha_home/notice_list.do?mode=view&articleNo=47757",
+      "source": "대한병원협회",
+      "summary": "",
+      "pubDate": "2026-11-15T15:00:00.000Z"
+    },
     {
       "title": "「진료지원업무 교육과정 이수 지원사업」 안내 및 수요 조사",
       "link": "https://www.kha.or.kr/kha_home/notice_list.do?mode=view&articleNo=47751",
@@ -42,6 +49,13 @@
       "source": "한국보건산업진흥원",
       "summary": "",
       "pubDate": "2026-11-09T15:00:00.000Z"
+    },
+    {
+      "title": "희귀질환 치료 위한 신속 등재 대상 약제 5종 선정",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492464&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-06T01:11:00.000Z",
+      "summary": ""
     },
     {
       "title": "간호인력 지원센터 운영 사업 위탁기관 선정 공모",
@@ -771,5 +785,6 @@
       "summary": "",
       "pubDate": "2026-04-29T15:00:00.000Z"
     }
-  ]
+  ],
+  "source": "보건복지부"
 }
