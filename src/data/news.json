@@ -1,7 +1,141 @@
 {
-  "updatedAt": "2026-11-17T03:52:52.349Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 한국경제 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 뉴시스 · 연합뉴스 · 매일경제 · 보건복지부",
+  "updatedAt": "2026-11-17T13:24:28.825Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · AI타임스 · 뉴시스 · 연합뉴스 · 보건복지부 · 매일경제",
   "items": [
+    {
+      "title": "의료기기 사용 이력도 AI로 관리…이화의료원, 안전관리 특허",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422061",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T20:08:46.000Z"
+    },
+    {
+      "title": "WHO·국제병원연맹, AI 헬스케어 협력 위한 공동 운영위 구성 합의",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422058",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T20:05:22.000Z"
+    },
+    {
+      "title": "수술 동작 넘어 전체 흐름까지…'상황 읽는 AI' 개발",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422041",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T19:33:29.000Z"
+    },
+    {
+      "title": "샤페론, 신약 후보물질 ADMET·독성 예측 AI 기술 'TAG-lite' 개발",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422035",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T18:56:49.000Z"
+    },
+    {
+      "title": "딥노이드, 'M4CXR' 성능 고도화 위한 MOU 체결",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422028",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T18:55:40.000Z"
+    },
+    {
+      "title": "이왕준 IHF 차기 회장, 제네바 WHO 본부서 테워드로스 사무총장과 면담",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242562",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T18:15:00.000Z"
+    },
+    {
+      "title": "“의료 AI, 기술 도입만으론 부족”…개도국 맞춤형 적용체계 필요",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044634",
+      "source": "청년의사",
+      "pubDate": "2026-11-17T18:08:54.000Z"
+    },
+    {
+      "title": "이화의료원, AI 기반 ‘의료기기 안전관리’ 특허 등록",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242561",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T17:36:10.000Z"
+    },
+    {
+      "title": "경희의료원, ‘2026 의료 AI 콜로키움’ 개최…개도국 ODA 사업 연계 모색",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242555",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T16:40:00.000Z"
+    },
+    {
+      "title": "[11월 17일 병원·의료소식] 원주세브란스기독병원·이화의료원·부민병원그룹·용인세브란스병원·보라매병원",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98967",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-17T16:39:29.000Z",
+      "popular": true,
+      "rank": 6
+    },
+    {
+      "title": "내시경에 AI 접목한 메디인테크, 338억원 시리즈C 투자 유치",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217498",
+      "source": "AI타임스",
+      "pubDate": "2026-11-17T16:34:47.000Z"
+    },
+    {
+      "title": "식의약규제과학원, 이름만 바꾼 게 아니다…'규제혁신' 시동",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549202",
+      "source": "약사공론",
+      "pubDate": "2026-11-17T16:05:41.000Z"
+    },
+    {
+      "title": "애플, 건강 AI 연구용 앱 출시…미국서 20만명 모집",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217504",
+      "source": "AI타임스",
+      "pubDate": "2026-11-17T16:05:00.000Z"
+    },
+    {
+      "title": "WHO·국제병원연맹, 글로벌 AI 헬스케어 협력 본격화",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98965",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-17T15:59:05.000Z"
+    },
+    {
+      "title": "인하대병원 개방형실험실, 'AI 바이오 신약 글로벌 서밋' 참여",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415531",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-17T15:55:50.000Z"
+    },
+    {
+      "title": "경희의료원 올해 세번째 '2026 의료 AI 콜로키움' 개최",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549201",
+      "source": "약사공론",
+      "pubDate": "2026-11-17T15:52:00.000Z"
+    },
+    {
+      "title": "WHO·국제병원연맹, AI 헬스케어 협력 본격화…공동운영위 구성 합의",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044622",
+      "source": "청년의사",
+      "pubDate": "2026-11-17T15:21:04.000Z"
+    },
+    {
+      "title": "이왕준 차기 IHF 회장, WHO 사무총장과 면담 가져",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415524",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-17T15:15:16.000Z"
+    },
+    {
+      "title": "일동바이오, 프로바이오틱스 제조공정 공동연구 발표",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016642",
+      "source": "의학신문",
+      "pubDate": "2026-11-17T14:44:11.000Z"
+    },
+    {
+      "title": "식약처, AI 기반 바이오의약품 품질관리 혁신 논의",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549189",
+      "source": "약사공론",
+      "pubDate": "2026-11-17T14:36:25.000Z"
+    },
+    {
+      "title": "노을, KOICA IBS 사업 선정…“파나마서 공공보건 사업 추진”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242553",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T13:30:00.000Z"
+    },
+    {
+      "title": "'척추신경주사치료' 기본 다지고 실전 경험 익히고",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200049",
+      "source": "의협신문",
+      "pubDate": "2026-11-17T12:52:00.000Z"
+    },
     {
       "title": "일동바이오사이언스·가톨릭대 연구팀, 제조 과정 변수와 생균 수 변화 연관성 규명",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98958",
@@ -33,10 +167,22 @@
       "pubDate": "2026-11-17T12:02:00.000Z"
     },
     {
+      "title": "[HU]수술 장면의 맥락 인식하는 AI 기술 개발",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252926",
+      "source": "병원신문",
+      "pubDate": "2026-11-17T11:56:00.000Z"
+    },
+    {
       "title": "암 치료도 AI 시대…유럽종양학회서 임상 성과 잇따라 공개",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422005",
       "source": "메디파나뉴스",
       "pubDate": "2026-11-17T11:53:00.000Z"
+    },
+    {
+      "title": "이화의료원, 병원 의공팀 최초 ‘AI 의료기기 안전관리’ 특허 획득",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252923",
+      "source": "병원신문",
+      "pubDate": "2026-11-17T11:35:00.000Z"
     },
     {
       "title": "메디인테크, 338억 시리즈C 투자 유치…“수술 로봇 개발 추진”",
@@ -57,6 +203,12 @@
       "pubDate": "2026-11-17T11:08:34.000Z"
     },
     {
+      "title": "딥노이드, AI 판독 솔루션 고도화…원격판독 시장 공략",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016613",
+      "source": "의학신문",
+      "pubDate": "2026-11-17T11:05:49.000Z"
+    },
+    {
       "title": "프로메디우스, CB인사이트 ‘세계 유망 디지털 헬스 50’ 선정",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242525",
       "source": "라포르시안",
@@ -73,6 +225,12 @@
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549122",
       "source": "약사공론",
       "pubDate": "2026-11-17T10:12:53.000Z"
+    },
+    {
+      "title": "“소·돼지 등급 AI로 신속판정··· K축산 경쟁력 키울 것”",
+      "link": "https://www.mk.co.kr/news/economy/12211554",
+      "source": "매일경제",
+      "pubDate": "2026-11-17T10:10:59.000Z"
     },
     {
       "title": "[행사] 가톨릭대 보건의료경영대학원, 제5차 학술세미나 개최",
@@ -165,10 +323,22 @@
       "pubDate": "2026-11-17T08:08:18.000Z"
     },
     {
+      "title": "국토관리원, 피지컬 AI 로봇·라이다 동원 분당터널 안전진단",
+      "link": "https://www.yna.co.kr/view/AKR20261117145900052",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-17T07:46:03.000Z"
+    },
+    {
       "title": "계명대 동산병원, 다낭콩팥병 ‘AI 관리 플랫폼’ 구축",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016555",
       "source": "의학신문",
       "pubDate": "2026-11-17T07:27:48.000Z"
+    },
+    {
+      "title": "\"AI로 의료기기 안전관리\"…이화의료원, 특허확보",
+      "link": "https://www.newsis.com/view/NISX20261117_0003871830",
+      "source": "뉴시스",
+      "pubDate": "2026-11-17T07:22:20.000Z"
     },
     {
       "title": "온코소프트, CB인사이트 '2026 디지털 헬스 50' 선정",
@@ -177,10 +347,18 @@
       "pubDate": "2026-11-17T06:30:00.000Z"
     },
     {
+      "title": "\"CT·MRI로 확대\"…숨빗AI, 시리즈A 120억원 유치",
+      "link": "https://www.newsis.com/view/NISX20261117_0003871692",
+      "source": "뉴시스",
+      "pubDate": "2026-11-17T06:17:43.000Z"
+    },
+    {
       "title": "의료AI, '개별 수가보다 기관 성과 보상' 가능성",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016558",
       "source": "의학신문",
-      "pubDate": "2026-11-17T06:00:00.000Z"
+      "pubDate": "2026-11-17T06:00:00.000Z",
+      "popular": true,
+      "rank": 4
     },
     {
       "title": "잘나가던 1세대 의료 AI 기업들…자금난에 다시 발목",
