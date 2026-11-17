@@ -1,12 +1,42 @@
 {
-  "updatedAt": "2026-11-17T14:52:12.266Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · Federal Register · JAMA Network · Healthcare Business Today · NPR",
+  "updatedAt": "2026-11-17T23:08:33.369Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · NPR · Federal Register",
   "items": [
+    {
+      "title": "STAT+: What to know about the new AI roadmap from CMS, and news from HLTH",
+      "link": "https://www.statnews.com/2026/11/17/cms-ai-roadmap-and-news-from-hlth-health-tech/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-17T17:49:24.000Z"
+    },
+    {
+      "title": "STAT+: Flagship opens biotech-creation outpost in the U.K.",
+      "link": "https://www.statnews.com/2026/11/17/biotech-news-flagship-opens-biotech-creation-uk-outpost/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-17T17:05:10.000Z"
+    },
+    {
+      "title": "Mayo Clinic taps AI, strategy leader as CEO",
+      "link": "https://www.healthcaredive.com/news/mayo-clinic-taps-ai-strategy-leader-as-ceo/874909/",
+      "source": "Healthcare Dive",
+      "pubDate": "2026-11-17T16:13:18.000Z"
+    },
+    {
+      "title": "From pilot to platform: Johns Hopkins researcher on healthcare AI’s next chapter",
+      "link": "https://www.healthcaredive.com/news/from-pilot-to-platform-johns-hopkins-researcher-on-healthcare-ais-next-ch/874708/",
+      "source": "Healthcare Dive",
+      "pubDate": "2026-11-17T15:14:14.000Z"
+    },
     {
       "title": "Isomorphic Labs raises $5B as it looks to take drug candidates to clinical trials",
       "link": "https://techcrunch.com/2026/11/17/isomorphic-labs-raises-5b-as-it-looks-to-take-drug-candidates-to-clinical-trials/",
       "source": "TechCrunch",
       "pubDate": "2026-11-17T14:50:58.000Z"
+    },
+    {
+      "title": "Your AI Vendor’s Medical Exam Score Doesn’t Mean What You Think It Does",
+      "link": "https://medcitynews.com/2026/11/your-ai-vendors-medical-exam-score-doesnt-mean-what-you-think-it-does/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-17T14:48:00.000Z"
     },
     {
       "title": "Medicare Pays For the AI Eye Scan — Nobody Pays For What Comes Next",
@@ -25,6 +55,12 @@
       "link": "https://medcitynews.com/2026/11/doc-at-hlth-i-cant-imagine-seeing-patients-without-ai/",
       "source": "MedCity News",
       "pubDate": "2026-11-17T05:22:47.000Z"
+    },
+    {
+      "title": "How to Future-Proof Revenue Cycle Management In The Age of AI",
+      "link": "https://hitconsultant.net/2026/11/17/how-to-future-proof-revenue-cycle-management-in-the-age-of-ai/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-17T05:00:00.000Z"
     },
     {
       "title": "Inside the Ray-Tracing Workflow: How Dello Russo Laser Vision’s AI LASIK System Plans Each Procedure",
