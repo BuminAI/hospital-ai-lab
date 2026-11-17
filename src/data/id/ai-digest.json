@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-11-17T04:29:27.973Z",
+  "updatedAt": "2026-11-17T15:58:39.601Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Bangun relasi hingga melek teknologi cegah anak bergantung teman AI",
+      "link": "https://www.antaranews.com/berita/5861007/bangun-relasi-hingga-melek-teknologi-cegah-anak-bergantung-teman-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-11-17T15:39:10.000Z"
+    },
+    {
+      "title": "Ini Tips Menghindar dari Hubungan Imajiner dengan AI dari Psikolog",
+      "link": "https://mediaindonesia.com/humaniora/957259/ini-tips-menghindar-dari-hubungan-imajiner-dengan-ai-dari-psikolog",
+      "source": "Media Indonesia",
+      "pubDate": "2026-11-17T13:28:00.000Z"
+    },
+    {
+      "title": "Anthropic Bakal IPO di Nasdaq, Incar Rekor Terbesar dalam Sejarah",
+      "link": "https://katadata.co.id/digital/teknologi/6afc4d22b2de7/anthropic-bakal-ipo-di-nasdaq-incar-rekor-terbesar-dalam-sejarah",
+      "source": "Katadata",
+      "pubDate": "2026-11-17T12:48:00.000Z"
+    },
+    {
+      "title": "Belajar Tanpa Ribet, Ini Cara Manfaatkan Fitur Guided Learning di Gemini",
+      "link": "https://www.liputan6.com/tekno/read/8336306/belajar-tanpa-ribet-ini-cara-manfaatkan-fitur-guided-learning-di-gemini",
+      "source": "Liputan6",
+      "pubDate": "2026-11-17T10:11:34.000Z"
+    },
+    {
+      "title": "Telkom Manfaatkan AI, TARA Bantu Masyarakat Cari Informasi Perusahaan",
+      "link": "https://uzone.id/telkom-manfaatkan-ai-tara-bantu-masyarakat-cari-informasi-perusahaan",
+      "source": "Uzone",
+      "pubDate": "2026-11-17T09:40:00.000Z"
+    },
+    {
+      "title": "Agen AI Gemini Coba Tembus Situs Epoch AI, Begini Kronologinya",
+      "link": "https://www.liputan6.com/tekno/read/8336692/agen-ai-gemini-coba-tembus-situs-epoch-ai-begini-kronologinya",
+      "source": "Liputan6",
+      "pubDate": "2026-11-17T09:13:38.000Z"
+    },
+    {
+      "title": "Kacamata AI Mulai Dilarang di Sekolah hingga Bioskop, Kenapa?",
+      "link": "https://www.cnnindonesia.com/teknologi/20261116232834-206-1427896/kacamata-ai-mulai-dilarang-di-sekolah-hingga-bioskop-kenapa",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-17T07:15:00.000Z"
+    },
+    {
+      "title": "OpenAI Rilis Pendeteksi Konten Kekerasan Seksual Anak, Ini Cara Kerjanya",
+      "link": "https://www.liputan6.com/tekno/read/8336643/openai-rilis-pendeteksi-konten-kekerasan-seksual-anak-ini-cara-kerjanya",
+      "source": "Liputan6",
+      "pubDate": "2026-11-17T07:07:46.000Z"
+    },
+    {
+      "title": "ChatGPT Rilis Fitur Baru: Bisa Bikin GIF dan Ada Fitur Bisnis",
+      "link": "https://uzone.id/chatgpt-rilis-fitur-baru-bisa-bikin-gif-dan-ada-fitur-bisnis",
+      "source": "Uzone",
+      "pubDate": "2026-11-17T06:30:00.000Z"
+    },
+    {
+      "title": "Juragan AI Lucy Guo Mau Gugat Wanita Mantan Pacarnya",
+      "link": "https://inet.detik.com/cyberlife/d-8756535/juragan-ai-lucy-guo-mau-gugat-wanita-mantan-pacarnya",
+      "source": "detikINET",
+      "pubDate": "2026-11-17T05:45:23.000Z"
+    },
     {
       "title": "Haier Energy Meluncurkan Seri Inverter Hibrida AI 12-20 kW",
       "link": "https://www.antaranews.com/berita/5858903/haier-energy-meluncurkan-seri-inverter-hibrida-ai-12-20-kw",
@@ -1741,66 +1801,6 @@
       "link": "https://mediaindonesia.com/nusantara/949847/pkbm-nara-kreatif-jadi-sekolah-model-pembelajaran-mendalam-dan-kecerdasan-artifisial",
       "source": "Media Indonesia",
       "pubDate": "2026-10-28T14:28:00.000Z"
-    },
-    {
-      "title": "Pemuda.ai Resmi Meluncur, Dorong Industri Kreatif dengan Teknologi AI Lokal",
-      "link": "https://mediaindonesia.com/teknologi/949798/pemudaai-resmi-meluncur-dorong-industri-kreatif-dengan-teknologi-ai-lokal",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-28T12:51:00.000Z"
-    },
-    {
-      "title": "Telkom Kenalkan AI ke Guru dan Siswa Sekolah Rakyat Kulon Progo",
-      "link": "https://uzone.id/telkom-kenalkan-ai-ke-guru-dan-siswa-sekolah-rakyat-kulon-progo",
-      "source": "Uzone",
-      "pubDate": "2026-10-28T11:16:22.000Z"
-    },
-    {
-      "title": "Nvidia RTX 20 Disulap Jadi GPU AI, Begini Caranya",
-      "link": "https://inet.detik.com/consumer/d-8728319/nvidia-rtx-20-disulap-jadi-gpu-ai-begini-caranya",
-      "source": "detikINET",
-      "pubDate": "2026-10-28T11:08:03.000Z"
-    },
-    {
-      "title": "200 Startup AI Diprediksi Bangkrut Gara-gara Gak Bisa Ngutang ke Investor",
-      "link": "https://uzone.id/200-startup-ai-diprediksi-bangkrut-gara-gara-gak-bisa-ngutang-ke-investor",
-      "source": "Uzone",
-      "pubDate": "2026-10-28T11:02:53.000Z"
-    },
-    {
-      "title": "Mengenal Asmuni, Asisten AI Lokal Buatan Pemuda.ai",
-      "link": "https://www.liputan6.com/tekno/read/8323306/mengenal-asmuni-asisten-ai-lokal-buatan-pemudaai",
-      "source": "Liputan6",
-      "pubDate": "2026-10-28T09:45:14.000Z"
-    },
-    {
-      "title": "Bot Meta AI Sebut Komdigi Takedown Konten, Komdigi Minta Klarifikasi",
-      "link": "https://uzone.id/bot-meta-ai-sebut-komdigi-takedown-konten-komdigi-minta-klarifikasi",
-      "source": "Uzone",
-      "pubDate": "2026-10-28T09:30:00.000Z"
-    },
-    {
-      "title": "iOS 27.2 bawa peningkatan Siri AI hingga dukungan stylus iPhone Duo",
-      "link": "https://www.antaranews.com/berita/5816923/ios-272-bawa-peningkatan-siri-ai-hingga-dukungan-stylus-iphone-duo",
-      "source": "ANTARA",
-      "pubDate": "2026-10-28T08:22:08.000Z"
-    },
-    {
-      "title": "Museum Mega Science Center hadirkan hologram dan kecerdasan buatan untuk edukasi sains",
-      "link": "https://www.antaranews.com/foto/5816799/museum-mega-science-center-hadirkan-hologram-dan-kecerdasan-buatan-untuk-edukasi-sains",
-      "source": "ANTARA",
-      "pubDate": "2026-10-28T07:39:49.000Z"
-    },
-    {
-      "title": "Kemendikti soroti ancaman tergerusnya lapangan kerja akibat AI",
-      "link": "https://www.antaranews.com/video/5816779/kemendikti-soroti-ancaman-tergerusnya-lapangan-kerja-akibat-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-10-28T07:28:57.000Z"
-    },
-    {
-      "title": "Trump Larang Istilah AI dan Wajibkan Penggunaan Kecerdasan Super",
-      "link": "https://mediaindonesia.com/internasional/949642/trump-larang-istilah-ai-dan-wajibkan-penggunaan-kecerdasan-super",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-28T07:05:00.000Z"
     }
   ]
 }

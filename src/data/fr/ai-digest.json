@@ -1,7 +1,103 @@
 {
-  "updatedAt": "2026-11-17T04:34:21.964Z",
-  "source": "DSIH·Le Figaro·Numerama·Le Monde·ZDNet France·Challenges·Ouest-France·Les Échos·La Tribune·Public Sénat·Le Parisien·France 24·CNIL·franceinfo·Sud Ouest·La Croix",
+  "updatedAt": "2026-11-17T16:00:32.051Z",
+  "source": "franceinfo·Silicon.fr·Le Parisien·Le Monde·ZDNet France·20 Minutes·Le Figaro·Sud Ouest·Les Échos·Ouest-France·DSIH·Numerama·Challenges·La Tribune·Public Sénat·France 24·CNIL·La Croix",
   "items": [
+    {
+      "title": "25 000 offres d'emploi supprimées sur France Travail à cause de l'IA : quels secteurs sont concernés",
+      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSFVGVGpBa3k1LWEtTG1ZdExwbmkweWRaemh2UEozQ2ZiazJKMEQ4bUM1YjNmcGFYZWJKcVJoMzU3RUx0LUQwcUZZWHFoa1BuTk5mZXhUQUxyQ3VRQzJ6THhRa08wLVV4NnVsOS12VEROM3R3VlkybXpvbm5JVEpuaHlycXgzNlNid3N6ZkRNMFFfN0NQTUFSZnFDVzNWbEp6dnBrTXdwYm1Pd3d1UjBrUEZVbVZKZjQ3SUlUaUhQdnQtdnZ2WHU1RG9kMndyWmxqOS16RTE4RGM3ckJGWEkyYXMyWVhRZ1ZPbVpsbzFFWlBDSnROODJRc3VZTlRUTWpDZVE?oc=5",
+      "source": "franceinfo",
+      "pubDate": "2026-11-17T14:28:14.000Z"
+    },
+    {
+      "title": "Orange Ventures lève 250 millions € pour l’IA et la cybersécurité",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQRVZWaXJxbHQwLWdsbWVqM0ZGTEJtVmMxMU9YeXhibENfZTFCeXZGa2pSMUw1WGNrMExLdVZLYXVlcWlLNW1pMEhKQjJDSFRVdU1XMWhuTG5JUVh2enFKVjdKWGFkRFgwR3J0VE55Tm5KckI2aEpRUXBaVWhDbXBwYm9Ba2czMXBGampOMW1OTnl1OEdiSlc0SktTLUNuVlJ0WTF2WkRmWm9HZXJj0gGyAUFVX3lxTE95NXZQZ1dCZWFNMWkySTc0QTNZU25aUVlrQ0tGUmhiOG04WkVVWG9PSEQ4Ym9JY0p0N3N1YzRQQldUMV96a1kwcTZnVVA3TjNya05sb01BTWxCeHltYzAwcl9CQl95Ymo1WFI1bjdkemFuT1Y3aTFZQk5tNTJ2RlQ4bGpRYXdLeFA3TlJGdE9nYk1IQ25ZWXhaNFVOSzhTWGhxQWtqQjBySVRCMjk3eVd1WVE?oc=5",
+      "source": "Silicon.fr",
+      "pubDate": "2026-11-17T12:46:23.000Z"
+    },
+    {
+      "title": "Intelligence artificielle : forte baisse des offres d’emploi dans les métiers les plus exposés",
+      "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPdjdId3lWWXFPem5VdG1OcTU5WW8yUEs2R2VLOUE5aENRWThyXzBTSHhwTnA5YUZlVWVwbndXQ0E5bU50MjVmYnpNUnlCZ2hFNUxnTEFxZjNjOU9UdUhGLVhTdWxFN01paEhfNXptTjFxczFqcHZOdk14NktMcjlvQjVaaTI4RE5TbjFGcU9lYXJRSXREV3VKcUxMQlpzVTVBUFptZUFOTC1ZTlZ3LUIwWFRqdjBzQWZuSVIxc1BpZmo2YWVYUzh1eHFSaDNhaDdDZTQzekM2bWg5UXQ0dGxTSHVnWUgtcnFVcjFlMC03SXBnYlRWd3g4aXgzUG0?oc=5",
+      "source": "Le Parisien",
+      "pubDate": "2026-11-17T09:24:47.000Z"
+    },
+    {
+      "title": "Olala, le premier modèle d’IA de l’entreprise française OVHcloud",
+      "link": "https://www.lemonde.fr/pixels/article/2026/11/17/l-entreprise-francaise-ovhcloud-devoile-son-premier-modele-d-ia-baptise-olala_6812932_4408996.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-17T09:12:33.000Z"
+    },
+    {
+      "title": "Dell étend son « AI Factory » avec Nvidia : passerelle de données pour agents IA, stockage Exascale à refroidissement liquide et gestion de 100 000 appareils",
+      "link": "https://www.zdnet.fr/actualites/dell-etend-son-ai-factory-avec-nvidia-passerelle-de-donnees-pour-agents-ia-stockage-exascale-a-refroidissement-liquide-et-gestion-de-100-000-appareils-507989.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-17T09:11:18.000Z"
+    },
+    {
+      "title": "ZD Tech : L'intelligence artificielle exige des données saines, affirme Box",
+      "link": "https://www.zdnet.fr/publicite/zd-tech-lintelligence-artificielle-exige-des-donnees-saines-affirme-box-507393.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-17T08:11:26.000Z"
+    },
+    {
+      "title": "RH, compta… Ces métiers plombés par l’IA pour lesquels les offres d’emploi chutent",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQVzcyVWZFakFTUVRNMFFrUmR6WW5DQ28xMGdndGVRdWNsRjZVejlieHBWb0hTcUhwd3dpeGd5UUpWTi1rVmlvTktHMm4zZkFGc2t5b21NNXNmT0k5S3YtNld3RXZjdENtMlVQVFZ0Q0J2UFhfRm5scjVjY1RMNEpxUVMzZ1BKQmRlOVJGS2dUX2J5MEF0TmQxV2VxRms1SXVfMUltU1NHVC1ia0tNdlBJ?oc=5",
+      "source": "20 Minutes",
+      "pubDate": "2026-11-17T07:24:00.000Z"
+    },
+    {
+      "title": "IA: dans les métiers les plus exposés, une importante baisse des offres d'emploi",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQUHF2VWYtOUZ6bTdQQTNaUVlJRV9RY0lKMnJXbFVXWXlub0xldXJkR0U2RXVLbXVVRU9TcHlmTkJjREF0N0FtLXpxU3NFN3YyQjI3Vks2eDBCeWVTT3pnVHc0V1ptTEprU1JzaWdZb05lVEowdlpxMFBoSkRjVnNEM0c4Q0ZtRG1wb0pBaTZRNjhxdDNLaHViX0dpTWhSS09kZGVNOHR4akJKQmVyVnFGTERBTk5OeklrUWRfdHZMQWI5em14QzlOMQ?oc=5",
+      "source": "Le Figaro",
+      "pubDate": "2026-11-17T07:15:01.000Z"
+    },
+    {
+      "title": "IA : déjà des dizaines de milliers d’offres d’emploi en moins selon une étude, quels sont les métiers les plus exposés ?",
+      "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPRndSWjZSNVNlWlpQZE5CNjhpQkd3NzVmUlladmV1VmtBc1I2V2ROS1pLT1NQemExdG9xS3o0eUVPZTA3Y01abmNvelRzRlItUzhXVHRvYVoxT1laOWVhN1VMNnZVRzlmSFVNcjE4MlExOTVVekxKTlJ3ZHN0clI5WjNsR2Jtbm5oZzJTUVdjeWZBcEEwaFpqaUVoSTlPYTJSNWNxN1ZlN3ZlN285TlZrdkNPc1E0ZkVzU1p6MjMzZzFXWE9qSGVNemloRUVGSjRyc0ZZc3NiV2Jvd1dWdlVTV1QxQnBvVlVSY2pWb0VsSWsyUmtOMFVJNXNSbWFIX1paZkhJSm9VZDMxNlI2TmtKWWVDcVFGQWt1cGxCU09IUUpPZmdFX08xQllR?oc=5",
+      "source": "Sud Ouest",
+      "pubDate": "2026-11-17T07:03:38.000Z"
+    },
+    {
+      "title": "Orange Ventures accentue son effort pour soutenir les start-up de l'IA et de la cyber",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUThhbGd3ZmU4c3RWeXdZSHVqaXE2bHNRMnJOX0pHRDhCZ0tfWjdPeks1UmNzMXpGRklacE9saU5vU01xQXNxOUJpb3dYbE0tcXFFdHJEVG02Wnl4N0NQbmZVOTdTUkdfN19qZGFsTmZiYi1XTjl2Z2VUTDRPNFM2M1ZoMF80RkhaS2Zrdl9kd2NWT1hFa0FIalk3clNlNW50ZUVtQXhEVk5RbWk0R0lYeHFBUWNQQllpdDlidlRZbWhCMEVmUDNBb2JxMDlDaExaQXc?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-17T07:00:55.000Z"
+    },
+    {
+      "title": "« Fragilisés », « augmentés », « peu touchés »… L’impact de l’IA évalué par 16 000 employeurs pour France Travail",
+      "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZlNHVzNOdEstN1BJM2FCMXBYWmZsQkRIdDlxdUt4dFJZV25vdmlFWE5Fc2dHQzZ2ZW1Gcm9jVHFlUHEzNlhhYjVuQlpjTWo1YUxUZTJSTzNYeHJCTzJWRXN0TnQyNVJYQnJfWWM0SUJUcmxwSDFXOHdpelRGMWRkcVlEOXpIUXlZWkFvOFFQVi1lVjR0R2xxTDFqUW9JRnFRdzA5anZOLTlYLUI1cTZpM3g4cThUOWFUZ1BjRVhMNFhkYVlSLVVfRE83Zm5oSkxfMkhjZnlNTEVQZWRRUkE1VTV6YTJVZmpwN2JnLUZ2bjZQai00OGhielFINVRqN3c5R3RlZkFiNnE?oc=5",
+      "source": "Ouest-France",
+      "pubDate": "2026-11-17T07:00:43.000Z"
+    },
+    {
+      "title": "Faut-il redouter un tsunami social ? France Travail dévoile une étude inédite sur les effets de l'IA",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQOGxtcGc1em5JN3N2ajk0OGt1ZFpwM09odkdtdlpDeGNkV0xRcU4xMDBMOTh5emxLSmdSeGpCcVA1SHgtVFdsOEIwVjJLTFJiRWNQcVc0TmxQMDlZQkowNWZCbUdESndZdnFPcHgxa3lYbEFfTXZ6YlNJSy0zd2xfQWxnVldXQk91UVJCLThtTnJVUDJ2Qk5wNmtscDdaRVdza0NMbW9Ec2g0OUQ0SXBER1kxanZ4VXcxRGE0T0lqZ1JIelg2dndQTXhGSlpKcEJXbVVaMk1xanA1aHhHWUFQeFdoSmZzLXM?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-17T07:00:09.000Z"
+    },
+    {
+      "title": "L’utilisation de l’IA a fait disparaître 100 000 offres d’emploi en 2026, et cela ne concerne pas forcément que les débutants, selon une étude",
+      "link": "https://www.lemonde.fr/economie/article/2026/11/17/l-essor-de-l-ia-ralentit-les-recrutements-des-metiers-les-plus-automatisables-au-dela-des-postes-juniors_6812918_3234.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-17T06:30:09.000Z"
+    },
+    {
+      "title": "Selon France Travail, près de 4 employeurs sur 10 utilisent ou testent l’IA, 70 % d’entre eux attendent que leurs salariés fassent de même",
+      "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxQMnBpVjdFdGZCcG9UZXkxbWg4VVNYeWhPeDkyaGJpUW5QaEJzNmo0blhqbVJZU2owaFczZUR5dVlfMGZzLTZSY3RWOVJFd09qdDVQRjhfRUcteF9sQnhtVlhvQlVWOGtFdkNwRDI0cU96UlYwSGNqc1JhbnY3S21ET01Vd1JXY3FUMlVfUllVQW1rOE9SMkVwWUc0RlN4cUFqdFY4LTZQN0phZ0wyUDdWMGV3WjlNd0ttNGlOOWNqQ0Voc051em15NlJraGFkRkdpMHplTUtSWmd4VVdWakFhUXZnME1jVlI4dEVReVVRQlpLV2xyX0ZaSVRDMVhoUHhvTXdOWkhEVXk5dG1GcTJGQmVFWk1WVk9T?oc=5",
+      "source": "franceinfo",
+      "pubDate": "2026-11-17T05:00:21.000Z"
+    },
+    {
+      "title": "5 façons dont l'IA va transformer la manière dont vous protégez votre entreprise en 2027",
+      "link": "https://www.zdnet.fr/actualites/5-facons-dont-lia-va-transformer-la-maniere-dont-vous-protegez-votre-entreprise-en-2027-508043.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-17T04:11:33.000Z"
+    },
+    {
+      "title": "L'accès à l'IA de votre entreprise peut être vendu pour quelques centimes, méfiez-vous des « LLM Mixers »",
+      "link": "https://www.zdnet.fr/actualites/lacces-a-lia-de-votre-entreprise-peut-etre-vendu-pour-quelques-centimes-mefiez-vous-des-llm-mixers-508025.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-17T02:11:10.000Z"
+    },
     {
       "title": "IA en santé : comment la solution DALVIA Vox (Docaposte) répond aux enjeux de souveraineté et besoins terrain",
       "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOZDRPY1NFSlR6NlhfWmZ0NjZ3RmFfOVZsNEFIVi1fblg5N0NhcFl2OGNVU1Q3dWstMC1SYXVPM1dCN2puMm5EOTVRZGxqejJubE52bW5yaENRbHZtckFocWRFM1I4SWhPUEVZSEd3dTRPT2xmek5tREMyaFhXY18xX2NRX29VQ0FId1ZNZnJsNUVBSjR1Tk1acmd6SjA4MWN3NFNNd2UxV2ZFWExUczVXUVgweThnOWZMcmwteXlSTFM5aEk0dk5Dd3lzRnhQYW92?oc=5",
@@ -159,15 +255,15 @@
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
-      "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
-      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
-      "source": "Le Figaro",
-      "pubDate": "2026-10-26T07:00:00.000Z"
-    },
-    {
       "title": "Le gouvernement néerlandais veut supprimer 25 000 agents publics et les remplacer par de l’intelligence artificielle",
       "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQa1RPWHNReVFnYUdPWXNjbFM3UzRfRUo0ellKOU1BQ256eTlBaEl0cmdfVHJPc0d0N2RBSkpRc3VaMDdmZTJmQ19ULUJFZHhRLWlUaWZxRDIycFB6Y2drRGtibVcyOTF4Qm96eW9TcEtzeUJrbnFGRWptYmdUREswZFRNWFc0RzBJMXU4NE5GZ0NTSS01aTdzQkpTLVdNV3dqRlNJM2pxNDY2eDFLRjhJMVJ2YXNFSHR5WUlBbDIwUkprOVkzejBoeW9BaG52QTZFeVc2UDRNUzRIVTF6VDhtbTc0dkpnS1JlaGJ3d2FTSGV1dEkwaEJpbVRGcG1HQ3NCdlpkaTRJRy05RmFFQ1U2R2p3R0dIMTBRaWQ5VXpIdXRYWDg?oc=5",
       "source": "Le Parisien",
+      "pubDate": "2026-10-26T07:00:00.000Z"
+    },
+    {
+      "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
+      "source": "Le Figaro",
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
