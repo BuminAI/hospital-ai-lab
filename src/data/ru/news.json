@@ -1,12 +1,18 @@
 {
-  "updatedAt": "2026-11-17T13:47:01.266Z",
-  "source": "Медвестник · Vademecum · Фармвестник · Zdrav.ru · Rusbase",
+  "updatedAt": "2026-11-17T22:35:27.464Z",
+  "source": "Медвестник·Vademecum",
   "items": [
     {
       "title": "Apple запустит исследование медицинского ИИ: около 200 тыс. человек будут оценивать ответы нейросети в течение года",
       "link": "https://rb.ru/news/apple-zapustit-issledovanie-medicinskogo-ii-okolo-200-tys-chelovek-budut-ocenivat-otvety-nejroseti-v-techenie-goda/",
       "source": "Rusbase",
       "pubDate": "2026-11-17T09:10:00.000Z"
+    },
+    {
+      "title": "Превышение возраста сердца связали со смертностью от ССЗ и деменции",
+      "link": "https://medvestnik.ru/content/articles/prevyshenie-vozrasta-serdca-ii-svyazali-so-smertnostu-ot-ssz-i-demencii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-11-17T09:00:00.000Z"
     },
     {
       "title": "Zoom инвестировала в экосистему медицинских устройств и ИИ для телемедицины",
