@@ -1,17 +1,39 @@
 {
-  "checkedAt": "2026-11-15T23:11:49.863Z",
-  "total": 78,
-  "ok": 76,
+  "checkedAt": "2026-11-17T02:07:03.859Z",
+  "total": 83,
+  "ok": 78,
   "unknown": 2,
   "unknownList": [
     {
-      "url": "https://www.pewresearch.org/short-reads/2026/08/25/americans-want-transparency-when-ai-is-used-in-their-healthcare/",
+      "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
       "status": 403
     },
     {
-      "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
-      "status": 403
+      "url": "https://www.nfa.gov.tw/pro/index.php?code=list&flag=detail&ids=1470&article_id=10345",
+      "status": 0
     }
   ],
-  "dead": []
+  "dead": [
+    {
+      "url": "https://www.mohw.gov.tw/cp-18-88415-1.html",
+      "status": 404,
+      "files": [
+        "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
+      ]
+    },
+    {
+      "url": "https://www.mohw.gov.tw/cp-18-88416-1.html",
+      "status": 404,
+      "files": [
+        "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
+      ]
+    },
+    {
+      "url": "https://www.mohw.gov.tw/cp-18-88417-1.html",
+      "status": 404,
+      "files": [
+        "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
+      ]
+    }
+  ]
 }
