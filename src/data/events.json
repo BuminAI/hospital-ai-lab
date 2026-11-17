@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-17T08:24:01.098Z",
+  "updatedAt": "2026-11-17T17:49:49.473Z",
   "items": [
+    {
+      "title": "경희의료원, 제3회 의료 AI 콜로키움 개최 外",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259353",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-17T21:48:09.000Z"
+    },
+    {
+      "title": "“의료 AI, 기술 도입만으론 부족”…개도국 맞춤형 적용체계 필요",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044634",
+      "source": "청년의사",
+      "pubDate": "2026-11-17T18:08:54.000Z"
+    },
     {
       "title": "경희의료원, ‘2026 의료 AI 콜로키움’ 개최…개도국 ODA 사업 연계 모색",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242555",
@@ -38,6 +50,12 @@
       "pubDate": "2026-11-17T15:15:16.000Z"
     },
     {
+      "title": "일동바이오, 프로바이오틱스 제조공정 공동연구 발표",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016642",
+      "source": "의학신문",
+      "pubDate": "2026-11-17T14:44:11.000Z"
+    },
+    {
       "title": "식약처, AI 기반 바이오의약품 품질관리 혁신 논의",
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549189",
       "source": "약사공론",
@@ -47,7 +65,9 @@
       "title": "일동바이오사이언스·가톨릭대 연구팀, 제조 과정 변수와 생균 수 변화 연관성 규명",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98958",
       "source": "e-의료정보",
-      "pubDate": "2026-11-17T12:27:22.000Z"
+      "pubDate": "2026-11-17T12:27:22.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "일동바이오사이언스, AI 활용 유산균 생산·품질 예측",
@@ -487,7 +507,7 @@
     },
     {
       "title": "「2026 헬스케어 AI 투자포럼」 투자유치 발표(IR 피칭) 희망기업 모집 공고",
-      "link": "https://www.khidi.or.kr/board/view?pageNum=1&rowCnt=10&no1=933&linkId=48951083&menuId=MENU01108&maxIndex=00489525039998&minIndex=00489501429998&schType=0&schText=&schStartDate=&schEndDate=&boardStyle=&categoryId=&continent=&country=",
+      "link": "https://www.khidi.or.kr/board/view?pageNum=1&rowCnt=10&no1=934&linkId=48951083&menuId=MENU01108&maxIndex=00489529179998&minIndex=00489503999998&schType=0&schText=&schStartDate=&schEndDate=&boardStyle=&categoryId=&continent=&country=",
       "source": "한국보건산업진흥원",
       "pubDate": "2026-10-19T15:00:00.000Z"
     },
@@ -786,5 +806,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "청년의사 · 라포르시안 · 의학신문 · e-의료정보 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · 뉴시스 · 보건복지부 · 매일경제"
+  "source": "청년의사 · 의학신문 · e-의료정보 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 뉴시스 · 보건복지부"
 }
