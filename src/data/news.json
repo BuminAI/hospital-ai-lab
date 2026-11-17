@@ -1,7 +1,317 @@
 {
-  "updatedAt": "2026-11-16T20:28:11.225Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · 의학신문 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · ZDNet Korea · AI타임스 · 매일경제 · 뉴시스 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-17T03:52:52.349Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 한국경제 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 뉴시스 · 연합뉴스 · 매일경제 · 보건복지부",
   "items": [
+    {
+      "title": "일동바이오사이언스·가톨릭대 연구팀, 제조 과정 변수와 생균 수 변화 연관성 규명",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98958",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-17T12:27:22.000Z"
+    },
+    {
+      "title": "일동바이오사이언스, AI 활용 유산균 생산·품질 예측",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422016",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T12:24:19.000Z"
+    },
+    {
+      "title": "메디아나, 독일 'MEDICA 2026' 모니터링 솔루션…글로벌 공략",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422013",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T12:03:54.000Z"
+    },
+    {
+      "title": "[동정] 강남성심 김중일 교수팀, 정형외과컴퓨터수술학회서 2년 연속 수상",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415518",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-17T12:02:19.000Z"
+    },
+    {
+      "title": "의료기기 안전관리의 3대 축, 촘촘한 유통 그물망 짜였다",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80806",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-17T12:02:00.000Z"
+    },
+    {
+      "title": "암 치료도 AI 시대…유럽종양학회서 임상 성과 잇따라 공개",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422005",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T11:53:00.000Z"
+    },
+    {
+      "title": "메디인테크, 338억 시리즈C 투자 유치…“수술 로봇 개발 추진”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242526",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T11:26:05.000Z"
+    },
+    {
+      "title": "여의도성모병원·숭실대, 임상의학 공동 심포지엄 개최",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242532",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T11:17:14.000Z"
+    },
+    {
+      "title": "식약처, AI 활용한 백신 제조·품질관리 혁신 방안 논의",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044606",
+      "source": "청년의사",
+      "pubDate": "2026-11-17T11:08:34.000Z"
+    },
+    {
+      "title": "프로메디우스, CB인사이트 ‘세계 유망 디지털 헬스 50’ 선정",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242525",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T10:43:00.000Z"
+    },
+    {
+      "title": "딥노이드, 폴스타헬스케어·21세기영상의학과와 원격 판독 고도화 추진",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242519",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T10:16:55.000Z"
+    },
+    {
+      "title": "대한약국학회, 'AI 시대 약사 역할 조명' 정기학술대회 개최",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549122",
+      "source": "약사공론",
+      "pubDate": "2026-11-17T10:12:53.000Z"
+    },
+    {
+      "title": "[행사] 가톨릭대 보건의료경영대학원, 제5차 학술세미나 개최",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415506",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-17T09:52:03.000Z"
+    },
+    {
+      "title": "보건산업진흥원, AI 신약개발 경진대회 우수팀 7개 선정",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016571",
+      "source": "의학신문",
+      "pubDate": "2026-11-17T09:45:17.000Z"
+    },
+    {
+      "title": "부산 핑이비인후과 김나령 음성언어치료사, 한국언어치료학회 학술대회 우수논문상 수상",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242521",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T09:45:00.000Z"
+    },
+    {
+      "title": "가톨릭대 보건의료경영대학원, AI 활용 학술세미나 개최",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016576",
+      "source": "의학신문",
+      "pubDate": "2026-11-17T09:43:28.000Z"
+    },
+    {
+      "title": "숨빗AI, 시리즈A 120억 투자 유치…“생성형 AI 제품군 확대”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242516",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T09:38:00.000Z"
+    },
+    {
+      "title": "한림대강남성심병원 김중일 교수팀, 대한정형외과컴퓨터수술학회 학술상 수상",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016584",
+      "source": "의학신문",
+      "pubDate": "2026-11-17T09:37:18.000Z"
+    },
+    {
+      "title": "보산진, '제4회 AI 신약개발 경진대회' 시상식…7개 팀 수상",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421985",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T09:29:01.000Z"
+    },
+    {
+      "title": "의료 AI 논문만 '17편'…북미영상의학회 정조준한 루닛",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415501",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-17T09:18:51.000Z"
+    },
+    {
+      "title": "로킷헬스케어, 이노피아테크 인수 추진…스마트병원 시장 진출",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415499",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-17T09:18:42.000Z"
+    },
+    {
+      "title": "국가생명윤리정책원-한국연구재단, IRB 활성화 등 업무협약 체결",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242517",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T09:10:00.000Z"
+    },
+    {
+      "title": "수술 흐름 읽는 AI 개발, 지능형 수술로봇 기반 마련",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98933",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-17T09:00:59.000Z"
+    },
+    {
+      "title": "대한약국학회, 12월 6일 정기학술대회…AI 시대 약사 역할 조명",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421976",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T08:59:34.000Z"
+    },
+    {
+      "title": "루닛, RSNA 2026서 AI 진단 솔루션 연구 초록 17편 발표",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242513",
+      "source": "라포르시안",
+      "pubDate": "2026-11-17T08:53:11.000Z"
+    },
+    {
+      "title": "노을, KOICA 사업 선정…파나마서 31억원 규모 검진 추진",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=421961",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-17T08:16:19.000Z"
+    },
+    {
+      "title": "수술 상황 읽는 'AI 눈' 개발",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415494",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-17T08:08:18.000Z"
+    },
+    {
+      "title": "계명대 동산병원, 다낭콩팥병 ‘AI 관리 플랫폼’ 구축",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016555",
+      "source": "의학신문",
+      "pubDate": "2026-11-17T07:27:48.000Z"
+    },
+    {
+      "title": "온코소프트, CB인사이트 '2026 디지털 헬스 50' 선정",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80828",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-17T06:30:00.000Z"
+    },
+    {
+      "title": "의료AI, '개별 수가보다 기관 성과 보상' 가능성",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016558",
+      "source": "의학신문",
+      "pubDate": "2026-11-17T06:00:00.000Z"
+    },
+    {
+      "title": "잘나가던 1세대 의료 AI 기업들…자금난에 다시 발목",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415480",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-17T05:59:21.000Z",
+      "popular": true,
+      "rank": 8
+    },
+    {
+      "title": "[기자수첩] 건보공단 특사경 ‘쇼미더쩐’이 놓친 것은 신뢰다",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252823",
+      "source": "병원신문",
+      "pubDate": "2026-11-17T05:55:00.000Z",
+      "popular": true,
+      "rank": 3
+    },
+    {
+      "title": "AI Healthcare and Medical Devices Gain Ground in Biotech Investment",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80813",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-17T04:07:42.000Z"
+    },
+    {
+      "title": "'AI 준수기관 확인마크'로 직원 AI 윤리 무장한 보훈공단",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252855",
+      "source": "병원신문",
+      "pubDate": "2026-11-17T02:38:00.000Z"
+    },
+    {
+      "title": "“1500만원만 있으면 의대·SKY 합격”…대치맘 AI 부정행위 브로커 고용설 확산",
+      "link": "https://www.mk.co.kr/news/society/12211048",
+      "source": "매일경제",
+      "pubDate": "2026-11-17T02:31:18.000Z"
+    },
+    {
+      "title": "\"이집트서 희귀질환 진단\"…쓰리빌리언, 컨퍼런스",
+      "link": "https://www.newsis.com/view/NISX20261117_0003871252",
+      "source": "뉴시스",
+      "pubDate": "2026-11-17T02:30:28.000Z"
+    },
+    {
+      "title": "쓰리빌리언, 이집트서 희귀질환 유전진단 컨퍼런스 개최",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171895",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-17T02:11:55.000Z"
+    },
+    {
+      "title": "강남언니, 글로벌 유저 1000만 명 돌파…예약 1300만 건",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171894",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-17T01:59:07.000Z"
+    },
+    {
+      "title": "\"돈 쏟아부은 AI, 이제 성과 내놔라\"…내년에 시장 판도 확 바뀐다",
+      "link": "https://zdnet.co.kr/view/?no=20261117105056",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-17T01:50:56.000Z"
+    },
+    {
+      "title": "프로메디우스, CB인사이트 '디지털 헬스 50' 선정",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171893",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-17T01:34:19.000Z"
+    },
+    {
+      "title": "여의도성모병원·숭실대, 의료현장과 AI 잇는 공동연구 확대",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=252842",
+      "source": "병원신문",
+      "pubDate": "2026-11-17T01:31:00.000Z"
+    },
+    {
+      "title": "딥노이드, 폴스타헬스케어와 AI 원격판독 고도화 맞손",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171892",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-17T01:19:35.000Z"
+    },
+    {
+      "title": "\"혁신과 규제조화\"…AI 바이오의약품 워크숍 개최",
+      "link": "https://www.newsis.com/view/NISX20261117_0003871050",
+      "source": "뉴시스",
+      "pubDate": "2026-11-17T01:05:57.000Z"
+    },
+    {
+      "title": "\"AI 투자 늘어도 성과는 글쎄…보안 리스크부터 잡아야 진짜 돈 번다\"",
+      "link": "https://www.newsis.com/view/NISX20261117_0003870938",
+      "source": "뉴시스",
+      "pubDate": "2026-11-17T00:49:39.000Z"
+    },
+    {
+      "title": "\"원격판독 협력\"…딥노이드·폴스타헬스케어 '맞손'",
+      "link": "https://www.newsis.com/view/NISX20261117_0003870924",
+      "source": "뉴시스",
+      "pubDate": "2026-11-17T00:36:40.000Z"
+    },
+    {
+      "title": "\"수술 흐름까지 읽는다\"…삼성서울, 'AI 눈' 개발",
+      "link": "https://www.newsis.com/view/NISX20261117_0003870857",
+      "source": "뉴시스",
+      "pubDate": "2026-11-17T00:11:50.000Z"
+    },
+    {
+      "title": "노을 파나마 이동검진 추진…5년간 31억원 규모",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171888",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-17T00:04:15.000Z"
+    },
+    {
+      "title": "루닛 유방암 AI로 추가검사 대상 선별…RSNA에서 발표",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171885",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-16T23:55:23.000Z"
+    },
+    {
+      "title": "\"RSNA 2026 참가\"…루닛, 의료AI 연구 17편 발표",
+      "link": "https://www.newsis.com/view/NISX20261117_0003870808",
+      "source": "뉴시스",
+      "pubDate": "2026-11-16T23:52:30.000Z"
+    },
+    {
+      "title": "루닛, 북미영상의학회서 AI 진단 솔루션 연구초록 17편 공개한다",
+      "link": "https://www.hankyung.com/article/202611170826i",
+      "source": "한국경제",
+      "pubDate": "2026-11-16T23:34:23.000Z"
+    },
+    {
+      "title": "\"쓸때는 좋았는데\" 병원 AI 도입 이후 관리비용 급부상",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171877",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-16T20:30:00.000Z"
+    },
     {
       "title": "[건강포커스] \"베트남전서 고엽제 직접 다룬 미군, 파킨슨병 위험 99% 높아\"",
       "link": "https://www.yna.co.kr/view/AKR20261116136100017",
@@ -44,7 +354,9 @@
       "title": "신경외과병원協, 제9차 척추신경주사치료 연수강좌 성료",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415486",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-16T16:25:14.000Z"
+      "pubDate": "2026-11-16T16:25:14.000Z",
+      "popular": true,
+      "rank": 5
     },
     {
       "title": "[실적] 뷰노, 3분기 매출액 178억… '딥카스' 87% 비중 차지",
@@ -212,7 +524,9 @@
       "title": "[실적]셀바스AI, 3분기 영업익 80% 증가…의료기기 사업 성장",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80796",
       "source": "히트뉴스",
-      "pubDate": "2026-11-16T08:21:06.000Z"
+      "pubDate": "2026-11-16T08:21:06.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "셀바스AI, 3분기 영업이익 18.6억원…전년 대비 80% 증가",
