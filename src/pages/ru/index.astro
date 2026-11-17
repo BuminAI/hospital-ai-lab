@@ -19,7 +19,6 @@ import newsData from '../../data/ru/news.json';
 import linkHealth from '../../data/ru/link-health.json';
 import HomeSeries from '../../components/HomeSeries.astro';
 import { withBase } from '../../utils/site';
-import AdBanners from '../../components/AdBanners.astro';
 import ViewCounts from '../../components/ViewCounts.astro';
 import { getResolvedSeries } from '../../utils/series';
 import { getRuUpdates, KIND_LABEL } from '../../utils/ru-updates';
@@ -162,8 +161,6 @@ const allMenu = navConfig
       </ul>
     </section>
   </Fragment>
-
-  <AdBanners label="Реклама" />
 
   <section class="th-sec" aria-labelledby="th-tasks-h">
     <h2 class="th-h" id="th-tasks-h"><span>Когда вы столкнулись с этим</span><small>BY PURPOSE</small></h2>

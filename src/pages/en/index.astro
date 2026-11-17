@@ -19,7 +19,6 @@ import newsData from '../../data/en/news.json';
 import linkHealth from '../../data/en/link-health.json';
 import HomeSeries from '../../components/HomeSeries.astro';
 import { withBase } from '../../utils/site';
-import AdBanners from '../../components/AdBanners.astro';
 import ViewCounts from '../../components/ViewCounts.astro';
 import { getResolvedSeries } from '../../utils/series';
 import { getEnUpdates, KIND_LABEL } from '../../utils/en-updates';
@@ -165,8 +164,6 @@ const allMenu = navConfig
       </ul>
     </section>
   </Fragment>
-
-  <AdBanners label="Advertisement" />
 
   <section class="th-sec" aria-labelledby="th-tasks-h">
     <h2 class="th-h" id="th-tasks-h"><span>When you face this</span><small>BY PURPOSE</small></h2>

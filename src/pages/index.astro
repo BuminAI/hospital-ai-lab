@@ -258,40 +258,7 @@ const homeSeries = (await getResolvedSeries())
     </div>
   </section>
 
-  <!-- 광고 배너(2026-11-17 오너 지시: 한국어 홈에만 게시, 작게 두 장 나란히). 다른 언어판 홈에는 넣지 않는다.
-       광고임을 표시하고 rel=sponsored를 단다. 내릴 때는 이 블록과 public/ads/ 이미지를 함께 지운다.
-       부민병원 배너는 https://www.bumin.co.kr/ 로 연결한다. 화면의 '광고' 글자는 오너 지시(2026-11-17)로 뺐다. -->
-  <aside class="ad-banner-wrap" aria-label="광고">
-    <div class="container ad-banner-row">
-      <a
-        class="ad-banner"
-        href="https://blog.naver.com/namujangi"
-        target="_blank"
-        rel="sponsored nofollow noopener"
-      >
-        <img
-          src={withBase('/ads/namujangi-banner.webp')}
-          alt="광고: 집수리 전문가 나무장이 김반장. 주방가구 리폼, 목공·욕실 수리, 전기·조명. 견적 문의 010-2456-6909"
-          width="1000"
-          height="254"
-          loading="lazy"
-          decoding="async"
-        />
-      </a>
-      <a class="ad-banner" href="https://www.bumin.co.kr/" target="_blank" rel="noopener">
-        <img
-          src={withBase('/ads/bumin-hospital-banner.webp')}
-          alt="광고: 부민병원 그룹(BUMIN HOSPITAL GROUP)"
-          width="1000"
-          height="254"
-          loading="lazy"
-          decoding="async"
-        />
-      </a>
-    </div>
-  </aside>
-
-  <!-- 입문 가이드 안내: 첫 방문자용 콘텐츠라 최상단에 배치 -->
+    <!-- 입문 가이드 안내: 첫 방문자용 콘텐츠라 최상단에 배치 -->
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -864,34 +831,6 @@ const homeSeries = (await getResolvedSeries())
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-primary);
-  }
-
-  /* ── 광고 배너(한국어 홈 전용, 작게 두 장) ── */
-  .ad-banner-wrap {
-    margin-block-start: var(--space-section);
-  }
-  .ad-banner-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-  .ad-banner {
-    position: relative;
-    display: block;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    background: #fff;
-  }
-  .ad-banner img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  @media (max-width: 640px) {
-    .ad-banner-row {
-      grid-template-columns: 1fr;
-    }
   }
 
   /* ── 섹션 공통 ── */
