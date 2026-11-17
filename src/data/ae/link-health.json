@@ -1,23 +1,23 @@
 {
-  "checkedAt": "2026-11-15T23:24:43.668Z",
+  "checkedAt": "2026-11-17T02:30:40.763Z",
   "total": 19,
   "ok": 7,
   "unknown": 12,
   "unknownList": [
-    {
-      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
-      "status": 0
-    },
-    {
-      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
-      "status": 0
-    },
     {
       "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx",
       "status": 0
     },
     {
       "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
+      "status": 0
+    },
+    {
+      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "status": 0
+    },
+    {
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
       "status": 0
     },
     {
@@ -37,19 +37,19 @@
       "status": 0
     },
     {
-      "url": "https://www.doh.gov.ae/en/resources/standards-rss-feed",
-      "status": 0
-    },
-    {
       "url": "https://www.doh.gov.ae/en/resources/standards",
       "status": 0
     },
     {
-      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2025/Data-Storage-and-Retention_Standard.ashx",
+      "url": "https://www.doh.gov.ae/en/resources/standards-rss-feed",
       "status": 0
     },
     {
       "url": "https://www.doh.gov.ae/en/resources/policies",
+      "status": 0
+    },
+    {
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2025/Data-Storage-and-Retention_Standard.ashx",
       "status": 0
     }
   ],
