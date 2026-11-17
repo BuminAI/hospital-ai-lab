@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-16T20:27:36.266Z",
+  "updatedAt": "2026-11-17T04:29:01.826Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Проверяйте ответы нейросетей с помощью нового сервиса от «КонсультантПлюс»",
+      "link": "https://www.cnews.ru/news/line/2026-11-17_proveryajte_otvety_nejrosetej",
+      "source": "CNews",
+      "pubDate": "2026-11-17T04:10:00.000Z"
+    },
+    {
+      "title": "OpenAI ответит в суде за своих сорвавшихся с поводка ИИ-агентов — прокуроров заинтересовал взлом Hugging Face",
+      "link": "https://3dnews.ru/1151380/openai-otvetit-v-sude-za-svoih-sorvavshihsya-s-povodka-iiagentov-prokurorov-zainteresoval-vzlomhugging-face",
+      "source": "3DNews",
+      "pubDate": "2026-11-16T21:02:00.000Z"
+    },
     {
       "title": "Легкие LLM на CPU, часть 2: какую модель ставить на VPS без видеокарты",
       "link": "https://habr.com/ru/articles/1108600/?utm_campaign=1108600&utm_source=habrahabr&utm_medium=rss",
@@ -9,7 +21,7 @@
       "pubDate": "2026-11-16T19:24:01.000Z"
     },
     {
-      "title": "Почему 94% ИИ-ответов игнорируют сайты самих компаний",
+      "title": "Почему 94% ИИ‑ответов игнорируют сайты самих компаний",
       "link": "https://habr.com/ru/articles/1108582/?utm_campaign=1108582&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-16T17:54:23.000Z"
@@ -57,7 +69,7 @@
       "pubDate": "2026-11-16T10:46:00.000Z"
     },
     {
-      "title": "MCP: «USB-порт» для ИИ-агентов и почему его нужно охранять",
+      "title": "MCP: «USB‑порт» для ИИ‑агентов и почему его нужно охранять",
       "link": "https://habr.com/ru/companies/itglobalcom/articles/1108366/?utm_campaign=1108366&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-16T10:44:21.000Z"
@@ -1789,18 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-10-28_just_ai_zapuskaet_jay_agents_universalnuyu",
       "source": "CNews",
       "pubDate": "2026-10-28T12:01:00.000Z"
-    },
-    {
-      "title": "Исследование: расходы бизнеса и госсектора на ИИ выросли вдвое",
-      "link": "https://www.cnews.ru/news/line/2026-10-28_issledovanie_rashody_biznesa",
-      "source": "CNews",
-      "pubDate": "2026-10-28T11:26:00.000Z"
-    },
-    {
-      "title": "ИИ может взломать то, что десятилетиями защищало банковские счета и данные, предупредили математики",
-      "link": "https://3dnews.ru/1150553/ii-moget-vzlomat-to-chto-desyatiletiyami-zashchishchalo-bankovskie-scheta-i-dannie-predupredili-matematiki",
-      "source": "3DNews",
-      "pubDate": "2026-10-28T11:00:00.000Z"
     }
   ]
 }
