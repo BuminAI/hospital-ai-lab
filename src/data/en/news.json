@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-16T22:29:30.304Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · Federal Register · JAMA Network",
+  "updatedAt": "2026-11-17T04:45:50.512Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · Federal Register · JAMA Network · Healthcare Business Today",
   "items": [
+    {
+      "title": "Inside the Ray-Tracing Workflow: How Dello Russo Laser Vision’s AI LASIK System Plans Each Procedure",
+      "link": "https://www.healthcarebusinesstoday.com/inside-the-ray-tracing-workflow-how-dello-russo-laser-visions-ai-lasik-system-plans-each-procedure/",
+      "source": "Healthcare Business Today",
+      "pubDate": "2026-11-17T01:43:36.000Z"
+    },
     {
       "title": "Cook Children’s names chief data, analytics officer",
       "link": "https://www.beckershospitalreview.com/hospital-executive-moves/cook-childrens-names-chief-data-analytics-officer/",
@@ -15,10 +21,22 @@
       "pubDate": "2026-11-16T21:39:55.000Z"
     },
     {
+      "title": "HLTH26: OpenAI Expands ChatGPT for Healthcare: Computer-Use Agents, 99% Clinical Safety Benchmarks, and 20+ Integrated Health Tech Plugins",
+      "link": "https://hitconsultant.net/2026/11/16/openai-launches-healthcare-computer-use-agents-clinical-search-20-plugins/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-16T16:11:00.000Z"
+    },
+    {
       "title": "Health AI spend doubles as providers invest in clinical copilots, front-office AI",
       "link": "https://www.healthcaredive.com/news/health-ai-spend-doubles-as-providers-invest-in-clinical-copilots-front-off/874752/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-16T15:57:01.000Z"
+    },
+    {
+      "title": "Remedy Robotics Raises $62M to Advance Remote Endovascular Stroke Robotics Toward FDA Approval",
+      "link": "https://hitconsultant.net/2026/11/16/remedy-robotics-raises-62-million-series-b-dcvc-endovascular-stroke-robotics/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-16T15:14:00.000Z"
     },
     {
       "title": "Safety and Regulation Must Lead the Way in Healthcare AI Innovation",
@@ -31,6 +49,12 @@
       "link": "https://www.healthcaredive.com/news/apple-openevidence-conversational-health-ai-study-app/874714/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-16T14:32:50.000Z"
+    },
+    {
+      "title": "M&A: Credo Health Acquires Affineon Health and Relaunches as Pajama.ai to Reclaim 40 Hours Per Physician Monthly",
+      "link": "https://hitconsultant.net/2026/11/16/credo-health-acquires-affineon-launches-pajama-ai-end-doctors-pajama-time/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-16T14:11:00.000Z"
     },
     {
       "title": "Healthcare struggles to scale AI past pilot stage: Google report",
