@@ -7,7 +7,42 @@
   },
   "sections": [
     {
-      "heading": "TIP 06 — Beri AI \"kriteria pemeriksaan\" untuk draf, lalu minta diperbaiki",
+      "heading": "TIP 07 — Tentukan dalam satu baris AI menjawab dari sudut pandang siapa",
+      "body": "Satu kalimat tentang peran sudah mengubah nada dan fokus jawaban.",
+      "items": []
+    },
+    {
+      "heading": "Permintaannya sama, tetapi gaya jawabannya berbeda tiap kali",
+      "body": "Setiap kali Anda meminta draf pengumuman untuk pasien, hasilnya kadang kaku seperti surat edaran dan kadang seperti buku petunjuk, sehingga Anda harus menulis ulang? Jika AI tidak tahu tulisan itu dibuat dari sudut pandang siapa, gayanya mudah berubah-ubah.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: sebutkan peran lebih dulu dalam satu kalimat",
+      "body": "Panduan resmi Anthropic (perusahaan pembuat Claude) pada bagian Give Claude a role menjelaskan bahwa peran yang ditetapkan memfokuskan perilaku dan nada Claude sesuai kebutuhan, dan satu kalimat saja sudah membuat perbedaan. Panduan menjelaskannya untuk system prompt (instruksi yang ditetapkan pengembang di awal), tetapi kalimat yang sama mudah dicoba sebagai baris pertama di jendela obrolan. Ganti isi dalam kurung sesuai kebutuhan.",
+      "items": [
+        "Anda adalah editor yang merapikan tulisan staf pendaftaran dan kasir rumah sakit. (Isi permintaan)"
+      ]
+    },
+    {
+      "heading": "Satu hal lagi: tulis juga siapa pembacanya",
+      "body": "Jika setelah peran Anda menambahkan pembaca, misalnya pembaca adalah lansia yang pertama kali datang ke rumah sakit, arahnya menjadi lebih jelas. Kalimat ini bukan rumusan dari panduan, melainkan penerapan dari metode di atas, jadi baca hasilnya dan sesuaikan.",
+      "items": []
+    },
+    {
+      "heading": "Hal yang perlu diingat",
+      "body": "Menetapkan peran tidak menjamin isi jawaban benar. Periksa tanggal, jumlah uang, dan aturan langsung pada dokumen aslinya. Jangan memasukkan nama pasien atau data pribadi lain ke layanan AI; periksa dulu pedoman keamanan informasi di rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, Prompting best practices, bagian Give Claude a role (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Tanggal pemeriksaan sumber: 18 November 2026"
+      ]
+    },
+    {
+      "heading": "TIP 06— Beri AI \"kriteria pemeriksaan\" untuk draf, lalu minta diperbaiki",
       "body": "Coba bagi permintaan menjadi tiga langkah: draf, pemeriksaan sesuai kriteria, lalu perbaikan.",
       "items": []
     },
