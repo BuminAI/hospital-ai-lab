@@ -1,12 +1,42 @@
 {
-  "updatedAt": "2026-11-17T04:45:50.512Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · Federal Register · JAMA Network · Healthcare Business Today",
+  "updatedAt": "2026-11-17T14:52:12.266Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · Federal Register · JAMA Network · Healthcare Business Today · NPR",
   "items": [
+    {
+      "title": "Isomorphic Labs raises $5B as it looks to take drug candidates to clinical trials",
+      "link": "https://techcrunch.com/2026/11/17/isomorphic-labs-raises-5b-as-it-looks-to-take-drug-candidates-to-clinical-trials/",
+      "source": "TechCrunch",
+      "pubDate": "2026-11-17T14:50:58.000Z"
+    },
+    {
+      "title": "Medicare Pays For the AI Eye Scan — Nobody Pays For What Comes Next",
+      "link": "https://medcitynews.com/2026/11/medicare-pays-for-the-ai-eye-scan-nobody-pays-for-what-comes-next/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-17T14:18:00.000Z"
+    },
+    {
+      "title": "I'm a human doctor with human intelligence. But I sure do like my AI notetaker",
+      "link": "https://www.npr.org/2026/11/17/nx-s1-6037556/medicine-ai-doctor-notetaker-scribe",
+      "source": "NPR",
+      "pubDate": "2026-11-17T11:00:00.000Z"
+    },
+    {
+      "title": "Doc at HLTH: I Can’t Imagine Seeing Patients Without AI",
+      "link": "https://medcitynews.com/2026/11/doc-at-hlth-i-cant-imagine-seeing-patients-without-ai/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-17T05:22:47.000Z"
+    },
     {
       "title": "Inside the Ray-Tracing Workflow: How Dello Russo Laser Vision’s AI LASIK System Plans Each Procedure",
       "link": "https://www.healthcarebusinesstoday.com/inside-the-ray-tracing-workflow-how-dello-russo-laser-visions-ai-lasik-system-plans-each-procedure/",
       "source": "Healthcare Business Today",
       "pubDate": "2026-11-17T01:43:36.000Z"
+    },
+    {
+      "title": "TestDynamics raises $9M to expand vendor neutral imaging AI platform",
+      "link": "https://radiologybusiness.com/topics/healthcare-management/healthcare-economics/testdynamics-raises-9m-expand-vendor-neutral-imaging-ai-platform",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-17T01:30:46.000Z"
     },
     {
       "title": "Cook Children’s names chief data, analytics officer",
@@ -73,6 +103,18 @@
       "link": "https://radiologybusiness.com/topics/artificial-intelligence/fda-clears-new-ai-software-brain-aneurysm-detection",
       "source": "Radiology Business",
       "pubDate": "2026-11-16T07:41:09.000Z"
+    },
+    {
+      "title": "Opportunistic Risk Assessment of Major Osteoporotic Fractures from Routine Chest Radiographs Using Deep Learning",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIoa2600590?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-11-16T06:00:00.000Z"
+    },
+    {
+      "title": "A Meta-Research Review of Statistical Practices for Image-Reliant AI Tools Predicting Lung Cancer Outcomes",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIra2600064?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-11-16T06:00:00.000Z"
     },
     {
       "title": "Apple launches new app to study how people use AI for health",
