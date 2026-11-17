@@ -260,7 +260,7 @@ const homeSeries = (await getResolvedSeries())
 
   <!-- 광고 배너(2026-11-17 오너 지시: 한국어 홈에만 게시, 작게 두 장 나란히). 다른 언어판 홈에는 넣지 않는다.
        광고임을 표시하고 rel=sponsored를 단다. 내릴 때는 이 블록과 public/ads/ 이미지를 함께 지운다.
-       부민병원 배너는 링크 주소를 받지 못해 링크 없이 이미지로만 둔다. -->
+       부민병원 배너는 https://www.bumin.co.kr/ 로 연결한다. 화면의 '광고' 글자는 오너 지시(2026-11-17)로 뺐다. -->
   <aside class="ad-banner-wrap" aria-label="광고">
     <div class="container ad-banner-row">
       <a
@@ -277,9 +277,8 @@ const homeSeries = (await getResolvedSeries())
           loading="lazy"
           decoding="async"
         />
-        <span class="ad-badge">광고</span>
       </a>
-      <div class="ad-banner">
+      <a class="ad-banner" href="https://www.bumin.co.kr/" target="_blank" rel="noopener">
         <img
           src={withBase('/ads/bumin-hospital-banner.webp')}
           alt="광고: 부민병원 그룹(BUMIN HOSPITAL GROUP)"
@@ -288,8 +287,7 @@ const homeSeries = (await getResolvedSeries())
           loading="lazy"
           decoding="async"
         />
-        <span class="ad-badge">광고</span>
-      </div>
+      </a>
     </div>
   </aside>
 
@@ -889,17 +887,6 @@ const homeSeries = (await getResolvedSeries())
     display: block;
     width: 100%;
     height: auto;
-  }
-  .ad-badge {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    padding: 1px 6px;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    font-size: 11px;
-    line-height: 1.5;
   }
   @media (max-width: 640px) {
     .ad-banner-row {
