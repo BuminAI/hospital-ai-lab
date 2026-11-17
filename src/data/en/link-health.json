@@ -1,8 +1,13 @@
 {
-  "checkedAt": "2026-11-14T22:46:11.270Z",
-  "total": 37,
-  "ok": 37,
-  "unknown": 0,
-  "unknownList": [],
+  "checkedAt": "2026-11-17T02:08:21.680Z",
+  "total": 43,
+  "ok": 42,
+  "unknown": 1,
+  "unknownList": [
+    {
+      "url": "https://www.healthcaredive.com/news/healthcare-struggles-to-scale-ai-past-pilot-stage-google-report/874609/",
+      "status": 403
+    }
+  ],
   "dead": []
 }
