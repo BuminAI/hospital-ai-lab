@@ -1,12 +1,48 @@
 {
-  "updatedAt": "2026-11-17T04:14:19.039Z",
-  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · ETtoday · 醫療新聞網",
+  "updatedAt": "2026-11-17T16:31:52.218Z",
+  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · INSIDE · 經濟日報 · ETtoday · 醫療新聞網",
   "items": [
+    {
+      "title": "聰泰訂單看到明年第1季 衝刺機器人無人載具與智慧醫療等新品",
+      "link": "https://money.udn.com/money/story/5612/9885053",
+      "source": "經濟日報",
+      "pubDate": "2026-11-17T14:03:40.000Z"
+    },
+    {
+      "title": "邦睿生技 AI 精子檢測儀 獲國家藥物科技獎金質獎",
+      "link": "https://money.udn.com/money/story/5612/9884875",
+      "source": "經濟日報",
+      "pubDate": "2026-11-17T12:11:40.000Z"
+    },
+    {
+      "title": "台股特效藥挨轟失靈 金管會拋3觀察「密切注意」",
+      "link": "https://finance.ettoday.net/news/3273850",
+      "source": "ETtoday",
+      "pubDate": "2026-11-17T09:47:00.000Z"
+    },
+    {
+      "title": "Apple 想知道人們怎麼跟 AI 聊健康，20 萬人研究在美國開跑",
+      "link": "https://www.inside.com.tw/article/42933-apple-launches-research-study-to-explore-the-use-of-ai-for-health",
+      "source": "INSIDE",
+      "pubDate": "2026-11-17T08:04:00.000Z"
+    },
+    {
+      "title": "團隊榮獲2026國家藥科獎 AI科技引領跨世代醫療變革",
+      "link": "https://www.mohw.gov.tw/cp-16-88499-1.html",
+      "source": "衛生福利部",
+      "pubDate": "2026-11-17T06:08:00.000Z"
+    },
     {
       "title": "少做檢查更好？AI 遇上醫療獲利難題",
       "link": "https://technews.tw/2026/11/17/ai-faces-challenges-monetizing-healthcare/",
       "source": "科技新報",
       "pubDate": "2026-11-17T00:00:35.000Z"
+    },
+    {
+      "title": "13團隊榮獲2026國家藥科獎 AI科技引領跨世代醫療變革",
+      "link": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=31784",
+      "source": "食品藥物管理署",
+      "pubDate": "2026-11-17T00:00:00.000Z"
     },
     {
       "title": "國家考試爆AI作弊 南韓大學入學考嚴防",
@@ -711,14 +747,14 @@
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
     {
-      "title": "健保推動糖尿病個人化AI助理 健康存摺試辦驗證",
-      "link": "https://www.cna.com.tw/news/ahel/202603040334.aspx",
+      "title": "新北土城醫院獲智慧醫院標章 導入AI提升效能",
+      "link": "https://www.cna.com.tw/news/aloc/202603040091.aspx",
       "source": "中央社",
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
     {
-      "title": "新北土城醫院獲智慧醫院標章 導入AI提升效能",
-      "link": "https://www.cna.com.tw/news/aloc/202603040091.aspx",
+      "title": "健保推動糖尿病個人化AI助理 健康存摺試辦驗證",
+      "link": "https://www.cna.com.tw/news/ahel/202603040334.aspx",
       "source": "中央社",
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
