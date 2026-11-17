@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-11-17T13:24:28.825Z",
+  "updatedAt": "2026-11-17T22:22:18.081Z",
   "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · AI타임스 · 뉴시스 · 연합뉴스 · 보건복지부 · 매일경제",
   "items": [
+    {
+      "title": "인하대병원 개방형실험실, 바이오기업 글로벌 사업화 교두보 확대",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016671",
+      "source": "의학신문",
+      "pubDate": "2026-11-18T07:01:22.000Z"
+    },
+    {
+      "title": "[칼럼] 의료 AI 미래는 동네의원에서 시작해야 한다",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044623",
+      "source": "청년의사",
+      "pubDate": "2026-11-18T06:09:53.000Z"
+    },
+    {
+      "title": "진료 현장 혁신 이끄는 K-메디컬, 독일 ‘MEDICA 2026’ 수놓다",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016675",
+      "source": "의학신문",
+      "pubDate": "2026-11-18T05:50:00.000Z"
+    },
+    {
+      "title": "경희의료원, 제3회 의료 AI 콜로키움 개최 外",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259353",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-17T21:48:09.000Z"
+    },
     {
       "title": "의료기기 사용 이력도 AI로 관리…이화의료원, 안전관리 특허",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422061",
@@ -62,7 +86,7 @@
       "source": "e-의료정보",
       "pubDate": "2026-11-17T16:39:29.000Z",
       "popular": true,
-      "rank": 6
+      "rank": 1
     },
     {
       "title": "내시경에 AI 접목한 메디인테크, 338억원 시리즈C 투자 유치",
@@ -92,7 +116,9 @@
       "title": "인하대병원 개방형실험실, 'AI 바이오 신약 글로벌 서밋' 참여",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415531",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-17T15:55:50.000Z"
+      "pubDate": "2026-11-17T15:55:50.000Z",
+      "popular": true,
+      "rank": 5
     },
     {
       "title": "경희의료원 올해 세번째 '2026 의료 AI 콜로키움' 개최",
@@ -134,7 +160,9 @@
       "title": "'척추신경주사치료' 기본 다지고 실전 경험 익히고",
       "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200049",
       "source": "의협신문",
-      "pubDate": "2026-11-17T12:52:00.000Z"
+      "pubDate": "2026-11-17T12:52:00.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "일동바이오사이언스·가톨릭대 연구팀, 제조 과정 변수와 생균 수 변화 연관성 규명",
@@ -158,7 +186,9 @@
       "title": "[동정] 강남성심 김중일 교수팀, 정형외과컴퓨터수술학회서 2년 연속 수상",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415518",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-17T12:02:19.000Z"
+      "pubDate": "2026-11-17T12:02:19.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "의료기기 안전관리의 3대 축, 촘촘한 유통 그물망 짜였다",
@@ -242,7 +272,9 @@
       "title": "보건산업진흥원, AI 신약개발 경진대회 우수팀 7개 선정",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016571",
       "source": "의학신문",
-      "pubDate": "2026-11-17T09:45:17.000Z"
+      "pubDate": "2026-11-17T09:45:17.000Z",
+      "popular": true,
+      "rank": 7
     },
     {
       "title": "부산 핑이비인후과 김나령 음성언어치료사, 한국언어치료학회 학술대회 우수논문상 수상",
@@ -296,7 +328,9 @@
       "title": "수술 흐름 읽는 AI 개발, 지능형 수술로봇 기반 마련",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98933",
       "source": "e-의료정보",
-      "pubDate": "2026-11-17T09:00:59.000Z"
+      "pubDate": "2026-11-17T09:00:59.000Z",
+      "popular": true,
+      "rank": 5
     },
     {
       "title": "대한약국학회, 12월 6일 정기학술대회…AI 시대 약사 역할 조명",
