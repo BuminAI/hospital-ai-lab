@@ -1,12 +1,36 @@
 {
-  "updatedAt": "2026-11-18T01:22:00.220Z",
-  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · INSIDE · 經濟日報 · ETtoday · 醫療新聞網 · iThome",
+  "updatedAt": "2026-11-18T12:20:08.345Z",
+  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · iThome · ETtoday · 醫療新聞網",
   "items": [
+    {
+      "title": "3大國立圖書館推「館館有AI」 高階運算資源免費用",
+      "link": "https://www.cna.com.tw/news/ahel/202611180229.aspx",
+      "source": "中央社",
+      "pubDate": "2026-11-18T08:31:41.000Z"
+    },
+    {
+      "title": "教師自提AI等4領域教學創新計畫 最高補助12萬元",
+      "link": "https://www.cna.com.tw/news/ahel/202611180227.aspx",
+      "source": "中央社",
+      "pubDate": "2026-11-18T08:21:36.000Z"
+    },
     {
       "title": "AI加速嵌入式設備漏洞挖掘，研究人員90小時找出66項TCP/IP協定堆疊新漏洞",
       "link": "https://www.ithome.com.tw/news/180564",
       "source": "iThome",
       "pubDate": "2026-11-18T08:11:00.000Z"
+    },
+    {
+      "title": "挾醫療 AI 與電漿耗材雙引擎！施吉生技 11/23 以每股 80 元登錄興櫃",
+      "link": "https://finance.technews.tw/2026/11/18/medical-ai-subscription/",
+      "source": "科技新報",
+      "pubDate": "2026-11-18T07:28:34.000Z"
+    },
+    {
+      "title": "公告「114年度臺灣智慧醫療學校培訓計畫」第二階段實務訓練甄選之審查結果",
+      "link": "https://www.mohw.gov.tw/cp-18-88517-1.html",
+      "source": "衛生福利部",
+      "pubDate": "2026-11-18T05:40:00.000Z"
     },
     {
       "title": "美國商務部宣布 擴大AI晶片出口管制",
@@ -771,14 +795,14 @@
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
     {
-      "title": "新北土城醫院獲智慧醫院標章 導入AI提升效能",
-      "link": "https://www.cna.com.tw/news/aloc/202603040091.aspx",
+      "title": "健保推動糖尿病個人化AI助理 健康存摺試辦驗證",
+      "link": "https://www.cna.com.tw/news/ahel/202603040334.aspx",
       "source": "中央社",
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
     {
-      "title": "健保推動糖尿病個人化AI助理 健康存摺試辦驗證",
-      "link": "https://www.cna.com.tw/news/ahel/202603040334.aspx",
+      "title": "新北土城醫院獲智慧醫院標章 導入AI提升效能",
+      "link": "https://www.cna.com.tw/news/aloc/202603040091.aspx",
       "source": "中央社",
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
