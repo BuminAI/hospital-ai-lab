@@ -7,7 +7,42 @@
   },
   "sections": [
     {
-      "heading": "TIP 07 — Tentukan dalam satu baris AI menjawab dari sudut pandang siapa",
+      "heading": "TIP 08 — Untuk dokumen panjang, minta AI mengutip kalimat dasarnya lebih dulu",
+      "body": "Sebelum meringkas, minta AI mengutip bagian yang relevan dari dokumen agar fokusnya terjaga.",
+      "items": []
+    },
+    {
+      "heading": "Jika seluruh dokumen langsung diringkas, penekanannya bisa meleset",
+      "body": "Anda menempelkan peraturan atau proposal puluhan halaman lalu meminta \"tolong ringkas\". Kadang bagian yang sebenarnya Anda cari, misalnya syarat biaya atau frekuensi pemeriksaan, hanya lewat satu baris.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: minta AI mengutip bagian yang relevan sebelum meringkas",
+      "body": "Panduan resmi Anthropic (perusahaan pembuat Claude) untuk dokumen panjang menyarankan \"Ground responses in quotes\", yaitu mendasarkan jawaban pada kutipan. Jika sebelum tugas utama Claude diminta mengutip bagian dokumen yang relevan, hal ini membantunya fokus pada isi yang penting dan menyingkirkan sisanya. Di jendela obrolan, Anda dapat menulis seperti ini. Sesuaikan isi dalam tanda kurung.",
+      "items": [
+        "Dari materi di bawah, kutip dulu kalimat yang berkaitan dengan (topik yang ingin diketahui) persis seperti aslinya. Setelah itu, buat ringkasan hanya berdasarkan kalimat yang dikutip."
+      ]
+    },
+    {
+      "heading": "Satu hal lagi: cocokkan kalimat kutipan dengan dokumen asli",
+      "body": "Dengan fitur pencarian (Ctrl+F), Anda bisa memeriksa apakah kalimat kutipan benar-benar ada di dokumen asli, sehingga terlihat apakah ringkasan diambil dari tempat yang keliru. Kebiasaan memeriksa ini bukan isi yang dinyatakan langsung oleh panduan, melainkan penerapan dari metode di atas.",
+      "items": []
+    },
+    {
+      "heading": "Hal yang perlu diingat",
+      "body": "Meski AI diminta mengutip dasar, ringkasannya tidak selalu pasti akurat. Cocokkan jumlah uang, tanggal, dan isi aturan dengan dokumen asli. Jangan memasukkan materi yang memuat data pribadi pasien ke layanan AI; periksa dulu kebijakan keamanan informasi rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, \"Prompting best practices\", bagian \"Long context prompting\" (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Tanggal pemeriksaan sumber: 19 November 2026"
+      ]
+    },
+    {
+      "heading": "TIP 07 —Tentukan dalam satu baris AI menjawab dari sudut pandang siapa",
       "body": "Satu kalimat tentang peran sudah mengubah nada dan fokus jawaban.",
       "items": []
     },

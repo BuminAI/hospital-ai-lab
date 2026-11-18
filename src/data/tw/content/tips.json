@@ -7,7 +7,42 @@
   },
   "sections": [
     {
-      "heading": "TIP 07 — 用一行字先告訴 AI「站在誰的立場」回答",
+      "heading": "TIP 08 — 長篇資料要摘要時，先請 AI 挑出「依據句」",
+      "body": "摘要之前，先請 AI 從原文引用相關段落，重點會比較集中。",
+      "items": []
+    },
+    {
+      "heading": "整份長文件直接請 AI 摘要，重點可能放錯地方",
+      "body": "把幾十頁的規定或提案書貼上去，說「請幫我摘要」，有時您真正想知道的部分（例如費用條件、檢查週期）只被一行帶過。",
+      "items": []
+    },
+    {
+      "heading": "解法：摘要之前，先請它引用相關的段落",
+      "body": "Anthropic（開發 Claude 的公司）的官方指南在處理長文件時，建議採用「Ground responses in quotes」（以引文作為回答的依據）。在正式作業之前，先請 Claude 從文件中引用相關的部分，有助於它專注在相關內容、過濾掉其餘部分。在對話視窗可以這樣寫，括號內請依情況替換。",
+      "items": [
+        "請先從下面的資料中，照原文挑出與（想了解的主題）有關的句子。接著只根據挑出的句子寫摘要。"
+      ]
+    },
+    {
+      "heading": "再補一點：把挑出的句子和原文對照",
+      "body": "用搜尋功能（Ctrl+F）確認挑出的句子真的出現在原文中，就能立刻知道摘要是不是憑空而來。這個檢查習慣不是指南直接提到的內容，而是把上述方法加以應用。",
+      "items": []
+    },
+    {
+      "heading": "請務必留意",
+      "body": "即使請 AI 先挑出依據，也不能保證摘要一定正確。金額、日期與規定內容，請直接與原文對照。含有病人個資的資料請勿放進 AI 服務，並請先確認貴院的資訊安全規範。",
+      "items": []
+    },
+    {
+      "heading": "出處",
+      "body": "",
+      "items": [
+        "Anthropic，「Prompting best practices」的「Long context prompting」（官方文件） https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "出處確認日：2026 年 11 月 19 日"
+      ]
+    },
+    {
+      "heading": "TIP 07 —用一行字先告訴 AI「站在誰的立場」回答",
       "body": "只要補上一句角色設定，回答的語氣與重點就會不一樣。",
       "items": []
     },
