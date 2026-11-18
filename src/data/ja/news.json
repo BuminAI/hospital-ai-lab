@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-17T16:31:05.353Z",
-  "source": "CBnews・厚生労働省・デジタル庁 · ITmedia · デジタル庁 · 厚生労働省 · CBnews · 現代ビジネス · GIGAZINE",
+  "updatedAt": "2026-11-18T01:20:59.602Z",
+  "source": "CBnews・厚生労働省・デジタル庁 · ITmedia · デジタル庁 · 厚生労働省 · CBnews · 現代ビジネス · GIGAZINE · 日経クロステック",
   "items": [
+    {
+      "title": "NTT系病院が医療AIの実証、医師も頼る医学書大手のデータで精度向上へ",
+      "link": "https://xtech.nikkei.com/atcl/nxt/column/18/00001/12179/",
+      "source": "日経クロステック",
+      "pubDate": "2026-11-17T20:00:00.000Z"
+    },
     {
       "title": "Windows 11がClaude CodeやCodexなどの使用状況を収集してMicrosoftに送信していることが判明",
       "link": "https://gigazine.net/news/20261117-windows-coding-agent-telemetry/",
