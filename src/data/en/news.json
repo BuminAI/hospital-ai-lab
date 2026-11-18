@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-11-18T14:32:05.724Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · HIT Consultant · MedCity News · Radiology Business · NEJM AI · The New York Times · NPR · Federal Register",
+  "updatedAt": "2026-11-18T22:19:04.620Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · HIT Consultant · MedCity News · Radiology Business · The New York Times · NPR · NEJM AI · Federal Register",
   "items": [
+    {
+      "title": "Health systems race to patch AI-found Java flaw after CISA alert",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/health-systems-race-to-patch-ai-found-java-flaw-after-cisa-alert/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-18T21:47:38.000Z"
+    },
+    {
+      "title": "UChicago gets $3.1M grant to build pediatric imaging database",
+      "link": "https://www.beckershospitalreview.com/radiology/uchicago-gets-3-1m-grant-to-build-pediatric-imaging-database/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-18T21:39:36.000Z"
+    },
+    {
+      "title": "How point-of-care AI can protect case mix index (CMI): 5 takeaways",
+      "link": "https://www.beckershospitalreview.com/hr/how-point-of-care-ai-can-protect-case-mix-index-cmi-5-takeaways/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-18T21:38:41.000Z"
+    },
+    {
+      "title": "STAT+: The emerging winners and losers in the AI scribe market",
+      "link": "https://www.statnews.com/2026/11/18/ai-scribe-market-emerging-winners-losers-ai-prognosis/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-18T19:25:59.000Z"
+    },
+    {
+      "title": "Abridge Announcements during HLTH Emphasize Growing Healthcare Trend",
+      "link": "https://medcitynews.com/2026/11/abridge-announcements-during-hlth-emphasize-growing-healthcare-trend/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-18T18:12:07.000Z"
+    },
+    {
+      "title": "AI is coming for primary care",
+      "link": "https://www.healthcaredive.com/news/ai-is-coming-for-primary-care/874966/",
+      "source": "Healthcare Dive",
+      "pubDate": "2026-11-18T15:45:29.000Z"
+    },
     {
       "title": "I’ve Practiced Medicine for 40 Years — AI Gave Me Back My Evenings",
       "link": "https://medcitynews.com/2026/11/ive-practiced-medicine-for-40-years-ai-gave-me-back-my-evenings/",
@@ -31,6 +67,12 @@
       "link": "https://www.nytimes.com/2026/11/18/science/ai-virtual-human-cells.html",
       "source": "The New York Times",
       "pubDate": "2026-11-18T10:02:15.000Z"
+    },
+    {
+      "title": "Four Questions to Ask When Evaluating Healthcare AI Vendors: Balancing Native EHR Infrastructure with Specialized Decision Intelligence",
+      "link": "https://hitconsultant.net/2026/11/18/four-questions-to-ask-when-evaluating-healthcare-ai-vendors-xsolis/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-18T07:46:00.000Z"
     },
     {
       "title": "Ultrasound AI predicts preterm birth risk using routine prenatal scans",
