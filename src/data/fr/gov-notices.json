@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-11-16T10:04:28.449Z",
+  "updatedAt": "2026-11-18T10:33:38.728Z",
   "items": [
+    {
+      "title": "Conservation des mots de passe clients en clair : la CNIL prononce une sanction de 5 millions d’euros",
+      "link": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
+      "pubDate": "2026-11-18",
+      "kind": "Actualité CNIL",
+      "status": "CNIL"
+    },
+    {
+      "title": "La CNIL a prononcé 38 nouvelles sanctions en procédure simplifiée depuis juin 2026",
+      "link": "https://www.cnil.fr/fr/38-sanctions-simplifiees",
+      "pubDate": "2026-11-17",
+      "kind": "Actualité CNIL",
+      "status": "CNIL"
+    },
     {
       "title": "Ordre du jour de la séance plénière du 12 novembre 2026",
       "link": "https://www.cnil.fr/fr/ordre-du-jour-de-la-seance-pleniere-du-12-novembre-2026",
