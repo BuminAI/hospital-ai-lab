@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-17T17:43:11.677Z",
-  "source": "中央社 · 衛生福利部 · iThome · 公視新聞網 · 中央廣播電臺 · 經濟日報 · 科技橘報",
+  "updatedAt": "2026-11-18T07:45:21.432Z",
+  "source": "中央社 · 衛生福利部 · 食品藥物管理署 · 科技新報 · 科技橘報",
   "items": [
+    {
+      "title": "公告「114年度臺灣智慧醫療學校培訓計畫」第二階段實務訓練甄選之審查結果",
+      "link": "https://www.mohw.gov.tw/cp-18-88517-1.html",
+      "source": "衛生福利部",
+      "pubDate": "2026-11-18T05:40:00.000Z"
+    },
+    {
+      "title": "微軟押注「小而專」AI 模型，稱 MAI Code 2 以 5% 成本達 Claude Opus 5.5 的 96% 效能",
+      "link": "https://techorange.com/2026/11/18/microsoft-ignite-2026-building-frontier-ecosystem/?utm_source=rss&utm_medium=feed&utm_campaign=techorange_rss",
+      "source": "科技橘報",
+      "pubDate": "2026-11-18T03:58:40.000Z"
+    },
+    {
+      "title": "微軟推 MAI Code 2 程式模型，稱以 Claude Opus 5.5 約 5% 價格達 96% 效能",
+      "link": "https://technews.tw/2026/11/18/microsoft-unveils-ai-models-for-coding-cybersecurity-as-it-takes-on-anthropic-openai/",
+      "source": "科技新報",
+      "pubDate": "2026-11-18T03:50:39.000Z"
+    },
     {
       "title": "機器人規格尚未定型，台廠如何搶得話語權？鴻海、華碩、Google 談場域新機會",
       "link": "https://techorange.com/2026/11/17/hhtd-2026-taiwan-robot-panel/?utm_source=rss&utm_medium=feed&utm_campaign=techorange_rss",
