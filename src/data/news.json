@@ -1,7 +1,113 @@
 {
-  "updatedAt": "2026-11-18T04:19:31.446Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · 의학신문 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · ZDNet Korea · AI타임스 · 연합뉴스 · 보건복지부 · 뉴시스",
+  "updatedAt": "2026-11-18T13:57:18.372Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · e-의료정보 · 의학신문 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · ZDNet Korea · AI타임스 · 연합뉴스 · 뉴시스 · 보건복지부",
   "items": [
+    {
+      "title": "가천대 길병원, 인천 7개 의료기관과 AI 협력",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422182",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-18T22:02:28.000Z"
+    },
+    {
+      "title": "성남시의사회, 방문진료 문턱 AI와 디지털 기술로 낮췄다",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200113",
+      "source": "의협신문",
+      "pubDate": "2026-11-18T18:13:00.000Z"
+    },
+    {
+      "title": "이화의료원, 병원 의공팀 최초 ‘AI 의료기기 안전관리’ 특허 등록 外",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259378",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-18T18:04:03.000Z"
+    },
+    {
+      "title": "리퀴드 AI, 의사결정 모델 'd1.2' 출시…AA 평가 1위",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217536",
+      "source": "AI타임스",
+      "pubDate": "2026-11-18T17:39:22.000Z"
+    },
+    {
+      "title": "허사비스의 AI 신약 기업, 6개월 새 9.4조 투자 유치…임상시험 본격 추진",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217528",
+      "source": "AI타임스",
+      "pubDate": "2026-11-18T16:54:17.000Z"
+    },
+    {
+      "title": "길병원, AX혁신본부 출범 1주년 기념 심포지엄 성료",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415586",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-18T16:42:57.000Z"
+    },
+    {
+      "title": "경희의료원, '제3회 2026 의료 AI 콜로키움' 개최",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422157",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-18T16:33:20.000Z"
+    },
+    {
+      "title": "복지부, ‘헬스케어 AI 투자 포럼’ 개최…공공의료 AI 고속도로 확산 로드맵 공유",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242618",
+      "source": "라포르시안",
+      "pubDate": "2026-11-18T15:06:57.000Z"
+    },
+    {
+      "title": "SK바이오팜, 세노바메이트 넘어 글로벌 성장동력 다변화",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549295",
+      "source": "약사공론",
+      "pubDate": "2026-11-18T14:56:27.000Z"
+    },
+    {
+      "title": "여수 AI 재난안전 진단 2만7000명 참여…지난해 기초진단 이어 영상교육 운영",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217516",
+      "source": "AI타임스",
+      "pubDate": "2026-11-18T14:56:23.000Z"
+    },
+    {
+      "title": "우리아이들의료재단, 스마트병원 넘어 '소아 특화 AI' 확대",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422136",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-18T14:26:43.000Z"
+    },
+    {
+      "title": "'범용 AI 시대 의료기술' 주제 원탁회의 오는 30일 개최",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549289",
+      "source": "약사공론",
+      "pubDate": "2026-11-18T14:19:00.000Z"
+    },
+    {
+      "title": "\"AI가 실험 설계하고 로봇이 합성\"…국내 신약개발 '자율 실험실' 가동",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549282",
+      "source": "약사공론",
+      "pubDate": "2026-11-18T13:48:00.000Z"
+    },
+    {
+      "title": "메디컬에이아이, AHA서 스마트워치 심전도 AI 심부전 선별 연구 발표",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242600",
+      "source": "라포르시안",
+      "pubDate": "2026-11-18T13:41:52.000Z",
+      "popular": true,
+      "rank": 9
+    },
+    {
+      "title": "AI 진단 '갓벽' 원하는 환자들 \"진료실 소통 늘려야\"",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200101",
+      "source": "의협신문",
+      "pubDate": "2026-11-18T13:39:00.000Z"
+    },
+    {
+      "title": "제약 신약개발, AI로 데이터 모으고 학습…'자율실험실' 주목",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422125",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-18T13:17:35.000Z"
+    },
+    {
+      "title": "엔티엘, 자궁경부암 검진 ‘써비케어 AI’ 차세대 세계일류상품 선정",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242599",
+      "source": "라포르시안",
+      "pubDate": "2026-11-18T13:05:00.000Z",
+      "popular": true,
+      "rank": 4
+    },
     {
       "title": "복지부, 의료기관 운영 AI도 성과보상 검토...“효과 확인되면 신속 지급”",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016746",
@@ -117,6 +223,12 @@
       "pubDate": "2026-11-18T09:33:28.000Z"
     },
     {
+      "title": "\"기술은 기본·돈 벌어야 산다\"…달라진 의료 AI 투자 공식",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171960",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-18T09:07:41.000Z"
+    },
+    {
       "title": "AI 진단 정확도 환자 기대치 90% 이상",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=98969",
       "source": "e-의료정보",
@@ -127,6 +239,12 @@
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242570",
       "source": "라포르시안",
       "pubDate": "2026-11-18T09:07:27.000Z"
+    },
+    {
+      "title": "\"GPU 확보 경쟁은 1막\"…AI 에이전트 시대, 산업·제도 혁신 시급",
+      "link": "https://zdnet.co.kr/view/?no=20261118161222",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-18T08:52:51.000Z"
     },
     {
       "title": "화이자 \"2030년 최대 경쟁자는 중국 바이오기업\"",
@@ -165,10 +283,22 @@
       "pubDate": "2026-11-18T08:10:00.000Z"
     },
     {
+      "title": "[수능 D-1] 강화된 전자기기 단속망…필수의료기기 쓰는 수험생 보호 필요",
+      "link": "https://www.yna.co.kr/view/AKR20261118142900061",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-18T07:15:18.000Z"
+    },
+    {
       "title": "인하대병원 개방형실험실, 바이오기업 글로벌 사업화 교두보 확대",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016671",
       "source": "의학신문",
       "pubDate": "2026-11-18T07:01:22.000Z"
+    },
+    {
+      "title": "카카오, 공공혁신 보고서 발간…민원 챗봇 등 우수사례 30건",
+      "link": "https://www.yna.co.kr/view/AKR20261118137800017",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-18T06:49:43.000Z"
     },
     {
       "title": "[칼럼] 의료 AI 미래는 동네의원에서 시작해야 한다",
@@ -176,7 +306,7 @@
       "source": "청년의사",
       "pubDate": "2026-11-18T06:09:53.000Z",
       "popular": true,
-      "rank": 9
+      "rank": 7
     },
     {
       "title": "진료 현장 혁신 이끄는 K-메디컬, 독일 ‘MEDICA 2026’ 수놓다",
