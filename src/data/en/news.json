@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-17T23:08:33.369Z",
+  "updatedAt": "2026-11-18T04:42:10.332Z",
   "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · NPR · Federal Register",
   "items": [
+    {
+      "title": "Viz.ai Partners with Wolters Kluwer Health to Add UpToDate Resource to its Platform",
+      "link": "https://medcitynews.com/2026/11/viz-ai-partners-with-wolters-kluwer-health-to-add-uptodate-resource-to-its-platform/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-17T23:50:29.000Z"
+    },
+    {
+      "title": "CB Insights’ 2026 Digital Health 50 Reveals How Agentic AI Is Becoming the Clinical Provider and Medication Access Engine",
+      "link": "https://hitconsultant.net/2026/11/17/cb-insights-digital-health-50-most-promising-startups-2026/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-17T23:44:47.000Z"
+    },
     {
       "title": "STAT+: What to know about the new AI roadmap from CMS, and news from HLTH",
       "link": "https://www.statnews.com/2026/11/17/cms-ai-roadmap-and-news-from-hlth-health-tech/?utm_campaign=rss",
@@ -21,6 +33,12 @@
       "pubDate": "2026-11-17T16:13:18.000Z"
     },
     {
+      "title": "AWS Expands Amazon Connect Health with Agentic AI for 24/7 Patient Access and Redox Interoperability",
+      "link": "https://hitconsultant.net/2026/11/17/amazon-connect-health-expands-agentic-ai-patient-access-epic-redox/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-17T16:11:00.000Z"
+    },
+    {
       "title": "From pilot to platform: Johns Hopkins researcher on healthcare AI’s next chapter",
       "link": "https://www.healthcaredive.com/news/from-pilot-to-platform-johns-hopkins-researcher-on-healthcare-ais-next-ch/874708/",
       "source": "Healthcare Dive",
@@ -37,6 +55,12 @@
       "link": "https://medcitynews.com/2026/11/your-ai-vendors-medical-exam-score-doesnt-mean-what-you-think-it-does/",
       "source": "MedCity News",
       "pubDate": "2026-11-17T14:48:00.000Z"
+    },
+    {
+      "title": "Mass General Brigham Spinout Aevius Raises $22M to Make Medicine Computable",
+      "link": "https://hitconsultant.net/2026/11/17/aevius-raises-22-million-insight-partners-make-medicine-computable/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-17T14:25:00.000Z"
     },
     {
       "title": "Medicare Pays For the AI Eye Scan — Nobody Pays For What Comes Next",
@@ -73,6 +97,12 @@
       "link": "https://radiologybusiness.com/topics/healthcare-management/healthcare-economics/testdynamics-raises-9m-expand-vendor-neutral-imaging-ai-platform",
       "source": "Radiology Business",
       "pubDate": "2026-11-17T01:30:46.000Z"
+    },
+    {
+      "title": "Innovaccer-CHIME 2030 Survey Reveals AI Will Automate Nearly Two-Thirds of Administrative Work and Do 3x the Work With the Same Staff",
+      "link": "https://hitconsultant.net/2026/11/16/innovaccer-chime-survey-healthcare-ai-2030-three-times-work-same-staff/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-16T23:49:05.000Z"
     },
     {
       "title": "Cook Children’s names chief data, analytics officer",
