@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-17T02:10:45.030Z",
+  "checkedAt": "2026-11-18T01:24:39.024Z",
   "total": 111,
-  "ok": 83,
-  "unknown": 28,
+  "ok": 85,
+  "unknown": 26,
   "unknownList": [
     {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=7968559",
@@ -17,20 +17,16 @@
       "status": 0
     },
     {
+      "url": "https://www.gostinfo.ru/catalog/Details/?id=6902061",
+      "status": 400
+    },
+    {
       "url": "https://www.vademec.ru/news/2026/08/24/spk-razrabotal-proekt-trudovoy-funktsii-medrabotnikov-po-ispolzovaniyu-ii/",
       "status": 0
     },
     {
       "url": "https://minzdrav.gov.ru/poleznye-resursy/natsionalnye-proekty-rossii-prodolzhitelnaya-i-aktivnaya-zhizn-novye-tehnologii-sberezheniya-zdorovya",
       "status": 0
-    },
-    {
-      "url": "https://www.gostinfo.ru/catalog/Details/?id=6902061",
-      "status": 400
-    },
-    {
-      "url": "https://www.mos.ru/news/item/175489073/",
-      "status": 403
     },
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
@@ -61,10 +57,6 @@
       "status": 0
     },
     {
-      "url": "https://www.mos.ru/mayor/themes/16042050/",
-      "status": 403
-    },
-    {
       "url": "https://www.vademec.ru/news/2026/10/15/uchenye-predlozhili-fiksirovat-raskhozhdeniya-mezhdu-vrachom-i-ii-dlya-povysheniya-prozrachnosti-i-o/",
       "status": 0
     },
@@ -73,11 +65,11 @@
       "status": 403
     },
     {
-      "url": "https://cr.minzdrav.gov.ru/",
+      "url": "https://minzdrav.gov.ru/news/2026/10/20/33149-mihail-murashko-i-german-gref-predstavili-novoe-otechestvennoe-prilozhenie-hudeem-na-zdorovie",
       "status": 0
     },
     {
-      "url": "https://minzdrav.gov.ru/news/2026/10/20/33149-mihail-murashko-i-german-gref-predstavili-novoe-otechestvennoe-prilozhenie-hudeem-na-zdorovie",
+      "url": "https://cr.minzdrav.gov.ru/",
       "status": 0
     },
     {
@@ -89,11 +81,11 @@
       "status": 0
     },
     {
-      "url": "https://www.vademec.ru/news/2026/11/02/analitiki-12-4-studentov-medikov-i-ordinatorov-zagruzhali-dannye-realnykh-patsientov-v-ii-servisy/",
+      "url": "https://www.pomph.ru/jour/article/view/244",
       "status": 0
     },
     {
-      "url": "https://www.pomph.ru/jour/article/view/244",
+      "url": "https://www.vademec.ru/news/2026/11/02/analitiki-12-4-studentov-medikov-i-ordinatorov-zagruzhali-dannye-realnykh-patsientov-v-ii-servisy/",
       "status": 0
     },
     {
