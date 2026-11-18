@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-11-18T07:53:03.650Z",
+  "updatedAt": "2026-11-18T17:29:46.280Z",
   "items": [
+    {
+      "title": "가천대 길병원, 인천 7개 의료기관과 AI 협력",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422182",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-18T22:02:28.000Z"
+    },
+    {
+      "title": "성남시의사회, 방문진료 문턱 AI와 디지털 기술로 낮췄다",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200113",
+      "source": "의협신문",
+      "pubDate": "2026-11-18T18:13:00.000Z"
+    },
     {
       "title": "길병원, AX혁신본부 출범 1주년 기념 심포지엄 성료",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415586",
@@ -26,6 +38,24 @@
       "pubDate": "2026-11-18T15:06:57.000Z"
     },
     {
+      "title": "SK바이오팜, 세노바메이트 넘어 글로벌 성장동력 다변화",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549295",
+      "source": "약사공론",
+      "pubDate": "2026-11-18T14:56:27.000Z"
+    },
+    {
+      "title": "\"환자가 자신 상태 설명 어려운 응급상황서 필요한 의료정보 전달\"",
+      "link": "https://zdnet.co.kr/view/?no=20261118232223",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-18T14:22:23.000Z"
+    },
+    {
+      "title": "'범용 AI 시대 의료기술' 주제 원탁회의 오는 30일 개최",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549289",
+      "source": "약사공론",
+      "pubDate": "2026-11-18T14:19:00.000Z"
+    },
+    {
       "title": "\"AI가 실험 설계하고 로봇이 합성\"…국내 신약개발 '자율 실험실' 가동",
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549282",
       "source": "약사공론",
@@ -35,7 +65,9 @@
       "title": "메디컬에이아이, AHA서 스마트워치 심전도 AI 심부전 선별 연구 발표",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242600",
       "source": "라포르시안",
-      "pubDate": "2026-11-18T13:41:52.000Z"
+      "pubDate": "2026-11-18T13:41:52.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "제약 신약개발, AI로 데이터 모으고 학습…'자율실험실' 주목",
@@ -902,5 +934,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "청년의사 · 의학신문 · e-의료정보 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 뉴시스 · 보건복지부 · 히트뉴스 · ZDNet Korea · 디지털투데이"
+  "source": "청년의사 · 의학신문 · e-의료정보 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 뉴시스 · 보건복지부 · 히트뉴스 · ZDNet Korea · 디지털투데이 · 의협신문"
 }
