@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-18T03:44:02.097Z",
-  "source": "TheJournal.ie·Irish Examiner·The Irish Times·Irish Tech News·Irish Legal News·Silicon Republic·Business Post·RTÉ·Irish Independent",
+  "updatedAt": "2026-11-18T15:39:32.470Z",
+  "source": "Irish Tech News·Business Post·TheJournal.ie·Irish Examiner·The Irish Times·Irish Legal News·Silicon Republic·RTÉ·Irish Independent",
   "items": [
+    {
+      "title": "Expleo research reveals rogue agents making 49% of Irish business leaders more wary of AI",
+      "link": "https://irishtechnews.ie/expleo-research-reveals-rogue-agents-making-49-percent-of-irish-business-leaders-more-wary-of-ai/",
+      "source": "Irish Tech News",
+      "pubDate": "2026-11-18T11:00:53.000Z"
+    },
+    {
+      "title": "Ireland is developing another AI law. What’s in it?",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOQXhReDMxQUVKRldMTlZvZGZfUlE2ZXk5UmpNQXJhOThQQ3dNczRLeVd5RUtWcTlTNEFZaEo5eG50NG1jUlI0b1JxcnFLYzRkejdDUER5NjFYODljU2NOQnBZSnRPWU5LT2pENlJDVzV4a3F4OXE0Ym10RFFPTEl4MHNXcnVFYmNWZThfYjBBYw?oc=5",
+      "source": "Business Post",
+      "pubDate": "2026-11-18T08:28:23.000Z"
+    },
     {
       "title": "Media regulator to monitor breaches by AI that generates nude images of adults and children",
       "link": "https://www.thejournal.ie/ai-grok-7229355-Nov2026/",
@@ -111,15 +123,15 @@
       "pubDate": "2026-11-03T08:00:00.000Z"
     },
     {
-      "title": "UK warns weak supply chains will worsen AI-led cybersecurity crisis",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQajk1S3M0ZkZyMTdkUDhXN25SVUpMX1h2RU9UMTNVVTQ2NGZzVnRnbmEteHVGTGhqeTY4RWNOYmpWeGJYVjAyc1g4LTBHS1RxTHZsaExuVUt0UWZ1dEh1dkktNG5nNkxDNzMtc29WcFd0SWlmdXRPRnAyNjhKRWF1Zks0bG1mSE4tSmJXaGFUQWNqMEN2VHhBN241N28za3hURDEtb2N4OEo?oc=5",
-      "source": "Silicon Republic",
-      "pubDate": "2026-11-03T08:00:00.000Z"
-    },
-    {
       "title": "Supermarket disruption will occur again as AI makes hacking easier, says cybersecurity expert",
       "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9GeC1ISzcxX3lsZl9IOEhTaU5wbW5qTjd3NG9NWGtIZ2YyZUMxMXFaa2o0djNreUtuYXVnR1lBT3M0QnhYSjJFb1VSVHp6azdfV3d0N29fOXhILUhNdW5fdXlSMA?oc=5",
       "source": "Irish Examiner",
+      "pubDate": "2026-11-03T08:00:00.000Z"
+    },
+    {
+      "title": "UK warns weak supply chains will worsen AI-led cybersecurity crisis",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQajk1S3M0ZkZyMTdkUDhXN25SVUpMX1h2RU9UMTNVVTQ2NGZzVnRnbmEteHVGTGhqeTY4RWNOYmpWeGJYVjAyc1g4LTBHS1RxTHZsaExuVUt0UWZ1dEh1dkktNG5nNkxDNzMtc29WcFd0SWlmdXRPRnAyNjhKRWF1Zks0bG1mSE4tSmJXaGFUQWNqMEN2VHhBN241N28za3hURDEtb2N4OEo?oc=5",
+      "source": "Silicon Republic",
       "pubDate": "2026-11-03T08:00:00.000Z"
     },
     {
@@ -267,6 +279,12 @@
       "pubDate": "2026-09-30T07:00:00.000Z"
     },
     {
+      "title": "AI job replacement fears remain high - report",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqV2tZSVV0bncxc0hZVHZmbEloNVJkUWtEVlFQbUpXT19RNEpNM0hvdTRlVkhkX3UtcHFEa0R6cHVRV1d2dHFYUTgwbm16aVFlVllsWWkxMGUxVmxiRjIybTdyS3FGMTYzUlJscHNR?oc=5",
+      "source": "RTÉ",
+      "pubDate": "2026-09-29T07:00:00.000Z"
+    },
+    {
       "title": "AI agents are hacking government agencies. It’s ‘really scary’ for cybersecurity",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNDFJREJUWjV5eDJGTUV6cXM5b001ZkF4N3hYYXozZ2w4ZTBtQjdoOWdXSmxtcjZJWUd0LVZwTVMyQm1IaXhxS3dPZ1M1Q3N0QXc2ZkRhLWlvSm1LS0RNaDdPUHg1T19wbFpDTFVOWmMxdmJ0aU0xMEdGZHFRTi05M1hSTllPYmFMUHFBSWN6OGdFZnh4U1g1a2YyRDVaQ0l5UlpiVHB1QkhPYWloWUJGS1BjQmZJSDlVNjlsWHU3eWM?oc=5",
       "source": "The Irish Times",
@@ -276,12 +294,6 @@
       "title": "Ireland's DPC says tech giants can’t use private messages to train AI",
       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPLWxsQW9uSHZYSWl5djU2UXFqT3hubjEtVUhaakpGQ1djRkh1d1FXWTZkVlM0bEMyYk9GVXh3WGpiQnJESEhxQm16YmtGR2NVMUhpZGhzVzhBZlQ3NTlqYUpwbkRZWGx5WGRyZk1pV3hCZWFIbmlQZEVCVmZHSXhhWi15QjliSWRoQ3NMZGtILWxKQUJ5cEtWTnphM0Qxb2NEdWZfcTdqSjN5ekVqbHE4aks5Y3VuLW1tNkcxSg?oc=5",
       "source": "Irish Independent",
-      "pubDate": "2026-09-29T07:00:00.000Z"
-    },
-    {
-      "title": "AI job replacement fears remain high - report",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqV2tZSVV0bncxc0hZVHZmbEloNVJkUWtEVlFQbUpXT19RNEpNM0hvdTRlVkhkX3UtcHFEa0R6cHVRV1d2dHFYUTgwbm16aVFlVllsWWkxMGUxVmxiRjIybTdyS3FGMTYzUlJscHNR?oc=5",
-      "source": "RTÉ",
       "pubDate": "2026-09-29T07:00:00.000Z"
     },
     {
@@ -301,6 +313,12 @@
       "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5rcVNORW10UXVfelhGRmw2eFl2VkpBT0R1MVQxa2RtaTlwS1Z2VHdfN3RnTUJYdDJkcHc5Vy1DTHZhVFM2SGtVTHJERWpDdFRzZV81NFhKSXdIVEd2LXM5RjRIbw?oc=5",
       "source": "Irish Examiner",
       "pubDate": "2026-09-24T07:00:00.000Z"
+    },
+    {
+      "title": "‘You’ve a government that’s not just saying no’: George Osborne outlines Ireland’s AI opportunity",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQU0M0c29tVWdqMnp1SFROcXAyVU5LYzNrTm44V0JMejE5ZUJkNGw5VjNXSV9FaUl5NEs1QktHM2NhVWhpOXpuTW96VDZtaW1qdV81bGxWbXR1SDJfcjBGRUo4cGsweW54SnlVcTV5Q0NJcl91TFFlaGZyVGNHWWpHLXBOUmJNVWZlQkg2WjdWdzBlYmJpTzduWGlKV0ZtUkx0ekprcXVsWFVsb3BtWW1HU0Zxb24zSjFUcGxvaHJkVGJ5a3M?oc=5",
+      "source": "Business Post",
+      "pubDate": "2026-09-23T07:00:00.000Z"
     },
     {
       "title": "Six in ten people turn to AI for mental health support",

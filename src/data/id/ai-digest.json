@@ -1,7 +1,79 @@
 {
-  "updatedAt": "2026-11-18T03:42:52.431Z",
+  "updatedAt": "2026-11-18T15:38:16.436Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Uji Publik Monev 2026: Telkom Manfaatkan AI untuk Permudah Akses Informasi Publik",
+      "link": "https://www.liputan6.com/tekno/read/8337976/uji-publik-monev-2026-telkom-manfaatkan-ai-untuk-permudah-akses-informasi-publik",
+      "source": "Liputan6",
+      "pubDate": "2026-11-18T15:12:50.000Z"
+    },
+    {
+      "title": "Bio Farma kembangkan uji vaksin polio berbasis AI yang percepat proses",
+      "link": "https://www.antaranews.com/video/5863651/bio-farma-kembangkan-uji-vaksin-polio-berbasis-ai-yang-percepat-proses",
+      "source": "ANTARA",
+      "pubDate": "2026-11-18T14:40:44.000Z"
+    },
+    {
+      "title": "vivo V80 Series Hadirkan Fotografi ZEISS Portrait So Pro-Fitur AI Kreatif",
+      "link": "https://inet.detik.com/consumer/d-8759249/vivo-v80-series-hadirkan-fotografi-zeiss-portrait-so-pro-fitur-ai-kreatif",
+      "source": "detikINET",
+      "pubDate": "2026-11-18T14:38:25.000Z"
+    },
+    {
+      "title": "Polisi uji coba AI untuk prediksi kemacetan Jalur Puncak saat Nataru",
+      "link": "https://www.antaranews.com/berita/5863639/polisi-uji-coba-ai-untuk-prediksi-kemacetan-jalur-puncak-saat-nataru",
+      "source": "ANTARA",
+      "pubDate": "2026-11-18T14:30:46.000Z"
+    },
+    {
+      "title": "Mac Mini M6 vs M5 Pro, Pilih Mana untuk Kreator dan AI?",
+      "link": "https://inet.detik.com/consumer/d-8758842/mac-mini-m6-vs-m5-pro-pilih-mana-untuk-kreator-dan-ai",
+      "source": "detikINET",
+      "pubDate": "2026-11-18T14:15:16.000Z"
+    },
+    {
+      "title": "Lenovo Bicara Regulasi AI RI: Perlu Seimbangkan Inovasi dan Keamanan",
+      "link": "https://www.cnnindonesia.com/teknologi/20261118171303-192-1428641/lenovo-bicara-regulasi-ai-ri-perlu-seimbangkan-inovasi-dan-keamanan",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-18T11:30:04.000Z"
+    },
+    {
+      "title": "FBI dan AWS Peringatkan Penyalahgunaan Agen AI untuk Kejahatan Siber",
+      "link": "https://www.liputan6.com/tekno/read/8336887/fbi-dan-aws-peringatkan-penyalahgunaan-agen-ai-untuk-kejahatan-siber",
+      "source": "Liputan6",
+      "pubDate": "2026-11-18T11:11:16.000Z"
+    },
+    {
+      "title": "Adu Inovasi AI hingga AX, Ini Daftar Pemenang MAJU:ON 2026–27 Hackathon",
+      "link": "https://www.liputan6.com/tekno/read/8337655/adu-inovasi-ai-hingga-ax-ini-daftar-pemenang-majuon-202627-hackathon",
+      "source": "Liputan6",
+      "pubDate": "2026-11-18T09:13:36.000Z"
+    },
+    {
+      "title": "Rektor UI di Forum APEC 2026: AI Jangan Jadi Sumber Ketimpangan Baru",
+      "link": "https://inet.detik.com/cyberlife/d-8758350/rektor-ui-di-forum-apec-2026-ai-jangan-jadi-sumber-ketimpangan-baru",
+      "source": "detikINET",
+      "pubDate": "2026-11-18T06:45:11.000Z"
+    },
+    {
+      "title": "FBI Sebut Hacker Gunakan AI Percepat Serangan Siber, 3 Jam Bisa Tembus",
+      "link": "https://www.cnnindonesia.com/teknologi/20261118130508-192-1428498/fbi-sebut-hacker-gunakan-ai-percepat-serangan-siber-3-jam-bisa-tembus",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-18T06:09:57.000Z"
+    },
+    {
+      "title": "OpenAI Rilis GPT-6.2 Astra dan Sol, Diklaim Ungguli Claude Fable 5.2",
+      "link": "https://www.liputan6.com/tekno/read/8337433/openai-rilis-gpt-62-astra-dan-sol-diklaim-ungguli-claude-fable-52",
+      "source": "Liputan6",
+      "pubDate": "2026-11-18T05:21:59.000Z"
+    },
+    {
+      "title": "Final Cut Pro 13 Dirilis, Ribuan Efek Baru dan Fitur AI Hadir",
+      "link": "https://inet.detik.com/mobile-apps/d-8757941/final-cut-pro-13-dirilis-ribuan-efek-baru-dan-fitur-ai-hadir",
+      "source": "detikINET",
+      "pubDate": "2026-11-18T04:15:10.000Z"
+    },
     {
       "title": "Gigabyte WRX90 AI TOP, Satu PC Bisa Pakai 9 GPU!",
       "link": "https://uzone.id/gigabyte-wrx90-ai-top-satu-pc-bisa-pakai-9-gpu",
@@ -1729,78 +1801,6 @@
       "link": "https://inet.detik.com/law-and-policy/d-8729648/komdigi-sebut-jawaban-chatbot-ai-bukan-gambaran-utuh-realitas",
       "source": "detikINET",
       "pubDate": "2026-10-29T09:15:15.000Z"
-    },
-    {
-      "title": "8 Fungsi Gemini 4 Argon: Model AI Tercerdas Google untuk Tugas Kompleks",
-      "link": "https://mediaindonesia.com/teknologi/950093/8-fungsi-gemini-4-argon-model-ai-tercerdas-google-untuk-tugas-kompleks",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-29T08:18:00.000Z"
-    },
-    {
-      "title": "Komdigi Imbau Publik Kritis, Ingatkan Jawaban Chatbot AI Bisa Salah",
-      "link": "https://www.cnnindonesia.com/teknologi/20261029150110-192-1421025/komdigi-imbau-publik-kritis-ingatkan-jawaban-chatbot-ai-bisa-salah",
-      "source": "CNN Indonesia",
-      "pubDate": "2026-10-29T08:09:17.000Z"
-    },
-    {
-      "title": "4 Fitur Baru Apple Creator Studio 2026: Integrasi AI dan MotionVFX",
-      "link": "https://mediaindonesia.com/teknologi/950085/4-fitur-baru-apple-creator-studio-2026-integrasi-ai-dan-motionvfx",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-29T07:55:00.000Z"
-    },
-    {
-      "title": "Mengenal Microsoft Elevate for Educators: Panduan AI Aman dan Bertanggung Jawab untuk Guru",
-      "link": "https://mediaindonesia.com/teknologi/950081/mengenal-microsoft-elevate-for-educators-panduan-ai-aman-dan-bertanggung-jawab-untuk-guru",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-29T07:25:00.000Z"
-    },
-    {
-      "title": "Komdigi Ingatkan Jawaban AI Belum Tentu Benar, Pengguna Diminta Verifikasi",
-      "link": "https://inet.detik.com/law-and-policy/d-8729254/komdigi-ingatkan-jawaban-ai-belum-tentu-benar-pengguna-diminta-verifikasi",
-      "source": "detikINET",
-      "pubDate": "2026-10-29T06:09:04.000Z"
-    },
-    {
-      "title": "Penggunaan AI Berlebihan Ancam Kognitif Gen Z, Kemendiktisaintek Dorong Latihan Berpikir Kritis",
-      "link": "https://mediaindonesia.com/humaniora/950025/penggunaan-ai-berlebihan-ancam-kognitif-gen-z-kemendiktisaintek-dorong-latihan-berpikir-kritis",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-29T06:05:00.000Z"
-    },
-    {
-      "title": "Bill Gates Ramal Orang Bakal Hidup seperti Kaum Amish Gegara AI",
-      "link": "https://inet.detik.com/cyberlife/d-8729087/bill-gates-ramal-orang-bakal-hidup-seperti-kaum-amish-gegara-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-29T04:45:53.000Z"
-    },
-    {
-      "title": "Cegah Banjir, Teknologi AI Flood Eye Bantu Pantau Ancaman di Semarang",
-      "link": "https://inet.detik.com/fotoinet/d-8728498/cegah-banjir-teknologi-ai-flood-eye-bantu-pantau-ancaman-di-semarang",
-      "source": "detikINET",
-      "pubDate": "2026-10-29T03:45:22.000Z"
-    },
-    {
-      "title": "Waspada Posting Foto Rumah, AI Kini Bisa Lacak Alamat",
-      "link": "https://www.cnnindonesia.com/teknologi/20261027163751-192-1420214/waspada-posting-foto-rumah-ai-kini-bisa-lacak-alamat",
-      "source": "CNN Indonesia",
-      "pubDate": "2026-10-29T03:30:53.000Z"
-    },
-    {
-      "title": "Bubble AI di China Pecah! Rp 8.700 Triliun Menguap",
-      "link": "https://inet.detik.com/business/d-8728932/bubble-ai-di-china-pecah-rp-8-700-triliun-menguap",
-      "source": "detikINET",
-      "pubDate": "2026-10-29T03:15:49.000Z"
-    },
-    {
-      "title": "Google Rilis Gemini 4 Carbon, Mengapa Aksesnya Dibatasi?",
-      "link": "https://inet.detik.com/cyberlife/d-8728777/google-rilis-gemini-4-carbon-mengapa-aksesnya-dibatasi",
-      "source": "detikINET",
-      "pubDate": "2026-10-29T00:45:53.000Z"
-    },
-    {
-      "title": "Teknologi AI Bisa Bikin Bau Kopi Tercium Lewat Internet?",
-      "link": "https://www.liputan6.com/tekno/read/8320101/teknologi-ai-bisa-bikin-bau-kopi-tercium-lewat-internet",
-      "source": "Liputan6",
-      "pubDate": "2026-10-28T16:52:42.000Z"
     }
   ]
 }
