@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-17T15:58:12.953Z",
+  "updatedAt": "2026-11-18T03:42:16.880Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Vals AI: ИИ‑модели можно использовать как автономное оружие. Они находят цели на снимках и выбирают гражданских",
+      "link": "https://habr.com/ru/articles/1109124/?utm_campaign=1109124&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-17T22:10:06.000Z"
+    },
+    {
+      "title": "Microsoft представила семь ИИ-моделей: одни пишут и исправляют код, другие ищут уязвимости, редактируют изображения и общаются голосом",
+      "link": "https://3dnews.ru/1151438/microsoft-predstavila-sem-iimodeley-odni-pishut-i-ispravlyayut-kod-drugie-ishchut-uyazvimosti-redaktiruyut-izobrageniya-i-obshchayutsya-golosom",
+      "source": "3DNews",
+      "pubDate": "2026-11-17T21:09:00.000Z"
+    },
+    {
+      "title": "OpenAI представила две «жутко умные» модели ИИ — GPT-6.2 Astra для профи и GPT-6.2 Sol для повседневных дел",
+      "link": "https://3dnews.ru/1151437/openai-predstavila-dve-gutko-umniemodeli-ii-gpt62-astra-dlya-profi-i-gpt62-sol-dlya-povsednevnih-del",
+      "source": "3DNews",
+      "pubDate": "2026-11-17T20:38:00.000Z"
+    },
+    {
+      "title": "Будем покупать профессии? Как ИИ-платформы изменят рынок корпоративного ПО",
+      "link": "https://habr.com/ru/articles/1109074/?utm_campaign=1109074&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-17T19:31:42.000Z"
+    },
+    {
+      "title": "Nvidia представила кластер из четырёх DGX Spark с 512 ГБ для запуска AI‑моделей размером до 700 млрд параметров",
+      "link": "https://habr.com/ru/articles/1109072/?utm_campaign=1109072&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-17T19:24:32.000Z"
+    },
     {
       "title": "Как обезопасить данные в системах ИИ, если вы дварф из D&D",
       "link": "https://habr.com/ru/companies/infotecs_tech/articles/1108514/?utm_campaign=1108514&utm_source=habrahabr&utm_medium=rss",
@@ -63,7 +93,7 @@
       "pubDate": "2026-11-17T10:00:39.000Z"
     },
     {
-      "title": "Страхование будущего: как бороться с AI-мошенниками, как нейронки меняют бизнес, разработку и клиентский опыт",
+      "title": "Страхование будущего: как бороться с AI‑мошенниками, как нейронки меняют бизнес, разработку и клиентский опыт",
       "link": "https://habr.com/ru/companies/agima/articles/1108766/?utm_campaign=1108766&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-17T09:43:40.000Z"
@@ -1771,36 +1801,6 @@
       "link": "https://habr.com/ru/articles/1101204/?utm_campaign=1101204&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-10-29T11:44:23.000Z"
-    },
-    {
-      "title": "Не давайте агенту docker.sock: как я сделал для ИИ отдельный вход в свой Docker-менеджер",
-      "link": "https://habr.com/ru/articles/1101202/?utm_campaign=1101202&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-29T11:44:18.000Z"
-    },
-    {
-      "title": "Локальные LLM в AppSec: что можно доверить открытым инструментам и моделям",
-      "link": "https://habr.com/ru/companies/codescoring/articles/1101180/?utm_campaign=1101180&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-29T10:51:16.000Z"
-    },
-    {
-      "title": "Workflow as a YAML: детерминированная песочница для агента поверх Pydantic AI",
-      "link": "https://habr.com/ru/articles/1101120/?utm_campaign=1101120&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-29T09:50:38.000Z"
-    },
-    {
-      "title": "Оптимизация ИБ-бюджета, итоги «Киберарены» и ИИ в SOC: что мы узнали на GISDAYS 2026",
-      "link": "https://habr.com/ru/companies/gaz-is/articles/1101088/?utm_campaign=1101088&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-29T09:01:34.000Z"
-    },
-    {
-      "title": "Сбербанк в руководстве по ИИ менеджменту повышает нормативы для работников до 500%",
-      "link": "https://habr.com/ru/articles/1101038/?utm_campaign=1101038&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-10-29T08:25:01.000Z"
     }
   ]
 }
