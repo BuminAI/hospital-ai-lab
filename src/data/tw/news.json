@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-18T12:20:08.345Z",
-  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · iThome · ETtoday · 醫療新聞網",
+  "updatedAt": "2026-11-18T20:57:13.934Z",
+  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · iThome · 自由時報 · ETtoday · 醫療新聞網",
   "items": [
+    {
+      "title": "台灣新創育成年會登場 聚焦AI商業化與產業共創",
+      "link": "https://ec.ltn.com.tw/article/breakingnews/5645596",
+      "source": "自由時報",
+      "pubDate": "2026-11-18T13:43:07.000Z"
+    },
+    {
+      "title": "施吉生技23日登錄興櫃 電漿醫療、AI醫療雙引擎搶攻亞洲商機",
+      "link": "https://finance.ettoday.net/news/3274511",
+      "source": "ETtoday",
+      "pubDate": "2026-11-18T10:26:00.000Z"
+    },
     {
       "title": "3大國立圖書館推「館館有AI」 高階運算資源免費用",
       "link": "https://www.cna.com.tw/news/ahel/202611180229.aspx",
@@ -795,14 +807,14 @@
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
     {
-      "title": "健保推動糖尿病個人化AI助理 健康存摺試辦驗證",
-      "link": "https://www.cna.com.tw/news/ahel/202603040334.aspx",
+      "title": "新北土城醫院獲智慧醫院標章 導入AI提升效能",
+      "link": "https://www.cna.com.tw/news/aloc/202603040091.aspx",
       "source": "中央社",
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
     {
-      "title": "新北土城醫院獲智慧醫院標章 導入AI提升效能",
-      "link": "https://www.cna.com.tw/news/aloc/202603040091.aspx",
+      "title": "健保推動糖尿病個人化AI助理 健康存摺試辦驗證",
+      "link": "https://www.cna.com.tw/news/ahel/202603040334.aspx",
       "source": "中央社",
       "pubDate": "2026-03-04T04:00:00.000Z"
     },
