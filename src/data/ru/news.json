@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-18T03:50:27.562Z",
+  "updatedAt": "2026-11-18T13:21:29.928Z",
   "source": "Медвестник · Vademecum · ТАСС · Zdrav.ru",
   "items": [
+    {
+      "title": "Разработан прототип промышленной ИИ-системы для диагностики двигателей",
+      "link": "https://tass.ru/ekonomika/28331063",
+      "source": "ТАСС",
+      "pubDate": "2026-11-18T12:26:12.000Z"
+    },
+    {
+      "title": "ИИ по данным рутинных анализов предсказывает органные осложнения у онкопациентов за месяцы до их обнаружения",
+      "link": "https://vademec.ru/news/2026/11/18/ii-po-dannym-rutinnykh-analizov-predskazyvaet-organnye-oslozhneniya-u-onkopatsientov-za-mesyatsy-do-/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-18T05:31:00.000Z"
+    },
     {
       "title": "Эксперт Исайкин предостерег от диагностики болезней животных через ИИ",
       "link": "https://tass.ru/obschestvo/28328503",
