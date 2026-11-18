@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-11-18T04:42:10.332Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · TechCrunch · NEJM AI · Radiology Business · NPR · Federal Register",
+  "updatedAt": "2026-11-18T14:32:05.724Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · HIT Consultant · MedCity News · Radiology Business · NEJM AI · The New York Times · NPR · Federal Register",
   "items": [
+    {
+      "title": "I’ve Practiced Medicine for 40 Years — AI Gave Me Back My Evenings",
+      "link": "https://medcitynews.com/2026/11/ive-practiced-medicine-for-40-years-ai-gave-me-back-my-evenings/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-18T14:20:00.000Z"
+    },
+    {
+      "title": "Suki debuts agentic operating system",
+      "link": "https://www.healthcaredive.com/news/suki-debuts-agentic-operating-system/874848/",
+      "source": "Healthcare Dive",
+      "pubDate": "2026-11-18T14:13:13.000Z"
+    },
+    {
+      "title": "Ambient AI for rural and urban providers alike: Inside CommonSpirit’s equal-access rollout",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ambient-ai-for-rural-and-urban-providers-alike-inside-commonspirits-equal-access-rollout/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-18T13:56:38.000Z"
+    },
+    {
+      "title": "Hospitals Rush to Patch Java Vulnerabilities",
+      "link": "https://www.nytimes.com/2026/11/18/business/hospitals-java-artificial-intelligence.html",
+      "source": "The New York Times",
+      "pubDate": "2026-11-18T13:42:44.000Z"
+    },
+    {
+      "title": "How Virtual Cells Could Transform Medicine",
+      "link": "https://www.nytimes.com/2026/11/18/science/ai-virtual-human-cells.html",
+      "source": "The New York Times",
+      "pubDate": "2026-11-18T10:02:15.000Z"
+    },
+    {
+      "title": "Ultrasound AI predicts preterm birth risk using routine prenatal scans",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/ultrasound-ai-predicts-preterm-birth-risk-using-routine-prenatal-scans",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-18T01:40:20.000Z"
+    },
     {
       "title": "Viz.ai Partners with Wolters Kluwer Health to Add UpToDate Resource to its Platform",
       "link": "https://medcitynews.com/2026/11/viz-ai-partners-with-wolters-kluwer-health-to-add-uptodate-resource-to-its-platform/",
