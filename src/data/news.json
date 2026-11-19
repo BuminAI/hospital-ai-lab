@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-19T13:03:42.988Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-19T21:32:03.834Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 뉴시스 · 디지털투데이 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "병원에 갇힌 의료 데이터…“보상체계 정리해야 연결된다”",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044719",
+      "source": "청년의사",
+      "pubDate": "2026-11-20T06:15:36.000Z"
+    },
     {
       "title": "AI 시대 바이오 실험실, 무엇이 달라지나…머크·KAIST 공동 행사 개최",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422279",
@@ -60,7 +66,9 @@
       "title": "“병원 혼자서는 어렵다”…정부와의 의료정보보호 공조 필수",
       "link": "http://www.khanews.com/news/articleView.html?idxno=253027",
       "source": "병원신문",
-      "pubDate": "2026-11-19T16:05:00.000Z"
+      "pubDate": "2026-11-19T16:05:00.000Z",
+      "popular": true,
+      "rank": 2
     },
     {
       "title": "심평원, AI 활용 '고가약 사전 심사 기간 단축' 추진",
@@ -79,6 +87,12 @@
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242656",
       "source": "라포르시안",
       "pubDate": "2026-11-19T14:59:34.000Z"
+    },
+    {
+      "title": "AI·마이크로로봇 망막치료 기술, 임상 검증·사업화 연계가 관건",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253051",
+      "source": "병원신문",
+      "pubDate": "2026-11-19T14:36:00.000Z"
     },
     {
       "title": "포낙, AI 청취 기술 효과 확인…“신체 각성·표정 반응 감소”",
@@ -108,7 +122,9 @@
       "title": "[동정] 춘천성심 전진평 교수, '심뇌혈관질환 사례수기 공모전' 최우수상",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415613",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-19T12:03:06.000Z"
+      "pubDate": "2026-11-19T12:03:06.000Z",
+      "popular": true,
+      "rank": 6
     },
     {
       "title": "HLB그룹, 조직개편·임원 인사…40대 리더 전면 배치",
@@ -134,7 +150,7 @@
       "source": "의협신문",
       "pubDate": "2026-11-19T11:31:00.000Z",
       "popular": true,
-      "rank": 9
+      "rank": 2
     },
     {
       "title": "서울본원병원 박성철 병원장, 대한척추외과학회서 AI 기반 척추 진단 연구 발표",
@@ -182,7 +198,9 @@
       "title": "의료인 국가시험 부정행위 시 응시 제한 확대",
       "link": "http://www.khanews.com/news/articleView.html?idxno=253021",
       "source": "병원신문",
-      "pubDate": "2026-11-19T10:23:41.000Z"
+      "pubDate": "2026-11-19T10:23:41.000Z",
+      "popular": true,
+      "rank": 6
     },
     {
       "title": "미소정보기술, 의정원 ‘보건의료데이터 중개 포털 구축사업' 착수",
@@ -194,13 +212,17 @@
       "title": "아이 숨소리 AI가 듣는다…우리아이들병원, 스마트병원 구축",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044686",
       "source": "청년의사",
-      "pubDate": "2026-11-19T10:18:08.000Z"
+      "pubDate": "2026-11-19T10:18:08.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "약사·의료인 국시 부정행위 제재 강화 추진...최대 5회 응시 제한",
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549352",
       "source": "약사공론",
-      "pubDate": "2026-11-19T10:14:49.000Z"
+      "pubDate": "2026-11-19T10:14:49.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "케이사인, 가천대 총장상 수상… AI 시스템 암호화·보안 구축 기여 인정",
@@ -260,7 +282,9 @@
       "title": "\"AI 공격 빨라지는데\"…병원 보안은 어떻게 바뀌나",
       "link": "https://www.khanews.com/news/articleView.html?idxno=253028",
       "source": "병원신문",
-      "pubDate": "2026-11-19T07:00:00.000Z"
+      "pubDate": "2026-11-19T07:00:00.000Z",
+      "popular": true,
+      "rank": 4
     },
     {
       "title": "\"AI가 의사만큼 진단\"…전문의 교육은 어떻게?",
