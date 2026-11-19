@@ -1,7 +1,127 @@
 {
-  "updatedAt": "2026-11-19T03:24:28.089Z",
+  "updatedAt": "2026-11-19T15:42:45.644Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "«К2Тех» автоматизировала рутину 600 сотрудников с помощью ИИ-платформы SamurAI",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_k2teh_avtomatizirovala",
+      "source": "CNews",
+      "pubDate": "2026-11-19T13:53:00.000Z"
+    },
+    {
+      "title": "СУБД Jatoba теперь использует ИИ для автоматического выявления персональных данных",
+      "link": "https://habr.com/ru/companies/gaz-is/articles/1109898/?utm_campaign=1109898&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T12:38:25.000Z"
+    },
+    {
+      "title": "Исследование ИТ-холдинга «Т1» и TProger: 42% разработчиков сложно разобраться в коде от ИИ",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_issledovanie_it-holdinga",
+      "source": "CNews",
+      "pubDate": "2026-11-19T11:34:00.000Z"
+    },
+    {
+      "title": "Исследование Axenix: российские финансовые организации потратят до 20 млрд рублей на ИИ-агентов в 2026 году",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_issledovanie_axenix_rossijskie",
+      "source": "CNews",
+      "pubDate": "2026-11-19T10:20:00.000Z"
+    },
+    {
+      "title": "Artezio и Comindware объединят экспертизу в области ИИ для автоматизации и безопасности",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_artezio_i_comindware_obedinyat_ekspertizu",
+      "source": "CNews",
+      "pubDate": "2026-11-19T10:16:00.000Z"
+    },
+    {
+      "title": "VK Tech добавила в VK AI Space библиотеку готовых ИИ-агентов, навыков и хуков",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_vk_tech_dobavila_v_vk_ai_space_biblioteku",
+      "source": "CNews",
+      "pubDate": "2026-11-19T10:13:00.000Z"
+    },
+    {
+      "title": "Security Vision расширяет применение ИИ в линейке SGRC с помощью собственной LLM и ML-моделей",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_security_vision_rasshiryaet_primenenie",
+      "source": "CNews",
+      "pubDate": "2026-11-19T09:43:00.000Z"
+    },
+    {
+      "title": "Разговоры с СТО: вайб-кодинг в банке или почему мы не уволим разработчиков и не отдадим всё ИИ",
+      "link": "https://habr.com/ru/companies/svoi_ru/articles/1109790/?utm_campaign=1109790&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T09:40:20.000Z"
+    },
+    {
+      "title": "Вторая модель проверяет ответ ИИ-консультанта до отправки: как это устроено и чем за это платишь",
+      "link": "https://habr.com/ru/articles/1109788/?utm_campaign=1109788&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T09:35:15.000Z"
+    },
+    {
+      "title": "Google представил Gemini 4 Neon — четвёртую модель семейства Gemini 4",
+      "link": "https://habr.com/ru/companies/gptunnel/articles/1109770/?utm_campaign=1109770&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T09:13:01.000Z"
+    },
+    {
+      "title": "Ваш вайбкод станет безопаснее: научили бесплатный плагин PT AI проверять код за ИИ",
+      "link": "https://habr.com/ru/companies/pt/articles/1109758/?utm_campaign=1109758&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T08:56:21.000Z"
+    },
+    {
+      "title": "ИИ-агенты с нуля: бесплатные курсы и демо, чтобы собрать первого агента",
+      "link": "https://habr.com/ru/companies/netologyru/articles/1109754/?utm_campaign=1109754&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T08:50:45.000Z"
+    },
+    {
+      "title": "«Просто ужасно»: ИИ-агент M**a Muse сам влез в переписки Signal — и это лишь одна из его пугающих проблем",
+      "link": "https://3dnews.ru/1151521/prosto-uzhasno-ii-agent-meta-muse-sam-vlez-v-perepiski-signal-i-eto-lish-odna-iz-ego-pugayushhikh-problem",
+      "source": "3DNews",
+      "pubDate": "2026-11-19T08:45:00.000Z"
+    },
+    {
+      "title": "Свой ИИ-агент: пошаговое руководство для новичков",
+      "link": "https://habr.com/ru/companies/selectel/articles/1109694/?utm_campaign=1109694&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T08:01:00.000Z"
+    },
+    {
+      "title": "Агентный RAG на JVM: как устроен Смысл.ИИ",
+      "link": "https://habr.com/ru/articles/1109712/?utm_campaign=1109712&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T07:55:48.000Z"
+    },
+    {
+      "title": "Anthropic провели крупнейшее IPO в истории: разработчика Claude оценили в $1,5 трлн",
+      "link": "https://habr.com/ru/articles/1109708/?utm_campaign=1109708&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T07:50:48.000Z"
+    },
+    {
+      "title": "Тесты как промпт: подход TDD при работе с ИИ-агентом",
+      "link": "https://habr.com/ru/companies/ru_mts/articles/1108716/?utm_campaign=1108716&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T07:32:57.000Z"
+    },
+    {
+      "title": "[Перевод] Торстен Балл: Как я работаю с ИИ-агентами",
+      "link": "https://habr.com/ru/companies/hexlet/articles/1109610/?utm_campaign=1109610&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T07:28:56.000Z"
+    },
+    {
+      "title": "НИУ ВШЭ — Санкт-Петербург проведет промышленные испытания собственной ИИ-системы для диагностики двигателей",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_niu_vshe_sankt-peterburg",
+      "source": "CNews",
+      "pubDate": "2026-11-19T05:28:00.000Z"
+    },
+    {
+      "title": "Платформу TEXX.AI обучили функционалу автоматического нормоконтроля по стандартам ЕСКД и ЕСТД",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_platformu_texxai_obuchili_funktsionalu",
+      "source": "CNews",
+      "pubDate": "2026-11-19T04:56:00.000Z"
+    },
     {
       "title": "ИИ советует. Врач отвечает",
       "link": "https://habr.com/ru/articles/1109602/?utm_campaign=1109602&utm_source=habrahabr&utm_medium=rss",
@@ -1681,126 +1801,6 @@
       "link": "https://habr.com/ru/companies/haulmont/articles/1101452/?utm_campaign=1101452&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-03T09:00:13.000Z"
-    },
-    {
-      "title": "Минцифры получит полномочия координировать внедрение ИИ в России",
-      "link": "https://www.cnews.ru/news/top/2026-11-03_mintsifry_rossii_dadut_polnomochiya",
-      "source": "CNews",
-      "pubDate": "2026-11-03T08:56:00.000Z"
-    },
-    {
-      "title": "Банк в Армении внедрил ИИ и RPA платформу ROBIN от SL Soft fabricaONE.AI",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_bank_v_armenii_vnedril_ii",
-      "source": "CNews",
-      "pubDate": "2026-11-03T08:38:00.000Z"
-    },
-    {
-      "title": "Передать данные ИИ и не унести их во внешний интернет: опыт ЕДИНОГО ЦУПИС во внедрении Shtab AI",
-      "link": "https://habr.com/ru/companies/shtab/articles/1103050/?utm_campaign=1103050&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-03T08:23:31.000Z"
-    },
-    {
-      "title": "Портал мэрии Новосибирска получил ИИ-помощника, созданного в НГУ",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_portal_merii_novosibirska",
-      "source": "CNews",
-      "pubDate": "2026-11-03T08:05:00.000Z"
-    },
-    {
-      "title": "Инвесторы остудили амбиции Anthropic: перед IPO разработчика Claude оценили всего в $1,5 трлн",
-      "link": "https://3dnews.ru/1150778/investori-ostudili-ambitsii-anthropic-pered-ipo-razrabotchika-claude-otsenili-vsego-v-15-trln",
-      "source": "3DNews",
-      "pubDate": "2026-11-03T07:28:00.000Z"
-    },
-    {
-      "title": "Как перестать проверять одно и то же руками? Testence и ИИ‑агент в работе тестировщика",
-      "link": "https://habr.com/ru/articles/1103014/?utm_campaign=1103014&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-03T07:23:52.000Z"
-    },
-    {
-      "title": "Voxys представил новую версию ИИ-платформы OmniVox для управления клиентскими коммуникациями",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_voxys_predstavil_novuyu_versiyu",
-      "source": "CNews",
-      "pubDate": "2026-11-03T07:06:00.000Z"
-    },
-    {
-      "title": "ИИ-самолечение баз данных PostgreSQL теперь доступно в платформе Tantor 7.1",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_ii-samolechenie_baz_dannyh",
-      "source": "CNews",
-      "pubDate": "2026-11-03T06:56:00.000Z"
-    },
-    {
-      "title": "Студентов Хакасского государственного университета научат работать с ИИ, большими данными и интернетом вещей",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_studentov_hakasskogo_gosudarstvennogo",
-      "source": "CNews",
-      "pubDate": "2026-11-03T06:37:00.000Z"
-    },
-    {
-      "title": "Автомат направляет, а LLM объясняет: диалог с агентом за 3 рубля",
-      "link": "https://habr.com/ru/articles/1102400/?utm_campaign=1102400&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-03T06:33:57.000Z"
-    },
-    {
-      "title": "ИИ разберется с документами, но не с чувствами: россияне рассказали, что не доверят нейросетям",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_ii_razberetsya_s_dokumentami",
-      "source": "CNews",
-      "pubDate": "2026-11-03T04:58:00.000Z"
-    },
-    {
-      "title": "«М.Видео» расширяет применение ИИ в разработке ПО, клиентском сервисе и бизнес-процессах",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_mvideo_rasshiryaet_primenenie",
-      "source": "CNews",
-      "pubDate": "2026-11-03T04:45:00.000Z"
-    },
-    {
-      "title": "[Перевод] Что ИИ незаметно сломал в моей команде разработки",
-      "link": "https://habr.com/ru/companies/otus/articles/1101862/?utm_campaign=1101862&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-02T17:40:53.000Z"
-    },
-    {
-      "title": "«Университет Иннополис» и Минтранс РТ будут внедрять беспилотные и ИИ-системы в транспортную отрасль региона",
-      "link": "https://www.cnews.ru/news/line/2026-11-02_universitet_innopolis",
-      "source": "CNews",
-      "pubDate": "2026-11-02T15:17:00.000Z"
-    },
-    {
-      "title": "Как встроить AI-агентов в разработку: требования, архитектура и контроль качества",
-      "link": "https://habr.com/ru/articles/1102790/?utm_campaign=1102790&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-02T14:40:41.000Z"
-    },
-    {
-      "title": "Свежие научные работы про ИИ, агентов и все такое. Сентябрь-2026: мультимодальный ИИ и робототехника",
-      "link": "https://habr.com/ru/companies/ru_mts/articles/1097740/?utm_campaign=1097740&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-02T12:46:33.000Z"
-    },
-    {
-      "title": "Прежде чем дать AI-агенту доступ к сайту: права, повторы и потерянные правки",
-      "link": "https://habr.com/ru/articles/1102672/?utm_campaign=1102672&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-02T10:34:05.000Z"
-    },
-    {
-      "title": "Кто заплатит, если ИИ-агент ошибётся: страхование ИИ-рисков в России и на Западе",
-      "link": "https://habr.com/ru/articles/1102652/?utm_campaign=1102652&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-02T10:16:15.000Z"
-    },
-    {
-      "title": "Что такое JEV и зачем он нужен: собираем AI‑агента на связке LLM + open‑source аналог JEV",
-      "link": "https://habr.com/ru/companies/hostkey/articles/1099428/?utm_campaign=1099428&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-02T09:26:36.000Z"
-    },
-    {
-      "title": "LLm агент в КОМПАС-3D: собрал редуктор, сделал КД, споткнулся на спецификации",
-      "link": "https://habr.com/ru/articles/1102580/?utm_campaign=1102580&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-02T09:03:55.000Z"
     }
   ]
 }

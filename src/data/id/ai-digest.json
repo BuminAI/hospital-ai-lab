@@ -1,7 +1,109 @@
 {
-  "updatedAt": "2026-11-19T03:25:02.523Z",
+  "updatedAt": "2026-11-19T15:43:17.532Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Telkomsel Dorong Evolusi Konektivitas Indonesia Lewat 5G dan AI",
+      "link": "https://inet.detik.com/telecommunication/d-8760680/telkomsel-dorong-evolusi-konektivitas-indonesia-lewat-5g-dan-ai",
+      "source": "detikINET",
+      "pubDate": "2026-11-19T12:32:55.000Z"
+    },
+    {
+      "title": "Harga IPO Anthropic Resmi US$ 83 per Saham, Nilai Pasarnya 84% PDB RI",
+      "link": "https://finance.detik.com/bursa-dan-valas/d-8760676/harga-ipo-anthropic-resmi-us-83-per-saham-nilai-pasarnya-84-pdb-ri",
+      "source": "detikFinance",
+      "pubDate": "2026-11-19T12:31:06.000Z"
+    },
+    {
+      "title": "Pengembang Claude Anthropic Resmi IPO, Nilainya Kalahkan Rekor SpaceX",
+      "link": "https://www.cnnindonesia.com/teknologi/20261119170245-192-1429104/pengembang-claude-anthropic-resmi-ipo-nilainya-kalahkan-rekor-spacex",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-19T12:30:46.000Z"
+    },
+    {
+      "title": "Bidik Pasar Pusat Data AI, LG Boyong Solusi Pendingin Bersertifikasi Nvidia ke Indonesia",
+      "link": "https://www.liputan6.com/tekno/read/8338570/bidik-pasar-pusat-data-ai-lg-boyong-solusi-pendingin-bersertifikasi-nvidia-ke-indonesia",
+      "source": "Liputan6",
+      "pubDate": "2026-11-19T12:06:48.000Z"
+    },
+    {
+      "title": "IPO Raksasa AI Anthropic Raup Rekor Rp 1.478 Triliun",
+      "link": "https://inet.detik.com/business/d-8760593/ipo-raksasa-ai-anthropic-raup-rekor-rp-1-478-triliun",
+      "source": "detikINET",
+      "pubDate": "2026-11-19T12:00:32.000Z"
+    },
+    {
+      "title": "Moonshot AI Cina Disebut Batal Sewa Cip Nvidia Rp 2,7 Triliun dari Data Center R",
+      "link": "https://katadata.co.id/digital/teknologi/6afed924c0cc6/moonshot-ai-cina-disebut-batal-sewa-cip-nvidia-rp-2-7-triliun-dari-data-center-r",
+      "source": "Katadata",
+      "pubDate": "2026-11-19T11:10:00.000Z"
+    },
+    {
+      "title": "CEO Baru Nvidia Setop Kirim Chip AI ke China, Dulu Bisa karena Dilobi Huang",
+      "link": "https://inet.detik.com/cyberlife/d-8760301/ceo-baru-nvidia-setop-kirim-chip-ai-ke-china-dulu-bisa-karena-dilobi-huang",
+      "source": "detikINET",
+      "pubDate": "2026-11-19T11:00:37.000Z"
+    },
+    {
+      "title": "Review ASUS ProArt P14: Laptop AI Kencang Berbekal NVIDIA RTX Spark",
+      "link": "https://inet.detik.com/review-produk/d-8760417/review-asus-proart-p14-laptop-ai-kencang-berbekal-nvidia-rtx-spark",
+      "source": "detikINET",
+      "pubDate": "2026-11-19T10:18:06.000Z"
+    },
+    {
+      "title": "Raih detikcomAwards 2026, XLSmart for Business Perluas Pemanfaatan AI-5G",
+      "link": "https://inet.detik.com/business/d-8760332/raih-detikcomawards-2026-xlsmart-for-business-perluas-pemanfaatan-ai-5g",
+      "source": "detikINET",
+      "pubDate": "2026-11-19T09:31:19.000Z"
+    },
+    {
+      "title": "IPO Anthropic Pecahkan Rekor, Raksasa AI Ini Raup Dana Rp 1.483 Triliun",
+      "link": "https://katadata.co.id/digital/teknologi/6afeb65d3ce33/ipo-anthropic-pecahkan-rekor-raksasa-ai-ini-raup-dana-rp-1483-triliun",
+      "source": "Katadata",
+      "pubDate": "2026-11-19T08:42:00.000Z"
+    },
+    {
+      "title": "Indosat Ooredoo Hutchison Raih Detikcom Awards, Transformasi Telekomunikasi Berbasis AI Indonesia",
+      "link": "https://inet.detik.com/telecommunication/d-8760055/indosat-ooredoo-hutchison-raih-detikcom-awards-transformasi-telekomunikasi-berbasis-ai-indonesia",
+      "source": "detikINET",
+      "pubDate": "2026-11-19T07:14:31.000Z"
+    },
+    {
+      "title": "Ekspansi Pusat Data AI Bikin Harga Timah Meroket",
+      "link": "https://finance.detik.com/industri/d-8759856/ekspansi-pusat-data-ai-bikin-harga-timah-meroket",
+      "source": "detikFinance",
+      "pubDate": "2026-11-19T05:41:35.000Z"
+    },
+    {
+      "title": "Instagram Siapkan Fitur Content Protection untuk Basmi Video Repost dan Plagiasi AI",
+      "link": "https://www.liputan6.com/tekno/read/8337524/instagram-siapkan-fitur-content-protection-untuk-basmi-video-repost-dan-plagiasi-ai",
+      "source": "Liputan6",
+      "pubDate": "2026-11-19T05:21:41.000Z"
+    },
+    {
+      "title": "Demam AI Bikin Inflasi Dunia Makin Panas, IMF Kasih Peringatan Ini",
+      "link": "https://finance.detik.com/berita-ekonomi-bisnis/d-8759775/demam-ai-bikin-inflasi-dunia-makin-panas-imf-kasih-peringatan-ini",
+      "source": "detikFinance",
+      "pubDate": "2026-11-19T04:54:24.000Z"
+    },
+    {
+      "title": "AI Bisa Bantu Pemerintah Petakan Kesenjangan Kualitas Kampus, Ini Caranya",
+      "link": "https://katadata.co.id/digital/teknologi/6afe7bcd4858c/ai-bisa-bantu-pemerintah-petakan-kesenjangan-kualitas-kampus-ini-caranya",
+      "source": "Katadata",
+      "pubDate": "2026-11-19T04:32:00.000Z"
+    },
+    {
+      "title": "Google Temukan Hacker Pakai AI untuk Cari Celah dan Lakukan Serangan",
+      "link": "https://www.cnnindonesia.com/teknologi/20261119045401-185-1428764/google-temukan-hacker-pakai-ai-untuk-cari-celah-dan-lakukan-serangan",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-19T04:15:18.000Z"
+    },
+    {
+      "title": "Tambah 1.408 Km Fiber Optik, InfraNexia Perkuat Fondasi AI Ready Infrastructure Nasional",
+      "link": "https://www.liputan6.com/tekno/read/8338163/tambah-1408-km-fiber-optik-infranexia-perkuat-fondasi-ai-ready-infrastructure-nasional",
+      "source": "Liputan6",
+      "pubDate": "2026-11-19T03:58:03.000Z"
+    },
     {
       "title": "OPC Indonesia jembatani ekosistem bisnis AI China dan Indonesia",
       "link": "https://www.antaranews.com/berita/5864055/opc-indonesia-jembatani-ekosistem-bisnis-ai-china-dan-indonesia",
@@ -1699,108 +1801,6 @@
       "link": "https://www.liputan6.com/tekno/read/8323775/google-umumkan-gemini-4-carbon-model-ai-baru-yang-belum-bisa-dipakai-publik",
       "source": "Liputan6",
       "pubDate": "2026-10-30T05:21:47.000Z"
-    },
-    {
-      "title": "Solusi Infrastruktur Inferensi AI Lokal untuk Efisiensi dan Keamanan Data Perusahaan",
-      "link": "https://mediaindonesia.com/teknologi/950451/solusi-infrastruktur-inferensi-ai-lokal-untuk-efisiensi-dan-keamanan-data-perusahaan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-30T05:21:00.000Z"
-    },
-    {
-      "title": "AI Jadi Senjata Makan Tuan, Google Kehilangan Rp 9.000 Triliun",
-      "link": "https://inet.detik.com/business/d-8730576/ai-jadi-senjata-makan-tuan-google-kehilangan-rp-9-000-triliun",
-      "source": "detikINET",
-      "pubDate": "2026-10-30T04:20:28.000Z"
-    },
-    {
-      "title": "LG Andalkan Mesin Cuci AI di RI, Kapasitasnya hingga 25 Kg",
-      "link": "https://inet.detik.com/consumer/d-8730557/lg-andalkan-mesin-cuci-ai-di-ri-kapasitasnya-hingga-25-kg",
-      "source": "detikINET",
-      "pubDate": "2026-10-30T04:00:26.000Z"
-    },
-    {
-      "title": "Saham Rontok Gara-gara AI, Induk Google Rugi Rp9.000 Triliun",
-      "link": "https://uzone.id/sahamnya-anjlok-gara-gara-ai-induk-google-rugi-rp9000-triliun",
-      "source": "Uzone",
-      "pubDate": "2026-10-30T04:00:00.000Z"
-    },
-    {
-      "title": "Meta AI Bikin Heboh soal Konten Demo, Komdigi: Jangan Langsung Percaya",
-      "link": "https://uzone.id/meta-ai-bikin-heboh-soal-konten-demo-komdigi-jangan-langsung-percaya",
-      "source": "Uzone",
-      "pubDate": "2026-10-30T03:30:00.000Z"
-    },
-    {
-      "title": "Startup Besutan Elon Musk Klaim Retas Sistem Anthropic",
-      "link": "https://www.liputan6.com/tekno/read/8323800/startup-besutan-elon-musk-klaim-retas-sistem-anthropic",
-      "source": "Liputan6",
-      "pubDate": "2026-10-30T03:18:23.000Z"
-    },
-    {
-      "title": "Bos Instagram Sebut Kemarahan Publik pada AI Bakal Makin Parah",
-      "link": "https://inet.detik.com/cyberlife/d-8730533/bos-instagram-sebut-kemarahan-publik-pada-ai-bakal-makin-parah",
-      "source": "detikINET",
-      "pubDate": "2026-10-30T03:15:33.000Z"
-    },
-    {
-      "title": "4 Mahasiswa Bikin AI Bantu Tunanetra Belajar Matematika, Juara SFT 2026",
-      "link": "https://inet.detik.com/cyberlife/d-8730320/4-mahasiswa-bikin-ai-bantu-tunanetra-belajar-matematika-juara-sft-2026",
-      "source": "detikINET",
-      "pubDate": "2026-10-29T23:16:00.000Z"
-    },
-    {
-      "title": "Wall Street Melemah, Saham Teknologi Tertekan Kekhawatiran Prospek AI",
-      "link": "https://katadata.co.id/finansial/bursa/6ae3d28a5d478/wall-street-melemah-saham-teknologi-tertekan-kekhawatiran-prospek-ai",
-      "source": "Katadata",
-      "pubDate": "2026-10-29T23:11:00.000Z"
-    },
-    {
-      "title": "Soal Meta AI, Komdigi Tegaskan Tak Pernah Minta Batasi Konten Karhutla",
-      "link": "https://www.liputan6.com/tekno/read/8324002/soal-meta-ai-komdigi-tegaskan-tak-pernah-minta-batasi-konten-karhutla",
-      "source": "Liputan6",
-      "pubDate": "2026-10-29T16:53:45.000Z"
-    },
-    {
-      "title": "AI dan masa depan pengawasan pemilu",
-      "link": "https://www.antaranews.com/berita/5820519/ai-dan-masa-depan-pengawasan-pemilu",
-      "source": "ANTARA",
-      "pubDate": "2026-10-29T15:48:18.000Z"
-    },
-    {
-      "title": "Gubernur New York sahkan UU lindungi anak dari Chatbot AI, peretas",
-      "link": "https://www.antaranews.com/berita/5820459/gubernur-new-york-sahkan-uu-lindungi-anak-dari-chatbot-ai-peretas",
-      "source": "ANTARA",
-      "pubDate": "2026-10-29T15:11:20.000Z"
-    },
-    {
-      "title": "Kampus Ini Beri Akses Gratis bagi Mahasiswa Manfaatkan Teknologi AI",
-      "link": "https://mediaindonesia.com/humaniora/950288/kampus-ini-beri-akses-gratis-bagi-mahasiswa-manfaatkan-teknologi-ai",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-29T14:34:00.000Z"
-    },
-    {
-      "title": "Dinding Lumut Ber-AI dan Aplikasi Tunanetra Menang Samsung SFT 2026",
-      "link": "https://uzone.id/dinding-lumut-ber-ai-dan-aplikasi-tunanetra-menang-samsung-sft-2026",
-      "source": "Uzone",
-      "pubDate": "2026-10-29T13:25:57.000Z"
-    },
-    {
-      "title": "Tencent Luncurkan Buddy One: Agen AI Terintegrasi untuk Produktivitas Kantor",
-      "link": "https://mediaindonesia.com/teknologi/950240/tencent-luncurkan-buddy-one-agen-ai-terintegrasi-untuk-produktivitas-kantor",
-      "source": "Media Indonesia",
-      "pubDate": "2026-10-29T13:11:00.000Z"
-    },
-    {
-      "title": "Survei HSBC: Perusahaan Indonesia Hadapi Rintangan Adopsi AI ke Sistem Keuangan",
-      "link": "https://katadata.co.id/digital/teknologi/6ae33b93852ff/survei-hsbc-perusahaan-indonesia-hadapi-rintangan-adopsi-ai-ke-sistem-keuangan",
-      "source": "Katadata",
-      "pubDate": "2026-10-29T12:26:00.000Z"
-    },
-    {
-      "title": "Aerospora, Inovasi Siswa SMAN 81 Jakarta Pakai Lumut dan AI",
-      "link": "https://inet.detik.com/cyberlife/d-8729745/aerospora-inovasi-siswa-sman-81-jakarta-pakai-lumut-dan-ai",
-      "source": "detikINET",
-      "pubDate": "2026-10-29T10:45:18.000Z"
     }
   ]
 }

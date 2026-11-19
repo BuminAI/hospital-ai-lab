@@ -1,7 +1,61 @@
 {
-  "updatedAt": "2026-11-19T03:26:51.662Z",
-  "source": "franceinfo·Ouest-France·CNIL·ZDNet France·La Croix·Silicon.fr·Le Parisien·Le Monde·20 Minutes·Le Figaro·Sud Ouest·Les Échos·DSIH·Numerama·Challenges·La Tribune·Public Sénat·France 24",
+  "updatedAt": "2026-11-19T15:45:17.727Z",
+  "source": "Le Monde·franceinfo·Ouest-France·Libération·Numerama·Le Figaro·Les Échos·ZDNet France·CNIL·La Croix·Silicon.fr·Le Parisien·20 Minutes·Sud Ouest·DSIH·Challenges·La Tribune·Public Sénat·France 24",
   "items": [
+    {
+      "title": "Une cyberattaque assistée par l’IA a ciblé la Commission européenne en octobre",
+      "link": "https://www.lemonde.fr/pixels/article/2026/11/19/une-cyberattaque-assistee-par-l-ia-a-cible-la-commission-europeenne-en-octobre_6813314_4408996.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-19T14:27:52.000Z"
+    },
+    {
+      "title": "La Commission europ&#xE9;enne annonce avoir &#xE9;t&#xE9; la cible d'une cyberattaque assist&#xE9;e par l'intelligence artificielle en octobre",
+      "link": "https://www.franceinfo.fr/monde/europe/union-europeenne/la-commission-europeenne-annonce-avoir-ete-la-cible-d-une-cyberattaque-assistee-par-l-intelligence-artificielle-en-octobre_8289959.html#xtor=RSS-3-[lestitres]",
+      "source": "franceinfo",
+      "pubDate": "2026-11-19T13:38:26.000Z"
+    },
+    {
+      "title": "La Commission européenne a été la cible d’une cyberattaque assistée par l’intelligence artificielle en octobre",
+      "link": "https://news.google.com/rss/articles/CBMinwJBVV95cUxPYmRqekt2SEtMVWpINTZrRF9tRGlvUFhMaGg0bllTdTVHTzdjNm1obW5ueVAxbTJNdmZDNjlHRVlBOVNzT1BrVWJNSnN0cHhCSDFwM1JISGtPVk9uOG9lMEZXcXVTXy1jRTQ1VGhDWVBrWjVpd3BKSHN4QlZqYndKdWNCVWRHZWFEajBwbDhIel85d1JtZ2hCVjRkZlZpWGhjMUlOeXliZi1hQlVWRDJQR0xkMHM2bTVLMzFGMkhkeHVyOV9TWDZUS1hiQ1I0RHNCcF9QNWQtZXZOemg3YzhSNW53SzRVWndIcWVkMlRqcHNJMkx2dl9oRXdQTjNCVWE5dC1YU0JrZEFPbl9zTUVIeEdhbldRR0dmTlRYbzR4WQ?oc=5",
+      "source": "Ouest-France",
+      "pubDate": "2026-11-19T12:27:41.000Z"
+    },
+    {
+      "title": "La Commission européenne annonce avoir été ciblée par une cyberattaque assistée par l’IA",
+      "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQZHQtYTAxSmdQMzRkRVQ5SHk1dER5eXBzckRlSEtaMlZzVXlJWmZ4NjNNZ25rb29NZDNTWW5sYVJkYkpTbVZLSkp4bEN0bHBjdWVYQjZLOXJBUHZBc01vcmE1c3lyMHdvalYySGFFM0lrZjdXUHhmZndDcjRBd2FGaVcyTFRra25ZS3ZqQWJWLUNOQXUxUGNnRDFueGVPelJJejhoY2xldzFhZ3kwbzhsOE45dlVyY3M2WFVPd3c4MVlyZnJhMk04UjJGY3FXdEpDaXhBSTl3Yk1YQTZHX0s0bFQtSDRrc0UxVkZZdjItbzhGMlNTYTNjaWJfa0RKeUJX?oc=5",
+      "source": "Libération",
+      "pubDate": "2026-11-19T11:57:00.000Z"
+    },
+    {
+      "title": "Une immense cyberattaque frappe la Commission européenne : l’arme des hackers est un outil IA qui a échappé à son propre créateur",
+      "link": "https://www.numerama.com/cyberguerre/2378643-une-immense-cyberattaque-frappe-la-commission-europeenne-larme-des-hackers-est-un-outil-ia-qui-a-echappe-a-son-propre-createur.html",
+      "source": "Numerama",
+      "pubDate": "2026-11-19T10:06:32.000Z"
+    },
+    {
+      "title": "Donald Trump se dit opposé «à toute forme de réglementation mondialiste» de l'IA «presque entièrement bénéfique»",
+      "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPRzY4bUhVUkROdnp5a0pvQVJNSlZRUmNqSTlsLW4tNkYtR29pSXJZeXUyX0Z3NlFGeUpySTd1alRJczRvUlVwUm1BYjR3NW9qNkxFUGN4QlAxLTJuSjd2YUJwRy1ibEhSWkNUel9VbXduOXNIczFrc1hJd3Q3WDUyVk82Tm8xbURpcGNFTFlQUVd5eXBObmlTbXF0UlhRYzN2dFp0VmZzMG94VUZCaFRFb292bjNObElvTlJnb1ZEcV9IRGdoWlF1aC1uWkJpa0h5T3l5TDVGdk1mVVFCZ0dLbzMyblZ4dE1zb2Z4QlBZRFA?oc=5",
+      "source": "Le Figaro",
+      "pubDate": "2026-11-19T06:00:50.000Z"
+    },
+    {
+      "title": "Cette étude qui montre combien l'IA bouleverse déjà le marché de l'emploi pour les cols blancs",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNMms0dE00eFdkX1JINmN6ell5N3d6MW4xVGc5SzdEQmVNUHBPbWlTQ0ZQS0N2S1VpeUFCdWRhQ2dUdFhzYjZjNU43bVV5Q1pGTnAwRE9tZFpvVDdNMDUzSlVZbFdmQlFMUzB4ZUNHdi12NmRuSHFuZTBXS01WOU92a2htRGtrWlI1cGJtUXpfRmg5MTRVSG92bWhaMUpKQ3llVk9OOU40TjlpTXd3X0lBUW96Z1hpMXlZMW9WSzNOQlVlTk9HZkxnSjJwSUlESHdVcmF0UEo4aHRlTm5HRGZQRXdZLWpaQVU?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-19T05:20:08.000Z"
+    },
+    {
+      "title": "La nouvelle fonctionnalité « Licensed Weights » de Microsoft permet aux entreprises de personnaliser leurs modèles d'IA à l'aide de leurs propres données",
+      "link": "https://www.zdnet.fr/actualites/la-nouvelle-fonctionnalite-licensed-weights-de-microsoft-permet-aux-entreprises-de-personnaliser-leurs-modeles-dia-a-laide-de-leurs-propres-donnees-508209.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-19T04:11:37.000Z"
+    },
+    {
+      "title": "Microsoft souhaite attribuer une valeur monétaire au travail de l'IA, mais peut-on se fier à ses calculs ?",
+      "link": "https://www.zdnet.fr/actualites/microsoft-souhaite-attribuer-une-valeur-monetaire-au-travail-de-lia-mais-peut-on-se-fier-a-ses-calculs-508146.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-19T02:11:26.000Z"
+    },
     {
       "title": "Pr&#xE9;somption de l&#xE9;gitime d&#xE9;fense pour les forces de l'ordre : \"Ce que j'ai v&#xE9;cu fait que cette loi me fait extr&#xEA;mement peur\", t&#xE9;moigne le producteur Michel Zecler",
       "link": "https://www.franceinfo.fr/faits-divers/police/violences-policieres/presomption-de-legitime-defense-pour-les-forces-de-l-ordre-ce-que-j-ai-vecu-fait-que-cette-loi-me-fait-extremement-peur-temoigne-le-producteur-michel-zecler-qui-se-dit-horrifie_8288912.html#xtor=RSS-3-[lestitres]",
@@ -291,15 +345,15 @@
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
-      "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
-      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
-      "source": "Le Figaro",
-      "pubDate": "2026-10-26T07:00:00.000Z"
-    },
-    {
       "title": "Le gouvernement néerlandais veut supprimer 25 000 agents publics et les remplacer par de l’intelligence artificielle",
       "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQa1RPWHNReVFnYUdPWXNjbFM3UzRfRUo0ellKOU1BQ256eTlBaEl0cmdfVHJPc0d0N2RBSkpRc3VaMDdmZTJmQ19ULUJFZHhRLWlUaWZxRDIycFB6Y2drRGtibVcyOTF4Qm96eW9TcEtzeUJrbnFGRWptYmdUREswZFRNWFc0RzBJMXU4NE5GZ0NTSS01aTdzQkpTLVdNV3dqRlNJM2pxNDY2eDFLRjhJMVJ2YXNFSHR5WUlBbDIwUkprOVkzejBoeW9BaG52QTZFeVc2UDRNUzRIVTF6VDhtbTc0dkpnS1JlaGJ3d2FTSGV1dEkwaEJpbVRGcG1HQ3NCdlpkaTRJRy05RmFFQ1U2R2p3R0dIMTBRaWQ5VXpIdXRYWDg?oc=5",
       "source": "Le Parisien",
+      "pubDate": "2026-10-26T07:00:00.000Z"
+    },
+    {
+      "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
+      "source": "Le Figaro",
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
@@ -393,12 +447,6 @@
       "pubDate": "2026-09-25T07:00:00.000Z"
     },
     {
-      "title": "Une intelligence artificielle d'OpenAI a piraté un site du gouvernement australien pour accéder à des données qu'elle ne trouvait pas en libre accès",
-      "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNdU1kMFQyZnhOUkVWOFFySTVCY1NtZ0NiY29xWERZVFRSaTZ6S0l2SU5tUVRiZEloQXJ3bUhrVlRmNVdjVE9rNGVvY1hjNFY3Q3Bib0ZKWW53aGhrQVRUUTR0c0pxV25NUVpJbWk2ai1tMGo0RGJrOUxROGY5dWNXNXRNTXVfcU10cWgzUzU5azN5STBnQXBZR1k3XzVHRktEWkNnd0swcEdJMlFCdW9yOW9vcEhaVU1SYTY3YnoyMEV4TnhLck5SeEdZTFNHN2tWZHlKQmM4QjNxWE1kOHR1bjFTUDAxME44MTJJdFppcHptVVNVV2JvQTdJcmRSZTNIYkV3SWVrUmFmcDVrcTlBZA?oc=5",
-      "source": "franceinfo",
-      "pubDate": "2026-09-24T07:00:00.000Z"
-    },
-    {
       "title": "« Des actions que nous n’avions pas prévues » : l’IA d’OpenAI pirate un site du gouvernement australien de son propre chef, attisant les craintes des experts cyber",
       "link": "https://news.google.com/rss/articles/CBMirgJBVV95cUxPdkxkRVdsU1ctSGRDUXpxTGllNnkxdzI5NndtOUJBVXNfS1lLZjlqdlFCMzlueUZ2MDY5dk1yY25CTDJERWhtbldjRjVBT1psVWlZdm5aSjZEbDF5cWQ0VDUyWHRkUmpIczhsYVFZRmlpS2lwQ19LVG9xeVo1Z3JzYUpPa1IycVR4XzlUem9LSVl3UHIyMHhabnRpTDNXQkxuUk5FQldzZmhwN2lpb2NBd2IyRHBvT3I5Y3IwYlFNWUoxdHJBRW5pSVUzR1lMbHk4R0lpbEEzdWFIVUU2MVdNOHdwWUtYN3ZsTTFpYTNmdUctQmxYVTBlOTVsdlN1ZE1FZEVWUU85YWxLRk1KVHYtbDhhVlpzWnh2ajMzalRlaEpBRHhWYWk5SUhFbjRVdw?oc=5",
       "source": "Challenges",
@@ -414,6 +462,12 @@
       "title": "« Les entreprises ont doublé leurs investissements IA en un an » : les leçons de l'étude du BCG",
       "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNM2Q4NlhEQkNXbzRQanUycG9zNEVmb1ZuME9Uc0xveExSTTZCLUFaODV3dXF4aXZ4ZEdOZTYxd01sRThIMXhnWG5ScksydVFZeDZqeDBINS03UGxMVm1HeFM4UGxVNFlNRjBKd3ZHQ3FjZkk1XzdlSTlFNjdadmlKUkg1M2kxa1lINlZZX09DZ1NWbXBXRjBkY093YllzUFByazdwRFFUU3F3UXltWUF0TDdCZTNTNWlBbmRmeWxIaVZfMzBKbnVjZnpvZ3ZkMU5YTGdpSExETTFsRnNmbU1aOE53U1Y2WU1NMGNpSm1QM0JQYVhOd1NLVVpUQQ?oc=5",
       "source": "La Tribune",
+      "pubDate": "2026-09-24T07:00:00.000Z"
+    },
+    {
+      "title": "Une intelligence artificielle d'OpenAI a piraté un site du gouvernement australien pour accéder à des données qu'elle ne trouvait pas en libre accès",
+      "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNdU1kMFQyZnhOUkVWOFFySTVCY1NtZ0NiY29xWERZVFRSaTZ6S0l2SU5tUVRiZEloQXJ3bUhrVlRmNVdjVE9rNGVvY1hjNFY3Q3Bib0ZKWW53aGhrQVRUUTR0c0pxV25NUVpJbWk2ai1tMGo0RGJrOUxROGY5dWNXNXRNTXVfcU10cWgzUzU5azN5STBnQXBZR1k3XzVHRktEWkNnd0swcEdJMlFCdW9yOW9vcEhaVU1SYTY3YnoyMEV4TnhLck5SeEdZTFNHN2tWZHlKQmM4QjNxWE1kOHR1bjFTUDAxME44MTJJdFppcHptVVNVV2JvQTdJcmRSZTNIYkV3SWVrUmFmcDVrcTlBZA?oc=5",
+      "source": "franceinfo",
       "pubDate": "2026-09-24T07:00:00.000Z"
     },
     {
