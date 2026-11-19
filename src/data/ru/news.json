@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-18T21:33:06.442Z",
-  "source": "Медвестник · Vademecum · ТАСС · Zdrav.ru · Хабр · Независимая газета",
+  "updatedAt": "2026-11-19T02:45:08.029Z",
+  "source": "Медвестник·Vademecum",
   "items": [
     {
       "title": "ИИ советует. Врач отвечает",
@@ -21,10 +21,16 @@
       "pubDate": "2026-11-18T12:26:12.000Z"
     },
     {
-      "title": "ИИ по данным рутинных анализов предсказывает органные осложнения у онкопациентов за месяцы до их обнаружения",
-      "link": "https://vademec.ru/news/2026/11/18/ii-po-dannym-rutinnykh-analizov-predskazyvaet-organnye-oslozhneniya-u-onkopatsientov-za-mesyatsy-do-/",
+      "title": "OpenAI представила компьютерных агентов для автоматизации клинических и административных процессов в здравоохранении",
+      "link": "https://www.vademec.ru/news/2026/11/18/openai-predstavila-kompyuternykh-agentov-dlya-avtomatizatsii-klinicheskikh-i-administrativnykh-prots/",
       "source": "Vademecum",
-      "pubDate": "2026-11-18T05:31:00.000Z"
+      "pubDate": "2026-11-18T09:00:00.000Z"
+    },
+    {
+      "title": "ИИ по данным рутинных анализов предсказывает органные осложнения у онкопациентов за месяцы до их обнаружения",
+      "link": "https://www.vademec.ru/news/2026/11/18/ii-po-dannym-rutinnykh-analizov-predskazyvaet-organnye-oslozhneniya-u-onkopatsientov-za-mesyatsy-do-/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-18T09:00:00.000Z"
     },
     {
       "title": "Эксперт Исайкин предостерег от диагностики болезней животных через ИИ",
