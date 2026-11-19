@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-18T22:19:04.620Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · HIT Consultant · MedCity News · Radiology Business · The New York Times · NPR · NEJM AI · Federal Register",
+  "updatedAt": "2026-11-19T03:50:01.647Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · NEJM AI · The New York Times · Radiology Business · NPR · Federal Register",
   "items": [
+    {
+      "title": "What agentic AI actually means for healthcare operations",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/what-agentic-ai-actually-means-for-healthcare-operations/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-19T00:07:42.000Z"
+    },
+    {
+      "title": "M&A: Vivo Care and Onpoint Healthcare Partners Merge: Connecting 2,000+ Providers with 120,000+ Remote Care Patients Under One Continuum",
+      "link": "https://hitconsultant.net/2026/11/18/vivo-care-onpoint-healthcare-partners-combine-unify-office-visit-remote-care/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-19T00:00:24.000Z"
+    },
+    {
+      "title": "STAT+: Epic Systems defends competitive practices, promises to let AI access its records",
+      "link": "https://www.statnews.com/2026/11/18/epic-defends-competitive-practices-promises-ai-access-to-records/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-18T23:07:55.000Z"
+    },
     {
       "title": "Health systems race to patch AI-found Java flaw after CISA alert",
       "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/health-systems-race-to-patch-ai-found-java-flaw-after-cisa-alert/",
@@ -49,6 +67,12 @@
       "link": "https://www.healthcaredive.com/news/suki-debuts-agentic-operating-system/874848/",
       "source": "Healthcare Dive",
       "pubDate": "2026-11-18T14:13:13.000Z"
+    },
+    {
+      "title": "Aimbient AI Automates OR Documentation Across Specialties With Human-Level Accuracy: Stanford Health Care Study Published in JAMA Surgery",
+      "link": "https://hitconsultant.net/2026/11/18/aimbient-ai-automates-or-documentation-human-accuracy-stanford-jama-surgery/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-18T14:06:00.000Z"
     },
     {
       "title": "Ambient AI for rural and urban providers alike: Inside CommonSpirit’s equal-access rollout",
