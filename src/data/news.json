@@ -1,7 +1,109 @@
 {
-  "updatedAt": "2026-11-19T03:25:50.296Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 한국경제 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-19T13:03:42.988Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "AI 시대 바이오 실험실, 무엇이 달라지나…머크·KAIST 공동 행사 개최",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422279",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-19T19:45:43.000Z"
+    },
+    {
+      "title": "아리바이오홀딩스, 불성실공시법인 지정 예고",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=716869",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-19T19:20:01.000Z"
+    },
+    {
+      "title": "루멘스바이오스, 주권매매거래정지",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=716851",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-19T17:53:05.000Z"
+    },
+    {
+      "title": "딥노이드, AI 병리 판독 보조 효과 확인…“전문의 민감도 향상”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242673",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T17:20:00.000Z"
+    },
+    {
+      "title": "딥노이드, 위·대장암 복막 전이 판별 AI 연구 ‘JKMS’ 게재",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016882",
+      "source": "의학신문",
+      "pubDate": "2026-11-19T17:07:28.000Z"
+    },
+    {
+      "title": "보건산업진흥원, 의료 AI 현장 안착·확산 방안 모색",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016873",
+      "source": "의학신문",
+      "pubDate": "2026-11-19T17:06:59.000Z"
+    },
+    {
+      "title": "미 의회 자문위 “중국군, AI 군사력 강화 위해 엔비디아 첨단 칩 확보 추진”",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217576",
+      "source": "AI타임스",
+      "pubDate": "2026-11-19T16:56:26.000Z"
+    },
+    {
+      "title": "씨어스, 코스닥150 신규 편입…“의료 AI 주요 3개 지수 진입”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242670",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T16:52:15.000Z"
+    },
+    {
+      "title": "광주 의료AI 플랫폼 45억 고도화…병·의원 465곳 진료기록 백업 지원",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217585",
+      "source": "AI타임스",
+      "pubDate": "2026-11-19T16:50:50.000Z"
+    },
+    {
+      "title": "“병원 혼자서는 어렵다”…정부와의 의료정보보호 공조 필수",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=253027",
+      "source": "병원신문",
+      "pubDate": "2026-11-19T16:05:00.000Z"
+    },
+    {
+      "title": "심평원, AI 활용 '고가약 사전 심사 기간 단축' 추진",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016859",
+      "source": "의학신문",
+      "pubDate": "2026-11-19T16:00:00.000Z"
+    },
+    {
+      "title": "의학한림원, 24일 ‘2026 보건의료R&D혁신 오픈포럼’ 개최",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242663",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T16:00:00.000Z"
+    },
+    {
+      "title": "아크릴, 의료데이터 표준화·연계 기술력 입증…“병원 AI 도입 지원”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242656",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T14:59:34.000Z"
+    },
+    {
+      "title": "포낙, AI 청취 기술 효과 확인…“신체 각성·표정 반응 감소”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242655",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T14:32:05.000Z"
+    },
+    {
+      "title": "코어라인소프트, RSNA 참가…‘원 CT, 멀티 디지즈’ 전략 공개",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242660",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T13:25:00.000Z"
+    },
+    {
+      "title": "보건산업진흥원, 지방소멸대응 유공 중기부 장관 표창 수상",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016846",
+      "source": "의학신문",
+      "pubDate": "2026-11-19T12:41:52.000Z"
+    },
+    {
+      "title": "AI 부정행위 파장…보건의료인 국시 제재 강화 법안 나왔다",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044698",
+      "source": "청년의사",
+      "pubDate": "2026-11-19T12:23:30.000Z"
+    },
     {
       "title": "[동정] 춘천성심 전진평 교수, '심뇌혈관질환 사례수기 공모전' 최우수상",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415613",
@@ -19,6 +121,20 @@
       "link": "http://www.newsmp.com/news/articleView.html?idxno=259393",
       "source": "의약뉴스",
       "pubDate": "2026-11-19T11:54:27.000Z"
+    },
+    {
+      "title": "머크·KAIST, AI 시대 바이오 연구실의 미래 모색",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549375",
+      "source": "약사공론",
+      "pubDate": "2026-11-19T11:40:47.000Z"
+    },
+    {
+      "title": "의사·약사·간호사 국시 부정행위 제재 강화…응시 제한 확대",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200122",
+      "source": "의협신문",
+      "pubDate": "2026-11-19T11:31:00.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "서울본원병원 박성철 병원장, 대한척추외과학회서 AI 기반 척추 진단 연구 발표",
@@ -87,6 +203,12 @@
       "pubDate": "2026-11-19T10:14:49.000Z"
     },
     {
+      "title": "케이사인, 가천대 총장상 수상… AI 시스템 암호화·보안 구축 기여 인정",
+      "link": "https://zdnet.co.kr/view/?no=20261119185922",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-19T09:59:22.000Z"
+    },
+    {
       "title": "우리아이들의료재단, AX 본격 시행으로 미래형 스마트 병원 구축",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415600",
       "source": "메디칼업저버",
@@ -105,10 +227,46 @@
       "pubDate": "2026-11-19T08:50:00.000Z"
     },
     {
+      "title": "부산 택시 50대에 AI 실시간 다국어 통역서비스 시범 도입",
+      "link": "https://www.yna.co.kr/view/AKR20261119150600051",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-19T08:09:54.000Z"
+    },
+    {
       "title": "디지털헬스학회, 광주서 ‘AX, 의료 경계 재설정’ 학술대회",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016790",
       "source": "의학신문",
       "pubDate": "2026-11-19T08:05:38.000Z"
+    },
+    {
+      "title": "춘천기업혁신파크, AI데이터센터로 의료·바이오 생태계 모색",
+      "link": "https://www.yna.co.kr/view/AKR20261119147700062",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-19T08:04:29.000Z"
+    },
+    {
+      "title": "씨어스, 코스닥150 신규 편입…주요 3개 지수 입성",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172013",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-19T07:31:57.000Z"
+    },
+    {
+      "title": "심평원, AI로 진료비심사 혁신…심사 일관성 높이고 기간 단축",
+      "link": "https://www.yna.co.kr/view/AKR20261119123700530",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-19T07:00:01.000Z"
+    },
+    {
+      "title": "\"AI 공격 빨라지는데\"…병원 보안은 어떻게 바뀌나",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253028",
+      "source": "병원신문",
+      "pubDate": "2026-11-19T07:00:00.000Z"
+    },
+    {
+      "title": "\"AI가 의사만큼 진단\"…전문의 교육은 어떻게?",
+      "link": "https://www.newsis.com/view/NISX20261119_0003875252",
+      "source": "뉴시스",
+      "pubDate": "2026-11-19T06:35:01.000Z"
     },
     {
       "title": "국립중앙의료원, 공공의료 인력 전문교육 잇달아 개최",
@@ -126,7 +284,9 @@
       "title": "AI 부정행위에 의료계도 비상…'평생 응시 금지'에 시험방식 개편론까지",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044680",
       "source": "청년의사",
-      "pubDate": "2026-11-19T06:12:36.000Z"
+      "pubDate": "2026-11-19T06:12:36.000Z",
+      "popular": true,
+      "rank": 6
     },
     {
       "title": "의사 대신 야근하는 GPT... \"남는 시간에 환자 한 번 더 볼까\"",
@@ -140,7 +300,7 @@
       "source": "의학신문",
       "pubDate": "2026-11-19T06:00:00.000Z",
       "popular": true,
-      "rank": 9
+      "rank": 4
     },
     {
       "title": "AI가 내 감정까지 해석하는 시대…'자기판단'의 변화",
@@ -160,7 +320,7 @@
       "source": "의학신문",
       "pubDate": "2026-11-19T05:50:00.000Z",
       "popular": true,
-      "rank": 8
+      "rank": 5
     },
     {
       "title": "대웅제약, 새손병원에 ‘씽크·카트온’ 공급",
@@ -483,6 +643,14 @@
       "link": "https://www.medipana.com/news/articleView.html?idxno=422091",
       "source": "메디파나뉴스",
       "pubDate": "2026-11-18T10:04:15.000Z"
+    },
+    {
+      "title": "지·필·공 AX 가속화 위한 업무협약 체결",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252936",
+      "source": "병원신문",
+      "pubDate": "2026-11-18T10:00:00.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "알고케어, 코웨이라이프솔루션과 시니어 맞춤 영양케어 협력",
