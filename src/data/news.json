@@ -1,7 +1,115 @@
 {
-  "updatedAt": "2026-11-18T21:56:07.296Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · e-의료정보 · 의학신문 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 한국경제 · ZDNet Korea · AI타임스 · 연합뉴스 · 뉴시스 · 보건복지부",
+  "updatedAt": "2026-11-19T03:25:50.296Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 한국경제 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "[동정] 춘천성심 전진평 교수, '심뇌혈관질환 사례수기 공모전' 최우수상",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415613",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-19T12:03:06.000Z"
+    },
+    {
+      "title": "HLB그룹, 조직개편·임원 인사…40대 리더 전면 배치",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422228",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-19T11:59:27.000Z"
+    },
+    {
+      "title": "“진료실 들어온 AI, 검증ㆍ보상 없는 ‘의사 최종 책임’은 위험”",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259393",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-19T11:54:27.000Z"
+    },
+    {
+      "title": "서울본원병원 박성철 병원장, 대한척추외과학회서 AI 기반 척추 진단 연구 발표",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242642",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T11:14:43.000Z"
+    },
+    {
+      "title": "쓰리뷰, 코오롱베니트 AI 얼라이언스 합류...제조 AX 확장",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=716622",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-19T10:48:38.000Z"
+    },
+    {
+      "title": "AI·원격협진으로 메운 강원 의료공백…뇌혈관 진료망 구축",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422217",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-19T10:44:03.000Z"
+    },
+    {
+      "title": "퀀텀에이아이, 녹색병원에 AICC '순이' 구축...병·의원 공략 확대",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=716618",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-19T10:39:03.000Z"
+    },
+    {
+      "title": "디토닉, 디닷허브로 AI 분야 ‘차세대 세계일류상품’ 선정",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=716617",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-19T10:33:58.000Z"
+    },
+    {
+      "title": "센트럴서울안과 최재완 원장, 아시아 8개국 녹내장 전문의 대상 '환자 소통' 강연",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242639",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T10:32:08.000Z"
+    },
+    {
+      "title": "AI 신약·뇌영상 기술…인하대병원 개방형실험실 협력 모색",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422209",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-19T10:30:57.000Z"
+    },
+    {
+      "title": "의료인 국가시험 부정행위 시 응시 제한 확대",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=253021",
+      "source": "병원신문",
+      "pubDate": "2026-11-19T10:23:41.000Z"
+    },
+    {
+      "title": "미소정보기술, 의정원 ‘보건의료데이터 중개 포털 구축사업' 착수",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=716603",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-19T10:20:46.000Z"
+    },
+    {
+      "title": "아이 숨소리 AI가 듣는다…우리아이들병원, 스마트병원 구축",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044686",
+      "source": "청년의사",
+      "pubDate": "2026-11-19T10:18:08.000Z"
+    },
+    {
+      "title": "약사·의료인 국시 부정행위 제재 강화 추진...최대 5회 응시 제한",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549352",
+      "source": "약사공론",
+      "pubDate": "2026-11-19T10:14:49.000Z"
+    },
+    {
+      "title": "우리아이들의료재단, AX 본격 시행으로 미래형 스마트 병원 구축",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415600",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-19T09:27:31.000Z"
+    },
+    {
+      "title": "우리아이들의료재단, 소아의료 AI 전환 가속",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016803",
+      "source": "의학신문",
+      "pubDate": "2026-11-19T09:16:02.000Z"
+    },
+    {
+      "title": "의료 AI, 도입보다 성과에 보상…건강보험 수가체계 개편 추진",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242637",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T08:50:00.000Z"
+    },
+    {
+      "title": "디지털헬스학회, 광주서 ‘AX, 의료 경계 재설정’ 학술대회",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016790",
+      "source": "의학신문",
+      "pubDate": "2026-11-19T08:05:38.000Z"
+    },
     {
       "title": "국립중앙의료원, 공공의료 인력 전문교육 잇달아 개최",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016780",
@@ -30,7 +138,9 @@
       "title": "신약개발, AI가 설계하고 로봇이 실험 '자율실험실' 시대 열린다",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016770",
       "source": "의학신문",
-      "pubDate": "2026-11-19T06:00:00.000Z"
+      "pubDate": "2026-11-19T06:00:00.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "AI가 내 감정까지 해석하는 시대…'자기판단'의 변화",
@@ -48,13 +158,93 @@
       "title": "주요 의료AI 기업, 3분기 ‘외형 성장·적자 축소’",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016787",
       "source": "의학신문",
-      "pubDate": "2026-11-19T05:50:00.000Z"
+      "pubDate": "2026-11-19T05:50:00.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "대웅제약, 새손병원에 ‘씽크·카트온’ 공급",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044682",
       "source": "청년의사",
       "pubDate": "2026-11-19T05:49:38.000Z"
+    },
+    {
+      "title": "'AI 주치의' 믿었다가 치료 차질…처방약 임의변경 절반 부작용",
+      "link": "https://www.yna.co.kr/view/AKR20261118125000030",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-19T03:00:12.000Z"
+    },
+    {
+      "title": "\"TV가 질병위험 예측\" 로킷헬스케어 AI 의료 플랫폼 시동",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172010",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-19T03:00:00.000Z"
+    },
+    {
+      "title": "'AI는 전문가가 아닙니다'…소비자원, AI만 믿었다가 부작용 속출",
+      "link": "https://www.newsis.com/view/NISX20261119_0003874789",
+      "source": "뉴시스",
+      "pubDate": "2026-11-19T03:00:00.000Z"
+    },
+    {
+      "title": "티오리 \"AI가 세계적 웹 서버 nginx에서 치명적 취약 4종 발견\"",
+      "link": "https://zdnet.co.kr/view/?no=20261119113922",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-19T02:39:22.000Z"
+    },
+    {
+      "title": "보건복지인재원, 의료·복지 AI 이러닝 2종 운영 나서",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172009",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-19T01:56:04.000Z"
+    },
+    {
+      "title": "코어라인소프트, RSNA서 '원 CT·다질환' 승부수",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172007",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-19T01:49:55.000Z"
+    },
+    {
+      "title": "딥노이드, 복막 전이 판독 AI 논문 게재…정확도·속도 향상",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172002",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-19T01:26:10.000Z"
+    },
+    {
+      "title": "클래시스, 품질혁신 산업포장 수상…제조 역량 인정",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171999",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-19T01:13:35.000Z"
+    },
+    {
+      "title": "의료데이터 연동 검증 끝낸 아크릴…AI 병원 전략 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171996",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-19T01:02:52.000Z"
+    },
+    {
+      "title": "AI 활용하니…\"암 전이 판독 민감도 66%→93%\"",
+      "link": "https://www.newsis.com/view/NISX20261119_0003874365",
+      "source": "뉴시스",
+      "pubDate": "2026-11-19T00:35:45.000Z"
+    },
+    {
+      "title": "이노피아테크, 구글 TV 서밋서 병상 AI 솔루션 공개",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171994",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-19T00:32:09.000Z"
+    },
+    {
+      "title": "대구보훈병원, AI 스마트병원 구축 심포지엄 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253017",
+      "source": "병원신문",
+      "pubDate": "2026-11-19T00:31:00.000Z"
+    },
+    {
+      "title": "AI로 진단서 41장 위조해 50일간 복무 이탈 사회복무요원 집유",
+      "link": "https://www.yna.co.kr/view/AKR20261118071000051",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-19T00:00:18.000Z"
     },
     {
       "title": "가천대 길병원, 인천 7개 의료기관과 AI 협력",
@@ -110,7 +300,9 @@
       "title": "복지부, ‘헬스케어 AI 투자 포럼’ 개최…공공의료 AI 고속도로 확산 로드맵 공유",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242618",
       "source": "라포르시안",
-      "pubDate": "2026-11-18T15:06:57.000Z"
+      "pubDate": "2026-11-18T15:06:57.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "SK바이오팜, 세노바메이트 넘어 글로벌 성장동력 다변화",
@@ -123,6 +315,14 @@
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217516",
       "source": "AI타임스",
       "pubDate": "2026-11-18T14:56:23.000Z"
+    },
+    {
+      "title": "‘구글 워크스페이스·제미나이’ 전사 도입",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252987",
+      "source": "병원신문",
+      "pubDate": "2026-11-18T14:53:22.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "우리아이들의료재단, 스마트병원 넘어 '소아 특화 AI' 확대",
@@ -156,7 +356,7 @@
       "source": "라포르시안",
       "pubDate": "2026-11-18T13:41:52.000Z",
       "popular": true,
-      "rank": 9
+      "rank": 3
     },
     {
       "title": "AI 진단 '갓벽' 원하는 환자들 \"진료실 소통 늘려야\"",
@@ -176,7 +376,7 @@
       "source": "라포르시안",
       "pubDate": "2026-11-18T13:05:00.000Z",
       "popular": true,
-      "rank": 4
+      "rank": 2
     },
     {
       "title": "복지부, 의료기관 운영 AI도 성과보상 검토...“효과 확인되면 신속 지급”",
@@ -314,13 +514,15 @@
       "source": "e-의료정보",
       "pubDate": "2026-11-18T09:07:38.000Z",
       "popular": true,
-      "rank": 4
+      "rank": 3
     },
     {
       "title": "NECA, ‘범용 AI 시대 의료기술: 가치평가부터 임상 적용까지’ 원탁회의 개최",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242570",
       "source": "라포르시안",
-      "pubDate": "2026-11-18T09:07:27.000Z"
+      "pubDate": "2026-11-18T09:07:27.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "\"GPU 확보 경쟁은 1막\"…AI 에이전트 시대, 산업·제도 혁신 시급",
