@@ -365,4 +365,52 @@ export const tips: Tip[] = [
     ],
     checked: '2026-11-19',
   },
+  {
+    no: 9,
+    title: 'Claude Pro·Max, 어떤 모델을 가장 많이 쓸까요? 공개 통계는 없습니다',
+    hook: '순위 대신, 공식 문서로 확인되는 요금제 차이만 정리했습니다',
+    fullTitle: 'Claude Pro와 Max 사용자는 어떤 모델을 가장 많이 쓸까: 공개 자료로 확인되는 것과 안 되는 것',
+    groups: [],
+    story: [
+      {
+        heading: '먼저, 요금제별 "가장 많이 쓰는 모델" 통계는 찾지 못했습니다',
+        paragraphs: [
+          'Claude Pro와 Max 사용자가 어떤 모델을 가장 많이 쓰는지 알아보려고 Anthropic(Claude를 만든 회사)의 공식 안내 문서 네 곳과 웹 검색 결과를 살펴보았습니다. 요금제별(Pro, Max)·제품별(Claude Code, Cowork) 모델 사용 비율이나 순위를 공개한 자료는 찾지 못했습니다.',
+          '일부 블로그에는 메시지 횟수 같은 추정치가 실려 있지만, 공식 수치가 아니고 출처도 불분명해 이 글에는 싣지 않았습니다. 그래서 순위 대신, 공식 문서에서 확인되는 차이만 적습니다.',
+        ],
+      },
+      {
+        heading: 'Pro와 Max의 가장 큰 차이는 "사용량"입니다',
+        paragraphs: [
+          'Max 안내 문서는 Max가 Pro 요금제 사용량의 5배를 5시간마다, 그리고 매주 제공한다고 설명합니다. Pro 안내 문서는 Pro에 5시간 한도와 주간 한도가 있고, 주간 한도는 모든 모델에 걸쳐 적용된다고 적고 있습니다. Max에는 모든 모델에 걸친 주간 한도 외에 Fable 모델용 별도 주간 한도가 있다고 합니다.',
+          'Claude Code 안내 문서는 Claude와 Claude Code가 같은 사용 한도를 함께 쓴다고 설명합니다. Cowork는 Claude Code 문서에 "세션을 Claude Code 위에서 실행한다"고 적혀 있습니다.',
+        ],
+      },
+      {
+        heading: '모델 이름과 Fable',
+        paragraphs: [
+          'Claude Code 문서의 표에 따르면 Anthropic API에서 opus, sonnet, haiku 별칭은 각각 Opus 5.5, Sonnet 5.5, Haiku 5.5를 가리킵니다. 같은 문서는 어떤 Fable 모델도 어느 요금제에서든 기본 모델이 아니며, 쓰려면 직접 골라야 한다고 적고 있습니다.',
+        ],
+      },
+      {
+        heading: '이 글에서 단정하지 않는 것',
+        paragraphs: [
+          'Claude Code 문서에는 계정 유형별 기본 모델을 설명하는 항목이 있지만, 이 부분은 문서 본문이 아니라 요약으로만 확인되어 싣지 않았습니다. 지금 내 계정의 기본 모델은 Claude Code의 /model 메뉴나 문서의 해당 항목에서 직접 확인하세요. 요금제와 모델 구성은 자주 바뀌므로, 이 글의 내용도 확인한 날짜 기준입니다.',
+        ],
+      },
+      {
+        heading: '병원에서 쓸 때는',
+        paragraphs: [
+          '어떤 요금제나 모델이 더 좋다는 뜻은 아닙니다. 모델을 고르기 전에, 환자 이름이나 진료기록 같은 개인정보는 AI 서비스에 넣지 않는다는 원칙과 병원의 정보보호 지침을 먼저 확인하세요.',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'Anthropic, Claude Code 모델 설정(공식 문서)', url: 'https://code.claude.com/docs/en/model-config' },
+      { label: 'Anthropic 고객지원, Pro·Max·Ultra 요금제로 Claude Code 사용하기', url: 'https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan' },
+      { label: 'Anthropic 고객지원, Max 요금제란', url: 'https://support.claude.com/en/articles/11049741-what-is-the-max-plan' },
+      { label: 'Anthropic 고객지원, Pro 요금제란', url: 'https://support.claude.com/en/articles/8325606-what-is-the-pro-plan' },
+    ],
+    checked: '2026-11-20',
+  },
 ];
