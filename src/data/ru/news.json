@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-19T12:02:59.449Z",
-  "source": "Медвестник · Vademecum · ТАСС · CNews · Zdrav.ru · Независимая газета",
+  "updatedAt": "2026-11-19T20:55:06.713Z",
+  "source": "Медвестник·Vademecum",
   "items": [
     {
       "title": "Мишустин: в транспортном комплексе активнее применяются системы на базе ИИ",
@@ -13,6 +13,18 @@
       "link": "https://www.zdrav.ru/news/1107931-zapustili-servis-neyrokontrol-zhalob-prodakt",
       "source": "Zdrav.ru",
       "pubDate": "2026-11-19T11:00:00.000Z"
+    },
+    {
+      "title": "Для медицинских программ с ИИ предложили новую систему оценки рисков",
+      "link": "https://medvestnik.ru/content/news/dlya-medicinskih-programm-s-ii-predlojili-novuu-sistemu-ocenki-riskov.html",
+      "source": "Медвестник",
+      "pubDate": "2026-11-19T09:00:00.000Z"
+    },
+    {
+      "title": "Эксперт назвала шесть сценариев развития здравоохранения с ИИ",
+      "link": "https://medvestnik.ru/content/news/ekspert-nazvala-shest-scenariev-razvitiya-zdravoohraneniya-s-ii.html",
+      "source": "Медвестник",
+      "pubDate": "2026-11-19T09:00:00.000Z"
     },
     {
       "title": "НИУ ВШЭ — Санкт-Петербург проведет промышленные испытания собственной ИИ-системы для диагностики двигателей",
