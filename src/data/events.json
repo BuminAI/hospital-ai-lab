@@ -1,6 +1,68 @@
 {
-  "updatedAt": "2026-11-18T17:29:46.280Z",
+  "updatedAt": "2026-11-19T07:49:25.586Z",
   "items": [
+    {
+      "title": "“병원 혼자서는 어렵다”…정부와의 의료정보보호 공조 필수",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=253027",
+      "source": "병원신문",
+      "pubDate": "2026-11-19T16:05:00.000Z"
+    },
+    {
+      "title": "의학한림원, 24일 ‘2026 보건의료R&D혁신 오픈포럼’ 개최",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242663",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T16:00:00.000Z"
+    },
+    {
+      "title": "아크릴, 의료데이터 표준화·연계 기술력 입증…“병원 AI 도입 지원”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242656",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T14:59:34.000Z"
+    },
+    {
+      "title": "[동정] 춘천성심 전진평 교수, '심뇌혈관질환 사례수기 공모전' 최우수상",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415613",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-19T12:03:06.000Z"
+    },
+    {
+      "title": "“진료실 들어온 AI, 검증ㆍ보상 없는 ‘의사 최종 책임’은 위험”",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259393",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-19T11:54:27.000Z"
+    },
+    {
+      "title": "서울본원병원 박성철 병원장, 대한척추외과학회서 AI 기반 척추 진단 연구 발표",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242642",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T11:14:43.000Z"
+    },
+    {
+      "title": "센트럴서울안과 최재완 원장, 아시아 8개국 녹내장 전문의 대상 '환자 소통' 강연",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242639",
+      "source": "라포르시안",
+      "pubDate": "2026-11-19T10:32:08.000Z"
+    },
+    {
+      "title": "신약개발, AI가 설계하고 로봇이 실험 '자율실험실' 시대 열린다",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016770",
+      "source": "의학신문",
+      "pubDate": "2026-11-19T06:00:00.000Z",
+      "popular": true,
+      "rank": 5
+    },
+    {
+      "title": "AI 활용하니…\"암 전이 판독 민감도 66%→93%\"",
+      "link": "https://www.newsis.com/view/NISX20261119_0003874365",
+      "source": "뉴시스",
+      "pubDate": "2026-11-19T00:35:45.000Z"
+    },
+    {
+      "title": "대구보훈병원, AI 스마트병원 구축 심포지엄 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253017",
+      "source": "병원신문",
+      "pubDate": "2026-11-19T00:31:00.000Z"
+    },
     {
       "title": "가천대 길병원, 인천 7개 의료기관과 AI 협력",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422182",
@@ -17,7 +79,9 @@
       "title": "길병원, AX혁신본부 출범 1주년 기념 심포지엄 성료",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415586",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-18T16:42:57.000Z"
+      "pubDate": "2026-11-18T16:42:57.000Z",
+      "popular": true,
+      "rank": 3
     },
     {
       "title": "포티넷코리아, 24일 ‘AI 사이버보안 서밋 2026’ 개최… AI 보안 전략 공유",
@@ -35,7 +99,9 @@
       "title": "복지부, ‘헬스케어 AI 투자 포럼’ 개최…공공의료 AI 고속도로 확산 로드맵 공유",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242618",
       "source": "라포르시안",
-      "pubDate": "2026-11-18T15:06:57.000Z"
+      "pubDate": "2026-11-18T15:06:57.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "SK바이오팜, 세노바메이트 넘어 글로벌 성장동력 다변화",
@@ -67,7 +133,7 @@
       "source": "라포르시안",
       "pubDate": "2026-11-18T13:41:52.000Z",
       "popular": true,
-      "rank": 9
+      "rank": 3
     },
     {
       "title": "제약 신약개발, AI로 데이터 모으고 학습…'자율실험실' 주목",
@@ -100,10 +166,20 @@
       "pubDate": "2026-11-18T11:20:33.000Z"
     },
     {
+      "title": "지·필·공 AX 가속화 위한 업무협약 체결",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=252936",
+      "source": "병원신문",
+      "pubDate": "2026-11-18T10:00:00.000Z",
+      "popular": true,
+      "rank": 9
+    },
+    {
       "title": "화이자 \"2030년 최대 경쟁자는 중국 바이오기업\"",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80873",
       "source": "히트뉴스",
-      "pubDate": "2026-11-18T08:51:07.000Z"
+      "pubDate": "2026-11-18T08:51:07.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "엔비디아 실적콜에 등장한 이 남자…젠슨 황 후계자 될까",
@@ -934,5 +1010,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "청년의사 · 의학신문 · e-의료정보 · 라포르시안 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · 뉴시스 · 보건복지부 · 히트뉴스 · ZDNet Korea · 디지털투데이 · 의협신문"
+  "source": "의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · 병원신문 · 의약뉴스 · 뉴시스 · 보건복지부"
 }
