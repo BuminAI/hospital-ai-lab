@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-19T02:45:08.029Z",
-  "source": "Медвестник·Vademecum",
+  "updatedAt": "2026-11-19T12:02:59.449Z",
+  "source": "Медвестник · Vademecum · ТАСС · CNews · Zdrav.ru · Независимая газета",
   "items": [
+    {
+      "title": "Мишустин: в транспортном комплексе активнее применяются системы на базе ИИ",
+      "link": "https://tass.ru/obschestvo/28335501",
+      "source": "ТАСС",
+      "pubDate": "2026-11-19T11:41:34.000Z"
+    },
+    {
+      "title": "Запустили сервис «Нейроконтроль жалоб»",
+      "link": "https://www.zdrav.ru/news/1107931-zapustili-servis-neyrokontrol-zhalob-prodakt",
+      "source": "Zdrav.ru",
+      "pubDate": "2026-11-19T11:00:00.000Z"
+    },
+    {
+      "title": "НИУ ВШЭ — Санкт-Петербург проведет промышленные испытания собственной ИИ-системы для диагностики двигателей",
+      "link": "https://www.cnews.ru/news/line/2026-11-19_niu_vshe_sankt-peterburg",
+      "source": "CNews",
+      "pubDate": "2026-11-19T05:28:00.000Z"
+    },
     {
       "title": "ИИ советует. Врач отвечает",
       "link": "https://habr.com/ru/articles/1109602/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1109602",
