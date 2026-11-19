@@ -1,15 +1,15 @@
 {
-  "checkedAt": "2026-11-18T01:22:55.016Z",
+  "checkedAt": "2026-11-19T00:47:45.998Z",
   "total": 12,
   "ok": 6,
   "unknown": 6,
   "unknownList": [
     {
-      "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
+      "url": "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf",
       "status": 0
     },
     {
-      "url": "https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/Guidance-document-on-Medical-Device-Software-under-MDR-2017.pdf",
+      "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/m_device/Medical%20Devices%20Rules,%202017.pdf",
       "status": 0
     },
     {
