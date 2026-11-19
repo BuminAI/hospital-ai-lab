@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-18T15:37:42.626Z",
+  "updatedAt": "2026-11-19T03:24:28.089Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ советует. Врач отвечает",
+      "link": "https://habr.com/ru/articles/1109602/?utm_campaign=1109602&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-18T19:28:48.000Z"
+    },
     {
       "title": "Positive Technologies внедряет во все свои продукты интерфейс для ИИ-агентов",
       "link": "https://www.cnews.ru/news/line/2026-11-18_positive_technologies_vnedryaet_vo_vse",
@@ -9,7 +15,7 @@
       "pubDate": "2026-11-18T14:50:00.000Z"
     },
     {
-      "title": "Вышла GPT-6.2 от OpenAI. Модели Astra и Sol доступны в ИИ-роутере",
+      "title": "Вышла GPT-6.2 от OpenAI. Модели Astra и Sol доступны в ИИ‑роутере",
       "link": "https://habr.com/ru/companies/selectel/articles/1109508/?utm_campaign=1109508&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-18T14:48:54.000Z"
@@ -21,7 +27,7 @@
       "pubDate": "2026-11-18T13:28:00.000Z"
     },
     {
-      "title": "Безопасность LLM-агентов и генеративных продуктов: угрозы и методы защиты",
+      "title": "Безопасность LLM‑агентов и генеративных продуктов: угрозы и методы защиты",
       "link": "https://habr.com/ru/companies/avito/articles/1108426/?utm_campaign=1108426&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-18T13:07:27.000Z"
@@ -57,7 +63,7 @@
       "pubDate": "2026-11-18T10:46:25.000Z"
     },
     {
-      "title": "ИИ-агент каждый день выходит на работу впервые. Полтора года мы строим ему память проекта: что получилось, а что нет",
+      "title": "ИИ‑агент каждый день выходит на работу впервые. Полтора года мы строим ему память проекта: что получилось, а что нет",
       "link": "https://habr.com/ru/articles/1109152/?utm_campaign=1109152&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-18T10:43:48.000Z"
@@ -1795,12 +1801,6 @@
       "link": "https://habr.com/ru/articles/1102580/?utm_campaign=1102580&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-02T09:03:55.000Z"
-    },
-    {
-      "title": "ИИ-хакеры против ИИ-безопасников: гонка вооружений и скорости в 2026",
-      "link": "https://habr.com/ru/companies/bitrix/articles/1101856/?utm_campaign=1101856&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-02T08:00:12.000Z"
     }
   ]
 }

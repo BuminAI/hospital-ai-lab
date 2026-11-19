@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-18T15:40:13.364Z",
-  "source": "Ouest-France·CNIL·ZDNet France·La Croix·franceinfo·Silicon.fr·Le Parisien·Le Monde·20 Minutes·Le Figaro·Sud Ouest·Les Échos·DSIH·Numerama·Challenges·La Tribune·Public Sénat·France 24",
+  "updatedAt": "2026-11-19T03:26:51.662Z",
+  "source": "franceinfo·Ouest-France·CNIL·ZDNet France·La Croix·Silicon.fr·Le Parisien·Le Monde·20 Minutes·Le Figaro·Sud Ouest·Les Échos·DSIH·Numerama·Challenges·La Tribune·Public Sénat·France 24",
   "items": [
+    {
+      "title": "Pr&#xE9;somption de l&#xE9;gitime d&#xE9;fense pour les forces de l'ordre : \"Ce que j'ai v&#xE9;cu fait que cette loi me fait extr&#xEA;mement peur\", t&#xE9;moigne le producteur Michel Zecler",
+      "link": "https://www.franceinfo.fr/faits-divers/police/violences-policieres/presomption-de-legitime-defense-pour-les-forces-de-l-ordre-ce-que-j-ai-vecu-fait-que-cette-loi-me-fait-extremement-peur-temoigne-le-producteur-michel-zecler-qui-se-dit-horrifie_8288912.html#xtor=RSS-3-[lestitres]",
+      "source": "franceinfo",
+      "pubDate": "2026-11-18T21:36:14.000Z"
+    },
     {
       "title": "Les IA diffusent de fausses informations sur le climat pour donner raison à l’utilisateur, selon une étude",
       "link": "https://www.ouest-france.fr/high-tech/intelligence-artificielle/les-ia-diffusent-de-fausses-informations-sur-le-climat-pour-donner-raison-a-lutilisateur-selon-une-etude-ab6e306e-e361-11f1-8937-e3b17ddb6abc?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu",
@@ -213,16 +219,16 @@
       "pubDate": "2026-11-11T08:11:57.000Z"
     },
     {
-      "title": "IA, cybersécurité, marketplace... Orange se rapproche du modèle de la « super-app »",
-      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUERiMnAxVW84LWg5SHVBNVl4eDhBVk5sbi1kWEpIUEp1U2taSmVxcGI0RlBFOEw5bzBTV2pXc0JBY2trU2RQeUtxSXA3amhXaUNSUmNBZl9uYmUtMFdBLTZCS05OQzEzTzJnRDhDSTFQVVNhbkk5YzlwWDMzUHlkQkFOLUdkOElPQjFPM1pDSzlPWC1VY3Zha2tKLUdacWhhcHd6cGw4OEtoRUNHcTNTN0g0QWxZTHQ1VUVwUmoyN2R2R09sQVRFU1I0V3RoMzNTYUE?oc=5",
-      "source": "La Tribune",
-      "pubDate": "2026-11-10T16:04:18.000Z"
-    },
-    {
       "title": "Agents IA : Google muscle sa huitième génération de TPU avec une puce à sécurité matérielle et une autre à mémoire élargie",
       "link": "https://www.zdnet.fr/actualites/agents-ia-google-muscle-sa-huitieme-generation-de-tpu-avec-une-puce-a-securite-materielle-et-une-autre-a-memoire-elargie-507641.htm#xtor=RSS-1",
       "source": "ZDNet France",
       "pubDate": "2026-11-10T08:11:54.000Z"
+    },
+    {
+      "title": "IA, cybersécurité, marketplace... Orange se rapproche du modèle de la « super-app »",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUERiMnAxVW84LWg5SHVBNVl4eDhBVk5sbi1kWEpIUEp1U2taSmVxcGI0RlBFOEw5bzBTV2pXc0JBY2trU2RQeUtxSXA3amhXaUNSUmNBZl9uYmUtMFdBLTZCS05OQzEzTzJnRDhDSTFQVVNhbkk5YzlwWDMzUHlkQkFOLUdkOElPQjFPM1pDSzlPWC1VY3Zha2tKLUdacWhhcHd6cGw4OEtoRUNHcTNTN0g0QWxZTHQ1VUVwUmoyN2R2R09sQVRFU1I0V3RoMzNTYUE?oc=5",
+      "source": "La Tribune",
+      "pubDate": "2026-11-10T08:00:00.000Z"
     },
     {
       "title": "Quand l’IA a raison, à quoi sert encore le médecin ? La réponse d’un oncologue et chercheur en intelligence artificielle",
@@ -285,15 +291,15 @@
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
-      "title": "Le gouvernement néerlandais veut supprimer 25 000 agents publics et les remplacer par de l’intelligence artificielle",
-      "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQa1RPWHNReVFnYUdPWXNjbFM3UzRfRUo0ellKOU1BQ256eTlBaEl0cmdfVHJPc0d0N2RBSkpRc3VaMDdmZTJmQ19ULUJFZHhRLWlUaWZxRDIycFB6Y2drRGtibVcyOTF4Qm96eW9TcEtzeUJrbnFGRWptYmdUREswZFRNWFc0RzBJMXU4NE5GZ0NTSS01aTdzQkpTLVdNV3dqRlNJM2pxNDY2eDFLRjhJMVJ2YXNFSHR5WUlBbDIwUkprOVkzejBoeW9BaG52QTZFeVc2UDRNUzRIVTF6VDhtbTc0dkpnS1JlaGJ3d2FTSGV1dEkwaEJpbVRGcG1HQ3NCdlpkaTRJRy05RmFFQ1U2R2p3R0dIMTBRaWQ5VXpIdXRYWDg?oc=5",
-      "source": "Le Parisien",
-      "pubDate": "2026-10-26T07:00:00.000Z"
-    },
-    {
       "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
       "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
       "source": "Le Figaro",
+      "pubDate": "2026-10-26T07:00:00.000Z"
+    },
+    {
+      "title": "Le gouvernement néerlandais veut supprimer 25 000 agents publics et les remplacer par de l’intelligence artificielle",
+      "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQa1RPWHNReVFnYUdPWXNjbFM3UzRfRUo0ellKOU1BQ256eTlBaEl0cmdfVHJPc0d0N2RBSkpRc3VaMDdmZTJmQ19ULUJFZHhRLWlUaWZxRDIycFB6Y2drRGtibVcyOTF4Qm96eW9TcEtzeUJrbnFGRWptYmdUREswZFRNWFc0RzBJMXU4NE5GZ0NTSS01aTdzQkpTLVdNV3dqRlNJM2pxNDY2eDFLRjhJMVJ2YXNFSHR5WUlBbDIwUkprOVkzejBoeW9BaG52QTZFeVc2UDRNUzRIVTF6VDhtbTc0dkpnS1JlaGJ3d2FTSGV1dEkwaEJpbVRGcG1HQ3NCdlpkaTRJRy05RmFFQ1U2R2p3R0dIMTBRaWQ5VXpIdXRYWDg?oc=5",
+      "source": "Le Parisien",
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
@@ -373,6 +379,12 @@
       "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQZDlEVG9yVHNWSFNaY0syRkU1RUFrcXlET1daNGpycWxQUndBbF84MWNRZHdnT1dVajVfcmhNTVkxSmRWQ1BISnRmdnJTNEVRZHZFaFNHWl95WHJIM1VqMzhpQk9ZQ21fbDNfNkNHeXVrTE5BTVhha0ZRZjYyVzY3OEgwZTBiN3Z0eWZJcWZ3Z25BV01CVlgzM3RsaDZQY1VFbjVqSjNtZ0I0R3BQc2VycEkwMzRoaHlYbFROZkIxSkdoWHcz?oc=5",
       "source": "La Croix",
       "pubDate": "2026-10-03T07:00:00.000Z"
+    },
+    {
+      "title": "IA et intérêt général : « Et si Mistral AI devenait la première grande entreprise numérique à mission",
+      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZXlGd2s4UnEzeTJEY1g3cHFjaU5CdV9LbDVmbEp3MHliSElLemRuWV9qcjhUVnN1M3ptbEItdzBhUnEzZ0pleXdSd1E0V214UEp6TDVxdVBqNUFhWjVxZVhqVlFtbEpBampaWUh5My1wMWhXby1hZnJIdlluVmtRSTB4SHpFQTNFd2FHZW1VTVpZQ3JaTThSVmdtT285TmhERU42cWZweW1kSWZ2ZzBlMmppaDVYMGVoR3hUTHJObTNYYUFudnYwMGZ2Sm5RdnZPMjBrbkxfenhPc2d2cVhoLThlcw?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-09-28T07:00:00.000Z"
     },
     {
       "title": "« L'IA n'est pas en cause, c'est la manière dont les entreprises la déploient » : les trois recettes de McKinsey pour stopper l'hémorragie",
