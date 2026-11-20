@@ -7,6 +7,41 @@
   },
   "sections": [
     {
+      "heading": "TIP 10 — 資料和請求混在一起時，用標籤分開",
+      "body": "用角括號標籤把資料和指示分別包起來，AI 比較不會把兩者搞混。",
+      "items": []
+    },
+    {
+      "heading": "AI 把貼上資料裡的句子當成了指示",
+      "body": "您貼上會議紀錄，請 AI「只整理決議事項」，結果 AI 卻寫了一份草案，只因為紀錄裡有一句「下週前完成草案」？資料和請求黏成一團時，AI 可能分不清哪裡是資料、哪裡開始是指示。",
+      "items": []
+    },
+    {
+      "heading": "對策：把資料和請求各自用標籤包起來",
+      "body": "Claude 的開發公司 Anthropic 在官方指南「Structure prompts with XML tags（用 XML 標籤整理提示詞結構）」一節中說明：提示詞裡混著指示、背景資料、範例與輸入時，把每一種內容各自用標籤包起來，可以減少誤解。標籤就是像 <context> 這樣用角括號寫名稱、再以 </context> 收尾的記號。直接使用指南範例中的標籤名稱 context（背景資料）和 instructions（指示），寫法如下。括號內請依實際情況修改。",
+      "items": [
+        "<context>（把會議紀錄或規定貼在這裡）</context> <instructions>（您的請求，例如：請用三行整理決議事項）</instructions>"
+      ]
+    },
+    {
+      "heading": "再補一點：標籤名稱固定不換",
+      "body": "指南建議在所有提示詞中使用一致、能看出內容的標籤名稱。不要今天用 context、明天改用 data；在單位常用的提問範本裡固定同一組名稱會比較方便。做成範本是應用指南建議的做法，並非指南的直接建議。",
+      "items": []
+    },
+    {
+      "heading": "請務必留意",
+      "body": "就算用標籤分開，也不能保證 AI 的回答一定正確。日期、金額與決議內容，請直接與原文對照。含有病人個資的資料請勿放進 AI 服務，並請先確認貴院的資訊安全規範。",
+      "items": []
+    },
+    {
+      "heading": "出處",
+      "body": "",
+      "items": [
+        "Anthropic，「Prompting best practices」的「Structure prompts with XML tags」（官方文件） https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "出處確認日：2026 年 11 月 21 日"
+      ]
+    },
+    {
       "heading": "TIP 08 — 長篇資料要摘要時，先請 AI 挑出「依據句」",
       "body": "摘要之前，先請 AI 從原文引用相關段落，重點會比較集中。",
       "items": []

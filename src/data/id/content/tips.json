@@ -7,6 +7,41 @@
   },
   "sections": [
     {
+      "heading": "TIP 10 — Saat bahan dan permintaan bercampur, pisahkan dengan tag",
+      "body": "Jika bahan dan instruksi dibungkus tag bertanda kurung sudut, AI lebih jarang tertukar antara keduanya.",
+      "items": []
+    },
+    {
+      "heading": "AI membaca kalimat di dalam bahan sebagai perintah",
+      "body": "Anda menempelkan notulen rapat dan meminta 'rangkum keputusan rapat saja', tetapi AI malah menulis draf karena di notulen ada kalimat 'siapkan draf paling lambat minggu depan'? Jika bahan dan permintaan menjadi satu gumpalan, AI bisa bingung mana bagian bahan dan mana bagian instruksi.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: bungkus bahan dan permintaan dengan tag masing-masing",
+      "body": "Panduan resmi Anthropic (perusahaan pembuat Claude) pada bagian 'Structure prompts with XML tags' (menyusun prompt dengan tag XML) menjelaskan bahwa makin banyak instruksi, konteks, contoh, dan masukan yang bercampur dalam satu prompt, makin berguna membungkus tiap jenis isi dengan tagnya sendiri agar salah tafsir berkurang. Tag adalah penanda seperti <context> yang ditutup dengan </context>. Dengan nama tag dari contoh panduan, yaitu context (bahan latar) dan instructions (instruksi), hasilnya seperti ini. Ganti isi dalam kurung sesuai keperluan Anda.",
+      "items": [
+        "<context>(tempelkan notulen atau peraturan di sini)</context> <instructions>(permintaan Anda, misalnya: rangkum keputusan rapat dalam tiga baris)</instructions>"
+      ]
+    },
+    {
+      "heading": "Satu lagi: gunakan nama tag yang sama setiap kali",
+      "body": "Panduan menyarankan nama tag yang konsisten dan menggambarkan isinya di seluruh prompt Anda. Jangan hari ini context lalu besok data; lebih praktis jika unit Anda menetapkan nama yang sama dalam templat permintaan. Membuat templat adalah penerapan dari saran panduan, bukan anjuran langsungnya.",
+      "items": []
+    },
+    {
+      "heading": "Hal yang perlu diingat",
+      "body": "Tag tidak menjamin jawaban AI selalu akurat. Cocokkan tanggal, jumlah uang, dan isi keputusan dengan dokumen asli. Jangan memasukkan materi yang memuat data pribadi pasien ke layanan AI; periksa dulu kebijakan keamanan informasi rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, 'Prompting best practices', bagian 'Structure prompts with XML tags' (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Tanggal pemeriksaan sumber: 21 November 2026"
+      ]
+    },
+    {
       "heading": "TIP 08 — Untuk dokumen panjang, minta AI mengutip kalimat dasarnya lebih dulu",
       "body": "Sebelum meringkas, minta AI mengutip bagian yang relevan dari dokumen agar fokusnya terjaga.",
       "items": []

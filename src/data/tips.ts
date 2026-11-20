@@ -413,4 +413,42 @@ export const tips: Tip[] = [
     ],
     checked: '2026-11-20',
   },
+  {
+    no: 10,
+    title: '자료와 부탁이 섞일 때는 태그로 칸을 나눠 주세요',
+    hook: '꺾쇠 태그로 자료와 지시를 감싸면 AI가 둘을 헷갈리지 않습니다',
+    fullTitle: '회의록·규정을 붙여 넣고 부탁할 때, 태그로 자료와 지시를 구분하는 방법',
+    groups: [],
+    story: [
+      {
+        heading: '붙여 넣은 자료 속 문장을 AI가 지시로 읽어 버립니다',
+        paragraphs: [
+          '회의록을 붙여 넣고 "결정 사항만 정리해 주세요"라고 했는데, 회의록 안에 있던 "다음 주까지 초안을 작성할 것" 같은 문장 때문에 AI가 엉뚱하게 초안을 써 온 적이 있으신가요? 자료와 부탁이 한 덩어리로 섞이면 어디까지가 자료이고 어디부터가 지시인지 AI가 헷갈릴 수 있습니다.',
+        ],
+      },
+      {
+        heading: '해법: 자료와 부탁을 각각 태그로 감싸세요',
+        paragraphs: [
+          'Anthropic(Claude를 만든 회사)의 공식 안내서는 「XML 태그로 프롬프트 구조 잡기(Structure prompts with XML tags)」 항목에서, 지시·배경 자료·예시·입력이 섞인 프롬프트일수록 내용마다 자기 태그로 감싸면 잘못 해석할 일이 줄어든다고 설명합니다. 태그란 <context>처럼 꺾쇠로 이름을 적고 </context>로 닫는 표시입니다. 안내서가 예로 드는 태그 이름인 context(배경 자료)와 instructions(지시)를 그대로 쓰면 이렇게 됩니다. 괄호 안은 상황에 맞게 바꾸세요.',
+        ],
+        copy: '<context>(회의록이나 규정을 여기에 붙여 넣기)</context> <instructions>(부탁할 내용, 예: 결정 사항만 세 줄로 정리해 주세요)</instructions>',
+      },
+      {
+        heading: '한 가지만 더: 태그 이름은 늘 같은 것으로',
+        paragraphs: [
+          '안내서는 프롬프트 전체에서 일관되고 내용을 잘 드러내는 태그 이름을 쓰라고 권합니다. 오늘은 context, 내일은 data처럼 바꾸지 말고, 부서에서 쓰는 질문 양식에 같은 이름을 정해 두면 편합니다. 양식으로 정해 두는 것은 안내서의 권고를 응용한 활용입니다.',
+        ],
+      },
+      {
+        heading: '꼭 알아 둘 점',
+        paragraphs: [
+          '태그로 나눠도 AI의 답이 항상 정확한 것은 아닙니다. 날짜, 금액, 결정 내용은 원문과 직접 대조하세요. 환자 이름 등 개인정보가 담긴 자료는 AI 서비스에 넣지 말고, 병원의 정보보호 지침을 먼저 확인하세요.',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'Anthropic, 프롬프트 작성 안내서 \'XML 태그로 프롬프트 구조 잡기(Structure prompts with XML tags)\'(공식 문서)', url: 'https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices' },
+    ],
+    checked: '2026-11-21',
+  },
 ];
