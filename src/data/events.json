@@ -1,6 +1,68 @@
 {
-  "updatedAt": "2026-11-19T17:35:37.651Z",
+  "updatedAt": "2026-11-20T07:41:41.946Z",
   "items": [
+    {
+      "title": "AI가 먼저 걸렀다…스팸 데이터 개방으로 대량 악성문자·스팸전화 수신 전 차단",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217628",
+      "source": "AI타임스",
+      "pubDate": "2026-11-20T16:02:08.000Z"
+    },
+    {
+      "title": "아이티센클로잇, 제약·바이오 산업 AX 공략 가속",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=717085",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-20T14:49:07.000Z"
+    },
+    {
+      "title": "엔티엘헬스케어, 메디카서 유럽 AI 자궁경부암 검진 효율화 논의",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242713",
+      "source": "라포르시안",
+      "pubDate": "2026-11-20T13:40:00.000Z"
+    },
+    {
+      "title": "제약바이오협회, CSO 규제 강화에 업계 대응 방안 모색",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80955",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-20T11:30:44.000Z"
+    },
+    {
+      "title": "제약바이오협, ‘윤리경영 워크숍’ 개최… CSO 규제·AI 마케팅 CP 점검",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242702",
+      "source": "라포르시안",
+      "pubDate": "2026-11-20T11:05:00.000Z"
+    },
+    {
+      "title": "제약바이오협회, 윤리경영 워크숍 개최",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99036",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-20T10:25:47.000Z"
+    },
+    {
+      "title": "병원행정관리자협회 CMC지회, AI 활용 학술 세미나 개최",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016928",
+      "source": "의학신문",
+      "pubDate": "2026-11-20T10:20:16.000Z"
+    },
+    {
+      "title": "제약바이오협회, CSO·AI 마케팅 규제 대응 논의",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422300",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-20T10:07:57.000Z"
+    },
+    {
+      "title": "병원에 갇힌 의료 데이터…“보상체계 정리해야 연결된다”",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044719",
+      "source": "청년의사",
+      "pubDate": "2026-11-20T06:15:36.000Z",
+      "popular": true,
+      "rank": 10
+    },
+    {
+      "title": "AI 해킹 고도화에…금감원, 코인사업자에 \"사고 발생 시 엄정 대응\"",
+      "link": "https://zdnet.co.kr/view/?no=20261120134402",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-20T04:44:02.000Z"
+    },
     {
       "title": "AI 시대 바이오 실험실, 무엇이 달라지나…머크·KAIST 공동 행사 개최",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422279",
@@ -11,37 +73,49 @@
       "title": "딥노이드, AI 병리 판독 보조 효과 확인…“전문의 민감도 향상”",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242673",
       "source": "라포르시안",
-      "pubDate": "2026-11-19T17:20:00.000Z"
+      "pubDate": "2026-11-19T17:20:00.000Z",
+      "popular": true,
+      "rank": 4
     },
     {
       "title": "딥노이드, 위·대장암 복막 전이 판별 AI 연구 ‘JKMS’ 게재",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016882",
       "source": "의학신문",
-      "pubDate": "2026-11-19T17:07:28.000Z"
+      "pubDate": "2026-11-19T17:07:28.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "보건산업진흥원, 의료 AI 현장 안착·확산 방안 모색",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016873",
       "source": "의학신문",
-      "pubDate": "2026-11-19T17:06:59.000Z"
+      "pubDate": "2026-11-19T17:06:59.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "“병원 혼자서는 어렵다”…정부와의 의료정보보호 공조 필수",
       "link": "http://www.khanews.com/news/articleView.html?idxno=253027",
       "source": "병원신문",
-      "pubDate": "2026-11-19T16:05:00.000Z"
+      "pubDate": "2026-11-19T16:05:00.000Z",
+      "popular": true,
+      "rank": 3
     },
     {
       "title": "의학한림원, 24일 ‘2026 보건의료R&D혁신 오픈포럼’ 개최",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242663",
       "source": "라포르시안",
-      "pubDate": "2026-11-19T16:00:00.000Z"
+      "pubDate": "2026-11-19T16:00:00.000Z",
+      "popular": true,
+      "rank": 5
     },
     {
       "title": "\"AI 공격 빨라지는데\"…병원 보안은 어떻게 바뀌나",
       "link": "http://www.khanews.com/news/articleView.html?idxno=253028",
       "source": "병원신문",
-      "pubDate": "2026-11-19T16:00:00.000Z"
+      "pubDate": "2026-11-19T16:00:00.000Z",
+      "popular": true,
+      "rank": 4
     },
     {
       "title": "아크릴, 의료데이터 표준화·연계 기술력 입증…“병원 AI 도입 지원”",
@@ -53,7 +127,9 @@
       "title": "[동정] 춘천성심 전진평 교수, '심뇌혈관질환 사례수기 공모전' 최우수상",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415613",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-19T12:03:06.000Z"
+      "pubDate": "2026-11-19T12:03:06.000Z",
+      "popular": true,
+      "rank": 7
     },
     {
       "title": "“진료실 들어온 AI, 검증ㆍ보상 없는 ‘의사 최종 책임’은 위험”",
@@ -1046,5 +1122,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · 병원신문 · 의약뉴스 · 뉴시스 · 보건복지부 · 메디파나뉴스 · ZDNet Korea"
+  "source": "의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · 병원신문 · 의약뉴스 · 뉴시스 · 보건복지부 · 메디파나뉴스 · ZDNet Korea · 청년의사 · e-의료정보 · AI타임스 · 디지털투데이"
 }
