@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-20T01:27:28.122Z",
-  "source": "Newsweek · Davao Today · Rappler · Inquirer Technology · MLQ.ai · BusinessWorld · Fintech News Philippines · Philippine Information Agency · Philstar · SFist · Atlantic Council · Politiko.com.ph",
+  "updatedAt": "2026-11-20T09:14:04.876Z",
+  "source": "BusinessWorld Online · Newsweek · Davao Today · Rappler · Inquirer Technology · MLQ.ai · BusinessWorld · Fintech News Philippines · Philippine Information Agency · Philstar · SFist · Atlantic Council",
   "items": [
+    {
+      "title": "Executive Order No. 131 or the adoption of the Philippine AI Governance Framework explained",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOYldmQ3BGM2daYmJGLUtJbWo2ZjNzcVQ4TzFqUFVuWUIyTjZvYVRTUXlCUUxTOGNiQTdRa2NyVEtfdlN4RE9UdVRqbjdBRFliQ2stQnhoRXBvVmM2SUtyT1FNajgxZWtBNVZScy0xcUY4QmQyQ1dXQ2hWbXB6anAyNW9TUzNHaHh4TGs5djUxZ1FMYWdaTlREeWlVbDEzZnRUTW9HR01EODVnWU1GTnN5YlB6R0RLVzBxS1pUX193dDkyLUhoZ0ZMM2JzYWp4ZFd3MlJnWTBEY3VIWk1US2c?oc=5",
+      "source": "BusinessWorld Online",
+      "pubDate": "2026-11-20T08:36:20.000Z"
+    },
     {
       "title": "What Trump Has Said About AI Kill Switch as Democrats Take Congress",
       "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMlBfUXBXZ0hoSG9HbFc1NVVPMURuLTFzU1dST201LXFxSk5aeXlXQzNuVUFMRFN3NlFONWNWUWRoYjdrRTRJLXM1cHpjSzR5SWxKQ201TlJueFBHUmdXTFVERENFeFp6VUFNTllMR0ZuRWhkMFFXNXU5R1FhTFVkY1lyX3paVm14REptWWM4Y0FhU2J5UzE5c2phVlA1N3B1Slgw?oc=5",
@@ -228,7 +234,7 @@
       "title": "PBBM creates national council to oversee AI development, governance",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPTkpSWmF2bE1mN3JyNWQ2VXVCNDRVQWozanV5aTJGbVpTMHQzNkJhYnF3NjBwVE1Zc1VTOXVxcTVibTNWZV9TUVJBNlN6d3RXd0xYSE5TTThmeVZxZUdnT3M4WnRZMFk2MDI1elB3eGQyVV9xM0RvQzhEY1cxM19rSUN0Zy1xdkxlMC03Q29XdWV0VHgyeTExQ1Nfa1BxQQ?oc=5",
       "source": "Philippine News Agency",
-      "pubDate": "2026-11-14T08:40:32.000Z"
+      "pubDate": "2026-11-14T08:39:00.000Z"
     },
     {
       "title": "Marcos signs EO 131, creating a National AI Council and quarterly AI reports",
@@ -621,15 +627,15 @@
       "pubDate": "2026-05-13T07:00:00.000Z"
     },
     {
-      "title": "AI threatens entry-level jobs, exposes PH readiness gaps—experts",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZjhYMjlPdU1IcGExR1ZpMWVoam1EcFl1eTNuRUNXQTR4NVRCUGVMclc5U2gza0s5emo4SVBjMDVGTDhUaHJJTWZoV1ZNZHZLWkxhU1pkUTEwRkVLYldZbGFDQ1JTVkl3N2hnQ2IxS3dEdTRHOW90QkYza2o4cEFRaE1veUpRWjZqaHhQZ0s1S01waXRJUlJ6OUJWM0Rycy1tZUZTQWwzQVpOOHhfR29kRQ?oc=5",
-      "source": "PIDS - Philippine Institute for Development Studies",
-      "pubDate": "2026-05-12T07:00:00.000Z"
-    },
-    {
       "title": "Philippine News Agency. . WATCH: Bambi Escalante, Fortinet Philippines country manager, says organizations are being forced to transform and adapt to cybersecurity complexity and artificial intelligence (AI)-driven threats during a press conference in Tagui",
       "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1qR1Z6bVhOaVRoQUJHX0NPcHJYZEtuemRiam1LQ2J3MzhZTFVYc0s4RERZR2x2SXE5QXVIV1dBaGFack0yZXczUUZZQ1pMZ3p2bVZ6WEVfSU92U3Fncmp2bm9TNHBNM2ZGcXJsZjVuMDR0S25xRUdKVm0xZ0k?oc=5",
       "source": "Facebook",
+      "pubDate": "2026-05-12T07:00:00.000Z"
+    },
+    {
+      "title": "AI threatens entry-level jobs, exposes PH readiness gaps—experts",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZjhYMjlPdU1IcGExR1ZpMWVoam1EcFl1eTNuRUNXQTR4NVRCUGVMclc5U2gza0s5emo4SVBjMDVGTDhUaHJJTWZoV1ZNZHZLWkxhU1pkUTEwRkVLYldZbGFDQ1JTVkl3N2hnQ2IxS3dEdTRHOW90QkYza2o4cEFRaE1veUpRWjZqaHhQZ0s1S01waXRJUlJ6OUJWM0Rycy1tZUZTQWwzQVpOOHhfR29kRQ?oc=5",
+      "source": "PIDS - Philippine Institute for Development Studies",
       "pubDate": "2026-05-12T07:00:00.000Z"
     },
     {
@@ -799,6 +805,12 @@
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxObXdsdWFVMnNGYjItbFJQMDhONzV6NzE3X21XOERjdXdPU2doSkVDaDI4U3cxMVFhbkZ3b0NYblZ6eU1JUTE2RFJGYjVoNmtLS0xhMFh3VE9zYkxBSk5wYnZabURhR1dBWnAzc0hxN21nLTU1bWhQT2RLOExWaVI2YkFlNWtoQ0hTZXVyRmotQ1NPRllOdGs0OXg0bURPdkY5ZFhzVXFqbXRjaWhBWGlWUk9LbG1EYVl5?oc=5",
       "source": "United Nations in Philippines",
       "pubDate": "2025-11-28T08:00:00.000Z"
+    },
+    {
+      "title": "Philippines' digital boom under threat: AI lag could cost billions",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOdnRjSzE0R20yU2NtOHB4eU4yUk83blRCaURQX3VUUGdrYWtvNmlWSno1UDNqYW4xX1hqbGhaRE5lX1F3cjVERjJyRkRPc05DM2lqcEJwWllNdEN1WGpfRWhmR0JoWGk3Vzh6ZnIwQ0FUT3loMjZiaEpHbEI2NDJjQnZrTUU5OWx4NFJvRXZVZDFxUU1ObGMxT3BqVWhPeXY1MVJqTVA1UXRNeEpCNlBzWXM0bTI5Y0tYNUVnYQ?oc=5",
+      "source": "ABS-CBN",
+      "pubDate": "2025-11-27T08:00:00.000Z"
     },
     {
       "title": "SP OKs AI-powered facial recognition as part of city’s border security system",
