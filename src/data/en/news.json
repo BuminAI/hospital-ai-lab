@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T03:43:35.019Z",
+  "updatedAt": "2026-11-20T13:34:17.778Z",
   "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · HIT Consultant · Radiology Business · NEJM AI · The New York Times · NPR · Federal Register · MedCity News",
   "items": [
     {
@@ -55,6 +55,12 @@
       "link": "https://radiologybusiness.com/topics/healthcare-management/healthcare-economics/ai-enabled-radiology-practice-raises-100m-growth-capital",
       "source": "Radiology Business",
       "pubDate": "2026-11-19T08:56:56.000Z"
+    },
+    {
+      "title": "FDA-Authorized AI/ML Tool for Sepsis Prediction: Development and Validation",
+      "link": "https://ai.nejm.org/doi/full/10.1056/AIx2601439?af=R&rss=currentIssue",
+      "source": "NEJM AI",
+      "pubDate": "2026-11-19T06:00:00.000Z"
     },
     {
       "title": "FDA clears GE HealthCare's imaging-AI feeding tube detection software",
