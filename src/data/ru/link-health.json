@@ -1,16 +1,24 @@
 {
-  "checkedAt": "2026-11-19T00:47:03.654Z",
+  "checkedAt": "2026-11-20T00:58:24.212Z",
   "total": 112,
-  "ok": 103,
-  "unknown": 9,
+  "ok": 98,
+  "unknown": 14,
   "unknownList": [
     {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=7968559",
       "status": 400
     },
     {
+      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=507503",
+      "status": 0
+    },
+    {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=6902061",
       "status": 400
+    },
+    {
+      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=500478",
+      "status": 0
     },
     {
       "url": "https://minzdrav.gov.ru/poleznye-resursy/natsionalnye-proekty-rossii-prodolzhitelnaya-i-aktivnaya-zhizn-novye-tehnologii-sberezheniya-zdorovya",
@@ -18,6 +26,10 @@
     },
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
+      "status": 0
+    },
+    {
+      "url": "https://medvestnik.ru/content/news/komputernoe-zrenie-pomogaet-rossiiskim-bolnicam-izbegat-ocheredei.html",
       "status": 0
     },
     {
@@ -29,11 +41,19 @@
       "status": 403
     },
     {
+      "url": "http://publication.pravo.gov.ru/",
+      "status": 500
+    },
+    {
       "url": "https://cr.minzdrav.gov.ru/",
       "status": 0
     },
     {
       "url": "https://minzdrav.gov.ru/news/2026/10/20/33149-mihail-murashko-i-german-gref-predstavili-novoe-otechestvennoe-prilozhenie-hudeem-na-zdorovie",
+      "status": 0
+    },
+    {
+      "url": "https://www.pomph.ru/jour/article/view/244",
       "status": 0
     },
     {
