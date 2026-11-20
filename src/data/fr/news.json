@@ -1,7 +1,20 @@
 {
-  "updatedAt": "2026-11-19T17:42:34.791Z",
-  "source": "Le Figaro · 20 Minutes · ZDNet France · Infirmiers.com · Le Quotidien du Médecin · Le Quotidien du Pharmacien · franceinfo · Libération · Les Échos · DSIH · Les Numériques · Numerama · Sud Ouest",
+  "updatedAt": "2026-11-20T16:25:02.682Z",
+  "source": "Le Figaro · 20 Minutes · ZDNet France · Infirmiers.com · Le Quotidien du Médecin · Le Quotidien du Pharmacien · franceinfo · Libération · Les Échos · DSIH · Les Numériques · Numerama · Sud Ouest · Le Monde",
   "items": [
+    {
+      "title": "9 000 hospitalisations évitées chez les 65 ans et plus grâce à la vaccination",
+      "link": "http://www.lequotidiendupharmacien.fr/exercice-pro/politique-de-sante/9-000-hospitalisations-evitees-chez-les-65-ans-et-plus-grace-la-vaccination",
+      "source": "Le Quotidien du Pharmacien",
+      "pubDate": "2026-11-20T11:41:24.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "« Il est urgent de définir les jalons d’une médecine collaborative où l’alliance entre l’IA et le soignant ne se construit pas au détriment de ce dernier »",
+      "link": "https://www.lemonde.fr/sciences/article/2026/11/20/il-est-urgent-de-definir-les-jalons-d-une-medecine-collaborative-ou-l-alliance-entre-l-ia-et-le-soignant-ne-se-construit-pas-au-detriment-de-ce-dernier_6813619_1650684.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-20T10:30:02.000Z"
+    },
     {
       "title": "ZD Tech : L'IA Z Atlas, la solution choc d'IBM pour moderniser ses mainframes",
       "link": "https://www.zdnet.fr/actualites/zd-tech-lia-z-atlas-la-solution-choc-dibm-pour-moderniser-ses-mainframes-507403.htm#xtor=RSS-1",
