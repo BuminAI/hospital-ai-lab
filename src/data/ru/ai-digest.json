@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-19T15:42:45.644Z",
+  "updatedAt": "2026-11-20T03:11:57.814Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "IPO превратило сотрудников Anthropic в мультимиллионеров — в среднем у каждого теперь более $44 млн",
+      "link": "https://3dnews.ru/1151555/ipo-prevratil-sotrudnikov-anthropic-v-multimillionerov-v-srednem-u-kagdogo-teper-bolee-44-mln",
+      "source": "3DNews",
+      "pubDate": "2026-11-19T18:49:00.000Z"
+    },
+    {
+      "title": "Профессор Фортран в SVG: как ИИ‑агент нарисовал иллюстрации к моей книге на Python",
+      "link": "https://habr.com/ru/articles/1110036/?utm_campaign=1110036&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T17:08:11.000Z"
+    },
+    {
+      "title": "Карта сайта для ИИ-агента: Markdown, граф ссылок и первые замеры",
+      "link": "https://habr.com/ru/articles/1109612/?utm_campaign=1109612&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T16:31:55.000Z"
+    },
+    {
+      "title": "Преодолевая звуковой барьер в разработке ПО с ИИ",
+      "link": "https://habr.com/ru/articles/1108644/?utm_campaign=1108644&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-19T15:54:29.000Z"
+    },
+    {
+      "title": "Хакеры 10 дней атаковали системы Еврокомиссии с помощью ИИ — под угрозой личные данные чиновников",
+      "link": "https://3dnews.ru/1151546/hakeri-10-dney-atakovali-sistemi-evrokomissii-s-pomoshchyu-ii-pod-ugrozoy-lichnie-dannie-chinovnikov",
+      "source": "3DNews",
+      "pubDate": "2026-11-19T15:53:00.000Z"
+    },
     {
       "title": "«К2Тех» автоматизировала рутину 600 сотрудников с помощью ИИ-платформы SamurAI",
       "link": "https://www.cnews.ru/news/line/2026-11-19_k2teh_avtomatizirovala",
@@ -1771,36 +1801,6 @@
       "link": "https://3dnews.ru/1150789/kak-gennaya-ingeneriya-dlya-neyrosetey-uchyonie-predlogili-uluchshat-iimodeli-bez-doobucheniya-redaktiruya-ih-vesa",
       "source": "3DNews",
       "pubDate": "2026-11-03T10:15:00.000Z"
-    },
-    {
-      "title": "Исследование Rambler&Co: как россияне относятся к ИИ в медиа",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_issledovanie_ramblerco_kak_rossiyane",
-      "source": "CNews",
-      "pubDate": "2026-11-03T10:03:00.000Z"
-    },
-    {
-      "title": "Россияне не готовы платить за образовательные продукты, созданные на базе ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_rossiyane_ne_gotovy_platit",
-      "source": "CNews",
-      "pubDate": "2026-11-03T09:46:00.000Z"
-    },
-    {
-      "title": "Cloud.ru и Fork-Tech помогут финансовым организациям ускорить операции и повысить качество клиентского сервиса с помощью ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_cloudru_i_fork-tech_pomogut_finansovym",
-      "source": "CNews",
-      "pubDate": "2026-11-03T09:41:00.000Z"
-    },
-    {
-      "title": "«МТС Банк» повысил безопасность использования ИИ среди сотрудников",
-      "link": "https://www.cnews.ru/news/line/2026-11-03_mts_bank_povysil_bezopasnost",
-      "source": "CNews",
-      "pubDate": "2026-11-03T09:38:00.000Z"
-    },
-    {
-      "title": "AI Assisted Development или как не убить кучу времени на код-ревью агентов",
-      "link": "https://habr.com/ru/companies/haulmont/articles/1101452/?utm_campaign=1101452&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-03T09:00:13.000Z"
     }
   ]
 }
