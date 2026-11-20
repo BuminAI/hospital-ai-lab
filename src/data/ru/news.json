@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-19T20:55:06.713Z",
-  "source": "Медвестник·Vademecum",
+  "updatedAt": "2026-11-20T18:45:29.981Z",
+  "source": "Медвестник · Vademecum · CNews · Zdrav.ru",
   "items": [
+    {
+      "title": "Появилась Нейра Мика - ИИ-помощник для экономистов ЛПУ",
+      "link": "https://www.zdrav.ru/news/1107943-poyavilas-neyra-mika-ii-pomoshchnik-dlya-ekonomistov-lpu-prodakt",
+      "source": "Zdrav.ru",
+      "pubDate": "2026-11-20T15:00:00.000Z"
+    },
+    {
+      "title": "РТУ МИРЭА запускает курс по облачным технологиям для медицинских ИИ-агентов",
+      "link": "https://www.cnews.ru/news/line/2026-11-20_rtu_mirea_zapuskaet_kurs",
+      "source": "CNews",
+      "pubDate": "2026-11-20T10:51:00.000Z"
+    },
     {
       "title": "Мишустин: в транспортном комплексе активнее применяются системы на базе ИИ",
       "link": "https://tass.ru/obschestvo/28335501",
