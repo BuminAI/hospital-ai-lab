@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-11-20T10:21:14.551Z",
+  "updatedAt": "2026-11-20T18:44:44.533Z",
   "items": [
+    {
+      "title": "IA et éducation : une résolution mondiale pour la protection des données",
+      "link": "https://www.cnil.fr/fr/gpa-ia-education",
+      "pubDate": "2026-11-20",
+      "kind": "IA, santé et données",
+      "status": "CNIL"
+    },
+    {
+      "title": "48e Assemblée mondiale pour la protection de la vie privée (GPA)",
+      "link": "https://www.cnil.fr/fr/48e-gpa",
+      "pubDate": "2026-11-20",
+      "kind": "Actualité CNIL",
+      "status": "CNIL"
+    },
     {
       "title": "Pixels de suivi dans les courriels : la CNIL sollicite un premier retour d’expérience sur sa recommandation",
       "link": "https://www.cnil.fr/fr/recommandation-pixels-retour-dexperience",
