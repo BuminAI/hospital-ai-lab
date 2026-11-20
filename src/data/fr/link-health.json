@@ -1,29 +1,8 @@
 {
-  "checkedAt": "2026-11-19T01:18:42.970Z",
+  "checkedAt": "2026-11-20T01:21:57.628Z",
   "total": 9,
-  "ok": 4,
-  "unknown": 5,
-  "unknownList": [
-    {
-      "url": "https://www.cnil.fr/fr/ia-et-sante-la-has-et-la-cnil-lancent-une-consultation-publique-sur-un-projet-de-guide",
-      "status": 503
-    },
-    {
-      "url": "https://cnil.fr/fr/les-fiches-pratiques-ia",
-      "status": 503
-    },
-    {
-      "url": "https://www.cnil.fr/fr/ia-et-sante-developper-et-evaluer-des-systemes-dia-en-conformite-avec-la-reglementation",
-      "status": 503
-    },
-    {
-      "url": "https://www.cnil.fr/fr/rss.xml",
-      "status": 503
-    },
-    {
-      "url": "https://cnil.fr/fr/ia-finalisation-recommandations-developpement-des-systemes-ia",
-      "status": 503
-    }
-  ],
+  "ok": 9,
+  "unknown": 0,
+  "unknownList": [],
   "dead": []
 }
