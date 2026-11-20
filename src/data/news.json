@@ -1,7 +1,79 @@
 {
-  "updatedAt": "2026-11-20T03:13:44.861Z",
+  "updatedAt": "2026-11-20T11:40:44.852Z",
   "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · e-의료정보 · 약사공론 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "양 제약지수 동반 하락, 타임X AI 상한가",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259434",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-20T17:58:06.000Z"
+    },
+    {
+      "title": "부민병원, 목소리로 심부전 위험 감지하는 AI 연구 착수",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99042",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-20T17:28:02.000Z"
+    },
+    {
+      "title": "제약바이오협, 하반기 윤리경영 워크숍...CSO 규제부터 AI 마케팅까지",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549491",
+      "source": "약사공론",
+      "pubDate": "2026-11-20T17:14:11.000Z"
+    },
+    {
+      "title": "오픈AI, 코덱스로 챗GPT 성능 문제 자동 진단·수정안 작성",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217626",
+      "source": "AI타임스",
+      "pubDate": "2026-11-20T16:47:37.000Z"
+    },
+    {
+      "title": "AI가 먼저 걸렀다…스팸 데이터 개방으로 대량 악성문자·스팸전화 수신 전 차단",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217628",
+      "source": "AI타임스",
+      "pubDate": "2026-11-20T16:02:08.000Z"
+    },
+    {
+      "title": "한림대성심병원, 휴머노이드 로봇 '병원 적응' 테스트",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415657",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-20T15:36:07.000Z"
+    },
+    {
+      "title": "의대생이 본 10년 뒤 AI 진료? \"동등 주체\" 답변 '27.5%' 달해",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200162",
+      "source": "의협신문",
+      "pubDate": "2026-11-20T15:21:00.000Z"
+    },
+    {
+      "title": "AZ 오픈이노베이션, 몰큐브·빌드진 선정…글로벌 R&D 지원",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422322",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-20T15:14:08.000Z"
+    },
+    {
+      "title": "엔티엘헬스케어, 메디카서 유럽 AI 자궁경부암 검진 효율화 논의",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242713",
+      "source": "라포르시안",
+      "pubDate": "2026-11-20T13:40:00.000Z"
+    },
+    {
+      "title": "“전공의 수련, '가치 판단ㆍ책임' 중심으로 재편해야”",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259419",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-20T12:37:54.000Z"
+    },
+    {
+      "title": "GC메디아이, 의료서비스 수익구조 다변화ㆍAI 유료화 추진",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259420",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-20T12:37:32.000Z"
+    },
+    {
+      "title": "케어랩스 바비톡, AI 에이전트 스튜디오 'BaaS' 도입",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415645",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-20T12:30:31.000Z"
+    },
     {
       "title": "韓, 정밀의료 기반 넓히는 태국 주목…AI 신약개발 협력 제시",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422309",
@@ -13,6 +85,12 @@
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044748",
       "source": "청년의사",
       "pubDate": "2026-11-20T12:02:23.000Z"
+    },
+    {
+      "title": "정부, AI 데이터센터 신속 구축 지원",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016910",
+      "source": "의학신문",
+      "pubDate": "2026-11-20T12:00:00.000Z"
     },
     {
       "title": "지씨지놈, 핵심 검사 성장 가속…美 진출 기대감 확대",
@@ -33,6 +111,12 @@
       "pubDate": "2026-11-20T11:30:00.000Z"
     },
     {
+      "title": "바비톡, 말→AI 에이전트 설계 ‘BaaS’ 도입",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016948",
+      "source": "의학신문",
+      "pubDate": "2026-11-20T11:09:17.000Z"
+    },
+    {
       "title": "[신간] 감정 노동의 뇌과학",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044741",
       "source": "청년의사",
@@ -49,6 +133,12 @@
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242691",
       "source": "라포르시안",
       "pubDate": "2026-11-20T11:02:44.000Z"
+    },
+    {
+      "title": "부민병원, 음성 기반 심혈관계 건강 모니터링 연구 추진",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016941",
+      "source": "의학신문",
+      "pubDate": "2026-11-20T10:52:08.000Z"
     },
     {
       "title": "제약바이오협회, 윤리경영 워크숍 개최",
@@ -153,6 +243,12 @@
       "pubDate": "2026-11-20T05:55:00.000Z"
     },
     {
+      "title": "카르나AI아시아, AI 건강관리 기술로 산업보건 분야 공략",
+      "link": "https://www.yna.co.kr/view/AKR20261120083800017",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-20T04:35:39.000Z"
+    },
+    {
       "title": "메디통, 아인병원에 AI 플랫폼 공급…스마트병원 박차",
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172035",
       "source": "메디칼타임즈",
@@ -214,13 +310,15 @@
       "source": "의학신문",
       "pubDate": "2026-11-19T17:07:28.000Z",
       "popular": true,
-      "rank": 10
+      "rank": 8
     },
     {
       "title": "보건산업진흥원, 의료 AI 현장 안착·확산 방안 모색",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016873",
       "source": "의학신문",
-      "pubDate": "2026-11-19T17:06:59.000Z"
+      "pubDate": "2026-11-19T17:06:59.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "미 의회 자문위 “중국군, AI 군사력 강화 위해 엔비디아 첨단 칩 확보 추진”",
@@ -260,7 +358,7 @@
       "source": "라포르시안",
       "pubDate": "2026-11-19T16:00:00.000Z",
       "popular": true,
-      "rank": 6
+      "rank": 5
     },
     {
       "title": "아크릴, 의료데이터 표준화·연계 기술력 입증…“병원 AI 도입 지원”",
@@ -402,7 +500,7 @@
       "source": "약사공론",
       "pubDate": "2026-11-19T10:14:49.000Z",
       "popular": true,
-      "rank": 8
+      "rank": 6
     },
     {
       "title": "케이사인, 가천대 총장상 수상… AI 시스템 암호화·보안 구축 기여 인정",
