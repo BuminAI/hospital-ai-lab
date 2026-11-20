@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-20T13:34:17.778Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · HIT Consultant · Radiology Business · NEJM AI · The New York Times · NPR · Federal Register · MedCity News",
+  "updatedAt": "2026-11-20T21:31:15.515Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · MedCity News · STAT · HIT Consultant · Radiology Business · NEJM AI · The New York Times · NPR · Federal Register",
   "items": [
+    {
+      "title": "Why Kaiser Permanente’s AI strategy starts with trust",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/why-kaiser-permanentes-ai-strategy-starts-with-trust/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-20T21:25:03.000Z"
+    },
+    {
+      "title": "Northwestern Medicine names chief AI, data executive",
+      "link": "https://www.beckershospitalreview.com/hospital-executive-moves/northwestern-medicine-names-chief-ai-data-executive/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-20T20:03:46.000Z"
+    },
+    {
+      "title": "Reimagining the Front Door: The Case for an AI-First Payer Model",
+      "link": "https://hitconsultant.net/2026/11/20/ai-first-payer-model-front-door/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-20T17:37:19.000Z"
+    },
+    {
+      "title": "GE HealthCare Unveils Imaging 360 AI Assistant and AI-Assisted Protocoling for RSNA 2026: Simplifying Enterprise Radiology Workflows",
+      "link": "https://hitconsultant.net/2026/11/20/ge-healthcare-introduces-imaging-360-ai-assistant-protocoling-rsna-2026/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-20T16:11:00.000Z"
+    },
+    {
+      "title": "STAT+: Pharmalittle: We’re reading about Sanofi eyeing Insmed, AI speeding drug development, and more",
+      "link": "https://www.statnews.com/pharmalot/2026/11/20/sanofi-eyeing-insmed-ai-speeding-drug-development/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-20T14:16:35.000Z"
+    },
     {
       "title": "Who Should Make Medical-Necessity Decisions: AI, Insurers or Treating Physicians?",
       "link": "https://medcitynews.com/2026/11/who-should-make-medical-necessity-decisions-ai-insurers-or-treating-physicians/",
