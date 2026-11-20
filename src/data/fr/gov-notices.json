@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-11-18T10:33:38.728Z",
+  "updatedAt": "2026-11-20T10:21:14.551Z",
   "items": [
+    {
+      "title": "Pixels de suivi dans les courriels : la CNIL sollicite un premier retour d’expérience sur sa recommandation",
+      "link": "https://www.cnil.fr/fr/recommandation-pixels-retour-dexperience",
+      "pubDate": "2026-11-20",
+      "kind": "Actualité CNIL",
+      "status": "CNIL"
+    },
+    {
+      "title": "Le Groupe VYV et la CNIL publient « La Voix des jeunesses » : une enquête pour éclairer les usages de l’IA conversationnelle",
+      "link": "https://www.cnil.fr/fr/ia-conversationnelle-la-voix-des-jeunesses",
+      "pubDate": "2026-11-18",
+      "kind": "IA, santé et données",
+      "status": "CNIL"
+    },
     {
       "title": "Conservation des mots de passe clients en clair : la CNIL prononce une sanction de 5 millions d’euros",
       "link": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
