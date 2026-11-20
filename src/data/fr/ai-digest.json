@@ -1,12 +1,36 @@
 {
-  "updatedAt": "2026-11-20T03:14:18.176Z",
-  "source": "Le Monde·franceinfo·Ouest-France·Sud Ouest·Libération·Numerama·Le Figaro·Les Échos·ZDNet France·CNIL·La Croix·Silicon.fr·Le Parisien·20 Minutes·DSIH·Challenges·La Tribune·Public Sénat·France 24",
+  "updatedAt": "2026-11-20T15:41:23.527Z",
+  "source": "Le Monde·ZDNet France·franceinfo·Ouest-France·Sud Ouest·Libération·Numerama·Le Figaro·Les Échos·CNIL·La Croix·Silicon.fr·Le Parisien·20 Minutes·DSIH·Challenges·La Tribune·Public Sénat·France 24",
   "items": [
     {
-      "title": "Intelligence artificielle : l’action Anthropic finit sa première journée en hausse de 17 % et valorise l’entreprise à 1 280 milliards de dollars",
+      "title": "« Il est urgent de définir les jalons d’une médecine collaborative où l’alliance entre l’IA et le soignant ne se construit pas au détriment de ce dernier »",
+      "link": "https://www.lemonde.fr/sciences/article/2026/11/20/il-est-urgent-de-definir-les-jalons-d-une-medecine-collaborative-ou-l-alliance-entre-l-ia-et-le-soignant-ne-se-construit-pas-au-detriment-de-ce-dernier_6813619_1650684.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-20T10:30:02.000Z"
+    },
+    {
+      "title": "Copilot Workspaces et autres nouveautés pour l'IA au travail, le point sur les annonces de Microsoft Ignite 2026",
+      "link": "https://www.zdnet.fr/actualites/copilot-workspaces-et-autres-nouveautes-pour-lia-au-travail-le-point-sur-les-annonces-de-microsoft-ignite-2026-508149.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-20T10:11:25.000Z"
+    },
+    {
+      "title": "IA et droit d’auteur : la proposition de loi visant à protéger la création reste enlisée à l’Assemblée",
+      "link": "https://www.lemonde.fr/economie/article/2026/11/20/ia-et-droit-d-auteur-la-proposition-de-loi-visant-a-proteger-la-creation-reste-enlisee-a-l-assemblee_6813614_3234.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-20T09:30:00.000Z"
+    },
+    {
+      "title": "Vos recherches Google en mode IA peuvent désormais rester privées grâce aux « fils de discussion temporaires » — voici comment faire",
+      "link": "https://www.zdnet.fr/actualites/vos-recherches-google-en-mode-ia-peuvent-desormais-rester-privees-grace-aux-fils-de-discussion-temporaires-voici-comment-faire-508299.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-20T01:11:43.000Z"
+    },
+    {
+      "title": "IA : l’action Anthropic finit sa première journée en hausse de 17 % et valorise l’entreprise à 1 280 milliards de dollars",
       "link": "https://www.lemonde.fr/economie/article/2026/11/20/intelligence-artificielle-l-action-anthropic-finit-sa-premiere-journee-en-hausse-de-17-et-valorise-l-entreprise-a-1-280-milliards-de-dollars_6813415_3234.html",
       "source": "Le Monde",
-      "pubDate": "2026-11-19T23:30:58.000Z"
+      "pubDate": "2026-11-19T23:30:54.000Z"
     },
     {
       "title": "L'entreprise am&#xE9;ricaine d'intelligence artificielle Anthropic signe une entr&#xE9;e en Bourse historique en d&#xE9;tr&#xF4;nant SpaceX",
