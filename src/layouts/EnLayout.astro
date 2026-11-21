@@ -361,6 +361,8 @@ const year = new Date().getFullYear();
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={fitDescription(description)} />
     <meta name="twitter:image" content={ogImage} />
+    {/* 접속 통계 스크립트 서버에 미리 연결(2026-11-21, 한국어판과 같게). 폰트는 같은 도메인이라 preconnect가 필요 없고, 동적 서브셋이라 preload도 못 한다. */}
+    {GOATCOUNTER_CODE && <link rel="preconnect" href="https://gc.zgo.at" />}
 
     {
       GOATCOUNTER_CODE && (
