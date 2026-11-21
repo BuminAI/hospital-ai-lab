@@ -1,12 +1,18 @@
 {
-  "updatedAt": "2026-11-21T08:43:43.734Z",
-  "source": "Медвестник · Vademecum · CNews · Zdrav.ru · Хабр",
+  "updatedAt": "2026-11-21T16:55:05.411Z",
+  "source": "Медвестник · Vademecum · CNews · Zdrav.ru",
   "items": [
     {
       "title": "Когда ИИ ошибается убедительно: инженерия здравого смысла",
       "link": "https://habr.com/ru/articles/1110578/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1110578",
       "source": "Хабр",
       "pubDate": "2026-11-21T06:51:03.000Z"
+    },
+    {
+      "title": "ИИ в здравоохранении. Дайджест Vademecum за 16–21 ноября 2026 года",
+      "link": "https://vademec.ru/news/2026/11/21/ii-v-zdravookhranenii-daydzhest-vademecum-za-16-21-noyabrya-2026-goda/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-21T05:00:00.000Z"
     },
     {
       "title": "Появилась Нейра Мика - ИИ-помощник для экономистов ЛПУ",
@@ -19,6 +25,12 @@
       "link": "https://www.cnews.ru/news/line/2026-11-20_rtu_mirea_zapuskaet_kurs",
       "source": "CNews",
       "pubDate": "2026-11-20T10:51:00.000Z"
+    },
+    {
+      "title": "Ученые предложили новую модель оценки цифровой зрелости медорганизаций",
+      "link": "https://www.vademec.ru/news/2026/11/20/uchenye-predlozhili-novuyu-model-otsenki-tsifrovoy-zrelosti-medorganizatsiy/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-20T09:00:00.000Z"
     },
     {
       "title": "Мишустин: в транспортном комплексе активнее применяются системы на базе ИИ",
