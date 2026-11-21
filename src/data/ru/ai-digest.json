@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-11-20T15:24:53.390Z",
+  "updatedAt": "2026-11-21T14:37:47.831Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Как я перестал быть диспетчером у своих ИИ-агентов",
+      "link": "https://habr.com/ru/articles/1110668/?utm_campaign=1110668&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-21T13:04:14.000Z"
+    },
+    {
+      "title": "Стартап Миры Мурати выпустил Inkling 2 Mini — локальный ИИ для кода и агентов, который работает на MacBook",
+      "link": "https://3dnews.ru/1151639/startap-miri-murati-vipustil-inkling-2-mini-lokalniy-ii-dlya-koda-i-agentov-kotoriy-rabotaet-na-macbook",
+      "source": "3DNews",
+      "pubDate": "2026-11-21T11:49:00.000Z"
+    },
+    {
+      "title": "Персонажи с памятью и миры под управлением ИИ — Ubisoft создала Motherbrain для внедрения ИИ в игры",
+      "link": "https://3dnews.ru/1151640/personagi-s-pamyatyu-i-miri-pod-upravleniem-ii-ubisoft-sozdala-motherbrain-dlya-vnedreniya-ii-v-igri",
+      "source": "3DNews",
+      "pubDate": "2026-11-21T11:38:00.000Z"
+    },
+    {
+      "title": "От TF-IDF до LLM: сравниваю модели на 480 реальных отзывах",
+      "link": "https://habr.com/ru/articles/1110590/?utm_campaign=1110590&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-21T08:34:58.000Z"
+    },
     {
       "title": "Спрос на гаджеты с ИИ в России увеличился в 7 раз с начала года — данные «Яндекс Маркета»",
       "link": "https://www.cnews.ru/news/line/2026-11-20_spros_na_gadzhety_s_ii_v_rossii",
@@ -1777,30 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-11-05_lab4u_avtomatizirovala_sopostavlenie",
       "source": "CNews",
       "pubDate": "2026-11-05T10:06:00.000Z"
-    },
-    {
-      "title": "Brand Analytics полностью автоматизировала обработку потока сообщений с помощью ИИ и представила ИИ-агента BrandGPT 2.0",
-      "link": "https://www.cnews.ru/news/line/2026-11-05_brand_analytics_polnostyu_avtomatizirovala",
-      "source": "CNews",
-      "pubDate": "2026-11-05T10:00:00.000Z"
-    },
-    {
-      "title": "GreenData добавила генерацию интерфейсов корпоративных приложений с помощью ИИ-агента",
-      "link": "https://www.cnews.ru/news/line/2026-11-05_greendata_dobavila_generatsiyu",
-      "source": "CNews",
-      "pubDate": "2026-11-05T09:25:00.000Z"
-    },
-    {
-      "title": "Исследование MWS: за год компании стали на 78% чаще нанимать специалистов в сфере данных и ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-11-05_issledovanie_mws_za_god_kompanii",
-      "source": "CNews",
-      "pubDate": "2026-11-05T08:59:00.000Z"
-    },
-    {
-      "title": "Поставить LLM-шлюз, попросив агента: плагин Keystone для Claude Code",
-      "link": "https://habr.com/ru/articles/1100548/?utm_campaign=1100548&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-05T08:30:35.000Z"
     }
   ]
 }
