@@ -1,0 +1,68 @@
+---
+// 공공 포털 (2026-11-21, 오너 지시). 공공 자료를 한곳에서 보는 모음 페이지 — 하위 메뉴의 안내 페이지이기도 하다.
+// 새 자료는 src/data/site-nav.ts 의 '공공 포털' children 에 넣고 src/pages/portal/ 아래에 페이지를 추가한다.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/site';
+import { siteNav } from '../../data/site-nav';
+
+const portal = siteNav.find((m) => m.href === '/portal/');
+const items = portal?.children ?? [];
+---
+
+<BaseLayout
+  title="공공 포털: 전국 공공 자료를 한곳에서"
+  description="공공기관이 공개한 자료를 병원 행정·간호 실무자가 보기 쉽게 모은 곳입니다. 전국 응급의료기관의 병상가동현황을 지자체별로 볼 수 있습니다."
+>
+  <section class="container portal">
+    <h1>공공 포털</h1>
+    <p class="lead">
+      공공기관이 공개한 자료를 한곳에서 볼 수 있게 모았습니다. 자료는 출처 기관의 공개 데이터를 그대로 가져오며,
+      특정 병원을 기준으로 삼지 않고 전국을 같은 기준으로 보여 줍니다.
+    </p>
+    <ul class="portal-list">
+      {
+        items.map((c) => (
+          <li>
+            <a class="card" href={withBase(c.href)}>
+              <h2>{c.label}</h2>
+              <p>{c.desc}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .portal {
+    padding: 2rem 0 3rem;
+  }
+  .lead {
+    max-width: 44rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .portal-list {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: 0.9rem;
+  }
+  .portal-list .card {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+  }
+  .portal-list h2 {
+    margin: 0 0 0.3rem;
+    font-size: 1.1rem;
+  }
+  .portal-list p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--color-muted);
+  }
+</style>

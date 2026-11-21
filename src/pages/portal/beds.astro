@@ -1,0 +1,338 @@
+---
+// 공공 포털 › 병상가동현황 (2026-11-21, 오너 지시).
+// 데이터: scripts/fetch-beds.mjs 가 GitHub Actions(update-beds.yml)에서 받아 둔 src/data/portal/beds.json — 빌드 때 표로 구워 정적으로 배포한다.
+// 특정 병원 기준·반경·고정 병원 없이 전국 응급의료기관을 시도·시군구 드롭다운으로 거른다(자바스크립트가 없어도 전체 표가 보인다).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/site';
+import beds from '../../data/portal/beds.json';
+
+interface Row {
+  id: string;
+  name: string;
+  sido: string;
+  sigungu: string;
+  type: string;
+  total: number;
+  stay: number;
+  rate: number | null;
+  wardRate: number | null;
+  stamp: string;
+}
+const rows = (beds.items as Row[]) ?? [];
+const ready = rows.length > 0;
+
+const sidos = [...new Set(rows.map((r) => r.sido))];
+const sigunguBySido: Record<string, string[]> = {};
+for (const s of sidos) {
+  sigunguBySido[s] = [...new Set(rows.filter((r) => r.sido === s && r.sigungu).map((r) => r.sigungu))].sort((a, b) => a.localeCompare(b, 'ko'));
+}
+
+const pct = (r: number | null) => (r === null || r === undefined ? '—' : (r * 100).toFixed(1) + '%');
+const rateClass = (r: number | null) => (r === null ? '' : r < 0.6 ? 'r-low' : r < 0.75 ? 'r-mid' : r < 0.9 ? 'r-ok' : 'r-high');
+const n0 = (x: number | null) => (typeof x === 'number' ? x.toLocaleString('ko-KR') : '—');
+// 병원이 입력한 시각 'YYYYMMDDhhmmss' → 'MM.DD hh:mm'
+const stampText = (s: string) => (/^\d{14}$/.test(s) ? `${s.slice(4, 6)}.${s.slice(6, 8)} ${s.slice(8, 10)}:${s.slice(10, 12)}` : '—');
+const kst = (iso: string | null) => (iso ? new Date(iso).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16) : '');
+const asOf = kst(beds.updatedAt);
+
+const pageUrl = 'https://hospital-ai-lab.com/portal/beds/';
+const dataset = {
+  '@type': 'Dataset',
+  '@id': `${pageUrl}#dataset`,
+  name: '전국 응급의료기관 병상가동현황',
+  description:
+    '국립중앙의료원 중앙응급의료센터가 공개한 응급의료기관 정보를 바탕으로, 전국 응급의료기관의 병상수·재원·가동률을 시도·시군구별로 정리한 표입니다.',
+  url: pageUrl,
+  inLanguage: 'ko-KR',
+  ...(beds.updatedAt ? { dateModified: beds.updatedAt } : {}),
+  isBasedOn: 'https://www.data.go.kr/',
+  creator: { '@id': 'https://hospital-ai-lab.com/#organization' },
+};
+---
+
+<BaseLayout
+  title="전국 병상가동현황: 응급의료기관 병상수·가동률을 지자체별로"
+  description="전국 응급의료기관의 병상수·재원·가동률을 시도·시군구 드롭다운으로 골라 봅니다. 국립중앙의료원 중앙응급의료센터 공개 자료 기준입니다."
+  schema={[dataset]}
+>
+  <section class="container beds">
+    <h1>전국 병상가동현황</h1>
+    <p class="lead">
+      국립중앙의료원 중앙응급의료센터가 공개한 응급의료기관 자료로, 병원별 병상수·재원·가동률을 지자체(시도·시군구)별로 봅니다.
+      특정 병원을 기준으로 삼지 않고 전국 응급의료기관을 같은 기준으로 보여 줍니다.
+    </p>
+
+    {
+      !ready ? (
+        <p class="empty" role="status">
+          자료를 준비하고 있습니다. 첫 수집이 끝나면 이 자리에 전국 표가 나타납니다.
+        </p>
+      ) : (
+        <>
+          <form class="filter" id="beds-filter" aria-label="지자체 선택" onsubmit="return false">
+            <label>
+              <span>시·도</span>
+              <select id="sel-sido">
+                <option value="">전국 (전체)</option>
+                {sidos.map((s) => <option value={s}>{s}</option>)}
+              </select>
+            </label>
+            <label>
+              <span>시·군·구</span>
+              <select id="sel-sigungu" disabled>
+                <option value="">전체</option>
+              </select>
+            </label>
+            <p class="count" id="beds-count" aria-live="polite">{rows.length.toLocaleString('ko-KR')}곳</p>
+          </form>
+
+          <p class="asof">
+            자료 갱신 {asOf} (한국시간) · 병상 수치는 각 병원이 입력한 값이며, 입력 시각은 표 오른쪽 끝에 있습니다. 이 페이지는 몇 시간마다 자동으로 갱신됩니다.
+          </p>
+          <p class="legend" aria-label="가동률 색 구간">
+            <span class="r-low">60% 미만</span><span class="r-mid">60~75%</span><span class="r-ok">75~90%</span><span class="r-high">90% 이상</span>
+          </p>
+
+          <div class="scroll">
+            <table class="beds-table">
+              <thead>
+                <tr>
+                  <th>시·도</th>
+                  <th>시·군·구</th>
+                  <th>기관</th>
+                  <th>종류</th>
+                  <th class="num">병상수</th>
+                  <th class="num">재원</th>
+                  <th class="num">가동률</th>
+                  <th class="num">참고: 일반 병실</th>
+                  <th>입력 시각</th>
+                </tr>
+              </thead>
+              <tbody id="beds-body">
+                {rows.map((r) => (
+                  <tr data-sido={r.sido} data-sigungu={r.sigungu}>
+                    <td>{r.sido}</td>
+                    <td>{r.sigungu || '—'}</td>
+                    <td class="name">{r.name}</td>
+                    <td>{r.type || '—'}</td>
+                    <td class="num">{n0(r.total)}</td>
+                    <td class="num">{n0(r.stay)}</td>
+                    <td class={`num rate ${rateClass(r.rate)}`}>{pct(r.rate)}</td>
+                    <td class="num muted">{pct(r.wardRate)}</td>
+                    <td class="muted">{stampText(r.stamp)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="none" id="beds-none" hidden>선택한 지자체에 표시할 응급의료기관이 없습니다.</p>
+        </>
+      )
+    }
+
+    <h2>읽는 법과 한계</h2>
+    <ul class="notes">
+      <li>자료: 국립중앙의료원 중앙응급의료센터 응급의료포털 실시간 정보(공공데이터포털 ‘전국 응급의료기관 정보 조회 서비스’) 기준입니다. 응급의료기관이 아닌 의료기관은 포함되지 않으므로 ‘전국의 모든 병원’이 아니라 ‘전국의 응급의료기관’입니다.</li>
+      <li>병상수는 입원실과 중환자실 등을 합한 전체 병상수이고, 재원 = 병상수 − 입원실 가용병상수, 가동률 = 재원 ÷ 병상수(중환자실 포함)입니다. ‘참고: 일반 병실’은 중환자실을 빼고 일반 병실(입원실)만으로 계산한 값입니다.</li>
+      <li>국가 자료의 빈 병상 수는 입원실만 안정적으로 제공됩니다. 중환자실 빈 병상은 병원마다 입력 기준이 달라 반영하지 못했고, 중환자실 병상은 모두 사용 중인 것으로 가정합니다. 그래서 중환자실 비중이 큰 병원일수록 가동률이 실제보다 높게 나올 수 있습니다. 병원 간 비교는 ‘참고: 일반 병실’을 함께 보세요.</li>
+      <li>기관별 입력 누락이나 집계 시점 차이로 실제와 다를 수 있습니다. 가동률이 100%를 넘는 값은 가용병상이 음수로 입력된 경우입니다. 입원실 병상 자료가 없는 기관은 표에서 제외했습니다.</li>
+      <li>환자의 전원·입원 가능 여부를 판단하는 용도가 아니며, 실제 병상 여부는 해당 병원이나 응급의료포털에서 확인해야 합니다.</li>
+    </ul>
+    <p class="back"><a href={withBase('/portal/')}>← 공공 포털</a></p>
+  </section>
+</BaseLayout>
+
+<script id="sigungu-data" type="application/json" set:html={JSON.stringify(sigunguBySido)} />
+
+<script is:inline>
+  (function () {
+    var selSido = document.getElementById('sel-sido');
+    var selSgg = document.getElementById('sel-sigungu');
+    var body = document.getElementById('beds-body');
+    if (!selSido || !selSgg || !body) return;
+    var map = {};
+    try { map = JSON.parse(document.getElementById('sigungu-data').textContent || '{}'); } catch (e) {}
+    var rowsEls = Array.prototype.slice.call(body.querySelectorAll('tr'));
+    var count = document.getElementById('beds-count');
+    var none = document.getElementById('beds-none');
+
+    function fillSigungu(sido, keep) {
+      var list = sido ? map[sido] || [] : [];
+      selSgg.innerHTML = '';
+      var all = document.createElement('option');
+      all.value = '';
+      all.textContent = '전체';
+      selSgg.appendChild(all);
+      list.forEach(function (n) {
+        var o = document.createElement('option');
+        o.value = n;
+        o.textContent = n;
+        selSgg.appendChild(o);
+      });
+      selSgg.disabled = !sido || list.length === 0;
+      if (keep && list.indexOf(keep) >= 0) selSgg.value = keep;
+    }
+    function apply() {
+      var s = selSido.value;
+      var g = selSgg.value;
+      var n = 0;
+      rowsEls.forEach(function (tr) {
+        var ok = (!s || tr.getAttribute('data-sido') === s) && (!g || tr.getAttribute('data-sigungu') === g);
+        tr.hidden = !ok;
+        if (ok) n++;
+      });
+      count.textContent = n.toLocaleString('ko-KR') + '곳';
+      none.hidden = n !== 0;
+      try {
+        var q = new URLSearchParams();
+        if (s) q.set('sido', s);
+        if (g) q.set('sigungu', g);
+        history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q.toString() : ''));
+      } catch (e) {}
+    }
+    selSido.addEventListener('change', function () { fillSigungu(selSido.value); apply(); });
+    selSgg.addEventListener('change', apply);
+
+    // 주소창의 ?sido=…&sigungu=… 로 들어오면 그 지자체를 미리 골라 둔다(링크 공유용)
+    try {
+      var p = new URLSearchParams(location.search);
+      var s0 = p.get('sido');
+      if (s0 && map[s0] !== undefined) {
+        selSido.value = s0;
+        fillSigungu(s0, p.get('sigungu') || '');
+        apply();
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  .beds {
+    padding: 2rem 0 3rem;
+  }
+  .lead {
+    max-width: 46rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .empty {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    border: 1px dashed var(--color-border-strong);
+    border-radius: var(--radius);
+    color: var(--color-muted);
+  }
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.75rem 1rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+  .filter label {
+    display: grid;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .filter select {
+    min-width: 11rem;
+    padding: 0.55rem 0.7rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+  }
+  .filter select:disabled {
+    opacity: 0.55;
+  }
+  .count {
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .asof {
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .legend {
+    margin: 0.5rem 0 0.75rem;
+  }
+  .legend span {
+    display: inline-block;
+    margin: 0 0.4rem 0.3rem 0;
+    padding: 0.1rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .scroll {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .beds-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .beds-table th,
+  .beds-table td {
+    padding: 0.45rem 0.7rem;
+    white-space: nowrap;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .beds-table th {
+    position: sticky;
+    top: 0;
+    background: var(--color-surface);
+    font-weight: 700;
+  }
+  .beds-table .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .beds-table td.name {
+    font-weight: 600;
+    white-space: normal;
+    min-width: 12rem;
+  }
+  .beds-table .muted {
+    color: var(--color-muted);
+  }
+  .rate {
+    font-weight: 700;
+  }
+  .r-low {
+    background: rgba(220, 80, 60, 0.28);
+  }
+  .r-mid {
+    background: rgba(240, 180, 40, 0.28);
+  }
+  .r-ok {
+    background: rgba(110, 190, 90, 0.28);
+  }
+  .r-high {
+    background: rgba(40, 160, 110, 0.4);
+  }
+  .none {
+    margin: 1rem 0;
+    color: var(--color-muted);
+  }
+  .notes {
+    max-width: 52rem;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+  .notes li {
+    margin: 0.35rem 0;
+  }
+  .back {
+    margin-top: 1.5rem;
+  }
+</style>

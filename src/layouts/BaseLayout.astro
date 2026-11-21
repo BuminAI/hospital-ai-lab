@@ -2,7 +2,7 @@
 import { fitDescription } from '../utils/meta';
 import '../styles/global.css';
 import SchemaOrg from '../components/SchemaOrg.astro';
-import { siteNav } from '../data/site-nav';
+import { siteNav, siteNavFlat } from '../data/site-nav';
 import {
   withBase,
   stripBase,
@@ -128,8 +128,8 @@ const year = new Date().getFullYear();
 const siteRoot = Astro.site
   ? Astro.site.href.replace(/\/$/, '')
   : 'https://hospital-ai-lab.com';
-const footerNav = footerNavAll.filter((f) => !nav.some((n) => n.href === f.href));
-const allNav = [...nav, ...footerNavAll];
+const footerNav = footerNavAll.filter((f) => !siteNavFlat.some((n) => n.href === f.href));
+const allNav = [...siteNavFlat, ...footerNavAll];
 
 // 메뉴에 없고 마지막 조각도 아닌 경로 세그먼트(예: /blog/category/ai-tools/의
 // 'category')는 그대로 두면 영어 원문이 빵부스러기에 노출된다. 이런 순수
@@ -442,13 +442,28 @@ const webPage = {
           <ul>
             {
               nav.map((item) => (
-                <li>
+                <li class={item.children?.length ? 'has-sub' : undefined}>
                   <a
                     href={withBase(item.href)}
                     aria-current={isActive(item.href) ? 'page' : undefined}
+                    aria-haspopup={item.children?.length ? 'true' : undefined}
                   >
                     {item.label}
                   </a>
+                  {item.children?.length ? (
+                    <ul class="sub-nav" aria-label={`${item.label} 하위 메뉴`}>
+                      {item.children.map((c) => (
+                        <li>
+                          <a
+                            href={withBase(c.href)}
+                            aria-current={isActive(c.href) ? 'page' : undefined}
+                          >
+                            {c.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </li>
               ))
             }
@@ -670,6 +685,50 @@ const webPage = {
     text-underline-offset: 0.55em;
   }
 
+  /* 하위 메뉴(드롭다운, 2026-11-21 '공공 포털'). 데스크톱: 마우스를 올리거나 키보드로 들어가면 펼쳐진다.
+     상위 항목 자체도 안내 페이지(/portal/)로 연결되므로 터치 기기에서도 하위 항목에 닿을 수 있다. */
+  #primary-nav li.has-sub {
+    position: relative;
+  }
+  #primary-nav li.has-sub > a::after {
+    content: '';
+    display: inline-block;
+    margin-left: 0.35rem;
+    border: 0.28rem solid transparent;
+    border-top-color: currentColor;
+    border-bottom: 0;
+    vertical-align: 0.12em;
+  }
+  #primary-nav .sub-nav {
+    display: none;
+    position: absolute;
+    left: -0.75rem;
+    top: 100%;
+    z-index: 60;
+    min-width: 11rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 0.4rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+  }
+  #primary-nav li.has-sub:hover > .sub-nav,
+  #primary-nav li.has-sub:focus-within > .sub-nav {
+    display: flex;
+  }
+  #primary-nav .sub-nav a {
+    display: block;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  #primary-nav .sub-nav a:hover {
+    background: var(--color-primary-soft);
+  }
+
   main {
     min-height: 60vh;
   }
@@ -806,6 +865,20 @@ const webPage = {
     #primary-nav.is-open li a:hover,
     #primary-nav.is-open li a[aria-current='page'] {
       background: var(--color-primary-soft);
+    }
+
+    /* 모바일: 하위 메뉴는 늘 펼쳐 들여쓰기로 보인다 */
+    #primary-nav.is-open li.has-sub > a::after {
+      display: none;
+    }
+    #primary-nav.is-open .sub-nav {
+      display: flex;
+      position: static;
+      min-width: 0;
+      padding: 0 0 0 0.9rem;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
     }
   }
 </style>

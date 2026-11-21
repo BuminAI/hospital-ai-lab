@@ -6,6 +6,8 @@ export interface SiteNavItem {
   label: string;
   /** 홈 '전체 메뉴' 카드에 보이는 한 줄 설명 */
   desc: string;
+  /** 하위 메뉴(드롭다운). 상위 항목 자체도 안내 페이지로 연결된다. */
+  children?: SiteNavItem[];
 }
 
 export const siteNav: SiteNavItem[] = [
@@ -15,8 +17,16 @@ export const siteNav: SiteNavItem[] = [
   { href: '/news/', label: 'AI 뉴스', desc: '메디칼타임즈·병원신문의 의료 AI 기사 모음' },
   { href: '/gov-support/', label: '정부 지원사업', desc: '병원이 확인할 정부 지원사업과 보도자료' },
   { href: '/events/', label: 'AI 교육·행사', desc: '의료 AI 교육과정·행사 소식' },
-  { href: '/notes/', label: '강의노트', desc: '강의를 글로 풀어 정리한 노트' },
+  // 강의노트는 메뉴에서 숨김(2026-11-21, 오너 지시). 페이지(/notes/)와 홈 소식의 강의노트 항목은 그대로 둔다.
   { href: '/youtube/', label: '추천 영상', desc: '의료 AI를 쉽게 보여 주는 강의 영상' },
+  {
+    href: '/portal/',
+    label: '공공 포털',
+    desc: '전국 공공 자료를 한곳에서 — 병상가동현황 등',
+    children: [
+      { href: '/portal/beds/', label: '병상가동현황', desc: '전국 응급의료기관의 병상수·재원·가동률을 지자체별로 보기' },
+    ],
+  },
   { href: '/research/', label: '의료 기술·논문', desc: '한국 의료진의 최근 1년 수술 술기·신약·질환 논문과 임상시험' },
   { href: '/tips/', label: '실무 팁', desc: '오늘 바로 써 보는 AI 활용 요령' },
   { href: '/guide/', label: '입문 가이드', desc: '처음 시작하는 분을 위한 의료 AI 안내' },
@@ -26,3 +36,6 @@ export const siteNav: SiteNavItem[] = [
   { href: '/checklist/', label: 'AI 도입 체크리스트', desc: '제안서·도입 검토 때 쓰는 점검표' },
   { href: '/ai-judge/', label: 'AI 프로그램 심사', desc: 'AI 프로그램을 병원 눈높이로 점검해 보기' },
 ];
+
+/** 상위·하위 항목을 한 줄로 편 목록(브레드크럼 이름 찾기·홈 전체 메뉴용). */
+export const siteNavFlat: SiteNavItem[] = siteNav.flatMap((i) => [i, ...(i.children ?? [])]);
