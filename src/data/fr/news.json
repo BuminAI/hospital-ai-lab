@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T11:49:23.579Z",
+  "updatedAt": "2026-11-21T18:16:58.185Z",
   "source": "Le Figaro · 20 Minutes · ZDNet France · Infirmiers.com · Le Quotidien du Médecin · Le Quotidien du Pharmacien · franceinfo · Libération · Les Échos · DSIH · Les Numériques · Numerama · Sud Ouest · Le Monde",
   "items": [
     {
@@ -94,6 +94,12 @@
       "pubDate": "2026-11-12T09:11:48.000Z"
     },
     {
+      "title": "Santé. Le Bordelais Synapse Medicine ouvre son IA d’assistance aux médecins européens",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQU25MSE51Mk95Y3lnWm1RRHpDRURGWnpJUEV0RGpaWThZRl9ybkNWU1RMQjhZYmVGVFkyeXBpSWZ6SGg4di1nRDhhUWdWLXdZcG4wT19fSWlCdy1PQ0VFUDR3VElfelBUZWlEYWFqQUd4ZkxDVnpnUXRHM011WlIxMHNPQmtjSUl0eWZuMDgyaExYWmlrczE0TFg0Q0VSTl9sTlU5elZXT2x6VDRLTlVHOVNFNHB1MHQ2UTR3aEVSMkRfdFJ2UnBRMjNid2hrVmpiWU5pag?oc=5",
+      "source": "Sud Ouest",
+      "pubDate": "2026-11-11T17:30:00.000Z"
+    },
+    {
       "title": "Diagnostic contesté, traitement refusé : quand l'IA bouscule la consultation médicale",
       "link": "http://www.lequotidiendumedecin.fr/sante-societe/e-sante/diagnostic-conteste-traitement-refuse-quand-lia-bouscule-la-consultation-medicale",
       "source": "Le Quotidien du Médecin",
@@ -104,6 +110,12 @@
       "link": "http://www.lequotidiendupharmacien.fr/medicament-parapharmacie/medicament/reperage-du-melanome-en-pharmacie-une-experimentation-prometteuse-sans-ia",
       "source": "Le Quotidien du Pharmacien",
       "pubDate": "2026-11-10T15:51:52.000Z"
+    },
+    {
+      "title": "Pour identifier un champignon, \"l'IA ne pourra jamais remplacer l'œil et les sens humains\", met en garde un pharmacien",
+      "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNRXZTNnR0cklhMWNKd3RkY25YZWpDYmJlYnhwQzY1UkU4bFk2UDRYV2oyQTIyVTExNWNwT0lERFM1LXdIdHJDMTMtYnpxZkRkaklxQm9ZM2RZSmMwbEpPcTBKRmFFX1NwU0Y1NmYyeFNNdVRuQmYxa0szM0oxQ3JVaTBPTWc0bFE1NF9kTTRfNVdNcGExa2thQlk5cTFvSWFUbWdsaV9LUEJ3bTdzeS1ZdVNuT3ZSVVlSbXhiQllaSGNvMENOWl9KOGV4TmhJb1ZEb1U4MWhpdW1iZl9lUGJCQ1A0bVRRSHU4ODEyVnUtZw?oc=5",
+      "source": "franceinfo",
+      "pubDate": "2026-11-10T08:00:00.000Z"
     },
     {
       "title": "L’avenir des soins de santé : conjuguer intelligence artificielle et interopérabilité",
