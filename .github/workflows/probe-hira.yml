@@ -21,12 +21,4 @@ jobs:
           NPAY_MAX_PAGES: '1'
           NPAY_PAGE: '500'
         run: |
-          node scripts/fetch-npay.mjs "$RUNNER_TEMP/npay"
-          du -sh "$RUNNER_TEMP/npay"; ls "$RUNNER_TEMP/npay/items" | wc -l
-          node -e "
-          const d=JSON.parse(require('fs').readFileSync(process.env.RUNNER_TEMP+'/npay/index.json','utf8'));
-          console.log('rows',d.rows,'hosp',d.hospitals.length,'items',d.items.length);
-          console.log('샘플 항목',JSON.stringify(d.items.slice(0,3)));
-          const g={};d.hospitals.forEach(h=>{g[h.s+'|'+h.g]=1});console.log('시군구 예',Object.keys(g).slice(0,14).join(', '));
-          const cls={};d.hospitals.forEach(h=>{cls[h.c]=(cls[h.c]||0)+1});console.log('종별',JSON.stringify(cls));
-          "
+          node scripts/probe-npay.mjs

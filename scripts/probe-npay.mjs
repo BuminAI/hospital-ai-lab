@@ -24,9 +24,16 @@ const code = await (async () => {
   return (x.match(/<npayCd>([^<]*)<\/npayCd>/) || [])[1];
 })();
 console.log('첫 항목 코드:', code);
-await t('getNonPaymentItemHospDtlList', { pageNo: 1, numOfRows: 3 }, 'A 필터 없음 3줄');
-await t('getNonPaymentItemHospDtlList', { pageNo: 1, numOfRows: 3, sidoCd: '110000' }, 'B 서울 3줄');
-await t('getNonPaymentItemHospDtlList', { pageNo: 1, numOfRows: 3, npayCd: code }, 'C 항목 필터 3줄');
-await t('getNonPaymentItemHospList2', { pageNo: 1, numOfRows: 3, npayCd: code }, 'D 항목별 병원목록');
-await t('getNonPaymentItemHospList2', { pageNo: 1, numOfRows: 3 }, 'E 항목 없이 병원목록');
-await t('getNonPaymentItemHospDtlList', { pageNo: 1, numOfRows: 100 }, 'F 100줄');
+const tests = [
+  [{ pageNo: 1, numOfRows: 3, sidoCd: '11' }, 'a sidoCd=11'],
+  [{ pageNo: 1, numOfRows: 3, sidoCd: '110000' }, 'b sidoCd=110000'],
+  [{ pageNo: 1, numOfRows: 3, sidoCdNm: '서울' }, 'c sidoCdNm=서울'],
+  [{ pageNo: 1, numOfRows: 3, yadmNm: '서울대학교병원' }, 'd yadmNm'],
+  [{ pageNo: 1, numOfRows: 3, clCd: '01' }, 'e clCd=01'],
+  [{ pageNo: 1, numOfRows: 3, npayCd: code }, 'f npayCd'],
+  [{ pageNo: 1, numOfRows: 3, npayMdivCd: '1032A' }, 'g npayMdivCd'],
+  [{ pageNo: 1, numOfRows: 3 }, 'h 필터 없음'],
+];
+await Promise.all(tests.map(([p, l]) => t('getNonPaymentItemHospDtlList', p, l)));
+await t('getNonPaymentItemHospList2', { pageNo: 1, numOfRows: 3, sidoCd: '110000' }, 'i HospList2 sido');
+await t('getNonPaymentItemHospList2', { pageNo: 1, numOfRows: 3, npayCd: code, sidoCd: '110000' }, 'j HospList2 item+sido');
