@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-21T18:16:58.185Z",
-  "source": "Le Figaro · 20 Minutes · ZDNet France · Infirmiers.com · Le Quotidien du Médecin · Le Quotidien du Pharmacien · franceinfo · Libération · Les Échos · DSIH · Les Numériques · Numerama · Sud Ouest · Le Monde",
+  "updatedAt": "2026-11-21T23:36:36.384Z",
+  "source": "Le Figaro · 20 Minutes · ZDNet France · Infirmiers.com · Le Quotidien du Médecin · Le Quotidien du Pharmacien · franceinfo · Libération · Les Échos · DSIH · Les Numériques · Numerama · Sud Ouest · Le Monde · Le Parisien",
   "items": [
     {
       "title": "Anthropic ou le pari de plus en plus vertigineux de l’IA",
@@ -343,6 +343,30 @@
       "source": "DSIH",
       "pubDate": "2026-10-13T00:00:00.000Z",
       "tier": "B"
+    },
+    {
+      "title": "Quand l’intelligence artificielle vient au secours des pharmacies hospitalières",
+      "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNTUlVX2g4NDJkc05CYXZVaG1VVVMzSDB3d181c1NQX3IyT3AwZmFoM2xPcVp6UU5YRTh1RHVLeEoyWFg4N19aMkIxRFJRVldWblFZT0hVYVdUcFRtNGlqUWpwaUtFSzdPMFRXWHRVb29jYWlXdDYzR1UwTkxsN2ttYnNmaWpGd0JDSF8zSXU5NXY2c2dUOEVkTlRLUjV1WXZqb2t1N1FHRlFiMGl4ZjNxOFVBNFpUU0VpSUpGczkzNHF0YWdCdjBvWmNPX0FocXlzMzNsVDEwdDNEMEMxUnZFR3FUZWRtVGZob0QwUkFIV1dFQ3Vz?oc=5",
+      "source": "Le Parisien",
+      "pubDate": "2026-09-29T07:00:00.000Z"
+    },
+    {
+      "title": "City Healthcare 2026 : IA en santé, quels usages et quelles preuves ?",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOTFNLSTA3eHFEZTN1TUlwbGx3T1hsMjFQbUR6cUt5elA5VE95RjJwa0taUFVweTJCbWZ6dHNZXzU0am1qQnRnVXZoMjdSTGFVcXFGQ1h5OWNhWGpvRGxTY2ZhMEdLcEctaHFTMGNrSHJ1aEtZakY2YldaSHJjUV9KNlZPNDhoVDZHWjQzM2VBdzNmTkRyTUhMZFBR?oc=5",
+      "source": "DSIH",
+      "pubDate": "2026-09-28T07:00:00.000Z"
+    },
+    {
+      "title": "IA à l’hôpital : HOURAA mesure le décalage entre usages individuels et projets structurés",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOTlZaVFRmVTZEVmVFUXBHbW90V1M5QkFrSjJBM25qQXdYQnJsdS1UWUdpYnFZdVprYlFDVFRjUkgwNlVkRmc2aTBxT0VmQnRzSUMyVDI0Q3dYLVFEWkx1Y2UwV1lfMklYVWpNbG5xMkFHdllXM0lkb28tQ25wd2VPN1czVGxvV1c4Y0E1eWlaZEtDalRFLThmTkpTb3kwaDF6czBjTmRFTVNMNUR3Q0RYNHk1TW04eTg?oc=5",
+      "source": "DSIH",
+      "pubDate": "2026-08-17T07:00:00.000Z"
+    },
+    {
+      "title": "Un cadre stratégique pour les usages de l'IA en établissement de santé",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQS1hZVHZ6U1E2bEZBbGliTWpsV0ZKWEY1UmJNbkxqVFFiLU55Z1FQcFZkLWstRGo2QkRjb3RlTHNqVmROZ0p0enFDaGpjQ2xVU2RKWFluWWw2SnBQV0h3UUFtLVpDanpkUUN2eXQ2bDBwTXRvMXE0RXpxeGpvN0JQQnBheEtiWlN5M2dNejJRQ0VGNDQ0LXloSzhSVmQ3MjJDc040MzJCMldRMHA3Z0NZV0Nyc2lnNFBoUzJB?oc=5",
+      "source": "Infirmiers.com",
+      "pubDate": "2026-07-31T07:00:00.000Z"
     }
   ]
 }
