@@ -1,13 +1,9 @@
 {
-  "checkedAt": "2026-11-20T01:19:46.962Z",
+  "checkedAt": "2026-11-21T00:51:05.698Z",
   "total": 19,
   "ok": 7,
   "unknown": 12,
   "unknownList": [
-    {
-      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
-      "status": 0
-    },
     {
       "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
       "status": 0
@@ -17,7 +13,15 @@
       "status": 0
     },
     {
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
+      "status": 0
+    },
+    {
       "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx",
+      "status": 0
+    },
+    {
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/18826-Medical-Device-Reporting-Standard-MDR.ashx",
       "status": 0
     },
     {
@@ -29,11 +33,11 @@
       "status": 0
     },
     {
-      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/18826-Medical-Device-Reporting-Standard-MDR.ashx",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Data-Sharing-Integration-and-Interoperability-Standard.ashx",
       "status": 0
     },
     {
-      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Data-Sharing-Integration-and-Interoperability-Standard.ashx",
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2025/Data-Storage-and-Retention_Standard.ashx",
       "status": 0
     },
     {
@@ -42,10 +46,6 @@
     },
     {
       "url": "https://www.doh.gov.ae/en/resources/standards",
-      "status": 0
-    },
-    {
-      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2025/Data-Storage-and-Retention_Standard.ashx",
       "status": 0
     },
     {
