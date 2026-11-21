@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-21T02:51:27.228Z",
+  "updatedAt": "2026-11-21T11:49:42.554Z",
   "source": "TheJournal.ie · The Irish Times · Irish Medical Times · Business Post · RTÉ · Irish Examiner · Irish Independent · BreakingNews.ie · Medical Independent · Irish Tech News · Silicon Republic",
   "items": [
+    {
+      "title": "'Biggest economic issue': Why should you care about AI?",
+      "link": "https://www.rte.ie/news/business/2026/1121/1600029-ai-impact-economy/",
+      "source": "RTÉ",
+      "pubDate": "2026-11-21T07:00:25.000Z"
+    },
     {
       "title": "NeuroAI: Can a digital health display explain human intelligence?",
       "link": "https://irishtechnews.ie/neuroai-can-digital-health-explain-intelligence/",
@@ -59,6 +65,12 @@
     {
       "title": "HSE partners with Optum to provide AI diagnostics",
       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQcmo5TGNrZVV2S0ZTc3luZzhoVXRpWW1sUTU1VXlST2RUZ0xIckRjZlZmVVpvV2ZkREMtWWJXMXRIV3FOcUluZ3o1Tl9WZFF1Ty1RQURTZDdwYTFldWU0dWo5WmNUZVB3aXlKTmE4dERnMXZzSnA1Z3VZQlZ1WklYNVVvODRQTjJoMXFiYjJMc3o?oc=5",
+      "source": "Business Post",
+      "pubDate": "2026-09-18T07:00:00.000Z"
+    },
+    {
+      "title": "Harnessing AI for better health",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQa3AxYmVLSklHdEZmZnpyMVhhcUt3NDZiaklsd0dVZU9HLW5jT1d5dEFESmkxQjBfTXVXM3FlNWR6NlZUbHBXQWdBSDVYcnRfR0xpVFJ6RUlSZ0gwRFRYWDkxblBrM1JkV2t4T05ONnZSZ2lLbU1wNzkxUHZmaksxdzJlS1AwUQ?oc=5",
       "source": "Business Post",
       "pubDate": "2026-09-18T07:00:00.000Z"
     },
@@ -135,9 +147,21 @@
       "pubDate": "2026-03-13T07:00:00.000Z"
     },
     {
+      "title": "Healthcare unions express concern over AI policy",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBHWFQ3UHBKaDd6RWtwOEFjNHFsVFBYMGlqRlVPVFRUMnhoX2lSMUNHOHNjQk1VQWVKaDZpS0RZdUdXc3NnVVFiblZpVkJ6VUhGRnIzRmY0YVBEd2FMbTBjdzhKQVg5LW8?oc=5",
+      "source": "RTÉ",
+      "pubDate": "2026-03-13T07:00:00.000Z"
+    },
+    {
       "title": "AI will become doctors’ secret weapon under plan for technology in hospitals",
       "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOa25VeDNYS3RyWjVqcVM1T2xWbTJHRnh6ck1ReldxRWRZdEpDakNLUEFrY2dnbmRVaEZIWEdhNUZTZDVjcUxTd1dvRTk2S1lXVTdQZEljYW85MDdvQWVJVnE2ekM2Y1VJaFZFTmRMZDg1ZmNrNFRIcUZueHNvQnpKN2J0Tk5palIxTzE3U0lhd1hJemVoeDNFWmlOQnMtUk9ZVTJMdVVKS1pjQkxzcHktNE9JM1ZVZGdJZ254YU5LbFgwRHUzT3NBaER3?oc=5",
       "source": "Irish Independent",
+      "pubDate": "2026-03-12T07:00:00.000Z"
+    },
+    {
+      "title": "AI health strategy criticised for lack of consultation with workers",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPa0tHMWxFWnVyeG5zN3IzNzVCeW1vRXhYYVVGYXBxRHBQWEtKV0F1SnBsLVRoZ25DTHlLM0J1NUZxNC1POTl1UVJwOWw0UXRWQ3dUSUVUUElwa1lJMWE4U25mQWtERmt5Wm1rUkk0WGN1Zm90MkJzZi1ZeEx3QnpxS0s3MmZmWkR4VnA2bTN2OTkzenFjd1J6cVVCTVUyVEFHZTlTWUVR?oc=5",
+      "source": "Irish Medical Times",
       "pubDate": "2026-03-12T07:00:00.000Z"
     },
     {
@@ -181,6 +205,12 @@
       "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQbm51VE9FUlFiYThmYUJmX1FJSHdyRU1ibzB2MlhFNFFEMTVTLUkyMjlpRldERVA2cTZDZE5JcjJCYWpmRkk5ZUV6VjVmWkUzLXViQlpGa1Q0V1VXTmFtYkJTOC1KbEhwZU1RRUlkYmktLUVyOFltRTg1Y084RjQ4bjhnVnZaSVJYd293dTVSSzE0LUNSNlBqNlFFbUVJNnhsajF4R3lfMkJTQ0pJcFVvT0lqd0t3ZVFqUktUMzFLUTdOQ3R5NFhfRTI4T09TRVM5eGE2S2paT2tiemdHUHo0SA?oc=5",
       "source": "Irish Independent",
       "pubDate": "2025-12-20T08:00:00.000Z"
+    },
+    {
+      "title": "Government to soon publish AI healthcare strategy",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPSDV5ZzJ0TmtxaHBJMjRUaEJ3bTBrdG5CdGhVd1RJaEhaeEF4d2JMMU5hNEliMENfZ25DNEFfRElsV3RGNzZta1IyR2FwUzJYbkN1Wm5MV05MczFMdVdOVHVDN3BqdjE3Y3lOcWY1dWlmbVhMLUNYemM0WV92NXJiYm5CbXUyQTZuaWJmUzJ3?oc=5",
+      "source": "Irish Medical Times",
+      "pubDate": "2025-12-03T08:00:00.000Z"
     },
     {
       "title": "From a dark car-park to the clinic: how gardening leave, pandemic, and a son’s illness turned me into an AI advocate for Irish healthcare",
