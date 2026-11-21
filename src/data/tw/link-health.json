@@ -1,90 +1,19 @@
 {
-  "checkedAt": "2026-11-21T00:17:52.094Z",
+  "checkedAt": "2026-11-21T23:36:51.131Z",
   "total": 84,
-  "ok": 62,
-  "unknown": 18,
+  "ok": 78,
+  "unknown": 2,
   "unknownList": [
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020121",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030106",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030120",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0160093",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020197",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020197&flno=18",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020197&flno=19",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=I0050021&flno=6",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020021",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030297",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030304",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030305",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030124",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=L0020021",
-      "status": 0
-    },
     {
       "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
       "status": 403
     },
     {
-      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020227",
-      "status": 0
-    },
-    {
-      "url": "https://law.moj.gov.tw/",
+      "url": "https://www.pdpc.gov.tw/News_Content/20/1001/",
       "status": 0
     }
   ],
   "dead": [
-    {
-      "url": "https://www.mohw.gov.tw/cp-18-88416-1.html",
-      "status": 404,
-      "files": [
-        "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
-      ]
-    },
     {
       "url": "https://www.mohw.gov.tw/cp-18-88417-1.html",
       "status": 404,
@@ -94,6 +23,13 @@
     },
     {
       "url": "https://www.mohw.gov.tw/cp-18-88415-1.html",
+      "status": 404,
+      "files": [
+        "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
+      ]
+    },
+    {
+      "url": "https://www.mohw.gov.tw/cp-18-88416-1.html",
       "status": 404,
       "files": [
         "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
