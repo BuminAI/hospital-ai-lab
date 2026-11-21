@@ -2,10 +2,16 @@ name: Update Portal Npay
 
 on:
   schedule:
-    # 매주 월요일 UTC 18:41(한국시간 화요일 03:41). 비급여 가격은 병원이 가끔 바꾸는 값이라 주 1회면 충분하고,
-    # 전체(약 28만 줄)를 받는 데 수십 분이 걸릴 수 있다. 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다.
-    - cron: '41 18 * * 1'
+    # 매일 UTC 18:41(한국시간 03:41)에 확인한다. 마지막 갱신이 6일 안이면 바로 끝내고, 아니면 새로 받는다(= 실제로는 주 1회).
+    # 비급여 가격 API(getNonPaymentItemHospDtlList)가 공공데이터포털 쪽 시간 초과(504)로 며칠씩 안 되는 일이 있어, 주 1회 한 번만 시도하지 않고
+    # 성공할 때까지 매일 다시 시도하게 했다. 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다.
+    - cron: '41 18 * * *'
   workflow_dispatch:
+    inputs:
+      force:
+        description: '6일이 안 지났어도 지금 새로 받기'
+        type: boolean
+        default: false
 
 permissions:
   contents: write # portal-npay 브랜치 푸시
@@ -19,7 +25,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
@@ -29,13 +35,29 @@ jobs:
         with:
           node-version: 20
 
+      - name: 마지막 갱신 확인
+        id: fresh
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          age=$(curl -s -m 30 "https://raw.githubusercontent.com/${{ github.repository }}/portal-npay/index.json" | head -c 200 | node -e "
+            const s=require('fs').readFileSync(0,'utf8');const m=s.match(/\"updatedAt\":\"([^\"]+)\"/);
+            console.log(m?Math.floor((Date.now()-Date.parse(m[1]))/86400000):999)" 2>/dev/null || echo 999)
+          echo "마지막 갱신 후 ${age}일"
+          if [ "$FORCE" != "true" ] && [ "$age" -lt 6 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
+
+      # 수집이 실패하면 이 단계 출력 디렉터리가 없어 아래 게시 단계가 건너뛰어진다(이전 자료 그대로, 내일 다시 시도).
       - name: 비급여 진료비 수집(심평원 OpenAPI)
+        if: steps.fresh.outputs.skip != 'true'
+        id: collect
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
-        run: node scripts/fetch-npay.mjs "$RUNNER_TEMP/npay"
+        run: |
+          if node scripts/fetch-npay.mjs "$RUNNER_TEMP/npay"; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "수집 실패 — 이전 자료를 그대로 두고 내일 다시 시도합니다."; echo "ok=false" >> "$GITHUB_OUTPUT"; fi
 
-      # 히스토리가 쌓이지 않게 매번 커밋 하나짜리 브랜치로 덮어쓴다(--force). 수집이 실패하면 이 단계에 오지 않아 이전 자료가 그대로 남는다.
+      # 히스토리가 쌓이지 않게 매번 커밋 하나짜리 브랜치로 덮어쓴다(--force).
       - name: portal-npay 브랜치에 올리기
+        if: steps.collect.outputs.ok == 'true'
         run: |
           cd "$RUNNER_TEMP/npay"
           git init -q -b portal-npay

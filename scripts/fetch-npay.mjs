@@ -75,69 +75,50 @@ export function normSgg(g, sidoShort) {
   return v;
 }
 
-/** 병원정보서비스 목록에서 실제로 쓰이는 시도 코드를 모은다(종별 한 쪽씩이면 충분하지 않아, 종별마다 끝까지 훑는다). */
-async function fetchSidoCodes() {
-  const set = new Set();
-  const key = KEYS[0];
-  for (const cl of ['01', '11', '21', '28', '29', '41', '92']) {
-    for (let page = 1; page <= 4; page++) {
-      const u = `https://apis.data.go.kr/B551182/hospInfoServicev2/getHospBasisList?ServiceKey=${keyParam(key)}&_type=json&pageNo=${page}&numOfRows=500&clCd=${cl}`;
-      let body = null;
-      for (let a = 1; a <= 5 && !body; a++) {
-        try {
-          const r = await fetch(u);
-          const j = JSON.parse(await r.text());
-          if (j.response && j.response.header && String(j.response.header.resultCode) === '00') body = j.response.body;
-          else if (a < 5) await pause(a * 3000);
-        } catch {
-          if (a < 5) await pause(a * 3000);
-        }
-      }
-      if (!body) break;
-      const it = body.items && body.items.item;
-      const arr = Array.isArray(it) ? it : it ? [it] : [];
-      for (const x of arr) if (x.sidoCd) set.add(String(x.sidoCd));
-      if (page * 500 >= (Number(body.totalCount) || 0)) break;
-    }
-  }
-  return [...set].sort();
-}
-
 async function fetchAll() {
   const codeXml = await call('getNonPaymentItemCodeList2', { pageNo: 1, numOfRows: 5000 });
   const codes = new Map();
   for (const c of parseItems(codeXml)) codes.set(c.npayCd, { n: c.npayKorNm, m: c.npayMdivCdNm || '기타' });
   console.log(`항목 코드 ${codes.size}개`);
 
-  // 가격 목록은 필터 없이 한 번에 달라고 하면 공공데이터포털 게이트웨이의 60초 제한(504 SERVICETIMEOUT)에 걸려 한 줄도 못 받는 일이 잦다
-  // (2026-11-21 실측: 1줄 요청도 504). 시도 코드(sidoCd)로 나눠 작은 범위씩 받으면 응답이 빨라 통과한다.
-  // 시도 코드는 병원정보서비스 목록에서 실제로 쓰이는 값을 모은다(행정구역이 바뀌어도 따라간다).
-  const sidoCodes = await fetchSidoCodes();
-  console.log(`시도 코드 ${sidoCodes.length}개: ${sidoCodes.join(', ')}`);
-  const xmls = [];
-  const SIZE = Number(process.env.NPAY_PAGE || 3000);
-  const jobs = [];
-  for (const sc of sidoCodes) jobs.push(sc);
+  // 전체 줄 수를 먼저 확인한다. 공공데이터포털 게이트웨이의 60초 제한(504 SERVICETIMEOUT)으로 이것조차 계속 실패하면(2026-11-21 실측: 1줄 요청도 504)
+  // 줄 수를 모른 채 넉넉히(40쪽=40만 줄) 받는다. 줄 수보다 뒤쪽 쪽은 빈 응답이다.
+  // ⚠️ sidoCd·clCd·yadmNm 같은 필터는 이 조회에서 아무 결과도 주지 않는다(0줄) — 시도별로 나눠 받는 방법은 쓸 수 없다.
+  let total = 0;
+  try {
+    const probe = await call('getNonPaymentItemHospDtlList', { pageNo: 1, numOfRows: 1 }, 7);
+    total = Number(tag(probe, 'totalCount')) || 0;
+  } catch (e) {
+    if (isAuthErr(e.message)) throw e;
+    console.log(`전체 줄 수를 확인하지 못했습니다(${String(e.message).slice(0, 80)}) — 40쪽까지 받아 봅니다.`);
+  }
+  let pages = total ? Math.ceil(total / PAGE) : 40;
+  if (MAX_PAGES) pages = Math.min(pages, MAX_PAGES);
+  console.log(`가격 자료 총 ${total ? total.toLocaleString() + '줄' : '(미확인)'} → ${pages}쪽`);
+  const xmls = new Array(pages);
   let next = 0;
-  let rowsSeen = 0;
-  const getRange = async (sc) => {
-    for (let page = 1; page <= 60; page++) {
-      if (MAX_PAGES && page > MAX_PAGES) return;
-      const xml = await call('getNonPaymentItemHospDtlList', { pageNo: page, numOfRows: SIZE, sidoCd: sc }, 6);
-      const n = (xml.match(/<item>/g) || []).length;
-      const tot = Number(tag(xml, 'totalCount')) || 0;
-      xmls.push(xml);
-      rowsSeen += n;
-      console.log(`  시도 ${sc} ${page}쪽 ${n}줄 (전체 ${tot.toLocaleString()})`);
-      if (!n || page * SIZE >= tot) return;
+  // 큰 쪽이 공공데이터포털 쪽 시간 초과로 계속 실패하면 같은 범위를 5등분해 작은 쪽으로 받는다.
+  const getPage = async (p) => {
+    try {
+      return await call('getNonPaymentItemHospDtlList', { pageNo: p + 1, numOfRows: PAGE }, 3);
+    } catch (e) {
+      if (isAuthErr(e.message)) throw e;
+      console.log(`  ${p + 1}쪽이 계속 실패해 5등분해서 다시 받습니다: ${String(e.message).slice(0, 80)}`);
+      const sub = PAGE / 5;
+      const parts = [];
+      for (let j = 0; j < 5; j++) parts.push(await call('getNonPaymentItemHospDtlList', { pageNo: p * 5 + j + 1, numOfRows: sub }, 6));
+      return parts.join('');
     }
   };
   await Promise.all(
-    Array.from({ length: Math.min(CONCURRENCY, sidoCodes.length) }, async () => {
-      while (next < jobs.length) await getRange(jobs[next++]);
+    Array.from({ length: CONCURRENCY }, async () => {
+      while (next < pages) {
+        const p = next++;
+        xmls[p] = await getPage(p);
+        console.log(`  가격 자료 ${p + 1}/${pages}쪽`);
+      }
     })
   );
-  const total = rowsSeen;
 
   const hospIdx = new Map();
   const hospitals = [];
