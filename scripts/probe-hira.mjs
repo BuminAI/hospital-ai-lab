@@ -15,9 +15,21 @@ const plain = (k) => (/%[0-9A-Fa-f]{2}/.test(k) ? decodeURIComponent(k) : k);
 
 async function get(url, params, key) {
   const u = `${url}?${new URLSearchParams({ serviceKey: plain(key), _type: 'json', ...params })}`;
-  const res = await fetch(u, { headers: { accept: 'application/json' } });
-  const text = await res.text();
-  return { status: res.status, text };
+  let last = { status: 0, text: '' };
+  // 심평원 서버가 '연결 풀 부족'(resultCode 99) 등 일시 오류를 자주 내므로 몇 번 다시 시도한다.
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    try {
+      const res = await fetch(u, { headers: { accept: 'application/json' } });
+      const text = await res.text();
+      last = { status: res.status, text };
+      const transient = res.status >= 500 || /"resultCode":"?99"?|ResourceLimitException|SERVICETIMEOUT|APPLICATION_ERROR/.test(text);
+      if (!transient) return last;
+    } catch (e) {
+      last = { status: 0, text: String(e.message) };
+    }
+    await pause(attempt * 3000);
+  }
+  return last;
 }
 const parse = (t) => {
   try {
