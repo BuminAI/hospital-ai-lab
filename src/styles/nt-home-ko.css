@@ -1,0 +1,53 @@
+/* 한국어판 홈 아래쪽 구역도 히어로와 같은 네이비 톤으로 (2026-11-21, 오너 지시).
+   global.css의 색 변수를 홈의 <main> 안에서만 네이비 팔레트로 바꾼다. 카드·배지·링크·표는 변수를 따라 자동으로 바뀐다.
+   ⚠️ 홈 전용(index.astro가 import). 다른 페이지와 헤더·푸터는 건드리지 않는다. */
+main#main:has(.hero) {
+  --color-bg: #0b1120;
+  --color-surface: #111a2e;
+  --color-surface-2: #16213a;
+  --color-text: #dbe3f0;
+  --color-heading: #f4f7fb;
+  --color-muted: #94a3b8;
+  --color-border: rgba(148, 163, 184, 0.18);
+  --color-border-strong: rgba(148, 163, 184, 0.32);
+  --color-primary: #7db4f5;
+  --color-primary-strong: #a5ccfa;
+  --color-primary-soft: #14213d;
+  --color-primary-border: #2b4a7a;
+  --color-live: #34d399;
+  --color-live-pulse: rgba(52, 211, 153, 0.4);
+  --badge-note-fg: #c9b6f5;
+  --badge-note-bg: #271f3d;
+  --badge-app-fg: #83d9b2;
+  --badge-app-bg: #123324;
+  --badge-news-fg: #f0b878;
+  --badge-news-bg: #3a2612;
+  --badge-video-fg: #f2a3af;
+  --badge-video-bg: #3b1720;
+  --badge-gov-fg: #8fc6e8;
+  --badge-gov-bg: #12293a;
+  --badge-event-fg: #d5b3f0;
+  --badge-event-bg: #2a1a3d;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --btn-bg: #2563eb;
+  --btn-bg-hover: #3b74f0;
+  --btn-fg: #ffffff;
+  background: #0b1120;
+  color: var(--color-text);
+}
+main#main:has(.hero) .section:not(.nt-band) .card {
+  background: rgba(17, 26, 46, 0.72);
+  border-color: rgba(148, 163, 184, 0.16);
+  border-radius: 14px;
+}
+main#main:has(.hero) .section:not(.nt-band) .card:hover {
+  border-color: rgba(52, 211, 153, 0.5);
+}
+main#main:has(.hero) .section-head h2::before {
+  background: linear-gradient(180deg, #2563eb, #7c3aed);
+}
+/* 히어로 안 소식 카드는 흰 카드로 두었던 시안 — 이제 어두운 유리 카드로 통일 */
+main#main:has(.hero) .hero-feed-card {
+  background: rgba(17, 26, 46, 0.72);
+}

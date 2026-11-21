@@ -167,3 +167,49 @@ html[data-locale='ru'] body:has(.th-hero) .ru-nav,
 html[data-locale='id'] body:has(.th-hero) .id-nav {
   background: #0b1120;
 }
+
+/* ── 홈 아래쪽 구역도 네이비로 (2026-11-21) ──
+   일본어·대만어판은 밝은 페이지라 홈의 <main> 안에서만 색 변수를 네이비 팔레트로 바꾼다(두 판 토큰 파일의 다크모드 값을 바탕으로).
+   영어권·러시아어·인도네시아어판은 원래 짙은 테마라 바탕만 네이비로 맞추면 된다. */
+body:has(.jh-hero) .ja-shell {
+  --ja-base: #0b1120;
+  --ja-surface: #111a2e;
+  --ja-surface-2: #16213a;
+  --ja-border: rgba(148, 163, 184, 0.2);
+  --ja-text: #e8edf4;
+  --ja-text-sub: #a2aebd;
+  --ja-primary: #8ab4e8;
+  --ja-primary-dk: #b0cdf2;
+  --ja-btn-bg: #2563eb;
+  --ja-btn-bg-hover: #3b74f0;
+  --ja-accent: #f0955a;
+  --ja-badge-info: #6fb0e0;
+  --ja-badge-gov: #64c799;
+  background: #0b1120;
+  color: #e8edf4;
+}
+body:has(.th-hero) .tw-shell {
+  --tw-base: #0b1120;
+  --tw-surface: #111a2e;
+  --tw-surface-2: #16213a;
+  --tw-border: rgba(148, 163, 184, 0.2);
+  --tw-text: #e8edf4;
+  --tw-text-sub: #a2aebd;
+  --tw-primary: #7dd3c0;
+  --tw-primary-dk: #a7e6d8;
+  --tw-btn-bg: #2563eb;
+  --tw-btn-bg-hover: #3b74f0;
+  --tw-accent: #f0955a;
+  --tw-badge-info: #6fb0e0;
+  --tw-badge-gov: #64c799;
+  background: #0b1120;
+  color: #e8edf4;
+}
+html[data-locale] body:has(:is(.th-hero, .jh-hero)) :is(main, .ja-shell, .tw-shell) {
+  background: #0b1120;
+}
+/* 두 칼럼 래퍼는 가운데 정렬이라 양옆이 비어 보이지 않게 화면 폭까지 같은 색으로 채운다 */
+html[data-locale] body:has(:is(.th-hero, .jh-hero)) :is(.ja-shell, .tw-shell) {
+  box-shadow: 0 0 0 100vmax #0b1120;
+  clip-path: inset(0 -100vmax);
+}
