@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-11-20T20:16:57.535Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · 메디칼업저버 · e-의료정보 · 약사공론 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 뉴시스 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-21T01:34:17.606Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · ZDNet Korea · AI타임스 · 메디파나뉴스 · 뉴시스 · 연합뉴스 · 보건복지부 · 매일경제",
   "items": [
+    {
+      "title": "\"LLM 의료기 허가, 정해진 임상 공식 없다…업체가 기준 세워야\"",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80982",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-21T06:07:00.000Z"
+    },
+    {
+      "title": "덧옷 제공에 머리카락 확인까지…교육부·약대 부정행위 차단 강화",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549487",
+      "source": "약사공론",
+      "pubDate": "2026-11-21T05:52:00.000Z"
+    },
+    {
+      "title": "[약국에서 바로 쓰는 AI] 이 증상, 혹시 약 때문일까? ver.2",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549396",
+      "source": "약사공론",
+      "pubDate": "2026-11-21T05:50:00.000Z"
+    },
+    {
+      "title": "“이런 시험은 차라리 없애는 게 낫다”…‘수능 창시자’의 뼈아픈 진단",
+      "link": "https://www.mk.co.kr/news/society/12215182",
+      "source": "매일경제",
+      "pubDate": "2026-11-21T00:41:19.000Z"
+    },
+    {
+      "title": "로크웰 오토메이션, 애질록스 인수 추진…피지컬 AI 강화",
+      "link": "https://zdnet.co.kr/view/?no=20261121091049",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-21T00:11:05.000Z"
+    },
+    {
+      "title": "병원 보안도 24시간…메타넷엑스, 맞춤형 AI 보안관제 '주목'",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253092",
+      "source": "병원신문",
+      "pubDate": "2026-11-20T23:10:00.000Z"
+    },
+    {
+      "title": "응급실 도착전 경고해준 AI…협심증 환자 살렸다[빠정예진]",
+      "link": "https://www.newsis.com/view/NISX20261116_0003870358",
+      "source": "뉴시스",
+      "pubDate": "2026-11-20T21:01:00.000Z"
+    },
     {
       "title": "양 제약지수 동반 하락, 타임X AI 상한가",
       "link": "http://www.newsmp.com/news/articleView.html?idxno=259434",
@@ -42,13 +84,23 @@
       "title": "의대생이 본 10년 뒤 AI 진료? \"동등 주체\" 답변 '27.5%' 달해",
       "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200162",
       "source": "의협신문",
-      "pubDate": "2026-11-20T15:21:00.000Z"
+      "pubDate": "2026-11-20T15:21:00.000Z",
+      "popular": true,
+      "rank": 3
     },
     {
       "title": "AZ 오픈이노베이션, 몰큐브·빌드진 선정…글로벌 R&D 지원",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422322",
       "source": "메디파나뉴스",
       "pubDate": "2026-11-20T15:14:08.000Z"
+    },
+    {
+      "title": "'병원 일' 배우는 로봇…한림대성심병원 현장 적응 시험 '눈길'",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=253087",
+      "source": "병원신문",
+      "pubDate": "2026-11-20T14:45:24.000Z",
+      "popular": true,
+      "rank": 3
     },
     {
       "title": "엔티엘헬스케어, 메디카서 유럽 AI 자궁경부암 검진 효율화 논의",
@@ -108,7 +160,9 @@
       "title": "제약바이오협회, CSO 규제 강화에 업계 대응 방안 모색",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80955",
       "source": "히트뉴스",
-      "pubDate": "2026-11-20T11:30:44.000Z"
+      "pubDate": "2026-11-20T11:30:44.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "AI가 진단 돕는 시대…전공의 수련에 닥친 '역량의 역설'",
@@ -214,7 +268,9 @@
       "title": "[칼럼] 의료 AI 고속도로, 무엇으로 성과를 증명할 것인가",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044729",
       "source": "청년의사",
-      "pubDate": "2026-11-20T09:23:38.000Z"
+      "pubDate": "2026-11-20T09:23:38.000Z",
+      "popular": true,
+      "rank": 6
     },
     {
       "title": "[AI리더의 서가] 일하는 AI 에이전트 설계하는 사람",
