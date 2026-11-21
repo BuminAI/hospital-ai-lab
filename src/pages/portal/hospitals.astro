@@ -1,0 +1,529 @@
+---
+// 공공 포털 › 규모·인력 비교 (2026-11-21, 오너 지시).
+// 자료: scripts/fetch-hospitals.mjs 가 GitHub Actions(update-hospitals.yml)에서 심평원 OpenAPI로 모아 `portal-hospitals` 브랜치의
+// hospitals.json 으로 올린다(상세 항목은 하루 호출 한도 때문에 며칠에 걸쳐 채워진다). 이 페이지는 브라우저에서 그 파일을 읽어 표를 그린다.
+// 특정 병원 기준·고정 표시·반경 없이 병원급 이상 전체를 시도·시군구 드롭다운으로 거른다. 구글 평점은 쓰지 않는다.
+// 자료 기준일은 행마다 넣지 않고 맨 위에 한 번만 보여 준다.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/site';
+
+const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/portal-hospitals/hospitals.json';
+---
+
+<BaseLayout
+  title="전국 병원 규모·인력 비교: 병상·의사·전문의·시설을 지자체별로"
+  description="전국 병원급 이상 요양기관의 병상, 의사, 전문과목별 전문의, 물리치료사 등 인력, 시설과 장비를 시도·시군구 드롭다운으로 골라 비교합니다. 건강보험심사평가원 공개 자료 기준입니다."
+>
+  <section class="container hp" data-url={DATA_URL}>
+    <h1>전국 병원 규모·인력 비교</h1>
+    <p class="lead">
+      건강보험심사평가원(심평원)에 요양기관이 신고한 현황으로, 전국 병원급 이상 기관(상급종합·종합병원·병원·요양병원·정신병원·치과병원·한방병원)의 병상·의사·전문의·기타 인력·시설·장비를 지자체(시도·시군구)별로 비교합니다.
+      특정 병원을 기준으로 삼지 않고 전국을 같은 기준으로 보여 줍니다.
+    </p>
+
+    <p class="hp-asof" id="hp-asof" role="status">자료를 불러오는 중…</p>
+    <p class="hp-progress" id="hp-progress" hidden></p>
+
+    <form class="hp-filter" id="hp-filter" aria-label="지자체 선택" onsubmit="return false">
+      <label>
+        <span>시·도</span>
+        <select id="hp-sido"><option value="">전국 (전체)</option></select>
+      </label>
+      <label>
+        <span>시·군·구</span>
+        <select id="hp-sigungu" disabled><option value="">전체</option></select>
+      </label>
+      <label>
+        <span>종별</span>
+        <select id="hp-cl"><option value="">전체</option></select>
+      </label>
+      <label>
+        <span>기관명 검색</span>
+        <input type="search" id="hp-q" placeholder="예: 서울대" autocomplete="off" />
+      </label>
+      <p class="hp-count" id="hp-count" aria-live="polite"></p>
+    </form>
+
+    <div class="hp-scroll">
+      <table class="hp-table" id="hp-table" hidden>
+        <thead>
+          <tr>
+            <th>시·도</th>
+            <th>시·군·구</th>
+            <th>종별</th>
+            <th><button type="button" data-sort="name">기관명 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="beds">허가 병상 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="med">의사(의과) <i></i></button></th>
+            <th class="num"><button type="button" data-sort="medSp">전문의 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="ortho">정형외과 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="neuro">신경외과 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="pt">물리치료사 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="icu">중환자 병상 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="or">수술실 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="er">응급실 <i></i></button></th>
+            <th>상세</th>
+          </tr>
+        </thead>
+        <tbody id="hp-body"></tbody>
+      </table>
+    </div>
+    <p class="hp-more" id="hp-more" hidden><button type="button" id="hp-more-btn">더 보기</button></p>
+    <p class="hp-none" id="hp-none" hidden>조건에 맞는 병원이 없습니다.</p>
+    <noscript><p class="hp-none">이 페이지는 자바스크립트가 켜져 있어야 표가 보입니다.</p></noscript>
+
+    <h2>읽는 법과 한계</h2>
+    <ul class="hp-notes">
+      <li>자료: 건강보험심사평가원 병원정보서비스·의료기관별상세정보서비스(공공데이터포털 OpenAPI). 요양기관이 건강보험심사평가원에 신고한 현황이며, 신고 시점은 병원마다 다르고 효력일은 제공되지 않습니다.</li>
+      <li>범위: 병원급 이상 요양기관입니다. 의원·약국은 포함하지 않습니다. 병상·인력 수치가 ‘—’이면 해당 항목이 아직 수집되지 않았거나 자료가 없는 것이고, ‘0’이면 신고된 값이 0입니다.</li>
+      <li>허가 병상은 심평원 시설 정보의 허가병상수입니다. 의사(의과)는 의과 일반의·인턴·레지던트·전문의 합계이며 치과·한의과 의사는 빠집니다(‘상세’에서 확인). 전문과목별 전문의 수와 물리치료사 수는 각각 전문과목별 전문의수·기타인력수 정보입니다.</li>
+      <li>이 자료의 병상수는 응급의료포털의 ‘병상가동현황’과 출처·기준이 달라 같은 병원도 값이 다를 수 있습니다. 어느 한쪽이 틀린 것이 아닙니다.</li>
+      <li>상세 정보는 공공데이터포털 하루 호출 한도 때문에 며칠에 걸쳐 채워지며, 큰 병원부터 받습니다. 위쪽의 수집 진행 안내를 참고하세요.</li>
+      <li>환자 의뢰·이송이나 병원 우열 판단의 근거가 아니며, 정확한 현황은 해당 병원이나 심평원에서 확인해야 합니다.</li>
+    </ul>
+    <p class="hp-back"><a href={withBase('/portal/')}>← 공공 포털</a></p>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var root = document.querySelector('.hp');
+    if (!root) return;
+    var URL0 = root.getAttribute('data-url');
+    var $ = function (id) { return document.getElementById(id); };
+    var selSido = $('hp-sido'), selSgg = $('hp-sigungu'), selCl = $('hp-cl'), q = $('hp-q');
+    var body = $('hp-body'), table = $('hp-table'), asof = $('hp-asof'), prog = $('hp-progress'), countEl = $('hp-count');
+    var noneEl = $('hp-none'), moreEl = $('hp-more');
+    var data = null, sggBySido = {}, sortKey = '', sortDir = 'desc', shown = 0, PAGE = 150, current = [];
+    var openIds = {};
+
+    var BEDS = [
+      ['stdSickbdCnt', '일반입원실 일반'], ['hghrSickbdCnt', '일반입원실 상급'], ['aduChldSprmCnt', '성인 중환자'], ['chldSprmCnt', '소아 중환자'], ['nbySprmCnt', '신생아 중환자'],
+      ['isnrSbdCnt', '격리병실'], ['anvirTrrmSbdCnt', '무균치료실'], ['dtrmSbdCnt', '임종실'],
+      ['psydeptOpenGnlSbdCnt', '정신과 개방 일반'], ['psydeptOpenHigSbdCnt', '정신과 개방 상급'], ['psydeptClsGnlSbdCnt', '정신과 폐쇄 일반'], ['psydeptClsHigSbdCnt', '정신과 폐쇄 상급']
+    ];
+
+    function el(tag, cls, text) {
+      var e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text !== undefined && text !== null) e.textContent = text;
+      return e;
+    }
+    function kst(iso) {
+      try { return new Date(iso).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16); } catch (e) { return ''; }
+    }
+    function fillSelect(sel, values, firstLabel) {
+      sel.innerHTML = '';
+      var o = document.createElement('option');
+      o.value = '';
+      o.textContent = firstLabel;
+      sel.appendChild(o);
+      values.forEach(function (v) {
+        var x = document.createElement('option');
+        if (Array.isArray(v)) { x.value = v[0]; x.textContent = v[1]; } else { x.value = v; x.textContent = v; }
+        sel.appendChild(x);
+      });
+    }
+    function fillSigungu(sido, keep) {
+      var list = sido ? sggBySido[sido] || [] : [];
+      fillSelect(selSgg, list, '전체');
+      selSgg.disabled = !sido || list.length === 0;
+      if (keep && list.indexOf(keep) >= 0) selSgg.value = keep;
+    }
+
+    // 항목별 값: 아직 수집 전이면 undefined(표에서 '—'), 수집됐는데 없으면 0
+    function num(v) { return typeof v === 'number' ? v : null; }
+    function get(h, key) {
+      var b = h.beds, d = h.doc || {};
+      switch (key) {
+        case 'name': return h.name;
+        case 'beds': return b ? num(b.permSbdCnt) : undefined;
+        case 'med': return num(d.med);
+        case 'medSp': return num(d.medSp);
+        case 'ortho': return h.spec ? h.spec['정형외과'] || 0 : undefined;
+        case 'neuro': return h.spec ? h.spec['신경외과'] || 0 : undefined;
+        case 'pt': return h.etc ? h.etc['물리치료사'] || 0 : undefined;
+        case 'icu': return b ? (b.aduChldSprmCnt || 0) + (b.chldSprmCnt || 0) + (b.nbySprmCnt || 0) : undefined;
+        case 'or': return b ? num(b.soprmCnt) : undefined;
+        case 'er': return b ? num(b.emymCnt) : undefined;
+      }
+      return undefined;
+    }
+    function cell(h, key) {
+      var v = get(h, key);
+      var td = el('td', 'num');
+      td.textContent = v === undefined || v === null ? '—' : v.toLocaleString('ko-KR');
+      if (v === undefined) td.title = '아직 수집되지 않았습니다';
+      return td;
+    }
+
+    function matches(h) {
+      var s = selSido.value, g = selSgg.value, c = selCl.value, w = q.value.trim().toLowerCase();
+      if (s && h.sido !== s) return false;
+      if (g && h.sigungu !== g) return false;
+      if (c && h.cl !== c) return false;
+      if (w && (h.name + ' ' + h.addr).toLowerCase().indexOf(w) < 0) return false;
+      return true;
+    }
+
+    function listBlock(title, rows) {
+      var box = el('div', 'hp-box');
+      box.appendChild(el('h4', '', title));
+      if (!rows) { box.appendChild(el('p', 'hp-wait', '아직 수집되지 않았습니다.')); return box; }
+      if (!rows.length) { box.appendChild(el('p', 'hp-wait', '신고된 자료가 없습니다.')); return box; }
+      var ul = el('ul');
+      rows.forEach(function (r) { ul.appendChild(el('li', '', r)); });
+      box.appendChild(ul);
+      return box;
+    }
+    function mapRows(map, sortDesc) {
+      if (!map) return null;
+      var ks = Object.keys(map);
+      if (sortDesc) ks.sort(function (a, b) { return map[b] - map[a] || a.localeCompare(b, 'ko'); });
+      return ks.map(function (k) { return k + ' ' + map[k]; });
+    }
+    function detailRow(h) {
+      var tr = el('tr', 'hp-detail');
+      var td = el('td');
+      td.colSpan = 14;
+      var d = h.doc || {}, b = h.beds;
+      var base = [h.addr];
+      if (h.tel) base.push('전화 ' + h.tel);
+      if (h.estb) base.push('개설 ' + String(h.estb).replace(/^(\d{4})(\d{2})(\d{2})$/, '$1.$2.$3'));
+      if (b && b.org) base.push('설립 ' + b.org);
+      var wrap = el('div', 'hp-grid');
+      var box0 = el('div', 'hp-box');
+      box0.appendChild(el('h4', '', '기본 정보'));
+      var ul0 = el('ul');
+      base.forEach(function (r) { ul0.appendChild(el('li', '', r)); });
+      if (h.url) { var li = el('li'); var a = el('a', '', h.url); a.href = /^https?:\/\//.test(h.url) ? h.url : 'http://' + h.url; a.target = '_blank'; a.rel = 'noopener'; li.appendChild(a); ul0.appendChild(li); }
+      box0.appendChild(ul0);
+      wrap.appendChild(box0);
+
+      var nv = function (x) { return x === null || x === undefined ? '—' : x; };
+      wrap.appendChild(listBlock('의사 구성', [
+        '총 의사 ' + nv(d.total),
+        '의과 ' + nv(d.med) + ' (일반의 ' + nv(d.medGen) + ' · 인턴 ' + nv(d.medIntern) + ' · 레지던트 ' + nv(d.medRes) + ' · 전문의 ' + nv(d.medSp) + ')',
+        '치과 ' + nv(d.dent) + ' (전문의 ' + nv(d.dentSp) + ')',
+        '한방 ' + nv(d.kor) + ' (전문의 ' + nv(d.korSp) + ')',
+        '조산사 ' + nv(d.midwife)
+      ]));
+
+      var bedRows = null;
+      if (b) {
+        bedRows = ['허가 병상 ' + (b.permSbdCnt === null ? '—' : b.permSbdCnt)];
+        BEDS.forEach(function (p) { if (b[p[0]]) bedRows.push(p[1] + ' ' + b[p[0]]); });
+        bedRows.push('수술실 ' + (b.soprmCnt === null ? '—' : b.soprmCnt) + ' · 응급실 병상 ' + (b.emymCnt === null ? '—' : b.emymCnt) + ' · 분만실 ' + (b.partumCnt === null ? '—' : b.partumCnt) + ' · 물리치료실 ' + (b.ptrmCnt === null ? '—' : b.ptrmCnt));
+      }
+      wrap.appendChild(listBlock('병상·시설', bedRows));
+      wrap.appendChild(listBlock('전문과목별 전문의', mapRows(h.spec, true)));
+      wrap.appendChild(listBlock('기타 인력', mapRows(h.etc, true)));
+      wrap.appendChild(listBlock('식대가산 인력', mapRows(h.food, true)));
+      wrap.appendChild(listBlock('의료장비', mapRows(h.eq, true)));
+      wrap.appendChild(listBlock('간호등급', h.nurs ? h.nurs.map(function (n) { return n.t + ' ' + n.g + (/^\d+$/.test(n.g) ? '등급' : ''); }) : null));
+      wrap.appendChild(listBlock('특수진료·지정', h.sp || null));
+      if (h.asg && h.asg.length) wrap.appendChild(listBlock('전문병원 지정 분야', h.asg));
+      td.appendChild(wrap);
+      tr.appendChild(td);
+      return tr;
+    }
+
+    function rowFor(h) {
+      var tr = document.createElement('tr');
+      tr.appendChild(el('td', '', h.sido));
+      tr.appendChild(el('td', '', h.sigungu || '—'));
+      tr.appendChild(el('td', 'hp-cl', h.clName));
+      var nm = el('td', 'hp-name', h.name);
+      tr.appendChild(nm);
+      ['beds', 'med', 'medSp', 'ortho', 'neuro', 'pt', 'icu', 'or', 'er'].forEach(function (k) { tr.appendChild(cell(h, k)); });
+      var td = el('td');
+      var btn = el('button', 'hp-open', openIds[h.id] ? '닫기' : '보기');
+      btn.type = 'button';
+      btn.setAttribute('aria-expanded', openIds[h.id] ? 'true' : 'false');
+      td.appendChild(btn);
+      tr.appendChild(td);
+      var frag = document.createDocumentFragment();
+      frag.appendChild(tr);
+      var det = null;
+      function toggle() {
+        if (det) { det.remove(); det = null; delete openIds[h.id]; btn.textContent = '보기'; btn.setAttribute('aria-expanded', 'false'); return; }
+        det = detailRow(h);
+        tr.after(det);
+        openIds[h.id] = true;
+        btn.textContent = '닫기';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+      btn.addEventListener('click', toggle);
+      if (openIds[h.id]) { det = detailRow(h); frag.appendChild(det); }
+      return frag;
+    }
+
+    function renderPage() {
+      var end = Math.min(shown + PAGE, current.length);
+      var frag = document.createDocumentFragment();
+      for (var i = shown; i < end; i++) frag.appendChild(rowFor(current[i]));
+      body.appendChild(frag);
+      shown = end;
+      moreEl.hidden = shown >= current.length;
+      $('hp-more-btn').textContent = '더 보기 (' + shown.toLocaleString('ko-KR') + ' / ' + current.length.toLocaleString('ko-KR') + ')';
+    }
+    function render() {
+      if (!data) return;
+      var rows = data.items.filter(matches);
+      if (sortKey) {
+        rows = rows.slice().sort(function (a, b) {
+          var x = get(a, sortKey), y = get(b, sortKey);
+          if (sortKey === 'name') return sortDir === 'asc' ? x.localeCompare(y, 'ko') : y.localeCompare(x, 'ko');
+          var nx = x === undefined || x === null, ny = y === undefined || y === null;
+          if (nx && ny) return 0;
+          if (nx) return 1;
+          if (ny) return -1;
+          return sortDir === 'asc' ? x - y : y - x;
+        });
+      }
+      current = rows;
+      shown = 0;
+      body.innerHTML = '';
+      renderPage();
+      table.hidden = rows.length === 0;
+      noneEl.hidden = rows.length !== 0;
+      countEl.textContent = rows.length.toLocaleString('ko-KR') + '곳';
+      Array.prototype.forEach.call(document.querySelectorAll('.hp-table th button'), function (b) {
+        var i = b.querySelector('i');
+        i.textContent = b.getAttribute('data-sort') === sortKey ? (sortDir === 'asc' ? '▲' : '▼') : '';
+      });
+      try {
+        var p = new URLSearchParams();
+        if (selSido.value) p.set('sido', selSido.value);
+        if (selSgg.value) p.set('sigungu', selSgg.value);
+        history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
+      } catch (e) {}
+    }
+
+    function status() {
+      // 자료 기준일은 행마다 넣지 않고 여기 한 번만 보여 준다.
+      asof.textContent = '자료 기준일(갱신 시점) ' + kst(data.updatedAt) + ' (한국시간) · 병원급 이상 ' + data.count.toLocaleString('ko-KR') + '곳';
+      var labels = { beds: '병상·시설', spec: '전문과목별 전문의', etc: '기타 인력', eq: '의료장비', nurs: '간호등급', sp: '특수진료·지정', food: '식대가산 인력', asg: '전문병원 지정' };
+      var parts = [], done = true;
+      Object.keys(labels).forEach(function (k) {
+        var n = (data.progress && data.progress[k]) || 0;
+        if (n < data.count) { done = false; parts.push(labels[k] + ' ' + n.toLocaleString('ko-KR') + '/' + data.count.toLocaleString('ko-KR')); }
+      });
+      prog.hidden = done;
+      if (!done) prog.textContent = '상세 자료를 순서대로 수집하고 있습니다(공공데이터포털 하루 호출 한도 때문에 며칠이 걸리며 큰 병원부터 채워집니다). 진행: ' + parts.join(' · ');
+    }
+
+    function load() {
+      var url = URL0 + '?t=' + Math.floor(Date.now() / 600000);
+      fetch(url, { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (d) {
+          if (!d || !Array.isArray(d.items) || !d.items.length) throw new Error('빈 자료');
+          data = d;
+          var sidos = [], cls = {};
+          sggBySido = {};
+          d.items.forEach(function (h) {
+            if (sidos.indexOf(h.sido) < 0) sidos.push(h.sido);
+            cls[h.cl] = h.clName;
+            if (h.sigungu) { sggBySido[h.sido] = sggBySido[h.sido] || []; if (sggBySido[h.sido].indexOf(h.sigungu) < 0) sggBySido[h.sido].push(h.sigungu); }
+          });
+          Object.keys(sggBySido).forEach(function (k) { sggBySido[k].sort(function (a, b) { return a.localeCompare(b, 'ko'); }); });
+          var keepS = '', keepG = '';
+          try { var p = new URLSearchParams(location.search); keepS = p.get('sido') || ''; keepG = p.get('sigungu') || ''; } catch (e) {}
+          fillSelect(selSido, sidos, '전국 (전체)');
+          if (keepS && sidos.indexOf(keepS) >= 0) selSido.value = keepS;
+          fillSigungu(selSido.value, keepG);
+          fillSelect(selCl, Object.keys(cls).sort().map(function (c) { return [c, cls[c]]; }), '전체');
+          status();
+          render();
+        })
+        .catch(function (e) {
+          asof.textContent = '자료를 불러오지 못했습니다(' + e.message + '). 아직 첫 수집 전이거나 일시적인 오류일 수 있습니다. 잠시 뒤 새로고침해 주세요.';
+          asof.className = 'hp-asof hp-stale';
+        });
+    }
+
+    selSido.addEventListener('change', function () { fillSigungu(selSido.value); render(); });
+    selSgg.addEventListener('change', render);
+    selCl.addEventListener('change', render);
+    q.addEventListener('input', render);
+    $('hp-more-btn').addEventListener('click', renderPage);
+    Array.prototype.forEach.call(document.querySelectorAll('.hp-table th button'), function (b) {
+      b.addEventListener('click', function () {
+        var k = b.getAttribute('data-sort');
+        if (sortKey === k) sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+        else { sortKey = k; sortDir = k === 'name' ? 'asc' : 'desc'; }
+        render();
+      });
+    });
+    load();
+  })();
+</script>
+
+<style is:global>
+  .hp {
+    padding: 2rem 0 3rem;
+  }
+  .hp .lead {
+    max-width: 48rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .hp-asof {
+    margin: 1rem 0 0.25rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .hp-stale {
+    color: #d9480f;
+    font-weight: 400;
+  }
+  .hp-progress {
+    margin: 0.25rem 0 0.5rem;
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+  .hp-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.75rem 1rem;
+    margin: 1rem 0 0.75rem;
+  }
+  .hp-filter label {
+    display: grid;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .hp-filter select,
+  .hp-filter input {
+    min-width: 10rem;
+    padding: 0.55rem 0.7rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+  }
+  .hp-filter select:disabled {
+    opacity: 0.55;
+  }
+  .hp-count {
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .hp-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .hp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .hp-table th,
+  .hp-table td {
+    padding: 0.45rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+  }
+  .hp-table th {
+    background: var(--color-surface);
+    font-weight: 700;
+  }
+  .hp-table th button {
+    padding: 0;
+    font: inherit;
+    font-weight: 700;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .hp-table th button i {
+    font-style: normal;
+    font-size: 0.7rem;
+    margin-left: 0.15rem;
+  }
+  .hp-table .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .hp-name {
+    font-weight: 700;
+    white-space: normal !important;
+    min-width: 12rem;
+  }
+  .hp-open {
+    padding: 0.1rem 0.7rem;
+    font: inherit;
+    font-size: 0.78rem;
+    color: var(--color-primary);
+    background: transparent;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .hp-detail td {
+    white-space: normal;
+    background: var(--color-surface);
+  }
+  .hp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 0.9rem 1.2rem;
+    padding: 0.4rem 0.2rem;
+  }
+  .hp-box h4 {
+    margin: 0 0 0.3rem;
+    font-size: 0.85rem;
+    color: var(--color-heading);
+  }
+  .hp-box ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--color-text);
+  }
+  .hp-wait {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--color-muted);
+  }
+  .hp-more {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .hp-more button {
+    padding: 0.5rem 1.4rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .hp-none {
+    margin: 1rem 0;
+    color: var(--color-muted);
+  }
+  .hp-notes {
+    max-width: 52rem;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+  .hp-notes li {
+    margin: 0.35rem 0;
+  }
+  .hp-back {
+    margin-top: 1.5rem;
+  }
+</style>

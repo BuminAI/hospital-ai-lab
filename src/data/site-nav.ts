@@ -22,10 +22,11 @@ export const siteNav: SiteNavItem[] = [
   {
     href: '/portal/',
     label: '공공 포털',
-    desc: '전국 공공 자료를 한곳에서 — 병상가동현황·응급실 사용현황 등',
+    desc: '전국 공공 자료를 한곳에서 — 병상가동현황·응급실 사용현황·규모·인력 비교 등',
     children: [
       { href: '/portal/beds/', label: '병상가동현황', desc: '전국 응급의료기관의 병상수·재원·가동률을 지자체별로 보기' },
       { href: '/portal/er/', label: '응급실 사용현황', desc: '전국 응급실의 가용 병상·격리실·진료 불가 안내를 지자체별로 거의 실시간으로 보기' },
+      { href: '/portal/hospitals/', label: '규모·인력 비교', desc: '전국 병원의 병상·의사·전문의·물리치료사·시설·장비를 지자체별로 비교' },
     ],
   },
   { href: '/research/', label: '의료 기술·논문', desc: '한국 의료진의 최근 1년 수술 술기·신약·질환 논문과 임상시험' },

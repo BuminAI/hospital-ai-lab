@@ -18,7 +18,7 @@ jobs:
       - name: 수집기 시험(예산 60회)
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
-          HIRA_DAILY_BUDGET: '60'
+          HIRA_DAILY_BUDGET: '120'
         run: |
           node scripts/fetch-hospitals.mjs "" "$RUNNER_TEMP/h.json"
           node -e "

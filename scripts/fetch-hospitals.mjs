@@ -36,6 +36,7 @@ const CLASSES = [
 ];
 const CLASS_RANK = Object.fromEntries(CLASSES.map(([c], i) => [c, i]));
 const REFRESH_DAYS = 90;
+const CONCURRENCY = Number(process.env.HIRA_CONCURRENCY || 4);
 const BUDGET = Number(process.env.HIRA_DAILY_BUDGET || 900);
 const TIME_CAP_MS = Number(process.env.HIRA_TIME_CAP_MIN || 110) * 60000;
 const pause = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -219,19 +220,27 @@ async function main() {
     const missing = order.filter((h) => !h.ts[o.key]);
     const stale = order.filter((h) => h.ts[o.key] && daysAgo(h.ts[o.key]) >= REFRESH_DAYS).sort((a, b) => a.ts[o.key].localeCompare(b.ts[o.key]));
     const todo = missing.length ? missing : stale;
-    for (const h of todo) {
-      if (calls >= BUDGET) { stopped = '오늘 호출 예산 소진'; break outer; }
-      if (Date.now() - t0 > TIME_CAP_MS) { stopped = '실행 시간 제한'; break outer; }
-      try {
-        const body = await call(DTL + o.op, { ykiho: h.id, pageNo: 1, numOfRows: 100 });
-        h[o.key] = o.map(itemsOf(body));
-        h.ts[o.key] = today;
-      } catch (e) {
-        if (e.fatal) { stopped = quotaHit ? '일일 한도 초과' : '인증 오류: ' + authFail; break outer; }
-        console.error(`  ${o.op} ${h.name}: ${e.message}`);
+    // 심평원 응답이 호출마다 수 초씩 걸려(실측 평균 10초 안팎) 순서대로만 받으면 예산을 못 채운다 — 동시에 4건씩 받는다.
+    let next = 0;
+    const worker = async () => {
+      while (!stopped) {
+        const h = todo[next++];
+        if (!h) return;
+        if (calls >= BUDGET) { stopped = '오늘 호출 예산 소진'; return; }
+        if (Date.now() - t0 > TIME_CAP_MS) { stopped = '실행 시간 제한'; return; }
+        try {
+          const body = await call(DTL + o.op, { ykiho: h.id, pageNo: 1, numOfRows: 100 });
+          h[o.key] = o.map(itemsOf(body));
+          h.ts[o.key] = today;
+        } catch (e) {
+          if (e.fatal) { stopped = quotaHit ? '일일 한도 초과' : '인증 오류: ' + authFail; return; }
+          console.error(`  ${o.op} ${h.name}: ${e.message}`);
+        }
+        await pause(100);
       }
-      await pause(150);
-    }
+    };
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+    if (stopped) break outer;
   }
 
   // 3) 저장

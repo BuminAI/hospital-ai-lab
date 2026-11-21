@@ -1,0 +1,55 @@
+name: Update Portal Hospitals
+
+on:
+  schedule:
+    # 매일 UTC 15:23(한국시간 00:23). 공공데이터포털 호출 한도가 한국시간 자정에 새로 시작하므로 그 직후에 하루치 예산을 쓴다.
+    # 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다.
+    - cron: '23 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # portal-hospitals 브랜치 푸시
+
+# 자기 자신의 중복 실행만 직렬화한다. 사이트를 다시 배포하지 않는다 — 결과는 portal-hospitals 브랜치의 hospitals.json 이고,
+# 페이지(/portal/hospitals/)가 브라우저에서 raw.githubusercontent.com 으로 그 파일을 읽는다.
+concurrency:
+  group: update-hospitals
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 이어 채우기: 직전 결과(portal-hospitals 브랜치)를 먼저 가져온다. 없으면 처음부터 시작한다.
+      - name: 이전 결과 가져오기
+        run: |
+          git fetch --depth=1 origin portal-hospitals:refs/remotes/origin/portal-hospitals 2>/dev/null \
+            && git show origin/portal-hospitals:hospitals.json > "$RUNNER_TEMP/prev.json" \
+            || { rm -f "$RUNNER_TEMP/prev.json"; echo "이전 결과 없음 — 처음부터"; }
+
+      - name: 규모·인력 수집(심평원 OpenAPI)
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+        run: node scripts/fetch-hospitals.mjs "$RUNNER_TEMP/prev.json" "$RUNNER_TEMP/hospitals.json"
+
+      # 히스토리가 쌓이지 않게 매번 커밋 하나짜리 브랜치로 덮어쓴다(--force). 이전 결과는 위에서 이미 읽었다.
+      - name: portal-hospitals 브랜치에 hospitals.json 올리기
+        run: |
+          mkdir -p "$RUNNER_TEMP/pub"
+          cp "$RUNNER_TEMP/hospitals.json" "$RUNNER_TEMP/pub/hospitals.json"
+          cd "$RUNNER_TEMP/pub"
+          git init -q -b portal-hospitals
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hospitals.json
+          git commit -q -m "규모·인력 자동 갱신"
+          git push --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" portal-hospitals
