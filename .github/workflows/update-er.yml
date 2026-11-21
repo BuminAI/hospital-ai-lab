@@ -1,0 +1,45 @@
+name: Update Portal ER
+
+on:
+  schedule:
+    # 15분마다(UTC :04·:19·:34·:49 — 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다). 응급실 가용 병상은 몇 분 단위로 바뀌는 실시간 자료다.
+    # 예약 실행은 GitHub 사정으로 몇 분~수십 분 늦거나 건너뛸 수 있어서, 페이지에는 '자료 시각'을 그대로 보여 준다.
+    - cron: '4,19,34,49 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # portal-data 브랜치 푸시
+
+# 자기 자신의 중복 실행만 직렬화한다. 사이트를 다시 배포하지 않는다 — 결과는 portal-data 브랜치의 er.json 이고,
+# 페이지(/portal/er/)가 브라우저에서 raw.githubusercontent.com 으로 그 파일을 읽는다.
+concurrency:
+  group: update-er
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 전국 응급실 사용현황 수집
+        run: node scripts/fetch-er.mjs "$RUNNER_TEMP/er.json"
+
+      # 히스토리가 쌓이지 않게 매번 커밋 하나짜리 브랜치로 덮어쓴다(--force).
+      - name: portal-data 브랜치에 er.json 올리기
+        run: |
+          mkdir -p "$RUNNER_TEMP/pub"
+          cp "$RUNNER_TEMP/er.json" "$RUNNER_TEMP/pub/er.json"
+          cd "$RUNNER_TEMP/pub"
+          git init -q -b portal-data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add er.json
+          git commit -q -m "응급실 사용현황 자동 갱신"
+          git push --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" portal-data

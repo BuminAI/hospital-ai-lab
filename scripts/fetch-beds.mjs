@@ -24,7 +24,7 @@ const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 const FIELD = { id: 'hpid', name: 'dutyName', addr: 'dutyAddr', type: 'dutyEmclsName', base: 'hvs38', free: 'hvgc', stamp: 'hvidate' };
 const ICU_FIELDS = [...Array.from({ length: 17 }, (_, i) => 'hvs' + String(i + 5).padStart(2, '0')), 'hvs24', 'hvs25', 'hvs50', 'hvs51', 'hvs52', 'hvs54', 'hvs56', 'hvs58'];
 
-const SIDO_ORDER = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '세종', '경기', '강원', '충청북', '충청남', '전북', '전라북', '전라남', '경상북', '경상남', '제주'];
+const SIDO_ORDER = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '세종', '경기', '강원', '충청북', '충청남', '전북', '전라북', '전남광주', '전라남', '경상북', '경상남', '제주'];
 
 const decode = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;|&#39;/g, "'").replace(/&amp;/g, '&');
 export function parseItems(xml) {
