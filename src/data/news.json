@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-11-21T09:49:03.468Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · ZDNet Korea · AI타임스 · 메디파나뉴스 · 뉴시스 · 연합뉴스 · 보건복지부 · 매일경제",
+  "updatedAt": "2026-11-21T17:30:27.201Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 뉴시스 · 디지털투데이 · 연합뉴스 · 보건복지부 · 매일경제",
   "items": [
+    {
+      "title": "AI로 신약개발 속도전…빅파마는 '시간 단축', 국내는 '성과 검증'",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422345",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-21T20:54:16.000Z"
+    },
+    {
+      "title": "공포 최고조인데 기업 실적은 4년 만에 최고...AI 버블 붕괴 or 저가 매수 기회?",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=717243",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-21T20:31:59.000Z"
+    },
+    {
+      "title": "의료기기산업, '공정거래·윤리경영' 고삐 죈다…CSO·간납·AI보안 총망라",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016980",
+      "source": "의학신문",
+      "pubDate": "2026-11-21T20:09:47.000Z"
+    },
+    {
+      "title": "인천나은병원, AI 요로결석 수술로봇 '자메닉스' 도입",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253117",
+      "source": "병원신문",
+      "pubDate": "2026-11-21T13:41:00.000Z"
+    },
+    {
+      "title": "건보공단 다제약물 관리사업에 AI 활용 제안",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253114",
+      "source": "병원신문",
+      "pubDate": "2026-11-21T13:36:00.000Z"
+    },
+    {
+      "title": "AI 스마트홈 헬스케어 글로벌 협력 컨퍼런스 개최",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253104",
+      "source": "병원신문",
+      "pubDate": "2026-11-21T13:17:00.000Z"
+    },
     {
       "title": "트럼프·시진핑, 군사 AI에 인간 통제 합의…주요 군사작전까지 적용",
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217640",
@@ -124,7 +160,7 @@
       "source": "병원신문",
       "pubDate": "2026-11-20T14:45:24.000Z",
       "popular": true,
-      "rank": 3
+      "rank": 2
     },
     {
       "title": "엔티엘헬스케어, 메디카서 유럽 AI 자궁경부암 검진 효율화 논의",
@@ -330,7 +366,9 @@
       "title": "전공의 수련에 ‘AI 검증·설명·책임’ 담아야",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3016906",
       "source": "의학신문",
-      "pubDate": "2026-11-20T05:55:00.000Z"
+      "pubDate": "2026-11-20T05:55:00.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "카르나AI아시아, AI 건강관리 기술로 산업보건 분야 공략",
