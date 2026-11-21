@@ -1,24 +1,20 @@
 {
-  "checkedAt": "2026-11-20T00:58:24.212Z",
-  "total": 112,
-  "ok": 98,
-  "unknown": 14,
+  "checkedAt": "2026-11-21T00:20:58.055Z",
+  "total": 113,
+  "ok": 102,
+  "unknown": 11,
   "unknownList": [
     {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=7968559",
       "status": 400
     },
     {
-      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=507503",
-      "status": 0
+      "url": "https://xn--80aapampemcchfmo7a3c9ehj.xn--p1ai/new-projects/prodolzhitelnaya-i-aktivnaya-zhizn/natsionalnaya-tsifrovaya-platforma-zdorove/",
+      "status": 403
     },
     {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=6902061",
       "status": 400
-    },
-    {
-      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=500478",
-      "status": 0
     },
     {
       "url": "https://minzdrav.gov.ru/poleznye-resursy/natsionalnye-proekty-rossii-prodolzhitelnaya-i-aktivnaya-zhizn-novye-tehnologii-sberezheniya-zdorovya",
@@ -29,20 +25,12 @@
       "status": 0
     },
     {
-      "url": "https://medvestnik.ru/content/news/komputernoe-zrenie-pomogaet-rossiiskim-bolnicam-izbegat-ocheredei.html",
-      "status": 0
-    },
-    {
       "url": "https://minzdrav.gov.ru/documents/9646-metodicheskie-rekomendatsii-po-kategorirovaniyu-ob-ektov-kriticheskoy-informatsionnoy-infrastruktury-sfery-zdravoohraneniya",
       "status": 0
     },
     {
       "url": "https://habr.com/ru/articles/1099004/",
       "status": 403
-    },
-    {
-      "url": "http://publication.pravo.gov.ru/",
-      "status": 500
     },
     {
       "url": "https://cr.minzdrav.gov.ru/",
