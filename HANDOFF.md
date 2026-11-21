@@ -1056,3 +1056,14 @@ src/assets/fonts/            # 통짜 Pretendard — OG 이미지 생성 전용(
 - **싱가포르**: CNA는 `rssfeeds/<번호>`와 `api/v1/rss-outbound-feed?category=<번호>` 두 형식이 있고 서로 겹친다. 보건 전용 피드는 없다(ST 태그 `healthcare`·`hospitals`는 1건짜리). Healthcare Asia는 아시아·중동 의료 AI 소식이라 싱가포르 외 지역 기사도 섞인다(페이지 설명에 'Asia-Pacific'를 밝힘). 응답 없음: Today·OpenGov(403), GovInsider·SBR 섹션·MOH·HSA·IMDA(RSS 없음).
 - **대만**: 중앙사는 feedburner 섹션별(`rsscna/*`), 자유시보는 `news.ltn.com.tw/rss/<섹션>.xml`, 위복부는 `mohw.gov.tw/rss-<번호>-1.html`(16 뉴스, 17 해명·알림, 18 공고·보조 징구). **`udn.com/rssfeed/…`는 봇에게 빈 항목을 준다(쓸 수 없음)**, `money.udn.com/rssfeed/…`는 된다. Heho健康이 의료 전문 출처로 쓸 만하다.
 - **지원사업 단어를 좁혔다**(`GRANT`): '공고'·'계획'·'program'·'award' 같은 흔한 말만으로 정부 항목이 통과하던 것을 고쳤다(대만 위복부가 주차장 공청회까지, 영어는 FDA "Grants accelerated approval"의 동사 grant까지 걸렸다). 도입 이후 들어온 gov 항목 17건을 새 기준으로 다시 걸러 제거했다(한국 4·대만 6·러시아 1·영어 6).
+
+## 5-24. 공공 포털 › 병상가동현황 (2026-11-21, 오너 지시: "공공 포털 메뉴를 만들어 개인 대시보드(cyhodr-dotcom/bumin-dashboard)의 병상가동현황을 하위 메뉴로. 부민병원 기준·반경 없이 전국 모든 병원을 지자체 드롭다운으로")
+
+한국어판에만 있다(다른 언어판에는 같은 자료가 없어 메뉴를 넣지 않았다).
+
+- **메뉴**: `src/data/site-nav.ts`의 '공공 포털'(`/portal/`)에 `children`(하위 메뉴)을 두는 구조를 새로 만들었다. 상단 메뉴(BaseLayout)는 `has-sub` 드롭다운(데스크톱 hover·키보드 focus, 모바일은 펼침). 상위 항목도 안내 페이지로 연결된다. 새 공공 자료는 `children`에 추가하고 `src/pages/portal/`에 페이지를 만든다. '강의노트'는 메뉴에서만 뺐다(페이지·홈 소식 항목은 그대로).
+- **데이터**: `scripts/fetch-beds.mjs`(워크플로 `update-beds.yml`, 3시간마다 UTC :11) → `src/data/portal/beds.json`. 국립중앙의료원 응급의료기관 OpenAPI(공공데이터포털)를 **전국 한 번**에 받는다(기관 목록 + 입원실 실시간 병상). 계산 규칙(병상수 = 입원실 hvs38 + 중환자실 계열, 재원, 가동률)은 대시보드 `scripts/lib/beds.js`와 같다. 반경·기준 병원·고정 병원은 없다.
+- **인증키**: GitHub Secret `DATA_GO_KR_KEY` 필요(없으면 수집을 건너뛰고 페이지는 '자료 준비 중'). 키는 대시보드와 같은 공공데이터포털 키를 써도 된다(하루 한도 1,000건, 이 수집은 회당 2건).
+- **범위의 한계**: 응급의료기관만 포함(약 400곳). '전국 모든 병원'이 아니다 — 페이지 안내문에 적었다. 입원실 병상 자료가 없는 기관은 제외하고 개수만 `withoutData`에 남긴다.
+- **페이지**: 빌드 때 표를 구워 정적으로 배포(JS 없이도 전체 표가 보임). 시도·시군구 드롭다운이 행을 거른다(`?sido=…&sigungu=…`로 공유 가능). 세종처럼 시군구가 없는 주소는 시군구 칸이 '—'.
+- 기준 저장소 `bumin-dashboard`(Cloudflare Pages + D1, 로그인 필요)는 건드리지 않았다. 거기서는 `server/bedslive.js`가 같은 API를 쓰며, 키는 `DATA_GO_KR_KEY`다.

@@ -17,7 +17,7 @@ import govPrograms from '../data/gov-programs.json';
 import events from '../data/events.json';
 import press from '../data/press.json';
 import { getResolvedSeries } from '../utils/series';
-import { siteNav } from '../data/site-nav';
+import { siteNav, siteNavFlat } from '../data/site-nav';
 import { tips } from '../data/tips';
 import { faqItems } from '../data/faq';
 import ViewCounts from '../components/ViewCounts.astro';
@@ -119,7 +119,7 @@ const latestByHref = {
   '/tips/': tips.length ? { title: tips[tips.length - 1].title, date: tips[tips.length - 1].checked } : null,
   '/faq/': faqItems.length ? { title: faqItems[faqItems.length - 1].question, date: null } : null,
 };
-const homeMenu = siteNav.filter((m) => m.href !== '/');
+const homeMenu = siteNavFlat.filter((m) => m.href !== '/');
 const homeAreas = researchAreas.slice(0, 3);
 const recentNews = news.items.slice(0, 5);
 // 홈의 "추천 강의 영상"에는 연구소장이 직접 만든 영상 1편 + 다른 채널
