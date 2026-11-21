@@ -27,7 +27,8 @@ for (const s of sidos) {
   sigunguBySido[s] = [...new Set(rows.filter((r) => r.sido === s && r.sigungu).map((r) => r.sigungu))].sort((a, b) => a.localeCompare(b, 'ko'));
 }
 
-const pct = (r: number | null) => (r === null || r === undefined ? '—' : (r * 100).toFixed(1) + '%');
+// 가용병상이 병상수보다 크게 입력된 이상값(가동률이 음수)은 숫자로 보이지 않게 '—'로 둔다.
+const pct = (r: number | null) => (r === null || r === undefined || r < 0 ? '—' : (r * 100).toFixed(1) + '%');
 const rateClass = (r: number | null) => (r === null ? '' : r < 0.6 ? 'r-low' : r < 0.75 ? 'r-mid' : r < 0.9 ? 'r-ok' : 'r-high');
 const n0 = (x: number | null) => (typeof x === 'number' ? x.toLocaleString('ko-KR') : '—');
 // 병원이 입력한 시각 'YYYYMMDDhhmmss' → 'MM.DD hh:mm'

@@ -1,0 +1,516 @@
+---
+// 공공 포털 › 응급실 사용현황 (2026-11-21, 오너 지시).
+// 자료: scripts/fetch-er.mjs 가 GitHub Actions(update-er.yml)에서 15분마다 받아 `portal-data` 브랜치의 er.json 으로 올린다.
+// 이 페이지는 사이트를 다시 배포하지 않고, 브라우저에서 그 파일을 읽어 표를 그린다(몇 분 단위로 바뀌는 실시간 자료라서).
+// 특정 병원 기준·고정 표시 없이 전국 응급의료기관을 시도·시군구 드롭다운으로 거른다.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/site';
+
+const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/portal-data/er.json';
+---
+
+<BaseLayout
+  title="전국 응급실 사용현황: 가용 병상·진료 불가 안내를 지자체별로"
+  description="전국 응급의료기관의 응급실 가용 병상, 소아·분만·격리 병상, 진료 불가 안내를 시도·시군구 드롭다운으로 골라 봅니다. 중앙응급의료센터 공개 자료 기준입니다."
+>
+  <section class="container er" data-url={DATA_URL}>
+    <h1>전국 응급실 사용현황</h1>
+    <p class="lead">
+      국립중앙의료원 중앙응급의료센터 ‘내 손안의 응급실’이 공개한 자료로, 전국 응급의료기관의 응급실 가용 병상과 진료 불가 안내를 지자체(시도·시군구)별로 봅니다.
+      특정 병원을 기준으로 삼지 않고 전국을 같은 기준으로 보여 줍니다.
+    </p>
+
+    <form class="er-filter" id="er-filter" aria-label="지자체 선택" onsubmit="return false">
+      <label>
+        <span>시·도</span>
+        <select id="er-sido"><option value="">전국 (전체)</option></select>
+      </label>
+      <label>
+        <span>시·군·구</span>
+        <select id="er-sigungu" disabled><option value="">전체</option></select>
+      </label>
+      <label>
+        <span>구분</span>
+        <select id="er-type"><option value="">전체</option></select>
+      </label>
+      <label>
+        <span>기관명·주소 검색</span>
+        <input type="search" id="er-q" placeholder="예: 서울대" autocomplete="off" />
+      </label>
+      <p class="er-count" id="er-count" aria-live="polite"></p>
+    </form>
+
+    <p class="er-status" id="er-status" role="status">자료를 불러오는 중…</p>
+    <p class="er-legend" aria-label="가용 병상 비율 색 구간">
+      <span class="er-ok">원활 (가용 80% 초과)</span><span class="er-mid">보통 (50~80%)</span><span class="er-busy">혼잡 (50% 미만)</span>
+      <button type="button" id="er-reload" class="er-reload">새로고침</button>
+    </p>
+
+    <div class="er-scroll">
+      <table class="er-table" id="er-table" hidden>
+        <thead>
+          <tr>
+            <th>시·도</th>
+            <th>시·군·구</th>
+            <th>구분</th>
+            <th><button type="button" data-sort="name">기관명 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="gen">일반 응급실 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="ped">소아 응급실 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="deliv">분만실 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="neg">음압 격리 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="iso">일반 격리 <i></i></button></th>
+            <th class="num"><button type="button" data-sort="coh">코호트 격리 <i></i></button></th>
+            <th>안내</th>
+          </tr>
+        </thead>
+        <tbody id="er-body"></tbody>
+      </table>
+    </div>
+    <p class="er-none" id="er-none" hidden>조건에 맞는 응급의료기관이 없습니다.</p>
+    <noscript><p class="er-none">이 페이지는 자바스크립트가 켜져 있어야 표가 보입니다.</p></noscript>
+
+    <h2>읽는 법과 한계</h2>
+    <ul class="er-notes">
+      <li>자료: 국립중앙의료원 중앙응급의료센터 ‘내 손안의 응급실’(mediboard) 공개 정보입니다. 전국 응급의료기관(약 400곳)이 대상이며 응급의료기관이 아닌 의료기관은 없습니다.</li>
+      <li>숫자는 ‘현재 쓸 수 있는 병상 / 전체 병상’입니다. 색은 가용 비율로, 80% 초과 원활·50~80% 보통·50% 미만 혼잡(가용이 적을수록 혼잡)이며 이 페이지에서 정한 단순 기준입니다. 분만실은 ‘가능/불가능’과 전체 개수로 표시됩니다.</li>
+      <li>값은 각 병원이 직접 입력하며, 몇 분~수십 분 늦거나 실제와 다를 수 있습니다. 이 페이지는 약 15분마다 자료를 새로 받아 두고(GitHub 사정으로 더 늦어질 수 있음) 위쪽에 ‘자료 시각’을 그대로 보여 줍니다.</li>
+      <li>‘안내’ 열은 병원이 등록한 진료 불가·제한 사유와 이송 우회 안내를 줄여서 보여 줍니다. 전화번호가 있는 병원은 그대로 표시합니다.</li>
+      <li><b>응급 상황이면 119에 신고하세요.</b> 이 페이지는 환자 이송이나 응급실 선택·수용 가능 여부를 판단하는 용도가 아니며, 실제 수용 여부는 해당 병원이나 119·응급의료포털에서 확인해야 합니다.</li>
+    </ul>
+    <p class="er-back"><a href={withBase('/portal/')}>← 공공 포털</a></p>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var root = document.querySelector('.er');
+    if (!root) return;
+    var URL0 = root.getAttribute('data-url');
+    var $ = function (id) { return document.getElementById(id); };
+    var selSido = $('er-sido'), selSgg = $('er-sigungu'), selType = $('er-type'), q = $('er-q');
+    var body = $('er-body'), table = $('er-table'), statusEl = $('er-status'), countEl = $('er-count'), noneEl = $('er-none');
+    var data = null, sigunguBySido = {}, sortKey = '', sortDir = 'desc', timer = null;
+
+    function el(tag, cls, text) {
+      var e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text !== undefined && text !== null) e.textContent = text;
+      return e;
+    }
+    function kst(iso) {
+      try { return new Date(iso).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16); } catch (e) { return ''; }
+    }
+    function ago(iso) {
+      var m = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
+      if (!isFinite(m) || m < 0) return '';
+      return m < 1 ? '방금' : m < 60 ? m + '분 전' : Math.floor(m / 60) + '시간 ' + (m % 60) + '분 전';
+    }
+
+    function fillSelect(sel, values, firstLabel) {
+      sel.innerHTML = '';
+      var o = document.createElement('option');
+      o.value = '';
+      o.textContent = firstLabel;
+      sel.appendChild(o);
+      values.forEach(function (v) {
+        var x = document.createElement('option');
+        x.value = v;
+        x.textContent = v;
+        sel.appendChild(x);
+      });
+    }
+    function fillSigungu(sido, keep) {
+      var list = sido ? sigunguBySido[sido] || [] : [];
+      fillSelect(selSgg, list, '전체');
+      selSgg.disabled = !sido || list.length === 0;
+      if (keep && list.indexOf(keep) >= 0) selSgg.value = keep;
+    }
+
+    function gauge(pair) {
+      if (!pair) return el('span', 'er-dash', '-');
+      var a = pair[0], t = pair[1], r = a / t;
+      var cls = r < 0.5 ? 'er-busy' : r <= 0.8 ? 'er-mid' : 'er-ok';
+      var label = r < 0.5 ? '혼잡' : r <= 0.8 ? '보통' : '원활';
+      var box = el('span', 'er-cell');
+      box.appendChild(el('span', 'er-pill ' + cls, label));
+      box.appendChild(el('span', 'er-val', a + '/' + t));
+      return box;
+    }
+    function delivCell(d) {
+      if (!d) return el('span', 'er-dash', '-');
+      var box = el('span', 'er-cell');
+      box.appendChild(el('span', 'er-pill ' + (d.ok ? 'er-ok' : 'er-busy'), d.ok ? '가능' : '불가능'));
+      box.appendChild(el('span', 'er-val', String(d.total)));
+      return box;
+    }
+    function val(r, key) {
+      if (key === 'name') return r.name;
+      var v = r[key];
+      if (!v) return null;
+      if (key === 'deliv') return v.ok ? v.total : 0;
+      return v[0];
+    }
+
+    function matches(r) {
+      var s = selSido.value, g = selSgg.value, t = selType.value, w = q.value.trim().toLowerCase();
+      if (s && r.sido !== s) return false;
+      if (g && r.sigungu !== g) return false;
+      if (t && r.type !== t) return false;
+      if (w && (r.name + ' ' + r.fullName + ' ' + r.sido + ' ' + r.sigungu).toLowerCase().indexOf(w) < 0) return false;
+      return true;
+    }
+
+    function noteCell(r) {
+      var td = el('td', 'er-note');
+      if (r.blocked || (r.bypass && r.bypass.length)) {
+        td.appendChild(el('span', 'er-tag er-tag-bypass', '이송 우회'));
+        (r.bypass || []).forEach(function (b) { td.appendChild(el('div', 'er-line', b)); });
+      }
+      var depts = [];
+      (r.er || []).forEach(function (m) { if (m.reason && depts.indexOf(m.reason) < 0) depts.push(m.reason); });
+      depts.slice(0, 6).forEach(function (d) { td.appendChild(el('span', 'er-tag', d)); });
+      if (depts.length > 6) td.appendChild(el('span', 'er-more', '+' + (depts.length - 6)));
+      var detailCount = (r.er || []).length + (r.unavail || []).length;
+      if (detailCount) {
+        var det = el('details', 'er-details');
+        det.appendChild(el('summary', '', '자세히 (' + detailCount + ')'));
+        (r.er || []).forEach(function (m) {
+          var line = el('div', 'er-line');
+          if (m.detail) line.appendChild(el('b', '', m.detail + ' '));
+          line.appendChild(document.createTextNode((m.reason ? '[' + m.reason + '] ' : '') + (m.message || '')));
+          det.appendChild(line);
+        });
+        if ((r.unavail || []).length) {
+          var u = el('div', 'er-line');
+          u.appendChild(el('b', '', '진료 불가 항목 '));
+          u.appendChild(document.createTextNode(r.unavail.join(', ')));
+          det.appendChild(u);
+        }
+        td.appendChild(det);
+      }
+      if (r.tel) td.appendChild(el('div', 'er-line', '☎ ' + r.tel));
+      return td;
+    }
+
+    function render() {
+      if (!data) return;
+      var rows = data.items.filter(matches);
+      if (sortKey) {
+        rows = rows.slice().sort(function (a, b) {
+          var x = val(a, sortKey), y = val(b, sortKey);
+          if (sortKey === 'name') return sortDir === 'asc' ? x.localeCompare(y, 'ko') : y.localeCompare(x, 'ko');
+          if (x === null && y === null) return 0;
+          if (x === null) return 1;
+          if (y === null) return -1;
+          return sortDir === 'asc' ? x - y : y - x;
+        });
+      }
+      body.innerHTML = '';
+      var frag = document.createDocumentFragment();
+      rows.forEach(function (r) {
+        var tr = document.createElement('tr');
+        tr.appendChild(el('td', '', r.sido));
+        tr.appendChild(el('td', '', r.sigungu || '—'));
+        tr.appendChild(el('td', 'er-type', r.type || '—'));
+        var nm = el('td', 'er-name');
+        var a = el('span', 'er-nm', r.name);
+        a.title = r.fullName || r.name;
+        nm.appendChild(a);
+        if (r.fullName && r.fullName !== r.name) nm.appendChild(el('small', '', r.fullName));
+        tr.appendChild(nm);
+        ['gen', 'ped'].forEach(function (k) { var td = el('td', 'num'); td.appendChild(gauge(r[k])); tr.appendChild(td); });
+        var dtd = el('td', 'num'); dtd.appendChild(delivCell(r.deliv)); tr.appendChild(dtd);
+        ['neg', 'iso', 'coh'].forEach(function (k) { var td = el('td', 'num'); td.appendChild(gauge(r[k])); tr.appendChild(td); });
+        tr.appendChild(noteCell(r));
+        frag.appendChild(tr);
+      });
+      body.appendChild(frag);
+      table.hidden = rows.length === 0;
+      noneEl.hidden = rows.length !== 0;
+      countEl.textContent = rows.length.toLocaleString('ko-KR') + '곳';
+      Array.prototype.forEach.call(document.querySelectorAll('.er-table th button'), function (b) {
+        var i = b.querySelector('i');
+        i.textContent = b.getAttribute('data-sort') === sortKey ? (sortDir === 'asc' ? '▲' : '▼') : '';
+      });
+      try {
+        var p = new URLSearchParams();
+        if (selSido.value) p.set('sido', selSido.value);
+        if (selSgg.value) p.set('sigungu', selSgg.value);
+        history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
+      } catch (e) {}
+    }
+
+    function setStatus() {
+      var old = (Date.now() - new Date(data.updatedAt).getTime()) > 90 * 60000;
+      statusEl.textContent = '자료 시각 ' + kst(data.updatedAt) + ' (한국시간, ' + ago(data.updatedAt) + ')' + (old ? ' — 자료가 오래되었습니다. 갱신이 지연되고 있을 수 있습니다.' : '');
+      statusEl.className = 'er-status' + (old ? ' er-stale' : '');
+    }
+
+    function load(initial) {
+      statusEl.textContent = '자료를 불러오는 중…';
+      // 5분 단위로 주소를 바꿔 브라우저·중간 캐시가 너무 오래된 파일을 주지 않게 한다.
+      var url = URL0 + '?t=' + Math.floor(Date.now() / 300000);
+      fetch(url, { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (d) {
+          if (!d || !Array.isArray(d.items) || !d.items.length) throw new Error('빈 자료');
+          data = d;
+          var sidos = [], types = [];
+          sigunguBySido = {};
+          d.items.forEach(function (r) {
+            if (sidos.indexOf(r.sido) < 0) sidos.push(r.sido);
+            if (r.type && types.indexOf(r.type) < 0) types.push(r.type);
+            if (r.sigungu) {
+              sigunguBySido[r.sido] = sigunguBySido[r.sido] || [];
+              if (sigunguBySido[r.sido].indexOf(r.sigungu) < 0) sigunguBySido[r.sido].push(r.sigungu);
+            }
+          });
+          Object.keys(sigunguBySido).forEach(function (k) { sigunguBySido[k].sort(function (a, b) { return a.localeCompare(b, 'ko'); }); });
+          var keepS = selSido.value, keepG = selSgg.value, keepT = selType.value;
+          if (initial) {
+            try {
+              var p = new URLSearchParams(location.search);
+              keepS = p.get('sido') || keepS;
+              keepG = p.get('sigungu') || keepG;
+            } catch (e) {}
+          }
+          fillSelect(selSido, sidos, '전국 (전체)');
+          if (keepS && sidos.indexOf(keepS) >= 0) selSido.value = keepS;
+          fillSigungu(selSido.value, keepG);
+          fillSelect(selType, types, '전체');
+          if (keepT && types.indexOf(keepT) >= 0) selType.value = keepT;
+          setStatus();
+          render();
+        })
+        .catch(function (e) {
+          if (data) { setStatus(); statusEl.textContent += ' (새로 받지 못해 이전 값을 보여 줍니다)'; return; }
+          statusEl.textContent = '자료를 불러오지 못했습니다(' + e.message + '). 아직 첫 수집 전이거나 일시적인 오류일 수 있습니다. 잠시 뒤 새로고침해 주세요.';
+          statusEl.className = 'er-status er-stale';
+        });
+    }
+
+    selSido.addEventListener('change', function () { fillSigungu(selSido.value); render(); });
+    selSgg.addEventListener('change', render);
+    selType.addEventListener('change', render);
+    q.addEventListener('input', render);
+    $('er-reload').addEventListener('click', function () { load(false); });
+    Array.prototype.forEach.call(document.querySelectorAll('.er-table th button'), function (b) {
+      b.addEventListener('click', function () {
+        var k = b.getAttribute('data-sort');
+        if (sortKey === k) sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+        else { sortKey = k; sortDir = k === 'name' ? 'asc' : 'desc'; }
+        render();
+      });
+    });
+    // 화면이 보일 때만 5분마다 다시 받는다(자료는 15분 안팎 간격으로 갱신된다).
+    timer = setInterval(function () { if (!document.hidden) load(false); }, 300000);
+    load(true);
+  })();
+</script>
+
+<style is:global>
+  .er {
+    padding: 2rem 0 3rem;
+  }
+  .er .lead {
+    max-width: 46rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .er-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.75rem 1rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+  .er-filter label {
+    display: grid;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .er-filter select,
+  .er-filter input {
+    min-width: 10rem;
+    padding: 0.55rem 0.7rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+  }
+  .er-filter select:disabled {
+    opacity: 0.55;
+  }
+  .er-count {
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .er-status {
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .er-stale {
+    color: #d9480f;
+  }
+  .er-legend {
+    margin: 0.5rem 0 0.75rem;
+  }
+  .er-legend span,
+  .er-pill {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .er-legend span {
+    margin: 0 0.4rem 0.3rem 0;
+  }
+  .er-ok {
+    background: rgba(12, 166, 120, 0.22);
+    color: #0b7a58;
+  }
+  .er-mid {
+    background: rgba(240, 140, 0, 0.22);
+    color: #b36200;
+  }
+  .er-busy {
+    background: rgba(224, 49, 49, 0.2);
+    color: #c92a2a;
+  }
+  @media (prefers-color-scheme: dark) {
+    .er-ok { color: #63e6be; }
+    .er-mid { color: #ffc078; }
+    .er-busy { color: #ff8787; }
+    .er-stale { color: #ffa94d; }
+  }
+  .er-reload {
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.8rem;
+    font: inherit;
+    font-size: 0.8rem;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .er-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .er-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .er-table th,
+  .er-table td {
+    padding: 0.5rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+  }
+  .er-table th {
+    background: var(--color-surface);
+    font-weight: 700;
+  }
+  .er-table th button {
+    padding: 0;
+    font: inherit;
+    font-weight: 700;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .er-table th button i {
+    font-style: normal;
+    font-size: 0.7rem;
+    margin-left: 0.15rem;
+  }
+  .er-table .num {
+    text-align: center;
+  }
+  .er-name {
+    min-width: 11rem;
+    white-space: normal !important;
+  }
+  .er-name .er-nm {
+    font-weight: 700;
+  }
+  .er-name small {
+    display: block;
+    color: var(--color-muted);
+    font-size: 0.72rem;
+  }
+  .er-cell {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+  .er-val {
+    font-variant-numeric: tabular-nums;
+    font-size: 0.78rem;
+    color: var(--color-muted);
+  }
+  .er-dash {
+    color: var(--color-muted);
+  }
+  .er-note {
+    min-width: 14rem;
+    white-space: normal !important;
+    font-size: 0.78rem;
+  }
+  .er-tag {
+    display: inline-block;
+    margin: 0 0.25rem 0.25rem 0;
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    font-size: 0.72rem;
+  }
+  .er-tag-bypass {
+    border-color: transparent;
+    background: rgba(224, 49, 49, 0.2);
+    color: #c92a2a;
+    font-weight: 700;
+  }
+  .er-more {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+  }
+  .er-details summary {
+    cursor: pointer;
+    color: var(--color-primary);
+  }
+  .er-line {
+    margin: 0.2rem 0;
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+  .er-none {
+    margin: 1rem 0;
+    color: var(--color-muted);
+  }
+  .er-notes {
+    max-width: 52rem;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+  .er-notes li {
+    margin: 0.35rem 0;
+  }
+  .er-back {
+    margin-top: 1.5rem;
+  }
+</style>
