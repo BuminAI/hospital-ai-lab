@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-20T00:58:57.498Z",
+  "checkedAt": "2026-11-21T00:23:56.341Z",
   "readOk": 1,
   "total": 10,
   "laws": [
@@ -24,7 +24,7 @@
       "current": "Mon, 09 Sep 2024 08:09:45 GMT | 276863 | W/\"4397f-191d5d4e528\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-20T00:57:18.143Z",
+      "lastRead": "2026-11-21T00:22:24.607Z",
       "error": null
     },
     {
@@ -49,7 +49,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:55.666Z",
-      "error": "unable to verify the first certificate"
+      "error": "Client network socket disconnected before secure TLS connection was established"
     },
     {
       "id": "doh-dsii",
