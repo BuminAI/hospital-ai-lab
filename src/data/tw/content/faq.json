@@ -59,5 +59,13 @@
       "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030124",
       "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030106"
     ]
+  },
+  {
+    "id": "yiliaofa-72-tiao-ai",
+    "question": "同仁不小心把病人資訊貼進外部 AI 服務，醫療法有處罰嗎？",
+    "answer": "醫療法第 72 條第 1 項第 1 款規定，醫療機構及其人員不得無故洩漏因業務而知悉或持有的病人病情或健康資訊；依第 103 條，違反第 72 條處新臺幣 5 萬元以上 25 萬元以下罰鍰，第 107 條並規定對行為人也處以罰鍰。條文沒有直接提到人工智慧，個別情況是否構成洩漏，需由院內法務或個資管理單位判斷。醫院可先訂出不能放進外部 AI 的資料與詢問窗口。本文為一般資訊，不是法律意見。",
+    "sources": [
+      "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020021"
+    ]
   }
 ]

@@ -64,5 +64,12 @@
     "sources": [
       "https://www.federalregister.gov/documents/full_text/text/2026/09/11/2026-18612.txt"
     ]
+  },
+  {
+    "question": "When does the new 15-day HIPAA deadline for patient records requests start?",
+    "answer": "HHS published the final HIPAA Privacy Rule on November 19, 2026. It is effective January 19, 2027, and covered entities must comply by July 19, 2027. Under its summary of major provisions, the time to respond to an access request drops to no more than 15 calendar days after receipt, down from 30, with an extension of up to 30 calendar days still available. Confirm details with your compliance team. This is general information, not legal advice.",
+    "sources": [
+      "https://www.federalregister.gov/documents/2026/11/19/2026-23429/hipaa-privacy-rule-changes-to-support-coordinated-care-and-individual-engagement-and-reduce"
+    ]
   }
 ]

@@ -52,5 +52,13 @@
       "https://www.hpra.ie/regulation/medical-devices/health-institutions-and-healthcare-professionals/reporting-medical-device---ivd-safety-issues",
       "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
     ]
+  },
+  {
+    "question": "If a patient asks whether an AI made decisions about them, how long do we have to answer?",
+    "answer": "The DPC says a controller must act on an access request without undue delay and within one month of receipt, extendable by two further months where necessary, with the person told of any extension within the first month. Its right of access page lists the existence of automated decision-making, including profiling, and meaningful information about how decisions are made among the things a person can learn. Most requests are free. Confirm with your DPO. This is general information, not legal advice.",
+    "sources": [
+      "https://www.dataprotection.ie/en/individuals/know-your-rights/right-access-information",
+      "https://www.dataprotection.ie/en/individuals/exercising-your-rights/how-long-will-it-take"
+    ]
   }
 ]

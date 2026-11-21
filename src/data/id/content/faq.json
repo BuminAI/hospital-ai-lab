@@ -59,5 +59,13 @@
     "sources": [
       "https://jdih.kemkes.go.id/storage/documents/pdfs/2026kepmenkes951.pdf"
     ]
+  },
+  {
+    "id": "serangan-siber-dibantu-ai",
+    "question": "Ada kabar serangan siber dibantu AI. Apa yang perlu ditanyakan administrasi RS ke tim IT?",
+    "answer": "CNN Indonesia (20 November 2026), mengutip New York Post, memberitakan memo FBI tentang serangan otomatis yang diduga dibantu alat AI bernama ARTEX; sasaran yang disebut adalah sektor keuangan, bukan rumah sakit, dan rekomendasi yang dikutip adalah memperkuat keamanan serta memantau aktivitas otomatis yang mencurigakan. Memo aslinya belum kami baca. Pertanyaan umum yang bisa diajukan: siapa yang melihat peringatan sistem di luar jam kerja, akun mana yang punya hak akses tertinggi (termasuk akun vendor), dan bagaimana prosedur manual bila sistem harus dimatikan. Ini informasi umum, bukan nasihat hukum.",
+    "sources": [
+      "https://www.cnnindonesia.com/teknologi/20261120100128-185-1429308/fbi-wanti-wanti-hacker-china-pakai-ai-canggih-untuk-bobol-bank"
+    ]
   }
 ]

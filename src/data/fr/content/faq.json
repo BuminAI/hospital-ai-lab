@@ -53,5 +53,12 @@
       "https://cnil.fr/sites/default/files/2026-03/guide_has_cnil_recommandations_ia.pdf",
       "https://eur-lex.europa.eu/eli/reg/2017/745/oj/fra"
     ]
+  },
+  {
+    "question": "Combien de jeunes se confient à une IA conversationnelle, selon la CNIL ?",
+    "answer": "Selon la publication « La Voix des jeunesses » du Groupe VYV et de la CNIL (18 novembre 2026), 48 % des jeunes de 11 à 25 ans interrogés en France disent utiliser des outils d’IA pour parler de sujets intimes, et 64 % de ceux qui lui demandent des conseils personnels la considèrent comme un « conseiller de vie ». La CNIL y voit un enjeu de santé publique, tout en précisant qu’une enquête seule n’établit pas d’effet sur la santé mentale. Information générale, pas un avis médical ni juridique.",
+    "sources": [
+      "https://www.cnil.fr/fr/ia-conversationnelle-la-voix-des-jeunesses"
+    ]
   }
 ]
