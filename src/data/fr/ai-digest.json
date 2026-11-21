@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-20T15:41:23.527Z",
-  "source": "Le Monde·ZDNet France·franceinfo·Ouest-France·Sud Ouest·Libération·Numerama·Le Figaro·Les Échos·CNIL·La Croix·Silicon.fr·Le Parisien·20 Minutes·DSIH·Challenges·La Tribune·Public Sénat·France 24",
+  "updatedAt": "2026-11-21T03:14:47.160Z",
+  "source": "Le Monde·CNIL·ZDNet France·franceinfo·Ouest-France·Sud Ouest·Libération·Numerama·Le Figaro·Les Échos·La Croix·Silicon.fr·Le Parisien·20 Minutes·DSIH·Challenges·La Tribune·Public Sénat·France 24",
   "items": [
+    {
+      "title": "« Nous ne parviendrons pas à réguler l’IA si les entreprises qui la conçoivent demeurent des autocraties »",
+      "link": "https://www.lemonde.fr/idees/article/2026/11/20/nous-ne-parviendrons-pas-a-reguler-l-ia-si-les-entreprises-qui-la-concoivent-demeurent-des-autocraties_6813688_3232.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-20T18:00:24.000Z"
+    },
+    {
+      "title": "IA et éducation : une résolution mondiale pour la protection des données",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBldzBDWGRyaUwwc0M0TlBUTGtBVTAwRk9Zc1Z2WGVIeDM1UTJLYlg0eWpxVmJ1Yi16VWZxUU43TUpsX3JSSWdiM0lWWQ?oc=5",
+      "source": "CNIL",
+      "pubDate": "2026-11-20T15:41:42.000Z"
+    },
     {
       "title": "« Il est urgent de définir les jalons d’une médecine collaborative où l’alliance entre l’IA et le soignant ne se construit pas au détriment de ce dernier »",
       "link": "https://www.lemonde.fr/sciences/article/2026/11/20/il-est-urgent-de-definir-les-jalons-d-une-medecine-collaborative-ou-l-alliance-entre-l-ia-et-le-soignant-ne-se-construit-pas-au-detriment-de-ce-dernier_6813619_1650684.html",
@@ -19,6 +31,12 @@
       "link": "https://www.lemonde.fr/economie/article/2026/11/20/ia-et-droit-d-auteur-la-proposition-de-loi-visant-a-proteger-la-creation-reste-enlisee-a-l-assemblee_6813614_3234.html",
       "source": "Le Monde",
       "pubDate": "2026-11-20T09:30:00.000Z"
+    },
+    {
+      "title": "Daniel Crowe, NETSCOUT : quand l’excès de données paralyse l’IA",
+      "link": "https://www.zdnet.fr/tribune/daniel-crowe-netscout-quand-lexces-de-donnees-paralyse-lia-508131.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-20T05:11:11.000Z"
     },
     {
       "title": "Vos recherches Google en mode IA peuvent désormais rester privées grâce aux « fils de discussion temporaires » — voici comment faire",
@@ -79,6 +97,12 @@
       "link": "https://news.google.com/rss/articles/CBMinwJBVV95cUxPYmRqekt2SEtMVWpINTZrRF9tRGlvUFhMaGg0bllTdTVHTzdjNm1obW5ueVAxbTJNdmZDNjlHRVlBOVNzT1BrVWJNSnN0cHhCSDFwM1JISGtPVk9uOG9lMEZXcXVTXy1jRTQ1VGhDWVBrWjVpd3BKSHN4QlZqYndKdWNCVWRHZWFEajBwbDhIel85d1JtZ2hCVjRkZlZpWGhjMUlOeXliZi1hQlVWRDJQR0xkMHM2bTVLMzFGMkhkeHVyOV9TWDZUS1hiQ1I0RHNCcF9QNWQtZXZOemg3YzhSNW53SzRVWndIcWVkMlRqcHNJMkx2dl9oRXdQTjNCVWE5dC1YU0JrZEFPbl9zTUVIeEdhbldRR0dmTlRYbzR4WQ?oc=5",
       "source": "Ouest-France",
       "pubDate": "2026-11-19T12:27:41.000Z"
+    },
+    {
+      "title": "La Commission européenne a été visée fin octobre par une cyberattaque assistée par l’intelligence artificielle",
+      "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOc0FtZFc2WkJqa3RBa1Y2VDZ2dFpvV054dk0tR2FjdzFMbVlhYlBxSWpSNjhndWdTNXRtdjg5azBNaGRYT2lPWDJlekJ2ZWVQTGRmSllDV05yZVhkaXdHdE1COVRpSFhNWUZNRWhPS2FPM0lMU2VjdnA5bVd6Z2VTY1NVSE9sdWlNMVVKQkFhc0k4eWU1M0NLMVN5LXlEaG1CeWpFV3dGbDFoclAzQTlQbHJPZVE3eHZoSGFtc042bVRnV0ZtTXIxTVdMUHRKOGgybkJPLVdGNkpGaE84LXR0OG5IZ3NvVE51Y2NDazNwT3FhYVVVNUt1dG9EZW0tcUk?oc=5",
+      "source": "Sud Ouest",
+      "pubDate": "2026-11-19T12:20:54.000Z"
     },
     {
       "title": "Une immense cyberattaque frappe la Commission européenne : l’arme des hackers est un outil IA qui a échappé à son propre créateur",
@@ -501,12 +525,6 @@
       "pubDate": "2026-09-25T07:00:00.000Z"
     },
     {
-      "title": "Une intelligence artificielle d'OpenAI a piraté un site du gouvernement australien pour accéder à des données qu'elle ne trouvait pas en libre accès",
-      "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNdU1kMFQyZnhOUkVWOFFySTVCY1NtZ0NiY29xWERZVFRSaTZ6S0l2SU5tUVRiZEloQXJ3bUhrVlRmNVdjVE9rNGVvY1hjNFY3Q3Bib0ZKWW53aGhrQVRUUTR0c0pxV25NUVpJbWk2ai1tMGo0RGJrOUxROGY5dWNXNXRNTXVfcU10cWgzUzU5azN5STBnQXBZR1k3XzVHRktEWkNnd0swcEdJMlFCdW9yOW9vcEhaVU1SYTY3YnoyMEV4TnhLck5SeEdZTFNHN2tWZHlKQmM4QjNxWE1kOHR1bjFTUDAxME44MTJJdFppcHptVVNVV2JvQTdJcmRSZTNIYkV3SWVrUmFmcDVrcTlBZA?oc=5",
-      "source": "franceinfo",
-      "pubDate": "2026-09-24T07:00:00.000Z"
-    },
-    {
       "title": "« Des actions que nous n’avions pas prévues » : l’IA d’OpenAI pirate un site du gouvernement australien de son propre chef, attisant les craintes des experts cyber",
       "link": "https://news.google.com/rss/articles/CBMirgJBVV95cUxPdkxkRVdsU1ctSGRDUXpxTGllNnkxdzI5NndtOUJBVXNfS1lLZjlqdlFCMzlueUZ2MDY5dk1yY25CTDJERWhtbldjRjVBT1psVWlZdm5aSjZEbDF5cWQ0VDUyWHRkUmpIczhsYVFZRmlpS2lwQ19LVG9xeVo1Z3JzYUpPa1IycVR4XzlUem9LSVl3UHIyMHhabnRpTDNXQkxuUk5FQldzZmhwN2lpb2NBd2IyRHBvT3I5Y3IwYlFNWUoxdHJBRW5pSVUzR1lMbHk4R0lpbEEzdWFIVUU2MVdNOHdwWUtYN3ZsTTFpYTNmdUctQmxYVTBlOTVsdlN1ZE1FZEVWUU85YWxLRk1KVHYtbDhhVlpzWnh2ajMzalRlaEpBRHhWYWk5SUhFbjRVdw?oc=5",
       "source": "Challenges",
@@ -522,6 +540,12 @@
       "title": "« Les entreprises ont doublé leurs investissements IA en un an » : les leçons de l'étude du BCG",
       "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNM2Q4NlhEQkNXbzRQanUycG9zNEVmb1ZuME9Uc0xveExSTTZCLUFaODV3dXF4aXZ4ZEdOZTYxd01sRThIMXhnWG5ScksydVFZeDZqeDBINS03UGxMVm1HeFM4UGxVNFlNRjBKd3ZHQ3FjZkk1XzdlSTlFNjdadmlKUkg1M2kxa1lINlZZX09DZ1NWbXBXRjBkY093YllzUFByazdwRFFUU3F3UXltWUF0TDdCZTNTNWlBbmRmeWxIaVZfMzBKbnVjZnpvZ3ZkMU5YTGdpSExETTFsRnNmbU1aOE53U1Y2WU1NMGNpSm1QM0JQYVhOd1NLVVpUQQ?oc=5",
       "source": "La Tribune",
+      "pubDate": "2026-09-24T07:00:00.000Z"
+    },
+    {
+      "title": "Une intelligence artificielle d'OpenAI a piraté un site du gouvernement australien pour accéder à des données qu'elle ne trouvait pas en libre accès",
+      "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNdU1kMFQyZnhOUkVWOFFySTVCY1NtZ0NiY29xWERZVFRSaTZ6S0l2SU5tUVRiZEloQXJ3bUhrVlRmNVdjVE9rNGVvY1hjNFY3Q3Bib0ZKWW53aGhrQVRUUTR0c0pxV25NUVpJbWk2ai1tMGo0RGJrOUxROGY5dWNXNXRNTXVfcU10cWgzUzU5azN5STBnQXBZR1k3XzVHRktEWkNnd0swcEdJMlFCdW9yOW9vcEhaVU1SYTY3YnoyMEV4TnhLck5SeEdZTFNHN2tWZHlKQmM4QjNxWE1kOHR1bjFTUDAxME44MTJJdFppcHptVVNVV2JvQTdJcmRSZTNIYkV3SWVrUmFmcDVrcTlBZA?oc=5",
+      "source": "franceinfo",
       "pubDate": "2026-09-24T07:00:00.000Z"
     },
     {
