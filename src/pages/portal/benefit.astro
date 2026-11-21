@@ -1,0 +1,356 @@
+---
+// 공공 포털 › 선별급여·한정급여·평가유예 신의료기술 (2026-11-21, 오너 지시).
+// 자료: 보건복지부 고시를 정리한 목록(src/data/portal/benefit.json). scripts/fetch-benefit.mjs 가 구글 시트(앱스스크립트)에서 받아
+// 갱신한다(GitHub Secret BENEFIT_GAS_URL 이 있을 때만; update-benefit.yml). 빌드 때 표로 구워 정적으로 배포하고, 구분·적용상태·검색은 브라우저에서 거른다.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/site';
+import data from '../../data/portal/benefit.json';
+
+interface Item {
+  type: string;
+  name: string;
+  code: string;
+  startDate: string;
+  endDate: string;
+  usage: string;
+  reason: string;
+  target: string;
+  source: string;
+  url: string;
+}
+const items = (data.items as Item[]) ?? [];
+
+const LAW = 'https://www.law.go.kr/행정규칙/선별급여지정및실시등에관한기준';
+const TEMP = 'https://www.law.go.kr/행정규칙/평가유예신의료기술고시';
+const TYPE_LABEL: Record<string, string> = { 선별급여: '선별급여', 한정급여: '한정급여', 한시적비급여: '한시적 비급여' };
+const TYPE_CLASS: Record<string, string> = { 선별급여: 'bf-sel', 한정급여: 'bf-lim', 한시적비급여: 'bf-tmp' };
+
+// 종료·중지·전환 여부(개인 대시보드와 같은 규칙): 이름·코드에 급여중지·비급여전환 표시가 있거나, 마감일이 오늘 이전의 날짜면 종료.
+const kstToday = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+function expired(it: Item): boolean {
+  const nm = it.name, cd = it.code, ed = it.endDate;
+  if (nm.includes('[급여중지]') || nm.includes('[비급여전환]') || cd.includes('급여중지') || cd.includes('비급여 전환')) return true;
+  if (!ed || ed.includes('개정') || ed.includes('상시') || ed.includes('한시')) return false;
+  if (!/^\d{4}-\d{2}-\d{2}/.test(ed)) return false; // '평가주기 5년' 같은 문구를 날짜로 오해하지 않게
+  return ed.slice(0, 10) < kstToday;
+}
+const linkOf = (it: Item) => (it.url ? it.url : it.type === '한시적비급여' ? TEMP : LAW);
+
+const rows = items.map((it) => ({ ...it, ex: expired(it), href: linkOf(it) }));
+const count = (f: (r: (typeof rows)[number]) => boolean) => rows.filter(f).length;
+const exN = count((r) => r.ex);
+const cards: [string, number][] = [
+  ['전체', rows.length],
+  ['선별급여', count((r) => r.type === '선별급여')],
+  ['한정급여', count((r) => r.type === '한정급여')],
+  ['한시적 비급여(평가유예·혁신)', count((r) => r.type === '한시적비급여')],
+  ['현행 적용중', rows.length - exN],
+  ['종료·중지·전환', exN],
+];
+const kst = data.updatedAt ? new Date(data.updatedAt).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16) : '';
+---
+
+<BaseLayout
+  title="선별급여·한정급여·평가유예 신의료기술 조회: 항목·본인부담률·적용 기간"
+  description="보건복지부 고시 기준의 선별급여·한정급여·한시적 비급여(평가유예 신의료기술) 항목을 한곳에서 검색합니다. 항목별 본인부담률, 적용 기간, 사용처, 공식 고시 링크를 제공합니다."
+>
+  <section class="container bf">
+    <h1>선별급여 · 한정급여 · 평가유예 신의료기술</h1>
+    <p class="lead">
+      보건복지부 고시 기준의 선별급여·한정급여·한시적 비급여(평가유예 신의료기술) 항목을 한곳에서 검색합니다.
+    </p>
+    <p class="bf-asof">자료 갱신 {kst}(한국시간) · 총 {rows.length.toLocaleString('ko-KR')}건</p>
+
+    <div class="bf-cards">
+      {cards.map(([label, n]) => <div><span>{label}</span><b>{n.toLocaleString('ko-KR')}건</b></div>)}
+    </div>
+
+    <form class="bf-bar" id="bf-bar" onsubmit="return false" aria-label="항목 거르기">
+      <select id="bf-type" aria-label="구분">
+        <option value="">구분 전체</option>
+        <option value="선별급여">선별급여</option>
+        <option value="한정급여">한정급여</option>
+        <option value="한시적비급여">한시적 비급여</option>
+      </select>
+      <select id="bf-state" aria-label="적용상태">
+        <option value="">적용상태 전체</option>
+        <option value="on">현행 적용중</option>
+        <option value="off">종료·중지·전환</option>
+      </select>
+      <input id="bf-q" type="search" placeholder="항목명·분류코드·사용처·대상 검색" aria-label="검색" autocomplete="off" />
+      <button type="button" id="bf-reset" class="bf-btn">초기화</button>
+      <span class="bf-count" id="bf-count" aria-live="polite"></span>
+    </form>
+
+    <div class="bf-scroll">
+      <table class="bf-table" id="bf-table">
+        <thead>
+          <tr>
+            <th><button type="button" data-sort="type">구분 / 상태 <i></i></button></th>
+            <th><button type="button" data-sort="name">항목명 · 분류 <i></i></button></th>
+            <th><button type="button" data-sort="start">적용 시작 / 마감 <i></i></button></th>
+            <th><button type="button" data-sort="usage">사용처(임상적 용도) <i></i></button></th>
+            <th><button type="button" data-sort="reason">지정·산정 사유 <i></i></button></th>
+            <th>주 대상 · 원문</th>
+          </tr>
+        </thead>
+        <tbody id="bf-body">
+          {
+            rows.map((r) => (
+              <tr
+                data-type={r.type}
+                data-state={r.ex ? 'off' : 'on'}
+                data-text={`${r.name} ${r.code} ${r.usage} ${r.reason} ${r.target} ${r.source}`.toLowerCase()}
+                data-name={`${r.name} ${r.code}`}
+                data-start={r.startDate}
+                data-usage={r.usage}
+                data-reason={r.reason}
+              >
+                <td>
+                  <span class={`bf-b ${TYPE_CLASS[r.type] ?? 'bf-lim'}`}>{TYPE_LABEL[r.type] ?? r.type}</span>
+                  <br />
+                  <span class={`bf-b ${r.ex ? 'bf-off' : 'bf-on'}`}>{r.ex ? '종료·중지·전환' : '현행 적용중'}</span>
+                </td>
+                <td>
+                  <div class="nm">{r.name}</div>
+                  <div class="sub">{r.code}</div>
+                </td>
+                <td class="sub">
+                  <div><b>시작</b> {r.startDate}</div>
+                  <div><b>마감</b> {r.endDate}</div>
+                </td>
+                <td class="sub">{r.usage}</td>
+                <td class="sub">{r.reason}</td>
+                <td class="sub">
+                  <div>{r.target}</div>
+                  <div class="muted">{r.source}</div>
+                  <div class="bf-links"><a href={r.href} target="_blank" rel="noopener">공식 고시 보기 ↗</a></div>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="bf-none" id="bf-none" hidden>조건에 맞는 항목이 없습니다.</p>
+
+    <h2>읽는 법과 한계</h2>
+    <ul class="bf-notes">
+      <li>
+        출처: 법제처 국가법령정보센터(<a href="https://www.law.go.kr" target="_blank" rel="noopener">law.go.kr</a>), 건강보험심사평가원(<a href="https://www.hira.or.kr" target="_blank" rel="noopener">HIRA</a>), 한국보건의료연구원(<a href="https://www.neca.re.kr" target="_blank" rel="noopener">NECA</a>)
+        고시를 정리한 자료입니다. 실제 적용 전에는 반드시 공식 고시 원문을 확인하세요.
+      </li>
+      <li>‘종료·중지·전환’은 항목 이름·코드의 급여중지·비급여전환 표시이거나 적용 마감일이 오늘 이전인 경우로 단순 판정한 것이며, 정확한 적용 여부는 고시 원문에서 확인해야 합니다.</li>
+      <li>‘공식 고시 보기’는 항목별 원문 주소가 있으면 그 주소를, 없으면 해당 고시(선별급여 지정 및 실시 등에 관한 기준 / 평가유예 신의료기술 고시)의 법제처 페이지로 연결합니다.</li>
+      <li>특정 환자의 진단·치료나 본인부담금을 안내하는 자료가 아닙니다.</li>
+    </ul>
+    <p class="bf-back"><a href={withBase('/portal/')}>← 공공 포털</a></p>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var body = document.getElementById('bf-body');
+    if (!body) return;
+    var rows = Array.prototype.slice.call(body.querySelectorAll('tr'));
+    var selType = document.getElementById('bf-type'), selState = document.getElementById('bf-state'), q = document.getElementById('bf-q');
+    var countEl = document.getElementById('bf-count'), noneEl = document.getElementById('bf-none'), table = document.getElementById('bf-table');
+    var key = '', dir = 1;
+    function apply() {
+      var t = selType.value, s = selState.value, w = q.value.trim().toLowerCase(), n = 0;
+      rows.forEach(function (tr) {
+        var ok = (!t || tr.getAttribute('data-type') === t) && (!s || tr.getAttribute('data-state') === s) && (!w || tr.getAttribute('data-text').indexOf(w) >= 0);
+        tr.hidden = !ok;
+        if (ok) n++;
+      });
+      countEl.textContent = n === rows.length ? '' : n.toLocaleString('ko-KR') + '건 표시';
+      noneEl.hidden = n !== 0;
+      table.hidden = n === 0;
+    }
+    function sortBy(k) {
+      dir = key === k ? -dir : 1;
+      key = k;
+      var f = function (tr) { return tr.getAttribute('data-' + k) || ''; };
+      var sorted = rows.slice().sort(function (a, b) { return f(a).localeCompare(f(b), 'ko') * dir; });
+      sorted.forEach(function (tr) { body.appendChild(tr); });
+      Array.prototype.forEach.call(document.querySelectorAll('.bf-table th button'), function (b) {
+        var i = b.querySelector('i');
+        i.textContent = b.getAttribute('data-sort') === key ? (dir > 0 ? '▲' : '▼') : '';
+      });
+    }
+    selType.addEventListener('change', apply);
+    selState.addEventListener('change', apply);
+    q.addEventListener('input', apply);
+    document.getElementById('bf-reset').addEventListener('click', function () { selType.value = ''; selState.value = ''; q.value = ''; apply(); });
+    Array.prototype.forEach.call(document.querySelectorAll('.bf-table th button'), function (b) {
+      b.addEventListener('click', function () { sortBy(b.getAttribute('data-sort')); });
+    });
+  })();
+</script>
+
+<style is:global>
+  .bf {
+    padding: 2rem 0 3rem;
+  }
+  .container.bf {
+    max-width: min(1500px, 98vw);
+  }
+  .bf .lead {
+    max-width: 48rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .bf-asof {
+    margin: 0.75rem 0;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .bf-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 0.6rem;
+    margin: 0 0 1rem;
+  }
+  .bf-cards div {
+    padding: 0.6rem 0.8rem;
+    background: var(--color-surface);
+    border-radius: 10px;
+  }
+  .bf-cards span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+  .bf-cards b {
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+  .bf-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 0.8rem;
+  }
+  .bf-bar select,
+  .bf-bar input {
+    padding: 0.5rem 0.65rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+  }
+  .bf-bar input {
+    flex: 1;
+    min-width: 14rem;
+  }
+  .bf-btn {
+    padding: 0.45rem 1rem;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .bf-count {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  .bf-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .bf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  .bf-table th,
+  .bf-table td {
+    padding: 0.5rem 0.55rem;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid var(--color-border);
+  }
+  .bf-table th {
+    background: var(--color-surface);
+    line-height: 1.25;
+  }
+  .bf-table th button {
+    padding: 0;
+    font: inherit;
+    font-weight: 700;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-align: left;
+  }
+  .bf-table th button i {
+    font-style: normal;
+    font-size: 0.7rem;
+    margin-left: 0.15rem;
+  }
+  .bf-table .nm {
+    font-weight: 700;
+  }
+  .bf-table .sub {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+  .bf-table td:nth-child(1) {
+    white-space: nowrap;
+  }
+  .bf-table td:nth-child(2) {
+    min-width: 12rem;
+  }
+  .bf-table td:nth-child(3) {
+    white-space: nowrap;
+  }
+  .bf-b {
+    display: inline-block;
+    margin: 0 0 0.25rem;
+    padding: 0.05rem 0.55rem;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .bf-sel { background: rgba(245, 158, 11, 0.22); color: #92400e; }
+  .bf-lim { background: rgba(99, 102, 241, 0.2); color: #3730a3; }
+  .bf-tmp { background: rgba(20, 184, 166, 0.22); color: #115e59; }
+  .bf-on { background: rgba(34, 197, 94, 0.2); color: #166534; }
+  .bf-off { background: rgba(239, 68, 68, 0.2); color: #991b1b; }
+  @media (prefers-color-scheme: dark) {
+    .bf-sel { color: #fcd34d; }
+    .bf-lim { color: #a5b4fc; }
+    .bf-tmp { color: #5eead4; }
+    .bf-on { color: #86efac; }
+    .bf-off { color: #fca5a5; }
+  }
+  .bf-links a {
+    white-space: nowrap;
+  }
+  .bf-none {
+    margin: 1rem 0;
+    color: var(--color-muted);
+  }
+  .bf-notes {
+    max-width: 52rem;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+  .bf-notes li {
+    margin: 0.35rem 0;
+  }
+  .bf-back {
+    margin-top: 1.5rem;
+  }
+</style>
