@@ -1,0 +1,169 @@
+/* 언어판 홈 공통 색감 (2026-11-21, 오너 지시: next-t.co.kr의 색감을 따라 하기).
+   한국어판 홈(src/pages/index.astro)과 같은 팔레트를 일본어·러시아어·인도네시아어·대만어·영어(미국·인도·싱가포르·아일랜드·UAE)·
+   필리핀어·프랑스어판 홈에 입힌다. 짙은 네이비(#0b1120→#0d1526) + 파랑·보라·하늘 그라데이션 + 민트(#34d399) 포인트.
+
+   ⚠️ 홈 페이지에서만 로드한다(각 <loc>/index.astro가 import). 글자·글꼴·문구·구조는 건드리지 않고 색과 모서리만 바꾼다.
+   ⚠️ 클래스는 일본어판이 jh-*, 나머지가 th-* 라서 :is()로 둘 다 받는다. 기존 규칙보다 앞서도록 html[data-locale]를 붙였다. */
+
+/* 짙은 페이지(러시아어·인도네시아어판 luxe 테마의 갈색 바탕)를 네이비로 */
+html[data-locale='ru'] body:has(.th-hero),
+html[data-locale='id'] body:has(.th-hero) {
+  background: #0b1120;
+}
+
+/* luxe 테마의 포인트색(금색·연파랑)을 민트로 — 홈에서만 */
+body:has(.th-hero),
+body:has(.jh-hero) {
+  --en-gold: #34d399;
+  --en-gold-soft: #6ee7b7;
+  --en-hair: rgba(148, 163, 184, 0.22);
+  --in-gold: #34d399;
+  --in-gold-soft: #6ee7b7;
+  --in-hair: rgba(148, 163, 184, 0.22);
+  --sg-gold: #34d399;
+  --sg-gold-soft: #6ee7b7;
+  --sg-hair: rgba(148, 163, 184, 0.22);
+  --ph-gold: #34d399;
+  --ph-gold-soft: #6ee7b7;
+  --ph-hair: rgba(148, 163, 184, 0.22);
+  --ae-gold: #34d399;
+  --ae-gold-soft: #6ee7b7;
+  --ae-hair: rgba(148, 163, 184, 0.22);
+  --ie-gold: #34d399;
+  --ie-gold-soft: #6ee7b7;
+  --ie-hair: rgba(148, 163, 184, 0.22);
+  --fr-gold: #34d399;
+  --fr-gold-soft: #6ee7b7;
+  --fr-hair: rgba(148, 163, 184, 0.22);
+  --ru-gold: #34d399;
+  --ru-gold-soft: #6ee7b7;
+  --ru-hair: rgba(148, 163, 184, 0.22);
+  --id-gold: #34d399;
+  --id-gold-soft: #6ee7b7;
+  --id-hair: rgba(148, 163, 184, 0.22);
+}
+
+/* ── 히어로 ── */
+html[data-locale] :is(.th-hero, .jh-hero) {
+  color: #fff;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  background:
+    radial-gradient(40rem 24rem at 88% -8%, rgba(37, 99, 235, 0.42), transparent 62%),
+    radial-gradient(34rem 22rem at 4% 108%, rgba(124, 58, 237, 0.3), transparent 62%),
+    radial-gradient(26rem 16rem at 60% 120%, rgba(14, 165, 233, 0.22), transparent 62%),
+    linear-gradient(180deg, #0b1120 0%, #0d1526 100%);
+}
+html[data-locale] .th-hero::after {
+  display: none;
+}
+html[data-locale] :is(.th-eyebrow, .jh-eyebrow) {
+  color: #34d399;
+}
+html[data-locale] .th-eyebrow::before {
+  background: #34d399;
+}
+html[data-locale] :is(.th-hero h1, .jh-hero h1) {
+  color: #fff;
+}
+
+/* ── 버튼: 알약형 + 파랑→보라 그라데이션 ── */
+html[data-locale] :is(.th-btn, .jh-btn) {
+  border: 0;
+  border-radius: 999px;
+}
+html[data-locale] :is(.th-btn-main, .jh-btn-main) {
+  color: #fff !important;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+html[data-locale] :is(.th-btn-main, .jh-btn-main):hover {
+  background: linear-gradient(135deg, #3b74f0 0%, #8b4df0 100%);
+}
+html[data-locale] :is(.th-btn-sub, .jh-btn-sub) {
+  color: #e8edf6 !important;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(17, 26, 46, 0.6);
+}
+html[data-locale] :is(.th-btn-sub, .jh-btn-sub):hover {
+  background: rgba(37, 99, 235, 0.22);
+}
+
+/* ── 히어로 안 '최신 소식' 카드 ── */
+html[data-locale] :is(.th-hero-card, .jh-hero-card) {
+  background: rgba(17, 26, 46, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.55);
+}
+html[data-locale] :is(.th-hero-card h2, .jh-hero-card h2) {
+  color: #34d399;
+}
+html[data-locale] :is(.th-dot, .jh-dot) {
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25);
+}
+
+/* ── 숫자 띠 ── */
+html[data-locale] :is(.th-stats, .jh-stats) {
+  background: #0b1120;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+html[data-locale] :is(.th-stats li + li, .jh-stats li + li) {
+  border-left-color: rgba(148, 163, 184, 0.16);
+}
+html[data-locale] :is(.th-num, .jh-num) {
+  font-family: 'Outfit', 'Pretendard', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 55%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ── '전체 메뉴' 구역: 화면 폭 전체를 덮는 네이비 띠 + 유리 느낌 카드 ── */
+html[data-locale] :is(.th-sec, .jh-sec):has(#th-menu-h, #jh-menu-h) {
+  background: #0b1120;
+  box-shadow: 0 0 0 100vmax #0b1120;
+  clip-path: inset(0 -100vmax);
+  padding-block: 3rem;
+}
+html[data-locale] :is(.th-sec, .jh-sec):has(#th-menu-h, #jh-menu-h) :is(.th-h, .jh-h) {
+  color: #e8edf6;
+}
+html[data-locale] :is(.th-sec, .jh-sec):has(#th-menu-h, #jh-menu-h) :is(.th-h small, .jh-h small) {
+  color: #34d399;
+}
+html[data-locale] :is(.th-sec, .jh-sec):has(#th-menu-h, #jh-menu-h) :is(.th-lib a, .jh-lib a) {
+  background: rgba(17, 26, 46, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 14px;
+  color: #e8edf6;
+  transition: border-color 0.2s, transform 0.2s;
+}
+html[data-locale] :is(.th-sec, .jh-sec):has(#th-menu-h, #jh-menu-h) :is(.th-lib a, .jh-lib a):hover {
+  border-color: rgba(52, 211, 153, 0.55);
+  transform: translateY(-2px);
+}
+html[data-locale] :is(.th-sec, .jh-sec):has(#th-menu-h, #jh-menu-h) :is(.th-lib strong, .jh-lib strong) {
+  color: #e8edf6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-locale] :is(.th-sec, .jh-sec):has(#th-menu-h, #jh-menu-h) :is(.th-lib a, .jh-lib a) {
+    transition: none;
+  }
+  html[data-locale] :is(.th-sec, .jh-sec):has(#th-menu-h, #jh-menu-h) :is(.th-lib a, .jh-lib a):hover {
+    transform: none;
+  }
+}
+
+/* 러시아어·인도네시아어판은 luxe 테마의 헤더·메뉴·푸터가 갈색 검정(#050403·#0a0908)으로 박혀 있다. 홈에서는 네이비로 맞춘다. */
+html[data-locale='ru'] body:has(.th-hero) :is(.ru-header, .ru-footer),
+html[data-locale='id'] body:has(.th-hero) :is(.id-header, .id-footer) {
+  background: #070d1a;
+}
+html[data-locale='ru'] body:has(.th-hero) .ru-nav,
+html[data-locale='id'] body:has(.th-hero) .id-nav {
+  background: #0b1120;
+}
