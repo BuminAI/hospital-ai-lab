@@ -1,0 +1,21 @@
+name: Probe HIRA OpenAPI
+
+# 공공 포털 › 규모·인력 비교 준비용 수동 점검(2026-11-21). 저장·커밋·배포 없이 로그만 남긴다.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 심평원 OpenAPI 점검
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+        run: node scripts/probe-hira.mjs
