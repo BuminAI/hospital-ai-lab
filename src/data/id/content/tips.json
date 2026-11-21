@@ -7,6 +7,41 @@
   },
   "sections": [
     {
+      "heading": "TIP 11 — Jika urutan penting, beri nomor dan tulis satu langkah per baris",
+      "body": "Dengan daftar bernomor, langkah lebih jarang terlewat atau tertukar urutannya.",
+      "items": []
+    },
+    {
+      "heading": "Beberapa pekerjaan dalam satu kalimat: salah satunya bisa hilang",
+      "body": "Anda meminta, 'baca notulen, ambil keputusan, tentukan penanggung jawab, lalu jadikan pengumuman' dalam satu kalimat. AI bisa melewati langkah di tengah atau menjawab dengan urutan lain. Bagi Anda semuanya sudah disebutkan, tetapi bagi pembaca semuanya tampak sebagai satu gumpalan.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: beri nomor tiap langkah dan tulis satu per baris",
+      "body": "Panduan resmi Anthropic (perusahaan pembuat Claude) pada bagian 'Be clear and direct' (tulis dengan jelas dan langsung) menyarankan agar, ketika urutan atau kelengkapan langkah penting, instruksi ditulis sebagai langkah berurutan dalam daftar bernomor atau berpoin. Ubah permintaan di atas seperti ini. Ganti isi dalam kurung sesuai keperluan Anda.",
+      "items": [
+        "Kerjakan sesuai urutan. 1. (pekerjaan pertama, misalnya: ambil hanya keputusan dari notulen di bawah) 2. (pekerjaan kedua, misalnya: tulis penanggung jawab untuk tiap keputusan) 3. (pekerjaan ketiga, misalnya: susun draf pengumuman dari isi nomor 1 dan 2)"
+      ]
+    },
+    {
+      "heading": "Satu lagi: sebutkan juga bentuk hasil yang diinginkan",
+      "body": "Pada bagian yang sama, panduan juga menyarankan agar Anda menyebut format keluaran dan batasan yang diinginkan secara spesifik. Contohnya, tambahkan satu baris di akhir: 'pengumuman maksimal lima baris'. Kalimat contoh ini adalah penerapan dari saran panduan.",
+      "items": []
+    },
+    {
+      "heading": "Hal yang perlu diingat",
+      "body": "Nomor tidak menjamin AI mengerjakan semua langkah dengan benar. Setelah hasil keluar, periksa apakah ada langkah yang terlewat, lalu cocokkan tanggal, nama penanggung jawab, dan jumlah uang dengan dokumen asli. Jangan memasukkan materi yang memuat data pribadi pasien ke layanan AI; periksa dulu kebijakan keamanan informasi rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, 'Prompting best practices', bagian 'Be clear and direct' (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Tanggal pemeriksaan sumber: 22 November 2026"
+      ]
+    },
+    {
       "heading": "TIP 10 — Saat bahan dan permintaan bercampur, pisahkan dengan tag",
       "body": "Jika bahan dan instruksi dibungkus tag bertanda kurung sudut, AI lebih jarang tertukar antara keduanya.",
       "items": []
