@@ -1,24 +1,16 @@
 {
-  "checkedAt": "2026-11-20T00:44:52.318Z",
-  "total": 149,
-  "ok": 145,
-  "unknown": 4,
+  "checkedAt": "2026-11-21T00:04:47.168Z",
+  "total": 150,
+  "ok": 148,
+  "unknown": 2,
   "unknownList": [
     {
       "url": "https://shirobon.net/doubt/r06/007-q023-00-00-i/",
       "status": 403
     },
     {
-      "url": "https://medical.secom.co.jp/it/hospinet/column/post-7.html",
-      "status": 503
-    },
-    {
       "url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2781307",
       "status": 403
-    },
-    {
-      "url": "https://www.jahis.jp/",
-      "status": 503
     }
   ],
   "dead": []
