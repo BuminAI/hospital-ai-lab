@@ -48,8 +48,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       <table class="hp-table" id="hp-table" hidden>
         <thead>
           <tr>
-            <th>시·도</th>
-            <th>시·군·구</th>
+            <th>지역</th>
             <th>종별</th>
             <th><button type="button" data-sort="name">기관명 <i></i></button></th>
             <th class="num"><button type="button" data-sort="beds">허가 병상 <i></i></button></th>
@@ -184,7 +183,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
     function detailRow(h) {
       var tr = el('tr', 'hp-detail');
       var td = el('td');
-      td.colSpan = 14;
+      td.colSpan = 13;
       var d = h.doc || {}, b = h.beds;
       var base = [h.addr];
       if (h.tel) base.push('전화 ' + h.tel);
@@ -229,8 +228,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
 
     function rowFor(h) {
       var tr = document.createElement('tr');
-      tr.appendChild(el('td', '', h.sido));
-      tr.appendChild(el('td', '', h.sigungu || '—'));
+      tr.appendChild(el('td', 'hp-area', h.sido.replace(/(특별시|광역시|특별자치시|특별자치도|통합특별시)$/, '') + (h.sigungu ? ' ' + h.sigungu : '')));
       tr.appendChild(el('td', 'hp-cl', h.clName));
       var nm = el('td', 'hp-name', h.name);
       tr.appendChild(nm);
@@ -363,6 +361,10 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
   .hp {
     padding: 2rem 0 3rem;
   }
+  /* 열이 많은 표라 본문 폭 제한을 넓혀(최대 1500px) 좌우 스크롤 없이 한 화면에 보이게 한다. */
+  .container.hp {
+    max-width: min(1500px, 98vw);
+  }
   .hp .lead {
     max-width: 48rem;
     color: var(--color-muted);
@@ -422,15 +424,30 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
   .hp-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    table-layout: auto;
   }
   .hp-table th,
   .hp-table td {
-    padding: 0.45rem 0.65rem;
+    padding: 0.4rem 0.35rem;
     text-align: left;
     vertical-align: top;
     border-bottom: 1px solid var(--color-border);
+  }
+  .hp-table td {
     white-space: nowrap;
+  }
+  .hp-table th {
+    white-space: normal;
+    line-height: 1.25;
+  }
+  .hp-table td.hp-area {
+    white-space: normal;
+    min-width: 4.5rem;
+  }
+  .hp-table td.hp-cl {
+    white-space: normal;
+    min-width: 3.2rem;
   }
   .hp-table th {
     background: var(--color-surface);
@@ -457,7 +474,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
   .hp-name {
     font-weight: 700;
     white-space: normal !important;
-    min-width: 12rem;
+    min-width: 9rem;
   }
   .hp-open {
     padding: 0.1rem 0.7rem;
