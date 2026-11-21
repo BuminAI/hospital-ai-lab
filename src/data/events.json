@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-20T17:11:17.538Z",
+  "updatedAt": "2026-11-21T07:38:49.119Z",
   "items": [
+    {
+      "title": "과기정통부, '청소년 로보틱스 챌린지' 결선 개최",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=717070",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-21T11:00:00.000Z"
+    },
+    {
+      "title": "MTN, 오는 25일 '2026 서울퓨처포럼' 개최…韓 AI 경제 생존 전략 제시",
+      "link": "https://www.newsis.com/view/NISX20261121_0003877748",
+      "source": "뉴시스",
+      "pubDate": "2026-11-21T06:59:58.000Z"
+    },
+    {
+      "title": "미래 피지컬 AI 인재 한자리에…청소년 114명, 로봇 실력 겨룬다",
+      "link": "https://zdnet.co.kr/view/?no=20261121081600",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-21T02:00:02.000Z"
+    },
     {
       "title": "제약바이오협, 하반기 윤리경영 워크숍...CSO 규제부터 AI 마케팅까지",
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549491",
@@ -29,7 +47,9 @@
       "title": "제약바이오협회, CSO 규제 강화에 업계 대응 방안 모색",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=80955",
       "source": "히트뉴스",
-      "pubDate": "2026-11-20T11:30:44.000Z"
+      "pubDate": "2026-11-20T11:30:44.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "제약바이오협, ‘윤리경영 워크숍’ 개최… CSO 규제·AI 마케팅 CP 점검",
@@ -1130,5 +1150,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "청년의사 · 의협신문 · 의학신문 · 히트뉴스 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · AI타임스 · 보건복지부"
+  "source": "청년의사 · 의협신문 · 의학신문 · 히트뉴스 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · AI타임스 · 보건복지부 · ZDNet Korea · 뉴시스 · 디지털투데이"
 }
