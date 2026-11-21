@@ -6,6 +6,11 @@ on:
     # 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다.
     - cron: '23 15 * * *'
   workflow_dispatch:
+    inputs:
+      budget:
+        description: '이번 실행의 심평원 호출 예산(기본 900, 한도 1,000건/일)'
+        required: false
+        default: '900'
 
 permissions:
   contents: write # portal-hospitals 브랜치 푸시
@@ -39,6 +44,7 @@ jobs:
       - name: 규모·인력 수집(심평원 OpenAPI)
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+          HIRA_DAILY_BUDGET: ${{ github.event.inputs.budget || '900' }}
         run: node scripts/fetch-hospitals.mjs "$RUNNER_TEMP/prev.json" "$RUNNER_TEMP/hospitals.json"
 
       # 히스토리가 쌓이지 않게 매번 커밋 하나짜리 브랜치로 덮어쓴다(--force). 이전 결과는 위에서 이미 읽었다.

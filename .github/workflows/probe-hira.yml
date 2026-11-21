@@ -1,5 +1,6 @@
 name: Probe HIRA OpenAPI
 
+# 공공 포털 › 규모·인력 비교 준비용 수동 점검(2026-11-21). 저장·커밋·배포 없이 로그만 남긴다.
 on:
   workflow_dispatch:
 
@@ -9,24 +10,12 @@ permissions:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: 수집기 시험(예산 60회)
+      - name: 심평원 OpenAPI 점검
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
-          HIRA_DAILY_BUDGET: '120'
-        run: |
-          node scripts/fetch-hospitals.mjs "" "$RUNNER_TEMP/h.json"
-          node -e "
-          const d=JSON.parse(require('fs').readFileSync(process.env.RUNNER_TEMP+'/h.json','utf8'));
-          const by={};d.items.forEach(h=>{by[h.sido]=(by[h.sido]||0)+1});
-          console.log('시도별',JSON.stringify(by));
-          const cl={};d.items.forEach(h=>{cl[h.clName]=(cl[h.clName]||0)+1});console.log('종별',JSON.stringify(cl));
-          const h=d.items.find(x=>x.beds)||d.items[0];console.log('샘플',JSON.stringify(h));
-          console.log('beds 채움',d.items.filter(x=>x.beds&&x.beds.permSbdCnt!=null).length,'의사 total null',d.items.filter(x=>x.doc.total==null).length,'sigungu 없음',d.items.filter(x=>!x.sigungu).length);
-          console.log('크기KB',Math.round(JSON.stringify(d).length/1024));
-          "
+        run: node scripts/probe-hira.mjs
