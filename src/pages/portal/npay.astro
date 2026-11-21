@@ -1,0 +1,420 @@
+---
+// 공공 포털 › 비급여 진료비 (2026-11-21, 오너 지시).
+// 자료: scripts/fetch-npay.mjs 가 GitHub Actions(update-npay.yml)에서 매주 받아 `portal-npay` 브랜치에 올린다 —
+//   index.json(병원 목록·항목 목록)과 items/<코드>.json(한 항목의 병원별 가격). 이 페이지는 브라우저에서 그 파일을 읽는다(재배포 없음).
+// 특정 병원 기준·고정 강조 없이 전국 병원급 이상 의료기관의 비급여 가격을 항목별로 비교하고, 시도·시군구 드롭다운으로 거른다.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/site';
+
+const BASE_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/portal-npay';
+---
+
+<BaseLayout
+  title="전국 비급여 진료비 비교: 항목별 병원 가격을 지자체별로"
+  description="MRI·도수치·상급병실료 등 비급여 항목을 고르면 전국 병원급 이상 의료기관의 가격을 시도·시군구 드롭다운으로 골라 비교합니다. 건강보험심사평가원 공개 자료 기준입니다."
+>
+  <section class="container np" data-base={BASE_URL}>
+    <h1>전국 비급여 진료비 비교</h1>
+    <p class="lead">
+      건강보험심사평가원(심평원) 공개 자료로, 전국 병원급 이상 의료기관이 신고한 비급여 항목의 현재 가격을 항목별로 비교합니다.
+      특정 병원을 기준으로 삼지 않고 전국을 같은 기준으로 보여 줍니다.
+    </p>
+    <p class="np-asof" id="np-asof" role="status">자료를 불러오는 중…</p>
+
+    <div class="np-grid">
+      <aside class="np-side">
+        <h2>비급여 항목</h2>
+        <input class="np-q" id="np-q" type="search" placeholder="항목 검색 (예: MRI, 도수치, 1인실)" autocomplete="off" />
+        <div class="np-list" id="np-list"><p class="np-empty">불러오는 중…</p></div>
+      </aside>
+
+      <div class="np-main" id="np-main">
+        <p class="np-empty">왼쪽에서 비급여 항목을 고르면 병원별 가격이 나옵니다.</p>
+      </div>
+    </div>
+
+    <h2>읽는 법과 한계</h2>
+    <ul class="np-notes">
+      <li>자료: 건강보험심사평가원 비급여진료비정보조회서비스(공공데이터포털 OpenAPI). 의료기관이 심평원에 신고한 현재 금액(원)이며 병원급 이상이 대상입니다. 의원은 포함되지 않습니다.</li>
+      <li>같은 항목이라도 병원마다 세부 구성이 다를 수 있어 ‘병원 표기 항목명’(병원이 쓰는 항목 이름)을 함께 확인해야 합니다. 가격이 낮다고 같은 서비스는 아닙니다.</li>
+      <li>자료는 매주 한 번 새로 받으며, 그 사이 병원이 가격을 바꿨을 수 있습니다. 정확한 금액은 해당 병원에 확인해야 합니다.</li>
+      <li>병원 우열을 판단하거나 의료기관을 추천하는 자료가 아닙니다.</li>
+    </ul>
+    <p class="np-back"><a href={withBase('/portal/')}>← 공공 포털</a></p>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var root = document.querySelector('.np');
+    if (!root) return;
+    var BASE = root.getAttribute('data-base');
+    var $ = function (id) { return document.getElementById(id); };
+    var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+    var won = function (n) { return Math.round(n).toLocaleString('ko-KR'); };
+    var H = [], ITEMS = [], cur = null, rows = [], sort = 'asc', shown = 0, PAGE = 200, list = [];
+    var sggBySido = {};
+
+    function kst(iso) {
+      try { return new Date(iso).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16); } catch (e) { return ''; }
+    }
+    function getJson(path) {
+      return fetch(BASE + path + '?t=' + Math.floor(Date.now() / 600000), { cache: 'no-cache' }).then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      });
+    }
+
+    function renderList() {
+      var q = $('np-q').value.trim().replace(/\s+/g, '').toLowerCase();
+      var out = '', last = '', n = 0;
+      for (var i = 0; i < ITEMS.length; i++) {
+        var it = ITEMS[i];
+        if (q && (it.n + it.m).replace(/\s+/g, '').toLowerCase().indexOf(q) < 0) continue;
+        if (it.m !== last) { out += '<div class="np-grp">' + esc(it.m) + '</div>'; last = it.m; }
+        out += '<button type="button" class="np-it' + (cur && cur.c === it.c ? ' on' : '') + '" data-c="' + esc(it.c) + '"><span>' + esc(it.n.split('/').slice(-2).join(' / ')) + '</span><small>' + it.h.toLocaleString('ko-KR') + '곳</small></button>';
+        if (++n > 400) { out += '<p class="np-empty">검색어를 더 입력해 주세요 (400개까지 표시)</p>'; break; }
+      }
+      $('np-list').innerHTML = out || '<p class="np-empty">맞는 항목이 없습니다.</p>';
+    }
+
+    function pick(code, keep) {
+      cur = null;
+      for (var i = 0; i < ITEMS.length; i++) if (ITEMS[i].c === code) cur = ITEMS[i];
+      if (!cur) return;
+      renderList();
+      $('np-main').innerHTML = '<p class="np-empty">불러오는 중…</p>';
+      getJson('/items/' + encodeURIComponent(code) + '.json').then(function (arr) {
+        rows = arr.map(function (r) { return { h: H[r[0]], p: r[1], own: r[2], from: r[3] }; }).filter(function (x) { return x.h; });
+        main(true, keep);
+      }).catch(function (e) {
+        $('np-main').innerHTML = '<p class="np-empty">불러오지 못했습니다(' + esc(e.message) + '). 잠시 뒤 다시 시도해 주세요.</p>';
+      });
+    }
+
+    function opts(values, first) {
+      return '<option value="">' + first + '</option>' + values.map(function (v) { return '<option>' + esc(v) + '</option>'; }).join('');
+    }
+    function fillSgg(sido, keepG) {
+      var sel = $('np-sgg');
+      var l = sido ? sggBySido[sido] || [] : [];
+      sel.innerHTML = opts(l, '전체');
+      sel.disabled = !sido || l.length === 0;
+      if (keepG && l.indexOf(keepG) >= 0) sel.value = keepG;
+    }
+
+    function main(fresh, keep) {
+      if (fresh) {
+        var sidos = [], cls = [];
+        sggBySido = {};
+        rows.forEach(function (r) {
+          if (sidos.indexOf(r.h.s) < 0) sidos.push(r.h.s);
+          if (cls.indexOf(r.h.c) < 0) cls.push(r.h.c);
+          if (r.h.g) { sggBySido[r.h.s] = sggBySido[r.h.s] || []; if (sggBySido[r.h.s].indexOf(r.h.g) < 0) sggBySido[r.h.s].push(r.h.g); }
+        });
+        sidos.sort(function (a, b) { return a.localeCompare(b, 'ko'); });
+        cls.sort(function (a, b) { return a.localeCompare(b, 'ko'); });
+        Object.keys(sggBySido).forEach(function (k) { sggBySido[k].sort(function (a, b) { return a.localeCompare(b, 'ko'); }); });
+        $('np-main').innerHTML = '<h2 class="np-title">' + esc(cur.n) + '</h2><div class="np-stats" id="np-st"></div>'
+          + '<div class="np-filters">'
+          + '<label><span>시·도</span><select id="np-sido">' + opts(sidos, '전국 (전체)') + '</select></label>'
+          + '<label><span>시·군·구</span><select id="np-sgg" disabled><option value="">전체</option></select></label>'
+          + '<label><span>종별</span><select id="np-cl">' + opts(cls, '전체') + '</select></label>'
+          + '<label><span>병원명 검색</span><input id="np-hq" type="search" placeholder="병원명" autocomplete="off"></label>'
+          + '<label><span>정렬</span><select id="np-so"><option value="asc">가격 낮은 순</option><option value="desc">가격 높은 순</option><option value="name">병원명 순</option></select></label>'
+          + '<button type="button" class="np-csv" id="np-csv">CSV 내려받기</button>'
+          + '</div><div class="np-scroll" id="np-tb"></div><p class="np-more" id="np-more" hidden><button type="button" id="np-more-btn">더 보기</button></p>'
+          + '<p class="np-note">가격은 병원이 신고한 현재 금액(원)입니다. 같은 항목도 병원마다 세부 구성이 다를 수 있어 ‘병원 표기 항목명’을 함께 확인하세요.</p>';
+        if (keep && keep.sido && sidos.indexOf(keep.sido) >= 0) { $('np-sido').value = keep.sido; }
+        fillSgg($('np-sido').value, keep && keep.sgg);
+        $('np-sido').addEventListener('change', function () { fillSgg($('np-sido').value); main(false); });
+        ['np-sgg', 'np-cl', 'np-so'].forEach(function (id) { $(id).addEventListener('change', function () { sort = $('np-so').value; main(false); }); });
+        $('np-hq').addEventListener('input', function () { main(false); });
+        $('np-csv').addEventListener('click', csv);
+        $('np-more-btn').addEventListener('click', function () { renderRows(); });
+      }
+      var s = $('np-sido').value, g = $('np-sgg').value, c = $('np-cl').value, q = $('np-hq').value.trim().replace(/\s+/g, '').toLowerCase();
+      list = rows.filter(function (r) {
+        return (!s || r.h.s === s) && (!g || r.h.g === g) && (!c || r.h.c === c) && (!q || r.h.n.replace(/\s+/g, '').toLowerCase().indexOf(q) >= 0);
+      });
+      sort = $('np-so').value;
+      list.sort(function (a, b) {
+        if (sort === 'name') return a.h.n.localeCompare(b.h.n, 'ko') || a.p - b.p;
+        return (sort === 'desc' ? b.p - a.p : a.p - b.p) || a.h.n.localeCompare(b.h.n, 'ko');
+      });
+      var ps = list.map(function (r) { return r.p; }).sort(function (a, b) { return a - b; });
+      var med = ps.length ? (ps.length % 2 ? ps[(ps.length - 1) / 2] : (ps[ps.length / 2 - 1] + ps[ps.length / 2]) / 2) : null;
+      var uniq = {};
+      list.forEach(function (r) { uniq[r.h.n + '|' + r.h.s + '|' + r.h.g] = 1; });
+      var stat = function (l, v) { return '<div class="np-stat"><small>' + l + '</small><b>' + v + '</b></div>'; };
+      $('np-st').innerHTML = ps.length
+        ? stat('조회 병원', Object.keys(uniq).length.toLocaleString('ko-KR') + '곳') + stat('최저', won(ps[0]) + '원') + stat('중앙값', won(med) + '원')
+          + stat('평균', won(ps.reduce(function (a, b) { return a + b; }, 0) / ps.length) + '원') + stat('최고', won(ps[ps.length - 1]) + '원')
+        : '';
+      shown = 0;
+      $('np-tb').innerHTML = list.length
+        ? '<table class="np-t"><thead><tr><th>병원 (병원 표기 항목명)</th><th>종별</th><th>지역</th><th class="p">가격(원)</th></tr></thead><tbody id="np-body"></tbody></table>'
+        : '<p class="np-empty">조건에 맞는 병원이 없습니다.</p>';
+      renderRows();
+      try {
+        var p = new URLSearchParams();
+        p.set('code', cur.c);
+        if (s) p.set('sido', s);
+        if (g) p.set('sigungu', g);
+        history.replaceState(null, '', location.pathname + '?' + p.toString());
+      } catch (e) {}
+    }
+    function renderRows() {
+      var body = $('np-body');
+      if (!body) { $('np-more').hidden = true; return; }
+      var end = Math.min(shown + PAGE, list.length), html = '';
+      for (var i = shown; i < end; i++) {
+        var r = list[i];
+        var name = r.h.u ? '<a href="' + esc(r.h.u) + '" target="_blank" rel="noopener">' + esc(r.h.n) + ' ↗</a>' : esc(r.h.n);
+        html += '<tr><td>' + name + '<div class="sub">' + esc(r.own) + '</div></td><td>' + esc(r.h.c) + '</td><td>' + esc(r.h.s + ' ' + r.h.g) + '</td><td class="p">' + won(r.p) + '</td></tr>';
+      }
+      body.insertAdjacentHTML('beforeend', html);
+      shown = end;
+      $('np-more').hidden = shown >= list.length;
+      $('np-more-btn').textContent = '더 보기 (' + shown.toLocaleString('ko-KR') + ' / ' + list.length.toLocaleString('ko-KR') + ')';
+    }
+    function csv() {
+      var cell = function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; };
+      var lines = [['병원', '종별', '지역', '가격', '병원 표기 항목명', '적용시작일']].concat(list.map(function (r) { return [r.h.n, r.h.c, r.h.s + ' ' + r.h.g, r.p, r.own, r.from]; }));
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob(['﻿' + lines.map(function (l) { return l.map(cell).join(','); }).join('\r\n')], { type: 'text/csv;charset=utf-8' }));
+      a.download = '비급여_' + cur.c + '.csv';
+      a.click();
+    }
+
+    $('np-q').addEventListener('input', renderList);
+    $('np-list').addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('.np-it') : null;
+      if (b) pick(b.getAttribute('data-c'));
+    });
+
+    getJson('/index.json').then(function (d) {
+      if (!d || !Array.isArray(d.items) || !d.items.length) throw new Error('빈 자료');
+      H = d.hospitals;
+      ITEMS = d.items;
+      // 자료 기준일은 여기 한 번만 보여 준다.
+      $('np-asof').textContent = '자료 갱신 ' + kst(d.updatedAt) + ' (한국시간) · 병원 ' + H.length.toLocaleString('ko-KR') + '곳 · 비급여 항목 ' + ITEMS.length.toLocaleString('ko-KR') + '개';
+      renderList();
+      try {
+        var p = new URLSearchParams(location.search);
+        var c = p.get('code');
+        if (c) pick(c, { sido: p.get('sido') || '', sgg: p.get('sigungu') || '' });
+      } catch (e) {}
+    }).catch(function (e) {
+      $('np-asof').textContent = '자료를 불러오지 못했습니다(' + e.message + '). 아직 첫 수집 전이거나 일시적인 오류일 수 있습니다. 잠시 뒤 새로고침해 주세요.';
+      $('np-asof').className = 'np-asof np-stale';
+      $('np-list').innerHTML = '<p class="np-empty">자료가 아직 없습니다.</p>';
+    });
+  })();
+</script>
+
+<style is:global>
+  .np {
+    padding: 2rem 0 3rem;
+  }
+  .np .lead {
+    max-width: 48rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .np-asof {
+    margin: 1rem 0 0.75rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .np-stale {
+    color: #d9480f;
+    font-weight: 400;
+  }
+  .np-grid {
+    display: grid;
+    grid-template-columns: minmax(250px, 330px) minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .np-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .np-side h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+  }
+  .np-q {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+  }
+  .np-list {
+    max-height: 62vh;
+    overflow: auto;
+    margin-top: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+  .np-grp {
+    position: sticky;
+    top: 0;
+    padding: 0.3rem 0.7rem;
+    background: var(--color-surface);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--color-heading);
+  }
+  .np-it {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0.7rem;
+    font: inherit;
+    font-size: 0.84rem;
+    text-align: left;
+    color: var(--color-text);
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    cursor: pointer;
+  }
+  .np-it:hover {
+    background: var(--color-primary-soft);
+  }
+  .np-it.on {
+    background: var(--color-primary-soft);
+    font-weight: 700;
+  }
+  .np-it small {
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+  .np-empty {
+    padding: 1.5rem 0.5rem;
+    text-align: center;
+    color: var(--color-muted);
+  }
+  .np-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+  }
+  .np-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: 0.6rem;
+    margin: 0.6rem 0;
+  }
+  .np-stat {
+    padding: 0.6rem 0.8rem;
+    background: var(--color-surface);
+    border-radius: 10px;
+  }
+  .np-stat small {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+  .np-stat b {
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+  .np-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.6rem 0.8rem;
+    margin: 0.8rem 0;
+  }
+  .np-filters label {
+    display: grid;
+    gap: 0.2rem;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+  .np-filters select,
+  .np-filters input {
+    min-width: 9rem;
+    padding: 0.5rem 0.6rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+  }
+  .np-filters select:disabled {
+    opacity: 0.55;
+  }
+  .np-csv,
+  .np-more button {
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .np-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .np-t {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .np-t th,
+  .np-t td {
+    padding: 0.45rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid var(--color-border);
+  }
+  .np-t th {
+    background: var(--color-surface);
+    white-space: nowrap;
+  }
+  .np-t .p {
+    text-align: right;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .np-t .sub {
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    font-weight: 400;
+  }
+  .np-more {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .np-note {
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+  .np-notes {
+    max-width: 52rem;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+  .np-notes li {
+    margin: 0.35rem 0;
+  }
+  .np-back {
+    margin-top: 1.5rem;
+  }
+</style>

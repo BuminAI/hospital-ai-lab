@@ -1,0 +1,46 @@
+name: Update Portal Npay
+
+on:
+  schedule:
+    # 매주 월요일 UTC 18:41(한국시간 화요일 03:41). 비급여 가격은 병원이 가끔 바꾸는 값이라 주 1회면 충분하고,
+    # 전체(약 28만 줄)를 받는 데 수십 분이 걸릴 수 있다. 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다.
+    - cron: '41 18 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write # portal-npay 브랜치 푸시
+
+# 자기 자신의 중복 실행만 직렬화한다. 사이트를 다시 배포하지 않는다 — 결과는 portal-npay 브랜치(index.json + items/<코드>.json)이고,
+# 페이지(/portal/npay/)가 브라우저에서 raw.githubusercontent.com 으로 필요한 파일만 읽는다.
+concurrency:
+  group: update-npay
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 비급여 진료비 수집(심평원 OpenAPI)
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+        run: node scripts/fetch-npay.mjs "$RUNNER_TEMP/npay"
+
+      # 히스토리가 쌓이지 않게 매번 커밋 하나짜리 브랜치로 덮어쓴다(--force). 수집이 실패하면 이 단계에 오지 않아 이전 자료가 그대로 남는다.
+      - name: portal-npay 브랜치에 올리기
+        run: |
+          cd "$RUNNER_TEMP/npay"
+          git init -q -b portal-npay
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "비급여 진료비 자동 갱신"
+          git push --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" portal-npay

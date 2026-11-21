@@ -39,7 +39,7 @@ const tag = (xml, t) => (String(xml).match(new RegExp(`<${t}>([^<]*)</${t}>`)) |
 const isAuthErr = (m) => /NOT_REGISTERED|등록되지 않은|SERVICE_KEY_IS|ACCESS_DENIED/i.test(String(m));
 /** 호출 1회(일시 오류는 간격을 늘려 다시 시도). 인증 오류는 바로 중단. */
 async function call(op, params, retries = 5) {
-  const wait = (a) => [0, 5000, 15000, 30000, 60000][a] || 60000;
+  const wait = (a) => [0, 5000, 15000, 30000, 60000, 90000, 120000][a] || 120000;
   let err;
   for (let a = 1; a <= retries; a++) {
     try {
@@ -81,11 +81,19 @@ async function fetchAll() {
   for (const c of parseItems(codeXml)) codes.set(c.npayCd, { n: c.npayKorNm, m: c.npayMdivCdNm || '기타' });
   console.log(`항목 코드 ${codes.size}개`);
 
-  const probe = await call('getNonPaymentItemHospDtlList', { pageNo: 1, numOfRows: 1 });
-  const total = Number(tag(probe, 'totalCount')) || 0;
-  let pages = Math.ceil(total / PAGE);
+  // 전체 줄 수를 먼저 확인한다. 공공데이터포털 쪽 시간 초과(504)로 이것조차 계속 실패하면 줄 수를 모른 채 넉넉히(40쪽=40만 줄) 받는다
+  // (줄 수보다 뒤쪽 쪽은 빈 응답이라 비용이 거의 없다).
+  let total = 0;
+  try {
+    const probe = await call('getNonPaymentItemHospDtlList', { pageNo: 1, numOfRows: 1 }, 7);
+    total = Number(tag(probe, 'totalCount')) || 0;
+  } catch (e) {
+    if (isAuthErr(e.message)) throw e;
+    console.log(`전체 줄 수를 확인하지 못했습니다(${String(e.message).slice(0, 80)}) — 40쪽까지 받아 봅니다.`);
+  }
+  let pages = total ? Math.ceil(total / PAGE) : 40;
   if (MAX_PAGES) pages = Math.min(pages, MAX_PAGES);
-  console.log(`가격 자료 총 ${total.toLocaleString()}줄 → ${pages}쪽`);
+  console.log(`가격 자료 총 ${total ? total.toLocaleString() + '줄' : '(미확인)'} → ${pages}쪽`);
   const xmls = new Array(pages);
   let next = 0;
   // 큰 쪽이 공공데이터포털 쪽 시간 초과로 계속 실패하면 같은 범위를 5등분해 작은 쪽으로 받는다.
