@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-20T21:31:15.515Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · MedCity News · STAT · HIT Consultant · Radiology Business · NEJM AI · The New York Times · NPR · Federal Register",
+  "updatedAt": "2026-11-21T02:48:23.786Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review",
   "items": [
+    {
+      "title": "Microsoft tests Dragon Copilot nursing AI beyond med-surg units",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/innovation/microsoft-tests-dragon-copilot-nursing-ai-beyond-med-surg-units/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-20T22:43:41.000Z"
+    },
+    {
+      "title": "Kaiser Permanente AI models predict 3 pregnancy complications early",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/innovation/kaiser-permanente-ai-models-predict-3-pregnancy-complications-early/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-20T22:40:04.000Z"
+    },
     {
       "title": "Why Kaiser Permanente’s AI strategy starts with trust",
       "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/why-kaiser-permanentes-ai-strategy-starts-with-trust/",
