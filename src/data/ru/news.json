@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-20T18:45:29.981Z",
-  "source": "Медвестник · Vademecum · CNews · Zdrav.ru",
+  "updatedAt": "2026-11-21T08:43:43.734Z",
+  "source": "Медвестник · Vademecum · CNews · Zdrav.ru · Хабр",
   "items": [
+    {
+      "title": "Когда ИИ ошибается убедительно: инженерия здравого смысла",
+      "link": "https://habr.com/ru/articles/1110578/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1110578",
+      "source": "Хабр",
+      "pubDate": "2026-11-21T06:51:03.000Z"
+    },
     {
       "title": "Появилась Нейра Мика - ИИ-помощник для экономистов ЛПУ",
       "link": "https://www.zdrav.ru/news/1107943-poyavilas-neyra-mika-ii-pomoshchnik-dlya-ekonomistov-lpu-prodakt",
