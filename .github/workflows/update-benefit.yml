@@ -1,0 +1,57 @@
+name: Update Portal Benefit
+
+on:
+  schedule:
+    # 매주 월요일 UTC 02:29(한국시간 11:29). 선별급여·한정급여 항목은 고시가 바뀔 때만 달라지므로 주 1회면 충분하다.
+    # 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다.
+    - cron: '29 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write # 커밋·푸시
+  actions: write # deploy.yml 수동 트리거(gh workflow run)
+
+# 자기 자신의 중복 실행만 직렬화한다(다른 update-*.yml·deploy.yml 그룹과 공유하지 않는다).
+concurrency:
+  group: update-benefit
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 시트를 내려주는 구글 앱스스크립트 주소(Secret BENEFIT_GAS_URL)가 없거나 받기에 실패하면 파일이 안 바뀌어 아래 단계가 '변경 없음'으로 끝난다.
+      - name: 선별급여·한정급여 자료 받기
+        env:
+          BENEFIT_GAS_URL: ${{ secrets.BENEFIT_GAS_URL }}
+        run: node scripts/fetch-benefit.mjs || echo "수집 건너뜀(기존 자료 유지)"
+
+      - name: portal/benefit.json 커밋 (변경 있을 때만)
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/portal/benefit.json
+          if git diff --cached --quiet; then
+            echo "변경 없음 — 커밋·배포 생략"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "유지보수: 공공 포털 선별급여·한정급여 자동 업데이트"
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 배포 트리거 (deploy.yml)
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml
