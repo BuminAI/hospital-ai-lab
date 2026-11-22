@@ -1,21 +1,24 @@
 {
-  "checkedAt": "2026-11-21T23:36:51.131Z",
+  "checkedAt": "2026-11-22T23:51:57.753Z",
   "total": 84,
-  "ok": 78,
-  "unknown": 2,
+  "ok": 79,
+  "unknown": 1,
   "unknownList": [
     {
       "url": "https://www.nhi.gov.tw/ch/cp-5136-dd11f-2947-1.html",
       "status": 403
-    },
-    {
-      "url": "https://www.pdpc.gov.tw/News_Content/20/1001/",
-      "status": 0
     }
   ],
   "dead": [
     {
-      "url": "https://www.mohw.gov.tw/cp-18-88417-1.html",
+      "url": "https://www.mohw.gov.tw/cp-18-88416-1.html",
+      "status": 404,
+      "files": [
+        "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
+      ]
+    },
+    {
+      "url": "https://www.mohw.gov.tw/cp-18-88433-1.html",
       "status": 404,
       "files": [
         "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
@@ -29,14 +32,7 @@
       ]
     },
     {
-      "url": "https://www.mohw.gov.tw/cp-18-88416-1.html",
-      "status": 404,
-      "files": [
-        "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
-      ]
-    },
-    {
-      "url": "https://www.mohw.gov.tw/cp-18-88433-1.html",
+      "url": "https://www.mohw.gov.tw/cp-18-88417-1.html",
       "status": 404,
       "files": [
         "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
