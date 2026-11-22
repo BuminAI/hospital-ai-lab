@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-21T16:55:05.411Z",
-  "source": "Медвестник · Vademecum · CNews · Zdrav.ru",
+  "updatedAt": "2026-11-22T10:13:05.217Z",
+  "source": "Медвестник · Vademecum · CNews · Zdrav.ru · ТАСС",
   "items": [
+    {
+      "title": "ИИ обучили определять устойчивые к терапии клетки опухоли",
+      "link": "https://tass.ru/nauka/28343387",
+      "source": "ТАСС",
+      "pubDate": "2026-11-22T06:37:10.000Z"
+    },
     {
       "title": "Когда ИИ ошибается убедительно: инженерия здравого смысла",
       "link": "https://habr.com/ru/articles/1110578/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1110578",
