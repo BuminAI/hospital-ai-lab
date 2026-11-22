@@ -1,12 +1,18 @@
 {
-  "updatedAt": "2026-11-22T18:00:16.689Z",
-  "source": "Медвестник · Vademecum · CNews · Zdrav.ru · ТАСС · iXBT",
+  "updatedAt": "2026-11-22T23:46:04.757Z",
+  "source": "Медвестник·Vademecum",
   "items": [
     {
       "title": "Способен ли ИИ разработать лекарство? OpenAI представила MedChemBench — тест из 99 задач по медицинской химии, приближенных к реальной деятельности специалистов",
       "link": "https://www.ixbt.com/news/2026/11/22/sposoben-li-ii-razrabotat-lekarstvo-openai-predstavila-medchembench-test-iz-99-zadac-po-medicinskoi-ximii-priblizennyx-k-realnoi-deiatelnosti-specialistov.html",
       "source": "iXBT",
       "pubDate": "2026-11-22T17:32:00.000Z"
+    },
+    {
+      "title": "Аналитики: отношение пациентов к ИИ зависит от типа его применения и тяжести заболевания",
+      "link": "https://www.vademec.ru/news/2026/11/22/analitiki-otnoshenie-patsientov-k-ii-zavisit-ot-tipa-ego-primeneniya-i-tyazhesti-zabolevaniya/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-22T09:00:00.000Z"
     },
     {
       "title": "ИИ обучили определять устойчивые к терапии клетки опухоли",
