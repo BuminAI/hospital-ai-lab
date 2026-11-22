@@ -1,23 +1,19 @@
 {
-  "checkedAt": "2026-11-21T23:39:18.173Z",
+  "checkedAt": "2026-11-22T23:53:57.042Z",
   "total": 115,
-  "ok": 89,
-  "unknown": 26,
+  "ok": 103,
+  "unknown": 12,
   "unknownList": [
+    {
+      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=507503",
+      "status": 0
+    },
     {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=7968559",
       "status": 400
     },
     {
-      "url": "https://www.vademec.ru/news/2026/08/18/moskovskaya-oblast-zakupit-superkompyutery-dlya-uskoreniya-raboty-meditsinskikh-ii/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/05/23/ii-v-zdravookhranenii-daydzhest-vademecum-za-17-23-maya-2026-goda/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/08/24/spk-razrabotal-proekt-trudovoy-funktsii-medrabotnikov-po-ispolzovaniyu-ii/",
+      "url": "https://normativ.kontur.ru/document?moduleId=1&documentId=500478",
       "status": 0
     },
     {
@@ -33,27 +29,11 @@
       "status": 0
     },
     {
+      "url": "https://medvestnik.ru/content/news/pochti-treti-vrachei-ispolzovat-ii-meshaut-somneniya-v-tochnosti-algoritmov.html",
+      "status": 0
+    },
+    {
       "url": "https://minzdrav.gov.ru/documents/9646-metodicheskie-rekomendatsii-po-kategorirovaniyu-ob-ektov-kriticheskoy-informatsionnoy-infrastruktury-sfery-zdravoohraneniya",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/08/24/niiozmm-razrabotaet-sistemu-otsenki-medtekhnologiy-na-osnove-dannykh-realnoy-praktiki/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/09/16/podmoskove-zakupit-12-ii-platform-dlya-tsifrovykh-proektov-za-704-2-mln-rubley/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/09/24/ii-agent-openai-vzlomal-portal-meditsinskoy-statistiki-avstralii/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/09/29/issledovanie-ispolzovanie-sppvr-v-poliklinikakh-mozhet-sokrashchat-zatraty-na-18-mln-rubley-v-god/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/10/01/molodye-lyudi-zadayushchie-ii-voprosy-o-zdorove-chashche-pokazyvayut-priznaki-trevogi-i-depressii/",
       "status": 0
     },
     {
@@ -61,47 +41,11 @@
       "status": 403
     },
     {
-      "url": "https://www.vademec.ru/news/2026/10/15/uchenye-predlozhili-fiksirovat-raskhozhdeniya-mezhdu-vrachom-i-ii-dlya-povysheniya-prozrachnosti-i-o/",
-      "status": 0
-    },
-    {
       "url": "https://cr.minzdrav.gov.ru/",
       "status": 0
     },
     {
       "url": "https://minzdrav.gov.ru/news/2026/10/20/33149-mihail-murashko-i-german-gref-predstavili-novoe-otechestvennoe-prilozhenie-hudeem-na-zdorovie",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/10/26/meta-analiz-kontrol-vracha-za-klinicheskim-ii-ne-garantiruet-bezopasnost/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/11/02/analitiki-12-4-studentov-medikov-i-ordinatorov-zagruzhali-dannye-realnykh-patsientov-v-ii-servisy/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/11/05/uchenye-tochnost-i-ekonomiya-vremeni-ne-garantiruyut-bezopasnogo-vnedreniya-generativnogo-ii-v-klini/",
-      "status": 0
-    },
-    {
-      "url": "https://vademec.ru/news/2026/11/11/tsniioiz-predstavil-metodicheskie-rekomendatsii-po-vnedreniyu-medizdeliy-s-ii/",
-      "status": 0
-    },
-    {
-      "url": "https://vademec.ru/news/2026/11/14/ii-v-zdravookhranenii-daydzhest-vademecum-za-9-14-noyabrya-2026-goda/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/11/12/chechenskaya-respublika-pervoy-v-rf-prinyala-politiku-ispolzovaniya-ii-v-zdravookhranenii/",
-      "status": 0
-    },
-    {
-      "url": "https://www.vademec.ru/news/2026/11/20/uchenye-predlozhili-novuyu-model-otsenki-tsifrovoy-zrelosti-medorganizatsiy/",
       "status": 0
     },
     {
