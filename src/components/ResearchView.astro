@@ -12,12 +12,30 @@ const all = import.meta.glob('../data/research/*.json', { eager: true }) as Reco
 const data = all[`../data/research/${loc}.json`]?.default;
 const keys = ['surgery', 'drug', 'trials', 'disease'] as const;
 const totals: Record<string, number> = data?.totals ?? {};
+// 검색창 문구(2026-11-23, 오너 지시: 의료 기술·논문 메뉴에 검색창). 영어권 판(en·in·sg·ph·ae·ie)은 영어를 같이 쓴다.
+const enQ = { label: 'Search papers and trials', ph: 'Title, journal or author (e.g. cancer, stroke)', none: 'Nothing matches your search.' };
+const SEARCH: Record<string, { label: string; ph: string; none: string }> = {
+  ko: { label: '논문·임상시험 검색', ph: '제목·저널·저자 검색 — 제목이 영어라 영어로 (예: cancer, stroke)', none: '검색어에 맞는 항목이 없습니다.' },
+  ja: { label: '論文・治験を検索', ph: 'タイトル・雑誌・著者で検索 — 題名は英語です(例: cancer, stroke)', none: '検索条件に合う項目がありません。' },
+  ru: { label: 'Поиск по статьям и испытаниям', ph: 'Название, журнал или автор — заголовки на английском (например, cancer, stroke)', none: 'Ничего не найдено.' },
+  id: { label: 'Cari makalah dan uji klinis', ph: 'Judul, jurnal, atau penulis — judul berbahasa Inggris (mis. cancer, stroke)', none: 'Tidak ada yang cocok dengan pencarian.' },
+  tw: { label: '搜尋論文與臨床試驗', ph: '以標題、期刊或作者搜尋 — 標題為英文(例如:cancer, stroke)', none: '沒有符合搜尋條件的項目。' },
+  fr: { label: 'Rechercher des articles et essais', ph: 'Titre, revue ou auteur — titres en anglais (p. ex. cancer, stroke)', none: 'Aucun résultat pour cette recherche.' },
+  en: enQ, in: enQ, sg: enQ, ph: enQ, ae: enQ, ie: enQ,
+};
+const q = SEARCH[loc] ?? enQ;
 const fmt = (d: string) => (d ? d.replace(/-01$/, '') === d ? d : d : '');
 ---
 
 <div class="rs">
   <p class="rs-lead">{t.lead}</p>
   {data && <p class="rs-window">{t.window(data.window.from, data.window.to)}</p>}
+
+  <form class="rs-search" role="search" onsubmit="return false">
+    <label for="rs-q">{q.label}</label>
+    <input type="search" id="rs-q" placeholder={q.ph} autocomplete="off" />
+    <p class="rs-found" id="rs-found" aria-live="polite" hidden></p>
+  </form>
 
   <div class="rs-note" role="note">
     <strong>{t.noteTitle}</strong>
@@ -78,7 +96,55 @@ const fmt = (d: string) => (d ? d.replace(/-01$/, '') === d ? d : d : '');
   </p>
 </div>
 
+<p class="rs-nomatch" id="rs-nomatch" hidden>{q.none}</p>
+
+<script is:inline>
+  (function () {
+    var input = document.getElementById('rs-q');
+    if (!input) return;
+    var found = document.getElementById('rs-found');
+    var nomatch = document.getElementById('rs-nomatch');
+    var secs = Array.prototype.slice.call(document.querySelectorAll('.rs-sec'));
+    var lis = Array.prototype.slice.call(document.querySelectorAll('.rs-list li'));
+    var texts = lis.map(function (li) { return li.textContent.replace(/\s+/g, ' ').toLowerCase(); });
+    function run() {
+      var q = input.value.replace(/\s+/g, ' ').trim().toLowerCase();
+      var n = 0;
+      lis.forEach(function (li, i) {
+        var ok = !q || texts[i].indexOf(q) >= 0;
+        li.hidden = !ok;
+        if (ok) n++;
+      });
+      secs.forEach(function (sec) {
+        var list = sec.querySelector('.rs-list');
+        var has = !q || !list || Array.prototype.some.call(list.children, function (li) { return !li.hidden; });
+        sec.hidden = !has;
+        var cnt = sec.querySelector('.rs-count');
+        if (cnt) cnt.hidden = !!q;
+      });
+      nomatch.hidden = !(q && n === 0);
+      found.hidden = !q || n === 0;
+      if (q && n > 0) found.textContent = n + ' / ' + lis.length;
+      try {
+        var p = new URLSearchParams(location.search);
+        if (q) p.set('q', input.value.trim()); else p.delete('q');
+        history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
+      } catch (e) {}
+    }
+    input.addEventListener('input', run);
+    try {
+      var p0 = new URLSearchParams(location.search).get('q');
+      if (p0) { input.value = p0; run(); }
+    } catch (e) {}
+  })();
+</script>
+
 <style>
+  .rs-search { margin: 0 0 1.25rem; display: grid; gap: 0.3rem; max-width: 34rem; }
+  .rs-search label { font-size: 0.85rem; opacity: 0.75; }
+  .rs-search input { padding: 0.6rem 0.75rem; font: inherit; color: inherit; background: transparent; border: 1px solid rgba(128, 128, 128, 0.6); border-radius: 8px; }
+  .rs-found { margin: 0; font-size: 0.85rem; opacity: 0.75; }
+  .rs-nomatch { opacity: 0.75; margin: 1rem 0; }
   .rs { max-width: 62rem; }
   .rs-lead { font-size: 1.05rem; line-height: 1.7; margin: 0 0 0.5rem; }
   .rs-window { opacity: 0.75; font-size: 0.9rem; margin: 0 0 1rem; }
