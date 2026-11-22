@@ -1,6 +1,13 @@
 {
-  "updatedAt": "2026-11-21T06:55:59.321Z",
+  "updatedAt": "2026-11-22T06:33:27.347Z",
   "items": [
+    {
+      "title": "대체인력 사고도 보장한다 발달장애인지원사업 종합공제 확대",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492621&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-22T03:05:00.000Z",
+      "summary": ""
+    },
     {
       "title": "청년 시선으로 찾은 정신건강 해법 공유, 영마인드 링크LINK 3기 7개월간 활동 마무리",
       "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492613&act=view",
@@ -862,5 +869,6 @@
       "summary": "",
       "pubDate": "2026-04-29T15:00:00.000Z"
     }
-  ]
+  ],
+  "source": "보건복지부"
 }
