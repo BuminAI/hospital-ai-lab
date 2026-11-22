@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-22T02:14:26.401Z",
-  "source": "Irish Independent·TheJournal.ie·RTÉ·Silicon Republic·Irish Tech News·Business Post·Irish Examiner·The Irish Times·Irish Legal News",
+  "updatedAt": "2026-11-22T14:34:00.915Z",
+  "source": "Irish Tech News·Irish Independent·TheJournal.ie·RTÉ·Silicon Republic·Business Post·Irish Examiner·The Irish Times·Irish Legal News",
   "items": [
+    {
+      "title": "Dell Technologies Delivers the Trusted Data and AI Infrastructure Foundation Needed to Scale Agentic Enterprise AI",
+      "link": "https://irishtechnews.ie/dell-technologies-trusted-data-ai-infrastructure/",
+      "source": "Irish Tech News",
+      "pubDate": "2026-11-22T08:50:30.000Z"
+    },
+    {
+      "title": "Richard Curran: Is the Irish Government starting to look beyond the benefits of AI to its potential threats?",
+      "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOYmV4SVItNHA4VGw0RUE3ZkY3cWZkd2FxS1YteFltaFkzSnNnRVNhUnJlRGFWcVlhcXBueHdWNUs2d1lvMmRRRE5RVjlmRVlnTUVsdzJfSlAwRGR0bFNQdFVPWmdrVDJ3MlBzcUd4aEJkcWF6MGtLSW5ETzJZT2xMQjRabUtpczhBXzlwdjlUbEtxcDNZcExVdEEtSUxPX1NvQW03ZUd3WnJMQzlWZHhtZUNpSC1ZczZjcWRCVU1Bd0lEWmNzTG9fRjRfc0pzSFFKY05RbFZRaTVuTnNPX0FKOEZNOGxYTk5fb1RJeDFWenJoTERUdUM5Skx3ck9LcXc?oc=5",
+      "source": "Irish Independent",
+      "pubDate": "2026-11-22T05:30:00.000Z"
+    },
     {
       "title": "Sligo nurse practitioner expands orthopaedic and regenerative services for joint pain and osteoarthritis",
       "link": "https://www.independent.ie/county/sligo/sligo-nurse-practitioner-expands-orthopaedic-and-regenerative-services-for-joint-pain-and-osteoarthritis/a/164809119.html",
@@ -147,15 +159,15 @@
       "pubDate": "2026-11-10T08:00:00.000Z"
     },
     {
-      "title": "DPP staff banned from using AI for legal research as concerns persist over technology",
-      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNV1ZRVTVFaTNGTVZBWkE2UF9VS1oxdGpoeExZcWEyMGJtVFFscWVjaWlnVWpTUnNhQlNWZUlMRmVFb2pmSlVLUGN2LUs2NXF2SEpkNEQxU2xrQ3NLaTIzUnhvVlU3bWo2b1FkN0J4Y3FzdFBuRnprTnRBXzNnOXJ2a3lFMjNNeTNMUFNkU25TdEY0LVpQMkFPNVNRamlla2twZ0JBYnA2ZTZGMk1qRWxXVHQ4MEtsZ3lCX2J2ZVQwaHpsdkw0TUpuQkh1S3VKeWV1OVRqdFgwV3VqdUtjNWpVbQ?oc=5",
-      "source": "Irish Independent",
-      "pubDate": "2026-11-07T08:00:00.000Z"
-    },
-    {
       "title": "Meta hires hundreds of Irish staff just months after slashing jobs in AI push",
       "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNTUFjcTZBRzJhQldWTEl1czBkU0F3bVZEQUdWWE43TmVsX0t3NTZyTXlTOUxQdW14UGVzVjZBRXZMRWVmdnFNV0VXWnQ1Vm9hSlhOSG4yb2NVcnZ6MzdOdUNXVDd3TTlrWjBFVkRyZHpuc2JXbHpyVUxDVnYwZjBoTTdDZk9WXzAtT3p0VjM1dXRhTXQ0RGV2VEtBVDZFTVlnTzhfUV8yQVE1VHpfTzkwaQ?oc=5",
       "source": "Business Post",
+      "pubDate": "2026-11-07T08:00:00.000Z"
+    },
+    {
+      "title": "DPP staff banned from using AI for legal research as concerns persist over technology",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNV1ZRVTVFaTNGTVZBWkE2UF9VS1oxdGpoeExZcWEyMGJtVFFscWVjaWlnVWpTUnNhQlNWZUlMRmVFb2pmSlVLUGN2LUs2NXF2SEpkNEQxU2xrQ3NLaTIzUnhvVlU3bWo2b1FkN0J4Y3FzdFBuRnprTnRBXzNnOXJ2a3lFMjNNeTNMUFNkU25TdEY0LVpQMkFPNVNRamlla2twZ0JBYnA2ZTZGMk1qRWxXVHQ4MEtsZ3lCX2J2ZVQwaHpsdkw0TUpuQkh1S3VKeWV1OVRqdFgwV3VqdUtjNWpVbQ?oc=5",
+      "source": "Irish Independent",
       "pubDate": "2026-11-07T08:00:00.000Z"
     },
     {
@@ -229,6 +241,12 @@
       "link": "https://irishtechnews.ie/irish-employers-accelerate-ai-adoption/",
       "source": "Irish Tech News",
       "pubDate": "2026-10-28T12:00:32.000Z"
+    },
+    {
+      "title": "Microsoft offers to buy out 60,000 of its workforce as it leans into AI",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOam9YV01iRWpRU3k1LUx3NGVMa3V1bkN0bHVRTE9oUF9pZTJZTVg4dTVqNW01QkdnWlVEU2xrLUNuOVcwa3B3ZW5KZUFTQXd0c1NCN3BtYlp3dlFjbzA1cG1XNzdDbGROY3RpRWJaS0JzVXJPcEo4YnhKYXg2OTBjN1lVQ1QyLWlseDk4bVV3R1pFbDFLMC05Um9sQlpITlRRdWRQMktPWmVwTzFoMUtvcVlKeFF6UnY2dDc1ajNHa1M?oc=5",
+      "source": "Irish Independent",
+      "pubDate": "2026-10-27T07:00:00.000Z"
     },
     {
       "title": "6 in 10 UK and Irish Job Seekers Are Rethinking How They Write to Avoid Sounding Like AI",
@@ -309,6 +327,12 @@
       "pubDate": "2026-10-14T07:00:00.000Z"
     },
     {
+      "title": "OpenSky meets Minister Lawless to demonstrate how it is using AI to grow capability without cutting jobs -",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9iNERMdk1aenRFdVFXVmtQUnpMRU5wYlVxaklwNGtSYmJKSjNBcndLdjFaZzZHbEhmSHBZTThINkdLeVV4aFJHTV9SQ1d2bEZUMElkbld5TUUyOS0xLU5GanNwVVZFQS16aC1F0gFrQVVfeXFMT2I0REx2TVp6dEV1UVdWa1BSekxFTnBiVXFqSXA0a1JiYkpKM0Fyd0t2MVpnNkdsSGZIcFlNOEg2R0t5VXhoUkdNX1JDV3ZsRlQwSWRuV3lNRTI5LTEtTkZqc3BVVkVBLXpoLUU?oc=5",
+      "source": "Irish Tech News",
+      "pubDate": "2026-10-13T08:00:38.000Z"
+    },
+    {
       "title": "Courts must shape how AI is used in justice system, experts tell Irish Judicial Studies Network launch",
       "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQNmduZVVRazVjdWp5aG52ZWFIRGM0NmpGaTV2aE5yVHZaZHlmUllSWVpYWjlMMmlicUdkUGNCYlVzWHBaOTVhcW9TT01BWndlRXhkZzV5N0xhM2RsUXpLZWF2NHRMQTJzcERHYjFpbklISUhTNE5SLW9GWWpzQm93dlVlMGxCMXMzbWduTkNMZUVKZ0kyakwyWTBBWHRXVUxORmk1Nmh2MXRLN3I0OTd2NWRwM1hLQWVCT1gzUFRvRkszZnZaTDdXSmdyaw?oc=5",
       "source": "Irish Legal News",
@@ -333,15 +357,15 @@
       "pubDate": "2026-10-12T07:00:00.000Z"
     },
     {
-      "title": "OpenAI to create 200 jobs in Dublin",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOaEVsYWgtZTJRa1k0ZDVyd3VtdnVRV1YzNVdKV3o2U1h3SjVhWVNJX0lXZUhHcnZNdEpacU5xOG5qSERsdDBRRmg4dFJ1aGdzaW1iZ1VqSzNkemVIY1c4b1BNNUR0Ty03MDluMlh1Vlh1aElLMFR0SHV3VGxwaDBIZ2NGYVZhdTBmektN?oc=5",
-      "source": "The Irish Times",
-      "pubDate": "2026-10-12T07:00:00.000Z"
-    },
-    {
       "title": "Irish AI company Tines announces 100 jobs",
       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVEtHM0FFbGZGOEw3QmpUQmgteDRjaDNNUVA4MV9MYXgtdzhfdnJoM0M3Rml6UUlxQXJ3RWxhT2NHMXhnZ0RQX3hPVUFVNDFQMGpLeDdlSWlJUktBOUNIUjVQV1BDX0oxb3VnT0NNZHFqdjZ5cU5UTDUwWXBNdGs4aUJZQ3N0XzdOV3c?oc=5",
       "source": "RTÉ",
+      "pubDate": "2026-10-12T07:00:00.000Z"
+    },
+    {
+      "title": "OpenAI to create 200 jobs in Dublin",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOaEVsYWgtZTJRa1k0ZDVyd3VtdnVRV1YzNVdKV3o2U1h3SjVhWVNJX0lXZUhHcnZNdEpacU5xOG5qSERsdDBRRmg4dFJ1aGdzaW1iZ1VqSzNkemVIY1c4b1BNNUR0Ty03MDluMlh1Vlh1aElLMFR0SHV3VGxwaDBIZ2NGYVZhdTBmektN?oc=5",
+      "source": "The Irish Times",
       "pubDate": "2026-10-12T07:00:00.000Z"
     },
     {
@@ -361,6 +385,12 @@
       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOejJNMndGRGl1N1ZxSGNVYi1ZR2Zldm16N3ZDN18wMzBTbDFMRjUxY2x2enFYbGFHR2g2ZFp1Tm00eXdlUHdCV2oyeE5GZ3djTEM5Wlk4bTdubDFFSzdRZnAxZ0FtSWlyS3hjTjZubDd3TzJTVjMwOXlRWG9fSzJwTmpmODZMVS1OR0tmVUlFQUNnVUNFMHFiSTEwdEE1R2Vpb2JDLTVNcVJHZ2xJMDYxbDNR?oc=5",
       "source": "The Irish Times",
       "pubDate": "2026-10-07T07:00:00.000Z"
+    },
+    {
+      "title": "Shane Phelan: What happened when AI chatbots were asked to rule on a High Court case?",
+      "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNdWkzLU5JU0NTS1FJckdWWTU3UHg1Ti1sbVh2QmFscExwNC05Vy1yTE0yb29Dd0RjMVItNy1LQU92MERDNS00VDB5cEZEVnR1RUN4OHJ2MjZUVE1OdksteEQyamJVelJzZURxQ19nRWVlTjUzMHFHanpIVzJqUHVBaFZySkhmRnFtRE1aT2pEMU9KR0MwMVBzX2VHSllhaWhLVVNQdjhwdV9mT0xlR0U1ZmxOTHlfNzVNc2tFMVpGTnppT3ZTaE5Qek9sR3VQV0ZtZWlvRnQxSVFVdGxCc1E?oc=5",
+      "source": "Irish Independent",
+      "pubDate": "2026-10-03T07:00:00.000Z"
     },
     {
       "title": "Workday to cut jobs in Dublin HQ but will press on with AI centre of excellence",
@@ -387,6 +417,12 @@
       "pubDate": "2026-09-29T11:00:46.000Z"
     },
     {
+      "title": "AI job replacement fears remain high - report",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqV2tZSVV0bncxc0hZVHZmbEloNVJkUWtEVlFQbUpXT19RNEpNM0hvdTRlVkhkX3UtcHFEa0R6cHVRV1d2dHFYUTgwbm16aVFlVllsWWkxMGUxVmxiRjIybTdyS3FGMTYzUlJscHNR?oc=5",
+      "source": "RTÉ",
+      "pubDate": "2026-09-29T07:00:00.000Z"
+    },
+    {
       "title": "AI agents are hacking government agencies. It’s ‘really scary’ for cybersecurity",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNDFJREJUWjV5eDJGTUV6cXM5b001ZkF4N3hYYXozZ2w4ZTBtQjdoOWdXSmxtcjZJWUd0LVZwTVMyQm1IaXhxS3dPZ1M1Q3N0QXc2ZkRhLWlvSm1LS0RNaDdPUHg1T19wbFpDTFVOWmMxdmJ0aU0xMEdGZHFRTi05M1hSTllPYmFMUHFBSWN6OGdFZnh4U1g1a2YyRDVaQ0l5UlpiVHB1QkhPYWloWUJGS1BjQmZJSDlVNjlsWHU3eWM?oc=5",
       "source": "The Irish Times",
@@ -396,12 +432,6 @@
       "title": "Ireland's DPC says tech giants can’t use private messages to train AI",
       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPLWxsQW9uSHZYSWl5djU2UXFqT3hubjEtVUhaakpGQ1djRkh1d1FXWTZkVlM0bEMyYk9GVXh3WGpiQnJESEhxQm16YmtGR2NVMUhpZGhzVzhBZlQ3NTlqYUpwbkRZWGx5WGRyZk1pV3hCZWFIbmlQZEVCVmZHSXhhWi15QjliSWRoQ3NMZGtILWxKQUJ5cEtWTnphM0Qxb2NEdWZfcTdqSjN5ekVqbHE4aks5Y3VuLW1tNkcxSg?oc=5",
       "source": "Irish Independent",
-      "pubDate": "2026-09-29T07:00:00.000Z"
-    },
-    {
-      "title": "AI job replacement fears remain high - report",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqV2tZSVV0bncxc0hZVHZmbEloNVJkUWtEVlFQbUpXT19RNEpNM0hvdTRlVkhkX3UtcHFEa0R6cHVRV1d2dHFYUTgwbm16aVFlVllsWWkxMGUxVmxiRjIybTdyS3FGMTYzUlJscHNR?oc=5",
-      "source": "RTÉ",
       "pubDate": "2026-09-29T07:00:00.000Z"
     },
     {

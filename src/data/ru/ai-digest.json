@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-22T02:12:34.260Z",
+  "updatedAt": "2026-11-22T14:32:12.480Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Доверяй, но запрещай – или как ограничивать полномочия AI-агента на разных уровнях",
+      "link": "https://habr.com/ru/companies/magnit/articles/1110850/?utm_campaign=1110850&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-22T13:31:57.000Z"
+    },
     {
       "title": "Представлен ClawDOS — ИИ‑агент для написания кода в среде DOS",
       "link": "https://habr.com/ru/articles/1110726/?utm_campaign=1110726&utm_source=habrahabr&utm_medium=rss",
@@ -1795,12 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-11-05_issledovanie_simpleone_bolee",
       "source": "CNews",
       "pubDate": "2026-11-05T10:45:00.000Z"
-    },
-    {
-      "title": "Мои ИИ-агенты получили офис: Lumio 1.4 — Claude Code, Codex, Qwen и Cline в чёлке Mac",
-      "link": "https://habr.com/ru/articles/1103620/?utm_campaign=1103620&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-05T10:35:47.000Z"
     }
   ]
 }
