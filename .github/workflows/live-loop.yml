@@ -1,0 +1,46 @@
+name: Portal Live Loop
+
+# 응급실 현황(15분)·병상가동현황(30분)을 GitHub 예약(cron)에 맡기면 몇 시간씩 늦게 돌 때가 있다(2026-11-22 실측: 4~6시간 간격).
+# 그래서 이 워크플로는 한 번 시작되면 약 5시간 40분 동안 안에서 직접 시간을 재며 15분마다 수집·게시를 반복하고,
+# 끝나기 직전에 자기 자신을 다시 실행(workflow_dispatch — 예약과 달리 지연이 거의 없다)해 이어 간다.
+# 예약(cron)은 이어달리기가 끊겼을 때 다시 일으키는 안전장치다. 공개 저장소라 실행 시간 제한이 없다.
+# 결과는 사이트를 다시 배포하지 않고 portal-data(er.json)·portal-beds(beds.json) 브랜치로 올라가며, 페이지가 브라우저에서 읽는다.
+on:
+  schedule:
+    - cron: '29 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # portal-data·portal-beds 브랜치 푸시
+  actions: write # 자기 자신 다시 실행
+
+# 동시에 하나만 돈다. 대기 중인 실행은 하나만 남는다(이어달리기 신호와 예약 신호가 겹쳐도 한 번만 이어진다).
+concurrency:
+  group: portal-live-loop
+  cancel-in-progress: false
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 15분마다 수집·게시 (약 5시간 40분)
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: bash scripts/live-loop.sh
+
+      - name: 다음 실행 이어 붙이기
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run live-loop.yml
