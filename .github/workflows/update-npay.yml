@@ -40,9 +40,10 @@ jobs:
         env:
           FORCE: ${{ inputs.force }}
         run: |
-          age=$(curl -s -m 30 "https://raw.githubusercontent.com/${{ github.repository }}/portal-npay/index.json" | head -c 200 | node -e "
+          age=$(curl -s -m 30 "https://raw.githubusercontent.com/${{ github.repository }}/portal-npay/index.json" | head -c 600 | node -e "
             const s=require('fs').readFileSync(0,'utf8');const m=s.match(/\"updatedAt\":\"([^\"]+)\"/);
-            console.log(m?Math.floor((Date.now()-Date.parse(m[1]))/86400000):999)" 2>/dev/null || echo 999)
+            const partial=/\"missingPages\":\[[0-9]/.test(s); // 일부 쪽이 빠진 자료면 6일을 기다리지 않고 다음 실행에서 다시 받는다
+            console.log(m&&!partial?Math.floor((Date.now()-Date.parse(m[1]))/86400000):999)" 2>/dev/null || echo 999)
           echo "마지막 갱신 후 ${age}일"
           if [ "$FORCE" != "true" ] && [ "$age" -lt 6 ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
 
@@ -65,4 +66,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -q -m "비급여 진료비 자동 갱신"
-          git push --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" portal-npay
+          for i in 1 2 3 4 5; do
+            if git push --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" portal-npay; then exit 0; fi
+            echo "푸시 실패($i/5)"; sleep $((i * 15))
+          done
+          exit 1

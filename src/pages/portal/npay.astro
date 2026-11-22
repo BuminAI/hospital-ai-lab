@@ -198,7 +198,7 @@ const BASE_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       H = d.hospitals;
       ITEMS = d.items;
       // 자료 기준일은 여기 한 번만 보여 준다.
-      $('np-asof').textContent = '자료 갱신 ' + kst(d.updatedAt) + ' (한국시간) · 병원 ' + H.length.toLocaleString('ko-KR') + '곳 · 비급여 항목 ' + ITEMS.length.toLocaleString('ko-KR') + '개';
+      $('np-asof').textContent = '자료 갱신 ' + kst(d.updatedAt) + ' (한국시간) · 병원 ' + H.length.toLocaleString('ko-KR') + '곳 · 비급여 항목 ' + ITEMS.length.toLocaleString('ko-KR') + '개' + (d.missingPages && d.missingPages.length ? ' · 심평원 서버 응답 지연으로 일부 자료(' + d.missingPages.length + '쪽)가 빠져 있어 다음 수집 때 채웁니다' : '');
       renderList();
       try {
         var p = new URLSearchParams(location.search);
@@ -217,7 +217,7 @@ const BASE_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
 
 <style is:global>
   .np {
-    padding: 2rem 0 3rem;
+    padding-block: 2rem 3rem;
   }
   .np .lead {
     max-width: 48rem;

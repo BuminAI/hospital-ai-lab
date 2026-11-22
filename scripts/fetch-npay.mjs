@@ -44,7 +44,7 @@ async function call(op, params, retries = 5) {
   for (let a = 1; a <= retries; a++) {
     try {
       const url = `${BASE}${op}?ServiceKey=${keyParam(KEYS[0])}&${new URLSearchParams(params)}`;
-      const res = await fetch(url);
+      const res = await fetch(url, { signal: AbortSignal.timeout(90000) }); // 응답이 안 오면 90초에 끊고 다시 시도한다
       const xml = await res.text();
       if (!res.ok || tag(xml, 'resultCode') !== '00') throw new Error(`${res.status} ${tag(xml, 'errMsg') || tag(xml, 'returnAuthMsg') || tag(xml, 'resultMsg') || xml.slice(0, 120)}`);
       return xml;
@@ -110,15 +110,26 @@ async function fetchAll() {
       return parts.join('');
     }
   };
+  // 한 쪽이 끝내 안 받아져도 전체를 버리지 않는다 — 받은 쪽만으로 만들고, 빠진 쪽 수를 index.json 의 missingPages 로 남긴다(2026-11-22).
+  // 공공데이터포털 쪽 시간 초과(504)가 잦아, 12분 넘게 받은 뒤 한 쪽 때문에 전부 버리면 자료가 영영 안 채워졌다.
+  const missing = [];
   await Promise.all(
     Array.from({ length: CONCURRENCY }, async () => {
       while (next < pages) {
         const p = next++;
-        xmls[p] = await getPage(p);
-        console.log(`  가격 자료 ${p + 1}/${pages}쪽`);
+        try {
+          xmls[p] = await getPage(p);
+          console.log(`  가격 자료 ${p + 1}/${pages}쪽`);
+        } catch (e) {
+          if (isAuthErr(e.message)) throw e;
+          xmls[p] = '';
+          missing.push(p + 1);
+          console.log(`  가격 자료 ${p + 1}/${pages}쪽 건너뜀: ${String(e.message).slice(0, 80)}`);
+        }
       }
     })
   );
+  missing.sort((a, b) => a - b);
 
   const hospIdx = new Map();
   const hospitals = [];
@@ -143,7 +154,7 @@ async function fetchAll() {
   const items = [...byItem.keys()]
     .map((c) => ({ c, n: codes.get(c).n, m: codes.get(c).m, h: new Set(byItem.get(c).map((x) => x[0])).size, r: byItem.get(c).length }))
     .sort((a, b) => a.m.localeCompare(b.m, 'ko') || a.n.localeCompare(b.n, 'ko'));
-  return { total, hospitals, items, byItem, rowsN };
+  return { total, hospitals, items, byItem, rowsN, missing };
 }
 
 async function main() {
@@ -163,7 +174,7 @@ async function main() {
   }
   fs.writeFileSync(
     path.join(out, 'index.json'),
-    JSON.stringify({ updatedAt: new Date().toISOString(), source: '건강보험심사평가원 비급여진료비정보조회서비스(공공데이터포털 OpenAPI)', rows: all.rowsN, hospitals: all.hospitals, items: all.items }) + '\n'
+    JSON.stringify({ updatedAt: new Date().toISOString(), source: '건강보험심사평가원 비급여진료비정보조회서비스(공공데이터포털 OpenAPI)', rows: all.rowsN, missingPages: all.missing, hospitals: all.hospitals, items: all.items }) + '\n'
   );
   console.log(`저장 완료: 병원 ${all.hospitals.length}곳 · 항목 ${all.items.length}개 · 가격 ${all.rowsN.toLocaleString()}줄 · ${Math.round((Date.now() - t0) / 1000)}초 → ${out}`);
   const sidos = {};
