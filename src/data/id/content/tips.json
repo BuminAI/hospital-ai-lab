@@ -7,6 +7,41 @@
   },
   "sections": [
     {
+      "heading": "TIP 12 — Ingin jawaban tanpa tabel dan simbol? Tulis pertanyaannya juga dengan kalimat biasa",
+      "body": "Sebutkan bentuk yang Anda mau dan samakan gaya penulisan permintaan Anda, sehingga jawaban lebih mudah langsung ditempel.",
+      "items": []
+    },
+    {
+      "heading": "Setelah ditempel, simbolnya tetap terlihat",
+      "body": "Anda meminta AI membuat draf pengumuman, tetapi jawabannya penuh tanda judul '##' dan bintang '**'. Jika ditempel ke aplikasi pesan atau dokumen rumah sakit, simbol itu tampil apa adanya. Menghapusnya merepotkan, sehingga sering lebih mudah menulis ulang dari awal.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: sebutkan bentuk yang diinginkan dengan kata-kata",
+      "body": "Panduan resmi Anthropic (pembuat Claude) pada bagian 'Control the format of responses' (mengatur format jawaban) menyarankan dua hal. Pertama, katakan apa yang harus dilakukan, bukan apa yang tidak boleh; contoh di panduan setara dengan kalimat 'jawaban terdiri dari paragraf prosa yang mengalir'. Kedua, samakan gaya permintaan dengan bentuk jawaban yang diinginkan; panduan menjelaskan bahwa jika markdown (penulisan berhias simbol) dihapus dari permintaan, markdown di jawaban dapat berkurang. Salin kalimat berikut dan ganti hanya bagian dalam kurung. Tulis pertanyaannya sendiri dengan kalimat biasa tanpa tabel atau simbol.",
+      "items": [
+        "Tolong tuliskan (tujuan dan penerima pengumuman, misalnya: informasi jadwal minggu pertama untuk perawat baru). Susun jawaban tanpa tabel atau simbol, hanya dengan kalimat bersambung dan paragraf pendek."
+      ]
+    },
+    {
+      "heading": "Satu hal lagi: beri tahu ke mana jawaban akan dipakai",
+      "body": "Bagian 'Add context' pada panduan yang sama menjelaskan bahwa lebih baik menyebut alasan atau kegunaan daripada hanya memberi aturan. Contohnya, penjelasan 'jawaban akan dibacakan dengan suara' dinilai lebih baik daripada larangan 'jangan pakai tanda elipsis'. Untuk pekerjaan rumah sakit, cukup tambahkan satu baris seperti 'Teks ini akan saya tempel apa adanya ke grup pesan bangsal'. Kalimat ini adalah penerapan dari prinsip panduan tersebut.",
+      "items": []
+    },
+    {
+      "heading": "Yang perlu diingat",
+      "body": "Menentukan format tidak menjamin isinya benar. Cocokkan tanggal, jam, penanggung jawab, dan jumlah uang dengan dokumen asli. Jangan memasukkan materi yang memuat data pribadi pasien, seperti nama, ke layanan AI, dan periksa dulu aturan keamanan informasi di rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, 'Prompting best practices', bagian 'Control the format of responses' dan 'Add context to improve performance' (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Sumber diperiksa: 23 November 2026"
+      ]
+    },
+    {
       "heading": "TIP 11 — Jika urutan penting, beri nomor dan tulis satu langkah per baris",
       "body": "Dengan daftar bernomor, langkah lebih jarang terlewat atau tertukar urutannya.",
       "items": []
