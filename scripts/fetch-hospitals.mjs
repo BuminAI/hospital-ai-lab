@@ -166,8 +166,15 @@ async function fetchList() {
   const rows = new Map();
   for (const [cl] of CLASSES) {
     for (let page = 1; page <= 20; page++) {
-      const body = await call(LIST, { pageNo: page, numOfRows: 500, clCd: cl });
-      const items = itemsOf(body);
+      let body = await call(LIST, { pageNo: page, numOfRows: 500, clCd: cl });
+      let items = itemsOf(body);
+      // 종별 첫 쪽이 비어 있으면(=게이트웨이가 빈 응답을 정상처럼 돌려준 경우) 잠시 뒤 두 번 더 받아 본다. 그래도 비면 오류로 본다(2026-11-22).
+      for (let retry = 0; retry < 2 && page === 1 && !items.length; retry++) {
+        await pause(5000 * (retry + 1));
+        body = await call(LIST, { pageNo: page, numOfRows: 500, clCd: cl });
+        items = itemsOf(body);
+      }
+      if (page === 1 && !items.length) throw new Error(`종별 ${cl} 목록이 비어 있습니다(totalCount ${body.totalCount ?? '없음'})`);
       for (const x of items) if (x.ykiho) rows.set(x.ykiho, baseRow(x));
       const total = Number(body.totalCount) || 0;
       if (!items.length || page * 500 >= total) break;
@@ -202,7 +209,13 @@ async function main() {
     if (!prevById.size) process.exit(1);
     list = new Map([...prevById].map(([id, h]) => [id, { ...h }]));
   }
-  if (list.size < 3000 && !prevById.size) throw new Error(`병원 ${list.size}곳뿐이라 이상 응답으로 보고 저장하지 않습니다.`);
+  // 목록이 이전보다 눈에 띄게 줄었거나 너무 적으면 이상 응답이다 — 이전 자료가 있으면 그 목록을 그대로 쓰고, 없으면 저장하지 않는다.
+  // (2026-11-22: 빈 응답을 정상으로 보고 기존 4,214곳을 0곳으로 덮어쓴 사고를 막는다.)
+  if (list.size < 3000 || (prevById.size && list.size < prevById.size * 0.8)) {
+    console.error(`병원 목록 ${list.size}곳(이전 ${prevById.size}곳) — 이상 응답으로 봅니다.`);
+    if (!prevById.size) throw new Error(`병원 ${list.size}곳뿐이라 이상 응답으로 보고 저장하지 않습니다.`);
+    list = new Map([...prevById].map(([id, h]) => [id, { ...h }]));
+  }
   const items = [...list.values()].map((b) => {
     const old = prevById.get(b.id) || {};
     const h = { ...b };
