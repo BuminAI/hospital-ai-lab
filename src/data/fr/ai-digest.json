@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T14:40:23.649Z",
+  "updatedAt": "2026-11-22T02:15:05.696Z",
   "source": "franceinfo·Le Monde·CNIL·ZDNet France·Ouest-France·Sud Ouest·Libération·Numerama·Le Figaro·Les Échos·La Croix·Silicon.fr·Le Parisien·20 Minutes·DSIH·Challenges·La Tribune·Public Sénat·France 24",
   "items": [
     {
@@ -399,6 +399,12 @@
       "pubDate": "2026-11-10T00:00:00.000Z"
     },
     {
+      "title": "L'IA, mémoire vive de votre entreprise",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNd25SZUQyazhqZEZRNlhCWC1VVWp0ZmhGenMtOHNEV3BhTllXQ2lad3ZxLWxNSUZMeDhwd3d2eFVPWkFLcWtXTy1yQlNIOEpEajNJSG1ZS0Z1QjhPUXpHcmk0OUR1ajlha3pDamZ4VzBxc2hrcjNfNTc0dTFPZEFOYThpLTlTT2JOQlJKcktnMDZGSDVZRFRRNzBpa3Zydw?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-09T08:00:00.000Z"
+    },
+    {
       "title": "Souveraineté et emplois : quelle est la feuille de route du gouvernement en matière d’intelligence artificielle ?",
       "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOZmF0NUo4MkVoWGg1SjA4TkRZOHZSZUtSVVh1Y0VSUk1wQTgxeDRrZlRDOE1Mel9ZS2gwR0M4NWgyZ0ppMU9UV042eEVKd1FUZGdzaU83azBSdmNLVnB6YV9ZSTcxckxfenhwYllTa3JJV0tsYUtFOG9KaW9SdHJMOENMMjh5a19fTXBHU3VKS3ZmdG1fOHZlNkhpMVFObG5sUUgyaTl2Zk16WkpHVGlIa0ZSd2RFRWszdHJjNUJLaENSbHRHbG9hbFdNUGVHRVV5eVBrMXZvQ1BfbUswWDFQR0JNNEdpdWZzb1JWOA?oc=5",
       "source": "Public Sénat",
@@ -521,6 +527,12 @@
     {
       "title": "IA et intérêt général : « Et si Mistral AI devenait la première grande entreprise numérique à mission",
       "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZXlGd2s4UnEzeTJEY1g3cHFjaU5CdV9LbDVmbEp3MHliSElLemRuWV9qcjhUVnN1M3ptbEItdzBhUnEzZ0pleXdSd1E0V214UEp6TDVxdVBqNUFhWjVxZVhqVlFtbEpBampaWUh5My1wMWhXby1hZnJIdlluVmtRSTB4SHpFQTNFd2FHZW1VTVpZQ3JaTThSVmdtT285TmhERU42cWZweW1kSWZ2ZzBlMmppaDVYMGVoR3hUTHJObTNYYUFudnYwMGZ2Sm5RdnZPMjBrbkxfenhPc2d2cVhoLThlcw?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-09-28T07:00:00.000Z"
+    },
+    {
+      "title": "« McKinsey a tort : l'IA n'a pas été pensée pour l'entreprise »",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdXZPZkhHS2xvV0ZLYXo5bGViSUlXLXpXZUpkbXhFNjBSOFhyU2E5Q01XendYTFBPRTd2VFROeThBcEN2YjFWY2E0Ym5helJmbnI4dF8tY3I4RlZqWkhIbHgxam1zckNLbDBZVmxvYWZQWHFNTEFFZ3NMdmpQcVh4NTB1UkFiOS1WY05vbU83V3ZqYWw4cHJFYXhOQnY1SG1nZnlnMGFfTUM5dw?oc=5",
       "source": "Les Échos",
       "pubDate": "2026-09-28T07:00:00.000Z"
     },

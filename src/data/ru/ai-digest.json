@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-21T14:37:47.831Z",
+  "updatedAt": "2026-11-22T02:12:34.260Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Представлен ClawDOS — ИИ‑агент для написания кода в среде DOS",
+      "link": "https://habr.com/ru/articles/1110726/?utm_campaign=1110726&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-21T15:41:21.000Z"
+    },
     {
       "title": "Как я перестал быть диспетчером у своих ИИ-агентов",
       "link": "https://habr.com/ru/articles/1110668/?utm_campaign=1110668&utm_source=habrahabr&utm_medium=rss",
@@ -1795,12 +1801,6 @@
       "link": "https://habr.com/ru/articles/1103620/?utm_campaign=1103620&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-05T10:35:47.000Z"
-    },
-    {
-      "title": "Lab4U автоматизировала сопоставление генетических данных и биомаркеров с помощью локальной LLM",
-      "link": "https://www.cnews.ru/news/line/2026-11-05_lab4u_avtomatizirovala_sopostavlenie",
-      "source": "CNews",
-      "pubDate": "2026-11-05T10:06:00.000Z"
     }
   ]
 }

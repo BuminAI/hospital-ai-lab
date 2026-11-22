@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T14:39:34.139Z",
+  "updatedAt": "2026-11-22T02:14:26.401Z",
   "source": "Irish Independent·TheJournal.ie·RTÉ·Silicon Republic·Irish Tech News·Business Post·Irish Examiner·The Irish Times·Irish Legal News",
   "items": [
     {
@@ -201,6 +201,12 @@
       "pubDate": "2026-11-03T08:00:00.000Z"
     },
     {
+      "title": "‘It’s getting quite scary’ – Irish SMEs seen as easy targets for fraud as AI-powered cyber attacks surge, IT expert says",
+      "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNOEgwLTQtaDBWMnNvanBnOXNTQVNNa0NVc0JOWmFVWDBVWnFPbUtBSzFMdmJ5eHQ0Mk1jdXlOOVlKNGp6c0xyOWVOTlRTRmRBWjFFZ1E1NnZuNTZQTmpseVJTbUMyQVJvb0dXVUQzSThJZEFfYVRtNVRiS015bVNVdF9SUnU5YVNVN0psLUdmMEF1ZEFqSVNGcklFZEdfbThGTGZhVzU3LUFVSkVZWS1Bd0NKOExfWTdBM3FXY0VldGMyeEZxQXRTYjFfT2hzYmE2Q3U1cHVxb3dUbVdOdEU2M2lvbDJXZ1E4QUJ6dE5ILVhkajJnMkZSQ0cwal9WUE1IcTBPOHZjc00xRFl2NGdB?oc=5",
+      "source": "Irish Independent",
+      "pubDate": "2026-11-01T07:00:00.000Z"
+    },
+    {
       "title": "AI in accounts : A threat to jobs, or a catalyst for value?",
       "link": "https://irishtechnews.ie/ai-in-accounts-a-threat-to-jobs-or-value/",
       "source": "Irish Tech News",
@@ -235,6 +241,12 @@
       "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUWN2UncwOHJITUhMeWxySTVjRU9hNDc2Uk02MkRmcVVmOFc2Y2ptVDFxS0dQMDhkX1RsalNRUno4QW5LY19vd1pOQnowQzFwZm5fVmJWcG1HYmNrY3NqSWhyZHk4dkZlYnhiTUtZMzUyQ2x5SDZyT3VMcm9aT3lzVVVGU0paaUdQRmtqdWROT0xKUUZQelJHckFZckE?oc=5",
       "source": "Silicon Republic",
       "pubDate": "2026-10-23T07:00:00.000Z"
+    },
+    {
+      "title": "ServiceNow Warns Ungoverned Agentic AI Exposure Is Compounding Inside Enterprises - Irish Tech News",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQcmVTSk15eDBHMVRKdWxxalhub20zZ2NJX0JQa0MyTmdYbUJybmJKRTFhbHlNdktVejNhSktoNTk0STNmZkdtd3NQVG9XMnJmMXVYazYwWktWd0JxRnNGdXFmQnNFaUxWcVlsWW9ZencyZjZtWTFyMXhveDd3d1JjVlktdXFkTVhlOVV1LXFiUHRhSVgzTThjTWw4T2hDVW9xeHFMejgwNW9wSEHSAasBQVVfeXFMUHJlU0pNeXgwRzFUSnVscWpYbm9tM2djSV9CUGtDMk5nWG1Ccm5iSkUxYWx5TXZLVXozYUpLaDU5NEkzZmZHbXdzUFRvVzJyZjF1WGs2MFpLVndCcUZzRnVxZkJzRWlMVnFZbFlvWXp3MmY2bVkxcjF4b3g3d3dSY1ZZLXVxZE1YZTlVdS1xYlB0YUlYM004Y01sOE9oQ1VvcXhxTHo4MDVvcEhB?oc=5",
+      "source": "Irish Tech News",
+      "pubDate": "2026-10-22T16:00:50.000Z"
     },
     {
       "title": "Intel and FIT launch AI for Future Workforce Programme and dedicated AI Lab in Ireland - Irish Tech News",
@@ -321,15 +333,15 @@
       "pubDate": "2026-10-12T07:00:00.000Z"
     },
     {
-      "title": "Irish AI company Tines announces 100 jobs",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVEtHM0FFbGZGOEw3QmpUQmgteDRjaDNNUVA4MV9MYXgtdzhfdnJoM0M3Rml6UUlxQXJ3RWxhT2NHMXhnZ0RQX3hPVUFVNDFQMGpLeDdlSWlJUktBOUNIUjVQV1BDX0oxb3VnT0NNZHFqdjZ5cU5UTDUwWXBNdGs4aUJZQ3N0XzdOV3c?oc=5",
-      "source": "RTÉ",
-      "pubDate": "2026-10-12T07:00:00.000Z"
-    },
-    {
       "title": "OpenAI to create 200 jobs in Dublin",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOaEVsYWgtZTJRa1k0ZDVyd3VtdnVRV1YzNVdKV3o2U1h3SjVhWVNJX0lXZUhHcnZNdEpacU5xOG5qSERsdDBRRmg4dFJ1aGdzaW1iZ1VqSzNkemVIY1c4b1BNNUR0Ty03MDluMlh1Vlh1aElLMFR0SHV3VGxwaDBIZ2NGYVZhdTBmektN?oc=5",
       "source": "The Irish Times",
+      "pubDate": "2026-10-12T07:00:00.000Z"
+    },
+    {
+      "title": "Irish AI company Tines announces 100 jobs",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVEtHM0FFbGZGOEw3QmpUQmgteDRjaDNNUVA4MV9MYXgtdzhfdnJoM0M3Rml6UUlxQXJ3RWxhT2NHMXhnZ0RQX3hPVUFVNDFQMGpLeDdlSWlJUktBOUNIUjVQV1BDX0oxb3VnT0NNZHFqdjZ5cU5UTDUwWXBNdGs4aUJZQ3N0XzdOV3c?oc=5",
+      "source": "RTÉ",
       "pubDate": "2026-10-12T07:00:00.000Z"
     },
     {
@@ -375,12 +387,6 @@
       "pubDate": "2026-09-29T11:00:46.000Z"
     },
     {
-      "title": "AI job replacement fears remain high - report",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqV2tZSVV0bncxc0hZVHZmbEloNVJkUWtEVlFQbUpXT19RNEpNM0hvdTRlVkhkX3UtcHFEa0R6cHVRV1d2dHFYUTgwbm16aVFlVllsWWkxMGUxVmxiRjIybTdyS3FGMTYzUlJscHNR?oc=5",
-      "source": "RTÉ",
-      "pubDate": "2026-09-29T07:00:00.000Z"
-    },
-    {
       "title": "AI agents are hacking government agencies. It’s ‘really scary’ for cybersecurity",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNDFJREJUWjV5eDJGTUV6cXM5b001ZkF4N3hYYXozZ2w4ZTBtQjdoOWdXSmxtcjZJWUd0LVZwTVMyQm1IaXhxS3dPZ1M1Q3N0QXc2ZkRhLWlvSm1LS0RNaDdPUHg1T19wbFpDTFVOWmMxdmJ0aU0xMEdGZHFRTi05M1hSTllPYmFMUHFBSWN6OGdFZnh4U1g1a2YyRDVaQ0l5UlpiVHB1QkhPYWloWUJGS1BjQmZJSDlVNjlsWHU3eWM?oc=5",
       "source": "The Irish Times",
@@ -390,6 +396,12 @@
       "title": "Ireland's DPC says tech giants can’t use private messages to train AI",
       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPLWxsQW9uSHZYSWl5djU2UXFqT3hubjEtVUhaakpGQ1djRkh1d1FXWTZkVlM0bEMyYk9GVXh3WGpiQnJESEhxQm16YmtGR2NVMUhpZGhzVzhBZlQ3NTlqYUpwbkRZWGx5WGRyZk1pV3hCZWFIbmlQZEVCVmZHSXhhWi15QjliSWRoQ3NMZGtILWxKQUJ5cEtWTnphM0Qxb2NEdWZfcTdqSjN5ekVqbHE4aks5Y3VuLW1tNkcxSg?oc=5",
       "source": "Irish Independent",
+      "pubDate": "2026-09-29T07:00:00.000Z"
+    },
+    {
+      "title": "AI job replacement fears remain high - report",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqV2tZSVV0bncxc0hZVHZmbEloNVJkUWtEVlFQbUpXT19RNEpNM0hvdTRlVkhkX3UtcHFEa0R6cHVRV1d2dHFYUTgwbm16aVFlVllsWWkxMGUxVmxiRjIybTdyS3FGMTYzUlJscHNR?oc=5",
+      "source": "RTÉ",
       "pubDate": "2026-09-29T07:00:00.000Z"
     },
     {
