@@ -12,7 +12,8 @@ on:
 
 permissions:
   contents: write # portal-data·portal-beds 브랜치 푸시
-  actions: write # 자기 자신 다시 실행
+  actions: write # 자기 자신·다른 수집 워크플로 실행
+  issues: write # 모든 자료 수집이 끝나면 알림 이슈 생성
 
 # 동시에 하나만 돈다. 대기 중인 실행은 하나만 남는다(이어달리기 신호와 예약 신호가 겹쳐도 한 번만 이어진다).
 concurrency:
