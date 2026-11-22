@@ -1,6 +1,8 @@
 ---
 // 공공 포털 › 병상가동현황 (2026-11-21, 오너 지시).
-// 데이터: scripts/fetch-beds.mjs 가 GitHub Actions(update-beds.yml)에서 받아 둔 src/data/portal/beds.json — 빌드 때 표로 구워 정적으로 배포한다.
+// 데이터: scripts/fetch-beds.mjs 가 GitHub Actions(update-beds.yml)에서 받아 `portal-beds` 브랜치의 beds.json 으로 올린다.
+// 페이지는 빌드 때 src/data/portal/beds.json 으로 표를 구워 두고(자바스크립트가 없을 때·불러오기 실패 때의 대비),
+// 브라우저에서 최신 beds.json 을 받아 표를 새로 그린다(새로고침 버튼·5분마다 자동). 2026-11-22: 새로고침·병원명 검색 추가.
 // 특정 병원 기준·반경·고정 병원 없이 전국 응급의료기관을 시도·시군구 드롭다운으로 거른다(자바스크립트가 없어도 전체 표가 보인다).
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../utils/site';
@@ -19,6 +21,7 @@ interface Row {
   stamp: string;
 }
 const rows = (beds.items as Row[]) ?? [];
+const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/portal-beds/beds.json';
 const ready = rows.length > 0;
 
 const sidos = [...new Set(rows.map((r) => r.sido))];
@@ -84,11 +87,16 @@ const dataset = {
                 <option value="">전체</option>
               </select>
             </label>
+            <label>
+              <span>병원명 검색</span>
+              <input type="search" id="beds-q" placeholder="예: 서울대" autocomplete="off" />
+            </label>
             <p class="count" id="beds-count" aria-live="polite">{rows.length.toLocaleString('ko-KR')}곳</p>
           </form>
 
-          <p class="asof">
-            자료 갱신 {asOf} (한국시간) · 병상 수치는 각 병원이 입력한 값이며, 입력 시각은 표 오른쪽 끝에 있습니다. 이 페이지는 몇 시간마다 자동으로 갱신됩니다.
+          <p class="asof" id="beds-asof" role="status">
+            자료 갱신 {asOf} (한국시간) · 병상 수치는 각 병원이 입력한 값이며, 입력 시각은 표 오른쪽 끝에 있습니다. 이 페이지는 열려 있는 동안 5분마다, 그리고 새로고침을 누를 때 최신 자료를 받아 옵니다(자료 수집은 GitHub 사정으로 늦어질 수 있습니다).
+            <button type="button" id="beds-reload" class="reload">새로고침</button>
           </p>
           <p class="legend" aria-label="가동률 색 구간">
             <span class="r-low">60% 미만</span><span class="r-mid">60~75%</span><span class="r-ok">75~90%</span><span class="r-high">90% 이상</span>
@@ -143,20 +151,57 @@ const dataset = {
   </section>
 </BaseLayout>
 
-<script id="sigungu-data" type="application/json" set:html={JSON.stringify(sigunguBySido)} />
-
-<script is:inline>
+<script id="beds-initial" type="application/json" set:html={JSON.stringify({ updatedAt: beds.updatedAt, items: rows })} />
+<script is:inline define:vars={{ DATA_URL }}>
   (function () {
     var selSido = document.getElementById('sel-sido');
     var selSgg = document.getElementById('sel-sigungu');
     var body = document.getElementById('beds-body');
     if (!selSido || !selSgg || !body) return;
-    var map = {};
-    try { map = JSON.parse(document.getElementById('sigungu-data').textContent || '{}'); } catch (e) {}
-    var rowsEls = Array.prototype.slice.call(body.querySelectorAll('tr'));
+    var qEl = document.getElementById('beds-q');
     var count = document.getElementById('beds-count');
     var none = document.getElementById('beds-none');
+    var asofEl = document.getElementById('beds-asof');
+    var reloadBtn = document.getElementById('beds-reload');
+    var data = null;
+    var map = {};
 
+    function pct(r) { return r === null || r === undefined || r < 0 ? '—' : (r * 100).toFixed(1) + '%'; }
+    function rateClass(r) { return r === null || r === undefined ? '' : r < 0.6 ? 'r-low' : r < 0.75 ? 'r-mid' : r < 0.9 ? 'r-ok' : 'r-high'; }
+    function n0(x) { return typeof x === 'number' ? x.toLocaleString('ko-KR') : '—'; }
+    function stampText(s) { return /^[0-9]{14}$/.test(s || '') ? s.slice(4, 6) + '.' + s.slice(6, 8) + ' ' + s.slice(8, 10) + ':' + s.slice(10, 12) : '—'; }
+    function kst(iso) {
+      try { return new Date(iso).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16); } catch (e) { return ''; }
+    }
+    function cell(tr, text, cls) {
+      var td = document.createElement('td');
+      if (cls) td.className = cls;
+      td.textContent = text;
+      tr.appendChild(td);
+    }
+
+    function buildMap() {
+      map = {};
+      data.items.forEach(function (r) {
+        map[r.sido] = map[r.sido] || [];
+        if (r.sigungu && map[r.sido].indexOf(r.sigungu) < 0) map[r.sido].push(r.sigungu);
+      });
+      Object.keys(map).forEach(function (k) { map[k].sort(function (a, b) { return a.localeCompare(b, 'ko'); }); });
+    }
+    function fillSido(keep) {
+      selSido.innerHTML = '';
+      var all = document.createElement('option');
+      all.value = '';
+      all.textContent = '전국 (전체)';
+      selSido.appendChild(all);
+      Object.keys(map).forEach(function (n) {
+        var o = document.createElement('option');
+        o.value = n;
+        o.textContent = n;
+        selSido.appendChild(o);
+      });
+      if (keep && map[keep] !== undefined) selSido.value = keep;
+    }
     function fillSigungu(sido, keep) {
       var list = sido ? map[sido] || [] : [];
       selSgg.innerHTML = '';
@@ -173,37 +218,91 @@ const dataset = {
       selSgg.disabled = !sido || list.length === 0;
       if (keep && list.indexOf(keep) >= 0) selSgg.value = keep;
     }
-    function apply() {
+
+    function render() {
       var s = selSido.value;
       var g = selSgg.value;
+      var q = qEl ? qEl.value.replace(/\s+/g, '').toLowerCase() : '';
+      var frag = document.createDocumentFragment();
       var n = 0;
-      rowsEls.forEach(function (tr) {
-        var ok = (!s || tr.getAttribute('data-sido') === s) && (!g || tr.getAttribute('data-sigungu') === g);
-        tr.hidden = !ok;
-        if (ok) n++;
+      data.items.forEach(function (r) {
+        if (s && r.sido !== s) return;
+        if (g && r.sigungu !== g) return;
+        if (q && (r.name || '').replace(/\s+/g, '').toLowerCase().indexOf(q) < 0) return;
+        n++;
+        var tr = document.createElement('tr');
+        cell(tr, r.sido);
+        cell(tr, r.sigungu || '—');
+        cell(tr, r.name, 'name');
+        cell(tr, r.type || '—');
+        cell(tr, n0(r.total), 'num');
+        cell(tr, n0(r.stay), 'num');
+        cell(tr, pct(r.rate), 'num rate ' + rateClass(r.rate));
+        cell(tr, pct(r.wardRate), 'num muted');
+        cell(tr, stampText(r.stamp), 'muted');
+        frag.appendChild(tr);
       });
+      body.innerHTML = '';
+      body.appendChild(frag);
       count.textContent = n.toLocaleString('ko-KR') + '곳';
       none.hidden = n !== 0;
+      none.textContent = q ? '검색어에 맞는 응급의료기관이 없습니다.' : '선택한 지자체에 표시할 응급의료기관이 없습니다.';
       try {
-        var q = new URLSearchParams();
-        if (s) q.set('sido', s);
-        if (g) q.set('sigungu', g);
-        history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q.toString() : ''));
+        var p = new URLSearchParams();
+        if (s) p.set('sido', s);
+        if (g) p.set('sigungu', g);
+        if (qEl && qEl.value.trim()) p.set('q', qEl.value.trim());
+        history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
       } catch (e) {}
     }
-    selSido.addEventListener('change', function () { fillSigungu(selSido.value); apply(); });
-    selSgg.addEventListener('change', apply);
 
-    // 주소창의 ?sido=…&sigungu=… 로 들어오면 그 지자체를 미리 골라 둔다(링크 공유용)
-    try {
-      var p = new URLSearchParams(location.search);
-      var s0 = p.get('sido');
-      if (s0 && map[s0] !== undefined) {
-        selSido.value = s0;
-        fillSigungu(s0, p.get('sigungu') || '');
-        apply();
+    function setAsOf(extra) {
+      var old = data.updatedAt && Date.now() - new Date(data.updatedAt).getTime() > 6 * 3600000;
+      asofEl.firstChild.textContent = '자료 갱신 ' + kst(data.updatedAt) + ' (한국시간) · 병상 수치는 각 병원이 입력한 값이며, 입력 시각은 표 오른쪽 끝에 있습니다.' +
+        (old ? ' 자료가 오래되었습니다. 수집이 지연되고 있을 수 있습니다.' : '') + (extra || '') + ' ';
+    }
+
+    function apply(d, initial) {
+      data = d;
+      buildMap();
+      var keepS = selSido.value, keepG = selSgg.value;
+      if (initial) {
+        try {
+          var p = new URLSearchParams(location.search);
+          keepS = p.get('sido') || keepS;
+          keepG = p.get('sigungu') || keepG;
+          if (qEl && p.get('q')) qEl.value = p.get('q');
+        } catch (e) {}
       }
-    } catch (e) {}
+      fillSido(keepS);
+      fillSigungu(selSido.value, keepG);
+      render();
+    }
+
+    function load() {
+      var url = DATA_URL + '?t=' + Math.floor(Date.now() / 300000);
+      reloadBtn.disabled = true;
+      fetch(url, { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (d) {
+          if (!d || !Array.isArray(d.items) || d.items.length < 50) throw new Error('빈 자료');
+          apply(d, false);
+          setAsOf('');
+        })
+        .catch(function () { setAsOf(' 최신 자료를 받지 못해 페이지에 담긴 값을 보여 줍니다.'); })
+        .then(function () { reloadBtn.disabled = false; });
+    }
+
+    selSido.addEventListener('change', function () { fillSigungu(selSido.value); render(); });
+    selSgg.addEventListener('change', render);
+    if (qEl) qEl.addEventListener('input', render);
+    reloadBtn.addEventListener('click', load);
+
+    try {
+      apply(JSON.parse(document.getElementById('beds-initial').textContent), true);
+    } catch (e) { return; }
+    load();
+    setInterval(function () { if (!document.hidden) load(); }, 300000);
   })();
 </script>
 
@@ -257,6 +356,29 @@ const dataset = {
     margin: 0.25rem 0;
     font-size: 0.85rem;
     color: var(--color-muted);
+  }
+  .reload {
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.8rem;
+    font: inherit;
+    font-size: 0.82rem;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .reload:disabled {
+    opacity: 0.55;
+  }
+  .filter input[type='search'] {
+    min-width: 12rem;
+    padding: 0.55rem 0.7rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
   }
   .legend {
     margin: 0.5rem 0 0.75rem;

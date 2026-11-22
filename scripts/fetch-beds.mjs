@@ -8,6 +8,7 @@
 //
 // 인증키: 환경변수 DATA_GO_KR_KEY (GitHub 저장소 Secret). 쉼표·공백으로 여러 개 적어도 된다
 //   (서비스마다 활용신청이 승인된 키가 다를 때 '등록되지 않은 서비스키' 응답이 오면 다음 키로 넘어간다).
+//   출력 경로를 인자로 주면(node scripts/fetch-beds.mjs <경로>) 그 파일에 항상 새로 쓴다 — 워크플로가 `portal-beds` 브랜치로 올려 페이지가 브라우저에서 읽는다.
 //   키가 없거나 호출이 실패하면 아무것도 쓰지 않고 정상 종료한다(기존 파일 유지 — 워크플로에서 변경 없음으로 처리).
 //
 // 병상수·가동률 계산 규칙은 개인 대시보드(bumin-dashboard)의 scripts/lib/beds.js 와 같은 규칙을 쓴다:
@@ -138,15 +139,24 @@ export function buildRows(list, live) {
 }
 
 async function main() {
+  const liveOut = process.argv[2] ? path.resolve(process.argv[2]) : '';
   const key = process.env.DATA_GO_KR_KEY;
   if (!key) {
     console.log('DATA_GO_KR_KEY가 없어 병상가동현황 수집을 건너뜁니다(기존 파일 유지).');
+    if (liveOut) process.exit(1);
     return;
   }
   const list = await fetchAll('getEgytListInfoInqire', key);
   const live = await fetchAll('getEmrrmRltmUsefulSckbdInfoInqire', key);
   const { rows, withoutData } = buildRows(list, live);
   if (rows.length < 50) throw new Error(`병원 ${rows.length}곳뿐이라 이상 응답으로 보고 저장하지 않습니다.`);
+  if (liveOut) {
+    fs.mkdirSync(path.dirname(liveOut), { recursive: true });
+    const live = { updatedAt: new Date().toISOString(), source: '국립중앙의료원 중앙응급의료센터 응급의료기관 정보(공공데이터포털 OpenAPI)', count: rows.length, withoutData, items: rows };
+    fs.writeFileSync(liveOut, JSON.stringify(live) + '\n');
+    console.log(`병상가동현황 ${rows.length}곳 저장 → ${liveOut}`);
+    return;
+  }
   const prev = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : null;
   const next = {
     updatedAt: new Date().toISOString(),

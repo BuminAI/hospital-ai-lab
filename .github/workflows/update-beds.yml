@@ -2,13 +2,14 @@ name: Update Portal Beds
 
 on:
   schedule:
-    # 3시간마다(UTC :11 — 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다). 병원이 입력하는 병상 값은 수시로 바뀌지만
-    # 이 페이지는 정적 배포라 몇 시간 간격이면 충분하고, 공공데이터포털 하루 호출 한도(개발계정 1,000건)에도 한 번에 2건뿐이라 넉넉하다.
-    - cron: '11 */3 * * *'
+    # 30분마다(UTC :11·:41 — 다른 워크플로가 몰린 정각·:07·:17·:37·:47·:53은 비킨다). 2026-11-22: 3시간 → 30분, 결과는 사이트를 다시 배포하지 않고
+    # `portal-beds` 브랜치의 beds.json 으로 올린다(페이지가 브라우저에서 읽는다). 한 번에 호출 2~4건이라 공공데이터포털 하루 한도(개발계정 1,000건)에 넉넉하다.
+    # 예약 실행은 GitHub 사정으로 몇 시간 늦거나 건너뛸 수 있어서, 페이지에는 '자료 갱신 시각'을 그대로 보여 준다.
+    - cron: '11,41 * * * *'
   workflow_dispatch:
 
 permissions:
-  contents: write # 커밋·푸시
+  contents: write # portal-beds 브랜치 푸시, 하루 한 번 beds.json 커밋
   actions: write # deploy.yml 수동 트리거(gh workflow run)
 
 # 자기 자신의 중복 실행만 직렬화한다(다른 update-*.yml·deploy.yml 그룹과 공유하지 않는다).
@@ -28,15 +29,40 @@ jobs:
         with:
           node-version: 20
 
-      # 인증키(DATA_GO_KR_KEY)가 없거나 수집이 실패하면 파일이 안 바뀌므로 아래 커밋 단계가 '변경 없음'으로 끝난다.
-      - name: 전국 응급의료기관 병상가동현황 수집
+      - name: 전국 응급의료기관 병상가동현황 수집 (실시간용)
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
-        run: node scripts/fetch-beds.mjs || echo "수집 건너뜀(기존 자료 유지)"
+        run: node scripts/fetch-beds.mjs "$RUNNER_TEMP/beds.json"
 
-      - name: portal/beds.json 커밋 (변경 있을 때만)
+      # 히스토리가 쌓이지 않게 매번 커밋 하나짜리 브랜치로 덮어쓴다(--force). GitHub 일시 오류로 거부되면 최대 5번 다시 시도한다.
+      - name: portal-beds 브랜치에 beds.json 올리기
+        run: |
+          mkdir -p "$RUNNER_TEMP/pub"
+          cp "$RUNNER_TEMP/beds.json" "$RUNNER_TEMP/pub/beds.json"
+          cd "$RUNNER_TEMP/pub"
+          git init -q -b portal-beds
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add beds.json
+          git commit -q -m "병상가동현황 자동 갱신"
+          for i in 1 2 3 4 5; do
+            if git push --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" portal-beds; then
+              exit 0
+            fi
+            echo "푸시 실패($i/5) — 잠시 뒤 다시 시도합니다."
+            sleep $((i * 15))
+          done
+          exit 1
+
+      # 사이트에 구워 두는 표(자바스크립트가 없거나 불러오기 실패 때의 대비)는 하루 한 번(UTC 18시대 = 한국 새벽 3시대)만 갱신·배포한다.
+      - name: portal/beds.json 커밋 (하루 한 번, 변경 있을 때만)
         id: commit
         run: |
+          if [ "$(date -u +%H)" != "18" ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          node scripts/fetch-beds.mjs || echo "수집 건너뜀(기존 자료 유지)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/portal/beds.json
