@@ -1,7 +1,109 @@
 {
-  "updatedAt": "2026-11-23T02:44:35.869Z",
+  "updatedAt": "2026-11-23T18:04:13.651Z",
   "source": "CNN Indonesia·detikINET·Katadata·Tempo·ANTARA·Liputan6·detikFinance·Media Indonesia·Tech in Asia·Uzone",
   "items": [
+    {
+      "title": "Panel PBB: Model terdepan bukan satu-satunya jalan menuju kapasitas AI",
+      "link": "https://www.antaranews.com/berita/5873783/panel-pbb-model-terdepan-bukan-satu-satunya-jalan-menuju-kapasitas-ai",
+      "source": "ANTARA",
+      "pubDate": "2026-11-23T17:03:08.000Z"
+    },
+    {
+      "title": "PalmCo gandeng ITS manfaatkan drone AI efisiensi pengelolaan sawit",
+      "link": "https://www.antaranews.com/berita/5873743/palmco-gandeng-its-manfaatkan-drone-ai-efisiensi-pengelolaan-sawit",
+      "source": "ANTARA",
+      "pubDate": "2026-11-23T16:17:33.000Z"
+    },
+    {
+      "title": "Susun Rencana Liburan Lebih Praktis dengan Gemini Notebook di Samsung Galaxy Z Fold8",
+      "link": "https://www.liputan6.com/tekno/read/8340699/susun-rencana-liburan-lebih-praktis-dengan-gemini-notebook-di-samsung-galaxy-z-fold8",
+      "source": "Liputan6",
+      "pubDate": "2026-11-23T12:13:45.000Z"
+    },
+    {
+      "title": "Telkomsel Rilis Paket AI Token mulai Rp100 Ribu, Apa Fungsinya?",
+      "link": "https://www.cnnindonesia.com/teknologi/20261123171028-213-1430480/telkomsel-rilis-paket-ai-token-mulai-rp100-ribu-apa-fungsinya",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-23T11:30:29.000Z"
+    },
+    {
+      "title": "Beban Kerja AI Makin Berat, Pusat Data di Indonesia Dituntut Ramah Lingkungan",
+      "link": "https://www.liputan6.com/tekno/read/8340889/beban-kerja-ai-makin-berat-pusat-data-di-indonesia-dituntut-ramah-lingkungan",
+      "source": "Liputan6",
+      "pubDate": "2026-11-23T11:07:29.000Z"
+    },
+    {
+      "title": "Dibayar Rp10 Ribu per Jam, Pedagang Rekam Aktivitas Jualan untuk Latih AI",
+      "link": "https://finance.detik.com/foto-bisnis/d-8765683/dibayar-rp10-ribu-per-jam-pedagang-rekam-aktivitas-jualan-untuk-latih-ai",
+      "source": "detikFinance",
+      "pubDate": "2026-11-23T11:00:51.000Z"
+    },
+    {
+      "title": "Telkomsel Dorong Pemanfaatan AI Lewat OCTA Token",
+      "link": "https://www.liputan6.com/tekno/read/8340841/telkomsel-dorong-pemanfaatan-ai-lewat-octa-token",
+      "source": "Liputan6",
+      "pubDate": "2026-11-23T09:54:49.000Z"
+    },
+    {
+      "title": "Mendadak Kaya Raya, Ribuan Karyawan Anthropic Ramai-Ramai Resign?",
+      "link": "https://inet.detik.com/business/d-8766053/mendadak-kaya-raya-ribuan-karyawan-anthropic-ramai-ramai-resign",
+      "source": "detikINET",
+      "pubDate": "2026-11-23T09:40:13.000Z"
+    },
+    {
+      "title": "Jurus Baru Telkomsel Bikin Orang Indonesia Makin Produktif Pakai Layanan AI",
+      "link": "https://inet.detik.com/telecommunication/d-8765911/jurus-baru-telkomsel-bikin-orang-indonesia-makin-produktif-pakai-layanan-ai",
+      "source": "detikINET",
+      "pubDate": "2026-11-23T09:15:24.000Z"
+    },
+    {
+      "title": "Telkomsel Luncurkan Paket AI, Bisa Akses 69 Model Mulai Rp 100 Ribu",
+      "link": "https://inet.detik.com/telecommunication/d-8765899/telkomsel-luncurkan-paket-ai-bisa-akses-69-model-mulai-rp-100-ribu",
+      "source": "detikINET",
+      "pubDate": "2026-11-23T08:15:03.000Z"
+    },
+    {
+      "title": "Cara Telkomsel Pangkas Biaya Langganan AI Lewat OCTA Token",
+      "link": "https://www.liputan6.com/tekno/read/8340731/cara-telkomsel-pangkas-biaya-langganan-ai-lewat-octa-token",
+      "source": "Liputan6",
+      "pubDate": "2026-11-23T08:12:05.000Z"
+    },
+    {
+      "title": "Telkom Gandeng ITS, ITB, dan Tel-U di KSTI 2026, Perkuat Riset Teknologi Frontier AI hingga 6G",
+      "link": "https://www.liputan6.com/tekno/read/8340692/telkom-gandeng-its-itb-dan-tel-u-di-ksti-2026-perkuat-riset-teknologi-frontier-ai-hingga-6g",
+      "source": "Liputan6",
+      "pubDate": "2026-11-23T07:35:54.000Z"
+    },
+    {
+      "title": "Hacker Gunakan AI untuk Temukan Celah Zero-Day dan Ambil Alih Server",
+      "link": "https://www.liputan6.com/tekno/read/8339747/hacker-gunakan-ai-untuk-temukan-celah-zero-day-dan-ambil-alih-server",
+      "source": "Liputan6",
+      "pubDate": "2026-11-23T05:21:37.000Z"
+    },
+    {
+      "title": "Infomedia Kembangkan AI untuk Mengukur Kualitas Pembelajaran di Perguruan Tinggi",
+      "link": "https://katadata.co.id/digital/teknologi/6b03bd2fdb293/infomedia-kembangkan-ai-untuk-mengukur-kualitas-pembelajaran-di-perguruan-tinggi",
+      "source": "Katadata",
+      "pubDate": "2026-11-23T04:12:00.000Z"
+    },
+    {
+      "title": "AS Batasi Chip AI ke Indonesia, Gara-gara Kasus Jensen Huang?",
+      "link": "https://uzone.id/as-batasi-chip-ai-ke-indonesia-gara-gara-kasus-jensen-huang",
+      "source": "Uzone",
+      "pubDate": "2026-11-23T04:00:00.000Z"
+    },
+    {
+      "title": "Menteri Pendidikan Korea Mundur Buntut Kecurangan Ujian Pakai AI",
+      "link": "https://inet.detik.com/cyberlife/d-8765263/menteri-pendidikan-korea-mundur-buntut-kecurangan-ujian-pakai-ai",
+      "source": "detikINET",
+      "pubDate": "2026-11-23T03:40:35.000Z"
+    },
+    {
+      "title": "Agen AI bisa Baca Isi Pesan, Aplikasi Signal Blokir Fitur Tangkapan Layar Pesan",
+      "link": "https://katadata.co.id/digital/teknologi/6b03afcdd1ee5/agen-ai-bisa-baca-isi-pesan-aplikasi-signal-blokir-fitur-tangkapan-layar-pesan",
+      "source": "Katadata",
+      "pubDate": "2026-11-23T03:15:00.000Z"
+    },
     {
       "title": "Apple Disebut Kembangkan Agen AI yang Bisa Jalankan Aplikasi",
       "link": "https://www.liputan6.com/tekno/read/8339669/apple-disebut-kembangkan-agen-ai-yang-bisa-jalankan-aplikasi",
@@ -247,6 +349,12 @@
       "link": "https://inet.detik.com/business/d-8760593/ipo-raksasa-ai-anthropic-raup-rekor-rp-1-478-triliun",
       "source": "detikINET",
       "pubDate": "2026-11-19T12:00:32.000Z"
+    },
+    {
+      "title": "Moonshot AI Cina Disebut Batal Sewa Cip Nvidia Rp2,7 Triliun dari Data Center RI",
+      "link": "https://katadata.co.id/digital/teknologi/6afed924c0cc6/moonshot-ai-cina-disebut-batal-sewa-cip-nvidia-rp2-7-triliun-dari-data-center-ri",
+      "source": "Katadata",
+      "pubDate": "2026-11-19T11:10:00.000Z"
     },
     {
       "title": "Moonshot AI Cina Disebut Batal Sewa Cip Nvidia Rp 2,7 Triliun dari Data Center R",
@@ -1693,114 +1801,6 @@
       "link": "https://www.antaranews.com/berita/5828015/penguin-solutions-perkenalkan-smart-modular-mrdimm-dengan-bandwidth-tinggi-untuk-pusat-data-ai-generasi-terbaru",
       "source": "ANTARA",
       "pubDate": "2026-11-03T02:26:22.000Z"
-    },
-    {
-      "title": "Indonesia-Swiss perkuat kerja sama bidang “sovereign AI”",
-      "link": "https://www.antaranews.com/berita/5827975/indonesia-swiss-perkuat-kerja-sama-bidang-sovereign-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-11-03T02:03:07.000Z"
-    },
-    {
-      "title": "Spotify Tarik Biaya Tambahan demi Fitur Baru AI Ini Tahun Depan",
-      "link": "https://mediaindonesia.com/teknologi/951625/spotify-tarik-biaya-tambahan-demi-fitur-baru-ai-ini-tahun-depan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-11-03T00:23:00.000Z"
-    },
-    {
-      "title": "Ketika Gen, Bedah Robotik, dan Artificial Intelligence Mengubah Pengobatan Kanker",
-      "link": "https://mediaindonesia.com/opini/951522/ketika-gen-bedah-robotik-dan-artificial-intelligence-mengubah-pengobatan-kanker",
-      "source": "Media Indonesia",
-      "pubDate": "2026-11-02T22:10:00.000Z"
-    },
-    {
-      "title": "Copilot Perempuan 20 Tahun Korban Tewas Jet Pribadi Jatuh di Florida",
-      "link": "https://mediaindonesia.com/internasional/951584/copilot-perempuan-20-tahun-korban-tewas-jet-pribadi-jatuh-di-florida",
-      "source": "Media Indonesia",
-      "pubDate": "2026-11-02T21:40:00.000Z"
-    },
-    {
-      "title": "Produsen manufaktur Singapura tetap optimistis terkait permintaan AI",
-      "link": "https://www.antaranews.com/berita/5827771/produsen-manufaktur-singapura-tetap-optimistis-terkait-permintaan-ai",
-      "source": "ANTARA",
-      "pubDate": "2026-11-02T17:00:13.000Z"
-    },
-    {
-      "title": "AI Anthropic Kendalikan Robot untuk Suntikkan Terapi Gen ke Otak Tikus, Picu Perdebatan Etika",
-      "link": "https://mediaindonesia.com/teknologi/951555/ai-anthropic-kendalikan-robot-untuk-suntikkan-terapi-gen-ke-otak-tikus-picu-perdebatan-etika",
-      "source": "Media Indonesia",
-      "pubDate": "2026-11-02T15:50:00.000Z"
-    },
-    {
-      "title": "Dukung Komputasi Berdaya Tinggi, Pusat Data AI Berkapasitas 21 MW Mulai Beroperasi di Jakarta",
-      "link": "https://mediaindonesia.com/ekonomi/951541/dukung-komputasi-berdaya-tinggi-pusat-data-ai-berkapasitas-21-mw-mulai-beroperasi-di-jakarta",
-      "source": "Media Indonesia",
-      "pubDate": "2026-11-02T15:14:00.000Z"
-    },
-    {
-      "title": "Takut Diprotes Warga, OpenAI Ubah Nama Pusat Data Jadi Kampus Komputasi",
-      "link": "https://inet.detik.com/cyberlife/d-8735320/takut-diprotes-warga-openai-ubah-nama-pusat-data-jadi-kampus-komputasi",
-      "source": "detikINET",
-      "pubDate": "2026-11-02T14:21:17.000Z"
-    },
-    {
-      "title": "Guru di Jawa Timur Adopsi Teknologi AI untuk Inovasi Pembelajaran Sejarah dan Budaya",
-      "link": "https://mediaindonesia.com/humaniora/951499/guru-di-jawa-timur-adopsi-teknologi-ai-untuk-inovasi-pembelajaran-sejarah-dan-budaya",
-      "source": "Media Indonesia",
-      "pubDate": "2026-11-02T13:53:00.000Z"
-    },
-    {
-      "title": "AI Bikin Solusi Penyimpanan Jadul Ini Bangkit Kembali",
-      "link": "https://inet.detik.com/business/d-8735319/ai-bikin-solusi-penyimpanan-jadul-ini-bangkit-kembali",
-      "source": "detikINET",
-      "pubDate": "2026-11-02T13:48:11.000Z"
-    },
-    {
-      "title": "Kemenekraf Dorong Adopsi AI bagi Pelaku Ekonomi Kreatif di Lampung Selatan",
-      "link": "https://mediaindonesia.com/humaniora/951470/kemenekraf-dorong-adopsi-ai-bagi-pelaku-ekonomi-kreatif-di-lampung-selatan",
-      "source": "Media Indonesia",
-      "pubDate": "2026-11-02T13:08:00.000Z"
-    },
-    {
-      "title": "Robot Humanoid China Makin Canggih, Kini Berlomba Kembangkan Otak AI",
-      "link": "https://www.cnnindonesia.com/teknologi/20261102144732-192-1422334/robot-humanoid-china-makin-canggih-kini-berlomba-kembangkan-otak-ai",
-      "source": "CNN Indonesia",
-      "pubDate": "2026-11-02T12:15:32.000Z"
-    },
-    {
-      "title": "12 Prompt Gemini AI Foto Ulang Tahun Sendiri, Studio hingga candid",
-      "link": "https://katadata.co.id/lifestyle/varia/6ae8334ce692e/12-prompt-gemini-ai-foto-ulang-tahun-sendiri-studio-hingga-candid",
-      "source": "Katadata",
-      "pubDate": "2026-11-02T10:22:00.000Z"
-    },
-    {
-      "title": "Cegah Kebocoran Data, Akamai Punya Cara Amankan Workload AI di Satu platform",
-      "link": "https://www.liputan6.com/tekno/read/8326807/cegah-kebocoran-data-akamai-punya-cara-amankan-workload-ai-di-satu-platform",
-      "source": "Liputan6",
-      "pubDate": "2026-11-02T10:11:15.000Z"
-    },
-    {
-      "title": "DataOn HR Conference 2026 Segera Digelar, Soroti Peran AI dalam Kinerja SDM",
-      "link": "https://katadata.co.id/digital/teknologi/6ae852d872ac3/dataon-hr-conference-2026-segera-digelar-soroti-peran-ai-dalam-kinerja-sdm",
-      "source": "Katadata",
-      "pubDate": "2026-11-02T09:07:00.000Z"
-    },
-    {
-      "title": "AI Ganjal Modernisasi IT Perusahaan di Asia Pasifik, Kok Bisa?",
-      "link": "https://inet.detik.com/business/d-8734774/ai-ganjal-modernisasi-it-perusahaan-di-asia-pasifik-kok-bisa",
-      "source": "detikINET",
-      "pubDate": "2026-11-02T07:52:14.000Z"
-    },
-    {
-      "title": "Heboh Video Prabowo Disambut Warga RI di Whoosh, Ternyata Bikinan AI?",
-      "link": "https://uzone.id/heboh-video-prabowo-disambut-warga-ri-di-whoosh-ternyata-bikinan-ai",
-      "source": "Uzone",
-      "pubDate": "2026-11-02T06:47:49.000Z"
-    },
-    {
-      "title": "Kumpulan Prompt Gemini AI Foto Bareng Member Blackpink, Tinggal Copy-Paste",
-      "link": "https://katadata.co.id/lifestyle/varia/6ae7d3969fd4d/kumpulan-prompt-gemini-ai-foto-bareng-member-blackpink-tinggal-copy-paste",
-      "source": "Katadata",
-      "pubDate": "2026-11-02T05:38:00.000Z"
     }
   ]
 }

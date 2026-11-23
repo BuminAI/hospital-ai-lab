@@ -1,7 +1,67 @@
 {
-  "updatedAt": "2026-11-23T02:45:17.638Z",
-  "source": "Gulf News·Khaleej Times·WAM·Gulf Today·Fast Company Middle East·Tahawul Tech·The National·Zawya·Emirates 24|7·Gulf Business·Arab News·Arabian Business·Tbreak UAE",
+  "updatedAt": "2026-11-23T18:04:58.083Z",
+  "source": "Gulf News·Emirates 24|7·Arab News·The National·Khaleej Times·WAM·Zawya·Gulf Today·Fast Company Middle East·Tahawul Tech·Gulf Business·Arabian Business·Tbreak UAE",
   "items": [
+    {
+      "title": "Sheikh Mohammed says UAE government’s new AI assistant mira will eliminate need for multiple platforms",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPM3BhZlpaaWYtYmxncTdXUC1ES0kyd2NNWWRQTTR4b180SVVXQXMwcmpGamx6WEp6Sl9wN2JRQktJclpyMTRHbU5Wa3FMQkY2WlA4TWtmYnhMQWRweGdnWTUwLVJ3cHg0SUx0QjRYUm5LdlhYZGZwa1hmRGdzZ1kwVlcxNFIzNTk2OU9EeXY5VUVhdlBZTDdEclJCVlNDUWRhVEFwN2tIZWFDOF9iWnRpaVlrNXFyRFVHaU81bzNmaWpDVXpCR0JMMmZhaFYwTnBrZHd2NNIB5AFBVV95cUxNUjRYbnNlYmlGNzdDNk9lUklVSlVsNGVQZ0hKT0hjSXBTNUl0ODVUNERqUUxpb2hHRGFGdHhwbGFPY0g0RGx5clJwRVdnWHhqSXZtX2N2T0w1RTFlTHVoY2lFTzVQRXVuZmY5dEI2TW1kMUN0UTg3dzhKV3JsaU9tX3hob1cxc1BwY3J6T3JXdlUxdW1qRkszRFRjelVhNEZnMUNvNUFBNEQ1YktmVEd0YVhCTV90Rkc0N0dVMGd0QWJHREJpYXdWb1BSdGdINDVIcDFOX0ZBU3lSOWNCcUJNQ2hBNy0?oc=5",
+      "source": "Gulf News",
+      "pubDate": "2026-11-23T13:47:12.000Z"
+    },
+    {
+      "title": "Abu Dhabi to take AI government ambitions to GITEX 2026",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYU1mOHV2amdQaVgxWk8wWnlyWFctSlR3Vlk0bjVJQ1daSHdMZzBCcW12QlNjOTlzOVZjNTBNYTJ6dzNTYndkZ3dUa0dLVVpKeHE0QU9aQkg0aWs5TVpfQmRzRExNaGoxeURYVFMtaWpfdUVtWU1zRkxUN0JRZURwTXlXendiVURuZ2RJNWhYXzJ6T1NWTGVmRk5TNDNJVWcwamRXNtIBtwFBVV95cUxNZVZOVUNSOGR4NElxdjQ4TzBhb1pEeEFsdGRxdk5BRnJ5MlRQdlVGam5Zb2FRNENkTW9RTG5wcUtRQ1J4RTdVVzBUN1ZNbEU3UGxJOVlHZ29OOTczZHItcFNkMEZuZWtmNjlMNjdqTzBWN0NpSWNZZnJUd3JkR1JxZlMxMTE1dWVFdjBEMXJnM1JwbXpqUXFrSzg5QmJfeXJzZDJkUVV1Y09ZSnlpb2RSYTkwUHhwTG8?oc=5",
+      "source": "Gulf News",
+      "pubDate": "2026-11-23T13:42:35.000Z"
+    },
+    {
+      "title": "Dubai explores using AI to assess government employee performance",
+      "link": "https://www.emirates247.com/uae/dubai-explores-using-ai-to-assess-government-employee-performance/8070",
+      "source": "Emirates 24|7",
+      "pubDate": "2026-11-23T13:19:00.000Z"
+    },
+    {
+      "title": "UAE unveils Mira AI assistant to handle government services",
+      "link": "https://www.arabnews.com/middle-east/uae-unveils-mira-ai-assistant-to-handle-government-services-3013726",
+      "source": "Arab News",
+      "pubDate": "2026-11-23T13:17:28.000Z"
+    },
+    {
+      "title": "Mohammed bin Rashid unveils ‘Mira’, UAE’s AI assistant for government services",
+      "link": "https://www.emirates247.com/uae/mohammed-bin-rashid-unveils-mira-uaes-ai-assistant-for-government-services/8067",
+      "source": "Emirates 24|7",
+      "pubDate": "2026-11-23T11:28:00.000Z"
+    },
+    {
+      "title": "UAE unveils government AI assistant called Mira to boost public services",
+      "link": "https://www.thenationalnews.com/news/uae/2026/11/23/uae-unveils-government-ai-assistant-called-mira-to-boost-public-services/",
+      "source": "The National",
+      "pubDate": "2026-11-23T09:52:59.000Z"
+    },
+    {
+      "title": "UAE to launch AI assistant Mira for government services in March 2027",
+      "link": "https://www.khaleejtimes.com/uae/uae-launch-ai-assistant-mira-government-services-march-2027",
+      "source": "Khaleej Times",
+      "pubDate": "2026-11-23T08:56:54.000Z"
+    },
+    {
+      "title": "UAE launches mira, AI assistant for government services; available from March 2027",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNYnY2bm5YT1hISmJrWlZEUUo0SDZOWW9kWDl2djN2RDh2b0pUbjFLTHU3QXhWTEVCZWJ3dElydlZQTDV2eTh1VWRocDYtRkNvdC1KVE5ScE8wUkJKV2I3UjI5aFdKb3hhWGVpNFBra29RWkMzb2FVNk1hd3VxaTJfZ3llZ0hiVGs1aG5Tc3BUWVV3VlQxbjJhN2JheG5aZ9IBsAFBVV95cUxOZjdwX1hBTF9sRnFHWUpzOGFsTTJsbjY5U2NGaDlRQVI0OGItSGFUY0V5U19lVG1HLXBESTFGWHM5ZnhuZHZzLU5uODI1UXhNbzBXQzY1V09zMWJZS2hvbWtTWFJvV0d3S0xfSExfV2RQUHBXQVZxeGE3MmJSb0U3aVlPMzZxck1ILXRtazkwcHBpVGMwaXY0dWFZeXZ1WUZfRjdTLTlPN0pvcFJTOUxvMg?oc=5",
+      "source": "Gulf News",
+      "pubDate": "2026-11-23T08:26:47.000Z"
+    },
+    {
+      "title": "University of Dubai, AIJRF announce guide to agentic AI governance",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPSUg5X2tISmozbzVZQURsVGtMT3Ntc2JOd2JJbjA4TjV2YXNxZExRVHJadUlPdUF4WmhVazN3bnlFZVhPdU5MZlhFUFgwclBNNjhLUHRESlExSVZlOXR2SGN6VHFIY0pjLUp3OEU5VVdpbWlpbW9oVGc4ZEhxQ0FBR1NvdXZPOEZHUXVn?oc=5",
+      "source": "WAM",
+      "pubDate": "2026-11-23T07:36:43.000Z"
+    },
+    {
+      "title": "University of Dubai and AIJRF launch first Arab guide on agentic AI governance with 5 Arab universities",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNNEZ4QTBPcEZ3Y3VYdkZBNXM4OFNRV2lEOURad1pBWEt0eWdWcjFrWkJhTV96NE96djVUalhCZ3BaUVE5eml4TXZNNC12aHN6MHJQY3VvbGlCRDBMdVlRaXFGQVRydHJfdDNtSHE4bXotTUZFNlBUSXJrX09IYjYxSXpjQ3NQLURYR0RjbEJyNFJWOE8yU3BsTHdZNVUyUTd5cnEweTJla05Bby0xd0VNdDRZZmJyeFM1X0FCQ0tPRE1EOTVGMlA2OGhJVlpPS0FIZkswRG44Y1hiZ2dhTDVIVkZ0bXQ?oc=5",
+      "source": "Zawya",
+      "pubDate": "2026-11-23T06:34:00.000Z"
+    },
     {
       "title": "GDRFA launches two new AI and research labs to drive innovation",
       "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYW1kczRVZTJDTUFNSXNUbmNVRHplb1F2MlNwRllnRGx5UDQ3NEdpdHBDRWtFY1JLNTlPRVhob3MxdFhESnZ4YkpaVzlvRW00UTIxMGVDUDVWMmJhY2xWNnBjNmt5SjNkNnhEd3pmdXg2cE1jWUZMU3JkMGhNZFFBN0k0Mi1WZWtfZ2c1TjRkUHkzTVVuMnUzbU80Ri1QbzhOLXlxUTFoZXNPUdIBvAFBVV95cUxPTm01bEZXQnVhQVRvWGtFN2FESG5KaTFnZnJKOF9ZU2JtUHFCeUh2c3lFS2RtQkNjZlJrS3lhTEc0VVlmLVR4ZkZEY2hxRnRrUHZIQ2piOS1ES2hGQ3FBRE1VckZrNUx3SnBXMlliRng1MVg3dGJIalFtWlV3SUNFekJWZVN0TzNWVmpTNldja2lBZ0NCajlFUThQakM2VmVLajFFSjVRcGpDM3c3cjViTllEVUQ4LWNlSnc4TA?oc=5",
@@ -10,7 +70,7 @@
     },
     {
       "title": "Four billion medical records: How AI helps Abu Dhabi doctors in daily consultations",
-      "link": "https://www.khaleejtimes.com/uae/abu-dhabi-doctors-ai-assistant-daily-consultations",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNaml0ZWNhanFUZFVwV2ZWSi1VOHVGSmViaDI5anJyZkMyWHo0QWU1LUFYYjBsM2tnT1NCNkN0NVdKWmhqRmlITXVkazk2Mng5a1hYRlVKS1BkczlYWDRtVy0xQ19YOTNqNHYtNlpuMmlzZTlpNXJLQVNSUklkbXU3NUQ4TU5zQjJZaU4yZEVOVTJiQlHSAZMBQVVfeXFMTWppdGVjYWpxVGRVcFdmVkotVTh1RkplYmgyOWpycmZDMlh6NEFlNS1BWGIwbDNrZ09TQjZDdDVXSlpoakZpSE11ZGs5NjJ4OWtYWEZVSktQZHM5WFg0bVctMUNfWDkzajR2LTZabjJpc2U5aTVyS0FTUlJJZG11NzVEOE1Oc0IyWWlOMmRFTlUyYkJR?oc=5",
       "source": "Khaleej Times",
       "pubDate": "2026-11-21T11:28:23.000Z"
     },
@@ -234,7 +294,7 @@
       "title": "UAE law: Who is liable when AI-generated decisions cause financial loss or harm?",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUGsyajFkQnRHaEJnM2MwY1Bzd1NHd0hkUko1YWV1bkQwWWhBVzVUZjVHSmlfRjQ2bEthWjhOazdLQ1JUMG14c1FZNDA1M0hOYXFTS3Q2SU5VZ05Nc0xPU2VfU0p0ZnJfT291Qmo2MHhheHdJXy1ZaFItbV96cDhmT1ZfM3lXSEh0V0Vj0gGTAUFVX3lxTFBxSTNjblJTZm9LYl9vWVUzVmpuU284ekdjUVNWNk1UUFczYnVxY0JzQUlMTjdYTFF5cGphcjVEcnpoQUFpUWVzWXpkeksyVzBPdHhPQWdSUWh2T3pUN3Q4QWtJQkNlREgtM1FJZFB1c2poWnQ1YjlPUE44U09DTXg1c1ZXRW9rSFBHa2l0WWJ4U1g0MA?oc=5",
       "source": "Khaleej Times",
-      "pubDate": "2026-11-15T04:38:04.000Z"
+      "pubDate": "2026-11-15T08:00:00.000Z"
     },
     {
       "title": "MBRSG launches fourth cohort of ‘Artificial Intelligence Ethics in the Age of Agentic AI’ programme in collaboration with IEEE",
@@ -268,7 +328,7 @@
     },
     {
       "title": "Advancing military medicine: Global congress in Abu Dhabi explores AI integration and national readiness",
-      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNbEFNRUN4QUJzUEdSLXRhMHVKZTdhZ0dDc3E3VndPYnV6Q0ttRmQ1SDBXVjZYOTF5S015MDZCQ2VMTjdNRzBhYXlqemEzTEhmaVVsTGlBTDNkSG1Vbk1hZ3ZwUFRwMFdtb1pKSDJxNWUzV3VFbU9COEt3UlVzdVpnVGJUeVdTaWM3cXZ6d0NBYkkySUVrM3VHTzhxMXdBakhpUDVOaDNVZjdhTDFXZlBrQzhSSnlBR0tOOW9xbW1IYVo1bjdPT1A3aUJoS2hRa0trTHFBNTdtenI5cmRtM2pSVExCZGHSAfcBQVVfeXFMTkl3aGpORTNEODhYTnFRSVdiN2NZSWc4VV82MEtxUS1PTXBaTl90NnFMMEhuSTlaNVRLRGRrdnJ0YUVnOEJMbFdDU1B3VzVmMEYyT3FsTTdYUThKcF84S0Y5bnpZV2JWNTd2ZWVLRTZYczVUSS1CMmhRWE5Sc0FqQ1A2XzJ2TzhGSFktUV8wRVk0TkM3VlBtSk43ZkJhQW9GZkdMQ3FnRE83U1g2UjUtTFlCd2cxZkFSVlF5S0FZZFRJRFNqYmctWktnSjhuaFk5dlB3aFFpVmpsUUsxUGV5RlR1UmxRV3EtQkY5cE1TaGZVZkVzTFdBUQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNbEFNRUN4QUJzUEdSLXRhMHVKZTdhZ0dDc3E3VndPYnV6Q0ttRmQ1SDBXVjZYOTF5S015MDZCQ2VMTjdNRzBhYXlqemEzTEhmaVVsTGlBTDNkSG1Vbk1hZ3ZwUFRwMFdtb1pKSDJxNWUzV3VFbU9COEt3UlVzdVpnVGJUeVdTaWM3cXZ6d0NBYkkySUVrM3VHTzhxMXdBakhpUDVOaDNVZjdhTDFXZlBrQzhSSnlBR0tOOW9xbW1IYVo1bjdPT1A3aUJoS2hRa0trTHFBNTdtenI5cmRtM2pSVExCZGE?oc=5",
       "source": "Gulf News",
       "pubDate": "2026-11-12T08:00:00.000Z"
     },
@@ -358,7 +418,7 @@
     },
     {
       "title": "Dubai cybersecurity expert warns AI-powered fraudsters are using personal data to target victims",
-      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNamlTdmpVVERSaWlHaWtsYUNZUzJDYUVBdEl0NEdvczhfUGJvV1BOTHdhMThId0ptWDFYT1BqOUhUU1hKMnZ1amJMX2lDSklDd1JzMlhyd3RMaGFBYldIZ2s4UExReDZybGlEeWgxV0hHWGE5am1LTVNkazczX2o5VVItb29mcHRWMU5YM3BRRmMtdHgza09NY2VpVnRQRFZtdF9oVktfMERyTEthWGFHdnp3em9oYVFKSnFJSUtINWlJYkVrS1V3anV4SW9Wd9IB6AFBVV95cUxPaHVfZHh4ZHg0UXdVUmk4REd2QXJJS2JQZHBwX1dSSVJ2WnVwdTZhSi1Rd3V1SlhnZk56SXpjSXBrT2pFYjNLS3ZVNnRpRkF0ZGpTTnZvaEszeENLOHNzVExMZ0R1N3p6eGdXN2swckg1eTZmRGxGaGNfeEFHYjliYWVKSHZrb2VmYVJhVTItU1N6d0o1MzNtYjRvWWw1VmhNTXFycVZQcFhlQTJRLVROSm5tbDVIVndJNnFCckU2S0VGOGJoTnJRdUMtMXROV0JROENySUU1OXZXaDFxSjBqbnEwVEFvdHhD?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNamlTdmpVVERSaWlHaWtsYUNZUzJDYUVBdEl0NEdvczhfUGJvV1BOTHdhMThId0ptWDFYT1BqOUhUU1hKMnZ1amJMX2lDSklDd1JzMlhyd3RMaGFBYldIZ2s4UExReDZybGlEeWgxV0hHWGE5am1LTVNkazczX2o5VVItb29mcHRWMU5YM3BRRmMtdHgza09NY2VpVnRQRFZtdF9oVktfMERyTEthWGFHdnp3em9oYVFKSnFJSUtINWlJYkVrS1V3anV4SW9Wdw?oc=5",
       "source": "Emirates 24|7",
       "pubDate": "2026-11-08T08:00:00.000Z"
     },
@@ -483,6 +543,12 @@
       "pubDate": "2026-10-29T07:00:00.000Z"
     },
     {
+      "title": "Dubai’s Foreseeing Government Audit Future Conference explores AI and emerging technologies under ‘Smart Audit’ theme",
+      "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPb1FwVWx0UnlDUno3Znl1OG1udjZKZEVGSFhYVnBnNnN4NDZUdTZnWGRjbjRlaFkzSFFqVlk3dUJQeHNVMDBCWlRPUHBqdjlYNGRmT29xTWpQTzJheE9zWENHajRaWHg1NDQwTWptNXZSM3FKOXU2SVlLT0JVUlVqUmhKaEJfSTY0NnhmcjRxRW9fekN6ZFRxa2dVLThvaE5ZbG1nbmV4RGNGODRsWTFoRU11U1VxOS1QaWw2eV9ienV1NE9qSE9lTFdhajlZdnhyNEVxNnBmRUpBYUFYSUxTeml1aEZQZ9IBgAJBVV95cUxQTjlxQnhJWEJOS2dBbmp2ZFpkeHdWbnVPWnQwMnhGQnFULWxkTkc2U2NROW00VEZ1UV9CMlJ6ZmdDQXRWMHRLLVhZT2R3MXI0dlV1b09sVHdlTEdaZlJIUURJQ1JpOFpCUVcwdzRaVzE2aUNzQ1RDcGxOY1hwZjdVWE40a1NpeUtSNWRsam5Sam9Ib3JITWhfTlp3eGNyeUtNa1JDT09vb09UMHdQM3M1UldoSkFYWEcxQThFVkJPMTJjZWt3VTFZYk5mSmEwMVpUZHY4dEZiaUtWRGFlUGZZNElmWU94b1BFUXUxMTVVMW1tS1ItVURSd3p0eHZ4bEJS?oc=5",
+      "source": "Emirates 24|7",
+      "pubDate": "2026-10-29T07:00:00.000Z"
+    },
+    {
       "title": "Chinese AI model shows advanced hacking capabilities, raises security concerns",
       "link": "https://www.emirates247.com/technology/chinese-ai-model-shows-advanced-hacking-capabilities-raises-security-concerns/7235",
       "source": "Emirates 24|7",
@@ -505,6 +571,12 @@
       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQYkV0ZWs5SXNyWmZVaFdTMHBkSmVaUEdVaW1zbWdLeHlpZGZPUmFaY3pNYi16d19KY3E5U2p3cUNiMWIwQTFzVkpjLUtYellORzc5LURWa2ZCc2E1eFA3Mmw5UlZwN1VJZDM5bDdMQlBHSnhXd0ZSVnJURExsa0NCQV9JeVJHZGFCckJUYXFITXJ1QjJIaXFOZzFrbnVXbVRmWWRsX0hQSHEwV3N4MkozMGhNaFU2MUc5blNVdDM3b1BTeWkwLUpj?oc=5",
       "source": "Arab News",
       "pubDate": "2026-10-28T07:00:00.000Z"
+    },
+    {
+      "title": "Michael Page launches UAE Salary Guide 2027: UAE workforce does not see AI as a threat to jobs",
+      "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQZmdvS0drTGhkZlc3NG16dTIwdkREMlFKYzlSdkhUTU85ZGYxaUxhR19mcmNFdUVKOEpWdFhsbzFnSzZ1X2N0eGcwNzl6MGJraEFUVDk4UVJReTl2bmpxWW1LaGx1SERNWWNLaF9GX0VIcWxOSlZDODZDdnZ5WXFXeHZiOVZiVm90UzREZ2RYak40SHpGMmtlcHphWHF5eVFjS0x3R3R0Sk5zTXlHeXdLZzNRV3h3YkRJMkVUbUY1cGNuTmtCNW1Tb1ktaHdqYV9CSWFLa09LalprdGVhWFhxMXRIU1luVURxVHFFenlR?oc=5",
+      "source": "Zawya",
+      "pubDate": "2026-10-27T12:18:00.000Z"
     },
     {
       "title": "DeepSeek AI model shows safety gaps in independent tests",
