@@ -1,7 +1,123 @@
 {
-  "updatedAt": "2026-11-22T19:38:11.701Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 뉴시스 · 디지털투데이 · 연합뉴스 · 보건복지부 · 매일경제",
+  "updatedAt": "2026-11-23T00:51:47.260Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디팜스투데이 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 매일경제 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "심부전 치료제 효과, AI로 환자별 예측한다",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99050",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-23T09:46:58.000Z",
+      "popular": true,
+      "rank": 4
+    },
+    {
+      "title": "환자 맞춤형 심부전 치료제 AI로 예측 가능해져",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415676",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-23T09:39:41.000Z"
+    },
+    {
+      "title": "임상정보로 심부전 치료제 반응 예측하는 AI 도구 개발",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242732",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T09:19:20.000Z",
+      "popular": true,
+      "rank": 6
+    },
+    {
+      "title": "삼진제약·온택트헬스, 심장초음파 AI 솔루션 선봬",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422369",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T09:03:35.000Z"
+    },
+    {
+      "title": "고도일 서울시병원회장, 보건의료 상생협의회 참석",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200171",
+      "source": "의협신문",
+      "pubDate": "2026-11-23T08:58:00.000Z",
+      "popular": true,
+      "rank": 2
+    },
+    {
+      "title": "서울성모병원, AI로 이명 환자 3개 유형 분류…치료 반응 차이 확인",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242735",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T08:55:00.000Z",
+      "popular": true,
+      "rank": 4
+    },
+    {
+      "title": "[헬스인·싸] 의료기기 ‘사이버보안’, 국제표준화 전략으로 접근해야",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242728",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T07:30:00.000Z"
+    },
+    {
+      "title": "[수첩] 기술의 발달, 뒤늦은 대비의 대가",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422359",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T06:03:00.000Z"
+    },
+    {
+      "title": "\"그럴듯한 답 아닌 근거 갖춘 설계로\"…AI 신약개발 수상팀 포부",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422333",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T06:02:00.000Z"
+    },
+    {
+      "title": "공공 의료데이터 빗장 푸는 정부…정작 제약사는 걸음마",
+      "link": "https://www.apsk.co.kr/news/articleView.html?idxno=541111",
+      "source": "메디팜스투데이",
+      "pubDate": "2026-11-23T05:55:00.000Z"
+    },
+    {
+      "title": "ADHD·불안장애 아동 뇌 분석했더니…진단명과 다른 3가지 유형 발견",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549506",
+      "source": "약사공론",
+      "pubDate": "2026-11-23T05:48:00.000Z"
+    },
+    {
+      "title": "씨엔알리서치, ‘TekMed 2026’서 AI 임상 전략 공개…타이메이와 한·중 협력 확대",
+      "link": "https://www.mk.co.kr/news/stock/12215852",
+      "source": "매일경제",
+      "pubDate": "2026-11-23T00:45:28.000Z"
+    },
+    {
+      "title": "심부전 환자에 '이 약' 통할까…\"AI로 효과 예측\"",
+      "link": "https://www.newsis.com/view/NISX20261123_0003878635",
+      "source": "뉴시스",
+      "pubDate": "2026-11-23T00:32:51.000Z"
+    },
+    {
+      "title": "호서대 학생들, 바이오헬스 AI 챔피언십 대상",
+      "link": "https://www.yna.co.kr/view/AKR20261123030900063",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-23T00:01:53.000Z"
+    },
+    {
+      "title": "고양시, AI·스마트 기술로 시민 건강 세심히 살핀다",
+      "link": "https://www.yna.co.kr/view/AKR20261123011900060",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-22T22:36:55.000Z"
+    },
+    {
+      "title": "[기고] AI와 로봇이 바꾸는 재활의료, 먼저 바뀌어야 할 것들",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253054",
+      "source": "병원신문",
+      "pubDate": "2026-11-22T21:00:00.000Z"
+    },
+    {
+      "title": "\"응급의학 전문의 시각으로 병원 안팎 잇는 AI 생태계 구축\"",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172022",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-22T20:30:00.000Z"
+    },
+    {
+      "title": "'확장형 의사' 시대…AI로 시간·비대면으로 공간 넓힌다",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171908",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-22T20:20:00.000Z"
+    },
     {
       "title": "의학한림원, 23일 ‘의료 인공지능 윤리 연구 공청회’ 개최",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242729",
