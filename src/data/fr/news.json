@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-22T12:00:52.671Z",
-  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Libération · Les Échos · Le Figaro · Les Numériques",
+  "updatedAt": "2026-11-23T09:51:29.133Z",
+  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Libération · Les Échos · Le Figaro · Les Numériques · Ouest-France",
   "items": [
     {
       "title": "Pr Antoine Tesnière : « L’IA en médecine générale offre un gain de performance dont il serait contraire à l’éthique de se priver »",
@@ -367,6 +367,18 @@
       "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOTFNLSTA3eHFEZTN1TUlwbGx3T1hsMjFQbUR6cUt5elA5VE95RjJwa0taUFVweTJCbWZ6dHNZXzU0am1qQnRnVXZoMjdSTGFVcXFGQ1h5OWNhWGpvRGxTY2ZhMEdLcEctaHFTMGNrSHJ1aEtZakY2YldaSHJjUV9KNlZPNDhoVDZHWjQzM2VBdzNmTkRyTUhMZFBR?oc=5",
       "source": "DSIH",
       "pubDate": "2026-09-28T07:00:00.000Z"
+    },
+    {
+      "title": "Ces sociétés font parler les morts grâce à l’IA : pourquoi ce procédé « extrêmement dangereux » pour la santé inquiète",
+      "link": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxPU2xZcnVsX2JLN3dzVmI4X1NIc2N1WVBDUk56UUNVcEdNLXc1MXItQllySzBpdFl4SHFWdVBaNUJ6M0xsVU1MZE9lR2s2OXpHaVY2Q0RFa2l0bXNRQkxOTmRZOFVVMzZKMmpwdmUxbE9INGxFeWI2XzRwZnBOYjcxX0tmX2VFTURqRUl3OTlyVmdxd2hxSF9fZ0tlaXBmSEtUbWRGRnM3dGNFTlJiMnNpUmJyaWlFUUxmbnZoOGRPNFlFNy1hWDdJaWg0V0c1OHVReUVtU3JieEp1Q3h6bjVVUE84UGpSbW93T0t1SHRTeThUQmhzVXZUcmhKZlIwNnZGMlE3elo5ajZ6UHFZbmRvdDhGYmluRzlvazlSWm5IYUtaMGNNTjI4bUN0WQ?oc=5",
+      "source": "Ouest-France",
+      "pubDate": "2026-08-24T07:00:00.000Z"
+    },
+    {
+      "title": "Les établissements de santé sont-ils prêts à gouverner l'intelligence artificielle ?",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZWlqSFQ0dGFzODY5Z2UwODFsZ1VhRlBOWURxcURLdktYRWNlbVZ4MlBZQ21ta1dYNUtXTFVKMjJOUGhKQzR4ZGtGaUhvYkNwR1Z0ei1SeDNEaHpxNk9MTXdrTzFhU3kzOHpXTEU0QmQwQ0JuNm9sYzZBQkdaSmdDenZ4YlplM0V3S1ViUFdldi1HNE1uQ2xuOGNKZ3V1QS1RWnBxTFBCTXJmeFVGOW5xeQ?oc=5",
+      "source": "DSIH",
+      "pubDate": "2026-08-18T07:00:00.000Z"
     },
     {
       "title": "IA à l’hôpital : HOURAA mesure le décalage entre usages individuels et projets structurés",
