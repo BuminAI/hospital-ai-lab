@@ -1,18 +1,44 @@
 {
-  "updatedAt": "2026-11-23T09:03:12.006Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 메디팜스투데이 · 의약뉴스 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 뉴시스 · 디지털투데이 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-23T21:22:20.748Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 의약뉴스 · 메디팜스투데이 · 메디파나뉴스 · AI타임스 · 뉴시스 · 연합뉴스 · 보건복지부 · 매일경제",
   "items": [
+    {
+      "title": "근로복지공단 울산병원-UNIST, 의료 AI 공동연구 ‘맞손’",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044820",
+      "source": "청년의사",
+      "pubDate": "2026-11-23T23:38:34.000Z"
+    },
+    {
+      "title": "고대안암병원, 'AI+Digital Bio Med Summit 2026' 개최",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422430",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T18:12:28.000Z"
+    },
     {
       "title": "오픈AI 연구책임자 \"AGI 달성까지 80% 진전…RSI는 25~50% 수준\"",
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217703",
       "source": "AI타임스",
-      "pubDate": "2026-11-23T17:35:00.000Z"
+      "pubDate": "2026-11-23T17:35:00.000Z",
+      "popular": true,
+      "rank": 3
+    },
+    {
+      "title": "105병상·AI 입는 대구보훈병원 증축 '첫 삽'",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253181",
+      "source": "병원신문",
+      "pubDate": "2026-11-23T17:18:00.000Z"
     },
     {
       "title": "분당서울대병원, 심부전 치료제 효과 예측 AI 개발",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422424",
       "source": "메디파나뉴스",
       "pubDate": "2026-11-23T17:13:48.000Z"
+    },
+    {
+      "title": "칠곡경북대병원 박준석 교수, 과기정통부 장관 표창",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017119",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T17:00:53.000Z"
     },
     {
       "title": "백반증·원형탈모 병변, AI로 3차원 분석…평가 정확도 개선",
@@ -43,6 +69,12 @@
       "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=717491",
       "source": "디지털투데이",
       "pubDate": "2026-11-23T16:14:10.000Z"
+    },
+    {
+      "title": "뷰노 ‘펀더스 AI’ 브라질 상륙, K-의료AI 남미 영토 확장 본격화",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017116",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T16:02:49.000Z"
     },
     {
       "title": "측정부터 리포트까지 AI가…삼진제약, 심장초음파 솔루션 론칭",
@@ -94,7 +126,9 @@
       "title": "'홍승권표' 심평원 AX전환 엿본다...심사 혁신 넘어 의료데이터 활용 확대 주목",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017078",
       "source": "의학신문",
-      "pubDate": "2026-11-23T11:50:04.000Z"
+      "pubDate": "2026-11-23T11:50:04.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "이명 맞춤 치료 시대 오나···AI 기반 '이명 3가지 유형' 분류",
@@ -118,7 +152,15 @@
       "title": "심평원, 보건의료 빅데이터 10년 성과 공유…AI 미래 전략 모색",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044791",
       "source": "청년의사",
-      "pubDate": "2026-11-23T11:36:42.000Z"
+      "pubDate": "2026-11-23T11:36:42.000Z",
+      "popular": true,
+      "rank": 10
+    },
+    {
+      "title": "“ASMR부터 AI까지”…보훈공단, SNS 소통 2관왕",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253178",
+      "source": "병원신문",
+      "pubDate": "2026-11-23T11:26:00.000Z"
     },
     {
       "title": "뷰노, 안저 영상 판독 보조 ‘뷰노메드 펀더스 AI’ 브라질 출시",
@@ -156,7 +198,7 @@
       "source": "e-의료정보",
       "pubDate": "2026-11-23T10:29:59.000Z",
       "popular": true,
-      "rank": 5
+      "rank": 4
     },
     {
       "title": "뷰노, 안저영상 솔루션 'Fundus AI' 브라질 인허가 획득",
@@ -201,6 +243,12 @@
       "pubDate": "2026-11-23T09:39:41.000Z",
       "popular": true,
       "rank": 8
+    },
+    {
+      "title": "알파고로 이해하는 ‘학습’과 ‘추론’…반도체 주문이 계속되는 이유 [한눈에 보는 AI 투자지도]",
+      "link": "https://www.mk.co.kr/news/it/12216443",
+      "source": "매일경제",
+      "pubDate": "2026-11-23T09:27:04.000Z"
     },
     {
       "title": "임상정보로 심부전 치료제 반응 예측하는 AI 도구 개발",
@@ -6155,48 +6203,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169729",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-13T20:30:00.000Z"
-    },
-    {
-      "title": "로킷헬스, 서울아산병원서 세계 첫 신장 재생 인체 임상 돌입",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169728",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-13T07:08:43.000Z"
-    },
-    {
-      "title": "실명 유발하는 3대 안질환 치료 반응 예측 진단 플랫폼 나왔다",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169720",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-13T02:36:20.000Z"
-    },
-    {
-      "title": "상용화 닻 올린 생성형 의료 AI…딥노이드 \"서비스 기업 도약\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169723",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-13T02:36:00.000Z"
-    },
-    {
-      "title": "의료 넘어 학술로 확장하는 생성형 AI…관련 논문 한방에 정리",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169703",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-12T20:30:00.000Z"
-    },
-    {
-      "title": "한 달 앞으로 다가온 KHF 2026…올해 전시 관전 포인트는?",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169710",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-12T20:20:00.000Z"
-    },
-    {
-      "title": "휴이노, 강릉고려병원에 '메모 큐' 공급…지역 거점 기관 확대",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169701",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-10T05:18:51.000Z"
-    },
-    {
-      "title": "AI 만성질환 관리 이끌 7개 핵심 사업 착수...건강관리 목표",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169695",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-10T03:09:22.000Z"
     }
   ]
 }
