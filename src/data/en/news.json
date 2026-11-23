@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-23T03:59:02.913Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · BBC News · Federal Register",
+  "updatedAt": "2026-11-23T15:19:56.545Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · BBC News · Federal Register · Healthcare Business Today",
   "items": [
+    {
+      "title": "From APIs to AI Agents: Why Embedded Payments Need Agent-Native Infrastructure",
+      "link": "https://www.healthcarebusinesstoday.com/agent-native-payment-infrastructure-embedded-payments/",
+      "source": "Healthcare Business Today",
+      "pubDate": "2026-11-23T14:31:56.000Z"
+    },
+    {
+      "title": "Opinion: If the AI bubble bursts, it could create a serious problem for health care",
+      "link": "https://www.statnews.com/2026/11/23/ai-bubble-medical-artificial-intelligence-health/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-23T09:30:00.000Z"
+    },
+    {
+      "title": "Can AI improve breast cancer diagnosis?",
+      "link": "https://www.bbc.co.uk/news/videos/c52e8rlwx01go?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "pubDate": "2026-11-23T06:16:35.000Z"
+    },
     {
       "title": "Can AI spot breast cancer earlier? NHS launches world's largest trial to find out",
       "link": "https://www.bbc.co.uk/news/articles/cmpdwnw3nvzjo?at_medium=RSS&at_campaign=rss",
