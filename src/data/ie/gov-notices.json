@@ -1,10 +1,24 @@
 {
-  "updatedAt": "2026-11-20T18:48:10.071Z",
+  "updatedAt": "2026-11-23T11:13:37.489Z",
   "items": [
     {
       "title": "Gender Pay Gap Report 2026",
       "link": "https://www.hiqa.ie/reports-and-publications/corporate-publication/gender-pay-gap-report-2026",
       "pubDate": "2026-11-20",
+      "kind": "HIQA publication",
+      "status": "HIQA"
+    },
+    {
+      "title": "Providers continue to operate good quality services within disability sector, but changing profile and needs of residents pose challenges - HIQA",
+      "link": "https://www.hiqa.ie/hiqa-news-updates/providers-continue-operate-good-quality-services-within-disability-sector",
+      "pubDate": "2026-11-19",
+      "kind": "HIQA publication",
+      "status": "HIQA"
+    },
+    {
+      "title": "Disability Overview Report 2025",
+      "link": "https://www.hiqa.ie/reports-and-publications/key-reports-investigations/disability-overview-report-2025",
+      "pubDate": "2026-11-19",
       "kind": "HIQA publication",
       "status": "HIQA"
     },
