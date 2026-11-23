@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-22T23:46:04.757Z",
-  "source": "Медвестник·Vademecum",
+  "updatedAt": "2026-11-23T20:29:58.101Z",
+  "source": "Медвестник · Vademecum · Хабр · CNews · Zdrav.ru",
   "items": [
+    {
+      "title": "[Перевод] ИИ оказался внимательнее и заметил кровоизлияние, а врач — нет",
+      "link": "https://habr.com/ru/companies/speshu_ai/articles/1111386/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1111386",
+      "source": "Хабр",
+      "pubDate": "2026-11-23T14:35:57.000Z"
+    },
+    {
+      "title": "Половина медорганизаций считает управление ИИ одной из главных уязвимостей",
+      "link": "https://medvestnik.ru/content/news/polovina-medorganizacii-schitaet-upravlenie-ii-odnoi-iz-glavnyh-uyazvimostei.html",
+      "source": "Медвестник",
+      "pubDate": "2026-11-23T09:00:00.000Z"
+    },
+    {
+      "title": "Клиника проверяет договоры с поставщиками через ИИ",
+      "link": "https://www.zdrav.ru/news/1107956-klinika-proveryaet-dogovory-s-postavshchikami-cherez-ii-prodakt",
+      "source": "Zdrav.ru",
+      "pubDate": "2026-11-23T08:00:00.000Z"
+    },
     {
       "title": "Способен ли ИИ разработать лекарство? OpenAI представила MedChemBench — тест из 99 задач по медицинской химии, приближенных к реальной деятельности специалистов",
       "link": "https://www.ixbt.com/news/2026/11/22/sposoben-li-ii-razrabotat-lekarstvo-openai-predstavila-medchembench-test-iz-99-zadac-po-medicinskoi-ximii-priblizennyx-k-realnoi-deiatelnosti-specialistov.html",
