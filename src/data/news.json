@@ -1,7 +1,191 @@
 {
-  "updatedAt": "2026-11-23T00:51:47.260Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디팜스투데이 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 매일경제 · 뉴시스 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-23T09:03:12.006Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 메디팜스투데이 · 의약뉴스 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 뉴시스 · 디지털투데이 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "오픈AI 연구책임자 \"AGI 달성까지 80% 진전…RSI는 25~50% 수준\"",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217703",
+      "source": "AI타임스",
+      "pubDate": "2026-11-23T17:35:00.000Z"
+    },
+    {
+      "title": "분당서울대병원, 심부전 치료제 효과 예측 AI 개발",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422424",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T17:13:48.000Z"
+    },
+    {
+      "title": "백반증·원형탈모 병변, AI로 3차원 분석…평가 정확도 개선",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422412",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T16:51:14.000Z"
+    },
+    {
+      "title": "심평원, 의료 AI 전환과 빅데이터 활용 방향 논의하는 미래포럼 개최",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99074",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-23T16:28:26.000Z"
+    },
+    {
+      "title": "건협, 글로벌 의료서비스 대상…AI 기반 예방형 건강검진 역량 인정",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99068",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-23T16:17:53.000Z"
+    },
+    {
+      "title": "로킷헬스케어, 中 당뇨발 재생 플랫폼 100명분 수주",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422403",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T16:17:23.000Z"
+    },
+    {
+      "title": "인스피언, 라온시큐리티 인수…AI 기반 선제적 보안 확장",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=717491",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-23T16:14:10.000Z"
+    },
+    {
+      "title": "측정부터 리포트까지 AI가…삼진제약, 심장초음파 솔루션 론칭",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044799",
+      "source": "청년의사",
+      "pubDate": "2026-11-23T16:01:16.000Z"
+    },
+    {
+      "title": "뷰노, 안과용 '안저 판독보조 AI'로 남미 최대 의료시장 브라질 노크",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217687",
+      "source": "AI타임스",
+      "pubDate": "2026-11-23T15:28:17.000Z"
+    },
+    {
+      "title": "루닛, UAE 헬스테크 리딩기업 'M42'와 현지 폐암 조기진단 추진",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017109",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T14:11:05.000Z"
+    },
+    {
+      "title": "의사·약사·간호사 등 국가시험 AI 활용 부정행위 대응법 추진",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017104",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T14:03:17.000Z"
+    },
+    {
+      "title": "제이앤피메디, ‘FDA 심사관 시각’으로 짚는 의료기기 인허가 2차 웨비나 개최",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017102",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T13:39:28.000Z"
+    },
+    {
+      "title": "루닛, UAE 헬스케어 그룹 M42와 폐암 조기 발견 파트너십 체결",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242753",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T12:14:34.000Z",
+      "popular": true,
+      "rank": 8
+    },
+    {
+      "title": "삼진제약, 디지털헬스케어 확장···SoniX EchoPilot 출시",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415704",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-23T12:14:22.000Z",
+      "popular": true,
+      "rank": 5
+    },
+    {
+      "title": "'홍승권표' 심평원 AX전환 엿본다...심사 혁신 넘어 의료데이터 활용 확대 주목",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017078",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T11:50:04.000Z"
+    },
+    {
+      "title": "이명 맞춤 치료 시대 오나···AI 기반 '이명 3가지 유형' 분류",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415688",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-23T11:38:54.000Z"
+    },
+    {
+      "title": "루닛, UAE M42 그룹과 폐암 조기 발견 파트너십 체결",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415682",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-23T11:37:04.000Z"
+    },
+    {
+      "title": "중국 시장 나서는 로킷헬스케어…12월 하이난 첫 수출",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415678",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-23T11:36:55.000Z"
+    },
+    {
+      "title": "심평원, 보건의료 빅데이터 10년 성과 공유…AI 미래 전략 모색",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044791",
+      "source": "청년의사",
+      "pubDate": "2026-11-23T11:36:42.000Z"
+    },
+    {
+      "title": "뷰노, 안저 영상 판독 보조 ‘뷰노메드 펀더스 AI’ 브라질 출시",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242751",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T11:15:00.000Z"
+    },
+    {
+      "title": "세종병원, 스마트워치 AI 심전도로 심장기능 저하 조기 발견 가능성 제시",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242743",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T11:09:39.000Z"
+    },
+    {
+      "title": "고대안암병원, ‘AI·디지털 바이오 메드 서밋 2026’ 개최",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242762",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T10:40:00.000Z"
+    },
+    {
+      "title": "고대 안암병원, KUM AI+Digital Bio Med Summit 2026 개최",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415687",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-23T10:37:30.000Z"
+    },
+    {
+      "title": "삼진제약·온택트헬스, ‘SoniX EchoPilot’ 론칭 심포지엄",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017054",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T10:36:50.000Z"
+    },
+    {
+      "title": "삼진제약·온택트헬스, 심장초음파 AI 솔루션 출시",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99060",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-23T10:29:59.000Z",
+      "popular": true,
+      "rank": 5
+    },
+    {
+      "title": "뷰노, 안저영상 솔루션 'Fundus AI' 브라질 인허가 획득",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=81003",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-23T10:28:20.000Z"
+    },
+    {
+      "title": "노을, 유럽·중남미 의료기기 유통망 확대…20개국과 공급 협력 논의",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422378",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T10:22:41.000Z"
+    },
+    {
+      "title": "심부전 치료제 효과 AI로 예측…환자 4161명 분석해 맞춤치료 가능성 확인",
+      "link": "https://www.apsk.co.kr/news/articleView.html?idxno=541118",
+      "source": "메디팜스투데이",
+      "pubDate": "2026-11-23T10:15:47.000Z",
+      "popular": true,
+      "rank": 4
+    },
+    {
+      "title": "이명도 맞춤치료 시대…AI로 환자 3가지 유형 구분",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99052",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-23T09:52:06.000Z",
+      "popular": true,
+      "rank": 8
+    },
     {
       "title": "심부전 치료제 효과, AI로 환자별 예측한다",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99050",
@@ -14,7 +198,9 @@
       "title": "환자 맞춤형 심부전 치료제 AI로 예측 가능해져",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415676",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-23T09:39:41.000Z"
+      "pubDate": "2026-11-23T09:39:41.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "임상정보로 심부전 치료제 반응 예측하는 AI 도구 개발",
@@ -23,6 +209,12 @@
       "pubDate": "2026-11-23T09:19:20.000Z",
       "popular": true,
       "rank": 6
+    },
+    {
+      "title": "이명도 맞춤치료시대…AI 기반 ‘3가지 유형’ 분류",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200172",
+      "source": "의협신문",
+      "pubDate": "2026-11-23T09:18:00.000Z"
     },
     {
       "title": "삼진제약·온택트헬스, 심장초음파 AI 솔루션 선봬",
@@ -53,6 +245,18 @@
       "pubDate": "2026-11-23T07:30:00.000Z"
     },
     {
+      "title": "돈 빌려간 친구가 또 부탁할 때...\"거절 기술도 AI로 배우세요\"",
+      "link": "https://zdnet.co.kr/view/?no=20261123152931",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-23T06:29:31.000Z"
+    },
+    {
+      "title": "동운아나텍 디지털의료기기 제조 GMP 적합인정",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172078",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-23T06:10:54.000Z"
+    },
+    {
       "title": "[수첩] 기술의 발달, 뒤늦은 대비의 대가",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422359",
       "source": "메디파나뉴스",
@@ -75,6 +279,78 @@
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549506",
       "source": "약사공론",
       "pubDate": "2026-11-23T05:48:00.000Z"
+    },
+    {
+      "title": "\"中 당뇨발 진입\"…로킷헬스케어, 100명분 수주",
+      "link": "https://www.newsis.com/view/NISX20261123_0003879377",
+      "source": "뉴시스",
+      "pubDate": "2026-11-23T05:29:02.000Z"
+    },
+    {
+      "title": "전남광주 서남권 대학병원급 국가병원 신설…AI원격의료망 구축",
+      "link": "https://www.yna.co.kr/view/AKR20261123104300054",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-23T05:18:13.000Z"
+    },
+    {
+      "title": "노을 메디카서 해외 공급 논의…유통망 확대 추진",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172075",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-23T04:32:43.000Z"
+    },
+    {
+      "title": "웰트·이모코그가 짚은 DTx 과제…처방 이후가 관건",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172058",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-23T03:00:00.000Z"
+    },
+    {
+      "title": "AI 기반 3차원 피부질환 정량평가 기술 개발",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253130",
+      "source": "병원신문",
+      "pubDate": "2026-11-23T02:35:00.000Z"
+    },
+    {
+      "title": "뷰노, 안저영상 AI 브라질 출시…남미 시장 공략 속도",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172070",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-23T02:03:20.000Z"
+    },
+    {
+      "title": "루닛, UAE M42와 맞손…AI 폐암 조기발견 정조준",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172068",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-23T01:53:49.000Z"
+    },
+    {
+      "title": "\"이명치료, 왜 나만 잘 안낫지?\"…AI가 밝힌 '이것'",
+      "link": "https://www.newsis.com/view/NISX20261123_0003878699",
+      "source": "뉴시스",
+      "pubDate": "2026-11-23T01:28:16.000Z"
+    },
+    {
+      "title": "\"브라질로 확대\"…뷰노, 현지서 안저영상 AI 출시",
+      "link": "https://www.newsis.com/view/NISX20261123_0003878857",
+      "source": "뉴시스",
+      "pubDate": "2026-11-23T01:20:35.000Z"
+    },
+    {
+      "title": "삼진제약, 심장초음파 AI 'SoniX EchoPilot' 론칭",
+      "link": "https://www.newsis.com/view/NISX20261123_0003878843",
+      "source": "뉴시스",
+      "pubDate": "2026-11-23T01:12:24.000Z"
+    },
+    {
+      "title": "AI 학습에 민감정보 쓰려면 위험평가 필수…정부, 개인정보 특례 기준 확정",
+      "link": "https://www.newsis.com/view/NISX20261123_0003878658",
+      "source": "뉴시스",
+      "pubDate": "2026-11-23T01:00:00.000Z"
+    },
+    {
+      "title": "\"AI활용 폐암 조기발견 추진\"…루닛, M42와 '맞손'",
+      "link": "https://www.newsis.com/view/NISX20261123_0003878763",
+      "source": "뉴시스",
+      "pubDate": "2026-11-23T00:58:52.000Z"
     },
     {
       "title": "씨엔알리서치, ‘TekMed 2026’서 AI 임상 전략 공개…타이메이와 한·중 협력 확대",
@@ -5921,24 +6197,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169695",
       "source": "메디칼타임즈",
       "pubDate": "2026-07-10T03:09:22.000Z"
-    },
-    {
-      "title": "의료 AI 급여 적정성 평가 돌입…학계 우려하는 이유는?",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169685",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-09T20:30:00.000Z"
-    },
-    {
-      "title": "광자계수 CT를 아시나요?…\"정보량 수 십배 해석의 시대 열려\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169641",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-09T02:40:37.000Z"
-    },
-    {
-      "title": "해외서 인정받은 K-마이크로니들…비결은 정밀함과 AI 검수",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169667",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-08T20:30:00.000Z"
     }
   ]
 }
