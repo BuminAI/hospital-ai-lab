@@ -1,6 +1,118 @@
 {
-  "updatedAt": "2026-11-22T16:35:23.361Z",
+  "updatedAt": "2026-11-23T08:05:28.443Z",
   "items": [
+    {
+      "title": "심평원, 의료 AI 전환과 빅데이터 활용 방향 논의하는 미래포럼 개최",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99074",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-23T16:28:26.000Z"
+    },
+    {
+      "title": "측정부터 리포트까지 AI가…삼진제약, 심장초음파 솔루션 론칭",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044799",
+      "source": "청년의사",
+      "pubDate": "2026-11-23T16:01:16.000Z"
+    },
+    {
+      "title": "제이앤피메디, ‘FDA 심사관 시각’으로 짚는 의료기기 인허가 2차 웨비나 개최",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017102",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T13:39:28.000Z"
+    },
+    {
+      "title": "삼진제약, 디지털헬스케어 확장···SoniX EchoPilot 출시",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415704",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-23T12:14:22.000Z",
+      "popular": true,
+      "rank": 5
+    },
+    {
+      "title": "비드래프트, AI 보안 커널 공개 검증…70명 참가해 공격 사례 245건 제출",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217670",
+      "source": "AI타임스",
+      "pubDate": "2026-11-23T11:50:00.000Z"
+    },
+    {
+      "title": "심평원, 보건의료 빅데이터 10년 성과 공유…AI 미래 전략 모색",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044791",
+      "source": "청년의사",
+      "pubDate": "2026-11-23T11:36:42.000Z"
+    },
+    {
+      "title": "고대안암병원, ‘AI·디지털 바이오 메드 서밋 2026’ 개최",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242762",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T10:40:00.000Z"
+    },
+    {
+      "title": "고대 안암병원, KUM AI+Digital Bio Med Summit 2026 개최",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415687",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-23T10:37:30.000Z"
+    },
+    {
+      "title": "삼진제약·온택트헬스, ‘SoniX EchoPilot’ 론칭 심포지엄",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017054",
+      "source": "의학신문",
+      "pubDate": "2026-11-23T10:36:50.000Z"
+    },
+    {
+      "title": "삼진제약·온택트헬스, 심장초음파 AI 솔루션 출시",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99060",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-23T10:29:59.000Z",
+      "popular": true,
+      "rank": 5
+    },
+    {
+      "title": "노을, 유럽·중남미 의료기기 유통망 확대…20개국과 공급 협력 논의",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422378",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T10:22:41.000Z"
+    },
+    {
+      "title": "임상정보로 심부전 치료제 반응 예측하는 AI 도구 개발",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242732",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T09:19:20.000Z",
+      "popular": true,
+      "rank": 9
+    },
+    {
+      "title": "이명도 맞춤치료시대…AI 기반 ‘3가지 유형’ 분류",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200172",
+      "source": "의협신문",
+      "pubDate": "2026-11-23T09:18:00.000Z",
+      "popular": true,
+      "rank": 8
+    },
+    {
+      "title": "삼진제약·온택트헬스, 심장초음파 AI 솔루션 선봬",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422369",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-23T09:03:35.000Z"
+    },
+    {
+      "title": "서울성모병원, AI로 이명 환자 3개 유형 분류…치료 반응 차이 확인",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242735",
+      "source": "라포르시안",
+      "pubDate": "2026-11-23T08:55:00.000Z",
+      "popular": true,
+      "rank": 7
+    },
+    {
+      "title": "대전시, 정부혁신박람회서 AI 의료정보조회 챗봇 전시",
+      "link": "https://www.yna.co.kr/view/AKR20261123084100063",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-23T02:47:09.000Z"
+    },
+    {
+      "title": "삼진제약, 심장초음파 AI 'SoniX EchoPilot' 론칭",
+      "link": "https://www.newsis.com/view/NISX20261123_0003878843",
+      "source": "뉴시스",
+      "pubDate": "2026-11-23T01:12:24.000Z"
+    },
     {
       "title": "의학한림원, 23일 ‘의료 인공지능 윤리 연구 공청회’ 개최",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242729",
@@ -1170,5 +1282,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · 의학신문 · e-의료정보 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 보건복지부"
+  "source": "청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · 의학신문 · e-의료정보 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 보건복지부 · 연합뉴스"
 }
