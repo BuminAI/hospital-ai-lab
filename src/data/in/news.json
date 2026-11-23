@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-23T08:07:47.367Z",
-  "source": "ET HealthWorld · Express Healthcare · Medical Dialogues",
+  "updatedAt": "2026-11-23T20:30:14.172Z",
+  "source": "ET HealthWorld · Express Healthcare · Medical Dialogues · The Hindu · The Economic Times · Analytics India Magazine",
   "items": [
+    {
+      "title": "England launches world's largest AI-aided breast cancer screening trial",
+      "link": "https://www.thehindu.com/sci-tech/health/england-launches-worlds-largest-ai-aided-breast-cancer-screening-trial/article71734765.ece",
+      "source": "The Hindu",
+      "pubDate": "2026-11-23T13:32:55.000Z"
+    },
+    {
+      "title": "GDHS 2026 delivers a boardroom wake-up call: Puts AI to a clinical test",
+      "link": "https://www.expresshealthcare.in/news/gdhs-2026-delivers-a-boardroom-wake-up-call-puts-ai-to-a-clinical-test/455970/",
+      "source": "Express Healthcare",
+      "pubDate": "2026-11-23T11:19:27.000Z"
+    },
     {
       "title": "Why AI alone cannot fix patient safety",
       "link": "https://www.expresshealthcare.in/news/why-ai-alone-cannot-fix-patient-safety/455943/",
