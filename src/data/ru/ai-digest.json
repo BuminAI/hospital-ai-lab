@@ -1,9 +1,33 @@
 {
-  "updatedAt": "2026-11-22T14:32:12.480Z",
+  "updatedAt": "2026-11-23T02:44:02.610Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
     {
-      "title": "Доверяй, но запрещай – или как ограничивать полномочия AI-агента на разных уровнях",
+      "title": "«Ваш разговор стал слишком длинным»: как Google Antigravity неожиданно режет контекст и как Gemini это решил",
+      "link": "https://habr.com/ru/articles/1111006/?utm_campaign=1111006&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-22T23:08:19.000Z"
+    },
+    {
+      "title": "OpenAI GPT-6.2 Astra и GPT-6.2 Sol оказались одними из лучших ИИ-моделей для разработки игр",
+      "link": "https://3dnews.ru/1151657/openai-gpt62-astra-i-gpt62-sol-okazalis-odnimi-iz-luchshih-iimodeley-dlya-razrabotki-igr",
+      "source": "3DNews",
+      "pubDate": "2026-11-22T16:02:00.000Z"
+    },
+    {
+      "title": "Как выбирать площадки для упоминаний бренда в ответах ИИ — я прошерстил исследование от Ahrefs",
+      "link": "https://habr.com/ru/articles/1110916/?utm_campaign=1110916&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-22T15:48:40.000Z"
+    },
+    {
+      "title": "Почему 24/7 ИИ-агенты ломаются за 4 часа: хаос-бенчмарк F01–F10 и открытый линтер Sci Integrity Guard",
+      "link": "https://habr.com/ru/articles/1110886/?utm_campaign=1110886&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-22T14:36:39.000Z"
+    },
+    {
+      "title": "Доверяй, но запрещай — или как ограничивать полномочия AI‑агента на разных уровнях",
       "link": "https://habr.com/ru/companies/magnit/articles/1110850/?utm_campaign=1110850&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-22T13:31:57.000Z"
@@ -1777,30 +1801,6 @@
       "link": "https://habr.com/ru/companies/sibur_official/articles/1103812/?utm_campaign=1103812&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-05T11:23:08.000Z"
-    },
-    {
-      "title": "Российский бизнес тратит 100-150 миллионов в месяц на «серый» доступ к зарубежным ИИ",
-      "link": "https://www.cnews.ru/news/top/2026-11-05_rossijskij_rynok_uhodit",
-      "source": "CNews",
-      "pubDate": "2026-11-05T11:10:00.000Z"
-    },
-    {
-      "title": "В ИИИ МФТИ создан центр экспертизы для внедрения ИИ на китайском вычислительном оборудовании",
-      "link": "https://www.cnews.ru/news/line/2026-11-05_v_iii_mfti_sozdan_tsentr_ekspertizy",
-      "source": "CNews",
-      "pubDate": "2026-11-05T11:04:00.000Z"
-    },
-    {
-      "title": "ИИ — не волшебная палочка. Как работать с агентом по спецификациям и не уйти в петлю багов",
-      "link": "https://habr.com/ru/articles/1103902/?utm_campaign=1103902&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-05T10:56:00.000Z"
-    },
-    {
-      "title": "Исследование SimpleOne: более 80% команд разработки используют ИИ, но только четверть выпускают его результат в рабочую среду",
-      "link": "https://www.cnews.ru/news/line/2026-11-05_issledovanie_simpleone_bolee",
-      "source": "CNews",
-      "pubDate": "2026-11-05T10:45:00.000Z"
     }
   ]
 }
