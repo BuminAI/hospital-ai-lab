@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-21T19:46:11.019Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review",
+  "updatedAt": "2026-11-23T03:59:02.913Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · BBC News · Federal Register",
   "items": [
+    {
+      "title": "Can AI spot breast cancer earlier? NHS launches world's largest trial to find out",
+      "link": "https://www.bbc.co.uk/news/articles/cmpdwnw3nvzjo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC News",
+      "pubDate": "2026-11-23T00:49:22.000Z"
+    },
     {
       "title": "Microsoft tests Dragon Copilot nursing AI beyond med-surg units",
       "link": "https://www.beckershospitalreview.com/healthcare-information-technology/innovation/microsoft-tests-dragon-copilot-nursing-ai-beyond-med-surg-units/",
