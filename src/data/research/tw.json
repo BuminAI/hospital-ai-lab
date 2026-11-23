@@ -1,107 +1,67 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "Taiwan",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
-    "surgery": 697,
-    "drug": 220,
-    "disease": 2501,
-    "trials": 261
+    "surgery": 698,
+    "drug": 222,
+    "disease": 2498,
+    "trials": 263
   },
   "sections": {
     "surgery": [
       {
         "kind": "paper",
-        "id": "PMID 43033279",
-        "title": "Good outcome can be achieved by femoral neck system with a supplementary Pauwels screw for unstable Pauwels type III femoral neck fractures in less than 65 years old adults",
-        "source": "Eur J Orthop Surg Traumatol",
-        "date": "2026-11-14",
-        "authors": "Wu CY, Chen CY, Lin KC",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43033279/",
-        "doi": "10.1007/s00590-026-05031-2"
+        "id": "PMID 43067839",
+        "title": "Engineered injectable scaffolds as synthetic niches for minimally invasive monitoring of metastatic breast cancer progression",
+        "source": "Bioeng Transl Med",
+        "date": "2026-11-20",
+        "authors": "Kang K, Darlak GK, Toy J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43067839/",
+        "doi": "10.1002/btm2.70201"
       },
       {
         "kind": "paper",
-        "id": "PMID 43023403",
-        "title": "Redefining injectable PMMA bone cement: Beta-tricalcium phosphate integration for bioactive and osteoconductive performance for minimally invasive applications",
-        "source": "Biomed Mater Eng",
-        "date": "2026-11-13",
-        "authors": "Wu CC, Yeh L, Chiang CY et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43023403/",
-        "doi": "10.1177/09592989261487245"
+        "id": "PMID 43063115",
+        "title": "Compartmentalized cytomegalovirus pneumonitis in a liver transplant recipient: Integrating tissue metagenomic sequencing and 18 F-FDG PET/CT for etiologic diagnosis: A case report",
+        "source": "Medicine (Baltimore)",
+        "date": "2026-11-20",
+        "authors": "Ni CH, Chen IF, Wang CH",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43063115/",
+        "doi": "10.1097/MD.0000000000051643"
       },
       {
         "kind": "paper",
-        "id": "PMID 43009348",
-        "title": "Trapezium-sparing distraction arthroplasty using the abductor pollicis longus tendon for advanced trapeziometacarpal osteoarthritis: A retrospective case series",
-        "source": "J Orthop Sci",
-        "date": "2026-11-10",
-        "authors": "Lee CY, Huang HK, Yen CY et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43009348/",
-        "doi": "10.1016/j.jos.2026.10.016"
+        "id": "PMID 43040193",
+        "title": "One-Year Weight Loss, Metabolic Factors, and Psychotropic Medications Identify Patients at Risk for Recurrent Weight Gain After Sleeve Gastrectomy",
+        "source": "Obes Surg",
+        "date": "2026-11-16",
+        "authors": "Su YS, Chen CY, Lee HM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43040193/",
+        "doi": "10.1007/s11695-026-09041-1"
       },
       {
         "kind": "paper",
-        "id": "PMID 42994757",
-        "title": "Risk-Adapted Donor Selection in Patients with Acute Myeloid Leukemia",
-        "source": "Transplant Cell Ther",
-        "date": "2026-11-06",
-        "authors": "Tsai XC, Liu JH, Hsiao LT et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42994757/",
-        "doi": "10.1016/j.jtct.2026.11.009"
+        "id": "PMID 43037708",
+        "title": "Assessment of quality of life following dynamic facial reanimation surgery in patients with facial paralysis: a systematic review and meta-analysis",
+        "source": "Eur Arch Otorhinolaryngol",
+        "date": "2026-11-16",
+        "authors": "Wu CS, Huang YJ, Ko YC et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43037708/",
+        "doi": "10.1007/s00405-026-10710-1"
       },
       {
         "kind": "paper",
-        "id": "PMID 42912473",
-        "title": "Population pharmacokinetic models for unbound mycophenolic acid",
-        "source": "Expert Opin Drug Metab Toxicol",
-        "date": "2026-11-06",
-        "authors": "Rong Y, Chang ST, Chen SH et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42912473/",
-        "doi": "10.1080/17425255.2026.2754263"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42972883",
-        "title": "Real-World Comparison of Cardiorenal Outcomes With SGLT-2 Inhibitors Versus GLP-1 Receptor Agonists in Type 2 Diabetes",
-        "source": "Diabetes Obes Metab",
-        "date": "2026-11-02",
-        "authors": "Huang CH, Wu JL, Ling TC et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42972883/",
-        "doi": "10.1111/dom.71506"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42967846",
-        "title": "Sng as a distinct pain phenotype after minimally invasive spine surgery: Implications for analgesic use and recovery outcomes",
-        "source": "J Formos Med Assoc",
-        "date": "2026-11-02",
-        "authors": "Trinh DT, Lin JY, Chen LY et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42967846/",
-        "doi": "10.1016/j.jfma.2026.10.043"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42978679",
-        "title": "Thoracic Endometriosis Mimicking a Lung Mass: Management With Single-Stage Biopsy and Microwave Ablation",
-        "source": "Respirol Case Rep",
-        "date": "2026-11-01",
-        "authors": "Hsieh M, Yang SM, Huang HN",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42978679/",
-        "doi": "10.1002/rcr2.70811"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42977039",
-        "title": "Extracorporeal photopheresis for bronchiolitis obliterans syndrome after allogeneic hematopoietic cell transplantation: A systematic review",
-        "source": "Respir Med",
-        "date": "2026-11-01",
-        "authors": "Jaing TH, Wang YL, Lee WJ et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42977039/",
-        "doi": "10.1016/j.rmed.2026.109264"
+        "id": "PMID 43037188",
+        "title": "Exogenous Calcium Silicate-Primed Mitochondria Reverse Diabetic Wound Chronicity via Dual Proteolytic Regulation and Metabolic Reprogramming",
+        "source": "Small",
+        "date": "2026-11-16",
+        "authors": "Yu MH, Lin YH, Liu EW et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43037188/",
+        "doi": "10.1002/smll.76711"
       },
       {
         "kind": "paper",
@@ -125,6 +85,16 @@
       },
       {
         "kind": "paper",
+        "id": "PMID 42759157",
+        "title": "Optimizing perioperative intravenous corticosteroid dosing for postoperative outcomes in total joint arthroplasty: a network meta-analysis",
+        "source": "Knee",
+        "date": "2026-09-18",
+        "authors": "Kao PE, Ker A, Hsu CW et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42759157/",
+        "doi": "10.1016/j.knee.2026.104636"
+      },
+      {
+        "kind": "paper",
         "id": "PMID 42991997",
         "title": "Erector spinae plane block within ERAS protocols reduces analgesic requirements in aged, high-risk patients after MIS-TLIF: a propensity score-matched analysis",
         "source": "N Am Spine Soc J",
@@ -132,9 +102,49 @@
         "authors": "Chen LY, Lin JY, Tu YT et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42991997/",
         "doi": "10.1016/j.xnsj.2026.100945"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42709540",
+        "title": "Thioredoxin reductase-1 facilitates cellular plasticity and stemness mediated by TGF-β1 in non-small cell lung cancer",
+        "source": "Cancer Biol Ther",
+        "date": "2026-09-08",
+        "authors": "Lang YD, Gu SY, Shih JH et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42709540/",
+        "doi": "10.1080/15384047.2026.2724630"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42644346",
+        "title": "Epidemiology and outcomes of invasive fungal infections in patients with mature T-cell and NK-cell lymphomas",
+        "source": "Ann Med",
+        "date": "2026-08-26",
+        "authors": "Tsai MT, Chen PY, Huang TC et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42644346/",
+        "doi": "10.1080/07853890.2026.2720365"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42790397",
+        "title": "Propensity score-matched analysis and mixed-effects logistic regression analysis comparing robotic versus laparoscopic liver resections in patients with cirrhosis complicated by portal hypertension: An international multicenter study",
+        "source": "Surgery",
+        "date": "2026-08-25",
+        "authors": "Di Benedetto F, Magistri P, Yeow M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42790397/",
+        "doi": "10.1016/j.surg.2026.110544"
       }
     ],
     "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 42982352",
+        "title": "Mindful eating versus prayer before meals for psycho-physiological outcomes in middle-aged women: A randomized controlled trial",
+        "source": "Complement Ther Med",
+        "date": "2026-11-04",
+        "authors": "Lin CC, Chen CH, Holloway KW et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42982352/",
+        "doi": "10.1016/j.ctim.2026.103467"
+      },
       {
         "kind": "paper",
         "id": "PMID 42951461",
@@ -154,6 +164,16 @@
         "authors": "Slomovitz BM, Zhu J, Yin R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42933458/",
         "doi": "10.1016/S0140-6736(26)02095-7"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42966155",
+        "title": "Adjunctive fucoidan, fucoxanthin, and l-carnitine mitigate albuminuria and preserve eGFR over a 12-week treatment period in diabetic kidney disease: A translational study and proof-of-concept randomized clinical trial",
+        "source": "Phytomedicine",
+        "date": "2026-10-21",
+        "authors": "Chen CH, Chang TI, Chen CY et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42966155/",
+        "doi": "10.1016/j.phymed.2026.158870"
       },
       {
         "kind": "paper",
@@ -234,29 +254,19 @@
         "authors": "Gibson CM, Steg PG, Bahit MC et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42670965/",
         "doi": "10.1056/NEJMoa2608717"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42636977",
-        "title": "Sustained benefit of adjuvant olaparib in women with germline BRCA1- and BRCA2-associated high-risk HER2-negative early breast cancer: updated results from the OlympiA phase III trial",
-        "source": "Ann Oncol",
-        "date": "2026-08-24",
-        "authors": "Garber JE, Cameron D, Campbell C et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42636977/",
-        "doi": "10.1016/j.annonc.2026.08.002"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42628839",
-        "title": "Atezolizumab with or without tiragolumab in unresectable esophageal squamous-cell carcinoma following definitive concurrent chemoradiotherapy (SKYSCRAPER-07): a randomised, phase III study",
-        "source": "Ann Oncol",
-        "date": "2026-08-21",
-        "authors": "Xu RH, Cho BC, Chen M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42628839/",
-        "doi": "10.1016/j.annonc.2026.07.413"
       }
     ],
     "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43041004",
+        "title": "Geographic accessibility and drowning outcomes within a universal healthcare system: a nationwide population-based study",
+        "source": "Ann Med",
+        "date": "2026-11-16",
+        "authors": "Seak CJ, Tsai LH, Liu JR et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43041004/",
+        "doi": "10.1080/07853890.2026.2755684"
+      },
       {
         "kind": "paper",
         "id": "PMID 42986129",
@@ -366,16 +376,6 @@
         "authors": "Abada Robby MD, Jachimowicz P, Solayman HM et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42801818/",
         "doi": "10.1016/j.wasman.2026.115897"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42822074",
-        "title": "Differential patterns of postpartum depression following vaginal and caesarean births: The moderating role of emotional support",
-        "source": "Midwifery",
-        "date": "2026-09-26",
-        "authors": "Chiu HY, Chen HH, Wang CW et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42822074/",
-        "doi": "10.1016/j.midw.2026.105003"
       }
     ],
     "trials": [
@@ -389,6 +389,17 @@
         "conditions": "Diabetes Mellitus, Type 2",
         "intervention": "Zenagamtide, Semaglutide",
         "url": "https://clinicaltrials.gov/study/NCT07931599"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07578649",
+        "title": "Symbiotic-GYN-18: A Study to Learn About the Study Medicine Called PF-08634404 in Combination With Chemotherapy in Adult Participants With Advanced or Recurrent MMR-proficient Endometrial Cancer",
+        "source": "Pfizer",
+        "date": "2026-11-05",
+        "phase": "Phase 3",
+        "conditions": "Endometrial Neoplasms, Endometrial Cancer",
+        "intervention": "PF-08634404, Pembrolizumab",
+        "url": "https://clinicaltrials.gov/study/NCT07578649"
       },
       {
         "kind": "trial",
@@ -425,6 +436,17 @@
       },
       {
         "kind": "trial",
+        "id": "NCT07890298",
+        "title": "A Study to Evaluate the Intracranial Arterial Recanalization With Multiple Doses of LT3001 Drug Product in AIS Participant",
+        "source": "Lumosa Therapeutics Co., Ltd.",
+        "date": "2026-11-01",
+        "phase": "Phase 2",
+        "conditions": "Acute Ischemic Stroke",
+        "intervention": "LT3001 Drug Product",
+        "url": "https://clinicaltrials.gov/study/NCT07890298"
+      },
+      {
+        "kind": "trial",
         "id": "NCT07865715",
         "title": "Effect of Probiotic Nasal Irrigation on the Postoperative Care of Chronic Rhinosinusitis",
         "source": "Taichung Veterans General Hospital",
@@ -458,6 +480,17 @@
       },
       {
         "kind": "trial",
+        "id": "NCT07728188",
+        "title": "A Study to Evaluate Adverse Events and Change in Disease Activity With Injected Etentamig Plus Oral Pomalidomide Versus Standard Therapies in Adults With Relapsed or Refractory Multiple Myeloma",
+        "source": "AbbVie",
+        "date": "2026-10-20",
+        "phase": "Phase 3",
+        "conditions": "Relapsed or Refractory Multiple Myeloma",
+        "intervention": "Etentamig, Pomalidomide",
+        "url": "https://clinicaltrials.gov/study/NCT07728188"
+      },
+      {
+        "kind": "trial",
         "id": "NCT07881458",
         "title": "A Study of EloraTZP in Adult Participants With Obesity or Overweight and Type 2 Diabetes",
         "source": "Eli Lilly and Company",
@@ -477,39 +510,6 @@
         "conditions": "Urothelial Cancer, Non-small Cell Lung Cancer",
         "intervention": "Dato-DXd, Enfortumab Vedotin (EV)",
         "url": "https://clinicaltrials.gov/study/NCT07890714"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07883265",
-        "title": "Comparison of HPI-guided Norepinephrine Boluses, ClearSight-guided Norepinephrine Infusion, and Oscillometric-guided Norepinephrine Infusion for Blood Pressure Stability During Cesarean Delivery",
-        "source": "National Taiwan University Hospital",
-        "date": "2026-10-15",
-        "phase": "N/A",
-        "conditions": "Hypotension During Cesarean Delivery, Blood Pressure Monitoring",
-        "intervention": "Hypotension Prediction Index derived from the noninvasive arterial waveform, Continuous noninvasive arterial pressure monitoring (HPI blinded)",
-        "url": "https://clinicaltrials.gov/study/NCT07883265"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07578649",
-        "title": "Symbiotic-GYN-18: A Study to Learn About the Study Medicine Called PF-08634404 in Combination With Chemotherapy in Adult Participants With Advanced or Recurrent MMR-proficient Endometrial Cancer",
-        "source": "Pfizer",
-        "date": "2026-10-14",
-        "phase": "Phase 3",
-        "conditions": "Endometrial Neoplasms, Endometrial Cancer",
-        "intervention": "PF-08634404, Pembrolizumab",
-        "url": "https://clinicaltrials.gov/study/NCT07578649"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07700758",
-        "title": "A Study of Belzutifan in Adolescent Participants With Solid Tumors (MK-9999-01E/LIGHTBEAM-U01)",
-        "source": "Merck Sharp & Dohme LLC",
-        "date": "2026-10-13",
-        "phase": "Phase 2",
-        "conditions": "Malignant Neoplasm",
-        "intervention": "Belzutifan",
-        "url": "https://clinicaltrials.gov/study/NCT07700758"
       }
     ]
   }

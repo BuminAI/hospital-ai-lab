@@ -1,18 +1,48 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "Ireland",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
     "surgery": 450,
-    "drug": 121,
-    "disease": 1548,
-    "trials": 39
+    "drug": 122,
+    "disease": 1552,
+    "trials": 41
   },
   "sections": {
     "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43055911",
+        "title": "What does the future of orthopaedics look like in Ireland: A survey of irish orthopaedic trainees on subspecialty preference",
+        "source": "Ir J Med Sci",
+        "date": "2026-11-19",
+        "authors": "Roche E, Melley B, Stanley C et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43055911/",
+        "doi": "10.1007/s11845-026-04730-3"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43039059",
+        "title": "Debridement, Antibiotics, and Implant Retention for Periprosthetic Joint Infection Following Unicompartmental Knee Arthroplasty: A Systematic Review and Meta-Analysis of Outcomes and Predictors of Failure",
+        "source": "J Arthroplasty",
+        "date": "2026-11-16",
+        "authors": "Dowling J, O'Grady J, Howie E",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43039059/",
+        "doi": "10.1016/j.arth.2026.11.056"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43037232",
+        "title": "Surgical Intervention for Massive Lesions (>3cm(2)): Proceedings of the International Congress on Cartilage Repair of the Ankle",
+        "source": "Foot Ankle Spec",
+        "date": "2026-11-16",
+        "authors": "Rubin J, Tham A, Butler JJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43037232/",
+        "doi": "10.1177/19386400261501524"
+      },
       {
         "kind": "paper",
         "id": "PMID 43003361",
@@ -35,73 +65,23 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42989037",
-        "title": "Pin-related complications in robotic-assisted total knee arthroplasty: a systematic review and meta-analysis of 15,874 knees",
-        "source": "J Robot Surg",
-        "date": "2026-11-06",
-        "authors": "Ade-Conde M, Dhanoa D, Wolfstadt JI et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42989037/",
-        "doi": "10.1007/s11701-026-04134-6"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43019931",
-        "title": "OSS: Open suturing skills vision-based assessment challenge 2024-2025",
-        "source": "Med Image Anal",
-        "date": "2026-11-05",
-        "authors": "Hoffmann H, Bady S, Boer C et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43019931/",
-        "doi": "10.1016/j.media.2026.104359"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42988962",
-        "title": "Effective and ineffective teamwork in robotic-assisted surgery: operating room professionals' accounts",
-        "source": "Surg Endosc",
-        "date": "2026-11-05",
-        "authors": "Nyein KP, Canady KM, Bingea DR et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42988962/",
-        "doi": "10.1007/s00464-026-13449-2"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42986224",
-        "title": "BK polyomavirus viraemia after kidney transplantation: incidence, graft survival and its association with urinary tract malignancies",
-        "source": "J Nephrol",
-        "date": "2026-11-05",
-        "authors": "Clince M, O'Donoghue D, Sandys V et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42986224/",
-        "doi": "10.1093/joneph/aajag154"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42971445",
-        "title": "Inflammatory Markers Following Robotic-Assisted Versus Manual Total Knee Arthroplasty: A Systematic Review and Meta-Analysis",
-        "source": "J Arthroplasty",
-        "date": "2026-11-02",
-        "authors": "Ade-Conde M, Son H, Lanting BA et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42971445/",
-        "doi": "10.1016/j.arth.2026.10.035"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43022055",
-        "title": "Frontiers in Biophotonics",
-        "source": "J Biomed Opt",
+        "id": "PMID 43066413",
+        "title": "Contrasting presentations of gallstone ileus: delayed diagnosis and successful laparoscopic-assisted enterolithotomy in two elderly women",
+        "source": "J Surg Case Rep",
         "date": "2026-11-01",
-        "authors": "Komolibus K, Untracht GR, Andersson-Engels S et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43022055/",
-        "doi": "10.1117/1.JBO.31.11.113501"
+        "authors": "Amjad H, Elshiere AI",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43066413/",
+        "doi": "10.1093/jscr/rjag1064"
       },
       {
         "kind": "paper",
-        "id": "PMID 42929496",
-        "title": "Investigation of Torque Teno Virus Loads as a Marker of Immunosuppression in Pediatric Chronic Renal Failure: A Pilot Study",
-        "source": "Pediatr Transplant",
-        "date": "2026-11-01",
-        "authors": "Kelly E, Awan A, Wildes D et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42929496/",
-        "doi": "10.1111/petr.70491"
+        "id": "PMID 42951695",
+        "title": "Minimally invasive versus open liver resection for hepatocellular carcinoma in older adults: A systematic review and meta-analysis",
+        "source": "Ann Hepatobiliary Pancreat Surg",
+        "date": "2026-10-29",
+        "authors": "Al Darwashi LM, Michael N, Kifle AM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42951695/",
+        "doi": "10.14701/ahbps.26-167"
       },
       {
         "kind": "paper",
@@ -125,16 +105,46 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42914721",
-        "title": "How have management and outcomes of periprosthetic proximal femoral fractures changed? A comparison of two 8 year time periods in a high volume centre",
-        "source": "Injury",
-        "date": "2026-10-15",
-        "authors": "Toner E, Madden-McKee C, Goodland C et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42914721/",
-        "doi": "10.1016/j.injury.2026.113785"
+        "id": "PMID 42874429",
+        "title": "Kidney donor profile index (KDPI) score and long-term deceased donor kidney transplant outcomes: A systematic review and meta-analysis of cohort studies",
+        "source": "Transplant Rev (Orlando)",
+        "date": "2026-10-11",
+        "authors": "Raza A, AlDuaij A, Almutairi M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42874429/",
+        "doi": "10.1016/j.trre.2026.101059"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42830561",
+        "title": "Anesthetic management for tracheal resection and reconstruction: conventional principles and emerging innovations",
+        "source": "Curr Opin Anaesthesiol",
+        "date": "2026-10-05",
+        "authors": "Alhammad MF, Shallik AN, Shallik NA",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42830561/",
+        "doi": "10.1097/ACO.0000000000001710"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43054745",
+        "title": "Clinical outcomes and safety of intra-articular 2.5% polyacrylamide hydrogel for knee osteoarthritis: A systematic review and meta-analysis",
+        "source": "J Exp Orthop",
+        "date": "2026-10-01",
+        "authors": "Bouchard MD, Gilbert J, Ade-Conde M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43054745/",
+        "doi": "10.1002/jeo2.70991"
       }
     ],
     "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 43040376",
+        "title": "Tailoring health messages to drinking motives: effects on intentions, self-efficacy, and attentional bias to alcohol stimuli",
+        "source": "Subst Abuse Treat Prev Policy",
+        "date": "2026-11-14",
+        "authors": "Crawford J, Gunnarsson KU, Cooke R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43040376/",
+        "doi": "10.1186/s13011-026-00778-7"
+      },
       {
         "kind": "paper",
         "id": "PMID 42663536",
@@ -144,6 +154,16 @@
         "authors": "Schlechter BL, Fakih MG, Tsimberidou AM et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42663536/",
         "doi": "10.1158/1078-0432.CCR-26-1610"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42752531",
+        "title": "PDS0101 With Pembrolizumab in HPV16-Positive Recurrent/Metastatic Head and Neck Squamous Cell Carcinoma: A Phase 2 Nonrandomized Clinical Trial",
+        "source": "JAMA Oncol",
+        "date": "2026-11-01",
+        "authors": "Weiss J, Kaczmar J, Chintakuntlawar A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42752531/",
+        "doi": "10.1001/jamaoncol.2026.3492"
       },
       {
         "kind": "paper",
@@ -164,6 +184,16 @@
         "authors": "Slomovitz BM, Zhu J, Yin R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42933458/",
         "doi": "10.1016/S0140-6736(26)02095-7"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42915009",
+        "title": "Remibrutinib versus teriflunomide in relapsing multiple sclerosis (REMODEL-1 and REMODEL-2): two randomised, phase 3 trials",
+        "source": "Lancet",
+        "date": "2026-10-23",
+        "authors": "Wiendl H, Bermel R, Airas L et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42915009/",
+        "doi": "10.1016/S0140-6736(26)02058-1"
       },
       {
         "kind": "paper",
@@ -224,36 +254,6 @@
         "authors": "Rha SY, Wyrwicz LS, Yañez P et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42748509/",
         "doi": "10.1016/j.esmoop.2026.108536"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42804311",
-        "title": "Prolozone M Therapy's Analgesic Efficacy for Managing Moderate-to-Severe Knee Osteoarthritis: A Randomized, Double-Blind, Placebo-Controlled Trial",
-        "source": "Pain Physician",
-        "date": "2026-09-01",
-        "authors": "Niraj G, Charan N, Prabhu M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42804311/",
-        "doi": ""
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42636832",
-        "title": "Durvalumab and tremelimumab, with or without lenvatinib, combined with transarterial chemoembolisation in participants with embolisation-eligible hepatocellular carcinoma (EMERALD-3): a global, randomised, open-label, sponsor-blinded, phase 3 study",
-        "source": "Lancet Oncol",
-        "date": "2026-09-01",
-        "authors": "Kudo M, Abou-Alfa GK, Ren Z et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42636832/",
-        "doi": "10.1016/S1470-2045(26)00278-0"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42636977",
-        "title": "Sustained benefit of adjuvant olaparib in women with germline BRCA1- and BRCA2-associated high-risk HER2-negative early breast cancer: updated results from the OlympiA phase III trial",
-        "source": "Ann Oncol",
-        "date": "2026-08-24",
-        "authors": "Garber JE, Cameron D, Campbell C et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42636977/",
-        "doi": "10.1016/j.annonc.2026.08.002"
       }
     ],
     "disease": [
@@ -369,16 +369,27 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42830857",
-        "title": "Mapping population-based cancer registries in Europe: coverage, data availability, and capacity for real-world data generation",
-        "source": "ESMO Real World Data Digit Oncol",
+        "id": "PMID 42837956",
+        "title": "Prospective assessment of incomplete ovarian suppression in breast cancer using LC-MS/MS and immunoassays for estradiol",
+        "source": "Breast",
         "date": "2026-09-22",
-        "authors": "Zadnik V, Duratović Konjević A, Jurtela M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42830857/",
-        "doi": "10.1016/j.esmorw.2026.100785"
+        "authors": "Kelly CM, Pusztai L, Bennett K et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42837956/",
+        "doi": "10.1016/j.breast.2026.104937"
       }
     ],
     "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT07781644",
+        "title": "Study to Test Effects and Safety of RO7568282 in Early Parkinson's Disease",
+        "source": "Hoffmann-La Roche",
+        "date": "2026-11-11",
+        "phase": "Phase 2",
+        "conditions": "Parkinson's Disease",
+        "intervention": "RO7568282, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07781644"
+      },
       {
         "kind": "trial",
         "id": "NCT07541170",
@@ -447,6 +458,17 @@
       },
       {
         "kind": "trial",
+        "id": "NCT07489066",
+        "title": "Symbiotic-Lung-10: A Study to Learn About PF-08634404 Alone or in Combination in Early-stage or Locally Advanced NSCLC",
+        "source": "Pfizer",
+        "date": "2026-06-30",
+        "phase": "Phase 2",
+        "conditions": "Carcinoma, Non-Small-Cell Lung, Lung Cancer (NSCLC)",
+        "intervention": "PF-08634404, Chemotherapy Regimen 1",
+        "url": "https://clinicaltrials.gov/study/NCT07489066"
+      },
+      {
+        "kind": "trial",
         "id": "NCT07106632",
         "title": "Optimising Adjuvant Chemotherapy Prescription in Young Patients With Hormone-dependent Breast Cancer Using Genomic Tests",
         "source": "UNICANCER",
@@ -459,24 +481,13 @@
       {
         "kind": "trial",
         "id": "NCT07917780",
-        "title": "A Prospective, Open-label, Randomized, Multicenter Phase-III Trial to Evaluate the Efficacy of Pirtobrutinib and Epcoritamab Compared With R-(Mini)-CHOP for Treatment of Patients With DLBCL-type Richter Transformation",
+        "title": "A Trial to Evaluate the Efficacy of Pirtobrutinib and Epcoritamab Compared With R-(Mini)-CHOP for Treatment of Patients With DLBCL-type Richter Transformation",
         "source": "German CLL Study Group",
         "date": "2026-06-18",
         "phase": "Phase 2",
         "conditions": "Richter Transformation",
         "intervention": "Epcoritamab, Pirtobrutinib",
         "url": "https://clinicaltrials.gov/study/NCT07917780"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07024706",
-        "title": "MAVRiC Studies 2L Treatment With AV in Patients With CLL/SLL Who Have Relapsed After a Course of BTKi + BCL2i Combination, With or Without Obinutuzumab",
-        "source": "AstraZeneca",
-        "date": "2026-06-04",
-        "phase": "Phase 2",
-        "conditions": "Chronic Lymphocytic Leukemia (CLL), Small Lymphocytic Lymphoma (SLL)",
-        "intervention": "Acalabrutinib, Venetoclax",
-        "url": "https://clinicaltrials.gov/study/NCT07024706"
       },
       {
         "kind": "trial",
@@ -491,25 +502,14 @@
       },
       {
         "kind": "trial",
-        "id": "NCT07422480",
-        "title": "A Study to Compare Elritercept With Epoetin Alfa to Treat Anemia in Adults With Lower Risk Myelodysplastic Syndromes (LR-MDS) Who Need Regular Blood Transfusions",
-        "source": "Takeda",
-        "date": "2026-05-21",
-        "phase": "Phase 3",
-        "conditions": "Myelodysplastic Syndrome, Anemia",
-        "intervention": "Elritercept, Epoetin Alfa",
-        "url": "https://clinicaltrials.gov/study/NCT07422480"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07287098",
-        "title": "A Study of Imlunestrant (LY3484356) in Premenopausal Women With Estrogen Receptor-Positive (ER+) Human Epidermal Growth Factor Receptor 2 Negative (HER2-) Early Breast Cancer",
-        "source": "Eli Lilly and Company",
-        "date": "2026-05-13",
+        "id": "NCT07024706",
+        "title": "MAVRiC Studies 2L Treatment With AV in Patients With CLL/SLL Who Have Relapsed After a Course of BTKi + BCL2i Combination, With or Without Obinutuzumab",
+        "source": "AstraZeneca",
+        "date": "2026-06-04",
         "phase": "Phase 2",
-        "conditions": "Breast Neoplasms",
-        "intervention": "Imlunestrant, Goserelin",
-        "url": "https://clinicaltrials.gov/study/NCT07287098"
+        "conditions": "Chronic Lymphocytic Leukemia (CLL), Small Lymphocytic Lymphoma (SLL)",
+        "intervention": "Acalabrutinib, Venetoclax",
+        "url": "https://clinicaltrials.gov/study/NCT07024706"
       }
     ]
   }

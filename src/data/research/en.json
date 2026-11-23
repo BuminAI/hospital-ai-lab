@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "United States",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
-    "surgery": 11250,
-    "drug": 2770,
-    "disease": 31537,
-    "trials": 3613
+    "surgery": 11417,
+    "drug": 2796,
+    "disease": 31770,
+    "trials": 3583
   },
   "sections": {
     "surgery": [
@@ -25,16 +25,6 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 43032105",
-        "title": "Stabilizing breast implants with the double anchor capsule flap technique: insights from a retrospective case series of 30 patients",
-        "source": "JPRAS Open",
-        "date": "2026-10-25",
-        "authors": "Franco Arias DA, Edwards CM, Tomkowski Cancian L et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43032105/",
-        "doi": "10.1016/j.jpra.2026.10.018"
-      },
-      {
-        "kind": "paper",
         "id": "PMID 42959279",
         "title": "Trans-endplate delivery of arginine-based poly (ester amide) for structure-preserving therapy of intervertebral disc degeneration",
         "source": "Bioact Mater",
@@ -42,6 +32,16 @@
         "authors": "Ling Z, Guo Q, Tong T et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42959279/",
         "doi": "10.1016/j.bioactmat.2026.09.039"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43068239",
+        "title": "Augmented and standard baseplates demonstrate similar clinical and radiographic outcomes following reverse shoulder arthroplasty with the Arthrex modular Glenoid System",
+        "source": "JSES Int",
+        "date": "2026-10-21",
+        "authors": "Rimkunas A, Avvaru M, Werner BC et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43068239/",
+        "doi": "10.1016/j.jseint.2026.101813"
       },
       {
         "kind": "paper",
@@ -55,13 +55,63 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 43032246",
-        "title": "Perioperative Risk Assessment and Management in Patients With CKD, Dialysis Dependence, and Kidney Transplantation",
+        "id": "PMID 43045305",
+        "title": "Acute-on-Chronic Liver Failure: Definitions, Management, Prognostication, and Transplantation",
+        "source": "Clin Liver Dis",
+        "date": "2026-10-09",
+        "authors": "Yagan L, Mohan R, Hernaez R",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43045305/",
+        "doi": "10.1016/j.cld.2026.08.010"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43045212",
+        "title": "Surgical Review of Mediastinal Parathyroid Disease",
+        "source": "Thorac Surg Clin",
+        "date": "2026-10-09",
+        "authors": "Gilman A, Marino K, Steliga MA",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43045212/",
+        "doi": "10.1016/j.thorsurg.2026.06.003"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43045205",
+        "title": "Anterior Mediastinum",
+        "source": "Thorac Surg Clin",
+        "date": "2026-10-09",
+        "authors": "Rasmussen GR, Christophel E, Engelhardt KE",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43045205/",
+        "doi": "10.1016/j.thorsurg.2026.05.014"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43045311",
+        "title": "Renal Function and Hepatorenal Syndrome in Cirrhosis",
+        "source": "Clin Liver Dis",
+        "date": "2026-10-06",
+        "authors": "Alsaleh T, Almujarkesh MK, Koteish A",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43045311/",
+        "doi": "10.1016/j.cld.2026.08.012"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43061477",
+        "title": "Does the Microsoft HoloLens 2 improve implant positioning in total shoulder arthroplasty? A retrospective cohort analysis of radiographic and clinical outcomes",
+        "source": "JSES Int",
+        "date": "2026-10-05",
+        "authors": "Holy F, Smith M, Myers NL et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43061477/",
+        "doi": "10.1016/j.jseint.2026.101805"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43068128",
+        "title": "Kidney-Alone Transplantation With siRNA Therapy in Primary Hyperoxaluria Type 1",
         "source": "Kidney Int Rep",
-        "date": "2026-10-10",
-        "authors": "Yadlapalli S, Nekkalapudi DK, Wish JB",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43032246/",
-        "doi": "10.1016/j.ekir.2026.107137"
+        "date": "2026-10-01",
+        "authors": "Bahadori A, Sellier-Leclerc AL, Selvathesan N et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43068128/",
+        "doi": "10.1016/j.ekir.2026.107117"
       },
       {
         "kind": "paper",
@@ -75,63 +125,13 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 43003551",
-        "title": "Contemporary Arthroscopic Management of Volar and Dorsal Ganglia, Addressing the Problem from Inside-Out",
-        "source": "Hand Clin",
-        "date": "2026-09-25",
-        "authors": "Chambers SB, Wagner ER",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43003551/",
-        "doi": "10.1016/j.hcl.2026.08.002"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43009231",
-        "title": "Radical Cystectomy: Perioperative Complications",
-        "source": "Urol Clin North Am",
-        "date": "2026-09-21",
-        "authors": "Hudson C, Nguyen M, Ostergar A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43009231/",
-        "doi": "10.1016/j.ucl.2026.08.005"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42926853",
-        "title": "Comparing outcomes of onlay humeral stem designs in reverse total shoulder arthroplasty: a systematic review",
-        "source": "JSES Rev Rep Tech",
-        "date": "2026-09-18",
-        "authors": "Daher N, Mazeh M, Castle JP et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42926853/",
-        "doi": "10.1016/j.xrrt.2026.100882"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42772082",
-        "title": "Nanoparticle-mediated magnetic hyperthermia for ectopic pregnancy treatment",
-        "source": "Biomaterials",
-        "date": "2026-09-17",
-        "authors": "Duraisamy K, Singh P, Vyawahare A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42772082/",
-        "doi": "10.1016/j.biomaterials.2026.124639"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43009227",
-        "title": "Complications of Percutaneous Nephrolithotomy",
-        "source": "Urol Clin North Am",
-        "date": "2026-09-17",
-        "authors": "Vaughn CM, Borofsky MS",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43009227/",
-        "doi": "10.1016/j.ucl.2026.08.002"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42908885",
-        "title": "Stemmed versus stemless humeral implants in anatomic total shoulder arthroplasty: a systematic review and meta-analysis",
-        "source": "JSES Rev Rep Tech",
-        "date": "2026-09-11",
-        "authors": "Dieu V, Puga TB, Haechten T et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42908885/",
-        "doi": "10.1016/j.xrrt.2026.100881"
+        "id": "PMID 43045310",
+        "title": "Ascites and Hyponatremia",
+        "source": "Clin Liver Dis",
+        "date": "2026-09-28",
+        "authors": "Kleb C, Abdul Majeed N, Jakhete N",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43045310/",
+        "doi": "10.1016/j.cld.2026.08.011"
       }
     ],
     "drug": [
@@ -154,6 +154,16 @@
         "authors": "Ronquest N, Zhang Y, Park TJ et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42989979/",
         "doi": "10.1080/13696998.2026.2755187"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42982352",
+        "title": "Mindful eating versus prayer before meals for psycho-physiological outcomes in middle-aged women: A randomized controlled trial",
+        "source": "Complement Ther Med",
+        "date": "2026-11-04",
+        "authors": "Lin CC, Chen CH, Holloway KW et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42982352/",
+        "doi": "10.1016/j.ctim.2026.103467"
       },
       {
         "kind": "paper",
@@ -244,28 +254,48 @@
         "authors": "Moore CB, Baltrusaitis K, Capparelli EV et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42838065/",
         "doi": "10.1016/S2352-4642(26)00221-X"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42826224",
-        "title": "Participant experiences of stopping ART as part of a clinical trial; findings from a qualitative study within the RIO trial in the United Kingdom",
-        "source": "HIV Res Clin Pract",
-        "date": "2026-10-02",
-        "authors": "Gohil J, Molina M, Ahmed A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42826224/",
-        "doi": "10.1080/25787489.2026.2739700"
       }
     ],
     "disease": [
       {
         "kind": "paper",
-        "id": "PMID 43032797",
-        "title": "Opioid treatment patterns, trajectories, and deprescribing indicators among hospitalised adults in Switzerland, 2020-2024: a multicentre observational cohort study",
+        "id": "PMID 43065752",
+        "title": "Burnout in Medical Students: The Role of Learning Disabilities and Perceived Financial Stability",
+        "source": "Med Sci Educ",
+        "date": "2026-11-20",
+        "authors": "Brini G, Gonzalez S, Hossain A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43065752/",
+        "doi": "10.1007/s40670-026-02947-6"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43049101",
+        "title": "Aortic stiffness and brain perfusion: a population-based study",
+        "source": "Scand Cardiovasc J",
+        "date": "2026-11-19",
+        "authors": "Gardarsdottir M, Sigurdsson S, Forsberg L et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43049101/",
+        "doi": "10.1080/14017431.2026.2760087"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43066160",
+        "title": "Regional and national burden and aetiologies of non-COVID lower respiratory infections in Latin America and the Caribbean, 1990-2023: a secondary analysis of the global burden of disease study 2023",
+        "source": "Lancet Reg Health Am",
+        "date": "2026-11-13",
+        "authors": "Sanabria-Herrera N, Gutierrez VA, Martínez LF et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43066160/",
+        "doi": "10.1016/j.lana.2026.101686"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43061248",
+        "title": "Long-term exposure to the general external exposome and incidence of ischemic heart disease in Europe: a meta-analysis of 14 cohorts",
         "source": "Lancet Reg Health Eur",
-        "date": "2026-11-06",
-        "authors": "Rainer M, Gasparovic L, Noseda R et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43032797/",
-        "doi": "10.1016/j.lanepe.2026.101905"
+        "date": "2026-11-12",
+        "authors": "Thi Khanh HN, Pickford R, Stafoggia M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43061248/",
+        "doi": "10.1016/j.lanepe.2026.101929"
       },
       {
         "kind": "paper",
@@ -299,53 +329,23 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42990948",
-        "title": "Incidence of medically attended Lyme borreliosis across endemic regions of six European countries (BOLD): a prospective multicentre active surveillance study",
-        "source": "Lancet Reg Health Eur",
-        "date": "2026-10-26",
-        "authors": "Halsby K, Loew-Baselli A, Moniuszko-Malinowska A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42990948/",
-        "doi": "10.1016/j.lanepe.2026.101907"
+        "id": "PMID 43045431",
+        "title": "Sleep-Wake Disturbances Following Traumatic Brain Injury: Clinical Importance and Practical Approaches to Screening and Management",
+        "source": "Neurol Clin",
+        "date": "2026-10-21",
+        "authors": "Shaw JS, Roe G, Buenaver LF et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43045431/",
+        "doi": "10.1016/j.ncl.2026.07.013"
       },
       {
         "kind": "paper",
-        "id": "PMID 43025936",
-        "title": "Emerging Skin and Soft Tissue Infections",
-        "source": "Dermatol Clin",
-        "date": "2026-10-23",
-        "authors": "Mueller K, Williams AS, Drake L et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43025936/",
-        "doi": "10.1016/j.det.2026.09.001"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42960173",
-        "title": "Prevalence and mortality of chronic extracellular matrix dysregulated diseases: a nationwide register-based study",
-        "source": "Lancet Reg Health Eur",
-        "date": "2026-10-23",
-        "authors": "Christiansen RC, Bager CL, Heinz A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42960173/",
-        "doi": "10.1016/j.lanepe.2026.101901"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42920888",
-        "title": "Liver fibrosis risk, missed follow-up, and inequitable specialist referral in the All of Us Research Program: a retrospective cohort study",
-        "source": "Lancet Reg Health Am",
+        "id": "PMID 42914657",
+        "title": "Mechanistic insights into age- and vascular-related microstructure differences in the corpus callosum using biophysical modeling of diffusion MRI",
+        "source": "Neurobiol Aging",
         "date": "2026-10-19",
-        "authors": "Sellers K, White TM, Manolas MI et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42920888/",
-        "doi": "10.1016/j.lana.2026.101676"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42997473",
-        "title": "Temporal trends in radiation-induced optic neuropathy: a meta-analysis",
-        "source": "Clin Transl Radiat Oncol",
-        "date": "2026-10-18",
-        "authors": "Thariat J, Pham TN, Sochacki T et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42997473/",
-        "doi": "10.1016/j.ctro.2026.101327"
+        "authors": "Karimi H, Exell T, Peltier S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42914657/",
+        "doi": "10.1016/j.neurobiolaging.2026.10.004"
       },
       {
         "kind": "paper",
@@ -359,13 +359,13 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42927255",
-        "title": "Suicide mortality and suicide method trends in the Region of the Americas, 2015-2021: a population-based time-series analysis of progress toward a one-third reduction target",
-        "source": "Lancet Reg Health Am",
-        "date": "2026-10-15",
-        "authors": "Lange S, Martinez R, Guo K et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42927255/",
-        "doi": "10.1016/j.lana.2026.101671"
+        "id": "PMID 43045306",
+        "title": "Infections in Cirrhosis",
+        "source": "Clin Liver Dis",
+        "date": "2026-10-14",
+        "authors": "Jabboure FJ, Deeb M, Ravendhran N",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43045306/",
+        "doi": "10.1016/j.cld.2026.08.008"
       },
       {
         "kind": "paper",
@@ -381,135 +381,135 @@
     "trials": [
       {
         "kind": "trial",
-        "id": "NCT07916259",
-        "title": "The Study of Brave-LC LDN Treatment Trial",
+        "id": "NCT07881809",
+        "title": "A Clinical Study of Ixazomib to Reactivate HIV and Reduce HIV Reservoir Size",
         "source": "National Institute of Allergy and Infectious Diseases (NIAID)",
-        "date": "2026-11-16",
-        "phase": "Phase 3",
-        "conditions": "Post-acute COVID-19 Syndrome",
-        "intervention": "naltrexone, Placebo",
-        "url": "https://clinicaltrials.gov/study/NCT07916259"
+        "date": "2026-11-23",
+        "phase": "Phase 2",
+        "conditions": "HIV (Human Immunodeficiency Virus)",
+        "intervention": "Ixazomib 4 mg, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07881809"
       },
       {
         "kind": "trial",
-        "id": "NCT07905001",
-        "title": "A Phase 1/1b Study of PRT13722 in Participants With Advanced HR+/HER2- Breast Cancer",
-        "source": "Prelude Therapeutics Incorporated",
-        "date": "2026-11-16",
+        "id": "NCT07757204",
+        "title": "An Open-label Long-term Safety Study of Buntanetap in Participants With AD",
+        "source": "Annovis Bio Inc.",
+        "date": "2026-11-21",
+        "phase": "Phase 2 / Phase 3",
+        "conditions": "Alzheimer's Dementia (AD)",
+        "intervention": "buntanetap/posiphen",
+        "url": "https://clinicaltrials.gov/study/NCT07757204"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07757555",
+        "title": "Guanfacine and Cromolyn Sodium for POTS: The DBPOTS Trial",
+        "source": "Johns Hopkins University",
+        "date": "2026-11-20",
+        "phase": "Early Phase 1",
+        "conditions": "Postural Orthostatic Tachycardia Syndrome (POTS), Dysautonomia, Orthostatic Intolerance",
+        "intervention": "Guanfacine (GFC), Cromolyn Sodium",
+        "url": "https://clinicaltrials.gov/study/NCT07757555"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07952672",
+        "title": "LB2501 in R/R B-NHL",
+        "source": "Legend Biotech USA Inc",
+        "date": "2026-11-20",
+        "phase": "Phase 1 / Phase 2",
+        "conditions": "B-cell Malignancies",
+        "intervention": "LB2501",
+        "url": "https://clinicaltrials.gov/study/NCT07952672"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07954414",
+        "title": "A first-in Human Research Study on How NNC0773-2662 Works in People Living With Overweight or Obesity",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-19",
         "phase": "Phase 1",
-        "conditions": "Breast Cancer, Hormone-receptor-positive Breast Cancer, HER2-negative Breast Cancer",
-        "intervention": "PRT13722, Fulvestrant",
-        "url": "https://clinicaltrials.gov/study/NCT07905001"
+        "conditions": "Overweight, Obesity",
+        "intervention": "NNC0773-2662, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07954414"
       },
       {
         "kind": "trial",
-        "id": "NCT06977438",
-        "title": "GLP-1 Plus Lifestyle for Overall Wellness: Find Your Way Forward",
-        "source": "University of Minnesota",
-        "date": "2026-11-15",
+        "id": "NCT07772024",
+        "title": "Inobrodib, Pomalidomide and Dexamethasone Versus Standard Available Therapy in Relapsed or Refractory Multiple Myeloma",
+        "source": "CellCentric Ltd.",
+        "date": "2026-11-18",
+        "phase": "Phase 3",
+        "conditions": "Multiple Myeloma Refractory, Multiple Myeloma in Relapse",
+        "intervention": "InoPd, Investigator's choice of SAT",
+        "url": "https://clinicaltrials.gov/study/NCT07772024"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07283640",
+        "title": "A Phase IB Trial of Subcutaneous Blinatumomab in Combination With Revumenib for Patients With KMT2A-rearranged Acute Lymphoblastic Leukemia",
+        "source": "M.D. Anderson Cancer Center",
+        "date": "2026-11-18",
+        "phase": "Phase 1",
+        "conditions": "Blinatumomab, Revumenib, Lymphoblastic Leukemia",
+        "intervention": "Revumenib, Blinatumomab",
+        "url": "https://clinicaltrials.gov/study/NCT07283640"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07916883",
+        "title": "PET-MR Imaging of Natriuretic Peptide Receptor C (NPR-C) in Carotid Atherosclerosis With 64Cu-NODAGA-CANF (Multisite)",
+        "source": "Washington University School of Medicine",
+        "date": "2026-11-18",
+        "phase": "",
+        "conditions": "Carotid Atherosclerosis, Carotid Artery Stenosis Asymptomatic, Asymptomatic Carotid Artery Stenosis",
+        "intervention": "64Cu-NODAGA-CANF, Optimal Medical Therapy (OMT)",
+        "url": "https://clinicaltrials.gov/study/NCT07916883"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07728097",
+        "title": "A Study to Investigate the Effect of Gradual Titration to Optimize Cannabidiol Treatment in Adults With LGS",
+        "source": "Jazz Pharmaceuticals",
+        "date": "2026-11-18",
         "phase": "Phase 4",
-        "conditions": "Obesity, Childhood",
-        "intervention": "Semaglutide",
-        "url": "https://clinicaltrials.gov/study/NCT06977438"
+        "conditions": "Lennox-Gastaut Syndrome",
+        "intervention": "Cannabidiol Oral Solution",
+        "url": "https://clinicaltrials.gov/study/NCT07728097"
       },
       {
         "kind": "trial",
-        "id": "NCT07698535",
-        "title": "Measuring Circulating Tumor Deoxyribonucleic Acid Tumor Fraction to Guide Early 177Lu-PSMA-617 Treatment Discontinuation in Patients With Metastatic Castration-Resistant Prostate Cancer, DYNAMO Trial",
-        "source": "University of Washington",
-        "date": "2026-11-15",
-        "phase": "Phase 2",
-        "conditions": "Metastatic Castration-Resistant Prostate Adenocarcinoma, Stage IVB Prostate Cancer AJCC v8",
-        "intervention": "Lutetium Lu 177 Vipivotide Tetraxetan, Cell-free Circulating Tumor DNA Assay",
-        "url": "https://clinicaltrials.gov/study/NCT07698535"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07932067",
-        "title": "Circulating Tumor DNA-Informed Adjuvant Therapy for Intermediate-Risk Head and Neck Cancer",
-        "source": "Kevin Contrera",
-        "date": "2026-11-15",
-        "phase": "Phase 2",
-        "conditions": "Head and Neck Cancer",
-        "intervention": "Cisplatin or carboplatin, Intensity-modulated radiation therapy (IMRT) or Intensity-modulated proton therapy (IMPT)",
-        "url": "https://clinicaltrials.gov/study/NCT07932067"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT06968195",
-        "title": "Autologous CAR T Cells Targeting GPC3 (RPCAR01) for the Treatment of Advanced or Metastatic GPC3 Expressing Hepatocellular Carcinoma",
-        "source": "Roswell Park Cancer Institute",
-        "date": "2026-11-15",
+        "id": "NCT07908641",
+        "title": "Comparing the Extent to Which Apremilast is Made Available in the Body After Administration as an Extended-release or Immediate-release Formulation",
+        "source": "Amgen",
+        "date": "2026-11-18",
         "phase": "Phase 1",
-        "conditions": "Advanced Hepatocellular Carcinoma, Metastatic Hepatocellular Carcinoma, Recurrent Hepatocellular Carcinoma",
-        "intervention": "Anti-GPC3-CAR Autologous T Lymphocytes, Biospecimen Collection",
-        "url": "https://clinicaltrials.gov/study/NCT06968195"
+        "conditions": "Psoriasis, Arthritis, Psoriatic, Oral Ulcer",
+        "intervention": "Apremilast XR, Apremilast IR",
+        "url": "https://clinicaltrials.gov/study/NCT07908641"
       },
       {
         "kind": "trial",
-        "id": "NCT06863402",
-        "title": "Nemtabrutinib and Pembrolizumab for the Treatment of Richter Transformation, Diffuse Large B-cell Lymphoma Subtype",
-        "source": "Roswell Park Cancer Institute",
-        "date": "2026-11-15",
-        "phase": "Phase 2",
-        "conditions": "Richter Syndrome, Diffuse Large B-Cell Lymphoma, Chronic Lymphocytic Leukemia",
-        "intervention": "Biospecimen Collection, Bone Marrow Biopsy",
-        "url": "https://clinicaltrials.gov/study/NCT06863402"
+        "id": "NCT06802523",
+        "title": "Testing the Combination of Targeted Radiotherapy With Anti-Cancer Drugs, Venetoclax and ASTX-727, to Improve Outcomes for Adults With Newly Diagnosed Acute Myeloid Leukemia",
+        "source": "National Cancer Institute (NCI)",
+        "date": "2026-11-18",
+        "phase": "Phase 1",
+        "conditions": "Acute Myeloid Leukemia",
+        "intervention": "Actinium Ac 225 Lintuzumab, Biospecimen Collection",
+        "url": "https://clinicaltrials.gov/study/NCT06802523"
       },
       {
         "kind": "trial",
-        "id": "NCT05145309",
-        "title": "Value of Potassium Magnesium Citrate in Preventing and Treating Hypertension in African Americans",
-        "source": "University of Texas Southwestern Medical Center",
-        "date": "2026-11-15",
-        "phase": "Phase 2",
-        "conditions": "Hypertension",
-        "intervention": "KMgCit, Placebo",
-        "url": "https://clinicaltrials.gov/study/NCT05145309"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07846683",
-        "title": "A Study to Assess the Efficacy and Safety of Subcutaneous Induction Therapy With Afimkibart in Participants With Moderately to Severely Active Ulcerative Colitis",
-        "source": "Hoffmann-La Roche",
-        "date": "2026-11-15",
+        "id": "NCT07932925",
+        "title": "A Study to Learn About the Safety and Effectiveness of Berobenatide in Women With Urine Leakage and With Obesity or Overweight (VESPER-SUI)",
+        "source": "Pfizer",
+        "date": "2026-11-17",
         "phase": "Phase 3",
-        "conditions": "Moderately to Severely Active Ulcerative Colitis",
-        "intervention": "Afimkibart, Placebo",
-        "url": "https://clinicaltrials.gov/study/NCT07846683"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07584967",
-        "title": "A Study to Evaluate the Safety and Efficacy of AC01 Compared to Placebo in Participants With Chronic Heart Failure",
-        "source": "AnaCardio AB",
-        "date": "2026-11-15",
-        "phase": "Phase 2",
-        "conditions": "Heart Failure With Reduced Ejection Fraction (HFrEF)",
-        "intervention": "AC01, Placebo",
-        "url": "https://clinicaltrials.gov/study/NCT07584967"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07826949",
-        "title": "A Study of SRN-101 Administered Prior to Surgical Resection in Adults With Recurrent High-Grade Glioma.",
-        "source": "Nicholas Butowski",
-        "date": "2026-11-15",
-        "phase": "Phase 1",
-        "conditions": "Recurrent High-Grade Gliomas, Brain Neoplasm, Glioma",
-        "intervention": "SRN-101, Blood Specimen Collection",
-        "url": "https://clinicaltrials.gov/study/NCT07826949"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07594678",
-        "title": "Minoxidil With or Without Low-Level Red-Light Therapy for Improving Chemotherapy-Induced Alopecia in Breast Cancer Patients",
-        "source": "Ohio State University Comprehensive Cancer Center",
-        "date": "2026-11-15",
-        "phase": "Phase 2",
-        "conditions": "Anatomic Stage I Breast Cancer AJCC v8, Anatomic Stage II Breast Cancer AJCC v8, Anatomic Stage III Breast Cancer AJCC v8",
-        "intervention": "Electronic Health Record Review, Minoxidil",
-        "url": "https://clinicaltrials.gov/study/NCT07594678"
+        "conditions": "Urinary Incontinence, Stress, Overweight and/or Obesity",
+        "intervention": "Berobenatide, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07932925"
       }
     ]
   }

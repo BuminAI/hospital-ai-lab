@@ -1,18 +1,38 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "United Arab Emirates",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
-    "surgery": 186,
-    "drug": 16,
-    "disease": 675,
+    "surgery": 190,
+    "drug": 17,
+    "disease": 682,
     "trials": 17
   },
   "sections": {
     "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43052511",
+        "title": "Ultrasound-Guided Transversus Abdominis Plane Block in Adults with Severe Obesity Undergoing Laparoscopic Bariatric Surgery: A Systematic Review and Meta-Analysis",
+        "source": "Obes Surg",
+        "date": "2026-11-19",
+        "authors": "Afridi A, Qadri M, Aqibullah F et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43052511/",
+        "doi": "10.1007/s11695-026-09055-9"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 22593919",
+        "title": "MPV17-Related Mitochondrial DNA Maintenance Syndrome",
+        "source": "",
+        "date": "2026-11-17",
+        "authors": "Adam MP, Bick S, Mirzaa GM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22593919/",
+        "doi": ""
+      },
       {
         "kind": "paper",
         "id": "PMID 43023807",
@@ -65,36 +85,6 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42892357",
-        "title": "Repair versus replacement of defective composite restorations: Teaching in dental schools in Canada",
-        "source": "J Dent",
-        "date": "2026-10-17",
-        "authors": "Daood U, Malik NA, Sidhu P et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42892357/",
-        "doi": "10.1016/j.jdent.2026.107119"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42881311",
-        "title": "Six-month comparative outcomes of endoscopic sleeve gastroplasty versus laparoscopic sleeve gastrectomy: an MBSAQIP analysis",
-        "source": "Surg Endosc",
-        "date": "2026-10-15",
-        "authors": "Mocanu V, Wills MV, Zhu X et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42881311/",
-        "doi": "10.1007/s00464-026-13489-8"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42942637",
-        "title": "Insights on Novel Dental Resin Composites: A Scoping Review",
-        "source": "Polymers (Basel)",
-        "date": "2026-10-14",
-        "authors": "Ping LK, Al-Rawas M, Abuhijleh E et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42942637/",
-        "doi": "10.3390/polym18202516"
-      },
-      {
-        "kind": "paper",
         "id": "PMID 42903887",
         "title": "Ultrasound-guided percutaneous rotator interval approach for simulated adhesiolysis: A proof-of-concept feasibility and anatomical safety study",
         "source": "J Anesth Transl Med",
@@ -132,6 +122,16 @@
         "authors": "Madkoor M, Ahmed R, Hany R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42744193/",
         "doi": "10.1016/j.phrs.2026.108455"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42732715",
+        "title": "Microbiome-gut-brain axis modulation for the management of Parkinson's disease: Emerging mechanisms and translational insights",
+        "source": "J Neuroimmunol",
+        "date": "2026-09-12",
+        "authors": "Porwal M, Malviya R, Chandra P et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42732715/",
+        "doi": "10.1016/j.jneuroim.2026.579099"
       }
     ],
     "drug": [
@@ -164,6 +164,16 @@
         "authors": "Shadmehr M, Ali B, Abdollahzadeh R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42743423/",
         "doi": "10.1051/ject/2026020"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42673891",
+        "title": "Intra-jaw versus inter-jaw mini-implant anchored total maxillary arch distalization compared with extraction-based en-masse retraction in adult class II division 1 malocclusion patients: A randomized controlled trial",
+        "source": "Int Orthod",
+        "date": "2026-08-31",
+        "authors": "Owayda AM, Al-Sabbagh R, Hajeer MY et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42673891/",
+        "doi": "10.1016/j.ortho.2026.101233"
       },
       {
         "kind": "paper",
@@ -244,19 +254,59 @@
         "authors": "Quraishi MN, Moakes CA, Yalchin M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/41587946/",
         "doi": "10.1093/ecco-jcc/jjag006"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 41159983",
-        "title": "Atrial Fibrillation Screening According to Genetic Risk: A Secondary Analysis of the Randomized LOOP Study",
-        "source": "J Am Coll Cardiol",
-        "date": "2026-01-20",
-        "authors": "Vad OB, Diederichsen SZ, Xing LY et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/41159983/",
-        "doi": "10.1016/j.jacc.2025.09.024"
       }
     ],
     "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43057642",
+        "title": "International Expert Consensus Statement on Contemporary Prevention and Management of Postoperative Delirium in Cardiac Surgery",
+        "source": "Ann Thorac Surg",
+        "date": "2026-11-19",
+        "authors": "Abdulaziz S, Zaaqoq AM, Cho SM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43057642/",
+        "doi": "10.1016/j.athoracsur.2026.10.056"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43056058",
+        "title": "Maternal KIR-Fetal HLA-C Interactions in IVF and Pregnancy: Evidence, Clinical Implications, and Ethics; A Narrative Review",
+        "source": "Reprod Sci",
+        "date": "2026-11-19",
+        "authors": "Margiana R, El-Sehrawy AAMA, Basunduwah TS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43056058/",
+        "doi": "10.1007/s43032-026-02254-w"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43048576",
+        "title": "Development of novel benzo[d][1,2,3]triazole-acetohydrazone derivatives as potential therapeutic agents: synthesis, SAR study, inhibition of carbohydrate metabolism enzymes, and aldose reductase supported by molecular modelling simulation",
+        "source": "RSC Adv",
+        "date": "2026-11-17",
+        "authors": "El-Naggar M, Belasy ME, Basseem M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43048576/",
+        "doi": "10.1039/d6ra06631c"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43044899",
+        "title": "The World Federation of ADHD International Consensus Statement: 2026 Update",
+        "source": "Neurosci Biobehav Rev",
+        "date": "2026-11-17",
+        "authors": "Faraone SV, Pritchard AE, Bellgrove MA et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43044899/",
+        "doi": "10.1016/j.neubiorev.2026.107083"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43038801",
+        "title": "Atrial Fibrillation Screening-to-Anticoagulation Pathways in Low- and Middle-Income Countries: A Systematic Review and Meta-Analysis",
+        "source": "JACC Adv",
+        "date": "2026-11-16",
+        "authors": "Jamileh E, Muhammad F, Farooq O et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43038801/",
+        "doi": "10.1016/j.jacadv.2026.103479"
+      },
       {
         "kind": "paper",
         "id": "PMID 43035620",
@@ -273,7 +323,7 @@
         "title": "Dynamics of a vector-host epidemic model with generalized nonlinear incidence functions and distinct dispersal kernels",
         "source": "Math Biosci",
         "date": "2026-11-12",
-        "authors": "Dey S, Kumar Kar T, Tridane A",
+        "authors": "Dey S, Kar TK, Tridane A",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43020195/",
         "doi": "10.1016/j.mbs.2026.109856"
       },
@@ -289,103 +339,53 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 43005928",
-        "title": "The synthetic biology frontier: engineered oncolytic viruses and viral vectors for next-generation cancer therapy and gene delivery",
-        "source": "RSC Adv",
-        "date": "2026-11-09",
-        "authors": "Alsharedeh RH, Aljabali AAA, Obeid MA et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43005928/",
-        "doi": "10.1039/d6ra09938f"
+        "id": "PMID 43066086",
+        "title": "PCSK9 inhibitors and atherosclerotic plaque regression and stabilisation across major arterial beds: a systematic review with narrative synthesis",
+        "source": "Atheroscler Plus",
+        "date": "2026-11-10",
+        "authors": "Mansour OY, Ozdemir AO, Nasr N et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43066086/",
+        "doi": "10.1016/j.athplu.2026.100625"
       },
       {
         "kind": "paper",
-        "id": "PMID 43002586",
-        "title": "Development and validation of the Arabic international index of erectile Function-5 (IIEF-5): a population-based assessment of erectile dysfunction severity and its associated factors among Arabic-speaking older men",
-        "source": "J Sex Med",
-        "date": "2026-11-06",
-        "authors": "Jairoun AA, Shahwan M, El-Dahiyat F et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43002586/",
-        "doi": "10.1093/jsxmed/qdag341"
+        "id": "PMID 42961629",
+        "title": "The Global Burden of Migraine: A Narrative Review and Expert Perspective on Disease Burden, Unmet Needs, and Policy Priorities",
+        "source": "Neurol Ther",
+        "date": "2026-10-30",
+        "authors": "Rocha JV, Tassorelli C, Chowdhury D et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42961629/",
+        "doi": "10.1007/s40120-026-01076-x"
       },
       {
         "kind": "paper",
-        "id": "PMID 42993445",
-        "title": "Guillain-Barré Syndrome Following Bariatric Surgery: A Systematic Literature Review",
-        "source": "Obes Surg",
-        "date": "2026-11-06",
-        "authors": "Aljaberi A, Nair SC, Kamrul-Hasan ABM et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42993445/",
-        "doi": "10.1007/s11695-026-08996-5"
+        "id": "PMID 42854402",
+        "title": "Perceptions of decompressive craniectomy following endovascular thrombectomy in the Middle East and North Africa: A multi-specialty cross-sectional survey of attitudes, reported practices, and barriers",
+        "source": "J Clin Neurosci",
+        "date": "2026-10-09",
+        "authors": "Mansour OY, Hassan T, Al-Jehani HM et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42854402/",
+        "doi": "10.1016/j.jocn.2026.112331"
       },
       {
         "kind": "paper",
-        "id": "PMID 42992834",
-        "title": "Industrialization restructures the domestic dog gut microbiome while preserving host specificity",
-        "source": "mSystems",
-        "date": "2026-11-06",
-        "authors": "Gautam A, Bhandari D, Gurung K et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42992834/",
-        "doi": "10.1128/msystems.00864-26"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42988188",
-        "title": "Pharmacogenomics positively impacts polypharmacy-related toxicity and clinical outcomes in psychiatric patients",
-        "source": "Pharmacol Res",
-        "date": "2026-11-05",
-        "authors": "Pandi MT, Koufaki MI, Skokou M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42988188/",
-        "doi": "10.1016/j.phrs.2026.109735"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42982068",
-        "title": "Global, regional, and national burden of gallbladder and biliary diseases in 204 countries and territories, 1990-2023: a systematic analysis for the Global Burden of Disease Study 2023",
-        "source": "Lancet Gastroenterol Hepatol",
-        "date": "2026-11-04",
-        "authors": "GBD 2023 Gallbladder and Biliary Disease Collaborators",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42982068/",
-        "doi": "10.1016/S2468-1253(26)00259-1"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42975985",
-        "title": "Prior Coronary Artery Bypass Grafting and Its Impact on Lesion Complexity, Procedural Characteristics, and Outcomes in Chronic Total Occlusion Percutaneous Coronary Intervention: A Systematic Review and Meta-Analysis",
-        "source": "Cardiol Rev",
-        "date": "2026-11-03",
-        "authors": "Azam H, Alam B, Javaid SS et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42975985/",
-        "doi": "10.1097/CRD.0000000000001499"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42971260",
-        "title": "Dupilumab in Pediatric Eosinophilic Esophagitis",
-        "source": "Pediatrics",
-        "date": "2026-11-03",
-        "authors": "Russo G, Alsarhan A, Slae M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42971260/",
-        "doi": "10.1542/peds.2026-076556"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43023793",
-        "title": "Prevalence and Association of Undiagnosed Obstructive Sleep Apnea with Perioperative Neurocognitive Disorders, and Quality of Life After Brain Surgery",
-        "source": "Neurol India",
-        "date": "2026-11-01",
-        "authors": "Akula S, Kandiraju SR, Rao S et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43023793/",
-        "doi": "10.4103/neurol-india.Neurol-India-D-26-00510"
+        "id": "PMID 42833102",
+        "title": "Combating colistin- and cefotaxime-resistant Shiga toxin-producing Escherichia coli in dairy-based products: Occurrence, characterization, and ε-poly-L-lysine growth inactivation",
+        "source": "Int J Food Microbiol",
+        "date": "2026-10-01",
+        "authors": "Elafify M, Khalifa HO, Xiang Q et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42833102/",
+        "doi": "10.1016/j.ijfoodmicro.2026.112095"
       }
     ],
     "trials": [
       {
         "kind": "trial",
         "id": "NCT07932041",
-        "title": "A Phase 1, Evaluate the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of ISM9528",
+        "title": "Study Evaluation ISM9528 in Healthy Participants",
         "source": "InSilico Medicine Hong Kong Limited",
         "date": "2026-10-29",
-        "phase": "Phase 1",
+        "phase": "Early Phase 1",
         "conditions": "Healthy Subjects (HS)",
         "intervention": "ISM9528 capsules",
         "url": "https://clinicaltrials.gov/study/NCT07932041"

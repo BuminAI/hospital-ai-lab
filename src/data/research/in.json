@@ -1,18 +1,28 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "India",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
-    "surgery": 2703,
-    "drug": 480,
-    "disease": 7022,
-    "trials": 147
+    "surgery": 2727,
+    "drug": 482,
+    "disease": 7075,
+    "trials": 149
   },
   "sections": {
     "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43040846",
+        "title": "The human microbiome in non-communicable diseases: Mechanistic insights into dysbiosis, systemic inflammation, and precision therapeutics",
+        "source": "Virulence",
+        "date": "2026-11-16",
+        "authors": "Ganguly K, Vanekar MFR, Pal D et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43040846/",
+        "doi": "10.1080/21505594.2026.2749930"
+      },
       {
         "kind": "paper",
         "id": "PMID 43017678",
@@ -22,6 +32,16 @@
         "authors": "Ghogawala Z, Rizvi TZ, Liesching ME et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43017678/",
         "doi": "10.1227/neuprac.0000000000000326"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43041885",
+        "title": "Therapeutic efficacy of mesenchymal stem cells for the restoration of dysfunctional rat testes",
+        "source": "Regen Ther",
+        "date": "2026-11-10",
+        "authors": "Mishra R, Kumari A, Negi A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43041885/",
+        "doi": "10.1016/j.reth.2026.101198"
       },
       {
         "kind": "paper",
@@ -55,16 +75,6 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42960425",
-        "title": "Urological manifestations in obesity",
-        "source": "Curr Opin Endocrinol Diabetes Obes",
-        "date": "2026-10-29",
-        "authors": "Jayapal B, Kapoor N",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42960425/",
-        "doi": "10.1097/MED.0000000000000986"
-      },
-      {
-        "kind": "paper",
         "id": "PMID 43022679",
         "title": "Direct anterior versus conventional approaches for hemiarthroplasty in femoral neck fractures: A systematic review and meta-analysis of functional outcomes",
         "source": "J Clin Orthop Trauma",
@@ -75,16 +85,6 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42992479",
-        "title": "Therapeutic plasma exchange improves survival in alcohol-related acute-on-chronic liver failure: a randomized controlled trial",
-        "source": "Eur J Gastroenterol Hepatol",
-        "date": "2026-10-28",
-        "authors": "Sareen M, Sharma PN, Maharshi S et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42992479/",
-        "doi": "10.1097/MEG.0000000000003287"
-      },
-      {
-        "kind": "paper",
         "id": "PMID 43022455",
         "title": "Effect of lung transplantation on biventricular function in pulmonary arterial hypertension: A systematic review",
         "source": "JHLT Open",
@@ -92,16 +92,6 @@
         "authors": "Mohammed AS, Gurram P, Mellacheruvu SP et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43022455/",
         "doi": "10.1016/j.jhlto.2026.100715"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42959998",
-        "title": "Direct anterior approach for femoral component revision: Surgical technique and pearls",
-        "source": "J Clin Orthop Trauma",
-        "date": "2026-10-15",
-        "authors": "Patel KD, Solanki PY, Patel HL",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42959998/",
-        "doi": "10.1016/j.jcot.2026.103631"
       },
       {
         "kind": "paper",
@@ -132,48 +122,58 @@
         "authors": "Chaudhary P, Bhattacharjee A, Varma M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42838136/",
         "doi": "10.1016/j.plantsci.2026.113491"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42804955",
+        "title": "Histopathologic and immunophenotypic features distinguishing recurrent primary biliary cholangitis from liver allograft rejection",
+        "source": "Ann Diagn Pathol",
+        "date": "2026-09-24",
+        "authors": "Khurram NA, Miller A, Varshney N et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42804955/",
+        "doi": "10.1016/j.anndiagpath.2026.152729"
       }
     ],
     "drug": [
       {
         "kind": "paper",
-        "id": "PMID 43024802",
-        "title": "Comparing the Effectiveness of Atropine Sulfate and Acacia Catechu in Reducing Salivary Secretion During Dental Procedures: Protocol for a Randomized Controlled Trial",
-        "source": "JMIR Res Protoc",
-        "date": "2026-11-13",
-        "authors": "Pophali M, Dhamande M, Dubey S et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43024802/",
-        "doi": "10.2196/78119"
+        "id": "PMID 43056610",
+        "title": "Apixaban reduces hepatic decompensation in patients with cirrhosis (ApiHep): A randomized controlled trial",
+        "source": "Hepatol Commun",
+        "date": "2026-11-19",
+        "authors": "Agarwal A, Biswas S, Aggarwal A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43056610/",
+        "doi": "10.1097/HC9.0000000000001088"
       },
       {
         "kind": "paper",
-        "id": "PMID 43024398",
-        "title": "Efficacy and Safety of Intensive Continuous Theta Burst Stimulation Over the Right Dorsolateral Prefrontal Cortex in Insomnia Disorder:A Randomized Sham-Controlled Trial",
-        "source": "Prim Care Companion CNS Disord",
-        "date": "2026-11-12",
-        "authors": "Garg N, Garg S, Dhyani M",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43024398/",
-        "doi": "10.4088/PCC.26m04225"
+        "id": "PMID 42402339",
+        "title": "Protection Against Recurrent Typhoid Fever Conferred by a Prior Episode: Evidence From a Large Cohort Study in Dhaka, Bangladesh",
+        "source": "Clin Infect Dis",
+        "date": "2026-11-19",
+        "authors": "Khanam F, Lee JE, Ahmmed F et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42402339/",
+        "doi": "10.1093/cid/ciag411"
       },
       {
         "kind": "paper",
-        "id": "PMID 43000950",
-        "title": "Modelling indirect protection from typhoid conjugate vaccines in the TyVAC-Bangladesh trial",
-        "source": "Epidemiol Infect",
-        "date": "2026-11-09",
-        "authors": "Walker J, Khanam F, Liu X et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43000950/",
-        "doi": "10.1017/S0950268826102337"
+        "id": "PMID 43052408",
+        "title": "Functional echocardiography for management of shock in neonates- a randomized clinical trial",
+        "source": "Eur J Pediatr",
+        "date": "2026-11-18",
+        "authors": "Mir YA, Chawla D, Jain S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43052408/",
+        "doi": "10.1007/s00431-026-07634-7"
       },
       {
         "kind": "paper",
-        "id": "PMID 43030281",
-        "title": "Effect of a 3-Month Modified, High-Quality Take-Home Ration on Linear Growth and Body Composition in Rural South Indian Infants Aged 6-9 Months: A Cluster-Randomized Controlled Trial",
-        "source": "Nutrients",
-        "date": "2026-11-03",
-        "authors": "Kilpady CA, Kamath AA, Saji A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43030281/",
-        "doi": "10.3390/nu18213654"
+        "id": "PMID 42992479",
+        "title": "Therapeutic plasma exchange improves survival in alcohol-related acute-on-chronic liver failure: a randomized controlled trial",
+        "source": "Eur J Gastroenterol Hepatol",
+        "date": "2026-10-28",
+        "authors": "Sareen M, Sharma PN, Maharshi S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42992479/",
+        "doi": "10.1097/MEG.0000000000003287"
       },
       {
         "kind": "paper",
@@ -197,16 +197,6 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42809435",
-        "title": "A Phase I, randomized, double-blind, placebo-controlled, dose escalation study to evaluate the safety, tolerability, and pharmacokinetics of intravenous ertapenem and zidebactam in combination (WCK 6777) in healthy adult subjects",
-        "source": "Antimicrob Agents Chemother",
-        "date": "2026-09-29",
-        "authors": "Lodise TP, Chavan R, Patel A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42809435/",
-        "doi": "10.1128/aac.00390-26"
-      },
-      {
-        "kind": "paper",
         "id": "PMID 42764399",
         "title": "Effect of Semaglutide on Thigh Skeletal Muscle Volume, Fat Infiltration and Physical Function in People With Obesity: Secondary Analysis of STEP UP",
         "source": "Diabetes Obes Metab",
@@ -214,16 +204,6 @@
         "authors": "Hjelmesæth J, Bhat S, Garvey WT et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42764399/",
         "doi": "10.1111/dom.71323"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42753710",
-        "title": "Wound-Only versus Weight-Based Rabies Immunoglobulin in Post-Exposure Prophylaxis: A Quasi-Randomized Asessor Blind Non-Inferiority Trial",
-        "source": "Am J Trop Med Hyg",
-        "date": "2026-09-17",
-        "authors": "Singh AD, Oberoi S, Ghosh S et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42753710/",
-        "doi": "10.4269/ajtmh.26-0343"
       },
       {
         "kind": "paper",
@@ -254,38 +234,78 @@
         "authors": "Channangihalli Thimmegowda S, Hussain Mirza FH, Venkataraman R et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42678522/",
         "doi": "10.1080/15502783.2026.2725137"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42639914",
+        "title": "A Phase IIa, Double Blind, Randomized, Placebo Controlled, Parallel, Multicentre, Proof-of-Concept Study to Evaluate the Efficacy and Safety of Desidustat Oral Tablet for Treatment of Sickle Cell Disease",
+        "source": "Eur J Haematol",
+        "date": "2026-08-25",
+        "authors": "Desai M, Solanki B, Hathila M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42639914/",
+        "doi": "10.1111/ejh.70296"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42754486",
+        "title": "Renoprotective Effects of Dexmedetomidine Versus Dopamine in High-Risk Renal Patients Undergoing Off-Pump Coronary Artery Bypass Grafting:A Prospective, Randomized, Comparative Study",
+        "source": "J Cardiothorac Vasc Anesth",
+        "date": "2026-08-21",
+        "authors": "Maity S, Kumar S, Daga MK",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42754486/",
+        "doi": "10.1053/j.jvca.2026.08.139"
       }
     ],
     "disease": [
       {
         "kind": "paper",
-        "id": "PMID 42989480",
-        "title": "Respiratory syncytial virus (RSV) vaccine recommendations for adults: a review of available global, regional, and country level recommendations",
-        "source": "Expert Rev Vaccines",
-        "date": "2026-11-05",
-        "authors": "Cintra O, Phansalkar A, Laucho-Contreras M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42989480/",
-        "doi": "10.1080/14760584.2026.2755658"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42980466",
-        "title": "Population level immunity to measles and rubella 5 years before and after the MR campaign in urban Vellore, South India",
+        "id": "PMID 43059099",
+        "title": "Cross-protective immune responses to pneumococcal serotype 6A following vaccination with 6B-containing pneumococcal conjugate vaccines: A systematic review and meta-analysis",
         "source": "Hum Vaccin Immunother",
-        "date": "2026-11-04",
-        "authors": "Madhavan R, Eswaran A, Gandhi V et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42980466/",
-        "doi": "10.1080/21645515.2026.2750748"
+        "date": "2026-11-19",
+        "authors": "Shah N, Kukreja SS, Chitkara AJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43059099/",
+        "doi": "10.1080/21645515.2026.2762621"
       },
       {
         "kind": "paper",
-        "id": "PMID 43022793",
-        "title": "Quantitative expressions of putative biomarkers for hypocalcemia in buffaloes during the transition period",
-        "source": "Vet Anim Sci",
-        "date": "2026-10-31",
-        "authors": "Kour S, Sharma N, Kour S et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43022793/",
-        "doi": "10.1016/j.vas.2026.100924"
+        "id": "PMID 43061056",
+        "title": "Prevalence and Risk Factors for Recurrence of Chronic Rhinosinusitis With Nasal Polyps After Endoscopic Sinus Surgery: A Systematic Review and Meta-Analysis",
+        "source": "Laryngoscope Investig Otolaryngol",
+        "date": "2026-11-18",
+        "authors": "Satapathy P, Arcot R, Kumar A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43061056/",
+        "doi": "10.1002/lio2.70634"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43061676",
+        "title": "Stress-induced alterations in neurodevelopment in iPSC-Derived i n vitro model systems",
+        "source": "Biochem Biophys Rep",
+        "date": "2026-11-13",
+        "authors": "Mukhopadhyay R, Sengupta A, Biswal S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43061676/",
+        "doi": "10.1016/j.bbrep.2026.102885"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42987770",
+        "title": "Effect of pneumatic leg compression on post-induction hypotension in adult patients with isolated traumatic brain injury undergoing decompressive craniotomy: a randomised, double-blind, controlled trial",
+        "source": "J Clin Neurosci",
+        "date": "2026-11-05",
+        "authors": "Ahlawat V, Pandey V, Luthra A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42987770/",
+        "doi": "10.1016/j.jocn.2026.112375"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43065924",
+        "title": "Prospective CYP21A2 genotype analysis and steroidomic profiling in Indian women evaluated for PCOS/PMOS",
+        "source": "J Endocr Soc",
+        "date": "2026-10-28",
+        "authors": "Archana MH, Karlekar M, Lila A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43065924/",
+        "doi": "10.1210/jendso/bvag252"
       },
       {
         "kind": "paper",
@@ -299,33 +319,23 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 43022461",
-        "title": "Three decades of coronary intravascular ultrasound and optical coherence tomography: A structured narrative review of published bibliometric evidence and trial-driven research phases",
-        "source": "Am Heart J Plus",
-        "date": "2026-10-24",
-        "authors": "Raza SN",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43022461/",
-        "doi": "10.1016/j.ahjo.2026.100991"
+        "id": "PMID 42933316",
+        "title": "Evaluating the impact of intraoperative neuromonitoring on neurological outcomes and extent of resection in pediatric supratentorial brain tumor surgery: a systematic review and meta-analysis",
+        "source": "J Clin Neurosci",
+        "date": "2026-10-26",
+        "authors": "Vadali S, Oguz E, Addanki RND et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42933316/",
+        "doi": "10.1016/j.jocn.2026.112355"
       },
       {
         "kind": "paper",
-        "id": "PMID 42997638",
-        "title": "Unmasking the burden and risk factors of leptospirosis in low- and middle-income countries: a systematic review and meta-analysis",
-        "source": "One Health",
+        "id": "PMID 42925837",
+        "title": "Interhemispheric hygroma as a predictor of post-traumatic hydrocephalus after decompressive craniectomy: a phenotype-specific systematic review and meta-analysis",
+        "source": "J Clin Neurosci",
         "date": "2026-10-24",
-        "authors": "Pradhan R, Ghosal S, Ghosal J et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42997638/",
-        "doi": "10.1016/j.onehlt.2026.101632"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42999697",
-        "title": "Association between knee osteoarthritis and reproductive factors in Indian females: A case-control study",
-        "source": "J Clin Orthop Trauma",
-        "date": "2026-10-22",
-        "authors": "Das L, Sharma PK, Singh G et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42999697/",
-        "doi": "10.1016/j.jcot.2026.103644"
+        "authors": "Ganesh S, Joseph J",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42925837/",
+        "doi": "10.1016/j.jocn.2026.112342"
       },
       {
         "kind": "paper",
@@ -366,16 +376,6 @@
         "authors": "Ielasi A, Moscarella E, Verček G et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42838146/",
         "doi": "10.1016/j.ijcard.2026.134967"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42801893",
-        "title": "CXR-LT 2026 challenge: Multi-center long-tailed and zero shot chest X-ray classification",
-        "source": "Med Image Anal",
-        "date": "2026-09-24",
-        "authors": "Dong H, Lin Y, Zhou P et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42801893/",
-        "doi": "10.1016/j.media.2026.104340"
       }
     ],
     "trials": [

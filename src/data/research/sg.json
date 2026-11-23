@@ -1,18 +1,58 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "Singapore",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
-    "surgery": 479,
-    "drug": 139,
-    "disease": 1517,
-    "trials": 70
+    "surgery": 480,
+    "drug": 140,
+    "disease": 1527,
+    "trials": 69
   },
   "sections": {
     "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43051949",
+        "title": "Comparison Between Robotic Pancreaticojejunostomy and Laparoscopic Pancreaticojejunostomy During Pancreatoduodenectomy: Initial Experience at a Single Institution",
+        "source": "J Laparoendosc Adv Surg Tech A",
+        "date": "2026-11-18",
+        "authors": "Masuda Y, Low B, Bai ZR et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43051949/",
+        "doi": "10.1177/10926429261508208"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43044052",
+        "title": "Fecal Microbiota Transplantation in Patients With Cirrhosis: A Systematic Review and Meta-Analysis of Efficacy and Safety",
+        "source": "J Clin Gastroenterol",
+        "date": "2026-11-18",
+        "authors": "Budiman RA, Dirjayanto VJ, Gani RA et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43044052/",
+        "doi": "10.1097/MCG.0000000000002470"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43054583",
+        "title": "Earlier and More Criteria-Based Return to Sport After Pediatric Anterior Cruciate Ligament Reconstruction in North America Compared With the Asia-Pacific Region: A Systematic Review",
+        "source": "Arthrosc Sports Med Rehabil",
+        "date": "2026-11-17",
+        "authors": "Lim JI, Binte Mirza Irwan NH, Tan SHS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43054583/",
+        "doi": "10.1002/ars2.70166"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43043522",
+        "title": "Clinical Prostate Score (CLIPS) stratifies quality-of-life outcomes following minimally invasive surgical therapy for benign prostatic hyperplasia: a prospective cohort study",
+        "source": "World J Urol",
+        "date": "2026-11-17",
+        "authors": "Taam B, Pek XWG, Law YXT et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43043522/",
+        "doi": "10.1007/s00345-026-06930-z"
+      },
       {
         "kind": "paper",
         "id": "PMID 43036512",
@@ -55,83 +95,43 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 43012489",
-        "title": "Engineering Reversible Wet Adhesion: Physicochemical Principles from Molecular Interactions to Functional Biointerfaces",
-        "source": "Chem Rev",
-        "date": "2026-11-11",
-        "authors": "Sun H, Deng Z, Yan B et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43012489/",
-        "doi": "10.1021/acs.chemrev.6c00658"
+        "id": "PMID 42950133",
+        "title": "Incidence and Risk Factors of Hepatic Artery Thrombosis and Stenosis After Pediatric Liver Transplantation: Results From the HEPATIC Registry",
+        "source": "Transplantation",
+        "date": "2026-10-28",
+        "authors": "Li W, Hartog H, Minetto J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42950133/",
+        "doi": "10.1097/TP.0000000000005920"
       },
       {
         "kind": "paper",
-        "id": "PMID 43010060",
-        "title": "Preoperative mental health predicts early satisfaction but not two-year knee-specific functional improvement after unicompartmental knee arthroplasty: an analysis of a robotic-assisted cohort",
-        "source": "Arthroplasty",
-        "date": "2026-11-11",
-        "authors": "Ng Y, Lim JTE, Chan I et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43010060/",
-        "doi": "10.1186/s42836-026-00448-w"
+        "id": "PMID 42937341",
+        "title": "Monitoring hCMV-specific T cell response in hematopoietic stem cell transplant recipients via rapid whole blood cytokine release assay",
+        "source": "J Virol",
+        "date": "2026-10-27",
+        "authors": "Yuen N, Gan CLS, Chia A et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42937341/",
+        "doi": "10.1128/jvi.00883-26"
       },
       {
         "kind": "paper",
-        "id": "PMID 43007455",
-        "title": "Physiological prehabilitation for patients undergoing cellular therapy in multiple myeloma and lymphoma: a systematic review",
-        "source": "Support Care Cancer",
-        "date": "2026-11-10",
-        "authors": "Barredo JMS, Lim CC, Loy Y et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43007455/",
-        "doi": "10.1007/s00520-026-11427-x"
+        "id": "PMID 42892091",
+        "title": "Robotic Simulation Training in Reducing the Learning Gap Between Expert Surgeons and Novice Trainees: A Prospective Single-Blinded Study",
+        "source": "J Surg Educ",
+        "date": "2026-10-17",
+        "authors": "Tang MH, Ting ANJ, Kien JYW et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42892091/",
+        "doi": "10.1016/j.jsurg.2026.104206"
       },
       {
         "kind": "paper",
-        "id": "PMID 43002280",
-        "title": "Nitinol continuous-compression staple fixation for selected complex patella fractures: a technical note",
-        "source": "Eur J Orthop Surg Traumatol",
-        "date": "2026-11-09",
-        "authors": "Tan GHC, Yeo KSA",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43002280/",
-        "doi": "10.1007/s00590-026-05025-0"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42994644",
-        "title": "Comparative Effectiveness of Contemporary Alignment Strategies in Total Knee Arthroplasty: A Systematic Review and Network Meta-Analysis",
-        "source": "J Arthroplasty",
-        "date": "2026-11-06",
-        "authors": "Tan GHC, Lim HA, Thorpe LR et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42994644/",
-        "doi": "10.1016/j.arth.2026.11.002"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42988848",
-        "title": "Kidney stones",
-        "source": "Nat Rev Dis Primers",
-        "date": "2026-11-05",
-        "authors": "Tzelves L, Skolarikos A, Juliebø-Jones P et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42988848/",
-        "doi": "10.1038/s41572-026-00750-6"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42985877",
-        "title": "Macropolycytes: A Series of 30 Cases",
-        "source": "Pediatr Blood Cancer",
-        "date": "2026-11-05",
-        "authors": "Lee AC",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42985877/",
-        "doi": "10.1002/1545-5017.70826"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42985630",
-        "title": "Significant Differences in the Presentation, Diagnosis, and Management of Juvenile Osteochondritis Dissecans Exist Among Asia-Pacific and European Surgeons",
-        "source": "Arthrosc Sports Med Rehabil",
-        "date": "2026-11-04",
-        "authors": "Hui SJ, Liew JJL, Chew KY et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42985630/",
-        "doi": "10.1002/ars2.70154"
+        "id": "PMID 42874625",
+        "title": "Outcomes of hepatic artery thrombosis after paediatric liver transplantation (HEPATIC): an international, multicentre, retrospective registry study",
+        "source": "Lancet Child Adolesc Health",
+        "date": "2026-10-14",
+        "authors": "Li W, Hartog H, Minetto J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42874625/",
+        "doi": "10.1016/S2352-4642(26)00218-X"
       }
     ],
     "drug": [
@@ -157,6 +157,16 @@
       },
       {
         "kind": "paper",
+        "id": "PMID 42690647",
+        "title": "Bicistronic CD19/CD22 CAR T-Cell Therapy in Pediatric B-Cell Acute Lymphoblastic Leukemia: A Nonrandomized Clinical Trial",
+        "source": "JAMA Oncol",
+        "date": "2026-11-01",
+        "authors": "Wan X, Tang Y, Cai J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42690647/",
+        "doi": "10.1001/jamaoncol.2026.3460"
+      },
+      {
+        "kind": "paper",
         "id": "PMID 42546169",
         "title": "A Bayesian Re-analysis of the GALFLU Trial of High-Dose vs Standard-Dose Influenza Vaccine Against Hospitalization Outcomes",
         "source": "Clin Infect Dis",
@@ -164,6 +174,16 @@
         "authors": "Pardo-Seco J, Rodriguez-Tenreiro-Sánchez C, Giné-Vázquez I et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42546169/",
         "doi": "10.1093/cid/ciag466"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42933460",
+        "title": "Sacituzumab tirumotecan versus treatment of physician's choice in previously treated endometrial cancer (TroFuse-005/ENGOT-en23/GOG-3095): a randomised, open-label, phase 3 trial",
+        "source": "Lancet",
+        "date": "2026-10-26",
+        "authors": "Lorusso D, Martin-Babau J, Backes F et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42933460/",
+        "doi": "10.1016/S0140-6736(26)02099-4"
       },
       {
         "kind": "paper",
@@ -234,29 +254,29 @@
         "authors": "Pelletier M, Yang J, Joshi M et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42347868/",
         "doi": "10.1158/1078-0432.CCR-26-0805"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42267875",
-        "title": "High-Dose Intravenous Vitamin C and Mortality and Organ Dysfunction in Severe Burn Injury: The VICTORY Randomized Clinical Trial",
-        "source": "JAMA",
-        "date": "2026-09-15",
-        "authors": "Stoppe C, Hill A, Cancio LC et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42267875/",
-        "doi": "10.1001/jama.2026.10616"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42752587",
-        "title": "Lumateperone as Adjunctive Therapy in Patients With Major Depressive Disorder and Anxious Distress: Post Hoc Analysis of a Phase 3, Randomized, Double-Blind Trial",
-        "source": "J Clin Psychiatry",
-        "date": "2026-09-14",
-        "authors": "Sachs GS, Durgam S, Earley WR et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42752587/",
-        "doi": "10.4088/JCP.26m16409"
       }
     ],
     "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43059259",
+        "title": "Asymptomatic tuberculosis among people detected by community-wide active versus passive case finding in Vietnam",
+        "source": "Ann Med",
+        "date": "2026-11-19",
+        "authors": "Teo AKJ, Luu KB, Garden F et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43059259/",
+        "doi": "10.1080/07853890.2026.2750613"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43068292",
+        "title": "Multi-panel biomarkers for diagnosis of heart failure across the ejection fraction spectrum: A population-based study",
+        "source": "Int J Cardiol Cardiovasc Risk Prev",
+        "date": "2026-10-24",
+        "authors": "Oo MM, Gao C, Cole C et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43068292/",
+        "doi": "10.1016/j.ijcrp.2026.200721"
+      },
       {
         "kind": "paper",
         "id": "PMID 43022250",
@@ -356,26 +376,6 @@
         "authors": "Tep S, Tuot S, Cheng S et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42615857/",
         "doi": "10.1080/07853890.2026.2714685"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42600888",
-        "title": "Variations in Neovascular Age-Related Macular Degeneration and Polypoidal Choroidal Vasculopathy Phenotypes and Treatment Outcomes Across Singaporean, Canadian Asian, and Canadian Caucasian Populations",
-        "source": "Am J Ophthalmol",
-        "date": "2026-08-14",
-        "authors": "Huang A, Ling J, Gilead N et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42600888/",
-        "doi": "10.1016/j.ajo.2026.08.018"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42586190",
-        "title": "AI Writing Vocabulary in Ophthalmology: Faster Non-Native Adoption, Unchanged Outcomes",
-        "source": "Am J Ophthalmol",
-        "date": "2026-08-12",
-        "authors": "Berni A, Ting DSW, Caputo G et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42586190/",
-        "doi": "10.1016/j.ajo.2026.08.011"
       }
     ],
     "trials": [
@@ -392,14 +392,25 @@
       },
       {
         "kind": "trial",
-        "id": "NCT07521670",
-        "title": "Sacituzumab Tirumotecan in Recurrent/Metastatic Adenoid Cystic Carcinoma and Papillary Thyroid Carcinoma (STRAP)",
-        "source": "National Cancer Centre, Singapore",
-        "date": "2026-11-01",
-        "phase": "Phase 2",
-        "conditions": "Recurrent Adenoid Cystic Carcinoma, Adenoid Cystic Carcinoma Metastatic, Papillary Thyroid Carcinoma",
-        "intervention": "Sacituzumab Tirumotecan",
-        "url": "https://clinicaltrials.gov/study/NCT07521670"
+        "id": "NCT07915245",
+        "title": "A Study of LY4247147 in Participants With Obesity or Overweight Who Are Otherwise Healthy",
+        "source": "Eli Lilly and Company",
+        "date": "2026-11-06",
+        "phase": "Phase 1",
+        "conditions": "Obesity, Overweight",
+        "intervention": "LY4247147, LY4247147",
+        "url": "https://clinicaltrials.gov/study/NCT07915245"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07914738",
+        "title": "A Study of Lepodisiran (LY3819469) in Participants With High Lipoprotein(a)",
+        "source": "Eli Lilly and Company",
+        "date": "2026-11-02",
+        "phase": "Phase 1",
+        "conditions": "Lipoprotein(a)",
+        "intervention": "LY3819469",
+        "url": "https://clinicaltrials.gov/study/NCT07914738"
       },
       {
         "kind": "trial",
@@ -414,17 +425,6 @@
       },
       {
         "kind": "trial",
-        "id": "NCT07931859",
-        "title": "A Retrospective Study to Assess Patient-Reported Treatment Experience With Over-the-Counter Analgesic Products",
-        "source": "HALEON",
-        "date": "2026-11-01",
-        "phase": "",
-        "conditions": "Pain",
-        "intervention": "Paracetamol",
-        "url": "https://clinicaltrials.gov/study/NCT07931859"
-      },
-      {
-        "kind": "trial",
         "id": "NCT07935304",
         "title": "A Study Assessing Eloralintide (LY3841136) in Healthy Participants",
         "source": "Eli Lilly and Company",
@@ -436,36 +436,47 @@
       },
       {
         "kind": "trial",
-        "id": "NCT07915245",
-        "title": "A Study of LY4247147 in Participants With Obesity or Overweight Who Are Otherwise Healthy",
-        "source": "Eli Lilly and Company",
+        "id": "NCT07521670",
+        "title": "Sacituzumab Tirumotecan in Recurrent/Metastatic Adenoid Cystic Carcinoma and Papillary Thyroid Carcinoma (STRAP)",
+        "source": "National Cancer Centre, Singapore",
         "date": "2026-11-01",
-        "phase": "Phase 1",
-        "conditions": "Obesity, Overweight",
-        "intervention": "LY4247147, LY4247147",
-        "url": "https://clinicaltrials.gov/study/NCT07915245"
+        "phase": "Phase 2",
+        "conditions": "Recurrent Adenoid Cystic Carcinoma, Adenoid Cystic Carcinoma Metastatic, Papillary Thyroid Carcinoma",
+        "intervention": "Sacituzumab Tirumotecan",
+        "url": "https://clinicaltrials.gov/study/NCT07521670"
       },
       {
         "kind": "trial",
-        "id": "NCT07909590",
-        "title": "A Study Evaluating the Impact of a Painkiller Product on Quality-of-Life and Daily Functioning",
+        "id": "NCT07931859",
+        "title": "A Retrospective Study to Assess Patient-Reported Treatment Experience With Over-the-Counter Analgesic Products",
         "source": "HALEON",
         "date": "2026-11-01",
         "phase": "",
         "conditions": "Pain",
         "intervention": "Paracetamol",
-        "url": "https://clinicaltrials.gov/study/NCT07909590"
+        "url": "https://clinicaltrials.gov/study/NCT07931859"
       },
       {
         "kind": "trial",
         "id": "NCT07881887",
         "title": "A Study of LY4167586 in Participants With Obesity or Overweight With or Without Type 2 Diabetes",
         "source": "Eli Lilly and Company",
-        "date": "2026-10-01",
+        "date": "2026-10-22",
         "phase": "Phase 1",
         "conditions": "Obesity, Overweight, Diabetes Mellitus, Type 2",
         "intervention": "LY4167586, Placebo",
         "url": "https://clinicaltrials.gov/study/NCT07881887"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07867340",
+        "title": "A Study of Single and Multiple Doses of LY5625573 in Healthy Participants, Including Japanese and Chinese Populations, and Participants With Inflammation (High C-Reactive Protein)",
+        "source": "Eli Lilly and Company",
+        "date": "2026-09-29",
+        "phase": "Phase 1",
+        "conditions": "C-Reactive Protein",
+        "intervention": "LY5625573, Midazolam",
+        "url": "https://clinicaltrials.gov/study/NCT07867340"
       },
       {
         "kind": "trial",
@@ -499,17 +510,6 @@
         "conditions": "Colorectal Adenocarcinoma",
         "intervention": "VVD-133214, Pembrolizumab",
         "url": "https://clinicaltrials.gov/study/NCT07811193"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07623200",
-        "title": "A Phase 3 Study of INCA033989 Versus Best Available Therapy in Participants With Essential Thrombocythemia",
-        "source": "Incyte Corporation",
-        "date": "2026-09-08",
-        "phase": "Phase 3",
-        "conditions": "Essential Thrombocythemia",
-        "intervention": "INCA033989, Best Available Treatment",
-        "url": "https://clinicaltrials.gov/study/NCT07623200"
       }
     ]
   }

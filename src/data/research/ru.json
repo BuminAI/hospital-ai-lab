@@ -1,18 +1,38 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "Russia",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
-    "surgery": 394,
-    "drug": 93,
-    "disease": 850,
-    "trials": 9
+    "surgery": 395,
+    "drug": 95,
+    "disease": 852,
+    "trials": 8
   },
   "sections": {
     "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43057549",
+        "title": "Photobiomodulation for Oral Mucositis Prevention in Hematopoietic Stem Cell Transplantation: Evidence and Unresolved Supportive-Care Outcomes",
+        "source": "Photodiagnosis Photodyn Ther",
+        "date": "2026-11-19",
+        "authors": "Eftekharian S, Rastkar S",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43057549/",
+        "doi": "10.1016/j.pdpdt.2026.105723"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43039234",
+        "title": "A multicenter study of allogeneic HSCT in Nijmegen breakage syndrome with conditioning regimen based on reduced doses of treosulfan",
+        "source": "Transplant Cell Ther",
+        "date": "2026-11-16",
+        "authors": "Laberko A, Skorobogatova E, Slesarchuk O et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43039234/",
+        "doi": "10.1016/j.jtct.2026.11.030"
+      },
       {
         "kind": "paper",
         "id": "PMID 43028564",
@@ -112,29 +132,39 @@
         "authors": "Gholami AA, Babaloo H, Rahmatov K et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42927573/",
         "doi": "10.1007/s11033-026-13070-5"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42939089",
-        "title": "International Regulatory Classification of Minimally Manipulated and Borderline Cell and Tissue Products: Implications for Mesenchymal Stromal Cell-Based Interventions",
-        "source": "Bioengineering (Basel)",
-        "date": "2026-10-21",
-        "authors": "Bilyalov A, Filatov N, Iashina N et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42939089/",
-        "doi": "10.3390/bioengineering13101235"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42929874",
-        "title": "Immune Evasion Strategies of Human Poxviruses: A Roadmap for Engineering Low-Immunogenic CAR-Based and iPSC-Derived Cell Products",
-        "source": "Cells",
-        "date": "2026-10-19",
-        "authors": "Antonov DO, Loguinova MY, Fan H et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42929874/",
-        "doi": "10.3390/cells15201902"
       }
     ],
     "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 43056654",
+        "title": "Efficacy and Safety of 2 Rimegepant Dosing Regimens for the Prevention of Episodic Migraine: A Randomized Controlled Study",
+        "source": "Neurology",
+        "date": "2026-11-19",
+        "authors": "Goadsby PJ, Tassorelli C, Fountaine RJ et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43056654/",
+        "doi": "10.1212/WNL.0000000000218773"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42372104",
+        "title": "Open-label 9-year follow-up extension phase 2 study of once-weekly somatrogon in children with growth hormone deficiency",
+        "source": "J Clin Endocrinol Metab",
+        "date": "2026-11-18",
+        "authors": "Mauras N, Skorodok Y, Iotova V et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42372104/",
+        "doi": "10.1210/clinem/dgag260"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42720936",
+        "title": "Pembrolizumab Plus Chemotherapy for Cervical Cancer: An Exploratory Analysis of the KEYNOTE-826 Randomized Clinical Trial",
+        "source": "JAMA Oncol",
+        "date": "2026-11-01",
+        "authors": "Hasegawa K, Colombo N, Tewari KS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42720936/",
+        "doi": "10.1001/jamaoncol.2026.3547"
+      },
       {
         "kind": "paper",
         "id": "PMID 42925430",
@@ -224,39 +254,49 @@
         "authors": "Shibaev A N, Smernitsky A M, Vitkina D A",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42742546/",
         "doi": ""
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42154572",
-        "title": "Exploratory Analysis of PTEN Deficiency by Immunohistochemistry from the Phase III CAPItello-291 Trial",
-        "source": "Clin Cancer Res",
-        "date": "2026-08-14",
-        "authors": "Jhaveri K, Rugo HS, Cortés J et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42154572/",
-        "doi": "10.1158/1078-0432.CCR-25-2965"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42572962",
-        "title": "Short- and Long-term Outcomes of 3-Row Vs 2-Row Circular Staplers for Low Colorectal Anastomosis After Total Mesorectal Excision: A Single-Center, Randomized, Single-Blind, Phase III Trial (THREESTAPLER Study)",
-        "source": "Dis Colon Rectum",
-        "date": "2026-08-10",
-        "authors": "Tulina I, Tsugulya PB, Kim V et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42572962/",
-        "doi": "10.1097/DCR.0000000000004381"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42551779",
-        "title": "Optical Coherence Tomography-Guided Focal Navigated Laser Photocoagulation in Central Serous Chorioretinopathy: A Non-Inferiority Study",
-        "source": "Am J Ophthalmol",
-        "date": "2026-08-04",
-        "authors": "Maltsev DS, Kulikov AN, Blohin NA et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42551779/",
-        "doi": "10.1016/j.ajo.2026.07.055"
       }
     ],
     "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43068966",
+        "title": "Rewritable Chirality of Metasurfaces with Permittivity-Asymmetric Flatband Quasi-Bound States in the Continuum",
+        "source": "Adv Sci (Weinh)",
+        "date": "2026-11-22",
+        "authors": "Jiang T, Hu H, Gryb D et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43068966/",
+        "doi": "10.1002/advs.78870"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43052464",
+        "title": "Antimicrobial non-susceptibility of presumptive commensal Escherichia coli in animals from farms and equestrian centres in Saint Petersburg and the Leningrad Region, Russia: prevalence and farm-level variation",
+        "source": "Vet Res Commun",
+        "date": "2026-11-19",
+        "authors": "Bankov A, Ignatenko O, Azzam G et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43052464/",
+        "doi": "10.1007/s11259-026-11642-1"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43037911",
+        "title": "Adhesion Correction Following Non-Toxic Treatment of Spontaneous Tumors in Mice",
+        "source": "Bull Exp Biol Med",
+        "date": "2026-11-16",
+        "authors": "Bocharov EV, Karpova RV, Kucheryanu VG et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43037911/",
+        "doi": "10.1007/s10517-026-06777-9"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42518217",
+        "title": "Epidemiology and Clinical Impact of Clonal Hematopoiesis in People With HIV",
+        "source": "J Infect Dis",
+        "date": "2026-11-16",
+        "authors": "Timonina V, Popadin K, Ait Oumelloul M et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42518217/",
+        "doi": "10.1093/infdis/jiag393"
+      },
       {
         "kind": "paper",
         "id": "PMID 43034263",
@@ -329,53 +369,13 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 43026870",
-        "title": "Indoor Tanning in Europe: Temporal Trends, Sociodemographic Determinants from the Euromelanoma Campaign (2009-2018)",
-        "source": "Cancers (Basel)",
-        "date": "2026-11-04",
-        "authors": "Gaeta A, Suppa M, Njimi H et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43026870/",
-        "doi": "10.3390/cancers18213548"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42982068",
-        "title": "Global, regional, and national burden of gallbladder and biliary diseases in 204 countries and territories, 1990-2023: a systematic analysis for the Global Burden of Disease Study 2023",
-        "source": "Lancet Gastroenterol Hepatol",
-        "date": "2026-11-04",
-        "authors": "GBD 2023 Gallbladder and Biliary Disease Collaborators",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42982068/",
-        "doi": "10.1016/S2468-1253(26)00259-1"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42976894",
-        "title": "Presentation, management, and outcomes of ectopic Cushing syndrome: an international, multicentre, retrospective, cohort study",
-        "source": "Lancet Diabetes Endocrinol",
-        "date": "2026-11-03",
-        "authors": "Chacko SR, Peersen AF, Kaplan JM et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42976894/",
-        "doi": "10.1016/S2213-8587(26)00237-8"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43030667",
-        "title": "Mid-Term Outcomes After Coronary Artery Bypass Grafting and the Impact of Glucose Metabolism Disorders on Prognosis",
-        "source": "J Clin Med",
-        "date": "2026-11-02",
-        "authors": "Sumin AN, Bezdenezhnykh NA, Gruzdeva OV et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43030667/",
-        "doi": "10.3390/jcm15218526"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42972028",
-        "title": "Re-timing mortality risk through individualized modelling of lifespan trajectories",
-        "source": "Nat Biomed Eng",
-        "date": "2026-11-02",
-        "authors": "Xu T, Peng Q, Li H et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42972028/",
-        "doi": "10.1038/s41551-026-01822-4"
+        "id": "PMID 42740441",
+        "title": "Prevalence of urinary incontinence and pelvic organ prolapse among women in Armenia: a nationwide cross-sectional survey using the Armenian Pelvic Floor Bother Questionnaire",
+        "source": "Curr Opin Obstet Gynecol",
+        "date": "2026-10-27",
+        "authors": "Shadyan G, Badalian SS, Grigoryan Z et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42740441/",
+        "doi": "10.1097/GCO.0000000000001142"
       }
     ],
     "trials": [
@@ -466,17 +466,6 @@
         "conditions": "HER2-positive Breast Cancer, Trastuzumab Deruxtecan",
         "intervention": "T-DXd 5.4 mg/kg, IVD, 1 cycle every 21 days.",
         "url": "https://clinicaltrials.gov/study/NCT07281001"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07251023",
-        "title": "Efficacy and Safety of DMB-I (INN: Latrepirdine) in Patients With Alzheimer Type Dementia",
-        "source": "Bigespas LTD",
-        "date": "2025-11-20",
-        "phase": "Phase 3",
-        "conditions": "Alzheimer Type Dementia",
-        "intervention": "DMB-I (INN: Latrepirdine), Memantine Hydrochloride 20 MG",
-        "url": "https://clinicaltrials.gov/study/NCT07251023"
       }
     ]
   }

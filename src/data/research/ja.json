@@ -1,18 +1,28 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "Japan",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
-    "surgery": 4536,
-    "drug": 776,
-    "disease": 8868,
-    "trials": 437
+    "surgery": 4570,
+    "drug": 781,
+    "disease": 8958,
+    "trials": 435
   },
   "sections": {
     "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43054811",
+        "title": "Serrated Pathway-Related Post-Colonoscopy Colorectal Cancer Detected During Surveillance Colonoscopy: A Case Report",
+        "source": "DEN Open",
+        "date": "2026-11-18",
+        "authors": "Hadatsuki H, Ichijima R, Mizuguchi Y et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43054811/",
+        "doi": "10.1002/deo2.70426"
+      },
       {
         "kind": "paper",
         "id": "PMID 43011506",
@@ -22,6 +32,16 @@
         "authors": "Otsuka R, Saito S, Fujimoto N et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43011506/",
         "doi": "10.1002/deo2.70466"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43068322",
+        "title": "First-in-human application of an allogeneic adipose-derived mesenchymal stem cell sheet (PAL-222) for a chronic skin ulcer: a case report from an exploratory phase I/IIa study",
+        "source": "JPRAS Open",
+        "date": "2026-11-07",
+        "authors": "Kaito S, Sawaragi E, Ogino S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43068322/",
+        "doi": "10.1016/j.jpra.2026.11.003"
       },
       {
         "kind": "paper",
@@ -52,6 +72,16 @@
         "authors": "Zeng C, Xu C, Shao C et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42914899/",
         "doi": "10.1016/j.bios.2026.119355"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42862319",
+        "title": "Primary leiomyosarcoma arising adjacent to a femoral stem following total hip arthroplasty: a case report with radiologic and histopathological correlation",
+        "source": "Skeletal Radiol",
+        "date": "2026-10-12",
+        "authors": "Shiraishi S, Fujiwara T, Hamai S et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42862319/",
+        "doi": "10.1007/s00256-026-05391-0"
       },
       {
         "kind": "paper",
@@ -102,39 +132,19 @@
         "authors": "Takayama K, Ito H",
         "url": "https://pubmed.ncbi.nlm.nih.gov/43036349/",
         "doi": "10.1016/j.xrrt.2026.100893"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42812748",
-        "title": "Endoscopic Ultrasound-Guided Gallbladder Drainage as a Bridge to Surgery for Acute Cholecystitis: A Comparative Study",
-        "source": "DEN Open",
-        "date": "2026-09-29",
-        "authors": "Nagai K, Fujita Y, Uechi H et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42812748/",
-        "doi": "10.1002/deo2.70436"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42720070",
-        "title": "Impact of defibrotide on survival in sinusoidal obstruction syndrome / veno-occlusive disease: a retrospective cohort study comparing two sequential treatment eras",
-        "source": "Hematology",
-        "date": "2026-09-10",
-        "authors": "Katsuki K, Tachibana T, Izumi A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42720070/",
-        "doi": "10.1080/16078454.2026.2721241"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42893202",
-        "title": "Clavicular tunnel position is associated with reduction loss after arthroscopic coracoclavicular ligament reconstruction: a computed tomography-based analysis",
-        "source": "JSES Rev Rep Tech",
-        "date": "2026-09-04",
-        "authors": "Inagaki K, Ochiai N, Sasaki Y et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42893202/",
-        "doi": "10.1016/j.xrrt.2026.100873"
       }
     ],
     "drug": [
+      {
+        "kind": "paper",
+        "id": "PMID 43056144",
+        "title": "Lower-limb performance and muscle soreness after short-term dark chocolate intake in CrossFit®-trained women: an exploratory secondary analysis",
+        "source": "J Int Soc Sports Nutr",
+        "date": "2026-11-19",
+        "authors": "Safari K, Hemmatinafar M, Jahan Z et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43056144/",
+        "doi": "10.1080/15502783.2026.2766045"
+      },
       {
         "kind": "paper",
         "id": "PMID 43026212",
@@ -154,6 +164,16 @@
         "authors": "Okumura G, Yoshida S, Hirose K et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42632050/",
         "doi": "10.1093/jjco/hyag133"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43021638",
+        "title": "Long-term efficacy and safety of upadacitinib in patients with polyarticular-course juvenile idiopathic arthritis: 48-week results from the SELECT-YOUTH open-label study",
+        "source": "Rheumatology (Oxford)",
+        "date": "2026-11-04",
+        "authors": "Brunner HI, Horneff G, Foeldvari I et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43021638/",
+        "doi": "10.1093/rheumatology/keag595"
       },
       {
         "kind": "paper",
@@ -187,6 +207,36 @@
       },
       {
         "kind": "paper",
+        "id": "PMID 43042641",
+        "title": "Sustained response to atogepant in episodic and chronic migraine: Post-hoc analyses of ELEVATE and PROGRESS, and their open-label extension",
+        "source": "Cephalalgia",
+        "date": "2026-11-01",
+        "authors": "Cho SJ, Friedman DI, Chalermpalanupap N et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43042641/",
+        "doi": "10.1177/03331024261499722"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42962687",
+        "title": "Efficacy and safety of oral orforglipron in Japanese participants with obesity disease (ATTAIN-J): a double-blind, randomised, placebo-controlled, parallel-group, phase 3 trial",
+        "source": "Lancet Diabetes Endocrinol",
+        "date": "2026-10-30",
+        "authors": "Yokote K, Yamauchi T, Shingaki T et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42962687/",
+        "doi": "10.1016/S2213-8587(26)00232-9"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42933460",
+        "title": "Sacituzumab tirumotecan versus treatment of physician's choice in previously treated endometrial cancer (TroFuse-005/ENGOT-en23/GOG-3095): a randomised, open-label, phase 3 trial",
+        "source": "Lancet",
+        "date": "2026-10-26",
+        "authors": "Lorusso D, Martin-Babau J, Backes F et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42933460/",
+        "doi": "10.1016/S0140-6736(26)02099-4"
+      },
+      {
+        "kind": "paper",
         "id": "PMID 42933458",
         "title": "First-line pembrolizumab versus carboplatin plus paclitaxel in participants with mismatch repair-deficient advanced or recurrent endometrial cancer (KEYNOTE-C93/GOG-3064/ENGOT-en15): interim analysis of a multicentre, open-label, randomised, active-comparator controlled, phase 3 trial",
         "source": "Lancet",
@@ -197,63 +247,13 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42887497",
-        "title": "Firmonertinib in advanced non-small cell lung cancer with epidermal growth factor receptor P-loop and αC-helix compressing mutations",
-        "source": "Cancer Cell",
-        "date": "2026-10-16",
-        "authors": "Le X, Wang J, Yu Y et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42887497/",
-        "doi": "10.1016/j.ccell.2026.09.011"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43020535",
-        "title": "Dynamic trajectories of electrolytes and bone metabolism with tofogliflozin and glimepiride: A post-hoc analysis",
-        "source": "J Pharmacol Sci",
-        "date": "2026-10-15",
-        "authors": "Tokuno S, Takeshita Y, Matsubara D et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43020535/",
-        "doi": "10.1016/j.jphs.2026.10.002"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42855100",
-        "title": "Impact of prior antithrombotic therapy on safety and outcomes of endovascular therapy in large-core acute ischemic stroke",
-        "source": "J Stroke Cerebrovasc Dis",
-        "date": "2026-10-09",
-        "authors": "Ikenouchi H, Kawabata Y, Saito T et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42855100/",
-        "doi": "10.1016/j.jstrokecerebrovasdis.2026.108765"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42848984",
-        "title": "Astrocytic and Axonal Injury Biomarkers in AQP4 Antibody-Positive NMOSD: Insights From PREVENT and CHAMPION-NMOSD",
-        "source": "Neurol Neuroimmunol Neuroinflamm",
-        "date": "2026-10-08",
-        "authors": "Wingerchuk DM, Bennett JL, Berthele A et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42848984/",
-        "doi": "10.1212/NXI.0000000000200661"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42801438",
-        "title": "Impact of resolved hepatitis B virus infection on clinical outcomes in patients with diffuse large B-cell lymphoma: a supplementary analysis of JCOG0601",
-        "source": "Int J Hematol",
-        "date": "2026-09-27",
-        "authors": "Hagiwara S, Kusumoto S, Machida R et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42801438/",
-        "doi": "10.1007/s12185-026-04292-1"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42810153",
-        "title": "Low-dose versus standard-dose antipsychotic treatment in first-episode schizophrenia: A secondary analysis of EUFEST data",
-        "source": "Schizophr Res",
-        "date": "2026-09-22",
-        "authors": "Nomura N, Kikuchi Y, Takeuchi H",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42810153/",
-        "doi": "10.1016/j.schres.2026.09.027"
+        "id": "PMID 42915009",
+        "title": "Remibrutinib versus teriflunomide in relapsing multiple sclerosis (REMODEL-1 and REMODEL-2): two randomised, phase 3 trials",
+        "source": "Lancet",
+        "date": "2026-10-23",
+        "authors": "Wiendl H, Bermel R, Airas L et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42915009/",
+        "doi": "10.1016/S0140-6736(26)02058-1"
       }
     ],
     "disease": [
@@ -381,6 +381,17 @@
     "trials": [
       {
         "kind": "trial",
+        "id": "NCT07926308",
+        "title": "Real-world Outcome of Zongertinib in Japan (J-HERZ)",
+        "source": "Boehringer Ingelheim",
+        "date": "2026-11-17",
+        "phase": "",
+        "conditions": "Non-small Cell Lung Cancer",
+        "intervention": "Zongertinib",
+        "url": "https://clinicaltrials.gov/study/NCT07926308"
+      },
+      {
+        "kind": "trial",
         "id": "NCT07881991",
         "title": "Phase 2 Study of SYH2066 Tablets Compared With Placebo in Chinese Adult Patients With Respiratory Syncytial Virus Infection.",
         "source": "CSPC Ouyi Pharmaceutical Co., Ltd.",
@@ -392,6 +403,17 @@
       },
       {
         "kind": "trial",
+        "id": "NCT07683806",
+        "title": "Efficacy and Safety of Roflumilast Foam 0.3% in Trial Participants With Seborrheic Dermatitis",
+        "source": "Hangzhou Zhongmei Huadong Pharmaceutical Co., Ltd.",
+        "date": "2026-11-12",
+        "phase": "Phase 3",
+        "conditions": "Seborrheic Dermatitis",
+        "intervention": "Roflumilast Foam 0.3%, Vehicle foam",
+        "url": "https://clinicaltrials.gov/study/NCT07683806"
+      },
+      {
+        "kind": "trial",
         "id": "NCT07919405",
         "title": "A Research Study to Investigate How Well the Medicine CagriSema Lowers High Blood Pressure in People Living With High Blood Pressure and Obesity",
         "source": "Novo Nordisk A/S",
@@ -400,17 +422,6 @@
         "conditions": "Hypertension, Obesity",
         "intervention": "CagriSema, Semaglutide",
         "url": "https://clinicaltrials.gov/study/NCT07919405"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07931599",
-        "title": "A Research Study Investigating How Well Zenagamtide at Lower Dose Levels Lowers Blood Sugar and Body Weight Compared to Semaglutide at Lower Dose Levels in People With Type 2 Diabetes Treated With Metformin, Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2i), or Both",
-        "source": "Novo Nordisk A/S",
-        "date": "2026-11-10",
-        "phase": "Phase 3",
-        "conditions": "Diabetes Mellitus, Type 2",
-        "intervention": "Zenagamtide, Semaglutide",
-        "url": "https://clinicaltrials.gov/study/NCT07931599"
       },
       {
         "kind": "trial",
@@ -447,6 +458,17 @@
       },
       {
         "kind": "trial",
+        "id": "NCT07931599",
+        "title": "A Research Study Investigating How Well Zenagamtide at Lower Dose Levels Lowers Blood Sugar and Body Weight Compared to Semaglutide at Lower Dose Levels in People With Type 2 Diabetes Treated With Metformin, Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2i), or Both",
+        "source": "Novo Nordisk A/S",
+        "date": "2026-11-10",
+        "phase": "Phase 3",
+        "conditions": "Diabetes Mellitus, Type 2",
+        "intervention": "Zenagamtide, Semaglutide",
+        "url": "https://clinicaltrials.gov/study/NCT07931599"
+      },
+      {
+        "kind": "trial",
         "id": "NCT07730346",
         "title": "Study to Assess the Prophylactic Efficacy and Safety of Sebaloxavir Marboxil Tablets/Oral Suspension for Influenza Prevention in Household Contacts Aged ≥2 Years.",
         "source": "Nanjing Zenshine Pharmaceuticals",
@@ -455,6 +477,17 @@
         "conditions": "Influenza Prevention",
         "intervention": "Sebaloxavir marboxil, Placebo",
         "url": "https://clinicaltrials.gov/study/NCT07730346"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07578649",
+        "title": "Symbiotic-GYN-18: A Study to Learn About the Study Medicine Called PF-08634404 in Combination With Chemotherapy in Adult Participants With Advanced or Recurrent MMR-proficient Endometrial Cancer",
+        "source": "Pfizer",
+        "date": "2026-11-05",
+        "phase": "Phase 3",
+        "conditions": "Endometrial Neoplasms, Endometrial Cancer",
+        "intervention": "PF-08634404, Pembrolizumab",
+        "url": "https://clinicaltrials.gov/study/NCT07578649"
       },
       {
         "kind": "trial",
@@ -477,39 +510,6 @@
         "conditions": "Small Cell Lung Cancer, Large Cell Neuroendocrine Lung Carcinoma, Extrapulmonary Neuroendocrine Carcinoma of Small Cell Histology",
         "intervention": "Obrixtamig, ZL-1310",
         "url": "https://clinicaltrials.gov/study/NCT07707895"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07521670",
-        "title": "Sacituzumab Tirumotecan in Recurrent/Metastatic Adenoid Cystic Carcinoma and Papillary Thyroid Carcinoma (STRAP)",
-        "source": "National Cancer Centre, Singapore",
-        "date": "2026-11-01",
-        "phase": "Phase 2",
-        "conditions": "Recurrent Adenoid Cystic Carcinoma, Adenoid Cystic Carcinoma Metastatic, Papillary Thyroid Carcinoma",
-        "intervention": "Sacituzumab Tirumotecan",
-        "url": "https://clinicaltrials.gov/study/NCT07521670"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07917078",
-        "title": "Reduced-Dose Thrombolysis in Intermediate-Risk Pulmonary Embolism With High-Risk Features",
-        "source": "China National Center for Cardiovascular Diseases",
-        "date": "2026-11-01",
-        "phase": "Phase 3",
-        "conditions": "Pulmonary Embolism",
-        "intervention": "Alteplase, Standard Anticoagulation",
-        "url": "https://clinicaltrials.gov/study/NCT07917078"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07832747",
-        "title": "A Study of DCC-3014 to Evaluate the Efficacy, Safety, and Pharmacokinetics in Subjects With TGCT",
-        "source": "Ono Pharmaceutical Co., Ltd.",
-        "date": "2026-10-31",
-        "phase": "Phase 2",
-        "conditions": "Tenosynovial Giant Cell Tumor",
-        "intervention": "DCC-3014",
-        "url": "https://clinicaltrials.gov/study/NCT07832747"
       }
     ]
   }

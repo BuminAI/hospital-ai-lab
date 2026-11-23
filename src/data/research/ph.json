@@ -1,18 +1,28 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "Philippines",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
-    "surgery": 75,
+    "surgery": 76,
     "drug": 17,
-    "disease": 389,
-    "trials": 17
+    "disease": 388,
+    "trials": 18
   },
   "sections": {
     "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43064872",
+        "title": "Preparation-need concordance and patient readiness in robot-assisted surgery: a scoping review",
+        "source": "J Robot Surg",
+        "date": "2026-11-21",
+        "authors": "Narvaez RA, Al-Mahdaly AA, Topacio R et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43064872/",
+        "doi": "10.1007/s11701-026-04217-4"
+      },
       {
         "kind": "paper",
         "id": "PMID 43007578",
@@ -122,16 +132,6 @@
         "authors": "Ng Y, Lim WSR, Lam LZL et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42697451/",
         "doi": "10.1016/j.arth.2026.08.061"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42707771",
-        "title": "Early Secondary Graft Failure After Complete Donor Chimerism with Autologous Recovery Following Haploidentical HSCT for Relapsed B-ALL",
-        "source": "Blood Cell Ther",
-        "date": "2026-08-25",
-        "authors": "Amadore RA Jr, Bonifacio LB",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42707771/",
-        "doi": "10.31547/bct-2026-026"
       }
     ],
     "drug": [
@@ -227,6 +227,16 @@
       },
       {
         "kind": "paper",
+        "id": "PMID 41263121",
+        "title": "A randomized controlled trial comparing efficacy, safety, and patient-reported outcomes of electroconductive and electrohydraulic extracorporeal shockwave lithotripsy",
+        "source": "Urologia",
+        "date": "2026-05-01",
+        "authors": "Park H, Castillo CJ, Cho SY",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41263121/",
+        "doi": "10.1177/03915603251390743"
+      },
+      {
+        "kind": "paper",
         "id": "PMID 41895156",
         "title": "Immunogenicity and safety of MF59-adjuvanted H5N1 pandemic influenza vaccine in healthy infants and children: a phase 2 randomized, observer-blind, multicenter study",
         "source": "Vaccine",
@@ -244,19 +254,19 @@
         "authors": "Banooni P, Gonik B, Epalza C et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/39879629/",
         "doi": "10.1093/cid/ciaf033"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 41130363",
-        "title": "Neoadjuvant trastuzumab deruxtecan alone or followed by paclitaxel, trastuzumab, and pertuzumab for high-risk HER2-positive early breast cancer (DESTINY-Breast11): a randomised, open-label, multicentre, phase III trial",
-        "source": "Ann Oncol",
-        "date": "2026-02-01",
-        "authors": "Harbeck N, Modi S, Pusztai L et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/41130363/",
-        "doi": "10.1016/j.annonc.2025.10.019"
       }
     ],
     "disease": [
+      {
+        "kind": "paper",
+        "id": "PMID 43038298",
+        "title": "Full-length β-tubulin sequencing of Trichuris trichiura in South Korea reveals novel variants with a conserved benzimidazole-binding pocket",
+        "source": "PLoS Negl Trop Dis",
+        "date": "2026-11-16",
+        "authors": "Delaluna JO, Lee T, Nam C et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43038298/",
+        "doi": "10.1371/journal.pntd.0014839"
+      },
       {
         "kind": "paper",
         "id": "PMID 43023415",
@@ -349,26 +359,6 @@
       },
       {
         "kind": "paper",
-        "id": "PMID 42969862",
-        "title": "Burden and temporal trends of four major road traffic injuries in Asia-Pacific, 1990-2023: A GBD-based study",
-        "source": "Traffic Inj Prev",
-        "date": "2026-11-02",
-        "authors": "Xiang Y, Huang W, Palitnonkiat V et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42969862/",
-        "doi": "10.1080/15389588.2026.2750857"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 42814432",
-        "title": "Global, Regional, and National Burden of Heart Failure, 1990-2023: A Systematic Analysis for the Global Burden of Disease Study 2023",
-        "source": "JAMA Cardiol",
-        "date": "2026-11-01",
-        "authors": "GBD 2023 Heart Failure Collaborators, Johnson CO, Abbasi M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/42814432/",
-        "doi": "10.1001/jamacardio.2026.4068"
-      },
-      {
-        "kind": "paper",
         "id": "PMID 42970911",
         "title": "Artificial intelligence-enabled interventions for smoking cessation: a systematic review and meta-analysis of randomised controlled trials",
         "source": "Int J Med Inform",
@@ -376,6 +366,16 @@
         "authors": "Adebisi YA, Alhur AA, Ogunkola IO et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42970911/",
         "doi": "10.1016/j.ijmedinf.2026.106788"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42836822",
+        "title": "Acquisition of novel arrays via horizontal gene transfer rewires CRISPR-mediated defense in Pseudomonas aeruginosa",
+        "source": "J Bacteriol",
+        "date": "2026-10-06",
+        "authors": "Malaluan RPP, Dy RLV",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42836822/",
+        "doi": "10.1128/jb.00339-26"
       }
     ],
     "trials": [
@@ -458,17 +458,6 @@
       },
       {
         "kind": "trial",
-        "id": "NCT07753993",
-        "title": "A Study to Investigate Outcomes With Elecoglipron Compared With Placebo in Adult Participants With Chronic Kidney Disease.",
-        "source": "AstraZeneca",
-        "date": "2026-08-21",
-        "phase": "Phase 3",
-        "conditions": "Chronic Kidney Disease",
-        "intervention": "Elecoglipron, Placebo",
-        "url": "https://clinicaltrials.gov/study/NCT07753993"
-      },
-      {
-        "kind": "trial",
         "id": "NCT07775404",
         "title": "A Study to Investigate the Efficacy and Safety of Elecoglipron in Asian Participants With Obesity or Overweight With or Without Type 2 Diabetes Mellitus",
         "source": "AstraZeneca",
@@ -477,6 +466,17 @@
         "conditions": "Obesity, Overweight",
         "intervention": "Elecoglipron, Placebo",
         "url": "https://clinicaltrials.gov/study/NCT07775404"
+      },
+      {
+        "kind": "trial",
+        "id": "NCT07753993",
+        "title": "A Study to Investigate Outcomes With Elecoglipron Compared With Placebo in Adult Participants With Chronic Kidney Disease.",
+        "source": "AstraZeneca",
+        "date": "2026-08-21",
+        "phase": "Phase 3",
+        "conditions": "Chronic Kidney Disease",
+        "intervention": "Elecoglipron, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07753993"
       },
       {
         "kind": "trial",
@@ -505,7 +505,7 @@
         "id": "NCT06705478",
         "title": "Pramipexole Versus Escitalopram to Treat Major Depressive Disorder (MDD) and Comorbid MDD With Mild Neurocognitive Disorder (MND) in Persons With HIV",
         "source": "National Institute of Allergy and Infectious Diseases (NIAID)",
-        "date": "2026-05-17",
+        "date": "2026-04-23",
         "phase": "Phase 2",
         "conditions": "Major Depressive Disorder, Mild Neurocognitive Disorder, HIV",
         "intervention": "Pramipexole ER, Escitalopram",

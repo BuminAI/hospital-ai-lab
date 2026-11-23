@@ -1,18 +1,38 @@
 {
-  "updatedAt": "2026-11-16T11:44:16.553Z",
+  "updatedAt": "2026-11-23T13:13:14.912Z",
   "country": "Indonesia",
   "window": {
-    "from": "2025-11-16",
-    "to": "2026-11-16"
+    "from": "2025-11-23",
+    "to": "2026-11-23"
   },
   "totals": {
     "surgery": 222,
     "drug": 33,
-    "disease": 997,
-    "trials": 35
+    "disease": 1005,
+    "trials": 40
   },
   "sections": {
     "surgery": [
+      {
+        "kind": "paper",
+        "id": "PMID 43050036",
+        "title": "Comparative Effectiveness of Staple Line Reinforcement Materials and Techniques on Leak Rates in Laparoscopic Sleeve Gastrectomy: A Systematic Review and Meta-Analysis Protocol",
+        "source": "Obes Surg",
+        "date": "2026-11-18",
+        "authors": "Hanafi RV, Christy K, Widjaja D et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43050036/",
+        "doi": "10.1007/s11695-026-09050-0"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 43044052",
+        "title": "Fecal Microbiota Transplantation in Patients With Cirrhosis: A Systematic Review and Meta-Analysis of Efficacy and Safety",
+        "source": "J Clin Gastroenterol",
+        "date": "2026-11-18",
+        "authors": "Budiman RA, Dirjayanto VJ, Gani RA et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43044052/",
+        "doi": "10.1097/MCG.0000000000002470"
+      },
       {
         "kind": "paper",
         "id": "PMID 43023403",
@@ -112,26 +132,6 @@
         "authors": "Novriansyah R, Respati DRP, Sadjidah ZF et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42878557/",
         "doi": "10.5435/JAAOSGlobal-D-25-00304"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43000805",
-        "title": "Endoscopic Decompression Versus Fusion for Degenerative Lumbar Spondylolisthesis: A Structured Debate and International Practice Patterns",
-        "source": "Neurospine",
-        "date": "2026-10-01",
-        "authors": "Ambrosio L, Auron M, Farshad M et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43000805/",
-        "doi": "10.14245/ns.26521628.0814"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43000804",
-        "title": "Uniportal Endoscopic Versus Biportal Endoscopic Versus Microscopic/Tubular Posterior Cervical Foraminotomy: A Structured Debate and International Practice Patterns",
-        "source": "Neurospine",
-        "date": "2026-10-01",
-        "authors": "Giordan E, Chavalparit P, Fournier JY et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43000804/",
-        "doi": "10.14245/ns.26521630.0815"
       }
     ],
     "drug": [
@@ -259,43 +259,23 @@
     "disease": [
       {
         "kind": "paper",
-        "id": "PMID 43025813",
-        "title": "Longitudinal associations of anemia and iron status on early learning and memory: Evidence from eye-tracking assessments",
-        "source": "Am J Clin Nutr",
-        "date": "2026-11-13",
-        "authors": "Rianda D, Oakes LM, Arnold CD et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43025813/",
-        "doi": "10.1016/j.ajcnut.2026.101630"
+        "id": "PMID 43061849",
+        "title": "Beyond methods: partnership-building skills are central to scale-up research",
+        "source": "J Glob Health",
+        "date": "2026-11-20",
+        "authors": "Ramani-Chander A, Thrift AG, van Olmen J et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43061849/",
+        "doi": "10.7189/jogh.16.03035"
       },
       {
         "kind": "paper",
-        "id": "PMID 43023352",
-        "title": "Association of subjective workload on burnout in village midwives: A NASA TLX-based investigation",
-        "source": "Work",
-        "date": "2026-11-13",
-        "authors": "Ernawaty, Binendra OV, Putri NK et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43023352/",
-        "doi": "10.1177/10519815261504745"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43034320",
-        "title": "Diagnostic accuracy of peak vein velocity ratio for innominate vein stenosis in haemodialysis patients with long-term non-cuffed right internal jugular catheters",
-        "source": "Ultrasound",
-        "date": "2026-11-11",
-        "authors": "Pratama D, Satria A, Soemarko DS et al.",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43034320/",
-        "doi": "10.1177/1742271X261500592"
-      },
-      {
-        "kind": "paper",
-        "id": "PMID 43011078",
-        "title": "Warm, ventilate, stabilize: Clinical feasibility and non-inferiority study of MINAR™ infant warmer resuscitator",
-        "source": "J Intensive Care Soc",
-        "date": "2026-11-08",
-        "authors": "Sudjud RW, Aviani JK, Abdullah LN",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/43011078/",
-        "doi": "10.1177/17511437261497940"
+        "id": "PMID 43056058",
+        "title": "Maternal KIR-Fetal HLA-C Interactions in IVF and Pregnancy: Evidence, Clinical Implications, and Ethics; A Narrative Review",
+        "source": "Reprod Sci",
+        "date": "2026-11-19",
+        "authors": "Margiana R, El-Sehrawy AAMA, Basunduwah TS et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/43056058/",
+        "doi": "10.1007/s43032-026-02254-w"
       },
       {
         "kind": "paper",
@@ -316,6 +296,16 @@
         "authors": "Maba AP, Edwards E, Khan A",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42954795/",
         "doi": "10.1080/16549716.2026.2752484"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42927731",
+        "title": "The predictive value of early clinical and electrodiagnostic markers on short- and long-term functional outcomes in Guillain-Barré Syndrome: a systematic review and exploratory meta-analysis",
+        "source": "J Clin Neurosci",
+        "date": "2026-10-25",
+        "authors": "Gunawan PY, Wijaya JH",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42927731/",
+        "doi": "10.1016/j.jocn.2026.112348"
       },
       {
         "kind": "paper",
@@ -376,9 +366,30 @@
         "authors": "Sholehhudin M, Nuraidah LF, Fajar A et al.",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42840380/",
         "doi": "10.1016/j.ijregi.2026.101010"
+      },
+      {
+        "kind": "paper",
+        "id": "PMID 42705912",
+        "title": "First-trimester uterine artery doppler in pregnancies with reactive hypoglycaemia or low 2-hour oral glucose tolerance test value: a retrospective study",
+        "source": "J Matern Fetal Neonatal Med",
+        "date": "2026-09-07",
+        "authors": "Mahindra MP, Mapindra MP, Al-Fattah AN et al.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42705912/",
+        "doi": "10.1080/14767058.2026.2721948"
       }
     ],
     "trials": [
+      {
+        "kind": "trial",
+        "id": "NCT07949630",
+        "title": "Combined Tretinoin and Tranexamic Acid Cream for Hyperpigmentation After Electrosurgery",
+        "source": "Wahyu Lestari",
+        "date": "2026-11-03",
+        "phase": "Phase 2",
+        "conditions": "Post-Inflammatory Hyperpigmentation",
+        "intervention": "Tretinoin and Tranexamic Acid Combination Cream, Tretinoin cream 0.05",
+        "url": "https://clinicaltrials.gov/study/NCT07949630"
+      },
       {
         "kind": "trial",
         "id": "NCT07908030",
@@ -491,25 +502,14 @@
       },
       {
         "kind": "trial",
-        "id": "NCT07928661",
-        "title": "Effect of Proliverenol on Liver Fat and Insulin Resistance in Type 2 Diabetes",
-        "source": "Universitas Sriwijaya",
-        "date": "2026-07-29",
-        "phase": "Phase 2",
-        "conditions": "Diabetes Mellitus, Type 2",
-        "intervention": "Proliverenol",
-        "url": "https://clinicaltrials.gov/study/NCT07928661"
-      },
-      {
-        "kind": "trial",
-        "id": "NCT07922889",
-        "title": "Mesenchymal Stem Cell Exosomes Alone or Combined With HUVEC Exosomes in Non-Dialysis Chronic Kidney Disease",
-        "source": "Nurhasan Agung Prabowo",
-        "date": "2026-07-01",
-        "phase": "Phase 1 / Phase 2",
-        "conditions": "Chronic Kidney Disease Stage 3, Chronic Kidney Disease Stage 4, Chronic Kidney Disease",
-        "intervention": "Human Wharton's jelly mesenchymal stem cell (HWJ-MSC) exosomes, Human umbilical vein endothelial cell (HUVEC) exosomes",
-        "url": "https://clinicaltrials.gov/study/NCT07922889"
+        "id": "NCT07937462",
+        "title": "The Efficacy and Safety of DLBS1442 in Patients With Primary Dysmenorrhea",
+        "source": "Dexa Medica Group",
+        "date": "2026-08-01",
+        "phase": "Phase 2 / Phase 3",
+        "conditions": "Primary Dysmenorrhea",
+        "intervention": "DLBS1442, Placebo",
+        "url": "https://clinicaltrials.gov/study/NCT07937462"
       }
     ]
   }
