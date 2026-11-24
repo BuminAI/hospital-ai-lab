@@ -1,12 +1,36 @@
 {
-  "updatedAt": "2026-11-23T15:19:56.545Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · BBC News · Federal Register · Healthcare Business Today",
+  "updatedAt": "2026-11-24T02:34:08.957Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · Healthcare Business Today · BBC News · Federal Register",
   "items": [
+    {
+      "title": "Homegrown AI app saves pediatric radiologists 4-5 minutes per case: Microsoft",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/homegrown-ai-app-saves-pediatric-radiologists-4-5-minutes-per-case-microsoft/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-23T22:08:08.000Z"
+    },
+    {
+      "title": "The Future of AI in Nursing Must Begin with the Outcomes We Intend to Achieve",
+      "link": "https://medcitynews.com/2026/11/the-future-of-ai-in-nursing-must-begin-with-the-outcomes-we-intend-to-achieve/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-23T21:13:25.000Z"
+    },
     {
       "title": "From APIs to AI Agents: Why Embedded Payments Need Agent-Native Infrastructure",
       "link": "https://www.healthcarebusinesstoday.com/agent-native-payment-infrastructure-embedded-payments/",
       "source": "Healthcare Business Today",
       "pubDate": "2026-11-23T14:31:56.000Z"
+    },
+    {
+      "title": "Finding Focus in the Noise: Key Opportunities and Risks of AI’s Increasing Role in Healthcare",
+      "link": "https://medcitynews.com/2026/11/finding-focus-in-the-noise-key-opportunities-and-risks-of-ais-increasing-role-in-healthcare/",
+      "source": "MedCity News",
+      "pubDate": "2026-11-23T14:09:00.000Z"
+    },
+    {
+      "title": "Innovaccer Expands Gravity Voice AI with Grok Voice for Autonomous Patient",
+      "link": "https://hitconsultant.net/2026/11/23/innovaccer-expands-gravity-voice-ai-grok-voice-autonomous-patient-engagement/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-23T14:00:00.000Z"
     },
     {
       "title": "Opinion: If the AI bubble bursts, it could create a serious problem for health care",
