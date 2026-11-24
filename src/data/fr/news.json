@@ -1,12 +1,54 @@
 {
-  "updatedAt": "2026-11-23T22:16:05.648Z",
+  "updatedAt": "2026-11-24T06:27:55.575Z",
   "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Libération · Les Échos · Le Figaro · Les Numériques · Ouest-France · Sud Ouest · Numerama · France 24",
   "items": [
+    {
+      "title": "Le CHU de Guadeloupe victime d'une « cyberattaque de grande ampleur »",
+      "link": "http://www.lequotidiendumedecin.fr/hopital/le-chu-de-guadeloupe-victime-dune-cyberattaque-de-grande-ampleur",
+      "source": "Le Quotidien du Médecin",
+      "pubDate": "2026-11-23T14:59:38.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "« On revient au papier et au crayon » : le CHU de Guadeloupe victime d'une cyberattaque",
+      "link": "http://www.infirmiers.com/profession-ide/actualite-sociale/revient-au-papier-et-au-crayon-le-chu-de-guadeloupe-victime-dune-cyberattaque",
+      "source": "Infirmiers.com",
+      "pubDate": "2026-11-23T14:46:34.000Z",
+      "tier": "B"
+    },
     {
       "title": "Royaume-Uni: vaste essai de dépistage du cancer du sein assisté par l'IA",
       "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNSnJRd0g3bHR1REtEdEFpSmo5VndBbzQtYUtLVFZLa0VFNWdWczdlQnFvTTdWUFdma204S3BwRld5a2RvLTRkWWVieTNGZnRWczJ0QXJob0c1aC1fY2JjTm5ZQk1oWXlZTEhHN2hBTkZFeVJFcml0YUtBNGZ3VnBWQVBsNnJRTzMxeWVIN2pfNnNZalMwcHRzSGtWTVFnelF2MzFGM1RMTHJVZ09Ha2tXZVd4MTYyYkk5d0NQeDI2RnNxVm1ManY5Vm1zNjRvVGM?oc=5",
       "source": "France 24",
       "pubDate": "2026-11-23T12:06:23.000Z"
+    },
+    {
+      "title": "Données de santé : la Suisse prépare une architecture fédérée pour connecter ses établissements",
+      "link": "https://dsih.fr/articles/6476/donnees-de-sante-la-suisse-prepare-une-architecture-federee-pour-connecter-ses-etablissements",
+      "source": "DSIH",
+      "pubDate": "2026-11-23T00:00:00.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "Doctrine du numérique en santé 2027 : l'ANS met le DMP, l'identité numérique et la régulation en concertation",
+      "link": "https://dsih.fr/articles/6475/doctrine-du-numerique-en-sante-2027-lans-met-le-dmp-lidentite-numerique-et-la-regulation-en-concertation",
+      "source": "DSIH",
+      "pubDate": "2026-11-23T00:00:00.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "Cyberattaque au CHU de Guadeloupe : le plan blanc déclenché, des soins reportés jusqu'au 27 novembre",
+      "link": "https://dsih.fr/articles/6474/cyberattaque-au-chu-de-guadeloupe-le-plan-blanc-declenche-des-soins-reportes-jusquau-27-novembre",
+      "source": "DSIH",
+      "pubDate": "2026-11-23T00:00:00.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "SIH data centré : faire de la donnée un levier de transformation et d'innovation avec Docaposte Santé",
+      "link": "https://dsih.fr/articles/6472/sih-data-centre-faire-de-la-donnee-un-levier-de-transformation-et-dinnovation-avec-docaposte-sante",
+      "source": "DSIH",
+      "pubDate": "2026-11-23T00:00:00.000Z",
+      "tier": "B"
     },
     {
       "title": "Pr Antoine Tesnière : « L’IA en médecine générale offre un gain de performance dont il serait contraire à l’éthique de se priver »",
