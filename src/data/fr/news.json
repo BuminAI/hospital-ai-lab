@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-24T06:27:55.575Z",
-  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Libération · Les Échos · Le Figaro · Les Numériques · Ouest-France · Sud Ouest · Numerama · France 24",
+  "updatedAt": "2026-11-24T18:22:15.131Z",
+  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Libération · Les Échos · Le Figaro · Les Numériques · Ouest-France · Sud Ouest · Numerama · France 24 · Le Parisien · Egora · Hospimedia",
   "items": [
+    {
+      "title": "Les cadres de santé s'approprient l'intelligence artificielle pour gagner du temps",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNaU92YTY1QjE0OUI0dHViODBTWEhGa01VYWcwM1REUFBCMjY5VE95LW0yeC11OE5pMHcyUXFkdDRiZXNlTmk2UHhURVZlamZ0U29BSnZ6a2xjZWp0MHU3ZlpmdThwOGVkZ3B1TmZEaEdtcjg0Zm1wU1dyQlYyVTMxbURMSk9fLVZTU1NTcWxhbjhGWTMtMEtzR3lDOG9KVFdncFg1SWZPcXJDTUU?oc=5",
+      "source": "Hospimedia",
+      "pubDate": "2026-11-24T15:22:55.000Z"
+    },
+    {
+      "title": "\"Il y a un déficit important de radiologues\" : le Royaume-Uni lance une expérimentation de dépistage du cancer du sein à grande échelle assistée par l'IA",
+      "link": "https://www.franceinfo.fr/sante/cancer/il-y-a-un-deficit-important-de-radiologues-le-royaume-uni-lance-une-experimentation-de-depistage-du-cancer-du-sein-a-grande-echelle-assistee-par-l-ia_8297310.html#xtor=RSS-3-%5Bsante%5D",
+      "source": "franceinfo",
+      "pubDate": "2026-11-24T13:07:33.000Z"
+    },
     {
       "title": "Le CHU de Guadeloupe victime d'une « cyberattaque de grande ampleur »",
       "link": "http://www.lequotidiendumedecin.fr/hopital/le-chu-de-guadeloupe-victime-dune-cyberattaque-de-grande-ampleur",
@@ -334,6 +346,12 @@
       "pubDate": "2026-10-23T07:00:00.000Z"
     },
     {
+      "title": "Cancer. Et si cette IA permettait un jour de déterminer le risque de mortalité en analysant un selfie du patient ?",
+      "link": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQdnNheGdCc3p2R0ExQ3EyOXh3RHJYUm5mXzlVazl2RVNiSzNYeDdqQjB4VDVjMEVaUXNPNGJwdy1oMnlxeHFxNmhIeFlMd0JONUF5UGUtTEQzVTdNSDRlSjlaX1JEYldjM09vY2pXT1VHYzlld0VsUFF6ZGRFVkFOMTQzcTJ6WUVZbEpUUGVYVnFKcWtnQ20zZ3dBb1pNN0dxdU5Udm1UYi1qUXp4VDhnbkJBRmliWjVVem04LWJTYTFGQlJpQlRnOHRVclJ0UlRNdkhndGg3X0hTN3JWMDlLRWJkZHlSX3FrMl9ZblJYNDNpcTdGbDlKTUIwajZXNlUzTWZ2cWFIRGJSd3BmOUw3d3JJM1FsbnhQMnNveUN1UVUyaE14czVTWDF3cFhvSHpXaEdFaHJlVQ?oc=5",
+      "source": "Ouest-France",
+      "pubDate": "2026-10-22T07:00:00.000Z"
+    },
+    {
       "title": "Données de santé : l’anonymisation dans le viseur des autorités",
       "link": "https://dsih.fr/articles/6441/donnees-de-sante-lanonymisation-dans-le-viseur-des-autorites",
       "source": "DSIH",
@@ -415,6 +433,18 @@
       "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOTFNLSTA3eHFEZTN1TUlwbGx3T1hsMjFQbUR6cUt5elA5VE95RjJwa0taUFVweTJCbWZ6dHNZXzU0am1qQnRnVXZoMjdSTGFVcXFGQ1h5OWNhWGpvRGxTY2ZhMEdLcEctaHFTMGNrSHJ1aEtZakY2YldaSHJjUV9KNlZPNDhoVDZHWjQzM2VBdzNmTkRyTUhMZFBR?oc=5",
       "source": "DSIH",
       "pubDate": "2026-09-28T07:00:00.000Z"
+    },
+    {
+      "title": "Un hôpital rend hommage aux soignants... avec une exposition de photos générées par IA",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTDNIRnl0ZkxTTmk4Y1FsU0tvazF6Y0JmQWZiQ2tCcC0tMTUwb1hnS2hxYlVtOG8yRXRMRzZubHc1Nm42anBPWnJkQkRQMnR5N2V4enJRbzNjb2hYUmJRYVVEU0VVcW9rWlJITnExSWpySXI5QnlIcE1wOW9yeG1aRk5BWlBldjdqeWFwdWtRaHo3SnZXcmh5ZnVSNGZUZ1F3bm9sTnpvUTIzaDIwekhHelJpUTVOZGhMa1MyQQ?oc=5",
+      "source": "Egora",
+      "pubDate": "2026-09-24T13:57:46.000Z"
+    },
+    {
+      "title": "Levée record pour Tandem Health, le champion suédois de l'IA à l'hôpital",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNM0lHWHY1Z25OOEE5NWJmTElGM0FweFFvejU4eXlYRGVTa1FKZ0hhc01fRDFRZXI5QWhxZmRvRmdxQ1I2SXlqLVNzbUtEUHBVeHRraDZ1ckhhcjJWdE9tOVh4NlczbEo0VlhhR0NhUllTcWtTbW9Ma2cwbmlzQ3E5dnpiZXJFY3Q3TWJxSlJaYjZhbTJJLWZXSTN2VERpWjZvNndmNWZRU0hqcU11azQwZG1rVzBJVHc?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-09-14T07:00:00.000Z"
     },
     {
       "title": "Ces sociétés font parler les morts grâce à l’IA : pourquoi ce procédé « extrêmement dangereux » pour la santé inquiète",
