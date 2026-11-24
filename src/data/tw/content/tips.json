@@ -7,6 +7,36 @@
   },
   "sections": [
     {
+      "heading": "TIP 13 — 先決定回答的篇幅與項目數",
+      "body": "只說「幫我整理」，長度會忽長忽短。加上一行數字，回答就比較能直接使用。",
+      "items": []
+    },
+    {
+      "heading": "只說「整理一下」，每次回答都不一樣",
+      "body": "貼上會議內容，只請 AI「整理一下」，有時只回兩行，有時幾乎一整頁。要配合報告格式或公告欄位，最後還是得由人再縮短或補充。",
+      "items": []
+    },
+    {
+      "heading": "對策：用數字寫出想要的樣子",
+      "body": "開發 Claude 的 Anthropic 公司，其官方指南在「Be clear and direct」（清楚、直接地寫）一節建議，要具體寫出想要的輸出格式與限制。放到醫院工作上，就是用一行寫明幾句話、幾個項目、誰來讀。請複製下面的句子，只改括號內的部分。",
+      "items": [
+        "請從下面的會議內容中，只挑出已經決定的事項（3）項，每項用一句話，以（要貼到病房群組的公告）的形式寫出來。"
+      ]
+    },
+    {
+      "heading": "需要知道的事",
+      "body": "指定篇幅並不保證內容正確。日期、時間、負責人與金額，請直接對照原始資料。含有病人姓名等個人資料的資料，請勿輸入 AI 服務，並先確認院內的資訊安全規範。",
+      "items": []
+    },
+    {
+      "heading": "出處",
+      "body": "",
+      "items": [
+        "Anthropic「Prompting best practices」的「Be clear and direct」（官方文件） https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "出處確認日：2026 年 11 月 25 日"
+      ]
+    },
+    {
       "heading": "TIP 12 — 想要沒有表格和符號的回答，連提問也用一般句子寫",
       "body": "用文字說明想要的樣子，再把提問的寫法調成同樣的樣子，回答比較容易直接貼上使用。",
       "items": []

@@ -7,6 +7,36 @@
   },
   "sections": [
     {
+      "heading": "TIP 13 — Tentukan dulu panjang jawaban dan jumlah butirnya",
+      "body": "Permintaan 'tolong rangkum' tanpa angka menghasilkan jawaban yang panjangnya berbeda-beda. Satu baris berisi angka membuat jawaban lebih siap pakai.",
+      "items": []
+    },
+    {
+      "heading": "Jika hanya meminta 'rangkum', jawabannya selalu berbeda",
+      "body": "Anda menempelkan catatan rapat lalu hanya meminta 'rangkum'. Kadang hasilnya dua baris, kadang hampir satu halaman. Agar pas dengan format laporan atau kolom pengumuman, orang tetap harus memperpendek atau menambahkannya.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: tulis bentuk yang diinginkan dengan angka",
+      "body": "Panduan resmi Anthropic (perusahaan pembuat Claude) pada bagian 'Be clear and direct' menyarankan agar format dan batasan hasil yang diinginkan ditulis secara spesifik. Dalam pekerjaan rumah sakit, itu cukup satu baris: berapa kalimat, berapa butir, dan siapa pembacanya. Salin kalimat berikut dan ganti hanya isi tanda kurung.",
+      "items": [
+        "Dari catatan rapat di bawah, pilih hanya keputusan yang sudah diambil sebanyak (3) butir, tulis tiap butir dalam satu kalimat dalam bentuk (pengumuman untuk grup pesan bangsal)."
+      ]
+    },
+    {
+      "heading": "Hal yang perlu diketahui",
+      "body": "Menentukan panjang jawaban tidak menjamin isinya benar. Cocokkan tanggal, jam, penanggung jawab, dan nominal dengan dokumen asli. Jangan memasukkan materi berisi data pribadi, seperti nama pasien, ke layanan AI, dan periksa dulu aturan keamanan informasi rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, 'Prompting best practices', bagian 'Be clear and direct' (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+        "Tanggal pemeriksaan sumber: 25 November 2026"
+      ]
+    },
+    {
       "heading": "TIP 12 — Ingin jawaban tanpa tabel dan simbol? Tulis pertanyaannya juga dengan kalimat biasa",
       "body": "Sebutkan bentuk yang Anda mau dan samakan gaya penulisan permintaan Anda, sehingga jawaban lebih mudah langsung ditempel.",
       "items": []
