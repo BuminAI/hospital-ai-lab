@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-23T20:29:58.101Z",
-  "source": "Медвестник · Vademecum · Хабр · CNews · Zdrav.ru",
+  "updatedAt": "2026-11-24T16:15:16.321Z",
+  "source": "Медвестник · Vademecum · Хабр · CNews · Zdrav.ru · Росздравнадзор",
   "items": [
+    {
+      "title": "РТУ МИРЭА представил ИИ-разработку для оценки состояния плода",
+      "link": "https://www.cnews.ru/news/line/2026-11-24_rtu_mirea_predstavil_ii-razrabotku",
+      "source": "CNews",
+      "pubDate": "2026-11-24T10:23:00.000Z"
+    },
+    {
+      "title": "Сеть клиник «Будь Здоров» развивает ИИ-сервисы в облаке Cloud X",
+      "link": "https://www.cnews.ru/news/line/2026-11-24_set_klinik_bud_zdorov",
+      "source": "CNews",
+      "pubDate": "2026-11-24T07:04:00.000Z"
+    },
+    {
+      "title": "Ученые создали высокоэффективные мемристоры для нейроморфного ИИ",
+      "link": "http://www.roszdravnadzor.gov.ru/news/50257",
+      "source": "Росздравнадзор",
+      "pubDate": "2026-11-23T21:00:00.000Z"
+    },
     {
       "title": "[Перевод] ИИ оказался внимательнее и заметил кровоизлияние, а врач — нет",
       "link": "https://habr.com/ru/companies/speshu_ai/articles/1111386/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1111386",
