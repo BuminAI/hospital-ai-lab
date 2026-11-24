@@ -1,7 +1,71 @@
 {
-  "updatedAt": "2026-11-24T06:01:22.270Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 메디팜스투데이 · 메디파나뉴스 · AI타임스 · 연합뉴스 · 뉴시스 · 보건복지부",
+  "updatedAt": "2026-11-24T17:42:47.315Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 메디팜스투데이 · 메디파나뉴스 · AI타임스 · 연합뉴스 · 뉴시스 · 보건복지부 · 의약뉴스",
   "items": [
+    {
+      "title": "한양대의료원, 140만 자 규모 국ㆍ영문 건강백과 데이터베이스 무료 공개 外",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259501",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-24T22:16:47.000Z"
+    },
+    {
+      "title": "양 제약지수 동반 상승, 유가증권시장 제약지수 1만 5000선 회복",
+      "link": "http://www.newsmp.com/news/articleView.html?idxno=259503",
+      "source": "의약뉴스",
+      "pubDate": "2026-11-24T19:12:08.000Z"
+    },
+    {
+      "title": "[11월 24일 병원·의료소식] 서울대병원, 상계백병원, 한양대학교의료원, 국립암센터, 연세대 융합보건의료대학원·SCL",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99119",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-24T18:22:36.000Z",
+      "popular": true,
+      "rank": 2
+    },
+    {
+      "title": "AI가 '가상 신약개발팀'으로…약학도에 필요한 역량은",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422564",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-24T18:06:18.000Z"
+    },
+    {
+      "title": "한국약학교육학회, 27일 교수역량개발 프로그램 개최",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549798",
+      "source": "약사공론",
+      "pubDate": "2026-11-24T16:26:36.000Z"
+    },
+    {
+      "title": "한양대의료원, 140만자 규모 국·영문 건강백과 DB 무료 공개",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415755",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-24T16:09:14.000Z"
+    },
+    {
+      "title": "전남 의과 공보의 3년 새 반토막…AI 진단·전문의 원격협진 추진",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217736",
+      "source": "AI타임스",
+      "pubDate": "2026-11-24T15:27:01.000Z"
+    },
+    {
+      "title": "AI 건강정보 신뢰도 높인다…한양대의료원, 건강백과 개방",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422536",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-24T15:24:33.000Z"
+    },
+    {
+      "title": "AI가 바꾸는 신약개발, 약사에게 요구되는 역량도 달라진다",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549785",
+      "source": "약사공론",
+      "pubDate": "2026-11-24T15:11:10.000Z"
+    },
+    {
+      "title": "신종감염병 위기 대비, 국가·지역 통합 의료대응체계 구축 모색",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99107",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-24T15:00:00.000Z",
+      "popular": true,
+      "rank": 3
+    },
     {
       "title": "암데이터 활용의 안전망…국립암센터, ISMS-P 5년째 유지",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422517",
@@ -57,6 +121,12 @@
       "pubDate": "2026-11-24T11:54:37.000Z"
     },
     {
+      "title": "의료 AI, 환자 건강결과 개선에 초점 맞춰야",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200211",
+      "source": "의협신문",
+      "pubDate": "2026-11-24T11:29:00.000Z"
+    },
+    {
       "title": "로킷헬스케어, 장기재생 기술로 유럽 항노화 시장 진출 추진",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422486",
       "source": "메디파나뉴스",
@@ -79,6 +149,12 @@
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017172",
       "source": "의학신문",
       "pubDate": "2026-11-24T10:56:58.000Z"
+    },
+    {
+      "title": "자격의 자격...AI 시대의 혼용과 활용",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200207",
+      "source": "의협신문",
+      "pubDate": "2026-11-24T10:32:00.000Z"
     },
     {
       "title": "인천시약·병원회, 손잡고 '환자 중심 건강관리' 모델 구축",
@@ -180,7 +256,9 @@
       "title": "한국에자이, 12월 ‘디지털 헬스케어 심포지엄’ 개최",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99087",
       "source": "e-의료정보",
-      "pubDate": "2026-11-24T08:50:25.000Z"
+      "pubDate": "2026-11-24T08:50:25.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "'책임' 대신 '판단' 택한 의학한림원…\"AI 책임은 함께 나눠야\"",
@@ -193,6 +271,14 @@
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044817",
       "source": "청년의사",
       "pubDate": "2026-11-24T06:46:12.000Z"
+    },
+    {
+      "title": "연말 상복 터진 의료기기 업계, 기술·품질·기업문화 전방위 쾌거",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017083",
+      "source": "의학신문",
+      "pubDate": "2026-11-24T05:50:00.000Z",
+      "popular": true,
+      "rank": 7
     },
     {
       "title": "\"의료AI, 건강검진 활용\"…마이허브, '이곳'과 협력",
@@ -248,7 +334,9 @@
       "title": "105병상·AI 입는 대구보훈병원 증축 '첫 삽'",
       "link": "https://www.khanews.com/news/articleView.html?idxno=253181",
       "source": "병원신문",
-      "pubDate": "2026-11-23T17:18:00.000Z"
+      "pubDate": "2026-11-23T17:18:00.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "분당서울대병원, 심부전 치료제 효과 예측 AI 개발",
@@ -6127,84 +6215,6 @@
       "link": "https://www.khanews.com/news/articleView.html?idxno=248327",
       "source": "병원신문",
       "pubDate": "2026-07-27T04:54:00.000Z"
-    },
-    {
-      "title": "제이엘케이, 일본 세 번째 유통 파트너 확보…시장 공략 속도",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169923",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-27T02:46:28.000Z"
-    },
-    {
-      "title": "\"터지고 나면 이미 늦는 뇌동맥류…AI가 가장 필요한 분야죠\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169911",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-26T20:20:00.000Z"
-    },
-    {
-      "title": "의료AI 사고실험실(하)",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169917",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-26T20:00:00.000Z"
-    },
-    {
-      "title": "의료AI 사고실험실(상)",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169916",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-26T20:00:00.000Z"
-    },
-    {
-      "title": "심평원, 6개 국립대치과병원과 ‘AI 치과의료’에 힘 싣는다",
-      "link": "https://www.khanews.com/news/articleView.html?idxno=248269",
-      "source": "병원신문",
-      "pubDate": "2026-07-25T15:16:00.000Z"
-    },
-    {
-      "title": "의료데이터 국가전략기술로 급부상 \"분석하고 활용능력 키워라\"",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169907",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-24T20:30:00.000Z"
-    },
-    {
-      "title": "의료데이터 국가전략기술로 급부상…분석하고 활용능력 키워야",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169907",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-24T20:30:00.000Z"
-    },
-    {
-      "title": "딥노이드, 영상판독 효율성 특허 취득…M4CXR 성능 고도화",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169899",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-24T02:55:05.000Z"
-    },
-    {
-      "title": "로킷헬스, 美 진단기업과 사업 확대…다중암 진단 공동개발",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169900",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-24T02:50:37.000Z"
-    },
-    {
-      "title": "[건강정보] 약물 넘어 로봇·AI까지…뇌전증 치료의 진화",
-      "link": "https://www.khanews.com/news/articleView.html?idxno=248220",
-      "source": "병원신문",
-      "pubDate": "2026-07-23T07:50:00.000Z"
-    },
-    {
-      "title": "‘톡톡’ 튀는 AI 의료 아이디어…심평원 창업대회 ‘성황’",
-      "link": "https://www.khanews.com/news/articleView.html?idxno=248215",
-      "source": "병원신문",
-      "pubDate": "2026-07-23T06:18:00.000Z"
-    },
-    {
-      "title": "전시회야 학술대회야?…헬스케어 학회 발돋음한 KHF 2026",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169872",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-22T20:30:00.000Z"
-    },
-    {
-      "title": "마침내 GPU 확보한 국내 기업들…차세대 의료 AI 개발 속도",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1169870",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-07-22T20:30:00.000Z"
     }
   ]
 }
