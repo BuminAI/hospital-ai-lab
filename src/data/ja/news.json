@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-20T12:13:49.586Z",
-  "source": "CBnews・厚生労働省・デジタル庁",
+  "updatedAt": "2026-11-24T02:36:52.020Z",
+  "source": "CBnews・厚生労働省・デジタル庁 · CBnews · 日経クロステック · 厚生労働省",
   "items": [
+    {
+      "title": "オムロンが双腕3指ロボット、創薬実験を自動化へ 上意下達では「遅い」",
+      "link": "https://xtech.nikkei.com/atcl/nxt/column/18/03688/111000019/",
+      "source": "日経クロステック",
+      "pubDate": "2026-11-23T20:00:00.000Z"
+    },
     {
       "title": "自治体・医療機関等をつなぐ情報連携システム（Public Medical Hub：PMH）に係る自治体・自治体システムベンダー向けの情報の「PIAひな形」を更新しました",
       "link": "https://www.digital.go.jp/policies/health/public-medical-hub",
