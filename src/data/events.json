@@ -1,6 +1,102 @@
 {
-  "updatedAt": "2026-11-23T20:29:39.613Z",
+  "updatedAt": "2026-11-24T10:20:40.985Z",
   "items": [
+    {
+      "title": "내년 정부 AI 예산 1.6배 확대…풀스택 AX 수출 추진",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217751",
+      "source": "AI타임스",
+      "pubDate": "2026-11-24T18:17:40.000Z"
+    },
+    {
+      "title": "한국약학교육학회, 27일 교수역량개발 프로그램 개최",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549798",
+      "source": "약사공론",
+      "pubDate": "2026-11-24T16:26:36.000Z"
+    },
+    {
+      "title": "AI가 바꾸는 신약개발, 약사에게 요구되는 역량도 달라진다",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549785",
+      "source": "약사공론",
+      "pubDate": "2026-11-24T15:11:10.000Z"
+    },
+    {
+      "title": "신종감염병 위기 대비, 국가·지역 통합 의료대응체계 구축 모색",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99107",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-24T15:00:00.000Z"
+    },
+    {
+      "title": "한국생약학회 학술대회 개최…AI 접목한 천연물 연구 방향 모색",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549763",
+      "source": "약사공론",
+      "pubDate": "2026-11-24T14:13:31.000Z"
+    },
+    {
+      "title": "경기도약, 약사윤리부터 AI 활용까지…실무 역량 강화",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549764",
+      "source": "약사공론",
+      "pubDate": "2026-11-24T14:10:15.000Z"
+    },
+    {
+      "title": "한국에자이, 초고령사회 인지건강·디지털 헬스케어 협력 모색",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549750",
+      "source": "약사공론",
+      "pubDate": "2026-11-24T13:43:18.000Z"
+    },
+    {
+      "title": "의료 AI, 환자 건강결과 개선에 초점 맞춰야",
+      "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200211",
+      "source": "의협신문",
+      "pubDate": "2026-11-24T11:29:00.000Z"
+    },
+    {
+      "title": "아모레퍼시픽, 日서 뷰티 테크 전략 공개",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017180",
+      "source": "의학신문",
+      "pubDate": "2026-11-24T11:07:30.000Z"
+    },
+    {
+      "title": "충남약사회, 여약사위원회 AI·디지털 활용 역량 강화",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549699",
+      "source": "약사공론",
+      "pubDate": "2026-11-24T09:58:59.000Z"
+    },
+    {
+      "title": "한국에자이, 12월 ‘디지털 헬스케어 심포지엄’ 개최",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99087",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-24T08:50:25.000Z"
+    },
+    {
+      "title": "미국과 GDP 격차 1.8배 벌어지자 규제 푼 EU…우리는",
+      "link": "https://zdnet.co.kr/view/?no=20261124163122",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-24T07:31:22.000Z"
+    },
+    {
+      "title": "핵융합로 개념 자동화 설계위한 AI플랫폼 구축 '정상궤도'",
+      "link": "https://zdnet.co.kr/view/?no=20261124162519",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-24T07:25:19.000Z"
+    },
+    {
+      "title": "美 CDC 보고 감염은 20%뿐…\"감시 밖 의료감염 더 많다\"",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044817",
+      "source": "청년의사",
+      "pubDate": "2026-11-24T06:46:12.000Z"
+    },
+    {
+      "title": "삼성 안내견·현대차 소방관 지원…국민이 뽑은 사회공헌 맛집",
+      "link": "https://www.yna.co.kr/view/AKR20261124124300003",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-24T06:00:01.000Z"
+    },
+    {
+      "title": "\"이집트 시장 확대\"…쓰리빌리언, 보험 등록 추진",
+      "link": "https://www.newsis.com/view/NISX20261124_0003880365",
+      "source": "뉴시스",
+      "pubDate": "2026-11-24T00:26:21.000Z"
+    },
     {
       "title": "고대안암병원, 'AI+Digital Bio Med Summit 2026' 개최",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422430",
@@ -43,13 +139,17 @@
       "title": "심평원, 보건의료 빅데이터 10년 성과 공유…AI 미래 전략 모색",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044791",
       "source": "청년의사",
-      "pubDate": "2026-11-23T11:36:42.000Z"
+      "pubDate": "2026-11-23T11:36:42.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "고대안암병원, ‘AI·디지털 바이오 메드 서밋 2026’ 개최",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242762",
       "source": "라포르시안",
-      "pubDate": "2026-11-23T10:40:00.000Z"
+      "pubDate": "2026-11-23T10:40:00.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "고대 안암병원, KUM AI+Digital Bio Med Summit 2026 개최",
