@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-24T12:56:20.801Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · Healthcare Business Today · BBC News · Federal Register",
+  "updatedAt": "2026-11-24T23:15:31.233Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · The New York Times · JAMA Network · NEJM AI · Federal Register · BBC News · Healthcare Business Today",
   "items": [
+    {
+      "title": "77% of hospitals now use generative AI, outpacing predictive AI",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/77-of-hospitals-now-use-generative-ai-outpacing-predictive-ai/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-24T22:28:51.000Z"
+    },
+    {
+      "title": "How AI-Native Clinical Data Platforms Are Changing the Future of Clinical Trials",
+      "link": "https://www.healthcarebusinesstoday.com/ai-native-clinical-data-platforms-clinical-trials/",
+      "source": "Healthcare Business Today",
+      "pubDate": "2026-11-24T17:59:31.000Z"
+    },
+    {
+      "title": "STAT+: Alaskan hospitals use AI to improve stroke care, peptides go mainstream, and RSNA 2026",
+      "link": "https://www.statnews.com/2026/11/24/alaskan-hospitals-using-ai-rsna-2026-peptides-health-tech/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-24T14:19:30.000Z"
+    },
     {
       "title": "STAT+: AI can analyze X-rays and CT scans to draft radiology reports. Will it make care better, safer?",
       "link": "https://www.statnews.com/2026/11/24/does-radiology-ai-draft-reports-make-care-better-safer-rsna/?utm_campaign=rss",
@@ -19,6 +37,18 @@
       "link": "https://radiologybusiness.com/topics/artificial-intelligence/worlds-largest-breast-imaging-ai-trial-launches-13m-government-support",
       "source": "Radiology Business",
       "pubDate": "2026-11-24T08:50:59.000Z"
+    },
+    {
+      "title": "A Technology Journalist Looks at AI and Health",
+      "link": "https://jamanetwork.com/journals/jama/fullarticle/2855721",
+      "source": "JAMA Network",
+      "pubDate": "2026-11-24T00:00:00.000Z"
+    },
+    {
+      "title": "Electrocardiogram-Based Deep Learning to Prioritize Testing for Transthyretin Amyloid Cardiomyopathy",
+      "link": "https://jamanetwork.com/journals/jama/fullarticle/2853388",
+      "source": "JAMA Network",
+      "pubDate": "2026-11-24T00:00:00.000Z"
     },
     {
       "title": "Homegrown AI app saves pediatric radiologists 4-5 minutes per case: Microsoft",
