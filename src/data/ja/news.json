@@ -1,7 +1,20 @@
 {
-  "updatedAt": "2026-11-24T02:36:52.020Z",
-  "source": "CBnews・厚生労働省・デジタル庁 · CBnews · 日経クロステック · 厚生労働省",
+  "updatedAt": "2026-11-24T14:19:16.901Z",
+  "source": "CBnews・厚生労働省・デジタル庁 · CBnews · 日経クロステック · デジタル庁 · 厚生労働省",
   "items": [
+    {
+      "title": "カルテ情報共有を地域医療支援病院の努力義務に-来月18日まで意見募集 厚労省",
+      "link": "https://www.cbnews.jp/news/entry/20261124114419",
+      "source": "CBnews",
+      "pubDate": "2026-11-24T03:10:00.000Z",
+      "tier": "B"
+    },
+    {
+      "title": "AI・デジタル改革推進専門調査会の開催情報と資料を掲載しました",
+      "link": "https://www.digital.go.jp/councils/ai-digital-expert",
+      "source": "デジタル庁",
+      "pubDate": "2026-11-24T03:00:00.000Z"
+    },
     {
       "title": "オムロンが双腕3指ロボット、創薬実験を自動化へ 上意下達では「遅い」",
       "link": "https://xtech.nikkei.com/atcl/nxt/column/18/03688/111000019/",
@@ -25,6 +38,12 @@
       "link": "https://toyokeizai.net/articles/-/965070?utm_source=rss&utm_medium=http&utm_campaign=link_back",
       "source": "東洋経済オンライン",
       "pubDate": "2026-11-19T20:15:00.000Z"
+    },
+    {
+      "title": "薬事審議会 プログラム医療機器調査会を開催します",
+      "link": "https://www.mhlw.go.jp/stf/newpage_77540.html",
+      "source": "厚生労働省",
+      "pubDate": "2026-11-19T07:58:00.000Z"
     },
     {
       "title": "医薬品供給情報システムに不正アクセス 厚労省-企業担当者の情報漏えいの可能性",
