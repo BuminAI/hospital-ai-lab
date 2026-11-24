@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-23T18:03:37.843Z",
+  "updatedAt": "2026-11-24T05:59:53.947Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ-анализ проектов и отчет по портфелю в формате Excel: что нового в Directum Projects",
+      "link": "https://www.cnews.ru/news/line/2026-11-24_ii-analiz_proektov_i_otchet",
+      "source": "CNews",
+      "pubDate": "2026-11-24T05:43:00.000Z"
+    },
+    {
+      "title": "Как отдавать письма клиентов во внешнюю LLM и не отдавать их персональные данные",
+      "link": "https://habr.com/ru/articles/1111548/?utm_campaign=1111548&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-24T04:27:24.000Z"
+    },
+    {
+      "title": "Когда ИИ агент начинает хулиганить…",
+      "link": "https://habr.com/ru/companies/otus/articles/1107714/?utm_campaign=1107714&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-23T20:11:04.000Z"
+    },
+    {
+      "title": "Китайская Z.ai представила первую в мире ИИ-модель, которая дважды подумает, прежде чем ответить",
+      "link": "https://3dnews.ru/1151700/kitayskaya-zai-predstavila-pervuyu-v-mire-iimodel-kotoraya-dvagdi-podumaet-pregde-chem-otvetit",
+      "source": "3DNews",
+      "pubDate": "2026-11-23T19:36:00.000Z"
+    },
+    {
+      "title": "ИИ стал материться от бессилия: современные модели всё чаще ругаются, когда не могут решить задачу",
+      "link": "https://3dnews.ru/1151696/ii-stal-materitsya-ot-bessiliya-sovremennie-modeli-vsyo-chashche-rugayutsya-kogda-ne-mogut-reshit-zadachu",
+      "source": "3DNews",
+      "pubDate": "2026-11-23T19:05:00.000Z"
+    },
     {
       "title": "Harness и ИИ-ревью: как современные ИИ-агенты ревьювят ваш код",
       "link": "https://habr.com/ru/companies/bothub/articles/1111458/?utm_campaign=1111458&utm_source=habrahabr&utm_medium=rss",
@@ -33,7 +63,7 @@
       "pubDate": "2026-11-23T14:35:57.000Z"
     },
     {
-      "title": "Первый в России офис с цифровым сотрудником: как устроен ИИ-аватар",
+      "title": "Первый в России офис с цифровым сотрудником: как устроен ИИ‑аватар",
       "link": "https://habr.com/ru/companies/speshu_ai/articles/1111376/?utm_campaign=1111376&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-23T14:22:02.000Z"
@@ -1771,36 +1801,6 @@
       "link": "https://habr.com/ru/articles/1104826/?utm_campaign=1104826&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-07T09:17:00.000Z"
-    },
-    {
-      "title": "[Перевод] Знают ли модели ИИ, о чём они думают? Учёные пытаются это проверить",
-      "link": "https://habr.com/ru/articles/1104758/?utm_campaign=1104758&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-07T08:44:38.000Z"
-    },
-    {
-      "title": "Готов ли российский e-com и финтех к ИИ-агентам? Обзор 424 рыночных продуктов",
-      "link": "https://habr.com/ru/articles/1104816/?utm_campaign=1104816&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-07T08:12:00.000Z"
-    },
-    {
-      "title": "Как мы с локальной LLM легально победили жесткий антифрод и создали визуально-текстового DOM-агента в обход блокировок",
-      "link": "https://habr.com/ru/articles/1104808/?utm_campaign=1104808&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-07T07:46:28.000Z"
-    },
-    {
-      "title": "790 трлн токенов за октябрь: OpenRouter опубликовали новые данные об использовании LLM",
-      "link": "https://habr.com/ru/articles/1104804/?utm_campaign=1104804&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-07T07:39:46.000Z"
-    },
-    {
-      "title": "IPO на $1,5 трлн под угрозой: потенциальных инвесторов Anthropic напугал обвал акций IT-компаний",
-      "link": "https://3dnews.ru/1150980/ipo-na-15-trln-pod-ugrozoy-potentsialnih-investorov-anthropic-napugal-obval-aktsiy-itkompaniy",
-      "source": "3DNews",
-      "pubDate": "2026-11-06T18:32:00.000Z"
     }
   ]
 }

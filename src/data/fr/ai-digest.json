@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T18:06:08.645Z",
+  "updatedAt": "2026-11-24T06:03:25.234Z",
   "source": "ZDNet France·franceinfo·Le Monde·CNIL·Europe 1·Ouest-France·Sud Ouest·Libération·Numerama·Le Figaro·Les Échos·La Croix·Silicon.fr·Le Parisien·20 Minutes·DSIH·Challenges·La Tribune·Public Sénat·France 24",
   "items": [
     {
@@ -381,16 +381,16 @@
       "pubDate": "2026-11-12T08:00:00.000Z"
     },
     {
-      "title": "Cinq fois plus d'offres d'emploi, pour des salaires plus élevés : les entreprises s'arrachent les jeunes talents de l'IA",
-      "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOUDhvOWhkekFuSzlBR0JDYUlZNERtVUV1MWxuQzV0U3Y1UVNXSE8zNkZ0bm5RVmlkbndwMTBITTlNdml2LWNIU1VyejZPVkQ2Z095WGZwUHptYjZKb2xBX213cW5RaWFMRHhENS16bEhGM0Fza2JlU1VGNTY1MTU0U3llSXJhUk1XdjZUYzdOQ0Zoa1J3LUNEbTZ3WHFQR1Q3ZllhSUhmbEluYV9IMnJxWmVzem96QjBueXo1QUZRUmdDOFMxWUt3VnZuaWFFdFFKRW92cS1fekRIbEJnYTdVbHZSdm1kTm5iM21nZWZjRFdBV1VVemhNdTlR?oc=5",
-      "source": "Les Échos",
-      "pubDate": "2026-11-11T09:12:08.000Z"
-    },
-    {
       "title": "OpenAI introduit « Businesses in ChatGPT » : fiches, catalogues et statistiques pour les entreprises",
       "link": "https://www.zdnet.fr/actualites/openai-introduit-businesses-in-chatgpt-fiches-catalogues-et-statistiques-pour-les-entreprises-507702.htm#xtor=RSS-1",
       "source": "ZDNet France",
       "pubDate": "2026-11-11T08:11:57.000Z"
+    },
+    {
+      "title": "Cinq fois plus d'offres d'emploi, pour des salaires plus élevés : les entreprises s'arrachent les jeunes talents de l'IA",
+      "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOUDhvOWhkekFuSzlBR0JDYUlZNERtVUV1MWxuQzV0U3Y1UVNXSE8zNkZ0bm5RVmlkbndwMTBITTlNdml2LWNIU1VyejZPVkQ2Z095WGZwUHptYjZKb2xBX213cW5RaWFMRHhENS16bEhGM0Fza2JlU1VGNTY1MTU0U3llSXJhUk1XdjZUYzdOQ0Zoa1J3LUNEbTZ3WHFQR1Q3ZllhSUhmbEluYV9IMnJxWmVzem96QjBueXo1QUZRUmdDOFMxWUt3VnZuaWFFdFFKRW92cS1fekRIbEJnYTdVbHZSdm1kTm5iM21nZWZjRFdBV1VVemhNdTlR?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-11T08:00:00.000Z"
     },
     {
       "title": "Agents IA : Google muscle sa huitième génération de TPU avec une puce à sécurité matérielle et une autre à mémoire élargie",
@@ -402,6 +402,12 @@
       "title": "IA, cybersécurité, marketplace... Orange se rapproche du modèle de la « super-app »",
       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUERiMnAxVW84LWg5SHVBNVl4eDhBVk5sbi1kWEpIUEp1U2taSmVxcGI0RlBFOEw5bzBTV2pXc0JBY2trU2RQeUtxSXA3amhXaUNSUmNBZl9uYmUtMFdBLTZCS05OQzEzTzJnRDhDSTFQVVNhbkk5YzlwWDMzUHlkQkFOLUdkOElPQjFPM1pDSzlPWC1VY3Zha2tKLUdacWhhcHd6cGw4OEtoRUNHcTNTN0g0QWxZTHQ1VUVwUmoyN2R2R09sQVRFU1I0V3RoMzNTYUE?oc=5",
       "source": "La Tribune",
+      "pubDate": "2026-11-10T08:00:00.000Z"
+    },
+    {
+      "title": "IA, mails, télé, cybersécurité… Orange lance une «super-app» mobile pour réunir tous ses services",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNZ3c4Tlo2RzNlSDVuZmQ4b0ZvM010TV9qMzB5V2dTYjVScXNhNXJYblRaZFBZNWtuQjRMLTBxbHFQMFZ6b2NmakZ4NXJsNjZZaktMS29fYXIzT1hKTWtWcHdhXzhWMERJMmEzNFMxUV9EYnkyNXBfZHlaaXY5aWx3OFAwaHMxMmk4MTRtZXA5V21uWjBVSXVzYnJZRG9lekg3ZDU4MjBPRHphVmJUcV82eHZiVTJic2FHZ3B4TnVLczRjdTFBNGRTODBITDVrdV9ZdEJtYW9mZmpfZw?oc=5",
+      "source": "Le Figaro",
       "pubDate": "2026-11-10T08:00:00.000Z"
     },
     {
@@ -447,10 +453,22 @@
       "pubDate": "2026-11-06T08:00:00.000Z"
     },
     {
+      "title": "Plans de départs et licenciements massifs : derrière l’« annus horribilis » pour l’emploi dans la tech américaine, l’ombre de l’IA",
+      "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQd0oyd3VMekFya0ktWmgtZE9uRFJabnEzTHNNRXd5b1J5THRLQlB3alo5NFZTRWVaLVVabDhvVkxETkFESTVaUjZQOXpxTTdDZmFpWktINEJaQ0tja2hwbHB2YkpqNnhkeTBSMHNXOW52eEpkc2JUSU51eF9aNHVkNnc4bHBxZDZTQml2dWljeGgyMEZhLW5WRVp5eEFkejU4OGNJR0w2YVlGTTU5TWYyQ1dJQi1Mb0p5RXZxOEZDYmhpcHJRODdkUUpmNXFuMk92Y1J3aEt2YnZUei1SMHowNG9QSmVRckdLNTQycjRaUXJVcngzRUhnSkVOV2lqZ3Z6bEROdQ?oc=5",
+      "source": "Le Figaro",
+      "pubDate": "2026-11-01T07:00:00.000Z"
+    },
+    {
       "title": "Code, cybersécurité : les nouvelles priorités de Mistral AI pour griffer ses concurrents chinois",
       "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPWnZNU0d1VERmVG1SOGI3UWp4TkdzRnRkU0M3WXMyNkMxeEpVcGd0blhmS2QtSEtObWlkX080UXE0dHBnNUk3Z1o3bk12TlNGNk9sc3ZJTlUxTkItZEw0UngxVXVwdlBCVnYzX3lPZmpMX3ZQYVVaREdteVh6OEpQLXFwd0xVUk1LTE1VNXhDajNtYzJiYlh5ZDVEU1p1NFRxdzNBYlNZcGRCVkx2RXpabW9rMzJhY3kyMEg3aVA1Q0QxVTdJUTg4M0xaMmN0QTNhRFdiWmhld3VETkJkVHhfSEV0UTU1cG4xOVB4ZmdOVjdqSTJuSVE?oc=5",
       "source": "Les Échos",
       "pubDate": "2026-10-29T07:00:00.000Z"
+    },
+    {
+      "title": "Microsoft propose à 60 000 salariés de partir : l’apocalypse de l’emploi liée à l’IA a-t-elle commencé",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNbnBCcnVsVC1iWlFxeTNHTHhaRm5uazRvRTM4OU03WWsxck1OaVpfNmI4UGV2aWhfQ0c1Ri1LaXFndHczdzZPNzljcnR0MXE0a2Y4Rjd2X2dUcERTVWpSV05HVE1DMHFrbWx2VWV6eDVzUUwzSHlDR3BhSjlLZ3gzUXJneGYwZW56Q0tQem1RV2dYdE9HeVR4S2JXZ0hicnBqVUNjR19wMkxjV20xU0dIYXotMzBWbTZBN0x1ajE4R3dpcjJYOEgzOW1Ec3lBdkxOYVM5Tnl6NA?oc=5",
+      "source": "Numerama",
+      "pubDate": "2026-10-27T07:00:00.000Z"
     },
     {
       "title": "Le scribe IA, premier test de l'hôpital face aux agents",
@@ -465,15 +483,15 @@
       "pubDate": "2026-10-27T00:00:00.000Z"
     },
     {
-      "title": "L'intelligence artificielle, nouveau défi pour les experts de la cybersécurité",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPajBRRG1nQUJMVE5xZlNPYVFxNFdCeVFuaE5RR1kxMVNjbDBrdU1YanF3cXV5TVNSaEt5eC11NUl6Skg4NXNRdk5rcUdCSzluVE9LbG9YNWhBMXdDN2dJbVZsRWh6TUViZ21JeFZ0bjlTUWlySDdSbXNXS01DbmxJV1NvZkljNGFNa1UyNVpwT2Q1TkpVZmZ0Q3pmT3BtUGY5MDQ2VnZlSWVFRk1GcWhHTURlbl9yY2JudGxGNnl0Wkw?oc=5",
-      "source": "Les Échos",
-      "pubDate": "2026-10-26T07:00:00.000Z"
-    },
-    {
       "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
       "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
       "source": "Le Figaro",
+      "pubDate": "2026-10-26T07:00:00.000Z"
+    },
+    {
+      "title": "L'intelligence artificielle, nouveau défi pour les experts de la cybersécurité",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPajBRRG1nQUJMVE5xZlNPYVFxNFdCeVFuaE5RR1kxMVNjbDBrdU1YanF3cXV5TVNSaEt5eC11NUl6Skg4NXNRdk5rcUdCSzluVE9LbG9YNWhBMXdDN2dJbVZsRWh6TUViZ21JeFZ0bjlTUWlySDdSbXNXS01DbmxJV1NvZkljNGFNa1UyNVpwT2Q1TkpVZmZ0Q3pmT3BtUGY5MDQ2VnZlSWVFRk1GcWhHTURlbl9yY2JudGxGNnl0Wkw?oc=5",
+      "source": "Les Échos",
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
@@ -517,6 +535,18 @@
       "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNQ3UzckUyMk9lMkRvZDJWODQ1cDktQ3NSOG9ZTGQ0a0sxUl9YdHprWWlzSmtfcFZCQVJXcVRxenVhdmRNSER3MU1TRmVXNFZvRGdNMTdwLXQ3SFNhS3FGYzB2UzV0Nm03UjNrMHJKVTFWM0diZ2hNVWdSa2RpVEJ0NkszUjBIMjc1clYyRExvNDJCb2RvOW1ZMTNkYnNnZUk5OXFKbQ?oc=5",
       "source": "DSIH",
       "pubDate": "2026-10-19T07:00:00.000Z"
+    },
+    {
+      "title": "Face à la vague de l’IA, la Californie muscle son droit du travail",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORU1nclZOWEI4WnVsbXZHTkxrQzVJWDFZMWRhZWU3TlFkcmE4TlgtMFhWTDdRYzN0MWlPZlJQU3c1Y0Fmd3NfSXJ0b1RvV2tFM2lWZjVoZENTQ2tmWXlXY3JwSEE4TnNGa1pTVDRHUnRvcUd5aDl0NWw4TGZxRmVobFg0OXBwTzR4T2JCOVpnUjc5bXktMjRvNE5vMFBmb3dVbWl0N0lJclR1WENU?oc=5",
+      "source": "La Croix",
+      "pubDate": "2026-10-17T07:00:00.000Z"
+    },
+    {
+      "title": "Taxer l'IA pour financer son impact sur l'emploi : ce débat explosif qui s'ouvre en Allemagne",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNWk9QQjZFT25YMUpZYVVKeVdlNmQwdXVDaDRaY3V6ZzdvOTNaTlozMzVneUFqZjJwN3pJWXlvUE1IWTlOMHBQa05GeFdJWEk1TTFxZ1M3QVRnWEFPUGxzb2N6dzBMTE1JNG5XX2dKYk5vUHJjN29pZ1ZDMW5VcHRWX1l0TUpxeGlwSVl6eUVwRkQ4Q3FDYWJKbXV2cHRNeVpCdmxpZE00Q2dVQQ?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-10-13T07:00:00.000Z"
     },
     {
       "title": "Comment l'intelligence artificielle menace l'emploi des jeunes",
