@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-24T02:34:08.957Z",
+  "updatedAt": "2026-11-24T12:56:20.801Z",
   "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · Healthcare Business Today · BBC News · Federal Register",
   "items": [
+    {
+      "title": "STAT+: AI can analyze X-rays and CT scans to draft radiology reports. Will it make care better, safer?",
+      "link": "https://www.statnews.com/2026/11/24/does-radiology-ai-draft-reports-make-care-better-safer-rsna/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-24T09:30:00.000Z"
+    },
+    {
+      "title": "How artificial intelligence is offering new hope for stroke patients in the Last Frontier",
+      "link": "https://www.statnews.com/2026/11/24/alaskan-hospitals-artificial-intelligence-bet-improve-stroke-care/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-24T09:30:00.000Z"
+    },
+    {
+      "title": "World’s largest breast imaging AI trial launches with $13M in government support",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/worlds-largest-breast-imaging-ai-trial-launches-13m-government-support",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-24T08:50:59.000Z"
+    },
     {
       "title": "Homegrown AI app saves pediatric radiologists 4-5 minutes per case: Microsoft",
       "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/homegrown-ai-app-saves-pediatric-radiologists-4-5-minutes-per-case-microsoft/",
