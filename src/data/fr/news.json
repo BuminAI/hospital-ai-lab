@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-24T18:22:15.131Z",
+  "updatedAt": "2026-11-25T11:46:49.808Z",
   "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Libération · Les Échos · Le Figaro · Les Numériques · Ouest-France · Sud Ouest · Numerama · France 24 · Le Parisien · Egora · Hospimedia",
   "items": [
+    {
+      "title": "Santé : un quart des utilisateurs d’IA a déjà contesté le diagnostic posé par un médecin, selon un sondage",
+      "link": "https://news.google.com/rss/articles/CBMimgJBVV95cUxQdTBydThvMkdMN0FfZFo4SXJoeWtYLTJDdVVCVjdXbkU4TjJfRkJjRWpUVV9SeEMyaEZZay1YbWVUZTUzSHhyYTNZS2J5a0gtM1VJZzRZT0NDQk11RzdyRnR0cWwwbTl4V1FqdXhuamxoc29SeXVrMTZidUh6VUszZjJjMXczNkhQdjFWN0QxbHJSUHlXcXhoYlZmTFIwTFRPRHJuY3VlQ2NoZzZSakpzY082NWJMb0c1YTh1RGtRVVd5WnR3aDBBTDNpQkEyVXRoaFNLWHk4dzRJNEx4NnVmMnhKMFlLcUMyclM1Y1FSQzdCV2ZxZUdxeHk5cUNfRGhDZ0w2Y1kzWTQ4MURYaVBNS21fdzFnUUh4TUE?oc=5",
+      "source": "Sud Ouest",
+      "pubDate": "2026-11-25T10:22:46.000Z"
+    },
+    {
+      "title": "Ils sont les seuls à voir les IA les plus puissantes, et ils ont peur : chez OpenAI et Anthropic, les salariés tirent la sonnette d’alarme",
+      "link": "https://www.numerama.com/tech/2384181-ils-sont-les-seuls-a-voir-les-ia-les-plus-puissantes-et-ils-ont-peur-chez-openai-et-anthropic-les-salaries-tirent-la-sonnette-dalarme.html",
+      "source": "Numerama",
+      "pubDate": "2026-11-25T09:42:20.000Z"
+    },
     {
       "title": "Les cadres de santé s'approprient l'intelligence artificielle pour gagner du temps",
       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNaU92YTY1QjE0OUI0dHViODBTWEhGa01VYWcwM1REUFBCMjY5VE95LW0yeC11OE5pMHcyUXFkdDRiZXNlTmk2UHhURVZlamZ0U29BSnZ6a2xjZWp0MHU3ZlpmdThwOGVkZ3B1TmZEaEdtcjg0Zm1wU1dyQlYyVTMxbURMSk9fLVZTU1NTcWxhbjhGWTMtMEtzR3lDOG9KVFdncFg1SWZPcXJDTUU?oc=5",
@@ -451,6 +463,12 @@
       "link": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxPU2xZcnVsX2JLN3dzVmI4X1NIc2N1WVBDUk56UUNVcEdNLXc1MXItQllySzBpdFl4SHFWdVBaNUJ6M0xsVU1MZE9lR2s2OXpHaVY2Q0RFa2l0bXNRQkxOTmRZOFVVMzZKMmpwdmUxbE9INGxFeWI2XzRwZnBOYjcxX0tmX2VFTURqRUl3OTlyVmdxd2hxSF9fZ0tlaXBmSEtUbWRGRnM3dGNFTlJiMnNpUmJyaWlFUUxmbnZoOGRPNFlFNy1hWDdJaWg0V0c1OHVReUVtU3JieEp1Q3h6bjVVUE84UGpSbW93T0t1SHRTeThUQmhzVXZUcmhKZlIwNnZGMlE3elo5ajZ6UHFZbmRvdDhGYmluRzlvazlSWm5IYUtaMGNNTjI4bUN0WQ?oc=5",
       "source": "Ouest-France",
       "pubDate": "2026-08-24T07:00:00.000Z"
+    },
+    {
+      "title": "Rachel Finegold, la nouvelle promesse de l'IA britannique qui veut sauver l'hôpital",
+      "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQcC1WUUE5MWpkM0YtUnE2WU1iNEEzN0Q5UjlOVGZiYzV5V0p6ZlV2bGc0OU1XV2dWUVR6QlgtN2lWd2lJZHVlN0VfaTlCaGVmLW56MElRd0s5X3BhV0xESXd4QUpnbDJvRVlralc1UFBzWFdKTkFOMDE0ZnNaX2FNRGtHUXJnM2MyQ3l4bWdfSkc0LUxpQll3WUNsYm51YzhWQTA4MXFZYnJBd2hhd2I3NGRaZzdVTlFkQm9tTWY5cENBMkoyTi0zX0xnYw?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-08-19T07:00:00.000Z"
     },
     {
       "title": "Les établissements de santé sont-ils prêts à gouverner l'intelligence artificielle ?",
