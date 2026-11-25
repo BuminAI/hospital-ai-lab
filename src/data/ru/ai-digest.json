@@ -1,7 +1,103 @@
 {
-  "updatedAt": "2026-11-25T04:53:30.285Z",
+  "updatedAt": "2026-11-25T17:10:28.556Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "ИИ уничтожит слабый бизнес — кто попадёт под раздачу? И что будет дальше?",
+      "link": "https://habr.com/ru/articles/1112360/?utm_campaign=1112360&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T16:08:40.000Z"
+    },
+    {
+      "title": "[Перевод] Где исполняется ваш ИИ‑агент?",
+      "link": "https://habr.com/ru/companies/spring_aio/articles/1112322/?utm_campaign=1112322&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T14:35:19.000Z"
+    },
+    {
+      "title": "Разработка в эпоху ИИ: часть 1",
+      "link": "https://habr.com/ru/companies/naumen/articles/1112318/?utm_campaign=1112318&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T14:30:40.000Z"
+    },
+    {
+      "title": "Как стоит перестроить IT-образование в эпоху ИИ-агентов",
+      "link": "https://habr.com/ru/articles/1112288/?utm_campaign=1112288&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T13:16:35.000Z"
+    },
+    {
+      "title": "Разворачиваем Minecraft силами ИИ-агента: практический вебинар от MWS Cloud Platform",
+      "link": "https://habr.com/ru/companies/mws/articles/1112258/?utm_campaign=1112258&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T12:55:26.000Z"
+    },
+    {
+      "title": "ИИ-модуль LDM.AiDo ускоряет разработку бизнес-приложений и оптимизирует обработку документов",
+      "link": "https://www.cnews.ru/news/line/2026-11-25_ii-modul_ldmaido_uskoryaet_razrabotku",
+      "source": "CNews",
+      "pubDate": "2026-11-25T12:25:00.000Z"
+    },
+    {
+      "title": "Красивые схемы агентного ИИ и данные Gartner. Почему «рост производительности» не следует из автоматизации",
+      "link": "https://habr.com/ru/articles/1112212/?utm_campaign=1112212&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T11:21:26.000Z"
+    },
+    {
+      "title": "Автономный агент Dot от OpenAI собрал мне Midnight Commander, но не давал мне в нём покомандовать, добровольно…",
+      "link": "https://habr.com/ru/articles/1112148/?utm_campaign=1112148&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T09:57:17.000Z"
+    },
+    {
+      "title": "Ученые НИУ ВШЭ — Санкт-Петербург обнаружили систематические ошибки ИИ при проверке медицинской информации",
+      "link": "https://www.cnews.ru/news/line/2026-11-25_uchenye_niu_vshe_sankt-peterburg",
+      "source": "CNews",
+      "pubDate": "2026-11-25T09:40:00.000Z"
+    },
+    {
+      "title": "Агент убил сам себя, кавычка сломала дашборд, а мы потеряли первую версию: как мы делали мигратор BI-отчетов Morphism AI",
+      "link": "https://habr.com/ru/companies/glowbyte/articles/1112128/?utm_campaign=1112128&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T09:14:00.000Z"
+    },
+    {
+      "title": "VK AI Space научил ИИ-агентов создавать инструменты для нестандартных задач",
+      "link": "https://www.cnews.ru/news/line/2026-11-25_vk_ai_space_nauchil_ii-agentov",
+      "source": "CNews",
+      "pubDate": "2026-11-25T09:00:00.000Z"
+    },
+    {
+      "title": "[Перевод] Что, если эти модели вообще нельзя безопасно использовать? О чём спорят в OpenAI и Anthropic",
+      "link": "https://habr.com/ru/companies/speshu_ai/articles/1112112/?utm_campaign=1112112&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T08:59:05.000Z"
+    },
+    {
+      "title": "Bi.Zone EDR расширяет возможности: защита macOS, выявление ИИ-агентов и обновление Deception",
+      "link": "https://www.cnews.ru/news/line/2026-11-25_bizone_edr_rasshiryaet_vozmozhnosti",
+      "source": "CNews",
+      "pubDate": "2026-11-25T08:18:00.000Z"
+    },
+    {
+      "title": "Конференция CNews «Большие данные и BI: новая архитектура решений в эпоху ИИ» состоится 30 марта 2027 года",
+      "link": "https://www.cnews.ru/news/top/2026-11-25_konferentsiya_cnews_bolshie",
+      "source": "CNews",
+      "pubDate": "2026-11-25T07:30:00.000Z"
+    },
+    {
+      "title": "НИУ ВШЭ сделает ИИ частью новой образовательной модели",
+      "link": "https://www.cnews.ru/news/line/2026-11-25_niu_vshe_sdelaet_ii_chastyu",
+      "source": "CNews",
+      "pubDate": "2026-11-25T07:27:00.000Z"
+    },
+    {
+      "title": "Тайфун, Чеджу и 12 статей про ИИ‑агентов: отчёт с конференции KDD 2026",
+      "link": "https://habr.com/ru/companies/yandex/articles/1107752/?utm_campaign=1107752&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T07:01:16.000Z"
+    },
     {
       "title": "Три синусоиды и одна тревога: новичок собирает решение на платформе low‑code сам и с ИИ помощником",
       "link": "https://habr.com/ru/articles/1111960/?utm_campaign=1111960&utm_source=habrahabr&utm_medium=rss",
@@ -1705,102 +1801,6 @@
       "link": "https://habr.com/ru/articles/1105712/?utm_campaign=1105712&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-09T20:08:39.000Z"
-    },
-    {
-      "title": "M**a представила Muse Ember — дешёвую ИИ-модель для армии автономных агентов",
-      "link": "https://3dnews.ru/1151065/meta-predstavila-muse-ember-deshyovuyu-iimodel-dlya-armii-avtonomnih-agentov",
-      "source": "3DNews",
-      "pubDate": "2026-11-09T20:07:00.000Z"
-    },
-    {
-      "title": "Тот самый Winamp на Маке: как я с ИИ-агентами сделал плеер из своего детства на SwiftUI и AppKit",
-      "link": "https://habr.com/ru/articles/1105626/?utm_campaign=1105626&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T16:22:10.000Z"
-    },
-    {
-      "title": "В России запустили ИИ-агента для научных исследований с доступом к более 500 млн публикаций и патентов",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_v_rossii_zapustili_ii-agenta",
-      "source": "CNews",
-      "pubDate": "2026-11-09T16:13:00.000Z"
-    },
-    {
-      "title": "Как мы создавали AI-агента, с которым теперь сами разрабатываем продукты",
-      "link": "https://habr.com/ru/articles/1105608/?utm_campaign=1105608&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T15:48:05.000Z"
-    },
-    {
-      "title": "Российская логистическая компания автоматизировала расчет сложных цепочек поставок с помощью собственной ИИ-платформы",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_rossijskaya_logisticheskaya",
-      "source": "CNews",
-      "pubDate": "2026-11-09T14:55:00.000Z"
-    },
-    {
-      "title": "ИИ-агентура и Harness: современные системы ИИ-агентов",
-      "link": "https://habr.com/ru/companies/bothub/articles/1105570/?utm_campaign=1105570&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T14:48:58.000Z"
-    },
-    {
-      "title": "Retail Services и «Эйр Дата» представили DeepDive CPG — ИИ-платформу для работы с данными торговых сетей и поставщика",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_retail_services_i_ejr_data_predstavili",
-      "source": "CNews",
-      "pubDate": "2026-11-09T14:45:00.000Z"
-    },
-    {
-      "title": "AI Sous-chef: как мы собрали приложение с облачными моделями и вынесли промпты из кода",
-      "link": "https://habr.com/ru/articles/1105496/?utm_campaign=1105496&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T13:19:52.000Z"
-    },
-    {
-      "title": "Сеченовский Университет начнет пилотную оценку ИИ-модуля для хирургии легких, созданного с «РТК Радиология»",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_sechenovskij_universitet",
-      "source": "CNews",
-      "pubDate": "2026-11-09T11:50:00.000Z"
-    },
-    {
-      "title": "Минцифры получило новые полномочия в сфере ИИ",
-      "link": "https://habr.com/ru/articles/1105422/?utm_campaign=1105422&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T10:10:27.000Z"
-    },
-    {
-      "title": "OpenIDE и «Астра ИИ Код»: суверенная среда для агентной разработки",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_openide_i_astra_ii_kod_suverennaya",
-      "source": "CNews",
-      "pubDate": "2026-11-09T09:58:00.000Z"
-    },
-    {
-      "title": "NGR Softlab представила новую версию ИИ-модели DivergentGPT для снижения нагрузки на аналитиков ИБ",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_ngr_softlab_predstavila_novuyu",
-      "source": "CNews",
-      "pubDate": "2026-11-09T09:51:00.000Z"
-    },
-    {
-      "title": "Apple бросилась догонять OpenAI и M**a: Тернус требует превратить Siri в мощного ИИ-агента",
-      "link": "https://3dnews.ru/1151037/apple-brosilas-dogonyat-openai-i-meta-ternus-trebuet-prevratit-siri-v-moshchnogo-iiagenta",
-      "source": "3DNews",
-      "pubDate": "2026-11-09T09:35:00.000Z"
-    },
-    {
-      "title": "🤖 ИИ-агенты постепенно становятся полноценными участниками процесса разработки: получают доступ к внутренним...",
-      "link": "https://habr.com/ru/companies/pvs-studio/articles/1105394/?utm_campaign=1105394&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T09:20:43.000Z"
-    },
-    {
-      "title": "MWS AI вывела на внешний рынок комплексное ИИ-решение для автоматизации контакт-центров",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_mws_ai_vyvela_na_vneshnij_rynok",
-      "source": "CNews",
-      "pubDate": "2026-11-09T08:43:00.000Z"
-    },
-    {
-      "title": "Разработчики анонсировали свободную ОС без использования ИИ",
-      "link": "https://habr.com/ru/articles/1105354/?utm_campaign=1105354&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T08:37:54.000Z"
     }
   ]
 }

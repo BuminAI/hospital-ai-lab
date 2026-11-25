@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-25T04:55:53.471Z",
-  "source": "France 24·ZDNet France·Challenges·franceinfo·Le Monde·CNIL·Europe 1·Ouest-France·Sud Ouest·Libération·Numerama·Le Figaro·Les Échos·La Croix·Silicon.fr·Le Parisien·20 Minutes·DSIH·La Tribune·Public Sénat",
+  "updatedAt": "2026-11-25T17:13:09.671Z",
+  "source": "Le Figaro·Les Échos·Le Monde·Libération·France 24·ZDNet France·Challenges·franceinfo·CNIL·Europe 1·Ouest-France·Sud Ouest·Numerama·Silicon.fr·Le Parisien·La Croix·20 Minutes·DSIH·La Tribune·Public Sénat",
   "items": [
+    {
+      "title": "Arthur Bataille, spécialiste de la cybersécurité : « Nous serons remplacés par l’IA sur l’ensemble des métiers »",
+      "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNNmpHd3lfeWc5cDNTeEhNQmlZQkQyVnJwUzFudTk5LU1jMGxYMkFjcUxiSmJCQVVoQjFoMTFtZUk2X3poM0tldzhwNFMxRmtwUjJFdU5BQUFwYVRvX2U4UktsR19GYnBvTlhqSDFKNlZhck9KRWZ4akxtWWEtaUItOC1UWVFVbGhwRnFtN3lGR3hkaTVDOTI3bEhmSnBhTEd5ZElIRkVpV0lRdWJFWkJCOXN1Y0VhVjhOVFhIRXEzTzM4bEdTbXRXQUhiZ2lnd0wxQWxkWTFwQVZGS2Z5UTBUVWtfVTBVWG1wb1FtLVlwRXNmVjhKSWxkWnhCdmlqYUZGV1liMTJkTUxlTGFL?oc=5",
+      "source": "Le Figaro",
+      "pubDate": "2026-11-25T16:45:01.000Z"
+    },
+    {
+      "title": "Cybersécurité bancaire : à l’ère de l’IA, la résilience devient stratégique",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPWDZUbUFJTTFlMUFta1ZpV0xVdjZSSnpVWW1Hbm5pNWZFdENkNEZ1VFdiVUZlbEJxVUwycndGclhtXy03THJUMXpCd052bDNBUURLSkNOQkF3THk0Qk9GcjNXU3ZUSEZreXZ5OXdhdDlZSk8yNk5qckt2cWNZNmhXZkdvcUhLaWdxR1ZDaUVVR0t0YXVEOFpfTk1lUmkwZ0xjRXNZMFhZRjRaQjVMYWZUTXRLeXZfNFotN181QTNRNWk?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-25T14:08:03.000Z"
+    },
+    {
+      "title": "IA et travail : « On peut se borner à remplacer les emplois existants, mais on peut aussi repenser le travail et la formation professionnelle »",
+      "link": "https://www.lemonde.fr/idees/article/2026/11/25/ia-et-travail-on-peut-se-borner-a-remplacer-les-emplois-existants-mais-on-peut-aussi-repenser-le-travail-et-la-formation-professionnelle_6815063_3232.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-25T08:00:11.000Z"
+    },
+    {
+      "title": "Le succès des IA chinoises auprès des entreprises met les leaders Anthropic et OpenAI sous pression",
+      "link": "https://www.lemonde.fr/economie/article/2026/11/25/le-succes-des-ia-chinoises-aupres-des-entreprises-met-les-leaders-anthropic-et-openai-sous-pression_6815050_3234.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-25T05:30:01.000Z"
+    },
+    {
+      "title": "Stages et alternances : ce que l’intelligence artificielle bouleverse pour l’entrée des jeunes dans le monde du travail",
+      "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxPbWsySndGZC1Tem9EWlFqbEh1UTFrUHZTQnc3NThJMUJ2ZnBOTHhXMEktY28xMXQ5ZW5sbWJ1S2RaX2I2ak9NcHozQzRDUFNHRmJsSUdVMXFadFRobDZlaWZqX1liNzZsNFUzbDM1alRuZVFCOUJKMklpWVd6RGFFaXVnaGR5QjJLVklmQUhSTmhEd0tfeXZYQktXWXpaalpDRTBrM3gyVXBOdklFUXdoTmU3QU5YYmdDOElxRWp4TjlRcjhmaU5yWWcxMUVkSE5mYW1KbW9CbFpGdXpsMmNBSmEtcFZTc0x2bTlUYy1CVXZYelZ1emQ3bExnNVpNT0RDakFkMVhTVGIwRE1aUDM1MC1rdUphZw?oc=5",
+      "source": "Libération",
+      "pubDate": "2026-11-24T20:52:00.000Z"
+    },
     {
       "title": "IA : les femmes occupent majoritairement les emplois les plus menacés",
       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOTkp5ek1Oc2Qycmp0dzFXTV9QTmdseE0xSXJxZkZUcnQtNDlISHZQRmc1YndfckNhOGdxUFFzdkZxZ0hRNS0tS2sya3Q4UEw1NU1iVDQ0anJpNjdubS1Dem13Zm1Tblh4VGJyR0RxdktSN1Rna19pSzFLT3M1ZzZNaGVoNC1iNnlCUWRfZzZpUW11bFRvNVZlV1BNbkwyUkh0MV9CRndUQkJabVdoeWV6NDVtU1p3ckN1c3FYd2lSZGRXb1Y5R09iUQ?oc=5",
@@ -225,12 +255,6 @@
       "pubDate": "2026-11-18T07:00:25.000Z"
     },
     {
-      "title": "Offres d’emploi en berne, recrutement automatisé : l’IA s’immisce à tous les étages du marché du travail",
-      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNZXppNzNEN3hOTlhZN1VQYU9oM1ZLbmdnVU81aHFlU2ljemliMXpBazNwX1cxSDctTTUzNUs1am9EYmNXREhNbUhUMUhjaG13aERkWUhuWF95bnBXVC1WWHNQYk9mQUhwR0FUd0JIQkI5ZHEtd2M4OFh4a0RhUGR0bjlJYXRucVVlckNELUg3Q3UxRWlfZFhLNVlXUnNMdERDTTZNemEzTXN6a3R0Ql81RTZBUENXUHQydW1EaUxpd3VXQWozaV9XallWY0wyVG0wQW56emszNllYUQ?oc=5",
-      "source": "La Croix",
-      "pubDate": "2026-11-17T18:57:52.000Z"
-    },
-    {
       "title": "25 000 offres d'emploi supprimées sur France Travail à cause de l'IA : quels secteurs sont concernés",
       "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSFVGVGpBa3k1LWEtTG1ZdExwbmkweWRaemh2UEozQ2ZiazJKMEQ4bUM1YjNmcGFYZWJKcVJoMzU3RUx0LUQwcUZZWHFoa1BuTk5mZXhUQUxyQ3VRQzJ6THhRa08wLVV4NnVsOS12VEROM3R3VlkybXpvbm5JVEpuaHlycXgzNlNid3N6ZkRNMFFfN0NQTUFSZnFDVzNWbEp6dnBrTXdwYm1Pd3d1UjBrUEZVbVZKZjQ3SUlUaUhQdnQtdnZ2WHU1RG9kMndyWmxqOS16RTE4RGM3ckJGWEkyYXMyWVhRZ1ZPbVpsbzFFWlBDSnROODJRc3VZTlRUTWpDZVE?oc=5",
       "source": "franceinfo",
@@ -265,6 +289,12 @@
       "link": "https://www.zdnet.fr/publicite/zd-tech-lintelligence-artificielle-exige-des-donnees-saines-affirme-box-507393.htm#xtor=RSS-1",
       "source": "ZDNet France",
       "pubDate": "2026-11-17T08:11:26.000Z"
+    },
+    {
+      "title": "Offres d’emploi en berne, recrutement automatisé : l’IA s’immisce à tous les étages du marché du travail",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNZXppNzNEN3hOTlhZN1VQYU9oM1ZLbmdnVU81aHFlU2ljemliMXpBazNwX1cxSDctTTUzNUs1am9EYmNXREhNbUhUMUhjaG13aERkWUhuWF95bnBXVC1WWHNQYk9mQUhwR0FUd0JIQkI5ZHEtd2M4OFh4a0RhUGR0bjlJYXRucVVlckNELUg3Q3UxRWlfZFhLNVlXUnNMdERDTTZNemEzTXN6a3R0Ql81RTZBUENXUHQydW1EaUxpd3VXQWozaV9XallWY0wyVG0wQW56emszNllYUQ?oc=5",
+      "source": "La Croix",
+      "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
       "title": "RH, compta… Ces métiers plombés par l’IA pour lesquels les offres d’emploi chutent",
@@ -507,15 +537,15 @@
       "pubDate": "2026-10-27T00:00:00.000Z"
     },
     {
-      "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
-      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
-      "source": "Le Figaro",
-      "pubDate": "2026-10-26T07:00:00.000Z"
-    },
-    {
       "title": "L'intelligence artificielle, nouveau défi pour les experts de la cybersécurité",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPajBRRG1nQUJMVE5xZlNPYVFxNFdCeVFuaE5RR1kxMVNjbDBrdU1YanF3cXV5TVNSaEt5eC11NUl6Skg4NXNRdk5rcUdCSzluVE9LbG9YNWhBMXdDN2dJbVZsRWh6TUViZ21JeFZ0bjlTUWlySDdSbXNXS01DbmxJV1NvZkljNGFNa1UyNVpwT2Q1TkpVZmZ0Q3pmT3BtUGY5MDQ2VnZlSWVFRk1GcWhHTURlbl9yY2JudGxGNnl0Wkw?oc=5",
       "source": "Les Échos",
+      "pubDate": "2026-10-26T07:00:00.000Z"
+    },
+    {
+      "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
+      "source": "Le Figaro",
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
