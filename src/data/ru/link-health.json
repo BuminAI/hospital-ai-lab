@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-24T04:08:58.972Z",
+  "checkedAt": "2026-11-25T02:52:47.297Z",
   "total": 115,
-  "ok": 89,
-  "unknown": 26,
+  "ok": 87,
+  "unknown": 28,
   "unknownList": [
     {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=7968559",
@@ -21,12 +21,12 @@
       "status": 0
     },
     {
-      "url": "https://minzdrav.gov.ru/poleznye-resursy/natsionalnye-proekty-rossii-prodolzhitelnaya-i-aktivnaya-zhizn-novye-tehnologii-sberezheniya-zdorovya",
-      "status": 0
-    },
-    {
       "url": "https://www.gostinfo.ru/catalog/Details/?id=6902061",
       "status": 400
+    },
+    {
+      "url": "https://minzdrav.gov.ru/poleznye-resursy/natsionalnye-proekty-rossii-prodolzhitelnaya-i-aktivnaya-zhizn-novye-tehnologii-sberezheniya-zdorovya",
+      "status": 0
     },
     {
       "url": "https://telemedai.ru/nauka/nauchnaya-infrastruktura/iskusstvennyj-intellekt-v-zdravoohranenii/",
@@ -41,11 +41,11 @@
       "status": 0
     },
     {
-      "url": "https://www.vademec.ru/news/2026/09/16/podmoskove-zakupit-12-ii-platform-dlya-tsifrovykh-proektov-za-704-2-mln-rubley/",
+      "url": "https://www.vademec.ru/news/2026/09/24/ii-agent-openai-vzlomal-portal-meditsinskoy-statistiki-avstralii/",
       "status": 0
     },
     {
-      "url": "https://www.vademec.ru/news/2026/09/24/ii-agent-openai-vzlomal-portal-meditsinskoy-statistiki-avstralii/",
+      "url": "https://www.vademec.ru/news/2026/09/16/podmoskove-zakupit-12-ii-platform-dlya-tsifrovykh-proektov-za-704-2-mln-rubley/",
       "status": 0
     },
     {
@@ -65,11 +65,15 @@
       "status": 0
     },
     {
+      "url": "https://cr.minzdrav.gov.ru/",
+      "status": 0
+    },
+    {
       "url": "https://minzdrav.gov.ru/news/2026/10/20/33149-mihail-murashko-i-german-gref-predstavili-novoe-otechestvennoe-prilozhenie-hudeem-na-zdorovie",
       "status": 0
     },
     {
-      "url": "https://cr.minzdrav.gov.ru/",
+      "url": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
       "status": 0
     },
     {
@@ -77,7 +81,7 @@
       "status": 0
     },
     {
-      "url": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
+      "url": "https://www.pomph.ru/jour/article/view/244",
       "status": 0
     },
     {
@@ -98,6 +102,10 @@
     },
     {
       "url": "https://www.vademec.ru/news/2026/11/12/chechenskaya-respublika-pervoy-v-rf-prinyala-politiku-ispolzovaniya-ii-v-zdravookhranenii/",
+      "status": 0
+    },
+    {
+      "url": "https://www.nii-kpssz.com/jour/article/view/2043/1248",
       "status": 0
     },
     {
