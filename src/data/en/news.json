@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-24T23:15:31.233Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · The New York Times · JAMA Network · NEJM AI · Federal Register · BBC News · Healthcare Business Today",
+  "updatedAt": "2026-11-25T17:36:24.298Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · Healthcare Business Today · BBC News · JAMA Network · Federal Register",
   "items": [
+    {
+      "title": "Making AI spend predictable: 5 takeaways",
+      "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/making-ai-spend-predictable-5-takeaways/",
+      "source": "Becker's Hospital Review",
+      "pubDate": "2026-11-25T16:38:26.000Z"
+    },
+    {
+      "title": "Inside HLTH 2026",
+      "link": "https://www.healthcaredive.com/news/inside-hlth-conference-2026/875665/",
+      "source": "Healthcare Dive",
+      "pubDate": "2026-11-25T13:54:48.000Z"
+    },
+    {
+      "title": "FDA clears RadNet AI tool for predicting five-year breast cancer risk from routine mammograms",
+      "link": "https://radiologybusiness.com/topics/artificial-intelligence/fda-clears-radnet-ai-tool-predicting-five-year-breast-cancer-risk-routine-mammograms",
+      "source": "Radiology Business",
+      "pubDate": "2026-11-25T08:43:26.000Z"
+    },
     {
       "title": "77% of hospitals now use generative AI, outpacing predictive AI",
       "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/77-of-hospitals-now-use-generative-ai-outpacing-predictive-ai/",
