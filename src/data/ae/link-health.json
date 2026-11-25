@@ -1,23 +1,23 @@
 {
-  "checkedAt": "2026-11-24T04:19:41.442Z",
+  "checkedAt": "2026-11-25T03:04:13.420Z",
   "total": 19,
   "ok": 7,
   "unknown": 12,
   "unknownList": [
     {
-      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
-      "status": 0
-    },
-    {
       "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
       "status": 0
     },
     {
-      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
+      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
       "status": 0
     },
     {
       "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx",
+      "status": 0
+    },
+    {
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
       "status": 0
     },
     {
@@ -29,15 +29,11 @@
       "status": 0
     },
     {
-      "url": "https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx",
-      "status": 0
-    },
-    {
       "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Data-Sharing-Integration-and-Interoperability-Standard.ashx",
       "status": 0
     },
     {
-      "url": "https://www.doh.gov.ae/en/resources/standards-rss-feed",
+      "url": "https://www.doh.gov.ae/-/media/A78104416DF2440E89AC90FB75F11055.ashx",
       "status": 0
     },
     {
@@ -46,6 +42,10 @@
     },
     {
       "url": "https://www.doh.gov.ae/en/resources/standards",
+      "status": 0
+    },
+    {
+      "url": "https://www.doh.gov.ae/en/resources/standards-rss-feed",
       "status": 0
     },
     {
