@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-25T00:59:55.766Z",
+  "updatedAt": "2026-11-25T10:22:13.743Z",
   "source": "Медвестник · Vademecum · Хабр · CNews · Независимая газета · Фармвестник · Zdrav.ru · Росздравнадзор",
   "items": [
+    {
+      "title": "Ученые НИУ ВШЭ — Санкт-Петербург обнаружили систематические ошибки ИИ при проверке медицинской информации",
+      "link": "https://www.cnews.ru/news/line/2026-11-25_uchenye_niu_vshe_sankt-peterburg",
+      "source": "CNews",
+      "pubDate": "2026-11-25T09:40:00.000Z"
+    },
+    {
+      "title": "Глава Novartis опроверг утверждения о победе ИИ над раком в ближайшие десять лет",
+      "link": "https://pharmvestnik.ru/content/news/glava-novartis-oproverg-utverjdeniya-o-pobede-ii-nad-rakom-blijaishie-desyat-let.html",
+      "source": "Фармвестник",
+      "pubDate": "2026-11-25T07:16:48.000Z"
+    },
     {
       "title": "Восемь лет учился на врача, теперь пишу код и открываю магазины",
       "link": "https://habr.com/ru/companies/moysklad/articles/1111920/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1111920",
