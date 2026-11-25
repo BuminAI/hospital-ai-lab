@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-24T16:15:16.321Z",
-  "source": "Медвестник · Vademecum · Хабр · CNews · Zdrav.ru · Росздравнадзор",
+  "updatedAt": "2026-11-25T00:59:55.766Z",
+  "source": "Медвестник · Vademecum · Хабр · CNews · Независимая газета · Фармвестник · Zdrav.ru · Росздравнадзор",
   "items": [
+    {
+      "title": "Восемь лет учился на врача, теперь пишу код и открываю магазины",
+      "link": "https://habr.com/ru/companies/moysklad/articles/1111920/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1111920",
+      "source": "Хабр",
+      "pubDate": "2026-11-24T17:21:22.000Z"
+    },
+    {
+      "title": "Сергей Собянин принял участие в стратегической сессии по развитию ИИ в России",
+      "link": "https://www.ng.ru/news/851537.html",
+      "source": "Независимая газета",
+      "pubDate": "2026-11-24T16:38:00.000Z"
+    },
+    {
+      "title": "Кто управляет спросом на фармрынке: производитель, аптека или ИИ",
+      "link": "https://pharmvestnik.ru/content/articles/kto-upravlyaet-sprosom-na-farmrynke-proizvoditel-apteka-ili-ii.html",
+      "source": "Фармвестник",
+      "pubDate": "2026-11-24T16:05:02.000Z"
+    },
     {
       "title": "РТУ МИРЭА представил ИИ-разработку для оценки состояния плода",
       "link": "https://www.cnews.ru/news/line/2026-11-24_rtu_mirea_predstavil_ii-razrabotku",
@@ -30,6 +48,12 @@
       "title": "Половина медорганизаций считает управление ИИ одной из главных уязвимостей",
       "link": "https://medvestnik.ru/content/news/polovina-medorganizacii-schitaet-upravlenie-ii-odnoi-iz-glavnyh-uyazvimostei.html",
       "source": "Медвестник",
+      "pubDate": "2026-11-23T09:00:00.000Z"
+    },
+    {
+      "title": "Разработан фреймворк для оценки траекторного темпа старения",
+      "link": "https://www.vademec.ru/news/2026/11/23/razrabotan-freymvork-dlya-otsenki-traektornogo-tempa-stareniya/",
+      "source": "Vademecum",
       "pubDate": "2026-11-23T09:00:00.000Z"
     },
     {
