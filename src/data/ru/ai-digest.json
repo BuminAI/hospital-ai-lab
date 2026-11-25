@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-24T17:40:24.223Z",
+  "updatedAt": "2026-11-25T04:53:30.285Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Три синусоиды и одна тревога: новичок собирает решение на платформе low‑code сам и с ИИ помощником",
+      "link": "https://habr.com/ru/articles/1111960/?utm_campaign=1111960&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-24T20:21:40.000Z"
+    },
+    {
+      "title": "NCF Agent Interconnect — MCP-сервер для прямой связи ИИ-агентов между чатами, программами и устройствами",
+      "link": "https://habr.com/ru/articles/1110526/?utm_campaign=1110526&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-24T18:15:30.000Z"
+    },
     {
       "title": "Сотрудники OpenAI и Anthropic испугались собственного ИИ — новейшие модели становятся слишком умны и опасны",
       "link": "https://3dnews.ru/1151754/sotrudniki-openai-i-anthropic-ispugalis-sobstvennogo-ii-noveyshie-modeli-stanovyatsya-slishkom-umni-i-opasni",
@@ -1789,18 +1801,6 @@
       "link": "https://habr.com/ru/articles/1105354/?utm_campaign=1105354&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-09T08:37:54.000Z"
-    },
-    {
-      "title": "ИИ для создания контента: как выстроить безопасный контур для распределённой команды",
-      "link": "https://habr.com/ru/articles/1105364/?utm_campaign=1105364&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T08:34:45.000Z"
-    },
-    {
-      "title": "CorpSoft24 запустила облачные сервисы для компаний, разрабатывающих собственный ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-11-09_corpsoft24_zapustila_oblachnye",
-      "source": "CNews",
-      "pubDate": "2026-11-09T08:05:00.000Z"
     }
   ]
 }

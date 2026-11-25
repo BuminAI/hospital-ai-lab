@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T17:43:08.687Z",
+  "updatedAt": "2026-11-25T04:55:53.471Z",
   "source": "France 24·ZDNet France·Challenges·franceinfo·Le Monde·CNIL·Europe 1·Ouest-France·Sud Ouest·Libération·Numerama·Le Figaro·Les Échos·La Croix·Silicon.fr·Le Parisien·20 Minutes·DSIH·La Tribune·Public Sénat",
   "items": [
     {
@@ -507,6 +507,12 @@
       "pubDate": "2026-10-27T00:00:00.000Z"
     },
     {
+      "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
+      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
+      "source": "Le Figaro",
+      "pubDate": "2026-10-26T07:00:00.000Z"
+    },
+    {
       "title": "L'intelligence artificielle, nouveau défi pour les experts de la cybersécurité",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPajBRRG1nQUJMVE5xZlNPYVFxNFdCeVFuaE5RR1kxMVNjbDBrdU1YanF3cXV5TVNSaEt5eC11NUl6Skg4NXNRdk5rcUdCSzluVE9LbG9YNWhBMXdDN2dJbVZsRWh6TUViZ21JeFZ0bjlTUWlySDdSbXNXS01DbmxJV1NvZkljNGFNa1UyNVpwT2Q1TkpVZmZ0Q3pmT3BtUGY5MDQ2VnZlSWVFRk1GcWhHTURlbl9yY2JudGxGNnl0Wkw?oc=5",
       "source": "Les Échos",
@@ -519,21 +525,15 @@
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
-      "title": "Pays-Bas : le gouvernement veut recourir à l’IA pour supprimer 25.000 postes de fonctionnaires",
-      "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPeHA3d1YyQUswcHp1RDFUMGJoM1g2cDNnUGl4TFh4R1E0U1BxWUtXdlNsbnQ0RUdTNS1OdVliS2JmZ2lYWUZBYnNXd0pjRVhYelNsVTQybHpyV3piams0VHcycDMyU2g1RVZvWjI4YVAzaHFZVUFtaGVZWWVMMUJobGlTWFUtSnlCWWF3bWxSMkdkLS1JMzZJanhZQ283SllkS2pBSG5iWDJ0VHRfeDdhb0I2M2g1Q1dmTFExdC1idkFEVXhxaG5yZHg2TzhHZ3l3NnhZ?oc=5",
-      "source": "Le Figaro",
-      "pubDate": "2026-10-26T07:00:00.000Z"
+      "title": "Cancer. Et si cette IA permettait un jour de déterminer le risque de mortalité en analysant un selfie du patient ?",
+      "link": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQdnNheGdCc3p2R0ExQ3EyOXh3RHJYUm5mXzlVazl2RVNiSzNYeDdqQjB4VDVjMEVaUXNPNGJwdy1oMnlxeHFxNmhIeFlMd0JONUF5UGUtTEQzVTdNSDRlSjlaX1JEYldjM09vY2pXT1VHYzlld0VsUFF6ZGRFVkFOMTQzcTJ6WUVZbEpUUGVYVnFKcWtnQ20zZ3dBb1pNN0dxdU5Udm1UYi1qUXp4VDhnbkJBRmliWjVVem04LWJTYTFGQlJpQlRnOHRVclJ0UlRNdkhndGg3X0hTN3JWMDlLRWJkZHlSX3FrMl9ZblJYNDNpcTdGbDlKTUIwajZXNlUzTWZ2cWFIRGJSd3BmOUw3d3JJM1FsbnhQMnNveUN1UVUyaE14czVTWDF3cFhvSHpXaEdFaHJlVQ?oc=5",
+      "source": "Ouest-France",
+      "pubDate": "2026-10-22T07:00:00.000Z"
     },
     {
       "title": "5 000 emplois remplacés par l’IA ? Barclays taille dans ses effectifs au nom des « gains d’efficacité » permis par l’intelligence artificielle",
       "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxOTEM4ZVVDdEEwczFQMHhxNkNkWl9YSW9vQUFIelRxeUc1V2xWc2ExOHpuVlA1Q181NnhVaGt3V3JWd1dCQXhwb19iRWk0UnRSNkZJM2FKMjdJSVZUZkYwVnJjdWw4a3dUZ3ZjdEg2aVlBT081M0liODMwVkNiSEdHS2VJMGVuRlpTMW9BLUJfNGVydmV0SHFhUXhpWmtuRW9XVG9NYm81UzduazVqa1FFdjI3VHB0V1hISldBSnpwS1hRTmxiOWpsTzRBMzhhMlZ3ZDR2Y01jc3BLVXRfRklYS2NJd1ozb3pDMDE2MHRwZzRKRnVFWHFLY0xvV3duenBKQm9EVFBQalV1ZnFNS3JTYXAxR3lHa3J0VzhYMDF0OWt2Z00?oc=5",
       "source": "Challenges",
-      "pubDate": "2026-10-22T07:00:00.000Z"
-    },
-    {
-      "title": "Cancer. Et si cette IA permettait un jour de déterminer le risque de mortalité en analysant un selfie du patient ?",
-      "link": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQdnNheGdCc3p2R0ExQ3EyOXh3RHJYUm5mXzlVazl2RVNiSzNYeDdqQjB4VDVjMEVaUXNPNGJwdy1oMnlxeHFxNmhIeFlMd0JONUF5UGUtTEQzVTdNSDRlSjlaX1JEYldjM09vY2pXT1VHYzlld0VsUFF6ZGRFVkFOMTQzcTJ6WUVZbEpUUGVYVnFKcWtnQ20zZ3dBb1pNN0dxdU5Udm1UYi1qUXp4VDhnbkJBRmliWjVVem04LWJTYTFGQlJpQlRnOHRVclJ0UlRNdkhndGg3X0hTN3JWMDlLRWJkZHlSX3FrMl9ZblJYNDNpcTdGbDlKTUIwajZXNlUzTWZ2cWFIRGJSd3BmOUw3d3JJM1FsbnhQMnNveUN1UVUyaE14czVTWDF3cFhvSHpXaEdFaHJlVQ?oc=5",
-      "source": "Ouest-France",
       "pubDate": "2026-10-22T07:00:00.000Z"
     },
     {
