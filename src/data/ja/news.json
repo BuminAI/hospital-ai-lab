@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-24T14:19:16.901Z",
-  "source": "CBnews・厚生労働省・デジタル庁 · CBnews · 日経クロステック · デジタル庁 · 厚生労働省",
+  "updatedAt": "2026-11-25T09:13:24.485Z",
+  "source": "CBnews・厚生労働省・デジタル庁 · CBnews · 日経クロステック · デジタル庁 · 厚生労働省 · Impress Watch",
   "items": [
+    {
+      "title": "富士通がOpenAIのサイバー防御パートナーに参画、脆弱性診断の新サービス",
+      "link": "https://xtech.nikkei.com/atcl/nxt/news/24/03487/",
+      "source": "日経クロステック",
+      "pubDate": "2026-11-25T07:50:00.000Z"
+    },
+    {
+      "title": "SB OAI Japan、AIで侵入リスクを検証する「侵入可否診断」",
+      "link": "https://www.watch.impress.co.jp/docs/news/2159064.html",
+      "source": "Impress Watch",
+      "pubDate": "2026-11-25T03:59:44.000Z"
+    },
     {
       "title": "カルテ情報共有を地域医療支援病院の努力義務に-来月18日まで意見募集 厚労省",
       "link": "https://www.cbnews.jp/news/entry/20261124114419",
