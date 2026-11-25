@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-24T04:08:33.545Z",
+  "checkedAt": "2026-11-25T02:52:42.351Z",
   "readOk": 1,
   "total": 10,
   "laws": [
@@ -24,7 +24,7 @@
       "current": "Mon, 09 Sep 2024 08:09:45 GMT | 276863 | W/\"4397f-191d5d4e528\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-24T04:06:46.000Z",
+      "lastRead": "2026-11-25T02:51:01.747Z",
       "error": null
     },
     {
@@ -73,7 +73,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:57.306Z",
-      "error": "unable to verify the first certificate"
+      "error": "Client network socket disconnected before secure TLS connection was established"
     },
     {
       "id": "doh-analytics",
@@ -85,7 +85,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:59.005Z",
-      "error": "unable to verify the first certificate"
+      "error": "Client network socket disconnected before secure TLS connection was established"
     },
     {
       "id": "doh-mdr",
@@ -97,7 +97,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:45:59.897Z",
-      "error": "unable to verify the first certificate"
+      "error": "Client network socket disconnected before secure TLS connection was established"
     },
     {
       "id": "doh-cyber",
@@ -109,7 +109,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:46:00.711Z",
-      "error": "unable to verify the first certificate"
+      "error": "Client network socket disconnected before secure TLS connection was established"
     },
     {
       "id": "doh-hie",
@@ -121,7 +121,7 @@
       "pending": false,
       "changed": false,
       "lastRead": "2026-11-15T09:46:01.531Z",
-      "error": "unable to verify the first certificate"
+      "error": "Client network socket disconnected before secure TLS connection was established"
     }
   ]
 }
