@@ -1,11 +1,103 @@
 {
-  "updatedAt": "2026-11-24T10:20:40.985Z",
+  "updatedAt": "2026-11-25T09:01:56.003Z",
   "items": [
+    {
+      "title": "고대보건대학원 최고위 과정, ‘총 원우의 밤’ 개최",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242892",
+      "source": "라포르시안",
+      "pubDate": "2026-11-25T17:38:07.000Z"
+    },
+    {
+      "title": "대한간호학회 공식 출범, 교육·임상 잇는 미래 간호 연구 본격화",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99150",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-25T17:33:27.000Z"
+    },
+    {
+      "title": "포티넷코리아, 우발적 아키텍처發 보안 리스크 주목하라",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=718183",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-25T17:27:36.000Z"
+    },
+    {
+      "title": "양산부산대병원, AI 시대 연구중심병원 발전 전략 모색",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017326",
+      "source": "의학신문",
+      "pubDate": "2026-11-25T16:30:03.000Z"
+    },
+    {
+      "title": "국민 100만명 바이오데이터 연구 활용 속도...AI로 표준화 추진",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017336",
+      "source": "의학신문",
+      "pubDate": "2026-11-25T16:14:42.000Z"
+    },
+    {
+      "title": "감염병 전임상 인재 양성, AI-BIO 융합으로 고도화",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549889",
+      "source": "약사공론",
+      "pubDate": "2026-11-25T14:02:56.000Z"
+    },
+    {
+      "title": "좋은병원들, ‘제3회 디지털 혁신 데이(GooDID)’ 개최",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017312",
+      "source": "의학신문",
+      "pubDate": "2026-11-25T13:29:42.000Z"
+    },
+    {
+      "title": "[동정] 강남성심 이석현 교수, AI 기반 PET-CT 임상 사례 발표",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415784",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-25T13:15:58.000Z"
+    },
+    {
+      "title": "씨어스, 광주지사 개소…“의료 AI 전국 확산 거점 구축”",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242858",
+      "source": "라포르시안",
+      "pubDate": "2026-11-25T11:40:00.000Z"
+    },
+    {
+      "title": "30분 걸리던 암 부피 측정 5분으로…PET-CT의 AI 활용",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422617",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-25T10:24:07.000Z"
+    },
+    {
+      "title": "[ZD SW 투데이] 포스코DX, 직원이 만든 AI 현장 투입 속도",
+      "link": "https://zdnet.co.kr/view/?no=20261125141142",
+      "source": "ZDNet Korea",
+      "pubDate": "2026-11-25T07:56:15.000Z"
+    },
+    {
+      "title": "양산부산대병원, AI 기반 의료혁신 연구 심포지엄 개최",
+      "link": "https://www.yna.co.kr/view/AKR20261125127000052",
+      "source": "연합뉴스",
+      "pubDate": "2026-11-25T06:12:09.000Z"
+    },
+    {
+      "title": "AI가 짠 코드, 보안은 누가 챙기나…KISA, 내달 정책 포럼",
+      "link": "https://www.newsis.com/view/NISX20261125_0003882076",
+      "source": "뉴시스",
+      "pubDate": "2026-11-25T03:00:00.000Z"
+    },
+    {
+      "title": "세계 시장 진출 이끈 보건산업 성과 공유... ‘2026 보건산업 성과교류회’ 개최",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492653&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-25T01:05:00.000Z"
+    },
+    {
+      "title": "\"AI내시경 암 조기진단\"…웨이센, 국제학회 발표",
+      "link": "https://www.newsis.com/view/NISX20261125_0003881988",
+      "source": "뉴시스",
+      "pubDate": "2026-11-24T23:43:05.000Z"
+    },
     {
       "title": "내년 정부 AI 예산 1.6배 확대…풀스택 AX 수출 추진",
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217751",
       "source": "AI타임스",
-      "pubDate": "2026-11-24T18:17:40.000Z"
+      "pubDate": "2026-11-24T18:17:40.000Z",
+      "popular": true,
+      "rank": 4
     },
     {
       "title": "한국약학교육학회, 27일 교수역량개발 프로그램 개최",
@@ -23,7 +115,9 @@
       "title": "신종감염병 위기 대비, 국가·지역 통합 의료대응체계 구축 모색",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99107",
       "source": "e-의료정보",
-      "pubDate": "2026-11-24T15:00:00.000Z"
+      "pubDate": "2026-11-24T15:00:00.000Z",
+      "popular": true,
+      "rank": 4
     },
     {
       "title": "한국생약학회 학술대회 개최…AI 접목한 천연물 연구 방향 모색",
@@ -53,7 +147,9 @@
       "title": "아모레퍼시픽, 日서 뷰티 테크 전략 공개",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017180",
       "source": "의학신문",
-      "pubDate": "2026-11-24T11:07:30.000Z"
+      "pubDate": "2026-11-24T11:07:30.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "충남약사회, 여약사위원회 AI·디지털 활용 역량 강화",
@@ -65,7 +161,9 @@
       "title": "한국에자이, 12월 ‘디지털 헬스케어 심포지엄’ 개최",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99087",
       "source": "e-의료정보",
-      "pubDate": "2026-11-24T08:50:25.000Z"
+      "pubDate": "2026-11-24T08:50:25.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "미국과 GDP 격차 1.8배 벌어지자 규제 푼 EU…우리는",
@@ -1089,7 +1187,7 @@
     },
     {
       "title": "「2026 헬스케어 AI 투자포럼」 투자유치 발표(IR 피칭) 희망기업 모집 공고",
-      "link": "https://www.khidi.or.kr/board/view?pageNum=1&rowCnt=10&no1=934&linkId=48951083&menuId=MENU01108&maxIndex=00489529179998&minIndex=00489504929998&schType=0&schText=&schStartDate=&schEndDate=&boardStyle=&categoryId=&continent=&country=",
+      "link": "https://www.khidi.or.kr/board/view?pageNum=1&rowCnt=10&no1=934&linkId=48951083&menuId=MENU01108&maxIndex=00489529179998&minIndex=00489505759998&schType=0&schText=&schStartDate=&schEndDate=&boardStyle=&categoryId=&continent=&country=",
       "source": "한국보건산업진흥원",
       "pubDate": "2026-10-19T15:00:00.000Z"
     },
@@ -1388,5 +1486,5 @@
       "pubDate": "2026-06-24T03:30:20.000Z"
     }
   ],
-  "source": "청년의사 · 의협신문 · 히트뉴스 · 라포르시안 · 의학신문 · e-의료정보 · 메디칼업저버 · 약사공론 · 병원신문 · 의약뉴스 · 메디파나뉴스 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 보건복지부 · 연합뉴스"
+  "source": "의협신문 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 병원신문 · 메디파나뉴스 · AI타임스 · ZDNet Korea · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부"
 }
