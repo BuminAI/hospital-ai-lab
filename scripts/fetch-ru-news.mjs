@@ -11,6 +11,7 @@
 // 두 매체 모두 한 건도 못 읽었을 때만 기존 파일을 그대로 두고 중단한다.
 // (이 저장소는 크롤러 간 공용 유틸을 두지 않는 관례라 fetch-news.mjs의
 //  decodeEntities·stripTags 등을 그대로 복붙했다.)
+import { keepRecent } from './lib/retention.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const UA =
@@ -172,7 +173,8 @@ const now = new Date();
 const seen = new Set();
 const norm = (t) => (t || '').replace(/\s+/g, '');
 // 새 기사를 앞에 두어, 같은 제목이면 새 항목이 채택되도록 한다
-const items = [...fresh, ...existing]
+// 최근 한 달 치 뉴스만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시)
+const items = keepRecent([...fresh, ...existing])
   .filter((it) => {
     const key = norm(it.title);
     if (!key || seen.has(key)) return false;

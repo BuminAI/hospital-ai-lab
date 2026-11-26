@@ -31,6 +31,7 @@
 // 누적 정책: 기존 src/data/tw/news.json 항목을 지우지 않고 병합한다(제목 기준
 // 중복 제거). 한 곳이 실패해도 나머지는 계속하고, 전부 실패했을 때만 기존
 // 파일을 그대로 두고 중단한다.
+import { keepRecent } from './lib/retention.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/tw/news.json', import.meta.url);
@@ -327,7 +328,8 @@ try {
 }
 
 const seen = new Set();
-const items = [...collected, ...existing]
+// 최근 한 달 치 뉴스만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시)
+const items = keepRecent([...collected, ...existing])
   .filter((it) => {
     const key = normTitle(it.title);
     if (!key || seen.has(key)) return false;

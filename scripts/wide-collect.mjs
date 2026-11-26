@@ -4,7 +4,7 @@
 //
 // 각 나라 유명 매체의 공개 RSS 수십 개를 읽어 AI 관련 기사·정부 지원사업·교육 행사를
 // 그 언어판의 기존 JSON(src/data/…)에 중복 없이 누적한다. 기존 항목은 지우지 않는다.
-// 예외: 한국어판(ko)은 최근 한 달만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시).
+// 예외: 뉴스는 모든 언어판, 한국어판(ko)은 지원사업·행사까지 최근 한 달만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시).
 // 출처 목록은 scripts/wide-sources.mjs, 판정·병합은 scripts/lib/wide.mjs.
 //
 // 종료 코드: 0 정상(변경 없음 포함) / 1 모든 출처가 응답하지 않음(기존 파일은 그대로 둔다)
@@ -64,7 +64,7 @@ for (const ed of eds) {
     if (cat === 'gov') for (const p of picked) p.summary = '';
     const merged = mergeItems(prev.items ?? [], picked, { max: MAX[cat] });
     const { added, updated } = merged;
-    const items = ed === 'ko' ? keepRecent(merged.items) : merged.items;
+    const items = ed === 'ko' || cat === 'news' ? keepRecent(merged.items) : merged.items;
     const expired = merged.items.length - items.length;
     const bySrc = {};
     for (const p of picked) bySrc[p.source] = (bySrc[p.source] || 0) + 1;

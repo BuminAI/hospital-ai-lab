@@ -11,6 +11,7 @@
 // Pag-iipon: pinapanatili ang mga umiiral na aytem sa src/data/ph/news.json at idinaragdag ang mga bago (de-dupe ayon sa pamagat).
 // Hindi pinapatigil ng isang pumalyang feed ang iba. Headline, petsa at link lamang ang kinokopya namin — hindi ang teksto ng artikulo.
 import { readFile, writeFile } from 'node:fs/promises';
+import { keepRecent } from './lib/retention.mjs';
 
 const UA = 'Mozilla/5.0 (compatible; hospital-ai-lab news fetcher; +https://hospital-ai-lab.com)';
 const MAX_ITEMS = 300;
@@ -122,7 +123,8 @@ if (!Object.values(ok).some(Boolean)) {
 const now = new Date();
 const seen = new Set();
 const norm = (t) => (t || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
-const items = [...collected, ...existing]
+// 뉴스는 최근 한 달 치만 보관한다(scripts/lib/retention.mjs). digest(AI 일반 동향)에는 적용하지 않는다.
+const items = (MODE === 'digest' ? [...collected, ...existing] : keepRecent([...collected, ...existing]))
   .filter((it) => {
     const key = norm(it.title);
     if (!key || seen.has(key)) return false;

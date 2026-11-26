@@ -9,6 +9,7 @@
 // Accumulation: existing src/data/ie/news.json items are kept and new items merged (de-duplicated by title).
 // A failing feed does not stop the others; only when no feed could be read is the existing file left untouched.
 // We copy only the headline, date and link — never the article text.
+import { keepRecent } from './lib/retention.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const UA = 'hospital-ai-lab news fetcher (+https://hospital-ai-lab.com)';
@@ -91,7 +92,8 @@ if (!Object.values(ok).some(Boolean)) {
 const now = new Date();
 const seen = new Set();
 const norm = (t) => (t || '').toLowerCase().replace(/\s+/g, '');
-const items = [...collected, ...existing]
+// 최근 한 달 치 뉴스만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시)
+const items = keepRecent([...collected, ...existing])
   .filter((it) => {
     const key = norm(it.title);
     if (!key || seen.has(key)) return false;

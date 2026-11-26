@@ -30,6 +30,7 @@
 // 경우에만 기존 파일을 그대로 두고 중단한다.
 // (이 저장소는 크롤러 간 공용 유틸을 두지 않는 관례라 decodeEntities·
 //  stripTags 등은 다른 수집기에서 그대로 복붙했다.)
+import { keepRecent } from './lib/retention.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/id/news.json', import.meta.url);
@@ -252,7 +253,8 @@ try {
 }
 
 const seen = new Set();
-const items = [...collected, ...existing]
+// 최근 한 달 치 뉴스만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시)
+const items = keepRecent([...collected, ...existing])
   .filter((it) => {
     const key = normTitle(it.title);
     if (!key || seen.has(key)) return false;
