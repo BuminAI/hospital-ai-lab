@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-26T05:01:56.032Z",
+  "updatedAt": "2026-11-26T05:29:20.283Z",
   "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디팜스투데이 · 메디파나뉴스 · 한국경제 · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "심평원 발굴 스타트업 2팀, 범정부 AI 창업경진대회 대통령상·총리상",
+      "link": "https://www.apsk.co.kr/news/articleView.html?idxno=541165",
+      "source": "메디팜스투데이",
+      "pubDate": "2026-11-26T14:20:11.000Z"
+    },
+    {
+      "title": "미래 신경과 진료, 조기진단·정밀치료·안전관리로",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99171",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-26T14:10:00.000Z"
+    },
     {
       "title": "대구가톨릭대의료원, 음성인식 기반 의무기록 작성 Voice EMR 고도화",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415827",
@@ -269,6 +281,12 @@
       "pubDate": "2026-11-26T05:50:00.000Z",
       "popular": true,
       "rank": 5
+    },
+    {
+      "title": "AI 시대 보건의료데이터의 윤리적 활용 방안 논의 제9회 국가생명윤리포럼 개최",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492670&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-26T05:04:00.000Z"
     },
     {
       "title": "RSNA 참석하는 딥노이드…\"의료AI 연구 8편 발표\"",
