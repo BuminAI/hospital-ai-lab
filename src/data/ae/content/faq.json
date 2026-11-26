@@ -64,5 +64,12 @@
       "https://u.ae/en/about-the-uae/digital-uae/whole-of-government-approach/digital-health/ict-in-the-health-sector",
       "https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws"
     ]
+  },
+  {
+    "question": "Who should our hospital report to if an AI tool shows a fault or deficiency in Abu Dhabi?",
+    "answer": "The DoH AI policy (Policy/AI/0.9, April 2018) says end-users other than patients and insurers shall report all known or suspected incidents or deficiencies related to AI in their domain to DoH and other regulatory bodies, and report issues that could affect patient safety to DoH. Device-specific reporting rules may also apply. Name one role in your hospital to receive staff reports and check current routes with compliance. This is general information, not legal advice.",
+    "sources": [
+      "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx"
+    ]
   }
 ]

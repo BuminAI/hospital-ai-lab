@@ -60,5 +60,12 @@
     "sources": [
       "https://www.cnil.fr/fr/ia-conversationnelle-la-voix-des-jeunesses"
     ]
+  },
+  {
+    "question": "La CNIL doit-elle prévenir l’hôpital avant un contrôle sur place ?",
+    "answer": "Non, en principe. La charte des contrôles (version du 23 novembre 2026) indique que les contrôles sur place s’effectuent généralement de façon inopinée, avec un accès possible aux locaux entre 6 heures et 21 heures. Il est donc utile de préparer à l’avance une chaîne d’appel et de pouvoir retrouver vite le registre des traitements, les analyses d’impact et les contrats de sous-traitance. Vérifiez vos droits et obligations avec votre DPO. Information générale, pas un avis juridique.",
+    "sources": [
+      "https://www.cnil.fr/sites/default/files/2026-11/charte_des_controles.pdf"
+    ]
   }
 ]

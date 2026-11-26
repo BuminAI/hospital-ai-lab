@@ -67,5 +67,13 @@
     "sources": [
       "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020021"
     ]
+  },
+  {
+    "id": "dianzi-bingli-anquan-shigu-72-xiaoshi",
+    "question": "電子病歷發生安全事故時，只要通知病人就好了嗎？",
+    "answer": "不一定。《醫療機構電子病歷製作及管理辦法》第 5 條要求通知當事人或其法定代理人；事故影響醫療機構營運或當事人權益時，還應在知悉事故發生起 72 小時內通報直轄市、縣（市）主管機關。建議醫院事先指定由誰判斷影響、由誰通報，並備好紀錄欄位。本回答為一般性資訊，不是法律意見。",
+    "sources": [
+      "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020121&flno=5"
+    ]
   }
 ]

@@ -60,5 +60,12 @@
       "https://www.dataprotection.ie/en/individuals/know-your-rights/right-access-information",
       "https://www.dataprotection.ie/en/individuals/exercising-your-rights/how-long-will-it-take"
     ]
+  },
+  {
+    "question": "If we decide an AI-related data incident poses no risk, do we still need to record it?",
+    "answer": "Yes, according to the DPC’s breach notification page: even where you determine there is no risk to affected individuals following a personal data breach, you need to keep an internal record of the details. Where there is a risk, the page sets 72 hours from becoming aware to notify, and where the risk is high, the people affected must also be informed without undue delay. Ask your data protection officer to assess each case. This is general information, not legal advice.",
+    "sources": [
+      "https://www.dataprotection.ie/en/organisations/know-your-obligations/breach-notification"
+    ]
   }
 ]
