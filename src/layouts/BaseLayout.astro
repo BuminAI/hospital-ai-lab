@@ -227,7 +227,9 @@ const webPage = {
       )
     }
     {
-      ADSENSE_CLIENT && (
+      /* 로그인·가입·수신거부·404·관리자 같은 화면(noindex)에는 광고 코드를 싣지 않는다.
+         게시자 정책은 게시자 콘텐츠가 없거나 알림·탐색·행동 목적인 화면의 광고를 금지한다. */
+      ADSENSE_CLIENT && !noindex && (
         <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
