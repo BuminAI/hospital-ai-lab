@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-11-26T03:11:08.024Z",
-  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Libération · Les Échos · Le Figaro · Les Numériques · Ouest-France · Sud Ouest · Numerama · France 24 · Le Parisien · Egora · Hospimedia",
+  "updatedAt": "2026-11-26T13:13:02.951Z",
+  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · Le Figaro · franceinfo · Ouest-France · Sud Ouest · Hospimedia · Le Parisien · Numerama · Libération · France 24 · Egora",
   "items": [
+    {
+      "title": "Médicaments et traitements : l’IA peut se tromper et vous mettre en danger !",
+      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPYUQxSmdXclZLeDVHSWp6TTRmZTZTS3ppNXBpQzg3bWl4ZzlveVhQd0hhMk5yY1g5WDQwaEs2aDhnZlRtbmNCMENoYWtFZ0FDMk1fc1lVY2lncmdjZlRzZEZCZ2hYeDVuUXdqVmZwVDEzVG4zX3kwd1NLUEEzeGhidEZzbnhhVDZmZzBjY2NfeGNPanJqZUZOem9aYXRpeTdsSVROOWZKdFpodUlQREhTS0UxT3pjZERna1FMWnp1ZzM2S19qQlc4SWl0WGZmUQ?oc=5",
+      "source": "Sud Ouest",
+      "pubDate": "2026-11-26T12:05:07.000Z"
+    },
+    {
+      "title": "Pourquoi faut-il se méfier des conseils de l’intelligence artificielle à propos de sa santé et des médicaments ?",
+      "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPWUw2bmREUjlCQzRjemRCdXlvektFOHlLOTNtclRCb1A4dFhWVVlGRV9kRmlHVjJmdzZZQklDY3NQcTFPRk5RUXpTX29qeThsdWxiVkFVd2lySjVuY3VkWmRtVkc1SG02cmtwTW1GajNPZ05HXzNPcHpuRXVpeFp1TXFvVXpuaGYxSklEd3Rubk1sLTRDcVREUjg1SXlfUUhfZFpiM29BWkJiSkhZeDhpSDM2UTVEbXkwVXRHdjdLTDVNSlJ1VjBKMlA2dkg4ZkJmNlhCSW5CQlBpNDJCWS1ILXpWZHlCRVlObUhJRDkyOHBISVRHV09GbWRpU3lYdV9ieXRFNGg4eU1LY0F6?oc=5",
+      "source": "Ouest-France",
+      "pubDate": "2026-11-26T11:11:27.000Z"
+    },
+    {
+      "title": "Hervé Chneiweiss : «En médecine, l’éthique protège nos libertés face aux frénésies de la technologie»",
+      "link": "https://sante.lefigaro.fr/social/sante-publique/herve-chneiweiss-en-medecine-l-ethique-protege-nos-libertes-face-aux-frenesies-de-la-technologie-20261126",
+      "source": "Le Figaro",
+      "pubDate": "2026-11-26T06:15:00.000Z"
+    },
+    {
+      "title": "Santé : « Des réponses erronées ou inadaptées », l’agence de sécurité du médicament alerte sur les dangers des conseils médicaux délivrés par l’intelligence artificielle",
+      "link": "https://news.google.com/rss/articles/CBMi6AJBVV95cUxPc1BQdjc4eXBQYUwwUU1VUDNNVmtPVjJQOFo1eXhDMHVzb1JjcWxaZXN1Y1Rpd0JxTEtmUkVISU54VjJZNFp5M0ZOSEk2VUtKRHMxRmFZRVRsVUhtcDhILURRZnRsTGVlUnViOTJOYTFKX3RFSDd3cTR3RGlBaGl2bG9CMkozc2NndGIyNzBYVEJXblNNeG1HaE91clh3LUtnZjJMUWhrSTBDZ01VaV80bE1PM1QwNGR2cFo2dGVoRnZkejRPNFVEdEx5QV9fbDFkcDFsdW9pc2pYNWp3SVFma2Zyb0hneGlSZ3pVWHk3a0ZpbDl1alZJb3R5cGowbG9MbFpGR0YxeHpoMlJxa05rcmRTeDNZUVlTUlRIOGd4OWJ6ZmZwWVNzQ0lYbE5zaldFOW1nQmVkeUtrdUFOOG9VUm5iWWN5Nkp3cUR4MUdta1Q1SXhSLVN4RmFiR2JNcndPcmxVQ1JfYlU?oc=5",
+      "source": "Sud Ouest",
+      "pubDate": "2026-11-26T06:05:23.000Z"
+    },
+    {
+      "title": "Ces centaines de milliers de jeunes Indiens prêts à quitter l’Inde pour étudier : « Après l’annulation du concours de médecine, j’ai énormément pleuré. J’ai trouvé cela tellement injuste »",
+      "link": "https://www.lemonde.fr/international/article/2026/11/26/ces-centaines-de-milliers-de-jeunes-indiens-prets-a-quitter-l-inde-pour-etudier-apres-l-annulation-du-concours-de-medecine-j-ai-enormement-pleure-j-ai-trouve-cela-tellement-injuste_6815470_3210.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-26T04:45:00.000Z"
+    },
+    {
+      "title": "L’Agence du médicament pointe les risques de consulter l’IA pour des conseils médicaux",
+      "link": "https://www.lemonde.fr/societe/article/2026/11/26/l-agence-du-medicament-pointe-les-risques-de-consulter-l-ia-pour-des-conseils-medicaux_6815395_3224.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-26T03:20:44.000Z"
+    },
+    {
+      "title": "Santé : l’agence de sécurité du médicament appelle à la prudence face aux conseils délivrés par l’IA",
+      "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQcEhzZjUzUXdoYmhqUl9TMWE4SFpUTjdCODlXOWptR1ZIeXM5SzRsVkxMU0dxMzVzMXpIYWhtVHA0bjYzdkJCY1JfeTVGQkIwOUw3aElHQXJ0bVMyb3lqUkkzNE9yeWZsMWw1d29QT2lPYXpBZEJsRld4TDdCek9yZGFPcXpvYzFLaHE3dkc5OV9iWWZXdlRlZFRSOUh4R3lPWTgxVHZtbWw4cFJ6SXd0Z2hjUWdadHdhcThUaWdmS29Jb0pMeWItREl3d1J2RV96cHlUNjFfN2hEOVltRHlWU3d5ZWQ4T2NhbzBycG85TjBDN3hWcmNJWEFKSFBKZ1phSVFwRFNURTFTQQ?oc=5",
+      "source": "Le Parisien",
+      "pubDate": "2026-11-25T22:21:27.000Z"
+    },
     {
       "title": "L’agence de sécurité du médicament appelle à la prudence face aux conseils délivrés par l’IA",
       "link": "https://sante.ouest-france.fr/medicament/lagence-de-securite-du-medicament-appelle-a-la-prudence-face-aux-conseils-delivres-par-lia-761c143e-e916-11f1-86c1-70195b4d2e52?utm_source=fluxpublicactu&utm_medium=fluxrss&utm_campaign=banquedecontenu",
@@ -356,18 +398,6 @@
       "source": "DSIH",
       "pubDate": "2026-10-27T00:00:00.000Z",
       "tier": "B"
-    },
-    {
-      "title": "Léonie Schröder, l’alliance de l’intelligence artificielle et santé de la peau",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPOHYxTkcwam1lN21FTlRoNGRlam1RWk9UV2lqc2laVE5ZZ3h4N0dmMU92VXFLUXVlLXVNd0tkb3NpMFhCdlRXZmdpYUZENm91V3ZvX3pZWFBQSDhPS2k2aXNjaXpMR1dnLUZYNGVCa2hPenBQZ0drY0w0OEJEUTVoeGdCdG9XcjNxWWd5a3pVdjVqQVI3c1doRTBraHl2N3NEWG1kTW5MWEF2RGZ0MXJuMFplYzVYbTFWck9RYQ?oc=5",
-      "source": "Le Figaro",
-      "pubDate": "2026-10-26T07:00:00.000Z"
-    },
-    {
-      "title": "Diagnostic médical : l’IA de Microsoft fait désormais deux fois mieux que les généralistes",
-      "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxNd1l3QTRwVFdUMlMtbzg2REVYbnBiTlFWQ2djTl84S1dQZkl1ZzJfZ0ZWZS1KRmgzMmFvVWdJbDY4T0FrRVBGcjREZlI3VFFwaS1ObGdoWS1mX0t0aFRIV1V5ZXl0dnhWZVFSckVlX0FFaDZaa2xtc2JLZVl0OUdTeXFQeGpHYnN2YXJ6NXp1RlNqUWJOQnlwOEdINEk5eExUNmZrQ0lwZU1NeFpRdmlQdEhOdDhPTzZFMTc1QmpzMFlXSlJ3MF9VS0ZoODhqLTJIS3pVMGJTZ1VtQl9vVXNtQVE2V3NrVXdrM3NpLVpB?oc=5",
-      "source": "Les Numériques",
-      "pubDate": "2026-10-26T07:00:00.000Z"
     }
   ]
 }
