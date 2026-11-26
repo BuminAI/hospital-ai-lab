@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-25T17:36:24.298Z",
+  "updatedAt": "2026-11-26T01:10:23.539Z",
   "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · Healthcare Business Today · BBC News · JAMA Network · Federal Register",
   "items": [
+    {
+      "title": "Leash Biosciences Raises $11M to Expand Automated Lab for AI Drug Discovery",
+      "link": "https://hitconsultant.net/2026/11/25/leash-biosciences-raises-11m-training-environments-scientific-ai/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-25T19:17:10.000Z"
+    },
+    {
+      "title": "Waystar to Bring Revenue Cycle Intelligence to Google Cloud’s Gemini for Healthcare",
+      "link": "https://hitconsultant.net/2026/11/25/waystar-brings-revenue-cycle-intelligence-google-cloud-gemini-for-healthcare/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-25T17:00:00.000Z"
+    },
     {
       "title": "Making AI spend predictable: 5 takeaways",
       "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/making-ai-spend-predictable-5-takeaways/",
@@ -25,6 +37,12 @@
       "link": "https://www.beckershospitalreview.com/healthcare-information-technology/ai/77-of-hospitals-now-use-generative-ai-outpacing-predictive-ai/",
       "source": "Becker's Hospital Review",
       "pubDate": "2026-11-24T22:28:51.000Z"
+    },
+    {
+      "title": "WebMD Ignite Introduces ChatGPT Advertising Offering for Health Systems in Collaboration with OpenAI",
+      "link": "https://hitconsultant.net/2026/11/24/webmd-ignite-introduces-chatgpt-advertising/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-24T19:17:36.000Z"
     },
     {
       "title": "How AI-Native Clinical Data Platforms Are Changing the Future of Clinical Trials",
@@ -55,6 +73,12 @@
       "link": "https://radiologybusiness.com/topics/artificial-intelligence/worlds-largest-breast-imaging-ai-trial-launches-13m-government-support",
       "source": "Radiology Business",
       "pubDate": "2026-11-24T08:50:59.000Z"
+    },
+    {
+      "title": "GE HealthCare Expands CT Portfolio with New Platform and AI-Enabled Workflows",
+      "link": "https://hitconsultant.net/2026/11/24/ge-healthcare-expands-ct-portfolio-revolution-altitude-ct-one-aw-one-rsna-2026/",
+      "source": "HIT Consultant",
+      "pubDate": "2026-11-24T07:27:00.000Z"
     },
     {
       "title": "A Technology Journalist Looks at AI and Health",
