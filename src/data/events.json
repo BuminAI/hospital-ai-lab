@@ -1,6 +1,90 @@
 {
-  "updatedAt": "2026-11-25T09:01:56.003Z",
+  "updatedAt": "2026-11-26T05:27:28.685Z",
   "items": [
+    {
+      "title": "미래 신경과 진료, 조기진단·정밀치료·안전관리로",
+      "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99171",
+      "source": "e-의료정보",
+      "pubDate": "2026-11-26T14:10:00.000Z"
+    },
+    {
+      "title": "국산 AI로 사이버위협 막는다…과기정통부, 해킹방어대회 개최",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=718275",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-26T12:00:00.000Z"
+    },
+    {
+      "title": "미즈메디병원, 제23회 QI 경진대회서 업무성과 공유",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017413",
+      "source": "의학신문",
+      "pubDate": "2026-11-26T10:26:40.000Z"
+    },
+    {
+      "title": "건강검진전문기관협의회, AI 건강검진 국회 토론회 개최",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017405",
+      "source": "의학신문",
+      "pubDate": "2026-11-26T10:26:31.000Z"
+    },
+    {
+      "title": "산전 위험인자 분석…건국대병원 양승우 교수 학술상",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422708",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-26T09:30:35.000Z"
+    },
+    {
+      "title": "고대 보건대학원 최고위과정, 제2회 총 원우의 밤 성료",
+      "link": "https://www.monews.co.kr/news/articleView.html?idxno=415803",
+      "source": "메디칼업저버",
+      "pubDate": "2026-11-26T09:30:31.000Z"
+    },
+    {
+      "title": "크레스콤, 북미방사선학회서 근골격계 AI 6종 공개",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422706",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-26T09:30:00.000Z"
+    },
+    {
+      "title": "건강검진전문기관협의회, 내달 1일 ‘AI 건강검진·사후관리’ 토론회 개최",
+      "link": "https://www.rapportian.com/news/articleView.html?idxno=242905",
+      "source": "라포르시안",
+      "pubDate": "2026-11-26T09:20:00.000Z"
+    },
+    {
+      "title": "AI 시대 보건의료데이터의 윤리적 활용 방안 논의 제9회 국가생명윤리포럼 개최",
+      "link": "https://www.mohw.go.kr/board.es?mid=a10503000000&bid=0027&list_no=1492670&act=view",
+      "source": "보건복지부",
+      "pubDate": "2026-11-26T05:04:00.000Z"
+    },
+    {
+      "title": "RSNA 참석하는 딥노이드…\"의료AI 연구 8편 발표\"",
+      "link": "https://www.newsis.com/view/NISX20261126_0003884503",
+      "source": "뉴시스",
+      "pubDate": "2026-11-26T04:49:59.000Z"
+    },
+    {
+      "title": "\"에이아이트릭스, AI로 환자 상태악화 예측\"…식약처장상[2026 의료AI 산업대상]",
+      "link": "https://www.newsis.com/view/NISX20261126_0003883658",
+      "source": "뉴시스",
+      "pubDate": "2026-11-26T03:01:00.000Z"
+    },
+    {
+      "title": "\"지능형 플랫폼 병원선도\"…한림대의료원, 산업부장관상[2026 의료AI 산업대상]",
+      "link": "https://www.newsis.com/view/NISX20261126_0003883728",
+      "source": "뉴시스",
+      "pubDate": "2026-11-26T03:01:00.000Z"
+    },
+    {
+      "title": "\"토종 AI로 해킹 공격 막아라\"…총상금 1억 규모 'AI 해킹방어대회' 본선 내달 개막",
+      "link": "https://www.newsis.com/view/NISX20261126_0003883916",
+      "source": "뉴시스",
+      "pubDate": "2026-11-26T03:00:00.000Z"
+    },
+    {
+      "title": "\"K-의료AI 주역 한 자리\"…뉴시스 산업대상 개최",
+      "link": "https://www.newsis.com/view/NISX20261126_0003883765",
+      "source": "뉴시스",
+      "pubDate": "2026-11-26T00:01:00.000Z"
+    },
     {
       "title": "고대보건대학원 최고위 과정, ‘총 원우의 밤’ 개최",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=242892",
@@ -47,7 +131,9 @@
       "title": "[동정] 강남성심 이석현 교수, AI 기반 PET-CT 임상 사례 발표",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415784",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-25T13:15:58.000Z"
+      "pubDate": "2026-11-25T13:15:58.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "씨어스, 광주지사 개소…“의료 AI 전국 확산 거점 구축”",
