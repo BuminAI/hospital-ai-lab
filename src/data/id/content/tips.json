@@ -7,6 +7,36 @@
   },
   "sections": [
     {
+      "heading": "TIP 14 — Ganti pekerjaan, buka percakapan baru",
+      "body": "Jika pengumuman dan laporan diminta di satu jendela yang sama, isi sebelumnya terus terbawa.",
+      "items": []
+    },
+    {
+      "heading": "Gaya pengumuman tadi muncul di laporan",
+      "body": "Pagi hari Anda meminta pengumuman bangsal, siang hari di jendela yang sama meminta draf laporan rapat. Gaya pengumuman bisa masuk ke laporan, atau tanggal dari materi yang ditempel sebelumnya muncul lagi. Memisahkan pekerjaan membantu mengurangi campur aduk seperti ini.",
+      "items": []
+    },
+    {
+      "heading": "Solusi: satu pekerjaan, satu percakapan",
+      "body": "Dokumentasi resmi Anthropic (perusahaan pembuat Claude) menyebut seluruh teks yang dapat dirujuk model saat menyusun jawaban sebagai 'context window'. Selama percakapan berlanjut, pesan Anda dan jawaban AI menumpuk di dalamnya. Dokumen yang sama menjelaskan bahwa makin banyak isinya, akurasi dan daya ingat ulang menurun, sehingga memilih apa yang dimasukkan itu penting. Saat topik berganti, buka percakapan baru dan sampaikan ulang hanya yang perlu. Untuk membawa hasil sebelumnya, pakai kalimat berikut.",
+      "items": [
+        "Saya akan melanjutkan pekerjaan di percakapan baru. Rangkum singkat dalam butir hanya keputusan yang sudah diambil, tugas yang tersisa, dan syarat yang harus dipatuhi."
+      ]
+    },
+    {
+      "heading": "Hal yang perlu diketahui",
+      "body": "Rangkuman itu pun bisa terlewat atau keliru, jadi cocokkan tanggal, penanggung jawab, dan nominal dengan dokumen asli sebelum menempelkannya. Penjelasan di atas berasal dari dokumentasi untuk pengembang, sehingga tiap layanan dapat memperlakukan percakapan secara berbeda. Jangan memasukkan materi berisi data pribadi, seperti nama pasien, ke layanan AI, dan periksa dulu aturan keamanan informasi rumah sakit Anda.",
+      "items": []
+    },
+    {
+      "heading": "Sumber",
+      "body": "",
+      "items": [
+        "Anthropic, 'Context windows' (dokumentasi resmi) https://platform.claude.com/docs/en/build-with-claude/context-windows",
+        "Tanggal pemeriksaan sumber: 26 November 2026"
+      ]
+    },
+    {
       "heading": "TIP 13 — Tentukan dulu panjang jawaban dan jumlah butirnya",
       "body": "Permintaan 'tolong rangkum' tanpa angka menghasilkan jawaban yang panjangnya berbeda-beda. Satu baris berisi angka membuat jawaban lebih siap pakai.",
       "items": []
