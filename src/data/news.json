@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-11-26T15:13:51.607Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디팜스투데이 · 메디파나뉴스 · 한국경제 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부 · 매일경제",
+  "updatedAt": "2026-11-26T23:51:54.635Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디팜스투데이 · 메디파나뉴스 · 한국경제 · ZDNet Korea · AI타임스 · 디지털투데이 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "케이메디허브, 의료기기 AI 전환에 460억 규모 R&D",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422792",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-27T08:22:52.000Z"
+    },
+    {
+      "title": "뇌졸중 골든타임 지킬 의사가 사라진다…신경과학회의 경고",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044959",
+      "source": "청년의사",
+      "pubDate": "2026-11-27T07:02:22.000Z"
+    },
+    {
+      "title": "계명대 간호대, AI 주제 전국 간호대학생 학술대회 성료",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017492",
+      "source": "의학신문",
+      "pubDate": "2026-11-27T06:21:57.000Z"
+    },
+    {
+      "title": "영란은행 \"AI 기업 차입 급증, 금융 시스템 위험 키운다\"",
+      "link": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=718587",
+      "source": "디지털투데이",
+      "pubDate": "2026-11-27T06:17:09.000Z"
+    },
+    {
+      "title": "2027년 의약품 허가·심사 무엇이 달라지나…식약처 '청사진' 공개",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=550035",
+      "source": "약사공론",
+      "pubDate": "2026-11-27T05:53:00.000Z"
+    },
+    {
+      "title": "의사·간호사 국시 만점자 7배 '급증'…약사 국시는 60% 감소",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=550008",
+      "source": "약사공론",
+      "pubDate": "2026-11-27T05:50:00.000Z"
+    },
+    {
+      "title": "차세대 항암제 어디까지 왔나…'ESMO Asia 2026' 來 4일 개막",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422778",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-27T05:45:00.000Z"
+    },
     {
       "title": "파마리서치, 리쥬란코스메틱 정부인증…해외 정품 보호 강화",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422781",
@@ -15,6 +57,12 @@
       "pubDate": "2026-11-26T21:02:38.000Z"
     },
     {
+      "title": "인공지능 사다 쓰던 병원들 이제는 '직접 만든다'",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172189",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-26T20:30:00.000Z"
+    },
+    {
       "title": "의료데이터 활용 문턱 낮춘다…AI 환자정보 학습엔 제동",
       "link": "https://www.medipana.com/news/articleView.html?idxno=422776",
       "source": "메디파나뉴스",
@@ -24,7 +72,9 @@
       "title": "국내 첫 닥터헬기 15년 맞은 길병원, AI 기반 '스마트 HEMS'로 도약",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017488",
       "source": "의학신문",
-      "pubDate": "2026-11-26T18:33:38.000Z"
+      "pubDate": "2026-11-26T18:33:38.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "뷰노 ‘딥카스’, 中 하이난 보아오 슈퍼병원서 첫 현지 검증 돌입",
@@ -81,6 +131,14 @@
       "pubDate": "2026-11-26T16:33:09.000Z"
     },
     {
+      "title": "스타강사 이지영, 분당서울대병원에 후원금 3억 원 기부",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=253276",
+      "source": "병원신문",
+      "pubDate": "2026-11-26T16:10:55.000Z",
+      "popular": true,
+      "rank": 3
+    },
+    {
       "title": "부산 소나무병원·대웅제약, ‘씽크’ 도입",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017466",
       "source": "의학신문",
@@ -90,19 +148,25 @@
       "title": "'AI 가짜의사 광고' 오늘부터 철퇴...최대 벌금 5천만원",
       "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200271",
       "source": "의협신문",
-      "pubDate": "2026-11-26T15:24:00.000Z"
+      "pubDate": "2026-11-26T15:24:00.000Z",
+      "popular": true,
+      "rank": 2
     },
     {
       "title": "\"10년 뒤 AI 시대에도 지금만큼 의사 필요할까\"",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044929",
       "source": "청년의사",
-      "pubDate": "2026-11-26T15:14:07.000Z"
+      "pubDate": "2026-11-26T15:14:07.000Z",
+      "popular": true,
+      "rank": 2
     },
     {
       "title": "아모데이 \"인간 통제권 AI에 넘긴다는 주장 터무니없어\"…경쟁사도 비판",
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217824",
       "source": "AI타임스",
-      "pubDate": "2026-11-26T14:57:40.000Z"
+      "pubDate": "2026-11-26T14:57:40.000Z",
+      "popular": true,
+      "rank": 7
     },
     {
       "title": "의료데이터 활용 절차 간소화…생성형 AI 활용 시 환자정보 저장·학습 금지",
@@ -114,7 +178,9 @@
       "title": "‘의사냥이’ 의혹…복지부 “부정행위 의심 정황 없어”",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044930",
       "source": "청년의사",
-      "pubDate": "2026-11-26T14:35:29.000Z"
+      "pubDate": "2026-11-26T14:35:29.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "대구가톨릭대의료원, AI 음성인식 의무기록 시스템 고도화",
@@ -126,7 +192,9 @@
       "title": "심평원 발굴 스타트업 2팀, 범정부 AI 창업경진대회 대통령상·총리상",
       "link": "https://www.apsk.co.kr/news/articleView.html?idxno=541165",
       "source": "메디팜스투데이",
-      "pubDate": "2026-11-26T14:20:11.000Z"
+      "pubDate": "2026-11-26T14:20:11.000Z",
+      "popular": true,
+      "rank": 7
     },
     {
       "title": "대구가톨릭대의료원, Voice EMR 고도화",
@@ -150,13 +218,17 @@
       "title": "대구가톨릭대의료원, 음성인식 기반 의무기록 작성 Voice EMR 고도화",
       "link": "https://www.monews.co.kr/news/articleView.html?idxno=415827",
       "source": "메디칼업저버",
-      "pubDate": "2026-11-26T13:51:34.000Z"
+      "pubDate": "2026-11-26T13:51:34.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "AI가 의사 대체?…\"오히려 의사 책임 더 커질 것\"",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044923",
       "source": "청년의사",
-      "pubDate": "2026-11-26T13:35:19.000Z"
+      "pubDate": "2026-11-26T13:35:19.000Z",
+      "popular": true,
+      "rank": 7
     },
     {
       "title": "쓰기 쉽고, 싸고 실제로 된다…히츠 '하이퍼랩3'로 시장공략 본격화",
@@ -186,7 +258,9 @@
       "title": "의료데이터 가명처리, 외부 위탁 길 열렸다",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044915",
       "source": "청년의사",
-      "pubDate": "2026-11-26T12:24:06.000Z"
+      "pubDate": "2026-11-26T12:24:06.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "“AI 진료ㆍ서면 초안 대신해도 최종 판단과 책임은 전문가 몫”",
@@ -204,7 +278,9 @@
       "title": "일반 구독형 챗GPT·제미나이에 의료데이터 활용 못한다",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=81118",
       "source": "히트뉴스",
-      "pubDate": "2026-11-26T12:02:00.000Z"
+      "pubDate": "2026-11-26T12:02:00.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "동물대체시험 전문인력 본격 양성한다",
@@ -234,13 +310,17 @@
       "title": "의사 국시 법규 만점자 20명→137명…\"보건의료인 시험도 전수조사를\"",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044921",
       "source": "청년의사",
-      "pubDate": "2026-11-26T11:55:44.000Z"
+      "pubDate": "2026-11-26T11:55:44.000Z",
+      "popular": true,
+      "rank": 3
     },
     {
       "title": "27일부터 'AI 가짜 의사·교수' 추천 광고 금지…위반 시 영업정지",
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217797",
       "source": "AI타임스",
-      "pubDate": "2026-11-26T11:38:28.000Z"
+      "pubDate": "2026-11-26T11:38:28.000Z",
+      "popular": true,
+      "rank": 5
     },
     {
       "title": "농촌진흥청, 토마토 물·양분 자동 공급 AI 개발…관리시간 최대 80% 단축",
@@ -270,7 +350,9 @@
       "title": "'AI 가짜 의사' 의약품 추천 광고 금지…27일부터 본격 시행",
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=549975",
       "source": "약사공론",
-      "pubDate": "2026-11-26T11:12:55.000Z"
+      "pubDate": "2026-11-26T11:12:55.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "엑스엘에이트, AI 통번역 ‘이벤트캣’ 헬스케어 행사 공급 확대",
@@ -324,7 +406,9 @@
       "title": "AI 의사 오인광고 행정처분 내린다",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017380",
       "source": "의학신문",
-      "pubDate": "2026-11-26T10:12:44.000Z"
+      "pubDate": "2026-11-26T10:12:44.000Z",
+      "popular": true,
+      "rank": 7
     },
     {
       "title": "스타강사 이지영, 분당서울대병원에 발전후원금 3억 기부",
@@ -384,7 +468,9 @@
       "title": "'AI 가짜 의사' 추천 광고 27일부터 금지…의약품 첫 위반 땐 광고정지 1개월",
       "link": "https://www.apsk.co.kr/news/articleView.html?idxno=541155",
       "source": "메디팜스투데이",
-      "pubDate": "2026-11-26T09:20:58.000Z"
+      "pubDate": "2026-11-26T09:20:58.000Z",
+      "popular": true,
+      "rank": 2
     },
     {
       "title": "건강검진전문기관협의회, 내달 1일 ‘AI 건강검진·사후관리’ 토론회 개최",
@@ -402,7 +488,9 @@
       "title": "순천향대중앙의료원, 8개 병원 약물알레르기 정보 공유체계 구축",
       "link": "https://www.apsk.co.kr/news/articleView.html?idxno=541153",
       "source": "메디팜스투데이",
-      "pubDate": "2026-11-26T09:08:37.000Z"
+      "pubDate": "2026-11-26T09:08:37.000Z",
+      "popular": true,
+      "rank": 3
     },
     {
       "title": "금리·AI 수익성 우려에 관세까지…여의도 족집게 “반등 시그널 이때 나온다” [머니닥터 시장진단]",
@@ -426,7 +514,9 @@
       "title": "AI 가짜 의사 추천 광고 금지…위반 시 영업정지",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=81106",
       "source": "히트뉴스",
-      "pubDate": "2026-11-26T08:22:58.000Z"
+      "pubDate": "2026-11-26T08:22:58.000Z",
+      "popular": true,
+      "rank": 6
     },
     {
       "title": "‘AI바이오 메디시티대구’ 중국 의료시장 진출 본격화",
@@ -478,7 +568,7 @@
       "source": "약사공론",
       "pubDate": "2026-11-26T05:50:00.000Z",
       "popular": true,
-      "rank": 5
+      "rank": 3
     },
     {
       "title": "AI 시대 보건의료데이터의 윤리적 활용 방안 논의 제9회 국가생명윤리포럼 개최",
@@ -4871,12 +4961,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171411",
       "source": "메디칼타임즈",
       "pubDate": "2026-10-27T00:20:56.000Z"
-    },
-    {
-      "title": "‘피지컬 AI’로 재활의 미래를 그리다",
-      "link": "https://www.khanews.com/news/articleView.html?idxno=251744",
-      "source": "병원신문",
-      "pubDate": "2026-10-26T21:41:00.000Z"
     }
   ]
 }
