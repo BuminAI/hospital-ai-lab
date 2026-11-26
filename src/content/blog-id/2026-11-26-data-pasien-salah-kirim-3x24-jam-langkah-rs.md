@@ -1,5 +1,5 @@
 ---
-title: "Data pasien salah kirim: apa yang dilakukan RS dalam 3x24 jam?"
+title: "Data pasien salah kirim: apa langkah RS dalam 3x24 jam?"
 description: "UU PDP memberi batas waktu pemberitahuan tertulis. Siapkan daftar kontak, catatan kejadian, dan draf surat sebelum insiden terjadi."
 pubDate: 2026-11-26
 category: "Alat AI"

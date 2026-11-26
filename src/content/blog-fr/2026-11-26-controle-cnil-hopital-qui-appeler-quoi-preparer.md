@@ -1,5 +1,5 @@
 ---
-title: "Contrôle de la CNIL à l’hôpital : qui appeler, quoi préparer ?"
+title: "Contrôle CNIL à l’hôpital : qui appeler, quoi préparer ?"
 description: "La CNIL vient souvent sans prévenir. Ce que dit sa charte des contrôles et la fiche réflexe que l’accueil et l’administration peuvent préparer."
 pubDate: 2026-11-26
 category: "Outils IA"
