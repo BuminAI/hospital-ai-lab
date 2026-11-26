@@ -64,6 +64,10 @@ export const SITE_TAGLINE = '의료 현장의 문제를 AI로 풉니다.';
 // 방문자에게 의미 없는 버전 숫자(v0.9)는 2026-07-12에 뺐다.
 export const CONTACT_EMAIL = 'choyj80@naver.com';
 export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@HospitalAILAB';
+// 오너의 네이버 블로그(2026-11-20 오너가 알려 준 주소). 푸터 링크와 구조화 데이터 sameAs에 함께 쓴다.
+export const NAVER_BLOG_URL = 'https://blog.naver.com/choyj80';
+// 구조화 데이터(Person·Organization)의 sameAs: 같은 운영자의 공식 채널. 검색·답변 엔진이 한 개체로 묶는 근거다.
+export const SAME_AS = [YOUTUBE_CHANNEL_URL, NAVER_BLOG_URL];
 export const DISCLAIMER =
   '본 사이트의 콘텐츠는 일반적인 정보 제공과 연구·교육 목적이며, 특정 환자에 대한 의학적 진단이나 조언을 대신하지 않습니다.';
 

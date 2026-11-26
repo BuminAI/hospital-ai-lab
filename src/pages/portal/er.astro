@@ -5,11 +5,15 @@
 // 특정 병원 기준·고정 표시 없이 전국 응급의료기관을 시도·시군구 드롭다운으로 거른다.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../utils/site';
+import PortalFaq from '../../components/PortalFaq.astro';
+import { portalSchema } from '../../data/portal-faq';
 
 const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/portal-data/er.json';
+const schema = portalSchema('er', 'https://hospital-ai-lab.com');
 ---
 
 <BaseLayout
+  schema={schema}
   title="전국 응급실 사용현황: 가용 병상·진료 불가 안내를 지자체별로"
   description="전국 응급의료기관의 응급실 가용 병상, 소아·분만·격리 병상, 진료 불가 안내를 시도·시군구 드롭다운으로 골라 봅니다. 중앙응급의료센터 공개 자료 기준입니다."
 >
@@ -76,6 +80,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       <li>‘안내’ 열은 병원이 등록한 진료 불가·제한 사유와 이송 우회 안내를 줄여서 보여 줍니다. 전화번호가 있는 병원은 그대로 표시합니다.</li>
       <li><b>응급 상황이면 119에 신고하세요.</b> 이 페이지는 환자 이송이나 응급실 선택·수용 가능 여부를 판단하는 용도가 아니며, 실제 수용 여부는 해당 병원이나 119·응급의료포털에서 확인해야 합니다.</li>
     </ul>
+    <PortalFaq page="er" />
     <p class="er-back"><a href={withBase('/portal/')}>← 공공 포털</a></p>
   </section>
 </BaseLayout>

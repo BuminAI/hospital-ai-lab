@@ -12,16 +12,8 @@
 // ⚠️ .mjs인 이유: astro.config.mjs에서 import해야 하는데 그쪽은 TypeScript를
 //    거치지 않는다. .ts로 바꾸지 말 것.
 import { execSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
-
-// 자동 수집 목록 페이지는 .astro가 아니라 데이터 JSON이 바뀔 때 내용이 달라진다.
-const VOLATILE_DATA_SOURCES = {
-  '/news': 'src/data/news.json',
-  '/gov-support': 'src/data/gov-programs.json',
-  '/events': 'src/data/events.json',
-  '/youtube': 'src/data/recommended-videos.json',
-  '/ja/subsidies': 'src/data/ja/subsidies.json',
-};
+import { existsSync, readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path/posix';
 
 // 동적 라우트(`[no].astro` 등)는 URL에서 파일명을 유추할 수 없다. 또 목록
 // 페이지는 자기 .astro가 아니라 **나열하는 대상**이 바뀔 때 내용이 달라진다
@@ -31,6 +23,10 @@ const DYNAMIC_ROUTE_SOURCES = [
   { pattern: /^\/blog$/, file: 'src/content/blog' },
   { pattern: /^\/blog\/category(\/[^/]+)?$/, file: 'src/content/blog' },
 ];
+
+// 언어판 접두어. ⚠️ 새 언어판을 만들면 여기에 반드시 더한다 — 빠지면 그 판의 글이 사이트맵에서
+// lastmod 없이 나가고, 화면의 '업데이트' 날짜가 빌드 시각(거짓)이 된다(2026-11-26: sg·ph·ae·ie·fr 누락 발견).
+const LOCALES = 'ja|ru|id|tw|en|in|sg|ph|ae|ie|fr';
 
 const cache = new Map();
 
@@ -60,30 +56,28 @@ export function sourceFileForPath(pathname, base = '/') {
   if (base && base !== '/' && path.startsWith(base)) path = path.slice(base.length);
   path = `/${path.replace(/^\/+|\/+$/g, '')}`;
 
-  if (VOLATILE_DATA_SOURCES[path]) return VOLATILE_DATA_SOURCES[path];
-
   const blogMatch = path.match(/^\/blog\/([^/]+)$/);
   if (blogMatch) {
     const md = `src/content/blog/${blogMatch[1]}.md`;
     if (existsSync(md)) return md;
   }
 
-  // 언어판 글: /ja/blog/<slug> → src/content/blog-ja/<slug>.md (ko는 위에서 처리). 2026-11-07 추가 —
-  // 이게 없어서 ja·ru·id·tw·en 글 약 150편이 사이트맵에서 lastmod 없이 나갔다.
-  const locBlog = path.match(/^\/(ja|ru|id|tw|en|in)\/blog\/([^/]+)$/);
+  // 언어판 글: /ja/blog/<slug> → src/content/blog-ja/<slug>.md (ko는 위에서 처리).
+  const locBlog = path.match(new RegExp(`^/(${LOCALES})/blog/([^/]+)$`));
   if (locBlog && locBlog[2] !== 'category') {
     const md = `src/content/blog-${locBlog[1]}/${locBlog[2]}.md`;
     if (existsSync(md)) return md;
   }
-  const locBlogList = path.match(/^\/(ja|ru|id|tw|en|in)\/blog(\/category(\/[^/]+)?)?$/);
+  const locBlogList = path.match(new RegExp(`^/(${LOCALES})/blog(/category(/[^/]+)?)?$`));
   if (locBlogList) return `src/content/blog-${locBlogList[1]}`;
 
-  // 연재 시리즈(목록·상세)는 시리즈 정의와 언어판 정의가 바뀔 때, 실무 점검표 상세는 점검표 데이터가 바뀔 때 달라진다.
-  if (/^(\/(ja|ru|id|tw|en|in))?\/series(\/[^/]+)?$/.test(path)) return 'src/data/series.ts';
+  // 연재 시리즈(목록·상세)는 시리즈 정의가 바뀔 때, 실무 점검표 상세는 점검표 데이터가 바뀔 때 달라진다.
+  if (/^\/series(\/[^/]+)?$/.test(path)) return 'src/data/series.ts';
+  if (new RegExp(`^/(${LOCALES})/series(/[^/]+)?$`).test(path)) return 'src/data/series-locales.ts';
   if (/^\/checklist\/[^/]+$/.test(path)) return 'src/data/checklists.ts';
 
   // 생성되는 AI 심사실 페이지(public/**/ai-judge/index.html)
-  const judge = path.match(/^(\/(ja|ru|id|tw|en|in))?\/ai-judge$/);
+  const judge = path.match(new RegExp(`^(/(${LOCALES}))?/ai-judge$`));
   if (judge) return `public${judge[1] || ''}/ai-judge/index.html`;
 
   const dynamic = DYNAMIC_ROUTE_SOURCES.find((r) => r.pattern.test(path));
@@ -96,8 +90,40 @@ export function sourceFileForPath(pathname, base = '/') {
   );
 }
 
+// 목록·홈·자동 수집 페이지는 .astro가 그대로여도 **그 페이지가 읽는 자료**가 바뀌면 내용이 달라진다.
+// 페이지 소스에서 data/ 가져오기와 getCollection('blog…')를 읽어 원본 목록에 더한다.
+function dependencies(file) {
+  if (!file.endsWith('.astro')) return [file];
+  let src = '';
+  try {
+    src = readFileSync(file, 'utf8');
+  } catch {
+    return [file];
+  }
+  const out = [file];
+  for (const m of src.matchAll(/from\s+['"]((?:\.\.\/)+data\/[^'"]+)['"]/g)) {
+    const target = join(dirname(file), m[1]);
+    const found = [target, `${target}.ts`, `${target}.json`, `${target}/index.ts`].find(
+      (c) => /\.(ts|json)$/.test(c) && existsSync(c)
+    );
+    // 메뉴·시리즈 정의처럼 본문이 아닌 공통 자료는 날짜 판단에서 뺀다.
+    if (found && !/site-nav|series/.test(found)) out.push(found);
+  }
+  for (const m of src.matchAll(/getCollection\(\s*['"]blog([A-Za-z]*)['"]/g)) {
+    out.push(m[1] ? `src/content/blog-${m[1].toLowerCase()}` : 'src/content/blog');
+  }
+  // 의료 기술·논문 페이지는 공용 컴포넌트가 언어판별 JSON을 읽는다.
+  const research = file.match(new RegExp(`^src/pages/(?:(${LOCALES})/)?research[.]astro$`));
+  if (research) out.push(`src/data/research/${research[1] || 'ko'}.json`);
+  return out;
+}
+
 /** 경로에 대응하는 실제 수정일(Date). 알 수 없으면 undefined. */
 export function lastModifiedForPath(pathname, base = '/') {
   const file = sourceFileForPath(pathname, base);
-  return file ? gitLastModified(file) : undefined;
+  if (!file) return undefined;
+  const dates = dependencies(file)
+    .map((f) => gitLastModified(f))
+    .filter(Boolean);
+  return dates.length ? new Date(Math.max(...dates.map(Number))) : undefined;
 }

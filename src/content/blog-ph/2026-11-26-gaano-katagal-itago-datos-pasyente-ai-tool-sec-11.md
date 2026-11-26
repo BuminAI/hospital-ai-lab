@@ -55,3 +55,7 @@ Pumili ng isang gawain na ginagamitan ng AI. Hilingin sa isang nurse at isang ad
 ---
 
 *Pinagkunan: [Republic Act No. 10173, Data Privacy Act of 2012 (LawPhil)](https://lawphil.net/statutes/repacts/ra2012/ra_10173_2012.html), Sections 3 at 11. Binasa noong Nobyembre 26, 2026.*
+
+---
+
+*Ang nilalaman ng site na ito ay pangkalahatang impormasyon, pananaliksik at edukasyon. Hindi nito pinapalitan ang medikal na diagnosis o payo para sa partikular na pasyente, at hindi ito legal na payo.*

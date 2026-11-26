@@ -263,7 +263,7 @@ const DISCLAIMER_HINT = {
   ae: /not legal advice|does not replace|not a substitute/i,
   ie: /not legal advice|does not replace|not a substitute/i,
   fr: /pas un avis juridique|ne remplace pas|ne se substitue pas/i,
-  ph: /hindi legal na payo|hindi kapalit|hindi pamalit|hindi payong legal/i,
+  ph: /hindi (ito )?legal na payo|hindi kapalit|hindi pamalit|hindi payong legal/i,
 };
 const HYPE = {
   ko: /완치|100\s?%|부작용\s?없|확실히\s?낫|(?<![가-힣])기적(?![가-힣]*적)/,

@@ -77,6 +77,8 @@ const blogSchema = {
                 {c.label}
               </a>
             ))}
+            {/* 분류 허브(/blog/category/)로 가는 링크. 없으면 어디에서도 닿지 않는 페이지가 된다(2026-11-26). */}
+            <a href={withBase('/blog/category/')} class="chip">분류 설명 보기</a>
           </nav>
           <div class="post-list">
             {posts.map((post) => (

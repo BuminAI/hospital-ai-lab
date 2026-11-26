@@ -27,6 +27,7 @@ export function guideSchema(o: Opts): Record<string, unknown>[] {
   const out: Record<string, unknown>[] = [
     {
       '@type': 'Article',
+      image: `${o.siteRoot}/og-default.png`,
       '@id': `${url}#article`,
       headline: o.headline,
       description: o.description,

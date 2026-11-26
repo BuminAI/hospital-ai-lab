@@ -1,0 +1,41 @@
+---
+// 공공 포털 페이지 아래의 '자주 묻는 질문'. 내용과 구조화 데이터는 src/data/portal-faq.ts 한 곳에서 온다.
+import { PORTAL_PAGES } from '../data/portal-faq';
+
+interface Props {
+  page: keyof typeof PORTAL_PAGES;
+}
+const { page } = Astro.props;
+const items = PORTAL_PAGES[page].faq;
+---
+
+<section class="pf" aria-labelledby="pf-h">
+  <h2 id="pf-h">자주 묻는 질문</h2>
+  <dl>
+    {
+      items.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+</section>
+
+<style>
+  .pf {
+    max-width: 52rem;
+    margin-top: 2rem;
+  }
+  .pf dt {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: var(--color-heading);
+  }
+  .pf dd {
+    margin: 0.35rem 0 0;
+    line-height: 1.75;
+    color: var(--color-muted);
+  }
+</style>

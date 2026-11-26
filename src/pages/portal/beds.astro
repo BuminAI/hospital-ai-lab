@@ -6,6 +6,8 @@
 // 특정 병원 기준·반경·고정 병원 없이 전국 응급의료기관을 시도·시군구 드롭다운으로 거른다(자바스크립트가 없어도 전체 표가 보인다).
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../utils/site';
+import PortalFaq from '../../components/PortalFaq.astro';
+import { portalSchema } from '../../data/portal-faq';
 import beds from '../../data/portal/beds.json';
 
 interface Row {
@@ -39,25 +41,13 @@ const stampText = (s: string) => (/^\d{14}$/.test(s) ? `${s.slice(4, 6)}.${s.sli
 const kst = (iso: string | null) => (iso ? new Date(iso).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16) : '');
 const asOf = kst(beds.updatedAt);
 
-const pageUrl = 'https://hospital-ai-lab.com/portal/beds/';
-const dataset = {
-  '@type': 'Dataset',
-  '@id': `${pageUrl}#dataset`,
-  name: '전국 응급의료기관 병상가동현황',
-  description:
-    '국립중앙의료원 중앙응급의료센터가 공개한 응급의료기관 정보를 바탕으로, 전국 응급의료기관의 병상수·재원·가동률을 시도·시군구별로 정리한 표입니다.',
-  url: pageUrl,
-  inLanguage: 'ko-KR',
-  ...(beds.updatedAt ? { dateModified: beds.updatedAt } : {}),
-  isBasedOn: 'https://www.data.go.kr/',
-  creator: { '@id': 'https://hospital-ai-lab.com/#organization' },
-};
+const schema = portalSchema('beds', 'https://hospital-ai-lab.com', beds.updatedAt || undefined);
 ---
 
 <BaseLayout
   title="전국 병상가동현황: 응급의료기관 병상수·가동률을 지자체별로"
   description="전국 응급의료기관의 병상수·재원·가동률을 시도·시군구 드롭다운으로 골라 봅니다. 국립중앙의료원 중앙응급의료센터 공개 자료 기준입니다."
-  schema={[dataset]}
+  schema={schema}
 >
   <section class="container beds">
     <h1>전국 병상가동현황</h1>
@@ -94,7 +84,7 @@ const dataset = {
             <p class="count" id="beds-count" aria-live="polite">{rows.length.toLocaleString('ko-KR')}곳</p>
           </form>
 
-          <p class="asof" id="beds-asof" role="status">
+          <p class="asof" id="beds-asof" role="status" data-updated={beds.updatedAt}>
             자료 갱신 {asOf} (한국시간) · 병상 수치는 각 병원이 입력한 값이며, 입력 시각은 표 오른쪽 끝에 있습니다. 이 페이지는 열려 있는 동안 5분마다, 그리고 새로고침을 누를 때 최신 자료를 받아 옵니다(자료 수집은 GitHub 사정으로 늦어질 수 있습니다).
             <button type="button" id="beds-reload" class="reload">새로고침</button>
           </p>
@@ -147,11 +137,11 @@ const dataset = {
       <li>기관별 입력 누락이나 집계 시점 차이로 실제와 다를 수 있습니다. 가동률이 100%를 넘는 값은 가용병상이 음수로 입력된 경우입니다. 입원실 병상 자료가 없는 기관은 표에서 제외했습니다.</li>
       <li>환자의 전원·입원 가능 여부를 판단하는 용도가 아니며, 실제 병상 여부는 해당 병원이나 응급의료포털에서 확인해야 합니다.</li>
     </ul>
+    <PortalFaq page="beds" />
     <p class="back"><a href={withBase('/portal/')}>← 공공 포털</a></p>
   </section>
 </BaseLayout>
 
-<script id="beds-initial" type="application/json" set:html={JSON.stringify({ updatedAt: beds.updatedAt, items: rows })} />
 <script is:inline define:vars={{ DATA_URL }}>
   (function () {
     var selSido = document.getElementById('sel-sido');
@@ -189,7 +179,7 @@ const dataset = {
     function pct(r) { return r === null || r === undefined || r < 0 ? '—' : (r * 100).toFixed(1) + '%'; }
     function rateClass(r) { return r === null || r === undefined ? '' : r < 0.6 ? 'r-low' : r < 0.75 ? 'r-mid' : r < 0.9 ? 'r-ok' : 'r-high'; }
     function n0(x) { return typeof x === 'number' ? x.toLocaleString('ko-KR') : '—'; }
-    function stampText(s) { return /^[0-9]{14}$/.test(s || '') ? s.slice(4, 6) + '.' + s.slice(6, 8) + ' ' + s.slice(8, 10) + ':' + s.slice(10, 12) : '—'; }
+    function stampText(s) { return /^[0-9]{14}$/.test(s || '') ? s.slice(4, 6) + '.' + s.slice(6, 8) + ' ' + s.slice(8, 10) + ':' + s.slice(10, 12) : s || '—'; }
     function kst(iso) {
       try { return new Date(iso).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16); } catch (e) { return ''; }
     }
@@ -285,6 +275,18 @@ const dataset = {
         (old ? ' 자료가 오래되었습니다. 수집이 지연되고 있을 수 있습니다.' : '') + (extra || '') + ' ';
     }
 
+    // 처음 값은 빌드 때 구워 둔 표에서 읽는다(같은 자료를 JSON으로 한 번 더 싣지 않는다 — 2026-11-26, 페이지 무게 줄이기).
+    function fromTable() {
+      var num = function (t) { return t === '—' ? null : Number(t.replace(/,/g, '')); };
+      var ratio = function (t) { return t === '—' ? null : parseFloat(t) / 100; };
+      var blank = function (t) { return t === '—' ? '' : t; };
+      var items = Array.prototype.map.call(body.querySelectorAll('tr'), function (tr) {
+        var c = Array.prototype.map.call(tr.children, function (td) { return td.textContent.trim(); });
+        return { sido: c[0], sigungu: blank(c[1]), name: c[2], type: blank(c[3]), total: num(c[4]), stay: num(c[5]), rate: ratio(c[6]), wardRate: ratio(c[7]), stamp: blank(c[8]) };
+      });
+      return { updatedAt: asofEl.getAttribute('data-updated'), items: items };
+    }
+
     function apply(d, initial) {
       data = d;
       buildMap();
@@ -330,7 +332,7 @@ const dataset = {
     });
 
     try {
-      apply(JSON.parse(document.getElementById('beds-initial').textContent), true);
+      apply(fromTable(), true);
     } catch (e) { return; }
     load();
     setInterval(function () { if (!document.hidden) load(); }, 300000);

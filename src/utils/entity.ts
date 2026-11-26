@@ -7,9 +7,9 @@
 //
 // ⚠️ 여기에는 사이트에서 이미 확인되는 사실만 넣는다.
 //   - 이름: 각 언어판 레이아웃이 실제로 쓰는 이름
-//   - sameAs: briefing.md에 있는 공식 채널(유튜브)뿐. SNS·GitHub는 briefing.md에 "추후 추가"라
+//   - sameAs: briefing.md에 있는 공식 채널(유튜브·네이버 블로그)뿐. SNS·GitHub는 briefing.md에 "추후 추가"라
 //     적혀 있어 넣지 않는다. 새 공식 프로필이 생기면 YOUTUBE_CHANNEL_URL 옆에 여기서 추가한다.
-import { YOUTUBE_CHANNEL_URL } from './site';
+import { SAME_AS } from './site';
 
 // 연구소를 가리키는 이름들 — 한국어·일본어·러시아어·영어(인도네시아어·대만어판은 영어 이름을 쓴다).
 const ORG_NAMES = ['병원 AI 연구소', '病院AI研究所', 'Лаборатория ИИ для больниц', 'Hospital AI Lab'];
@@ -34,7 +34,7 @@ export function organizationShared({ siteRoot, name, logoPath, principlesUrl }: 
     // 구글의 조직 로고 기준: 정사각에 가깝고 112px 이상. 그전에는 1200x630 소셜 공유 이미지를
     // 로고로 내보냈다(검색결과의 사이트 아이콘·지식 패널에서 잘리거나 쓰이지 않는다).
     logo: { '@type': 'ImageObject', url: `${siteRoot}${logoPath}`, width: 512, height: 512 },
-    sameAs: [YOUTUBE_CHANNEL_URL],
+    sameAs: SAME_AS,
     knowsLanguage: SITE_LANGUAGES,
     ...(principlesUrl ? { publishingPrinciples: principlesUrl } : {}),
   };

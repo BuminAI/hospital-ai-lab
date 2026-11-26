@@ -4,6 +4,8 @@
 // 갱신한다(GitHub Secret BENEFIT_GAS_URL 이 있을 때만; update-benefit.yml). 빌드 때 표로 구워 정적으로 배포하고, 구분·적용상태·검색은 브라우저에서 거른다.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../utils/site';
+import PortalFaq from '../../components/PortalFaq.astro';
+import { portalSchema } from '../../data/portal-faq';
 import data from '../../data/portal/benefit.json';
 
 interface Item {
@@ -48,9 +50,11 @@ const cards: [string, number][] = [
   ['종료·중지·전환', exN],
 ];
 const kst = data.updatedAt ? new Date(data.updatedAt).toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace(/-/g, '.').slice(0, 16) : '';
+const schema = portalSchema('benefit', 'https://hospital-ai-lab.com', data.updatedAt || undefined);
 ---
 
 <BaseLayout
+  schema={schema}
   title="선별급여·한정급여·평가유예 신의료기술 조회: 항목·본인부담률·적용 기간"
   description="보건복지부 고시 기준의 선별급여·한정급여·한시적 비급여(평가유예 신의료기술) 항목을 한곳에서 검색합니다. 항목별 본인부담률, 적용 기간, 사용처, 공식 고시 링크를 제공합니다."
 >
@@ -145,6 +149,7 @@ const kst = data.updatedAt ? new Date(data.updatedAt).toLocaleString('sv-SE', { 
       <li>‘공식 고시 보기’는 항목별 원문 주소가 있으면 그 주소를, 없으면 해당 고시(선별급여 지정 및 실시 등에 관한 기준 / 평가유예 신의료기술 고시)의 법제처 페이지로 연결합니다.</li>
       <li>특정 환자의 진단·치료나 본인부담금을 안내하는 자료가 아닙니다.</li>
     </ul>
+    <PortalFaq page="benefit" />
     <p class="bf-back"><a href={withBase('/portal/')}>← 공공 포털</a></p>
   </section>
 </BaseLayout>
