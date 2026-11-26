@@ -100,5 +100,21 @@ jobs:
         with:
           node-version: 20
 
+      # 지난 제출 기록(주소별 lastmod)을 배포 사이에 넘긴다. 바뀐 주소만 한 번씩 보내기 위해서다(2026-11-26).
+      # 캐시가 없으면 스크립트가 전부 다시 보내지 않고 새 기록을 만든다.
+      - name: IndexNow 제출 기록 가져오기
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow-state
+          key: indexnow-state-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: indexnow-state-
+
       - name: IndexNow 제출
         run: node scripts/indexnow.mjs || echo "IndexNow 제출 건너뜀(다음 배포에서 다시 대상이 됨)"
+
+      - name: IndexNow 제출 기록 저장
+        if: always() && hashFiles('.indexnow-state/state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow-state
+          key: indexnow-state-${{ github.run_id }}-${{ github.run_attempt }}

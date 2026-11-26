@@ -21,3 +21,6 @@ Thumbs.db
 .claude/run-npm.cmd
 .claude/settings.local.json
 .audit/
+
+# IndexNow 제출 기록(배포 워크플로의 캐시, 2026-11-26)
+.indexnow-state/

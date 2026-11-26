@@ -186,7 +186,7 @@ npm run build    # 배포본 생성(dist/)
 ### 4-3-2. 검수 스크립트·IndexNow·AI 크롤러 (2026-09-20)
 
 - **`scripts/audit-site.mjs`** — 빌드 후 `node scripts/audit-site.mjs`. `dist/`의 전 페이지(5개 언어판)를 정규식으로 훑어 canonical·hreflang 상호참조·OG·JSON-LD 파싱·title/description 길이(CJK는 폭 2)·내부 링크·외국어 문자 섞임·면책 문구·글의 출처 링크·과장 표현을 검사한다(오류 0이 목표). `--json`으로 원자료 출력. 의존성 없음.
-- **IndexNow** — `scripts/indexnow.mjs`가 배포 뒤(`deploy.yml`의 `indexnow` 잡) 사이트맵에서 최근 48시간 안에 바뀐 주소를 `api.indexnow.org`에 제출한다. Bing·**Naver**·Yandex·Seznam·Yep·Amazon이 참여(https://www.indexnow.org/faq 에서 확인). 키 파일은 `public/<키>.txt`(공개 파일, 비밀 아님). **구글은 참여하지 않는다.** 실패해도 배포에는 영향이 없다. 네이버 서치어드바이저의 '웹페이지 수집 요청'을 대신하지는 않는다 — 여전히 새 글을 직접 요청해야 빠르다.
+- **IndexNow** — `scripts/indexnow.mjs`가 배포 뒤(`deploy.yml`의 `indexnow` 잡) **새로 생겼거나 lastmod가 새로워진 주소만** `api.indexnow.org`에 제출한다(2026-11-26 변경). 같은 주소는 12시간 안에 다시 보내지 않고, 제출 기록은 `actions/cache`(`indexnow-state-*`)로 배포 사이에 넘긴다. 기록이 없으면 최근 2시간에 바뀐 주소만 보낸다. 점검은 `INDEXNOW_DRY=1`. 예전 방식(최근 48시간 주소를 배포마다 재제출)은 하루 40~50번 배포와 겹쳐 같은 주소가 수십 번 나갔고, IndexNow 안내(https://www.indexnow.org/faq)는 바뀌지 않은 주소를 다시 보내지 말라고 한다. Bing·**Naver**·Yandex·Seznam·Yep·Amazon이 참여. 키 파일은 `public/<키>.txt`(공개 파일, 비밀 아님). **구글은 참여하지 않는다.** 실패해도 배포에는 영향이 없다. 네이버 서치어드바이저의 '웹페이지 수집 요청'을 대신하지는 않는다 — 여전히 새 글을 직접 요청해야 빠르다.
 - **robots.txt** — Anthropic 공식 문서(support.claude.com)에 나온 세 크롤러 `ClaudeBot`(학습)·`Claude-SearchBot`(검색 품질)·`Claude-User`(사용자 질문 시 실시간 조회)를 모두 명시 허용했다. Gemini는 별도 검색 크롤러 없이 Googlebot 색인을 쓰고 `Google-Extended`는 학습 동의 표시일 뿐이다.
 - **BlogPosting `citation`** — 글 본문에 실제로 걸린 외부 출처 링크만 `src/utils/citations.ts`가 JSON-LD로 옮긴다(화면에 안 보이는 링크는 넣지 않음).
 - ⚠️ **llms.txt의 효과는 아직 입증되지 않았다**(주요 검색·AI 사업자가 이 파일을 읽는다고 공식 확인한 바 없음). 비용이 거의 없어 유지할 뿐이다.
@@ -262,6 +262,7 @@ npm run build    # 배포본 생성(dist/)
 **측정한 것 (이 수치를 기준선으로 삼아 나중에 다시 재 볼 것)**
 - 빌드 산출물(`dist/`) 정적 분석 — 색인 대상 289쪽: 제목·설명 중복 0, 클릭 깊이 최대 3, 이미지 186개 전부 alt·크기·lazy 정상, 글 181편 본문 길이 중앙값 3,045자(최소 1,398). 어디서도 링크받지 못하는 페이지는 분류 허브 `/blog/category/` 하나뿐이다(검색엔진 인증 파일 2개 제외). 사이트맵 286개 URL은 색인 대상과 일치(`/ai-judge/`만 의도적으로 제외). 분석 스크립트는 저장소에 넣지 않았다 — 필요하면 같은 항목을 `scripts/audit-site.mjs`에 더할 것.
 - 외부 노출(2026-10-21, 모두 봇 요청이라 사람이 브라우저로 볼 때와 다를 수 있음): Brave `site:hospital-ai-lab.com` = "Too few matches", Bing `site:` = 이 사이트 결과 0건, Claude Code의 WebSearch 도구에서 두 달 된 글의 정확한 제목을 따옴표로 넣어도 안 나옴(DuckDuckGo는 봇 확인 화면이라 측정 불가). IndexNow 제출 자체는 HTTP 200으로 접수된다(배포 로그). 즉 **Bing·Brave 색인에 거의 없는 것으로 보인다.** ChatGPT 검색·Copilot은 Bing 색인을, Claude 웹 검색은 Brave 색인을 쓴다고 알려져 있어(공식 문서로 확인하지는 못했다) AI 검색에서 못 찾는 상황과 맞아떨어진다. 서치 콘솔·Bing 웹마스터 화면은 오너만 볼 수 있어 거기서 어떻게 보이는지는 확인하지 못했다.
+- **정정(2026-11-26, Bing 웹마스터 도구 직접 확인)**: 사이트는 이미 등록·색인돼 있고 Bing 검색 유입이 있다(10-23~11-24 클릭 124, 대부분 일본, `/ja/subsidies/`가 1위). Copilot 등 AI 답변 인용도 표시된다. 위의 "Bing 색인에 거의 없다"는 봇 요청 결과에 근거한 틀린 추정이었다.
 - ⚠️ 브랜드명 "병원 AI 연구소"는 보통명사에 가까워 다른 병원·기관의 AI 연구소와 검색어가 겹친다(위 검색에서 병원들의 AI 연구소 소식이 나왔다). 브랜드 검색이 안 잡히는 한 원인일 수 있다. 외부 프로필·링크에는 `Hospital AI Lab`·`hospital-ai-lab.com`을 같이 써서 식별성을 높인다.
 
 **이번에 바꾼 것**
@@ -275,7 +276,7 @@ npm run build    # 배포본 생성(dist/)
 
 **남은 것 (오너만 할 수 있음 — 효과가 큰 순서)**
 1. **구글 서치 콘솔**: 다섯 URL 접두어 속성 확인, 사이트맵 제출 상태 확인, '색인 생성 안 됨' 사유별 URL 목록(CSV)을 내려받아 보관 — 원인 진단의 출발점이다. 핵심 페이지(홈·허브·대표 글 5~10개)는 'URL 검사 → 색인 생성 요청'.
-2. **Bing 웹마스터 도구**: 서치 콘솔 가져오기로 사이트 추가 → 사이트맵 제출. Bing 색인이 ChatGPT 검색·Copilot·DuckDuckGo를 먹인다(IndexNow 키 파일은 이미 올라가 있다).
+2. ~~**Bing 웹마스터 도구**: 사이트 추가 → 사이트맵 제출~~ — 완료(2026-11-26 확인: 등록돼 있고 사이트맵 12개, 오류 0). 남은 권장 사항은 외부 링크 부족과 짧은 메타 설명 105쪽.
 3. **네이버 서치어드바이저**(이미 소유 확인됨): 사이트맵·RSS 제출, 웹페이지 수집 요청. **다음 검색**(카카오 검색등록)과 러시아어판용 **Yandex 웹마스터**도 같은 방식.
 4. **외부 링크 확보**: 유튜브 채널 설명·영상 설명에 사이트 주소를 넣고, 오너의 다른 공개 프로필(링크드인·블로그 등)에서 사이트로 링크한다. 새 프로필에는 `Hospital AI Lab`·`hospital-ai-lab.com`을 같이 써 달라 — 그러면 `sameAs`에 추가할 수 있다.
 5. **결정 대기**: 자동 수집 목록 페이지(뉴스·ai-digest·정부지원·행사·영상)를 noindex로 돌릴지, 일본어·대만어 글별 OG 이미지를 위해 CJK 글꼴(Noto Sans JP/TC)을 추가할지.
