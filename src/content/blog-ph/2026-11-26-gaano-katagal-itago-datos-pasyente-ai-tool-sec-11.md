@@ -7,7 +7,7 @@ series: "data-and-governance"
 draft: false
 ---
 
-Nag-upload ang isang unit ng listahan ng pasyente sa isang AI tool para gumawa ng buod. Tapos na ang buod, pero nasaan na ang listahan? Nasa account pa ba ng staff, sa server ng vendor, o sa isang shared folder? Madalas itong walang sumasagot. May probisyon ang Data Privacy Act of 2012 (RA 10173) na makakatulong magsimula ng usapan. Binasa namin ang teksto sa LawPhil. Pangkalahatang impormasyon ito at hindi legal advice.
+Nag-upload ang isang unit ng listahan ng pasyente sa isang AI tool para gumawa ng buod. Tapos na ang buod, pero nasaan na ang listahan? Nasa account pa ba ng staff, sa server ng vendor, o sa isang shared folder? Minsan, walang makasagot. May probisyon ang Data Privacy Act of 2012 (RA 10173) na makakatulong magsimula ng usapan. Binasa namin ang teksto sa LawPhil. Pangkalahatang impormasyon ito at hindi legal advice.
 
 ## Ang sinasabi ng Section 11
 
@@ -43,7 +43,7 @@ Humingi ng sagot na nakasulat.
 
 ## Subukan sa isang unit
 
-Pumili ng isang gawain na ginagamitan ng AI. Hilingin sa isang nurse at isang admin staff na ituro kung saan may natitirang kopya. Madalas na may lumalabas na kopyang walang nakaaalala. Huwag sisihin ang nagsabi, para magpatuloy ang pag-uulat.
+Pumili ng isang gawain na ginagamitan ng AI. Hilingin sa isang nurse at isang admin staff na ituro kung saan may natitirang kopya. Maaaring may lumabas na kopyang walang nakaaalala. Huwag sisihin ang nagsabi, para magpatuloy ang pag-uulat.
 
 ## Pangunahing punto
 

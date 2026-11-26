@@ -7,7 +7,7 @@ series: satusehat-and-rme
 draft: false
 ---
 
-Hasil pemeriksaan terkirim ke nomor yang salah, akun kerja dibobol, atau ringkasan pasien ditempel ke layanan AI umum. Reaksi yang sering muncul adalah "pastikan dulu semuanya, baru lapor". Padahal undang-undang sudah menetapkan batas waktu. Alur yang disiapkan sejak sekarang akan menolong petugas jaga yang harus bertindak malam hari.
+Hasil pemeriksaan terkirim ke nomor yang salah, akun kerja dibobol, atau ringkasan pasien ditempel ke layanan AI umum. Reaksi yang bisa muncul adalah "pastikan dulu semuanya, baru lapor". Padahal undang-undang sudah menetapkan batas waktu. Alur yang disiapkan sejak sekarang akan menolong petugas jaga yang harus bertindak malam hari.
 
 ## Apa kata UU PDP
 
