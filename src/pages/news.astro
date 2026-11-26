@@ -38,7 +38,7 @@ const collectionPage = {
   '@id': `${pageUrl}#collection`,
   url: pageUrl,
   name: 'AI 뉴스',
-  description: '메디칼타임즈와 병원신문을 비롯해 청년의사·의협신문·히트뉴스·의학신문 등 국내 의료·IT 매체의 의료 AI 관련 기사를 매시간 확인해 쌓아 온 목록.',
+  description: '메디칼타임즈와 병원신문을 비롯해 청년의사·의협신문·히트뉴스·의학신문 등 국내 의료·IT 매체의 의료 AI 관련 기사를 매시간 확인해 최근 한 달 치를 모은 목록.',
   inLanguage: 'ko-KR',
   isPartOf: { '@id': `${siteUrl}/#website` },
   dateModified: news.updatedAt,
@@ -57,7 +57,7 @@ const collectionPage = {
 
 <BaseLayout
   title="병원·의료 AI 뉴스"
-  description="메디칼타임즈·병원신문과 청년의사·의협신문·히트뉴스 등 국내 의료·IT 매체의 의료 AI 기사를 하루 여러 차례 챙겨 한자리에 쌓아 둡니다."
+  description="메디칼타임즈·병원신문과 청년의사·의협신문·히트뉴스 등 국내 의료·IT 매체의 의료 AI 기사를 하루 여러 차례 챙겨 최근 한 달 치를 한자리에 모읍니다."
   alternates={{ ru: '/ru/news/' }}
   schema={[collectionPage]}
 >
@@ -67,7 +67,7 @@ const collectionPage = {
       <p class="lead">
         메디칼타임즈 '의료기기·AI' 지면과 병원신문, 그리고 청년의사·의협신문·히트뉴스·의학신문·라포르시안
         등 국내 의료·IT 매체의 공개 RSS에서 AI 관련 기사를 하루에도 몇 번씩 새로 챙겨 옵니다.
-        매체가 '많이 본 기사'로 공개한 목록에 오른 기사도 함께 담습니다. 지난 기사는 지우지 않아 그대로 쌓입니다.
+        매체가 '많이 본 기사'로 공개한 목록에 오른 기사도 함께 담습니다. 게시일 기준 <strong>최근 한 달 치만</strong> 보여 주며, 한 달이 지난 기사는 목록에서 지웁니다.
       </p>
     </header>
 

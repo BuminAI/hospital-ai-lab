@@ -10,6 +10,7 @@
 //
 // 누적 정책: 최근 MAX_ITEMS건만 유지하고, 밀려난 게시물의 파일은 함께 지운다.
 // 변경이 없으면 아무것도 쓰지 않는다(워크플로가 자주 돌아도 불필요한 커밋 방지).
+import { keepRecent } from './lib/retention.mjs';
 import { readFile, writeFile, mkdir, rm, readdir } from 'node:fs/promises';
 
 const BASE = 'https://www.mohw.go.kr';
@@ -151,6 +152,8 @@ for (const id of ids) {
   try {
     const v = parseView(await (await get(VIEW_URL(id))).text());
     if (!v.title || !v.pubDate) throw new Error('제목/작성일을 읽지 못함');
+    // 한 달이 지난 게시물은 파일을 내려받지 않는다.
+    if (keepRecent([v]).length === 0) continue;
     const saved = [];
     if (v.license === 1 || v.license === 3) {
       for (const f of pickFiles(v.files)) {
@@ -184,12 +187,13 @@ for (const id of ids) {
   }
 }
 
-if (fresh.length === 0) {
+if (fresh.length === 0 && keepRecent(existing).length === existing.length) {
   console.log(`변경 없음: 신규 게시물 없음 (누적 ${existing.length}건 유지)`);
   process.exit(0);
 }
 
-const items = [...fresh, ...existing]
+// 최근 한 달만 보관한다(scripts/lib/retention.mjs). 건수 상한(MAX_ITEMS)도 그대로 둔다.
+const items = keepRecent([...fresh, ...existing])
   .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
   .slice(0, MAX_ITEMS);
 

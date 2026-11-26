@@ -135,7 +135,8 @@ const homeVideos = [
 ];
 
 // 신뢰 스탯 스트립 수치 — 전부 빌드 시 실측치(수동 갱신·창작 없음).
-// 홈 첫 화면 지표 — 자동 수집 4개 분류의 누적 건수(정부 지원사업은 같은 목록에 섞여 있는 보건복지부 보도자료 포함)
+// 홈 첫 화면 지표 — 자동 수집 4개 분류의 보관 건수(정부 지원사업은 같은 목록에 섞여 있는 보건복지부 보도자료 포함).
+// 뉴스·지원사업·교육·행사는 최근 1개월 치만 보관한다(2026-11-26 오너 지시). 추천 영상은 누적이다.
 const stats = [
   { label: 'AI 뉴스', n: news.items.length, href: '/news/' },
   { label: '정부 지원사업', n: govPrograms.items.length + press.items.length, href: '/gov-support/' },
@@ -232,6 +233,7 @@ import '../styles/nt-home-ko.css';
             </div>
           ))}
         </dl>
+        <p class="hero-facts-note">AI 뉴스·정부 지원사업·교육·행사는 최근 1개월 건수입니다.</p>
       </div>
 
       <div class="hero-feed-card">
@@ -600,6 +602,12 @@ import '../styles/nt-home-ko.css';
 </script>
 
 <style>
+  .hero-facts-note {
+    margin: 0.4rem 0 0;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+
   .home-menu {
     list-style: none;
     margin: 0;

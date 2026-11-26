@@ -20,6 +20,7 @@
 //
 // ⚠️ 병원신문은 페이지 넘김과 검색이 모두 서버에서 무시된다(항상 최신 20건).
 //   그래서 과거분을 소급 수집할 수 없고, 매일 돌면서 쌓는 수밖에 없다.
+import { keepRecent } from './lib/retention.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/events.json', import.meta.url);
@@ -269,7 +270,8 @@ if (existing.length === 0) {
 }
 
 const seen = new Set();
-const items = [...fresh, ...existing]
+// 최근 한 달만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시)
+const items = keepRecent([...fresh, ...existing])
   .filter((it) => {
     const key = normTitle(it.title);
     if (!key || seen.has(key)) return false;

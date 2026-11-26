@@ -4,11 +4,13 @@
 //
 // 각 나라 유명 매체의 공개 RSS 수십 개를 읽어 AI 관련 기사·정부 지원사업·교육 행사를
 // 그 언어판의 기존 JSON(src/data/…)에 중복 없이 누적한다. 기존 항목은 지우지 않는다.
+// 예외: 한국어판(ko)은 최근 한 달만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시).
 // 출처 목록은 scripts/wide-sources.mjs, 판정·병합은 scripts/lib/wide.mjs.
 //
 // 종료 코드: 0 정상(변경 없음 포함) / 1 모든 출처가 응답하지 않음(기존 파일은 그대로 둔다)
 import { fetchAll, select, mergeItems, readJson, writeJson, resolveTitles, canonLink } from './lib/wide.mjs';
 import { EDITIONS } from './wide-sources.mjs';
+import { keepRecent } from './lib/retention.mjs';
 
 const args = process.argv.slice(2);
 const dry = args.includes('--dry');
@@ -60,12 +62,15 @@ for (const ed of eds) {
       }
     }
     if (cat === 'gov') for (const p of picked) p.summary = '';
-    const { items, added, updated } = mergeItems(prev.items ?? [], picked, { max: MAX[cat] });
+    const merged = mergeItems(prev.items ?? [], picked, { max: MAX[cat] });
+    const { added, updated } = merged;
+    const items = ed === 'ko' ? keepRecent(merged.items) : merged.items;
+    const expired = merged.items.length - items.length;
     const bySrc = {};
     for (const p of picked) bySrc[p.source] = (bySrc[p.source] || 0) + 1;
     const top = Object.entries(bySrc).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}:${v}`).join(' ');
-    console.log(`  ${cat}: 통과 ${picked.length}건(${top || '-'}) → 신규 ${added}, 인기표시 갱신 ${updated}, 누적 ${items.length}`);
-    if (added === 0 && updated === 0) continue;
+    console.log(`  ${cat}: 통과 ${picked.length}건(${top || '-'}) → 신규 ${added}, 인기표시 갱신 ${updated}, 누적 ${items.length}${expired ? ` (한 달 지난 ${expired}건 삭제)` : ''}`);
+    if (added === 0 && updated === 0 && expired === 0) continue;
     if (dry) continue;
     const labels = new Set(String(prev.source || '').split(/[·,]/).map((s) => s.trim()).filter(Boolean));
     for (const p of picked) labels.add(p.source);

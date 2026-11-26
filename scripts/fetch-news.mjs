@@ -14,6 +14,7 @@
 //
 // 한 매체가 실패해도 다른 매체 수집은 계속한다. 두 매체 모두 한 건도 읽지
 // 못한 경우에만 기존 파일을 그대로 두고 중단한다.
+import { keepRecent } from './lib/retention.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const LIST_URL = 'https://www.medicaltimes.com/Main/News/List.html?MainCate=4';
@@ -282,7 +283,8 @@ const now = new Date();
 const seen = new Set();
 const norm = (t) => (t || '').replace(/\s+/g, '');
 // 새 기사(직접 링크)를 앞에 두어, 같은 제목이면 새 항목이 채택되도록 한다
-const items = [...fresh, ...existing]
+// 최근 한 달만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시)
+const items = keepRecent([...fresh, ...existing])
   .filter((it) => {
     const key = norm(it.title);
     if (!key || seen.has(key)) return false;

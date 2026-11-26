@@ -20,6 +20,7 @@
 // 누적 정책: 기존 항목을 지우지 않고 병합한다(제목 기준 중복 제거).
 // 공고는 마감이 있으므로 페이지에서 등록일을 함께 보여주고, 오래된 항목은
 // MAX_ITEMS를 넘을 때만 오래된 순으로 잘라낸다.
+import { keepRecent } from './lib/retention.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/data/gov-programs.json', import.meta.url);
@@ -334,7 +335,8 @@ try {
 }
 
 const seen = new Set();
-const items = [...fresh, ...existing]
+// 최근 한 달만 보관한다(scripts/lib/retention.mjs, 2026-11-26 오너 지시)
+const items = keepRecent([...fresh, ...existing])
   .filter((it) => {
     const key = normTitle(it.title);
     if (!key || seen.has(key)) return false;
