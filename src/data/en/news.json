@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-26T01:10:23.539Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · Radiology Business · NEJM AI · The New York Times · Healthcare Business Today · BBC News · JAMA Network · Federal Register",
+  "updatedAt": "2026-11-26T10:01:51.469Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · NEJM AI · The New York Times · Radiology Business · BBC News · JAMA Network · Federal Register · Healthcare Business Today",
   "items": [
+    {
+      "title": "What Flexzo AI’s Florida Deployment Revealed About Moving NHS Workforce Tech Into US Primary Care",
+      "link": "https://www.healthcarebusinesstoday.com/what-flexzo-ais-florida-deployment-revealed-about-moving-nhs-workforce-tech-into-us-primary-care/",
+      "source": "Healthcare Business Today",
+      "pubDate": "2026-11-26T03:42:18.000Z"
+    },
     {
       "title": "Leash Biosciences Raises $11M to Expand Automated Lab for AI Drug Discovery",
       "link": "https://hitconsultant.net/2026/11/25/leash-biosciences-raises-11m-training-environments-scientific-ai/",
@@ -1039,12 +1045,6 @@
       "link": "https://radiologybusiness.com/topics/artificial-intelligence/pennsylvania-house-passes-bill-requiring-ai-disclosure-healthcare",
       "source": "Radiology Business",
       "pubDate": "2026-10-26T20:18:53.000Z"
-    },
-    {
-      "title": "Opinion: Could long-term AI use lead to isolation? We need to find out — but researchers need better access to data",
-      "link": "https://www.statnews.com/2026/10/26/cumulative-ai-use-isolation-research-data-missing/?utm_campaign=rss",
-      "source": "STAT",
-      "pubDate": "2026-10-26T08:30:00.000Z"
     }
   ]
 }
