@@ -79,5 +79,13 @@
       "https://www.ecfr.gov/current/title-45/section-164.514",
       "https://www.ecfr.gov/current/title-45/section-164.502"
     ]
+  },
+  {
+    "question": "What should a hospital check before starting AI marketing?",
+    "answer": "Start with patient information and claims. Under 45 CFR 164.508(a)(3), a covered entity generally needs an authorization to use or disclose protected health information for marketing, with exceptions for face-to-face communications and gifts of nominal value. The FTC rule at 16 CFR 465.2 addresses testimonials from people who do not exist or did not have the experience described, so do not publish AI-invented patient stories. This is not legal advice.",
+    "sources": [
+      "https://www.ecfr.gov/current/title-45/section-164.508",
+      "https://www.ecfr.gov/current/title-16/section-465.2"
+    ]
   }
 ]

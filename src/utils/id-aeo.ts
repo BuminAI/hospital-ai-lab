@@ -48,6 +48,7 @@ const LAWS: Law[] = [
 ];
 
 const TOPICS: [string, RegExp][] = [
+  ['Pemasaran layanan kesehatan dengan AI', /pemasaran|iklan/i],
   ['Rekam medis elektronik (RME)', /\bRME\b|rekam medis elektronik/i],
   ['SATUSEHAT', /SATUSEHAT|Satu Sehat/i],
   ['Pelindungan data pribadi', /UU PDP|data pribadi|Pelindungan Data/i],

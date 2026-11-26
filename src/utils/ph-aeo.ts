@@ -38,6 +38,7 @@ const LAWS: Law[] = [
 ];
 
 const TOPICS: [string, RegExp][] = [
+  ['AI marketing sa healthcare', /\bmarketing\b|patalastas/i],
   ['Personal data protection in healthcare', /Data Privacy|RA 10173|personal data|consent|datos/i],
   ['Data processors and AI vendors', /data processor|vendor|processor/i],
   ['Electronic health records', /EHR|electronic health record|medical record|hospital information system/i],

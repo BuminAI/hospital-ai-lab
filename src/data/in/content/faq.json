@@ -77,5 +77,12 @@
     "sources": [
       "https://prsindia.org/files/bills_acts/bills_parliament/2023/Digital_Personal_Data_Protection_Act,_2023.pdf"
     ]
+  },
+  {
+    "question": "Can a hospital in India use AI for marketing?",
+    "answer": "Check the National Medical Commission guidelines of 6 October 2026 first. They treat AI-generated or AI-assisted promotional communication as advertising. Para 7.2 prohibits AI-generated promotional campaigns for furtherance of commercial interest and requires permitted AI-generated promotional content to state that its origin is AI. AI must not create or manipulate patient images, testimonials, voices or outcomes. This is general information, not legal advice.",
+    "sources": [
+      "https://nmc.org.in/whats-new/download/1874"
+    ]
   }
 ]

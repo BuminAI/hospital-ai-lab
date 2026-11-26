@@ -41,6 +41,7 @@ const LAWS: Law[] = [
 ];
 
 const TOPICS: [string, RegExp][] = [
+  ['Marketing et communication en santé avec l’IA', /marketing|prospection/i],
   ['Protection des données des patients', /données personnelles|données de patients|consentement|vie privée|RGPD/i],
   ['Analyse d’impact relative à la protection des données', /analyse d[’']impact|AIPD/i],
   ['Dossier patient informatisé', /dossier patient|dossier médical|DPI\b/i],

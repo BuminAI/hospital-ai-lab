@@ -43,6 +43,7 @@ const LAWS: Law[] = [
 ];
 
 const TOPICS: [string, RegExp][] = [
+  ['AI marketing in healthcare', /\bmarketing\b|advertis/i],
   ['Patient data protection in healthcare', /personal data|patient data|consent|privacy/i],
   ['Data residency and cloud services', /data residency|cloud|outside the UAE|localis|localiz/i],
   ['Electronic health records', /\bEHR\b|electronic health record|medical record|Malaffi|NABIDH/i],

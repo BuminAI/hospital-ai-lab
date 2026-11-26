@@ -67,5 +67,13 @@
     "sources": [
       "https://www.dataprotection.ie/en/organisations/know-your-obligations/breach-notification"
     ]
+  },
+  {
+    "question": "What should an Irish hospital check before using AI for marketing?",
+    "answer": "Data and disclosure. Under GDPR Article 9, processing health data is prohibited unless a listed exception applies, and Article 21 lets people object to direct marketing at any time. Article 50 of the EU AI Act, applying since 2 August 2026, requires those deploying AI that produces deep-fake images, audio or video to disclose that it is artificially generated. This is general information, not legal advice.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    ]
   }
 ]

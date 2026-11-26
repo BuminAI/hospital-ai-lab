@@ -75,5 +75,14 @@
     "sources": [
       "https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022"
     ]
+  },
+  {
+    "id": "pemasaran-ai-rumah-sakit",
+    "question": "Apa yang perlu diperiksa sebelum memulai pemasaran AI di rumah sakit?",
+    "answer": "Periksa aturan iklan pelayanan kesehatan. Permenkes 1787/2010 Pasal 5 antara lain melarang pernyataan menyesatkan, perbandingan mutu, superlatif, diskon, dan testimoni dalam bentuk iklan atau publikasi di media massa. Draf yang dibuat AI perlu diperiksa dengan daftar yang sama. Data kesehatan termasuk data pribadi spesifik menurut UU 27/2022, jadi pastikan dasar pemrosesannya sebelum dipakai untuk promosi.",
+    "sources": [
+      "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-1787menkesperxii2010",
+      "https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022"
+    ]
   }
 ]

@@ -67,5 +67,13 @@
     "sources": [
       "https://www.cnil.fr/sites/default/files/2026-11/charte_des_controles.pdf"
     ]
+  },
+  {
+    "question": "Que vérifier avant de lancer un marketing IA à l’hôpital ?",
+    "answer": "Les données et la transparence. L’article 9 du RGPD interdit le traitement des données de santé sauf exception prévue, et l’article 21 permet de s’opposer à tout moment à la prospection. L’article 50 du règlement sur l’IA, applicable depuis le 2 août 2026, impose à ceux qui déploient une IA produisant des hypertrucages de le signaler. Ceci est une information générale, et non un avis juridique.",
+    "sources": [
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    ]
   }
 ]

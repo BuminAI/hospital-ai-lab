@@ -60,6 +60,7 @@ export function extractSummary(markdown: string | undefined, loc: Loc): string[]
 
 const TOPICS: Record<Loc, [string, RegExp][]> = {
   ko: [
+    ['병원 AI 마케팅', /마케팅/],
     ['병원 인공지능(AI) 도입', /인공지능|\bAI\b/],
     ['환자 개인정보 보호', /개인정보|가명정보|민감정보/],
     ['의료기기 소프트웨어(SaMD)', /의료기기|SaMD|디지털의료제품/],
@@ -70,6 +71,7 @@ const TOPICS: Record<Loc, [string, RegExp][]> = {
     ['건강보험 수가·급여', /수가|급여|비급여|건강보험/],
   ],
   ja: [
+    ['病院のAIマーケティング', /マーケティング/],
     ['病院の人工知能(AI)導入', /人工知能|\bAI\b/],
     ['患者の個人情報保護', /個人情報|要配慮/],
     ['プログラム医療機器(SaMD)', /プログラム医療機器|SaMD|医療機器/],
@@ -80,6 +82,7 @@ const TOPICS: Record<Loc, [string, RegExp][]> = {
     ['医療DX', /医療DX|医療ＤＸ/],
   ],
   tw: [
+    ['醫院AI行銷', /行銷/],
     ['醫院導入人工智慧(AI)', /人工智慧|\bAI\b/],
     ['病人個人資料保護', /個資|個人資料/],
     ['醫療器材軟體(SaMD)', /醫療器材|SaMD/],

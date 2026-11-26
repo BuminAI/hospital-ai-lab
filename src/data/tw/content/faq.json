@@ -75,5 +75,14 @@
     "sources": [
       "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020121&flno=5"
     ]
+  },
+  {
+    "id": "yiyuan-ai-xingxiao",
+    "question": "醫院用AI做行銷之前，要先確認什麼？",
+    "answer": "先確認醫療廣告規定。依醫療法第84條，非醫療機構或醫師不得為醫療廣告；第85條限定廣告內容事項（網際網路資訊另依管理辦法）；第86條禁止假借他人名義、藉採訪或報導等方式宣傳。用生成式AI寫的文案同樣要檢查。若使用病歷或醫療資料，個人資料保護法第6條原則上禁止，需先確認法定依據。",
+    "sources": [
+      "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020021",
+      "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021"
+    ]
   }
 ]

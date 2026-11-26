@@ -17,6 +17,9 @@ const ORG_NAMES = ['병원 AI 연구소', '病院AI研究所', 'Лаборато
 // 이 사이트가 실제로 글을 내는 언어(ISO 639 / BCP 47).
 const SITE_LANGUAGES = ['ko', 'ja', 'ru', 'id', 'zh-TW', 'en'];
 
+// 사이트가 글로 다루는 주제(2026-11-26, 병원 AI·의료 AI·AI 마케팅 검색어 대응).
+const SITE_TOPICS = ['병원 AI', '의료 AI', '병원 AI 마케팅', 'Hospital AI', 'Medical AI', 'AI marketing for hospitals', '病院AI', '医療AI', '醫院AI', '醫療AI'];
+
 interface OrgSharedOptions {
   /** 사이트 루트 URL(끝 슬래시 없음) */
   siteRoot: string;
@@ -36,6 +39,7 @@ export function organizationShared({ siteRoot, name, logoPath, principlesUrl }: 
     logo: { '@type': 'ImageObject', url: `${siteRoot}${logoPath}`, width: 512, height: 512 },
     sameAs: SAME_AS,
     knowsLanguage: SITE_LANGUAGES,
+    knowsAbout: SITE_TOPICS,
     ...(principlesUrl ? { publishingPrinciples: principlesUrl } : {}),
   };
 }
