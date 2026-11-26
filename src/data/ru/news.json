@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-26T13:03:29.597Z",
-  "source": "Медвестник · Vademecum · Ведомости · Коммерсантъ · CNews · Rusbase · Zdrav.ru · Независимая газета · Фармвестник · Росздравнадзор",
+  "updatedAt": "2026-11-26T22:33:10.339Z",
+  "source": "Медвестник · Vademecum · Интерфакс · Коммерсантъ · Ведомости · CNews · Фармвестник · Росздравнадзор",
   "items": [
+    {
+      "title": "Глава Минздрава сообщил о двух миллионах диагностических исследований с ИИ в месяц",
+      "link": "https://www.interfax.ru/russia/1131697",
+      "source": "Интерфакс",
+      "pubDate": "2026-11-26T17:39:00.000Z"
+    },
     {
       "title": "Мурашко: искусственный интеллект вернул врача пациентам",
       "link": "https://www.zdrav.ru/news/1108014-murashko-iskusstvennyy-intellekt-vernul-vracha-pacientam",
@@ -33,10 +39,22 @@
       "pubDate": "2026-11-26T09:13:19.000Z"
     },
     {
-      "title": "В Казахстане введут единые требования к использованию ИИ в медорганизациях",
-      "link": "https://vademec.ru/news/2026/11/26/v-kazakhstane-vvedut-edinye-trebovaniya-k-ispolzovaniyu-ii-v-medorganizatsiyakh/",
+      "title": "Ученые: LLM хуже справляются с рекомендациями для онкоконсилиумов, чем с анализом данных",
+      "link": "https://www.vademec.ru/news/2026/11/26/uchenye-llm-khuzhe-spravlyayutsya-s-rekomendatsiyami-dlya-onkokonsiliumov-chem-s-analizom-dannykh/",
       "source": "Vademecum",
-      "pubDate": "2026-11-26T07:25:00.000Z"
+      "pubDate": "2026-11-26T09:00:00.000Z"
+    },
+    {
+      "title": "Обзор: внедрение отечественных ИИ-систем для лечения коморбидных пациентов имеет ряд ограничений",
+      "link": "https://www.vademec.ru/news/2026/11/26/obzor-vnedrenie-otechestvennykh-ii-sistem-dlya-lecheniya-komorbidnykh-patsientov-imeet-ryad-ogranich/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-26T09:00:00.000Z"
+    },
+    {
+      "title": "В Казахстане введут единые требования к использованию ИИ в медорганизациях",
+      "link": "https://www.vademec.ru/news/2026/11/26/v-kazakhstane-vvedut-edinye-trebovaniya-k-ispolzovaniyu-ii-v-medorganizatsiyakh/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-26T09:00:00.000Z"
     },
     {
       "title": "В Дагестане ветврача отстранили от работы из-за нарушений с мясом индейки",
