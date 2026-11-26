@@ -1,7 +1,49 @@
 {
-  "updatedAt": "2026-11-25T17:10:28.556Z",
+  "updatedAt": "2026-11-26T04:08:43.031Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Сбербанк представил макроэкономическую платформу Data Tracker с ИИ-помощником",
+      "link": "https://www.cnews.ru/news/line/2026-11-26_sberbank_predstavil_makroekonomicheskuyu",
+      "source": "CNews",
+      "pubDate": "2026-11-26T03:50:00.000Z"
+    },
+    {
+      "title": "Бесплатный AI-агент из обычного браузерного чата: как я устал от счетов за токены и правок, ломающих проект",
+      "link": "https://habr.com/ru/articles/1112488/?utm_campaign=1112488&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-26T01:58:50.000Z"
+    },
+    {
+      "title": "Запрещай, запрещай, а остальное всё — дребедень. Песня о безопаснике Бобби и нейросетях",
+      "link": "https://habr.com/ru/articles/1112482/?utm_campaign=1112482&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-26T00:02:41.000Z"
+    },
+    {
+      "title": "Разработка системы мониторинга терминалов: от C# к Node.js, Protobuf и AI‑аналитике",
+      "link": "https://habr.com/ru/articles/1112448/?utm_campaign=1112448&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T21:40:08.000Z"
+    },
+    {
+      "title": "Какая модель Gemini 4 лучше: Hydrogen, Neon, Carbon или Argon – разбор, бенчмарки и доступ",
+      "link": "https://habr.com/ru/companies/gptunnel/articles/1112424/?utm_campaign=1112424&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T20:15:40.000Z"
+    },
+    {
+      "title": "Запущен проект по коллективной расшифровке манускрипта Войнича при помощи ИИ‑агентов",
+      "link": "https://habr.com/ru/articles/1112398/?utm_campaign=1112398&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T18:10:40.000Z"
+    },
+    {
+      "title": "Один сотрудник вместо четырех. Как ИИ помог готовить КП за 5 минут",
+      "link": "https://habr.com/ru/articles/1112394/?utm_campaign=1112394&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-25T18:03:27.000Z"
+    },
     {
       "title": "ИИ уничтожит слабый бизнес — кто попадёт под раздачу? И что будет дальше?",
       "link": "https://habr.com/ru/articles/1112360/?utm_campaign=1112360&utm_source=habrahabr&utm_medium=rss",
@@ -1759,48 +1801,6 @@
       "link": "https://habr.com/ru/companies/k2tech/articles/1105840/?utm_campaign=1105840&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-10T08:40:41.000Z"
-    },
-    {
-      "title": "GreenData добавила редактирование объектной модели в диалоге с ИИ",
-      "link": "https://www.cnews.ru/news/line/2026-11-10_greendata_dobavila_redaktirovanie",
-      "source": "CNews",
-      "pubDate": "2026-11-10T08:01:00.000Z"
-    },
-    {
-      "title": "«Флаувау» запустил MCP-инструмент для управления магазином через ИИ-агента",
-      "link": "https://www.cnews.ru/news/line/2026-11-10_flauvau_zapustil_mcp-instrument",
-      "source": "CNews",
-      "pubDate": "2026-11-10T07:50:00.000Z"
-    },
-    {
-      "title": "Altcraft представит AI-агентов для своей маркетинговой платформы на CNews FORUM 2026",
-      "link": "https://www.cnews.ru/news/line/2026-11-10_altcraft_predstavit_ai-agentov",
-      "source": "CNews",
-      "pubDate": "2026-11-10T07:22:00.000Z"
-    },
-    {
-      "title": "Anthropic выпустила гайд — какую модель выбирать для конкретных задач",
-      "link": "https://habr.com/ru/articles/1105768/?utm_campaign=1105768&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-10T07:01:31.000Z"
-    },
-    {
-      "title": "Исследование: во сколько обходится AI‑разработка сайта в зависимости от используемых JavaScript‑фреймворков",
-      "link": "https://habr.com/ru/articles/1105740/?utm_campaign=1105740&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-10T03:57:32.000Z"
-    },
-    {
-      "title": "«ЮKassa» открыла доступ к профессиональным ИИ-агентам для малого и среднего бизнеса",
-      "link": "https://www.cnews.ru/news/line/2026-11-10_yukassa_otkryla_dostup_k_professionalnym",
-      "source": "CNews",
-      "pubDate": "2026-11-10T03:45:00.000Z"
-    },
-    {
-      "title": "AI-агент в проде для тех, кто вкатывается: инструменты, RAG, надёжность и проверки",
-      "link": "https://habr.com/ru/articles/1105712/?utm_campaign=1105712&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-09T20:08:39.000Z"
     }
   ]
 }
