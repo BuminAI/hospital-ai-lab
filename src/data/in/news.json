@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-11-25T10:24:33.600Z",
-  "source": "ET HealthWorld · Express Healthcare · Medical Dialogues · The Hindu",
+  "updatedAt": "2026-11-26T13:05:08.136Z",
+  "source": "ET HealthWorld · Express Healthcare · Medical Dialogues · The Hindu · MediaNama",
   "items": [
+    {
+      "title": "Science Over Shortcuts: ETHealthworld’s NutriWell Conclave to Decode India’s Changing Nutrition Story",
+      "link": "https://health.economictimes.indiatimes.com/news/industry/science-over-shortcuts-ethealthworlds-nutriwell-conclave-to-decode-indias-changing-nutrition-story/136189234",
+      "source": "ET HealthWorld",
+      "pubDate": "2026-11-26T11:17:55.000Z"
+    },
+    {
+      "title": "4baseCare ties with MSK Cancer Center to tap new clinical database",
+      "link": "https://health.economictimes.indiatimes.com/news/health-it/4basecare-ties-with-msk-cancer-center-to-tap-new-clinical-database/136188870",
+      "source": "ET HealthWorld",
+      "pubDate": "2026-11-26T11:02:37.000Z"
+    },
+    {
+      "title": "Lowdown: How Australia’s new online safety law will change social media, AI chatbots and app stores",
+      "link": "https://www.medianama.com/2026/11/223-australias-online-safety-law-social-media-chatbots/",
+      "source": "MediaNama",
+      "pubDate": "2026-11-26T10:06:04.000Z"
+    },
+    {
+      "title": "GEMS 2026 puts the spotlight on AI and the future of emergency medicine",
+      "link": "https://www.expresshealthcare.in/news/gems-2026-puts-the-spotlight-on-ai-and-the-future-of-emergency-medicine/456031/",
+      "source": "Express Healthcare",
+      "pubDate": "2026-11-26T08:40:32.000Z"
+    },
     {
       "title": "AHPI calls for trusted, interoperable and secure digital healthcare with strong AI governance at InnoHEALTH 2026",
       "link": "https://www.expresshealthcare.in/news/ahpi-calls-for-trusted-interoperable-and-secure-digital-healthcare-with-strong-ai-governance-at-innohealth-2026/456006/",
@@ -218,12 +242,6 @@
       "link": "https://indianexpress.com/article/technology/artificial-intelligence/when-chatgpts-medical-advice-led-to-tragedy-10941764/",
       "source": "The Indian Express",
       "pubDate": "2026-10-29T08:23:12.000Z"
-    },
-    {
-      "title": "AI model uses face photos to estimate biological age, predict survival risk in cancer patients",
-      "link": "https://health.economictimes.indiatimes.com/news/health-it/ai-model-uses-face-photos-to-estimate-biological-age-predict-survival-risk-in-cancer-patients/135208681",
-      "source": "ET HealthWorld",
-      "pubDate": "2026-10-26T10:05:59.000Z"
     }
   ]
 }
