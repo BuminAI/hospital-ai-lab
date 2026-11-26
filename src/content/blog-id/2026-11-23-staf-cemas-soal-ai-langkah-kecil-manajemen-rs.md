@@ -3,7 +3,7 @@ title: "Staf cemas soal AI? Langkah kecil bagi manajemen RS"
 description: "Antara menulis tentang AI anxiety, kecemasan terhadap AI. Tiga langkah sederhana yang bisa dicoba manajemen dan kepala ruang sebelum AI masuk ke pekerjaan."
 pubDate: 2026-11-23
 category: "Kabar"
-draft: false
+draft: true
 ---
 
 Ketika rumah sakit mulai membicarakan AI untuk dokumentasi atau administrasi, tidak semua staf menyambutnya dengan senang. Ada perawat yang takut tertinggal, ada petugas administrasi yang bertanya apakah pekerjaannya akan hilang. Kantor berita Antara pada 21 November 2026 menulis tentang hal ini dengan istilah AI anxiety, yaitu perasaan takut atau cemas terhadap perkembangan dan dampak kecerdasan buatan. Tulisan ini merangkum isi laporan itu dan apa yang bisa dilakukan manajemen rumah sakit.

@@ -3,7 +3,7 @@ title: "病院PCのWindows診断データ、「必須」と「任意」の違い
 description: "電子カルテや事務端末のPCは、Windowsから診断データが送られます。必須と任意で何が違うのか、院内の設定を情報担当に確認するときの質問を整理しました。"
 pubDate: 2026-11-18
 category: "コラム"
-draft: false
+draft: true
 series: medical-data-security
 ---
 

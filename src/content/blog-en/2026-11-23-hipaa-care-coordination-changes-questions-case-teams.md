@@ -4,7 +4,7 @@ description: "A final HIPAA rule clarifies disclosures for care coordination and
 pubDate: 2026-11-23
 category: "News"
 series: data-and-security
-draft: false
+draft: true
 ---
 
 Nurse case managers and discharge planners spend a lot of time asking a simple question: may I share this information with the next person who helps this patient? A final HIPAA Privacy Rule published on November 19, 2026 touches exactly that area. Our earlier post covered the shorter deadline for records requests. This one looks at the care coordination part, using only the rule's summary sections. We have not read the detailed provisions.

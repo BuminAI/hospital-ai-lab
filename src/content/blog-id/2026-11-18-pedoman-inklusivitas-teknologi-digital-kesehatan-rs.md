@@ -3,7 +3,7 @@ title: "Pedoman inklusivitas Kemenkes: apa yang dicek tim RS?"
 description: "Kemenkes meluncurkan pedoman inklusivitas untuk teknologi digital kesehatan. Apa isinya dan tiga pertanyaan yang bisa diajukan staf RS sebelum memakai aplikasi baru."
 pubDate: 2026-11-18
 category: "Kabar"
-draft: false
+draft: true
 series: assessing-ai-and-technology
 ---
 

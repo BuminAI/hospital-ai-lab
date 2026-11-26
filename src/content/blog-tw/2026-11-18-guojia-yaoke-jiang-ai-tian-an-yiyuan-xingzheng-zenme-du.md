@@ -3,7 +3,7 @@ title: "廠商提案寫「國家藥科獎」，醫院行政該怎麼讀？"
 description: "2026國家藥科獎公布，新聞稿稱近半數得獎團隊導入 AI。廠商拿獎項寫進提案書時，醫院行政可以追問哪三件事？"
 pubDate: 2026-11-18
 category: "消息"
-draft: false
+draft: true
 series: before-procurement
 ---
 

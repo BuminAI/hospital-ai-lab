@@ -3,7 +3,7 @@ title: "의료 AI 윤리 가이드라인 공청회, 병원 행정·간호는 무
 description: "의학한림원이 의료 AI 윤리 가이드라인 공청회를 엽니다. 권고안이 우리 병원 AI 사용 안내에 닿는 지점과 이번 주 확인할 세 가지를 정리했습니다."
 pubDate: 2026-11-23
 category: "소식"
-draft: false
+draft: true
 series: policy-news
 ---
 

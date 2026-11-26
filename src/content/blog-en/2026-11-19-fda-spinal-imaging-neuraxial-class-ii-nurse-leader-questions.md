@@ -4,7 +4,7 @@ description: "FDA classified a sensor-and-software spinal imaging aid as class I
 pubDate: 2026-11-19
 category: "News"
 series: "regulatory-status"
-draft: false
+draft: true
 ---
 
 Some vendors now sell imaging aids that help clinicians find the right spot for a spinal needle. A Federal Register order published on October 30, 2026 shows what FDA expects from this kind of device. For administrators and nurse leaders in anesthesia and procedure areas, it is a handy example of how to read a vendor's "FDA" claim. This post is general information, not legal advice.
