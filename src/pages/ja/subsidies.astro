@@ -47,6 +47,38 @@ const isSoon = (iso: string | null) => {
   return !Number.isNaN(t) && t - now > 0 && t - now < 14 * DAY;
 };
 
+// 답을 먼저(2026-11-26): '締切が近い公募は？'에 한 문단으로 답할 수 있게, 데이터에서 계산한 요약을 맨 위에 둔다.
+// 실적 보고·세액 공제 보고처럼 이미 받은 곳이 하는 절차는 새로 신청하는 공모가 아니므로 요약에서 뺀다(목록에는 남는다).
+const REPORT_ONLY = /実績報告|状況報告|完了報告|仕入控除税額|消費税.*報告|精算/;
+const open = items.filter((i) => i.endDate && new Date(i.endDate).getTime() > now && !REPORT_ONLY.test(i.title));
+const nearest = open.slice().sort((a, b) => new Date(a.endDate!).getTime() - new Date(b.endDate!).getTime()).slice(0, 3);
+const md = (iso: string) => {
+  const d = new Date(iso);
+  return `${d.getMonth() + 1}月${d.getDate()}日`;
+};
+// 화면에 보이는 문답과 FAQPage 구조화 데이터는 같은 배열을 쓴다.
+const FAQ = [
+  {
+    q: '病院が使える補助金・助成金はどこで確認できますか。',
+    a: 'このページでは、デジタル庁「Jグランツ」の公開APIから、医療・病院・診療所・介護・医療DXなどのキーワードに当てはまる募集中の公募を、締切が近い順に掲載しています。申請資格と手順は各項目の公式詳細ページで確認してください。',
+  },
+  {
+    q: 'この一覧はどのくらいの頻度で更新されますか。',
+    a: '毎日、公開APIを確認して更新しています。公募元の情報が反映されるまでに時間差があるため、受付が終了した公募がしばらく残っていることがあります。',
+  },
+  {
+    q: '表示されている締切日までに申請すれば間に合いますか。',
+    a: '間に合うとは限りません。掲載している締切はJグランツ上の受付期間で、事業によっては事前の計画提出などが先に締め切られます。必ず公募元の要領で確認してください。',
+  },
+];
+const faqLd = {
+  '@type': 'FAQPage',
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  inLanguage: 'ja-JP',
+  mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+
 // CollectionPage + ItemList — AI 답변 엔진이 '무엇을 모은 목록인지' 알게 한다
 const collectionPage = {
   '@type': 'CollectionPage',
@@ -76,10 +108,29 @@ const collectionPage = {
   crumb={ja.nav.subsidies}
   koPath="/gov-support/"
   updated={updated}
-  schema={[collectionPage]}
+  schema={[collectionPage, faqLd]}
 >
   <h1>{ja.subsidies.pageTitle}</h1>
   <p>{ja.subsidies.pageLead}</p>
+
+  {
+    nearest.length > 0 && (
+      <aside class="ja-answer" aria-labelledby="sub-answer-h">
+        <h2 id="sub-answer-h">締切が近い公募は？</h2>
+        <p>
+          {fmtJa(subsidies.updatedAt)}時点のデータでは、締切前の公募は{open.length}件です（実績報告などの手続きを除く）。締切が近い順に次の{nearest.length}件です。
+        </p>
+        <ul>
+          {nearest.map((i) => (
+            <li>
+              {i.title}（{i.area ? `${i.area}、` : ''}締切 {md(i.endDate!)}{noteOf(i.id) ? '、下の注記を必ず確認' : ''}）
+            </li>
+          ))}
+        </ul>
+        <p>締切はJグランツ上の日付です。申請の可否と手順は公式の詳細ページで確認してください。</p>
+      </aside>
+    )
+  }
 
   <p class="ja-caution">{ja.subsidies.caution}</p>
 
@@ -154,8 +205,66 @@ const collectionPage = {
     )
   }
 
+  <section class="ja-faq" aria-labelledby="sub-faq-h">
+    <h2 id="sub-faq-h">よくある質問</h2>
+    <dl>
+      {
+        FAQ.map((f) => (
+          <>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </>
+        ))
+      }
+    </dl>
+  </section>
+
   <div class="ja-note">
     <p>{ja.subsidies.noticeSource}</p>
     <p style="margin-top:8px">{ja.subsidies.noticeFilter}</p>
   </div>
 </JaLayout>
+
+<style>
+  .ja-answer {
+    margin: 20px 0;
+    padding: 14px 18px 10px;
+    background: var(--ja-surface);
+    border: 1px solid var(--ja-border);
+    border-left: 4px solid var(--ja-primary);
+    border-radius: 6px;
+  }
+  .ja-answer h2 {
+    margin: 0 0 8px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 16px;
+    color: var(--ja-primary);
+  }
+  .ja-answer p {
+    margin: 6px 0;
+    font-size: 14px;
+  }
+  .ja-answer ul {
+    margin: 6px 0;
+    padding-left: 1.2em;
+  }
+  .ja-answer li {
+    margin: 4px 0;
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  .ja-faq {
+    margin: 32px 0;
+  }
+  .ja-faq dt {
+    margin-top: 14px;
+    font-weight: 700;
+  }
+  .ja-faq dd {
+    margin: 6px 0 0;
+    line-height: 1.8;
+    color: var(--ja-text-sub);
+  }
+</style>

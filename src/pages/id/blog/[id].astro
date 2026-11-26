@@ -1,4 +1,5 @@
 ---
+import { extendDescription } from '../../../utils/meta';
 import { execSync } from 'node:child_process';
 import { getCollection, render } from 'astro:content';
 import IdLayout from '../../../layouts/IdLayout.astro';
@@ -106,7 +107,7 @@ const blogPosting = {
 
 <IdLayout
   title={post.data.title}
-  description={post.data.description}
+  description={extendDescription(post.data.description, summary)}
   crumb={post.data.title}
   koPath="/blog/"
   standalone
