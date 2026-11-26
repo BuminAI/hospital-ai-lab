@@ -1,7 +1,43 @@
 {
-  "updatedAt": "2026-11-25T20:05:33.238Z",
-  "source": "Медвестник · Vademecum · Хабр · CNews · Независимая газета · Фармвестник · Zdrav.ru · Росздравнадзор · Московский комсомолец",
+  "updatedAt": "2026-11-26T13:03:29.597Z",
+  "source": "Медвестник · Vademecum · Ведомости · Коммерсантъ · CNews · Rusbase · Zdrav.ru · Независимая газета · Фармвестник · Росздравнадзор",
   "items": [
+    {
+      "title": "Мурашко: искусственный интеллект вернул врача пациентам",
+      "link": "https://www.zdrav.ru/news/1108014-murashko-iskusstvennyy-intellekt-vernul-vracha-pacientam",
+      "source": "Zdrav.ru",
+      "pubDate": "2026-11-26T10:00:00.000Z"
+    },
+    {
+      "title": "Глава Минздрава России рассказал об использовании ИИ при лечении рака",
+      "link": "https://www.kommersant.ru/doc/9131153",
+      "source": "Коммерсантъ",
+      "pubDate": "2026-11-26T09:56:31.000Z"
+    },
+    {
+      "title": "80% россиян считают, что ИИ должен советовать человеку, а не решать за него",
+      "link": "https://www.cnews.ru/news/line/2026-11-26_80_rossiyan_schitayutchto_ii",
+      "source": "CNews",
+      "pubDate": "2026-11-26T09:54:00.000Z"
+    },
+    {
+      "title": "Минэк подготовил стратегию развития цифровых платформ до 2036 года: ИИ разрешат заключать сделки",
+      "link": "https://rb.ru/news/minek-podgotovil-strategiyu-razvitiya-cifrovyh-platform-do-2036-goda-ii-razreshat-zaklyuchat-sdelki/",
+      "source": "Rusbase",
+      "pubDate": "2026-11-26T09:20:00.000Z"
+    },
+    {
+      "title": "Мурашко: врачи регулярно тестируют ИИ в медицине",
+      "link": "https://www.vedomosti.ru/society/news/2026/11/26/1415552-testiruyut-ii",
+      "source": "Ведомости",
+      "pubDate": "2026-11-26T09:13:19.000Z"
+    },
+    {
+      "title": "В Казахстане введут единые требования к использованию ИИ в медорганизациях",
+      "link": "https://vademec.ru/news/2026/11/26/v-kazakhstane-vvedut-edinye-trebovaniya-k-ispolzovaniyu-ii-v-medorganizatsiyakh/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-26T07:25:00.000Z"
+    },
     {
       "title": "В Дагестане ветврача отстранили от работы из-за нарушений с мясом индейки",
       "link": "https://mkala.mk.ru/social/2026/11/25/v-dagestane-vetvracha-otstranili-ot-raboty-iz-za-narusheniy-s-myasom-indeyki.html",
@@ -387,18 +423,6 @@
       "link": "https://www.vademec.ru/news/2026/10/27/chatgpt-i-claude-sovetuyut-polzovatelyam-bolee-dorogie-preparaty/",
       "source": "Vademecum",
       "pubDate": "2026-10-27T09:00:00.000Z"
-    },
-    {
-      "title": "ИИ Microsoft диагностировал сложные случаи почти в два раза точнее врачей",
-      "link": "https://medvestnik.ru/content/news/ii-microsoft-diagnostiroval-slojnye-sluchai-pochti-v-dva-raza-tochnee-vrachei.html",
-      "source": "Медвестник",
-      "pubDate": "2026-10-26T09:00:00.000Z"
-    },
-    {
-      "title": "Метаанализ: контроль врача за клиническим ИИ не гарантирует безопасность",
-      "link": "https://www.vademec.ru/news/2026/10/26/meta-analiz-kontrol-vracha-za-klinicheskim-ii-ne-garantiruet-bezopasnost/",
-      "source": "Vademecum",
-      "pubDate": "2026-10-26T09:00:00.000Z"
     }
   ]
 }
