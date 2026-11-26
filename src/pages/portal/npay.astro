@@ -52,7 +52,7 @@ const BASE_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
     var $ = function (id) { return document.getElementById(id); };
     var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
     var won = function (n) { return Math.round(n).toLocaleString('ko-KR'); };
-    var H = [], ITEMS = [], cur = null, rows = [], sort = 'asc', shown = 0, PAGE = 200, list = [];
+    var H = [], ITEMS = [], cur = null, rows = [], sort = 'asc', sortKey = 'price', sortDir = 1, shown = 0, PAGE = 200, list = [];
     var sggBySido = {};
 
     function kst(iso) {
@@ -128,7 +128,20 @@ const BASE_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
         if (keep && keep.sido && sidos.indexOf(keep.sido) >= 0) { $('np-sido').value = keep.sido; }
         fillSgg($('np-sido').value, keep && keep.sgg);
         $('np-sido').addEventListener('change', function () { fillSgg($('np-sido').value); main(false); });
-        ['np-sgg', 'np-cl', 'np-so'].forEach(function (id) { $(id).addEventListener('change', function () { sort = $('np-so').value; main(false); }); });
+        ['np-sgg', 'np-cl'].forEach(function (id) { $(id).addEventListener('change', function () { main(false); }); });
+        $('np-so').addEventListener('change', function () { sort = $('np-so').value; sortKey = sort === 'name' ? 'name' : 'price'; sortDir = sort === 'desc' ? -1 : 1; main(false); });
+        // 표 머리글을 누르면 그 항목으로 오름차순 ↔ 내림차순 (2026-11-26, 오너 지시)
+        $('np-tb').addEventListener('click', function (e) {
+          var b = e.target.closest ? e.target.closest('th button') : null;
+          if (!b) return;
+          var k = b.getAttribute('data-sort');
+          if (sortKey === k) sortDir = -sortDir;
+          else { sortKey = k; sortDir = 1; }
+          if (sortKey === 'price') $('np-so').value = sortDir > 0 ? 'asc' : 'desc';
+          else if (sortKey === 'name' && sortDir > 0) $('np-so').value = 'name';
+          else $('np-so').selectedIndex = -1; // 드롭다운에 없는 정렬이면 비워 둔다
+          main(false);
+        });
         $('np-hq').addEventListener('input', function () { main(false); });
         $('np-csv').addEventListener('click', csv);
         $('np-more-btn').addEventListener('click', function () { renderRows(); });
@@ -137,11 +150,13 @@ const BASE_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       list = rows.filter(function (r) {
         return (!s || r.h.s === s) && (!g || r.h.g === g) && (!c || r.h.c === c) && (!q || r.h.n.replace(/\s+/g, '').toLowerCase().indexOf(q) >= 0);
       });
-      sort = $('np-so').value;
+      var textOf = { name: function (r) { return r.h.n; }, cls: function (r) { return r.h.c || ''; }, region: function (r) { return r.h.s + ' ' + r.h.g; } };
       list.sort(function (a, b) {
-        if (sort === 'name') return a.h.n.localeCompare(b.h.n, 'ko') || a.p - b.p;
-        return (sort === 'desc' ? b.p - a.p : a.p - b.p) || a.h.n.localeCompare(b.h.n, 'ko');
+        var d = sortKey === 'price' ? a.p - b.p : textOf[sortKey](a).localeCompare(textOf[sortKey](b), 'ko');
+        return d * sortDir || a.h.n.localeCompare(b.h.n, 'ko') || a.p - b.p;
       });
+      var arrow = function (k) { return '<i>' + (sortKey === k ? (sortDir > 0 ? '▲' : '▼') : '⇅') + '</i>'; };
+      var head = function (k, label, cls) { return '<th' + (cls ? ' class="' + cls + '"' : '') + '><button type="button" data-sort="' + k + '">' + label + ' ' + arrow(k) + '</button></th>'; };
       var ps = list.map(function (r) { return r.p; }).sort(function (a, b) { return a - b; });
       var med = ps.length ? (ps.length % 2 ? ps[(ps.length - 1) / 2] : (ps[ps.length / 2 - 1] + ps[ps.length / 2]) / 2) : null;
       var uniq = {};
@@ -153,7 +168,7 @@ const BASE_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
         : '';
       shown = 0;
       $('np-tb').innerHTML = list.length
-        ? '<table class="np-t"><thead><tr><th>병원 (병원 표기 항목명)</th><th>종별</th><th>지역</th><th class="p">가격(원)</th></tr></thead><tbody id="np-body"></tbody></table>'
+        ? '<table class="np-t"><thead><tr>' + head('name', '병원 (병원 표기 항목명)') + head('cls', '종별') + head('region', '지역') + head('price', '가격(원)', 'p') + '</tr></thead><tbody id="np-body"></tbody></table>'
         : '<p class="np-empty">조건에 맞는 병원이 없습니다.</p>';
       renderRows();
       try {
@@ -385,6 +400,20 @@ const BASE_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
   .np-t th {
     background: var(--color-surface);
     white-space: nowrap;
+  }
+  .np-t th button {
+    padding: 0;
+    font: inherit;
+    font-weight: 700;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .np-t th button i {
+    font-style: normal;
+    font-size: 0.7rem;
   }
   .np-t .p {
     text-align: right;

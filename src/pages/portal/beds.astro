@@ -106,15 +106,15 @@ const dataset = {
             <table class="beds-table">
               <thead>
                 <tr>
-                  <th>시·도</th>
-                  <th>시·군·구</th>
-                  <th>기관</th>
-                  <th>종류</th>
-                  <th class="num">병상수</th>
-                  <th class="num">재원</th>
-                  <th class="num">가동률</th>
-                  <th class="num">참고: 일반 병실</th>
-                  <th>입력 시각</th>
+                  <th><button type="button" data-sort="sido">시·도 <i>⇅</i></button></th>
+                  <th><button type="button" data-sort="sigungu">시·군·구 <i>⇅</i></button></th>
+                  <th><button type="button" data-sort="name">기관 <i>⇅</i></button></th>
+                  <th><button type="button" data-sort="type">종류 <i>⇅</i></button></th>
+                  <th class="num"><button type="button" data-sort="total">병상수 <i>⇅</i></button></th>
+                  <th class="num"><button type="button" data-sort="stay">재원 <i>⇅</i></button></th>
+                  <th class="num"><button type="button" data-sort="rate">가동률 <i>⇅</i></button></th>
+                  <th class="num"><button type="button" data-sort="wardRate">참고: 일반 병실 <i>⇅</i></button></th>
+                  <th><button type="button" data-sort="stamp">입력 시각 <i>⇅</i></button></th>
                 </tr>
               </thead>
               <tbody id="beds-body">
@@ -165,6 +165,26 @@ const dataset = {
     var reloadBtn = document.getElementById('beds-reload');
     var data = null;
     var map = {};
+    var sortKey = '', sortDir = 1; // 머리글을 눌러 고른 정렬(2026-11-26). 고르기 전에는 지역 순 그대로.
+    var TEXT_KEYS = { sido: 1, sigungu: 1, name: 1, type: 1 };
+    var heads = Array.prototype.slice.call(document.querySelectorAll('.beds-table th button'));
+    function val(r, k) {
+      var v = r[k];
+      if (v === undefined || v === null || v === '') return null;
+      if ((k === 'rate' || k === 'wardRate') && v < 0) return null; // 화면에 '—'인 값은 뒤로
+      return v;
+    }
+    function sorted(list) {
+      if (!sortKey) return list;
+      return list.slice().sort(function (a, b) {
+        var x = val(a, sortKey), y = val(b, sortKey);
+        if (x === null && y === null) return 0;
+        if (x === null) return 1;
+        if (y === null) return -1;
+        var d = typeof x === 'string' ? x.localeCompare(y, 'ko') : x - y;
+        return d * sortDir || a.name.localeCompare(b.name, 'ko');
+      });
+    }
 
     function pct(r) { return r === null || r === undefined || r < 0 ? '—' : (r * 100).toFixed(1) + '%'; }
     function rateClass(r) { return r === null || r === undefined ? '' : r < 0.6 ? 'r-low' : r < 0.75 ? 'r-mid' : r < 0.9 ? 'r-ok' : 'r-high'; }
@@ -225,7 +245,7 @@ const dataset = {
       var q = qEl ? qEl.value.replace(/\s+/g, '').toLowerCase() : '';
       var frag = document.createDocumentFragment();
       var n = 0;
-      data.items.forEach(function (r) {
+      sorted(data.items).forEach(function (r) {
         if (s && r.sido !== s) return;
         if (g && r.sigungu !== g) return;
         if (q && (r.name || '').replace(/\s+/g, '').toLowerCase().indexOf(q) < 0) return;
@@ -244,6 +264,9 @@ const dataset = {
       });
       body.innerHTML = '';
       body.appendChild(frag);
+      heads.forEach(function (b) {
+        b.querySelector('i').textContent = b.getAttribute('data-sort') === sortKey ? (sortDir > 0 ? '▲' : '▼') : '⇅';
+      });
       count.textContent = n.toLocaleString('ko-KR') + '곳';
       none.hidden = n !== 0;
       none.textContent = q ? '검색어에 맞는 응급의료기관이 없습니다.' : '선택한 지자체에 표시할 응급의료기관이 없습니다.';
@@ -297,6 +320,14 @@ const dataset = {
     selSgg.addEventListener('change', render);
     if (qEl) qEl.addEventListener('input', render);
     reloadBtn.addEventListener('click', load);
+    heads.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.getAttribute('data-sort');
+        if (sortKey === k) sortDir = -sortDir;
+        else { sortKey = k; sortDir = TEXT_KEYS[k] ? 1 : -1; }
+        if (data) render();
+      });
+    });
 
     try {
       apply(JSON.parse(document.getElementById('beds-initial').textContent), true);
@@ -413,6 +444,20 @@ const dataset = {
     top: 0;
     background: var(--color-surface);
     font-weight: 700;
+  }
+  .beds-table th button {
+    padding: 0;
+    font: inherit;
+    font-weight: 700;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .beds-table th button i {
+    font-style: normal;
+    font-size: 0.7rem;
   }
   .beds-table .num {
     text-align: right;

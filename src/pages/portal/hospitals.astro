@@ -48,18 +48,18 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       <table class="hp-table" id="hp-table" hidden>
         <thead>
           <tr>
-            <th>지역</th>
-            <th>종별</th>
-            <th><button type="button" data-sort="name">기관명 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="beds">허가 병상 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="med">의사(의과) <i></i></button></th>
-            <th class="num"><button type="button" data-sort="medSp">전문의 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="ortho">정형외과 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="neuro">신경외과 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="pt">물리치료사 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="icu">중환자 병상 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="or">수술실 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="er">응급실 <i></i></button></th>
+            <th><button type="button" data-sort="region">지역 <i>⇅</i></button></th>
+            <th><button type="button" data-sort="cl">종별 <i>⇅</i></button></th>
+            <th><button type="button" data-sort="name">기관명 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="beds">허가 병상 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="med">의사(의과) <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="medSp">전문의 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="ortho">정형외과 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="neuro">신경외과 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="pt">물리치료사 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="icu">중환자 병상 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="or">수술실 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="er">응급실 <i>⇅</i></button></th>
             <th>상세</th>
           </tr>
         </thead>
@@ -135,6 +135,8 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       var b = h.beds, d = h.doc || {};
       switch (key) {
         case 'name': return h.name;
+        case 'region': return h.sido + ' ' + (h.sigungu || '');
+        case 'cl': return h.clName || '';
         case 'beds': return b ? num(b.permSbdCnt) : undefined;
         case 'med': return num(d.med);
         case 'medSp': return num(d.medSp);
@@ -270,7 +272,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       if (sortKey) {
         rows = rows.slice().sort(function (a, b) {
           var x = get(a, sortKey), y = get(b, sortKey);
-          if (sortKey === 'name') return sortDir === 'asc' ? x.localeCompare(y, 'ko') : y.localeCompare(x, 'ko');
+          if (typeof x === 'string') return (sortDir === 'asc' ? x.localeCompare(y, 'ko') : y.localeCompare(x, 'ko')) || a.name.localeCompare(b.name, 'ko');
           var nx = x === undefined || x === null, ny = y === undefined || y === null;
           if (nx && ny) return 0;
           if (nx) return 1;
@@ -287,7 +289,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       countEl.textContent = rows.length.toLocaleString('ko-KR') + '곳';
       Array.prototype.forEach.call(document.querySelectorAll('.hp-table th button'), function (b) {
         var i = b.querySelector('i');
-        i.textContent = b.getAttribute('data-sort') === sortKey ? (sortDir === 'asc' ? '▲' : '▼') : '';
+        i.textContent = b.getAttribute('data-sort') === sortKey ? (sortDir === 'asc' ? '▲' : '▼') : '⇅';
       });
       try {
         var p = new URLSearchParams();
@@ -349,7 +351,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       b.addEventListener('click', function () {
         var k = b.getAttribute('data-sort');
         if (sortKey === k) sortDir = sortDir === 'desc' ? 'asc' : 'desc';
-        else { sortKey = k; sortDir = k === 'name' ? 'asc' : 'desc'; }
+        else { sortKey = k; sortDir = k === 'name' || k === 'region' || k === 'cl' ? 'asc' : 'desc'; }
         render();
       });
     });

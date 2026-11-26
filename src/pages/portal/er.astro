@@ -50,16 +50,16 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       <table class="er-table" id="er-table" hidden>
         <thead>
           <tr>
-            <th>지역</th>
-            <th>구분</th>
-            <th><button type="button" data-sort="name">기관명 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="gen">일반 응급실 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="ped">소아 응급실 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="deliv">분만실 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="neg">음압 격리 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="iso">일반 격리 <i></i></button></th>
-            <th class="num"><button type="button" data-sort="coh">코호트 격리 <i></i></button></th>
-            <th>안내</th>
+            <th><button type="button" data-sort="region">지역 <i>⇅</i></button></th>
+            <th><button type="button" data-sort="type">구분 <i>⇅</i></button></th>
+            <th><button type="button" data-sort="name">기관명 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="gen">일반 응급실 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="ped">소아 응급실 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="deliv">분만실 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="neg">음압 격리 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="iso">일반 격리 <i>⇅</i></button></th>
+            <th class="num"><button type="button" data-sort="coh">코호트 격리 <i>⇅</i></button></th>
+            <th><button type="button" data-sort="note">안내 <i>⇅</i></button></th>
           </tr>
         </thead>
         <tbody id="er-body"></tbody>
@@ -144,6 +144,9 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
     }
     function val(r, key) {
       if (key === 'name') return r.name;
+      if (key === 'region') return r.sido + ' ' + (r.sigungu || '');
+      if (key === 'type') return r.type || '';
+      if (key === 'note') return (r.er || []).length + (r.unavail || []).length + (r.bypass || []).length;
       var v = r[key];
       if (!v) return null;
       if (key === 'deliv') return v.ok ? v.total : 0;
@@ -197,7 +200,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       if (sortKey) {
         rows = rows.slice().sort(function (a, b) {
           var x = val(a, sortKey), y = val(b, sortKey);
-          if (sortKey === 'name') return sortDir === 'asc' ? x.localeCompare(y, 'ko') : y.localeCompare(x, 'ko');
+          if (typeof x === 'string') return (sortDir === 'asc' ? x.localeCompare(y, 'ko') : y.localeCompare(x, 'ko')) || a.name.localeCompare(b.name, 'ko');
           if (x === null && y === null) return 0;
           if (x === null) return 1;
           if (y === null) return -1;
@@ -228,7 +231,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       countEl.textContent = rows.length.toLocaleString('ko-KR') + '곳';
       Array.prototype.forEach.call(document.querySelectorAll('.er-table th button'), function (b) {
         var i = b.querySelector('i');
-        i.textContent = b.getAttribute('data-sort') === sortKey ? (sortDir === 'asc' ? '▲' : '▼') : '';
+        i.textContent = b.getAttribute('data-sort') === sortKey ? (sortDir === 'asc' ? '▲' : '▼') : '⇅';
       });
       try {
         var p = new URLSearchParams();
@@ -296,7 +299,7 @@ const DATA_URL = 'https://raw.githubusercontent.com/BuminAI/hospital-ai-lab/port
       b.addEventListener('click', function () {
         var k = b.getAttribute('data-sort');
         if (sortKey === k) sortDir = sortDir === 'desc' ? 'asc' : 'desc';
-        else { sortKey = k; sortDir = k === 'name' ? 'asc' : 'desc'; }
+        else { sortKey = k; sortDir = k === 'name' || k === 'region' || k === 'type' ? 'asc' : 'desc'; }
         render();
       });
     });
