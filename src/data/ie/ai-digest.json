@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-26T04:10:38.442Z",
-  "source": "The Irish Times·Irish Tech News·Irish Independent·TheJournal.ie·RTÉ·Silicon Republic·Business Post·Irish Examiner·Irish Legal News",
+  "updatedAt": "2026-11-26T16:54:01.158Z",
+  "source": "Irish Legal News·The Irish Times·Irish Tech News·Business Post·Irish Independent·TheJournal.ie·RTÉ·Silicon Republic·Irish Examiner",
   "items": [
+    {
+      "title": "Littler Survey shows European employers face uncertain outlook as AI reshapes the workforce",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOZEpwNHJVak5BcHhoSW9SS3NTd0RJaTJRdVFwX2VjWlpNZzJlRHBXT1VkNFVhemE4ckFueklPOXRNVUw1YnVtSi1DaVM0cUNDYmJma1VSMjllRU9ZT3oyZDlwai1lck5iSXRicXhvVGpsX21SSFYtcFNJRk13dTNNM2xxOGpZUlBjVkZIc083eEI5djFYYVVSTUMtOVhuczE4TnR5QVJGOWNCTVFxVkp5akplb1R0a0NLeENNTVR6OVpJZXhOUGc?oc=5",
+      "source": "Irish Legal News",
+      "pubDate": "2026-11-26T11:38:58.000Z"
+    },
     {
       "title": "Ireland seen as light touch on AI regulation because of reliance on tech, Oireachtas told",
       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOd0p0Yi1PeGNUd2FWb3N2Q0tIYkFNcGd3QVQ5UWV0dnV6bDI3dXRObUZFTTM5NXdXUTNBUlNnSXZJQ2ZfcDhfWHdtc2w4N3EwM3Z2OFdPc09YejFzSkdOSDVVejkxRWg2RVI0aUJSOTNVMU83alN3bTBQcjhmR0NBdGpfLVIyd3NJR3k1cDlUTk9aeng4S2tsYUdZUThXZ3hvdXhBYXBuTDM3SEZUV2F0UjZIQVZYVHYxR2s5ZVkyZ3VtYmZIaU9GakVfMzcyVDJMWFE?oc=5",
@@ -13,6 +19,12 @@
       "link": "https://irishtechnews.ie/climb-announces-acronis-partnership-bringing-its-ai-native-cyber-platform-to-ireland/",
       "source": "Irish Tech News",
       "pubDate": "2026-11-24T15:00:36.000Z"
+    },
+    {
+      "title": "Still fit for purpose? Putting the EU AI Act to the test",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNdm1WYmdmQmJWOURITUxhZi1uYjdsUmgyZTZiMTVYQ3dnTGxkSmVOMnNZN0pVZms2WXlXbk5vM3FQOWJOOTh0bEZWMmNKdHFkcVBWWGVyNHlkbGdHOWtEWnNoWmhCWXhpUWhCS1BpRVBPdFpvRnJ1Y3NfNzFHVVNNXzZIMGVNa2FBZVp3VXI1aS1VRk0?oc=5",
+      "source": "Business Post",
+      "pubDate": "2026-11-24T12:58:21.000Z"
     },
     {
       "title": "Dell Technologies Delivers the Trusted Data and AI Infrastructure Foundation Needed to Scale Agentic Enterprise AI",
@@ -99,16 +111,16 @@
       "pubDate": "2026-11-18T08:27:25.000Z"
     },
     {
-      "title": "Media regulator to monitor breaches by AI that generates nude images of adults and children",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE92R2hBZndRT2JKU2JlT01ZUXlzMVV3cktGbHZtRnFwREJxUHZGRGgzVnBvRXQwZ1QxUlFlb3dVQlN0bzA0Q0ZWQURDejRpX0l6eEJhSjh5SHFKUUYwM08w?oc=5",
-      "source": "TheJournal.ie",
-      "pubDate": "2026-11-17T18:52:00.000Z"
-    },
-    {
       "title": "Call for permanent national emergency security body amid AI cyber threats",
       "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5iTEJBTnpMaUtRRHY2VGZlaTBaNkFiQUtZWlR5TVl2WThzZVcyYmFZejBsa0NqTm1uUVdjbjVaM3I3OWJLMmt1akwxNGM2OE92Z0JKY1lRRHljbnNkaEdUeDBmay1hdnBXQnRSeXYwN3prcUJtZnc?oc=5",
       "source": "Irish Examiner",
       "pubDate": "2026-11-17T18:03:00.000Z"
+    },
+    {
+      "title": "Media regulator to monitor breaches by AI that generates nude images of adults and children",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE92R2hBZndRT2JKU2JlT01ZUXlzMVV3cktGbHZtRnFwREJxUHZGRGgzVnBvRXQwZ1QxUlFlb3dVQlN0bzA0Q0ZWQURDejRpX0l6eEJhSjh5SHFKUUYwM08w?oc=5",
+      "source": "TheJournal.ie",
+      "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
       "title": "Irish art being stolen by AI systems, Oireachtas committee told",
@@ -231,15 +243,15 @@
       "pubDate": "2026-11-03T08:00:00.000Z"
     },
     {
-      "title": "Supermarket disruption will occur again as AI makes hacking easier, says cybersecurity expert",
-      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9GeC1ISzcxX3lsZl9IOEhTaU5wbW5qTjd3NG9NWGtIZ2YyZUMxMXFaa2o0djNreUtuYXVnR1lBT3M0QnhYSjJFb1VSVHp6azdfV3d0N29fOXhILUhNdW5fdXlSMA?oc=5",
-      "source": "Irish Examiner",
-      "pubDate": "2026-11-03T08:00:00.000Z"
-    },
-    {
       "title": "UK warns weak supply chains will worsen AI-led cybersecurity crisis",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQajk1S3M0ZkZyMTdkUDhXN25SVUpMX1h2RU9UMTNVVTQ2NGZzVnRnbmEteHVGTGhqeTY4RWNOYmpWeGJYVjAyc1g4LTBHS1RxTHZsaExuVUt0UWZ1dEh1dkktNG5nNkxDNzMtc29WcFd0SWlmdXRPRnAyNjhKRWF1Zks0bG1mSE4tSmJXaGFUQWNqMEN2VHhBN241N28za3hURDEtb2N4OEo?oc=5",
       "source": "Silicon Republic",
+      "pubDate": "2026-11-03T08:00:00.000Z"
+    },
+    {
+      "title": "Supermarket disruption will occur again as AI makes hacking easier, says cybersecurity expert",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9GeC1ISzcxX3lsZl9IOEhTaU5wbW5qTjd3NG9NWGtIZ2YyZUMxMXFaa2o0djNreUtuYXVnR1lBT3M0QnhYSjJFb1VSVHp6azdfV3d0N29fOXhILUhNdW5fdXlSMA?oc=5",
+      "source": "Irish Examiner",
       "pubDate": "2026-11-03T08:00:00.000Z"
     },
     {
@@ -417,15 +429,15 @@
       "pubDate": "2026-10-12T07:00:00.000Z"
     },
     {
-      "title": "OpenAI to create 200 jobs in Dublin",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOaEVsYWgtZTJRa1k0ZDVyd3VtdnVRV1YzNVdKV3o2U1h3SjVhWVNJX0lXZUhHcnZNdEpacU5xOG5qSERsdDBRRmg4dFJ1aGdzaW1iZ1VqSzNkemVIY1c4b1BNNUR0Ty03MDluMlh1Vlh1aElLMFR0SHV3VGxwaDBIZ2NGYVZhdTBmektN?oc=5",
-      "source": "The Irish Times",
-      "pubDate": "2026-10-12T07:00:00.000Z"
-    },
-    {
       "title": "Irish AI company Tines announces 100 jobs",
       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVEtHM0FFbGZGOEw3QmpUQmgteDRjaDNNUVA4MV9MYXgtdzhfdnJoM0M3Rml6UUlxQXJ3RWxhT2NHMXhnZ0RQX3hPVUFVNDFQMGpLeDdlSWlJUktBOUNIUjVQV1BDX0oxb3VnT0NNZHFqdjZ5cU5UTDUwWXBNdGs4aUJZQ3N0XzdOV3c?oc=5",
       "source": "RTÉ",
+      "pubDate": "2026-10-12T07:00:00.000Z"
+    },
+    {
+      "title": "OpenAI to create 200 jobs in Dublin",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOaEVsYWgtZTJRa1k0ZDVyd3VtdnVRV1YzNVdKV3o2U1h3SjVhWVNJX0lXZUhHcnZNdEpacU5xOG5qSERsdDBRRmg4dFJ1aGdzaW1iZ1VqSzNkemVIY1c4b1BNNUR0Ty03MDluMlh1Vlh1aElLMFR0SHV3VGxwaDBIZ2NGYVZhdTBmektN?oc=5",
+      "source": "The Irish Times",
       "pubDate": "2026-10-12T07:00:00.000Z"
     },
     {
@@ -453,15 +465,15 @@
       "pubDate": "2026-10-03T07:00:00.000Z"
     },
     {
-      "title": "Workday to cut jobs in Dublin HQ but will press on with AI centre of excellence",
-      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNTmtIcFhYVktveHpRa1NRWFhJUEdsYVhWZzZNUTh2N0NOTjBKNVBUWVp1SjhnaUNDNnVhQUI1RjJrOTAwNkRtM0lOSmk2ZGJNcHpVRkhaX1JrRnZ5aW5sNEV2ZUVad0o1SWtwb1E1OHRlZXN0S18zNHdhWjJrZno3S0wyeUxLbi1pV1k1b2NRc2dwNHNBUEtGUkFiMEltZVl0cWJFNkQ4aEcyZGdmWFhTX3Fza2RxX3ZXVFhmYWpBeXhINFR3Ync?oc=5",
-      "source": "The Irish Times",
-      "pubDate": "2026-10-01T07:00:00.000Z"
-    },
-    {
       "title": "‘We haven't seen any kind of AI job replacement’: HSBC’s Laura Trimble on AI and Ireland’s appeal",
       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNdHAySEFvb3B5c1pxWE84ZVJacnBOVm5uSFFQX1ZSYTZfOElSVVR0ZkVZYjNJMXB4Rlk5cmE0Vnc5Q2tKWS1uaEpmM1ZvRkdKaTZHS293b1E0dVlReTY2Z1dNR0F0Qm01eG9VVjlfb3JCSzRpU2RDUjZzRzBMcC0tWDVWOXp0S0RZcUo4SkY2R0dBVzB6VmtFdlNDWXNCNUkxZGV0d0RMMlRycTc1a2EtbFhGTlFuNFBUMWt2Ni0tUk1QZ1ZXbUtj?oc=5",
       "source": "Business Post",
+      "pubDate": "2026-10-01T07:00:00.000Z"
+    },
+    {
+      "title": "Workday to cut jobs in Dublin HQ but will press on with AI centre of excellence",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNTmtIcFhYVktveHpRa1NRWFhJUEdsYVhWZzZNUTh2N0NOTjBKNVBUWVp1SjhnaUNDNnVhQUI1RjJrOTAwNkRtM0lOSmk2ZGJNcHpVRkhaX1JrRnZ5aW5sNEV2ZUVad0o1SWtwb1E1OHRlZXN0S18zNHdhWjJrZno3S0wyeUxLbi1pV1k1b2NRc2dwNHNBUEtGUkFiMEltZVl0cWJFNkQ4aEcyZGdmWFhTX3Fza2RxX3ZXVFhmYWpBeXhINFR3Ync?oc=5",
+      "source": "The Irish Times",
       "pubDate": "2026-10-01T07:00:00.000Z"
     },
     {
