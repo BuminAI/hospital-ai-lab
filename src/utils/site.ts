@@ -56,6 +56,11 @@ export const GOOGLE_SITE_VERIFICATION = '5zd4BPyIzNe4dZJnx59GxYhFTkVoNQmcRoIJ9YS
 // 애드센스가 "자동 광고"로 알아서 넣거나, 별도로 슬롯을 만들어야 한다.
 export const ADSENSE_CLIENT = 'ca-pub-5343478987026041';
 
+// 광고를 싣지 않는 모음 페이지(2026-11-26, 오너 지시): 주로 다른 곳의 제목·링크·자료를 모아 보여 주는 화면.
+// 게시자 정책은 부가 가치 없이 타인의 콘텐츠를 옮긴 화면의 광고를 금지한다. 모든 언어판에 같은 주소 규칙을 쓴다.
+const NO_AD_PAGES = /\/(news|events|gov-support|subsidies|ai-digest|videos|youtube|research)\/?$/;
+export const adsAllowed = (pathname: string) => !NO_AD_PAGES.test(pathname);
+
 export const SITE_TITLE = '병원 AI 연구소';
 export const SITE_TAGLINE = '의료 현장의 문제를 AI로 풉니다.';
 
