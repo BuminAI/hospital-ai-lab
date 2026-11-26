@@ -59,7 +59,12 @@ export const ADSENSE_CLIENT = 'ca-pub-5343478987026041';
 // 광고를 싣지 않는 모음 페이지(2026-11-26, 오너 지시): 주로 다른 곳의 제목·링크·자료를 모아 보여 주는 화면.
 // 게시자 정책은 부가 가치 없이 타인의 콘텐츠를 옮긴 화면의 광고를 금지한다. 모든 언어판에 같은 주소 규칙을 쓴다.
 const NO_AD_PAGES = /\/(news|events|gov-support|subsidies|ai-digest|videos|youtube|research)\/?$/;
-export const adsAllowed = (pathname: string) => !NO_AD_PAGES.test(pathname);
+// 애드센스 심사 대비(2026-11-26): 게시자 콘텐츠가 중심이 아닌 화면 — 목록·메뉴 허브, 자동 모음, 자료 조회 화면,
+// 회원 전용 안내, 문의·개인정보 쪽 — 에도 광고를 싣지 않는다. 글·가이드·점검표·용어·문답에는 싣는다.
+const NO_AD_HUBS = /\/(blog|series|tips|practice|patients|calendar|updates|notes|contact|privacy)\/?$/;
+const NO_AD_SECTIONS = /^(\/[a-z]{2})?\/(portal|series|blog\/category)(\/|$)/;
+export const adsAllowed = (pathname: string) =>
+  !NO_AD_PAGES.test(pathname) && !NO_AD_HUBS.test(pathname) && !NO_AD_SECTIONS.test(pathname);
 
 export const SITE_TITLE = '병원 AI 연구소';
 export const SITE_TAGLINE = '의료 현장의 문제를 AI로 풉니다.';

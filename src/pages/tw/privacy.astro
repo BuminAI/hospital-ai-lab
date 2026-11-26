@@ -1,0 +1,11 @@
+---
+import TwLayout from '../../layouts/TwLayout.astro';
+import PrivacyNoticeBody from '../../components/PrivacyNoticeBody.astro';
+import { privacyNotice } from '../../data/privacy-notice';
+
+const notice = privacyNotice.tw;
+---
+
+<TwLayout title={notice.title} description={notice.description} crumb={notice.title} standalone>
+  <PrivacyNoticeBody notice={notice} />
+</TwLayout>

@@ -1,0 +1,11 @@
+---
+import InLayout from '../../layouts/InLayout.astro';
+import PrivacyNoticeBody from '../../components/PrivacyNoticeBody.astro';
+import { privacyNotice } from '../../data/privacy-notice';
+
+const notice = privacyNotice.en;
+---
+
+<InLayout title={notice.title} description={notice.description} crumb={notice.title} standalone>
+  <PrivacyNoticeBody notice={notice} />
+</InLayout>

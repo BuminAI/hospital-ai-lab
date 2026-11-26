@@ -1,0 +1,11 @@
+---
+import PhLayout from '../../layouts/PhLayout.astro';
+import PrivacyNoticeBody from '../../components/PrivacyNoticeBody.astro';
+import { privacyNotice } from '../../data/privacy-notice';
+
+const notice = privacyNotice.ph;
+---
+
+<PhLayout title={notice.title} description={notice.description} crumb={notice.title} standalone>
+  <PrivacyNoticeBody notice={notice} />
+</PhLayout>

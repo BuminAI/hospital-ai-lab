@@ -1,0 +1,11 @@
+---
+import AeLayout from '../../layouts/AeLayout.astro';
+import PrivacyNoticeBody from '../../components/PrivacyNoticeBody.astro';
+import { privacyNotice } from '../../data/privacy-notice';
+
+const notice = privacyNotice.en;
+---
+
+<AeLayout title={notice.title} description={notice.description} crumb={notice.title} standalone>
+  <PrivacyNoticeBody notice={notice} />
+</AeLayout>

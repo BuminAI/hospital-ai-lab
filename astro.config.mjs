@@ -54,7 +54,10 @@ const sitemapFilter = (page) =>
   !page.includes('/signup') &&
   !page.includes('/login') &&
   !page.includes('/unsubscribe') &&
-  !page.includes('/ai-apps');
+  !page.includes('/ai-apps') &&
+  // noindex 쪽은 사이트맵에서도 뺀다(2026-11-26): 회원 전용 강의노트, 자료 수집 전인 비급여 비교.
+  !page.endsWith('/notes/') &&
+  !page.endsWith('/portal/npay/');
 
 
 export default defineConfig({

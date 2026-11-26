@@ -22,12 +22,14 @@ export const siteNav: SiteNavItem[] = [
   {
     href: '/portal/',
     label: '공공 포털',
-    desc: '전국 공공 자료를 한곳에서 — 병상가동현황·응급실 사용현황·규모·인력 비교·비급여 진료비·선별급여 등',
+    desc: '전국 공공 자료를 한곳에서 — 병상가동현황·응급실 사용현황·규모·인력 비교·선별급여 등',
     children: [
       { href: '/portal/beds/', label: '병상가동현황', desc: '전국 응급의료기관의 병상수·재원·가동률을 지자체별로 보기' },
       { href: '/portal/er/', label: '응급실 사용현황', desc: '전국 응급실의 가용 병상·격리실·진료 불가 안내를 지자체별로 거의 실시간으로 보기' },
       { href: '/portal/hospitals/', label: '규모·인력 비교', desc: '전국 병원의 병상·의사·전문의·물리치료사·시설·장비를 지자체별로 비교' },
-      { href: '/portal/npay/', label: '비급여 진료비', desc: '전국 병원급 이상 의료기관의 비급여 항목 가격을 지자체별로 비교' },
+      // 비급여 진료비(/portal/npay/)는 자료가 아직 수집되지 않아 2026-11-26 애드센스 심사 대비로 메뉴에서 뺐다.
+      // `portal-npay` 브랜치에 index.json 이 생기면 이 줄을 되살리고 npay.astro 의 noindex 와 astro.config 의 제외를 지운다.
+      // { href: '/portal/npay/', label: '비급여 진료비', desc: '전국 병원급 이상 의료기관의 비급여 항목 가격을 지자체별로 비교' },
       { href: '/portal/benefit/', label: '선별급여·한정급여', desc: '선별급여·한정급여·평가유예 신의료기술 항목의 본인부담률과 적용 기간을 한곳에서 검색' },
     ],
   },

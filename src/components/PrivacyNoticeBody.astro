@@ -1,0 +1,44 @@
+---
+// 언어판별 개인정보 안내 본문(레이아웃 안에서 쓴다). 문구는 src/data/privacy-notice.ts.
+import type { PrivacyNotice } from '../data/privacy-notice';
+import { withBase } from '../utils/site';
+
+interface Props {
+  notice: PrivacyNotice;
+}
+const { notice } = Astro.props;
+const href = (h: string) => (h.startsWith('/') ? withBase(h) : h);
+---
+
+<h1>{notice.title}</h1>
+<p>{notice.lead}</p>
+
+{
+  notice.sections.map((s) => (
+    <section>
+      <h2>{s.h}</h2>
+      {s.p?.map((t) => (
+        <p>{t}</p>
+      ))}
+      {s.items && (
+        <ul>
+          {s.items.map((i) => (
+            <li>
+              {i.text}
+              {i.link && (
+                <>
+                  {' '}
+                  <a href={href(i.link.href)} rel={i.link.href.startsWith('http') ? 'noopener' : undefined}>
+                    {i.link.label}
+                  </a>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  ))
+}
+
+<p>{notice.effective}</p>
