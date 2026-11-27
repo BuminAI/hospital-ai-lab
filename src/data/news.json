@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-27T08:29:40.477Z",
+  "updatedAt": "2026-11-27T18:58:03.017Z",
   "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 메디팜스투데이 · 의약뉴스 · 한국경제 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 디지털투데이 · 연합뉴스 · 매일경제 · 보건복지부 · 뉴시스",
   "items": [
+    {
+      "title": "류승민 서울의료원 과장, 보건의료기술진흥 유공 복지부 장관 표창",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017589",
+      "source": "의학신문",
+      "pubDate": "2026-11-27T21:43:43.000Z"
+    },
+    {
+      "title": "신약은 팔고 플랫폼은 남긴다…이노보테라퓨틱스의 IPO 전략",
+      "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044993",
+      "source": "청년의사",
+      "pubDate": "2026-11-27T18:34:26.000Z"
+    },
+    {
+      "title": "복지부 산하 5개 공공기관, 자체감사 역량 강화 업무협약",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017581",
+      "source": "의학신문",
+      "pubDate": "2026-11-27T18:30:33.000Z"
+    },
+    {
+      "title": "고대안암병원 김재우 교수팀, 의료기술혁신학회 우수구연상 수상",
+      "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017580",
+      "source": "의학신문",
+      "pubDate": "2026-11-27T18:30:33.000Z"
+    },
+    {
+      "title": "서울대병원, 심박출량 추정 AI 의료기기 식약처 인증 획득",
+      "link": "https://www.medipana.com/news/articleView.html?idxno=422849",
+      "source": "메디파나뉴스",
+      "pubDate": "2026-11-27T18:29:56.000Z"
+    },
     {
       "title": "서울대병원, 심전도·맥파로 심박출량 추정 AI 의료기기 제조인증 획득",
       "link": "https://www.rapportian.com/news/articleView.html?idxno=243000",
@@ -12,7 +42,9 @@
       "title": "이노보테라퓨틱스, AI 넘어 임상·기술이전 성과로 승부수",
       "link": "http://www.kmedinfo.co.kr/news/articleView.html?idxno=99202",
       "source": "e-의료정보",
-      "pubDate": "2026-11-27T16:52:41.000Z"
+      "pubDate": "2026-11-27T16:52:41.000Z",
+      "popular": true,
+      "rank": 1
     },
     {
       "title": "어니스트AI, 'NH크레딧 ON서 대안신용평가모형 개발 · 여신전략 연구 수행",
@@ -108,7 +140,9 @@
       "title": "앞치마 입고 양쪽 귀 드러내고…달라진 전공의 필기시험 풍경",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044976",
       "source": "청년의사",
-      "pubDate": "2026-11-27T12:45:10.000Z"
+      "pubDate": "2026-11-27T12:45:10.000Z",
+      "popular": true,
+      "rank": 6
     },
     {
       "title": "신약개발의 실패 데이터는 누구의 자산인가?",
@@ -404,7 +438,7 @@
       "source": "병원신문",
       "pubDate": "2026-11-26T16:18:10.000Z",
       "popular": true,
-      "rank": 10
+      "rank": 8
     },
     {
       "title": "스타강사 이지영, 분당서울대병원에 후원금 3억 원 기부",
@@ -534,7 +568,7 @@
       "source": "병원신문",
       "pubDate": "2026-11-26T12:43:00.000Z",
       "popular": true,
-      "rank": 5
+      "rank": 4
     },
     {
       "title": "의료데이터 가명처리, 외부 위탁 길 열렸다",
