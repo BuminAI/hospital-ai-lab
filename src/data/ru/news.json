@@ -1,18 +1,24 @@
 {
-  "updatedAt": "2026-11-27T14:12:55.524Z",
-  "source": "Медвестник · Vademecum · Ведомости · CNews · Коммерсантъ · Фармвестник · Zdrav.ru · Росздравнадзор",
+  "updatedAt": "2026-11-27T22:54:31.349Z",
+  "source": "Медвестник · Vademecum · Ведомости · Хабр · Коммерсантъ · CNews · Zdrav.ru · Фармвестник · Росздравнадзор",
   "items": [
+    {
+      "title": "ИИ-стоматолог для Planmeca: от поиска патологий на всей панораме к анализу каждого зуба",
+      "link": "https://habr.com/ru/articles/1113422/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1113422",
+      "source": "Хабр",
+      "pubDate": "2026-11-27T20:48:50.000Z"
+    },
+    {
+      "title": "ИИ-модель для диагностики фарингита может снизить частоту назначений антибиотиков",
+      "link": "https://www.vademec.ru/news/2026/11/27/ii-model-dlya-diagnostiki-faringita-mozhet-snizit-chastotu-naznacheniy-antibiotikov/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-27T09:00:00.000Z"
+    },
     {
       "title": "Созданные с помощью ИИ антительные молекулы для лекарства против Альцгеймера прошли первые лабораторные тесты",
       "link": "https://www.cnews.ru/news/line/2026-11-27_sozdannye_s_pomoshchyu_ii_antitelnye",
       "source": "CNews",
       "pubDate": "2026-11-27T07:29:00.000Z"
-    },
-    {
-      "title": "ИИ-модель для диагностики фарингита может снизить частоту назначений антибиотиков",
-      "link": "https://vademec.ru/news/2026/11/27/ii-model-dlya-diagnostiki-faringita-mozhet-snizit-chastotu-naznacheniy-antibiotikov/",
-      "source": "Vademecum",
-      "pubDate": "2026-11-27T06:28:00.000Z"
     },
     {
       "title": "Forbes: более 60% россиян готовы пользоваться ИИ-помощниками для здоровья",
