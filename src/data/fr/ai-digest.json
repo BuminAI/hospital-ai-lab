@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-27T04:16:36.664Z",
-  "source": "La Croix·Numerama·ZDNet France·Le Monde·Les Échos·Ouest-France·franceinfo·Libération·Le Figaro·France 24·Challenges·CNIL·Europe 1·Sud Ouest·Silicon.fr·Le Parisien·20 Minutes·DSIH·La Tribune·Public Sénat",
+  "updatedAt": "2026-11-27T16:40:42.448Z",
+  "source": "Le Monde·ZDNet France·DSIH·La Croix·Numerama·Les Échos·Ouest-France·franceinfo·Libération·Le Figaro·France 24·Challenges·CNIL·Europe 1·Sud Ouest·Silicon.fr·Le Parisien·20 Minutes·La Tribune·Public Sénat",
   "items": [
+    {
+      "title": "Pologne : l’armée annonce qu’elle utilisera l’IA de l’entreprise américaine Palantir",
+      "link": "https://www.lemonde.fr/international/article/2026/11/27/en-pologne-l-armee-choisit-l-ia-de-palantir-pour-l-aide-a-la-decision_6815890_3210.html",
+      "source": "Le Monde",
+      "pubDate": "2026-11-27T15:43:40.000Z"
+    },
+    {
+      "title": "Atos et Scaleway s’allient pour industrialiser le cloud souverain par l’IA",
+      "link": "https://www.zdnet.fr/actualites/atos-et-scaleway-sallient-pour-industrialiser-le-cloud-souverain-par-lia-508817.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-27T01:11:30.000Z"
+    },
+    {
+      "title": "Gaspard Desgeorge (Vidal) : « L’IA accélère et précise notre accès à la connaissance médicale »",
+      "link": "https://dsih.fr/articles/6481/gaspard-desgeorge-vidal-lia-accelere-et-precise-notre-acces-a-la-connaissance-medicale",
+      "source": "DSIH",
+      "pubDate": "2026-11-27T00:00:00.000Z"
+    },
     {
       "title": "IA : Artex, l’outil de cybersécurité détourné qui démocratise le piratage informatique",
       "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxObnhRQ1RoOFlxampoVVlrN2Jid2ltdnIxZjJPYnpnWFFOdTlKbVk3VFIxc0Jfd09IUEo2eXhFRkI3RGpmMDVtMElYSC00cXBXOFJxdHhuOGZHRGFvQ1dITHAzYmNXUl9oZldxNjByUmF4cGhhb0g3YlNIdnJLSXVEdjlabjlwc29vLVNpWXRURzltU1g1SkhPU1B3UU5iNXUxX29pWWVZZnpmcjh2bXh2UGtjUWUxTWxrdW5YZEdJS0FkRDg?oc=5",
@@ -249,16 +267,16 @@
       "pubDate": "2026-11-19T10:06:32.000Z"
     },
     {
+      "title": "Cette étude qui montre combien l'IA bouleverse déjà le marché de l'emploi pour les cols blancs",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNMms0dE00eFdkX1JINmN6ell5N3d6MW4xVGc5SzdEQmVNUHBPbWlTQ0ZQS0N2S1VpeUFCdWRhQ2dUdFhzYjZjNU43bVV5Q1pGTnAwRE9tZFpvVDdNMDUzSlVZbFdmQlFMUzB4ZUNHdi12NmRuSHFuZTBXS01WOU92a2htRGtrWlI1cGJtUXpfRmg5MTRVSG92bWhaMUpKQ3llVk9OOU40TjlpTXd3X0lBUW96Z1hpMXlZMW9WSzNOQlVlTk9HZkxnSjJwSUlESHdVcmF0UEo4aHRlTm5HRGZQRXdZLWpaQVU?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-19T08:00:00.000Z"
+    },
+    {
       "title": "Donald Trump se dit opposé «à toute forme de réglementation mondialiste» de l'IA «presque entièrement bénéfique»",
       "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPRzY4bUhVUkROdnp5a0pvQVJNSlZRUmNqSTlsLW4tNkYtR29pSXJZeXUyX0Z3NlFGeUpySTd1alRJczRvUlVwUm1BYjR3NW9qNkxFUGN4QlAxLTJuSjd2YUJwRy1ibEhSWkNUel9VbXduOXNIczFrc1hJd3Q3WDUyVk82Tm8xbURpcGNFTFlQUVd5eXBObmlTbXF0UlhRYzN2dFp0VmZzMG94VUZCaFRFb292bjNObElvTlJnb1ZEcV9IRGdoWlF1aC1uWkJpa0h5T3l5TDVGdk1mVVFCZ0dLbzMyblZ4dE1zb2Z4QlBZRFA?oc=5",
       "source": "Le Figaro",
       "pubDate": "2026-11-19T06:00:50.000Z"
-    },
-    {
-      "title": "Cette étude qui montre combien l'IA bouleverse déjà le marché de l'emploi pour les cols blancs",
-      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNMms0dE00eFdkX1JINmN6ell5N3d6MW4xVGc5SzdEQmVNUHBPbWlTQ0ZQS0N2S1VpeUFCdWRhQ2dUdFhzYjZjNU43bVV5Q1pGTnAwRE9tZFpvVDdNMDUzSlVZbFdmQlFMUzB4ZUNHdi12NmRuSHFuZTBXS01WOU92a2htRGtrWlI1cGJtUXpfRmg5MTRVSG92bWhaMUpKQ3llVk9OOU40TjlpTXd3X0lBUW96Z1hpMXlZMW9WSzNOQlVlTk9HZkxnSjJwSUlESHdVcmF0UEo4aHRlTm5HRGZQRXdZLWpaQVU?oc=5",
-      "source": "Les Échos",
-      "pubDate": "2026-11-19T05:20:08.000Z"
     },
     {
       "title": "La nouvelle fonctionnalité « Licensed Weights » de Microsoft permet aux entreprises de personnaliser leurs modèles d'IA à l'aide de leurs propres données",
@@ -333,12 +351,6 @@
       "pubDate": "2026-11-17T08:11:26.000Z"
     },
     {
-      "title": "25 000 offres d'emploi supprimées sur France Travail à cause de l'IA : quels secteurs sont concernés",
-      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSFVGVGpBa3k1LWEtTG1ZdExwbmkweWRaemh2UEozQ2ZiazJKMEQ4bUM1YjNmcGFYZWJKcVJoMzU3RUx0LUQwcUZZWHFoa1BuTk5mZXhUQUxyQ3VRQzJ6THhRa08wLVV4NnVsOS12VEROM3R3VlkybXpvbm5JVEpuaHlycXgzNlNid3N6ZkRNMFFfN0NQTUFSZnFDVzNWbEp6dnBrTXdwYm1Pd3d1UjBrUEZVbVZKZjQ3SUlUaUhQdnQtdnZ2WHU1RG9kMndyWmxqOS16RTE4RGM3ckJGWEkyYXMyWVhRZ1ZPbVpsbzFFWlBDSnROODJRc3VZTlRUTWpDZVE?oc=5",
-      "source": "franceinfo",
-      "pubDate": "2026-11-17T08:00:00.000Z"
-    },
-    {
       "title": "Faut-il redouter un tsunami social ? France Travail dévoile une étude inédite sur les effets de l'IA",
       "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQOGxtcGc1em5JN3N2ajk0OGt1ZFpwM09odkdtdlpDeGNkV0xRcU4xMDBMOTh5emxLSmdSeGpCcVA1SHgtVFdsOEIwVjJLTFJiRWNQcVc0TmxQMDlZQkowNWZCbUdESndZdnFPcHgxa3lYbEFfTXZ6YlNJSy0zd2xfQWxnVldXQk91UVJCLThtTnJVUDJ2Qk5wNmtscDdaRVdza0NMbW9Ec2g0OUQ0SXBER1kxanZ4VXcxRGE0T0lqZ1JIelg2dndQTXhGSlpKcEJXbVVaMk1xanA1aHhHWUFQeFdoSmZzLXM?oc=5",
       "source": "Les Échos",
@@ -351,9 +363,21 @@
       "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
+      "title": "« Fragilisés », « augmentés », « peu touchés »… L’impact de l’IA évalué par 16 000 employeurs pour France Travail",
+      "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZlNHVzNOdEstN1BJM2FCMXBYWmZsQkRIdDlxdUt4dFJZV25vdmlFWE5Fc2dHQzZ2ZW1Gcm9jVHFlUHEzNlhhYjVuQlpjTWo1YUxUZTJSTzNYeHJCTzJWRXN0TnQyNVJYQnJfWWM0SUJUcmxwSDFXOHdpelRGMWRkcVlEOXpIUXlZWkFvOFFQVi1lVjR0R2xxTDFqUW9JRnFRdzA5anZOLTlYLUI1cTZpM3g4cThUOWFUZ1BjRVhMNFhkYVlSLVVfRE83Zm5oSkxfMkhjZnlNTEVQZWRRUkE1VTV6YTJVZmpwN2JnLUZ2bjZQai00OGhielFINVRqN3c5R3RlZkFiNnE?oc=5",
+      "source": "Ouest-France",
+      "pubDate": "2026-11-17T08:00:00.000Z"
+    },
+    {
       "title": "IA : déjà des dizaines de milliers d’offres d’emploi en moins selon une étude, quels sont les métiers les plus exposés ?",
       "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPRndSWjZSNVNlWlpQZE5CNjhpQkd3NzVmUlladmV1VmtBc1I2V2ROS1pLT1NQemExdG9xS3o0eUVPZTA3Y01abmNvelRzRlItUzhXVHRvYVoxT1laOWVhN1VMNnZVRzlmSFVNcjE4MlExOTVVekxKTlJ3ZHN0clI5WjNsR2Jtbm5oZzJTUVdjeWZBcEEwaFpqaUVoSTlPYTJSNWNxN1ZlN3ZlN285TlZrdkNPc1E0ZkVzU1p6MjMzZzFXWE9qSGVNemloRUVGSjRyc0ZZc3NiV2Jvd1dWdlVTV1QxQnBvVlVSY2pWb0VsSWsyUmtOMFVJNXNSbWFIX1paZkhJSm9VZDMxNlI2TmtKWWVDcVFGQWt1cGxCU09IUUpPZmdFX08xQllR?oc=5",
       "source": "Sud Ouest",
+      "pubDate": "2026-11-17T08:00:00.000Z"
+    },
+    {
+      "title": "« L'IA va encore augmenter d'un cran la crise cognitive » : les secrets d'un bureau antistress pour soulager le cerveau des salariés",
+      "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNakdlWkFvWElNZUw4SzMtX2RaLXVSTnN4V2F1eEI3aGR6clVmMHhkaG42Y3dmdHZYSFNMRDlmT2JkcS1Rb0tfUmlfSkpvTEd0WEFmcE1ONmRiVWh1cG9pbUI4Q19rY2F0UWNvNXE5Wl8zODNfdXpja3NrbExRYVZXQ2VOSUdTalZPMFZIcjlQRWJ6N0NmY19fV3pfR2hIQzh5X2VkcXZMZ2xJa2l6T2FjaGNvVHJ3dzRVazBaV3QxRGVwMGNFVHp3OUFKN2NxcTlJWmZJUllHdG0xbmpfZXFTaTdRUFdHU3FoVExIWHlPYktTX0lBWmo3TEV6R3NISTRHV1F5U0k1c0k3SUJGU1ZVQXFRaTBqQQ?oc=5",
+      "source": "Les Échos",
       "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
@@ -363,9 +387,9 @@
       "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
-      "title": "« Fragilisés », « augmentés », « peu touchés »… L’impact de l’IA évalué par 16 000 employeurs pour France Travail",
-      "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZlNHVzNOdEstN1BJM2FCMXBYWmZsQkRIdDlxdUt4dFJZV25vdmlFWE5Fc2dHQzZ2ZW1Gcm9jVHFlUHEzNlhhYjVuQlpjTWo1YUxUZTJSTzNYeHJCTzJWRXN0TnQyNVJYQnJfWWM0SUJUcmxwSDFXOHdpelRGMWRkcVlEOXpIUXlZWkFvOFFQVi1lVjR0R2xxTDFqUW9JRnFRdzA5anZOLTlYLUI1cTZpM3g4cThUOWFUZ1BjRVhMNFhkYVlSLVVfRE83Zm5oSkxfMkhjZnlNTEVQZWRRUkE1VTV6YTJVZmpwN2JnLUZ2bjZQai00OGhielFINVRqN3c5R3RlZkFiNnE?oc=5",
-      "source": "Ouest-France",
+      "title": "25 000 offres d'emploi supprimées sur France Travail à cause de l'IA : quels secteurs sont concernés",
+      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSFVGVGpBa3k1LWEtTG1ZdExwbmkweWRaemh2UEozQ2ZiazJKMEQ4bUM1YjNmcGFYZWJKcVJoMzU3RUx0LUQwcUZZWHFoa1BuTk5mZXhUQUxyQ3VRQzJ6THhRa08wLVV4NnVsOS12VEROM3R3VlkybXpvbm5JVEpuaHlycXgzNlNid3N6ZkRNMFFfN0NQTUFSZnFDVzNWbEp6dnBrTXdwYm1Pd3d1UjBrUEZVbVZKZjQ3SUlUaUhQdnQtdnZ2WHU1RG9kMndyWmxqOS16RTE4RGM3ckJGWEkyYXMyWVhRZ1ZPbVpsbzFFWlBDSnROODJRc3VZTlRUTWpDZVE?oc=5",
+      "source": "franceinfo",
       "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
@@ -423,15 +447,15 @@
       "pubDate": "2026-11-16T08:37:34.000Z"
     },
     {
-      "title": "« Robots tueurs » : le défi de la régulation des armes autonomes pilotées par l’IA",
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQNElsMU9nVURqTUFHX3NPU2ZnNUxSTlEtQVhyMlNTMzExMjJhbnVJdlpCQjRaUDJjbWNvcUNZbVhMb0dCQzZHYVUxcjZOaGw5N1gwNnZBTTdXOVhBWEJyNWZQUE1vZUwwdnVzQjh5MEk3Q2JxWW5UTGZQODBCaVQ4UGFibnpHLTI0R1BYeHh1YkZTTVk4ZkcxME5RSWtkVUx1aVhqWTNZazY3VWJhRTNEai12T0k1eWRnbDgzZlAyS19HZw?oc=5",
-      "source": "La Croix",
-      "pubDate": "2026-11-16T08:00:00.000Z"
-    },
-    {
       "title": "« L’IA peut réaliser la quasi-totalité des tâches » : quand l’intelligence artificielle met un sérieux coup de frein sur l’emploi des jeunes",
       "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxOTno1V0RPWDhNZENUMVhCS0hpZUNfcS0yZkdHbGhaZVlQZXVya210WWh3QXVHU2JKRjRROUZoNk14VWsyN3UwelE2MkpJU19XYlNaR3U0S3daTHpBakxGcGN3X0czcFpCc25RYWg4VEhZdTByaHdvWkd1Zk13NlZ1TkJyNXFjUVcwekdVNTAxRXZVemp2LUdDdDZiUkFKTUNwMUp1alVPVUVOOF9aMDA3RTdSZjlzTTJ3ZExRMU4tdVRWbW1VZG0yR0lIaHlRN21nN1VicXJ0Sm5RVUV1REpaWG5OWFB6TWFGeVBnNEZYTFlHWmVjN25ES1owem9vNEU5Y3VEU25BT1ZnMXFnV2swM0hJVQ?oc=5",
       "source": "Le Figaro",
+      "pubDate": "2026-11-16T08:00:00.000Z"
+    },
+    {
+      "title": "« Robots tueurs » : le défi de la régulation des armes autonomes pilotées par l’IA",
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQNElsMU9nVURqTUFHX3NPU2ZnNUxSTlEtQVhyMlNTMzExMjJhbnVJdlpCQjRaUDJjbWNvcUNZbVhMb0dCQzZHYVUxcjZOaGw5N1gwNnZBTTdXOVhBWEJyNWZQUE1vZUwwdnVzQjh5MEk3Q2JxWW5UTGZQODBCaVQ4UGFibnpHLTI0R1BYeHh1YkZTTVk4ZkcxME5RSWtkVUx1aVhqWTNZazY3VWJhRTNEai12T0k1eWRnbDgzZlAyS19HZw?oc=5",
+      "source": "La Croix",
       "pubDate": "2026-11-16T08:00:00.000Z"
     },
     {
@@ -553,6 +577,12 @@
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNd25SZUQyazhqZEZRNlhCWC1VVWp0ZmhGenMtOHNEV3BhTllXQ2lad3ZxLWxNSUZMeDhwd3d2eFVPWkFLcWtXTy1yQlNIOEpEajNJSG1ZS0Z1QjhPUXpHcmk0OUR1ajlha3pDamZ4VzBxc2hrcjNfNTc0dTFPZEFOYThpLTlTT2JOQlJKcktnMDZGSDVZRFRRNzBpa3Zydw?oc=5",
       "source": "Les Échos",
       "pubDate": "2026-11-09T08:00:00.000Z"
+    },
+    {
+      "title": "L’IA s’invite dans la chasse au job et change les codes de la recherche d’emploi",
+      "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOVzEtY19rcFBSckhnZkgtZkVsSWxBLWpneWpadl9fbFkxODdFOTFxaEd6RUxKVWljTUtrSDZIdzJ1X0JhMU83U3Z2N1NNbjJ5bWZpU3dzcTNGaDBVSWdmMXdvYmlvaUY0bUtpamNUVFVrcVRLY19WVHdDSkJiOUdCM3MwU2t6c2d3b2dZUUlsRGs4YVZkdWFFS05PVjQxalJZR0x4NDZVSy1ud3AzQy0zWDZjOUR1Mk1fOEs0ZnBsNk5NbkJhNTRiaWp5NHczeWxNVk5VYUZPMEhZa2NMMGNCbHVTUTJaSGVTSkFaN3hDODBaOUE?oc=5",
+      "source": "Le Parisien",
+      "pubDate": "2026-11-07T08:00:00.000Z"
     },
     {
       "title": "Souveraineté et emplois : quelle est la feuille de route du gouvernement en matière d’intelligence artificielle ?",
