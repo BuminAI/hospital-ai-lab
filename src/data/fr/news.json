@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-26T22:38:14.878Z",
-  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Le Figaro · 20 Minutes · Libération · Les Échos · Sud Ouest · Ouest-France · Hospimedia",
+  "updatedAt": "2026-11-27T04:35:17.575Z",
+  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · 20 Minutes · Le Figaro · franceinfo · Les Échos · Ouest-France · Sud Ouest · Hospimedia · Libération",
   "items": [
     {
       "title": "Les patients consultant l’intelligence artificielle sont de plus en plus nombreux à douter de leur médecin, selon une étude",
@@ -415,25 +415,6 @@
       "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSWx3MHp3VGZKaTFXUlJ5UUs5NElHOHdKZ0c4YVR3dFpSdzFIRHhkVWY0alE0cUtIeGM2aHRMMFBLNUJjWUptaTdnRlp3d2EtRDJ1WVI5MmVtZ1pXbWFESEEwMVI0MjhYWS1PREtlUXg0MGRvT1FTRTFVRHp2Y1VhSmRGZWdvYk1qR0hsT0dyOUtWVEtsVUtLbkVvcnd2dmlIdTdROUpUWXItQXJFSlRweGI3M0xYWUhhSktpRjR6RHF6TThDdXM1M1V4NFFEblVvYVVxdHlTTUZ6bDZSY013?oc=5",
       "source": "Les Échos",
       "pubDate": "2026-10-28T07:00:00.000Z"
-    },
-    {
-      "title": "Le scribe IA, premier test de l'hôpital face aux agents",
-      "link": "https://dsih.fr/articles/6444/le-scribe-ia-premier-test-de-lhopital-face-aux-agents",
-      "source": "DSIH",
-      "pubDate": "2026-10-27T00:00:00.000Z"
-    },
-    {
-      "title": "Numérique et IA en santé : trop d'outils, pas assez d'impact",
-      "link": "https://dsih.fr/articles/6443/numerique-et-ia-en-sante-trop-doutils-pas-assez-dimpact",
-      "source": "DSIH",
-      "pubDate": "2026-10-27T00:00:00.000Z"
-    },
-    {
-      "title": "Unicancer met en service Harmonie, un entrepôt de données de santé unique pour accélérer la recherche en cancérologie",
-      "link": "https://dsih.fr/articles/6446/unicancer-met-en-service-harmonie-un-entrepot-de-donnees-de-sante-unique-pour-accelerer-la-recherche-en-cancerologie",
-      "source": "DSIH",
-      "pubDate": "2026-10-27T00:00:00.000Z",
-      "tier": "B"
     }
   ]
 }
