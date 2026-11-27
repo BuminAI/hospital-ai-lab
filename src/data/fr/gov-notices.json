@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-11-25T11:37:27.767Z",
+  "updatedAt": "2026-11-27T11:15:38.623Z",
   "items": [
+    {
+      "title": "IA en contexte de soins : accompagner le bon usage avec le guide CNIL et HAS",
+      "link": "https://www.cnil.fr/fr/ia-en-soins-guide-has-cnil",
+      "pubDate": "2026-11-27",
+      "kind": "IA, santé et données",
+      "status": "CNIL"
+    },
+    {
+      "title": "Ordre du jour de la séance plénière du 26 novembre 2026",
+      "link": "https://www.cnil.fr/fr/ordre-du-jour-de-la-seance-pleniere-du-26-novembre-2026",
+      "pubDate": "2026-11-26",
+      "kind": "Actualité CNIL",
+      "status": "CNIL"
+    },
     {
       "title": "Acteurs du secteur de la livraison : comment définir les responsabilités au regard du RGPD ?",
       "link": "https://www.cnil.fr/fr/acteurs-secteur-livraison-responsabilites",
