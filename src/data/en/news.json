@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-27T13:05:06.427Z",
-  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · NEJM AI · Radiology Business · The New York Times · JAMA Network · BBC News · Federal Register · Healthcare Business Today",
+  "updatedAt": "2026-11-27T22:19:07.735Z",
+  "source": "Fierce Healthcare · Healthcare Dive · Becker's Hospital Review · STAT · MedCity News · HIT Consultant · NEJM AI · The New York Times · Radiology Business · BBC News · JAMA Network · Healthcare Business Today · Federal Register",
   "items": [
+    {
+      "title": "STAT+: Here are some health AI conversation starters for the holidays",
+      "link": "https://www.statnews.com/2026/11/27/health-ai-conversation-starters-for-holidays-ai-prognosis/?utm_campaign=rss",
+      "source": "STAT",
+      "pubDate": "2026-11-27T14:54:22.000Z"
+    },
     {
       "title": "West Monroe 2027 Healthcare & Life Sciences Outlook: Four Core Trends, 2026 Midterm Policy Implications, and the Shift in Healthcare M&A from Scale to Proof",
       "link": "https://hitconsultant.net/2026/11/27/west-monroe-2027-healthcare-life-sciences-outlook-ai-governance-midterms-ma/",
@@ -1027,24 +1033,6 @@
       "link": "https://www.federalregister.gov/documents/2026/10/28/2026-21943/health-data-technology-and-interoperability-onc-deregulatory-actions-to-unleash-prosperity",
       "source": "Federal Register",
       "pubDate": "2026-10-28T04:00:00.000Z"
-    },
-    {
-      "title": "Vera Health Raises $28.5M for Clinical AI Search Engine: Surpasses 800,000 Global Physician Users",
-      "link": "https://hitconsultant.net/2026/10/27/vera-health-raises-28m-series-a-threshold-ventures-evidence-graded-clinical-ai/",
-      "source": "HIT Consultant",
-      "pubDate": "2026-10-27T19:49:55.000Z"
-    },
-    {
-      "title": "Radiology residents miss more findings after night shifts, even with AI assistance",
-      "link": "https://radiologybusiness.com/topics/healthcare-management/healthcare-quality/radiology-residents-miss-more-findings-after-night-shifts-even-ai-assistance",
-      "source": "Radiology Business",
-      "pubDate": "2026-10-27T19:27:07.000Z"
-    },
-    {
-      "title": "MDX Hawai’i Partners with Innovaccer to Deploy Atlas Across 6,000 Independent Clinicians",
-      "link": "https://hitconsultant.net/2026/10/27/mdx-hawaii-selects-innovaccer-atlas-unify-population-health-provider-network/",
-      "source": "HIT Consultant",
-      "pubDate": "2026-10-27T15:11:00.000Z"
     }
   ]
 }
