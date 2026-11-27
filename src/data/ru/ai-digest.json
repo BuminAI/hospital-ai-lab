@@ -1,7 +1,25 @@
 {
-  "updatedAt": "2026-11-26T16:51:48.768Z",
+  "updatedAt": "2026-11-27T04:13:57.037Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
+    {
+      "title": "Разгон LLM модели qwen 3.8 до 40+ токенов",
+      "link": "https://habr.com/ru/articles/1112874/?utm_campaign=1112874&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-26T21:19:06.000Z"
+    },
+    {
+      "title": "Владимир Путин: Россия должна развивать подконтрольный и обученный на отечественных данных ИИ, который не смогут отключить из-за рубежа",
+      "link": "https://3dnews.ru/1151865/vladimir-putin-prizval-sozdat-podkontrolniy-rossii-ii-kotoriy-ne-smogut-otklyuchit-izza-rubega",
+      "source": "3DNews",
+      "pubDate": "2026-11-26T19:14:00.000Z"
+    },
+    {
+      "title": "Почему сотрудники обходят корпоративный ИИ, как изменить ситуацию и стоит ли",
+      "link": "https://habr.com/ru/companies/cloud_ru/articles/1112680/?utm_campaign=1112680&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-26T16:54:52.000Z"
+    },
     {
       "title": "Citibank разрешил клиентам использовать ИИ‑агентов на свой страх и риск",
       "link": "https://habr.com/ru/articles/1112804/?utm_campaign=1112804&utm_source=habrahabr&utm_medium=rss",
@@ -1783,24 +1801,6 @@
       "link": "https://www.cnews.ru/news/line/2026-11-11_bazis_predstavila_boss_",
       "source": "CNews",
       "pubDate": "2026-11-11T11:29:00.000Z"
-    },
-    {
-      "title": "Java Jam: записи докладов о Java-разработке, AI-агентах и обновлении стека",
-      "link": "https://habr.com/ru/companies/yoomoney/articles/1106516/?utm_campaign=1106516&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-11T10:00:59.000Z"
-    },
-    {
-      "title": "В России создали тест-систему с ИИ для оперативной диагностики опасного состояния кожи",
-      "link": "https://www.cnews.ru/news/line/2026-11-11_v_rossii_sozdali_test-sistemu",
-      "source": "CNews",
-      "pubDate": "2026-11-11T09:41:00.000Z"
-    },
-    {
-      "title": "Пять решений для 1С: ИИ-агент, диагностика базы и согласование платежей",
-      "link": "https://habr.com/ru/companies/infostart/articles/1106460/?utm_campaign=1106460&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-11T09:09:03.000Z"
     }
   ]
 }
