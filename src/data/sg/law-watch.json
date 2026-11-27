@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-26T01:57:45.319Z",
-  "readOk": 4,
+  "checkedAt": "2026-11-27T01:57:17.610Z",
+  "readOk": 5,
   "total": 5,
   "laws": [
     {
@@ -12,7 +12,7 @@
       "current": "Fri, 13 Mar 2026 02:57:21 GMT | 1056842 | \"8fdd6bc8cfcb9d3365c93ab4aca782d0\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-26T01:57:35.858Z",
+      "lastRead": "2026-11-27T01:57:16.133Z",
       "error": null
     },
     {
@@ -24,7 +24,7 @@
       "current": "Fri, 13 Mar 2026 02:58:14 GMT | 401020 | \"ab2ee21d3f7f355932984b23a43dae4a\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-26T01:57:35.875Z",
+      "lastRead": "2026-11-27T01:57:16.827Z",
       "error": null
     },
     {
@@ -36,7 +36,7 @@
       "current": "Fri, 13 Mar 2026 02:57:38 GMT | 300704 | \"5530de21bf2cb190794eb0822d99e63e\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-26T01:57:35.897Z",
+      "lastRead": "2026-11-27T01:57:17.485Z",
       "error": null
     },
     {
@@ -48,7 +48,7 @@
       "current": "Mon, 13 Apr 2026 11:41:34 GMT | 4336742 | \"4eda025146b78eb2a6fa4faab4921788\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-26T01:57:35.919Z",
+      "lastRead": "2026-11-27T01:57:17.535Z",
       "error": null
     },
     {
@@ -60,8 +60,8 @@
       "current": "Thu, 09 Apr 2026 15:48:31 GMT | 382879 | \"4882d93f1478d4e9335da028ee4f43ac\"",
       "pending": false,
       "changed": false,
-      "lastRead": "2026-11-22T23:53:02.008Z",
-      "error": "HTTP 202"
+      "lastRead": "2026-11-27T01:57:17.610Z",
+      "error": null
     }
   ]
 }
