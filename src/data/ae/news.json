@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-27T07:32:22.332Z",
-  "source": "The National · Gulf News · Arab News · Fast Company Middle East · Khaleej Times · Department of Health – Abu Dhabi · Gulf Business · WAM · Tbreak UAE · Emirates 24|7 · Gulf Today",
+  "updatedAt": "2026-11-27T17:57:06.113Z",
+  "source": "The National · Gulf News · Arab News · Fast Company Middle East · Khaleej Times · WAM · Department of Health – Abu Dhabi · Gulf Business · Tbreak UAE · Emirates 24|7 · Zawya · Gulf Today",
   "items": [
     {
       "title": "LLMs are so last year: Why Jack Hidary says AI's future runs on numbers not words",
@@ -79,6 +79,12 @@
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNQnZNaGdYQy1CZEtwR3djdFlCVGRxY1ZBTU82VkZBd0pZa3Nod19LRnhJbzZHTmJaeG9PUFAxbm5mNTlWY2Y4cENzRHRmNjFQa2tiNlpucDdVdmQyU3lQcktmOFBJNzhPb0J3QTZBbFZudGZkc2JnV1Vnd2NhN01QZVJkUGFhVU0xWUo4SUo5bW9ULUgyU1RDMV8zRGlSMUtKNFBXcTJ0eVpkVl9lUDVfWXhBd2pRamhV?oc=5",
       "source": "Fast Company Middle East",
       "pubDate": "2026-11-14T11:04:58.000Z"
+    },
+    {
+      "title": "Department of Health – Abu Dhabi and Isomorphic Labs Collaborate to Advance AI Drug Discovery Research",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOc3FQZ2ZzZGdKbDJRZDlvTUZ6Y3dYcmhsQzA2Vng0cWR6bWZEOEUtRUlZYl9pbXg4RHJYeVRzal9lTjJ2SjNoaXMxVFdZNlVWaVVxYW5oeEwyOUlkNlhlbzdWRXZVcmIxam1SY2ZuYmtYcUZodlpFcFF1ZS1OM1czbEI1WnE2LV9SdVlZUDVQYXJmcTdtdmZtQi1pSVlZcVI0bHFUSkNNdw?oc=5",
+      "source": "Department of Health – Abu Dhabi",
+      "pubDate": "2026-11-13T08:00:00.000Z"
     },
     {
       "title": "UAE showcases AI tool that interviews patients before they meet doctors",
@@ -163,12 +169,6 @@
       "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPSkZlNW54aHgxUXZVQm9kTjh0bk1XT1JFWjI0THRRcGYxdkw0bDdMUzBLSTZJLWR2S0YzUG53RmpVbzdzbFRnZW93RFFSN3J3dmtkTW1LZ0xiTTJfUjBkWWxPbjM5R2lUbEVtTkg5MmRoc25XVDRkVHdXLUNKcG1jdERIUTBNQmJwWmpGVGU5QzJ0ZkJHSU5HcmppbzdjOW1scllfVURzc1dVV1pFM29ycDdpWVYxQnFfYTlIRGZ5cDBDaEJ5Q3NoUVU0UmR4SXY2czNXYw?oc=5",
       "source": "The National",
       "pubDate": "2026-10-28T07:00:00.000Z"
-    },
-    {
-      "title": "Department of Health – Abu Dhabi and Isomorphic Labs Collaborate to Advance AI Drug Discovery Research",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOc3FQZ2ZzZGdKbDJRZDlvTUZ6Y3dYcmhsQzA2Vng0cWR6bWZEOEUtRUlZYl9pbXg4RHJYeVRzal9lTjJ2SjNoaXMxVFdZNlVWaVVxYW5oeEwyOUlkNlhlbzdWRXZVcmIxam1SY2ZuYmtYcUZodlpFcFF1ZS1OM1czbEI1WnE2LV9SdVlZUDVQYXJmcTdtdmZtQi1pSVlZcVI0bHFUSkNNdw?oc=5",
-      "source": "Department of Health – Abu Dhabi",
-      "pubDate": "2026-10-27T14:59:16.000Z"
     }
   ]
 }
