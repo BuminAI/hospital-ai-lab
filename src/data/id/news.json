@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-26T13:12:56.382Z",
-  "source": "PERSI · ANTARA · CNBC Indonesia · detikHealth",
+  "updatedAt": "2026-11-27T09:05:53.241Z",
+  "source": "PERSI · ANTARA · CNBC Indonesia · detikHealth · detikNews · iNews",
   "items": [
+    {
+      "title": "Terlalu Percaya AI Bisa Bikin Kemampuan Otak Melemah, Ini Penjelasan Dokter",
+      "link": "https://www.inews.id/lifestyle/health/terlalu-percaya-ai-bisa-bikin-kemampuan-otak-melemah-ini-penjelasan-dokter",
+      "source": "iNews",
+      "pubDate": "2026-11-27T08:34:00.000Z"
+    },
+    {
+      "title": "Marco Laju, Insinyur RI Kembangkan Agen AI Bantu Pasien di AS Urus Obat",
+      "link": "https://news.detik.com/berita/d-8772469/marco-laju-insinyur-ri-kembangkan-agen-ai-bantu-pasien-di-as-urus-obat",
+      "source": "detikNews",
+      "pubDate": "2026-11-27T05:32:22.000Z"
+    },
     {
       "title": "Robot Bedah Da Vinci 5 Sudah Ada di RS Indonesia, Begini Cara Kerjanya",
       "link": "https://www.cnbcindonesia.com/tech/20261126133604-37-788733/robot-bedah-da-vinci-5-sudah-ada-di-rs-indonesia-begini-cara-kerjanya",
