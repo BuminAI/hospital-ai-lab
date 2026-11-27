@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-26T02:08:45.254Z",
-  "total": 21,
-  "ok": 17,
-  "unknown": 4,
+  "checkedAt": "2026-11-27T02:08:34.479Z",
+  "total": 23,
+  "ok": 18,
+  "unknown": 5,
   "unknownList": [
     {
       "url": "https://www.officialgazette.gov.ph/2026/11/12/executive-order-no-131-s-2026/",
@@ -18,6 +18,10 @@
     },
     {
       "url": "https://isomer-user-content.by.gov.sg/409/4e8620d9-267f-41f5-adc3-cc35456d3731/gn-37-r1-guidance-on-change-management-program-(cmp",
+      "status": 403
+    },
+    {
+      "url": "https://isomer-user-content.by.gov.sg/7/1d84b66a-5625-49a2-8c0e-e06eea4ed9fd/FAQs%20on%20HCS%20(Advertisement",
       "status": 403
     }
   ],
