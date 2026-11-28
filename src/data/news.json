@@ -1,7 +1,31 @@
 {
-  "updatedAt": "2026-11-27T18:58:03.017Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 메디팜스투데이 · 의약뉴스 · 한국경제 · ZDNet Korea · 메디파나뉴스 · AI타임스 · 디지털투데이 · 연합뉴스 · 매일경제 · 보건복지부 · 뉴시스",
+  "updatedAt": "2026-11-28T01:58:57.344Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디팜스투데이 · 메디파나뉴스 · 한국경제 · AI타임스 · 뉴시스 · 연합뉴스 · 보건복지부",
   "items": [
+    {
+      "title": "텐센트, AI로 비만·암 치료 후보물질 설계…네이처에 연구 성과",
+      "link": "https://www.aitimes.com/news/articleView.html?idxno=217890",
+      "source": "AI타임스",
+      "pubDate": "2026-11-28T09:11:38.000Z"
+    },
+    {
+      "title": "[현장] 성수동에 모인 제약사 4곳… 외국인 발길 붙잡은 '더마'",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=81173",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-28T06:07:00.000Z"
+    },
+    {
+      "title": "AI 안경 다음은 AI 콘택트렌즈? 기술보다 앞서 고민할 규제",
+      "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=81194",
+      "source": "히트뉴스",
+      "pubDate": "2026-11-28T06:03:00.000Z"
+    },
+    {
+      "title": "약국의 피지컬 AI…\"약사는 약을, 로봇은 정리를\"",
+      "link": "https://www.newsis.com/view/NISX20261127_0003886003",
+      "source": "뉴시스",
+      "pubDate": "2026-11-28T01:01:00.000Z"
+    },
     {
       "title": "류승민 서울의료원 과장, 보건의료기술진흥 유공 복지부 장관 표창",
       "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3017589",
@@ -9,10 +33,24 @@
       "pubDate": "2026-11-27T21:43:43.000Z"
     },
     {
+      "title": "\"진단넘어 방사선 피폭 해결\"…의료AI의 새 도전[빠정예진]",
+      "link": "https://www.newsis.com/view/NISX20261127_0003886224",
+      "source": "뉴시스",
+      "pubDate": "2026-11-27T21:01:00.000Z"
+    },
+    {
+      "title": "수익화 압박 커진 의료 AI 시장…기술 전환까지 '이중고'",
+      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172147",
+      "source": "메디칼타임즈",
+      "pubDate": "2026-11-27T20:30:00.000Z"
+    },
+    {
       "title": "신약은 팔고 플랫폼은 남긴다…이노보테라퓨틱스의 IPO 전략",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044993",
       "source": "청년의사",
-      "pubDate": "2026-11-27T18:34:26.000Z"
+      "pubDate": "2026-11-27T18:34:26.000Z",
+      "popular": true,
+      "rank": 5
     },
     {
       "title": "복지부 산하 5개 공공기관, 자체감사 역량 강화 업무협약",
@@ -31,6 +69,12 @@
       "link": "https://www.medipana.com/news/articleView.html?idxno=422849",
       "source": "메디파나뉴스",
       "pubDate": "2026-11-27T18:29:56.000Z"
+    },
+    {
+      "title": "약대생 뛰어넘은 AI…그럼에도 약학을 배워야 하는 이유",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=550110",
+      "source": "약사공론",
+      "pubDate": "2026-11-27T17:42:09.000Z"
     },
     {
       "title": "서울대병원, 심전도·맥파로 심박출량 추정 AI 의료기기 제조인증 획득",
@@ -62,7 +106,9 @@
       "title": "이노보테라퓨틱스, 상장 자금 80% R&D에…2028년 기술이전 시동",
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=81175",
       "source": "히트뉴스",
-      "pubDate": "2026-11-27T15:43:06.000Z"
+      "pubDate": "2026-11-27T15:43:06.000Z",
+      "popular": true,
+      "rank": 4
     },
     {
       "title": "케이메디허브, 의료기기 AI 전환 가속...460억원 규모 R&D 수행",
@@ -92,7 +138,9 @@
       "title": "AI 부정행위 여파…레지던트 시험장에 '앞치마' 등장",
       "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200292",
       "source": "의협신문",
-      "pubDate": "2026-11-27T14:58:00.000Z"
+      "pubDate": "2026-11-27T14:58:00.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "경희대 약대, 심포지엄서 첨단치료제 규제과학 혁신기술 논의",
@@ -116,7 +164,9 @@
       "title": "AI 시대 약학교육, 무엇을 바꿔야 하나…교수법·시험평가 재점검",
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=550091",
       "source": "약사공론",
-      "pubDate": "2026-11-27T14:02:52.000Z"
+      "pubDate": "2026-11-27T14:02:52.000Z",
+      "popular": true,
+      "rank": 7
     },
     {
       "title": "서울의료원 류승민 과장, 보건복지부 장관상 표창 수상",
@@ -142,7 +192,7 @@
       "source": "청년의사",
       "pubDate": "2026-11-27T12:45:10.000Z",
       "popular": true,
-      "rank": 6
+      "rank": 1
     },
     {
       "title": "신약개발의 실패 데이터는 누구의 자산인가?",
@@ -220,7 +270,9 @@
       "title": "제89차 의료현안 관련 대한의사협회 정례브리핑",
       "link": "https://www.doctorsnews.co.kr/news/articleView.html?idxno=200287",
       "source": "의협신문",
-      "pubDate": "2026-11-27T09:35:00.000Z"
+      "pubDate": "2026-11-27T09:35:00.000Z",
+      "popular": true,
+      "rank": 9
     },
     {
       "title": "KMI, 12월 8일 'AI 기반 근골격 동작분석 연구' 심포지엄",
@@ -274,7 +326,9 @@
       "title": "뇌졸중 골든타임 지킬 의사가 사라진다…신경과학회의 경고",
       "link": "http://www.docdocdoc.co.kr/news/articleView.html?idxno=3044959",
       "source": "청년의사",
-      "pubDate": "2026-11-27T07:02:22.000Z"
+      "pubDate": "2026-11-27T07:02:22.000Z",
+      "popular": true,
+      "rank": 2
     },
     {
       "title": "서울대병원, 심박출량 추정하는 AI 의료기기 식약처 제조인증 획득",
@@ -5229,18 +5283,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171462",
       "source": "메디칼타임즈",
       "pubDate": "2026-10-28T02:13:52.000Z"
-    },
-    {
-      "title": "흉부 CT로 심혈관까지…건강검진 AI 활용 확대",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171460",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-10-28T01:52:13.000Z"
-    },
-    {
-      "title": "딥노이드, KoSAIM 2026서 다분야 의료 AI 성과 입증",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171458",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-10-28T01:11:14.000Z"
     }
   ]
 }
