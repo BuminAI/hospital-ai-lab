@@ -1,12 +1,30 @@
 {
-  "updatedAt": "2026-11-28T01:58:57.344Z",
-  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디팜스투데이 · 메디파나뉴스 · 한국경제 · AI타임스 · 뉴시스 · 연합뉴스 · 보건복지부",
+  "updatedAt": "2026-11-28T10:25:33.091Z",
+  "source": "메디칼타임즈 · 병원신문 · 청년의사 · 의협신문 · 히트뉴스 · 의학신문 · 라포르시안 · e-의료정보 · 메디칼업저버 · 약사공론 · 의약뉴스 · 메디파나뉴스 · 메디팜스투데이 · 한국경제 · AI타임스 · 뉴시스 · 연합뉴스 · 보건복지부 · 매일경제",
   "items": [
+    {
+      "title": "45주년 병원약사회, 필수의료 강화의 중심에 서다",
+      "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=550140",
+      "source": "약사공론",
+      "pubDate": "2026-11-28T13:19:45.000Z"
+    },
+    {
+      "title": "이석현 교수, 디지털 PET-CT AI 임상 활용 방향 제시",
+      "link": "https://www.khanews.com/news/articleView.html?idxno=253358",
+      "source": "병원신문",
+      "pubDate": "2026-11-28T09:43:00.000Z"
+    },
     {
       "title": "텐센트, AI로 비만·암 치료 후보물질 설계…네이처에 연구 성과",
       "link": "https://www.aitimes.com/news/articleView.html?idxno=217890",
       "source": "AI타임스",
       "pubDate": "2026-11-28T09:11:38.000Z"
+    },
+    {
+      "title": "\"AI 진료기록\"…니어닥, 누적 사용 100만건 돌파",
+      "link": "https://www.newsis.com/view/NISX20261127_0003885685",
+      "source": "뉴시스",
+      "pubDate": "2026-11-28T07:01:00.000Z"
     },
     {
       "title": "[현장] 성수동에 모인 제약사 4곳… 외국인 발길 붙잡은 '더마'",
@@ -19,6 +37,18 @@
       "link": "https://www.hitnews.co.kr/news/articleView.html?idxno=81194",
       "source": "히트뉴스",
       "pubDate": "2026-11-28T06:03:00.000Z"
+    },
+    {
+      "title": "AI 부정행위 확산에 국가시험서 전신가리개까지 등장",
+      "link": "https://www.mk.co.kr/news/society/12220693",
+      "source": "매일경제",
+      "pubDate": "2026-11-28T05:28:29.000Z"
+    },
+    {
+      "title": "AI비서에 맡긴 내 비밀번호…정말 괜찮을까[피클 돌풍③]",
+      "link": "https://www.newsis.com/view/NISX20261127_0003886332",
+      "source": "뉴시스",
+      "pubDate": "2026-11-28T05:00:00.000Z"
     },
     {
       "title": "약국의 피지컬 AI…\"약사는 약을, 로봇은 정리를\"",
@@ -43,6 +73,14 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1172147",
       "source": "메디칼타임즈",
       "pubDate": "2026-11-27T20:30:00.000Z"
+    },
+    {
+      "title": "대구가톨릭대학교의료원, Voice EMR 고도화",
+      "link": "http://www.khanews.com/news/articleView.html?idxno=253341",
+      "source": "병원신문",
+      "pubDate": "2026-11-27T18:52:13.000Z",
+      "popular": true,
+      "rank": 8
     },
     {
       "title": "신약은 팔고 플랫폼은 남긴다…이노보테라퓨틱스의 IPO 전략",
@@ -74,7 +112,9 @@
       "title": "약대생 뛰어넘은 AI…그럼에도 약학을 배워야 하는 이유",
       "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=550110",
       "source": "약사공론",
-      "pubDate": "2026-11-27T17:42:09.000Z"
+      "pubDate": "2026-11-27T17:42:09.000Z",
+      "popular": true,
+      "rank": 10
     },
     {
       "title": "서울대병원, 심전도·맥파로 심박출량 추정 AI 의료기기 제조인증 획득",
@@ -272,7 +312,7 @@
       "source": "의협신문",
       "pubDate": "2026-11-27T09:35:00.000Z",
       "popular": true,
-      "rank": 9
+      "rank": 7
     },
     {
       "title": "KMI, 12월 8일 'AI 기반 근골격 동작분석 연구' 심포지엄",
@@ -5271,18 +5311,6 @@
       "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171471",
       "source": "메디칼타임즈",
       "pubDate": "2026-10-28T20:30:00.000Z"
-    },
-    {
-      "title": "흉부 엑스레이로 심장 기능 저하 예측 AI 개발",
-      "link": "https://www.khanews.com/news/articleView.html?idxno=251840",
-      "source": "병원신문",
-      "pubDate": "2026-10-28T05:27:00.000Z"
-    },
-    {
-      "title": "로킷헬스, BIX 2026서 AI 장기재생·오믹스 기술 공개",
-      "link": "https://www.medicaltimes.com/Main/News/NewsView.html?ID=1171462",
-      "source": "메디칼타임즈",
-      "pubDate": "2026-10-28T02:13:52.000Z"
     }
   ]
 }
