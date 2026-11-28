@@ -1,23 +1,23 @@
 {
-  "checkedAt": "2026-11-27T02:15:24.386Z",
+  "checkedAt": "2026-11-28T02:02:36.451Z",
   "total": 20,
-  "ok": 8,
-  "unknown": 12,
+  "ok": 5,
+  "unknown": 15,
   "unknownList": [
-    {
-      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
-      "status": 0
-    },
-    {
-      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
-      "status": 0
-    },
     {
       "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/24032026--Digital-Products-Governance-Standard.ashx",
       "status": 0
     },
     {
+      "url": "https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx",
+      "status": 0
+    },
+    {
       "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/Medical-Device-Cybersecurity-in-healthcare-facilities-Guideline301026.ashx",
+      "status": 0
+    },
+    {
+      "url": "https://www.doh.gov.ae/-/media/Feature/Resources/Standards/2026/070426Analytics-and-Reporting-Standard.ashx",
       "status": 0
     },
     {
@@ -50,6 +50,18 @@
     },
     {
       "url": "https://www.doh.gov.ae/en/resources/policies",
+      "status": 0
+    },
+    {
+      "url": "https://u.ae/en/about-the-uae/digital-uae/whole-of-government-approach/digital-health/ict-in-the-health-sector",
+      "status": 0
+    },
+    {
+      "url": "https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws",
+      "status": 0
+    },
+    {
+      "url": "https://u.ae/en/information-and-services/health-and-fitness",
       "status": 0
     }
   ],
