@@ -3,6 +3,8 @@ import { Fragment } from 'astro/jsx-runtime';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../utils/site';
 import { tips } from '../../data/tips';
+import { tipWebtoons } from '../../data/tip-webtoons';
+import Webtoon from '../../components/webtoon/Webtoon.astro';
 
 export function getStaticPaths() {
   return tips.map((tip) => ({ params: { no: String(tip.no) }, props: { tip } }));
@@ -13,6 +15,7 @@ const { tip } = Astro.props;
 const total = tip.groups.reduce((sum, g) => sum + g.items.length, 0);
 const prev = tips.find((t) => t.no === tip.no - 1);
 const next = tips.find((t) => t.no === tip.no + 1);
+const webtoon = tipWebtoons[tip.no];
 ---
 
 <BaseLayout title={tip.title} description={tip.story ? `${tip.hook}. 병원 행정·간호 업무에서 AI를 쓸 때 바로 따라 할 수 있는 한 가지 팁.` : `${tip.hook} — ${tip.fullTitle}. 병원 기획·홍보·AI 업무에 바로 쓰는 실무 팁 ${total}가지를 정리했습니다.`}>
@@ -26,9 +29,11 @@ const next = tips.find((t) => t.no === tip.no + 1);
       {!tip.story && <p class="tip-count">{total}가지</p>}
     </header>
 
+    {webtoon && <Webtoon webtoon={webtoon} textId="tip-text" />}
+
     {
       tip.story && (
-        <article class="tip-story">
+        <article class="tip-story" id={webtoon ? 'tip-text' : undefined}>
           {tip.story.map((sec) => (
             <section>
               <h2>{sec.heading}</h2>
@@ -106,7 +111,7 @@ const next = tips.find((t) => t.no === tip.no + 1);
 </BaseLayout>
 
 <style>
-  .tip-story { max-width: var(--prose-width); margin-top: 1.5rem; }
+  .tip-story { max-width: var(--prose-width); margin-top: 1.5rem; scroll-margin-top: 6rem; }
   .tip-story section { margin-top: 2rem; }
   .tip-story h2 { font-size: 1.25rem; margin-bottom: 0.6rem; }
   .tip-story p { line-height: 1.9; margin-top: 0.7rem; }

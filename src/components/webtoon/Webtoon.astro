@@ -1,0 +1,178 @@
+---
+/** 세로 스크롤 웹툰. 컷 구성은 src/data/tip-webtoons.ts, 그림은 Scene.astro. */
+import type { Webtoon } from '../../data/tip-webtoons';
+import Scene from './Scene.astro';
+
+interface Props {
+  webtoon: Webtoon;
+  /** '글로 읽기' 링크가 가리킬 id */
+  textId: string;
+}
+
+const { webtoon, textId } = Astro.props;
+---
+
+<section class="webtoon" aria-labelledby="webtoon-title">
+  <div class="webtoon-head">
+    <h2 id="webtoon-title">웹툰으로 보기</h2>
+    <a href={`#${textId}`}>글로 바로 읽기 ↓</a>
+  </div>
+
+  <ol class="panels">
+    {webtoon.panels.map((panel) => (
+      <li class="panel">
+        {panel.caption && <p class="caption">{panel.caption}</p>}
+        {panel.lines?.map((line) => (
+          <p class={`bubble ${line.who}`}>
+            <span class="who">{webtoon.names[line.who]}</span>
+            {line.text}
+          </p>
+        ))}
+        <Scene {...panel.scene} />
+        {panel.copy && (
+          <div class="copy-box">
+            <p class="copy-label">복사해 쓰는 문장</p>
+            <p class="copy-text">{panel.copy}</p>
+          </div>
+        )}
+      </li>
+    ))}
+  </ol>
+
+  <p class="webtoon-note">
+    등장인물과 장면은 설명을 위해 만든 가상의 예시입니다. AI의 실제 답은 다를 수 있습니다. 근거 출처는 아래 글 끝에 있습니다.
+  </p>
+</section>
+
+<style>
+  /* 만화는 다크모드에서도 같은 종이색을 쓴다(그림과 말풍선의 대비를 고정) */
+  .webtoon {
+    max-width: 30rem;
+    margin-top: 2rem;
+  }
+
+  .webtoon-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+
+  .webtoon-head h2 {
+    font-size: 1.25rem;
+  }
+
+  .webtoon-head a {
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .panels {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow: hidden;
+    padding-top: 0.9rem;
+    border: 3px solid #22324a;
+    border-radius: 10px;
+    background: #f3f7fc;
+    color: #1c2430;
+  }
+
+  .caption {
+    margin: 0 0.9rem;
+    padding: 0.6rem 0.85rem;
+    border: 2px solid #22324a;
+    background: #fff3c4;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.65;
+  }
+
+  .bubble {
+    position: relative;
+    max-width: 82%;
+    margin: 0 0.9rem 0.5rem;
+    padding: 0.6rem 0.95rem 0.7rem;
+    border: 2.5px solid #22324a;
+    border-radius: 20px;
+    background: #fff;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  /* 꼬리: 말하는 인물 쪽(왼쪽=직원, 오른쪽=AI)을 향한다 */
+  .bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    width: 13px;
+    height: 13px;
+    border: solid #22324a;
+    border-width: 0 2.5px 2.5px 0;
+    background: #fff;
+    transform: rotate(45deg);
+  }
+
+  .bubble.staff {
+    align-self: flex-start;
+  }
+
+  .bubble.staff::after {
+    left: 2.25rem;
+  }
+
+  .bubble.bot {
+    align-self: flex-end;
+    background: #e3f7f2;
+  }
+
+  .bubble.bot::after {
+    right: 2.25rem;
+    background: #e3f7f2;
+  }
+
+  .who {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: #0b5394;
+  }
+
+  .copy-box {
+    padding: 0.8rem 0.95rem 0.95rem;
+    border-top: 3px solid #22324a;
+    background: #fff;
+  }
+
+  .copy-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: #0b5394;
+  }
+
+  .copy-text {
+    margin-top: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.7;
+    user-select: all;
+  }
+
+  .webtoon-note {
+    margin-top: 0.9rem;
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+</style>

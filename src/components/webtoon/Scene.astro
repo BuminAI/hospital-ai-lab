@@ -1,0 +1,226 @@
+---
+/**
+ * 웹툰 한 컷의 그림. 외부 이미지 없이 직접 그린 SVG다.
+ * 인물 두 명(staff=왼쪽, bot=오른쪽)과 가운데 소품을 조합한다. 글자는 넣지 않는다(PDF·기호만).
+ * 내용은 모두 말풍선·해설 텍스트에 있으므로 그림은 보조 기술에서 숨긴다.
+ */
+import type { BotMood, SceneProp, StaffMood } from '../../data/tip-webtoons';
+
+interface Props {
+  staff?: StaffMood;
+  bot?: BotMood;
+  prop?: SceneProp;
+}
+
+const { staff, bot, prop } = Astro.props;
+const INK = '#22324a';
+---
+
+<svg class="scene" viewBox="0 0 360 190" aria-hidden="true" focusable="false">
+  <rect x="0" y="164" width="360" height="26" fill="#dfe7f1"></rect>
+  <path d="M0 164H360" stroke="#c3d0e0" stroke-width="2"></path>
+
+  {staff && (
+    <g transform="translate(24 12)" stroke={INK} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 178v-40c0-24 20-38 52-38s52 14 52 38v40z" fill="#3f7fb8"></path>
+      <path d="M46 102l18 30 18-30" fill="#fff"></path>
+      <path d="M48 106l16 36 16-36" fill="none" stroke="#e4a11b" stroke-width="3"></path>
+      <rect x="54" y="140" width="20" height="24" rx="3" fill="#fff"></rect>
+      <path d="M58 148h12M58 155h8" stroke-width="2"></path>
+      <circle cx="64" cy="64" r="39" fill="#ffd9bd"></circle>
+      <path d="M25 66c-4-34 16-50 40-50 26 0 43 18 38 52-8-4-12-16-14-24-10 12-36 18-58 14-2 3-3 6-6 8z" fill="#4a3428"></path>
+
+      {staff === 'surprised' ? (
+        <g>
+          <circle cx="50" cy="68" r="6" fill="#fff"></circle>
+          <circle cx="80" cy="68" r="6" fill="#fff"></circle>
+          <circle cx="50" cy="68" r="2.5" fill={INK}></circle>
+          <circle cx="80" cy="68" r="2.5" fill={INK}></circle>
+          <ellipse cx="65" cy="87" rx="7" ry="9" fill="#a8453f"></ellipse>
+          <path d="M104 40c6 8 8 13 4 17s-10 1-9-5z" fill="#9fd0f5" stroke-width="2"></path>
+        </g>
+      ) : staff === 'happy' ? (
+        <g fill="none">
+          <path d="M44 69q6-8 12 0M74 69q6-8 12 0"></path>
+          <path d="M53 83q12 13 24 0z" fill="#a8453f"></path>
+        </g>
+      ) : staff === 'think' ? (
+        <g fill="none">
+          <circle cx="52" cy="66" r="3" fill={INK}></circle>
+          <circle cx="82" cy="66" r="3" fill={INK}></circle>
+          <path d="M43 56l15-2M74 52l15 1"></path>
+          <path d="M58 86q9 3 15-3"></path>
+        </g>
+      ) : staff === 'firm' ? (
+        <g fill="none">
+          <circle cx="50" cy="69" r="3" fill={INK}></circle>
+          <circle cx="80" cy="69" r="3" fill={INK}></circle>
+          <path d="M42 58l16 3M72 61l16-3"></path>
+          <path d="M54 84q11 9 22 0"></path>
+        </g>
+      ) : (
+        <g fill="none">
+          <circle cx="50" cy="68" r="3" fill={INK}></circle>
+          <circle cx="80" cy="68" r="3" fill={INK}></circle>
+          <ellipse cx="65" cy="86" rx="6" ry="4" fill="#a8453f"></ellipse>
+        </g>
+      )}
+      <g fill="#f4a39a" stroke="none" opacity="0.55">
+        <ellipse cx="40" cy="80" rx="7" ry="4"></ellipse>
+        <ellipse cx="90" cy="80" rx="7" ry="4"></ellipse>
+      </g>
+    </g>
+  )}
+
+  {bot && (
+    <g transform="translate(240 20)" stroke={INK} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M48 24V8" fill="none"></path>
+      <circle cx="48" cy="7" r="6" fill={bot === 'unsure' ? '#f3b93f' : '#46c1a6'}></circle>
+      <rect x="-6" y="48" width="12" height="28" rx="5" fill="#a9bdd6"></rect>
+      <rect x="90" y="48" width="12" height="28" rx="5" fill="#a9bdd6"></rect>
+      <rect x="2" y="24" width="92" height="76" rx="24" fill="#eef4fb"></rect>
+      <rect x="14" y="36" width="68" height="50" rx="14" fill="#22324a" stroke="none"></rect>
+      <rect x="16" y="106" width="64" height="62" rx="18" fill="#c9d9ec"></rect>
+      <circle cx="48" cy="132" r="9" fill="#fff"></circle>
+      <g fill="none" stroke="#7ff0d6" stroke-width="3.5">
+        {bot === 'proud' ? (
+          <g>
+            <path d="M25 56q7-9 14 0M57 56q7-9 14 0"></path>
+            <path d="M34 69q14 13 28 0z" fill="#7ff0d6"></path>
+          </g>
+        ) : bot === 'unsure' ? (
+          <g stroke="#ffd36b">
+            <circle cx="32" cy="55" r="3"></circle>
+            <circle cx="64" cy="55" r="3"></circle>
+            <path d="M33 73q5-6 10 0t10 0t10 0"></path>
+          </g>
+        ) : bot === 'honest' ? (
+          <g>
+            <circle cx="32" cy="56" r="4" fill="#7ff0d6"></circle>
+            <circle cx="64" cy="56" r="4" fill="#7ff0d6"></circle>
+            <path d="M37 70q11 8 22 0"></path>
+          </g>
+        ) : (
+          <g>
+            <circle cx="32" cy="56" r="4" fill="#7ff0d6"></circle>
+            <circle cx="64" cy="56" r="4" fill="#7ff0d6"></circle>
+            <path d="M38 72h20"></path>
+          </g>
+        )}
+      </g>
+      {bot === 'unsure' && <path d="M100 18c6 8 8 13 4 17s-10 1-9-5z" fill="#9fd0f5" stroke-width="2"></path>}
+    </g>
+  )}
+
+  {prop && (
+    <g transform="translate(135 40)" stroke={INK} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      {prop === 'upload' && (
+        <g>
+          <path d="M18 14h40l16 16v78H18z" fill="#fff"></path>
+          <path d="M58 14v16h16" fill="#e6eefa"></path>
+          <rect x="26" y="44" width="40" height="18" rx="4" fill="#d9534f" stroke="none"></rect>
+          <text x="46" y="57.5" text-anchor="middle" font-size="13" font-weight="800" fill="#fff" stroke="none">PDF</text>
+          <path d="M28 76h36M28 87h36M28 98h22" stroke="#8da0bb"></path>
+          <path d="M80 70h20m-8-8l9 8-9 8" fill="none" stroke="#0b5394" stroke-width="4"></path>
+        </g>
+      )}
+      {prop === 'badge' && (
+        <g>
+          <path d="M45 14l36 12v28c0 24-16 40-36 48-20-8-36-24-36-48V26z" fill="#ffe08a"></path>
+          <path d="M28 56l12 12 24-26" fill="none" stroke-width="6"></path>
+          <path d="M2 16l-8-8M88 16l8-8M45 2v-12" fill="none" stroke="#e4a11b" stroke-width="3.5"></path>
+        </g>
+      )}
+      {prop === 'magnify' && (
+        <g>
+          <path d="M12 20h52v90H12z" fill="#fff"></path>
+          <path d="M22 36h32M22 50h32M22 64h24M22 78h32M22 92h18" stroke="#8da0bb"></path>
+          <circle cx="62" cy="62" r="25" fill="#dff0ff" fill-opacity="0.85" stroke-width="5"></circle>
+          <path d="M80 81l18 20" stroke-width="8"></path>
+          <text x="62" y="73" text-anchor="middle" font-size="31" font-weight="800" fill="#d9534f" stroke="none">?</text>
+        </g>
+      )}
+      {prop === 'exam' && (
+        <g transform="translate(-60 0)">
+          <path d="M10 4h120v118H10z" fill="#fff"></path>
+          <path d="M24 24h92" stroke-width="4"></path>
+          <g fill="none" stroke="#8da0bb">
+            <circle cx="34" cy="52" r="8"></circle>
+            <circle cx="62" cy="52" r="8"></circle>
+            <circle cx="90" cy="52" r="8"></circle>
+            <circle cx="34" cy="80" r="8"></circle>
+            <circle cx="62" cy="80" r="8"></circle>
+            <circle cx="90" cy="80" r="8"></circle>
+          </g>
+          <circle cx="62" cy="52" r="5" fill={INK} stroke="none"></circle>
+          <text x="112" y="88" text-anchor="middle" font-size="26" font-weight="800" fill="#d9534f" stroke="none">?</text>
+          <path d="M138 52l16 7-24 56-12 8-2-15z" fill="#ffd36b"></path>
+          <path d="M118 108l14 7" fill="none"></path>
+        </g>
+      )}
+      {prop === 'typing' && (
+        <g>
+          <rect x="4" y="26" width="82" height="58" rx="7" fill="#fff"></rect>
+          <path d="M16 42h56M16 54h42" stroke="#8da0bb"></path>
+          <rect x="16" y="64" width="50" height="10" rx="3" fill="#ffe08a" stroke="none"></rect>
+          <path d="M70 63v13" stroke="#0b5394" stroke-width="3"></path>
+          <path d="M-6 100h102l-8-16H2z" fill="#c9d9ec"></path>
+        </g>
+      )}
+      {prop === 'notfound' && (
+        <g>
+          <path d="M16 16h58v92H16z" fill="#fff"></path>
+          <path d="M26 34h38M26 48h38M26 90h26" stroke="#8da0bb"></path>
+          <rect x="26" y="58" width="38" height="22" rx="4" fill="#fff" stroke-dasharray="5 5"></rect>
+          <text x="45" y="75" text-anchor="middle" font-size="16" font-weight="800" fill="#0b5394" stroke="none">?</text>
+          <circle cx="76" cy="100" r="17" fill="#46c1a6"></circle>
+          <path d="M68 100l6 6 11-12" fill="none" stroke="#fff" stroke-width="4"></path>
+        </g>
+      )}
+      {prop === 'quotes' && (
+        <g>
+          <path d="M8 10h74v108H8z" fill="#fff"></path>
+          <rect x="30" y="29" width="44" height="11" fill="#ffe08a" stroke="none"></rect>
+          <rect x="30" y="63" width="44" height="11" fill="#ffe08a" stroke="none"></rect>
+          <path d="M32 34h38M32 51h30M32 68h38M32 85h26M32 101h34" stroke="#8da0bb"></path>
+          <g stroke="none">
+            <circle cx="19" cy="34" r="8" fill="#0b5394"></circle>
+            <circle cx="19" cy="68" r="8" fill="#0b5394"></circle>
+            <g font-size="11" font-weight="800" fill="#fff" text-anchor="middle">
+              <text x="19" y="38">1</text>
+              <text x="19" y="72">2</text>
+            </g>
+          </g>
+        </g>
+      )}
+      {prop === 'checklist' && (
+        <g transform="translate(18 -4)">
+          <rect x="8" y="14" width="96" height="116" rx="8" fill="#fff"></rect>
+          <rect x="36" y="6" width="40" height="17" rx="5" fill="#c9d9ec"></rect>
+          <g fill="none">
+            <path d="M22 46l6 6 11-13M22 74l6 6 11-13" stroke="#1e9e5a" stroke-width="4"></path>
+            <rect x="22" y="96" width="14" height="14" rx="3"></rect>
+            <path d="M48 47h42M48 75h42M48 103h30" stroke="#8da0bb"></path>
+          </g>
+        </g>
+      )}
+      {prop === 'lock' && (
+        <g transform="translate(24 -4)">
+          <path d="M60 6l54 18v38c0 34-24 56-54 68C30 118 6 96 6 62V24z" fill="#cfe3f7"></path>
+          <path d="M44 62V48a16 16 0 0 1 32 0v14" fill="none" stroke-width="7"></path>
+          <rect x="34" y="60" width="52" height="42" rx="8" fill="#ffd36b"></rect>
+          <circle cx="60" cy="76" r="6" fill={INK} stroke="none"></circle>
+          <path d="M60 78v12" stroke-width="5"></path>
+        </g>
+      )}
+    </g>
+  )}
+</svg>
+
+<style>
+  .scene {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
