@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-27T01:57:24.037Z",
+  "checkedAt": "2026-11-28T01:40:52.157Z",
   "total": 91,
   "ok": 86,
   "unknown": 1,
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "url": "https://www.mohw.gov.tw/cp-18-88417-1.html",
+      "url": "https://www.mohw.gov.tw/cp-18-88416-1.html",
       "status": 404,
       "files": [
         "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "url": "https://www.mohw.gov.tw/cp-18-88416-1.html",
+      "url": "https://www.mohw.gov.tw/cp-18-88417-1.html",
       "status": 404,
       "files": [
         "src/content/blog-tw/2026-11-16-weifubu-116-nian-zhihui-yiyuan-buzhu-zhengqiu-xingzheng-kanshenme.md"
