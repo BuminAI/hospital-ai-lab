@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../utils/site';
 import { tips } from '../data/tips';
+import { tipWebtoons } from '../data/tip-webtoons';
 
 // 카드에 보이는 항목 수 — 상세로 들어가기 전 "몇 개짜리인지" 가늠하게 한다
 const countOf = (no: number) => {
@@ -64,7 +65,7 @@ const itemList = {
               <span class="tip-title">{tip.title}</span>
               <span class="tip-hook">{tip.hook}</span>
               <span class="tip-foot">
-                <span class="tip-count">{tip.story ? '1분 팁' : `${countOf(tip.no)}가지`}</span>
+                <span class="tip-count">{tipWebtoons[tip.no] ? '웹툰 · 1분 팁' : tip.story ? '1분 팁' : `${countOf(tip.no)}가지`}</span>
                 <span class="tip-more">펼쳐 보기 →</span>
               </span>
             </a>
