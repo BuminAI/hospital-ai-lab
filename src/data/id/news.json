@@ -1,7 +1,37 @@
 {
-  "updatedAt": "2026-11-27T19:10:48.125Z",
-  "source": "PERSI · ANTARA · CNBC Indonesia · detikHealth · detikNews · iNews · Okezone · Viva · Selular.ID",
+  "updatedAt": "2026-11-28T12:22:47.379Z",
+  "source": "PERSI · ANTARA · CNN Indonesia · Okezone · CNBC Indonesia · Viva · Liputan6 · detikHealth · detikNews · Warta Ekonomi",
   "items": [
+    {
+      "title": "Resmikan Gedung RS Kerja Sama RI-Jepang, Prabowo Soroti Bedah Robotik",
+      "link": "https://www.cnnindonesia.com/nasional/20261128165049-20-1432724/resmikan-gedung-rs-kerja-sama-ri-jepang-prabowo-soroti-bedah-robotik",
+      "source": "CNN Indonesia",
+      "pubDate": "2026-11-28T11:20:24.000Z"
+    },
+    {
+      "title": "Sugiono Dampingi Prabowo Resmikan RS Harapan Kita-Tokushukai",
+      "link": "https://wartaekonomi.co.id/read651100/sugiono-dampingi-prabowo-resmikan-rs-harapan-kita-tokushukai",
+      "source": "Warta Ekonomi",
+      "pubDate": "2026-11-28T11:06:00.000Z"
+    },
+    {
+      "title": "Gedung Harapan Kita-Tokushukai Dilengkapi Teknologi Bedah Robotik, Ini Harapan Prabowo",
+      "link": "https://www.viva.co.id/berita/nasional/1947066-gedung-harapan-kita-tokushukai-dilengkapi-teknologi-bedah-robotik-ini-harapan-prabowo",
+      "source": "Viva",
+      "pubDate": "2026-11-28T10:30:00.000Z"
+    },
+    {
+      "title": "Prabowo Tinjau Gedung RS Harapan Kita-Tokushukai, Didampingi Sugiono-Budi Gunadi",
+      "link": "https://news.detik.com/berita/d-8774162/prabowo-tinjau-gedung-rs-harapan-kita-tokushukai-didampingi-sugiono-budi-gunadi",
+      "source": "detikNews",
+      "pubDate": "2026-11-28T08:36:04.000Z"
+    },
+    {
+      "title": "Rayakan Penjualan Mesin Cuci No. 1 di Indonesia, LG Gelar AI DD Festival di 4 Kota",
+      "link": "https://www.liputan6.com/bisnis/read/8344275/rayakan-penjualan-mesin-cuci-no-1-di-indonesia-lg-gelar-ai-dd-festival-di-4-kota",
+      "source": "Liputan6",
+      "pubDate": "2026-11-28T04:17:21.000Z"
+    },
     {
       "title": "AI hingga Semikonduktor, Begini Teknologi Masa Depan Bisa Dikembangkan",
       "link": "https://www.viva.co.id/gaya-hidup/digilife/1946871-ai-hingga-semikonduktor-begini-teknologi-masa-depan-bisa-dikembangkan",
@@ -259,12 +289,6 @@
       "link": "https://www.antaranews.com/berita/5823863/kerja-sama-ri-korea-akademisi-usulkan-ai-untuk-layanan-puskesmas",
       "source": "ANTARA",
       "pubDate": "2026-11-01T12:04:00.000Z"
-    },
-    {
-      "title": "Kemenkes kuatkan Sandbox Kesehatan, 60 inovasi lolos verifikasi",
-      "link": "https://www.antaranews.com/berita/5817015/kemenkes-kuatkan-sandbox-kesehatan-60-inovasi-lolos-verifikasi",
-      "source": "ANTARA",
-      "pubDate": "2026-10-28T05:00:00.000Z"
     }
   ]
 }
