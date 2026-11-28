@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-27T01:58:51.261Z",
+  "checkedAt": "2026-11-28T01:42:49.070Z",
   "total": 13,
   "ok": 7,
   "unknown": 6,
@@ -17,11 +17,11 @@
       "status": 0
     },
     {
-      "url": "https://egazette.gov.in/",
+      "url": "https://cdsco.gov.in/opencms/opencms/en/Medical-Device-Diagnostics/",
       "status": 0
     },
     {
-      "url": "https://cdsco.gov.in/opencms/opencms/en/Medical-Device-Diagnostics/",
+      "url": "https://egazette.gov.in/",
       "status": 0
     },
     {
