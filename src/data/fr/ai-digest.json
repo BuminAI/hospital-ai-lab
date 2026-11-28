@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-28T03:56:24.562Z",
-  "source": "Le Monde·ZDNet France·DSIH·La Croix·Numerama·Les Échos·Ouest-France·franceinfo·Libération·Le Figaro·France 24·Challenges·CNIL·Europe 1·Sud Ouest·Silicon.fr·Le Parisien·20 Minutes·La Tribune·Public Sénat·Maddyness",
+  "updatedAt": "2026-11-28T15:31:41.918Z",
+  "source": "ZDNet France·Le Monde·DSIH·La Croix·Numerama·Les Échos·Ouest-France·franceinfo·Libération·Le Figaro·France 24·Challenges·CNIL·Europe 1·Sud Ouest·Le Parisien·Silicon.fr·20 Minutes·La Tribune·Public Sénat·Maddyness",
   "items": [
+    {
+      "title": "J'ai testé Claude Sheets sur trois tâches, et ça m'a permis de gagner des heures de travail, en seulement 10 minutes",
+      "link": "https://www.zdnet.fr/pratique/jai-teste-claude-sheets-sur-trois-taches-et-ca-ma-permis-de-gagner-des-heures-de-travail-en-seulement-10-minutes-508834.htm#xtor=RSS-1",
+      "source": "ZDNet France",
+      "pubDate": "2026-11-28T11:11:49.000Z"
+    },
     {
       "title": "Pologne : l’armée annonce qu’elle utilisera l’IA de l’entreprise américaine Palantir",
       "link": "https://www.lemonde.fr/international/article/2026/11/27/en-pologne-l-armee-choisit-l-ia-de-palantir-pour-l-aide-a-la-decision_6815890_3210.html",
@@ -213,12 +219,6 @@
       "pubDate": "2026-11-19T22:53:30.000Z"
     },
     {
-      "title": "Cybersécurité : Sébastien Lecornu met en garde contre une « menace grave » qui risque de « s’aggraver » avec l’IA",
-      "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxQRUhOSmExTFp3LW11TFh5U3dMRGExRW8yS3FyRFllRXlXNWFvSEs1U0Vsdmx5UlRMTVBia1cwNU9hVlBoTUF0MVBnWmlLTjEzRUEzX0xWQ1dZbWlHVUpGTzJkbGNHUVo1cXB6cnBnRWw4TC1SY1dxSXFOcUxUdmVnSHF2NVlqSFU3b0JIMGNDSVVJQXFGQjk1dmpIZlphSHc4TkZvYzd4THljRXZMT2w0OWVOUDNCS3poalNmTEpndWFLMkFGYWJIY0hULTBsZ2FjRk9EbXZCTmVWYjNuWUozS2JHaUFyZ3FyRXUzVC1JeFdOemNYUVJlMjBzZkYwWFFfdE1OZ1VsOFdxd2pSQW5RUnJOdzBZQQ?oc=5",
-      "source": "Ouest-France",
-      "pubDate": "2026-11-19T18:01:10.000Z"
-    },
-    {
       "title": "Menace cyber : un niveau « grave et inédit », 200 millions d’euros consacrés au développement de l’intelligence artificielle dans la lutte contre les attaques",
       "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNUlg5Tm1DWGNGUEhjOVZQR3JfRi1MWnIzSGMxTEZZcV94clVUb2M1M2VMeXRCTHE5emd6SEx2TVd6dXFhTlc3N3BVWWdpT2hMMVlGVjBuSkdsem5TZmhpRHlMQVVTR3MwZ0t4amdsdFZLYm5IQWEtTks3U2t2YTVPbDVjREFDdW1SQVdEMDMtZVBPODFhazR0YnlOcGtUNFNDS19oQ0FQZE5zME9FX0Q3dUZYRkt4Vm5pVHFnd2ZScjhRSGhhb1BzUERuV1BEbDdxY2U3VlJQeFBfSW5QdFMzNnYxOFdFbkRSek4ydg?oc=5",
       "source": "Sud Ouest",
@@ -273,6 +273,12 @@
       "pubDate": "2026-11-19T08:00:00.000Z"
     },
     {
+      "title": "Cybersécurité : Sébastien Lecornu met en garde contre une « menace grave » qui risque de « s’aggraver » avec l’IA",
+      "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxQRUhOSmExTFp3LW11TFh5U3dMRGExRW8yS3FyRFllRXlXNWFvSEs1U0Vsdmx5UlRMTVBia1cwNU9hVlBoTUF0MVBnWmlLTjEzRUEzX0xWQ1dZbWlHVUpGTzJkbGNHUVo1cXB6cnBnRWw4TC1SY1dxSXFOcUxUdmVnSHF2NVlqSFU3b0JIMGNDSVVJQXFGQjk1dmpIZlphSHc4TkZvYzd4THljRXZMT2w0OWVOUDNCS3poalNmTEpndWFLMkFGYWJIY0hULTBsZ2FjRk9EbXZCTmVWYjNuWUozS2JHaUFyZ3FyRXUzVC1JeFdOemNYUVJlMjBzZkYwWFFfdE1OZ1VsOFdxd2pSQW5RUnJOdzBZQQ?oc=5",
+      "source": "Ouest-France",
+      "pubDate": "2026-11-19T08:00:00.000Z"
+    },
+    {
       "title": "Donald Trump se dit opposé «à toute forme de réglementation mondialiste» de l'IA «presque entièrement bénéfique»",
       "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPRzY4bUhVUkROdnp5a0pvQVJNSlZRUmNqSTlsLW4tNkYtR29pSXJZeXUyX0Z3NlFGeUpySTd1alRJczRvUlVwUm1BYjR3NW9qNkxFUGN4QlAxLTJuSjd2YUJwRy1ibEhSWkNUel9VbXduOXNIczFrc1hJd3Q3WDUyVk82Tm8xbURpcGNFTFlQUVd5eXBObmlTbXF0UlhRYzN2dFp0VmZzMG94VUZCaFRFb292bjNObElvTlJnb1ZEcV9IRGdoWlF1aC1uWkJpa0h5T3l5TDVGdk1mVVFCZ0dLbzMyblZ4dE1zb2Z4QlBZRFA?oc=5",
       "source": "Le Figaro",
@@ -321,12 +327,6 @@
       "pubDate": "2026-11-18T07:00:25.000Z"
     },
     {
-      "title": "Orange Ventures lève 250 millions € pour l’IA et la cybersécurité",
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQRVZWaXJxbHQwLWdsbWVqM0ZGTEJtVmMxMU9YeXhibENfZTFCeXZGa2pSMUw1WGNrMExLdVZLYXVlcWlLNW1pMEhKQjJDSFRVdU1XMWhuTG5JUVh2enFKVjdKWGFkRFgwR3J0VE55Tm5KckI2aEpRUXBaVWhDbXBwYm9Ba2czMXBGampOMW1OTnl1OEdiSlc0SktTLUNuVlJ0WTF2WkRmWm9HZXJj0gGyAUFVX3lxTE95NXZQZ1dCZWFNMWkySTc0QTNZU25aUVlrQ0tGUmhiOG04WkVVWG9PSEQ4Ym9JY0p0N3N1YzRQQldUMV96a1kwcTZnVVA3TjNya05sb01BTWxCeHltYzAwcl9CQl95Ymo1WFI1bjdkemFuT1Y3aTFZQk5tNTJ2RlQ4bGpRYXdLeFA3TlJGdE9nYk1IQ25ZWXhaNFVOSzhTWGhxQWtqQjBySVRCMjk3eVd1WVE?oc=5",
-      "source": "Silicon.fr",
-      "pubDate": "2026-11-17T12:46:23.000Z"
-    },
-    {
       "title": "Intelligence artificielle : forte baisse des offres d’emploi dans les métiers les plus exposés",
       "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPdjdId3lWWXFPem5VdG1OcTU5WW8yUEs2R2VLOUE5aENRWThyXzBTSHhwTnA5YUZlVWVwbndXQ0E5bU50MjVmYnpNUnlCZ2hFNUxnTEFxZjNjOU9UdUhGLVhTdWxFN01paEhfNXptTjFxczFqcHZOdk14NktMcjlvQjVaaTI4RE5TbjFGcU9lYXJRSXREV3VKcUxMQlpzVTVBUFptZUFOTC1ZTlZ3LUIwWFRqdjBzQWZuSVIxc1BpZmo2YWVYUzh1eHFSaDNhaDdDZTQzekM2bWg5UXQ0dGxTSHVnWUgtcnFVcjFlMC03SXBnYlRWd3g4aXgzUG0?oc=5",
       "source": "Le Parisien",
@@ -351,6 +351,30 @@
       "pubDate": "2026-11-17T08:11:26.000Z"
     },
     {
+      "title": "Offres d’emploi en berne, recrutement automatisé : l’IA s’immisce à tous les étages du marché du travail",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNZXppNzNEN3hOTlhZN1VQYU9oM1ZLbmdnVU81aHFlU2ljemliMXpBazNwX1cxSDctTTUzNUs1am9EYmNXREhNbUhUMUhjaG13aERkWUhuWF95bnBXVC1WWHNQYk9mQUhwR0FUd0JIQkI5ZHEtd2M4OFh4a0RhUGR0bjlJYXRucVVlckNELUg3Q3UxRWlfZFhLNVlXUnNMdERDTTZNemEzTXN6a3R0Ql81RTZBUENXUHQydW1EaUxpd3VXQWozaV9XallWY0wyVG0wQW56emszNllYUQ?oc=5",
+      "source": "La Croix",
+      "pubDate": "2026-11-17T08:00:00.000Z"
+    },
+    {
+      "title": "IA : déjà des dizaines de milliers d’offres d’emploi en moins selon une étude, quels sont les métiers les plus exposés ?",
+      "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPRndSWjZSNVNlWlpQZE5CNjhpQkd3NzVmUlladmV1VmtBc1I2V2ROS1pLT1NQemExdG9xS3o0eUVPZTA3Y01abmNvelRzRlItUzhXVHRvYVoxT1laOWVhN1VMNnZVRzlmSFVNcjE4MlExOTVVekxKTlJ3ZHN0clI5WjNsR2Jtbm5oZzJTUVdjeWZBcEEwaFpqaUVoSTlPYTJSNWNxN1ZlN3ZlN285TlZrdkNPc1E0ZkVzU1p6MjMzZzFXWE9qSGVNemloRUVGSjRyc0ZZc3NiV2Jvd1dWdlVTV1QxQnBvVlVSY2pWb0VsSWsyUmtOMFVJNXNSbWFIX1paZkhJSm9VZDMxNlI2TmtKWWVDcVFGQWt1cGxCU09IUUpPZmdFX08xQllR?oc=5",
+      "source": "Sud Ouest",
+      "pubDate": "2026-11-17T08:00:00.000Z"
+    },
+    {
+      "title": "Orange Ventures lève 250 millions € pour l’IA et la cybersécurité",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQRVZWaXJxbHQwLWdsbWVqM0ZGTEJtVmMxMU9YeXhibENfZTFCeXZGa2pSMUw1WGNrMExLdVZLYXVlcWlLNW1pMEhKQjJDSFRVdU1XMWhuTG5JUVh2enFKVjdKWGFkRFgwR3J0VE55Tm5KckI2aEpRUXBaVWhDbXBwYm9Ba2czMXBGampOMW1OTnl1OEdiSlc0SktTLUNuVlJ0WTF2WkRmWm9HZXJj0gGyAUFVX3lxTE95NXZQZ1dCZWFNMWkySTc0QTNZU25aUVlrQ0tGUmhiOG04WkVVWG9PSEQ4Ym9JY0p0N3N1YzRQQldUMV96a1kwcTZnVVA3TjNya05sb01BTWxCeHltYzAwcl9CQl95Ymo1WFI1bjdkemFuT1Y3aTFZQk5tNTJ2RlQ4bGpRYXdLeFA3TlJGdE9nYk1IQ25ZWXhaNFVOSzhTWGhxQWtqQjBySVRCMjk3eVd1WVE?oc=5",
+      "source": "Silicon.fr",
+      "pubDate": "2026-11-17T08:00:00.000Z"
+    },
+    {
+      "title": "Orange Ventures accentue son effort pour soutenir les start-up de l'IA et de la cyber",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUThhbGd3ZmU4c3RWeXdZSHVqaXE2bHNRMnJOX0pHRDhCZ0tfWjdPeks1UmNzMXpGRklacE9saU5vU01xQXNxOUJpb3dYbE0tcXFFdHJEVG02Wnl4N0NQbmZVOTdTUkdfN19qZGFsTmZiYi1XTjl2Z2VUTDRPNFM2M1ZoMF80RkhaS2Zrdl9kd2NWT1hFa0FIalk3clNlNW50ZUVtQXhEVk5RbWk0R0lYeHFBUWNQQllpdDlidlRZbWhCMEVmUDNBb2JxMDlDaExaQXc?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-17T08:00:00.000Z"
+    },
+    {
       "title": "25 000 offres d'emploi supprimées sur France Travail à cause de l'IA : quels secteurs sont concernés",
       "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSFVGVGpBa3k1LWEtTG1ZdExwbmkweWRaemh2UEozQ2ZiazJKMEQ4bUM1YjNmcGFYZWJKcVJoMzU3RUx0LUQwcUZZWHFoa1BuTk5mZXhUQUxyQ3VRQzJ6THhRa08wLVV4NnVsOS12VEROM3R3VlkybXpvbm5JVEpuaHlycXgzNlNid3N6ZkRNMFFfN0NQTUFSZnFDVzNWbEp6dnBrTXdwYm1Pd3d1UjBrUEZVbVZKZjQ3SUlUaUhQdnQtdnZ2WHU1RG9kMndyWmxqOS16RTE4RGM3ckJGWEkyYXMyWVhRZ1ZPbVpsbzFFWlBDSnROODJRc3VZTlRUTWpDZVE?oc=5",
       "source": "franceinfo",
@@ -363,21 +387,9 @@
       "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
-      "title": "Offres d’emploi en berne, recrutement automatisé : l’IA s’immisce à tous les étages du marché du travail",
-      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNZXppNzNEN3hOTlhZN1VQYU9oM1ZLbmdnVU81aHFlU2ljemliMXpBazNwX1cxSDctTTUzNUs1am9EYmNXREhNbUhUMUhjaG13aERkWUhuWF95bnBXVC1WWHNQYk9mQUhwR0FUd0JIQkI5ZHEtd2M4OFh4a0RhUGR0bjlJYXRucVVlckNELUg3Q3UxRWlfZFhLNVlXUnNMdERDTTZNemEzTXN6a3R0Ql81RTZBUENXUHQydW1EaUxpd3VXQWozaV9XallWY0wyVG0wQW56emszNllYUQ?oc=5",
-      "source": "La Croix",
-      "pubDate": "2026-11-17T08:00:00.000Z"
-    },
-    {
       "title": "« Fragilisés », « augmentés », « peu touchés »… L’impact de l’IA évalué par 16 000 employeurs pour France Travail",
       "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZlNHVzNOdEstN1BJM2FCMXBYWmZsQkRIdDlxdUt4dFJZV25vdmlFWE5Fc2dHQzZ2ZW1Gcm9jVHFlUHEzNlhhYjVuQlpjTWo1YUxUZTJSTzNYeHJCTzJWRXN0TnQyNVJYQnJfWWM0SUJUcmxwSDFXOHdpelRGMWRkcVlEOXpIUXlZWkFvOFFQVi1lVjR0R2xxTDFqUW9JRnFRdzA5anZOLTlYLUI1cTZpM3g4cThUOWFUZ1BjRVhMNFhkYVlSLVVfRE83Zm5oSkxfMkhjZnlNTEVQZWRRUkE1VTV6YTJVZmpwN2JnLUZ2bjZQai00OGhielFINVRqN3c5R3RlZkFiNnE?oc=5",
       "source": "Ouest-France",
-      "pubDate": "2026-11-17T08:00:00.000Z"
-    },
-    {
-      "title": "IA : déjà des dizaines de milliers d’offres d’emploi en moins selon une étude, quels sont les métiers les plus exposés ?",
-      "link": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPRndSWjZSNVNlWlpQZE5CNjhpQkd3NzVmUlladmV1VmtBc1I2V2ROS1pLT1NQemExdG9xS3o0eUVPZTA3Y01abmNvelRzRlItUzhXVHRvYVoxT1laOWVhN1VMNnZVRzlmSFVNcjE4MlExOTVVekxKTlJ3ZHN0clI5WjNsR2Jtbm5oZzJTUVdjeWZBcEEwaFpqaUVoSTlPYTJSNWNxN1ZlN3ZlN285TlZrdkNPc1E0ZkVzU1p6MjMzZzFXWE9qSGVNemloRUVGSjRyc0ZZc3NiV2Jvd1dWdlVTV1QxQnBvVlVSY2pWb0VsSWsyUmtOMFVJNXNSbWFIX1paZkhJSm9VZDMxNlI2TmtKWWVDcVFGQWt1cGxCU09IUUpPZmdFX08xQllR?oc=5",
-      "source": "Sud Ouest",
       "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
@@ -389,12 +401,6 @@
     {
       "title": "« L'IA va encore augmenter d'un cran la crise cognitive » : les secrets d'un bureau antistress pour soulager le cerveau des salariés",
       "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNakdlWkFvWElNZUw4SzMtX2RaLXVSTnN4V2F1eEI3aGR6clVmMHhkaG42Y3dmdHZYSFNMRDlmT2JkcS1Rb0tfUmlfSkpvTEd0WEFmcE1ONmRiVWh1cG9pbUI4Q19rY2F0UWNvNXE5Wl8zODNfdXpja3NrbExRYVZXQ2VOSUdTalZPMFZIcjlQRWJ6N0NmY19fV3pfR2hIQzh5X2VkcXZMZ2xJa2l6T2FjaGNvVHJ3dzRVazBaV3QxRGVwMGNFVHp3OUFKN2NxcTlJWmZJUllHdG0xbmpfZXFTaTdRUFdHU3FoVExIWHlPYktTX0lBWmo3TEV6R3NISTRHV1F5U0k1c0k3SUJGU1ZVQXFRaTBqQQ?oc=5",
-      "source": "Les Échos",
-      "pubDate": "2026-11-17T08:00:00.000Z"
-    },
-    {
-      "title": "Orange Ventures accentue son effort pour soutenir les start-up de l'IA et de la cyber",
-      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUThhbGd3ZmU4c3RWeXdZSHVqaXE2bHNRMnJOX0pHRDhCZ0tfWjdPeks1UmNzMXpGRklacE9saU5vU01xQXNxOUJpb3dYbE0tcXFFdHJEVG02Wnl4N0NQbmZVOTdTUkdfN19qZGFsTmZiYi1XTjl2Z2VUTDRPNFM2M1ZoMF80RkhaS2Zrdl9kd2NWT1hFa0FIalk3clNlNW50ZUVtQXhEVk5RbWk0R0lYeHFBUWNQQllpdDlidlRZbWhCMEVmUDNBb2JxMDlDaExaQXc?oc=5",
       "source": "Les Échos",
       "pubDate": "2026-11-17T08:00:00.000Z"
     },
@@ -507,15 +513,15 @@
       "pubDate": "2026-11-12T08:11:43.000Z"
     },
     {
-      "title": "Moins de postes pour les jeunes : comment l'IA transforme déjà le marché de l'emploi",
-      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPeHUtdF9ieUhOR3I1ZW9ocmVkWExYN1E2cUlEX2hjZ2xnWVFHWmVXb0l3MmRNS0pJZ3h0dklxamNNMnh4WlRXRnZENVpjc01vOFZESDZ4Y0szMFhOVHVBOGVYVG5qbHVOLVljWndYS2FpS29JdjI3MEdhMDcyeFJaODhrYWNRMVZha1kyemhKZ3JiWXRDRERkbGZxaEFGYkcxLUE5MVVZckFpa3dkNS1NT0RhXzdqb2Z2VThpeXVNVmQ3aXc3dzZ5dVI1NlNTZHhJWWZMbTVjNzhiOXJsR3hONE13V2lSdDg?oc=5",
-      "source": "Les Échos",
-      "pubDate": "2026-11-12T08:00:00.000Z"
-    },
-    {
       "title": "Prompt parties, Moocs… : comment les entreprises forment-elles leurs salariés à l’IA ?",
       "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNdXhNVXFhU1ExX1VjdG5SWG1sVXZPWVE3Q2VFWkJNc1dUZ1lPbXJnNmxXWS1lbk9lX0ZzNFJnQVEtVGZtcUpSdlV2NVpRSThWNzlwNEtYQy13RmpxTVhkaTdkd3JPc3JBdnBHQXkwTlJWUGNvd3hVZFNGak5pNVQ0NjY5MTZyaThBYmJHTDFneEliVXpLTlVrOEJtVnE3VVZVa0ZIY2lIWWlwV1A4UldNZDE5TWRBQzhYSzJjTXA0SWNjc21McWxlTmxYTF9xbnFJMEZsajc2bWN0NzVtZkFrNUxGRjRNV1dxdDE1eVQ3aGh3OUJrX3VCcFlzcw?oc=5",
       "source": "Ouest-France",
+      "pubDate": "2026-11-12T08:00:00.000Z"
+    },
+    {
+      "title": "Moins de postes pour les jeunes : comment l'IA transforme déjà le marché de l'emploi",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPeHUtdF9ieUhOR3I1ZW9ocmVkWExYN1E2cUlEX2hjZ2xnWVFHWmVXb0l3MmRNS0pJZ3h0dklxamNNMnh4WlRXRnZENVpjc01vOFZESDZ4Y0szMFhOVHVBOGVYVG5qbHVOLVljWndYS2FpS29JdjI3MEdhMDcyeFJaODhrYWNRMVZha1kyemhKZ3JiWXRDRERkbGZxaEFGYkcxLUE5MVVZckFpa3dkNS1NT0RhXzdqb2Z2VThpeXVNVmQ3aXc3dzZ5dVI1NlNTZHhJWWZMbTVjNzhiOXJsR3hONE13V2lSdDg?oc=5",
+      "source": "Les Échos",
       "pubDate": "2026-11-12T08:00:00.000Z"
     },
     {
