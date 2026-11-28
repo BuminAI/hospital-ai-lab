@@ -1,4 +1,6 @@
 /** 실무 팁 — 카드 목록(/tips/)과 상세 페이지(/tips/1/)가 함께 쓰는 데이터. */
+import type { TipPanel } from './tip-webtoons';
+
 export interface TipLink {
   /** 이름 안에서 링크가 될 조각 (예: 'Otter · Fathom'의 'Otter') */
   label: string;
@@ -45,6 +47,8 @@ export interface Tip {
   sources?: TipLink[];
   /** 출처를 마지막으로 확인한 날 */
   checked?: string;
+  /** 웹툰 컷(16번부터). 1~15번은 tip-webtoons.ts에 있다. 작성 규칙도 그 파일 머리말 참고 */
+  webtoon?: TipPanel[];
 }
 
 export const tips: Tip[] = [

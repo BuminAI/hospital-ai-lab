@@ -1,5 +1,10 @@
 /**
- * 실무 팁 웹툰 — 팁 번호별 컷 구성. 여기에 번호를 더하면 그 팁 상세 페이지(/tips/번호/)에 웹툰이 붙는다.
+ * 실무 팁 웹툰 — 팁 상세 페이지(/tips/번호/)에 붙는 컷 구성.
+ *
+ * 어디에 쓰나
+ *  · 팁 1~15번: 이 파일의 tipWebtoons.
+ *  · 16번부터: tips.ts의 해당 팁 항목 안 `webtoon` 배열(매일 발행 작업이 팁과 함께 한 번에 쓴다).
+ *    화면은 두 곳을 webtoonFor()로 똑같이 읽는다.
  *
  * 규칙
  *  · 설명 글과 말풍선에는 해당 팁 원문(tips.ts)에 있는 사실만 쓴다. 새 사실·수치·기관명을 만들지 않는다.
@@ -9,12 +14,17 @@
  */
 import { tips } from './tips';
 
-export type StaffMood = 'ask' | 'happy' | 'surprised' | 'think' | 'firm';
-export type BotMood = 'ready' | 'proud' | 'unsure' | 'honest';
-export type SceneProp =
-  | 'upload' | 'badge' | 'magnify' | 'exam' | 'typing' | 'notfound' | 'quotes' | 'checklist' | 'lock'
-  | 'mismatch' | 'example' | 'examples' | 'longdoc' | 'nodate' | 'idea' | 'board' | 'dateok'
-  | 'order' | 'tags' | 'table' | 'prose' | 'steps' | 'role' | 'chart' | 'plans' | 'count' | 'chats' | 'newchat' | 'conditions';
+// 쓸 수 있는 표정과 소품. 여기에 없는 값을 쓰면 빌드가 실패한다(webtoonFor의 검사).
+const STAFF_MOODS = ['ask', 'happy', 'surprised', 'think', 'firm'] as const;
+const BOT_MOODS = ['ready', 'proud', 'unsure', 'honest'] as const;
+const SCENE_PROPS = [
+  'upload', 'badge', 'magnify', 'exam', 'typing', 'notfound', 'quotes', 'checklist', 'lock',
+  'mismatch', 'example', 'examples', 'longdoc', 'nodate', 'idea', 'board', 'dateok',
+  'order', 'tags', 'table', 'prose', 'steps', 'role', 'chart', 'plans', 'count', 'chats', 'newchat', 'conditions',
+] as const;
+export type StaffMood = (typeof STAFF_MOODS)[number];
+export type BotMood = (typeof BOT_MOODS)[number];
+export type SceneProp = (typeof SCENE_PROPS)[number];
 
 export interface WebtoonPanel {
   /** 컷 위쪽 해설 상자 */
@@ -26,6 +36,9 @@ export interface WebtoonPanel {
   /** 그림 아래 '복사해 쓰는 문장' 상자 */
   copy?: string;
 }
+
+/** tips.ts의 팁 항목 안에 적는 컷. 복사 문장은 다시 쓰지 않고 story 단락 번호(0부터)로 가리킨다 */
+export type TipPanel = Omit<WebtoonPanel, 'copy'> & { copyFrom?: number };
 
 export interface Webtoon {
   /** 말풍선에 붙는 이름 */
@@ -769,3 +782,41 @@ export const tipWebtoons: Record<number, Webtoon> = {
     ],
   },
 };
+
+/** 그림이 조용히 빠지거나 깨지지 않도록 빌드 때 컷을 검사한다 */
+function check(no: number, panels: WebtoonPanel[]) {
+  const fail = (i: number, why: string): never => {
+    throw new Error(`웹툰: 팁 ${no}의 ${i + 1}번째 컷 - ${why}`);
+  };
+  const oneOf = (list: readonly string[], v: string | undefined) => v === undefined || list.includes(v);
+  if (!Array.isArray(panels) || panels.length === 0) fail(0, '컷이 없습니다');
+  panels.forEach((p, i) => {
+    if (!p.scene) fail(i, 'scene이 없습니다');
+    if (!oneOf(STAFF_MOODS, p.scene.staff)) fail(i, `없는 staff 표정 ${p.scene.staff}`);
+    if (!oneOf(BOT_MOODS, p.scene.bot)) fail(i, `없는 bot 표정 ${p.scene.bot}`);
+    if (!oneOf(SCENE_PROPS, p.scene.prop)) fail(i, `없는 소품 ${p.scene.prop}`);
+    if (!p.caption && !p.lines?.length) fail(i, 'caption이나 lines가 있어야 합니다');
+    p.lines?.forEach((l) => {
+      if (l.who !== 'staff' && l.who !== 'bot') fail(i, 'who는 staff 또는 bot입니다');
+      if (!l.text) fail(i, '빈 말풍선이 있습니다');
+    });
+  });
+}
+
+/** 팁 번호의 웹툰. 없으면 undefined */
+export function webtoonFor(no: number): Webtoon | undefined {
+  const tip = tips.find((t) => t.no === no);
+  const inline = tip?.webtoon;
+  if (inline && tipWebtoons[no]) throw new Error(`웹툰: 팁 ${no}이 tips.ts와 tip-webtoons.ts 두 곳에 있습니다`);
+
+  const webtoon = inline
+    ? {
+        names: CAST,
+        panels: inline.map(({ copyFrom, ...panel }) =>
+          copyFrom === undefined ? panel : { ...panel, copy: copyOf(no, copyFrom) },
+        ),
+      }
+    : tipWebtoons[no];
+  if (webtoon) check(no, webtoon.panels);
+  return webtoon;
+}
