@@ -1,0 +1,286 @@
+---
+// 관리자 대시보드의 '검색 유입' 영역(2026-11-28, 오너 지시: 구글·Bing·네이버 조회수를 관리자 화면에서 보기).
+//
+// - 자료: GoatCounter API(/api/v0/stats/toprefs·total). 브라우저에서 직접 부른다(교차 출처 허용 확인함).
+//   숫자는 '그 곳에서 들어온 방문 수'다. 검색 결과 노출 수·클릭 수가 아니다(그건 각 검색 도구에만 있다).
+// - 토큰: 코드에 넣지 않는다. 관리자만 읽을 수 있는 Supabase `admin_secrets`(key: goatcounter_token)에 둔다.
+//   GitHub 토큰과 같은 방식이며 새 테이블은 필요 없다.
+// - admin.astro 가 로그인 확인 뒤 window.__adminTraffic.init(sb) 를 부른다.
+import { GOATCOUNTER_CODE } from '../utils/site';
+
+const SITE = 'https://hospital-ai-lab.com/';
+---
+
+<section id="traffic" class="traffic" aria-labelledby="traffic-h">
+  <div class="traffic-head">
+    <h2 id="traffic-h">검색 유입 (구글 · Bing · 네이버)</h2>
+    <div class="traffic-range" role="group" aria-label="기간">
+      <button type="button" class="btn ghost" data-days="7">7일</button>
+      <button type="button" class="btn" data-days="30">30일</button>
+      <button type="button" class="btn ghost" data-days="90">90일</button>
+    </div>
+  </div>
+  <p class="muted small">
+    각 곳에서 링크를 눌러 <strong>사이트에 들어온 방문 수</strong>입니다(GoatCounter 집계). 검색 결과에 보인 횟수(노출)는 아래 검색 도구에서 확인합니다.
+  </p>
+  <p class="muted" id="traffic-status" aria-live="polite">불러오는 중…</p>
+
+  <div class="stats" id="traffic-cards" hidden></div>
+
+  <div class="traffic-table" id="traffic-table" hidden>
+    <h3>들어온 곳 상위 15</h3>
+    <table>
+      <thead><tr><th scope="col">들어온 곳</th><th scope="col">방문</th><th scope="col">분류</th></tr></thead>
+      <tbody id="traffic-rows"></tbody>
+    </table>
+  </div>
+
+  <div class="card traffic-links">
+    <h3>검색 결과에 보인 횟수·클릭은 여기에서</h3>
+    <div class="card-actions">
+      <a class="btn ghost" href={`https://search.google.com/search-console/performance/search-analytics?resource_id=${encodeURIComponent(SITE)}`} target="_blank" rel="noopener">구글 서치 콘솔</a>
+      <a class="btn ghost" href={`https://www.bing.com/webmasters/searchperf?siteUrl=${encodeURIComponent(SITE)}`} target="_blank" rel="noopener">Bing 웹마스터</a>
+      <a class="btn ghost" href="https://searchadvisor.naver.com/console/board" target="_blank" rel="noopener">네이버 서치어드바이저</a>
+      <a class="btn ghost" href={`https://${GOATCOUNTER_CODE}.goatcounter.com`} target="_blank" rel="noopener">GoatCounter 대시보드</a>
+    </div>
+  </div>
+
+  <details class="card traffic-token" id="traffic-token-box">
+    <summary>GoatCounter 연결 설정 <span class="muted" id="traffic-token-state"></span></summary>
+    <ol>
+      <li><a href={`https://${GOATCOUNTER_CODE}.goatcounter.com`} target="_blank" rel="noopener">GoatCounter</a>에 로그인합니다.</li>
+      <li>위쪽 메뉴의 <strong>사용자 이름 → API</strong>로 들어갑니다.</li>
+      <li>새 토큰을 만듭니다. 권한은 <strong>통계 읽기(Read statistics)</strong>만 켭니다.</li>
+      <li>만들어진 값을 아래에 붙여 넣고 저장합니다.</li>
+    </ol>
+    <div class="traffic-row">
+      <input type="password" id="traffic-token" placeholder="GoatCounter API 토큰" autocomplete="off" aria-label="GoatCounter API 토큰" />
+      <button type="button" class="btn" id="traffic-save">저장</button>
+      <button type="button" class="btn ghost" id="traffic-clear">연동 해제</button>
+    </div>
+    <p class="muted small">토큰은 사이트 코드나 이 브라우저가 아니라 관리자만 읽을 수 있는 서버 저장소에 보관합니다.</p>
+  </details>
+
+  <p class="muted small">
+    내가 방문한 것은 빼려면, 평소 쓰는 기기마다 <a href={`${SITE}#toggle-goatcounter`} target="_blank" rel="noopener">이 주소</a>를 한 번 열어 두세요.
+  </p>
+</section>
+
+<script is:inline define:vars={{ GC: GOATCOUNTER_CODE }}>
+  (() => {
+    const API = `https://${GC}.goatcounter.com/api/v0/stats/`;
+    const KEY = 'goatcounter_token';
+    // 위에서부터 먼저 맞는 분류를 쓴다. AI 서비스와 네이버 블로그는 검색과 섞지 않는다.
+    const GROUPS = [
+      { id: 'ai', label: 'AI 답변 서비스', test: /chatgpt|openai|perplexity|gemini\.google|copilot|claude\.ai|notebooklm/i },
+      { id: 'blog', label: '네이버 블로그·카페', test: /(blog|cafe)\.naver/i },
+      { id: 'google', label: '구글', test: /google/i },
+      { id: 'bing', label: 'Bing', test: /(^|\.)bing\.com|^bing$/i },
+      { id: 'naver', label: '네이버', test: /naver/i },
+      { id: 'daum', label: '다음', test: /daum/i },
+    ];
+    const CARDS = ['google', 'bing', 'naver', 'daum', 'ai', 'blog'];
+    const $ = (id) => document.getElementById(id);
+    const num = (n) => Number(n || 0).toLocaleString('ko-KR');
+    let sb = null;
+    let token = '';
+    let days = 30;
+    let run = 0;
+
+    const groupOf = (name) => {
+      if (!name) return { id: 'direct', label: '직접 입력·알 수 없음' };
+      return GROUPS.find((g) => g.test.test(name)) || { id: 'other', label: '그 밖의 사이트' };
+    };
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    async function api(path, params) {
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const res = await fetch(`${API}${path}?${new URLSearchParams(params)}`, { headers: { Authorization: `Bearer ${token}` } });
+        if (res.status === 429) {
+          await wait(1500);
+          continue;
+        }
+        if (res.status === 401 || res.status === 403) throw new Error('토큰이 맞지 않거나 통계 읽기 권한이 없습니다. 아래 연결 설정에서 다시 저장해 주세요.');
+        if (!res.ok) throw new Error(`GoatCounter 응답 오류 (${res.status})`);
+        return res.json();
+      }
+      throw new Error('GoatCounter 요청이 잠시 많습니다. 조금 뒤 다시 눌러 주세요.');
+    }
+
+    async function load(range) {
+      const refs = [];
+      for (let offset = 0; offset < 500; offset += 100) {
+        const data = await api('toprefs', { ...range, limit: '100', offset: String(offset) });
+        refs.push(...(data.stats || []));
+        if (!data.more) break;
+        await wait(300);
+      }
+      await wait(300);
+      const total = (await api('total', range)).total || 0;
+      const sums = {};
+      for (const r of refs) {
+        const g = groupOf(r.name).id;
+        sums[g] = (sums[g] || 0) + (r.count || 0);
+      }
+      return { refs, sums, total };
+    }
+
+    function ranges(n) {
+      const end = new Date();
+      end.setMinutes(0, 0, 0);
+      end.setHours(end.getHours() + 1);
+      const start = new Date();
+      start.setHours(0, 0, 0, 0);
+      start.setDate(start.getDate() - (n - 1));
+      const prev = new Date(start);
+      prev.setDate(prev.getDate() - n);
+      return {
+        now: { start: start.toISOString(), end: end.toISOString() },
+        before: { start: prev.toISOString(), end: start.toISOString() },
+      };
+    }
+
+    function card(label, value, before) {
+      const box = document.createElement('div');
+      box.className = 'stat';
+      const diff = value - before;
+      const parts = [
+        ['k', label],
+        ['v', num(value)],
+        ['sub', `이전 같은 기간 ${num(before)} (${diff > 0 ? '+' : ''}${num(diff)})`],
+      ];
+      for (const [cls, text] of parts) {
+        const el = document.createElement('span');
+        el.className = cls;
+        el.textContent = text;
+        box.appendChild(el);
+      }
+      return box;
+    }
+
+    function show(now, before) {
+      const cards = $('traffic-cards');
+      cards.replaceChildren(
+        card('전체 방문', now.total, before.total),
+        ...CARDS.map((id) => card(GROUPS.find((g) => g.id === id).label, now.sums[id] || 0, before.sums[id] || 0)),
+      );
+      cards.hidden = false;
+      const rows = now.refs.slice().sort((a, b) => b.count - a.count).slice(0, 15).map((r) => {
+        const tr = document.createElement('tr');
+        for (const text of [r.name || '(직접 입력·알 수 없음)', num(r.count), groupOf(r.name).label]) {
+          const td = document.createElement('td');
+          td.textContent = text;
+          tr.appendChild(td);
+        }
+        return tr;
+      });
+      $('traffic-rows').replaceChildren(...rows);
+      $('traffic-table').hidden = rows.length === 0;
+    }
+
+    async function refresh() {
+      const mine = ++run;
+      const status = $('traffic-status');
+      if (!token) {
+        status.textContent = '아직 연결 전입니다. 아래 "GoatCounter 연결 설정"에서 토큰을 한 번 저장하면 숫자가 나타납니다.';
+        $('traffic-token-state').textContent = '(연결 안 됨)';
+        $('traffic-token-box').open = true;
+        $('traffic-cards').hidden = true;
+        $('traffic-table').hidden = true;
+        return;
+      }
+      $('traffic-token-state').textContent = '(연결됨)';
+      status.textContent = '불러오는 중…';
+      try {
+        const r = ranges(days);
+        const now = await load(r.now);
+        await wait(300);
+        const before = await load(r.before);
+        if (mine !== run) return;
+        show(now, before);
+        status.textContent = `최근 ${days}일 · ${new Date().toLocaleString('ko-KR')} 기준`;
+      } catch (e) {
+        if (mine !== run) return;
+        status.textContent = e instanceof TypeError ? 'GoatCounter에 연결하지 못했습니다. 인터넷 연결이나 광고 차단 확장 기능을 확인해 주세요.' : e.message;
+        $('traffic-cards').hidden = true;
+        $('traffic-table').hidden = true;
+      }
+    }
+
+    document.querySelectorAll('.traffic-range [data-days]').forEach((b) => {
+      b.addEventListener('click', () => {
+        days = Number(b.dataset.days);
+        document.querySelectorAll('.traffic-range [data-days]').forEach((x) => x.classList.toggle('ghost', x !== b));
+        refresh();
+      });
+    });
+
+    $('traffic-save').addEventListener('click', async () => {
+      const value = $('traffic-token').value.trim();
+      if (!value || !sb) return;
+      const { error } = await sb.from('admin_secrets').upsert({ key: KEY, value, updated_at: new Date().toISOString() });
+      if (error) {
+        $('traffic-status').textContent = `저장 실패: ${error.message}`;
+        return;
+      }
+      token = value;
+      $('traffic-token').value = '';
+      $('traffic-token-box').open = false;
+      refresh();
+    });
+
+    $('traffic-clear').addEventListener('click', async () => {
+      if (!sb) return;
+      const { error } = await sb.from('admin_secrets').delete().eq('key', KEY);
+      if (error) {
+        $('traffic-status').textContent = `연동 해제 실패: ${error.message}`;
+        return;
+      }
+      token = '';
+      refresh();
+    });
+
+    let started = false;
+    window.__adminTraffic = {
+      async init(client) {
+        if (started) return;
+        started = true;
+        sb = client;
+        const { data, error } = await sb.from('admin_secrets').select('value').eq('key', KEY).maybeSingle();
+        if (error) {
+          $('traffic-status').textContent = `연동 상태를 확인하지 못했습니다: ${error.message}`;
+          return;
+        }
+        token = data?.value || '';
+        await refresh();
+        if (location.hash === '#traffic') $('traffic').scrollIntoView();
+      },
+      // 로그아웃하면 메모리의 토큰을 지우고, 다시 로그인하면 새로 읽는다.
+      reset() {
+        started = false;
+        token = '';
+        run++;
+        $('traffic-cards').hidden = true;
+        $('traffic-table').hidden = true;
+        $('traffic-rows').replaceChildren();
+      },
+    };
+  })();
+</script>
+
+<style is:global>
+  .traffic { margin-top: 28px; scroll-margin-top: 12px; }
+  .traffic-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+  .traffic-head h2 { margin: 0; }
+  .traffic-range { display: flex; gap: 6px; }
+  .traffic .card, .traffic-table { margin-top: 14px; }
+  .traffic-table { background: var(--a-surface); border: 1px solid var(--a-line); border-radius: 6px; padding: 14px 16px; overflow-x: auto; }
+  .traffic h3 { margin: 0 0 8px; font-size: 1rem; }
+  .traffic table { width: 100%; border-collapse: collapse; }
+  .traffic th, .traffic td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--a-line); }
+  .traffic td:nth-child(2), .traffic th:nth-child(2) { text-align: right; white-space: nowrap; }
+  .traffic td:first-child { overflow-wrap: anywhere; }
+  .traffic summary { cursor: pointer; font-weight: 600; }
+  .traffic-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .traffic-row input { flex: 1 1 16rem; font: inherit; padding: 7px 10px; border: 1px solid var(--a-line); border-radius: 4px; }
+</style>

@@ -7,6 +7,7 @@ import {
   CSP,
   withBase,
 } from '../utils/site';
+import AdminTraffic from '../components/AdminTraffic.astro';
 
 // 언어판 목록 — 언어판을 새로 만들면 여기에 한 줄 추가하면 사이드바와 카드에 함께 나온다.
 const editions = [
@@ -62,7 +63,7 @@ const editions = [
           <a class="item" href={withBase('/admin-ko/#judge-panel')}><i>🧪</i>AI 심사 제출<span class="badge" id="side-judge" hidden></span></a>
           <a class="item" href={withBase('/admin-ko/#member-panel')}><i>👥</i>회원<span class="badge" id="side-members" hidden></span></a>
           <a class="item" href={withBase('/admin-ko/#deploy-panel')}><i>🚀</i>사이트 반영 상태</a>
-          <a class="item" href={withBase('/admin-ko/#stats-panel')}><i>📊</i>방문자 통계</a>
+          <a class="item" href={withBase('/admin/#traffic')}><i>📊</i>검색 유입·방문 통계</a>
           <a class="item" href={withBase('/admin-ko/#token-panel')}><i>🔑</i>GitHub 연동</a>
           <a class="item" href={withBase('/')} target="_blank" rel="noopener"><i>🌐</i>사이트 보기</a>
         </nav>
@@ -81,6 +82,8 @@ const editions = [
           <div class="stat"><span class="k">AI 심사 제출</span><span class="v" id="st-judge">–</span><span class="sub" id="st-judge-sub"></span></div>
           <div class="stat"><span class="k">언어판</span><span class="v">{editions.length}</span><span class="sub">한국어 · 일본어 · 러시아어 · 인도네시아어 · 대만어</span></div>
         </section>
+
+        <AdminTraffic />
 
         <h2>언어판</h2>
         <section class="cards">
@@ -131,7 +134,8 @@ const editions = [
       const ok = !!session && session.user.email === ADMIN_EMAIL;
       $('gate').hidden = ok;
       $('shell').hidden = !ok;
-      if (!ok) return;
+      if (!ok) { window.__adminTraffic?.reset(); return; }
+      window.__adminTraffic?.init(sb);
       // 체험용 샘플 제출은 집계에서 뺀다(2026-11-07). 예전 버전이 샘플도 올렸다.
       const SAMPLE_NAMES = ['연차 사용일수 계산기', '年次有給休暇の日数計算ツール', 'Калькулятор дней отпуска', 'Penghitung hari cuti', '特休天數計算器', 'Leave day counter'];
       const countJudge = async () => {
