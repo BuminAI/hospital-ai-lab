@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-27T16:40:42.448Z",
-  "source": "Le Monde·ZDNet France·DSIH·La Croix·Numerama·Les Échos·Ouest-France·franceinfo·Libération·Le Figaro·France 24·Challenges·CNIL·Europe 1·Sud Ouest·Silicon.fr·Le Parisien·20 Minutes·La Tribune·Public Sénat",
+  "updatedAt": "2026-11-28T03:56:24.562Z",
+  "source": "Le Monde·ZDNet France·DSIH·La Croix·Numerama·Les Échos·Ouest-France·franceinfo·Libération·Le Figaro·France 24·Challenges·CNIL·Europe 1·Sud Ouest·Silicon.fr·Le Parisien·20 Minutes·La Tribune·Public Sénat·Maddyness",
   "items": [
     {
       "title": "Pologne : l’armée annonce qu’elle utilisera l’IA de l’entreprise américaine Palantir",
@@ -351,6 +351,12 @@
       "pubDate": "2026-11-17T08:11:26.000Z"
     },
     {
+      "title": "25 000 offres d'emploi supprimées sur France Travail à cause de l'IA : quels secteurs sont concernés",
+      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSFVGVGpBa3k1LWEtTG1ZdExwbmkweWRaemh2UEozQ2ZiazJKMEQ4bUM1YjNmcGFYZWJKcVJoMzU3RUx0LUQwcUZZWHFoa1BuTk5mZXhUQUxyQ3VRQzJ6THhRa08wLVV4NnVsOS12VEROM3R3VlkybXpvbm5JVEpuaHlycXgzNlNid3N6ZkRNMFFfN0NQTUFSZnFDVzNWbEp6dnBrTXdwYm1Pd3d1UjBrUEZVbVZKZjQ3SUlUaUhQdnQtdnZ2WHU1RG9kMndyWmxqOS16RTE4RGM3ckJGWEkyYXMyWVhRZ1ZPbVpsbzFFWlBDSnROODJRc3VZTlRUTWpDZVE?oc=5",
+      "source": "franceinfo",
+      "pubDate": "2026-11-17T08:00:00.000Z"
+    },
+    {
       "title": "Faut-il redouter un tsunami social ? France Travail dévoile une étude inédite sur les effets de l'IA",
       "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQOGxtcGc1em5JN3N2ajk0OGt1ZFpwM09odkdtdlpDeGNkV0xRcU4xMDBMOTh5emxLSmdSeGpCcVA1SHgtVFdsOEIwVjJLTFJiRWNQcVc0TmxQMDlZQkowNWZCbUdESndZdnFPcHgxa3lYbEFfTXZ6YlNJSy0zd2xfQWxnVldXQk91UVJCLThtTnJVUDJ2Qk5wNmtscDdaRVdza0NMbW9Ec2g0OUQ0SXBER1kxanZ4VXcxRGE0T0lqZ1JIelg2dndQTXhGSlpKcEJXbVVaMk1xanA1aHhHWUFQeFdoSmZzLXM?oc=5",
       "source": "Les Échos",
@@ -375,6 +381,12 @@
       "pubDate": "2026-11-17T08:00:00.000Z"
     },
     {
+      "title": "RH, compta… Ces métiers plombés par l’IA pour lesquels les offres d’emploi chutent",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQVzcyVWZFakFTUVRNMFFrUmR6WW5DQ28xMGdndGVRdWNsRjZVejlieHBWb0hTcUhwd3dpeGd5UUpWTi1rVmlvTktHMm4zZkFGc2t5b21NNXNmT0k5S3YtNld3RXZjdENtMlVQVFZ0Q0J2UFhfRm5scjVjY1RMNEpxUVMzZ1BKQmRlOVJGS2dUX2J5MEF0TmQxV2VxRms1SXVfMUltU1NHVC1ia0tNdlBJ?oc=5",
+      "source": "20 Minutes",
+      "pubDate": "2026-11-17T08:00:00.000Z"
+    },
+    {
       "title": "« L'IA va encore augmenter d'un cran la crise cognitive » : les secrets d'un bureau antistress pour soulager le cerveau des salariés",
       "link": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNakdlWkFvWElNZUw4SzMtX2RaLXVSTnN4V2F1eEI3aGR6clVmMHhkaG42Y3dmdHZYSFNMRDlmT2JkcS1Rb0tfUmlfSkpvTEd0WEFmcE1ONmRiVWh1cG9pbUI4Q19rY2F0UWNvNXE5Wl8zODNfdXpja3NrbExRYVZXQ2VOSUdTalZPMFZIcjlQRWJ6N0NmY19fV3pfR2hIQzh5X2VkcXZMZ2xJa2l6T2FjaGNvVHJ3dzRVazBaV3QxRGVwMGNFVHp3OUFKN2NxcTlJWmZJUllHdG0xbmpfZXFTaTdRUFdHU3FoVExIWHlPYktTX0lBWmo3TEV6R3NISTRHV1F5U0k1c0k3SUJGU1ZVQXFRaTBqQQ?oc=5",
       "source": "Les Échos",
@@ -385,18 +397,6 @@
       "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUThhbGd3ZmU4c3RWeXdZSHVqaXE2bHNRMnJOX0pHRDhCZ0tfWjdPeks1UmNzMXpGRklacE9saU5vU01xQXNxOUJpb3dYbE0tcXFFdHJEVG02Wnl4N0NQbmZVOTdTUkdfN19qZGFsTmZiYi1XTjl2Z2VUTDRPNFM2M1ZoMF80RkhaS2Zrdl9kd2NWT1hFa0FIalk3clNlNW50ZUVtQXhEVk5RbWk0R0lYeHFBUWNQQllpdDlidlRZbWhCMEVmUDNBb2JxMDlDaExaQXc?oc=5",
       "source": "Les Échos",
       "pubDate": "2026-11-17T08:00:00.000Z"
-    },
-    {
-      "title": "25 000 offres d'emploi supprimées sur France Travail à cause de l'IA : quels secteurs sont concernés",
-      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNSFVGVGpBa3k1LWEtTG1ZdExwbmkweWRaemh2UEozQ2ZiazJKMEQ4bUM1YjNmcGFYZWJKcVJoMzU3RUx0LUQwcUZZWHFoa1BuTk5mZXhUQUxyQ3VRQzJ6THhRa08wLVV4NnVsOS12VEROM3R3VlkybXpvbm5JVEpuaHlycXgzNlNid3N6ZkRNMFFfN0NQTUFSZnFDVzNWbEp6dnBrTXdwYm1Pd3d1UjBrUEZVbVZKZjQ3SUlUaUhQdnQtdnZ2WHU1RG9kMndyWmxqOS16RTE4RGM3ckJGWEkyYXMyWVhRZ1ZPbVpsbzFFWlBDSnROODJRc3VZTlRUTWpDZVE?oc=5",
-      "source": "franceinfo",
-      "pubDate": "2026-11-17T08:00:00.000Z"
-    },
-    {
-      "title": "RH, compta… Ces métiers plombés par l’IA pour lesquels les offres d’emploi chutent",
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQVzcyVWZFakFTUVRNMFFrUmR6WW5DQ28xMGdndGVRdWNsRjZVejlieHBWb0hTcUhwd3dpeGd5UUpWTi1rVmlvTktHMm4zZkFGc2t5b21NNXNmT0k5S3YtNld3RXZjdENtMlVQVFZ0Q0J2UFhfRm5scjVjY1RMNEpxUVMzZ1BKQmRlOVJGS2dUX2J5MEF0TmQxV2VxRms1SXVfMUltU1NHVC1ia0tNdlBJ?oc=5",
-      "source": "20 Minutes",
-      "pubDate": "2026-11-17T07:24:00.000Z"
     },
     {
       "title": "IA: dans les métiers les plus exposés, une importante baisse des offres d'emploi",
@@ -505,6 +505,12 @@
       "link": "https://www.zdnet.fr/actualites/zd-tech-pourquoi-vous-allez-bientot-remplacer-google-par-chatgpt-au-travail-507399.htm#xtor=RSS-1",
       "source": "ZDNet France",
       "pubDate": "2026-11-12T08:11:43.000Z"
+    },
+    {
+      "title": "Moins de postes pour les jeunes : comment l'IA transforme déjà le marché de l'emploi",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPeHUtdF9ieUhOR3I1ZW9ocmVkWExYN1E2cUlEX2hjZ2xnWVFHWmVXb0l3MmRNS0pJZ3h0dklxamNNMnh4WlRXRnZENVpjc01vOFZESDZ4Y0szMFhOVHVBOGVYVG5qbHVOLVljWndYS2FpS29JdjI3MEdhMDcyeFJaODhrYWNRMVZha1kyemhKZ3JiWXRDRERkbGZxaEFGYkcxLUE5MVVZckFpa3dkNS1NT0RhXzdqb2Z2VThpeXVNVmQ3aXc3dzZ5dVI1NlNTZHhJWWZMbTVjNzhiOXJsR3hONE13V2lSdDg?oc=5",
+      "source": "Les Échos",
+      "pubDate": "2026-11-12T08:00:00.000Z"
     },
     {
       "title": "Prompt parties, Moocs… : comment les entreprises forment-elles leurs salariés à l’IA ?",
@@ -639,6 +645,12 @@
       "pubDate": "2026-10-26T07:00:00.000Z"
     },
     {
+      "title": "Les entreprises ne savent pas quelle IA elles utilisent",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1KY0N6MzVlczljb01TSlFVc25EbVBZWHVMNGt1U09PNkU5YlVRb0FmUVVNLVNlUFhENFJ2cXllQkhIMlFudFJ5UDFxa18?oc=5",
+      "source": "Maddyness",
+      "pubDate": "2026-10-22T07:00:00.000Z"
+    },
+    {
       "title": "5 000 emplois remplacés par l’IA ? Barclays taille dans ses effectifs au nom des « gains d’efficacité » permis par l’intelligence artificielle",
       "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxOTEM4ZVVDdEEwczFQMHhxNkNkWl9YSW9vQUFIelRxeUc1V2xWc2ExOHpuVlA1Q181NnhVaGt3V3JWd1dCQXhwb19iRWk0UnRSNkZJM2FKMjdJSVZUZkYwVnJjdWw4a3dUZ3ZjdEg2aVlBT081M0liODMwVkNiSEdHS2VJMGVuRlpTMW9BLUJfNGVydmV0SHFhUXhpWmtuRW9XVG9NYm81UzduazVqa1FFdjI3VHB0V1hISldBSnpwS1hRTmxiOWpsTzRBMzhhMlZ3ZDR2Y01jc3BLVXRfRklYS2NJd1ozb3pDMDE2MHRwZzRKRnVFWHFLY0xvV3duenBKQm9EVFBQalV1ZnFNS3JTYXAxR3lHa3J0VzhYMDF0OWt2Z00?oc=5",
       "source": "Challenges",
@@ -649,6 +661,12 @@
       "link": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQdnNheGdCc3p2R0ExQ3EyOXh3RHJYUm5mXzlVazl2RVNiSzNYeDdqQjB4VDVjMEVaUXNPNGJwdy1oMnlxeHFxNmhIeFlMd0JONUF5UGUtTEQzVTdNSDRlSjlaX1JEYldjM09vY2pXT1VHYzlld0VsUFF6ZGRFVkFOMTQzcTJ6WUVZbEpUUGVYVnFKcWtnQ20zZ3dBb1pNN0dxdU5Udm1UYi1qUXp4VDhnbkJBRmliWjVVem04LWJTYTFGQlJpQlRnOHRVclJ0UlRNdkhndGg3X0hTN3JWMDlLRWJkZHlSX3FrMl9ZblJYNDNpcTdGbDlKTUIwajZXNlUzTWZ2cWFIRGJSd3BmOUw3d3JJM1FsbnhQMnNveUN1UVUyaE14czVTWDF3cFhvSHpXaEdFaHJlVQ?oc=5",
       "source": "Ouest-France",
       "pubDate": "2026-10-22T07:00:00.000Z"
+    },
+    {
+      "title": "Cybersécurité : des milliers de sites Internet mis hors ligne après la découverte de failles par l’intelligence artificielle",
+      "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPMlhTTXJiMU9PN3ZNTFVhbTBUbnBMVmVFZWZWZUoxODI2M2UyM2VuTkNlRWt1azdDQkRtUHlxRXdJc2RyUzZEeGNwWEE2Z3hJeHE5azdNM09VbXo2QVd0NVlaRElZbnFGWXRvSS1ZNURZSFdPQkUtdlJyd29QR1NiUlltcHF0S0dUS2NlWEVJNFg2N1FVcEhXYW9CdFY5RkJlNURCanJha21PVlBSQktFUDBVWTdxNGE4dTVaSWtuM0lZSkp6bXNldlAxM080eGNab0Rpd2RiNHdNRm9EczliSnVoQ1Q4a2RNbERWN2RpMzh4enBiNWJkMEF1T2dhaFBCRUxZUXhQbGFKWUtfZ0pB?oc=5",
+      "source": "Sud Ouest",
+      "pubDate": "2026-10-21T07:00:00.000Z"
     },
     {
       "title": "Des milliers de sites internet mis hors ligne à cause d'une faille de sécurité repérée par l'IA",

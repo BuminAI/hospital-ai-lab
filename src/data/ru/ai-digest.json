@@ -1,12 +1,24 @@
 {
-  "updatedAt": "2026-11-27T16:37:37.991Z",
+  "updatedAt": "2026-11-28T03:53:49.867Z",
   "source": "Хабр·CNews·TAdviser·3DNews",
   "items": [
     {
-      "title": "Slonik-LLM, или Как мы учили модель разработке ядра PostgreSQL",
+      "title": "Половина работы моих ИИ-агентов уходит на хозяйство. На деньги 4%",
+      "link": "https://habr.com/ru/articles/1113396/?utm_campaign=1113396&utm_source=habrahabr&utm_medium=rss",
+      "source": "Хабр",
+      "pubDate": "2026-11-27T18:11:41.000Z"
+    },
+    {
+      "title": "Slonik‑LLM, или Как мы учили модель разработке ядра PostgreSQL",
       "link": "https://habr.com/ru/companies/postgrespro/articles/1113058/?utm_campaign=1113058&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-27T16:12:01.000Z"
+    },
+    {
+      "title": "«Сбер» представил мультимодальную ИИ-модель GigaChat Omni — она понимает речь, текст и изображения одновременно",
+      "link": "https://3dnews.ru/1151901/sber-predstavil-multimodalnuyu-iimodel-gigachat-omni-ona-ponimaet-rech-tekst-i-izobrageniya-odnovremenno",
+      "source": "3DNews",
+      "pubDate": "2026-11-27T15:53:00.000Z"
     },
     {
       "title": "Разработка в эпоху ИИ: часть 2",
@@ -15,7 +27,7 @@
       "pubDate": "2026-11-27T15:17:08.000Z"
     },
     {
-      "title": "10 минут в CAD против 3 часов с GPT-6: эксперимент с 3D-моделированием проставки для вентилятора",
+      "title": "10 минут в CAD против 3 часов с GPT-6: эксперимент с 3D‑моделированием проставки для вентилятора",
       "link": "https://habr.com/ru/articles/1112948/?utm_campaign=1112948&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-27T14:50:30.000Z"
@@ -33,7 +45,7 @@
       "pubDate": "2026-11-27T14:15:00.000Z"
     },
     {
-      "title": "Telegram готовит ИИ-агента Dictator с доступом к перепискам и поддержкой локальных моделей",
+      "title": "Telegram готовит ИИ-агента Dictator с доступом к перепискам и поддержкой локальных LLM. Какие данные пожертвуем моделям?",
       "link": "https://habr.com/ru/articles/1113318/?utm_campaign=1113318&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-27T14:13:14.000Z"
@@ -57,7 +69,7 @@
       "pubDate": "2026-11-27T12:20:29.000Z"
     },
     {
-      "title": "Куда выгоднее вкладывать деньги — в кожаные мешки или ИИ-агентов?",
+      "title": "Куда выгоднее вкладывать деньги — в кожаные мешки или ИИ‑агентов?",
       "link": "https://habr.com/ru/companies/ru_mts/articles/1108908/?utm_campaign=1108908&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-27T12:15:45.000Z"
@@ -103,6 +115,12 @@
       "link": "https://habr.com/ru/articles/1113072/?utm_campaign=1113072&utm_source=habrahabr&utm_medium=rss",
       "source": "Хабр",
       "pubDate": "2026-11-27T10:22:32.000Z"
+    },
+    {
+      "title": "«Сбер ГигаАгент» научился не только отвечать, но и действовать: ИИ сам разберёт почту, спланирует дела и закажет продукты",
+      "link": "https://3dnews.ru/1151885/sber-nauchil-gigaagenta-vipolnyat-porucheniya-ii-sam-razberyot-pochtu-splaniruet-dela-i-zakaget-produkti",
+      "source": "3DNews",
+      "pubDate": "2026-11-27T10:13:00.000Z"
     },
     {
       "title": "Cloud.ru представил целевую архитектуру безопасности использования ИИ-моделей для крупных компаний",
@@ -1783,24 +1801,6 @@
       "link": "https://www.cnews.ru/news/top/2026-11-12_glava_mintsifry_na_cnews_forum",
       "source": "CNews",
       "pubDate": "2026-11-12T10:49:00.000Z"
-    },
-    {
-      "title": "Один агент в поле не воин. Как выстроить сквозную автоматизацию бизнес-процессов с командой ИИ-агентов",
-      "link": "https://habr.com/ru/companies/korus_consulting/articles/1107062/?utm_campaign=1107062&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-12T10:48:50.000Z"
-    },
-    {
-      "title": "Вайбкодим конфигурацию MDM, а ядро — нет: три ИИ‑агента, 100+ правил и подогнанные автотесты",
-      "link": "https://habr.com/ru/companies/datasapience/articles/1107056/?utm_campaign=1107056&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-12T10:41:22.000Z"
-    },
-    {
-      "title": "Microsoft запатентовала платформу для обучения ИИ на видеокартах пользователей",
-      "link": "https://habr.com/ru/companies/selectel/articles/1106950/?utm_campaign=1106950&utm_source=habrahabr&utm_medium=rss",
-      "source": "Хабр",
-      "pubDate": "2026-11-12T10:30:18.000Z"
     }
   ]
 }
