@@ -1,7 +1,19 @@
 {
-  "updatedAt": "2026-11-27T22:54:31.349Z",
+  "updatedAt": "2026-11-28T14:27:58.298Z",
   "source": "Медвестник · Vademecum · Ведомости · Хабр · Коммерсантъ · CNews · Zdrav.ru · Фармвестник · Росздравнадзор",
   "items": [
+    {
+      "title": "Что такое модель машинного обучения?",
+      "link": "https://habr.com/ru/articles/1113522/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1113522",
+      "source": "Хабр",
+      "pubDate": "2026-11-28T11:03:12.000Z"
+    },
+    {
+      "title": "ИИ в здравоохранении. Дайджест Vademecum за 23–28 ноября 2026 года",
+      "link": "https://vademec.ru/news/2026/11/28/ii-v-zdravookhranenii-daydzhest-vademecum-za-23-28-noyabrya-2026-goda/",
+      "source": "Vademecum",
+      "pubDate": "2026-11-28T05:00:00.000Z"
+    },
     {
       "title": "ИИ-стоматолог для Planmeca: от поиска патологий на всей панораме к анализу каждого зуба",
       "link": "https://habr.com/ru/articles/1113422/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1113422",
@@ -459,12 +471,6 @@
       "link": "https://www.vademec.ru/news/2026/10/30/sud-otkazal-tis-v-iske-k-erne-o-kopirovanii-meditsinskogo-po/",
       "source": "Vademecum",
       "pubDate": "2026-10-30T09:00:00.000Z"
-    },
-    {
-      "title": "Исследование: ИИ в 75% ответов советует россиянам фармацевтические бренды",
-      "link": "https://www.vademec.ru/news/2026/10/28/issledovanie-75-meditsinskikh-ii-otvetov-soderzhat-farm-brend/",
-      "source": "Vademecum",
-      "pubDate": "2026-10-28T09:00:00.000Z"
     }
   ]
 }
