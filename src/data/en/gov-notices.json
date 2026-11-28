@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-11-19T18:21:40.078Z",
+  "updatedAt": "2026-11-28T08:57:02.948Z",
   "items": [
+    {
+      "title": "Medical Devices; Radiology Devices; Classification of the Post-Ablation Tissue Response Prediction Software",
+      "link": "https://www.federalregister.gov/documents/2026/11/30/2026-24214/medical-devices-radiology-devices-classification-of-the-post-ablation-tissue-response-prediction",
+      "pubDate": "2026-11-30",
+      "kind": "HHS",
+      "status": "Final rule",
+      "source": "federalregister.gov",
+      "eoNumber": "2026-24214"
+    },
+    {
+      "title": "Medical Devices; Gastroenterology-Urology Devices; Classification of the Gastrointestinal Capsule Endoscopy Analysis Software Device",
+      "link": "https://www.federalregister.gov/documents/2026/11/30/2026-24213/medical-devices-gastroenterology-urology-devices-classification-of-the-gastrointestinal-capsule",
+      "pubDate": "2026-11-30",
+      "kind": "HHS",
+      "status": "Final rule",
+      "source": "federalregister.gov",
+      "eoNumber": "2026-24213"
+    },
     {
       "title": "HIPAA Privacy Rule: Changes To Support Coordinated Care and Individual Engagement and Reduce Regulatory Burdens",
       "link": "https://www.federalregister.gov/documents/2026/11/19/2026-23429/hipaa-privacy-rule-changes-to-support-coordinated-care-and-individual-engagement-and-reduce",
@@ -302,7 +320,7 @@
       "title": "Medicare Program; Hospital Inpatient Prospective Payment Systems for Acute Care Hospitals (IPPS) and the Long-Term Care Hospital Prospective Payment System and Policy Changes and Fiscal Year (FY) 2027 Rates; Requirements for Quality Programs; Other Policy Changes; and Adoption of Updated Versions of Certain Health Information Technology Standards",
       "link": "https://www.federalregister.gov/documents/2026/08/04/2026-15833/medicare-program-hospital-inpatient-prospective-payment-systems-for-acute-care-hospitals-ipps-and",
       "pubDate": "2026-08-04",
-      "kind": "HHS",
+      "kind": "CMS",
       "status": "Final rule",
       "source": "federalregister.gov",
       "eoNumber": "2026-15833"
