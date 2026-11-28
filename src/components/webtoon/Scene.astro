@@ -125,6 +125,83 @@ const INK = '#6b4a3f';
           <path d="M60 78v12" stroke-width="5"></path>
         </g>
       )}
+      {prop === 'mismatch' && (
+        <g>
+          <path d="M-2 28h42v62H-2z" fill="#fff"></path>
+          <path d="M6 42h26M6 54h26M6 66h18M6 78h24" stroke="#8da0bb"></path>
+          <path d="M58 28h42v62H58z" fill="#fff"></path>
+          <path d="M66 42h26" stroke="#f09b4a" stroke-width="5"></path>
+          <path d="M66 62h10M82 62h10M66 76h18" stroke="#8da0bb"></path>
+          <circle cx="49" cy="108" r="15" fill="#ffe08a"></circle>
+          <path d="M42 104h14M42 112h14M54 100l-10 16" fill="none"></path>
+        </g>
+      )}
+      {prop === 'example' && (
+        <g>
+          <path d="M14 18h70v94H14z" fill="#fff"></path>
+          <rect x="24" y="32" width="50" height="12" rx="3" fill="#bfeee2" stroke="none"></rect>
+          <g fill={INK} stroke="none">
+            <rect x="24" y="55" width="7" height="7"></rect>
+            <rect x="24" y="73" width="7" height="7"></rect>
+            <rect x="24" y="91" width="7" height="7"></rect>
+          </g>
+          <path d="M38 59h34M38 77h28M38 95h34" stroke="#8da0bb"></path>
+          <circle cx="84" cy="18" r="14" fill="#ffd45c"></circle>
+          <path d="M77 18l5 5 9-10" fill="none" stroke-width="3.5"></path>
+        </g>
+      )}
+      {prop === 'examples' && (
+        <g>
+          <path d="M-2 38h34v62H-2z" fill="#fff" transform="rotate(-9 15 69)"></path>
+          <path d="M64 36h34v76H64z" fill="#fff" transform="rotate(9 81 74)"></path>
+          <path d="M28 22h40v92H28z" fill="#fff"></path>
+          <path d="M36 36h24M36 50h24M36 64h16M36 78h24M36 92h20" stroke="#8da0bb"></path>
+          <circle cx="10" cy="38" r="9" fill="#46c1a6"></circle>
+          <circle cx="48" cy="20" r="9" fill="#f09b4a"></circle>
+          <circle cx="87" cy="38" r="9" fill="#ff8fa0"></circle>
+        </g>
+      )}
+      {prop === 'longdoc' && (
+        <g>
+          <path d="M22 2h54v116l-9-6-9 6-9-6-9 6-9-6-9 6z" fill="#fff"></path>
+          <path d="M32 16h34M32 28h34M32 40h28M32 52h34M32 64h22M32 76h34M32 88h30M32 100h34" stroke="#8da0bb"></path>
+        </g>
+      )}
+      {(prop === 'nodate' || prop === 'dateok') && (
+        <g>
+          <rect x="10" y="28" width="78" height="76" rx="9" fill="#fff"></rect>
+          <path d="M10 50V37a9 9 0 0 1 9-9h60a9 9 0 0 1 9 9v13z" fill="#ff8f8f"></path>
+          <path d="M28 20v16M70 20v16" fill="none" stroke-width="5"></path>
+          {prop === 'nodate' ? (
+            <g>
+              <rect x="30" y="60" width="38" height="33" rx="6" fill="none" stroke-dasharray="5 5"></rect>
+              <text x="49" y="86" text-anchor="middle" font-size="25" font-weight="800" fill="#d9534f" stroke="none">?</text>
+            </g>
+          ) : (
+            <g>
+              <circle cx="49" cy="77" r="19" fill="#bfeee2"></circle>
+              <path d="M40 77l7 7 13-14" fill="none" stroke="#1e9e5a" stroke-width="5"></path>
+            </g>
+          )}
+        </g>
+      )}
+      {prop === 'idea' && (
+        <g>
+          <path d="M48 16c20 0 33 15 33 32 0 18-16 22-17 38H32c-1-16-17-20-17-38 0-17 13-32 33-32z" fill="#ffe08a"></path>
+          <rect x="33" y="86" width="30" height="22" rx="5" fill="#c9d9ec"></rect>
+          <path d="M33 97h30M39 86l-5-32 14 11 14-11-5 32" fill="none"></path>
+          <path d="M48 5v-9M14 18l-7-7M82 18l7-7M6 48H-4M90 48h10" fill="none" stroke="#e4a11b" stroke-width="3.5"></path>
+        </g>
+      )}
+      {prop === 'board' && (
+        <g>
+          <path d="M14 100v20M82 100v20" fill="none" stroke-width="5"></path>
+          <rect x="-2" y="18" width="100" height="84" rx="7" fill="#e8c08a"></rect>
+          <path d="M20 34h56v54H20z" fill="#fff"></path>
+          <path d="M28 52h40M28 64h40M28 76h26" stroke="#8da0bb"></path>
+          <circle cx="48" cy="34" r="6" fill="#ff8f8f"></circle>
+        </g>
+      )}
     </g>
   )}
 </svg>
