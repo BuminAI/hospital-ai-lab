@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-27T19:13:51.073Z",
-  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · ETtoday · 遠見雜誌 · 自由時報",
+  "updatedAt": "2026-11-28T03:35:34.301Z",
+  "source": "中央社 · 科技新報 · 健康醫療網 · 衛生福利部 · 食品藥物管理署 · ETtoday · 遠見雜誌 · 自由時報 · 醫療新聞網",
   "items": [
+    {
+      "title": "從南韓看AI時代的考試",
+      "link": "https://www.mdnkids.com/content.asp?Link_String_=24BS00000HFQBOR&utm_source=RSS&utm_campaign=RSS",
+      "source": "醫療新聞網",
+      "pubDate": "2026-11-28T00:00:00.000Z"
+    },
     {
       "title": "雲科大校長張傳育：機器人系最快3年後招生，技職AI人才這樣培育",
       "link": "https://www.gvm.com.tw/article/134900",
@@ -643,12 +649,6 @@
       "link": "https://technews.tw/2026/10/29/google-is-building-a-robot-medic-for-nasa/",
       "source": "科技新報",
       "pubDate": "2026-10-29T02:40:54.000Z"
-    },
-    {
-      "title": "AI 醫生看錯病，病人該找醫師還是科技公司賠償？",
-      "link": "https://technews.tw/2026/10/28/government-backs-recommendations-of-nhs-doctors-led-ai-commission/",
-      "source": "科技新報",
-      "pubDate": "2026-10-28T00:00:29.000Z"
     }
   ]
 }
