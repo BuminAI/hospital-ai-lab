@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-28T04:59:30.775Z",
-  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · Le Figaro · 20 Minutes · franceinfo · Le Parisien · Les Échos · Egora · Ouest-France · Libération · Sud Ouest · Hospimedia",
+  "updatedAt": "2026-11-28T14:33:58.607Z",
+  "source": "Le Quotidien du Médecin · Le Quotidien du Pharmacien · Infirmiers.com · DSIH · Le Monde · franceinfo · Le Figaro · 20 Minutes · Libération · Ouest-France · Sud Ouest · Hospimedia",
   "items": [
     {
       "title": "Santé mentale : « Le danger, c’est l’usage de l’IA sans le médecin », alerte le psychiatre Louis-Paul Astraud",
@@ -421,18 +421,6 @@
       "link": "http://www.infirmiers.com/services/cadre-de-sante/le-manager-de-demain-devra-maitriser-lia-operationnelle",
       "source": "Infirmiers.com",
       "pubDate": "2026-10-30T13:46:52.000Z"
-    },
-    {
-      "title": "Panne du site Amelipro : pas de fuite de données",
-      "link": "http://www.lequotidiendupharmacien.fr/gestion-de-lofficine/panne-du-site-amelipro-pas-de-fuite-de-donnees",
-      "source": "Le Quotidien du Pharmacien",
-      "pubDate": "2026-10-28T13:52:50.000Z"
-    },
-    {
-      "title": "IA, santé, impôts : les folles prescriptions d'Oracle et du docteur Larry Ellison",
-      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOSWx3MHp3VGZKaTFXUlJ5UUs5NElHOHdKZ0c4YVR3dFpSdzFIRHhkVWY0alE0cUtIeGM2aHRMMFBLNUJjWUptaTdnRlp3d2EtRDJ1WVI5MmVtZ1pXbWFESEEwMVI0MjhYWS1PREtlUXg0MGRvT1FTRTFVRHp2Y1VhSmRGZWdvYk1qR0hsT0dyOUtWVEtsVUtLbkVvcnd2dmlIdTdROUpUWXItQXJFSlRweGI3M0xYWUhhSktpRjR6RHF6TThDdXM1M1V4NFFEblVvYVVxdHlTTUZ6bDZSY013?oc=5",
-      "source": "Les Échos",
-      "pubDate": "2026-10-28T07:00:00.000Z"
     }
   ]
 }
