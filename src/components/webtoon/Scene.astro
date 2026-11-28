@@ -1,10 +1,12 @@
 ---
 /**
  * 웹툰 한 컷의 그림. 외부 이미지 없이 직접 그린 SVG다.
- * 인물 두 명(staff=왼쪽, bot=오른쪽)과 가운데 소품을 조합한다. 글자는 넣지 않는다(PDF·기호만).
+ * 동물 인물 두 마리(staff=왼쪽 토끼, bot=오른쪽 고양이)와 가운데 소품을 조합한다. 글자는 넣지 않는다(PDF·AI·기호만).
  * 내용은 모두 말풍선·해설 텍스트에 있으므로 그림은 보조 기술에서 숨긴다.
  */
 import type { BotMood, SceneProp, StaffMood } from '../../data/tip-webtoons';
+import Cat from './Cat.astro';
+import Rabbit from './Rabbit.astro';
 
 interface Props {
   staff?: StaffMood;
@@ -13,107 +15,17 @@ interface Props {
 }
 
 const { staff, bot, prop } = Astro.props;
-const INK = '#22324a';
+const INK = '#6b4a3f';
 ---
 
-<svg class="scene" viewBox="0 0 360 190" aria-hidden="true" focusable="false">
-  <rect x="0" y="164" width="360" height="26" fill="#dfe7f1"></rect>
-  <path d="M0 164H360" stroke="#c3d0e0" stroke-width="2"></path>
+<svg class="scene" viewBox="0 0 360 204" aria-hidden="true" focusable="false">
+  <ellipse cx="180" cy="232" rx="260" ry="56" fill="#f6e4c8"></ellipse>
 
-  {staff && (
-    <g transform="translate(24 12)" stroke={INK} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 178v-40c0-24 20-38 52-38s52 14 52 38v40z" fill="#3f7fb8"></path>
-      <path d="M46 102l18 30 18-30" fill="#fff"></path>
-      <path d="M48 106l16 36 16-36" fill="none" stroke="#e4a11b" stroke-width="3"></path>
-      <rect x="54" y="140" width="20" height="24" rx="3" fill="#fff"></rect>
-      <path d="M58 148h12M58 155h8" stroke-width="2"></path>
-      <circle cx="64" cy="64" r="39" fill="#ffd9bd"></circle>
-      <path d="M25 66c-4-34 16-50 40-50 26 0 43 18 38 52-8-4-12-16-14-24-10 12-36 18-58 14-2 3-3 6-6 8z" fill="#4a3428"></path>
-
-      {staff === 'surprised' ? (
-        <g>
-          <circle cx="50" cy="68" r="6" fill="#fff"></circle>
-          <circle cx="80" cy="68" r="6" fill="#fff"></circle>
-          <circle cx="50" cy="68" r="2.5" fill={INK}></circle>
-          <circle cx="80" cy="68" r="2.5" fill={INK}></circle>
-          <ellipse cx="65" cy="87" rx="7" ry="9" fill="#a8453f"></ellipse>
-          <path d="M104 40c6 8 8 13 4 17s-10 1-9-5z" fill="#9fd0f5" stroke-width="2"></path>
-        </g>
-      ) : staff === 'happy' ? (
-        <g fill="none">
-          <path d="M44 69q6-8 12 0M74 69q6-8 12 0"></path>
-          <path d="M53 83q12 13 24 0z" fill="#a8453f"></path>
-        </g>
-      ) : staff === 'think' ? (
-        <g fill="none">
-          <circle cx="52" cy="66" r="3" fill={INK}></circle>
-          <circle cx="82" cy="66" r="3" fill={INK}></circle>
-          <path d="M43 56l15-2M74 52l15 1"></path>
-          <path d="M58 86q9 3 15-3"></path>
-        </g>
-      ) : staff === 'firm' ? (
-        <g fill="none">
-          <circle cx="50" cy="69" r="3" fill={INK}></circle>
-          <circle cx="80" cy="69" r="3" fill={INK}></circle>
-          <path d="M42 58l16 3M72 61l16-3"></path>
-          <path d="M54 84q11 9 22 0"></path>
-        </g>
-      ) : (
-        <g fill="none">
-          <circle cx="50" cy="68" r="3" fill={INK}></circle>
-          <circle cx="80" cy="68" r="3" fill={INK}></circle>
-          <ellipse cx="65" cy="86" rx="6" ry="4" fill="#a8453f"></ellipse>
-        </g>
-      )}
-      <g fill="#f4a39a" stroke="none" opacity="0.55">
-        <ellipse cx="40" cy="80" rx="7" ry="4"></ellipse>
-        <ellipse cx="90" cy="80" rx="7" ry="4"></ellipse>
-      </g>
-    </g>
-  )}
-
-  {bot && (
-    <g transform="translate(240 20)" stroke={INK} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M48 24V8" fill="none"></path>
-      <circle cx="48" cy="7" r="6" fill={bot === 'unsure' ? '#f3b93f' : '#46c1a6'}></circle>
-      <rect x="-6" y="48" width="12" height="28" rx="5" fill="#a9bdd6"></rect>
-      <rect x="90" y="48" width="12" height="28" rx="5" fill="#a9bdd6"></rect>
-      <rect x="2" y="24" width="92" height="76" rx="24" fill="#eef4fb"></rect>
-      <rect x="14" y="36" width="68" height="50" rx="14" fill="#22324a" stroke="none"></rect>
-      <rect x="16" y="106" width="64" height="62" rx="18" fill="#c9d9ec"></rect>
-      <circle cx="48" cy="132" r="9" fill="#fff"></circle>
-      <g fill="none" stroke="#7ff0d6" stroke-width="3.5">
-        {bot === 'proud' ? (
-          <g>
-            <path d="M25 56q7-9 14 0M57 56q7-9 14 0"></path>
-            <path d="M34 69q14 13 28 0z" fill="#7ff0d6"></path>
-          </g>
-        ) : bot === 'unsure' ? (
-          <g stroke="#ffd36b">
-            <circle cx="32" cy="55" r="3"></circle>
-            <circle cx="64" cy="55" r="3"></circle>
-            <path d="M33 73q5-6 10 0t10 0t10 0"></path>
-          </g>
-        ) : bot === 'honest' ? (
-          <g>
-            <circle cx="32" cy="56" r="4" fill="#7ff0d6"></circle>
-            <circle cx="64" cy="56" r="4" fill="#7ff0d6"></circle>
-            <path d="M37 70q11 8 22 0"></path>
-          </g>
-        ) : (
-          <g>
-            <circle cx="32" cy="56" r="4" fill="#7ff0d6"></circle>
-            <circle cx="64" cy="56" r="4" fill="#7ff0d6"></circle>
-            <path d="M38 72h20"></path>
-          </g>
-        )}
-      </g>
-      {bot === 'unsure' && <path d="M100 18c6 8 8 13 4 17s-10 1-9-5z" fill="#9fd0f5" stroke-width="2"></path>}
-    </g>
-  )}
+  {staff && <Rabbit mood={staff} x={72} y={114} />}
+  {bot && <Cat mood={bot} x={288} y={114} />}
 
   {prop && (
-    <g transform="translate(135 40)" stroke={INK} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(133 62)" stroke={INK} stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       {prop === 'upload' && (
         <g>
           <path d="M18 14h40l16 16v78H18z" fill="#fff"></path>

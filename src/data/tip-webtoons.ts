@@ -38,7 +38,7 @@ const copyOf = (no: number, section: number) => {
 
 export const tipWebtoons: Record<number, Webtoon> = {
   1: {
-    names: { staff: '다온 주임', bot: 'AI' },
+    names: { staff: '토리 주임', bot: 'AI 냥이' },
     panels: [
       {
         caption: '제안서를 검토하던 어느 날',
